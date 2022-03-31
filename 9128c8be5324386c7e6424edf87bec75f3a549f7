@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0ded78_894a32a1",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-31T05:55:22Z",
+      "side": 1,
+      "message": "nit: Use `string`",
+      "range": {
+        "startLine": 55,
+        "startChar": 40,
+        "endLine": 55,
+        "endChar": 48
+      },
+      "revId": "9128c8be5324386c7e6424edf87bec75f3a549f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ee984a_fa7f6a6b",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-31T05:55:22Z",
+      "side": 1,
+      "message": "nit: Do not use the string constructor. If this is because the `message` can be `undefined` than its better to do:\n\n this.#issueDetails.message ?? \u0027\u0027;\n\nWith either an empty string or an explicit error that no message was found.",
+      "range": {
+        "startLine": 63,
+        "startChar": 40,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "9128c8be5324386c7e6424edf87bec75f3a549f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece2ec9c_54dd6ab7",
+        "filename": "test/e2e/issues/deprecation-issues_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-31T05:55:22Z",
+      "side": 1,
+      "message": "These tests seem more like unit tests for the logic this CL added. Would it be possible to re-do these tests as unit tests?\n\nWe do something similar for generic issues: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/issues/GenericIssue_test.ts\n\nThese e2e tests don\u0027t really test end user debugging work flows and the timeout also makes the test a bit awkward. The unit test solves both of those since we can assert directly that no issues are created on the model level for malformed deprecation details.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "9128c8be5324386c7e6424edf87bec75f3a549f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
