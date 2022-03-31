@@ -36,9 +36,9 @@ import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
-import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
@@ -66,7 +66,6 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
-
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
 
@@ -99,6 +98,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
 
   modelAdded(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
     debuggerModel.setSynchronizeBreakpointsCallback(this.#restoreBreakpointsForScript.bind(this));
+    debuggerModel.setSynchronizeDeleteBreakpointStateCallback(this.#debuggerDisabled.bind(this));
   }
 
   modelRemoved(): void {
@@ -110,6 +110,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     for (const item of breakpointItems) {
       await this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
     }
+  }
+
+  #debuggerDisabled(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    const breakpoints = this.#breakpointByStorageId.values();
+    Array.from(breakpoints).map(bp => bp.debuggerDisabled(debuggerModel));
   }
 
   // This method explicitly awaits the source map (if necessary) and the uiSourceCodes
@@ -413,7 +418,13 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
       return;
     }
     modelBreakpoint.cleanUpAfterDebuggerIsGone();
-    modelBreakpoint.removeEventListeners();
+  }
+
+  debuggerDisabled(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    const modelBreakpoint = this.#modelBreakpoints.get(debuggerModel);
+    if (modelBreakpoint) {
+      modelBreakpoint.cleanUpAfterDebuggerIsGone();
+    }
   }
 
   addUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
@@ -545,7 +556,6 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
     const removeFromStorage = !keepInStorage;
     for (const modelBreakpoint of this.#modelBreakpoints.values()) {
       void modelBreakpoint.scheduleUpdateInDebugger();
-      modelBreakpoint.removeEventListeners();
     }
 
     this.breakpointManager.removeBreakpoint(this, removeFromStorage);
@@ -612,10 +622,6 @@ export class ModelBreakpoint {
     this.#liveLocations = new LiveLocationPool();
 
     this.#uiLocations = new Map();
-    this.#debuggerModel.addEventListener(
-        SDK.DebuggerModel.Events.DebuggerWasDisabled, this.cleanUpAfterDebuggerIsGone, this);
-    this.#debuggerModel.addEventListener(
-        SDK.DebuggerModel.Events.DebuggerWasEnabled, this.scheduleUpdateInDebugger, this);
     this.#hasPendingUpdate = false;
     this.#updatePromise = null;
     this.#cancelCallback = false;
@@ -636,6 +642,9 @@ export class ModelBreakpoint {
   }
 
   scheduleUpdateInDebugger(): Promise<void> {
+    if (!this.#debuggerModel.debuggerEnabled()) {
+      return Promise.resolve();
+    }
     this.#hasPendingUpdate = true;
     if (!this.#updatePromise) {
       this.#updatePromise = (async(): Promise<void> => {
@@ -692,12 +701,8 @@ export class ModelBreakpoint {
           };
         });
         newState = new Breakpoint.State(positions, condition);
-      } else if (this.#breakpoint.currentState) {
-        newState = new Breakpoint.State(this.#breakpoint.currentState.positions, condition);
-      } else {
-        // TODO(bmeurer): This fallback doesn't make a whole lot of sense, we should
-        // at least signal a warning to the developer that this #breakpoint wasn't
-        // really resolved.
+      } else if (this.#breakpoint.url().startsWith('snippet://')) {
+        // For snippets, we may not yet have a script.
         const position = {
           url: this.#breakpoint.url(),
           scriptId: '' as Protocol.Runtime.ScriptId,
@@ -706,6 +711,9 @@ export class ModelBreakpoint {
           columnNumber,
         };
         newState = new Breakpoint.State([position], condition);
+      } else {
+        // This target doesn't have any script that can be resolved to this breakpoint.
+        return;
       }
     }
 
@@ -732,30 +740,18 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
-    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
-      } else if (this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause()) {
-        maybeRescheduleUpdate = true;
       }
     }
 
-    if (!breakpointIds.length && maybeRescheduleUpdate) {
-      // TODO(crbug.com/1229541): This is a quickfix to prevent #breakpoints from
-      // disappearing if the Debugger is actually not enabled
-      // yet. This quickfix should be removed as soon as we have a solution
-      // to correctly synchronize the front-end with the inspector back-end.
-      void this.scheduleUpdateInDebugger();
-      return;
-    }
-
-    this.#currentState = newState;
     if (this.#cancelCallback) {
       this.#cancelCallback = false;
       return;
     }
+    this.#currentState = newState;
 
     if (!breakpointIds.length) {
       this.#breakpoint.remove(true);
@@ -837,13 +833,6 @@ export class ModelBreakpoint {
     if (this.#breakpointIds.length) {
       this.didRemoveFromDebugger();
     }
-  }
-
-  removeEventListeners(): void {
-    this.#debuggerModel.removeEventListener(
-        SDK.DebuggerModel.Events.DebuggerWasDisabled, this.cleanUpAfterDebuggerIsGone, this);
-    this.#debuggerModel.removeEventListener(
-        SDK.DebuggerModel.Events.DebuggerWasEnabled, this.scheduleUpdateInDebugger, this);
   }
 }
 
