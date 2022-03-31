@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41ac4059_4db5fda7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2022-03-31T18:05:33Z",
+      "side": 1,
+      "message": "LGTM + nit",
+      "revId": "f1f4fe2e80bd7a826c194c13b1e516e419827bd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7c4a109_a9b7b146",
@@ -48,6 +65,30 @@
       "writtenOn": "2022-03-31T10:34:20Z",
       "side": 1,
       "message": "Do we actually need this here? Couldn\u0027t we just put the string directly?",
+      "range": {
+        "startLine": 166,
+        "startChar": 59,
+        "endLine": 166,
+        "endChar": 81
+      },
+      "revId": "f1f4fe2e80bd7a826c194c13b1e516e419827bd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30964581_a5f9734a",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2022-03-31T18:05:33Z",
+      "side": 1,
+      "message": "Since you are passing a localizes string already for the label I think you can put it directly",
+      "parentUuid": "e7c4a109_a9b7b146",
       "range": {
         "startLine": 166,
         "startChar": 59,
