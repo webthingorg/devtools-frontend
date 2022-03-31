@@ -139,6 +139,24 @@
       "parentUuid": "3d9b65f7_09cc02b4",
       "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0842f8_72b0113a",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-31T12:55:53Z",
+      "side": 1,
+      "message": "I see. Thanks for putting up the CL. Let me experiment with something and come back to this CL to discuss more.\n\nIf we can\u0027t really use the ScriptFormatter, then we have to rely on another custom formatting function. In that case, I\u0027d hope that we move this `formatStyle` function to somewhere more suitable, maybe in the Formatter module. But we can discuss that when we have to do this.",
+      "parentUuid": "7c267275_6f93e1aa",
+      "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
