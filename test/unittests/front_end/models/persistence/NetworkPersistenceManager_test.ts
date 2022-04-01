@@ -9,8 +9,10 @@ import * as Persistence from '../../../../../front_end/models/persistence/persis
 import * as Root from '../../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
+import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 import {initializeGlobalVars, deinitializeGlobalVars, createTarget} from '../../helpers/EnvironmentHelpers.js';
+import {createUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
 
 async function setUpEnvironment() {
   const workspace = Workspace.Workspace.WorkspaceImpl.instance();
@@ -314,18 +316,12 @@ describe('NetworkPersistenceManager', () => {
       }
     ]`;
 
-    const fileSystem = {
-      fileSystemPath: () => 'file:///path/to/overrides',
-      fileSystemBaseURL: 'file:///path/to/overrides/',
-    } as unknown as Persistence.FileSystemWorkspaceBinding.FileSystem;
-
-    const uiSourceCode = {
-      requestContent: () => {
-        return Promise.resolve({content: headers});
-      },
-      url: () => 'file:///path/to/overrides/www.example.com/.headers',
-      project: () => fileSystem,
-    } as unknown as Workspace.UISourceCode.UISourceCode;
+    const {uiSourceCode} = createUISourceCode({
+      url: 'file:///path/to/overrides/www.example.com/.headers' as Platform.DevToolsPath.UrlString,
+      content: headers,
+      mimeType: 'text/plain',
+      fileSystemPath: 'file:///path/to/overrides',
+    });
 
     const expectedPatterns = [
       'http?://www.example.com/*',
