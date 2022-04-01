@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de4740e7_5e54359b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-01T11:27:04Z",
+      "side": 1,
+      "message": "As discussed in our VC earlier today, let\u0027s just not autocomplete for breakpoint editor until we can provide the developer with something useful (and have a plan how to deal with the potential mismatch in sourcemapped code).\n\nWould you take a look please?",
+      "revId": "e511e2b56d00da6f80359ffd1c1781ad994a6fe2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
