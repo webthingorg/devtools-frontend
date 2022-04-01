@@ -143,6 +143,10 @@ const UIStrings = {
   */
   cpu: 'CPU:',
   /**
+   * @description Text in Timline Panel of the Performance panel
+   */
+  concurrency: 'Navigator.hardwareConcurrency: ',
+  /**
   *@description Title of the 'Network conditions' tool in the bottom drawer
   */
   networkConditions: 'Network conditions',
@@ -562,15 +566,28 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     throttlingPane.element.classList.add('flex-auto');
     throttlingPane.show(this.settingsPane.element);
 
-    const networkThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
-    networkThrottlingToolbar.appendText(i18nString(UIStrings.network));
-    this.networkThrottlingSelect = this.createNetworkConditionsSelect();
-    networkThrottlingToolbar.appendToolbarItem(this.networkThrottlingSelect);
-
     const cpuThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
     cpuThrottlingToolbar.appendText(i18nString(UIStrings.cpu));
     this.cpuThrottlingSelect = MobileThrottling.ThrottlingManager.throttlingManager().createCPUThrottlingSelector();
     cpuThrottlingToolbar.appendToolbarItem(this.cpuThrottlingSelect);
+
+    const concurrencyThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
+    concurrencyThrottlingToolbar.appendText(i18nString(UIStrings.concurrency));
+    const {input, reset, warning} =
+        MobileThrottling.ThrottlingManager.throttlingManager().createHardwareConcurrencySelector();
+    input.element.classList.add('timeline-concurrency-input');
+    concurrencyThrottlingToolbar.appendToolbarItem(warning);
+    concurrencyThrottlingToolbar.appendToolbarItem(reset);
+    concurrencyThrottlingToolbar.appendToolbarItem(input);
+
+    const networkThrottlingPane = new UI.Widget.VBox();
+    networkThrottlingPane.element.classList.add('flex-auto');
+    networkThrottlingPane.show(this.settingsPane.element);
+
+    const networkThrottlingToolbar = new UI.Toolbar.Toolbar('', networkThrottlingPane.element);
+    networkThrottlingToolbar.appendText(i18nString(UIStrings.network));
+    this.networkThrottlingSelect = this.createNetworkConditionsSelect();
+    networkThrottlingToolbar.appendToolbarItem(this.networkThrottlingSelect);
 
     this.showSettingsPaneSetting.addChangeListener(this.updateSettingsPaneVisibility.bind(this));
     this.updateSettingsPaneVisibility();

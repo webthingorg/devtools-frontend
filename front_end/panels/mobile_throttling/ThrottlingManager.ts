@@ -59,6 +59,14 @@ const UIStrings = {
   *@example {2} PH1
   */
   dSlowdown: '{PH1}× slowdown',
+  /**
+  *@description Tooltip Text in Throttling Manager of the Network panel
+  */
+  excessConcurrency: 'Exceeding the default hardware concurrency may produce unexpected results.',
+  /**
+   *@description Screen reader label for an input box that overrides navigator.hardwareConcurrency
+   */
+  hardwareConcurrency: 'Hardware concurrency',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/mobile_throttling/ThrottlingManager.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -262,6 +270,52 @@ export class ThrottlingManager {
       }
     }
     return control;
+  }
+
+  createHardwareConcurrencySelector():
+      {input: UI.Toolbar.ToolbarItem, reset: UI.Toolbar.ToolbarButton, warning: UI.Toolbar.ToolbarItem} {
+    const input = new UI.Toolbar.ToolbarItem(UI.UIUtils.createInput('devtools-text-input', 'number'));
+    input.element.classList.add('devtools-concurrency-input');
+    input.setTitle(UIStrings.hardwareConcurrency);
+    const inputElement = input.element as HTMLInputElement;
+    inputElement.min = '1';
+    input.setEnabled(false);
+
+    const reset = new UI.Toolbar.ToolbarButton('Reset concurrency', 'largeicon-undo');
+    const warning =
+        new UI.Toolbar.ToolbarItem(UI.Icon.Icon.create('smallicon-warning', 'hardware-concurrency-warning-icon'));
+    warning.setVisible(false);
+    UI.Tooltip.Tooltip.install(warning.element, UIStrings.excessConcurrency);
+
+    void this.cpuThrottlingManager.getHardwareConcurrency().then(n => {
+      if (n === undefined) {
+        return;
+      }
+
+      inputElement.oninput = (): void => {
+        const value = Number(inputElement.value);
+        if (value >= 1) {
+          this.setHardwareConcurrency(value);
+        }
+        if (value > n) {
+          warning.setVisible(true);
+        } else {
+          warning.setVisible(false);
+        }
+      };
+      inputElement.value = `${n}`;
+      input.setEnabled(true);
+      reset.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
+        inputElement.value = `${n}`;
+        this.setHardwareConcurrency(n);
+      });
+    });
+
+    return {input, reset, warning};
+  }
+
+  setHardwareConcurrency(concurrency: number): void {
+    this.cpuThrottlingManager.setHardwareConcurrency(concurrency);
   }
 
   private isDirty(): boolean {
