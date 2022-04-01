@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Host from '../../../../front_end/core/host/host.js';
 import * as Root from '../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../front_end/core/sdk/sdk.js';
 import * as Main from '../../../../front_end/entrypoints/main/main.js';
@@ -33,6 +34,7 @@ function describeBody(title: string, fn: (this: Mocha.Suite) => void) {
       return;
     }
     await deinitializeGlobalVars();
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.resetStubState();
     await import('../../../../front_end/entrypoints/shell/shell.js');
     await import('../../../../front_end/panels/elements/elements-meta.js');
     await import('../../../../front_end/panels/sensors/sensors-meta.js');
