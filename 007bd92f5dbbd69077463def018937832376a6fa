@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5d4770_7776d082",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-04-01T03:49:30Z",
+      "side": 1,
+      "message": "resolving this thread since we\u0027ve got this sorted.",
+      "parentUuid": "791bd1db_de31661f",
+      "range": {
+        "startLine": 328,
+        "startChar": 1,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14309de9_e54b3ed5",
