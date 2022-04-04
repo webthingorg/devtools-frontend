@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1aa4b33_2c644628",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-04-04T12:51:55Z",
+      "side": 1,
+      "message": "Thanks for the repro! Of course we don\u0027t want to check in a broken test.",
+      "revId": "e99aecd1a780f9d09208a0085bf293baaee979d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6fbef3_e205288a",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-04-04T12:51:55Z",
+      "side": 1,
+      "message": "If you change this to:\n\n`it.skip(\u0027[crbug.com/1304795] shows the main...`\n\nthen we can check this in and later enable the test with the fix.",
+      "range": {
+        "startLine": 361,
+        "startChar": 2,
+        "endLine": 361,
+        "endChar": 56
+      },
+      "revId": "e99aecd1a780f9d09208a0085bf293baaee979d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
