@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df94a9b_b3357f3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-04T06:17:53Z",
+      "side": 1,
+      "message": "My original test was working for subtle reasons. This should be much better, only wait for the .cm-focused to disappear after it appeared and we explicitly typed into it.",
+      "revId": "3af740794dd034c98dfaa371fc20bc97f09376eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
