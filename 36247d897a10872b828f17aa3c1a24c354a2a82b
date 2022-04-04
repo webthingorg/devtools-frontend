@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68383f02_6842004b",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-04-04T09:00:06Z",
+      "side": 1,
+      "message": "Can you suggest a better typing for the `extends` part?\n\nI wasn\u0027t able to directly find something that accommodate both Element and ShadowRoot use cases.",
+      "revId": "36247d897a10872b828f17aa3c1a24c354a2a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
