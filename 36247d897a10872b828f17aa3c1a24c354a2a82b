@@ -16,6 +16,41 @@
       "message": "Can you suggest a better typing for the `extends` part?\n\nI wasn\u0027t able to directly find something that accommodate both Element and ShadowRoot use cases.",
       "revId": "36247d897a10872b828f17aa3c1a24c354a2a82b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e6e3be_6e8ed100",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-04T09:10:17Z",
+      "side": 1,
+      "message": "Is it possible to use existing waitForFunction method?",
+      "revId": "36247d897a10872b828f17aa3c1a24c354a2a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ca1e63_7791d3bd",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-04T09:10:17Z",
+      "side": 1,
+      "message": "What errors do you get if you define multiple return types?",
+      "parentUuid": "68383f02_6842004b",
+      "revId": "36247d897a10872b828f17aa3c1a24c354a2a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
