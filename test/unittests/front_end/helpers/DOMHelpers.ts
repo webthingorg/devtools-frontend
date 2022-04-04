@@ -126,6 +126,48 @@ export function waitForScrollLeft<T extends Element>(element: T, desiredScrollLe
   });
 }
 
+/* Waits for the element with given selector to exist in the given container */
+export function waitForSelector<T extends {querySelector: (arg: string) => Element}>(selector: string, container: T, {
+  timeout = 50,
+}: {
+  timeout?: number,
+} = {}): Promise<Element> {
+  let timerId: number|null = null;
+  let rafId: number|null = null;
+
+  function handleFinish() {
+    if (timerId) {
+      window.clearTimeout(timerId);
+    }
+
+    if (rafId) {
+      window.cancelAnimationFrame(rafId);
+    }
+  }
+
+  return new Promise((resolve, reject) => {
+    const pollForQuerySelector = () => {
+      const element = container.querySelector(selector);
+      if (element) {
+        handleFinish();
+        resolve(element);
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(pollForQuerySelector);
+    };
+
+    if (timeout) {
+      timerId = window.setTimeout(() => {
+        handleFinish();
+        reject(new Error(`Finding "${selector}" failed after ${timeout}ms`));
+      }, timeout);
+    }
+
+    pollForQuerySelector();
+  });
+}
+
 /**
  * Dispatches a mouse click event.
  */
