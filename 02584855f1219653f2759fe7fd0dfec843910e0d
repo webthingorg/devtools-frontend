@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa4cf97_4156321a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-04T08:25:15Z",
+      "side": 1,
+      "message": "could you please link a changelog if available?",
+      "revId": "02584855f1219653f2759fe7fd0dfec843910e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "66910141_923c38c9",
@@ -14,6 +31,23 @@
       "writtenOn": "2022-04-04T08:18:05Z",
       "side": 1,
       "message": "PTAL.",
+      "revId": "02584855f1219653f2759fe7fd0dfec843910e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b890f28e_c22f3aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-04T08:25:15Z",
+      "side": 1,
+      "message": "Does the following file need an update? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/third_party/lit-html/README.chromium;l\u003d4;drc\u003ddcc95c9681e7756e616377d604126364d7472e35\n\nWould it make sense to rewrite the update command in the readme as `curl --output - $(npm view lit-html dist.tarball) | tar xzf -`?",
       "revId": "02584855f1219653f2759fe7fd0dfec843910e0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
