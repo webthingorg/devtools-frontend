@@ -16,6 +16,46 @@
       "message": "Please take a look:)",
       "revId": "6cccba8c41389f02ea36e8a30d4febeb9eb26de2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d93f1a_b32e5726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-05T11:32:28Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "6cccba8c41389f02ea36e8a30d4febeb9eb26de2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2800449c_e65da2ea",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3401,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-05T11:32:28Z",
+      "side": 1,
+      "message": "nit: Lets collapse here and remove one `|null`.",
+      "range": {
+        "startLine": 3401,
+        "startChar": 50,
+        "endLine": 3401,
+        "endChar": 54
+      },
+      "revId": "6cccba8c41389f02ea36e8a30d4febeb9eb26de2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
