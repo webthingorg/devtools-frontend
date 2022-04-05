@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93d66abb_af2c73f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-05T09:51:57Z",
+      "side": 1,
+      "message": "Please kindly take a look:)",
+      "revId": "e6bf40437c11a35a05c83aefb528a5be6c532100",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0f01584_4ff2f733",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-04-05T09:12:48Z",
       "side": 1,
       "message": "ParsedURL.substring",
+      "range": {
+        "startLine": 466,
+        "startChar": 11,
+        "endLine": 466,
+        "endChar": 15
+      },
+      "revId": "e6bf40437c11a35a05c83aefb528a5be6c532100",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96133638_cfd7637a",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-05T09:51:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f01584_4ff2f733",
       "range": {
         "startLine": 466,
         "startChar": 11,
