@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "975c2782_3d1923c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1522272
+      },
+      "writtenOn": "2022-04-05T23:22:53Z",
+      "side": 1,
+      "message": "Please take a look at these changes. Here is the approved message https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1254192#c18.",
+      "revId": "02a757da06184f1d2879dabb86b6881b4ce2192d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
