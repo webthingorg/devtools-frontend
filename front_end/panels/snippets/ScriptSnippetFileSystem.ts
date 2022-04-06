@@ -146,12 +146,10 @@ export async function evaluateScriptSnippet(uiSourceCode: Workspace.UISourceCode
   if (!uiSourceCode.url().startsWith('snippet://')) {
     return;
   }
-
   const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
   if (!executionContext) {
     return;
   }
-
   const runtimeModel = executionContext.runtimeModel;
   await uiSourceCode.requestContent();
   uiSourceCode.commitWorkingCopy();
@@ -170,7 +168,7 @@ export async function evaluateScriptSnippet(uiSourceCode: Workspace.UISourceCode
         generatePreview: true,
         replMode: true,
       } as SDK.RuntimeModel.EvaluationOptions,
-      false, true);
+      true, true);
 
   if ('exceptionDetails' in result && result.exceptionDetails) {
     SDK.ConsoleModel.ConsoleModel.instance().addMessage(SDK.ConsoleModel.ConsoleMessage.fromException(
