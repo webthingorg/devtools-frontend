@@ -486,6 +486,26 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     this.registeredListeners = [];
   }
 
+  getManifestElement(): Element {
+    const manifestHeaderElement: Element = this.reportView.getHeaderElement();
+    return manifestHeaderElement;
+  }
+
+  getIdentityElement(): Element {
+    const IdentityTitleElement: Element = this.identitySection.getTitleElement();
+    return IdentityTitleElement;
+  }
+
+  getPresentationElement(): Element {
+    const PresentationTitleElement: Element = this.presentationSection.getTitleElement();
+    return PresentationTitleElement;
+  }
+
+  getIconsElement(): Element {
+    const iconsTitleElement: Element = this.iconsSection.getTitleElement();
+    return iconsTitleElement;
+  }
+
   targetAdded(target: SDK.Target.Target): void {
     if (this.target) {
       return;

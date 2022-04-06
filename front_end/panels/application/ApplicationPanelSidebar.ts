@@ -232,6 +232,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     const applicationSectionTitle = i18nString(UIStrings.application);
     this.applicationTreeElement = this.addSidebarSection(applicationSectionTitle);
     const manifestTreeElement = new AppManifestTreeElement(panel);
+
     this.applicationTreeElement.appendChild(manifestTreeElement);
     this.serviceWorkersTreeElement = new ServiceWorkersTreeElement(panel);
     this.applicationTreeElement.appendChild(this.serviceWorkersTreeElement);
@@ -924,10 +925,16 @@ export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
 
 export class AppManifestTreeElement extends ApplicationPanelTreeElement {
   private view?: AppManifestView;
+  private iconElement?: Element;
+  private manifestElement?: Element;
+  private identityElement?: Element;
+  private presentationElement?: Element;
   constructor(storagePanel: ResourcesPanel) {
-    super(storagePanel, i18nString(UIStrings.manifest), false);
+    super(storagePanel, i18nString(UIStrings.manifest), true);
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
+    this.onexpand = this.onselect.bind(this);
+    this.listItemElement.addEventListener('click', this.onClick.bind(this));
   }
 
   get itemURL(): string {
@@ -939,9 +946,76 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
     if (!this.view) {
       this.view = new AppManifestView();
     }
+    if (!this.identityElement) {
+      this.identityElement = this.view.getIdentityElement();
+      this.addManifestChild();
+    }
+    if (!this.presentationElement) {
+      this.presentationElement = this.view.getPresentationElement();
+      this.addManifestChild();
+    }
+    if (!this.iconElement) {
+      this.iconElement = this.view.getIconsElement();
+      this.addManifestChild();
+    }
     this.showView(this.view);
     Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.app_manifest]);
     return false;
+  }
+
+  // To scroll back to top of Manifest when Manifest is already selected
+  onClick(): void {
+    if (!this.view) {
+      this.view = new AppManifestView();
+    }
+    this.showView(this.view);
+    this.manifestElement = this.view.getManifestElement();
+    this.manifestElement.scrollIntoView();
+  }
+
+  addManifestChild(): void {
+    // bind - variable that contains onselect function. "this" pointer references/binds to current instance of this
+    const boundOnselect = this.onselect.bind(this);
+    if (this.iconElement) {
+      const iconsChild = new ManifestChildTreeElement(this.resourcesPanel, this.iconElement, boundOnselect);
+      this.appendChild(iconsChild);
+    } else if (this.identityElement) {
+      const identityChild = new ManifestChildTreeElement(this.resourcesPanel, this.identityElement, boundOnselect);
+      this.appendChild(identityChild);
+    } else if (this.presentationElement) {
+      const presentatioChild =
+          new ManifestChildTreeElement(this.resourcesPanel, this.presentationElement, boundOnselect);
+      this.appendChild(presentatioChild);
+    }
+  }
+}
+
+export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
+  private element: Element;
+  private boundOnselect: Function;
+  // private childTitle: String;
+  constructor(storagePanel: ResourcesPanel, element: Element, boundOnselect: Function) {
+    super(storagePanel, i18n.i18n.lockedString('Child'), false);
+    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
+    this.setLeadingIcons([icon]);
+    this.element = element;
+    this.boundOnselect = boundOnselect;
+    this.listItemElement.addEventListener('click', this.onClick.bind(this));
+  }
+
+  get itemURL(): string {
+    return 'icons://';
+  }
+
+  onselect(selectedByUser?: boolean): boolean {
+    super.onselect(selectedByUser);
+    this.boundOnselect();
+    this.element.scrollIntoView();
+    return false;
+  }
+
+  onClick(): void {
+    this.element.scrollIntoView();
   }
 }
 
