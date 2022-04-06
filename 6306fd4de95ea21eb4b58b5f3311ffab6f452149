@@ -52,6 +52,131 @@
       "parentUuid": "7744d023_a4d19ea3",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71479681_7264db32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "In general I\u0027m ok with this approach, given the limitations of our dependencies and our formatter. I\u0027d like us to make some code changes in `formatStyle` (see comments), and add back the unit tests for this function.",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55cadb0b_cb81c2a7",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "We should also add back the original unit tests for this function as well.",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed466f23_c14a958f",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "Let\u0027s change the outdate naming convention of prefixing local variables with `_` (e.g. _column, _newColumn).",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "496977b1_c0e30e86",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "Let\u0027s replace these `tokenType \u0026\u0026` conditions with `tokenType?.include(...` for conciseness.",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc05cee_9c3c5293",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "IIUC `trimRight` is deprecated in favor of `trimEnd`.",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0ff214d_0ce8bbbd",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "Now that we have a clean chance to re-implement this formatting logic, let\u0027s not preserve this legacy behavior of always adding semicolons regardless of its original text. We can directly append the token at line 226 and return here.",
+      "range": {
+        "startLine": 231,
+        "startChar": 8,
+        "endLine": 240,
+        "endChar": 9
+      },
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0a6592_dca189ae",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T19:36:10Z",
+      "side": 1,
+      "message": "Why is this text.substring taking `2` to as the substring start?",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
