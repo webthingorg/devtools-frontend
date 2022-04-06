@@ -52,6 +52,24 @@
       "parentUuid": "095b448c_ad460f86",
       "revId": "2e026b80d006f570147681e033e1b26d28e249ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c778a2e_a1d3b052",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 7139,
+      "author": {
+        "id": 1169049
+      },
+      "writtenOn": "2022-04-06T07:23:20Z",
+      "side": 0,
+      "message": "Unfortunately the Chromium  CL did not seem to contain the change to the devtools protocol... Doing it now at https://chromium-review.googlesource.com/c/chromium/src/+/3571866",
+      "parentUuid": "fe29abe2_cb323e24",
+      "revId": "2e026b80d006f570147681e033e1b26d28e249ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
