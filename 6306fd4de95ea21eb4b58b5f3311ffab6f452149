@@ -16,6 +16,24 @@
       "message": "@Changhao, do you have an estimate on when you will be done experimenting with the formatter change?",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7744d023_a4d19ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-06T16:53:34Z",
+      "side": 1,
+      "message": "It seems to me that getting our formatter to work is indeed quite some work. Let\u0027s re-use the CM5 tokenizer and the custom formatStyle function. But is it possible to put the formatStyle function in the formatter module?",
+      "parentUuid": "af5f6773_dfed9c9a",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
