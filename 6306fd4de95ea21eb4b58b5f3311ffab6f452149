@@ -34,6 +34,24 @@
       "parentUuid": "af5f6773_dfed9c9a",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3252796f_751e9387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-06T18:07:33Z",
+      "side": 1,
+      "message": "We would have to reformat the formatter/core sdk modules to get that working. In its current structure, we cannot import things from the formatter module without introducing a nasty dependency cycle.",
+      "parentUuid": "7744d023_a4d19ea3",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
