@@ -33,6 +33,24 @@
       "message": "Please don’t remove reviewers who’ve already reviewed",
       "revId": "7a26de2c833e10e8ecbaa0e7c7556ecff4bda360",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd08f55f_663ebe33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-04-06T15:45:59Z",
+      "side": 1,
+      "message": "my bad! I thought I was removing them from the thread instead of removing them as reviewers. Didn\u0027t want to ping them again since they already reviewed. Will be more careful next time :) Thank you for taking a look!",
+      "parentUuid": "e0a0479a_b0656d2e",
+      "revId": "7a26de2c833e10e8ecbaa0e7c7556ecff4bda360",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
