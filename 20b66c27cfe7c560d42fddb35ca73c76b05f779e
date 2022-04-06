@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e382a6_7c4e21ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-04-06T15:45:31Z",
+      "side": 1,
+      "message": "Hey bmeurer@,\n\nThere was a merge conflict after crrev/c/3325481 and I updated this CL accordingly.\n\nThe logic for announcing sidebar expansion is slightly changed, so it would be good if you can review again. AFAIU @alexrudenko has reviwed the upper CL, so maybe you can assign this review to him as well if you feel the need :)\n\nThank you!",
+      "revId": "20b66c27cfe7c560d42fddb35ca73c76b05f779e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
