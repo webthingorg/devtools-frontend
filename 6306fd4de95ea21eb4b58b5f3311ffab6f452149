@@ -291,6 +291,24 @@
       "parentUuid": "9a0a6592_dca189ae",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeaea379_052ed0f6",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-07T19:39:59Z",
+      "side": 1,
+      "message": "In this case could we make it clear by changing the name of the function to be something like `isDisabledPropertyInComment`?",
+      "parentUuid": "a8e04f92_a9876dcc",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

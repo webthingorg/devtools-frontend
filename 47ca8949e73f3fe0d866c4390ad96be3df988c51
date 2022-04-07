@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f6f848_dbd2c9d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-07T19:39:59Z",
+      "side": 1,
+      "message": "@Jack: could you PTAL from your perspective as well, especially regarding the change around CodeMirror? I\u0027m not that familiar with this part. Thanks!",
+      "revId": "47ca8949e73f3fe0d866c4390ad96be3df988c51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
