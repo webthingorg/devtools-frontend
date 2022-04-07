@@ -16,6 +16,23 @@
       "message": "@Jack: could you PTAL from your perspective as well, especially regarding the change around CodeMirror? I\u0027m not that familiar with this part. Thanks!",
       "revId": "47ca8949e73f3fe0d866c4390ad96be3df988c51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b86d3e_765dc958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-07T19:40:36Z",
+      "side": 1,
+      "message": "LGTM from CSSProperty\u0027s side.",
+      "revId": "47ca8949e73f3fe0d866c4390ad96be3df988c51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
