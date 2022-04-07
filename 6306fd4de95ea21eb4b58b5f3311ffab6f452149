@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82414e7_35e21fd8",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55cadb0b_cb81c2a7",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed466f23_c14a958f",
@@ -101,6 +119,24 @@
       "writtenOn": "2022-04-06T19:36:10Z",
       "side": 1,
       "message": "Let\u0027s change the outdate naming convention of prefixing local variables with `_` (e.g. _column, _newColumn).",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e3bdf1_a5721420",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed466f23_c14a958f",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18b7a7f_990b1614",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "496977b1_c0e30e86",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfc05cee_9c3c5293",
@@ -135,6 +189,24 @@
       "writtenOn": "2022-04-06T19:36:10Z",
       "side": 1,
       "message": "IIUC `trimRight` is deprecated in favor of `trimEnd`.",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda99a0d_cd3e8370",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfc05cee_9c3c5293",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -162,6 +234,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "798e9615_9293f938",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0ff214d_0ce8bbbd",
+      "range": {
+        "startLine": 231,
+        "startChar": 8,
+        "endLine": 240,
+        "endChar": 9
+      },
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0a6592_dca189ae",
@@ -175,6 +271,24 @@
       "writtenOn": "2022-04-06T19:36:10Z",
       "side": 1,
       "message": "Why is this text.substring taking `2` to as the substring start?",
+      "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e04f92_a9876dcc",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-04-07T18:30:03Z",
+      "side": 1,
+      "message": "Only comment type tokens hit this code, and a sample comment string would be:\n\u0027/* font-size: 83px; */\u0027\n\nThe 2 indexes it at the start of the property name",
+      "parentUuid": "9a0a6592_dca189ae",
       "revId": "6306fd4de95ea21eb4b58b5f3311ffab6f452149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
