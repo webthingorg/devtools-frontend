@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, pressKey, step, waitFor, waitForAria, waitForElementWithTextContent, waitForFunction} from '../../shared/helper.js';
+import {click, getBrowserAndPages, pressKey, step, waitFor, waitForAria, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getAllRequestNames, navigateToNetworkTab, selectRequestByName, setCacheDisabled, setPersistLog, waitForSelectedRequestChange, waitForSomeRequestsToAppear} from '../helpers/network-helpers.js';
 
@@ -213,17 +213,13 @@ describe('The Network Tab', async function() {
 
     await target.reload({waitUntil: 'networkidle0'});
 
-    await waitForSomeRequestsToAppear(3);
-    await waitForElementWithTextContent(`(Web Bundle)${formatByteSize(27)}`);
+    await waitForSomeRequestsToAppear(2);
 
-    const getNetworkRequestSize = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.size-column')).slice(2, 4).map(node => node.textContent);
+    const networkRequestSize = await frontend.evaluate(() => {
+      return document.querySelectorAll('.size-column')[2].textContent;
     });
 
-    assert.sameMembers(await getNetworkRequestSize(), [
-      `${formatByteSize(653)}${formatByteSize(0)}`,
-      `(Web Bundle)${formatByteSize(27)}`,
-    ]);
+    assert.strictEqual(networkRequestSize, `${formatByteSize(653)}${formatByteSize(0)}`);
   });
 
   it('shows web bundle metadata error in the status column', async () => {
@@ -233,31 +229,13 @@ describe('The Network Tab', async function() {
 
     await target.reload({waitUntil: 'networkidle0'});
 
-    await waitForSomeRequestsToAppear(3);
-    await waitForElementWithTextContent('Web Bundle error');
+    await waitForSomeRequestsToAppear(2);
 
-    const getNetworkRequestStatus = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.status-column')).slice(2, 4).map(node => node.textContent);
+    const networkRequestStatus = await frontend.evaluate(() => {
+      return document.querySelectorAll('.status-column')[2].textContent;
     });
 
-    assert.sameMembers(await getNetworkRequestStatus(), ['Web Bundle error', '(failed)net::ERR_INVALID_WEB_BUNDLE']);
-  });
-
-  it('shows web bundle inner request error in the status column', async () => {
-    const {target, frontend} = getBrowserAndPages();
-
-    await navigateToNetworkTab('resources-from-webbundle-with-bad-inner-request.html');
-
-    await target.reload({waitUntil: 'networkidle0'});
-
-    await waitForSomeRequestsToAppear(3);
-    await waitForElementWithTextContent('Web Bundle error');
-
-    const getNetworkRequestSize = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.status-column')).slice(2, 4).map(node => node.textContent);
-    });
-
-    assert.sameMembers(await getNetworkRequestSize(), ['200OK', 'Web Bundle error']);
+    assert.strictEqual(networkRequestStatus, 'Web Bundle error');
   });
 
   it('shows web bundle icons', async () => {
@@ -268,25 +246,14 @@ describe('The Network Tab', async function() {
     await setCacheDisabled(true);
     await target.reload({waitUntil: 'networkidle0'});
 
-    await waitForSomeRequestsToAppear(3);
-    await waitFor('.name-column > [role="link"] > .icon');
+    await waitForSomeRequestsToAppear(2);
+    await waitFor('.name-column > .icon');
 
-    const getNetworkRequestIcons = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.name-column > .icon'))
-          .slice(1, 4)
-          .map(node => (node as HTMLImageElement).alt);
+    const networkRequestIcon = await frontend.evaluate(() => {
+      return (document.querySelectorAll('.name-column > .icon')[1] as HTMLImageElement).alt;
     });
-    assert.sameMembers(await getNetworkRequestIcons(), [
-      'Script',
-      'WebBundle',
-    ]);
-    const getFromWebBundleIcons = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.name-column > [role="link"] > .icon'))
-          .map(node => (node as HTMLImageElement).alt);
-    });
-    assert.sameMembers(await getFromWebBundleIcons(), [
-      'Served from Web Bundle',
-    ]);
+
+    assert.strictEqual(networkRequestIcon, 'WebBundle');
   });
 
   it('shows preserved pending requests as unknown', async () => {
