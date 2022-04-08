@@ -94,6 +94,9 @@ Elements.NodeStackTraceWidget = ElementsModule.NodeStackTraceWidget.NodeStackTra
 Elements.PropertiesWidget = ElementsModule.PropertiesWidget.PropertiesWidget;
 
 /** @constructor */
+Elements.StylePropertiesSection = ElementsModule.StylePropertiesSection.StylePropertiesSection;
+
+/** @constructor */
 Elements.StylePropertyTreeElement = ElementsModule.StylePropertyTreeElement.StylePropertyTreeElement;
 
 /** @constructor */
