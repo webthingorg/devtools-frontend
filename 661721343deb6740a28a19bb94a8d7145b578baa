@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5675e8_32319639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-08T11:11:07Z",
+      "side": 1,
+      "message": "Danil PTAL. Rolling the chromium dependency into devtools was failing due to another webbundle-related CL.",
+      "revId": "661721343deb6740a28a19bb94a8d7145b578baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
