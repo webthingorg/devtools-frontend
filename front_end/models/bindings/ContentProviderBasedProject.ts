@@ -145,7 +145,7 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
   }
 
   async createFile(
-      _path: Platform.DevToolsPath.EncodedPathString, _name: string|null, _content: string,
+      _path: Platform.DevToolsPath.EncodedPathString, _name: Platform.DevToolsPath.RawPathString|null, _content: string,
       _isBase64?: boolean): Promise<Workspace.UISourceCode.UISourceCode|null> {
     return null;
   }

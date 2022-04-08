@@ -317,12 +317,13 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const content = (await uiSourceCode.requestContent()).content || '';
     const encoded = await uiSourceCode.contentEncoded();
     const lastIndexOfSlash = encodedPath.lastIndexOf('/');
-    const encodedFileName = encodedPath.substr(lastIndexOfSlash + 1);
+    const fileName = Common.ParsedURL.ParsedURL.encodedPathToRawPathString(
+        Common.ParsedURL.ParsedURL.substr(encodedPath, lastIndexOfSlash + 1));
     encodedPath = Common.ParsedURL.ParsedURL.substr(encodedPath, 0, lastIndexOfSlash);
     if (this.projectInternal) {
-      await this.projectInternal.createFile(encodedPath, encodedFileName, content, encoded);
+      await this.projectInternal.createFile(encodedPath, fileName, content, encoded);
     }
-    this.fileCreatedForTest(encodedPath, encodedFileName);
+    this.fileCreatedForTest(encodedPath, fileName);
     this.savingForOverrides.delete(uiSourceCode);
   }
 
