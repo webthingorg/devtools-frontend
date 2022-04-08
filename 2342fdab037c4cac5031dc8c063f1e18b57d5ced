@@ -22,6 +22,30 @@
       },
       "revId": "2342fdab037c4cac5031dc8c063f1e18b57d5ced",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bc951a_d1b9716c",
+        "filename": "test/e2e/resources/network/resources-from-webbundle.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-08T12:53:56Z",
+      "side": 0,
+      "message": "You are absolutely right, now the change is simpler and makes a lot more sense.",
+      "parentUuid": "91cc500c_bdc007f0",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 78
+      },
+      "revId": "2342fdab037c4cac5031dc8c063f1e18b57d5ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
