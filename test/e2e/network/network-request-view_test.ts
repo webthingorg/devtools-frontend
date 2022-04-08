@@ -56,7 +56,7 @@ describe('The Network Request view', async () => {
   it('shows webbundle content on preview tab', async () => {
     await navigateToNetworkTab('resources-from-webbundle.html');
 
-    await waitForSomeRequestsToAppear(3);
+    await waitForSomeRequestsToAppear(2);
 
     await selectRequestByName('webbundle.wbn');
 
