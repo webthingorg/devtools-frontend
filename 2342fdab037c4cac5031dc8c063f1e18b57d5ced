@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91cc500c_bdc007f0",
+        "filename": "test/e2e/resources/network/resources-from-webbundle.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-08T11:19:33Z",
+      "side": 0,
+      "message": "I believe this needs to stay. The link tag (now the first script tag) loads the bundle, this script references a resource from the bundle (it doesn\u0027t have to be \u003cscript\u003e, could be anything, e.g. \u003cimg\u003e.)\n\nThis would reduce the number of changes to the tests needed.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 78
+      },
+      "revId": "2342fdab037c4cac5031dc8c063f1e18b57d5ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
