@@ -32,10 +32,16 @@ export function imageNameForResourceType(resourceType: Common.ResourceType.Resou
 export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promise<string> {
   const {originalLines, currentLines, rows} = DiffView.DiffView.buildDiffRows(diff);
 
-  const {propertyToSelector: originalPropertyToSelector, ruleToSelector: originalRuleToSelector} =
-      await buildPropertyRuleMaps(originalLines.join('\n'));
-  const {propertyToSelector: currentPropertyToSelector, ruleToSelector: currentRuleToSelector} =
-      await buildPropertyRuleMaps(currentLines.join('\n'));
+  const {
+    propertyToSelector: originalPropertyToSelector,
+    ruleToSelector: originalRuleToSelector,
+    atRuleLines: originalAtRuleLines,
+  } = await buildPropertyRuleMaps(originalLines.join('\n'));
+  const {
+    propertyToSelector: currentPropertyToSelector,
+    ruleToSelector: currentRuleToSelector,
+    atRuleLines: currentAtRuleLines,
+  } = await buildPropertyRuleMaps(currentLines.join('\n'));
   let changes = '';
   let recordedOriginalSelector, recordedCurrentSelector;
   for (const {currentLineNumber, originalLineNumber, type} of rows) {
@@ -45,7 +51,7 @@ export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promi
     switch (type) {
       case DiffView.DiffView.RowType.Deletion: {
         const originalLine = originalLines[originalLineIndex].trim();
-        if (originalRuleToSelector.has(originalLineIndex)) {
+        if (originalRuleToSelector.has(originalLineIndex) || originalAtRuleLines.has(originalLineIndex)) {
           changes += `/* ${originalLine} { */\n`;
           recordedOriginalSelector = originalLine;
           continue;
@@ -67,7 +73,7 @@ export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promi
       }
       case DiffView.DiffView.RowType.Addition: {
         const currentLine = currentLines[currentLineIndex].trim();
-        if (currentRuleToSelector.has(currentLineIndex)) {
+        if (currentRuleToSelector.has(currentLineIndex) || currentAtRuleLines.has(currentLineIndex)) {
           changes += `${currentLine} {\n`;
           recordedCurrentSelector = currentLine;
           continue;
@@ -98,7 +104,7 @@ export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promi
 }
 
 async function buildPropertyRuleMaps(content: string):
-    Promise<{propertyToSelector: Map<number, string>, ruleToSelector: Map<number, string>}> {
+    Promise<{propertyToSelector: Map<number, string>, ruleToSelector: Map<number, string>, atRuleLines: Set<number>}> {
   const rules = await new Promise<Formatter.FormatterWorkerPool.CSSRule[]>(res => {
     const rules: Formatter.FormatterWorkerPool.CSSRule[] = [];
     Formatter.FormatterWorkerPool.formatterWorkerPool().parseCSS(content, (isLastChunk, currentRules) => {
@@ -110,6 +116,7 @@ async function buildPropertyRuleMaps(content: string):
   });
   const propertyToSelector = new Map<number, string>();
   const ruleToSelector = new Map<number, string>();
+  const atRuleLines = new Set<number>();
   for (const rule of rules) {
     if ('styleRange' in rule) {
       const selector = rule.selectorText.split('\n').pop()?.trim();
@@ -120,7 +127,9 @@ async function buildPropertyRuleMaps(content: string):
       for (const property of rule.properties) {
         propertyToSelector.set(property.range.startLine, selector);
       }
+    } else if ('atRule' in rule) {
+      atRuleLines.add(rule.lineNumber);
     }
   }
-  return {propertyToSelector, ruleToSelector};
+  return {propertyToSelector, ruleToSelector, atRuleLines};
 }
