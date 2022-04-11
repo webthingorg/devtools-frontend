@@ -486,6 +486,32 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     this.registeredListeners = [];
   }
 
+  //retrieves whether or not empty view is showing
+
+  isEmptyViewShowing(): boolean {
+    return this.emptyView.isShowing();
+  }
+
+  getManifestElement(): Element {
+    const manifestHeaderElement: Element = this.reportView.getHeaderElement();
+    return manifestHeaderElement;
+  }
+
+  getIdentityElement(): Element {
+    const identityTitleElement: Element = this.identitySection.getTitleElement();
+    return identityTitleElement;
+  }
+
+  getPresentationElement(): Element {
+    const presentationTitleElement: Element = this.presentationSection.getTitleElement();
+    return presentationTitleElement;
+  }
+
+  getIconsElement(): Element {
+    const iconsTitleElement: Element = this.iconsSection.getTitleElement();
+    return iconsTitleElement;
+  }
+
   targetAdded(target: SDK.Target.Target): void {
     if (this.target) {
       return;
