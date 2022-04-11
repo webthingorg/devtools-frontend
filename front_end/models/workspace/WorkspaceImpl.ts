@@ -64,8 +64,9 @@ export interface Project {
            arg3?: Common.ResourceType.ResourceType) => void): void;
   excludeFolder(path: Platform.DevToolsPath.UrlString): void;
   canExcludeFolder(path: Platform.DevToolsPath.EncodedPathString): boolean;
-  createFile(path: Platform.DevToolsPath.EncodedPathString, name: string|null, content: string, isBase64?: boolean):
-      Promise<UISourceCode|null>;
+  createFile(
+      path: Platform.DevToolsPath.EncodedPathString, name: Platform.DevToolsPath.RawPathString|null, content: string,
+      isBase64?: boolean): Promise<UISourceCode|null>;
   canCreateFile(): boolean;
   deleteFile(uiSourceCode: UISourceCode): void;
   remove(): void;
@@ -219,7 +220,7 @@ export abstract class ProjectStore implements Project {
   abstract canRename(): boolean;
   abstract canExcludeFolder(path: Platform.DevToolsPath.EncodedPathString): boolean;
   abstract createFile(
-      path: Platform.DevToolsPath.EncodedPathString, name: string|null, content: string,
+      path: Platform.DevToolsPath.EncodedPathString, name: Platform.DevToolsPath.RawPathString|null, content: string,
       isBase64?: boolean): Promise<UISourceCode|null>;
   abstract canCreateFile(): boolean;
   abstract searchInFileContent(uiSourceCode: UISourceCode, query: string, caseSensitive: boolean, isRegex: boolean):

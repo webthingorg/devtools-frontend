@@ -221,15 +221,16 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
           continue;
         }
         // encodeURI() escapes all the unsafe filename characters except /:?*
-        let encodedName = encodeURI(pathPart).replace(/[\/:\?\*]/g, match => '%' + match[0].charCodeAt(0).toString(16));
+        let encodedName =
+            encodeURI(pathPart).replace(/[\/:\?\*]/g, match => '%' + match[0].charCodeAt(0).toString(16).toUpperCase());
         // Windows does not allow a small set of filenames.
         if (RESERVED_FILENAMES.has(encodedName.toLowerCase())) {
-          encodedName = encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16)).join('');
+          encodedName = encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16).toUpperCase()).join('');
         }
         // Windows does not allow the file to end in a space or dot (space should already be encoded).
         const lastChar = encodedName.charAt(encodedName.length - 1);
         if (lastChar === '.') {
-          encodedName = encodedName.substr(0, encodedName.length - 1) + '%2e';
+          encodedName = encodedName.substr(0, encodedName.length - 1) + '%2E';
         }
         encodedParts.push(encodedName);
       }
@@ -317,12 +318,13 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const content = (await uiSourceCode.requestContent()).content || '';
     const encoded = await uiSourceCode.contentEncoded();
     const lastIndexOfSlash = encodedPath.lastIndexOf('/');
-    const encodedFileName = encodedPath.substr(lastIndexOfSlash + 1);
+    const fileName = Common.ParsedURL.ParsedURL.encodedPathToRawPathString(
+        Common.ParsedURL.ParsedURL.substr(encodedPath, lastIndexOfSlash + 1));
     encodedPath = Common.ParsedURL.ParsedURL.substr(encodedPath, 0, lastIndexOfSlash);
     if (this.projectInternal) {
-      await this.projectInternal.createFile(encodedPath, encodedFileName, content, encoded);
+      await this.projectInternal.createFile(encodedPath, fileName, content, encoded);
     }
-    this.fileCreatedForTest(encodedPath, encodedFileName);
+    this.fileCreatedForTest(encodedPath, fileName);
     this.savingForOverrides.delete(uiSourceCode);
   }
 
