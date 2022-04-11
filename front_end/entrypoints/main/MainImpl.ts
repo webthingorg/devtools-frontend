@@ -393,6 +393,10 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.CSS_LAYERS, 'Tooling for CSS layers in the Styles pane');
 
+    // Enable color picking outside the browser window (using Eyedropper API)
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.EYEDROPPER_COLOR_PICKER, 'Enable color picking outside the browser window');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'hideIssuesFeature',
@@ -401,6 +405,7 @@ export class MainImpl {
       'reportingApiDebugging',
       Root.Runtime.ExperimentName.SYNC_SETTINGS,
       Root.Runtime.ExperimentName.CSS_LAYERS,
+      Root.Runtime.ExperimentName.EYEDROPPER_COLOR_PICKER,
     ]);
 
     Root.Runtime.experiments.cleanUpStaleExperiments();
