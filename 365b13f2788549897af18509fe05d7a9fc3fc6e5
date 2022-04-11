@@ -140,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7f6824a_4adf2299",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-04-11T04:47:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b03e3e68_c9f771ab",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d611e0ce_5686a200",
@@ -153,6 +171,24 @@
       "writtenOn": "2021-09-03T11:54:59Z",
       "side": 1,
       "message": "nit: could we add a link to the EyeDropper API spec here, so that we could easily track when it\u0027s official, and can ask the TypeScript side to recognize it?",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4b89b9e_f75e4bf6",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-04-11T04:47:38Z",
+      "side": 1,
+      "message": "Add https://github.com/microsoft/TypeScript/issues/48638",
+      "parentUuid": "d611e0ce_5686a200",
       "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
