@@ -441,7 +441,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     data: unknown,
   }): void {
     if (event.data) {
-      this.toggleColorPicker(false);
+      void this.toggleColorPicker(false);
     }
   }
 
@@ -1161,7 +1161,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     this.dragHeight = this.colorElement.offsetHeight;
     this.colorDragElementHeight = this.colorDragElement.offsetHeight / 2;
     this.innerSetColor(undefined, undefined, undefined /* colorName */, undefined, ChangeSource.Model);
-    this.toggleColorPicker(true);
+    void this.toggleColorPicker(false);
 
     if (this.contrastDetails && this.contrastDetailsBackgroundColorPickedToggledBound) {
       this.contrastDetails.addEventListener(
@@ -1171,7 +1171,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
   }
 
   willHide(): void {
-    this.toggleColorPicker(false);
+    void this.toggleColorPicker(false);
     if (this.contrastDetails && this.contrastDetailsBackgroundColorPickedToggledBound) {
       this.contrastDetails.removeEventListener(
           ContrastDetailsEvents.BackgroundColorPickerWillBeToggled,
@@ -1179,9 +1179,9 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     }
   }
 
-  private toggleColorPicker(enabled?: boolean): void {
+  private async toggleColorPicker(enabled?: boolean): Promise<void> {
     if (enabled === undefined) {
-      enabled = !this.colorPickerButton.toggled();
+      enabled = true;
     }
     this.colorPickerButton.setToggled(enabled);
 
@@ -1191,13 +1191,20 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
       this.contrastDetails.toggleBackgroundColorPicker(false);
     }
 
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.setEyeDropperActive(enabled);
     if (enabled) {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-          Host.InspectorFrontendHostAPI.Events.EyeDropperPickedColor, this.colorPickedBound);
-    } else {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(
-          Host.InspectorFrontendHostAPI.Events.EyeDropperPickedColor, this.colorPickedBound);
+      // Use EyeDropper API
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      const eyeDropper = new (<any>window).EyeDropper();
+
+      try {
+        const hexColor = await eyeDropper.open();
+        const color = Common.Color.Color.parse(hexColor.sRGBHex);
+        this.innerSetColor(color?.hsva(), '', undefined /* colorName */, undefined, ChangeSource.Other);
+      } catch (error) {
+        console.error(error);
+      }
+
+      this.colorPickerButton.setToggled(false);
     }
   }
 
