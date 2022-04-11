@@ -286,6 +286,30 @@
       },
       "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f617463e_81aa4add",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-11T08:00:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c9037ec_b97b0a94",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1188,
+        "endChar": 29
+      },
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
