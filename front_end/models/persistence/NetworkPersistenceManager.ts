@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -212,7 +213,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         shortFileName + Platform.StringUtilities.hashCode(encodedPath).toString(16) + extensionPart,
       ];
     }
-    return Common.ParsedURL.ParsedURL.join(encodedPathParts as Platform.DevToolsPath.EncodedPathString[], '/');
+    return Common.ParsedURL.ParsedURL.rawPathToEncodedPathString(
+        Common.ParsedURL.ParsedURL.join(encodedPathParts as Platform.DevToolsPath.RawPathString[], '/'));
 
     function encodeUrlPathToLocalPathParts(urlPath: Platform.DevToolsPath.UrlString): string[] {
       const encodedParts = [];
@@ -220,16 +222,22 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         if (!pathPart) {
           continue;
         }
-        // encodeURI() escapes all the unsafe filename characters except /:?*
-        let encodedName = encodeURI(pathPart).replace(/[\/:\?\*]/g, match => '%' + match[0].charCodeAt(0).toString(16));
-        // Windows does not allow a small set of filenames.
-        if (RESERVED_FILENAMES.has(encodedName.toLowerCase())) {
-          encodedName = encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16)).join('');
-        }
-        // Windows does not allow the file to end in a space or dot (space should already be encoded).
-        const lastChar = encodedName.charAt(encodedName.length - 1);
-        if (lastChar === '.') {
-          encodedName = encodedName.substr(0, encodedName.length - 1) + '%2e';
+        // encodeURI() escapes all the unsafe filename characters except '/' and '*'
+        let encodedName =
+            encodeURI(pathPart).replace(/[\/\*]/g, match => '%' + match[0].charCodeAt(0).toString(16).toUpperCase());
+        if (Host.Platform.isWin()) {
+          // Windows does not allow ':' and '?' in filenames
+          encodedName = encodedName.replace(/[:\?]/g, match => '%' + match[0].charCodeAt(0).toString(16).toUpperCase());
+          // Windows does not allow a small set of filenames.
+          if (RESERVED_FILENAMES.has(encodedName.toLowerCase())) {
+            encodedName =
+                encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16).toUpperCase()).join('');
+          }
+          // Windows does not allow the file to end in a space or dot (space should already be encoded).
+          const lastChar = encodedName.charAt(encodedName.length - 1);
+          if (lastChar === '.') {
+            encodedName = encodedName.substr(0, encodedName.length - 1) + '%2E';
+          }
         }
         encodedParts.push(encodedName);
       }
@@ -313,7 +321,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return;
     }
     this.savingForOverrides.add(uiSourceCode);
-    let encodedPath = this.encodedPathFromUrl(uiSourceCode.url());
+    let encodedPath =
+        Common.ParsedURL.ParsedURL.encodedPathToRawPathString(this.encodedPathFromUrl(uiSourceCode.url())) as unknown as
+        Platform.DevToolsPath.EncodedPathString;
     const content = (await uiSourceCode.requestContent()).content || '';
     const encoded = await uiSourceCode.contentEncoded();
     const lastIndexOfSlash = encodedPath.lastIndexOf('/');
