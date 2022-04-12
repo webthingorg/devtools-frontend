@@ -45,6 +45,29 @@
       },
       "revId": "831cc16950f71b1bb6b64495274cd50a39f74b8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a535574_9980f622",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-12T05:57:06Z",
+      "side": 1,
+      "message": "I think this will cause problems on Windows for filenames containing certain special chars: e.g. `filename` can contain the question mark character which is disallowed on Windows.",
+      "range": {
+        "startLine": 321,
+        "startChar": 48,
+        "endLine": 321,
+        "endChar": 74
+      },
+      "revId": "831cc16950f71b1bb6b64495274cd50a39f74b8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
