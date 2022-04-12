@@ -222,7 +222,7 @@ export class TimelineIRModel {
   }
 
   private setPhaseForEvent(asyncEvent: SDK.TracingModel.AsyncEvent, phase: Phases): void {
-    eventToPhase.set(asyncEvent.steps[0], phase);
+    eventToPhase.set(asyncEvent.steps[0], phase);  // //
   }
 
   interactionRecords(): Common.SegmentedRange.Segment<Phases>[] {

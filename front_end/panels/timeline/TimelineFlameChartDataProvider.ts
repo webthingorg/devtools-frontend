@@ -1345,11 +1345,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   private appendAsyncEvent(asyncEvent: SDK.TracingModel.AsyncEvent, level: number): void {
-    if (SDK.TracingModel.TracingModel.isNestableAsyncPhase(asyncEvent.phase)) {
-      // FIXME: also add steps once we support event nesting in the FlameChart.
-      this.appendEvent(asyncEvent, level);
-      return;
-    }
     const steps = asyncEvent.steps;
     // If we have past steps, put the end event for each range rather than start one.
     const eventOffset = steps.length > 1 && steps[1].phase === SDK.TracingModel.Phase.AsyncStepPast ? 1 : 0;
