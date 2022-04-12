@@ -37,6 +37,7 @@ export class CSSLength extends HTMLElement {
   private isEditingSlot = false;
   private isDraggingValue = false;
   private currentMouseClientX = 0;
+  #valueMousedownTime = 0;
 
   set data(data: CSSLengthData) {
     const parsedResult = parseText(data.lengthText);
@@ -61,6 +62,9 @@ export class CSSLength extends HTMLElement {
   private dragValue(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
+    if (new Date().getTime() - this.#valueMousedownTime <= 300) {
+      return;
+    }
     this.isDraggingValue = true;
 
     let displacement = event.clientX - this.currentMouseClientX;
@@ -80,6 +84,8 @@ export class CSSLength extends HTMLElement {
     if (event.button !== 0) {
       return;
     }
+
+    this.#valueMousedownTime = new Date().getTime();
 
     this.currentMouseClientX = event.clientX;
     const targetDocument = event.target instanceof Node && event.target.ownerDocument;
