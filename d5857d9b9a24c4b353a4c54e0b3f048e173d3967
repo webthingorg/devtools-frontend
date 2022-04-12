@@ -16,6 +16,23 @@
       "message": "Hi Jarin, can you review this small fix for me, thanks.\n\n# screenshots\n\n## \"How to test\" and \"Before\" screenshots:\n- https://imgur.com/a/SK2r6Vg  \n\n## \"After\" screenshots:\n- https://imgur.com/a/pDaTeCf\n\nHow to test\nCase1:\n1. More devtool to left side\n2. go to \"memory\" tab\n3. take \"Heap snapshot\"\n4. resize devtool to smaller width\n5. check \"Retainers\" row, make sure text did NOT overlay with icon\n\nCase2:\n1. More devtool to left side\n2. go to \"memory\" tab\n3. record an \"Allocation instrumentation on timeline\" WITH checked \"Record stack traces of allocations (extra performance overhead)\"\n4. select result from \"summary\" to \"Allocation\"\n4. resize devtool to smaller width\n5. check \"Live Objects\" row, make sure text did NOT overlay with icon\n",
       "revId": "d5857d9b9a24c4b353a4c54e0b3f048e173d3967",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd017dfb_95f782e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-04-12T08:17:20Z",
+      "side": 1,
+      "message": "LGTM, but let me also add a reviewer who knows something about CSS.",
+      "revId": "d5857d9b9a24c4b353a4c54e0b3f048e173d3967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
