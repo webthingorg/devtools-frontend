@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "922a93b5_22767ce2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-04-12T17:49:00Z",
+      "side": 1,
+      "message": "This is a follow-up from the earlier change https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3502175 showing highlight pseudos in the styles pane.\n\nNote, the http/tests/devtools/elements/styles-2/pseudo-elements.js failure is expected. Highlight selectors are no longer grayed-out since they are now correctly calculated as matching with this change. To land this, I\u0027m separately disabling that test in https://chromium-review.googlesource.com/c/chromium/src/+/3584106 and will re-enable it with the updated baseline afterwards.\n\nPTAL, thanks!",
+      "revId": "c49edf9d97ce5dbe73f368078e9f1fecb94b71e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
