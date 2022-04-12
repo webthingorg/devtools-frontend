@@ -152,6 +152,10 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   flex: none;
 }
 
+.toolbar-icon.active {
+  --icon-color: var(--color-primary);
+}
+
 .toolbar-glyph {
   background-color: var(--color-text-secondary);
   flex: none;

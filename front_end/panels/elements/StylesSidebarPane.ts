@@ -1233,13 +1233,16 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       menu.defaultSection().appendItem(lightColorSchemeOption, () => {
         autoDarkModeSetting.set(false);
         prefersColorSchemeSetting.set(isLightColorScheme ? '' : 'light');
+        icon.classList.toggle('active', Boolean(prefersColorSchemeSetting.get()));
       });
       menu.defaultSection().appendItem(darkColorSchemeOption, () => {
         autoDarkModeSetting.set(false);
         prefersColorSchemeSetting.set(isDarkColorScheme ? '' : 'dark');
+        icon.classList.toggle('active', Boolean(prefersColorSchemeSetting.get()));
       });
       menu.defaultSection().appendItem(autoDarkModeOption, () => {
         autoDarkModeSetting.set(!isAutoDarkEnabled);
+        icon.classList.toggle('active', Boolean(prefersColorSchemeSetting.get()));
       });
 
       void menu.show();
