@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26131208_59b11b39",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-12T15:15:44Z",
+      "side": 1,
+      "message": "Why are you casting the variable to an EncodedPathString here? Will the path not be decoded?",
+      "range": {
+        "startLine": 325,
+        "startChar": 107,
+        "endLine": 326,
+        "endChar": 47
+      },
+      "revId": "fe8f780bd787a13179e04e7e5bf86528922ed9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
