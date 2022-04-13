@@ -16,6 +16,23 @@
       "message": "Hi Szuend, would you like review for me, thanks ?\n\nHow to test\n1. open an empty tab\n2. open devtools \u003d\u003e more tools \u003d\u003e CSS Overview\n3. Capture overview\n4. try to select color text\n\nscreenshot:\n- https://imgur.com/a/er3rtEx",
       "revId": "9abe96fc2632f7f08d8c8858ac42dbc128d13a0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe5807f_2e26cba4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-13T10:14:46Z",
+      "side": 1,
+      "message": "Jack, could you PTAL?",
+      "revId": "9abe96fc2632f7f08d8c8858ac42dbc128d13a0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
