@@ -178,6 +178,8 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
 
     const storageData = event.data;
+    console.log('EVENT DATA KEY: ', storageData.key);
+    console.log('EVENT DATA VALUE: ', storageData.value);
     const rootNode = this.dataGrid.rootNode();
     const children = rootNode.children;
 
