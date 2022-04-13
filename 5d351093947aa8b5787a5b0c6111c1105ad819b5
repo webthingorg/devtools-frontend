@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6fa433_b6003178",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-13T09:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f2a770d_556eef08",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "5d351093947aa8b5787a5b0c6111c1105ad819b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8cca6ea_82240c32",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "380b0c7a_1f492040",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-13T09:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8cca6ea_82240c32",
+      "range": {
+        "startLine": 89,
+        "startChar": 31,
+        "endLine": 89,
+        "endChar": 51
+      },
+      "revId": "5d351093947aa8b5787a5b0c6111c1105ad819b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9831301f_52696d31",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-04-13T09:04:54Z",
       "side": 1,
       "message": "This delays every single DevTools-wide0 test run by 1s. Have you experimented with lower values?",
+      "range": {
+        "startLine": 53,
+        "startChar": 59,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "5d351093947aa8b5787a5b0c6111c1105ad819b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd59611_d0e2d8dc",
+        "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/CSSLength_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-13T09:18:33Z",
+      "side": 1,
+      "message": "The code requires 300ms. Let me use 400 instead just to be safe.",
+      "parentUuid": "9831301f_52696d31",
       "range": {
         "startLine": 53,
         "startChar": 59,
