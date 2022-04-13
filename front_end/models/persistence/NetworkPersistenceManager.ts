@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -33,7 +34,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private activeInternal: boolean;
   private enabled: boolean;
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
-  #headerOverridesMap: Map<string, HeaderOverrideWithRegex[]> = new Map();
+  #headerOverridesMap: Map<Platform.DevToolsPath.EncodedPathString, HeaderOverrideWithRegex[]> = new Map();
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -188,11 +189,15 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
 
   encodedPathFromUrl(url: Platform.DevToolsPath.UrlString, ignoreInactive?: boolean):
       Platform.DevToolsPath.EncodedPathString {
+    return Common.ParsedURL.ParsedURL.rawPathToEncodedPathString(this.rawPathFromUrl(url, ignoreInactive));
+  }
+
+  rawPathFromUrl(url: Platform.DevToolsPath.UrlString, ignoreInactive?: boolean): Platform.DevToolsPath.RawPathString {
     if ((!this.activeInternal && !ignoreInactive) || !this.projectInternal) {
-      return Platform.DevToolsPath.EmptyEncodedPathString;
+      return Platform.DevToolsPath.EmptyRawPathString;
     }
-    let urlPath =
-        Common.ParsedURL.ParsedURL.urlWithoutHash(url.replace(/^https?:\/\//, '')) as Platform.DevToolsPath.UrlString;
+    let urlPath = Common.ParsedURL.ParsedURL.urlWithoutHash(url.replace(/^https?:\/\//, '')) as
+        Platform.DevToolsPath.EncodedPathString;
     if (urlPath.endsWith('/') && urlPath.indexOf('?') === -1) {
       urlPath = Common.ParsedURL.ParsedURL.concatenate(urlPath, 'index.html');
     }
@@ -212,32 +217,38 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         shortFileName + Platform.StringUtilities.hashCode(encodedPath).toString(16) + extensionPart,
       ];
     }
-    return Common.ParsedURL.ParsedURL.join(encodedPathParts as Platform.DevToolsPath.EncodedPathString[], '/');
+    return Common.ParsedURL.ParsedURL.join(encodedPathParts as Platform.DevToolsPath.RawPathString[], '/');
 
-    function encodeUrlPathToLocalPathParts(urlPath: Platform.DevToolsPath.UrlString): string[] {
+    function encodeUrlPathToLocalPathParts(urlPath: Platform.DevToolsPath.EncodedPathString): string[] {
       const encodedParts = [];
       for (const pathPart of fileNamePartsFromUrlPath(urlPath)) {
         if (!pathPart) {
           continue;
         }
-        // encodeURI() escapes all the unsafe filename characters except /:?*
-        let encodedName = encodeURI(pathPart).replace(/[\/:\?\*]/g, match => '%' + match[0].charCodeAt(0).toString(16));
-        // Windows does not allow a small set of filenames.
-        if (RESERVED_FILENAMES.has(encodedName.toLowerCase())) {
-          encodedName = encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16)).join('');
-        }
-        // Windows does not allow the file to end in a space or dot (space should already be encoded).
-        const lastChar = encodedName.charAt(encodedName.length - 1);
-        if (lastChar === '.') {
-          encodedName = encodedName.substr(0, encodedName.length - 1) + '%2e';
+        // encodeURI() escapes all the unsafe filename characters except '/' and '*'
+        let encodedName =
+            encodeURI(pathPart).replace(/[\/\*]/g, match => '%' + match[0].charCodeAt(0).toString(16).toUpperCase());
+        if (Host.Platform.isWin()) {
+          // Windows does not allow ':' and '?' in filenames
+          encodedName = encodedName.replace(/[:\?]/g, match => '%' + match[0].charCodeAt(0).toString(16).toUpperCase());
+          // Windows does not allow a small set of filenames.
+          if (RESERVED_FILENAMES.has(encodedName.toLowerCase())) {
+            encodedName =
+                encodedName.split('').map(char => '%' + char.charCodeAt(0).toString(16).toUpperCase()).join('');
+          }
+          // Windows does not allow the file to end in a space or dot (space should already be encoded).
+          const lastChar = encodedName.charAt(encodedName.length - 1);
+          if (lastChar === '.') {
+            encodedName = encodedName.substr(0, encodedName.length - 1) + '%2E';
+          }
         }
         encodedParts.push(encodedName);
       }
       return encodedParts;
     }
 
-    function fileNamePartsFromUrlPath(urlPath: Platform.DevToolsPath.UrlString): string[] {
-      urlPath = Common.ParsedURL.ParsedURL.urlWithoutHash(urlPath) as Platform.DevToolsPath.UrlString;
+    function fileNamePartsFromUrlPath(urlPath: Platform.DevToolsPath.EncodedPathString): string[] {
+      urlPath = Common.ParsedURL.ParsedURL.urlWithoutHash(urlPath) as Platform.DevToolsPath.EncodedPathString;
       const queryIndex = urlPath.indexOf('?');
       if (queryIndex === -1) {
         return urlPath.split('/');
@@ -317,12 +328,13 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const content = (await uiSourceCode.requestContent()).content || '';
     const encoded = await uiSourceCode.contentEncoded();
     const lastIndexOfSlash = encodedPath.lastIndexOf('/');
-    const encodedFileName = encodedPath.substr(lastIndexOfSlash + 1);
+    const encodedFileName = encodedPath.substr(lastIndexOfSlash + 1) as Platform.DevToolsPath.EncodedPathString;
+    const rawFileName = Common.ParsedURL.ParsedURL.encodedPathToRawPathString(encodedFileName);
     encodedPath = Common.ParsedURL.ParsedURL.substr(encodedPath, 0, lastIndexOfSlash);
     if (this.projectInternal) {
-      await this.projectInternal.createFile(encodedPath, encodedFileName, content, encoded);
+      await this.projectInternal.createFile(encodedPath, rawFileName, content, encoded);
     }
-    this.fileCreatedForTest(encodedPath, encodedFileName);
+    this.fileCreatedForTest(encodedPath, rawFileName);
     this.savingForOverrides.delete(uiSourceCode);
   }
 
@@ -337,7 +349,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (relativePathParts[1] === 'longurls' && relativePathParts.length !== 2) {
       return 'http?://' + relativePathParts[0] + '/*';
     }
-    return 'http?://' + this.decodeLocalPathToUrlPath(relativePathParts.join('/'));
+    return 'http?://' + this.decodeLocalPathToUrlPath(this.decodeLocalPathToUrlPath(relativePathParts.join('/')));
   }
 
   private async onUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -378,8 +390,11 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
-  async generateHeaderPatterns(uiSourceCode: Workspace.UISourceCode.UISourceCode):
-      Promise<{headerPatterns: Set<string>, path: string, overridesWithRegex: HeaderOverrideWithRegex[]}> {
+  async generateHeaderPatterns(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<{
+    headerPatterns: Set<string>,
+    path: Platform.DevToolsPath.EncodedPathString,
+    overridesWithRegex: HeaderOverrideWithRegex[],
+  }> {
     const headerPatterns = new Set<string>();
     const content = (await uiSourceCode.requestContent()).content || '[]';
     let headerOverrides: HeaderOverride[] = [];
@@ -390,10 +405,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       }
     } catch (e) {
       console.error('Failed to parse', uiSourceCode.url(), 'for locally overriding headers.');
-      return {headerPatterns, path: '', overridesWithRegex: []};
+      return {headerPatterns, path: Platform.DevToolsPath.EmptyEncodedPathString, overridesWithRegex: []};
     }
     const relativePath = FileSystemWorkspaceBinding.relativePath(uiSourceCode).join('/');
-    const decodedPath = this.decodeLocalPathToUrlPath(relativePath).slice(0, -HEADERS_FILENAME.length);
+    const singleDecodedPath = this.decodeLocalPathToUrlPath(relativePath).slice(0, -HEADERS_FILENAME.length) as
+        Platform.DevToolsPath.EncodedPathString;
+    const decodedPath = this.decodeLocalPathToUrlPath(singleDecodedPath) as Platform.DevToolsPath.RawPathString;
 
     const overridesWithRegex: HeaderOverrideWithRegex[] = [];
     for (const headerOverride of headerOverrides) {
@@ -423,7 +440,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         });
       }
     }
-    return {headerPatterns, path: decodedPath, overridesWithRegex};
+    return {headerPatterns, path: singleDecodedPath, overridesWithRegex};
   }
 
   async updateInterceptionPatternsForTests(): Promise<void> {
@@ -566,7 +583,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   handleHeaderInterception(interceptedRequest: SDK.NetworkManager.InterceptedRequest): Protocol.Fetch.HeaderEntry[] {
     let result: Protocol.Fetch.HeaderEntry[] = interceptedRequest.responseHeaders || [];
     const urlSegments =
-        this.encodedPathFromUrl(interceptedRequest.request.url as Platform.DevToolsPath.UrlString).split('/') as
+        this.rawPathFromUrl(interceptedRequest.request.url as Platform.DevToolsPath.UrlString).split('/') as
         Platform.DevToolsPath.EncodedPathString[];
     // Traverse the hierarchy of overrides from the most general to the most
     // specific. Check with empty string first to match overrides applying to
