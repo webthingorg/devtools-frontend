@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b455235f_9b5d654f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-04-13T22:08:03Z",
+      "side": 1,
+      "message": "Hi Yang, could you help suggest reviewers for this accessibility fix? Thank you!",
+      "revId": "c22260fdf23aabc95a7eb849ca8c53b790e98482",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
