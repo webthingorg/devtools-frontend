@@ -10,16 +10,12 @@
 
 export type integer = number;
 export type binary = string;
-export type EnumerableEnum<T> = {
-  [K in keyof T]: T[K]
-};
+export type EnumerableEnum<T> = {[K in keyof T]: T[K]};
 export interface ProtocolResponseWithError {
   /** Returns an error message if the request failed. */
   getError(): string|undefined;
 }
-type OpaqueType<Tag extends string> = {
-  protocolOpaqueTypeTag: Tag
-};
+type OpaqueType<Tag extends string> = {protocolOpaqueTypeTag: Tag};
 type OpaqueIdentifier<RepresentationType, Tag extends string> = RepresentationType&OpaqueType<Tag>;
 
 export namespace Accessibility {
@@ -4895,6 +4891,8 @@ export namespace DOMSnapshot {
  */
 export namespace DOMStorage {
 
+  export type SerializedStorageKey = string;
+
   /**
    * DOM Storage identifier.
    */
@@ -4902,7 +4900,11 @@ export namespace DOMStorage {
     /**
      * Security origin for the storage.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Represents a key by which DOM Storage keys its CachedStorageAreas
+     */
+    storageKey?: SerializedStorageKey;
     /**
      * Whether the storage is local storage (not session storage).
      */
@@ -10872,8 +10874,7 @@ export namespace Page {
     EmbedderDomDistillerSelfDeletingRequestDelegate = 'EmbedderDomDistillerSelfDeletingRequestDelegate',
     EmbedderOomInterventionTabHelper = 'EmbedderOomInterventionTabHelper',
     EmbedderOfflinePage = 'EmbedderOfflinePage',
-    EmbedderChromePasswordManagerClientBindCredentialManager =
-        'EmbedderChromePasswordManagerClientBindCredentialManager',
+    EmbedderChromePasswordManagerClientBindCredentialManager = 'EmbedderChromePasswordManagerClientBindCredentialManager',
     EmbedderPermissionRequestManager = 'EmbedderPermissionRequestManager',
     EmbedderModalDialog = 'EmbedderModalDialog',
     EmbedderExtensions = 'EmbedderExtensions',
