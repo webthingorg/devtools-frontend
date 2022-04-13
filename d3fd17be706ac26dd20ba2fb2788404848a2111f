@@ -16,6 +16,24 @@
       "message": "Oh well, since it\u0027s already submitted, I\u0027ll address these comments as fly-bys in this CL: https://crrev.com/c/3584109",
       "revId": "d3fd17be706ac26dd20ba2fb2788404848a2111f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c1670f_31e80ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-13T09:19:09Z",
+      "side": 1,
+      "message": "Thanks for the tips!",
+      "parentUuid": "cf6d585d_84cddd77",
+      "revId": "d3fd17be706ac26dd20ba2fb2788404848a2111f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
