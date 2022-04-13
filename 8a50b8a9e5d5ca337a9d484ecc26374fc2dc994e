@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cbc6a42_c426cebe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-13T11:48:51Z",
+      "side": 1,
+      "message": "Eric, here\u0027s the fix we just discussed. Could you take a look please?",
+      "revId": "8a50b8a9e5d5ca337a9d484ecc26374fc2dc994e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
