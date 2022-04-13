@@ -2081,6 +2081,12 @@
   "panels/application/ApplicationPanelSidebar.ts | frames": {
     "message": "F̂ŕâḿêś"
   },
+  "panels/application/ApplicationPanelSidebar.ts | icons": {
+    "message": "Îćôńŝ"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | identity": {
+    "message": "Îd́êńt̂ít̂ý"
+  },
   "panels/application/ApplicationPanelSidebar.ts | indexeddb": {
     "message": "Îńd̂éx̂éd̂D́B̂"
   },
@@ -2098,6 +2104,9 @@
   },
   "panels/application/ApplicationPanelSidebar.ts | openedWindows": {
     "message": "Ôṕêńêd́ Ŵín̂d́ôẃŝ"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | presentation": {
+    "message": "P̂ŕêśêńt̂át̂íôń"
   },
   "panels/application/ApplicationPanelSidebar.ts | refreshIndexeddb": {
     "message": "R̂éf̂ŕêśĥ Ín̂d́êx́êd́D̂B́"

@@ -110,6 +110,18 @@ const UIStrings = {
   */
   manifest: 'Manifest',
   /**
+  *@description Text in Application Panel Sidebar of the Application panel.
+  */
+  identity: 'Identity',
+  /**
+  *@description Text in Application Panel Sidebar of the Application panel.
+  */
+  presentation: 'Presentation',
+  /**
+  *@description Text in Application Panel Sidebar of the Application panel.
+  */
+  icons: 'Icons',
+  /**
   *@description Text in Application Panel Sidebar of the Application panel
   */
   indexeddb: 'IndexedDB',
@@ -232,6 +244,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     const applicationSectionTitle = i18nString(UIStrings.application);
     this.applicationTreeElement = this.addSidebarSection(applicationSectionTitle);
     const manifestTreeElement = new AppManifestTreeElement(panel);
+
     this.applicationTreeElement.appendChild(manifestTreeElement);
     this.serviceWorkersTreeElement = new ServiceWorkersTreeElement(panel);
     this.applicationTreeElement.appendChild(this.serviceWorkersTreeElement);
@@ -924,10 +937,16 @@ export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
 
 export class AppManifestTreeElement extends ApplicationPanelTreeElement {
   private view?: AppManifestView;
+  private manifestElement?: Element;
+  private identityElement?: Element;
+  private presentationElement?: Element;
+  private iconElement?: Element;
   constructor(storagePanel: ResourcesPanel) {
-    super(storagePanel, i18nString(UIStrings.manifest), false);
+    super(storagePanel, i18nString(UIStrings.manifest), true);
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
+    this.onexpand = this.onselect.bind(this);
+    this.listItemElement.addEventListener('click', this.onClick.bind(this));
   }
 
   get itemURL(): string {
@@ -936,12 +955,80 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
+    const boundOnselect = this.onselect.bind(this);
+    const handleExpansion = (evt: Event): void => {
+      this.setExpandable((evt as CustomEvent).detail);
+    };
     if (!this.view) {
       this.view = new AppManifestView();
+      this.view.contentElement.addEventListener('manifestDetection', handleExpansion);
+    }
+    if (!this.identityElement) {
+      this.identityElement = this.view.getIdentityElement();
+      const childTitle = i18n.i18n.lockedString(UIStrings.identity);
+      const identityChild =
+          new ManifestChildTreeElement(this.resourcesPanel, this.identityElement, boundOnselect, childTitle);
+      this.appendChild(identityChild);
+    }
+    if (!this.presentationElement) {
+      this.presentationElement = this.view.getPresentationElement();
+      const childTitle = i18n.i18n.lockedString(UIStrings.presentation);
+      const presentationChild =
+          new ManifestChildTreeElement(this.resourcesPanel, this.presentationElement, boundOnselect, childTitle);
+      this.appendChild(presentationChild);
+    }
+    if (!this.iconElement) {
+      this.iconElement = this.view.getIconsElement();
+      const childTitle = i18n.i18n.lockedString(UIStrings.icons);
+      const iconsChild = new ManifestChildTreeElement(this.resourcesPanel, this.iconElement, boundOnselect, childTitle);
+      this.appendChild(iconsChild);
     }
     this.showView(this.view);
     Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.app_manifest]);
     return false;
+  }
+
+  onClick(): void {
+    if (!this.view) {
+      this.view = new AppManifestView();
+    }
+    this.showView(this.view);
+    this.manifestElement = this.view.getManifestElement();
+    this.manifestElement.scrollIntoView();
+  }
+}
+
+export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
+  private element: Element;
+  private boundOnselect: Function;
+  private childTitle: string;
+  constructor(storagePanel: ResourcesPanel, element: Element, boundOnselect: Function, childTitle: string) {
+    super(storagePanel, childTitle, false);
+    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
+    this.setLeadingIcons([icon]);
+    this.element = element;
+    this.boundOnselect = boundOnselect;
+    this.childTitle = childTitle;
+    this.listItemElement.addEventListener('click', this.onClick.bind(this));
+  }
+
+  setTitle(childTitle: string): void {
+    this.title = childTitle;
+  }
+
+  get itemURL(): string {
+    return 'manifest://' + this.title;
+  }
+
+  onselect(selectedByUser?: boolean): boolean {
+    super.onselect(selectedByUser);
+    this.boundOnselect();
+    this.element.scrollIntoView();
+    return false;
+  }
+
+  onClick(): void {
+    this.element.scrollIntoView();
   }
 }
 

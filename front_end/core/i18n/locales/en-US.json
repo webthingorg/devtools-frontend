@@ -2081,6 +2081,12 @@
   "panels/application/ApplicationPanelSidebar.ts | frames": {
     "message": "Frames"
   },
+  "panels/application/ApplicationPanelSidebar.ts | icons": {
+    "message": "Icons"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | identity": {
+    "message": "Identity"
+  },
   "panels/application/ApplicationPanelSidebar.ts | indexeddb": {
     "message": "IndexedDB"
   },
@@ -2098,6 +2104,9 @@
   },
   "panels/application/ApplicationPanelSidebar.ts | openedWindows": {
     "message": "Opened Windows"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | presentation": {
+    "message": "Presentation"
   },
   "panels/application/ApplicationPanelSidebar.ts | refreshIndexeddb": {
     "message": "Refresh IndexedDB"
