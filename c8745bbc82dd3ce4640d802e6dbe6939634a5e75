@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce0e1361_10ebeac0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-04-14T09:34:47Z",
+      "side": 1,
+      "message": "Before v.s. After screenshots:\n- https://imgur.com/a/WdDEA5I\n\nThank you in advance",
+      "revId": "c8745bbc82dd3ce4640d802e6dbe6939634a5e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
