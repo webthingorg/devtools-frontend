@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1940a58_6a1bf446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-14T08:25:03Z",
+      "side": 1,
+      "message": "Please kindly take a look! This will be split in a couple of CLs (at least protocol resources generation will be separate)",
+      "revId": "4ca0419ed287bd7a77684cafd16c539e2d09994b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
