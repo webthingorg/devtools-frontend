@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89f062a9_caefec4b",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-04-14T08:45:42Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1b0682b8_46483ae4",
+      "range": {
+        "startLine": 272,
+        "startChar": 14,
+        "endLine": 272,
+        "endChar": 69
+      },
+      "revId": "08df9c7c7c211d9c6e458977bfbedcef77970efb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1af1ad9_af339611",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-04-14T07:04:50Z",
       "side": 0,
       "message": "Now that the split widget is not a fixed position containing block, we don\u0027t need to offset the position of the angle component to it but can just use the viewport coordinates directly.",
+      "revId": "08df9c7c7c211d9c6e458977bfbedcef77970efb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae126f1_ee313c52",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAngle.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-04-14T08:45:42Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c1af1ad9_af339611",
       "revId": "08df9c7c7c211d9c6e458977bfbedcef77970efb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

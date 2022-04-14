@@ -50,6 +50,24 @@
       "message": "LGTM in general, but I\u0027m also not familiar with our text editor to know that the move won\u0027t have problems. Should we wait for the branch cut?",
       "revId": "18721cb8e32e1c4086eaa53a6db4055b4a5ece40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca6a8bf1_41440c15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-04-14T08:45:42Z",
+      "side": 1,
+      "message": "Yes I\u0027m definitely waiting until after the cut. I\u0027ll also do a bit more manual testing to see if I can find more side effects of not having the split widget as a fixed positioning container.",
+      "parentUuid": "526dc2a9_4b03dc31",
+      "revId": "18721cb8e32e1c4086eaa53a6db4055b4a5ece40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
