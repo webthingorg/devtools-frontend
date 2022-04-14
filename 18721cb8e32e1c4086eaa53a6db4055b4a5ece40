@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91d6a8a_7160d938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-04-14T07:04:50Z",
+      "side": 1,
+      "message": "PTAL. I\u0027m essentially trying to remove any \"fixed positioning containing blocks\" such that we can do `position: fixed` and position elements relative to the viewport everywhere. Let me know if you see any issues with this approach.",
+      "revId": "18721cb8e32e1c4086eaa53a6db4055b4a5ece40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
