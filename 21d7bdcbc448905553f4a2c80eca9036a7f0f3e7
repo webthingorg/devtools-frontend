@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c16eaa_47c8f3cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-04-14T10:50:42Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nThis is fixing an issue introduced by https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3342111, where we started setting inspected url on all children targets indiscriminately.\n\nThis is a somewhat speculative fix since the bug is flaky. I could not reproduce the bug with this fix anymore, and without the fix it reproduced several times.\n\nAlso note that this impossible to test from the front-end (since it only repros with extensions). We will need a browser test.",
+      "revId": "21d7bdcbc448905553f4a2c80eca9036a7f0f3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
