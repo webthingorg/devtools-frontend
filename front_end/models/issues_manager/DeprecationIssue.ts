@@ -32,7 +32,7 @@ export class DeprecationIssue extends Issue {
   constructor(issueDetails: Protocol.Audits.DeprecationIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
     let type = issueDetails.type;
     // TODO(crbug.com/1264960): Remove legacy type when issues are translated.
-    if (issueDetails.deprecationType === Protocol.Audits.DeprecationIssueType.Untranslated) {
+    if (type === Protocol.Audits.DeprecationIssueType.Untranslated) {
       type = issueDetails.deprecationType;
     }
     const issueCode = [
