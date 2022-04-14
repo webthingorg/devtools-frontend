@@ -532,20 +532,11 @@ Node.prototype.setTextContentTruncatedIfNeeded = function(text: string|Node, pla
   return false;
 };
 
-Document.prototype.deepActiveElement = function(): Element|null {
-  let activeElement: Element|(Element | null) = this.activeElement;
-  while (activeElement && activeElement.shadowRoot && activeElement.shadowRoot.activeElement) {
-    activeElement = activeElement.shadowRoot.activeElement;
-  }
-  return activeElement;
-};
-
-DocumentFragment.prototype.deepActiveElement = Document.prototype.deepActiveElement;
-
 Element.prototype.hasFocus = function(): boolean {
   const root = this.getComponentRoot();
   return Boolean(root) && this.isSelfOrAncestor(root.activeElement);
 };
+
 Node.prototype.getComponentRoot = function(): Document|DocumentFragment|null {
   let node: ((Node & ParentNode)|null)|Node = this;
   while (node && node.nodeType !== Node.DOCUMENT_FRAGMENT_NODE && node.nodeType !== Node.DOCUMENT_NODE) {
