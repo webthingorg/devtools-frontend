@@ -81,6 +81,24 @@
       "parentUuid": "c1af1ad9_af339611",
       "revId": "08df9c7c7c211d9c6e458977bfbedcef77970efb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff7710f_7b61fb76",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAngle.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-14T08:50:14Z",
+      "side": 0,
+      "message": "I\u0027m also quite happy that this code can be removed!",
+      "parentUuid": "bae126f1_ee313c52",
+      "revId": "08df9c7c7c211d9c6e458977bfbedcef77970efb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
