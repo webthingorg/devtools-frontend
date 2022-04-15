@@ -33,6 +33,24 @@
       "message": "Is there a better/more a11y friendly way to do this.\n\nTBH I think it looks kinda weird with the \"Learn more\" in parenthesis. Maybe we could make the \"Mode\" label itself a link, possibly with an icon or something?",
       "revId": "e2ede13c85748c99663a17e154b2b772910cf287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d6797b4_3c223b61",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-04-15T17:42:37Z",
+      "side": 1,
+      "message": "I removed the parenthesis to address this concern for now.",
+      "parentUuid": "9f57e2f9_dbec15ee",
+      "revId": "e2ede13c85748c99663a17e154b2b772910cf287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

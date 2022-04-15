@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4fb428_8c739102",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-04-15T17:42:37Z",
+      "side": 1,
+      "message": "I believe we addressed this in the latest patch sets.",
+      "parentUuid": "ce97b6cc_d9bd427d",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5967f2a_6ad8d42a",
