@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9389b245_1567ca39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-04-15T18:26:11Z",
+      "side": 1,
+      "message": "Can you attach images to the CL description? (imgur should be fine)",
+      "revId": "313ec68042536fa12a0acaaf85446647a1df0b3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
