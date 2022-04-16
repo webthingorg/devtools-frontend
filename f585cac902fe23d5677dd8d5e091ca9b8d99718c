@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0672326d_37317254",
+        "filename": "front_end/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1529417
+      },
+      "writtenOn": "2022-04-16T13:13:07Z",
+      "side": 1,
+      "message": "typscript-eslint version 5.14.0 introduce breaking: https://github.com/typescript-eslint/typescript-eslint/pull/4582\n\nso we need ignore property that requires quote, the rule details see: https://typescript-eslint.io/rules/naming-convention#ignore-properties-that-require-quotes",
+      "revId": "f585cac902fe23d5677dd8d5e091ca9b8d99718c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae5a24a_0ba8980a",
+        "filename": "inspector_overlay/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1529417
+      },
+      "writtenOn": "2022-04-16T13:13:07Z",
+      "side": 1,
+      "message": "typscript-eslint version 5.14.0 introduce breaking: https://github.com/typescript-eslint/typescript-eslint/pull/4582\n\nso we need ignore property that requires quote, the rule details see: https://typescript-eslint.io/rules/naming-convention#ignore-properties-that-require-quotes",
+      "revId": "f585cac902fe23d5677dd8d5e091ca9b8d99718c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
