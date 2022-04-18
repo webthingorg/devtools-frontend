@@ -16,6 +16,23 @@
       "message": "friendly ping",
       "revId": "8c50e3d0fa3e1077ff91fb2cb4136c4f893425f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "934a7882_fde10d4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-04-18T17:48:25Z",
+      "side": 1,
+      "message": "FWIW, this file is regularly rolled from https://github.com/ChromeDevTools/devtools-protocol and shouldn’t need to be manually updated. Then again it doesn’t hurt to do so, so LGTM.",
+      "revId": "8c50e3d0fa3e1077ff91fb2cb4136c4f893425f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
