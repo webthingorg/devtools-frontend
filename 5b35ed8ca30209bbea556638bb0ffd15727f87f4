@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb0b809f_7691462f",
+        "filename": "front_end/core/dom_extension/DOMExtension.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-19T07:21:23Z",
+      "side": 0,
+      "message": "Seems that some web tests are still using deepActiveElement. Wdyt about landing the CL as-is but not remove the function from DOMExtension.ts? Then we can update the web tests to use the DOMUtilities version before finally removing the code here. That way we don\u0027t have to disable the web tests.",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 84
+      },
+      "revId": "5b35ed8ca30209bbea556638bb0ffd15727f87f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "a82d072c3fd63e9f27d052f4f65ed533c64fa64c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e19a113_f1714525",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-19T07:21:23Z",
+      "side": 1,
+      "message": "Thanks for the cleanup (and the added unit test)!\n\nlgtm % comment on how to handle web tests",
+      "revId": "a82d072c3fd63e9f27d052f4f65ed533c64fa64c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
