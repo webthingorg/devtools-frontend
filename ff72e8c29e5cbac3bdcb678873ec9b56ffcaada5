@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21f64a7f_9c317278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-04-19T11:02:20Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m reverting this CL, since it is introducing visual regressions. PTAL!",
+      "revId": "ff72e8c29e5cbac3bdcb678873ec9b56ffcaada5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
