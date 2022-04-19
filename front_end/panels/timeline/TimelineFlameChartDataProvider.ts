@@ -1345,11 +1345,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   private appendAsyncEvent(asyncEvent: SDK.TracingModel.AsyncEvent, level: number): void {
-    if (SDK.TracingModel.TracingModel.isNestableAsyncPhase(asyncEvent.phase)) {
-      // FIXME: also add steps once we support event nesting in the FlameChart.
-      this.appendEvent(asyncEvent, level);
-      return;
-    }
     const steps = asyncEvent.steps;
     // If we have past steps, put the end event for each range rather than start one.
     const eventOffset = steps.length > 1 && steps[1].phase === SDK.TracingModel.Phase.AsyncStepPast ? 1 : 0;
@@ -1465,6 +1460,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return entryIndex >= 0 && this.entryType(entryIndex) === EntryType.Event ?
         this.entryData[entryIndex] as SDK.TracingModel.Event :
         null;
+  }
+
+  entryDataByIndex(entryIndex: number): SDK.TracingModel.Event {
+    return this.entryData[entryIndex] as SDK.TracingModel.Event;
   }
 
   setEventColorMapping(colorForEvent: (arg0: SDK.TracingModel.Event) => string): void {
