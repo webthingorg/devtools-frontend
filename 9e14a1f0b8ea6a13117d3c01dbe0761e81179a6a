@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9040ffdf_04892516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-04-19T11:17:16Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nI\u0027m disabling the flaky issues-toolbar tests, ptal!",
+      "revId": "9e14a1f0b8ea6a13117d3c01dbe0761e81179a6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
