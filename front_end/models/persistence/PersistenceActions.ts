@@ -84,7 +84,7 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
       contextMenu.saveSection().appendItem(i18nString(UIStrings.saveForOverrides), () => {
         uiSourceCode.commitWorkingCopy();
         void NetworkPersistenceManager.instance().saveUISourceCodeForOverrides(
-            uiSourceCode as Workspace.UISourceCode.UISourceCode);
+            uiSourceCode as Workspace.UISourceCode.UISourceCode, Host.Platform.isWin());
         void Common.Revealer.reveal(uiSourceCode);
       });
     }
