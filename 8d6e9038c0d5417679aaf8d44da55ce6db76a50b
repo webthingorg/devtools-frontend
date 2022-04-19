@@ -16,6 +16,24 @@
       "message": "Hey,\n\nthanks for the contribution! I apologize but we have to block this CL from landing. The reason is that npm package upgrades are huge CLs which we can\u0027t really review. As such it would be possible to slip in malicious code by bad actors in such CLs.\n\nI duplicdated the work here https://crrev.com/c/3592593, and adopted your .eslintrc.js changes for which we are greatful 😊\n\nThanks and sorry that we are not able to land your contribution in this form.",
       "revId": "8d6e9038c0d5417679aaf8d44da55ce6db76a50b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ea3814_a81b7923",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529417
+      },
+      "writtenOn": "2022-04-19T09:05:22Z",
+      "side": 1,
+      "message": "That\u0027s ok. thanks for the review.",
+      "parentUuid": "be322139_434f7f60",
+      "revId": "8d6e9038c0d5417679aaf8d44da55ce6db76a50b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
