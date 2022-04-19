@@ -16,6 +16,24 @@
       "message": "I’ll defer to Changhao on this one",
       "revId": "6237ad8658835cd6b70bcee5aa3ef3d13549ee96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c886de1_463fc61b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-19T07:25:47Z",
+      "side": 1,
+      "message": "LGTM. Our plan is to enable this by default for M103 onward and see how many people turn off the experiment, then decide if we would remove the experiment entirely or not.",
+      "parentUuid": "8bd8f7ae_479570ab",
+      "revId": "6237ad8658835cd6b70bcee5aa3ef3d13549ee96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
