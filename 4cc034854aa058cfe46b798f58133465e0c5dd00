@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60cfc639_aac1d750",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-19T06:33:37Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "4cc034854aa058cfe46b798f58133465e0c5dd00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d333e5_c3ce8396",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-19T06:33:37Z",
+      "side": 1,
+      "message": "nit: String constructor not needed. `https://example.com/ + feature` is enough. Alternatively use string interpolation ``https://example.com/${feature}``.",
+      "range": {
+        "startLine": 82,
+        "startChar": 50,
+        "endLine": 82,
+        "endChar": 67
+      },
+      "revId": "4cc034854aa058cfe46b798f58133465e0c5dd00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
