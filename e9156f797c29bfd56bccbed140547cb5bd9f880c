@@ -33,6 +33,24 @@
       "message": "Why not just:\n\n    for (const child of this.contextMenuElement.children) {\n      ARIAUtils.markAsMenuItemCheckBox(child);\n    }",
       "revId": "e9156f797c29bfd56bccbed140547cb5bd9f880c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6384cdd_b2afde20",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-04-19T18:35:50Z",
+      "side": 1,
+      "message": "this is much better, fixed, thank you!",
+      "parentUuid": "4f336eae_206e7573",
+      "revId": "e9156f797c29bfd56bccbed140547cb5bd9f880c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
