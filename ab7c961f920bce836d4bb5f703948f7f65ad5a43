@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506acf74_211b9a00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "Generally lgtm % a couple of not very clear places",
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12f9cbf7_83615cc9",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "Have you tried logging the resulting path here? Is it a URL? (e.g. might it have file:// prefix that stays?) If it\u0027s not, could you please name differently? e.g. encodedPath, not to cause confusion\n\nOr if it\u0027s still a URL, would it be possible not to cast it as encoded string? Or could you do this as late as possible and add an explanatory comment there please, stating how the path looks in reality?",
+      "range": {
+        "startLine": 200,
+        "startChar": 7,
+        "endLine": 200,
+        "endChar": 15
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b6721b_95e2507c",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "If it turns out that the path above (urlPath) \"has shape\" of an encoded path, could you please also rename this method? Specifically, the Url bit :)",
+      "range": {
+        "startLine": 223,
+        "startChar": 13,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f757bfb2_68bf529e",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "Same here, if what you feed into this method is an encoded path and not a URL, please rename method and parameter",
+      "range": {
+        "startLine": 252,
+        "startChar": 26,
+        "endLine": 252,
+        "endChar": 37
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6234af7_dc3e6b0b",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "You can use the `Common.ParsedUrl.ParsedUrl.concatenate` here, then you won\u0027t need to cast to UrlString",
+      "range": {
+        "startLine": 273,
+        "startChar": 11,
+        "endLine": 274,
+        "endChar": 98
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb6994c_6be9117d",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T14:18:21Z",
+      "side": 1,
+      "message": "Was the URL double-encoded, so that rawPathFromUrl returns an encoded path instead of a raw path? If that\u0027s the case, please add a comment here",
+      "range": {
+        "startLine": 597,
+        "startChar": 24,
+        "endLine": 597,
+        "endChar": 66
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
