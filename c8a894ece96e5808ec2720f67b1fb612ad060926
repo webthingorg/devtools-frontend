@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "951731c6_4d9822cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-04-20T11:51:37Z",
+      "side": 1,
+      "message": "macOS stressor bot run: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8816365754864843841/overview",
+      "revId": "c8a894ece96e5808ec2720f67b1fb612ad060926",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
