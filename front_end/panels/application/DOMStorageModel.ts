@@ -38,26 +38,47 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
 export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper<DOMStorage.EventTypes> {
   private readonly model: DOMStorageModel;
-  private readonly securityOriginInternal: string;
+  private readonly securityOriginInternal: string|null;
+  private readonly storageKeyInternal: string|null;
   private readonly isLocalStorageInternal: boolean;
 
-  constructor(model: DOMStorageModel, securityOrigin: string, isLocalStorage: boolean) {
+  constructor(model: DOMStorageModel, securityOrigin: string, storageKey: string, isLocalStorage: boolean) {
     super();
     this.model = model;
     this.securityOriginInternal = securityOrigin;
+    this.storageKeyInternal = storageKey;
     this.isLocalStorageInternal = isLocalStorage;
   }
 
-  static storageId(securityOrigin: string, isLocalStorage: boolean): Protocol.DOMStorage.StorageId {
+  static storageIdWithSecurityOrigin(securityOrigin: string, isLocalStorage: boolean): Protocol.DOMStorage.StorageId {
     return {securityOrigin: securityOrigin, isLocalStorage: isLocalStorage};
   }
 
-  get id(): Protocol.DOMStorage.StorageId {
-    return DOMStorage.storageId(this.securityOriginInternal, this.isLocalStorageInternal);
+  static storageIdWithStorageKey(storageKey: string, isLocalStorage: boolean): Protocol.DOMStorage.StorageId {
+    return {storageKey: storageKey, isLocalStorage: isLocalStorage};
   }
 
-  get securityOrigin(): string {
+  get id(): Protocol.DOMStorage.StorageId {
+    if (this.securityOriginInternal) {
+      return this.idWithSecurityOrigin;
+    }
+    return this.idWithStorageKey;
+  }
+
+  get idWithSecurityOrigin(): Protocol.DOMStorage.StorageId {
+    return DOMStorage.storageIdWithSecurityOrigin(this.securityOriginInternal!, this.isLocalStorageInternal);
+  }
+
+  get idWithStorageKey(): Protocol.DOMStorage.StorageId {
+    return DOMStorage.storageIdWithStorageKey(this.storageKeyInternal!, this.isLocalStorageInternal);
+  }
+
+  get securityOrigin(): string|null {
     return this.securityOriginInternal;
+  }
+
+  get storageKey(): string|null {
+    return this.storageKeyInternal;
   }
 
   get isLocalStorage(): boolean {
@@ -70,6 +91,10 @@ export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper<DOMStorage.Ev
 
   setItem(key: string, value: string): void {
     void this.model.agent.invoke_setDOMStorageItem({storageId: this.id, key, value});
+  }
+
+  getStorageKeyForFrame(frameId: Protocol.Page.FrameId): Promise<Protocol.DOMStorage.GetStorageKeyForFrameResponse> {
+    return this.model.agent.invoke_getStorageKeyForFrame({frameId: frameId});
   }
 
   removeItem(key: string): void {
@@ -116,6 +141,7 @@ export namespace DOMStorage {
 
 export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
   private readonly securityOriginManager: SDK.SecurityOriginManager.SecurityOriginManager|null;
+  private readonly storageKeyManager: SDK.StorageKeyManager.StorageKeyManager|null;
   private storagesInternal: {
     [x: string]: DOMStorage,
   };
@@ -126,11 +152,13 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     super(target);
 
     this.securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
+    this.storageKeyManager = target.model(SDK.StorageKeyManager.StorageKeyManager);
     this.storagesInternal = {};
     this.agent = target.domstorageAgent();
   }
 
   enable(): void {
+    console.log('ENABLE STACK TRACE: ', new Error().stack);
     if (this.enabled) {
       return;
     }
@@ -146,6 +174,15 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
         this.addOrigin(securityOrigin);
       }
     }
+    if (this.storageKeyManager) {
+      this.storageKeyManager.addEventListener(SDK.StorageKeyManager.Events.StorageKeyAdded, this.storageKeyAdded, this);
+      this.storageKeyManager.addEventListener(
+          SDK.StorageKeyManager.Events.StorageKeyRemoved, this.storageKeyRemoved, this);
+
+      for (const storageKey of this.storageKeyManager.storageKeys()) {
+        this.addStorageKey(storageKey);
+      }
+    }
     void this.agent.invoke_enable();
 
     this.enabled = true;
@@ -156,7 +193,7 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
       return;
     }
     for (const isLocal of [true, false]) {
-      const key = this.storageKey(origin, isLocal);
+      const key = this.keyForSecurityOrigin(origin, isLocal);
       const storage = this.storagesInternal[key];
       if (!storage) {
         return;
@@ -167,22 +204,64 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     this.addOrigin(origin);
   }
 
+  clearForStorageKey(storageKey: string): void {
+    if (!this.enabled) {
+      return;
+    }
+    for (const isLocal of [true, false]) {
+      const key = this.keyForStorageKey(storageKey, isLocal);
+      const storage = this.storagesInternal[key];
+      if (!storage) {
+        return;
+      }
+      storage.clear();
+    }
+    this.removeStorageKey(storageKey);
+    this.addStorageKey(storageKey);
+  }
+
   private securityOriginAdded(event: Common.EventTarget.EventTargetEvent<string>): void {
     this.addOrigin(event.data);
   }
 
+  private storageKeyAdded(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.addStorageKey(event.data);
+  }
+
   private addOrigin(securityOrigin: string): void {
+    console.log('ADD ORIGIN CALLED with secOrigin: ', securityOrigin);
+    console.log(new Error().stack);
     const parsed = new Common.ParsedURL.ParsedURL(securityOrigin);
     // These are "opaque" origins which are not supposed to support DOM storage.
     if (!parsed.isValid || parsed.scheme === 'data' || parsed.scheme === 'about' || parsed.scheme === 'javascript') {
+      console.log('INVALID PARSED');
       return;
     }
 
     for (const isLocal of [true, false]) {
-      const key = this.storageKey(securityOrigin, isLocal);
+      const key = this.keyForSecurityOrigin(securityOrigin, isLocal);
+      console.log('KEY: ', key);
       console.assert(!this.storagesInternal[key]);
-      const storage = new DOMStorage(this, securityOrigin, isLocal);
+      const storage = new DOMStorage(this, securityOrigin, '', isLocal);
       this.storagesInternal[key] = storage;
+      console.log('STORAGES INTERNAL', this.storagesInternal.toString());
+      console.log('Storage Added');
+      this.dispatchEventToListeners(Events.DOMStorageAdded, storage);
+    }
+  }
+
+  private addStorageKey(storageKey: string): void {
+    console.log('ADD ORIGIN CALLED with sKey: ', storageKey);
+    console.log(new Error().stack);
+
+    for (const isLocal of [true, false]) {
+      const key = this.keyForStorageKey(storageKey, isLocal);
+      console.log('KEY: ', key);
+      console.assert(!this.storagesInternal[key]);
+      const storage = new DOMStorage(this, '', storageKey, isLocal);
+      this.storagesInternal[key] = storage;
+      console.log('STORAGES INTERNAL', this.storagesInternal.toString());
+      console.log('Storage Added');
       this.dispatchEventToListeners(Events.DOMStorageAdded, storage);
     }
   }
@@ -191,9 +270,13 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     this.removeOrigin(event.data);
   }
 
+  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.removeStorageKey(event.data);
+  }
+
   private removeOrigin(securityOrigin: string): void {
     for (const isLocal of [true, false]) {
-      const key = this.storageKey(securityOrigin, isLocal);
+      const key = this.keyForSecurityOrigin(securityOrigin, isLocal);
       const storage = this.storagesInternal[key];
       if (!storage) {
         continue;
@@ -203,8 +286,31 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     }
   }
 
-  private storageKey(securityOrigin: string, isLocalStorage: boolean): string {
-    return JSON.stringify(DOMStorage.storageId(securityOrigin, isLocalStorage));
+  private removeStorageKey(storageKey: string): void {
+    for (const isLocal of [true, false]) {
+      const key = this.keyForStorageKey(storageKey, isLocal);
+      const storage = this.storagesInternal[key];
+      if (!storage) {
+        continue;
+      }
+      delete this.storagesInternal[key];
+      this.dispatchEventToListeners(Events.DOMStorageRemoved, storage);
+    }
+  }
+
+  private storageKey(securityOrigin: string, storageKey: string, isLocalStorage: boolean): string {
+    if (securityOrigin) {
+      return JSON.stringify(DOMStorage.storageIdWithSecurityOrigin(securityOrigin, isLocalStorage));
+    }
+    return JSON.stringify(DOMStorage.storageIdWithStorageKey(storageKey, isLocalStorage));
+  }
+
+  private keyForSecurityOrigin(securityOrigin: string, isLocalStorage: boolean) {
+    return this.storageKey(securityOrigin, '', isLocalStorage);
+  }
+
+  private keyForStorageKey(storageKey: string, isLocalStorage: boolean) {
+    return this.storageKey('', storageKey, isLocalStorage);
   }
 
   domStorageItemsCleared(storageId: Protocol.DOMStorage.StorageId): void {
@@ -227,10 +333,15 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
   }
 
   domStorageItemAdded(storageId: Protocol.DOMStorage.StorageId, key: string, value: string): void {
+    console.log('domStorageItemAdded called');
+    console.error('DOM storage Item added called');
     const domStorage = this.storageForId(storageId);
     if (!domStorage) {
+      console.log('NO DOM STORAGE FOUND');
       return;
     }
+
+    console.log('DOM STORAGE FOUND');
 
     const eventData = {key: key, value: value};
     domStorage.dispatchEventToListeners(DOMStorage.Events.DOMStorageItemAdded, eventData);
@@ -247,6 +358,8 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
   }
 
   storageForId(storageId: Protocol.DOMStorage.StorageId): DOMStorage {
+    console.log('Storage ID to find storage for: ', JSON.stringify(storageId));
+    console.log('Storages internal keys: ', this.storagesInternal);
     return this.storagesInternal[JSON.stringify(storageId)];
   }
 

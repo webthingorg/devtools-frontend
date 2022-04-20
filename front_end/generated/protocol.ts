@@ -4895,6 +4895,8 @@ export namespace DOMSnapshot {
  */
 export namespace DOMStorage {
 
+  export type SerializedStorageKey = string;
+
   /**
    * DOM Storage identifier.
    */
@@ -4902,7 +4904,11 @@ export namespace DOMStorage {
     /**
      * Security origin for the storage.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Represents a key by which DOM Storage keys its CachedStorageAreas
+     */
+    storageKey?: SerializedStorageKey;
     /**
      * Whether the storage is local storage (not session storage).
      */
@@ -4935,6 +4941,14 @@ export namespace DOMStorage {
     storageId: StorageId;
     key: string;
     value: string;
+  }
+
+  export interface GetStorageKeyForFrameRequest {
+    frameId: Page.FrameId;
+  }
+
+  export interface GetStorageKeyForFrameResponse extends ProtocolResponseWithError {
+    storageKey: SerializedStorageKey;
   }
 
   export interface DomStorageItemAddedEvent {

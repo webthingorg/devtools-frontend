@@ -1280,6 +1280,9 @@ declare namespace ProtocolProxyApi {
 
     invoke_setDOMStorageItem(params: Protocol.DOMStorage.SetDOMStorageItemRequest):
         Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_getStorageKeyForFrame(params: Protocol.DOMStorage.GetStorageKeyForFrameRequest):
+        Promise<Protocol.DOMStorage.GetStorageKeyForFrameResponse>;
   }
   export interface DOMStorageDispatcher {
     domStorageItemAdded(params: Protocol.DOMStorage.DomStorageItemAddedEvent): void;

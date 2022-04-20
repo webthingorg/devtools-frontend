@@ -1010,6 +1010,8 @@ export function registerCommands(inspectorBackend) {
         {'name': 'key', 'type': 'string', 'optional': false}, {'name': 'value', 'type': 'string', 'optional': false}
       ],
       []);
+  inspectorBackend.registerCommand(
+      'DOMStorage.getStorageKeyForFrame', [{'name': 'frameId', 'type': 'string', 'optional': false}], ['storageKey']);
 
   // Database.
   inspectorBackend.registerEvent('Database.addDatabase', ['database']);
