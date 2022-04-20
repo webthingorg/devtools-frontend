@@ -33,6 +33,24 @@
       "message": "macOS stressor bot run: https://ci.chromium.org/b/8816365573365714097",
       "revId": "7c3bc5fec3cc156d37e9852a3ab02851148d689e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8654151b_b5922e20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-20T11:56:16Z",
+      "side": 1,
+      "message": "TIL about this trybot :)",
+      "parentUuid": "45b74b85_4e5c50a3",
+      "revId": "7c3bc5fec3cc156d37e9852a3ab02851148d689e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
