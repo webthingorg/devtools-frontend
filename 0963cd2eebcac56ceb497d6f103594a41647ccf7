@@ -16,6 +16,23 @@
       "message": "Hey Kateryna,\n\nHere\u0027s the fix for the CSP issues e2e test. It\u0027s currently failing on ToT, because it needs a Chromium roll.\n\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "0963cd2eebcac56ceb497d6f103594a41647ccf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f017a9e_c0064afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-20T08:23:35Z",
+      "side": 1,
+      "message": "LGTM, thanks!:)",
+      "revId": "0963cd2eebcac56ceb497d6f103594a41647ccf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
