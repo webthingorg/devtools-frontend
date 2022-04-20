@@ -16,6 +16,23 @@
       "message": "The hidden characters in the expectations are now made explicit. This shouldn’t affect the flakiness of the test in any way.\n\nI ran this test locally (macOS) repeatedly without seeing any flakes/failures. Let’s re-enable it and get data from the bots?",
       "revId": "7c3bc5fec3cc156d37e9852a3ab02851148d689e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b74b85_4e5c50a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-04-20T11:54:41Z",
+      "side": 1,
+      "message": "macOS stressor bot run: https://ci.chromium.org/b/8816365573365714097",
+      "revId": "7c3bc5fec3cc156d37e9852a3ab02851148d689e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
