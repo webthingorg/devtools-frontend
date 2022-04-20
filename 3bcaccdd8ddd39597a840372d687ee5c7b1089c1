@@ -39,6 +39,30 @@
       },
       "revId": "3bcaccdd8ddd39597a840372d687ee5c7b1089c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69571bb7_e791d371",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-04-20T13:59:01Z",
+      "side": 1,
+      "message": "Good point. `entryData` is a union of several types including `SDK.TracingModel.Event`, as such we should return that union type instead, drop the cast, and make sure that calls to this function check the type of the returned value. Done in the next PS.",
+      "parentUuid": "352313eb_4adf0573",
+      "range": {
+        "startLine": 1466,
+        "startChar": 0,
+        "endLine": 1466,
+        "endChar": 64
+      },
+      "revId": "3bcaccdd8ddd39597a840372d687ee5c7b1089c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
