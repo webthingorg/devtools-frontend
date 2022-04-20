@@ -33,6 +33,29 @@
       "message": "Adding Danil because Eric is OOO. PTAL",
       "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2628a58_826b75d8",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-20T10:58:37Z",
+      "side": 1,
+      "message": "Do we really need to propagate isWindows all the way from here? I\u0027d rather call Host.Platform.isWin()) where we need it (in encodeUrlPathToLocalPathParts)",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 80
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
