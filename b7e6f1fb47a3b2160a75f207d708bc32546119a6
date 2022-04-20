@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab1c559e_e6a53576",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T13:17:07Z",
+      "side": 1,
+      "message": "That\u0027s how I had it initially. I made this change so that the layout test in https://crrev.com/c/3593014 can test both Windows and non-Windows filenames.\n\nDo you have an alternative idea?",
+      "parentUuid": "f2628a58_826b75d8",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 80
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22ceca58_b74b6251",
         "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
         "patchSetId": 13
@@ -71,6 +95,30 @@
       "writtenOn": "2022-04-20T10:59:39Z",
       "side": 1,
       "message": "what do these comment mean?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 28
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4e202dd_a037a4c2",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T13:17:07Z",
+      "side": 1,
+      "message": "oh, these are just notes I used during development.",
+      "parentUuid": "22ceca58_b74b6251",
       "range": {
         "startLine": 300,
         "startChar": 0,
