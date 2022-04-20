@@ -4,9 +4,9 @@
 
 import {assert} from 'chai';
 import type {Chrome} from '../../../extension-api/ExtensionAPI.js';
-import {loadExtension} from '../helpers/extension-helpers.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
 import {click, getBrowserAndPages, getResourcesPath, waitFor, waitForFunction} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
+import {loadExtension} from '../helpers/extension-helpers.js';
 
 declare global {
   interface Window {
@@ -16,8 +16,7 @@ declare global {
 
 const PAGE_TITLE = 'TestPanel';
 describe('Extension panels', async () => {
-  // Test fails a lot on mac currently
-  it.skipOnPlatforms(['mac'], '[crbug.com/1249774] can perform search actions', async () => {
+  it('can perform search actions', async () => {
     const extension = await loadExtension('TestExtension');
 
     const page = new URL(`${getResourcesPath()}/extensions/test_panel.html`).pathname;
