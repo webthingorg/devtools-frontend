@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd31d0e_5c3cd603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-20T07:30:36Z",
+      "side": 1,
+      "message": "LGTM, great work! One tiny nit that you should feel free to leave if you don\u0027t think it\u0027s worth it.",
+      "revId": "3bcaccdd8ddd39597a840372d687ee5c7b1089c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352313eb_4adf0573",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-20T07:30:36Z",
+      "side": 1,
+      "message": "nit and maybe not worth it / definitely not needed in this CL, but could `this.entryData` be typed as `SDK.TracingModel.Event[]` to avoid the `as` here?",
+      "range": {
+        "startLine": 1466,
+        "startChar": 0,
+        "endLine": 1466,
+        "endChar": 64
+      },
+      "revId": "3bcaccdd8ddd39597a840372d687ee5c7b1089c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
