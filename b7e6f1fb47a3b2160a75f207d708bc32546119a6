@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "515acde9_6359a1ae",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m having trouble faking specifically `Host.Platform.isWin()`, so I added (for now) a `isWin()` helper to `NetworkPersistenceManager`, which I am able to fake from the layout test. Will investigate tomorrow.",
+      "parentUuid": "ca9306b2_856c30a4",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 80
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22ceca58_b74b6251",
         "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
         "patchSetId": 13

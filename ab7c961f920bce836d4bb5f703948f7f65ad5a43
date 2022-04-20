@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d27782_cf0966c1",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "It\u0027s an encodedPath, but because that variable name is already taken, I\u0027m calling it `initialEncodedPath`.",
+      "parentUuid": "12f9cbf7_83615cc9",
+      "range": {
+        "startLine": 200,
+        "startChar": 7,
+        "endLine": 200,
+        "endChar": 15
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62b6721b_95e2507c",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-20T14:18:21Z",
       "side": 1,
       "message": "If it turns out that the path above (urlPath) \"has shape\" of an encoded path, could you please also rename this method? Specifically, the Url bit :)",
+      "range": {
+        "startLine": 223,
+        "startChar": 13,
+        "endLine": 223,
+        "endChar": 42
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e06e9c3f_065d04ac",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "I\u0027m renaming it to `encodeEncodedPathToLocalPathParts` which sounds ugly but is technically correct.",
+      "parentUuid": "62b6721b_95e2507c",
       "range": {
         "startLine": 223,
         "startChar": 13,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3812b7c4_14a2b210",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f757bfb2_68bf529e",
+      "range": {
+        "startLine": 252,
+        "startChar": 26,
+        "endLine": 252,
+        "endChar": 37
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6234af7_dc3e6b0b",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa5ac29_119cedcc",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6234af7_dc3e6b0b",
+      "range": {
+        "startLine": 273,
+        "startChar": 11,
+        "endLine": 274,
+        "endChar": 98
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8eb6994c_6be9117d",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-04-20T14:18:21Z",
       "side": 1,
       "message": "Was the URL double-encoded, so that rawPathFromUrl returns an encoded path instead of a raw path? If that\u0027s the case, please add a comment here",
+      "range": {
+        "startLine": 597,
+        "startChar": 24,
+        "endLine": 597,
+        "endChar": 66
+      },
+      "revId": "ab7c961f920bce836d4bb5f703948f7f65ad5a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cff283e_d0e4dc86",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-20T17:45:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eb6994c_6be9117d",
       "range": {
         "startLine": 597,
         "startChar": 24,
