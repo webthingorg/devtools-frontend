@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca9306b2_856c30a4",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-20T13:25:15Z",
+      "side": 1,
+      "message": "(1) This is a tradeoff. I think in this case the amount of plumbing is overwhelming and being able to avoid it is more important than the need of special setup for test.\n(1) Host.Platform.isWin is stable API so faking it doesn\u0027t break the encapsulation and is generally safe.",
+      "parentUuid": "54c7c2e5_38a4ab7c",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 80
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22ceca58_b74b6251",
         "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
         "patchSetId": 13
@@ -143,6 +167,30 @@
       "side": 1,
       "message": "oh, these are just notes I used during development.",
       "parentUuid": "22ceca58_b74b6251",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 28
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69034289_bfa0cb7b",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-20T13:25:15Z",
+      "side": 1,
+      "message": "Please remove the",
+      "parentUuid": "e4e202dd_a037a4c2",
       "range": {
         "startLine": 300,
         "startChar": 0,
