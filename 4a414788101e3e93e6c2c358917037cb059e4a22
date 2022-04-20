@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "4a414788101e3e93e6c2c358917037cb059e4a22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "304b55a2_cf7a46a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-20T10:58:55Z",
+      "side": 1,
+      "message": "lgtm % nits, thanks for adding a unit test!",
+      "revId": "4a414788101e3e93e6c2c358917037cb059e4a22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "743bb278_30a2c51f",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-20T10:58:55Z",
+      "side": 1,
+      "message": "nit: Please include in the description that the placeholder \"m\" will always be \u003e\u003d 2.",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 116
+      },
+      "revId": "4a414788101e3e93e6c2c358917037cb059e4a22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d300599_4527d0f8",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-20T10:58:55Z",
+      "side": 1,
+      "message": "nit: Please leave a comment here mentioning that nested plurals are not supported and thats why we split the UIString into two different messages.",
+      "range": {
+        "startLine": 323,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 27
+      },
+      "revId": "4a414788101e3e93e6c2c358917037cb059e4a22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
