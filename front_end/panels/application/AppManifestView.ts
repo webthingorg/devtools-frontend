@@ -486,6 +486,15 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     this.registeredListeners = [];
   }
 
+  getStaticSections(): UI.ReportView.Section[] {
+    return [this.identitySection, this.presentationSection, this.iconsSection];
+  }
+
+  getManifestElement(): Element {
+    const manifestHeaderElement: Element = this.reportView.getHeaderElement();
+    return manifestHeaderElement;
+  }
+
   targetAdded(target: SDK.Target.Target): void {
     if (this.target) {
       return;
@@ -551,10 +560,12 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     if (!data && !errors.length) {
       this.emptyView.showWidget();
       this.reportView.hideWidget();
+      this.contentElement.dispatchEvent(new CustomEvent('manifestDetection', {detail: false}));
       return;
     }
     this.emptyView.hideWidget();
     this.reportView.showWidget();
+    this.contentElement.dispatchEvent(new CustomEvent('manifestDetection', {detail: true}));
 
     const link = Components.Linkifier.Linkifier.linkifyURL(url);
     link.tabIndex = 0;

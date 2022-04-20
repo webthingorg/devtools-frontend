@@ -929,11 +929,15 @@ export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
 }
 
 export class AppManifestTreeElement extends ApplicationPanelTreeElement {
-  private view?: AppManifestView;
+  private view: AppManifestView;
   constructor(storagePanel: ResourcesPanel) {
-    super(storagePanel, i18nString(UIStrings.manifest), false);
+    super(storagePanel, i18nString(UIStrings.manifest), true);
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
+    this.onexpand = this.onselect.bind(this);
+    self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
+    this.view = new AppManifestView();
+    this.generateChildren();
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
@@ -942,12 +946,51 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new AppManifestView();
-    }
+    const handleExpansion = (evt: Event): void => {
+      this.setExpandable((evt as CustomEvent).detail);
+    };
+    this.view.contentElement.addEventListener('manifestDetection', handleExpansion);
     this.showView(this.view);
     Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.app_manifest]);
     return false;
+  }
+
+  generateChildren(): void {
+    const staticSections = this.view.getStaticSections();
+    for (const section of staticSections) {
+      const sectionElement = section.getTitleElement();
+      const childTitle = section.title();
+      const child = new ManifestChildTreeElement(this.resourcesPanel, sectionElement, childTitle);
+      this.appendChild(child);
+    }
+  }
+
+  onInvoke(): void {
+    this.view.getManifestElement().scrollIntoView();
+  }
+
+  showManifestView(): void {
+    this.showView(this.view);
+  }
+}
+
+export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
+  private element: Element;
+  constructor(storagePanel: ResourcesPanel, element: Element, childTitle: string) {
+    super(storagePanel, childTitle, false);
+    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
+    this.setLeadingIcons([icon]);
+    this.element = element;
+    self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
+  }
+
+  get itemURL(): string {
+    return 'manifest://' + this.title;
+  }
+
+  onInvoke(): void {
+    (this.parent as AppManifestTreeElement)?.showManifestView();
+    this.element.scrollIntoView();
   }
 }
 
