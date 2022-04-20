@@ -48,6 +48,7 @@ const REGISTERED_EXPERIMENTS = [
   'protocolMonitor',
   'sourcesPrettyPrint',
   'wasmDWARFDebugging',
+  'instrumentationBreakpoints',
 ];
 
 export async function initializeGlobalVars({reset = true} = {}) {
