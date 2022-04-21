@@ -1352,6 +1352,21 @@
   "models/issues_manager/CrossOriginEmbedderPolicyIssue.ts | samesiteAndSameorigin": {
     "message": "Same-Site and Same-Origin"
   },
+  "models/issues_manager/DeprecationIssue.ts | authorizationCoveredByWildcard": {
+    "message": "\"Authorization\" will not be covered by the wildcard symbol (*)in CORS \"Access-Control-Allow-Headers\" handling."
+  },
+  "models/issues_manager/DeprecationIssue.ts | cookieWithTruncatingChar": {
+    "message": "Cookies containing a \\(0|r|n) character will be rejected instead of truncated."
+  },
+  "models/issues_manager/DeprecationIssue.ts | crossOriginAccessBasedOnDocumentDomain": {
+    "message": "Relaxing the same-origin policy by setting \"document.domain\" is deprecated, and will be disabled by default. This deprecation warning is for a cross-origin access that was enabled by setting document.domain."
+  },
+  "models/issues_manager/DeprecationIssue.ts | crossOriginWindowAlert": {
+    "message": "Triggering window.alert from cross origin iframes has been deprecated and will be removed in the future."
+  },
+  "models/issues_manager/DeprecationIssue.ts | crossOriginWindowConfirm": {
+    "message": "Triggering window.confirm from cross origin iframes has been deprecated and will be removed in the future."
+  },
   "models/issues_manager/DeprecationIssue.ts | deprecationExample": {
     "message": "This is an example of a translated deprecation issue message."
   },
@@ -1363,6 +1378,18 @@
   },
   "models/issues_manager/DeprecationIssue.ts | title": {
     "message": "Deprecated Feature Used"
+  },
+  "models/issues_manager/DeprecationIssue.ts | v8SharedArrayBufferConstructedInExtensionWithoutIsolation": {
+    "message": "Extensions should opt into cross-origin isolation to continue using SharedArrayBuffer. See https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/."
+  },
+  "models/issues_manager/DeprecationIssue.ts | webCodecsVideoFrameDefaultTimestamp": {
+    "message": "Constructing a VideoFrame without a timestamp is deprecated and support will be removed. Please provide a timestamp via VideoFrameInit."
+  },
+  "models/issues_manager/DeprecationIssue.ts | xhrJSONEncodingDetection": {
+    "message": "UTF-16 is not supported by response json in XMLHttpRequest"
+  },
+  "models/issues_manager/DeprecationIssue.ts | xmlHttpRequestSynchronousInNonWorkerOutsideBeforeUnload": {
+    "message": "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/."
   },
   "models/issues_manager/FederatedAuthRequestIssue.ts | fedCm": {
     "message": "Federated Credential Management API"

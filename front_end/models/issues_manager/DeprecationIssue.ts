@@ -28,9 +28,52 @@ const UIStrings = {
 
   // Store alphabetized messages per DeprecationIssueType in this block.
   /**
-   *@description This message is shown when the example deprecated feature is used
+   *@description This message is shown when the deprecated feature is used
+   */
+  authorizationCoveredByWildcard:
+      '"Authorization" will not be covered by the wildcard symbol (*)in CORS "Access-Control-Allow-Headers" handling.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  cookieWithTruncatingChar: 'Cookies containing a `\\(0|r|n)` character will be rejected instead of truncated.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  crossOriginAccessBasedOnDocumentDomain:
+      'Relaxing the same-origin policy by setting "document.domain" is deprecated, and will be disabled by default. This deprecation warning is for a cross-origin access that was enabled by setting document.domain.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  crossOriginWindowAlert:
+      'Triggering window.alert from cross origin iframes has been deprecated and will be removed in the future.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  crossOriginWindowConfirm:
+      'Triggering window.confirm from cross origin iframes has been deprecated and will be removed in the future.',
+  /**
+   *@description This message is shown when the deprecated feature is used
    */
   deprecationExample: 'This is an example of a translated deprecation issue message.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  v8SharedArrayBufferConstructedInExtensionWithoutIsolation:
+      'Extensions should opt into cross-origin isolation to continue using SharedArrayBuffer. See https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  webCodecsVideoFrameDefaultTimestamp:
+      'Constructing a VideoFrame without a timestamp is deprecated and support will be removed. Please provide a timestamp via VideoFrameInit.',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  xhrJSONEncodingDetection: 'UTF-16 is not supported by response json in XMLHttpRequest',
+  /**
+   *@description This message is shown when the deprecated feature is used
+   */
+  xmlHttpRequestSynchronousInNonWorkerOutsideBeforeUnload:
+      'Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user\'s experience. For more help, check https://xhr.spec.whatwg.org/.',
 };
 const str_ = i18n.i18n.registerUIStrings('models/issues_manager/DeprecationIssue.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -66,6 +109,24 @@ export class DeprecationIssue extends Issue {
     let milestone = 0;
     // Keep case statements alphabetized per DeprecationIssueType.
     switch (this.#issueDetails.type) {
+      case Protocol.Audits.DeprecationIssueType.AuthorizationCoveredByWildcard:
+        messageFunction = i18nLazyString(UIStrings.authorizationCoveredByWildcard);
+        milestone = 97;
+        break;
+      case Protocol.Audits.DeprecationIssueType.CookieWithTruncatingChar:
+        messageFunction = i18nLazyString(UIStrings.cookieWithTruncatingChar);
+        milestone = 103;
+        break;
+      case Protocol.Audits.DeprecationIssueType.CrossOriginAccessBasedOnDocumentDomain:
+        messageFunction = i18nLazyString(UIStrings.crossOriginAccessBasedOnDocumentDomain);
+        milestone = 106;
+        break;
+      case Protocol.Audits.DeprecationIssueType.CrossOriginWindowAlert:
+        messageFunction = i18nLazyString(UIStrings.crossOriginWindowAlert);
+        break;
+      case Protocol.Audits.DeprecationIssueType.CrossOriginWindowConfirm:
+        messageFunction = i18nLazyString(UIStrings.crossOriginWindowConfirm);
+        break;
       case Protocol.Audits.DeprecationIssueType.DeprecationExample:
         messageFunction = i18nLazyString(UIStrings.deprecationExample);
         feature = 5684289032159232;
@@ -74,6 +135,22 @@ export class DeprecationIssue extends Issue {
       // TODO(crbug.com/1264960): Remove legacy type when issues are translated.
       case Protocol.Audits.DeprecationIssueType.Untranslated:
         messageFunction = (): string => this.#issueDetails.message ?? '';
+        break;
+      case Protocol.Audits.DeprecationIssueType.V8SharedArrayBufferConstructedInExtensionWithoutIsolation:
+        messageFunction = i18nLazyString(UIStrings.v8SharedArrayBufferConstructedInExtensionWithoutIsolation);
+        milestone = 96;
+        break;
+      case Protocol.Audits.DeprecationIssueType.WebCodecsVideoFrameDefaultTimestamp:
+        messageFunction = i18nLazyString(UIStrings.webCodecsVideoFrameDefaultTimestamp);
+        feature = 5667793157488640;
+        milestone = 99;
+        break;
+      case Protocol.Audits.DeprecationIssueType.XHRJSONEncodingDetection:
+        messageFunction = i18nLazyString(UIStrings.xhrJSONEncodingDetection);
+        milestone = 93;
+        break;
+      case Protocol.Audits.DeprecationIssueType.XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload:
+        messageFunction = i18nLazyString(UIStrings.xmlHttpRequestSynchronousInNonWorkerOutsideBeforeUnload);
         break;
     }
     const links = [];
