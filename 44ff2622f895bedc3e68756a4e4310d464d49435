@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b303a12_d7ece9b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-21T08:54:47Z",
+      "side": 1,
+      "message": "The test does not appear to be flaky anymore. I suggest to just re-enable it.",
+      "revId": "44ff2622f895bedc3e68756a4e4310d464d49435",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
