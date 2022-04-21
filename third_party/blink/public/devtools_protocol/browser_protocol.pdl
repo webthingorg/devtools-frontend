@@ -3545,6 +3545,8 @@ domain Emulation
       string architecture
       string model
       boolean mobile
+      string bitness
+      boolean wow64
 
   # Tells whether emulation is supported.
   command canEmulate
