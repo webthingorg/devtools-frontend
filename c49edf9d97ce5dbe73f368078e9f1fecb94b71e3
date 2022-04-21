@@ -86,6 +86,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4279018a_0d95eab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-04-21T00:43:56Z",
+      "side": 1,
+      "message": "Yes -- upgraded an e2e test to check this.",
+      "parentUuid": "18840128_a38d883a",
+      "revId": "c49edf9d97ce5dbe73f368078e9f1fecb94b71e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee0df7f4_8203f42e",
@@ -99,6 +117,30 @@
       "writtenOn": "2022-04-20T11:12:07Z",
       "side": 1,
       "message": "The tiniest of nits: crbug.com :-)",
+      "range": {
+        "startLine": 316,
+        "startChar": 12,
+        "endLine": 316,
+        "endChar": 17
+      },
+      "revId": "c49edf9d97ce5dbe73f368078e9f1fecb94b71e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9fe66c_7f7944d5",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-04-21T00:43:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee0df7f4_8203f42e",
       "range": {
         "startLine": 316,
         "startChar": 12,
