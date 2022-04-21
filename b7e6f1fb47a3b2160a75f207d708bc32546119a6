@@ -154,6 +154,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1098c0a_11b8760c",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-21T12:37:36Z",
+      "side": 1,
+      "message": "`Hots.Platform` is non-configurable/writable in layout tests which prevents monkey-patching \u0027isWin()\u0027. Added `setPlatformForTests()` instead.",
+      "parentUuid": "515acde9_6359a1ae",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 80
+      },
+      "revId": "b7e6f1fb47a3b2160a75f207d708bc32546119a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22ceca58_b74b6251",
