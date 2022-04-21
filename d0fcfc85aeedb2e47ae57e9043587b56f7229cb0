@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d40802_8d01d15b",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-21T16:36:46Z",
+      "side": 1,
+      "message": "Do you know why for `import type {...` clang allows multiple items per line, while for `import {...` each item is put on a separate line?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "d0fcfc85aeedb2e47ae57e9043587b56f7229cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
