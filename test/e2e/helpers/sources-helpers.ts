@@ -66,6 +66,7 @@ export async function openSourcesPanel() {
 
 export async function openFileInSourcesPanel(testInput: string) {
   await goToResource(`sources/${testInput}`);
+  console.log('b');  // eslint-disable-line no-console
 
   await openSourcesPanel();
 }
@@ -134,15 +135,19 @@ export async function openFileInEditor(sourceFile: string) {
   const {frontend} = getBrowserAndPages();
 
   await listenForSourceFilesLoaded(frontend);
+  console.log('d');  // eslint-disable-line no-console
 
   // Open a particular file in the editor
   await doubleClickSourceTreeItem(`[aria-label="${sourceFile}, file"]`);
+  console.log('e');  // eslint-disable-line no-console
 
   await waitForSourceLoadedEvent(frontend, sourceFile);
+  console.log('f');  // eslint-disable-line no-console
 }
 
 export async function openSourceCodeEditorForFile(sourceFile: string, testInput: string) {
   await openFileInSourcesPanel(testInput);
+  console.log('c');  // eslint-disable-line no-console
   await openFileInEditor(sourceFile);
 }
 

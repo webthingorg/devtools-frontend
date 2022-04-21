@@ -18,9 +18,12 @@ async function retrieveCodeMirrorEditorContent(): Promise<Array<string>> {
 
 async function prettyPrintMinifiedFile(frontend: puppeteer.Page) {
   await listenForSourceFilesLoaded(frontend);
+  console.log('h');  // eslint-disable-line no-console
   const previousTextContent = await retrieveCodeMirrorEditorContent();
+  console.log('i');  // eslint-disable-line no-console
 
   await waitFor(PRETTY_PRINT_BUTTON);
+  console.log('j');  // eslint-disable-line no-console
   await click(PRETTY_PRINT_BUTTON);
 
   // A separate editor is opened which shows the formatted file
@@ -108,15 +111,18 @@ describe('The Sources Tab', async function() {
     ]);
   });
 
-  // Flaky on Windows
-  it.skipOnPlatforms(['win32'], '[crbug.com/1184104]: can add breakpoint for formatted file', async () => {
+  it('can add breakpoint for formatted file', async () => {
     const {target, frontend} = getBrowserAndPages();
-
+    console.log('a');  // eslint-disable-line no-console
     await openSourceCodeEditorForFile('minified-sourcecode.js', 'minified-sourcecode.html');
+    console.log('g');  // eslint-disable-line no-console
     await prettyPrintMinifiedFile(frontend);
+    console.log('k');  // eslint-disable-line no-console
     await addBreakpointForLine(frontend, 10);
+    console.log('l');  // eslint-disable-line no-console
 
     const scriptLocation = await retrieveTopCallFrameScriptLocation('notFormattedFunction();', target);
+    console.log('m');  // eslint-disable-line no-console
     assert.deepEqual(scriptLocation, 'minified-source…s:formatted:10');
   });
 
