@@ -4,7 +4,13 @@
 import {assert} from 'chai';
 import {describe, it} from '../../shared/mocha-extensions.js';
 
-import {clickToggleButton, getWidthOfDevice, selectDualScreen, selectNonDualScreenDevice, startEmulationWithDualScreenFlag} from '../helpers/emulation-helpers.js';
+import {
+  clickToggleButton,
+  getWidthOfDevice,
+  selectDualScreen,
+  selectNonDualScreenDevice,
+  startEmulationWithDualScreenFlag,
+} from '../helpers/emulation-helpers.js';
 import {selectToggleButton} from '../helpers/emulation-helpers.js';
 
 const DUO_VERTICAL_SPANNED_WIDTH = '1114';

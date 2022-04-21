@@ -3,8 +3,9 @@
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { nothing, TemplateResult, noChange } from '../lit-html.js';
 import { Directive, PartInfo } from '../directive.js';
+import { noChange , nothing, TemplateResult} from '../lit-html.js';
+
 export declare class UnsafeHTMLDirective extends Directive {
     static directiveName: string;
     static resultType: number;

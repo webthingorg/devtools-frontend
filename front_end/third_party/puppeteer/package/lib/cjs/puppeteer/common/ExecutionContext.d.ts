@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSHandle, ElementHandle } from './JSHandle.js';
+import { Protocol } from 'devtools-protocol';
+
 import { CDPSession } from './Connection.js';
 import { DOMWorld } from './DOMWorld.js';
-import { Frame } from './FrameManager.js';
-import { Protocol } from 'devtools-protocol';
 import { EvaluateHandleFn, SerializableOrJSHandle } from './EvalTypes.js';
+import { Frame } from './FrameManager.js';
+import { ElementHandle , JSHandle} from './JSHandle.js';
+
 /**
  * @public
  */
