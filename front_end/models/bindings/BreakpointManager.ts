@@ -104,7 +104,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     }
   }
 
-  modelRemoved(): void {
+  modelRemoved(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.setSynchronizeBreakpointsCallback(null);
   }
 
   async copyBreakpoints(fromURL: Platform.DevToolsPath.UrlString, toSourceCode: Workspace.UISourceCode.UISourceCode):
@@ -416,6 +417,10 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
     modelBreakpoint.removeEventListeners();
   }
 
+  modelBreakpoint(debuggerModel: SDK.DebuggerModel.DebuggerModel): ModelBreakpoint|undefined {
+    return this.#modelBreakpoints.get(debuggerModel);
+  }
+
   addUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
     if (!this.uiSourceCodes.has(uiSourceCode)) {
       this.uiSourceCodes.add(uiSourceCode);
@@ -624,6 +629,10 @@ export class ModelBreakpoint {
     if (this.#debuggerModel.debuggerEnabled()) {
       void this.scheduleUpdateInDebugger();
     }
+  }
+
+  get currentState(): Breakpoint.State|null {
+    return this.#currentState;
   }
 
   resetLocations(): void {
