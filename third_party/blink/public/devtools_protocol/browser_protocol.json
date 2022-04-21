@@ -7790,6 +7790,14 @@
                         {
                             "name": "mobile",
                             "type": "boolean"
+                        },
+                        {
+                            "name": "bitness",
+                            "type": "string"
+                        },
+                        {
+                            "name": "wow64",
+                            "type": "boolean"
                         }
                     ]
                 },

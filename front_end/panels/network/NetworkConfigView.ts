@@ -402,6 +402,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Galaxy Nexus',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -420,6 +422,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Nexus S',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
     ],
@@ -466,6 +470,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Nexus 5',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -484,6 +490,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Pixel 4',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -502,6 +510,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Nexus 7',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -532,6 +542,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: 'x86',
           model: '',
           mobile: false,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -550,6 +562,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: 'x86',
           model: '',
           mobile: false,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -567,6 +581,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: 'x86',
           model: '',
           mobile: false,
+          bitness: '',
+          wow64: false,
         },
       },
     ],
@@ -675,6 +691,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: 'x86',
           model: '',
           mobile: false,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -693,6 +711,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: 'x86',
           model: '',
           mobile: false,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -723,6 +743,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Pixel',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {
@@ -741,6 +763,8 @@ export const userAgentGroups: UserAgentGroup[] = [
           architecture: '',
           model: 'Nexus 7',
           mobile: true,
+          bitness: '',
+          wow64: false,
         },
       },
       {

@@ -19,6 +19,8 @@ userAgentsForm.value = {
     architecture: '',
     model: '',
     mobile: true,
+    bitness: '',
+    wow64: false,
   },
   showMobileCheckbox: true,
 };
