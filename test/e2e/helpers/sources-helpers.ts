@@ -547,8 +547,8 @@ export async function addSelectedTextToWatches() {
   await frontend.keyboard.up('Shift');
 }
 
-export async function refreshDevToolsAndRemoveBackendState(target: puppeteer.Page) {
+export async function refreshDevToolsAndRemoveBackendState() {
   // Navigate to a different site to make sure that back-end state will be removed.
-  await target.goto('about:blank');
+  await openSourceCodeEditorForFile('memory.wasm', 'wasm/memory.html');
   await reloadDevTools({selectedPanel: {name: 'sources'}});
 }

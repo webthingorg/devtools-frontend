@@ -238,7 +238,7 @@ describe('The Sources Tab', async () => {
 
   it('reliably hits breakpoints on worker with source map', async () => {
     await enableExperiment('instrumentationBreakpoints');
-    const {target, frontend} = getBrowserAndPages();
+    const {frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-breakpoint.html');
 
     await step('Add a breakpoint at first line of function multiline', async () => {
@@ -246,7 +246,7 @@ describe('The Sources Tab', async () => {
     });
 
     await step('Navigate to a different site to refresh devtools and remove back-end state', async () => {
-      await refreshDevToolsAndRemoveBackendState(target);
+      await refreshDevToolsAndRemoveBackendState();
     });
 
     await step('Navigate back to test page', () => {
