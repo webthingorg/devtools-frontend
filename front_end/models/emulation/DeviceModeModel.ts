@@ -898,5 +898,7 @@ const defaultMobileUserAgentMetadata = {
   architecture: '',
   model: 'Nexus 5',
   mobile: true,
+  bitness: '',
+  wow64: false,
 };
 export const defaultMobileScaleFactor = 2;

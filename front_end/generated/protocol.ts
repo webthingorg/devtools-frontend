@@ -5132,6 +5132,8 @@ export namespace Emulation {
     architecture: string;
     model: string;
     mobile: boolean;
+    bitness: string;
+    wow64: boolean;
   }
 
   /**
