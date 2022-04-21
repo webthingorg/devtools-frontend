@@ -61,7 +61,11 @@ import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
 import stylesSidebarPaneStyles from './stylesSidebarPane.css.js';
 
 import type {StylePropertyTreeElement} from './StylePropertyTreeElement.js';
-import {StylePropertiesSection, BlankStylePropertiesSection, KeyframePropertiesSection} from './StylePropertiesSection.js';
+import {
+  StylePropertiesSection,
+  BlankStylePropertiesSection,
+  KeyframePropertiesSection,
+} from './StylePropertiesSection.js';
 import * as LayersWidget from './LayersWidget.js';
 
 const UIStrings = {

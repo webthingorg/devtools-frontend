@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 /// <reference types="node" />
-import { PuppeteerEventListener } from './helper.js';
 import { TimeoutError } from './Errors.js';
-import { FrameManager, Frame } from './FrameManager.js';
+import { Frame , FrameManager} from './FrameManager.js';
+import { PuppeteerEventListener } from './helper.js';
 import { HTTPRequest } from './HTTPRequest.js';
 import { HTTPResponse } from './HTTPResponse.js';
+
 /**
  * @public
  */
