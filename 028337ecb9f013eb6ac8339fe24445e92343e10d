@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61c5d0f3_ba1b99de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-04-21T23:10:31Z",
+      "side": 1,
+      "message": "There\u0027ll be some further refinement, but this lgtm.",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ab3ce3f_a6a1e59b",
