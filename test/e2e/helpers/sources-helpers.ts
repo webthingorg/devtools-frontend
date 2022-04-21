@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, reloadDevTools, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, reloadDevTools, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const ACTIVE_LINE = '.CodeMirror-activeline > pre > span';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
@@ -512,10 +512,19 @@ export async function getPausedMessages() {
 
 export async function getWatchExpressionsValues() {
   const {frontend} = getBrowserAndPages();
-  await click('[aria-label="Watch"]');
+  await waitForFunction(async () => {
+    await click('[aria-label="Watch"]');
+    const expandedOption = await $('[aria-label="Watch"].expanded');
+    return expandedOption !== null;
+  });
+  console.log('c');  // eslint-disable-line no-console
+
   await frontend.keyboard.press('ArrowRight');
+  console.log('d');  // eslint-disable-line no-console
   await waitFor(WATCH_EXPRESSION_VALUE_SELECTOR);
+  console.log('e');  // eslint-disable-line no-console
   const values = await $$(WATCH_EXPRESSION_VALUE_SELECTOR) as puppeteer.ElementHandle<HTMLElement>[];
+  console.log('f');  // eslint-disable-line no-console
   return await Promise.all(values.map(value => value.evaluate(element => element.innerText)));
 }
 
@@ -537,6 +546,12 @@ export async function evaluateSelectedTextInConsole() {
   await frontend.keyboard.up('Shift');
 }
 
+export async function refreshDevToolsAndRemoveBackendState(target: puppeteer.Page) {
+  // Navigate to a different site to make sure that back-end state will be removed.
+  await target.goto('about:blank');
+  await reloadDevTools({selectedPanel: {name: 'sources'}});
+}
+
 export async function addSelectedTextToWatches() {
   const {frontend} = getBrowserAndPages();
   const modifierKey = platform === 'mac' ? 'Meta' : 'Control';
@@ -545,10 +560,4 @@ export async function addSelectedTextToWatches() {
   await frontend.keyboard.press('A');
   await frontend.keyboard.up(modifierKey);
   await frontend.keyboard.up('Shift');
-}
-
-export async function refreshDevToolsAndRemoveBackendState(target: puppeteer.Page) {
-  // Navigate to a different site to make sure that back-end state will be removed.
-  await target.goto('about:blank');
-  await reloadDevTools({selectedPanel: {name: 'sources'}});
 }
