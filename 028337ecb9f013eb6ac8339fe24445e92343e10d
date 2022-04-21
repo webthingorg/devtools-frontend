@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db8d3060_ab9996ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "(flushing these comments i made with the wrong acct…)",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab3ce3f_a6a1e59b",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "to be consistent with the nav mode tooltip....\n\n\"Timespan mode analyzes… \"?\n\ni do like this framing better as the mode+run does the analyzing rather than the report. i\u0027d say the report _presents an analysis_.  this is all minor semantics, obv.",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b06993_7e9c681d",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "same thing here",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e63e5cb_a1448658",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "this padding and the max-content style should live in the css instead.",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4977ff6_9a8929f2",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "fwiw the `super.render();` on l42 alraedy rendered the Device radios. but then this call repeats the work.\n\nit doesnt appear to be a problem, but it definitely confused me for a bit. I\u0027ll leave it to you if its worth addressing",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90f6743_953a286e",
+        "filename": "front_end/panels/lighthouse/RadioSetting.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "FYI i tried out using the description under the radio label and it feels decent. see bottom of https://docs.google.com/document/d/1WNlY5X6Y67Ra3kQrd-lWXVf47xIYpurY1nKhhu6yqdA/edit#\njiwoong is gonna iterate too.",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ab05da_a614ee41",
+        "filename": "front_end/panels/lighthouse/RadioSetting.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "why not on the label? seems equivalent.. and semantically fine too. \n\nedit: OH. i think we/you changed this to avoid us having a tooltip on deadspace. (though i guess `width: fit-content` on the label would fix that too.)\n\nanyway.. nevermind. all good!",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d3a74c_999ccebb",
+        "filename": "front_end/panels/lighthouse/lighthouseStartView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "24px (to match with Recorder) \ni think the CTA button in particular needs a lil bit more room.",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d3f4dbf_6ef1748f",
+        "filename": "front_end/panels/lighthouse/lighthouseStartView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-04-21T23:09:32Z",
+      "side": 1,
+      "message": "margin: 16px auto 8px;",
+      "revId": "028337ecb9f013eb6ac8339fe24445e92343e10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
