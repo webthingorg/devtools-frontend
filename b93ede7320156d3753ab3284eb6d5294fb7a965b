@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b774d6e9_569c90e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-21T07:29:39Z",
+      "side": 1,
+      "message": "Here\u0027s the upgrade to latest CodeMirror.next (based on CL by Marijn here: https://crrev.com/c/3596792), with necessary test fixes.\n\nPlease take a look.",
+      "revId": "b93ede7320156d3753ab3284eb6d5294fb7a965b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
