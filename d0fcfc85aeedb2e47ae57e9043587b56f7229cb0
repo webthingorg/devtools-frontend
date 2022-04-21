@@ -22,6 +22,30 @@
       },
       "revId": "d0fcfc85aeedb2e47ae57e9043587b56f7229cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4957a6_b71a010e",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-21T16:46:38Z",
+      "side": 1,
+      "message": "No, I suspect it\u0027s clang not understanding that syntax. The proposed swap to inlined type modifiers would solve this - I\u0027ve tested that clang can understand and format:\n\nimport {foo, type bar, ...} from \u0027whatever\u0027;",
+      "parentUuid": "63d40802_8d01d15b",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "d0fcfc85aeedb2e47ae57e9043587b56f7229cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
