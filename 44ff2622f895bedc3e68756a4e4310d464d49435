@@ -33,6 +33,24 @@
       "message": "Do you know why the test stopped being flaky? I don\u0027t see anything on the bug.",
       "revId": "44ff2622f895bedc3e68756a4e4310d464d49435",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7705da78_f0ed223c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-21T08:59:53Z",
+      "side": 1,
+      "message": "Nope, the failure actually looks like the bot got slow suddenly. The screenshot captures DevTools during transitioning between two tabs: https://i.imgur.com/UaZMafB.png",
+      "parentUuid": "e62e6c4f_350c81ea",
+      "revId": "44ff2622f895bedc3e68756a4e4310d464d49435",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
