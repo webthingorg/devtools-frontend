@@ -4,9 +4,9 @@
 
 import {assert} from 'chai';
 
-import {$, click, enableExperiment, getBrowserAndPages, getPendingEvents, goToResource, step, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$, click, enableExperiment, getBrowserAndPages, goToResource, step, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {addBreakpointForLine, DEBUGGER_PAUSED_EVENT, isEqualOrAbbreviation, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, refreshDevToolsAndRemoveBackendState, RESUME_BUTTON, retrieveTopCallFrameWithoutResuming} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, isEqualOrAbbreviation, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, refreshDevToolsAndRemoveBackendState, RESUME_BUTTON, retrieveTopCallFrameWithoutResuming} from '../helpers/sources-helpers.js';
 
 async function waitForTopCallFrameChanged(previousCallFrame: string, updatedCallFrame: string) {
   await waitForFunction(async () => {
@@ -61,7 +61,6 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for pause and check if we stopped at line 3', async () => {
-      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
       await waitFor(PAUSE_INDICATOR_SELECTOR);
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
       assert.deepEqual(scriptLocation, 'click-breakpoint.js:3');
@@ -104,7 +103,6 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for pause and check if we stopped at line 1', async () => {
-      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
       await waitFor(PAUSE_INDICATOR_SELECTOR);
       await assertScriptLocation('breakpoint-hit-on-first-load.js:1');
     });
@@ -135,7 +133,6 @@ describe('The Sources Tab', async () => {
     });
 
     await step('wait for pause and check if we stopped at line 9', async () => {
-      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
       await waitFor(PAUSE_INDICATOR_SELECTOR);
       await assertScriptLocation('breakpoint-hit-on-first-load.html:9');
     });
@@ -167,7 +164,6 @@ describe('The Sources Tab', async () => {
        });
 
        await step('wait for pause and check if we stopped at line 15', async () => {
-         await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
          await waitFor(PAUSE_INDICATOR_SELECTOR);
          await assertScriptLocation('breakpoint-hit-on-first-load.html:15');
        });
