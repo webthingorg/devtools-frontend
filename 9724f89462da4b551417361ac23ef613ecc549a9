@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f69db36e_c9f18654",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-04-21T23:50:34Z",
+      "side": 1,
+      "message": "For all of these strings, if a term is wrapped in single quotes that will prevent it from being translated. Can you wrap anything like \u0027window.confirm\u0027 or \u0027googScreencastMinBitrate\u0027 with single quotes? (note: I\u0027m not sure if double quotes do the same, Simon can advise there)",
+      "revId": "9724f89462da4b551417361ac23ef613ecc549a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
