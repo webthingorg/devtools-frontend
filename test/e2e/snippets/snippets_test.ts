@@ -8,7 +8,15 @@ import {getBrowserAndPages, timeout, typeText, waitFor} from '../../shared/helpe
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
-import {addSelectedTextToWatches, createNewSnippet, evaluateSelectedTextInConsole, getWatchExpressionsValues, openSnippetsSubPane, openSourcesPanel, runSnippet} from '../helpers/sources-helpers.js';
+import {
+  addSelectedTextToWatches,
+  createNewSnippet,
+  evaluateSelectedTextInConsole,
+  getWatchExpressionsValues,
+  openSnippetsSubPane,
+  openSourcesPanel,
+  runSnippet,
+} from '../helpers/sources-helpers.js';
 
 // Flaky test
 describe.skip('[crbug.com/1198160]: Snippet creation', () => {

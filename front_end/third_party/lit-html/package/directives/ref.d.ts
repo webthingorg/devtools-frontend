@@ -3,8 +3,9 @@
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { ElementPart } from '../lit-html.js';
 import { AsyncDirective } from '../async-directive.js';
+import { ElementPart } from '../lit-html.js';
+
 /**
  * Creates a new Ref object, which is container for a reference to an element.
  */

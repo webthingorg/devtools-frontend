@@ -3,9 +3,10 @@
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { ChildPart, noChange } from '../lit-html.js';
-import { DirectiveParameters } from '../directive.js';
 import { AsyncDirective } from '../async-directive.js';
+import { DirectiveParameters } from '../directive.js';
+import { ChildPart, noChange } from '../lit-html.js';
+
 declare type Mapper<T> = (v: T, index?: number) => unknown;
 export declare class AsyncReplaceDirective extends AsyncDirective {
     private __value?;
