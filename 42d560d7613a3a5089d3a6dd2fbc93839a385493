@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e36b998_f4710429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-04-22T05:14:16Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere\u0027s a CL to test the restoreBreakpointsForScript function that restores the breakpoints for a script and is used after an instrumentation break. PTAL!",
+      "revId": "42d560d7613a3a5089d3a6dd2fbc93839a385493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
