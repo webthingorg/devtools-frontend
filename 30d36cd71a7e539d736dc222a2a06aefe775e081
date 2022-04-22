@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dfec997_19d8dfe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-22T07:54:33Z",
+      "side": 1,
+      "message": "The code lgtm, but I think for these issue descriptions we really need good descriptions for translators. It might also be worth it to put explanation for common terms into a doc that we can share with translators directly.",
+      "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cde3dfa_17d71dd0",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-22T07:54:33Z",
+      "side": 1,
+      "message": "A general note: The description is the only thing that a translator will see together with the \"to-be-translated\" string. Translators don\u0027t have a lot of tech background so most of the words in the strings will be unknown to them. They have access to a glossary with \"common\" terms, but those usually don\u0027t contain the highly technical terms we have in DevTools.\n\nTranslating issue descriptions will be doubly tricky, since they convey a lot more information and have a lot more unknown terms than just a label for a button or an input field so its important to write detailed descriptions explaining many of the terms in the translated text.\n\nHere is our official guidance: https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/docs/localization/descriptions.md\n\nThere is also additional documentation how to e.g. have untranslated parts of a string (via backticks) or use placeholders.\n\nIt might also be worth it to cross check with other strings whether terms like \"cross-origin\" are translated or not, as to stay consistent within DevTools.\n\nI know this is a lot of work, but if we don\u0027t do it upfront then we either have to handle a lot of questions from translators (and re-answer the questions when the strings slightly change and need re-translation) or we get lower quality translations.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
