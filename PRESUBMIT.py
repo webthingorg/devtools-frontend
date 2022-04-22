@@ -84,7 +84,9 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
     EXCLUSIVE_CHANGE_DIRECTORIES = [
         [
             'third_party', 'v8',
-            input_api.os_path.join('front_end', 'generated')
+            input_api.os_path.join('front_end', 'generated'),
+            input_api.os_path.join('front_end', 'models',
+                                   'javascript_metadata')
         ],
         [
             'node_modules',
