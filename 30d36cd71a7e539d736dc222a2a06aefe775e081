@@ -87,6 +87,30 @@
       },
       "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9175b910_4d512adf",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-04-22T14:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90909a64_e257ecde",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
