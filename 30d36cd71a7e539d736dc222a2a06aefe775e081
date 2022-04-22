@@ -63,6 +63,30 @@
       },
       "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90909a64_e257ecde",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-22T13:30:10Z",
+      "side": 1,
+      "message": "Sounds good, as discussed offline we have until next branch cut to improve the descriptions for these :)",
+      "parentUuid": "7991e58f_eac3b80d",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "30d36cd71a7e539d736dc222a2a06aefe775e081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
