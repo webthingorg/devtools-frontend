@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64c992e5_3753710c",
+        "filename": "test/unittests/front_end/models/javascript_metadata/JavascriptMetadata_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-22T07:37:44Z",
+      "side": 0,
+      "message": "I\u0027m confused as why the static Array methods are vanishing from the JavaScript natives. AFAIK TC39 didn\u0027t deprecate them and remove them from the language xD\n\nMaybe the d.ts format changed and we no longer parse them properly? I\u0027ll dig deeper on Monday but I\u0027d like to hold off landing this CL for now if thats ok.",
+      "range": {
+        "startLine": 26,
+        "startChar": 60,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "bd5cd81d1dd19dd4327789e3b367d199e0b79bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
