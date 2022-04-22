@@ -16,6 +16,23 @@
       "message": "Hi Changhao, I\u0027ll commit for now, please let me know if you disagree! Need to make the bots happier.",
       "revId": "2e9bd09fcfb728bd12eabb7d6afc4150e8b5f804",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30007976_1a96d404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-04-22T11:40:48Z",
+      "side": 1,
+      "message": "Oh, it seems I need to have a +1 from you after all, the Rubber Stamper doesn\u0027t want to stamp.",
+      "revId": "2e9bd09fcfb728bd12eabb7d6afc4150e8b5f804",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
