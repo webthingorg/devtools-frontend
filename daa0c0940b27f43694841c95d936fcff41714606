@@ -16,6 +16,23 @@
       "message": "Please take a look.",
       "revId": "daa0c0940b27f43694841c95d936fcff41714606",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aa76786_9f7ac4b8",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-04-22T23:29:04Z",
+      "side": 1,
+      "message": "It\u0027s not just deprecated but won\u0027t work for this message right?",
+      "revId": "daa0c0940b27f43694841c95d936fcff41714606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
