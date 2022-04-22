@@ -22,6 +22,30 @@
       },
       "revId": "bd5cd81d1dd19dd4327789e3b367d199e0b79bd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fddfa685_2f644edf",
+        "filename": "test/unittests/front_end/models/javascript_metadata/JavascriptMetadata_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-04-22T12:37:35Z",
+      "side": 0,
+      "message": "Works for me, if you have a better approach or fix I\u0027m okay abandoning this CL as well. It just seemed clear the current flow was broken.",
+      "parentUuid": "64c992e5_3753710c",
+      "range": {
+        "startLine": 26,
+        "startChar": 60,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "bd5cd81d1dd19dd4327789e3b367d199e0b79bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
