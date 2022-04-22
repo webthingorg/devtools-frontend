@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff718780_243378af",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-22T09:51:01Z",
+      "side": 1,
+      "message": "nit: what\u0027s the value of having this as a constant?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 41
+      },
+      "revId": "42d560d7613a3a5089d3a6dd2fbc93839a385493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "179bc61a_0523419a",
         "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
         "patchSetId": 6
@@ -48,6 +71,29 @@
       "writtenOn": "2022-04-22T09:14:43Z",
       "side": 1,
       "message": "Do we need to reset the experiment flag after the test?",
+      "revId": "42d560d7613a3a5089d3a6dd2fbc93839a385493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b96d403_007964d7",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-22T09:51:01Z",
+      "side": 1,
+      "message": "I think we can extract 60-65 and 71 to beforeEach to make this a but a bit easier to follow.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 37
+      },
       "revId": "42d560d7613a3a5089d3a6dd2fbc93839a385493",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
