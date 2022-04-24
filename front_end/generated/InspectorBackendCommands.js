@@ -1879,6 +1879,8 @@ export function registerCommands(inspectorBackend) {
   });
   inspectorBackend.registerEvent('Overlay.inspectNodeRequested', ['backendNodeId']);
   inspectorBackend.registerEvent('Overlay.nodeHighlightRequested', ['nodeId']);
+  inspectorBackend.registerEvent('Overlay.showDistancesRequested', ['nodeId']);
+  inspectorBackend.registerEvent('Overlay.inspectModeRequested', []);
   inspectorBackend.registerEvent('Overlay.screenshotRequested', ['viewport']);
   inspectorBackend.registerEvent('Overlay.inspectModeCanceled', []);
   inspectorBackend.registerCommand('Overlay.disable', [], []);
@@ -1916,6 +1918,14 @@ export function registerCommands(inspectorBackend) {
         {'name': 'backendNodeId', 'type': 'number', 'optional': true},
         {'name': 'objectId', 'type': 'string', 'optional': true},
         {'name': 'selector', 'type': 'string', 'optional': true}
+      ],
+      []);
+  inspectorBackend.registerCommand(
+      'Overlay.showDistances',
+      [
+        {'name': 'highlightConfig', 'type': 'object', 'optional': false},
+        {'name': 'nodeId', 'type': 'number', 'optional': true},
+        {'name': 'startedFromInspect', 'type': 'boolean', 'optional': true}
       ],
       []);
   inspectorBackend.registerCommand(

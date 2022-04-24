@@ -43,6 +43,7 @@ import type {ContainerQueryHighlight} from './highlight_container_query.js';
 import {drawContainerQueryHighlight} from './highlight_container_query.js';
 import type {IsolatedElementHighlight} from './highlight_isolated_element.js';
 import {PersistentOverlay} from './tool_persistent.js';
+import {drawBoundingBox, drawDistanceToElement, drawDistanceToViewport} from './highlight_distances_common.js';
 
 interface Path {
   path: PathCommands;
@@ -87,6 +88,12 @@ interface Highlight {
   flexItemInfo: FlexItemHighlight[];
   containerQueryInfo: ContainerQueryHighlight[];
   isolatedElementInfo: IsolatedElementHighlight[];
+  distanceInfo?: DistanceInfo;
+}
+
+interface DistanceInfo {
+  distanceHighlight?: Highlight;
+  showDistancesToViewport?: boolean;
 }
 
 export class HighlightOverlay extends Overlay {
@@ -133,35 +140,9 @@ export class HighlightOverlay extends Overlay {
   }
 
   drawHighlight(highlight: Highlight) {
-    this.context.save();
-
     const bounds = emptyBounds();
-    let contentPath: PathCommands|null = null;
-    let borderPath: PathCommands|null = null;
-
-    for (let paths = highlight.paths.slice(); paths.length;) {
-      const path = paths.pop();
-      if (!path) {
-        continue;
-      }
-      this.context.save();
-      drawPath(
-          this.context, path.path, path.fillColor, path.outlineColor, undefined, bounds, this.emulationScaleFactor);
-      if (paths.length) {
-        this.context.globalCompositeOperation = 'destination-out';
-        drawPath(
-            this.context, paths[paths.length - 1].path, 'red', undefined, undefined, bounds, this.emulationScaleFactor);
-      }
-      this.context.restore();
-
-      if (path.name === 'content') {
-        contentPath = path.path;
-      }
-      if (path.name === 'border') {
-        borderPath = path.path;
-      }
-    }
-    this.context.restore();
+    const {contentPath, borderPath} =
+        drawHighlightPaths(this.context, bounds, highlight.paths, this.emulationScaleFactor);
 
     this.context.save();
 
@@ -169,6 +150,8 @@ export class HighlightOverlay extends Overlay {
         highlight.paths.length && highlight.showRulers && bounds.minX < 20 && bounds.maxX + 20 < this.canvasWidth);
     const rulerAtBottom = Boolean(
         highlight.paths.length && highlight.showRulers && bounds.minY < 20 && bounds.maxY + 20 < this.canvasHeight);
+
+    const showDistance = highlight.distanceInfo?.distanceHighlight || highlight.distanceInfo?.showDistancesToViewport;
 
     if (highlight.showRulers) {
       this.drawAxis(this.context, rulerAtRight, rulerAtBottom);
@@ -180,11 +163,25 @@ export class HighlightOverlay extends Overlay {
             this.context, bounds, rulerAtRight, rulerAtBottom, undefined, false, this.canvasWidth, this.canvasHeight);
       }
 
-      if (highlight.elementInfo) {
+      if (showDistance) {
+        const distanceBounds = emptyBounds();
+        if (highlight.distanceInfo?.distanceHighlight) {
+          drawHighlightPaths(
+              this.context, distanceBounds, highlight.distanceInfo?.distanceHighlight?.paths,
+              this.emulationScaleFactor);
+          drawBoundingBox(this.context, bounds, {extendLinesToViewport: this.viewportSize});
+          drawDistanceToElement(this.context, bounds, distanceBounds);
+        } else if (highlight.distanceInfo?.showDistancesToViewport) {
+          drawBoundingBox(this.context, bounds);
+          drawDistanceToViewport(this.context, bounds);
+        }
+      }
+
+      if (highlight.elementInfo && !showDistance) {
         drawElementTitle(highlight.elementInfo, highlight.colorFormat, bounds, this.canvasWidth, this.canvasHeight);
       }
     }
-    if (highlight.gridInfo) {
+    if (highlight.gridInfo && !showDistance) {
       for (const grid of highlight.gridInfo) {
         drawLayoutGridHighlight(
             grid, this.context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor,
@@ -192,7 +189,7 @@ export class HighlightOverlay extends Overlay {
       }
     }
 
-    if (highlight.flexInfo) {
+    if (highlight.flexInfo && !showDistance) {
       for (const flex of highlight.flexInfo) {
         drawLayoutFlexContainerHighlight(
             flex, this.context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor);
@@ -389,6 +386,39 @@ export class HighlightOverlay extends Overlay {
 const lightGridColor = 'rgba(0,0,0,0.2)';
 const darkGridColor = 'rgba(0,0,0,0.7)';
 const gridBackgroundColor = 'rgba(255, 255, 255, 0.8)';
+
+function drawHighlightPaths(
+    context: CanvasRenderingContext2D, bounds: PathBounds, highlightPaths: Path[],
+    emulationScaleFactor: number): {contentPath: PathCommands|null, borderPath: PathCommands|null} {
+  context.save();
+
+  let contentPath: PathCommands|null = null;
+  let borderPath: PathCommands|null = null;
+
+  for (let paths = highlightPaths.slice(); paths.length;) {
+    const path = paths.pop();
+    if (!path) {
+      continue;
+    }
+    context.save();
+    drawPath(context, path.path, path.fillColor, path.outlineColor, undefined, bounds, emulationScaleFactor);
+    if (paths.length) {
+      context.globalCompositeOperation = 'destination-out';
+      drawPath(context, paths[paths.length - 1].path, 'red', undefined, undefined, bounds, emulationScaleFactor);
+    }
+    context.restore();
+
+    if (path.name === 'content') {
+      contentPath = path.path;
+    }
+    if (path.name === 'border') {
+      borderPath = path.path;
+    }
+  }
+  context.restore();
+
+  return {contentPath, borderPath};
+}
 
 /**
  * Determine the layout type of the highlighted element based on the config.

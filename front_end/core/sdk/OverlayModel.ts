@@ -732,6 +732,19 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
     }
   }
 
+  showDistances(node?: DOMNode, startedFromInspect?: boolean): void {
+    const nodeId = node ? node.id : undefined;
+    const highlightConfig = this.buildHighlightConfig('all');
+    void this.overlayAgent.invoke_showDistances({highlightConfig, nodeId, startedFromInspect});
+  }
+
+  showDistancesRequested({nodeId}: Protocol.Overlay.ShowDistancesRequestedEvent): void {
+    const node = this.#domModel.nodeForId(nodeId);
+    if (node) {
+      this.showDistances(node, true);
+    }
+  }
+
   static setInspectNodeHandler(handler: (arg0: DOMNode) => void): void {
     OverlayModel.inspectNodeHandler = handler;
   }
@@ -753,6 +766,14 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
   screenshotRequested({viewport}: Protocol.Overlay.ScreenshotRequestedEvent): void {
     this.dispatchEventToListeners(Events.ScreenshotRequested, viewport);
     this.dispatchEventToListeners(Events.ExitedInspectMode);
+  }
+
+  inspectModeRequested(): void {
+    const mode = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get() ?
+        Protocol.Overlay.InspectMode.SearchForUAShadowDOM :
+        Protocol.Overlay.InspectMode.SearchForNode;
+    void this.setInspectMode(
+        mode, Common.Settings.Settings.instance().moduleSetting('showDetailedInspectTooltip').get());
   }
 
   inspectModeCanceled(): void {

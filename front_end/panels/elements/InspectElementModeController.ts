@@ -42,6 +42,7 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
   private readonly toggleSearchAction: UI.ActionRegistration.Action|null;
   private mode: Protocol.Overlay.InspectMode;
   private readonly showDetailedInspectTooltipSetting: Common.Settings.Setting<boolean>;
+  private showDistancesModeEnabled: boolean;
 
   constructor() {
     this.toggleSearchAction = UI.ActionRegistry.ActionRegistry.instance().action('elements.toggle-element-search');
@@ -57,6 +58,7 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
     this.showDetailedInspectTooltipSetting =
         Common.Settings.Settings.instance().moduleSetting('showDetailedInspectTooltip');
     this.showDetailedInspectTooltipSetting.addChangeListener(this.showDetailedInspectTooltipChanged.bind(this));
+    this.showDistancesModeEnabled = false;
 
     document.addEventListener('keydown', event => {
       if (event.keyCode !== UI.KeyboardShortcut.Keys.Esc.code) {
@@ -68,6 +70,23 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
       this.setMode(Protocol.Overlay.InspectMode.None);
       event.consume(true);
     }, true);
+
+    document.addEventListener('keydown', event => {
+      if (this.isInInspectElementMode() && event.getModifierState('Alt')) {
+        if (!this.showDistancesModeEnabled) {
+          this.showDistancesMode();
+        }
+      }
+    });
+
+    document.addEventListener('keyup', event => {
+      if (this.showDistancesModeEnabled && !event.getModifierState('Alt')) {
+        const mode = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get() ?
+            Protocol.Overlay.InspectMode.SearchForUAShadowDOM :
+            Protocol.Overlay.InspectMode.SearchForNode;
+        this.setMode(mode);
+      }
+    });
   }
 
   static instance({forceNew}: {
@@ -80,7 +99,13 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
     return inspectElementModeController;
   }
 
+  disableShowDistancesMode(): void {
+    this.showDistancesModeEnabled = false;
+  }
+
   modelAdded(overlayModel: SDK.OverlayModel.OverlayModel): void {
+    overlayModel.addEventListener(
+        SDK.OverlayModel.Events.InspectModeWillBeToggled, this.disableShowDistancesMode, this);
     // When DevTools are opening in the inspect element mode, the first target comes in
     // much later than the InspectorFrontendAPI.enterInspectElementMode event.
     if (this.mode === Protocol.Overlay.InspectMode.None) {
@@ -90,6 +115,8 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
   }
 
   modelRemoved(_overlayModel: SDK.OverlayModel.OverlayModel): void {
+    _overlayModel.removeEventListener(
+        SDK.OverlayModel.Events.InspectModeWillBeToggled, this.disableShowDistancesMode, this);
   }
 
   private isInInspectElementMode(): boolean {
@@ -110,6 +137,13 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
 
   captureScreenshotMode(): void {
     this.setMode(Protocol.Overlay.InspectMode.CaptureAreaScreenshot);
+  }
+
+  showDistancesMode(): void {
+    for (const overlayModel of SDK.TargetManager.TargetManager.instance().models(SDK.OverlayModel.OverlayModel)) {
+      void overlayModel.showDistances(undefined, true);
+    }
+    this.showDistancesModeEnabled = true;
   }
 
   private setMode(mode: Protocol.Overlay.InspectMode): void {
