@@ -33,6 +33,24 @@
       "message": "any reason to change the import type?",
       "revId": "01808358077d53dccbf26386bf0045ce4fb36815",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b96e0b_02f2941e",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-04-25T18:05:43Z",
+      "side": 1,
+      "message": "This change is needed because of the new usage of the `Protocol.DOM.PseudoType` enum in this file. The old `import type` statement only pulls in compile-time type info for usage in type annotations, which is guaranteed not to be present at runtime.\n\nThe values of the enum however are needed at runtime, so this needs to be upgraded to a normal `import`.\n\n[1] https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export",
+      "parentUuid": "43bd0155_24143803",
+      "revId": "01808358077d53dccbf26386bf0045ce4fb36815",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
