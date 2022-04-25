@@ -16,6 +16,23 @@
       "message": "Showing overridden styles for custom highlights, as a follow up to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3563627\n\nPTAL, thanks!",
       "revId": "01808358077d53dccbf26386bf0045ce4fb36815",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43bd0155_24143803",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-25T06:21:32Z",
+      "side": 1,
+      "message": "any reason to change the import type?",
+      "revId": "01808358077d53dccbf26386bf0045ce4fb36815",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
