@@ -50,10 +50,13 @@ import {Capability} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {TargetManager} from './TargetManager.js';
 import {SecurityOriginManager} from './SecurityOriginManager.js';
+import {StorageKeyManager} from './StorageKeyManager.js';
 
 export class ResourceTreeModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.PageApi;
+  readonly domStorageAgent: ProtocolProxyApi.DOMStorageApi;
   readonly #securityOriginManager: SecurityOriginManager;
+  readonly #storageKeyManager: StorageKeyManager;
   readonly framesInternal: Map<string, ResourceTreeFrame>;
   #cachedResourcesProcessed: boolean;
   #pendingReloadOptions: {
@@ -74,8 +77,10 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       networkManager.addEventListener(NetworkManagerEvents.RequestUpdateDropped, this.onRequestUpdateDropped, this);
     }
     this.agent = target.pageAgent();
+    this.domStorageAgent = target.domstorageAgent();
     void this.agent.invoke_enable();
     this.#securityOriginManager = (target.model(SecurityOriginManager) as SecurityOriginManager);
+    this.#storageKeyManager = (target.model(StorageKeyManager) as StorageKeyManager);
     this.#pendingBackForwardCacheNotUsedEvents = new Set<Protocol.Page.BackForwardCacheNotUsedEvent>();
     target.registerPageDispatcher(new PageDispatcher(this));
 
@@ -161,6 +166,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       this.mainFrame = frame;
     }
     this.dispatchEventToListeners(Events.FrameAdded, frame);
+    this.updateStorageKeys();
     this.updateSecurityOrigins();
   }
 
@@ -230,6 +236,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     if (frame.isMainFrame()) {
       this.target().setInspectedURL(frame.url);
     }
+    this.updateStorageKeys();
     this.updateSecurityOrigins();
   }
 
@@ -262,6 +269,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     } else {
       frame.remove(isSwap);
     }
+    this.updateStorageKeys();
     this.updateSecurityOrigins();
   }
 
@@ -518,11 +526,35 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     };
   }
 
+private async getStorageKeyData(): Promise<StorageKeyData> {
+    const storageKeys = new Set<string>();
+
+    for (const frame of this.framesInternal.values()) {
+      const storageKey = (await this.domStorageAgent.invoke_getStorageKeyForFrame({frameId: frame.id})) as unknown as string;
+      if (!storageKey) {
+        continue;
+      }
+      storageKeys.add(storageKey);
+    }
+    return {storageKeys: storageKeys};
+  }
+
   private updateSecurityOrigins(): void {
     const data = this.getSecurityOriginData();
     this.#securityOriginManager.setMainSecurityOrigin(
         data.mainSecurityOrigin || '', data.unreachableMainSecurityOrigin || '');
     this.#securityOriginManager.updateSecurityOrigins(data.securityOrigins);
+  }
+
+  private async updateStorageKeys(): Promise<void> {
+    const data = await this.getStorageKeyData();
+    this.#storageKeyManager.updateStorageKeys(data.storageKeys);
+  }
+
+  // clarify how "main" storage key is to be determined (see method below)
+  async getStorageKey(): Promise<string|null> {
+    const [first] = (await this.getStorageKeyData()).storageKeys;
+    return first ? first : null;
   }
 
   getMainSecurityOrigin(): string|null {
@@ -1095,4 +1127,7 @@ export interface SecurityOriginData {
   securityOrigins: Set<string>;
   mainSecurityOrigin: string|null;
   unreachableMainSecurityOrigin: string|null;
+}
+export interface StorageKeyData {
+  storageKeys: Set<string>;
 }

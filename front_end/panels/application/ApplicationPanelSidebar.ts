@@ -603,8 +603,10 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.domStorageTreeElements.set(domStorage, domStorageTreeElement);
     if (domStorage.isLocalStorage) {
       this.localStorageListTreeElement.appendChild(domStorageTreeElement);
+      console.log('LOCAL STORAGE TREE ELEMENT');
     } else {
       this.sessionStorageListTreeElement.appendChild(domStorageTreeElement);
+      console.log('SESSION STORAGE TREE ELEMENT');
     }
   }
 
