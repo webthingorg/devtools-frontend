@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang,\n\nI\u0027m re-enabling an e2e test that now uses the raw responses. PTAL!",
       "revId": "137cb139ebbaf18ae338400f43885038046c548b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3ce8a65_07b6039e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-25T13:18:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "137cb139ebbaf18ae338400f43885038046c548b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
