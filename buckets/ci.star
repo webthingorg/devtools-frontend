@@ -46,13 +46,13 @@ generate_ci_configs(
     builders = [
         builder_descriptor(
             name = "DevTools Linux",
-            recipe_name = "chromium_integration",
+            recipe_name = "chromium_trybot",
             excluded_from = ["beta", "stable", "extended"],
             execution_timeout = 2 * time.hour,
         ),
         builder_descriptor(
             name = "DevTools Linux Fastbuild",
-            recipe_name = "chromium_integration",
+            recipe_name = "chromium_trybot",
             excluded_from = ["beta", "stable", "extended", "chromium"],
             execution_timeout = 2 * time.hour,
             description_html = """
