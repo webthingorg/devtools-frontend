@@ -1295,6 +1295,10 @@ export interface StylesUpdateCompletedEvent {
   hasMatchedStyles: boolean;
 }
 
+interface CompletionResult extends UI.SuggestBox.Suggestion {
+  isCSSVariableColor?: boolean;
+}
+
 export type EventTypes = {
   [Events.InitialUpdateCompleted]: void,
   [Events.StylesUpdateCompleted]: StylesUpdateCompletedEvent,
@@ -1590,8 +1594,8 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       return Promise.resolve([]);
     }
 
-    const prefixResults: UI.SuggestBox.Suggestions = [];
-    const anywhereResults: UI.SuggestBox.Suggestions = [];
+    const prefixResults: Array<CompletionResult> = [];
+    const anywhereResults: Array<CompletionResult> = [];
     if (!editingVariable) {
       this.cssCompletions.forEach(completion => filterCompletions.call(this, completion, false /* variable */));
     }
@@ -1686,10 +1690,10 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
 
     if (this.isColorAware && !this.isEditingName) {
       results.sort((a, b) => {
-        if (Boolean(a.subtitleRenderer) === Boolean(b.subtitleRenderer)) {
+        if (a.isCSSVariableColor && b.isCSSVariableColor) {
           return 0;
         }
-        return a.subtitleRenderer ? -1 : 1;
+        return a.isCSSVariableColor ? -1 : 1;
       });
     }
     return Promise.resolve(results);
@@ -1697,7 +1701,7 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     function filterCompletions(
         this: CSSPropertyPrompt, completion: string, variable: boolean, nameValue?: boolean): void {
       const index = completion.toLowerCase().indexOf(lowerQuery);
-      const result: UI.SuggestBox.Suggestion = {
+      const result: CompletionResult = {
         text: completion,
         title: undefined,
         subtitle: undefined,
@@ -1708,6 +1712,7 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         selectionRange: undefined,
         hideGhostText: undefined,
         iconElement: undefined,
+        isCSSVariableColor: false,
       };
       if (variable) {
         const computedValue =
@@ -1716,6 +1721,9 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
           const color = Common.Color.Color.parse(computedValue);
           if (color) {
             result.subtitleRenderer = swatchRenderer.bind(null, color);
+            result.isCSSVariableColor = true;
+          } else {
+            result.subtitleRenderer = computedValueSubtitleRenderer.bind(null, computedValue);
           }
         }
       }
@@ -1735,6 +1743,14 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       swatch.renderColor(color);
       swatch.style.pointerEvents = 'none';
       return swatch;
+    }
+    function computedValueSubtitleRenderer(computedValue: string): Element {
+      const subtitleElement = document.createElement('span');
+      subtitleElement.className = 'suggestion-subtitle';
+      subtitleElement.textContent = `${computedValue}`;
+      subtitleElement.style.maxWidth = '100px';
+      subtitleElement.title = `${computedValue}`;
+      return subtitleElement;
     }
   }
 }
