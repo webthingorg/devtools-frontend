@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e55ac6e1_7e68e2d7",
+        "filename": "scripts/eslint_rules/lib/inline_type_imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-26T10:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2f69c1f_fd760727",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5eaef67_d37b4b1d",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-04-26T05:37:45Z",
       "side": 1,
       "message": "suggestion: Can we reverse the condition for the `if` and use an `else` branch instead of continue? I think it will make the loop slightly easier to read.\n\nThe merge case is IMO the more important one so it would come first. Just a personal preference though, feel free to ignore.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa27607_3e98f07c",
+        "filename": "scripts/eslint_rules/lib/inline_type_imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-26T10:30:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5eaef67_d37b4b1d",
       "range": {
         "startLine": 129,
         "startChar": 0,
