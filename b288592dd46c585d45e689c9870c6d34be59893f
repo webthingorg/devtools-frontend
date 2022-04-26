@@ -16,6 +16,23 @@
       "message": "PTAL. I\u0027m still not super happy with these somewhat ad-hoc heurestics for the filtering mechanism, but at least they are an improvement to the current experience. WDYT?",
       "revId": "b288592dd46c585d45e689c9870c6d34be59893f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e491676_a31e2c39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-26T10:20:29Z",
+      "side": 1,
+      "message": "Code changes look fine. I agree that the filtering mechanics and behaviour seem quite confusing and hard to understand; but I don\u0027t have any concrete suggestions.\n\nIs it worth perhaps chatting with Peter in the future about the UX we want?  That need not block this CL though.",
+      "revId": "b288592dd46c585d45e689c9870c6d34be59893f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
