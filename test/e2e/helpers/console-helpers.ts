@@ -95,8 +95,11 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
 
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
-    return Array.from(document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR))
-        .every(message => message.childNodes.length > 0);
+    const messages = document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR);
+    if (!messages.length) {
+      return false;
+    }
+    return Array.from(messages).every(message => message.childNodes.length > 0);
   }, {timeout: 0}, CONSOLE_FIRST_MESSAGES_SELECTOR));
 
   const selector = withAnchor ? CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR : CONSOLE_FIRST_MESSAGES_SELECTOR;
