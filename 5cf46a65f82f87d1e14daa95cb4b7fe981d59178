@@ -51,6 +51,24 @@
       "message": "LGTM % taking care of failing test",
       "revId": "5cf46a65f82f87d1e14daa95cb4b7fe981d59178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f553a3e_a7a13d27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-04-26T09:41:34Z",
+      "side": 1,
+      "message": "I just rolled it back as it is causing test to fail and is not really related to the protocol roll.",
+      "parentUuid": "aca4b99f_41a28236",
+      "revId": "5cf46a65f82f87d1e14daa95cb4b7fe981d59178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
