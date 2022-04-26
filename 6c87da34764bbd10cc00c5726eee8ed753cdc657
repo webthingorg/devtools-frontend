@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "114e806e_2dec4130",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529417
+      },
+      "writtenOn": "2022-04-26T13:36:48Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4: Code-Review+1 Commit-Queue+2\n\u003e \n\u003e The vote Code-Review+1 is ignored as code-owner approval since the label doesn\u0027t allow self approval of the patch set uploader.\n\u003e \n\n",
+      "revId": "6c87da34764bbd10cc00c5726eee8ed753cdc657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
