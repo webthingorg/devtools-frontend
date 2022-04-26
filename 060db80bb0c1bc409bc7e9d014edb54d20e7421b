@@ -33,6 +33,23 @@
       "message": "Hi Danil Somsikov. would you mind take a look at this CL. I submit this CL a week ago but don\u0027t get a review.",
       "revId": "060db80bb0c1bc409bc7e9d014edb54d20e7421b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64a57e81_54edf557",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1529417
+      },
+      "writtenOn": "2022-04-26T10:11:48Z",
+      "side": 1,
+      "message": "Hi, Danil Somsikov! is there anything I need to do to land this patch? I am new here, I don\u0027t familiar with the procedure.",
+      "revId": "060db80bb0c1bc409bc7e9d014edb54d20e7421b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
