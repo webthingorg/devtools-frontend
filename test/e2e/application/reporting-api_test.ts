@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {$, click, enableExperiment, getBrowserAndPages, getTestServerPort, goToResource, waitFor} from '../../shared/helper.js';
+import {$, click, enableExperiment, getBrowserAndPages, getTestServerPort, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToApplicationTab} from '../helpers/application-helpers.js';
 import {getDataGrid, getDataGridRows, getInnerTextOfDataGridCells} from '../helpers/datagrid-helpers.js';
@@ -35,9 +35,11 @@ describe('The Reporting API Page', async () => {
     assert.strictEqual(innerText[0][5], reportBody);
 
     const rows = await getDataGridRows(1, dataGrid, false);
-    await click(rows[rows.length - 1][0]);
+    const jsonView = await waitForFunction(async () => {
+      await click(rows[rows.length - 1][0]);
+      return waitFor('.json-view');
+    });
 
-    const jsonView = await waitFor('.json-view');
     const jsonViewText = await jsonView.evaluate(el => (el as HTMLElement).innerText);
     assert.strictEqual(jsonViewText, '{columnNumber: 10, id: "PrefixedStorageInfo", lineNumber: 9,…}');
   });
