@@ -76,22 +76,22 @@ const UIStrings = {
   getUserMediaInsecureOrigin:
       '`getUserMedia()` no longer works on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS. See https://goo.gl/rStTGz for more details.',
   /**
-   *@description TODO(crbug.com/1318860): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing websites attempts to turn off CPU overuse detection with a non-standard API. CPU overuse detection is used to adjust video quality based on available CPU resources.
    */
   legacyConstraintGoogCpuOveruseDetection:
       'CPU overuse detection is enabled-by-default and the ability to disable it using `googCpuOveruseDetection` will soon be removed. Please stop using this legacy constraint.',
   /**
-   *@description TODO(crbug.com/1318861): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to disable use of IPv6 addresses with a non-standard API.
    */
   legacyConstraintGoogIPv6:
       'IPv6 is enabled-by-default and the ability to disable it using `googIPv6` will soon be removed. Please stop using this legacy constraint.',
   /**
-   *@description TODO(crbug.com/1318863): Description needed for translation
+   * @description TODO(crbug.com/1318863): A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to adjust bitrate settings for screeen sharing with a non-standard API.
    */
   legacyConstraintGoogScreencastMinBitrate:
       'Screencast min bitrate is now set to 100 kbps by default and `googScreencastMinBitrate` will soon be ignored in favor of this new default. Please stop using this legacy constraint.',
   /**
-   *@description TODO(crbug.com/1318864): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to change the default settings for how the browser should act when bitrate is low.
    */
   legacyConstraintGoogSuspendBelowMinBitrate:
       'Support for the `googSuspendBelowMinBitrate` constraint is about to be removed. Please stop using this legacy constraint.',
@@ -125,27 +125,27 @@ const UIStrings = {
   prefixedRequestAnimationFrame:
       '`webkitRequestAnimationFrame` is vendor-specific. Please use the standard `requestAnimationFrame` instead.',
   /**
-   *@description TODO(crbug.com/1318872): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to use a non-standard crypto method when performing a handshake to set up a connection with another endpoint.
    */
   rtcConstraintEnableDtlsSrtpFalse:
       'The constraint `DtlsSrtpKeyAgreement` is removed. You have specified a `false` value for this constraint, which is interpreted as an attempt to use the removed `SDES` key negotiation method. This functionality is removed; use a service that supports DTLS key negotiation instead.',
   /**
-   *@description TODO(crbug.com/1318873): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website uses a non-standard API for controlling the crypto method used, but is not having an effect because the desired behavior is already enabled-by-default.
    */
   rtcConstraintEnableDtlsSrtpTrue:
       'The constraint `DtlsSrtpKeyAgreement` is removed. You have specified a `true` value for this constraint, which had no effect, but you can remove this constraint for tidiness.',
   /**
-   *@description TODO(crbug.com/1318874): Description needed for translation
+   *@description A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to parse a non-standard version of the Session Description Protocol, which is the protocol used when two endpoints are exchanging information about what audio and video to send or receive. The non-standard version of the protocol is called "Plan B", and the standard version is called "Unified Plan". The warning message old and it's outdated in how it is phrased - the message says that Chrome will switch from Plan B to Unified Plan, but in reality Chrome already performed this switch several years ago. Unified Plan is already used by default, and trying to use Plan B would result in a JavaScript exception being thrown.
    */
   rtcPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics:
       'Complex Plan B SDP detected! Chrome will switch the default `sdpSemantics` from `plan-b` to the standardized `unified-plan` format and this peer connection is relying on the default `sdpSemantics`. This SDP is not compatible with Unified Plan and will be rejected by clients expecting Unified Plan. For more information about how to prepare for the switch, see https://webrtc.org/web-apis/chrome/unified-plan/.',
   /**
-   *@description TODO(crbug.com/1318875): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website uses a non-standard version of an API to exchange an offer or an answer. Offers and answers are exchanged between endpoints in order to configure what media should be sent and/or received. The app should make use of the standard API instead, which will have the desired effect.
    */
   rtcPeerConnectionLegacyCreateWithMediaConstraints:
       'The `mediaConstraints` version of `RTCOfferOptions/RTCAnswerOptions` are deprecated and will soon be removed, please migrate to the promise-based `createOffer`/`createAnswer` instead.',
   /**
-   *@description TODO(crbug.com/1318876): Description needed for translation
+   * @description A deprecation warning in the JavaScript console. It's shown when a video conferencing website attempts to turn on or off a feature that has been removed, RTP data channels. RTP data channels are used to send and receive arbitrary data, but have been removed in favor of standardized versions of data channels: SCTP data channels.
    */
   rtpDataChannel:
       'RTP data channels are no longer supported. The `RtpDataChannels` constraint is currently ignored, and may cause an error at a later date.',
