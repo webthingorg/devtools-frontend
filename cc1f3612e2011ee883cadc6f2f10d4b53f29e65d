@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe1853c_a6a3ed3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-26T05:37:45Z",
+      "side": 1,
+      "message": "Thanks! lgtm % nits",
+      "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f69c1f_fd760727",
+        "filename": "scripts/eslint_rules/lib/inline_type_imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-26T05:37:45Z",
+      "side": 1,
+      "message": "nit: why not\n\n .map(spec \u003d\u003e `type ${spec}`)\n .join(\u0027, \u0027);",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5eaef67_d37b4b1d",
+        "filename": "scripts/eslint_rules/lib/inline_type_imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-26T05:37:45Z",
+      "side": 1,
+      "message": "suggestion: Can we reverse the condition for the `if` and use an `else` branch instead of continue? I think it will make the loop slightly easier to read.\n\nThe merge case is IMO the more important one so it would come first. Just a personal preference though, feel free to ignore.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "cc1f3612e2011ee883cadc6f2f10d4b53f29e65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
