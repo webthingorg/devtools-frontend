@@ -528,7 +528,7 @@ async function getArgumentsForExpression(
       if (!first || callee.name !== 'MemberExpression') {
         return null;
       }
-      return evaluateExpression(context, doc.sliceString(first.from, first.to), 'argumentsHint');
+      return await evaluateExpression(context, doc.sliceString(first.from, first.to), 'argumentsHint');
     }, expression);
   } finally {
     context.runtimeModel.releaseObjectGroup('argumentsHint');
