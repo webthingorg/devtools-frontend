@@ -102,20 +102,27 @@ export class StartView extends UI.Widget.Widget {
     }
   }
 
-  protected populateFormControls(fragment: UI.Fragment.Fragment): void {
+  protected populateFormControls(fragment: UI.Fragment.Fragment, mode?: string): void {
     // Populate the device type
     const deviceTypeFormElements = fragment.$('device-type-form-elements');
     this.populateRuntimeSettingAsRadio('lighthouse.device_type', i18nString(UIStrings.device), deviceTypeFormElements);
 
     // Populate the categories
-    const categoryFormElements = fragment.$('categories-form-elements');
-    const pluginFormElements = fragment.$('plugins-form-elements');
+    const categoryFormElements = fragment.$('categories-form-elements') as HTMLElement;
+    categoryFormElements.textContent = '';
+    categoryFormElements.parentElement?.setAttribute('hidden', 'true');
+    const pluginFormElements = fragment.$('plugins-form-elements') as HTMLElement;
+    pluginFormElements.textContent = '';
+    pluginFormElements.parentElement?.setAttribute('hidden', 'true');
     for (const preset of Presets) {
       const formElements = preset.plugin ? pluginFormElements : categoryFormElements;
       preset.setting.setTitle(preset.title());
       const checkbox = new UI.Toolbar.ToolbarSettingCheckbox(preset.setting, preset.description());
-      const row = formElements.createChild('div', 'vbox lighthouse-launcher-row');
-      row.appendChild(checkbox.element);
+      if (!mode || preset.supportedModes.includes(mode)) {
+        const row = formElements.createChild('div', 'vbox lighthouse-launcher-row');
+        row.appendChild(checkbox.element);
+        formElements.parentElement?.removeAttribute('hidden');
+      }
     }
     UI.ARIAUtils.markAsGroup(categoryFormElements);
     UI.ARIAUtils.setAccessibleName(categoryFormElements, i18nString(UIStrings.categories));
@@ -181,7 +188,7 @@ export class StartView extends UI.Widget.Widget {
     this.contentElement.style.overflow = 'auto';
   }
 
-  updateMode(): void {
+  refresh(): void {
     // Do nothing in default case.
   }
 
