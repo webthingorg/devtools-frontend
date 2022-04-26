@@ -112,5 +112,5 @@ export async function scrollDataGridDown(dataGrid: ElementHandle, targetDown: nu
   // within the container
   await frontend.mouse.move(wrappingBox.x + 20, wrappingBox.y + 20);
   await frontend.mouse.wheel({deltaY: targetDown});
-  await waitForScrollTopOfDataGrid(dataGrid, targetDown);
+  // await waitForScrollTopOfDataGrid(dataGrid, targetDown);
 }

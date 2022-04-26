@@ -7,7 +7,7 @@ import {assert} from 'chai';
 import {$, click, enableExperiment, getBrowserAndPages, getTestServerPort, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToApplicationTab} from '../helpers/application-helpers.js';
-import {getDataGrid, getDataGridRows, getInnerTextOfDataGridCells} from '../helpers/datagrid-helpers.js';
+import {getDataGrid, getDataGridRows, getDataGridScrollTop, getInnerTextOfDataGridCells, scrollDataGridDown} from '../helpers/datagrid-helpers.js';
 
 const REPORTING_API_SELECTOR = '[aria-label="Reporting API"]';
 
@@ -30,14 +30,30 @@ describe('The Reporting API Page', async () => {
     assert.strictEqual(
         innerText[0][0], `https://localhost:${getTestServerPort()}/test/e2e/resources/application/reporting-api.html`);
     assert.strictEqual(innerText[0][1], 'deprecation');
-    assert.strictEqual(innerText[0][2], 'Queued');
+    assert.isTrue(innerText[0][2] === 'Queued' || innerText[0][2] === 'Pending');
+    // assert.strictEqual(innerText[0][2], 'Queued');
     assert.strictEqual(innerText[0][3], 'default');
     assert.strictEqual(innerText[0][5], reportBody);
 
     const rows = await getDataGridRows(1, dataGrid, false);
+    let top = await getDataGridScrollTop(dataGrid);
+    console.log('ROWS', rows.length, top);  // eslint-disable-line no-console
+    await scrollDataGridDown(dataGrid, 999);
+    top = await getDataGridScrollTop(dataGrid);
+    console.log('POST', top);  // eslint-disable-line no-console
     await click(rows[rows.length - 1][0]);
 
     const jsonView = await waitFor('.json-view');
+
+    // const jsonView = await waitForFunction(async () => {
+    //   const rows = await getDataGridRows(1, dataGrid, false);
+    //   // console.log('ROWS', rows.length);
+    //   // await new Promise(() => {});
+
+    //   await click(rows[rows.length - 1][0]);
+    //   return waitFor('.json-view');
+    // });
+
     const jsonViewText = await jsonView.evaluate(el => (el as HTMLElement).innerText);
     assert.strictEqual(jsonViewText, '{columnNumber: 10, id: "PrefixedStorageInfo", lineNumber: 9,…}');
   });
