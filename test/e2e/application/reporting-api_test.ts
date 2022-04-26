@@ -30,14 +30,24 @@ describe('The Reporting API Page', async () => {
     assert.strictEqual(
         innerText[0][0], `https://localhost:${getTestServerPort()}/test/e2e/resources/application/reporting-api.html`);
     assert.strictEqual(innerText[0][1], 'deprecation');
-    assert.strictEqual(innerText[0][2], 'Queued');
+    assert.isTrue(innerText[0][2] === 'Queued' || innerText[0][2] === 'Pending');
+    // assert.strictEqual(innerText[0][2], 'Queued');
     assert.strictEqual(innerText[0][3], 'default');
     assert.strictEqual(innerText[0][5], reportBody);
 
     const rows = await getDataGridRows(1, dataGrid, false);
-    await click(rows[rows.length - 1][0]);
-
+    await click(rows[0][0]);
     const jsonView = await waitFor('.json-view');
+
+    // const jsonView = await waitForFunction(async () => {
+    //   const rows = await getDataGridRows(1, dataGrid, false);
+    //   // console.log('ROWS', rows.length);
+    //   // await new Promise(() => {});
+
+    //   await click(rows[rows.length - 1][0]);
+    //   return waitFor('.json-view');
+    // });
+
     const jsonViewText = await jsonView.evaluate(el => (el as HTMLElement).innerText);
     assert.strictEqual(jsonViewText, '{columnNumber: 10, id: "PrefixedStorageInfo", lineNumber: 9,…}');
   });
