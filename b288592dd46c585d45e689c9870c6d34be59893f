@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abcc015_0980e106",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-04-26T07:56:49Z",
+      "side": 1,
+      "message": "PTAL. I\u0027m still not super happy with these somewhat ad-hoc heurestics for the filtering mechanism, but at least they are an improvement to the current experience. WDYT?",
+      "revId": "b288592dd46c585d45e689c9870c6d34be59893f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
