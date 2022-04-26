@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4feeaf4_924df231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-04-26T21:00:11Z",
+      "side": 1,
+      "message": "Fixing a minor thing I noticed when trying to re-enable the http/tests/devtools/elements/styles-2/pseudo-elements.js WPT.\n\nPTAL, thanks!",
+      "revId": "949130ddd790804ed504859e280fa4036bab3539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
