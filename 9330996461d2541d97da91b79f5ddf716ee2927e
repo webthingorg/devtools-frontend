@@ -16,6 +16,75 @@
       "message": "Please take a look Wolfi",
       "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5742a1_bc585a25",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-27T08:29:38Z",
+      "side": 1,
+      "message": "nit: website",
+      "range": {
+        "startLine": 79,
+        "startChar": 111,
+        "endLine": 79,
+        "endChar": 113
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af12d68_5acb7177",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-27T08:29:38Z",
+      "side": 1,
+      "message": "Could you please rephrase this here and elsewhere to something like \"in the DevTools Issues tab\"? These warnings are being shown in the Issues tab and not in the console.",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 66
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b07a14b_1279b1a0",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-27T08:29:38Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the actual warning message be updated then? The link seems to be dead as well.",
+      "range": {
+        "startLine": 138,
+        "startChar": 421,
+        "endLine": 138,
+        "endChar": 483
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
