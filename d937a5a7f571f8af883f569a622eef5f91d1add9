@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02aa1cc9_3ecfde8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "9d709f57_89f1392c",
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6089195_5870ef6c",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-14T20:20:41Z",
       "side": 1,
       "message": "We might be able to group up all these helpers together into one \"getStaticSections\".\n\nI would push all this this.*.getTitleElement() into an array and then create one helper that returns it.\n\nSomething like:\n```\ngetStaticSections {\n    return [this.identitySection, this.presentationSection, this.iconsSection];\n}\n```",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 3
+      },
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "605f5ea2_a820454e",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6089195_5870ef6c",
       "range": {
         "startLine": 494,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "043764ee_0f48f3f7",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0052a0a_47f8a676",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 5
+      },
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fc62e74_a2478f40",
@@ -77,6 +143,24 @@
       "writtenOn": "2022-04-14T20:20:41Z",
       "side": 1,
       "message": "Can probably delete this newline",
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "660432b2_396cba96",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc62e74_a2478f40",
       "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -104,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5152c5fb_6c65fa9d",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fcedd85_dea103c6",
+      "range": {
+        "startLine": 941,
+        "startChar": 0,
+        "endLine": 943,
+        "endChar": 32
+      },
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c38467b_cbb1aae1",
@@ -117,6 +225,30 @@
       "writtenOn": "2022-04-14T20:20:41Z",
       "side": 1,
       "message": "If we do the change I proposed in AppManifestView.  We can just iterate on the array returned from getStaticSections.\n\nSomething like this:\n```\nconst staticSections \u003d this.view.getStaticSections();\nfor (const section of staticSections) {\n    const sectionElement \u003d section.getTitleElement();\n    const title \u003d section.title();\n    const child \u003d new Manifest...;\n    this.appendChild(child);\n}\n```",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 985,
+        "endChar": 5
+      },
+      "revId": "d937a5a7f571f8af883f569a622eef5f91d1add9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f4b384_2b349f24",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-04-27T22:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c38467b_cbb1aae1",
       "range": {
         "startLine": 966,
         "startChar": 0,
