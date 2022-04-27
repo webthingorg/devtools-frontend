@@ -69,6 +69,24 @@
       "parentUuid": "7d636a1b_1f80efec",
       "revId": "355b18e4c89b98df704d3876c1b90f7a8f4a45d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84db6757_99092bf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-04-27T22:38:56Z",
+      "side": 1,
+      "message": "It\u0027s not broken but I wasn\u0027t noticing much visual difference between the enabled/disabled states if the box is unchecked.\n\nStrikethru would help, but I think it would still be confusing if the box is checked and disabled.",
+      "parentUuid": "b1f7ac8e_3c503abb",
+      "revId": "355b18e4c89b98df704d3876c1b90f7a8f4a45d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
