@@ -766,7 +766,8 @@ export class DebuggerLanguagePluginManager implements
     rawModuleId: string,
     plugin: DebuggerLanguagePlugin,
     scripts: Array<SDK.Script.Script>,
-    addRawModulePromise: Promise<Array<Platform.DevToolsPath.UrlString>|{missingDebugFiles: string[]}>,
+    addRawModulePromise:
+        Promise<Array<Platform.DevToolsPath.UrlString>|{missingDebugFiles: SDK.DebuggerModel.MissingDebugFilesInfo}>,
   }>;
 
   constructor(
@@ -1072,7 +1073,8 @@ export class DebuggerLanguagePluginManager implements
       let rawModuleHandle = this.#rawModuleHandles.get(rawModuleId);
       if (!rawModuleHandle) {
         const sourceFileURLsPromise =
-            (async(): Promise<Platform.DevToolsPath.UrlString[]|{missingDebugFiles: string[]}> => {
+            (async(): Promise<Platform.DevToolsPath.UrlString[]|
+                              {missingDebugFiles: SDK.DebuggerModel.MissingDebugFilesInfo}> => {
               const console = Common.Console.Console.instance();
               const url = script.sourceURL;
               const symbolsUrl = (script.debugSymbols && script.debugSymbols.externalURL) || '';
@@ -1093,7 +1095,11 @@ export class DebuggerLanguagePluginManager implements
                   return [];
                 }
                 if ('missingDebugFiles' in addModuleResult) {
-                  return {missingDebugFiles: addModuleResult.missingDebugFiles};
+                  const initiator = plugin.getRequestInitiator();
+                  return {
+                    missingDebugFiles: addModuleResult.missingDebugFiles.map(
+                        resource => ({resource: resource as Platform.DevToolsPath.UrlString, initiator})),
+                  };
                 }
                 const sourceFileURLs = addModuleResult as Platform.DevToolsPath.UrlString[];
                 if (sourceFileURLs.length === 0) {
@@ -1137,7 +1143,8 @@ export class DebuggerLanguagePluginManager implements
   }
 
   getSourcesForScript(script: SDK.Script.Script):
-      Promise<Array<Platform.DevToolsPath.UrlString>|{missingDebugFiles: string[]}|undefined> {
+      Promise<Array<Platform.DevToolsPath.UrlString>|{missingDebugFiles: SDK.DebuggerModel.MissingDebugFilesInfo}|
+              undefined> {
     const rawModuleId = rawModuleIdForScript(script);
     const rawModuleHandle = this.#rawModuleHandles.get(rawModuleId);
     if (rawModuleHandle) {
@@ -1184,7 +1191,8 @@ export class DebuggerLanguagePluginManager implements
   }
 
   async getFunctionInfo(script: SDK.Script.Script, location: SDK.DebuggerModel.Location):
-      Promise<{frames: Array<Chrome.DevTools.FunctionInfo>}|{missingDebugFiles: string[]}|null> {
+      Promise<{frames: Array<Chrome.DevTools.FunctionInfo>}|
+              {missingDebugFiles: SDK.DebuggerModel.MissingDebugFilesInfo}|null> {
     const {rawModuleId, plugin} = await this.rawModuleIdAndPluginForScript(script);
     if (!plugin) {
       return null;
@@ -1199,8 +1207,15 @@ export class DebuggerLanguagePluginManager implements
     try {
       const functionInfo = await plugin.getFunctionInfo(rawLocation);
       if ('missingSymbolFiles' in functionInfo) {  // Backwards compatibility
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return {missingDebugFiles: (functionInfo as any).missingSymbolFiles};
+                                                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (functionInfo as any).missingDebugFiles = (functionInfo as any).missingSymbolFiles;
+      }
+      if ('missingDebugFiles' in functionInfo) {
+        const initiator: SDK.PageResourceLoader.PageResourceLoadInitiator = plugin.getRequestInitiator();
+        return {
+          missingDebugFiles: functionInfo.missingDebugFiles.map(
+              resource => ({resource: resource as Platform.DevToolsPath.UrlString, initiator})),
+        };
       }
       return functionInfo;
     } catch (error) {
@@ -1377,8 +1392,19 @@ class ModelData {
 
 export class DebuggerLanguagePlugin implements Chrome.DevTools.LanguageExtensionPlugin {
   name: string;
-  constructor(name: string) {
+  private readonly extensionOrigin: string;
+  constructor(extensionOrigin: string, name: string) {
     this.name = name;
+    this.extensionOrigin = extensionOrigin;
+  }
+
+  getRequestInitiator(): SDK.PageResourceLoader.PageResourceLoadInitiator {
+    return {
+      extensionId: this.extensionOrigin,
+      target: null,
+      frameId: null,
+      initiatorUrl: this.extensionOrigin as Platform.DevToolsPath.UrlString,
+    };
   }
 
   handleScript(_script: SDK.Script.Script): boolean {

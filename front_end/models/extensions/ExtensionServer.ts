@@ -140,6 +140,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.registerHandler(PrivateAPI.Commands.UpdateButton, this.onUpdateButton.bind(this));
     this.registerHandler(
         PrivateAPI.Commands.RegisterLanguageExtensionPlugin, this.registerLanguageExtensionEndpoint.bind(this));
+    this.registerHandler(PrivateAPI.Commands.FetchResourceRequestUpdate, this.onFetchResourceRequestUpdate.bind(this));
     window.addEventListener('message', this.onWindowMessage.bind(this), false);  // Only for main window.
 
     const existingTabId =
@@ -202,18 +203,30 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   private registerLanguageExtensionEndpoint(
       message: PrivateAPI.ExtensionServerRequestMessage, _shared_port: MessagePort): Record {
     if (message.command !== PrivateAPI.Commands.RegisterLanguageExtensionPlugin) {
-      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.Subscribe}`);
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.RegisterLanguageExtensionPlugin}`);
     }
     const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
     if (!pluginManager) {
       return this.status.E_FAILED('WebAssembly DWARF support needs to be enabled to use this extension');
     }
 
+    const extensionOrigin = this.getExtensionOrigin(_shared_port);
+
     const {pluginName, port, supportedScriptTypes: {language, symbol_types}} = message;
     const symbol_types_array =
         (Array.isArray(symbol_types) && symbol_types.every(e => typeof e === 'string') ? symbol_types : []);
-    const endpoint = new LanguageExtensionEndpoint(pluginName, {language, symbol_types: symbol_types_array}, port);
+    const endpoint =
+        new LanguageExtensionEndpoint(extensionOrigin, pluginName, {language, symbol_types: symbol_types_array}, port);
     pluginManager.addPlugin(endpoint);
+    return this.status.OK();
+  }
+
+  private onFetchResourceRequestUpdate(message: PrivateAPI.ExtensionServerRequestMessage): Record {
+    if (message.command !== PrivateAPI.Commands.FetchResourceRequestUpdate) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.FetchResourceRequestUpdate}`);
+    }
+
+    SDK.PageResourceLoader.PageResourceLoader.instance().updateExtensionResourceLoad(message.status);
     return this.status.OK();
   }
 

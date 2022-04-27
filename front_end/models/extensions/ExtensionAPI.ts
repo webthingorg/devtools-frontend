@@ -28,9 +28,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import type * as HAR from '../har/har.js';
 import type * as Platform from '../../core/platform/platform.js';
 import type * as PublicAPI from '../../../extension-api/ExtensionAPI'; // eslint-disable-line rulesdir/es_modules_import
-import type * as HAR from '../har/har.js';
+import type * as SDK from '../../core/sdk/sdk.js';
 
 /* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-non-null-assertion */
 export namespace PrivateAPI {
@@ -86,6 +87,7 @@ export namespace PrivateAPI {
     Unsubscribe = 'unsubscribe',
     UpdateButton = 'updateButton',
     RegisterLanguageExtensionPlugin = 'registerLanguageExtensionPlugin',
+    FetchResourceRequestUpdate = 'fetchResourceRequestUpdate',
   }
 
   export const enum LanguageExtensionPluginCommands {
@@ -181,6 +183,10 @@ export namespace PrivateAPI {
   };
   type GetHARRequest = {command: Commands.GetHAR};
   type GetPageResourcesRequest = {command: Commands.GetPageResources};
+  type FetchResourceRequestUpdateRequest = {
+    command: Commands.FetchResourceRequestUpdate,
+    status: SDK.PageResourceLoader.PageResource,
+  };
 
   export type ServerRequests = RegisterLanguageExtensionPluginRequest|SubscribeRequest|UnsubscribeRequest|
       AddRequestHeadersRequest|ApplyStyleSheetRequest|CreatePanelRequest|ShowPanelRequest|CreateToolbarButtonRequest|
@@ -188,7 +194,7 @@ export namespace PrivateAPI {
       SetSidebarContentRequest|SetSidebarPageRequest|OpenResourceRequest|SetOpenResourceHandlerRequest|
       SetThemeChangeHandlerRequest|ReloadRequest|EvaluateOnInspectedPageRequest|GetRequestContentRequest|
       GetResourceContentRequest|SetResourceContentRequest|AddTraceProviderRequest|ForwardKeyboardEventRequest|
-      GetHARRequest|GetPageResourcesRequest;
+      GetHARRequest|GetPageResourcesRequest|FetchResourceRequestUpdateRequest;
   export type ExtensionServerRequestMessage = PrivateAPI.ServerRequests&{requestId?: number};
 
   type AddRawModuleRequest = {
@@ -675,8 +681,9 @@ self.injectedExtensionAPI = function(
     this._plugins = new Map();
   }
 
-  (LanguageServicesAPIImpl.prototype as
-   Pick<APIImpl.LanguageExtensions, 'registerLanguageExtensionPlugin'|'unregisterLanguageExtensionPlugin'>) = {
+  (LanguageServicesAPIImpl.prototype as Pick<
+       APIImpl.LanguageExtensions,
+       'registerLanguageExtensionPlugin'|'unregisterLanguageExtensionPlugin'|'reportResourceLoad'>) = {
     registerLanguageExtensionPlugin: async function(
         this: APIImpl.LanguageExtensions, plugin: PublicAPI.Chrome.DevTools.LanguageExtensionPlugin, pluginName: string,
         supportedScriptTypes: PublicAPI.Chrome.DevTools.SupportedScriptTypes): Promise<void> {
@@ -756,6 +763,25 @@ self.injectedExtensionAPI = function(
       this._plugins.delete(plugin);
       port.postMessage({event: PrivateAPI.LanguageExtensionPluginEvents.UnregisteredLanguageExtensionPlugin});
       port.close();
+    },
+
+    reportResourceLoad: function(
+        resourceUrl: string, status: {success?: boolean, errorMessage?: string, size?: number}): void {
+      const url = resourceUrl as Platform.DevToolsPath.UrlString;
+      const extensionId = window.location.origin;
+      const initiator =
+          {initiatorUrl: extensionId as Platform.DevToolsPath.UrlString, extensionId, target: null, frameId: null};
+
+      extensionServer.sendRequest({
+        command: PrivateAPI.Commands.FetchResourceRequestUpdate,
+        status: {
+          url,
+          initiator,
+          size: status.size ?? null,
+          success: status.success ?? null,
+          errorMessage: status.errorMessage,
+        },
+      });
     },
   };
 

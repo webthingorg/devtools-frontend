@@ -101,6 +101,9 @@
   "core/common/Revealer.ts | changesDrawer": {
     "message": "Changes drawer"
   },
+  "core/common/Revealer.ts | developerResourcesDrawer": {
+    "message": "Developer resources drawer"
+  },
   "core/common/Revealer.ts | elementsPanel": {
     "message": "Elements panel"
   },
@@ -9532,6 +9535,9 @@
   },
   "panels/sources/DebuggerPlugin.ts | enableBreakpoint": {
     "message": "{n, plural, =1 {Enable breakpoint} other {Enable all breakpoints in line}}"
+  },
+  "panels/sources/DebuggerPlugin.ts | gotoRequest": {
+    "message": "(See request)"
   },
   "panels/sources/DebuggerPlugin.ts | neverPauseHere": {
     "message": "Never pause here"

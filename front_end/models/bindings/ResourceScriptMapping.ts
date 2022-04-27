@@ -423,7 +423,7 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper<Resou
     return this.scriptInternal !== undefined && Boolean(this.scriptInternal.sourceMapURL);
   }
 
-  async missingDebugFiles(): Promise<string[]|null> {
+  async missingDebugFiles(): Promise<SDK.DebuggerModel.MissingDebugFilesInfo|null> {
     if (!this.scriptInternal) {
       return null;
     }
