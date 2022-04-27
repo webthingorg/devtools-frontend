@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b3d485_aa5d8c80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-04-27T02:40:13Z",
+      "side": 1,
+      "message": "another screen video record: https://www.youtube.com/watch?v\u003dHXwSrqGb770",
+      "revId": "986643ab41c31ac6d76d9086cb8ac7baf3add05e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
