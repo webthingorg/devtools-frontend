@@ -68,6 +68,24 @@
       "parentUuid": "9a354d33_8996aa81",
       "revId": "3475925e143b94bb5b8cea0370fd2b875cd3b3ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c8c3a63_feb51217",
+        "filename": "front_end/panels/sources/sources-legacy.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-27T13:29:11Z",
+      "side": 1,
+      "message": "Ah, sorry, the \"layout\" tests are the tests located in Chromium here https://crsrc.org/c/third_party/blink/web_tests/http/tests/devtools/ They tend to reach out to internal classes of DevTools either directly or through the test runner helpers https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/legacy_test_runner/",
+      "parentUuid": "e76aa00e_9d2ab186",
+      "revId": "3475925e143b94bb5b8cea0370fd2b875cd3b3ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
