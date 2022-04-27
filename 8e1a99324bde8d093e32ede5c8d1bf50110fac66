@@ -16,6 +16,24 @@
       "message": "Quick question: why was this line removed?",
       "revId": "8e1a99324bde8d093e32ede5c8d1bf50110fac66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c09af12_e55e3d82",
+        "filename": "front_end/panels/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-04-27T11:37:02Z",
+      "side": 0,
+      "message": "Not sure why it shows it is removed. I compared it with main and it\u0027s not there either",
+      "parentUuid": "3d147f0a_1072c0b8",
+      "revId": "8e1a99324bde8d093e32ede5c8d1bf50110fac66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
