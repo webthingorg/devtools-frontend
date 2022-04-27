@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71527ccf_b8522ad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2022-04-27T15:58:38Z",
+      "side": 1,
+      "message": "Ptal. Reviewer added based on \"suggest owners\".\n\nTim: Is the multi-line format for the comments okay, or do I have to smush everything in one line?\n",
+      "revId": "bd46b0bfaf0ccc0b5272f14724027d19c30e51b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
