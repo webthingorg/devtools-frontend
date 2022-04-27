@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a531cf_37e58689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-04-27T12:46:55Z",
+      "side": 1,
+      "message": "Hey hey, after this CL got +1 review, I needed to make a change for ARIA announce updates. Can you take a look at the CL to make sure it doesn\u0027t break anything? 😊",
+      "revId": "3475925e143b94bb5b8cea0370fd2b875cd3b3ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
