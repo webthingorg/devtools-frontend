@@ -16,6 +16,23 @@
       "message": "Thanks for the reviews! Addressed the comments, ptal!",
       "revId": "e4be4453cd5fe4ce906c03787fe17786c1cecf71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "761f1de4_669524ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-04-27T09:40:24Z",
+      "side": 1,
+      "message": "Thanks, landing!",
+      "revId": "e4be4453cd5fe4ce906c03787fe17786c1cecf71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
