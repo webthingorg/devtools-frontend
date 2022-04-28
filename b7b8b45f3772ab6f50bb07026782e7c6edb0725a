@@ -22,6 +22,30 @@
       },
       "revId": "b7b8b45f3772ab6f50bb07026782e7c6edb0725a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4789f2_55663488",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-04-28T15:10:30Z",
+      "side": 1,
+      "message": "It\u0027s hard to tell in isolation. What are all the situations where renameUISourceCode is called and do all callers expect it to take encoded strings or raw strings, or are they inconsistent in their expectation? Have you tried renaming snippets or other sorts of renameable files with spaces, percents, or question marks in their file names?\n\nMaybe you should start by changing the function signature to specify that newName is a UrlString, then make additional type annotations wherever TypeScript makes you until you either verify this assumption or find code that contradicts it.",
+      "parentUuid": "4fa40c16_1ca83e2a",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "b7b8b45f3772ab6f50bb07026782e7c6edb0725a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
