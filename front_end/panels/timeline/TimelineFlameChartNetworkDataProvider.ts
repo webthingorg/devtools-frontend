@@ -19,6 +19,7 @@ import type {PerformanceModel} from './PerformanceModel.js';
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
 import {TimelineSelection} from './TimelinePanel.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
+import {RecordType} from '../../models/timeline_model/TimelineModel.js';
 
 const UIStrings = {
   /**
@@ -207,6 +208,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     context.fillRect(barX, barY - 0.5, sendStart - barX, barHeight);
     context.fillRect(finish, barY - 0.5, barX + barWidth - finish, barHeight);
 
+    // Draw h2 push time
     // If the request is from cache, pushStart refers to the original request, and hence cannot be used.
     if (!request.cached() && timing.pushStart) {
       const pushStart = timeToPixel(timing.pushStart * 1000);
@@ -236,7 +238,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       context.fill();
       context.restore();
     }
-
+    // Draw left and right whiskers
     function drawTick(begin: number, end: number, y: number): void {
       const /** @const */ tickHeightPx = 6;
       context.moveTo(begin, y - tickHeightPx / 2);
@@ -262,7 +264,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
         context.fillRect(sendStart + 0.5, barY + 0.5, 3.5, 3.5);
       }
     }
-
+    // Draw request URL as text
     const textStart = Math.max(sendStart, 0);
     const textWidth = finish - textStart;
     const /** @const */ minTextWidthPx = 20;
@@ -279,6 +281,33 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
         context.fillStyle = '#333';
         context.fillText(trimmedText, textStart + textPadding, barY + textBaseHeight);
       }
+    }
+
+    // if (!request.url.startsWith('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Snake_River_%285mb%29.jpg/1600px-Snake_River_%285mb%29.jpg?20080122031527')) return true;
+    // Draw received data.
+    // This all kinda works but existing bar is network timings. and these receivedata events are blink timings. there's a delay and we'll be receiving data into the right whisker.
+
+    const darkened = this.entryColor(index).replace(/\d+%\)/, '20%, 0.4)').replace('hsl', 'hsla');
+    context.fillStyle = darkened;
+    const receiveDataEvents =
+        request.children.filter(evt => evt.args?.data?.encodedDataLength && evt.name !== RecordType.ResourceFinish);
+    const totalDataChunkLength =
+        receiveDataEvents.reduce((sum, item) => sum + item.args?.data?.encodedDataLength || 0, 0);
+    // each "data received" event in blink gets a 'length' from a chunk.size().
+    // This number probaly includes some overhead (mojo IPC chunk metadata?) and generally likes to be 65k.
+    //  so bytesSum will generally be larger than the request's encodedDataLength. Shrug.
+    const adjFactor = totalDataChunkLength / request.encodedDataLength;
+
+    let bytesSum = receiveDataEvents[0].args.data.encodedDataLength || 0;
+    for (let i = 1; i < receiveDataEvents.length; i++) {
+      const prevEvt = receiveDataEvents[i - 1];
+      const evt = receiveDataEvents[i];
+      const chunkLength = evt.args.data.encodedDataLength;
+      bytesSum += chunkLength;
+      const scaledHeight = Math.min(bytesSum / request.encodedDataLength / adjFactor, 100) * (barHeight - 1);
+      // console.log(evt.name, bytesSum / request.encodedDataLength / adjFactor, 'here', chunkLength, 'totalling', bytesSum, 'out of', request.encodedDataLength, ' umwhat', scaledHeight);
+      const stepRectWidth = timeToPixel(evt.startTime) - timeToPixel(prevEvt.startTime);
+      context.fillRect(timeToPixel(prevEvt.startTime), barY, stepRectWidth, scaledHeight);
     }
 
     return true;
