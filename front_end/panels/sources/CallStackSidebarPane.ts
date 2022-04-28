@@ -198,8 +198,8 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
             return item;
           });
       itemPromises.push(itemPromise);
-      for (const warning of frame.warnings) {
-        uniqueWarnings.add(warning);
+      if (frame.missingDebugInfoDetails) {
+        uniqueWarnings.add(frame.missingDebugInfoDetails.details);
       }
     }
     const items = await Promise.all(itemPromises);
@@ -310,9 +310,9 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     element.appendChild(UI.Icon.Icon.create('smallicon-thick-right-arrow', 'selected-call-frame-icon'));
     element.tabIndex = item === this.list.selectedItem() ? 0 : -1;
 
-    if (callframe && callframe.warnings.length) {
+    if (callframe && callframe.missingDebugInfoDetails) {
       const icon = UI.Icon.Icon.create('smallicon-warning', 'call-frame-warning-icon');
-      UI.Tooltip.Tooltip.install(icon, callframe.warnings.join('\n'));
+      UI.Tooltip.Tooltip.install(icon, callframe.missingDebugInfoDetails.details);
       element.appendChild(icon);
     }
     return element;
