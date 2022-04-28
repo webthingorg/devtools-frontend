@@ -46,6 +46,30 @@
       },
       "revId": "66e7756101a29ae783528c8547f0e9d2655ec363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5877aad_f548fbe5",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-04-28T09:50:34Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "a5b52d77_e0641a98",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 116
+      },
+      "revId": "66e7756101a29ae783528c8547f0e9d2655ec363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
