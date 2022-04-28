@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa40c16_1ca83e2a",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-28T14:21:09Z",
+      "side": 1,
+      "message": "This undos some of the changes from https://crrev.com/c/3344916. Are you aware of any reason why this shouldn\u0027t be ok to do anyway?",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "b7b8b45f3772ab6f50bb07026782e7c6edb0725a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
