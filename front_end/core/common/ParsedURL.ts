@@ -180,14 +180,6 @@ export class ParsedURL {
     return ParsedURL.concatenate(parentPath, '/', encodeURIComponent(name));
   }
 
-  /**
-   * @param name Must not be encoded
-   */
-  static urlFromParentUrlAndName(parentUrl: Platform.DevToolsPath.UrlString, name: string):
-      Platform.DevToolsPath.UrlString {
-    return ParsedURL.concatenate(parentUrl, '/', encodeURIComponent(name));
-  }
-
   static encodedPathToRawPathString(encPath: Platform.DevToolsPath.EncodedPathString):
       Platform.DevToolsPath.RawPathString {
     return decodeURIComponent(encPath) as Platform.DevToolsPath.RawPathString;
