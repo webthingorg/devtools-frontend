@@ -92,6 +92,15 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
     return developerResourcesViewInstance;
   }
 
+  selectResource(selector: SDK.PageResourceLoader.PageResourceKey): void {
+    const key = SDK.PageResourceLoader.PageResourceLoader.makeExtensionKey(selector.url, selector.initiator);
+    const resource = this.loader.getResourcesLoaded().get(key);
+    if (!resource) {
+      return;
+    }
+    this.listView.select(resource);
+  }
+
   private onUpdate(): void {
     void this.throttler.schedule(this.update.bind(this));
   }
@@ -133,5 +142,25 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([developerResourcesViewStyles]);
+  }
+}
+
+let developerResourcesRevealerInstance: DeveloperResourcesRevealer;
+export class DeveloperResourcesRevealer implements Common.Revealer.Revealer {
+  static instance(opts: {forceNew: boolean} = {forceNew: false}): DeveloperResourcesRevealer {
+    const {forceNew} = opts;
+    if (!developerResourcesRevealerInstance || forceNew) {
+      developerResourcesRevealerInstance = new DeveloperResourcesRevealer();
+    }
+
+    return developerResourcesRevealerInstance;
+  }
+
+  async reveal(resource: Object): Promise<void> {
+    if (!(resource instanceof SDK.PageResourceLoader.PageResourceKey)) {
+      throw new Error('Internal error: not a page resource');
+    }
+    await UI.ViewManager.ViewManager.instance().showView('resource-loading-pane');
+    DeveloperResourcesView.instance().selectResource(resource);
   }
 }

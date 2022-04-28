@@ -151,6 +151,10 @@ const UIStrings = {
   *@example {app.wasm} PH1
   */
   debugInfoNotFound: 'Failed to load any debug info for {PH1}.',
+  /**
+  *@description Button text in the Debugger Plugin of the Sources panel
+  */
+  gotoRequest: '(See request)',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/DebuggerPlugin.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1386,13 +1390,18 @@ export class DebuggerPlugin extends Plugin {
     if (!this.missingDebugInfoBar) {
       return;
     }
-    for (const resource of warning.resources) {
+    warning.resources.forEach(({resource, initiator}) => {
       const detailsRow =
           this.missingDebugInfoBar?.createDetailsRowMessage(i18nString(UIStrings.debugFileNotFound, {PH1: resource}));
       if (detailsRow) {
         detailsRow.classList.add('infobar-selectable');
+        const requestButton = UI.UIUtils.createTextButton(
+            i18nString(UIStrings.gotoRequest),
+            () => Common.Revealer.reveal(new SDK.PageResourceLoader.PageResourceKey(resource, initiator)),
+            'link-style devtools-link');
+        detailsRow.appendChild(requestButton);
       }
-    }
+    });
     this.missingDebugInfoBar.setCloseCallback(() => {
       this.removeInfobar(this.missingDebugInfoBar);
       this.missingDebugInfoBar = null;
