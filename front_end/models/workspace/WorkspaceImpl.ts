@@ -182,8 +182,8 @@ export abstract class ProjectStore implements Project {
   renameUISourceCode(uiSourceCode: UISourceCode, newName: string): void {
     const oldPath = uiSourceCode.url();
     const newPath = uiSourceCode.parentURL() ?
-        Common.ParsedURL.ParsedURL.urlFromParentUrlAndName(uiSourceCode.parentURL(), newName) :
-        encodeURIComponent(newName) as Platform.DevToolsPath.UrlString;
+        Common.ParsedURL.ParsedURL.concatenate(uiSourceCode.parentURL(), '/', newName) :
+        newName as Platform.DevToolsPath.UrlString;
     const value = this.uiSourceCodesMap.get(oldPath) as {
       uiSourceCode: UISourceCode,
       index: number,
