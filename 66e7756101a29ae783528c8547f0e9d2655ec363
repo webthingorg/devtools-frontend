@@ -22,6 +22,30 @@
       },
       "revId": "66e7756101a29ae783528c8547f0e9d2655ec363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b52d77_e0641a98",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-04-28T09:46:04Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth forcing specific patterns like we used to. There were most exceptions than rules, and any with alternates (please use A() or B() instead) have to be in the translation string to get the or translated. I want to learn the lesson of the old c++ approach that kinda failed.",
+      "parentUuid": "777bf6d9_ec182480",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 116
+      },
+      "revId": "66e7756101a29ae783528c8547f0e9d2655ec363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
