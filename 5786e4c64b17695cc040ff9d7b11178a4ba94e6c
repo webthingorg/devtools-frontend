@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dae8af40_a6b505f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-28T16:44:16Z",
+      "side": 1,
+      "message": "Thanks, LGTM.",
+      "revId": "5786e4c64b17695cc040ff9d7b11178a4ba94e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407f1df4_534c5f0a",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-28T16:44:16Z",
+      "side": 1,
+      "message": "nit: ...to developers that a permission...",
+      "range": {
+        "startLine": 177,
+        "startChar": 35,
+        "endLine": 177,
+        "endChar": 59
+      },
+      "revId": "5786e4c64b17695cc040ff9d7b11178a4ba94e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
