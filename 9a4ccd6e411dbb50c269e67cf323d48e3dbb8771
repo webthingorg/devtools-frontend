@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0baef2ad_5642837f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-04-28T11:54:53Z",
+      "side": 1,
+      "message": "Danil, please take a look, I\u0027ll remove all protocol/generated files after backend lands. Otherwise than that the CL is ready",
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
