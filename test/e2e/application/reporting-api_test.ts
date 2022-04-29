@@ -15,8 +15,8 @@ describe('The Reporting API Page', async () => {
   beforeEach(async () => {
     await enableExperiment('reportingApiDebugging');
   });
-
-  it('shows reports', async () => {
+  // https://crbug.com/1321131
+  xit('shows reports', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'reporting-api');
     await click(REPORTING_API_SELECTOR);
