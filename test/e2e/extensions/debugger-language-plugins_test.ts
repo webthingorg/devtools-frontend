@@ -5,7 +5,8 @@
 import {assert} from 'chai';
 
 import type {Chrome} from '../../../extension-api/ExtensionAPI.js';
-import {$, $$, click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, pasteText, waitFor, waitForFunction, waitForMany, waitForNone} from '../../shared/helper.js';
+import type {puppeteer} from '../../shared/helper.js';
+import {$, $$, $textContent, assertNotNullOrUndefined, click, enableExperiment, getBrowserAndPages, getDevToolsFrontendHostname, getResourcesPath, getTestServerPort, goToResource, pasteText, waitFor, waitForFunction, waitForMany, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getResourcesPathWithDevToolsHostname, loadExtension} from '../helpers/extension-helpers.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt, getCurrentConsoleMessages, getStructuredConsoleMessages} from '../helpers/console-helpers.js';
@@ -16,6 +17,14 @@ declare function RegisterExtension(
     pluginImpl: Partial<Chrome.DevTools.LanguageExtensionPlugin>, name: string,
     // eslint-disable-next-line @typescript-eslint/naming-convention
     supportedScriptTypes: {language: string, symbol_types: string[]}): void;
+
+declare let chrome: Chrome.DevTools.Chrome;
+
+async function allTextContents(
+    selector: string, root?: puppeteer.JSHandle, handler = 'pierce'): Promise<Array<string|null>> {
+  const elements = await $$(selector, root, handler);
+  return Promise.all(elements.map(e => e.evaluate(e => e.textContent)));
+}
 
 // This testcase reaches into DevTools internals to install the extension plugin. At this point, there is no sensible
 // alternative, because loading a real extension is not supported in our test setup.
@@ -442,10 +451,9 @@ describe('The Debugger Language Plugins', async () => {
     const infoBar = await waitFor(`.infobar-error[aria-label="${incompleteMessage}"`);
     const details = await waitFor('.infobar-details-rows', infoBar);
     const text = await details.evaluate(e => e.textContent);
-    assert.deepEqual(text, 'Failed to load debug file "test.wasm".');
+    assert.deepEqual(text, 'Failed to load debug file "test.wasm".(See request)');
 
-    const banners = await $$('.ignore-listed-message');
-    const bannerTexts = await Promise.all(banners.map(e => e.evaluate(e => e.textContent)));
+    const bannerTexts = await allTextContents('.ignore-listed-message');
     assert.include(bannerTexts, 'Some call frames have warnings');
 
     const selectedCallFrame = await waitFor('.call-frame-item[aria-selected="true"]');
@@ -475,6 +483,8 @@ describe('The Debugger Language Plugins', async () => {
               {rawModuleId, sourceFileURL, lineNumber: 5, columnNumber: 2},
             ],
           });
+          chrome.devtools.languageServices.reportResourceLoad(rawModule.url || symbols, {success: true, size: 42});
+          chrome.devtools.languageServices.reportResourceLoad('test.dwo', {success: false, errorMessage: '404'});
           return [sourceFileURL];
         }
 
@@ -512,16 +522,48 @@ describe('The Debugger Language Plugins', async () => {
     const infoBar = await waitFor(`.infobar-error[aria-label="${incompleteMessage}"`);
     const details = await waitFor('.infobar-details-rows', infoBar);
     const text = await details.evaluate(e => e.textContent);
-    assert.deepEqual(text, 'Failed to load debug file "test.dwo".');
+    assert.deepEqual(text, 'Failed to load debug file "test.dwo".(See request)');
 
-    const banners = await $$('.ignore-listed-message');
-    const bannerTexts = await Promise.all(banners.map(e => e.evaluate(e => e.textContent)));
+    const bannerTexts = await allTextContents('.ignore-listed-message');
     assert.include(bannerTexts, 'Some call frames have warnings');
 
     const selectedCallFrame = await waitFor('.call-frame-item[aria-selected="true"]');
     const warning = await waitFor('.call-frame-warning-icon', selectedCallFrame);
     const title = await warning.evaluate(e => e.getAttribute('title'));
     assert.deepEqual(title, incompleteMessage);
+
+    const learnMore = await $textContent('Learn more', infoBar);
+    assertNotNullOrUndefined(learnMore);
+    await click(learnMore);
+    const seeRequest = await $textContent('(See request)', details);
+    assertNotNullOrUndefined(seeRequest);
+    await click(seeRequest);
+
+    const resourcesGrid = await waitFor('.developer-resource-view-results');
+    const allRequests = await $$('.data-grid-data-grid-node', resourcesGrid);
+    const allRequestContents = await Promise.all(allRequests.map(r => allTextContents('td', r)));
+
+    // Check that the reported resource load for the main module is there.
+    const mainModule = `${getResourcesPath()}/sources/wasm/unreachable.wasm`;
+    const mainModuleRequest = allRequestContents.find(c => c[1] === mainModule);
+    assertNotNullOrUndefined(mainModuleRequest);
+    assert.deepEqual(mainModuleRequest.filter(f => f !== ''), [
+      'success',
+      mainModule,
+      `https://${getDevToolsFrontendHostname()}:${getTestServerPort()}`,
+      '42',
+    ]);
+
+    // Check that the reported resource load for the failed debug file is selected.
+    const selectedRequest = await waitFor('.data-grid-data-grid-node.selected', resourcesGrid);
+    const cellContents = await allTextContents('td', selectedRequest);
+
+    assert.deepEqual(cellContents.filter(f => f !== ''), [
+      'failure',
+      'test.dwo',
+      `https://${getDevToolsFrontendHostname()}:${getTestServerPort()}`,
+      '404',
+    ]);
   });
 
   it('shows variable values with JS formatters', async () => {

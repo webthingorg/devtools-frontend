@@ -101,6 +101,9 @@
   "core/common/Revealer.ts | changesDrawer": {
     "message": "Ĉh́âńĝéŝ d́r̂áŵér̂"
   },
+  "core/common/Revealer.ts | developerResourcesDrawer": {
+    "message": "D̂év̂él̂óp̂ér̂ ŕêśôúr̂ćêś d̂ŕâẃêŕ"
+  },
   "core/common/Revealer.ts | elementsPanel": {
     "message": "Êĺêḿêńt̂ś p̂án̂él̂"
   },
@@ -9532,6 +9535,9 @@
   },
   "panels/sources/DebuggerPlugin.ts | enableBreakpoint": {
     "message": "{n, plural, =1 {Êńâb́l̂é b̂ŕêák̂ṕôín̂t́} other {Êńâb́l̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é}}"
+  },
+  "panels/sources/DebuggerPlugin.ts | gotoRequest": {
+    "message": "(Ŝéê ŕêq́ûéŝt́)"
   },
   "panels/sources/DebuggerPlugin.ts | neverPauseHere": {
     "message": "N̂év̂ér̂ ṕâúŝé ĥér̂é"
