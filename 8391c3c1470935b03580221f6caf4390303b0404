@@ -33,6 +33,24 @@
       "message": "I would rather we land a configuration to enable you to select the border radius (e.g. XS, S, M, L, XL or similar) rather than any px value, because that will lead to more inconsistencies, wdyt?\n\nI am happy with the change broadly assuming that Peter is happy and has approved the design on the \"measure performance\" button that needs a different radius.",
       "revId": "8391c3c1470935b03580221f6caf4390303b0404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf56f30_f0f45e41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-04-29T11:11:46Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion on this. I think people won\u0027t customize the radius unless there is a real need and I hope designs are to stay consistent. I\u0027d leave this discussion for you and Ergün to resolve :)",
+      "parentUuid": "2f2de798_d324fe16",
+      "revId": "8391c3c1470935b03580221f6caf4390303b0404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
