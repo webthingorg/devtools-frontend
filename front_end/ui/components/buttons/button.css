@@ -40,9 +40,17 @@ button {
   width: 100%;
 }
 
+button.no-right-border-radius {
+  border-radius: 4px 0 0 4px;
+}
+
 button.small {
   height: 18px;
   border-radius: 2px;
+}
+
+button.small.no-right-border-radius {
+  border-radius: 2px 0 0 2px;
 }
 
 button:focus-visible {
@@ -59,6 +67,10 @@ button.round {
   overflow: hidden;
   padding: 0;
   white-space: nowrap;
+}
+
+button.toolbar.no-right-border-radius {
+  border-radius: 2px 0 0 2px;
 }
 
 button.round {

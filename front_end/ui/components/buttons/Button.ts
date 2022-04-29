@@ -26,12 +26,17 @@ export const enum Size {
   MEDIUM = 'MEDIUM',
 }
 
+export const enum Modifier {
+  NO_RIGHT_BORDER_RADIUS = 'no-right-border-radius',
+}
+
 type ButtonType = 'button'|'submit'|'reset';
 
 interface ButtonState {
   iconUrl?: string;
   variant?: Variant;
   size?: Size;
+  modifiers: Modifier[];
   disabled: boolean;
   active: boolean;
   spinner?: boolean;
@@ -44,6 +49,7 @@ export type ButtonData = {
   variant: Variant.TOOLBAR|Variant.ROUND,
   iconUrl: string,
   size?: Size,
+  modifiers?: Modifier[],
   disabled?: boolean,
   active?: boolean,
   spinner?: boolean,
@@ -54,6 +60,7 @@ export type ButtonData = {
   variant: Variant.PRIMARY | Variant.SECONDARY,
   iconUrl?: string,
   size?: Size,
+  modifiers?: Modifier[],
   disabled?: boolean,
   active?: boolean,
   spinner?: boolean,
@@ -83,6 +90,7 @@ export class Button extends HTMLElement {
     active: false,
     spinner: false,
     type: 'button',
+    modifiers: [],
   };
   #isEmpty = true;
   #internals = this.attachInternals() as ButtonElementInternals;
@@ -101,6 +109,7 @@ export class Button extends HTMLElement {
     this.#props.variant = data.variant;
     this.#props.iconUrl = data.iconUrl;
     this.#props.size = data.size || Size.MEDIUM;
+    this.#props.modifiers = data.modifiers || [];
     this.#props.active = Boolean(data.active);
     this.#props.spinner = Boolean(data.spinner);
     this.#props.type = data.type || 'button';
@@ -121,6 +130,11 @@ export class Button extends HTMLElement {
 
   set size(size: Size) {
     this.#props.size = size;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  set modifiers(modifiers: Modifier[]) {
+    this.#props.modifiers = modifiers;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
@@ -208,6 +222,8 @@ export class Button extends HTMLElement {
         throw new Error('Round button does not accept children');
       }
     }
+    const modifierClasses =
+        this.#props.modifiers.reduce((classes, modifierClass) => ({[modifierClass]: modifierClass, ...classes}), {});
     const classes = {
       primary: this.#props.variant === Variant.PRIMARY,
       secondary: this.#props.variant === Variant.SECONDARY,
@@ -217,6 +233,7 @@ export class Button extends HTMLElement {
       'only-icon': Boolean(this.#props.iconUrl) && this.#isEmpty,
       small: Boolean(this.#props.size === Size.SMALL),
       active: this.#props.active,
+      ...modifierClasses,
     };
     const spinnerClasses = {
       primary: this.#props.variant === Variant.PRIMARY,

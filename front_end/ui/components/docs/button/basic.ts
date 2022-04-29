@@ -33,6 +33,17 @@ primaryButton.title = 'Custom title';
 primaryButton.onclick = () => alert('clicked');
 appendButton(primaryButton);
 
+// Primary button (no right border radius)
+const primaryButtonNoRightSideBorderRadius = new Buttons.Button.Button();
+primaryButtonNoRightSideBorderRadius.data = {
+  variant: Buttons.Button.Variant.PRIMARY,
+  modifiers: [Buttons.Button.Modifier.NO_RIGHT_BORDER_RADIUS],
+};
+primaryButtonNoRightSideBorderRadius.innerText = 'No right border radius';
+primaryButtonNoRightSideBorderRadius.title = 'Custom title';
+primaryButtonNoRightSideBorderRadius.onclick = () => alert('clicked');
+appendButton(primaryButtonNoRightSideBorderRadius);
+
 // Primary (forced active)
 const forcedActive = new Buttons.Button.Button();
 forcedActive.data = {
@@ -61,6 +72,16 @@ secondaryButton.data = {
   variant: Buttons.Button.Variant.SECONDARY,
 };
 appendButton(secondaryButton);
+
+// Secondary button (no right border radius)
+const secondaryButtonNoRightBorderRadius = new Buttons.Button.Button();
+secondaryButtonNoRightBorderRadius.innerText = 'No right border radius';
+secondaryButtonNoRightBorderRadius.onclick = () => alert('clicked');
+secondaryButtonNoRightBorderRadius.data = {
+  variant: Buttons.Button.Variant.SECONDARY,
+  modifiers: [Buttons.Button.Modifier.NO_RIGHT_BORDER_RADIUS],
+};
+appendButton(secondaryButtonNoRightBorderRadius);
 
 // Secondary spinner
 const secondarySpinnerButton = new Buttons.Button.Button();
@@ -166,6 +187,18 @@ smallPrimaryIconButton.data = {
 };
 smallPrimaryIconButton.onclick = () => alert('clicked');
 appendButton(smallPrimaryIconButton);
+
+// Small Primary (no right border radius)
+const smallPrimaryIconButtonNoRightSideBorderRadius = new Buttons.Button.Button();
+smallPrimaryIconButtonNoRightSideBorderRadius.innerText = 'No right border radius';
+smallPrimaryIconButtonNoRightSideBorderRadius.data = {
+  variant: Buttons.Button.Variant.PRIMARY,
+  modifiers: [Buttons.Button.Modifier.NO_RIGHT_BORDER_RADIUS],
+  iconUrl: testIcon,
+  size: Buttons.Button.Size.SMALL,
+};
+smallPrimaryIconButtonNoRightSideBorderRadius.onclick = () => alert('clicked');
+appendButton(smallPrimaryIconButtonNoRightSideBorderRadius);
 
 // Small Secondary Icon Only
 const smallSecondaryIconOnlyButton = new Buttons.Button.Button();
