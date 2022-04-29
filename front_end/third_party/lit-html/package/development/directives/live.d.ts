@@ -3,8 +3,9 @@
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { AttributePart } from '../lit-html.js';
 import { Directive, DirectiveParameters, PartInfo } from '../directive.js';
+import { AttributePart } from '../lit-html.js';
+
 declare class LiveDirective extends Directive {
     constructor(partInfo: PartInfo);
     render(value: unknown): unknown;

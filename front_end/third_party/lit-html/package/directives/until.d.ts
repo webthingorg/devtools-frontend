@@ -3,8 +3,9 @@
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { Part } from '../lit-html.js';
 import { AsyncDirective } from '../async-directive.js';
+import { Part } from '../lit-html.js';
+
 export declare class UntilDirective extends AsyncDirective {
     private __lastRenderedIndex;
     private __values;

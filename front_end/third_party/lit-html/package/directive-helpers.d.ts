@@ -3,8 +3,9 @@
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { Part, DirectiveParent, TemplateResult } from './lit-html.js';
-import { DirectiveResult, DirectiveClass, PartInfo } from './directive.js';
+import { DirectiveClass, DirectiveResult, PartInfo } from './directive.js';
+import { DirectiveParent, Part, TemplateResult } from './lit-html.js';
+
 declare type Primitive = null | undefined | boolean | number | string | symbol | bigint;
 /**
  * Tests if a value is a primitive value.

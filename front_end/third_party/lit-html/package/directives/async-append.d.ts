@@ -3,9 +3,11 @@
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { ChildPart } from '../lit-html.js';
 import { DirectiveParameters, PartInfo } from '../directive.js';
+import { ChildPart } from '../lit-html.js';
+
 import { AsyncReplaceDirective } from './async-replace.js';
+
 declare class AsyncAppendDirective extends AsyncReplaceDirective {
     private __childPart;
     constructor(partInfo: PartInfo);

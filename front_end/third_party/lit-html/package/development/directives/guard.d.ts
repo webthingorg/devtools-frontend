@@ -3,8 +3,9 @@
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { Part } from '../lit-html.js';
 import { Directive, DirectiveParameters } from '../directive.js';
+import { Part } from '../lit-html.js';
+
 declare class GuardDirective extends Directive {
     private _previousValue;
     render(_value: unknown, f: () => unknown): unknown;

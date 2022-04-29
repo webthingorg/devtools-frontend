@@ -3,8 +3,9 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { Directive, PartInfo, DirectiveClass, DirectiveResult } from './directive.js';
-import { AttributePart, Part, Disconnectable } from './lit-html.js';
+import { Directive, DirectiveClass, DirectiveResult , PartInfo} from './directive.js';
+import { AttributePart, Disconnectable , Part} from './lit-html.js';
+
 export type { Template } from './lit-html.js';
 /**
  * END USERS SHOULD NOT RELY ON THIS OBJECT.

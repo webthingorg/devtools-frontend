@@ -1,12 +1,15 @@
 import { Protocol } from 'devtools-protocol';
 import { ProtocolMapping } from 'devtools-protocol/types/protocol-mapping.js';
+
 import { ConnectionTransport } from './ConnectionTransport.js';
-import { EventEmitter } from './EventEmitter.js';
 import { ProtocolError } from './Errors.js';
+import { EventEmitter } from './EventEmitter.js';
+
 /**
  * @public
  */
 export { ConnectionTransport, ProtocolMapping };
+
 /**
  * @public
  */

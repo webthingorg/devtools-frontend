@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ConnectionTransport } from './ConnectionTransport.js';
 import { Browser, TargetFilterCallback } from './Browser.js';
+import { ConnectionTransport } from './ConnectionTransport.js';
 import { Viewport } from './PuppeteerViewport.js';
+
 /**
  * Generic browser options that can be passed when launching any browser or when
  * connecting to an existing browser instance.

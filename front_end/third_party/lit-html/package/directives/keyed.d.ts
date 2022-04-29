@@ -3,7 +3,8 @@
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-import { Directive, ChildPart, DirectiveParameters } from '../directive.js';
+import { ChildPart, Directive, DirectiveParameters } from '../directive.js';
+
 declare class Keyed extends Directive {
     key: unknown;
     render(k: unknown, v: unknown): unknown;
