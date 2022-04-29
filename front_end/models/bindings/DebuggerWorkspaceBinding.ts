@@ -26,6 +26,7 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
   readonly #debuggerModelToData: Map<SDK.DebuggerModel.DebuggerModel, ModelData>;
   readonly #liveLocationPromises: Set<Promise<void|Location|StackTraceTopFrameLocation|null>>;
   pluginManager: DebuggerLanguagePluginManager|null;
+  #targetManager: SDK.TargetManager.TargetManager;
   private constructor(targetManager: SDK.TargetManager.TargetManager, workspace: Workspace.Workspace.WorkspaceImpl) {
     this.workspace = workspace;
 
@@ -37,12 +38,22 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     targetManager.addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this);
     targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
+    this.#targetManager = targetManager;
 
     this.#liveLocationPromises = new Set();
 
     this.pluginManager = Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') ?
         new DebuggerLanguagePluginManager(targetManager, workspace, this) :
         null;
+  }
+
+  initPluginManagerForTest(): DebuggerLanguagePluginManager|null {
+    if (!this.pluginManager) {
+      this.pluginManager = Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') ?
+          new DebuggerLanguagePluginManager(this.#targetManager, this.workspace, this) :
+          null;
+    }
+    return this.pluginManager;
   }
 
   static instance(opts: {
