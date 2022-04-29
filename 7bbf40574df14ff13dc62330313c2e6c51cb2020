@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a7a9eeb_d9a55a4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-29T08:07:55Z",
+      "side": 1,
+      "message": "Nit: Please include a screenshot here for easier reference.",
+      "revId": "7bbf40574df14ff13dc62330313c2e6c51cb2020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a71c7d_8a27fdb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-04-29T08:07:55Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7bbf40574df14ff13dc62330313c2e6c51cb2020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
