@@ -50,6 +50,7 @@ import type {Target} from './Target.js';
 import {Capability, Type} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import type {PageResourceLoadInitiator} from './PageResourceLoader.js';
 
 const UIStrings = {
   /**
@@ -1261,9 +1262,11 @@ export class BreakLocation extends Location {
   }
 }
 
+export type MissingDebugFilesInfo =
+    Array<{resource: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator}>;
 export interface MissingDebugInfoDetails {
   details: string;
-  resources: string[];
+  resources: MissingDebugFilesInfo;
 }
 
 export class CallFrame {

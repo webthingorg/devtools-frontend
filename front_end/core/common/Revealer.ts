@@ -21,6 +21,10 @@ const UIStrings = {
   /**
   *@description The UI destination when right clicking an item that can be revealed
   */
+  developerResourcesDrawer: 'Developer resources drawer',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
   issuesView: 'Issues view',
   /**
   *@description The UI destination when right clicking an item that can be revealed
@@ -102,6 +106,7 @@ export const RevealerDestination = {
   ELEMENTS_PANEL: i18nLazyString(UIStrings.elementsPanel),
   STYLES_SIDEBAR: i18nLazyString(UIStrings.stylesSidebar),
   CHANGES_DRAWER: i18nLazyString(UIStrings.changesDrawer),
+  DEVELOPER_RESOURCES_DRAWER: i18nLazyString(UIStrings.developerResourcesDrawer),
   ISSUES_VIEW: i18nLazyString(UIStrings.issuesView),
   NETWORK_PANEL: i18nLazyString(UIStrings.networkPanel),
   APPLICATION_PANEL: i18nLazyString(UIStrings.applicationPanel),
