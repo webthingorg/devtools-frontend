@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5295b1c0_16edba32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-29T14:18:38Z",
+      "side": 1,
+      "message": "PTAL!",
+      "revId": "637d17e655a2ec87e2cada50be055237f0186133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d5b620_b5094e58",
+        "filename": "scripts/eslint_rules/lib/no_only_eslint_tests.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-29T14:18:38Z",
+      "side": 1,
+      "message": "these are two little drive-by fixes to fix errors ESLint had when linting my code. Think we just need a couple of extra checks.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 42
+      },
+      "revId": "637d17e655a2ec87e2cada50be055237f0186133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
