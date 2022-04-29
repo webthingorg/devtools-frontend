@@ -16,6 +16,24 @@
       "message": "We don\u0027t have CQ for cherry-picks, we need to submit through the menu in gerrit :)",
       "revId": "0c3c4211ed5505a3acd22b890822f56cb1fa5054",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e44482c_2873b83f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-04-29T09:21:36Z",
+      "side": 1,
+      "message": "Thanks for the reminder! Totally forgot about that.",
+      "parentUuid": "789300fb_f038a17a",
+      "revId": "0c3c4211ed5505a3acd22b890822f56cb1fa5054",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
