@@ -16,6 +16,23 @@
       "message": "Jack, PTAL. The change is needed to support the combination of the buttons like the measure performance button. See https://chrome-internal-review.googlesource.com/c/devtools/devtools-internal/+/4708859 for the context. \n\nThe change LGTM but also want a second opinion.",
       "revId": "8391c3c1470935b03580221f6caf4390303b0404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f2de798_d324fe16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-29T11:07:42Z",
+      "side": 1,
+      "message": "I would rather we land a configuration to enable you to select the border radius (e.g. XS, S, M, L, XL or similar) rather than any px value, because that will lead to more inconsistencies, wdyt?\n\nI am happy with the change broadly assuming that Peter is happy and has approved the design on the \"measure performance\" button that needs a different radius.",
+      "revId": "8391c3c1470935b03580221f6caf4390303b0404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
