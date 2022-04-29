@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de546d95_233d0a89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-04-29T11:12:13Z",
+      "side": 1,
+      "message": "This sounds like a DAT CL. Changhao, could you PTAL?",
+      "revId": "8a427827b39b5a7d1c1b6694299855413dd43381",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
