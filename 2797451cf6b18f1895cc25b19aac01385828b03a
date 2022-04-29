@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57479330_c1ef557b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-29T15:13:53Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "2797451cf6b18f1895cc25b19aac01385828b03a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5854f9_a89a04f0",
+        "filename": "test/e2e/application/reporting-api_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-04-29T15:13:53Z",
+      "side": 1,
+      "message": "nit: `it.skip(\u0027[crbug.com/1321131]: shows reports\u0027,...`",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "2797451cf6b18f1895cc25b19aac01385828b03a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
