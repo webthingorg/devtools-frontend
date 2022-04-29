@@ -28,7 +28,7 @@
 
 button {
   align-items: center;
-  border-radius: 4px;
+  border-radius: var(--override-button-border-radius, 4px);
   display: inline-flex;
   font-family: inherit;
   font-size: 12px;
@@ -42,7 +42,7 @@ button {
 
 button.small {
   height: 18px;
-  border-radius: 2px;
+  border-radius: var(--override-button-border-radius, 2px);
 }
 
 button:focus-visible {
@@ -52,7 +52,7 @@ button:focus-visible {
 button.toolbar,
 button.round {
   background: transparent;
-  border-radius: 2px;
+  border-radius: var(--override-button-border-radius, 2px);
   border: none;
   height: 24px;
   width: 24px;
