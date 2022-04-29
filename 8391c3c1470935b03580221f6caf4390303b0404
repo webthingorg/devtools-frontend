@@ -69,6 +69,24 @@
       "parentUuid": "caf56f30_f0f45e41",
       "revId": "8391c3c1470935b03580221f6caf4390303b0404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4488cfb0_dfe19781",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-04-29T13:01:15Z",
+      "side": 1,
+      "message": "Created a CL with the mentioned change as well: crrev/c/3613879.\n\nThe idea of `Modifier` can bloat the API of the Button and also might make it maybe harder to maintain but it might be a small price for consistency.\n\nIn that way, if we add `modifiers` we would be more careful with the changes we make to the button and review them carefully from the inconsistency perspective. WDYT?\n\nI didn\u0027t want to go with a specific attribute on the button like `\u003cButton norightsidebar\u003dfalse\u003e` to have a more generic customization option for the button.\n\nIn all cases, I don\u0027t have strong preferences and would be fine with implementing all the solutions :) So, do you have a preference over any of the solutions, if not, can you review and tell me what you think about the `Modifier` idea and the CL? 😅",
+      "parentUuid": "8c90ca49_b73c4069",
+      "revId": "8391c3c1470935b03580221f6caf4390303b0404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
