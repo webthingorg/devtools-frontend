@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b77d0e9_efef0e98",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-04-29T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75383cb7_40e3e22e",
+      "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d89913bc_46463a59",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-04-29T07:13:14Z",
       "side": 1,
       "message": "Don\u0027t we want to set the breakpoint on the .cc file, and get a parsed source on the .js file, and be able to link these two using the TestPlugin? Maybe I\u0027m misunderstanding something, but currently it looks as if we\u0027re setting the breakpoint on the (html/js), and parse a script for that html/js too.",
+      "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77020d32_5601673b",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-04-29T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d89913bc_46463a59",
       "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db5fd2da_7932c5f8",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-04-29T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b03dce84_068b8291",
+      "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f350011e_783c1e55",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-04-29T07:13:14Z",
       "side": 1,
       "message": "We need to clean up as well (see other test example).",
+      "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa356add_f99721cb",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-04-29T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f350011e_783c1e55",
       "revId": "1a4a0e4928fff56239a09c5d079efb36390793d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
