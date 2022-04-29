@@ -430,6 +430,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
 
   private addUISourceCodeNode(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, frame: SDK.ResourceTreeModel.ResourceTreeFrame|null): void {
+    console.log('addUISourceCodeNode', uiSourceCode.url());  // eslint-disable-line no-console
     const isFromSourceMap = uiSourceCode.contentType().isFromSourceMap();
     let path;
     if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.FileSystem) {
@@ -919,6 +920,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   async create(
       project: Workspace.Workspace.Project, path: Platform.DevToolsPath.EncodedPathString,
       uiSourceCodeToCopy?: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    console.log('create', path);  // eslint-disable-line no-console
     let content = '';
     if (uiSourceCodeToCopy) {
       content = (await uiSourceCodeToCopy.requestContent()).content || '';
@@ -1432,6 +1434,7 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
 
     function renameCallback(this: NavigatorUISourceCodeTreeNode, success: boolean): void {
       if (!success) {
+        console.log('NO SUCCESS');  // eslint-disable-line no-console
         UI.UIUtils.markBeingEdited(treeOutlineElement, false);
         this.updateTitle();
         this.rename(callback);

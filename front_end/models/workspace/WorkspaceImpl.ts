@@ -137,6 +137,7 @@ export abstract class ProjectStore implements Project {
     if (this.uiSourceCodeForURL(url)) {
       return false;
     }
+    console.log('adding', url);  // eslint-disable-line no-console
     this.uiSourceCodesMap.set(url, {uiSourceCode: uiSourceCode, index: this.uiSourceCodesList.length});
     this.uiSourceCodesList.push(uiSourceCode);
     this.workspaceInternal.dispatchEventToListeners(Events.UISourceCodeAdded, uiSourceCode);
@@ -171,6 +172,7 @@ export abstract class ProjectStore implements Project {
   }
 
   uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString): UISourceCode|null {
+    console.log('uiSourceCodeForURL', Array.from(this.uiSourceCodesMap.keys()));  // eslint-disable-line no-console
     const entry = this.uiSourceCodesMap.get(url);
     return entry ? entry.uiSourceCode : null;
   }
@@ -181,6 +183,7 @@ export abstract class ProjectStore implements Project {
 
   renameUISourceCode(uiSourceCode: UISourceCode, newName: string): void {
     const oldPath = uiSourceCode.url();
+    console.log('renameUISourceCode', oldPath, newName);  // eslint-disable-line no-console
     const newPath = uiSourceCode.parentURL() ?
         Common.ParsedURL.ParsedURL.urlFromParentUrlAndName(uiSourceCode.parentURL(), newName) :
         encodeURIComponent(newName) as Platform.DevToolsPath.UrlString;
