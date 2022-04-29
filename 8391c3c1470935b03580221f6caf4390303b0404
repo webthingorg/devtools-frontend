@@ -51,6 +51,24 @@
       "parentUuid": "2f2de798_d324fe16",
       "revId": "8391c3c1470935b03580221f6caf4390303b0404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c90ca49_b73c4069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-04-29T12:22:52Z",
+      "side": 1,
+      "message": "From the consistency and documentation perspective, I think adding a `Modifier` option for the Button for its specific use cases might make it easier to understand the different variations of the button and make it easier to update all of them in the future if necessary.\n\nSo, I\u0027m in favor of adding `Modifier` option with `Modifier.NoRightSideBorderRadius` and document it in the docs, wdyt? @jacktfranklin",
+      "parentUuid": "caf56f30_f0f45e41",
+      "revId": "8391c3c1470935b03580221f6caf4390303b0404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
