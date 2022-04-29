@@ -16,6 +16,23 @@
       "message": "Jack, PTAL server.js ",
       "revId": "f5e4d4d1c3159be09a408f24072c68dcfae333f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3e368b_9b99f0ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-04-29T09:17:41Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "f5e4d4d1c3159be09a408f24072c68dcfae333f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
