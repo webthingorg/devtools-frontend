@@ -54,6 +54,7 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
   private statusMessageElement: HTMLElement;
   private readonly throttler: Common.Throttler.Throttler;
   private readonly loader: SDK.PageResourceLoader.PageResourceLoader;
+  #lastUpdate: Promise<void>|null = null;
   private constructor() {
     super(true);
 
@@ -92,13 +93,37 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
     return developerResourcesViewInstance;
   }
 
+  innerSelectResource(selector: SDK.PageResourceLoader.PageResourceKey): void {
+    const key = SDK.PageResourceLoader.PageResourceLoader.makeExtensionKey(selector.url, selector.initiator);
+    const resource = this.loader.getResourcesLoaded().get(key);
+    if (!resource) {
+      return;
+    }
+    this.listView.select(resource);
+  }
+
+  async selectResource(selector: SDK.PageResourceLoader.PageResourceKey): Promise<void> {
+    await this.#lastUpdate;
+    this.innerSelectResource(selector);
+  }
+
+  async selectedResource(): Promise<SDK.PageResourceLoader.PageResource|null> {
+    await this.#lastUpdate;
+    return this.listView.selectedItem();
+  }
+
   private onUpdate(): void {
-    void this.throttler.schedule(this.update.bind(this));
+    this.#lastUpdate = this.throttler.schedule(this.update.bind(this));
   }
 
   private async update(): Promise<void> {
+    const selectedItem = this.listView.selectedItem();
     this.listView.reset();
     this.listView.update(this.loader.getResourcesLoaded().values());
+    if (selectedItem) {
+      const {url, initiator} = selectedItem;
+      this.innerSelectResource({url, initiator});
+    }
     this.updateStats();
   }
 
@@ -133,5 +158,25 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([developerResourcesViewStyles]);
+  }
+}
+
+let developerResourcesRevealerInstance: DeveloperResourcesRevealer;
+export class DeveloperResourcesRevealer implements Common.Revealer.Revealer {
+  static instance(opts: {forceNew: boolean} = {forceNew: false}): DeveloperResourcesRevealer {
+    const {forceNew} = opts;
+    if (!developerResourcesRevealerInstance || forceNew) {
+      developerResourcesRevealerInstance = new DeveloperResourcesRevealer();
+    }
+
+    return developerResourcesRevealerInstance;
+  }
+
+  async reveal(resource: Object): Promise<void> {
+    if (!(resource instanceof SDK.PageResourceLoader.PageResourceKey)) {
+      throw new Error('Internal error: not a page resource');
+    }
+    await UI.ViewManager.ViewManager.instance().showView('resource-loading-pane');
+    await DeveloperResourcesView.instance().selectResource(resource);
   }
 }
