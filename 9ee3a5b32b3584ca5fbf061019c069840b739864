@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61a4ee82_22baa8e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-04-30T19:20:18Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nAfter some experimentation, it looks like it is not easy to await the inspected URLs because the URLs are used as keys in SourceMapManager (so they are really needed synchronously if you do not want to risk even more problems with races). I have also experimented with handling the inspectedUrl-changed event but that does not work either because SourceMapManager ignores source maps if the inspectedUrl is invalid.\n\nLet us land this one first to make sure that there is no interference with the extensions.",
+      "revId": "9ee3a5b32b3584ca5fbf061019c069840b739864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
