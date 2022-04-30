@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0542a996_af6f9a9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-04-30T00:21:58Z",
+      "side": 1,
+      "message": "yeah. feels nice. \n\nI do think our documentation story is a little awkward. Brendan\u0027s article captures an overall story but its not like theres 3 headers for understanding these modes.\n\nSo I kinda think we need to tweak that article or augment it with something else.\n\nbut other than that, This works smoothly",
+      "revId": "2435e6fb94737ed4a8552b5a576f1ba40fc7f8f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

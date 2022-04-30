@@ -16,6 +16,24 @@
       "message": "today we discussed trying this out as indeterminate checkboxes. https://css-tricks.com/indeterminate-checkboxes/\n\nafter playing with the hiding behavior in action.... it does feel a lil awkward and disorienting. so i\u0027m hoping the indeterminate stuff feels a tad better.",
       "revId": "7c9e90f7ce07d890a5d2b2afff0f13194204d23f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d077cb42_5ddda874",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-04-30T00:21:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fda79ce0_f8fb4199",
+      "revId": "7c9e90f7ce07d890a5d2b2afff0f13194204d23f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
