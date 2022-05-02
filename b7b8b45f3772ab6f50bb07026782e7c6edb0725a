@@ -46,6 +46,30 @@
       },
       "revId": "b7b8b45f3772ab6f50bb07026782e7c6edb0725a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7244b273_1769d4c5",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-02T10:33:09Z",
+      "side": 1,
+      "message": "I manually tested renaming snippets and files in the \u0027Filesystem\u0027 panel without noticing incorrect behaviour.\n\n`newName` is used as either just a file name (which IIUC is not a UrlString) or as a whole path in this method, so I do not think that typing it as a UrlString would be correct.",
+      "parentUuid": "ed4789f2_55663488",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "b7b8b45f3772ab6f50bb07026782e7c6edb0725a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

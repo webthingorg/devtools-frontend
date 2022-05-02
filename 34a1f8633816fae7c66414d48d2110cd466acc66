@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae7656cc_791cb40a",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-02T10:33:09Z",
+      "side": 1,
+      "message": "From what I can tell, `path` can only contain whitespace when called in the \u0027renaming a file\u0027 case, so this change should not affect other call sites of `preEncodeSpecialCharactersInPath()`.\nAlternatively, to be extra safe I could leave this method unchanged and move the replacement of \u0027 \u0027 directly into `urlFromParentUrlAndName()`.",
+      "revId": "34a1f8633816fae7c66414d48d2110cd466acc66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54382f2e_e5ab94d0",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-02T10:33:09Z",
+      "side": 1,
+      "message": "This method is only called by `WorkspaceImpl`\u0027s `renameUISourceCode()`, therefore no unintended side effects elsewhere.",
+      "revId": "34a1f8633816fae7c66414d48d2110cd466acc66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
