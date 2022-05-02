@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1303e79f_ac56afc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-05-02T23:34:05Z",
+      "side": 1,
+      "message": "can you lay them out next to eachother?\ni\u0027m pretty sure some design spec says the CTA button is bottom right and then the cancel/dismiss is next to it.. so\n\n\n|                     Cancel   End Timespan  |\n----------------------------------------------",
+      "revId": "2b7120419f0032d5c32d6ef0bcaa9fa76e6dae17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
