@@ -55,6 +55,7 @@ const MAX_RECORDED_HISTOGRAMS_SIZE = 100;
 export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   readonly #urlsBeingSaved: Map<Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString, string[]>;
   events!: Common.EventTarget.EventTarget<EventTypes>;
+  #fileSystem: FileSystem|null = null;
 
   recordedEnumeratedHistograms: {actionName: EnumeratedHistogram, actionCode: number}[] = [];
   recordedPerformanceHistograms: {histogramName: string, duration: number}[] = [];
@@ -206,17 +207,28 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
 
   requestFileSystems(): void {
+    const onFs = (fileSystem: FileSystem): void => {
+      this.#fileSystem = fileSystem;
+    };
+    window.webkitRequestFileSystem(window.TEMPORARY, 1024 * 1024, onFs);
     this.events.dispatchEventToListeners(Events.FileSystemsLoaded, []);
   }
 
   addFileSystem(type?: string): void {
+    const fileSystem = {
+      fileSystemName: 'fSName',
+      fileSystemPath: '/overrides' as Platform.DevToolsPath.RawPathString,
+      rootURL: 'filesystem:devtools://devtools/isolated/',
+      type: 'overrides',
+    };
+    this.events.dispatchEventToListeners(Events.FileSystemAdded, {fileSystem});
   }
 
   removeFileSystem(fileSystemPath: Platform.DevToolsPath.RawPathString): void {
   }
 
   isolatedFileSystem(fileSystemId: string, registeredName: string): FileSystem|null {
-    return null;
+    return this.#fileSystem;
   }
 
   loadNetworkResource(
