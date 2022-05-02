@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa3e72b_9b63c246",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-02T10:05:01Z",
+      "side": 1,
+      "message": "Yes, makes sense!",
+      "parentUuid": "64be8292_64a04c26",
+      "range": {
+        "startLine": 1699,
+        "startChar": 10,
+        "endLine": 1699,
+        "endChar": 21
+      },
+      "revId": "f223e1362a5071001005ebedb2ac9b04ba703fa3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81f7634a_8c10b7ba",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-05-02T08:57:15Z",
       "side": 1,
       "message": "nit: beforeEach to further isolate the two tests.",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 8
+      },
+      "revId": "f223e1362a5071001005ebedb2ac9b04ba703fa3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb9300b_57ae9106",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-02T10:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f7634a_8c10b7ba",
       "range": {
         "startLine": 114,
         "startChar": 2,
