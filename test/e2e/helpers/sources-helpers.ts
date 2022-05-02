@@ -535,9 +535,14 @@ export async function getWatchExpressionsValues() {
     const expandedOption = await $('[aria-label="Watch"].expanded');
     return expandedOption !== null;
   });
+  console.log('b');  // eslint-disable-line no-console
+
   await frontend.keyboard.press('ArrowRight');
+  console.log('c');  // eslint-disable-line no-console
   await waitFor(WATCH_EXPRESSION_VALUE_SELECTOR);
+  console.log('d');  // eslint-disable-line no-console
   const values = await $$(WATCH_EXPRESSION_VALUE_SELECTOR) as puppeteer.ElementHandle<HTMLElement>[];
+  console.log('f');  // eslint-disable-line no-console
   return await Promise.all(values.map(value => value.evaluate(element => element.innerText)));
 }
 
