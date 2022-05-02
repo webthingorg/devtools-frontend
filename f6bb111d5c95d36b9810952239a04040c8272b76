@@ -16,6 +16,23 @@
       "message": "szuend: could you take another look? I had to touch DeprecationIssues.ts, and the presubmit checks would only let me upload the patch if I committed all the unrelated changes to the file that the presubmit checks made.",
       "revId": "f6bb111d5c95d36b9810952239a04040c8272b76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf6b276_c39a3b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-02T09:08:32Z",
+      "side": 1,
+      "message": "We can land this for now, but we need to take a look at the weird formatting. A team member was already running into this landing an unrelated CL and the formatter there also insisted on \"fixing\" DeprecationIssue.ts",
+      "revId": "f6bb111d5c95d36b9810952239a04040c8272b76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
