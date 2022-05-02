@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c8244b_8a237667",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-02T08:42:49Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Simon,\n\nthis is a CL to make the description text of \u0027WebSocketDestroy\u0027 events and some layout test outputs deterministic by *not* resolving the current location and falling back to the top frame info/function info that is sent along with the event.\n\nThe changed function is creating a \u0027text\u0027 description and is using the current uiLocation that it can find. See more in the CL description.\n\nI think we could alternatively create a live location and actively wait for it, not sure though whether we want to do that (could we maybe not receive a scriptParsed for some?). Let me know what you think!\n\n\n\n",
+      "revId": "36ae2e8cdd888bc976b34dca7218c13fbf4e2fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
