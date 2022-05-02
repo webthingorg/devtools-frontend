@@ -124,13 +124,19 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     }
     const debuggerModel = script.debuggerModel;
     if (this.#hasBreakpointsForUrl(script.sourceURL)) {
-      // Handle inline scripts without sourceURL comment separately:
-      // The UISourceCode of inline scripts without sourceURLs will not be availabe
-      // until a later point. Use the v8 script for setting the breakpoint.
-      const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-      const sourceURL =
-          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
-      const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      // Check if the UiSourceCode is already available. This is necessary as for inline scripts
+      // without sourceURL the UISourceCode for the html may not be available until a later point.
+      // If we were directly awaiting the UISourceCode for the html, we would block.
+      let uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(script.sourceURL);
+      if (!uiSourceCode) {
+        // The UiSourceCode is not yet available, explicitly await it and handle inline scripts
+        // without sourceURL differently: wait for the UISourceCode of the v8 parsed script.
+        const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
+        const sourceURL =
+            isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
+        uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      }
+
       await this.#restoreBreakpointsForUrl(uiSourceCode);
     }
 
