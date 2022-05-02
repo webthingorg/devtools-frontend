@@ -67,16 +67,22 @@ describe('Expression evaluation', () => {
   });
 
   it('evaluates a selected expression in the console', async () => {
+    console.log('a');  // eslint-disable-line no-console
     await evaluateSelectedTextInConsole();
     const messages = await getCurrentConsoleMessages();
+    console.log('d');  // eslint-disable-line no-console
+
     assert.deepEqual(messages, [
       message,
     ]);
   });
 
-  it('adds an expression to watches', async () => {
+  it.repeat(200, 'adds an expression to watches', async () => {  // eslint-disable-line rulesdir/no_repeated_tests
+    console.log('a');                                            // eslint-disable-line no-console
     await addSelectedTextToWatches();
+    console.log('2');  // eslint-disable-line no-console
     const watchExpressions = await getWatchExpressionsValues();
+    console.log('g');  // eslint-disable-line no-console
     const cleanWatchExpressions = watchExpressions.map(expression => expression.replace(/["]+/g, '\''));
     assert.deepEqual(cleanWatchExpressions, [
       message,

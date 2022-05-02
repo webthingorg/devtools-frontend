@@ -529,15 +529,20 @@ export async function getPausedMessages() {
 }
 
 export async function getWatchExpressionsValues() {
-  const {frontend} = getBrowserAndPages();
   await waitForFunction(async () => {
     await click('[aria-label="Watch"]');
+    // Wait for the click event to settle
+    await timeout(100);
     const expandedOption = await $('[aria-label="Watch"].expanded');
     return expandedOption !== null;
   });
-  await frontend.keyboard.press('ArrowRight');
+  console.log('b');  // eslint-disable-line no-console
+
+  console.log('c');  // eslint-disable-line no-console
   await waitFor(WATCH_EXPRESSION_VALUE_SELECTOR);
+  console.log('d');  // eslint-disable-line no-console
   const values = await $$(WATCH_EXPRESSION_VALUE_SELECTOR) as puppeteer.ElementHandle<HTMLElement>[];
+  console.log('f');  // eslint-disable-line no-console
   return await Promise.all(values.map(value => value.evaluate(element => element.innerText)));
 }
 
