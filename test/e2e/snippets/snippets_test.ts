@@ -40,7 +40,8 @@ describe('Snippet creation', () => {
   });
 });
 
-describe('Expression evaluation', () => {
+// Flaky test
+describe.skip('[crbug.com/1198160] Expression evaluation', () => {
   const message = '\'Hello\'';
 
   beforeEach(async () => {
