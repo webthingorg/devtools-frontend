@@ -39,7 +39,6 @@ import * as Workspace from '../workspace/workspace.js';
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
-import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
@@ -124,13 +123,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     }
     const debuggerModel = script.debuggerModel;
     if (this.#hasBreakpointsForUrl(script.sourceURL)) {
-      // Handle inline scripts without sourceURL comment separately:
-      // The UISourceCode of inline scripts without sourceURLs will not be availabe
-      // until a later point. Use the v8 script for setting the breakpoint.
-      const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-      const sourceURL =
-          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
-      const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      const uiSourceCode =
+          await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(script.sourceURL);
       await this.#restoreBreakpointsForUrl(uiSourceCode);
     }
 
