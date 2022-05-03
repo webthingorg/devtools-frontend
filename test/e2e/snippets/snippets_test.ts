@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, typeText, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
@@ -83,8 +83,14 @@ describe('Expression evaluation', () => {
   });
 
   it('adds an expression to watches', async () => {
-    await addSelectedTextToWatches();
-    const watchExpressions = await getWatchExpressionsValues();
+    const watchExpressions = await waitForFunction(async () => {
+      await addSelectedTextToWatches();
+      return await getWatchExpressionsValues();
+    });
+
+    if (!watchExpressions) {
+      assert.fail('No watch expressions found');
+    }
     const cleanWatchExpressions = watchExpressions.map(expression => expression.replace(/["]+/g, '\''));
     assert.deepEqual(cleanWatchExpressions, [
       message,
