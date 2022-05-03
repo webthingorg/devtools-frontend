@@ -151,7 +151,6 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     if (ChildTargetManager.attachCallback) {
       await ChildTargetManager.attachCallback({target, waitingForDebugger});
     }
-    void target.runtimeAgent().invoke_runIfWaitingForDebugger();
   }
 
   detachedFromTarget({sessionId}: Protocol.Target.DetachedFromTargetEvent): void {

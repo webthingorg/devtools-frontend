@@ -67,7 +67,6 @@ describe('The Sources Tab', async function() {
     });
 
     await step('wait for pause and check if we stopped at line 3', async () => {
-      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
       await waitFor(PAUSE_INDICATOR_SELECTOR);
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
       assert.deepEqual(scriptLocation, 'click-breakpoint.js:3');
@@ -182,4 +181,29 @@ describe('The Sources Tab', async function() {
          await click(RESUME_BUTTON);
        });
      });
+
+  it('can hit a breakpoint on a newly spawned worker', async () => {
+    const {frontend, target} = getBrowserAndPages();
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('breakpoint-hit-on-first-load.js', 'breakpoint-hit-on-first-load.html');
+    });
+
+    await step('add a breakpoint to line No.1', async () => {
+      await addBreakpointForLine(frontend, 1);
+    });
+
+    await step('Spawn a new worker', async () => {
+      target.evaluate('spawnWorker()');
+    });
+
+    await step('wait for pause and check if we stopped at line 1', async () => {
+      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      await assertScriptLocation('breakpoint-hit-on-first-load.js:1');
+    });
+
+    await step('Resume', async () => {
+      await click(RESUME_BUTTON);
+    });
+  });
 });

@@ -458,6 +458,12 @@ export async function stepThroughTheCode() {
   await waitFor(PAUSE_INDICATOR_SELECTOR);
 }
 
+export async function getNestedWorkerFilename(selectors: NestedFileSelector) {
+  const workerFile = await expandFileTree(selectors);
+
+  return workerFile.evaluate(node => node.textContent);
+}
+
 export async function openNestedWorkerFile(selectors: NestedFileSelector) {
   await expandFileTree(selectors);
   // FIXME(crbug/1112692): Refactor test to remove the timeout.

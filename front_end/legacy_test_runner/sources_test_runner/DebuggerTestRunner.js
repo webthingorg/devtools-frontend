@@ -9,7 +9,6 @@ self.SourcesTestRunner = self.SourcesTestRunner || {};
 
 SourcesTestRunner.startDebuggerTest = function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
-
   if (quiet !== undefined) {
     SourcesTestRunner.quiet = quiet;
   }
@@ -368,7 +367,6 @@ SourcesTestRunner.pausedScript = function(callFrames, reason, auxData, breakpoin
   if (!SourcesTestRunner.quiet) {
     TestRunner.addResult('Script execution paused.');
   }
-
   const debuggerModel = this.target().model(SDK.DebuggerModel);
   SourcesTestRunner.pausedScriptArguments = [
     SDK.DebuggerModel.CallFrame.fromPayloadArray(debuggerModel, callFrames), reason, breakpointIds, asyncStackTrace,

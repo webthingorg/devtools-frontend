@@ -7,19 +7,14 @@ import {assert} from 'chai';
 import {click, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import type {NestedFileSelector} from '../helpers/sources-helpers.js';
-import {createSelectorsForWorkerFile, expandFileTree} from '../helpers/sources-helpers.js';
+import {getNestedWorkerFilename} from '../helpers/sources-helpers.js';
+import {createSelectorsForWorkerFile} from '../helpers/sources-helpers.js';
 
 let WORKER_SELECTORS: NestedFileSelector;
 
 function createSelectorsForEvalWorker(fileName: string) {
   const EVAL_WORKER_NAME = '#1';
   return createSelectorsForWorkerFile(EVAL_WORKER_NAME, 'test/e2e/resources/sources', fileName);
-}
-
-async function openNestedWorkerFile(selectors: NestedFileSelector) {
-  const workerFile = await expandFileTree(selectors);
-
-  return workerFile.evaluate(node => node.textContent);
 }
 
 describe('The Sources Tab', async function() {
@@ -41,7 +36,7 @@ describe('The Sources Tab', async function() {
     await waitFor('.navigator-file-tree-item');
 
     // Check that we can expand the file tree up to the file name node.
-    const worker1FileName = await openNestedWorkerFile(WORKER_SELECTORS);
+    const worker1FileName = await getNestedWorkerFilename(WORKER_SELECTORS);
     assert.strictEqual(worker1FileName, 'worker-relative-sourcemap.ts');
   });
 });
