@@ -33,6 +33,23 @@
       "message": "I\u0027m not the right owner for this. The infra team owns some cross-cutting infra things like gn files. Better choosing a reviewer from \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/config/owner/LIGHTHOUSE_OWNERS",
       "revId": "3313578f4cceac482ac835be515130333a8b400d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0361cc19_b6128db1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-03T13:46:46Z",
+      "side": 1,
+      "message": "I\u0027ll defer to Paul for code review :)",
+      "revId": "3313578f4cceac482ac835be515130333a8b400d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
