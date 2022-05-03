@@ -28,6 +28,7 @@ module.exports = {
       'rules': {
         '@typescript-eslint/explicit-function-return-type': 2,
         'rulesdir/no_importing_images_from_src': 2,
+        'rulesdir/enforce_bound_render_for_schedule_render': 2,
         'rulesdir/enforce_custom_event_names': 2,
         'rulesdir/set_data_type_reference': 2,
         'rulesdir/no_bound_component_methods': 2,
@@ -120,10 +121,7 @@ module.exports = {
           },
           {
             // Ignore type properties that require quotes
-            'selector': [
-              'typeProperty',
-              'enumMember'
-            ],
+            'selector': ['typeProperty', 'enumMember'],
             'format': null,
             'modifiers': ['requiresQuotes']
           }
