@@ -97,9 +97,11 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
   const asyncScope = new AsyncScope();
 
   await navigateToConsoleTab();
+  console.log('b');  // eslint-disable-line no-console
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  console.log('c');  // eslint-disable-line no-console
 
   if (callback) {
     await callback();
@@ -113,6 +115,7 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
     }
     return Array.from(messages).every(message => message.childNodes.length > 0);
   }, {timeout: 0, polling: 'mutation'}, CONSOLE_FIRST_MESSAGES_SELECTOR));
+  console.log('d');  // eslint-disable-line no-console
 
   const selector = withAnchor ? CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR : CONSOLE_FIRST_MESSAGES_SELECTOR;
 
