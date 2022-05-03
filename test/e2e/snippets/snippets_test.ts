@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, typeText, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
@@ -67,16 +67,26 @@ describe('Expression evaluation', () => {
   });
 
   it('evaluates a selected expression in the console', async () => {
+    console.log('a');  // eslint-disable-line no-console
     await evaluateSelectedTextInConsole();
     const messages = await getCurrentConsoleMessages();
+    console.log('d');  // eslint-disable-line no-console
+
     assert.deepEqual(messages, [
       message,
     ]);
   });
 
-  it('adds an expression to watches', async () => {
-    await addSelectedTextToWatches();
-    const watchExpressions = await getWatchExpressionsValues();
+  it.repeat(200, 'adds an expression to watches', async () => {  // eslint-disable-line rulesdir/no_repeated_tests
+    const watchExpressions = await waitForFunction(async () => {
+      await addSelectedTextToWatches();
+      return await getWatchExpressionsValues();
+    });
+    console.log('d');  // eslint-disable-line no-console
+
+    if (!watchExpressions) {
+      assert.fail('No watch expressions found');
+    }
     const cleanWatchExpressions = watchExpressions.map(expression => expression.replace(/["]+/g, '\''));
     assert.deepEqual(cleanWatchExpressions, [
       message,
