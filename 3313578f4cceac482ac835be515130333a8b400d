@@ -67,6 +67,23 @@
       "message": "Thanks so much Jacky! Nicely done.\n\nI\u0027ll mostly defer to Adam, but this lgtm from my side",
       "revId": "3313578f4cceac482ac835be515130333a8b400d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba716158_57c5baf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-05-03T22:39:16Z",
+      "side": 1,
+      "message": "Jacky.. looks like you got a merge conflict. A rebase should sort that out.",
+      "revId": "3313578f4cceac482ac835be515130333a8b400d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
