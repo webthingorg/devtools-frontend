@@ -23,7 +23,7 @@ def root_path():
         # Chromium repository
         return path.dirname(path.dirname(path.dirname(PARENT_PATH)))
     elif path.basename(PARENT_PATH) == 'devtools-frontend' or path.basename(
-            PARENT_PATH) == 'devtools-frontend-internal':
+            PARENT_PATH) == 'devtools-frontend-internal-ng':
         # External repository, integrated build
         return path.dirname(path.dirname(PARENT_PATH))
     else:
