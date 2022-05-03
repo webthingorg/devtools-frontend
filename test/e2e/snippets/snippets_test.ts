@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, typeText, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
@@ -50,8 +50,7 @@ describe('Snippet creation', () => {
 
 describe('Expression evaluation', () => {
   const message = '\'Hello\'';
-
-  beforeEach(async () => {
+  async function selectFunctionParameterElement() {
     const {frontend} = getBrowserAndPages();
     await openSourcesPanel();
     await openSnippetsSubPane();
@@ -67,6 +66,10 @@ describe('Expression evaluation', () => {
     await frontend.mouse.down();
     await frontend.mouse.move(parameterElementPosition.right, parameterElementPosition.y);
     await frontend.mouse.up();
+  }
+
+  beforeEach(async () => {
+    await selectFunctionParameterElement();
   });
 
   afterEach(async () => {
@@ -82,9 +85,16 @@ describe('Expression evaluation', () => {
     ]);
   });
 
-  it('adds an expression to watches', async () => {
-    await addSelectedTextToWatches();
-    const watchExpressions = await getWatchExpressionsValues();
+  it.repeat(200, 'adds an expression to watches', async () => {  // eslint-disable-line rulesdir/no_repeated_tests
+    const watchExpressions = await waitForFunction(async () => {
+      await selectFunctionParameterElement();
+      await addSelectedTextToWatches();
+      return await getWatchExpressionsValues();
+    });
+
+    if (!watchExpressions) {
+      assert.fail('No watch expressions found');
+    }
     const cleanWatchExpressions = watchExpressions.map(expression => expression.replace(/["]+/g, '\''));
     assert.deepEqual(cleanWatchExpressions, [
       message,
