@@ -84,6 +84,24 @@
       "message": "Jacky.. looks like you got a merge conflict. A rebase should sort that out.",
       "revId": "3313578f4cceac482ac835be515130333a8b400d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e5c4a62_9d78d460",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-05-04T02:39:55Z",
+      "side": 1,
+      "message": "thanks Paul, Adam\n\nBUT, I figure out this CL did NOT totally solve this issue.  \n\n1. \"javaScriptDisabled\" setting, and\n2. \"Settings\u003ePrivacy and security\u003eContent\u003eJavascript\u003eDon\u0027t allow sites to use javascript\"\n\nare TWO different things, and both of them would stop Lighthouse generate report.\n\nI will take a look, to see any chance to check \"Don\u0027t allow sites to use javascript\" setting",
+      "parentUuid": "ba716158_57c5baf0",
+      "revId": "3313578f4cceac482ac835be515130333a8b400d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
