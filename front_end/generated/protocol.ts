@@ -4939,6 +4939,8 @@ export namespace DOMSnapshot {
  */
 export namespace DOMStorage {
 
+  export type SerializedStorageKey = string;
+
   /**
    * DOM Storage identifier.
    */
@@ -4946,7 +4948,11 @@ export namespace DOMStorage {
     /**
      * Security origin for the storage.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Represents a key by which DOM Storage keys its CachedStorageAreas
+     */
+    storageKey?: SerializedStorageKey;
     /**
      * Whether the storage is local storage (not session storage).
      */
@@ -4979,6 +4985,14 @@ export namespace DOMStorage {
     storageId: StorageId;
     key: string;
     value: string;
+  }
+
+  export interface GetStorageKeyForFrameRequest {
+    frameId: Page.FrameId;
+  }
+
+  export interface GetStorageKeyForFrameResponse extends ProtocolResponseWithError {
+    storageKey: SerializedStorageKey;
   }
 
   export interface DomStorageItemAddedEvent {
@@ -12661,6 +12675,8 @@ export namespace ServiceWorker {
 
 export namespace Storage {
 
+  export type SerializedStorageKey = string;
+
   /**
    * Enum of possible storage types.
    */
@@ -12737,6 +12753,17 @@ export namespace Storage {
     userBiddingSignals?: string;
     ads: InterestGroupAd[];
     adComponents: InterestGroupAd[];
+  }
+
+  export interface ClearDataForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: SerializedStorageKey;
+    /**
+     * Comma separated list of StorageType to clear.
+     */
+    storageTypes: string;
   }
 
   export interface ClearDataForOriginRequest {

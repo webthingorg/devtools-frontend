@@ -7372,6 +7372,10 @@
             "experimental": true,
             "types": [
                 {
+                    "id": "SerializedStorageKey",
+                    "type": "string"
+                },
+                {
                     "id": "StorageId",
                     "description": "DOM Storage identifier.",
                     "type": "object",
@@ -7379,7 +7383,14 @@
                         {
                             "name": "securityOrigin",
                             "description": "Security origin for the storage.",
+                            "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageKey",
+                            "description": "Represents a key by which DOM Storage keys its CachedStorageAreas",
+                            "optional": true,
+                            "$ref": "SerializedStorageKey"
                         },
                         {
                             "name": "isLocalStorage",
@@ -7460,6 +7471,21 @@
                         {
                             "name": "value",
                             "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "getStorageKeyForFrame",
+                    "parameters": [
+                        {
+                            "name": "frameId",
+                            "$ref": "Page.FrameId"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "storageKey",
+                            "$ref": "SerializedStorageKey"
                         }
                     ]
                 }
@@ -18722,6 +18748,10 @@
             ],
             "types": [
                 {
+                    "id": "SerializedStorageKey",
+                    "type": "string"
+                },
+                {
                     "id": "StorageType",
                     "description": "Enum of possible storage types.",
                     "type": "string",
@@ -18872,6 +18902,22 @@
                 }
             ],
             "commands": [
+                {
+                    "name": "clearDataForStorageKey",
+                    "description": "Clears storage for storage key.",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "$ref": "SerializedStorageKey"
+                        },
+                        {
+                            "name": "storageTypes",
+                            "description": "Comma separated list of StorageType to clear.",
+                            "type": "string"
+                        }
+                    ]
+                },
                 {
                     "name": "clearDataForOrigin",
                     "description": "Clears storage for origin.",

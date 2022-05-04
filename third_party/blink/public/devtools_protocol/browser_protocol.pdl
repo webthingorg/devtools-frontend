@@ -3401,11 +3401,15 @@ experimental domain DOMSnapshot
 # Query and modify DOM storage.
 experimental domain DOMStorage
 
+  type SerializedStorageKey extends string
+
   # DOM Storage identifier.
   type StorageId extends object
     properties
       # Security origin for the storage.
-      string securityOrigin
+      optional string securityOrigin
+      # Represents a key by which DOM Storage keys its CachedStorageAreas
+      optional SerializedStorageKey storageKey
       # Whether the storage is local storage (not session storage).
       boolean isLocalStorage
 
@@ -3438,6 +3442,12 @@ experimental domain DOMStorage
       StorageId storageId
       string key
       string value
+
+  command getStorageKeyForFrame
+    parameters
+      Page.FrameId frameId
+    returns
+      SerializedStorageKey storageKey
 
   event domStorageItemAdded
     parameters
@@ -8805,6 +8815,8 @@ experimental domain Storage
   depends on Browser
   depends on Network
 
+  type SerializedStorageKey extends string
+
   # Enum of possible storage types.
   type StorageType extends string
     enum
@@ -8866,6 +8878,14 @@ experimental domain Storage
       optional string userBiddingSignals
       array of InterestGroupAd ads
       array of InterestGroupAd adComponents
+
+  # Clears storage for storage key.
+  command clearDataForStorageKey
+    parameters
+      # Storage key.
+      SerializedStorageKey storageKey
+      # Comma separated list of StorageType to clear.
+      string storageTypes
 
   # Clears storage for origin.
   command clearDataForOrigin
