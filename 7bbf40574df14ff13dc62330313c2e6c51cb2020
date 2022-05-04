@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e32a7c9_d4f49b24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-04T14:37:50Z",
+      "side": 1,
+      "message": "How do I do that?",
+      "parentUuid": "5a7a9eeb_d9a55a4b",
+      "revId": "7bbf40574df14ff13dc62330313c2e6c51cb2020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68a71c7d_8a27fdb8",
