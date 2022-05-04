@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d302387_59bff260",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-04T17:16:15Z",
+      "side": 1,
+      "message": "Put screenshot on imgur.com and add a line `Screenshot: https://imgur.com/XYZ.png` here.",
+      "parentUuid": "2e32a7c9_d4f49b24",
+      "revId": "7bbf40574df14ff13dc62330313c2e6c51cb2020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68a71c7d_8a27fdb8",
