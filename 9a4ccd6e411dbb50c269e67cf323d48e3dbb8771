@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cfbf1fa_a3473619",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-04T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237ac3a2_04470788",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 32
+      },
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54aa19e0_60800d46",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-28T12:26:15Z",
       "side": 1,
       "message": "I don\u0027t think we can afford refetching all the storage keys on every change. For security origins it doesn\u0027t matter as we already have the data on the frontend. For storageKeys you need to make an IPC which takes significant time.\n\nYou can either store storageKey on a frame object and only fetch it once, or have a map from frameId to a storageKey here and update only what\u0027s changed based on a specific event you are reacting to.\n\nLet me know if you have any questions.",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 539,
+        "endChar": 117
+      },
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e032fd_802ff262",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-04T14:49:28Z",
+      "side": 1,
+      "message": "Changed to set storageKey for ResourceTreeFrame only once on creation",
+      "parentUuid": "54aa19e0_60800d46",
       "range": {
         "startLine": 539,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ddc700_ddb0e371",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-04T14:49:28Z",
+      "side": 1,
+      "message": "We don\u0027t. Up to some point I forgot to access `storageKey` here and obviously then the type didn\u0027t match (hence the cast), which I didn\u0027t catch at first.",
+      "parentUuid": "6b2e95b2_a2f85316",
+      "range": {
+        "startLine": 540,
+        "startChar": 18,
+        "endLine": 540,
+        "endChar": 20
+      },
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8fe50bb_1e24d1ec",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "076b08fd_3f0b1136",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-04T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8fe50bb_1e24d1ec",
+      "range": {
+        "startLine": 546,
+        "startChar": 23,
+        "endLine": 546,
+        "endChar": 24
+      },
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98e61b74_3bb40dfd",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-04-28T12:26:15Z",
       "side": 1,
       "message": "As above, we probably want to invoke  this IPC only once per frame.",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 119
+      },
+      "revId": "9a4ccd6e411dbb50c269e67cf323d48e3dbb8771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9cf995_27142e3c",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-04T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e61b74_3bb40dfd",
       "range": {
         "startLine": 566,
         "startChar": 0,
