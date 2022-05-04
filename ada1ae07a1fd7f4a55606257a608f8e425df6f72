@@ -33,6 +33,24 @@
       "message": "nit: account",
       "revId": "ada1ae07a1fd7f4a55606257a608f8e425df6f72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d23e86a_5cf9dbbe",
+        "filename": "scripts/eslint_rules/lib/enforce_bound_render_for_schedule_render.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-05-04T09:49:07Z",
+      "side": 1,
+      "message": "Done! :)",
+      "parentUuid": "4ef7d365_93c87938",
+      "revId": "ada1ae07a1fd7f4a55606257a608f8e425df6f72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
