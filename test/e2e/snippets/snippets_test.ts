@@ -4,9 +4,9 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, typeText, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
+import {maybeGetCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
 import {
   addSelectedTextToWatches,
@@ -50,14 +50,8 @@ describe('Snippet creation', () => {
 
 describe('Expression evaluation', () => {
   const message = '\'Hello\'';
-
-  beforeEach(async () => {
+  async function selectFunctionParameterElement() {
     const {frontend} = getBrowserAndPages();
-    await openSourcesPanel();
-    await openSnippetsSubPane();
-    await createNewSnippet('New snippet');
-    await typeText(`(x => {debugger})(${message});`);
-    await runSnippet();
     const functionParameterElement = await waitFor('.token-variable');
     const parameterElementPosition = await functionParameterElement.evaluate(elem => {
       const {x, y, right} = elem.getBoundingClientRect();
@@ -67,28 +61,60 @@ describe('Expression evaluation', () => {
     await frontend.mouse.down();
     await frontend.mouse.move(parameterElementPosition.right, parameterElementPosition.y);
     await frontend.mouse.up();
-  });
+  }
+
+  async function navigateToSourcesAndRunSnippet() {
+    await openSourcesPanel();
+    await openSnippetsSubPane();
+    await createNewSnippet('New snippet');
+    await typeText(`(x => {debugger})(${message});`);
+    await runSnippet();
+  }
 
   afterEach(async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.reload();
   });
 
-  it('evaluates a selected expression in the console', async () => {
-    await evaluateSelectedTextInConsole();
-    const messages = await getCurrentConsoleMessages();
-    assert.deepEqual(messages, [
-      message,
-    ]);
-  });
+  it.repeat(  // eslint-disable-line rulesdir/no_repeated_tests
+      100, 'valuates a selected expression in the console', async () => {
+        await navigateToSourcesAndRunSnippet();
+        const messages = await waitForFunction(async () => {
+          console.log('a');  // eslint-disable-line no-console
+          await selectFunctionParameterElement();
+          console.log('b');  // eslint-disable-line no-console
+          await evaluateSelectedTextInConsole();
+          console.log('c');  // eslint-disable-line no-console
+          const maybeMessages = await maybeGetCurrentConsoleMessages();
+          console.log('d');  // eslint-disable-line no-console
+          if (maybeMessages.length) {
+            return maybeMessages;
+          }
+          console.log('e');  // eslint-disable-line no-console
+          await openSourcesPanel();
+          console.log('f');  // eslint-disable-line no-console
+          await openSnippetsSubPane();
+          console.log('g');  // eslint-disable-line no-console
+          return null;
+        });
+        assert.deepEqual(messages, [
+          message,
+        ]);
+      });
 
   it('adds an expression to watches', async () => {
-    await addSelectedTextToWatches();
-    const watchExpressions = await getWatchExpressionsValues();
+    await navigateToSourcesAndRunSnippet();
+    const watchExpressions = await waitForFunction(async () => {
+      await selectFunctionParameterElement();
+      await addSelectedTextToWatches();
+      return await getWatchExpressionsValues();
+    });
+
+    if (!watchExpressions) {
+      assert.fail('No watch expressions found');
+    }
     const cleanWatchExpressions = watchExpressions.map(expression => expression.replace(/["]+/g, '\''));
-    assert.deepEqual(cleanWatchExpressions, [
-      message,
-    ]);
+    assert.deepEqual(cleanWatchExpressions[0], message);
   });
 });
 
