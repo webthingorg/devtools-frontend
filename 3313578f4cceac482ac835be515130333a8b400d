@@ -102,6 +102,24 @@
       "parentUuid": "ba716158_57c5baf0",
       "revId": "3313578f4cceac482ac835be515130333a8b400d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a413f9_c1ebda35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-05-04T09:48:34Z",
+      "side": 1,
+      "message": "Although I can call\n\n\u003e controller.manager.target().debuggerAgent().invoke_enable({maxScriptsCacheSize: 100e6})\n\nto get \"Script execution is prohibited\" error, to know JS is disabled when LighthousePanel been created.\n\nBUT, I can NOT find a way to \"listen\" the \"SITE_SETTINGS_JAVASCRIPT\" been updated :(\n- (chrome/browser/resources/settings/site_settings_page/site_settings_page.ts)",
+      "parentUuid": "7e5c4a62_9d78d460",
+      "revId": "3313578f4cceac482ac835be515130333a8b400d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
