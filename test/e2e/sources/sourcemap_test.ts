@@ -275,7 +275,7 @@ describe('The Sources Tab', async () => {
 
   // Flaky test
   it.skipOnPlatforms(
-      ['win32'], '[crbug.com/1297070]: reliably hits breakpoints on worker with source map', async () => {
+      ['mac', 'win32'], '[crbug.com/1297070]: reliably hits breakpoints on worker with source map', async () => {
         await enableExperiment('instrumentationBreakpoints');
         const {target, frontend} = getBrowserAndPages();
         await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-breakpoint.html');
