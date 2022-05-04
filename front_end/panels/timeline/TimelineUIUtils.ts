@@ -1477,7 +1477,7 @@ export class TimelineUIUtils {
     }
   }
 
-  static eventURL(event: SDK.TracingModel.Event): string|null {
+  static eventURL(event: SDK.TracingModel.Event): Platform.DevToolsPath.UrlString|null {
     const data = event.args['data'] || event.args['beginData'];
     const url = data && data.url;
     if (url) {
@@ -1486,7 +1486,7 @@ export class TimelineUIUtils {
     const stackTrace = data && data['stackTrace'];
     const frame = stackTrace && stackTrace.length && stackTrace[0] ||
         TimelineModel.TimelineModel.TimelineData.forEvent(event).topFrame();
-    return frame && frame.url || null;
+    return frame && frame.url as Platform.DevToolsPath.UrlString || null;
   }
 
   static eventStyle(event: SDK.TracingModel.Event): TimelineRecordStyle {
@@ -1537,7 +1537,7 @@ export class TimelineUIUtils {
   static eventColorByProduct(
       model: TimelineModel.TimelineModel.TimelineModelImpl, urlToColorCache: Map<string, string>,
       event: SDK.TracingModel.Event): string {
-    const url = TimelineUIUtils.eventURL(event) || '';
+    const url = TimelineUIUtils.eventURL(event) || Platform.DevToolsPath.EmptyUrlString;
     let color = urlToColorCache.get(url);
     if (color) {
       return color;
