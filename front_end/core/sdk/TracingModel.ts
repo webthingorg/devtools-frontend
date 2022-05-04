@@ -203,17 +203,17 @@ export class TracingModel {
       this.#minimumRecordTimeInternal = timestamp;
     }
 
-    // Track only main thread navigation start items. This is done by tracking isLoadingMainFrame,
-    // and whether documentLoaderURL is set.
+    // Track only main thread navigation start items. This is done by tracking
+    // isLoadingOutermostMainFrame, and whether documentLoaderURL is set.
     if (payload.name === 'navigationStart') {
       const data = (payload.args.data as {
-        isLoadingMainFrame: boolean,
+        isLoadingOutermostMainFrame: boolean,
         documentLoaderURL: string,
         navigationId: string,
       } | null);
       if (data) {
-        const {isLoadingMainFrame, documentLoaderURL, navigationId} = data;
-        if (isLoadingMainFrame && documentLoaderURL !== '') {
+        const {isLoadingOutermostMainFrame, documentLoaderURL, navigationId} = data;
+        if (isLoadingOutermostMainFrame && documentLoaderURL !== '') {
           const thread = process.threadById(payload.tid);
           const navStartEvent = Event.fromPayload(payload, thread);
           this.#mainFrameNavStartTimes.set(navigationId, navStartEvent);

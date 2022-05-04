@@ -226,7 +226,7 @@ export class TimelineModelImpl {
   }
 
   isMainFrameNavigationStartEvent(event: SDK.TracingModel.Event): boolean {
-    return this.isNavigationStartEvent(event) && event.args['data']['isLoadingMainFrame'] &&
+    return this.isNavigationStartEvent(event) && event.args['data']['isLoadingOutermostMainFrame'] &&
         event.args['data']['documentLoaderURL'];
   }
 
