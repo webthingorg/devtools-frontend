@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73eb1c3_7d024849",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-05-05T13:04:07Z",
+      "side": 1,
+      "message": "nit: 1321567 (I made a mistake annotating the test with 1297070 when disabling it).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "09a747c4c40d4b820f8dc168e9a0ace138a1cc36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fd1dce23_b177dacf",
@@ -14,6 +37,46 @@
       "writtenOn": "2022-05-05T07:18:08Z",
       "side": 1,
       "message": "Hi Andrés,\n\nI\u0027m re-enabling the source map test, ptal! I have run the stressor bots for 30 times in a row after increasing the timeout and they are passing.",
+      "revId": "09a747c4c40d4b820f8dc168e9a0ace138a1cc36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9587df_7e4fbbe1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-05-05T13:04:07Z",
+      "side": 1,
+      "message": "LGTM. Thanks for taking a look!",
+      "revId": "09a747c4c40d4b820f8dc168e9a0ace138a1cc36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b562233_e9663502",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-05-05T13:04:07Z",
+      "side": 1,
+      "message": "ultra-nit: Increase",
+      "range": {
+        "startLine": 51,
+        "startChar": 39,
+        "endLine": 51,
+        "endChar": 48
+      },
       "revId": "09a747c4c40d4b820f8dc168e9a0ace138a1cc36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
