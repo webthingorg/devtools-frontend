@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60f9ab0_77b0c738",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-05-05T17:40:18Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to test that the entire webauthn machinery works with a real connection, otherwise the devtools front-end project tests may break due to unrelated chrome side changes. We already have tests for the devtools protocol [1] -- so I used describeWithMockConnection instead to make sure we\u0027re sending the right value down the wire. PTAL.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/inspector-protocol/webauthn/webauthn-large-blob.js",
+      "parentUuid": "34b71de8_68642c5b",
+      "revId": "38b51170f0ad40f3bcf3f39acfe68dd2a68eb4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc0e3e93_67b07847",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-05-04T05:58:01Z",
       "side": 1,
       "message": "nit: Can you add one sentence what blob in this context means? (To better help translators)",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 93
+      },
+      "revId": "38b51170f0ad40f3bcf3f39acfe68dd2a68eb4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5767d3f0_80a1fbb3",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-05-05T17:40:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc0e3e93_67b07847",
       "range": {
         "startLine": 87,
         "startChar": 16,
