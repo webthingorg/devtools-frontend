@@ -64,6 +64,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fa2a2b_e67ad418",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-05T14:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a5742a1_bc585a25",
+      "range": {
+        "startLine": 79,
+        "startChar": 111,
+        "endLine": 79,
+        "endChar": 113
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5393627a_b60a7128",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-05T14:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af12d68_5acb7177",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 66
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b07a14b_1279b1a0",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-04-27T08:29:38Z",
       "side": 1,
       "message": "Shouldn\u0027t the actual warning message be updated then? The link seems to be dead as well.",
+      "range": {
+        "startLine": 138,
+        "startChar": 421,
+        "endLine": 138,
+        "endChar": 483
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345fb8df_7b7b3462",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-05T14:19:35Z",
+      "side": 1,
+      "message": "Yes updating the warning message makes sense. Is this the only file that needs updating for that, or is this copied from somewhere in chromium as well?\n\nMessage and description updated.",
+      "parentUuid": "5b07a14b_1279b1a0",
       "range": {
         "startLine": 138,
         "startChar": 421,
