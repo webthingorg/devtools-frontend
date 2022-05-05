@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8df3da20_fed4ce13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-05-05T14:45:12Z",
+      "side": 1,
+      "message": "Unfortunately, I can NOT find any way to check setting in Chromium (Settings\u003ePrivacy and security\u003eContent\u003eJavascript).\n\nThis CL is fine, I think we can merge it, BUT it did NOT totally solve bug/1319400 issue.\n\nSo, it\u0027s up to Reviewers, merge it or reject.\n\nThanks all of you.",
+      "revId": "7bc63ebf09f07f93a04649bd6a748b659983038e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
