@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de42478c_c981a753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1123071
+      },
+      "writtenOn": "2022-05-05T16:49:18Z",
+      "side": 1,
+      "message": "Jack I don\u0027t know if this approach is correct or not. We added new values in blink for the tracing values and I don\u0027t know if devtools needs to be able to read the old values as well.",
+      "revId": "5ae6fab68cd0961b5f7818abd7bcb0e659b479d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
