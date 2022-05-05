@@ -15,6 +15,7 @@ copy_to_gen("network") {
     "last-modified.html",
     "last-modified.rawresponse",
     "requests.html",
+    "requests.js",
     "resources-from-cache.html",
     "resources-from-webbundle-with-bad-inner-request.html",
     "resources-from-webbundle-with-bad-metadata.html",
