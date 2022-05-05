@@ -61,6 +61,7 @@ export class SerializedAllocationNode {
       count: number, size: number, liveCount: number, liveSize: number, hasChildren: boolean) {
     this.id = nodeId;
     this.name = functionName;
+    console.log("Script name: ", scriptName);
     this.scriptName = scriptName;
     this.scriptId = scriptId;
     this.line = line;

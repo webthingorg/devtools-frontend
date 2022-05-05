@@ -180,7 +180,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     }
 
     element.appendChild(
-        UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/', 'Learn more about Workspaces'));
+        UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/' as Platform.DevToolsPath.UrlString, 'Learn more about Workspaces'));
 
     return element;
   }

@@ -1297,9 +1297,10 @@ export class AllocationGridNode extends HeapSnapshotGridNode {
     const heapProfilerModel = this.dataGridInternal.heapProfilerModel();
     if (allocationNode.scriptId) {
       const linkifier = (this.dataGridInternal as AllocationDataGrid).linkifier;
+      console.log("allocationNode name: ", allocationNode.scriptName);
       const urlElement = linkifier.linkifyScriptLocation(
           heapProfilerModel ? heapProfilerModel.target() : null,
-          String(allocationNode.scriptId) as Protocol.Runtime.ScriptId, allocationNode.scriptName,
+          String(allocationNode.scriptId) as Protocol.Runtime.ScriptId, allocationNode.scriptName as Platform.DevToolsPath.UrlString,
           allocationNode.line - 1, {
             columnNumber: allocationNode.column - 1,
             inlineFrameIndex: 0,

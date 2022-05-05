@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
@@ -510,7 +511,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
   ${i18nString(UIStrings.useWebauthnForPhishingresistant)}<br /><br />
   ${
         UI.XLink.XLink.create(
-            'https://developers.google.com/web/updates/2018/05/webauthn', i18nString(UIStrings.learnMore))}
+            'https://developers.google.com/web/updates/2018/05/webauthn' as Platform.DevToolsPath.UrlString, i18nString(UIStrings.learnMore))}
   </div>
   `);
 

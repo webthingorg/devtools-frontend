@@ -378,7 +378,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
         link.prepend(UI.Icon.Icon.create('largeicon-breaking-change', 'icon'));
         callToActionBody.appendChild(link);
       } else if (header.details.link) {
-        const link = UI.XLink.XLink.create(header.details.link.url, i18nString(UIStrings.learnMore), 'link');
+        const link = UI.XLink.XLink.create(header.details.link.url as Platform.DevToolsPath.UrlString, i18nString(UIStrings.learnMore), 'link');
         link.prepend(UI.Icon.Icon.create('largeicon-link'));
         callToActionBody.appendChild(link);
       }
@@ -633,7 +633,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
       cautionElement.createChild('div', 'learn-more')
           .appendChild(UI.XLink.XLink.create(
-              'https://developer.chrome.com/docs/devtools/network/reference/#provisional-headers',
+              'https://developer.chrome.com/docs/devtools/network/reference/#provisional-headers' as Platform.DevToolsPath.UrlString,
               i18nString(UIStrings.learnMore)));
 
       headersTreeElement.appendChild(cautionTreeElement);

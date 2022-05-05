@@ -5,6 +5,7 @@
 import lighthouseStartViewStyles from './lighthouseStartView.css.js';
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {LighthouseController} from './LighthouseController.js';
@@ -154,7 +155,7 @@ export class StartView extends UI.Widget.Widget {
   <div $="help-text" class="lighthouse-help-text hidden"></div>
   <div class="lighthouse-start-view-text">
   <span>${auditsDescription}</span>
-  ${UI.XLink.XLink.create('https://developers.google.com/web/tools/lighthouse/', i18nString(UIStrings.learnMore))}
+  ${UI.XLink.XLink.create('https://developers.google.com/web/tools/lighthouse/' as Platform.DevToolsPath.UrlString, i18nString(UIStrings.learnMore))}
   </div>
   <div $="warning-text" class="lighthouse-warning-text hidden"></div>
   </header>

@@ -28,12 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// TODO(crbug.com/1253323): Casts to UrlString will be removed from this file when migration to branded types is complete.
 
 import * as Common from '../../../../core/common/common.js';
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
-import type * as Platform from '../../../../core/platform/platform.js';
+import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
@@ -195,7 +194,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
   }
 
   maybeLinkifyScriptLocation(
-      target: SDK.Target.Target|null, scriptId: Protocol.Runtime.ScriptId|null, sourceURL: string,
+      target: SDK.Target.Target|null, scriptId: Protocol.Runtime.ScriptId|null, sourceURL: Platform.DevToolsPath.UrlString,
       lineNumber: number|undefined, options?: LinkifyOptions): HTMLElement|null {
     let fallbackAnchor: HTMLElement|null = null;
     const linkifyURLOptions: LinkifyURLOptions = {
@@ -267,7 +266,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
   }
 
   linkifyScriptLocation(
-      target: SDK.Target.Target|null, scriptId: Protocol.Runtime.ScriptId|null, sourceURL: string,
+      target: SDK.Target.Target|null, scriptId: Protocol.Runtime.ScriptId|null, sourceURL: Platform.DevToolsPath.UrlString,
       lineNumber: number|undefined, options?: LinkifyOptions): HTMLElement {
     const scriptLink = this.maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options);
     const linkifyURLOptions: LinkifyURLOptions = {
@@ -283,7 +282,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
     return scriptLink || Linkifier.linkifyURL(sourceURL, linkifyURLOptions);
   }
 
-  linkifyRawLocation(rawLocation: SDK.DebuggerModel.Location, fallbackUrl: string, className?: string): Element {
+  linkifyRawLocation(rawLocation: SDK.DebuggerModel.Location, fallbackUrl: Platform.DevToolsPath.UrlString, className?: string): Element {
     return this.linkifyScriptLocation(
         rawLocation.debuggerModel.target(), rawLocation.scriptId, fallbackUrl, rawLocation.lineNumber, {
           columnNumber: rawLocation.columnNumber,
@@ -303,7 +302,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
       className: options?.className,
     };
     return this.maybeLinkifyScriptLocation(
-        target, callFrame.scriptId, callFrame.url, callFrame.lineNumber, linkifyOptions);
+        target, callFrame.scriptId, callFrame.url as Platform.DevToolsPath.UrlString, callFrame.lineNumber, linkifyOptions);
   }
 
   linkifyStackTraceTopFrame(target: SDK.Target.Target, stackTrace: Protocol.Runtime.StackTrace, className?: string):
@@ -311,7 +310,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
     console.assert(stackTrace.callFrames.length > 0);
 
     const {url, lineNumber, columnNumber} = stackTrace.callFrames[0];
-    const fallbackAnchor = Linkifier.linkifyURL(url, {
+    const fallbackAnchor = Linkifier.linkifyURL(url as Platform.DevToolsPath.UrlString, {
       className,
       lineNumber,
       columnNumber,
@@ -478,7 +477,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
     info.icon = icon;
   }
 
-  static linkifyURL(url: string, options?: LinkifyURLOptions): HTMLElement {
+  static linkifyURL(url: Platform.DevToolsPath.UrlString, options?: LinkifyURLOptions): HTMLElement {
     options = options || {
       showColumnNumber: false,
       inlineFrameIndex: 0,
@@ -500,7 +499,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
       return element;
     }
 
-    let linkText = text || Bindings.ResourceUtils.displayNameForURL(url as Platform.DevToolsPath.UrlString);
+    let linkText = text || Bindings.ResourceUtils.displayNameForURL(url);
     if (typeof lineNumber === 'number' && !text) {
       linkText += ':' + (lineNumber + 1);
       if (showColumnNumber && typeof columnNumber === 'number') {
@@ -508,7 +507,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
       }
     }
     const title = linkText !== url ? url : '';
-    const linkOptions = {maxLength, title, href: url, preventClick, tabStop: options.tabStop, bypassURLTrimming};
+    const linkOptions = {maxLength, title, href: (url), preventClick, tabStop: options.tabStop, bypassURLTrimming};
     const {link, linkInfo} = Linkifier.createLink(linkText, className, linkOptions);
     if (lineNumber) {
       linkInfo.lineNumber = lineNumber;
@@ -520,11 +519,11 @@ export class Linkifier implements SDK.TargetManager.Observer {
   }
 
   static linkifyRevealable(
-      revealable: Object, text: string|HTMLElement, fallbackHref?: string, title?: string,
+      revealable: Object, text: string|HTMLElement, fallbackHref?: Platform.DevToolsPath.UrlString, title?: string,
       className?: string): HTMLElement {
     const createLinkOptions: _CreateLinkOptions = {
       maxLength: UI.UIUtils.MaxLengthForDisplayedURLs,
-      href: fallbackHref,
+      href: (fallbackHref),
       title,
     };
     const {link, linkInfo} = Linkifier.createLink(text, className || '', createLinkOptions);
@@ -708,7 +707,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
       return result;
     }
 
-    let url = '';
+    let url = Platform.DevToolsPath.EmptyUrlString;
     let uiLocation: Workspace.UISourceCode.UILocation|(Workspace.UISourceCode.UILocation | null)|null = null;
     if (info.uiLocation) {
       uiLocation = info.uiLocation;
@@ -716,12 +715,12 @@ export class Linkifier implements SDK.TargetManager.Observer {
     } else if (info.url) {
       url = info.url;
       const uiSourceCode =
-          Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url as Platform.DevToolsPath.UrlString) ||
+          Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url) ||
           Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(
               Common.ParsedURL.ParsedURL.urlWithoutHash(url) as Platform.DevToolsPath.UrlString);
       uiLocation = uiSourceCode ? uiSourceCode.uiLocation(info.lineNumber || 0, info.columnNumber || 0) : null;
     }
-    const resource = url ? Bindings.ResourceUtils.resourceForURL(url as Platform.DevToolsPath.UrlString) : null;
+    const resource = url ? Bindings.ResourceUtils.resourceForURL(url) : null;
     const contentProvider = uiLocation ? uiLocation.uiSourceCode : resource;
 
     const revealable = info.revealable || uiLocation || resource;
@@ -757,7 +756,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
         section: 'reveal',
         title: UI.UIUtils.openLinkExternallyLabel(),
         handler: (): void => Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
-            url as Platform.DevToolsPath.UrlString),
+            url),
       });
       result.push({
         section: 'clipboard',
@@ -953,7 +952,7 @@ export interface _LinkInfo {
   enableDecorator: boolean;
   uiLocation: Workspace.UISourceCode.UILocation|null;
   liveLocation: Bindings.LiveLocation.LiveLocation|null;
-  url: string|null;
+  url: Platform.DevToolsPath.UrlString|null;
   lineNumber: number|null;
   columnNumber: number|null;
   inlineFrameIndex: number;
@@ -987,7 +986,7 @@ export interface LinkifyOptions {
 export interface _CreateLinkOptions {
   maxLength?: number;
   title?: string;
-  href?: string;
+  href?: Platform.DevToolsPath.UrlString;
   preventClick?: boolean;
   tabStop?: boolean;
   bypassURLTrimming?: boolean;

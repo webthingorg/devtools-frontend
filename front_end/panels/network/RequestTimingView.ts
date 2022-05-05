@@ -31,6 +31,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Logs from '../../models/logs/logs.js';
@@ -467,7 +468,7 @@ export class RequestTimingView extends UI.Widget.VBox {
     const note = (footer.createChild('td') as HTMLTableCellElement);
     note.colSpan = 1;
     note.appendChild(UI.XLink.XLink.create(
-        'https://developer.chrome.com/docs/devtools/network/reference#timing-explanation',
+        'https://developer.chrome.com/docs/devtools/network/reference#timing-explanation' as Platform.DevToolsPath.UrlString,
         i18nString(UIStrings.explanation)));
     footer.createChild('td');
     UI.UIUtils.createTextChild(footer.createChild('td'), i18n.TimeUtilities.secondsToString(totalDuration, true));
@@ -492,7 +493,7 @@ export class RequestTimingView extends UI.Widget.VBox {
       information.colSpan = 3;
 
       const link = UI.XLink.XLink.create(
-          'https://web.dev/custom-metrics/#server-timing-api', i18nString(UIStrings.theServerTimingApi));
+          'https://web.dev/custom-metrics/#server-timing-api' as Platform.DevToolsPath.UrlString, i18nString(UIStrings.theServerTimingApi));
       information.appendChild(
           i18n.i18n.getFormatLocalizedString(str_, UIStrings.duringDevelopmentYouCanUseSToAdd, {PH1: link}));
 

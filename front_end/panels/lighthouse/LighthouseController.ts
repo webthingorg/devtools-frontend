@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
@@ -493,7 +494,7 @@ export const RuntimeSettings: RuntimeSetting[] = [
         value: 'snapshot',
       },
     ],
-    learnMore: 'https://web.dev/lighthouse-user-flows/',
+    learnMore: 'https://web.dev/lighthouse-user-flows/' as Platform.DevToolsPath.UrlString,
   },
   {
     // This setting is disabled, but we keep it around to show in the UI.
@@ -502,7 +503,7 @@ export const RuntimeSettings: RuntimeSetting[] = [
     title: i18nLazyString(UIStrings.simulatedThrottling),
     // We will disable this when we have a Lantern trace viewer within DevTools.
     learnMore:
-        'https://github.com/GoogleChrome/lighthouse/blob/master/docs/throttling.md#devtools-lighthouse-panel-throttling',
+        'https://github.com/GoogleChrome/lighthouse/blob/master/docs/throttling.md#devtools-lighthouse-panel-throttling' as Platform.DevToolsPath.UrlString,
     description: i18nLazyString(UIStrings.simulateASlowerPageLoadBasedOn),
     setFlags: (flags: Flags, value: string|boolean): void => {
       flags.throttlingMethod = value ? 'simulate' : 'devtools';
@@ -585,5 +586,5 @@ export interface RuntimeSetting {
     tooltip?: () => Common.UIString.LocalizedString,
   }[];
   title?: () => Common.UIString.LocalizedString;
-  learnMore?: string;
+  learnMore?: Platform.DevToolsPath.UrlString;
 }
