@@ -4,6 +4,7 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -145,7 +146,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       const message = i18nString(UIStrings.totalBlockingTimeSmss, {PH1: time.toFixed(2), PH2: isEstimate});
 
       const warning = document.createElement('span');
-      const clsLink = UI.XLink.XLink.create('https://web.dev/tbt/', i18nString(UIStrings.learnMore));
+      const clsLink = UI.XLink.XLink.create(
+          'https://web.dev/tbt/' as Platform.DevToolsPath.UrlString, i18nString(UIStrings.learnMore));
       // crbug.com/1103188: In dark mode the focus ring is hidden by the surrounding
       // container of this link. For some additional spacing on the right to make
       // sure the ring is fully visible.

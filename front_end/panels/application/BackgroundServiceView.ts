@@ -2,17 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// eslint-disable-next-line rulesdir/es_modules_import
-import emptyWidgetStyles from '../../ui/legacy/emptyWidget.css.js';
-import backgroundServiceViewStyles from './backgroundServiceView.css.js';
-import type * as Common from '../../core/common/common.js';
+import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import emptyWidgetStyles from '../../ui/legacy/emptyWidget.css.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as Protocol from '../../generated/protocol.js';
+
+import backgroundServiceViewStyles from './backgroundServiceView.css.js';
 
 import type {BackgroundServiceModel} from './BackgroundServiceModel.js';
 import {Events} from './BackgroundServiceModel.js';
@@ -382,20 +383,21 @@ export class BackgroundServiceView extends UI.Widget.VBox {
   }
 
   private createLearnMoreLink(): Element {
-    let url = 'https://developer.chrome.com/docs/devtools/javascript/background-services/?utm_source=devtools';
+    let url = 'https://developer.chrome.com/docs/devtools/javascript/background-services/?utm_source=devtools' as
+        Platform.DevToolsPath.UrlString;
 
     switch (this.serviceName) {
       case Protocol.BackgroundService.ServiceName.BackgroundFetch:
-        url += '#fetch';
+        url = Common.ParsedURL.ParsedURL.concatenate(url, '#fetch');
         break;
       case Protocol.BackgroundService.ServiceName.BackgroundSync:
-        url += '#sync';
+        url = Common.ParsedURL.ParsedURL.concatenate(url, '#sync');
         break;
       case Protocol.BackgroundService.ServiceName.PushMessaging:
-        url += '#push';
+        url = Common.ParsedURL.ParsedURL.concatenate(url, '#push');
         break;
       case Protocol.BackgroundService.ServiceName.Notifications:
-        url += '#notifications';
+        url = Common.ParsedURL.ParsedURL.concatenate(url, '#notifications');
         break;
       default:
         break;
