@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c8e499_38b6f959",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-06T13:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e247a7f8_4d7de6ab",
+      "range": {
+        "startLine": 300,
+        "startChar": 14,
+        "endLine": 300,
+        "endChar": 154
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4a145f4_8370c846",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88e3fa8e_2bc4e4e0",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-06T13:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4a145f4_8370c846",
+      "range": {
+        "startLine": 317,
+        "startChar": 71,
+        "endLine": 320,
+        "endChar": 63
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca89c35d_dee72dbf",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-05-06T12:09:02Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 327,
+        "startChar": 32,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "515f4aba_23d71985",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-06T13:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca89c35d_dee72dbf",
       "range": {
         "startLine": 327,
         "startChar": 32,
