@@ -23334,7 +23334,7 @@
                             "type": "boolean"
                         },
                         {
-                            "name": "treatGlobalObjectsAsRoots",
+                            "name": "hideInternals",
                             "optional": true,
                             "type": "boolean"
                         },
@@ -23356,8 +23356,8 @@
                             "type": "boolean"
                         },
                         {
-                            "name": "treatGlobalObjectsAsRoots",
-                            "description": "If true, a raw snapshot without artificial roots will be generated",
+                            "name": "hideInternals",
+                            "description": "If false, internals will be exposed in the snapshot",
                             "optional": true,
                             "type": "boolean"
                         },

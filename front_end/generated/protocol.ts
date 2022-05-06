@@ -15623,7 +15623,7 @@ export namespace HeapProfiler {
      * when the tracking is stopped.
      */
     reportProgress?: boolean;
-    treatGlobalObjectsAsRoots?: boolean;
+    hideInternals?: boolean;
     /**
      * If true, numerical values are included in the snapshot
      */
@@ -15636,9 +15636,9 @@ export namespace HeapProfiler {
      */
     reportProgress?: boolean;
     /**
-     * If true, a raw snapshot without artificial roots will be generated
+     * If false, internals will be exposed in the snapshot
      */
-    treatGlobalObjectsAsRoots?: boolean;
+    hideInternals?: boolean;
     /**
      * If true, numerical values are included in the snapshot
      */
