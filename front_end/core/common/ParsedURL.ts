@@ -313,9 +313,9 @@ export class ParsedURL {
     return (parsedURL ? parsedURL.path : '') as Platform.DevToolsPath.EncodedPathString;
   }
 
-  static extractOrigin(url: string): string {
+  static extractOrigin(url: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.UrlString {
     const parsedURL = this.fromString(url);
-    return parsedURL ? parsedURL.securityOrigin() : '';
+    return parsedURL ? parsedURL.securityOrigin() : Platform.DevToolsPath.EmptyUrlString;
   }
 
   static extractExtension(url: string): string {

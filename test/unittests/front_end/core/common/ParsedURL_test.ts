@@ -189,14 +189,14 @@ describe('Parsed URL', () => {
   });
 
   it('extracts the origin from a valid URL', () => {
-    const urlTest = 'http://www.example.com/test/path';
+    const urlTest = 'http://www.example.com/test/path' as Platform.DevToolsPath.UrlString;
     const extractedOrigin = ParsedURL.extractOrigin(urlTest);
     assert.strictEqual(extractedOrigin, 'http://www.example.com', 'origin extracted incorrectly');
   });
 
   it('returns an empty string as a origin if the URL is not valid', () => {
     const urlTest = 'www.example.com/test/path';
-    const extractedOrigin = ParsedURL.extractOrigin(urlTest);
+    const extractedOrigin = ParsedURL.extractOrigin(urlTest as Platform.DevToolsPath.UrlString);
     assert.strictEqual(extractedOrigin, '', 'did not return an empty path');
   });
 
