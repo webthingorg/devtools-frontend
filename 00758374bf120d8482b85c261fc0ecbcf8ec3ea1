@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e247a7f8_4d7de6ab",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T12:09:02Z",
+      "side": 1,
+      "message": "You can use backticks in the actual message to mark something as \u0027do not translate\u0027 (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/localization/locked_terms.md).\n\n\u0027Complex `Plan B SDP` detected. This dialect of the `Session Description Protocol` is no longer supported. Please use `Unified Plan SDP` instead.\u0027",
+      "range": {
+        "startLine": 300,
+        "startChar": 14,
+        "endLine": 300,
+        "endChar": 154
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a145f4_8370c846",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T12:09:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 317,
+        "startChar": 71,
+        "endLine": 320,
+        "endChar": 63
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca89c35d_dee72dbf",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T12:09:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 327,
+        "startChar": 32,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

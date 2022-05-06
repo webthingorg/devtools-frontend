@@ -157,6 +157,30 @@
       },
       "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e7c35b_2831a77c",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T12:09:02Z",
+      "side": 1,
+      "message": "With Ari\u0027s recent changes, this is the only location which needs to be updated.",
+      "parentUuid": "345fb8df_7b7b3462",
+      "range": {
+        "startLine": 138,
+        "startChar": 421,
+        "endLine": 138,
+        "endChar": 483
+      },
+      "revId": "9330996461d2541d97da91b79f5ddf716ee2927e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
