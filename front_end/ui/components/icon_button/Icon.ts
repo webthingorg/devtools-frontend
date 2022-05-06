@@ -2,13 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../../core/platform/platform.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
+
 import iconStyles from './icon.css.js';
 
 export interface IconWithPath {
-  iconPath: string;
+  iconPath: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString;
   color: string;
   width?: string;
   height?: string;
@@ -31,7 +33,8 @@ export class Icon extends HTMLElement {
 
   readonly #shadow = this.attachShadow({mode: 'open'});
 
-  #iconPath: Readonly<string> = '';
+  #iconPath: Readonly<Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString> =
+      Platform.DevToolsPath.EmptyRawPathString;
   #color: Readonly<string> = 'rgb(110 110 110)';
   #width: Readonly<string> = '100%';
   #height: Readonly<string> = '100%';
@@ -49,7 +52,8 @@ export class Icon extends HTMLElement {
     if ('iconPath' in data) {
       this.#iconPath = data.iconPath;
     } else {
-      this.#iconPath = new URL(`../../../Images/${data.iconName}.svg`, import.meta.url).toString();
+      this.#iconPath = new URL(`../../../Images/${data.iconName}.svg`, import.meta.url).toString() as
+          Platform.DevToolsPath.UrlString;
       this.#iconName = data.iconName;
     }
     this.#render();
@@ -69,7 +73,7 @@ export class Icon extends HTMLElement {
     }
     return {
       ...commonData,
-      iconPath: this.#iconPath,
+      iconPath: this.#iconPath as Platform.DevToolsPath.RawPathString | Platform.DevToolsPath.UrlString,
     };
   }
 

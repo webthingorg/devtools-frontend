@@ -5,6 +5,7 @@
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as IconButton from '../icon_button/icon_button.js';
+import type * as Platform from '../../../core/platform/platform.js';
 
 import buttonStyles from './button.css.js';
 
@@ -42,7 +43,7 @@ interface ButtonState {
 
 export type ButtonData = {
   variant: Variant.TOOLBAR|Variant.ROUND,
-  iconUrl: string,
+  iconUrl: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString,
   size?: Size,
   disabled?: boolean,
   active?: boolean,
@@ -52,7 +53,7 @@ export type ButtonData = {
   title?: string,
 }|{
   variant: Variant.PRIMARY | Variant.SECONDARY,
-  iconUrl?: string,
+  iconUrl?: Platform.DevToolsPath.RawPathString | Platform.DevToolsPath.UrlString,
   size?: Size,
   disabled?: boolean,
   active?: boolean,

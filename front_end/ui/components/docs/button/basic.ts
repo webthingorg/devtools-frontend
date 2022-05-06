@@ -5,11 +5,12 @@
 import * as FrontendHelpers from '../../../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
 import * as Buttons from '../../buttons/buttons.js';
 import * as ComponentHelpers from '../../helpers/helpers.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
 
-const testIcon = '/front_end/Images/ic_file_image.svg';
+const testIcon = '/front_end/Images/ic_file_image.svg' as Platform.DevToolsPath.RawPathString;
 
 function appendButton(button: Buttons.Button.Button): void {
   document.querySelector('#container')?.appendChild(button);

@@ -4,6 +4,7 @@
 
 import * as ComponentHelpers from '../../helpers/helpers.js';
 import * as IconButton from '../../icon_button/icon_button.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 
 await ComponentHelpers.ComponentServerSetup.setup();
 
@@ -38,7 +39,7 @@ iconName2.textContent = 'issue-exclamation-icon';
 row2.appendChild(iconName2);
 
 const otherIcon = new IconButton.Icon.Icon();
-const otherPath = '/Images/issue-exclamation-icon.svg';
+const otherPath = '/Images/issue-exclamation-icon.svg' as Platform.DevToolsPath.RawPathString;
 otherIcon.data = {
   iconPath: otherPath,
   width: '24px',

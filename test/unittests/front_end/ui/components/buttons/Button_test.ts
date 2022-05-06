@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import * as Buttons from '../../../../../../front_end/ui/components/buttons/buttons.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertElement, dispatchKeyDownEvent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
@@ -11,7 +12,8 @@ const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 const {assert} = chai;
 
 describe('Button', async () => {
-  const iconUrl = new URL('../../../../../../front_end/Images/ic_file_image.svg', import.meta.url).toString();
+  const iconUrl = new URL('../../../../../../front_end/Images/ic_file_image.svg', import.meta.url).toString() as
+      Platform.DevToolsPath.UrlString;
 
   async function renderButton(
       data: Buttons.Button.ButtonData = {
