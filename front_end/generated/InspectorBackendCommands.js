@@ -3319,7 +3319,7 @@ export function registerCommands(inspectorBackend) {
       'HeapProfiler.stopTrackingHeapObjects',
       [
         {'name': 'reportProgress', 'type': 'boolean', 'optional': true},
-        {'name': 'treatGlobalObjectsAsRoots', 'type': 'boolean', 'optional': true},
+        {'name': 'hideInternals', 'type': 'boolean', 'optional': true},
         {'name': 'captureNumericValue', 'type': 'boolean', 'optional': true}
       ],
       []);
@@ -3327,7 +3327,7 @@ export function registerCommands(inspectorBackend) {
       'HeapProfiler.takeHeapSnapshot',
       [
         {'name': 'reportProgress', 'type': 'boolean', 'optional': true},
-        {'name': 'treatGlobalObjectsAsRoots', 'type': 'boolean', 'optional': true},
+        {'name': 'hideInternals', 'type': 'boolean', 'optional': true},
         {'name': 'captureNumericValue', 'type': 'boolean', 'optional': true}
       ],
       []);
