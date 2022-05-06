@@ -502,6 +502,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     return this.sourcesViewInternal.visibleView();
   }
 
+  // HERE
   showUISourceCode(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber?: number, columnNumber?: number,
       omitFocus?: boolean): void {
@@ -528,7 +529,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     this.showUISourceCode(uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber, omitFocus);
   }
 
-  private revealInNavigator(uiSourceCode: Workspace.UISourceCode.UISourceCode, skipReveal?: boolean): void {
+  revealInNavigator(uiSourceCode: Workspace.UISourceCode.UISourceCode, skipReveal?: boolean): void {
     for (const navigator of registeredNavigatorViews) {
       const navigatorView = navigator.navigatorView();
       const viewId = navigator.viewId;
@@ -982,6 +983,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
   }
 
   private appendNetworkRequestItems(contextMenu: UI.ContextMenu.ContextMenu, target: Object): void {
+    console.log('appendNetworkRequestItems');
     if (!(target instanceof SDK.NetworkRequest.NetworkRequest)) {
       return;
     }

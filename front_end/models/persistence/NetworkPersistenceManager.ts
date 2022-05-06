@@ -314,11 +314,13 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     void this.saveUISourceCodeForOverrides(uiSourceCode);
   }
 
+  // HERE
   canSaveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
     return this.activeInternal && uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
         !this.bindings.has(uiSourceCode) && !this.savingForOverrides.has(uiSourceCode);
   }
 
+  // HERE
   async saveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     if (!this.canSaveUISourceCodeForOverrides(uiSourceCode)) {
       return;

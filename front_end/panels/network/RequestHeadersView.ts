@@ -44,6 +44,7 @@ import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as ClientVariations from '../../third_party/chromium/client-variations/client-variations.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import objectPropertiesSectionStyles from '../../ui/legacy/components/object_ui/objectPropertiesSection.css.js';
 // eslint-disable-next-line rulesdir/es_modules_import
@@ -596,7 +597,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
     if (!uiSourceCode) {
       return;
     }
-    Sources.SourcesPanel.SourcesPanel.instance().showUISourceCode(uiSourceCode);
+    const sourcesPanel = Sources.SourcesPanel.SourcesPanel.instance();
+    sourcesPanel.revealInNavigator(uiSourceCode);
+    sourcesPanel.showUISourceCode(uiSourceCode);
   }
 
   #uiSourceCodeAddedOrRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
@@ -689,6 +692,22 @@ export class RequestHeadersView extends UI.Widget.VBox {
         headerTreeElement.listItemElement.appendChild(wrapper);
       }
     }
+
+    if (overrideable) {
+      const button = new Buttons.Button.Button();
+      button.data = {
+        variant: Buttons.Button.Variant.SECONDARY,
+        title: 'Add header',
+      };
+      button.tabIndex = 0;
+      button.innerText = 'Add header';
+      button.addEventListener('click', this.#addHeader.bind(this));
+      headersTreeElement.appendChild(new UI.TreeOutline.TreeElement(button));
+    }
+  }
+
+  #addHeader(): void {
+    console.log('adding header');
   }
 
   private refreshHeadersText(

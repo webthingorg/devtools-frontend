@@ -42,6 +42,7 @@ function createSettingValue(
 
 const REGISTERED_EXPERIMENTS = [
   'captureNodeCreationStacks',
+  'headerOverrides',
   'hideIssuesFeature',
   'keyboardShortcutEditor',
   'preciseChanges',

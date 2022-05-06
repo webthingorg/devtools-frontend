@@ -469,6 +469,9 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   tryAddProject(project: Workspace.Workspace.Project): void {
     this.projectAdded(project);
     project.uiSourceCodes().forEach(this.addUISourceCode.bind(this));
+    if (this.lastSelectedUISourceCode) {
+      this.revealUISourceCode(this.lastSelectedUISourceCode, true);
+    }
   }
 
   private projectAdded(project: Workspace.Workspace.Project): void {
@@ -779,6 +782,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     return true;
   }
 
+  // HERE
   private handleContextMenuCreate(
       project: Workspace.Workspace.Project, path: Platform.DevToolsPath.EncodedPathString,
       uiSourceCode?: Workspace.UISourceCode.UISourceCode): void {
@@ -919,6 +923,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   async create(
       project: Workspace.Workspace.Project, path: Platform.DevToolsPath.EncodedPathString,
       uiSourceCodeToCopy?: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    console.log('NavigatorView.create', path);
     let content = '';
     if (uiSourceCodeToCopy) {
       content = (await uiSourceCodeToCopy.requestContent()).content || '';

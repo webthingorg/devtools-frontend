@@ -79,6 +79,7 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
     }
 
     // Retrieve uiSourceCode by URL to pick network resources everywhere.
+    // HERE
     const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(contentProvider.contentURL());
     if (uiSourceCode && NetworkPersistenceManager.instance().canSaveUISourceCodeForOverrides(uiSourceCode)) {
       contextMenu.saveSection().appendItem(i18nString(UIStrings.saveForOverrides), () => {

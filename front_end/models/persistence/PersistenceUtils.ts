@@ -46,6 +46,7 @@ export class PersistenceUtils {
   }
 
   static iconForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): UI.Icon.Icon|null {
+    console.log('iconForUISourceCode');
     const binding = PersistenceImpl.instance().binding(uiSourceCode);
     if (binding) {
       if (!binding.fileSystem.url().startsWith('file://')) {

@@ -6875,6 +6875,9 @@
   "panels/network/NetworkLogView.ts | copyStacktrace": {
     "message": "Copy stack trace"
   },
+  "panels/network/NetworkLogView.ts | createResponseHeaderOverride": {
+    "message": "Create response header override"
+  },
   "panels/network/NetworkLogView.ts | domcontentloadedS": {
     "message": "DOMContentLoaded: {PH1}"
   },
@@ -12355,6 +12358,12 @@
   },
   "ui/legacy/InspectorView.ts | reloadDevtools": {
     "message": "Reload DevTools"
+  },
+  "ui/legacy/InspectorView.ts | selectFolder": {
+    "message": "Select folder"
+  },
+  "ui/legacy/InspectorView.ts | selectOverrideFolder": {
+    "message": "Select a folder to store override files in."
   },
   "ui/legacy/InspectorView.ts | setToBrowserLanguage": {
     "message": "Always match Chrome's language"
