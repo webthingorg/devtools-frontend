@@ -16,6 +16,23 @@
       "message": "Piotr can you take a look as a second set of XR-eyes at my description?\nwolfi@ PTAL as OWNER",
       "revId": "7857720ebab0c26e4f62270caf3cd3d955605382",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3703b00_d6ed1c78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T09:22:32Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7857720ebab0c26e4f62270caf3cd3d955605382",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
