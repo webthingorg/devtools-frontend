@@ -93,7 +93,8 @@ async function waitForHistogramEvent(expected: EnumHistogramEventWithOptionalCod
   });
 }
 
-describe('User Metrics', () => {
+// Flaky test group
+describe.skip('[crbug.com/1323313] User Metrics', () => {
   it('dispatches dock and undock events', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluate(() => {
