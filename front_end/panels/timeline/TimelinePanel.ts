@@ -570,15 +570,29 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     throttlingPane.element.classList.add('flex-auto');
     throttlingPane.show(this.settingsPane.element);
 
+    const cpuThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
+    cpuThrottlingToolbar.appendText(i18nString(UIStrings.cpu));
+    this.cpuThrottlingSelect = MobileThrottling.ThrottlingManager.throttlingManager().createCPUThrottlingSelector();
+    cpuThrottlingToolbar.appendToolbarItem(this.cpuThrottlingSelect);
+
     const networkThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
     networkThrottlingToolbar.appendText(i18nString(UIStrings.network));
     this.networkThrottlingSelect = this.createNetworkConditionsSelect();
     networkThrottlingToolbar.appendToolbarItem(this.networkThrottlingSelect);
 
-    const cpuThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
-    cpuThrottlingToolbar.appendText(i18nString(UIStrings.cpu));
-    this.cpuThrottlingSelect = MobileThrottling.ThrottlingManager.throttlingManager().createCPUThrottlingSelector();
-    cpuThrottlingToolbar.appendToolbarItem(this.cpuThrottlingSelect);
+    const hardwareConcurrencyPane = new UI.Widget.VBox();
+    hardwareConcurrencyPane.element.classList.add('flex-auto');
+    hardwareConcurrencyPane.show(this.settingsPane.element);
+
+    const {toggle, input, reset, warning} =
+        MobileThrottling.ThrottlingManager.throttlingManager().createHardwareConcurrencySelector();
+    const concurrencyThrottlingToolbar = new UI.Toolbar.Toolbar('', hardwareConcurrencyPane.element);
+    input.element.classList.add('timeline-concurrency-input');
+    concurrencyThrottlingToolbar.appendToolbarItem(toggle);
+    concurrencyThrottlingToolbar.appendToolbarItem(input);
+    concurrencyThrottlingToolbar.appendToolbarItem(reset);
+    const concurrencyThrottlingWarningToolbar = new UI.Toolbar.Toolbar('', hardwareConcurrencyPane.element);
+    concurrencyThrottlingWarningToolbar.appendToolbarItem(warning);
 
     this.showSettingsPaneSetting.addChangeListener(this.updateSettingsPaneVisibility.bind(this));
     this.updateSettingsPaneVisibility();
