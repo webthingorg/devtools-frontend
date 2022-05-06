@@ -16,6 +16,29 @@
       "message": "Please take a look:)",
       "revId": "87068a5406b201f155f98350ffb7440b3ced3d86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b4fc3d5_8a8f1b2a",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-06T13:15:44Z",
+      "side": 1,
+      "message": "Because this is always coming from a string constant in the code and not the user, I\u0027m not sure the benefit of branding it is worth the hassle.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "87068a5406b201f155f98350ffb7440b3ced3d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
