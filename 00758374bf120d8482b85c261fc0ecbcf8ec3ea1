@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a68c6f1f_9459343e",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2022-05-06T15:18:30Z",
+      "side": 1,
+      "message": "That makes sense. CL updated to have the ticks in the UIString as well.",
+      "parentUuid": "5446eb2d_e6946eba",
+      "range": {
+        "startLine": 300,
+        "startChar": 14,
+        "endLine": 300,
+        "endChar": 154
+      },
+      "revId": "00758374bf120d8482b85c261fc0ecbcf8ec3ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4a145f4_8370c846",
         "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
         "patchSetId": 4
