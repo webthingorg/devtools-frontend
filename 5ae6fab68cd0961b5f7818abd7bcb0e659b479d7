@@ -33,6 +33,29 @@
       "message": "Thanks, from my understanding of the attached bug and backend change this seems good to me.\n\nWe need to do the same in the new Insights panel, which I will look into.",
       "revId": "5ae6fab68cd0961b5f7818abd7bcb0e659b479d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06afb4fb_03972dec",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-06T13:11:51Z",
+      "side": 1,
+      "message": "actually, thinking about it more, users will have historic saved traces where this change doesn\u0027t apply.\n\nCould we ensure we\u0027re backwards compatible here?\n\n1. use isOutermostFrame if present\n2. else, use isLoadingMainFrame",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 63
+      },
+      "revId": "5ae6fab68cd0961b5f7818abd7bcb0e659b479d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
