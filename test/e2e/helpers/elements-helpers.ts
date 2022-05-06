@@ -190,8 +190,8 @@ export const waitForElementsComputedSection = async () => {
 };
 
 export const getContentOfComputedPane = async () => {
-  const pane = await waitFor('.computed-properties');
-  const tree = await waitFor('.tree-outline', pane);
+  const pane = await waitFor('Computed panel', undefined, undefined, 'aria');
+  const tree = await waitFor('[role="tree"]', pane, undefined, 'aria');
   return await tree.evaluate(node => node.textContent as string);
 };
 
@@ -205,8 +205,8 @@ export const waitForComputedPaneChange = async (initialValue: string) => {
 export const getAllPropertiesFromComputedPane = async () => {
   const properties = await $$(COMPUTED_PROPERTY_SELECTOR);
   return (await Promise.all(properties.map(elem => elem.evaluate(node => {
-           const name = node.querySelector('[slot="property-name"]');
-           const value = node.querySelector('[slot="property-value"]');
+           const name = node.shadowRoot?.querySelector('.property-name');
+           const value = node.shadowRoot?.querySelector('.property-value');
 
            return (!name || !value) ? null : {
              name: name.textContent ? name.textContent.trim().replace(/:$/, '') : '',
@@ -220,7 +220,7 @@ export const getPropertyFromComputedPane = async (name: string) => {
   const properties = await $$(COMPUTED_PROPERTY_SELECTOR);
   for (const property of properties) {
     const matchingProperty = await property.evaluateHandle((node, name) => {
-      const nameEl = node.querySelector('[slot="property-name"]');
+      const nameEl = node.shadowRoot?.querySelector('.property-name');
       if (nameEl && nameEl.textContent === name) {
         return node;
       }
