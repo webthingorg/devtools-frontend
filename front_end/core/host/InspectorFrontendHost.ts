@@ -58,6 +58,7 @@ const MAX_RECORDED_HISTOGRAMS_SIZE = 100;
 export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   readonly #urlsBeingSaved: Map<Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString, string[]>;
   events!: Common.EventTarget.EventTarget<EventTypes>;
+  #fileSystem: FileSystem|null = null;
 
   recordedEnumeratedHistograms: {actionName: EnumeratedHistogram, actionCode: number}[] = [];
   recordedPerformanceHistograms: {histogramName: string, duration: number}[] = [];
@@ -209,17 +210,73 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
 
   requestFileSystems(): void {
+    console.log('requestFileSystems');  // eslint-disable-line no-console
+    // const onFs = (fileSystem: FileSystem): void => {
+    //   this.#fileSystem = fileSystem;
+    // };
+    // window.webkitRequestFileSystem(window.TEMPORARY, 1024 * 1024, onFs);
     this.events.dispatchEventToListeners(Events.FileSystemsLoaded, []);
   }
 
   addFileSystem(type?: string): void {
+    console.log('addFileSystem');  // eslint-disable-line no-console
+    const onFs = (fs: FileSystem): void => {
+      this.#fileSystem = fs;
+      const fileSystem = {
+        fileSystemName: 'fSName',
+        fileSystemPath: '/overrides' as Platform.DevToolsPath.RawPathString,
+        rootURL: 'filesystem:devtools://devtools/isolated/',
+        type: 'overrides',
+      };
+      this.events.dispatchEventToListeners(Events.FileSystemAdded, {fileSystem});
+    };
+    window.webkitRequestFileSystem(window.TEMPORARY, 1024 * 1024, onFs);
   }
 
   removeFileSystem(fileSystemPath: Platform.DevToolsPath.RawPathString): void {
+    console.log('removeFileSystem');  // eslint-disable-line no-console
+    this.clearFileSystem();
+    this.#fileSystem = null;
+    this.events.dispatchEventToListeners(Events.FileSystemRemoved, '/overrides' as Platform.DevToolsPath.RawPathString);
+  }
+
+  private clearFileSystem(): void {
+    if (!this.#fileSystem) {
+      return;
+    }
+
+    function innerCallback(results: Entry[]): void {
+      console.log('results', results);  // eslint-disable-line no-console
+      results.forEach(result => {
+        if (result.isDirectory) {
+          console.log('is directory', result);  // eslint-disable-line no-console
+          (result as DirectoryEntry)
+              .removeRecursively(
+                  () => {
+                    console.log('success');  // eslint-disable-line no-console
+                  },
+                  () => {
+                    console.log('not successful');  // eslint-disable-line no-console
+                  });
+        } else if (result.isFile) {
+          result.remove(
+              function() {
+                console.log('File removed.');  // eslint-disable-line no-console
+              },
+              () => {
+                console.log('error1');  // eslint-disable-line no-console
+              });
+        }
+      });
+    }
+
+    this.#fileSystem.root.createReader().readEntries(innerCallback, () => {
+      console.log('error3');  // eslint-disable-line no-console
+    });
   }
 
   isolatedFileSystem(fileSystemId: string, registeredName: string): FileSystem|null {
-    return null;
+    return this.#fileSystem;
   }
 
   loadNetworkResource(
