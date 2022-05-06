@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "932db9cf041f131b5b7b520f567a66f512787426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8952686d_ee799cd7",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-06T14:45:28Z",
+      "side": 1,
+      "message": "Optional: Would it also make sense to brand this? (Don\u0027t if it requires changes outside of ParsedURL_test)",
+      "range": {
+        "startLine": 311,
+        "startChar": 21,
+        "endLine": 311,
+        "endChar": 24
+      },
+      "revId": "932db9cf041f131b5b7b520f567a66f512787426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
