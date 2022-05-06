@@ -8,6 +8,12 @@ import {assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelper
 const {assert} = chai;
 
 const initialData = {
+  propertyNameRenderer: () => {
+    return document.createElement('span');
+  },
+  propertyValueRenderer: () => {
+    return document.createElement('span');
+  },
   inherited: false,
   traceable: true,
   onNavigateToSource: () => {},
