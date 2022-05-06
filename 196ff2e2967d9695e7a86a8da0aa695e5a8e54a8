@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c3c87c_418d0634",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-06T15:02:17Z",
+      "side": 1,
+      "message": "I was changing the checkbox meaning here: Unchecked is default and checked will expose internals.",
+      "range": {
+        "startLine": 1199,
+        "startChar": 78,
+        "endLine": 1199,
+        "endChar": 93
+      },
+      "revId": "196ff2e2967d9695e7a86a8da0aa695e5a8e54a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a94b867_33798d52",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-06T15:02:17Z",
+      "side": 1,
+      "message": "Since I am reusing the existing flag, I had to inverse it here.",
+      "range": {
+        "startLine": 1286,
+        "startChar": 6,
+        "endLine": 1286,
+        "endChar": 19
+      },
+      "revId": "196ff2e2967d9695e7a86a8da0aa695e5a8e54a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
