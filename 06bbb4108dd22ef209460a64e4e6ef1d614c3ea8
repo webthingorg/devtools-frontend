@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "06bbb4108dd22ef209460a64e4e6ef1d614c3ea8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd954172_bb63c1ca",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-06T11:22:28Z",
+      "side": 1,
+      "message": "This changes the default tab to open when clicking on a request to the headers tab instead of the preview tab. Opening the preview tab in an e2e test results in errors (often in the `afterAll`) due to it being a sandbox iframe with CSP and JS forbidden.\nFor the vast majority of users this change should not have any effect, because the setting\u0027s value is their most recently opened tab.",
+      "revId": "06bbb4108dd22ef209460a64e4e6ef1d614c3ea8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
