@@ -16,6 +16,23 @@
       "message": "LGTM, thanks!",
       "revId": "66cc5fb89b1b75985bab2e61a068278d18a1cfb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad08ee14_d88c061b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-05-06T18:00:54Z",
+      "side": 1,
+      "message": "You don\u0027t need a +1 from me (I\u0027m worried it\u0027ll lock the change if I give it as I have no devtools +1 permissions).\n\nThanks for taking the time for this change!",
+      "revId": "66cc5fb89b1b75985bab2e61a068278d18a1cfb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
