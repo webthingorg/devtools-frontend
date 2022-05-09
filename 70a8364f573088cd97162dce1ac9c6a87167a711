@@ -159,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8350385_ae213ef2",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-09T13:45:23Z",
+      "side": 1,
+      "message": "Yes. The UMA site uses that as the source of truth. We just add the strings for readability in DevTools.",
+      "parentUuid": "83c77e8d_56bd46a2",
+      "range": {
+        "startLine": 590,
+        "startChar": 3,
+        "endLine": 590,
+        "endChar": 44
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b90551ca_1f9294ed",
         "filename": "v8/include/js_protocol.pdl",
         "patchSetId": 2
@@ -194,6 +218,30 @@
       "side": 1,
       "message": "I guess you meant mark `treatGlobalObjectsAsRoots` as deprecated and introduce the new `hideInternals`, right?",
       "parentUuid": "b90551ca_1f9294ed",
+      "range": {
+        "startLine": 711,
+        "startChar": 10,
+        "endLine": 711,
+        "endChar": 33
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43a4b14_3a10548f",
+        "filename": "v8/include/js_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-09T13:45:23Z",
+      "side": 1,
+      "message": "Sorry, yes! I was reading the diff the wrong way around. I guess I should stop working for today :)",
+      "parentUuid": "b86962f0_1917e268",
       "range": {
         "startLine": 711,
         "startChar": 10,
