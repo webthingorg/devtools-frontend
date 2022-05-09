@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef53ea32_94ee8f25",
+        "filename": "front_end/models/har/Log.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-09T15:40:34Z",
+      "side": 1,
+      "message": "Is there a helper in ParsedURL for getting the url without the hash? Or for splitting a string?",
+      "range": {
+        "startLine": 351,
+        "startChar": 11,
+        "endLine": 351,
+        "endChar": 67
+      },
+      "revId": "8afa6d9c93f2eedfeaf839ccdaf8b12443e8f670",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
