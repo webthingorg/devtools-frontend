@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62e981b_979612b0",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-09T18:16:23Z",
+      "side": 1,
+      "message": "This doc is slightly more up to date, and we can easily add a DevTools panel section.",
+      "revId": "f5d7e5d156c1d193d35b782c802f870f5113563b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
