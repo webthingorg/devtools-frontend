@@ -194,7 +194,8 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
     this.quotaRow.classList.add('quota-usage-row');
     const learnMoreRow = quota.appendRow();
     const learnMore = UI.XLink.XLink.create(
-        'https://developer.chrome.com/docs/devtools/progressive-web-apps#opaque-responses',
+        'https://developer.chrome.com/docs/devtools/progressive-web-apps#opaque-responses' as
+            Platform.DevToolsPath.UrlString,
         i18nString(UIStrings.learnMore));
     learnMoreRow.appendChild(learnMore);
     this.quotaUsage = null;

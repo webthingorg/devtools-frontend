@@ -6,6 +6,7 @@ import nodeConnectionsPanelStyles from './nodeConnectionsPanel.css.js';
 import type * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import type * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -101,8 +102,9 @@ export class NodeConnectionsView extends UI.Widget.VBox implements UI.ListWidget
     this.element.classList.add('network-discovery-view');
 
     const networkDiscoveryFooter = this.element.createChild('div', 'network-discovery-footer');
-    const documentationLink =
-        UI.XLink.XLink.create('https://nodejs.org/en/docs/inspector/', i18nString(UIStrings.nodejsDebuggingGuide));
+    const documentationLink = UI.XLink.XLink.create(
+        'https://nodejs.org/en/docs/inspector/' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.nodejsDebuggingGuide));
     networkDiscoveryFooter.appendChild(
         i18n.i18n.getFormatLocalizedString(str_, UIStrings.specifyNetworkEndpointAnd, {PH1: documentationLink}));
 

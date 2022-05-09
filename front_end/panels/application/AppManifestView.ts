@@ -433,7 +433,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         .addChangeListener(this.updateManifest.bind(this, true));
 
     this.emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
-    this.emptyView.appendLink('https://web.dev/add-manifest/');
+    this.emptyView.appendLink('https://web.dev/add-manifest/' as Platform.DevToolsPath.UrlString);
 
     this.emptyView.show(this.contentElement);
     this.emptyView.hideWidget();
@@ -599,7 +599,8 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
       appIdField.appendChild(helpIcon);
 
       appIdField.appendChild(UI.XLink.XLink.create(
-          'https://developer.chrome.com/blog/pwa-manifest-id/', i18nString(UIStrings.learnMore), 'learn-more'));
+          'https://developer.chrome.com/blog/pwa-manifest-id/' as Platform.DevToolsPath.UrlString,
+          i18nString(UIStrings.learnMore), 'learn-more'));
 
       if (!stringProperty('id')) {
         const suggestedIdNote = appIdField.createChild('div', 'multiline-value');
@@ -693,7 +694,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     this.newNoteUrlField.parentElement?.classList.toggle('hidden', !hasNewNoteUrl);
     this.newNoteUrlField.removeChildren();
     if (hasNewNoteUrl) {
-      const completeURL = (Common.ParsedURL.ParsedURL.completeURL(url, newNoteUrl) as string);
+      const completeURL = (Common.ParsedURL.ParsedURL.completeURL(url, newNoteUrl) as Platform.DevToolsPath.UrlString);
       const link = Components.Linkifier.Linkifier.linkifyURL(
           completeURL, ({text: newNoteUrl} as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
@@ -721,8 +722,9 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
       this.iconsSection.setIconMasked(setIconMaskedCheckbox.checkboxElement.checked);
     });
     this.iconsSection.appendRow().appendChild(setIconMaskedCheckbox);
-    const documentationLink =
-        UI.XLink.XLink.create('https://web.dev/maskable-icon/', i18nString(UIStrings.documentationOnMaskableIcons));
+    const documentationLink = UI.XLink.XLink.create(
+        'https://web.dev/maskable-icon/' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.documentationOnMaskableIcons));
     this.iconsSection.appendRow().appendChild(
         i18n.i18n.getFormatLocalizedString(str_, UIStrings.needHelpReadOurS, {PH1: documentationLink}));
 
@@ -763,7 +765,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         shortcutSection.appendFlexedField('Description', shortcut.description);
       }
       const urlField = shortcutSection.appendFlexedField('URL');
-      const shortcutUrl = (Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url) as string);
+      const shortcutUrl = Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url) as Platform.DevToolsPath.UrlString;
       const link = Components.Linkifier.Linkifier.linkifyURL(
           shortcutUrl, ({text: shortcut.url} as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;

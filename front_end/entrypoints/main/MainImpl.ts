@@ -283,11 +283,11 @@ export class MainImpl {
     Root.Runtime.experiments.register('liveHeapProfile', 'Live heap profile', true);
     Root.Runtime.experiments.register(
         'protocolMonitor', 'Protocol Monitor', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-92/#protocol-monitor');
+        'https://developer.chrome.com/blog/new-in-devtools-92/#protocol-monitor' as Platform.DevToolsPath.UrlString);
     Root.Runtime.experiments.register('developerResourcesView', 'Show developer resources view');
     Root.Runtime.experiments.register(
         'cspViolationsView', 'Show CSP Violations view', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-89/#csp');
+        'https://developer.chrome.com/blog/new-in-devtools-89/#csp' as Platform.DevToolsPath.UrlString);
     Root.Runtime.experiments.register(
         'recordCoverageWithPerformanceTracing', 'Record coverage while performance tracing');
     Root.Runtime.experiments.register('samplingHeapProfilerTimeline', 'Sampling heap profiler timeline', true);
@@ -296,11 +296,11 @@ export class MainImpl {
         'Show option to take heap snapshot where globals are not treated as root');
     Root.Runtime.experiments.register(
         'sourceOrderViewer', 'Source order viewer', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-92/#source-order');
+        'https://developer.chrome.com/blog/new-in-devtools-92/#source-order' as Platform.DevToolsPath.UrlString);
     Root.Runtime.experiments.register('webauthnPane', 'WebAuthn Pane');
     Root.Runtime.experiments.register(
         'keyboardShortcutEditor', 'Enable keyboard shortcut editor', true,
-        'https://developer.chrome.com/blog/new-in-devtools-88/#keyboard-shortcuts');
+        'https://developer.chrome.com/blog/new-in-devtools-88/#keyboard-shortcuts' as Platform.DevToolsPath.UrlString);
 
     // Back/forward cache
     Root.Runtime.experiments.register(
@@ -318,7 +318,7 @@ export class MainImpl {
     // Debugging
     Root.Runtime.experiments.register(
         'wasmDWARFDebugging', 'WebAssembly Debugging: Enable DWARF support', undefined,
-        'https://developer.chrome.com/blog/wasm-debugging-2020/');
+        'https://developer.chrome.com/blog/wasm-debugging-2020/' as Platform.DevToolsPath.UrlString);
     Root.Runtime.experiments.register(
         'evaluateExpressionsWithSourceMaps', 'Console: Resolve variable names in expressions using source maps',
         undefined);
@@ -327,29 +327,29 @@ export class MainImpl {
     // Dual-screen
     Root.Runtime.experiments.register(
         'dualScreenSupport', 'Emulation: Support dual screen mode', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-89#dual-screen');
+        'https://developer.chrome.com/blog/new-in-devtools-89#dual-screen' as Platform.DevToolsPath.UrlString);
     Root.Runtime.experiments.setEnabled('dualScreenSupport', true);
 
     // Advanced Perceptual Contrast Algorithm.
     Root.Runtime.experiments.register(
         'APCA',
         'Enable new Advanced Perceptual Contrast Algorithm (APCA) replacing previous contrast ratio and AA/AAA guidelines',
-        undefined, 'https://developer.chrome.com/blog/new-in-devtools-89/#apca');
+        undefined, 'https://developer.chrome.com/blog/new-in-devtools-89/#apca' as Platform.DevToolsPath.UrlString);
 
     // Full Accessibility Tree
     Root.Runtime.experiments.register(
         'fullAccessibilityTree', 'Enable full accessibility tree view in the Elements panel', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-90/#accesibility-tree');
+        'https://developer.chrome.com/blog/new-in-devtools-90/#accesibility-tree' as Platform.DevToolsPath.UrlString);
 
     // Font Editor
     Root.Runtime.experiments.register(
         'fontEditor', 'Enable new Font Editor tool within the Styles Pane.', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-89/#font');
+        'https://developer.chrome.com/blog/new-in-devtools-89/#font' as Platform.DevToolsPath.UrlString);
 
     // Contrast issues reported via the Issues panel.
     Root.Runtime.experiments.register(
         'contrastIssues', 'Enable automatic contrast issue reporting via the Issues panel', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-90/#low-contrast');
+        'https://developer.chrome.com/blog/new-in-devtools-90/#low-contrast' as Platform.DevToolsPath.UrlString);
 
     // New cookie features.
     Root.Runtime.experiments.register('experimentalCookieFeatures', 'Enable experimental cookie features');
@@ -357,7 +357,7 @@ export class MainImpl {
     // Hide Issues Feature.
     Root.Runtime.experiments.register(
         'hideIssuesFeature', 'Enable experimental hide issues menu', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-94/#hide-issues');
+        'https://developer.chrome.com/blog/new-in-devtools-94/#hide-issues' as Platform.DevToolsPath.UrlString);
 
     // Hide Issues Feature.
     Root.Runtime.experiments.register('groupAndHideIssuesByKind', 'Allow grouping and hiding of issues by IssueKind');
@@ -373,7 +373,7 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'cssTypeComponentLength',
         'Enable CSS <length> authoring tool in the Styles pane (https://g.co/devtools/length-feedback)', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-96/#length');
+        'https://developer.chrome.com/blog/new-in-devtools-96/#length' as Platform.DevToolsPath.UrlString);
 
     // Display precise changes in the Changes tab.
     Root.Runtime.experiments.register(

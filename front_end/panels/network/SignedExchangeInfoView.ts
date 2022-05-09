@@ -4,6 +4,7 @@
 
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import type * as Platform from '../../core/platform/platform.js';
 
 import signedExchangeInfoTreeStyles from './signedExchangeInfoTree.css.js';
 import signedExchangeInfoViewStyles from './signedExchangeInfoView.css.js';
@@ -141,8 +142,9 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
 
     const titleElement = document.createDocumentFragment();
     titleElement.createChild('div', 'header-name').textContent = i18nString(UIStrings.signedHttpExchange);
-    const learnMoreNode =
-        UI.XLink.XLink.create('https://github.com/WICG/webpackage', i18nString(UIStrings.learnmore), 'header-toggle');
+    const learnMoreNode = UI.XLink.XLink.create(
+        'https://github.com/WICG/webpackage' as Platform.DevToolsPath.UrlString, i18nString(UIStrings.learnmore),
+        'header-toggle');
     titleElement.appendChild(learnMoreNode);
     const headerCategory = new Category(root, titleElement);
     if (signedExchangeInfo.header) {

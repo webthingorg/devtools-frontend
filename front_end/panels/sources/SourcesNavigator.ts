@@ -168,7 +168,8 @@ export class FilesNavigatorView extends NavigatorView {
   <div>${i18nString(UIStrings.syncChangesInDevtoolsWithThe)}</div><br />
   ${
         UI.XLink.XLink.create(
-            'https://developer.chrome.com/docs/devtools/workspaces/', i18nString(UIStrings.learnMoreAboutWorkspaces))}
+            'https://developer.chrome.com/docs/devtools/workspaces/' as Platform.DevToolsPath.UrlString,
+            i18nString(UIStrings.learnMoreAboutWorkspaces))}
   `);
 
     const toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
@@ -211,7 +212,8 @@ export class OverridesNavigatorView extends NavigatorView {
   <div>${i18nString(UIStrings.overridePageAssetsWithFilesFromA)}</div><br />
   ${
         UI.XLink.XLink.create(
-            'https://developers.google.com/web/updates/2018/01/devtools#overrides', i18nString(UIStrings.learnMore))}
+            'https://developers.google.com/web/updates/2018/01/devtools#overrides' as Platform.DevToolsPath.UrlString,
+            i18nString(UIStrings.learnMore))}
   `);
 
     this.toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
@@ -301,7 +303,10 @@ export class ContentScriptsNavigatorView extends NavigatorView {
     this.setPlaceholder(placeholder);
     placeholder.appendParagraph().appendChild(UI.Fragment.html`
   <div>${i18nString(UIStrings.contentScriptsServedByExtensions)}</div><br />
-  ${UI.XLink.XLink.create('https://developer.chrome.com/extensions/content_scripts', i18nString(UIStrings.learnMore))}
+  ${
+        UI.XLink.XLink.create(
+            'https://developer.chrome.com/extensions/content_scripts' as Platform.DevToolsPath.UrlString,
+            i18nString(UIStrings.learnMore))}
   `);
   }
 
@@ -332,7 +337,8 @@ export class SnippetsNavigatorView extends NavigatorView {
   <div>${i18nString(UIStrings.createAndSaveCodeSnippetsFor)}</div><br />
   ${
         UI.XLink.XLink.create(
-            'https://developer.chrome.com/docs/devtools/javascript/snippets/', i18nString(UIStrings.learnMore))}
+            'https://developer.chrome.com/docs/devtools/javascript/snippets/' as Platform.DevToolsPath.UrlString,
+            i18nString(UIStrings.learnMore))}
   `);
 
     const toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
