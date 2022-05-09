@@ -2,9 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../../core/platform/platform.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
+
 import iconStyles from './icon.css.js';
 
 export interface IconWithPath {
@@ -31,7 +33,7 @@ export class Icon extends HTMLElement {
 
   readonly #shadow = this.attachShadow({mode: 'open'});
 
-  #iconPath: Readonly<string> = '';
+  #iconPath: Readonly<string> = Platform.DevToolsPath.EmptyRawPathString;
   #color: Readonly<string> = 'rgb(110 110 110)';
   #width: Readonly<string> = '100%';
   #height: Readonly<string> = '100%';
