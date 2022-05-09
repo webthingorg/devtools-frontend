@@ -69,6 +69,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b35c10_f5b219cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-09T13:29:24Z",
+      "side": 1,
+      "message": "Thanks! I was not aware of the protocol workflow.",
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4854dea_404d51a3",
@@ -118,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83c77e8d_56bd46a2",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-09T13:29:24Z",
+      "side": 1,
+      "message": "You mean `src/tools/metrics/histograms/enum.xml`, right?",
+      "parentUuid": "747c0774_535e9e0a",
+      "range": {
+        "startLine": 590,
+        "startChar": 3,
+        "endLine": 590,
+        "endChar": 44
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b90551ca_1f9294ed",
         "filename": "v8/include/js_protocol.pdl",
         "patchSetId": 2
@@ -129,6 +170,30 @@
       "writtenOn": "2022-05-09T13:13:11Z",
       "side": 1,
       "message": "We are changing a non-experimental method here without being backwards-compatible. Any CDP client calling the new methods with the old names will get an error now.\n\nInstead, I propose that we mark \u0027hideInternals\u0027 as deprecated. And introduce a new experimental parameter \u0027treatGlobalObjectsAsRoots\u0027. Then we can remove the deprecated \u0027hideInternals\u0027 at a later point.\n\nIt\u0027s fine that the semantic underneath \u0027hideInternals\u0027 changes, but we can\u0027t change the CDP protocol like this.\n\nMoreover, the source of truth for this file is in the V8 repository in \"include/js_protocol.pdl\". We need to change it there first, where an API owner can also sign off on these changes, before \"rolling\" them into the DevTools repo. Otherwise our helper scripts will overwrite these changes in the future.",
+      "range": {
+        "startLine": 711,
+        "startChar": 10,
+        "endLine": 711,
+        "endChar": 33
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86962f0_1917e268",
+        "filename": "v8/include/js_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-09T13:29:24Z",
+      "side": 1,
+      "message": "I guess you meant mark `treatGlobalObjectsAsRoots` as deprecated and introduce the new `hideInternals`, right?",
+      "parentUuid": "b90551ca_1f9294ed",
       "range": {
         "startLine": 711,
         "startChar": 10,
