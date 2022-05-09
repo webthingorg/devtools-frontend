@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e985f00_3c3afbe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-09T07:54:54Z",
+      "side": 1,
+      "message": "As discussed offline, let\u0027s include a link to a screenshot into the commit message and see if we can cover this with a unit test. Otherwise, LGTM.",
+      "revId": "119e7fd79f50366bde1d6308a7a93123cd46fee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
