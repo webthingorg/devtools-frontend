@@ -508,7 +508,7 @@ export const RuntimeSettings: RuntimeSetting[] = [
         value: 'snapshot',
       },
     ],
-    learnMore: 'https://web.dev/lighthouse-user-flows/',
+    learnMore: 'https://github.com/GoogleChrome/lighthouse/blob/master/docs/user-flows.md',
   },
   {
     // This setting is disabled, but we keep it around to show in the UI.
