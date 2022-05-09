@@ -16,6 +16,69 @@
       "message": "Hi Simon,\n\nI\u0027m synchronizing the moveBreakpoints, such that PersistenceImpl has to await removing the breakpoint before re-setting the breakpoint. PTAL!",
       "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d210a23_a76aada8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-09T13:43:23Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd8f41e_c7442be4",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-09T13:43:23Z",
+      "side": 1,
+      "message": "Is this re-ordering fine? Or do we rely on any event listeners to run that might get triggered by \"scheduleUpdateInDebugger\"? (The ones that are triggered synchronously).\n\nAlso nit: Lets keep the loop for better readability? (Use a tmp array to push the promises into and Promise.all the tmp array.",
+      "range": {
+        "startLine": 569,
+        "startChar": 6,
+        "endLine": 570,
+        "endChar": 56
+      },
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6d44321_0279570e",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-09T13:43:23Z",
+      "side": 1,
+      "message": "Lets also \u0027await\u0027 here? At the moment \u0027remove\u0027 doesn\u0027t do any additional async work but that could change in the future.",
+      "range": {
+        "startLine": 780,
+        "startChar": 6,
+        "endLine": 780,
+        "endChar": 10
+      },
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
