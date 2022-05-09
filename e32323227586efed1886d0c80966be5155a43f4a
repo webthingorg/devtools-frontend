@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a29c6e3b_0c09949f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-09T16:21:41Z",
+      "side": 1,
+      "message": "For UI stuff I think it would be better to avoid branded types if you\u0027re not saving any casting elsewhere. ",
+      "revId": "e32323227586efed1886d0c80966be5155a43f4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5854d0a1_779141e4",
+        "filename": "front_end/ui/legacy/XLink.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-09T16:21:41Z",
+      "side": 1,
+      "message": "It seems like this change forced so many constants to need to be cast without improving any places where there would be a lack of clarity. Are there downstream benefits from typing `get href()`?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "e32323227586efed1886d0c80966be5155a43f4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
