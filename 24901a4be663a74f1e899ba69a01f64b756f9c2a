@@ -16,6 +16,29 @@
       "message": "ptal!",
       "revId": "24901a4be663a74f1e899ba69a01f64b756f9c2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c9e340_2ef6e837",
+        "filename": "front_end/ui/lit-html/lit-html.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-05-09T13:52:56Z",
+      "side": 1,
+      "message": "Per the compile errors, should we use `symbol` instead?",
+      "range": {
+        "startLine": 12,
+        "startChar": 42,
+        "endLine": 12,
+        "endChar": 64
+      },
+      "revId": "24901a4be663a74f1e899ba69a01f64b756f9c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
