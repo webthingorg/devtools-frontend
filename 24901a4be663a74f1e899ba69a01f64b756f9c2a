@@ -39,6 +39,30 @@
       },
       "revId": "24901a4be663a74f1e899ba69a01f64b756f9c2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ff4c56_30b6ba97",
+        "filename": "front_end/ui/lit-html/lit-html.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-09T14:27:12Z",
+      "side": 1,
+      "message": "Interesting! I\u0027ve changed this to `typeof nothing` and TS seems happy. Not entirely sure why, but TBH it could be some weird niche case in TS. \n\nIf we do `typeof nothing` then TS is happy, but `typeof LitHtml.nothing` causes issues. I want to do `typeof nothing` so that should the value change we won\u0027t have to do any future changes.",
+      "parentUuid": "f4c9e340_2ef6e837",
+      "range": {
+        "startLine": 12,
+        "startChar": 42,
+        "endLine": 12,
+        "endChar": 64
+      },
+      "revId": "24901a4be663a74f1e899ba69a01f64b756f9c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
