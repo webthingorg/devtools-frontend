@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb2ef223_84dce499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-09T12:34:26Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nhere\u0027s a fix for the race that we talked about during our last meeting. I\u0027m not\nawaiting the `remove` everywhere (e.g. on actions such as \u0027remove all breakpoints\u0027, \u0027deactivate breakpoints\u0027 etc.). PTAL!",
+      "revId": "7e27e67a2e66988318ba7e7f24cb26a55f1549be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
