@@ -110,7 +110,7 @@ describe('The Performance panel', async function() {
         });
   });
 
-  it(' is able to display the execution time for a wasm function', async () => {
+  it('is able to display the execution time for a wasm function', async () => {
     await step('check that the Summary tab shows more than zero total time for "mainWasm"', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'mainWasm function execution time is displayed incorrectly');

@@ -13,15 +13,12 @@
     return listenerPromise;
   }
 
-  TestRunner.addResult('Tests that audits panel prevents run of unauditable pages.\n');
-  await TestRunner.navigatePromise('resources/lighthouse-basic.html');
-
-  await TestRunner.loadTestModule('lighthouse_test_runner');
-  await TestRunner.showPanel('lighthouse');
+  TestRunner.addResult('Tests that audits panel prevents run of unauditable pages.');
+  await navigateToLighthouseTab('resources/lighthouse-basic.html');
 
   TestRunner.addResult('\n\n**Prevents audit with no categories**');
   LighthouseTestRunner.openStartAudit();
-  const containerElement = LighthouseTestRunner.getContainerElement();
+  const containerElement = getPanel().contentElement;
   const checkboxes = containerElement.querySelectorAll('.checkbox');
   checkboxes.forEach(checkbox => checkbox.checkboxElement.checked && checkbox.checkboxElement.click());
   LighthouseTestRunner.dumpStartAuditState();
@@ -42,4 +39,5 @@
   LighthouseTestRunner.dumpStartAuditState();
 
   TestRunner.completeTest();
-})();
+});
+});
