@@ -47,6 +47,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as Emulation from '../emulation/emulation.js';
 
 import * as ElementsComponents from './components/components.js';
+import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsPanel} from './ElementsPanel.js';
 
@@ -204,6 +205,11 @@ const UIStrings = {
   * the overlay showing CSS scroll snapping for the current element.
   */
   disableScrollSnap: 'Disable scroll-snap overlay',
+  /**
+  *@description Label of a button next to slot elements. When clicked, it highlight
+  * the  element slot.
+  */
+  revealSlot: 'Reveal Slot',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementsTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -237,6 +243,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private searchHighlightsVisible?: boolean;
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
+  slot?: HTMLDivElement;
   private contentElement: HTMLElement;
 
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
@@ -420,6 +427,16 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   setExpandedChildrenLimit(expandedChildrenLimit: number): void {
     this.expandedChildrenLimitInternal = expandedChildrenLimit;
+  }
+
+  createSlotLink(nodeShortcut: SDK.DOMModel.DOMNodeShortcut|null): void {
+    if (nodeShortcut) {
+      const link = linkifyDeferredNodeReference(nodeShortcut.deferredNode);
+      link.textContent = i18nString(UIStrings.revealSlot).toLocaleLowerCase();
+      this.slot = document.createElement('div');
+      this.slot.className = 'slot-link';
+      this.slot.appendChild(link);
+    }
   }
 
   private createSelection(): void {
@@ -1313,6 +1330,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       this.contentElement.prepend(this.gutterContainer);
       if (!this.isClosingTagInternal && this.adornerContainer) {
         this.contentElement.append(this.adornerContainer);
+      }
+      if (this.slot) {
+        this.contentElement.append(this.slot);
       }
       this.highlightResult = [];
       delete this.selectionElement;
