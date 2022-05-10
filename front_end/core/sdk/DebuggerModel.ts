@@ -420,7 +420,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   async setBreakpointByURL(
-      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number,
+      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number|undefined = 0,
       condition?: string): Promise<SetBreakpointResult> {
     // Convert file url to node-js path.
     let urlRegex;
@@ -442,7 +442,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
         minColumnNumber = minColumnNumber ? Math.min(minColumnNumber, script.columnOffset) : script.columnOffset;
       }
     }
-    columnNumber = Math.max(columnNumber || 0, minColumnNumber);
+    columnNumber = Math.max(columnNumber, minColumnNumber);
     const response = await this.agent.invoke_setBreakpointByUrl({
       lineNumber: lineNumber,
       url: urlRegex ? undefined : url,
