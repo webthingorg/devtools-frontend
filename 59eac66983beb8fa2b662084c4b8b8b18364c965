@@ -39,6 +39,30 @@
       },
       "revId": "59eac66983beb8fa2b662084c4b8b8b18364c965",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08668e4c_42a20f78",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-10T09:13:54Z",
+      "side": 1,
+      "message": "Oops, yes - I added the typing now too.",
+      "parentUuid": "38664844_e1a4c404",
+      "range": {
+        "startLine": 571,
+        "startChar": 26,
+        "endLine": 571,
+        "endChar": 41
+      },
+      "revId": "59eac66983beb8fa2b662084c4b8b8b18364c965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
