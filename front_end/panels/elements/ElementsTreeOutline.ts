@@ -1180,6 +1180,12 @@ export class ElementsTreeOutline extends
         !node.parentNode.parentNode) {
       treeElement.setCollapsible(false);
     }
+
+    if (node.hasAssignedSlot()) {
+      treeElement.createSlotReference();
+      // treeElement.createSlotReference();
+    }
+
     treeElement.selectable = Boolean(this.selectEnabled);
     return treeElement;
   }

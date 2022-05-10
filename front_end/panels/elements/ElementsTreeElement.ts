@@ -237,6 +237,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private searchHighlightsVisible?: boolean;
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
+  slot?: HTMLDivElement;
   private contentElement: HTMLElement;
 
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
@@ -250,6 +251,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const gutterMenuIcon = UI.Icon.Icon.create('largeicon-menu', 'gutter-menu-icon');
     this.gutterContainer.append(gutterMenuIcon);
     this.decorationsElement = this.gutterContainer.createChild('div', 'hidden');
+    // this.slot = null;
 
     this.isClosingTagInternal = isClosingTag;
 
@@ -420,6 +422,19 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   setExpandedChildrenLimit(expandedChildrenLimit: number): void {
     this.expandedChildrenLimitInternal = expandedChildrenLimit;
+  }
+
+  createSlotReference(): void {
+    this.slot = document.createElement('div');
+    this.slot.className = 'slot-reference';
+    this.slot.style.setProperty('margin-left', (-this.computeLeftIndent()) + 'px');
+    this.slot.style.setProperty('width', '20px');
+    this.slot.style.setProperty('background-color', 'red');
+    this.slot.style.setProperty('color', 'red');
+    this.contentElement.prepend(this.slot);
+
+    const s = document.createElement('div');
+    this.contentElement.append(s);
   }
 
   private createSelection(): void {
