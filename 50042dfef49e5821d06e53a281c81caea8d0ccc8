@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e6584e_292f89b8",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-successful-navigation-expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-10T19:56:08Z",
+      "side": 1,
+      "message": "$N\n\nIf it fails",
+      "revId": "50042dfef49e5821d06e53a281c81caea8d0ccc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
