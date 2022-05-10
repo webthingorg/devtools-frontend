@@ -16,6 +16,29 @@
       "message": "Thanks for the reviews! Addressed the comments / added replies.",
       "revId": "59eac66983beb8fa2b662084c4b8b8b18364c965",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38664844_e1a4c404",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-10T08:09:15Z",
+      "side": 1,
+      "message": "this should probably be `modelBreakpoint.scheduleUpdateInDebugger()`?\n\nIf you type `updatePromises` as `Promise\u003cvoid\u003e` or `Promise\u003cunknown\u003e`, TS should actually complain.",
+      "range": {
+        "startLine": 571,
+        "startChar": 26,
+        "endLine": 571,
+        "endChar": 41
+      },
+      "revId": "59eac66983beb8fa2b662084c4b8b8b18364c965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

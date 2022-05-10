@@ -144,6 +144,30 @@
       },
       "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eebfb74_9e6a4887",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-10T08:09:15Z",
+      "side": 1,
+      "message": "Lets add that explanation as a comment then :) It\u0027s not really obvious from the surrounding code that awaiting here would actually be problematic.",
+      "parentUuid": "e4f1249a_6fe6cf13",
+      "range": {
+        "startLine": 780,
+        "startChar": 6,
+        "endLine": 780,
+        "endChar": 10
+      },
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
