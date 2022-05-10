@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43576722_a70d5dc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-10T19:29:16Z",
+      "side": 1,
+      "message": "IMO this is almost ready; awesome! What\u0027s left are just some tests, and some more texts and screenshots/screencasts to make the description seem more informative.",
+      "revId": "259a0853026fb9050510a1c476b776aa7ae1c5f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74589e26_3593e6c2",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-10T19:29:16Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `highlights` instead of `highlight` here, and remove the extra space in between `the` and `element slot` please.",
+      "revId": "259a0853026fb9050510a1c476b776aa7ae1c5f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d30277_5df4c2e0",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-10T19:29:16Z",
+      "side": 1,
+      "message": "Would `slot` be a private field, since it doesn\u0027t seem like any external objects are accessing it. If so, we could add a `#` in front of `slot` to make it a private field, i.e.:\n```\n#slot?: HTMLDivElement;\n```\n\nSome context: we are not actively refactoring old TypeScript-style `private` keywords into JavaScript-native `#{variableName}`, but we are trying to create new private fields under the JavaScript-native `#{variableName}` format. I totally understand the confusion when just looking at the code though.",
+      "revId": "259a0853026fb9050510a1c476b776aa7ae1c5f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4826fd3b_66dbfaf0",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-10T19:29:16Z",
+      "side": 1,
+      "message": "Question: why would we want to lower-case the text content of the link here?",
+      "revId": "259a0853026fb9050510a1c476b776aa7ae1c5f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6974c04d_2985918e",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-10T19:29:16Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `append` so that it\u0027s also compatible with strings as parameter.",
+      "revId": "259a0853026fb9050510a1c476b776aa7ae1c5f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
