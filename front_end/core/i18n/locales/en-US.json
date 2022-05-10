@@ -10277,9 +10277,6 @@
   "panels/timeline/TimelineFlameChartDataProvider.ts | idleFrame": {
     "message": "Idle Frame"
   },
-  "panels/timeline/TimelineFlameChartDataProvider.ts | input": {
-    "message": "Input"
-  },
   "panels/timeline/TimelineFlameChartDataProvider.ts | interactions": {
     "message": "Interactions"
   },
