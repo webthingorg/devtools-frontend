@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "873ffa5eb22b69309e76bf94de58bc409e982b63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c339be13_46e0aee7",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-10T07:45:46Z",
+      "side": 1,
+      "message": "I considered going into this model and updating it to not take the first array, but that felt like opening a can of worms. I can do that in a follow-up, but also I am not sure what `irModel` is, so I need to spend a bit more time on that.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 55
+      },
+      "revId": "873ffa5eb22b69309e76bf94de58bc409e982b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
