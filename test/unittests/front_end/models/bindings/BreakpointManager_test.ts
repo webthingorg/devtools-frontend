@@ -249,4 +249,14 @@ describeWithRealConnection('BreakpointManager', () => {
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(project);
   });
 
+  it('uses 0 as columnNumber if undefined', async () => {
+    const {uiSourceCode, project} = createUISourceCode({url: URL, mimeType: JS_MIME_TYPE});
+
+    const bp1 = await breakpointManager.setBreakpoint(uiSourceCode, 42, undefined, '', true);
+    const bp2 = await breakpointManager.setBreakpoint(uiSourceCode, 42, 0, '', true);
+
+    assert.strictEqual(bp1, bp2);
+    Workspace.Workspace.WorkspaceImpl.instance().removeProject(project);
+    breakpointManager.removeBreakpoint(bp1, true);
+  });
 });
