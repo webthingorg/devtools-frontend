@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "343729a2_006d8977",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2022-05-10T14:31:22Z",
+      "side": 0,
+      "message": "I don\u0027t use the Animations swim lane myself, but I know we have documentation about debugging animations that points to this section.\n\nI can ask some folks internally, but I would hesitate to remove it until we know otherwise?\n\nRenaming the whole thing Animations would SGTM to remove the Interactions word.  Appreciate the effort here folks!",
+      "parentUuid": "2ee0ce47_65556868",
+      "range": {
+        "startLine": 832,
+        "startChar": 43,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "72bf664072f455e99e45e57f7f1a5dcb593d20dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d04e12b0_42326405",
         "filename": "front_end/models/timeline_model/TimelineModel.ts",
         "patchSetId": 1
