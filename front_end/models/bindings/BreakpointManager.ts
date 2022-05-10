@@ -225,7 +225,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   private innerSetBreakpoint(
-      uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number|undefined,
+      uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number|undefined = 0,
       condition: string, enabled: boolean): Breakpoint {
     const itemId = BreakpointManager.breakpointStorageId(uiSourceCode.url(), lineNumber, columnNumber);
     let breakpoint = this.#breakpointByStorageId.get(itemId);
@@ -380,7 +380,7 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
   readonly breakpointManager: BreakpointManager;
   urlInternal: Platform.DevToolsPath.UrlString;
   readonly #lineNumberInternal: number;
-  readonly #columnNumberInternal: number|undefined;
+  readonly #columnNumberInternal: number;
   readonly #uiLocations: Set<Workspace.UISourceCode.UILocation>;
   uiSourceCodes: Set<Workspace.UISourceCode.UISourceCode>;
   #conditionInternal!: string;
@@ -391,7 +391,7 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
 
   constructor(
       breakpointManager: BreakpointManager, primaryUISourceCode: Workspace.UISourceCode.UISourceCode,
-      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number|undefined, condition: string,
+      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number, condition: string,
       enabled: boolean) {
     this.breakpointManager = breakpointManager;
     this.urlInternal = url;
@@ -565,12 +565,10 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
     const removeFromStorage = !keepInStorage;
 
     // Await removing for all targets.
-    const updatePromises = [];
-    for (const modelBreakpoint of this.#modelBreakpoints.values()) {
+    await Promise.all(Array.from(this.#modelBreakpoints.values()).map((modelBreakpoint: ModelBreakpoint) => {
       modelBreakpoint.removeEventListeners();
-      updatePromises.push(modelBreakpoint);
-    }
-    await Promise.all(updatePromises);
+      return modelBreakpoint.scheduleUpdateInDebugger();
+    }));
 
     this.breakpointManager.removeBreakpoint(this, removeFromStorage);
     this.breakpointManager.targetManager.unobserveModels(SDK.DebuggerModel.DebuggerModel, this);
