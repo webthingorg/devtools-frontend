@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7655eb86_02f5f506",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-10T07:53:22Z",
+      "side": 1,
+      "message": "The `removeEventListeners` is removing the ModelBreakpoint instance as a listener of `Debugger.enable` and `Debugger.disable`. Since the breakpoint is going to removed, it doesn\u0027t matter anymore whether or not the Debugger is enabled or disabled, so it should be safe to reorder.\n\nRegarding the loop: done!",
+      "parentUuid": "ecd8f41e_c7442be4",
+      "range": {
+        "startLine": 569,
+        "startChar": 6,
+        "endLine": 570,
+        "endChar": 56
+      },
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6d44321_0279570e",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-05-09T13:43:23Z",
       "side": 1,
       "message": "Lets also \u0027await\u0027 here? At the moment \u0027remove\u0027 doesn\u0027t do any additional async work but that could change in the future.",
+      "range": {
+        "startLine": 780,
+        "startChar": 6,
+        "endLine": 780,
+        "endChar": 10
+      },
+      "revId": "40dfbcc890207a02e78e46ef8784876bda472cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f1249a_6fe6cf13",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-10T07:53:22Z",
+      "side": 1,
+      "message": "We can\u0027t await the call here, since we\u0027d otherwise deadlock. The `scheduleUpdateInDebugger` method is synchronized: only one may run at a time, and currently we are already within one. So if we await it here, the await in the remove function will wait until this run is over and we get a circular dependency.",
+      "parentUuid": "f6d44321_0279570e",
       "range": {
         "startLine": 780,
         "startChar": 6,
