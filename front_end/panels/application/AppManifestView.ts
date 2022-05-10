@@ -15,6 +15,7 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as ApplicationComponents from './components/components.js';
 
 const UIStrings = {
   /**
@@ -403,6 +404,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
   private readonly identitySection: UI.ReportView.Section;
   private readonly presentationSection: UI.ReportView.Section;
   private readonly iconsSection: UI.ReportView.Section;
+  private readonly protocolHandlersSection: UI.ReportView.Section;
   private readonly shortcutSections: UI.ReportView.Section[];
   private readonly screenshotsSections: UI.ReportView.Section[];
   private nameField: HTMLElement;
@@ -423,6 +425,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
   private target?: SDK.Target.Target;
   private resourceTreeModel?: SDK.ResourceTreeModel.ResourceTreeModel|null;
   private serviceWorkerManager?: SDK.ServiceWorkerManager.ServiceWorkerManager|null;
+  private protocolHandlersView: ApplicationComponents.ProtocolHandlersView.ProtocolHandlersView;
   constructor() {
     super(true);
 
@@ -448,8 +451,10 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     this.errorsSection = this.reportView.appendSection(i18nString(UIStrings.errorsAndWarnings));
     this.installabilitySection = this.reportView.appendSection(i18nString(UIStrings.installability));
     this.identitySection = this.reportView.appendSection(i18nString(UIStrings.identity));
-
     this.presentationSection = this.reportView.appendSection(i18nString(UIStrings.presentation));
+    this.protocolHandlersSection = this.reportView.appendSection('Protocol Handlers');
+    this.protocolHandlersView = new ApplicationComponents.ProtocolHandlersView.ProtocolHandlersView();
+    this.protocolHandlersSection.contentElement.append(this.protocolHandlersView);
     this.iconsSection = this.reportView.appendSection(i18nString(UIStrings.icons), 'report-section-icons');
     this.shortcutSections = [];
     this.screenshotsSections = [];
@@ -702,6 +707,9 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
 
     const icons = parsedManifest['icons'] || [];
     this.iconsSection.clearContent();
+
+    const protocolHandlers = parsedManifest['protocol_handlers'] || [];
+    this.protocolHandlersView.data = {protocolHandlers, manifestLink: url};
 
     const shortcuts = parsedManifest['shortcuts'] || [];
     for (const shortcutsSection of this.shortcutSections) {
