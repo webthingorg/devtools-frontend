@@ -51,6 +51,24 @@
       "parentUuid": "097e78d3_9786e625",
       "revId": "7653ac3ae9db3f15ffe6712583de5d3926cbeaf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a0e26c_3f58b939",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116047
+      },
+      "writtenOn": "2022-05-10T07:42:03Z",
+      "side": 1,
+      "message": "Thank you for the information.\nHowever, it seems https://chromium.googlesource.com/devtools/devtools-frontend/+/54303dcc64e178986c92f6a17cb41f313d15381f%5E%21/ removed all messages from DeprecationIssue.ts.",
+      "parentUuid": "24973571_8842a195",
+      "revId": "7653ac3ae9db3f15ffe6712583de5d3926cbeaf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
