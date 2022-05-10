@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70d2682_30d9f34c",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-10T09:05:56Z",
+      "side": 1,
+      "message": "You can revert all changes to this file.",
+      "range": {
+        "startLine": 36,
+        "startChar": 32,
+        "endLine": 36,
+        "endChar": 72
+      },
+      "revId": "36364d4448ede2e8a350a6f8bb8ce154469c1610",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0ecff91_3e2339ea",
+        "filename": "front_end/ui/components/issue_counter/IssueLinkIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-10T09:05:56Z",
+      "side": 1,
+      "message": "Optional: Not sure there is any reason to brand this since the code would work with any sort of path and it\u0027s returning string.",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 70
+      },
+      "revId": "36364d4448ede2e8a350a6f8bb8ce154469c1610",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc7240e_e84b78db",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-10T09:05:56Z",
+      "side": 1,
+      "message": "Optional: If all branding the file does is add this cast without removing any anywhere else, and we\u0027re dealing with urls that are part of the DevTools UI and not from user input, I\u0027m inclined to say don\u0027t brand this file.",
+      "range": {
+        "startLine": 168,
+        "startChar": 39,
+        "endLine": 168,
+        "endChar": 74
+      },
+      "revId": "36364d4448ede2e8a350a6f8bb8ce154469c1610",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
