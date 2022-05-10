@@ -4736,6 +4736,9 @@
   "panels/elements/ElementsTreeElement.ts | paste": {
     "message": "Paste"
   },
+  "panels/elements/ElementsTreeElement.ts | revealSlot": {
+    "message": "Reveal Slot"
+  },
   "panels/elements/ElementsTreeElement.ts | scrollIntoView": {
     "message": "Scroll into view"
   },

@@ -1180,6 +1180,11 @@ export class ElementsTreeOutline extends
         !node.parentNode.parentNode) {
       treeElement.setCollapsible(false);
     }
+
+    if (node.hasAssignedSlot()) {
+      treeElement.createSlotLink(node.assignedSlot);
+    }
+
     treeElement.selectable = Boolean(this.selectEnabled);
     return treeElement;
   }
@@ -1628,7 +1633,6 @@ export class ShortcutTreeElement extends UI.TreeOutline.TreeElement {
     return true;
   }
 }
-
 export interface MultilineEditorController {
   cancel: () => void;
   commit: () => void;

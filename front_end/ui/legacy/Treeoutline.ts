@@ -872,6 +872,14 @@ export class TreeElement {
     }
   }
 
+  setSlot(): void {
+    const slot = document.createElement('div');
+    slot.style.setProperty('width', '20px');
+    slot.style.setProperty('background-color', 'red');
+    slot.style.setProperty('color', 'red');
+    this.listItemNode.append(slot);
+  }
+
   get hidden(): boolean {
     return this.hiddenInternal;
   }
