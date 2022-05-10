@@ -1464,6 +1464,10 @@ export namespace ProtocolMapping {
     'DOMStorage.removeDOMStorageItem':
         {paramsType: [Protocol.DOMStorage.RemoveDOMStorageItemRequest]; returnType: void;};
     'DOMStorage.setDOMStorageItem': {paramsType: [Protocol.DOMStorage.SetDOMStorageItemRequest]; returnType: void;};
+    'DOMStorage.getStorageKeyForFrame': {
+      paramsType: [Protocol.DOMStorage.GetStorageKeyForFrameRequest];
+      returnType: Protocol.DOMStorage.GetStorageKeyForFrameResponse;
+    };
     /**
      * Disables database tracking, prevents database events from being sent to the client.
      */
@@ -2468,6 +2472,10 @@ export namespace ProtocolMapping {
     'ServiceWorker.unregister': {paramsType: [Protocol.ServiceWorker.UnregisterRequest]; returnType: void;};
     'ServiceWorker.updateRegistration':
         {paramsType: [Protocol.ServiceWorker.UpdateRegistrationRequest]; returnType: void;};
+    /**
+     * Clears storage for storage key.
+     */
+    'Storage.clearDataForStorageKey': {paramsType: [Protocol.Storage.ClearDataForStorageKeyRequest]; returnType: void;};
     /**
      * Clears storage for origin.
      */

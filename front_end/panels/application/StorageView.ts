@@ -147,6 +147,7 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
   private reportView: UI.ReportView.ReportView;
   private target: SDK.Target.Target|null;
   private securityOrigin: string|null;
+  private storageKey: string|null;
   private settings: Map<Protocol.Storage.StorageType, Common.Settings.Setting<boolean>>;
   private includeThirdPartyCookiesSetting: Common.Settings.Setting<boolean>;
   private quotaRow: HTMLElement;
@@ -180,6 +181,7 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
     this.reportView.show(this.contentElement);
     this.target = null;
     this.securityOrigin = null;
+    this.storageKey = null;
 
     this.settings = new Map();
     for (const type of AllStorageTypes) {
@@ -273,6 +275,11 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
     this.target = target;
     const securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager) as
         SDK.SecurityOriginManager.SecurityOriginManager;
+    const storageKeyManager =
+        target.model(SDK.StorageKeyManager.StorageKeyManager) as SDK.StorageKeyManager.StorageKeyManager;
+    this.updateStorageKey(storageKeyManager.mainStorageKey());
+    storageKeyManager.addEventListener(
+        SDK.StorageKeyManager.Events.MainStorageKeyChanged, this.storageKeyChanged, this);
     this.updateOrigin(
         securityOriginManager.mainSecurityOrigin(), securityOriginManager.unreachableMainSecurityOrigin());
     securityOriginManager.addEventListener(
@@ -283,16 +290,40 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
     if (this.target !== target) {
       return;
     }
+    const storageKeyManager =
+        target.model(SDK.StorageKeyManager.StorageKeyManager) as SDK.StorageKeyManager.StorageKeyManager;
+    storageKeyManager.removeEventListener(
+        SDK.StorageKeyManager.Events.MainStorageKeyChanged, this.storageKeyChanged, this);
     const securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager) as
         SDK.SecurityOriginManager.SecurityOriginManager;
     securityOriginManager.removeEventListener(
         SDK.SecurityOriginManager.Events.MainSecurityOriginChanged, this.originChanged, this);
   }
 
+  private storageKeyChanged(
+      event: Common.EventTarget.EventTargetEvent<SDK.StorageKeyManager.MainStorageKeyChangedEvent>): void {
+    const {mainStorageKey} = event.data;
+    this.updateStorageKey(mainStorageKey);
+  }
+
   private originChanged(
       event: Common.EventTarget.EventTargetEvent<SDK.SecurityOriginManager.MainSecurityOriginChangedEvent>): void {
     const {mainSecurityOrigin, unreachableMainSecurityOrigin} = event.data;
     this.updateOrigin(mainSecurityOrigin, unreachableMainSecurityOrigin);
+  }
+
+  private updateStorageKey(mainStorageKey: string): void {
+    const oldStorageKey = this.storageKey;
+
+    this.storageKey = mainStorageKey;
+    this.reportView.setSubtitle(mainStorageKey);
+
+    if (oldStorageKey !== this.storageKey) {
+      this.quotaOverrideControlRow.classList.add('hidden');
+      this.quotaOverrideCheckbox.checkboxElement.checked = false;
+      this.quotaOverrideErrorMessage.textContent = '';
+    }
+    void this.doUpdate();
   }
 
   private updateOrigin(mainOrigin: string, unreachableMainOrigin: string|null): void {
@@ -375,7 +406,12 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
 
     if (this.target) {
       const includeThirdPartyCookies = this.includeThirdPartyCookiesSetting.get();
-      StorageView.clear(this.target, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
+      // TODO(crbug.com/1313434) Prioritize storageKey once everything is ready
+      if (this.securityOrigin) {
+        StorageView.clear(this.target, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
+      } else if (this.storageKey) {
+        StorageView.clearByStorageKey(this.target, this.storageKey, selectedStorageTypes);
+      }
     }
 
     this.clearButton.disabled = true;
@@ -386,6 +422,21 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
       this.clearButton.textContent = label;
       this.clearButton.focus();
     }, 500);
+  }
+
+  static clearByStorageKey(target: SDK.Target.Target, storageKey: string, selectedStorageTypes: string[]): void {
+    void target.storageAgent().invoke_clearDataForStorageKey(
+        {storageKey: storageKey, storageTypes: selectedStorageTypes.join(',')});
+
+    const set = new Set(selectedStorageTypes);
+    const hasAll = set.has(Protocol.Storage.StorageType.All);
+
+    if (set.has(Protocol.Storage.StorageType.Local_storage) || hasAll) {
+      const storageModel = target.model(DOMStorageModel);
+      if (storageModel) {
+        storageModel.clearForStorageKey(storageKey);
+      }
+    }
   }
 
   static clear(
@@ -537,6 +588,7 @@ export const AllStorageTypes = [
 let actionDelegateInstance: ActionDelegate;
 
 export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  private storageKeyObtained = false;
   static instance(opts: {forceNew: boolean|null} = {forceNew: null}): ActionDelegate {
     const {forceNew} = opts;
     if (!actionDelegateInstance || forceNew) {
@@ -546,7 +598,7 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
     return actionDelegateInstance;
   }
 
-  handleAction(context: UI.Context.Context, actionId: string): boolean {
+  handleAction(context: UI.Context.Context, actionId: string): boolean|boolean {
     switch (actionId) {
       case 'resources.clear':
         return this.handleClear(false);
@@ -554,6 +606,15 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
         return this.handleClear(true);
     }
     return false;
+  }
+
+  private async clear(target: SDK.Target.Target, resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel):
+      Promise<void> {
+    const storageKey = await resourceTreeModel.getMainStorageKey();
+    if (storageKey) {
+      this.storageKeyObtained = true;
+      StorageView.clearByStorageKey(target, storageKey, AllStorageTypes);
+    }
   }
 
   private handleClear(includeThirdPartyCookies: boolean): boolean {
@@ -566,11 +627,17 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
       return false;
     }
     const securityOrigin = resourceTreeModel.getMainSecurityOrigin();
-    if (!securityOrigin) {
-      return false;
+    // TODO(crbug.com/1313434) Prioritize storageKey functionality once everything is ready
+    if (securityOrigin) {
+      StorageView.clear(target, securityOrigin, AllStorageTypes, includeThirdPartyCookies);
+      return true;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    this.clear(target, resourceTreeModel);
+    if (this.storageKeyObtained) {
+      return true;
     }
 
-    StorageView.clear(target, securityOrigin, AllStorageTypes, includeThirdPartyCookies);
-    return true;
+    return false;
   }
 }
