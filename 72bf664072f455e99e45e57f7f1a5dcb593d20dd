@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ee0ce47_65556868",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-10T14:17:56Z",
+      "side": 0,
+      "message": "Yeah, I wasn\u0027t sure here. I might get @mmocny\u0027s opinion.",
+      "parentUuid": "9819c21f_36b4efb0",
+      "range": {
+        "startLine": 832,
+        "startChar": 43,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "72bf664072f455e99e45e57f7f1a5dcb593d20dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d04e12b0_42326405",
         "filename": "front_end/models/timeline_model/TimelineModel.ts",
         "patchSetId": 1

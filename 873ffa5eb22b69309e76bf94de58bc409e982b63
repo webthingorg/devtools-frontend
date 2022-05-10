@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "422e44b2_45d391de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-10T14:17:56Z",
+      "side": 1,
+      "message": "@Michal we\u0027re wondering if it makes sense to keep the \"Animations\" part of the swimlane around, or if we can just lose that as well. WDYT? I wonder if it also is similarly unloved and therefore isn\u0027t worth keeping for now on its own. Given it was broken for 2+ years.",
+      "revId": "873ffa5eb22b69309e76bf94de58bc409e982b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c339be13_46e0aee7",
