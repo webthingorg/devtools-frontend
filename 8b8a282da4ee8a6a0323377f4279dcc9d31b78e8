@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "512f4423_d35617b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-10T08:35:59Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nThis moves the parser to a separate file and adds source positions for scopes. Also added some very basic tests.",
+      "revId": "8b8a282da4ee8a6a0323377f4279dcc9d31b78e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
