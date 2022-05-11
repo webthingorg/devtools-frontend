@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "6946b538537de5ca6f57318b8bd21a82f7a6d79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79d63df_88ac9665",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-11T13:18:11Z",
+      "side": 1,
+      "message": "I\u0027d inline this to make the control flow easier to scan.",
+      "range": {
+        "startLine": 1709,
+        "startChar": 12,
+        "endLine": 1709,
+        "endChar": 20
+      },
+      "revId": "6946b538537de5ca6f57318b8bd21a82f7a6d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68904c99_c75bb8b2",
+        "filename": "test/e2e/network/network-request-view_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-11T13:18:11Z",
+      "side": 1,
+      "message": "Can we also have tests for \"no overrides folder\" case?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 66
+      },
+      "revId": "6946b538537de5ca6f57318b8bd21a82f7a6d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
