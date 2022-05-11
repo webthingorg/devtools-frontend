@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35cd103c_e00cbefe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-11T10:27:04Z",
+      "side": 1,
+      "message": "Thanks for your input both!\n\nI agree we should keep animations around. Let\u0027s:\n\n1. Land this CL to remove interactions.\n2. In a follow-up CL (I like to keep changes to the panel small given we\u0027re not super familiar with the code and there\u0027s a real lack of tests), rename the overall track \"Animations\" and get rid of the weird nesting.",
+      "revId": "d0c6bfb39689328b4aa5b9a8b61bb56f539c6b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
