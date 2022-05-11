@@ -16,6 +16,75 @@
       "message": "PTAL :)",
       "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbbe8f64_f8840846",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-11T09:21:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `BigInt` now show up here as well?",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8344ed37_e4b20836",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-11T09:21:23Z",
+      "side": 1,
+      "message": "I\u0027m confused, the receivers here should be the different array constructors since the methods are static, no?",
+      "range": {
+        "startLine": 755,
+        "startChar": 9,
+        "endLine": 755,
+        "endChar": 17
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7505e8a_1d3732a3",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-11T09:21:23Z",
+      "side": 1,
+      "message": "This shouldn\u0027t really make a difference as the promise from evaluateExpression is chained onto the promise from the async function. We are just adding one more promise in-between. Or is it a readability change?",
+      "range": {
+        "startLine": 531,
+        "startChar": 13,
+        "endLine": 531,
+        "endChar": 18
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
