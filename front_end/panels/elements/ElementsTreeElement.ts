@@ -237,6 +237,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private searchHighlightsVisible?: boolean;
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
+  #slot?: Adorners.Adorner.Adorner;
   private contentElement: HTMLElement;
 
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
@@ -420,6 +421,21 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   setExpandedChildrenLimit(expandedChildrenLimit: number): void {
     this.expandedChildrenLimitInternal = expandedChildrenLimit;
+  }
+
+  createSlotLink(nodeShortcut: SDK.DOMModel.DOMNodeShortcut|null): void {
+    if (nodeShortcut) {
+      const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+          ElementsComponents.AdornerManager.RegisteredAdorners.SLOT);
+      this.#slot = this.adorn(config);
+      const deferredNode = nodeShortcut.deferredNode;
+      this.#slot.addEventListener('click', deferredNode.resolve.bind(deferredNode, this.onDeferredNodeResolved), false);
+      this.#slot.addEventListener('mousedown', e => e.consume(), false);
+    }
+  }
+
+  onDeferredNodeResolved(node: SDK.DOMModel.DOMNode|null): void {
+    void Common.Revealer.reveal(node);
   }
 
   private createSelection(): void {
@@ -1313,6 +1329,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       this.contentElement.prepend(this.gutterContainer);
       if (!this.isClosingTagInternal && this.adornerContainer) {
         this.contentElement.append(this.adornerContainer);
+      }
+      if (this.#slot) {
+        this.contentElement.append(this.#slot);
       }
       this.highlightResult = [];
       delete this.selectionElement;
