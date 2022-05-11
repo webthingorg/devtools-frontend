@@ -107,6 +107,11 @@ export class AttributionReportingIssueDetailsView extends AffectedResourcesView 
         this.#appendRequestOrEmptyCell(element, details.request);
         this.appendIssueDetailCell(element, details.invalidParameter || '');
         break;
+      case IssuesManager.AttributionReportingIssue.IssueCode.AttributionSourceUntrustworthyFrameOrigin:
+        this.#appendFrameOrEmptyCell(element, issue);
+        await this.#appendElementOrEmptyCell(element, issue);
+        this.appendIssueDetailCell(element, details.invalidParameter || '');
+        break;
       case IssuesManager.AttributionReportingIssue.IssueCode.PermissionPolicyDisabled:
         this.#appendFrameOrEmptyCell(element, issue);
         await this.#appendElementOrEmptyCell(element, issue);
