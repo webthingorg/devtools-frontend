@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eaaf737_5165b42a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "You\u0027ll want to tighten up the Commit Message here. (You can edit it inline in Gerrit) -- it looks like it\u0027s a composite of multiple messages.\n\nIdeally, you should also include a link to a Google Doc with an explainer, and/or to an image illustrating the change that you\u0027ve made.",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81ec1be_271ae76a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "This is looking good, but I\u0027d really like to see some e2e tests before I would feel comfortable signing off.",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aa582d3_9f48e1c7",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "This field is only written-to and read-from in the `#handleTestProtocol` function. Consider removing it from the field list and simply using it as a local variable within that function.",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c262678f_07efe6ed",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "Consider adding a comment explaining what this function does. From only its name, I would not be able to deduce what it means.\n\nAlternatively, consider renaming it to be closer, e.g., `invokeProtocolAsTest` or something like that.",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf299c5_21d7c7d5",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "Consider constructing this URL with backtick syntax\n\n    `this.#protocolURL \u003d `${selectedProtocol}://${userInput}` as Platform.DevToolsPath.UrlString;",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d294760b_e6729c1f",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "I\u0027m not",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5301610f_f8f6ad21",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-05-11T17:36:48Z",
+      "side": 1,
+      "message": "I only see a couple instances of using forms in DevTools -- one in Lighthouse, one in User Agent Client Hints. I\u0027m not sure if this is particularly what we want to do, as opposed to having the on-click handler for the button. \n\nI\u0027m not saying this is wrong. Just make sure you\u0027re working within prior art. Make sense?",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
