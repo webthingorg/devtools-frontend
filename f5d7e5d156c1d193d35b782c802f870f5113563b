@@ -16,6 +16,24 @@
       "message": "This doc is slightly more up to date, and we can easily add a DevTools panel section.",
       "revId": "f5d7e5d156c1d193d35b782c802f870f5113563b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020a3202_45ef9c9f",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-11T07:07:46Z",
+      "side": 1,
+      "message": "If we want to avoid checking in the term `master`, we could use this link: https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/user-flows.md",
+      "parentUuid": "d62e981b_979612b0",
+      "revId": "f5d7e5d156c1d193d35b782c802f870f5113563b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
