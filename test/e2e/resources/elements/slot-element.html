@@ -1,0 +1,10 @@
+<!doctype html>
+<div id="host">
+    <h1>headline</h1>
+</div>
+<script>
+    const host = document.querySelector('#host');
+    const shadow = host.attachShadow({mode: 'open'});
+    const slot = document.createElement('slot');
+    shadow.appendChild(slot);
+</script>
