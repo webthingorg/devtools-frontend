@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4943bb79_b39d970d",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-11T06:51:48Z",
+      "side": 1,
+      "message": "This is the only diff from the original CL to the reland.",
+      "range": {
+        "startLine": 35,
+        "startChar": 38,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "86954bf8e612c22afe19c8ddb72493ba89e78ebf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
