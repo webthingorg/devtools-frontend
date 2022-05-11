@@ -10,31 +10,21 @@ import type {MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 
 export const enum IssueCode {
   PermissionPolicyDisabled = 'AttributionReportingIssue::PermissionPolicyDisabled',
-  InvalidAttributionSourceEventId = 'AttributionReportingIssue::InvalidAttributionSourceEventId',
-  AttributionSourceUntrustworthyFrameOrigin = 'AttributionReportingIssue::AttributionSourceUntrustworthyFrameOrigin',
   AttributionSourceUntrustworthyOrigin = 'AttributionReportingIssue::AttributionSourceUntrustworthyOrigin',
-  AttributionUntrustworthyFrameOrigin = 'AttributionReportingIssue::AttributionUntrustworthyFrameOrigin',
   AttributionUntrustworthyOrigin = 'AttributionReportingIssue::AttributionUntrustworthyOrigin',
-  InvalidAttributionSourceExpiry = 'AttributionReportingIssue::InvalidAttributionSourceExpiry',
-  InvalidAttributionSourcePriority = 'AttributionReportingIssue::InvalidAttributionSourcePriority',
+  InvalidHeader = 'AttributionReportingIssue::InvalidHeader',
 }
 
 function getIssueCode(details: Protocol.Audits.AttributionReportingIssueDetails): IssueCode {
   switch (details.violationType) {
     case Protocol.Audits.AttributionReportingIssueType.PermissionPolicyDisabled:
       return IssueCode.PermissionPolicyDisabled;
-    case Protocol.Audits.AttributionReportingIssueType.InvalidAttributionSourceEventId:
-      return IssueCode.InvalidAttributionSourceEventId;
     case Protocol.Audits.AttributionReportingIssueType.AttributionSourceUntrustworthyOrigin:
-      return details.frame !== undefined ? IssueCode.AttributionSourceUntrustworthyFrameOrigin :
-                                           IssueCode.AttributionSourceUntrustworthyOrigin;
+      return IssueCode.AttributionSourceUntrustworthyOrigin;
     case Protocol.Audits.AttributionReportingIssueType.AttributionUntrustworthyOrigin:
-      return details.frame !== undefined ? IssueCode.AttributionUntrustworthyFrameOrigin :
-                                           IssueCode.AttributionUntrustworthyOrigin;
-    case Protocol.Audits.AttributionReportingIssueType.InvalidAttributionSourceExpiry:
-      return IssueCode.InvalidAttributionSourceExpiry;
-    case Protocol.Audits.AttributionReportingIssueType.InvalidAttributionSourcePriority:
-      return IssueCode.InvalidAttributionSourcePriority;
+      return IssueCode.AttributionUntrustworthyOrigin;
+    case Protocol.Audits.AttributionReportingIssueType.InvalidHeader:
+      return IssueCode.InvalidHeader;
   }
 }
 
@@ -58,20 +48,6 @@ export class AttributionReportingIssue extends Issue<IssueCode> {
           file: 'arPermissionPolicyDisabled.md',
           links: [],
         };
-      case IssueCode.InvalidAttributionSourceEventId:
-        return {
-          file: 'arInvalidAttributionSourceEventId.md',
-          links: [{
-            link:
-                'https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#html-attribute-attributionsourceeventid-required',
-            linkTitle: 'attributionsourceeventid attribute',
-          }],
-        };
-      case IssueCode.AttributionSourceUntrustworthyFrameOrigin:
-        return {
-          file: 'arAttributionSourceUntrustworthyFrameOrigin.md',
-          links: [],
-        };
       case IssueCode.AttributionSourceUntrustworthyOrigin:
         return {
           file: 'arAttributionSourceUntrustworthyOrigin.md',
@@ -88,34 +64,13 @@ export class AttributionReportingIssue extends Issue<IssueCode> {
             },
           ],
         };
-      case IssueCode.AttributionUntrustworthyFrameOrigin:
-        return {
-          file: 'arAttributionUntrustworthyFrameOrigin.md',
-          links: [],
-        };
       case IssueCode.AttributionUntrustworthyOrigin:
         return {
           file: 'arAttributionUntrustworthyOrigin.md',
           links: [],
         };
-      case IssueCode.InvalidAttributionSourceExpiry:
-        return {
-          file: 'arInvalidAttributionSourceExpiry.md',
-          links: [{
-            link:
-                'https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#html-attribute-attributionexpiry',
-            linkTitle: 'attributionexpiry attribute',
-          }],
-        };
-      case IssueCode.InvalidAttributionSourcePriority:
-        return {
-          file: 'arInvalidAttributionSourcePriority.md',
-          links: [{
-            link:
-                'https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#html-attribute-attributionsourcepriority',
-            linkTitle: 'attributionsourcepriority attribute',
-          }],
-        };
+      case IssueCode.InvalidHeader:
+        return null;
     }
   }
 
