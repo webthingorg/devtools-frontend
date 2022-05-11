@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b4aee6_e78a8f61",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-11T13:30:28Z",
+      "side": 1,
+      "message": "This is a race. Calling storageKey before this resolves would return null.",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 71
+      },
+      "revId": "4e68b7f5a2272fa37afd86386b81e26d043ad56f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f63519_3628fa28",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-11T13:30:28Z",
+      "side": 1,
+      "message": "This is quite strange:\n(1) set* functions typically take an argument\n(2) also this is a public function that is only invoked from the constructor\n\nI\u0027d inline the whole thing into a getter, i.e.:\n\n```\n  get storageKey(): Promise\u003cstring\u003e {\n    if (!this.#storageKeyInternal) {\n      this.#storageKeyInternal \u003d await this.#model.storageKeyForFrame(this.#idInternal);\n    }\n    return Promise.resolve(this.#storageKeyInternal);\n  }",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 86
+      },
+      "revId": "4e68b7f5a2272fa37afd86386b81e26d043ad56f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b7af7b_a2b65abb",
+        "filename": "front_end/panels/application/DOMStorageModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-11T13:30:28Z",
+      "side": 1,
+      "message": "This is CL is getting to large, can we get this file into a separate CL?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "4e68b7f5a2272fa37afd86386b81e26d043ad56f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
