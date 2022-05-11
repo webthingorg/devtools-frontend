@@ -4736,6 +4736,9 @@
   "panels/elements/ElementsTreeElement.ts | paste": {
     "message": "P̂áŝt́ê"
   },
+  "panels/elements/ElementsTreeElement.ts | revealSlot": {
+    "message": "R̂év̂éâĺ Ŝĺôt́"
+  },
   "panels/elements/ElementsTreeElement.ts | scrollIntoView": {
     "message": "Ŝćr̂ól̂ĺ îńt̂ó v̂íêẃ"
   },

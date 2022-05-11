@@ -699,6 +699,13 @@ input.custom-search-input::-webkit-search-cancel-button {
   from { transform: rotate(0); }
   to { transform: rotate(360deg); }
 }
+
+.slot-link {
+  display: inline-block;
+  margin-left: 3px;
+  color: var(--color-text-secondary);
+}
+
 /** Adorner */
 .adorner-container {
   display: inline-block;
