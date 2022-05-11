@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df03d96_6db748e2",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-11T10:27:16Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "343729a2_006d8977",
+      "range": {
+        "startLine": 832,
+        "startChar": 43,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "72bf664072f455e99e45e57f7f1a5dcb593d20dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d04e12b0_42326405",
@@ -85,6 +109,30 @@
       "writtenOn": "2022-05-10T14:14:38Z",
       "side": 0,
       "message": "In the future we should check if we can remove enum entries related to the lane like Category.Latency info, RecordType.Latency*/Input* and TrackType.Input",
+      "range": {
+        "startLine": 837,
+        "startChar": 62,
+        "endLine": 837,
+        "endChar": 73
+      },
+      "revId": "72bf664072f455e99e45e57f7f1a5dcb593d20dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6118bb36_32491cee",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-11T10:27:16Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "d04e12b0_42326405",
       "range": {
         "startLine": 837,
         "startChar": 62,
