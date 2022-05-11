@@ -33,6 +33,23 @@
       "message": "Simon, please kindly take a look as an owner as an owner, just adding types here",
       "revId": "e9e70b68ce0cb100e25a5a1e300378e4ceafe1ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "467633c3_96e50302",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-11T09:32:19Z",
+      "side": 1,
+      "message": "rubberstamp",
+      "revId": "e9e70b68ce0cb100e25a5a1e300378e4ceafe1ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
