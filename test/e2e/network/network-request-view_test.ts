@@ -9,9 +9,12 @@ import {expectError} from '../../conductor/events.js';
 import {
   $$,
   click,
+  enableExperiment,
+  getTestServerPort,
   step,
   typeText,
   waitFor,
+  waitForAria,
   waitForElementWithTextContent,
   waitForFunction,
   getBrowserAndPages,
@@ -342,5 +345,19 @@ describe('The Network Request view', async () => {
 
     await selectRequestByName('image.svg?delay');
     await target.evaluate(async () => await fetch('/?send_delayed'));
+  });
+
+  it('can create header overrides via context menu', async () => {
+    await enableExperiment('headerOverrides');
+    await navigateToNetworkTab('hello.html');
+    await selectRequestByName('hello.html', {button: 'right'});
+
+    const createHeaderOverrideMenuEntry = await waitForAria('Create response header override');
+    await click(createHeaderOverrideMenuEntry);
+    await click('.infobar-main-row .infobar-button');
+
+    await waitFor('devtools-button.add-block');
+    await waitForAria(`localhost:${getTestServerPort()}/test/e2e/resources/network, fs-folder`);
+    await waitFor('.tabbed-pane-header-tab[aria-label=".headers"]');
   });
 });
