@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41603ff1_e3ec7d7b",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-11T14:07:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b79d63df_88ac9665",
+      "range": {
+        "startLine": 1709,
+        "startChar": 12,
+        "endLine": 1709,
+        "endChar": 20
+      },
+      "revId": "6946b538537de5ca6f57318b8bd21a82f7a6d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68904c99_c75bb8b2",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-11T13:18:11Z",
       "side": 1,
       "message": "Can we also have tests for \"no overrides folder\" case?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 66
+      },
+      "revId": "6946b538537de5ca6f57318b8bd21a82f7a6d79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a768b8_4a8f3f6e",
+        "filename": "test/e2e/network/network-request-view_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-11T14:07:17Z",
+      "side": 1,
+      "message": "This actually is testing the case in which no overrides folder has been defined beforehand. But because we are running in hosted mode there is no file picker dialog since `InspectorFrontendHost.addFileSystem`[1] directly creates a FileSystem.\n\nPreviously, the line `await click(\u0027.infobar-main-row .infobar-button\u0027);` was clicking the \u0027Select Folder\u0027 button. I\u0027ve refactored to make this more clear. \n\n[1] https://crsrc.org/c/third_party/devtools-frontend/src/front_end/core/host/InspectorFrontendHost.ts;l\u003d217",
+      "parentUuid": "68904c99_c75bb8b2",
       "range": {
         "startLine": 350,
         "startChar": 0,
