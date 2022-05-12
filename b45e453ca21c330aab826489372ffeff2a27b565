@@ -16,6 +16,24 @@
       "message": "this screenshot service is not available to the external contributors. Let\u0027s remove those links and publish the screenshots to imgur probably.",
       "revId": "b45e453ca21c330aab826489372ffeff2a27b565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3580eee_567347dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-05-12T10:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9f20ccc_fefe73a2",
+      "revId": "b45e453ca21c330aab826489372ffeff2a27b565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
