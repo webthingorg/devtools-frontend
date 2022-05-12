@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "98797704_0e764650",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-12T19:02:16Z",
+      "side": 1,
+      "message": "Updated the commit message to be a description and added a link to the explainer.",
+      "parentUuid": "3eaaf737_5165b42a",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f81ec1be_271ae76a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25253f13_f27964e7",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-12T19:02:16Z",
+      "side": 1,
+      "message": "Done! (patchset5)",
+      "parentUuid": "7aa582d3_9f48e1c7",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c262678f_07efe6ed",
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4950617f_8f05afc1",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-12T19:02:16Z",
+      "side": 1,
+      "message": "Added comment and changed function name to \"invokeProtoclHandlerTest\"",
+      "parentUuid": "c262678f_07efe6ed",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdf299c5_21d7c7d5",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-05-11T17:36:48Z",
       "side": 1,
       "message": "Consider constructing this URL with backtick syntax\n\n    `this.#protocolURL \u003d `${selectedProtocol}://${userInput}` as Platform.DevToolsPath.UrlString;",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8202ae7_3b88b443",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-12T19:02:16Z",
+      "side": 1,
+      "message": "Done! (patchset5)",
+      "parentUuid": "cdf299c5_21d7c7d5",
       "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
