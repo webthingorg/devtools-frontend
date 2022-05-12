@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03a08f5a_0897e612",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-05-12T12:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b70adc69_f82952f6",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dacdd5cd_a4bc16db",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8327baf9_1aa6a6f1",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-05-12T12:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dacdd5cd_a4bc16db",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "007a7703_6daf9543",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-05-12T09:48:46Z",
       "side": 1,
       "message": "Maybe we could better style them by defining CSS classes for them, e.g. `complex-adorner` or something, and add these CSS in `elementsTreeOutline.css`. WDYT?",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee504f96_30ebf659",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-05-12T12:43:45Z",
+      "side": 1,
+      "message": "I agree, it makes sense to do that in case even more styles need to be added",
+      "parentUuid": "007a7703_6daf9543",
       "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
