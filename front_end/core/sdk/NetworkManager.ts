@@ -132,7 +132,7 @@ export class NetworkManager extends SDKModel<EventTypes> {
   constructor(target: Target) {
     super(target);
     this.dispatcher = new NetworkDispatcher(this);
-    this.fetchDispatcher = new FetchDispatcher(target.fetchAgent());
+    this.fetchDispatcher = new FetchDispatcher(target.fetchAgent(), this);
     this.#networkAgent = target.networkAgent();
     target.registerNetworkDispatcher(this.dispatcher);
     target.registerFetchDispatcher(this.fetchDispatcher);
@@ -253,6 +253,10 @@ export class NetworkManager extends SDKModel<EventTypes> {
 
   requestForURL(url: Platform.DevToolsPath.UrlString): NetworkRequest|null {
     return this.dispatcher.requestForURL(url);
+  }
+
+  requestForId(id: string): NetworkRequest|null {
+    return this.dispatcher.requestForId(id);
   }
 
   private cacheDisabledSettingChanged({data: enabled}: Common.EventTarget.EventTargetEvent<boolean>): void {
@@ -379,15 +383,18 @@ const MAX_EAGER_POST_REQUEST_BODY_LENGTH = 64 * 1024;  // bytes
 
 export class FetchDispatcher implements ProtocolProxyApi.FetchDispatcher {
   readonly #fetchAgent: ProtocolProxyApi.FetchApi;
+  readonly #manager: NetworkManager;
 
-  constructor(agent: ProtocolProxyApi.FetchApi) {
+  constructor(agent: ProtocolProxyApi.FetchApi, manager: NetworkManager) {
     this.#fetchAgent = agent;
+    this.#manager = manager;
   }
 
-  requestPaused({requestId, request, resourceType, responseStatusCode, responseHeaders}:
+  requestPaused({requestId, request, resourceType, responseStatusCode, responseHeaders, networkId}:
                     Protocol.Fetch.RequestPausedEvent): void {
+    const networkRequest = networkId ? this.#manager.requestForId(networkId) : null;
     void MultitargetNetworkManager.instance().requestIntercepted(new InterceptedRequest(
-        this.#fetchAgent, request, resourceType, requestId, responseStatusCode, responseHeaders));
+        this.#fetchAgent, request, resourceType, requestId, networkRequest, responseStatusCode, responseHeaders));
   }
 
   authRequired({}: Protocol.Fetch.AuthRequiredEvent): void {
@@ -520,8 +527,8 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     }
   }
 
-  requestForId(url: string): NetworkRequest|null {
-    return this.#requestsById.get(url) || null;
+  requestForId(id: string): NetworkRequest|null {
+    return this.#requestsById.get(id) || null;
   }
 
   requestForURL(url: Platform.DevToolsPath.UrlString): NetworkRequest|null {
@@ -1511,12 +1518,14 @@ export class InterceptedRequest {
   responseStatusCode: number|undefined;
   responseHeaders: Protocol.Fetch.HeaderEntry[]|undefined;
   requestId: Protocol.Fetch.RequestId;
+  networkRequest: NetworkRequest|null;
 
   constructor(
       fetchAgent: ProtocolProxyApi.FetchApi,
       request: Protocol.Network.Request,
       resourceType: Protocol.Network.ResourceType,
       requestId: Protocol.Fetch.RequestId,
+      networkRequest: NetworkRequest|null,
       responseStatusCode?: number,
       responseHeaders?: Protocol.Fetch.HeaderEntry[],
   ) {
@@ -1527,6 +1536,7 @@ export class InterceptedRequest {
     this.responseStatusCode = responseStatusCode;
     this.responseHeaders = responseHeaders;
     this.requestId = requestId;
+    this.networkRequest = networkRequest;
   }
 
   hasResponded(): boolean {
@@ -1535,6 +1545,9 @@ export class InterceptedRequest {
 
   async continueRequestWithContent(contentBlob: Blob, encoded: boolean, responseHeaders: Protocol.Fetch.HeaderEntry[]):
       Promise<void> {
+    if (this.networkRequest && this.responseHeaders) {
+      this.networkRequest.nonOverriddenResponseHeaders = this.responseHeaders;
+    }
     this.#hasRespondedInternal = true;
     const body = encoded ? await contentBlob.text() : await blobToBase64(contentBlob);
     void this.#fetchAgent.invoke_fulfillRequest({requestId: this.requestId, responseCode: 200, body, responseHeaders});
