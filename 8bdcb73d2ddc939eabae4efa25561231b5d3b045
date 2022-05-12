@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5bd0f78_cebb7272",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-12T09:48:46Z",
+      "side": 1,
+      "message": "I think this is mostly done. We can just address these minor details, and add a test for it.",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b70adc69_f82952f6",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-12T09:48:46Z",
+      "side": 1,
+      "message": "I think for this event listener, instead of binding another function, maybe we could just inline the function like this:\n```\nthis.#slot.addEventListener(\u0027click\u0027, () \u003d\u003e {\n  deferredNode.resolve(node \u003d\u003e {\n    void Common.Revealer.reveal(node);\n  });\n});\n```",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dacdd5cd_a4bc16db",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-12T09:48:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure if adding `mousedown` event listener and \"consuming\" this event is necessary. Could you verify by removing this line and see if everything still works?",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007a7703_6daf9543",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-05-12T09:48:46Z",
+      "side": 1,
+      "message": "Maybe we could better style them by defining CSS classes for them, e.g. `complex-adorner` or something, and add these CSS in `elementsTreeOutline.css`. WDYT?",
+      "revId": "8bdcb73d2ddc939eabae4efa25561231b5d3b045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
