@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b001bb48_2916b28e",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-12T09:40:37Z",
+      "side": 1,
+      "message": "I thought so too, but its `FullScreen` vs `Fullscreen`. Apparently both were valid web APIs. But thanks for double checking so closely! :)",
+      "parentUuid": "2f33d9fb_9ae7aaf6",
+      "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "317f2fd1_8cdfe208",
         "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-12T09:28:12Z",
       "side": 1,
       "message": "Same here: ll. 486 and ll. 491",
+      "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ace02025_bd866bad",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-12T09:40:37Z",
+      "side": 1,
+      "message": "Same here `FullScreen` vs `Fullscreen`.",
+      "parentUuid": "317f2fd1_8cdfe208",
       "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
