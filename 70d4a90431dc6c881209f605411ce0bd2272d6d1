@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69736d71_01dd24ae",
+        "filename": "front_end/panels/profiler/LiveHeapProfileView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-12T08:54:39Z",
+      "side": 0,
+      "message": "Why will this not be branded?",
+      "range": {
+        "startLine": 297,
+        "startChar": 72,
+        "endLine": 297,
+        "endChar": 81
+      },
+      "revId": "70d4a90431dc6c881209f605411ce0bd2272d6d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
