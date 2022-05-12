@@ -33,6 +33,23 @@
       "message": "Now with Jack added :\u0027)",
       "revId": "8aac3274065c44f946d3260addf96c788b1a53d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff25955_12a7f0d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-12T14:55:51Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "8aac3274065c44f946d3260addf96c788b1a53d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
