@@ -228,6 +228,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
   constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
+    console.log('original headers', request.nonOverriddenResponseHeaders);  // eslint-disable-line no-console
 
     this.element.classList.add('request-headers-view');
 
