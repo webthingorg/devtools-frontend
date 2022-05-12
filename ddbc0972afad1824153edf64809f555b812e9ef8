@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fadd265_c8734d67",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-12T12:32:28Z",
+      "side": 1,
+      "message": "I\u0027d suggest a simpler semantics for this field: just call it `originalResponseHeaders` and always set in the constructor. This seems to be easier to understand.",
+      "range": {
+        "startLine": 1548,
+        "startChar": 0,
+        "endLine": 1548,
+        "endChar": 54
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436c3c39_d0221a04",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-12T12:32:28Z",
+      "side": 1,
+      "message": "Do you want to keep this?",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 11
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44c4059_2ed10338",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-12T12:32:28Z",
+      "side": 1,
+      "message": "Can we also have aa test?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 24
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
