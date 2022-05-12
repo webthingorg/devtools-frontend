@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38aa7d42_a0cc0cd6",
+        "filename": "front_end/panels/console/ErrorStackParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-12T15:56:31Z",
+      "side": 1,
+      "message": "Added a UrlString validation function",
+      "parentUuid": "a3f9938f_4a03c01f",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 59
+      },
+      "revId": "d0d616a8eceff7485af270229d39dc796c231a8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cbd4eab_b9dcb471",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-12T08:54:39Z",
       "side": 1,
       "message": "Likewise, a helper to get an UrlString from a URL seems like a good idea; are there other places we\u0027re doing this?",
+      "range": {
+        "startLine": 120,
+        "startChar": 11,
+        "endLine": 120,
+        "endChar": 58
+      },
+      "revId": "d0d616a8eceff7485af270229d39dc796c231a8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97ab3577_9b19e277",
+        "filename": "front_end/panels/console/ErrorStackParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-12T15:56:31Z",
+      "side": 1,
+      "message": "I guess it\u0027s the only place where we are retrieving it and where it needs to be types as UrlString, maybe then it\u0027s not worth adding a helper?",
+      "parentUuid": "7cbd4eab_b9dcb471",
       "range": {
         "startLine": 120,
         "startChar": 11,
