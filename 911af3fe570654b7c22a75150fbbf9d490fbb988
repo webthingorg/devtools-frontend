@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f948fe_2533bc3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-12T09:44:04Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f33d9fb_9ae7aaf6",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "I thought so too, but its `FullScreen` vs `Fullscreen`. Apparently both were valid web APIs. But thanks for double checking so closely! :)",
       "parentUuid": "2f33d9fb_9ae7aaf6",
+      "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "174efa1c_aad9697e",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-12T09:44:04Z",
+      "side": 1,
+      "message": "Ohhh :D. Ok, thanks for the explanation!",
+      "parentUuid": "b001bb48_2916b28e",
       "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
