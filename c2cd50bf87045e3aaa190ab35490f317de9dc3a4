@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1d4548_510649ab",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Create a localized string in UIStrings",
+      "range": {
+        "startLine": 455,
+        "startChar": 65,
+        "endLine": 455,
+        "endChar": 84
+      },
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2177aeee_a1f675f8",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Looks like you don\u0027t have to assign protocolHandlersSection as a class variable as it is not being used elsewhere. You can just create a local variable instead.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1bcf3cf_6e44796b",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "not sure if we still want to use `XLink` as it is legacy component.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f884a7a_f7507320",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "nit: can you update this, just to be explicit `this.#protocolHandlers.length \u003e 0`",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f18673_64e9e3d7",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Use double quotes for class, below as well.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "495cd83f_101a3d9b",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Dont use color green, instead use appropriate CSS variable defined in themeColors.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd32365c_7ed4602d",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Looks like most of the HTML is same in both conditions. Instead, why not do something like this\n```\nconst iconData: IconButton.Icon.IconData \u003d this.#protocolHandlers.length \u003e 0 ? {\n      iconName: \u0027ic_info_black_18dp\u0027,\n      color: \u0027var(--color-link)\u0027,\n      width: \u002714px\u0027,\n      height: \u002712px\u0027,\n    }  : {\n        iconName: \u0027ic_checkmark_16x16\u0027,\n        color: \u0027green\u0027,\n        width: \u002712px\u0027,\n        height: \u002712px\u0027,\n    };\nconst statusString \u003d this.#protocolHandlers.length \u003e 0 ? UIStrings.protocolNotDetected : UIStrings.protocolDetected;\nreturn LitHtml.html`\n     \u003cdiv class\u003d\"protocol-handlers-row\"\u003e\n        \u003cdiv class\u003d\u0027status\u0027\u003e\n            \u003c${IconButton.Icon.Icon.litTagName} class\u003d\"inline-icon\" .data\u003d${iconData}\u003e\n            \u003c/${IconButton.Icon.Icon.litTagName}\u003e\n            ${i18n.i18n.getFormatLocalizedString(str_, statusString, {\n        PH1: manifestInTextLink,\n      })}\n        \u003c/div\u003e\n      \u003c/div\u003e\n`\n```",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98ac6f6_0b51fab8",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Dont inline JS inside JSX syntax, instead compute the code before it. So this will become something like.\n\n```\nconst options \u003d this.#protocolHandlers.filter(protocolHandler \u003d\u003e protocolHandler.protocol).map(protocolHandler \u003d\u003e {\n        return LitHtml.html`\u003coption value\u003d${protocolHandler.protocol}\u003e${protocolHandler.protocol}://\u003c/option\u003e`;\n```\nAnd then you can use options in your JSX. This will make it easier to read the code and also to debug, set breakpoints, log data etc.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "965928cf_f79b845a",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Use localized string instead",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad15078f_54265dd1",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Flip this logic.\nSo it would read \n```\nif (this.#protocolHandlers.length \u003d\u003d\u003d 0) {\n return LitHtml.html``\n}\n// Rest of the code follows\n\n```",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0260eed_64816ffb",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Define a constant at the top with this link and use it here, that will make it easier to change the link if needed.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf530773_a3c923cf",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-12T16:45:21Z",
+      "side": 1,
+      "message": "Remove this",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
