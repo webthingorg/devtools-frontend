@@ -224,7 +224,7 @@ describe('InterceptedRequest', () => {
     } as Protocol.Network.Request;
     const requestId = 'requestId' as Protocol.Fetch.RequestId;
     const interceptedRequest = new SDK.NetworkManager.InterceptedRequest(
-        fetchAgent, request, Protocol.Network.ResourceType.Document, requestId, /* responseStatusCode */ 300);
+        fetchAgent, request, Protocol.Network.ResourceType.Document, requestId, null, /* responseStatusCode */ 300);
     const textContent = 'some content';
     const responseHeaders = [{name: 'headerName', value: 'headerValue'}] as Protocol.Fetch.HeaderEntry[];
 
