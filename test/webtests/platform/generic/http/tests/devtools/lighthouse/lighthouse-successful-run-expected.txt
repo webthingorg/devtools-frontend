@@ -11,7 +11,7 @@ Tests that audits panel works.
 [x] Legacy navigation
 [x] Clear storage
 [x] Simulated throttling
-Generate report: enabled visible
+Analyze page load: enabled visible
 
 =============== Lighthouse Status Updates ===============
 Loading…
@@ -43,6 +43,7 @@ Gathering setup: ImageElements
 Gathering setup: LinkElements
 Gathering setup: MetaElements
 Gathering setup: ScriptElements
+Gathering setup: Scripts
 Gathering setup: IFrameElements
 Gathering setup: MainDocumentContent
 Gathering setup: GlobalListeners
@@ -74,6 +75,7 @@ Gathering in-page: ImageElements
 Gathering in-page: LinkElements
 Gathering in-page: MetaElements
 Gathering in-page: ScriptElements
+Gathering in-page: Scripts
 Gathering in-page: IFrameElements
 Gathering in-page: MainDocumentContent
 Gathering in-page: GlobalListeners
@@ -94,7 +96,7 @@ Gathering in-page: SourceMaps
 Gathering in-page: FullPageScreenshot
 Gathering trace
 Gathering devtoolsLog & network records
-Computing artifact: NetworkRecords$N
+Computing artifact: NetworkRecords$J
 Running afterPass methods
 Gathering: CSSUsage
 Gathering: JsUsage
@@ -103,8 +105,10 @@ Gathering: ConsoleMessages
 Gathering: AnchorElements
 Gathering: ImageElements
 Gathering: LinkElements
+Computing artifact: MainResource$k
 Gathering: MetaElements
 Gathering: ScriptElements
+Gathering: Scripts
 Gathering: IFrameElements
 Gathering: MainDocumentContent
 Gathering: GlobalListeners
@@ -117,7 +121,6 @@ Gathering: TagsBlockingFirstPaint
 Gathering: FontSize
 Gathering: EmbeddedContent
 Gathering: RobotsTxt
-Getting browser version
 Gathering: TapTargets
 Gathering: Accessibility
 Gathering: TraceElements
@@ -144,7 +147,7 @@ Navigating to http://127.0.0.1:8000/devtools/lighthouse/resources/lighthouse-bas
 Running pass methods
 Gathering in-page: ServiceWorker
 Gathering devtoolsLog & network records
-Computing artifact: NetworkRecords$N
+Computing artifact: NetworkRecords$J
 Running afterPass methods
 Gathering: ServiceWorker
 Disconnecting from browser...
@@ -186,7 +189,6 @@ Computing artifact: CumulativeLayoutShift$2
 Auditing: No browser errors logged to the console
 Computing artifact: JSBundles
 Auditing: Initial server response time was short
-Computing artifact: MainResource$g
 Auditing: Time to Interactive
 Computing artifact: Interactive$4
 Auditing: User Timing marks and measures
@@ -275,7 +277,7 @@ Auditing: `<input type="image">` elements have `[alt]` text
 Auditing: Form elements have associated labels
 Auditing: Links have a discernible name
 Auditing: Lists contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).
-Auditing: List items (`<li>`) are contained within `<ul>` or `<ol>` parent elements
+Auditing: List items (`<li>`) are contained within `<ul>`, `<ol>` or `<menu>` parent elements
 Auditing: The document does not use `<meta http-equiv="refresh">`
 Auditing: `[user-scalable="no"]` is not used in the `<meta name="viewport">` element and the `[maximum-scale]` attribute is not less than 5.
 Auditing: `<object>` elements have alternate text
@@ -338,6 +340,7 @@ Auditing: Document has a valid `rel=canonical`
 Auditing: Structured data is valid
 Auditing: No long tasks blocking ad-related network requests
 Computing artifact: LongTasks$2
+Computing artifact: PageDependencyGraph$a
 Auditing: Minimal render-blocking resources found
 Auditing: Ad request waterfall
 Auditing: First bid request time
@@ -373,7 +376,7 @@ Generating results...
 
 =============== Lighthouse Results ===============
 URL: http://127.0.0.1:8000/devtools/lighthouse/resources/lighthouse-basic.html
-Version: 9.6.1
+Version: 9.5.0
 ViewportDimensions: {
   "innerWidth": 980,
   "innerHeight": 1743,
