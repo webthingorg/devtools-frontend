@@ -11,7 +11,7 @@ Tests that navigation mode works correctly.
 [ ] Legacy navigation
 [x] Clear storage
 [x] Simulated throttling
-Generate report: enabled visible
+Analyze page load: enabled visible
 
 =============== Lighthouse Status Updates ===============
 Loading…
@@ -30,9 +30,9 @@ Cleaning origin data
 Cleaning browser cache
 Preparing network conditions
 Navigating to http://127.0.0.1:8000/devtools/lighthouse/resources/lighthouse-basic.html
-Computing artifact: NetworkRecords$N
+Computing artifact: NetworkRecords$J
 Get webapp installability errors
-Getting browser version
+Computing artifact: MainResource$k
 Collect stacks
 Computing artifact: ProcessedTrace$h
 Computing artifact: ProcessedNavigation$7
@@ -75,7 +75,6 @@ Computing artifact: CumulativeLayoutShift$2
 Auditing: No browser errors logged to the console
 Computing artifact: JSBundles
 Auditing: Initial server response time was short
-Computing artifact: MainResource$g
 Auditing: Time to Interactive
 Computing artifact: Interactive$4
 Auditing: User Timing marks and measures
@@ -164,7 +163,7 @@ Auditing: `<input type="image">` elements have `[alt]` text
 Auditing: Form elements have associated labels
 Auditing: Links have a discernible name
 Auditing: Lists contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).
-Auditing: List items (`<li>`) are contained within `<ul>` or `<ol>` parent elements
+Auditing: List items (`<li>`) are contained within `<ul>`, `<ol>` or `<menu>` parent elements
 Auditing: The document does not use `<meta http-equiv="refresh">`
 Auditing: `[user-scalable="no"]` is not used in the `<meta name="viewport">` element and the `[maximum-scale]` attribute is not less than 5.
 Auditing: `<object>` elements have alternate text
@@ -227,6 +226,7 @@ Auditing: Document has a valid `rel=canonical`
 Auditing: Structured data is valid
 Auditing: No long tasks blocking ad-related network requests
 Computing artifact: LongTasks$2
+Computing artifact: PageDependencyGraph$a
 Auditing: Minimal render-blocking resources found
 Auditing: Ad request waterfall
 Auditing: First bid request time
