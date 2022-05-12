@@ -375,9 +375,7 @@ describe('The Network Tab', async function() {
     await waitFor('.network-item-view');
   });
 
-  // This is currently skipped while we fix the alignment of requestId+networkId in the CDP
-  // events that apply to the main service worker request
-  it.skip('[crbug.com/1304795] shows the main service worker request as complete', async () => {
+  it('shows the main service worker request as complete', async () => {
     await navigateToNetworkTab('service-worker.html');
     const {target, frontend} = getBrowserAndPages();
     await target.waitForXPath('//div[@id="content" and text()="pong"]');
