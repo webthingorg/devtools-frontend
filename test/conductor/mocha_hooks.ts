@@ -72,23 +72,6 @@ export const mochaHooks = {
     // reasonably quickly (2 seconds by default).
     this.timeout(0);
     await preFileSetup(Number(process.env.testServerPort));
-
-    // Pause when running interactively in debug mode. This is mututally
-    // exclusive with parallel mode.
-    if (process.env['DEBUG_TEST']) {
-      console.log('Running in debug mode.');
-      console.log(' - Press enter to run the test suite.');
-      console.log(' - Press ctrl + c to quit.');
-
-      await new Promise<void>(resolve => {
-        const {stdin} = process;
-
-        stdin.on('data', () => {
-          stdin.pause();
-          resolve();
-        });
-      });
-    }
   },
   // In serial mode, run after all tests end, once only.
   // In parallel mode, run after all tests end, for each file.
@@ -128,6 +111,26 @@ export const mochaHooks = {
     // Sets the timeout higher for this hook only.
     this.timeout(10000);
     await resetPagesBetweenTests();
+
+    // Pause when running interactively in debug mode. This is mututally
+    // exclusive with parallel mode.
+    // We need to pause after `resetPagesBetweenTests`, otherwise the DevTools
+    // and target tab are not available to us to set breakpoints in.
+    if (process.env['DEBUG_TEST']) {
+      this.timeout(0);
+      console.log('Running in debug mode.');
+      console.log(' - Press enter to run the test.');
+      console.log(' - Press ctrl + c to quit.');
+
+      await new Promise<void>(resolve => {
+        const {stdin} = process;
+
+        stdin.on('data', () => {
+          stdin.pause();
+          resolve();
+        });
+      });
+    }
   },
   afterEach: async function(this: Mocha.Suite) {
     if (!SHOULD_GATHER_COVERAGE_INFORMATION) {
