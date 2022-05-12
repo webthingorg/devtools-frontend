@@ -104,6 +104,24 @@
       "parentUuid": "317f2fd1_8cdfe208",
       "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dec65b_18eaaea1",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-05-12T13:59:44Z",
+      "side": 1,
+      "message": "since the names are distinct I kept the independent messages (they are triggered by different code paths). I think it\u0027s okay to keep that here especially now that it\u0027s just one string with different fill ins.",
+      "parentUuid": "ace02025_bd866bad",
+      "revId": "911af3fe570654b7c22a75150fbbf9d490fbb988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
