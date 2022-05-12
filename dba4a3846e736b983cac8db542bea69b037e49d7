@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da269e2_0212a2f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-12T10:57:24Z",
+      "side": 1,
+      "message": "Danil, PTAL. This is just a POC. I\u0027m trying to pass info about the non-overridden headers to the network panel, so that we can distinguish between overridden and non-overridden headers there. Is this approach directionally ok?",
+      "revId": "dba4a3846e736b983cac8db542bea69b037e49d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
