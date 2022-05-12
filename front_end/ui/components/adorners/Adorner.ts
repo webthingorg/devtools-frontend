@@ -14,7 +14,6 @@ export interface AdornerData {
   name: string;
   content: HTMLElement;
 }
-
 export class Adorner extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-adorner`;
   name = '';
@@ -30,6 +29,7 @@ export class Adorner extends HTMLElement {
     data.content.slot = 'content';
     this.#content?.remove();
     this.append(data.content);
+
     this.#content = data.content;
     this.#render();
   }
@@ -110,7 +110,8 @@ export class Adorner extends HTMLElement {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
-      <slot name="content"></slot>
+      <slot name="content">
+      </slot>
     `, this.#shadow, {
       host: this,
     });
