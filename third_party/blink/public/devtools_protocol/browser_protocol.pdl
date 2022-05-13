@@ -697,9 +697,11 @@ experimental domain Audits
   type AttributionReportingIssueType extends string
     enum
       PermissionPolicyDisabled
+      InvalidAttributionSourceEventId
       AttributionSourceUntrustworthyOrigin
       AttributionUntrustworthyOrigin
-      InvalidHeader
+      InvalidAttributionSourceExpiry
+      InvalidAttributionSourcePriority
 
   # Details for issues around "Attribution Reporting API" usage.
   # Explainer: https://github.com/WICG/conversion-measurement-api
@@ -760,7 +762,10 @@ experimental domain Audits
       GetUserMediaInsecureOrigin
       HostCandidateAttributeGetter
       InsecurePrivateNetworkSubresourceRequest
+      LegacyConstraintGoogCpuOveruseDetection
       LegacyConstraintGoogIPv6
+      LegacyConstraintGoogScreencastMinBitrate
+      LegacyConstraintGoogSuspendBelowMinBitrate
       LocalCSSFileExtensionRejected
       MediaElementAudioSourceNode
       MediaSourceAbortRemove
@@ -786,9 +791,11 @@ experimental domain Audits
       RTCConstraintEnableDtlsSrtpFalse
       RTCConstraintEnableDtlsSrtpTrue
       RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics
+      RTCPeerConnectionLegacyCreateWithMediaConstraints
       RTCPeerConnectionSdpSemanticsPlanB
       RtcpMuxPolicyNegotiate
       RTPDataChannel
+      SelectionAddRangeIntersect
       SharedArrayBufferConstructedWithoutIsolation
       TextToSpeech_DisallowedByAutoplay
       V8SharedArrayBufferConstructedInExtensionWithoutIsolation
@@ -2274,6 +2281,7 @@ domain DOM
       # Whether the node is SVG.
       optional boolean isSVG
       optional CompatibilityMode compatibilityMode
+      optional BackendNode assignedSlot
 
   # A structure holding an RGBA color.
   type RGBA extends object
@@ -3393,15 +3401,11 @@ experimental domain DOMSnapshot
 # Query and modify DOM storage.
 experimental domain DOMStorage
 
-  type SerializedStorageKey extends string
-
   # DOM Storage identifier.
   type StorageId extends object
     properties
       # Security origin for the storage.
-      optional string securityOrigin
-      # Represents a key by which DOM Storage keys its CachedStorageAreas
-      optional SerializedStorageKey storageKey
+      string securityOrigin
       # Whether the storage is local storage (not session storage).
       boolean isLocalStorage
 
@@ -3434,12 +3438,6 @@ experimental domain DOMStorage
       StorageId storageId
       string key
       string value
-
-  command getStorageKeyForFrame
-    parameters
-      Page.FrameId frameId
-    returns
-      SerializedStorageKey storageKey
 
   event domStorageItemAdded
     parameters
@@ -8319,38 +8317,6 @@ domain Page
   type PrerenderFinalStatus extends string
     enum
       Activated
-      Destroyed
-      LowEndDevice
-      CrossOriginRedirect
-      CrossOriginNavigation
-      InvalidSchemeRedirect
-      InvalidSchemeNavigation
-      InProgressNavigation
-      NavigationRequestBlockedByCsp
-      MainFrameNavigation
-      MojoBinderPolicy
-      RendererProcessCrashed
-      RendererProcessKilled
-      Download
-      TriggerDestroyed
-      NavigationNotCommitted
-      NavigationBadHttpStatus
-      ClientCertRequested
-      NavigationRequestNetworkError
-      MaxNumOfRunningPrerendersExceeded
-      CancelAllHostsForTesting
-      DidFailLoad
-      Stop
-      SslCertificateError
-      LoginAuthRequested
-      UaChangeRequiresReload
-      BlockedByClient
-      AudioOutputDeviceRequested
-      MixedContent
-      TriggerBackgrounded
-      EmbedderTriggeredAndSameOriginRedirected
-      EmbedderTriggeredAndCrossOriginRedirected
-      EmbedderTriggeredAndDestroyed
 
   # Fired when a prerender attempt is completed.
   event prerenderAttemptCompleted
@@ -8838,8 +8804,6 @@ experimental domain ServiceWorker
 experimental domain Storage
   depends on Browser
   depends on Network
-
-  type SerializedStorageKey extends string
 
   # Enum of possible storage types.
   type StorageType extends string

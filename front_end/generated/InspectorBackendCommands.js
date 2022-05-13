@@ -263,9 +263,11 @@ export function registerCommands(inspectorBackend) {
       {KHttpError: 'kHttpError', KUnavailableOffline: 'kUnavailableOffline', KDigitalAssetLinks: 'kDigitalAssetLinks'});
   inspectorBackend.registerEnum('Audits.AttributionReportingIssueType', {
     PermissionPolicyDisabled: 'PermissionPolicyDisabled',
+    InvalidAttributionSourceEventId: 'InvalidAttributionSourceEventId',
     AttributionSourceUntrustworthyOrigin: 'AttributionSourceUntrustworthyOrigin',
     AttributionUntrustworthyOrigin: 'AttributionUntrustworthyOrigin',
-    InvalidHeader: 'InvalidHeader'
+    InvalidAttributionSourceExpiry: 'InvalidAttributionSourceExpiry',
+    InvalidAttributionSourcePriority: 'InvalidAttributionSourcePriority'
   });
   inspectorBackend.registerEnum(
       'Audits.GenericIssueErrorType', {CrossOriginPortalPostMessageError: 'CrossOriginPortalPostMessageError'});
@@ -289,7 +291,10 @@ export function registerCommands(inspectorBackend) {
     GetUserMediaInsecureOrigin: 'GetUserMediaInsecureOrigin',
     HostCandidateAttributeGetter: 'HostCandidateAttributeGetter',
     InsecurePrivateNetworkSubresourceRequest: 'InsecurePrivateNetworkSubresourceRequest',
+    LegacyConstraintGoogCpuOveruseDetection: 'LegacyConstraintGoogCpuOveruseDetection',
     LegacyConstraintGoogIPv6: 'LegacyConstraintGoogIPv6',
+    LegacyConstraintGoogScreencastMinBitrate: 'LegacyConstraintGoogScreencastMinBitrate',
+    LegacyConstraintGoogSuspendBelowMinBitrate: 'LegacyConstraintGoogSuspendBelowMinBitrate',
     LocalCSSFileExtensionRejected: 'LocalCSSFileExtensionRejected',
     MediaElementAudioSourceNode: 'MediaElementAudioSourceNode',
     MediaSourceAbortRemove: 'MediaSourceAbortRemove',
@@ -316,9 +321,11 @@ export function registerCommands(inspectorBackend) {
     RTCConstraintEnableDtlsSrtpTrue: 'RTCConstraintEnableDtlsSrtpTrue',
     RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics:
         'RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics',
+    RTCPeerConnectionLegacyCreateWithMediaConstraints: 'RTCPeerConnectionLegacyCreateWithMediaConstraints',
     RTCPeerConnectionSdpSemanticsPlanB: 'RTCPeerConnectionSdpSemanticsPlanB',
     RtcpMuxPolicyNegotiate: 'RtcpMuxPolicyNegotiate',
     RTPDataChannel: 'RTPDataChannel',
+    SelectionAddRangeIntersect: 'SelectionAddRangeIntersect',
     SharedArrayBufferConstructedWithoutIsolation: 'SharedArrayBufferConstructedWithoutIsolation',
     TextToSpeech_DisallowedByAutoplay: 'TextToSpeech_DisallowedByAutoplay',
     V8SharedArrayBufferConstructedInExtensionWithoutIsolation:
@@ -1063,8 +1070,6 @@ export function registerCommands(inspectorBackend) {
         {'name': 'key', 'type': 'string', 'optional': false}, {'name': 'value', 'type': 'string', 'optional': false}
       ],
       []);
-  inspectorBackend.registerCommand(
-      'DOMStorage.getStorageKeyForFrame', [{'name': 'frameId', 'type': 'string', 'optional': false}], ['storageKey']);
 
   // Database.
   inspectorBackend.registerEvent('Database.addDatabase', ['database']);
@@ -2342,41 +2347,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Page.BackForwardCacheNotRestoredReasonType',
       {SupportPending: 'SupportPending', PageSupportNeeded: 'PageSupportNeeded', Circumstantial: 'Circumstantial'});
-  inspectorBackend.registerEnum('Page.PrerenderFinalStatus', {
-    Activated: 'Activated',
-    Destroyed: 'Destroyed',
-    LowEndDevice: 'LowEndDevice',
-    CrossOriginRedirect: 'CrossOriginRedirect',
-    CrossOriginNavigation: 'CrossOriginNavigation',
-    InvalidSchemeRedirect: 'InvalidSchemeRedirect',
-    InvalidSchemeNavigation: 'InvalidSchemeNavigation',
-    InProgressNavigation: 'InProgressNavigation',
-    NavigationRequestBlockedByCsp: 'NavigationRequestBlockedByCsp',
-    MainFrameNavigation: 'MainFrameNavigation',
-    MojoBinderPolicy: 'MojoBinderPolicy',
-    RendererProcessCrashed: 'RendererProcessCrashed',
-    RendererProcessKilled: 'RendererProcessKilled',
-    Download: 'Download',
-    TriggerDestroyed: 'TriggerDestroyed',
-    NavigationNotCommitted: 'NavigationNotCommitted',
-    NavigationBadHttpStatus: 'NavigationBadHttpStatus',
-    ClientCertRequested: 'ClientCertRequested',
-    NavigationRequestNetworkError: 'NavigationRequestNetworkError',
-    MaxNumOfRunningPrerendersExceeded: 'MaxNumOfRunningPrerendersExceeded',
-    CancelAllHostsForTesting: 'CancelAllHostsForTesting',
-    DidFailLoad: 'DidFailLoad',
-    Stop: 'Stop',
-    SslCertificateError: 'SslCertificateError',
-    LoginAuthRequested: 'LoginAuthRequested',
-    UaChangeRequiresReload: 'UaChangeRequiresReload',
-    BlockedByClient: 'BlockedByClient',
-    AudioOutputDeviceRequested: 'AudioOutputDeviceRequested',
-    MixedContent: 'MixedContent',
-    TriggerBackgrounded: 'TriggerBackgrounded',
-    EmbedderTriggeredAndSameOriginRedirected: 'EmbedderTriggeredAndSameOriginRedirected',
-    EmbedderTriggeredAndCrossOriginRedirected: 'EmbedderTriggeredAndCrossOriginRedirected',
-    EmbedderTriggeredAndDestroyed: 'EmbedderTriggeredAndDestroyed'
-  });
+  inspectorBackend.registerEnum('Page.PrerenderFinalStatus', {Activated: 'Activated'});
   inspectorBackend.registerEvent('Page.domContentEventFired', ['timestamp']);
   inspectorBackend.registerEnum(
       'Page.FileChooserOpenedEventMode', {SelectSingle: 'selectSingle', SelectMultiple: 'selectMultiple'});

@@ -1464,10 +1464,6 @@ export namespace ProtocolMapping {
     'DOMStorage.removeDOMStorageItem':
         {paramsType: [Protocol.DOMStorage.RemoveDOMStorageItemRequest]; returnType: void;};
     'DOMStorage.setDOMStorageItem': {paramsType: [Protocol.DOMStorage.SetDOMStorageItemRequest]; returnType: void;};
-    'DOMStorage.getStorageKeyForFrame': {
-      paramsType: [Protocol.DOMStorage.GetStorageKeyForFrameRequest];
-      returnType: Protocol.DOMStorage.GetStorageKeyForFrameResponse;
-    };
     /**
      * Disables database tracking, prevents database events from being sent to the client.
      */
