@@ -111,6 +111,11 @@ export const editorTheme = CM.EditorView.theme({
     color: 'var(--color-text-secondary)',
   },
 
+  '.cm-completionDetail': {
+    color: 'var(--color-text-secondary)',
+    float: 'right',
+  },
+
   '.cm-tooltip': {
     boxShadow: 'var(--drop-shadow)',
     backgroundColor: 'var(--color-background-elevation-1)',

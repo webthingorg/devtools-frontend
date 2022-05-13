@@ -200,6 +200,21 @@ export async function javascriptCompletionSource(cx: CodeMirror.CompletionContex
     }
     result = await completeProperties(
         cx.state.sliceDoc(objectExpr.from, objectExpr.to), quote, cx.state.sliceDoc(cx.pos, cx.pos + 1) === ']');
+    const options = [];
+    const prefix = query.from === undefined ? '' : cx.state.sliceDoc(query.from, cx.pos);
+    let currentDetail = undefined;
+    for (const completion of result.completions) {
+      if (completion.label.startsWith(prefix)) {
+        const detail = completion.detail !== currentDetail ? completion.detail : undefined;
+        options.push({...completion, detail});
+        currentDetail = completion.detail;
+      }
+    }
+    return {
+      from: query.from ?? cx.pos,
+      options,
+      filter: false,
+    };
   } else if (query.type === QueryType.PotentiallyRetrievingFromMap) {
     const potentialMapObject = query.relatedNode;
     if (!potentialMapObject) {
@@ -340,8 +355,6 @@ async function completeProperties(
   return result;
 }
 
-const prototypePropertyPenalty = -80;
-
 async function completePropertiesInner(
     expression: string,
     context: SDK.RuntimeModel.ExecutionContext,
@@ -370,32 +383,44 @@ async function completePropertiesInner(
   if (toPrototype) {
     object = await evaluateExpression(context, toPrototype + '.prototype', 'completion');
   }
+  const receiver = object;
 
   const functionType = expression === 'globalThis' ? 'function' : 'method';
   const otherType = expression === 'globalThis' ? 'variable' : 'property';
-  if (object && (object.type === 'object' || object.type === 'function')) {
-    const properties = await object.getAllProperties(
-        /* accessorPropertiesOnly */ false, /* generatePreview */ false, /* nonIndexedPropertiesOnly */ true);
-    const isFunction = object.type === 'function';
-    for (const prop of properties.properties || []) {
-      if (!prop.symbol && !(isFunction && (prop.name === 'arguments' || prop.name === 'caller')) &&
-          (!prop.private || expression === 'this') && (quoted || SPAN_IDENT.test(prop.name))) {
-        const label =
-            quoted ? quoted + prop.name.replaceAll('\\', '\\\\').replaceAll(quoted, '\\' + quoted) + quoted : prop.name;
-        const completion: CodeMirror.Completion = {
-          label,
-          type: prop.value?.type === 'function' ? functionType : otherType,
-        };
-        if (quoted && !hasBracket) {
-          completion.apply = label + ']';
+
+  const objectProperties = [];
+  while (object && (object.type === 'object' || object.type === 'function')) {
+    const {properties, internalProperties} =
+        await object.getOwnProperties(/* generatePreview */ false, /* nonIndexedPropertiesOnly */ true);
+    if (properties) {
+      objectProperties.push({object, properties});
+    }
+    object = internalProperties?.find(p => p.name === '[[Prototype]]')?.value ?? null;
+  }
+
+  for (const {object, properties} of objectProperties) {
+    const detail = (object !== receiver && object.className) || undefined;
+    properties.sort((a, b) => a.name.localeCompare(b.name));
+    for (const prop of properties) {
+      if (prop.symbol) {
+        continue;
+      } else if (prop.private) {
+        if (expression !== 'this' || quoted) {
+          continue;
         }
-        if (!prop.isOwn) {
-          completion.boost = prototypePropertyPenalty;
+      } else {
+        if (!quoted && !SPAN_IDENT.test(prop.name)) {
+          continue;
         }
-        result.add(completion);
       }
+      const label =
+          quoted ? quoted + prop.name.replaceAll('\\', '\\\\').replaceAll(quoted, '\\' + quoted) + quoted : prop.name;
+      const apply = (quoted && !hasBracket) ? `${label}]` : label;
+      const type = prop.value?.type === 'function' ? functionType : otherType;
+      result.add({label, apply, type, detail});
     }
   }
+
   context.runtimeModel.releaseObjectGroup('completion');
   return result;
 }
