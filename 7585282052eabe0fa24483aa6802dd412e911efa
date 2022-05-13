@@ -69,6 +69,24 @@
       "parentUuid": "b52495c1_5e1a55b6",
       "revId": "7585282052eabe0fa24483aa6802dd412e911efa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4848e1_ba185c3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-05-13T11:50:20Z",
+      "side": 1,
+      "message": "CL to disable test merged",
+      "parentUuid": "9a9c71d3_31c6bf73",
+      "revId": "7585282052eabe0fa24483aa6802dd412e911efa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
