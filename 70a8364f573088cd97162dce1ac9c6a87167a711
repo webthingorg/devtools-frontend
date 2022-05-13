@@ -181,6 +181,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f724e2b2_a9905608",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-13T07:54:24Z",
+      "side": 1,
+      "message": "Done, will adjust enums.xml separately.",
+      "parentUuid": "a8350385_ae213ef2",
+      "range": {
+        "startLine": 590,
+        "startChar": 3,
+        "endLine": 590,
+        "endChar": 44
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b90551ca_1f9294ed",
@@ -242,6 +266,30 @@
       "side": 1,
       "message": "Sorry, yes! I was reading the diff the wrong way around. I guess I should stop working for today :)",
       "parentUuid": "b86962f0_1917e268",
+      "range": {
+        "startLine": 711,
+        "startChar": 10,
+        "endLine": 711,
+        "endChar": 33
+      },
+      "revId": "70a8364f573088cd97162dce1ac9c6a87167a711",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "615873e0_e60b37f6",
+        "filename": "v8/include/js_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-13T07:54:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43a4b14_3a10548f",
       "range": {
         "startLine": 711,
         "startChar": 10,
