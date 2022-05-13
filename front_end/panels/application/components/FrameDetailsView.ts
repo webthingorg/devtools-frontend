@@ -240,6 +240,10 @@ const UIStrings = {
   *@description Label for a button which when clicked causes some information to be refreshed/updated.
   */
   refresh: 'Refresh',
+  /**
+  *@description Label for subtitle of frame details view
+  */
+  prerenderingStatus: 'Prerendering Status',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -253,6 +257,8 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     this.contentElement.classList.add('overflow-auto');
     this.contentElement.appendChild(this.#reportView);
     this.update();
+    frame.resourceTreeModel().addEventListener(
+        SDK.ResourceTreeModel.Events.PrerenderingStatusUpdated, this.update, this);
   }
 
   async doUpdate(): Promise<void> {
@@ -763,6 +769,11 @@ export class FrameDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
         <div class="text-ellipsis" title=${this.#frame.id}>${this.#frame.id}</div>
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.prerenderingStatus)}</${
+        ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        <div class="text-ellipsis" title=${this.#frame.prerenderFinalStatus}>${this.#frame.prerenderFinalStatus}</div>
       </${ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
