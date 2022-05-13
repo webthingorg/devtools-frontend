@@ -69,12 +69,24 @@ const UIStrings = {
   crossOriginAccessBasedOnDocumentDomain:
       'Relaxing the same-origin policy by setting `document.domain` is deprecated, and will be disabled by default. This deprecation warning is for a cross-origin access that was enabled by setting `document.domain`.',
   /**
-   *@description TODO(crbug.com/1318850): Description needed for translation
+   *@description `window.alert` is a JavaScript API that pages can call to show
+   *    a popup box to the user. This message is shown when this API is called
+   *    from a document whose URL origin is different from the main frame's URL
+   *    origin. A URL's origin is roughly the part of the URL before the path,
+   *    i.e. https://www.google.com/users/index.html has the origin
+   *    https://www.google.com. This works from a cross-origin iframe today but
+   *    will eventually require an iframe to be same-origin to the main frame.
    */
   crossOriginWindowAlert:
       'Triggering `window.alert` from cross origin iframes has been deprecated and will be removed in the future.',
   /**
-   *@description TODO(crbug.com/1318851): Description needed for translation
+   *@description `window.confirm` is a JavaScript API that pages can call to show
+   *    a popup box to the user. This message is shown when this API is called
+   *    from a document whose URL origin is different from the main frame's URL
+   *    origin. A URL's origin is roughly the part of the URL before the path,
+   *    i.e. https://www.google.com/users/index.html has the origin
+   *    https://www.google.com. This works from a cross-origin iframe today but
+   *    will eventually require an iframe to be same-origin to the main frame.
    */
   crossOriginWindowConfirm:
       'Triggering `window.confirm` from cross origin iframes has been deprecated and will be removed in the future.',
