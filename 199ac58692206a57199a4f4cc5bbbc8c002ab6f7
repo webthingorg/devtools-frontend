@@ -16,6 +16,23 @@
       "message": "Simon, please take a look.\n\nThe only manual change is on front_end/core/sdk/WebAuthnModel.ts\n\nAll other changes were done by running:\n\n```\nscripts/deps/roll_deps.py ~/Development/chromium/src/ .\nscripts/deps/generate_protocol_resources.py\ngit cl presubmit\n```\n\n(please advise if this is not SOP).",
       "revId": "199ac58692206a57199a4f4cc5bbbc8c002ab6f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72dda3bc_5df905d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-05-13T21:37:15Z",
+      "side": 1,
+      "message": "huh, the process that syncs the js metadata removed the data for Array.from which is breaking a unittest. I have no idea what\u0027s going on here -- who should I ask about it?",
+      "revId": "199ac58692206a57199a4f4cc5bbbc8c002ab6f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
