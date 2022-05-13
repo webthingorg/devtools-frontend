@@ -29,59 +29,111 @@ export class Identifier {
   }
 }
 
-export const scopeIdentifiers = async function(scope: SDK.DebuggerModel.ScopeChainEntry): Promise<Identifier[]> {
-  if (scope.type() === Protocol.Debugger.ScopeType.Global) {
-    return [];
+const computeScopeTree = async function(functionScope: SDK.DebuggerModel.ScopeChainEntry): Promise<{
+  scopeTree: Formatter.FormatterWorkerPool.ScopeTreeNode, text: TextUtils.Text.Text, slide: number,
+}|null> {
+  const functionStartLocation = functionScope.startLocation();
+  const functionEndLocation = functionScope.endLocation();
+  if (!functionStartLocation || !functionEndLocation) {
+    return null;
   }
-  const startLocation = scope.startLocation();
-  const endLocation = scope.endLocation();
-  if (!startLocation || !endLocation) {
-    return [];
-  }
-  const script = startLocation.script();
-  if (!script || !script.sourceMapURL || script !== endLocation.script()) {
-    return [];
+  const script = functionStartLocation.script();
+  if (!script || !script.sourceMapURL || script !== functionEndLocation.script()) {
+    return null;
   }
   const {content} = await script.requestContent();
   if (!content) {
-    return [];
+    return null;
   }
 
   const text = new TextUtils.Text.Text(content);
   const scopeRange = new TextUtils.TextRange.TextRange(
-      startLocation.lineNumber, startLocation.columnNumber, endLocation.lineNumber, endLocation.columnNumber);
+      functionStartLocation.lineNumber, functionStartLocation.columnNumber, functionEndLocation.lineNumber,
+      functionEndLocation.columnNumber);
   const scopeText = text.extract(scopeRange);
   const scopeStart = text.toSourceRange(scopeRange).offset;
   const prefix = 'function fui';
-  const identifiers =
-      await Formatter.FormatterWorkerPool.formatterWorkerPool().javaScriptIdentifiers(prefix + scopeText);
-  const result = [];
-  const cursor = new TextUtils.TextCursor.TextCursor(text.lineEndings());
-  for (const id of identifiers) {
-    if (id.offset < prefix.length) {
-      continue;
-    }
-    const start = scopeStart + id.offset - prefix.length;
-    cursor.resetTo(start);
-    result.push(new Identifier(id.name, cursor.lineNumber(), cursor.columnNumber()));
-  }
-  return result;
-};
-
-export const resolveScopeChain =
-    async function(callFrame: SDK.DebuggerModel.CallFrame|null): Promise<SDK.DebuggerModel.ScopeChainEntry[]|null> {
-  if (!callFrame) {
+  const scopeTree = await Formatter.FormatterWorkerPool.formatterWorkerPool().javaScriptScopeTree(prefix + scopeText);
+  if (!scopeTree) {
     return null;
   }
-  const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
-  if (pluginManager) {
-    const scopeChain = await pluginManager.resolveScopeChain(callFrame);
-    if (scopeChain) {
-      return scopeChain;
-    }
-  }
-  return callFrame.scopeChain();
+  return {scopeTree, text, slide: scopeStart - prefix.length};
 };
+
+export const scopeIdentifiers =
+    async function(functionScope: SDK.DebuggerModel.ScopeChainEntry|null, scope: SDK.DebuggerModel.ScopeChainEntry):
+        Promise<Identifier[]> {
+          if (!functionScope) {
+            return [];
+          }
+
+          const startLocation = scope.startLocation();
+          const endLocation = scope.endLocation();
+          if (!startLocation || !endLocation) {
+            return [];
+          }
+
+          // Parse the function scope to get the scope tree.
+          const scopeTreeAndStart = await computeScopeTree(functionScope);
+          if (!scopeTreeAndStart) {
+            return [];
+          }
+          const {scopeTree, text, slide} = scopeTreeAndStart;
+
+          // Compute the offset within the scope tree coordinate space.
+          const scopeOffsets = {
+            start: text.offsetFromPosition(startLocation.lineNumber, startLocation.columnNumber) - slide,
+            end: text.offsetFromPosition(endLocation.lineNumber, endLocation.columnNumber) - slide,
+          };
+
+          if (!contains(scopeTree, scopeOffsets)) {
+            return [];
+          }
+
+          // Find the corresponding scope in the scope tree.
+          let containingScope = scopeTree;
+          while (true) {
+            let childFound = false;
+            for (const child of containingScope.children) {
+              if (contains(child, scopeOffsets)) {
+                // We found a nested containing scope, continue with search there.
+                containingScope = child;
+                childFound = true;
+                break;
+              }
+              if (!contains(scopeOffsets, child)) {
+                // The scopes are not properly nested. This should not happen, bail out.
+                return [];
+              }
+            }
+            if (!childFound) {
+              // We found the deepest scope in the tree that contains our scope chain entry.
+              break;
+            }
+          }
+
+          // Now we have containing scope. Collect all variables and return the info about them.
+          const result = [];
+          const cursor = new TextUtils.TextCursor.TextCursor(text.lineEndings());
+          for (const variable of containingScope.variables) {
+            // Skip the fixed-kind variable (i.e., 'this' or 'arguments') if we only found their "definition"
+            // without any uses.
+            if (variable.kind === Formatter.FormatterWorkerPool.DefinitionKind.Fixed && variable.offsets.length <= 1) {
+              continue;
+            }
+
+            for (const offset of variable.offsets) {
+              const start = offset + slide;
+              cursor.resetTo(start);
+              result.push(new Identifier(variable.name, cursor.lineNumber(), cursor.columnNumber()));
+            }
+          }
+          return result;
+
+          function contains(scope: {start: number, end: number}, candidate: {start: number, end: number}): boolean {
+            return (scope.start <= candidate.start) && (scope.end >= candidate.end);
+          }
+        };
 
 export const resolveScope = async(scope: SDK.DebuggerModel.ScopeChainEntry): Promise<Map<string, string>> => {
   let cachedScopeMap = scopeToCachedIdentifiersMap.get(scope);
@@ -100,7 +152,8 @@ export const resolveScope = async(scope: SDK.DebuggerModel.ScopeChainEntry): Pro
         // Extract as much as possible from SourceMap and resolve
         // missing identifier names from SourceMap ranges.
         const promises = [];
-        for (const id of await scopeIdentifiers(scope)) {
+        const functionScope = findFunctionScope();
+        for (const id of await scopeIdentifiers(functionScope, scope)) {
           const entry = sourceMap.findEntry(id.lineNumber, id.columnNumber);
           if (entry && entry.name) {
             namesMapping.set(id.name, entry.name);
@@ -152,6 +205,39 @@ export const resolveScope = async(scope: SDK.DebuggerModel.ScopeChainEntry): Pro
     const originalIdentifier = text.extract(sourceTextRange).trim();
     return /[a-zA-Z0-9_$]+/.test(originalIdentifier) ? originalIdentifier : null;
   }
+
+  function findFunctionScope(): SDK.DebuggerModel.ScopeChainEntry|null {
+    // First find the scope in the callframe's scope chain and then find the containing function scope (closure or local).
+    const scopeChain = scope.callFrame().scopeChain();
+    let scopeIndex = 0;
+    for (scopeIndex; scopeIndex < scopeChain.length; scopeIndex++) {
+      if (scopeChain[scopeIndex] === scope) {
+        break;
+      }
+    }
+    for (scopeIndex; scopeIndex < scopeChain.length; scopeIndex++) {
+      const kind = scopeChain[scopeIndex].type();
+      if (kind === Protocol.Debugger.ScopeType.Local || kind === Protocol.Debugger.ScopeType.Closure) {
+        break;
+      }
+    }
+    return scopeIndex === scopeChain.length ? null : scopeChain[scopeIndex];
+  }
+};
+
+export const resolveScopeChain =
+    async function(callFrame: SDK.DebuggerModel.CallFrame|null): Promise<SDK.DebuggerModel.ScopeChainEntry[]|null> {
+  if (!callFrame) {
+    return null;
+  }
+  const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
+  if (pluginManager) {
+    const scopeChain = await pluginManager.resolveScopeChain(callFrame);
+    if (scopeChain) {
+      return scopeChain;
+    }
+  }
+  return callFrame.scopeChain();
 };
 
 export const allVariablesInCallFrame = async(callFrame: SDK.DebuggerModel.CallFrame): Promise<Map<string, string>> => {
