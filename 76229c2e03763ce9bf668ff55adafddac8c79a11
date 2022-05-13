@@ -16,6 +16,23 @@
       "message": "Could you take a look please?",
       "revId": "76229c2e03763ce9bf668ff55adafddac8c79a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b4a3ed_48da9b77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-13T10:54:42Z",
+      "side": 1,
+      "message": "Nice!\n\nShould there be a comment or some kind of warning as a reminder to keep this in sync with other parts of DevTools?",
+      "revId": "76229c2e03763ce9bf668ff55adafddac8c79a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
