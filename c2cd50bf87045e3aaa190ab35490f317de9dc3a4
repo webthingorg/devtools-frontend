@@ -213,6 +213,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4090e2cf_b022725c",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-13T20:03:09Z",
+      "side": 1,
+      "message": "Let\u0027s try getting rid of the \"!important\" by adding specificity to the CSS selector",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf530773_a3c923cf",
         "filename": "package.json",
         "patchSetId": 6
