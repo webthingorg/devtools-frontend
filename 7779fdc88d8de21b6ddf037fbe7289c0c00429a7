@@ -16,6 +16,46 @@
       "message": "PTAL, Thanks a lot for helping with the protocol and roll.",
       "revId": "7779fdc88d8de21b6ddf037fbe7289c0c00429a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d110f110_bcd3fbd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-13T08:17:01Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "7779fdc88d8de21b6ddf037fbe7289c0c00429a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2c6853_81fef6c2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-13T08:17:01Z",
+      "side": 1,
+      "message": "Note that changing the name of the experiment means that people who had the old experiment enabled previously, will have to re-enable it again.\n\nThe UMA numbers for this experiment are very low, so I think it\u0027s fine, but just something to keep in mind.",
+      "range": {
+        "startLine": 295,
+        "startChar": 9,
+        "endLine": 295,
+        "endChar": 50
+      },
+      "revId": "7779fdc88d8de21b6ddf037fbe7289c0c00429a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
