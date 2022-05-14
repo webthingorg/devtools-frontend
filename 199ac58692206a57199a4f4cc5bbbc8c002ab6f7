@@ -33,6 +33,24 @@
       "message": "huh, the process that syncs the js metadata removed the data for Array.from which is breaking a unittest. I have no idea what\u0027s going on here -- who should I ask about it?",
       "revId": "199ac58692206a57199a4f4cc5bbbc8c002ab6f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba6aaea_72de2cf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-14T08:49:15Z",
+      "side": 1,
+      "message": "Yes we are aware of this and someone on the team is looking into it. For now, could you exclude the changes to `NativeFunction.js` from the CL?\n\nThe rest of the CL lgtm",
+      "parentUuid": "72dda3bc_5df905d3",
+      "revId": "199ac58692206a57199a4f4cc5bbbc8c002ab6f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
