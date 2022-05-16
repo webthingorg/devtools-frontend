@@ -138,11 +138,6 @@ const UIStrings = {
   localCSSFileExtensionRejected:
       'CSS cannot be loaded from `file:` URLs unless they end in a `.css` file extension.',
   /**
-   * @description TODO(crbug.com/1320344): Description needed for translation
-   */
-  mediaElementAudioSourceNode:
-      'Creating a `MediaElementAudioSourceNode` on an `OfflineAudioContext` is deprecated and will be removed.',
-  /**
    * @description TODO(crbug.com/1320345): Description needed for translation
    */
   mediaSourceAbortRemove:
