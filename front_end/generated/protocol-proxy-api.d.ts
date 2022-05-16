@@ -1475,6 +1475,9 @@ declare namespace ProtocolProxyApi {
     invoke_setDisabledImageTypes(params: Protocol.Emulation.SetDisabledImageTypesRequest):
         Promise<Protocol.ProtocolResponseWithError>;
 
+    invoke_setHardwareConcurrencyOverride(params: Protocol.Emulation.SetHardwareConcurrencyOverrideRequest):
+        Promise<Protocol.ProtocolResponseWithError>;
+
     /**
      * Allows overriding user agent with the given string.
      */
