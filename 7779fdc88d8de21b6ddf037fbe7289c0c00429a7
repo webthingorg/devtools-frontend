@@ -56,6 +56,30 @@
       },
       "revId": "7779fdc88d8de21b6ddf037fbe7289c0c00429a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9160a90_3ea0c96d",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2022-05-16T09:19:39Z",
+      "side": 1,
+      "message": "Thanks, I think that\u0027s fine.",
+      "parentUuid": "0a2c6853_81fef6c2",
+      "range": {
+        "startLine": 295,
+        "startChar": 9,
+        "endLine": 295,
+        "endChar": 50
+      },
+      "revId": "7779fdc88d8de21b6ddf037fbe7289c0c00429a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
