@@ -89,8 +89,18 @@ export namespace Chrome {
       getHAR(callback: (harLog: object) => unknown): void;
     }
 
+    export interface Recording {
+      readonly recordingId: unknown;
+    }
+
+    export interface Performance {
+      onRecordingStarted: EventSink<(recording: Recording) => unknown>;
+      onRecordingStopped: EventSink<(recording: Recording) => unknown>;
+    }
+
     export interface DevToolsAPI {
       network: Network;
+      performance: Performance;
       panels: Panels;
       inspectedWindow: InspectedWindow;
       languageServices: LanguageExtensions;
