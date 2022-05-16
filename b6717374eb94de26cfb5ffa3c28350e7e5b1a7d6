@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3482ecd_2d6a4f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-16T06:59:15Z",
+      "side": 1,
+      "message": "LGTM but please wait for Johan’s review :)",
+      "revId": "b6717374eb94de26cfb5ffa3c28350e7e5b1a7d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
