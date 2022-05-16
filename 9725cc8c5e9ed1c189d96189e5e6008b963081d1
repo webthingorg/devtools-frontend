@@ -16,6 +16,40 @@
       "message": "+MSFT Reviewer\n\nHey, Brandon.  PTAL - thanks!",
       "revId": "9725cc8c5e9ed1c189d96189e5e6008b963081d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79dbf9ef_387a94fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-05-16T22:46:29Z",
+      "side": 1,
+      "message": "LGTM with one suggestion. Thanks!",
+      "revId": "9725cc8c5e9ed1c189d96189e5e6008b963081d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5ea053d_be198b9f",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-05-16T22:46:29Z",
+      "side": 1,
+      "message": "Nit: I think `.bind(null)` can be omitted now. Binding the `this` parameter has no effect on lambdas. Same below.",
+      "revId": "9725cc8c5e9ed1c189d96189e5e6008b963081d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
