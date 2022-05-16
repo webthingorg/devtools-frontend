@@ -68,6 +68,7 @@ devtools_svg_sources = [
   "flex-direction-icon.svg",
   "flex-nowrap-icon.svg",
   "flex-wrap-icon.svg",
+  "green-ball-icon.svg",
   "help_outline.svg",
   "ic_changes.svg",
   "ic_checkmark_16x16.svg",
@@ -131,6 +132,7 @@ devtools_svg_sources = [
   "node_search_icon.svg",
   "plus_icon.svg",
   "preview_feature_video_thumbnail.svg",
+  "red-ball-icon.svg",
   "refresh_12x12_icon.svg",
   "resizeDiagonal.svg",
   "resizeHorizontal.svg",
@@ -147,6 +149,7 @@ devtools_svg_sources = [
   "triangle-collapsed.svg",
   "triangle-expanded.svg",
   "warning_icon.svg",
+  "yellow-ball-icon.svg",
 ]
 
 devtools_src_svg_files = []

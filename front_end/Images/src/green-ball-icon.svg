@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="11"
+   height="11"
+   viewBox="0 0 2.9104166 2.9104167"
+   version="1.1"
+   id="svg327"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="green-ball-icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview329"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="3.633312"
+     inkscape:cx="106.78962"
+     inkscape:cy="41.422261"
+     inkscape:window-width="1471"
+     inkscape:window-height="976"
+     inkscape:window-x="216"
+     inkscape:window-y="366"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs324">
+    <linearGradient
+       xlink:href="#sprite8_l"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.01507,1.3791,-1.3006,-0.0142,282.66,-312.8)"
+       y2="103.16"
+       y1="103.16"
+       x2="235.12"
+       x1="227.88"
+       id="sprite8_a" />
+    <linearGradient
+       id="sprite8_l">
+      <stop
+         id="stop4272"
+         offset="0"
+         stop-color="#00a104" />
+      <stop
+         id="stop4274"
+         offset="1"
+         stop-color="#00c605" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#sprite8_k"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.00687,-0.62923,0.9267,0.01012,47.871,147.44)"
+       y2="103.16"
+       y1="103.16"
+       x2="235.12"
+       x1="227.88"
+       id="sprite8_b" />
+    <linearGradient
+       id="sprite8_k">
+      <stop
+         id="stop4267"
+         offset="0"
+         stop-color="#00ba00" />
+      <stop
+         id="stop4269"
+         offset="1"
+         stop-opacity=".91"
+         stop-color="#fff" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#sprite8_j"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.0048,0.4396,0.78038,0.00853,65.608,-94.834)"
+       y2="103.16"
+       y1="103.16"
+       x2="235.12"
+       x1="227.88"
+       id="sprite8_c" />
+    <linearGradient
+       id="sprite8_j">
+      <stop
+         id="stop4262"
+         offset="0"
+         stop-opacity="0"
+         stop-color="#00d600" />
+      <stop
+         id="stop4264"
+         offset="1"
+         stop-opacity=".81"
+         stop-color="#d8fc7b" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4247"
+       transform="matrix(0.26458333,0,0,0.26458333,0.13229168,0.13229168)">
+      <path
+         style="fill:url(#sprite8_a)"
+         inkscape:connector-curvature="0"
+         id="path4251"
+         d="m 144.95,9.9997 c -2.7598,-0.03 -4.9797,-2.2899 -4.9497,-5.0497 0.03,-2.7598 2.2899,-4.9797 5.0497,-4.9497 2.7598,0.03 4.9797,2.2899 4.9497,5.0497 -0.03,2.7598 -2.2899,4.9797 -5.0497,4.9497 z"
+         transform="translate(-140)" />
+      <path
+         style="fill:#00be00"
+         inkscape:connector-curvature="0"
+         id="path4253"
+         d="m 149.5,5.05 c -0.03,2.4898 -2.0599,4.4797 -4.5497,4.4497 -2.4898,-0.03 -4.4797,-2.0598 -4.4497,-4.5497 0.03,-2.4898 2.0599,-4.4797 4.5497,-4.4497 2.4898,0.03 4.4797,2.0598 4.4497,4.5497 z"
+         transform="translate(-140)" />
+      <path
+         style="fill:url(#sprite8_b)"
+         inkscape:connector-curvature="0"
+         id="path4255"
+         d="m 145.08,0.5303 c 1.9699,0.02 3.5498,1.0599 3.5398,2.3198 -0.01,1.26 -1.6199,2.2599 -3.5898,2.2399 -1.9699,-0.02 -3.5498,-1.0599 -3.5398,-2.3199 0.01,-1.2599 1.6199,-2.2598 3.5898,-2.2398 z"
+         transform="translate(-140)" />
+      <path
+         style="fill:url(#sprite8_c)"
+         inkscape:connector-curvature="0"
+         id="path4257"
+         d="m 144.98,9.4097 c 1.6599,0.02 3.0098,-0.6799 3.0198,-1.5599 0.01,-0.8799 -1.3299,-1.6099 -2.9798,-1.6299 -1.6599,-0.02 -3.0098,0.68 -3.0198,1.5599 -0.01,0.88 1.3299,1.6099 2.9798,1.6299 z"
+         transform="translate(-140)" />
+      <defs
+         id="defs4259">
+        <linearGradient
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000000">
+          <stop
+             id="stop264"
+             offset="0"
+             stop-opacity="0"
+             stop-color="#00d600" />
+          <stop
+             id="stop266"
+             offset="1"
+             stop-opacity=".81"
+             stop-color="#d8fc7b" />
+        </linearGradient>
+        <linearGradient
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000001">
+          <stop
+             id="stop270"
+             offset="0"
+             stop-color="#00ba00" />
+          <stop
+             id="stop272"
+             offset="1"
+             stop-opacity=".91"
+             stop-color="#fff" />
+        </linearGradient>
+        <linearGradient
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000002">
+          <stop
+             id="stop276"
+             offset="0"
+             stop-color="#00a104" />
+          <stop
+             id="stop278"
+             offset="1"
+             stop-color="#00c605" />
+        </linearGradient>
+        <linearGradient
+           xlink:href="#sprite8_j"
+           gradientUnits="userSpaceOnUse"
+           gradientTransform="matrix(-0.0048,0.4396,0.78038,0.00853,65.608,-94.834)"
+           y2="103.16"
+           y1="103.16"
+           x2="235.12"
+           x1="227.88"
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000003" />
+        <linearGradient
+           xlink:href="#sprite8_k"
+           gradientUnits="userSpaceOnUse"
+           gradientTransform="matrix(0.00687,-0.62923,0.9267,0.01012,47.871,147.44)"
+           y2="103.16"
+           y1="103.16"
+           x2="235.12"
+           x1="227.88"
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000004" />
+        <linearGradient
+           xlink:href="#sprite8_l"
+           gradientUnits="userSpaceOnUse"
+           gradientTransform="matrix(-0.01507,1.3791,-1.3006,-0.0142,282.66,-312.8)"
+           y2="103.16"
+           y1="103.16"
+           x2="235.12"
+           x1="227.88"
+           id="RESERVED_FOR_INKSCAPE_DUPLICATE_DEF_000000005" />
+      </defs>
+    </g>
+  </g>
+</svg>
