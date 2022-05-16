@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2015c423_83392f17",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-16T14:55:58Z",
+      "side": 1,
+      "message": "does crb/ work?",
+      "revId": "d0b5089509269e7f5a9cba6108815637915e9ec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d997c53_ca9da85f",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-16T14:55:58Z",
+      "side": 1,
+      "message": "I think you may be able to skip this and use the public type directly, if you like.",
+      "revId": "d0b5089509269e7f5a9cba6108815637915e9ec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
