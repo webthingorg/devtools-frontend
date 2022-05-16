@@ -58,6 +58,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98ec26a_1a583045",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "2177aeee_a1f675f8",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "039f5037_95e90ef6",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "2d1d4548_510649ab",
+      "range": {
+        "startLine": 455,
+        "startChar": 65,
+        "endLine": 455,
+        "endChar": 84
+      },
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1bcf3cf_6e44796b",
@@ -71,6 +113,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "not sure if we still want to use `XLink` as it is legacy component.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8484a1_5ea6be73",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Notes: Chatted with Chait and will get back to this comment later",
+      "parentUuid": "d1bcf3cf_6e44796b",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +152,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91d323c4_48843a13",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "5f884a7a_f7507320",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30f18673_64e9e3d7",
@@ -105,6 +183,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "Use double quotes for class, below as well.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c546f5bd_30b2d3d0",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "30f18673_64e9e3d7",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -126,6 +222,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b533741_b421192e",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "495cd83f_101a3d9b",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd32365c_7ed4602d",
@@ -139,6 +253,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "Looks like most of the HTML is same in both conditions. Instead, why not do something like this\n```\nconst iconData: IconButton.Icon.IconData \u003d this.#protocolHandlers.length \u003e 0 ? {\n      iconName: \u0027ic_info_black_18dp\u0027,\n      color: \u0027var(--color-link)\u0027,\n      width: \u002714px\u0027,\n      height: \u002712px\u0027,\n    }  : {\n        iconName: \u0027ic_checkmark_16x16\u0027,\n        color: \u0027green\u0027,\n        width: \u002712px\u0027,\n        height: \u002712px\u0027,\n    };\nconst statusString \u003d this.#protocolHandlers.length \u003e 0 ? UIStrings.protocolNotDetected : UIStrings.protocolDetected;\nreturn LitHtml.html`\n     \u003cdiv class\u003d\"protocol-handlers-row\"\u003e\n        \u003cdiv class\u003d\u0027status\u0027\u003e\n            \u003c${IconButton.Icon.Icon.litTagName} class\u003d\"inline-icon\" .data\u003d${iconData}\u003e\n            \u003c/${IconButton.Icon.Icon.litTagName}\u003e\n            ${i18n.i18n.getFormatLocalizedString(str_, statusString, {\n        PH1: manifestInTextLink,\n      })}\n        \u003c/div\u003e\n      \u003c/div\u003e\n`\n```",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "763f2c05_90bd52d0",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "dd32365c_7ed4602d",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -160,6 +292,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8920474e_68341275",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "a98ac6f6_0b51fab8",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965928cf_f79b845a",
@@ -173,6 +323,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "Use localized string instead",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bd8932_c0545ea5",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "965928cf_f79b845a",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -194,6 +362,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1f2b192_60e2d2e2",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "ad15078f_54265dd1",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0260eed_64816ffb",
@@ -207,6 +393,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "Define a constant at the top with this link and use it here, that will make it easier to change the link if needed.",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "764e752d_cc37a260",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! See patchset 7.",
+      "parentUuid": "a0260eed_64816ffb",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -228,6 +432,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d77d2a1d_467dba6c",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Done! Used an ID selector. See patchset 7.",
+      "parentUuid": "4090e2cf_b022725c",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf530773_a3c923cf",
@@ -241,6 +463,24 @@
       "writtenOn": "2022-05-12T16:45:21Z",
       "side": 1,
       "message": "Remove this",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d1d9f0_5fe20912",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "\"vpyhon\" removed. See patchset 7.",
+      "parentUuid": "bf530773_a3c923cf",
       "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

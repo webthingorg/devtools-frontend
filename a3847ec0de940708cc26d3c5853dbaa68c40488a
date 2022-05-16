@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7cd8bcf_799f61be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Updates from these comments are in patchset 7. ",
+      "revId": "a3847ec0de940708cc26d3c5853dbaa68c40488a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

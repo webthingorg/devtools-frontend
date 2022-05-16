@@ -190,6 +190,24 @@
       "message": "I only see a couple instances of using forms in DevTools -- one in Lighthouse, one in User Agent Client Hints. I\u0027m not sure if this is particularly what we want to do, as opposed to having the on-click handler for the button. \n\nI\u0027m not saying this is wrong. Just make sure you\u0027re working within prior art. Make sense?",
       "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5485425_82f23d07",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-16T18:37:14Z",
+      "side": 1,
+      "message": "Yes, that makes sense. With Chait, we changed it from using forms to having an on-click handler for the button and on-change handler for the select and input components. See patchset 7",
+      "parentUuid": "5301610f_f8f6ad21",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
