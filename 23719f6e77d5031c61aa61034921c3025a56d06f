@@ -16,6 +16,57 @@
       "message": "Could you take a look, please?",
       "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d222bf8_392a5a0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-16T06:28:19Z",
+      "side": 1,
+      "message": "LGTM, just two questions",
+      "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c53bf3d_5e0a8fe9",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-16T06:28:19Z",
+      "side": 1,
+      "message": "Isn\u0027t it possible to have \u0027sibling\u0027 scopes?",
+      "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bc00f5_8b67cbfb",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-16T06:28:19Z",
+      "side": 1,
+      "message": "Would it make sense here to check whether we\u0027ve actually found a scope using a boolean `foundScope` or something similar? If `scopeIndex \u003d 0` it doesn\u0027t necessarily mean that scopeChain[0] \u003d\u003d\u003d scope, since we might not find one.",
+      "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
