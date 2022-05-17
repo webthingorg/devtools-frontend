@@ -135,6 +135,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f709f1_f5385879",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-17T20:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f8484a1_5ea6be73",
+      "revId": "c2cd50bf87045e3aaa190ab35490f317de9dc3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f884a7a_f7507320",

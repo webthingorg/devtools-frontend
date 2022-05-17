@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f436bb_ff414012",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-17T20:26:07Z",
+      "side": 1,
+      "message": "nit: move this import below to `protocolHandlersViewStyles` import so that all JS imports are together and CSS imports at one place.",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e6da36_e4593bc9",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-17T20:26:07Z",
+      "side": 1,
+      "message": "nit: Since this is singular, `ProtocolHandler` should suffice.",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc851ed_0ad03925",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-17T20:26:07Z",
+      "side": 1,
+      "message": "nit: move this to the top of the function.",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
