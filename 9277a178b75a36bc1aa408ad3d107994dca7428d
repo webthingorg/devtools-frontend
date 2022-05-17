@@ -34,6 +34,24 @@
       "parentUuid": "3d8a969f_e5ddf1e8",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "325c5635_46beebc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130280
+      },
+      "writtenOn": "2022-05-17T15:04:41Z",
+      "side": 1,
+      "message": "Updating browser_protocol.pdl creates so many irrelevant changes in the CL. Is this expected?",
+      "parentUuid": "1c736013_bd39a552",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
