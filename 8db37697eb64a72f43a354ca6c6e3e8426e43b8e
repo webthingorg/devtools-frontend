@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd781e6c_d870e232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2022-05-17T19:03:54Z",
+      "side": 1,
+      "message": "The repository we are using this for is owned by us, so there isn\u0027t any inherent risk with the current configuration. I could see a problem if other dependencies are added, so perhaps we should look at this as a per-dependency security review.",
+      "parentUuid": "bffb937f_c88c85f7",
+      "revId": "8db37697eb64a72f43a354ca6c6e3e8426e43b8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "304ac418_3096f243",
