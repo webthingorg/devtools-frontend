@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78dda00d_d6a4d4be",
+        "filename": "front_end/Images/src/green-ball-icon.svg",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-17T13:04:46Z",
+      "side": 1,
+      "message": "You are right, thanks! In his design Peter replaced the icons with flat circles. Updated accordingly and removed icons in favour of CSS classes instead.",
+      "parentUuid": "9d853c62_168ae093",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 4
+      },
+      "revId": "c482fff89e828e2c472e12e7bed2723d010a8641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "852cb56a_001deac9",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeb6f576_56eca88d",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-17T13:04:46Z",
+      "side": 1,
+      "message": "Yes, this is intentional. I renamed it to `statusTextHasComment` which I hope is less confusing. The only thing the variable is used for is adding a CSS class which changes the font color.",
+      "parentUuid": "852cb56a_001deac9",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 29
+      },
+      "revId": "c482fff89e828e2c472e12e7bed2723d010a8641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e496ecb5_9088a8f8",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-17T10:55:01Z",
       "side": 1,
       "message": "Can we also have a test for the arrow keys hanlding?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "c482fff89e828e2c472e12e7bed2723d010a8641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5fac9d6_80d29829",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-17T13:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e496ecb5_9088a8f8",
       "range": {
         "startLine": 19,
         "startChar": 0,
