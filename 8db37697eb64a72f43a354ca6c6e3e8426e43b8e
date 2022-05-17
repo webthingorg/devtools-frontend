@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e4f16b_55c4abbf",
+        "filename": "scripts/deps/roll_front_end_third_party.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2022-05-17T15:34:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "304ac418_3096f243",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "8db37697eb64a72f43a354ca6c6e3e8426e43b8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77611609_5f2d9700",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-17T14:58:06Z",
       "side": 1,
       "message": "Maybe put all this behind a flag so you can still use it while waiting for the auto-roller support. As mentioned before the auto-roller will take care of creating the branch committing, uploading and landing the CL.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 53
+      },
+      "revId": "8db37697eb64a72f43a354ca6c6e3e8426e43b8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57bbaac1_11a8db6d",
+        "filename": "scripts/deps/roll_front_end_third_party.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2022-05-17T15:34:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77611609_5f2d9700",
       "range": {
         "startLine": 135,
         "startChar": 0,
