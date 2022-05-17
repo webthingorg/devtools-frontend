@@ -16,6 +16,24 @@
       "message": "Does this mean that the `mediaElementAudioSourceNode` enum value should be removed from the Chromium backend[1] and from the Chrome DevTools protocol[2] as well?\n\n[1]https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/deprecation/deprecation.cc;l\u003d139\n[2]https://crsrc.org/c/third_party/blink/public/devtools_protocol/browser_protocol.pdl;l\u003d765",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c736013_bd39a552",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130280
+      },
+      "writtenOn": "2022-05-17T14:43:49Z",
+      "side": 1,
+      "message": "To be clear, this is the deprecation for MediaElementAudioSourceNode from OfflineAudioContext - which is already done many years ago.\n\nIt looks like both code locations are also related to the deprecation. I\u0027ll include them in the CL.",
+      "parentUuid": "3d8a969f_e5ddf1e8",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
