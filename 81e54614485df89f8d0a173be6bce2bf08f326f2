@@ -175,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2abb969_c17ad850",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-17T18:31:30Z",
+      "side": 1,
+      "message": "Spoke to Rob. This comment relates to the other comment regarding changing #protocolURL to a local variable. We both agreed to mark this as resolved.",
+      "parentUuid": "d294760b_e6729c1f",
+      "revId": "81e54614485df89f8d0a173be6bce2bf08f326f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5301610f_f8f6ad21",

@@ -16,6 +16,23 @@
       "message": "Updates from these comments are in patchset 7. ",
       "revId": "a3847ec0de940708cc26d3c5853dbaa68c40488a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7735fdd6_22b1c068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-17T18:31:30Z",
+      "side": 1,
+      "message": "Marking as resolved per discussion with Rob.",
+      "revId": "a3847ec0de940708cc26d3c5853dbaa68c40488a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
