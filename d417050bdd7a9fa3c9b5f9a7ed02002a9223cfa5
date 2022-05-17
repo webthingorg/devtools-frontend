@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22cb5800_472f4a15",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-05-17T12:21:51Z",
+      "side": 1,
+      "message": "this now matches the DOM structure for response header below",
+      "range": {
+        "startLine": 454,
+        "startChar": 6,
+        "endLine": 454,
+        "endChar": 98
+      },
+      "revId": "d417050bdd7a9fa3c9b5f9a7ed02002a9223cfa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc2b621_7fbbfaac",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-05-17T12:21:51Z",
+      "side": 1,
+      "message": "here",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 98
+      },
+      "revId": "d417050bdd7a9fa3c9b5f9a7ed02002a9223cfa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f50bb8cf_d6d9d6ea",
+        "filename": "front_end/panels/network/requestHeadersTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-05-17T12:21:51Z",
+      "side": 1,
+      "message": "This ensures that the toggle is aligned for response and request header.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 33
+      },
+      "revId": "d417050bdd7a9fa3c9b5f9a7ed02002a9223cfa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
