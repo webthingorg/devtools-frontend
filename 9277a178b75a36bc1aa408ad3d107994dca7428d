@@ -70,6 +70,24 @@
       "parentUuid": "325c5635_46beebc1",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d09c4b_7f4bf171",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130280
+      },
+      "writtenOn": "2022-05-17T16:17:39Z",
+      "side": 1,
+      "message": "I can do 1) and 2): https://crrev.com/c/chromium/src/+/3652536\n\nI am not familiar with the devtool workflow, it would be great if you can take care of 3). (the devtools CL which pulls in...)",
+      "parentUuid": "8fb1d0f6_71b7ed0e",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
