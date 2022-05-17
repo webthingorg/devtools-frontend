@@ -27,6 +27,10 @@ import {
   stopRecording,
   SUMMARY_TAB_SELECTOR,
 } from '../../helpers/performance-helpers.js';
+import {
+  getSelectedSource,
+  openSourceCodeEditorForFile,
+} from '../../helpers/sources-helpers.js';
 
 async function expandAndCheckActivityTree(frontend: puppeteer.Page, expectedActivities: string[]) {
   let index = 0;
@@ -92,26 +96,34 @@ describe('The Performance panel', async function() {
 
 describe('The Performance panel', async function() {
   // These tests have lots of waiting which might take more time to execute
-  this.timeout(20000);
+  if (this.timeout() !== 0) {
+    this.timeout(100000);
+  }
 
   beforeEach(async () => {
     const {frontend} = getBrowserAndPages();
 
     await step('navigate to the Performance tab and uplaod performance profile', async () => {
-      await navigateToPerformanceTab('wasm/profiling');
+      await openSourceCodeEditorForFile('profiling.wasm', '../performance/wasm/profiling.html');
+      await navigateToPerformanceTab();
 
       const uploadProfileHandle = await waitFor('input[type=file]');
       assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
       await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
-    });
-
-    await step('search for "mainWasm"', async () => {
-      await searchForComponent(frontend, 'mainWasm');
+      await waitForFunction(async () => {
+        await searchForComponent(frontend, 'mainWasm');
+        const link = await $('.timeline-details-view .devtools-link');
+        if (!link) {
+          return false;
+        }
+        const linkText = await link.evaluate(x => x.textContent);
+        return linkText === 'profiling.wasm:0x3e';
+      });
     });
   });
 
   // Link to wasm function is broken in profiling tab
-  it.skip('[crbug.com/1125986] is able to inspect how long a wasm function takes to execute', async () => {
+  it('is able to inspect how long a wasm function takes to execute', async () => {
     await step('check that the total time is more than zero', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'total time for "mainWasm" is not above zero');
@@ -121,11 +133,10 @@ describe('The Performance panel', async function() {
       await clickOnFunctionLink();
     });
 
-    // TODO(almuthanna): this step will be added once the bug crbug.com/1125986 is solved
     await step(
-        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted',
-        async () => {
-            // step pending
+        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted', async () => {
+          const source = await getSelectedSource();
+          assert.strictEqual(source, 'profiling.wasm');
         });
   });
 
