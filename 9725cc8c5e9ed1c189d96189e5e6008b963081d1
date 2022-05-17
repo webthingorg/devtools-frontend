@@ -50,6 +50,24 @@
       "message": "Nit: I think `.bind(null)` can be omitted now. Binding the `this` parameter has no effect on lambdas. Same below.",
       "revId": "9725cc8c5e9ed1c189d96189e5e6008b963081d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8942b98c_2115a4df",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-17T01:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5ea053d_be198b9f",
+      "revId": "9725cc8c5e9ed1c189d96189e5e6008b963081d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
