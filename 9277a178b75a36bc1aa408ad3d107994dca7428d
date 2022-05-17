@@ -52,6 +52,24 @@
       "parentUuid": "1c736013_bd39a552",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb1d0f6_71b7ed0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-17T15:40:26Z",
+      "side": 1,
+      "message": "It looks like this CL is fine in its current state. I think ideally we\u0027d have\n\n1) A separate chromium CL which removes the deprecation in [1] and [2] from above.\n2) This CL\n2) A DevTools CL which pulls in the updated browser_protocol.pdl and updates the generated code in the DevTools repo (I\u0027m happy to take care of this).\n\nWDYT?",
+      "parentUuid": "325c5635_46beebc1",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
