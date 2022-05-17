@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e53b8a_91bcd648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-17T11:56:55Z",
+      "side": 1,
+      "message": "Kim, PTAL\nJaro, FYI\n\nI\u0027ll also look into adding a unit test for the \"enabled/disabled\" context menu based on the CDP payload. I\u0027ll add it either to this CL or a follow-up, depending on how long it takes me to figure that one out.",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
