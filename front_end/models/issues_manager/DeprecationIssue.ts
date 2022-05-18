@@ -140,11 +140,6 @@ const UIStrings = {
   localCSSFileExtensionRejected:
       'CSS cannot be loaded from `file:` URLs unless they end in a `.css` file extension.',
   /**
-   * @description TODO(crbug.com/1320344): Description needed for translation
-   */
-  mediaElementAudioSourceNode:
-      'Creating a `MediaElementAudioSourceNode` on an `OfflineAudioContext` is deprecated and will be removed.',
-  /**
    * @description TODO(crbug.com/1320345): Description needed for translation
    */
   mediaSourceAbortRemove:
@@ -178,11 +173,6 @@ const UIStrings = {
    * @description TODO(crbug.com/1320349): Description needed for translation
    */
   paymentRequestBasicCard: 'The `basic-card` payment method is deprecated and will be removed.',
-  /**
-   * @description TODO(crbug.com/1320350): Description needed for translation
-   */
-  paymentRequestShowWithoutGesture:
-      'Calling `PaymentRequest.show()` without user activation is deprecated and will be removed.',
   /**
    * @description This issue indicates that a `<source>` element with a `<picture>` parent was using an `src` attribute, which is not valid and is ignored by the browser. The `srcset` attribute should be used instead.
    */
@@ -417,11 +407,6 @@ export class DeprecationIssue extends Issue {
         messageFunction = i18nLazyString(UIStrings.localCSSFileExtensionRejected);
         milestone = 64;
         break;
-      case Protocol.Audits.DeprecationIssueType.MediaElementAudioSourceNode:
-        messageFunction = i18nLazyString(UIStrings.mediaElementAudioSourceNode);
-        feature = 5258622686724096;
-        milestone = 71;
-        break;
       case Protocol.Audits.DeprecationIssueType.MediaSourceAbortRemove:
         messageFunction = i18nLazyString(UIStrings.mediaSourceAbortRemove);
         feature = 6107495151960064;
@@ -450,11 +435,6 @@ export class DeprecationIssue extends Issue {
         messageFunction = i18nLazyString(UIStrings.paymentRequestBasicCard);
         feature = 5730051011117056;
         milestone = 100;
-        break;
-      case Protocol.Audits.DeprecationIssueType.PaymentRequestShowWithoutGesture:
-        messageFunction = i18nLazyString(UIStrings.paymentRequestShowWithoutGesture);
-        feature = 5948593429020672;
-        milestone = 102;
         break;
       case Protocol.Audits.DeprecationIssueType.PictureSourceSrc:
         messageFunction = i18nLazyString(UIStrings.pictureSourceSrc);
