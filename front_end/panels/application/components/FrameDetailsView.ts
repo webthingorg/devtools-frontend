@@ -10,7 +10,7 @@ import * as Bindings from '../../../models/bindings/bindings.js';
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
-import type * as Platform from '../../../core/platform/platform.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as Root from '../../../core/root/root.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -284,6 +284,7 @@ export class FrameDetailsReportView extends HTMLElement {
   #permissionsPolicies: Promise<Protocol.Page.PermissionsPolicyFeatureState[]|null>|null = null;
   #permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
   #originTrialTreeView: OriginTrialTreeView = new OriginTrialTreeView();
+  #linkifier = new Components.Linkifier.Linkifier();
 
   connectedCallback(): void {
     this.#protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -573,6 +574,13 @@ export class FrameDetailsReportView extends HTMLElement {
     for (const explanation of this.#frame.adFrameStatus()?.explanations || []) {
       rows.push(LitHtml.html`<div>${this.#getAdFrameExplanationString(explanation)}</div>`);
     }
+
+    // This returns an empty span most of the time, but sometimes it does create a working link.
+    // How can I use the debuggerId?
+    const sourceAnchor = this.#linkifier.linkifyScriptLocation(
+        this.#frame.resourceTreeModel().target(), this.#frame.getAdScriptId(), Platform.DevToolsPath.EmptyUrlString,
+        undefined, undefined);
+
     return LitHtml.html`
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
@@ -580,6 +588,9 @@ export class FrameDetailsReportView extends HTMLElement {
          <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
         {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
         ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>adScriptId</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>${this.#frame.getAdScriptId()} ${sourceAnchor}</${
+        ReportView.ReportView.ReportValue.litTagName}>
       `;
   }
 
