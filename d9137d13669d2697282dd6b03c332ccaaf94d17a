@@ -16,6 +16,92 @@
       "message": "Added tests, PTAnotherL:)",
       "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "614574e8_8e64fceb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-18T09:46:18Z",
+      "side": 1,
+      "message": "Getting there:)",
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf235d7_7249a27c",
+        "filename": "test/unittests/front_end/core/sdk/StorageKeyManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-18T09:46:18Z",
+      "side": 1,
+      "message": "All these tests are rather trivial. What is interesting to check is that events are being emitted correctly.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "218850df_f35cbff7",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-18T09:46:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this test is trying to do",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 57
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8348e38_36dfc50d",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-18T09:46:18Z",
+      "side": 1,
+      "message": "You should not depend on state being retained between tests. What if you want to run a single test only? What if you want to run tests in parallel. What if you simply reorder them?\n\nPlease initialize the common test fixture in beforeEach and test-specific fixture in the test function itself.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 67
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
