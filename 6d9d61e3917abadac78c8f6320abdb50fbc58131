@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2cb5d1_9443177d",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-18T23:58:03Z",
+      "side": 1,
+      "message": "I agree with this and had attempted to move this import, but presubmit checks prevented me from doing so. I decided to follow suggestions from presubmit.",
+      "parentUuid": "15f436bb_ff414012",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2e6da36_e4593bc9",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba890b39_c7873c7d",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-18T23:58:03Z",
+      "side": 1,
+      "message": "Done! See patchset 9.",
+      "parentUuid": "d2e6da36_e4593bc9",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcc851ed_0ad03925",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-05-17T20:26:07Z",
       "side": 1,
       "message": "nit: move this to the top of the function.",
+      "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec4b9b5_28f95539",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-18T23:58:03Z",
+      "side": 1,
+      "message": "Done! See patchset 9.",
+      "parentUuid": "dcc851ed_0ad03925",
       "revId": "6d9d61e3917abadac78c8f6320abdb50fbc58131",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
