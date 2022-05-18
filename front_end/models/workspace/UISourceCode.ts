@@ -127,6 +127,10 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     return this.urlInternal;
   }
 
+  canononicalScriptId(): string {
+    return this.urlInternal;
+  }
+
   parentURL(): Platform.DevToolsPath.UrlString {
     return this.parentURLInternal;
   }
