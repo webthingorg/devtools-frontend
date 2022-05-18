@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2375f476_6ceec7e9",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-18T06:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c707c413_02d6a5f3",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "227c5110_694f3da7",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-05-18T05:11:36Z",
       "side": 1,
       "message": "Can we remove the calls to `getPendingEvents`?\n\nWhen reviewing the code, I realized that there are many copy paste errors that go along with `getPendingEvents` in many breakpoint tests. It is supposed to go along with `installEventListener`, but since `getPendingEvents` is just returning an empty list \nand thus satisfying the `waitForFunction` this went unnoticed. I\u0027ll look into the other cases.",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6128d2_a06055da",
+        "filename": "test/e2e/sources/restart-frame_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-18T06:03:55Z",
+      "side": 1,
+      "message": "Nice catch! I was indeed just copy pasting from other breakpoint tests.",
+      "parentUuid": "227c5110_694f3da7",
       "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
