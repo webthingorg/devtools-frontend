@@ -10,7 +10,6 @@ import {
   $$,
   click,
   getBrowserAndPages,
-  getPendingEvents,
   getTestServerPort,
   goToResource,
   pasteText,
@@ -471,7 +470,6 @@ export async function expandFileTree(selectors: NestedFileSelector) {
 export async function stepThroughTheCode() {
   const {frontend} = getBrowserAndPages();
   await frontend.keyboard.press('F9');
-  await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
   await waitFor(PAUSE_INDICATOR_SELECTOR);
 }
 

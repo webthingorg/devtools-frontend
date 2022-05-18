@@ -589,17 +589,6 @@ export const installEventListener = function(frontend: puppeteer.Page, eventType
   }, eventType);
 };
 
-export const getPendingEvents = function(frontend: puppeteer.Page, eventType: string) {
-  return frontend.evaluate(eventType => {
-    if (!('__pendingEvents' in window)) {
-      return null;
-    }
-    const pendingEvents = window.__pendingEvents.get(eventType);
-    window.__pendingEvents.set(eventType, []);
-    return pendingEvents || null;
-  }, eventType);
-};
-
 export const hasClass = async(element: puppeteer.ElementHandle<Element>, classname: string): Promise<boolean> => {
   return await element.evaluate((el, classname) => el.classList.contains(classname), classname);
 };

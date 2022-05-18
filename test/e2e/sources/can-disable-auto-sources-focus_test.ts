@@ -4,15 +4,16 @@
 
 import {
   getBrowserAndPages,
-  getPendingEvents,
-  installEventListener,
   step,
   waitFor,
-  waitForFunction,
 } from '../../shared/helper.js';
 import {navigateToElementsTab} from '../helpers/elements-helpers.js';
 import {togglePreferenceInSettingsTab} from '../helpers/settings-helpers.js';
-import {addBreakpointForLine, DEBUGGER_PAUSED_EVENT, openSourceCodeEditorForFile} from '../helpers/sources-helpers.js';
+import {
+  addBreakpointForLine,
+  openSourceCodeEditorForFile,
+  PAUSE_INDICATOR_SELECTOR,
+} from '../helpers/sources-helpers.js';
 
 async function breakAndCheckFocusedPanel(expectedPanel: string) {
   const {frontend, target} = getBrowserAndPages();
@@ -34,7 +35,7 @@ async function breakAndCheckFocusedPanel(expectedPanel: string) {
   });
 
   await step('wait for Debugger.paused event', async () => {
-    await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+    await waitFor(PAUSE_INDICATOR_SELECTOR);
   });
 
   await step(`check that we are in the ${expectedPanel} tab`, async () => {
@@ -43,11 +44,6 @@ async function breakAndCheckFocusedPanel(expectedPanel: string) {
 }
 
 describe('Sources Panel', async () => {
-  beforeEach(async () => {
-    const {frontend} = getBrowserAndPages();
-    installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
-  });
-
   it('is not opened on Debugger.paused if autoFocusOnDebuggerPausedEnabled is false', async () => {
     await step('toggle preference in settings tab', async () => {
       await togglePreferenceInSettingsTab('Focus Sources panel when triggering a breakpoint');
