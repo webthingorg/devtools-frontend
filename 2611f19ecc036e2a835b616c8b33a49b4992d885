@@ -16,6 +16,23 @@
       "message": "Hey Ari - are you able to help me figure out this test failure? I cannot tell if it has to do with the deprecation warnings, or the bunch of \u0027other\u0027 stuff that a Chromium roll synced to devtools 😞",
       "revId": "2611f19ecc036e2a835b616c8b33a49b4992d885",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e0f39c0_e5643e8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1212214
+      },
+      "writtenOn": "2022-05-18T13:59:33Z",
+      "side": 1,
+      "message": "(It also looks like the media element deprecation warning is being removed in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3647812, where the reviewer asked them to take a very different approach and NOT change browser_protocol.pdl and roll yet, but instead just drop the reference in devtools first.)",
+      "revId": "2611f19ecc036e2a835b616c8b33a49b4992d885",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
