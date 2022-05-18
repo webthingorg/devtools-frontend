@@ -224,11 +224,13 @@ describe('FrameManager', () => {
     };
 
     // step 1) frame added to existing target
-    const frameOldTarget = new SDK.ResourceTreeModel.ResourceTreeFrame(mockParentModel, null, frameId, null, trace);
+    const frameOldTarget =
+        new SDK.ResourceTreeModel.ResourceTreeFrame(mockParentModel, null, frameId, null, trace, null, null);
     mockParentModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameAdded, frameOldTarget);
 
     // step 2) frame added to new target
-    const frameNewTarget = new SDK.ResourceTreeModel.ResourceTreeFrame(mockChildModel, null, frameId, null, null);
+    const frameNewTarget =
+        new SDK.ResourceTreeModel.ResourceTreeFrame(mockChildModel, null, frameId, null, null, null, null);
     mockChildModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameAdded, frameNewTarget);
 
     // step 3) frame removed from existing target
@@ -268,7 +270,8 @@ describe('FrameManager', () => {
     };
 
     // step 1) frame added to existing target
-    const frameOldTarget = new SDK.ResourceTreeModel.ResourceTreeFrame(mockParentModel, null, frameId, null, trace);
+    const frameOldTarget =
+        new SDK.ResourceTreeModel.ResourceTreeFrame(mockParentModel, null, frameId, null, trace, null, null);
     mockParentModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameAdded, frameOldTarget);
 
     // step 2) frame removed from existing target
@@ -276,7 +279,8 @@ describe('FrameManager', () => {
         SDK.ResourceTreeModel.Events.FrameDetached, {frame: frameOldTarget, isSwap: true});
 
     // step 3) frame added to new target
-    const frameNewTarget = new SDK.ResourceTreeModel.ResourceTreeFrame(mockChildModel, null, frameId, null, null);
+    const frameNewTarget =
+        new SDK.ResourceTreeModel.ResourceTreeFrame(mockChildModel, null, frameId, null, null, null, null);
     mockChildModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameAdded, frameNewTarget);
 
     const frame = frameManager.getFrame(frameId);
