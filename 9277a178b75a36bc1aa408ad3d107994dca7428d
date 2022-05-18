@@ -106,6 +106,24 @@
       "parentUuid": "94d09c4b_7f4bf171",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c956709a_8fd26dda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-18T07:38:52Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll take care of 3).",
+      "parentUuid": "d16ced30_cd17e145",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
