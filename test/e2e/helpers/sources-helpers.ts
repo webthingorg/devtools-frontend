@@ -445,7 +445,7 @@ export function createSelectorsForWorkerFile(
   };
 }
 
-async function expandSourceTreeItem(selector: string) {
+export async function expandSourceTreeItem(selector: string) {
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
   const sourceTreeItem = await waitFor(selector);
@@ -466,6 +466,17 @@ export async function expandFileTree(selectors: NestedFileSelector) {
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
   return await waitFor(selectors.fileSelector);
+}
+
+export async function readSourcesTreeView(): Promise<string[]> {
+  const items = await $$('.navigator-folder-tree-item,.navigator-file-tree-item');
+  const promises = items.map(handle => handle.evaluate(el => el.textContent as string));
+  const results = [];
+  for (const promise of promises) {
+    const item = await promise;
+    results.push(item.replace(/localhost:[0-9]+/, 'localhost:XXXX'));
+  }
+  return results;
 }
 
 export async function stepThroughTheCode() {
