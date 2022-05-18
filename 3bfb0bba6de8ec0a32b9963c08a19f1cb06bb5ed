@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d85724e_637565c0",
+        "filename": "front_end/panels/elements/components/computedStyleTrace.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-18T09:24:08Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we can do that easily from inside the component. The styles here are largely copied from the CSS for the styles sidebar pane.",
+      "parentUuid": "44f14785_7f2a8d39",
+      "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4470051f_0f566957",
         "filename": "front_end/panels/elements/components/computedStyleTrace.css",
         "patchSetId": 5
@@ -65,6 +83,24 @@
       "writtenOn": "2022-05-16T12:34:59Z",
       "side": 1,
       "message": "How did this color get past the stylelint check :) I would assume that we can\u0027t use custom colors that are not from the theme colors variables?",
+      "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9acb42c_97bbd271",
+        "filename": "front_end/panels/elements/components/computedStyleTrace.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-18T09:24:08Z",
+      "side": 1,
+      "message": "Oh, I didn\u0027t know we can\u0027t do this. What should we do instead? I don\u0027t see a matching theme color variable",
+      "parentUuid": "4470051f_0f566957",
       "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
