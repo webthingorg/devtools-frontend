@@ -33,6 +33,42 @@
       "message": "(It also looks like the media element deprecation warning is being removed in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3647812, where the reviewer asked them to take a very different approach and NOT change browser_protocol.pdl and roll yet, but instead just drop the reference in devtools first.)",
       "revId": "2611f19ecc036e2a835b616c8b33a49b4992d885",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48015ac_6351e42c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-05-18T16:01:57Z",
+      "side": 1,
+      "message": "There\u0027s a bug in roll deps at the moment it seems, please revert front_end/models/javascript_metadata/NativeFunctions.js to the state of origin/main",
+      "parentUuid": "726e667f_812963fc",
+      "revId": "2611f19ecc036e2a835b616c8b33a49b4992d885",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e6393ca_6561a93d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-05-18T16:01:57Z",
+      "side": 1,
+      "message": "When that happens it forces me to rectify before the branch cut. It\u0027s not prefered.",
+      "parentUuid": "5e0f39c0_e5643e8d",
+      "revId": "2611f19ecc036e2a835b616c8b33a49b4992d885",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
