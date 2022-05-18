@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b0d551_98da4385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-18T14:15:27Z",
+      "side": 1,
+      "message": "In the course of doing this I also had to bring script deduplication logic to another part of the UI, so I also laid the groundwork for future script id changes by creating a method on UISourceCode to create this id. (Note no behavior change for now -- it just returns url, but this way we\u0027ll have one place to change in the future.)",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
