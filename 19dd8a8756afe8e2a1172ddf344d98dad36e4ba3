@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f03927_5dd356ec",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T15:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492b6a4f_e8a6e7de",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "19dd8a8756afe8e2a1172ddf344d98dad36e4ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bd3dc71_c7b0ac8d",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-18T13:52:27Z",
       "side": 1,
       "message": "You can simply get the storage key manager from target, like you do in the DOM storage model constructor, instead of having this test-only getter.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "19dd8a8756afe8e2a1172ddf344d98dad36e4ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38c59c6_6089e301",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T15:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bd3dc71_c7b0ac8d",
       "range": {
         "startLine": 40,
         "startChar": 0,
