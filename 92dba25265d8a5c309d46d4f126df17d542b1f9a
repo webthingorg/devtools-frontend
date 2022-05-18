@@ -16,6 +16,23 @@
       "message": "Hi Simon,\n\nI\u0027m removing the calls to `getPendingEvents` for all those callsites that are not installing the listener. PTAL!",
       "revId": "92dba25265d8a5c309d46d4f126df17d542b1f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac03dc11_f1629167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-18T10:53:50Z",
+      "side": 1,
+      "message": "Thanks for the clean up!",
+      "revId": "92dba25265d8a5c309d46d4f126df17d542b1f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
