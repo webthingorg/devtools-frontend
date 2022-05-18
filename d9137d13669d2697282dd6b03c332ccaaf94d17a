@@ -58,6 +58,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66a634c_0bfa187c",
+        "filename": "test/unittests/front_end/core/sdk/StorageKeyManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T13:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf235d7_7249a27c",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7b6826_fd18ba67",
+        "filename": "test/unittests/front_end/core/sdk/StorageKeyManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T13:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf235d7_7249a27c",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "218850df_f35cbff7",
@@ -81,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed5054f_873c3904",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T13:44:54Z",
+      "side": 1,
+      "message": "Changed",
+      "parentUuid": "218850df_f35cbff7",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 57
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8348e38_36dfc50d",
@@ -94,6 +166,30 @@
       "writtenOn": "2022-05-18T09:46:18Z",
       "side": 1,
       "message": "You should not depend on state being retained between tests. What if you want to run a single test only? What if you want to run tests in parallel. What if you simply reorder them?\n\nPlease initialize the common test fixture in beforeEach and test-specific fixture in the test function itself.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 67
+      },
+      "revId": "d9137d13669d2697282dd6b03c332ccaaf94d17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b45250_07556c09",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-18T13:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8348e38_36dfc50d",
       "range": {
         "startLine": 50,
         "startChar": 0,
