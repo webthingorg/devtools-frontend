@@ -16,6 +16,57 @@
       "message": "Kim, PTAL\nJaro, FYI\n\nI\u0027ll also look into adding a unit test for the \"enabled/disabled\" context menu based on the CDP payload. I\u0027ll add it either to this CL or a follow-up, depending on how long it takes me to figure that one out.",
       "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3755295b_fc043d40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-18T05:11:36Z",
+      "side": 1,
+      "message": "LGTM % minor comments",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c707c413_02d6a5f3",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-18T05:11:36Z",
+      "side": 1,
+      "message": "nit: Just to make it clear for translators, maybe mention that \"frame\" is standing for \u0027call frame\u0027, since call frames are used in other descriptions in this file.",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227c5110_694f3da7",
+        "filename": "test/e2e/sources/restart-frame_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-18T05:11:36Z",
+      "side": 1,
+      "message": "Can we remove the calls to `getPendingEvents`?\n\nWhen reviewing the code, I realized that there are many copy paste errors that go along with `getPendingEvents` in many breakpoint tests. It is supposed to go along with `installEventListener`, but since `getPendingEvents` is just returning an empty list \nand thus satisfying the `waitForFunction` this went unnoticed. I\u0027ll look into the other cases.",
+      "revId": "ee52ac921e8a413d46a22db7106e3b99f743857c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
