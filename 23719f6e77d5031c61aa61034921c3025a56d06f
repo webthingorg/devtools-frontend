@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f1f8c3_f84a4466",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-18T13:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eecf01e9_24b92f34",
+      "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c53bf3d_5e0a8fe9",
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "Great catch, this should say !disjoint(..., ...)\n\nLet me fix this and think of a way to test this (as Benedikt proposed).",
       "parentUuid": "6c53bf3d_5e0a8fe9",
+      "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbcac104_2319992f",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-18T13:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb9ac292_a29965e2",
       "revId": "23719f6e77d5031c61aa61034921c3025a56d06f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
