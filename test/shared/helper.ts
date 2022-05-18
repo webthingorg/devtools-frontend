@@ -592,11 +592,11 @@ export const installEventListener = function(frontend: puppeteer.Page, eventType
 export const getPendingEvents = function(frontend: puppeteer.Page, eventType: string) {
   return frontend.evaluate(eventType => {
     if (!('__pendingEvents' in window)) {
-      return [];
+      return null;
     }
     const pendingEvents = window.__pendingEvents.get(eventType);
     window.__pendingEvents.set(eventType, []);
-    return pendingEvents || [];
+    return pendingEvents || null;
   }, eventType);
 };
 
