@@ -3212,6 +3212,7 @@ export namespace DOM {
      */
     isSVG?: boolean;
     compatibilityMode?: CompatibilityMode;
+    assignedSlot?: BackendNode;
   }
 
   /**
@@ -11768,6 +11769,8 @@ export namespace Page {
      * JavaScript stack trace of when frame was attached, only set if frame initiated from script.
      */
     stack?: Runtime.StackTrace;
+    adScriptId?: Runtime.ScriptId;
+    debuggerId?: Runtime.UniqueDebuggerId;
   }
 
   /**
