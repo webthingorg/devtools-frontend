@@ -28,8 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Platform from '../../core/platform/platform.js';
 import type * as PublicAPI from '../../../extension-api/ExtensionAPI'; // eslint-disable-line rulesdir/es_modules_import
+import * as Platform from '../../core/platform/platform.js';
 import type * as HAR from '../har/har.js';
 
 /* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-non-null-assertion */
@@ -50,8 +50,10 @@ export namespace PrivateAPI {
     NetworkRequestFinished = 'network-request-finished',
     OpenResource = 'open-resource',
     PanelSearch = 'panel-search-',
-    RecordingStarted = 'trace-recording-started-',
-    RecordingStopped = 'trace-recording-stopped-',
+    TraceRecordingStarted = 'trace-recording-started',
+    TraceRecordingStopped = 'trace-recording-stopped',
+    TraceRecordingStartedForProvider = 'trace-recording-started-',
+    TraceRecordingStoppedForProvider = 'trace-recording-stopped-',
     ResourceAdded = 'resource-added',
     ResourceContentCommitted = 'resource-content-committed',
     ViewShown = 'view-shown-',
@@ -283,8 +285,10 @@ export type ExtensionDescriptor = {
 namespace APIImpl {
   export interface InspectorExtensionAPI {
     languageServices: PublicAPI.Chrome.DevTools.LanguageExtensions;
+    // go/crb/1325820: The `timeline` namespace is undocumented and deprecated.
     timeline: Timeline;
     network: PublicAPI.Chrome.DevTools.Network;
+    performance: PublicAPI.Chrome.DevTools.Performance;
     panels: PublicAPI.Chrome.DevTools.Panels;
     inspectedWindow: PublicAPI.Chrome.DevTools.InspectedWindow;
   }
@@ -329,6 +333,12 @@ namespace APIImpl {
 
   export interface Request extends PublicAPI.Chrome.DevTools.Request, HAR.Log.EntryDTO {
     _id: number;
+  }
+
+  export interface Performance extends PublicAPI.Chrome.DevTools.Performance {}
+
+  export interface Recording extends PublicAPI.Chrome.DevTools.Recording {
+    _id: string;
   }
 
   export interface Panels extends PublicAPI.Chrome.DevTools.Panels {
@@ -471,6 +481,7 @@ self.injectedExtensionAPI = function(
     this.inspectedWindow = new (Constructor(InspectedWindow))();
     this.panels = new (Constructor(Panels))();
     this.network = new (Constructor(Network))();
+    this.performance = new (Constructor(Performance))();
     this.timeline = new (Constructor(Timeline))();
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
@@ -526,6 +537,30 @@ self.injectedExtensionAPI = function(
       }
       extensionServer.sendRequest(
           {command: PrivateAPI.Commands.GetRequestContent, id: this._id}, callback && callbackWrapper);
+    },
+  };
+
+  function Performance(this: APIImpl.Performance): void {
+    function dispatchRecording(
+        this: APIImpl.EventSink<(event: PublicAPI.Chrome.DevTools.Recording) => unknown>,
+        message: {arguments: unknown[]}): void {
+      const recordingId = message.arguments[0] as string;
+      this._fire(new (Constructor(Recording))(recordingId));
+    }
+
+    this.onRecordingStarted =
+        new (Constructor(EventSink))(PrivateAPI.Events.TraceRecordingStartedForProvider, dispatchRecording);
+    this.onRecordingStopped =
+        new (Constructor(EventSink))(PrivateAPI.Events.TraceRecordingStoppedForProvider, dispatchRecording);
+  }
+
+  function RecordingImpl(this: APIImpl.Recording, id: string): void {
+    this._id = id;
+  }
+
+  (RecordingImpl.prototype as Pick<APIImpl.Recording, 'recordingId'>) = {
+    get recordingId(): string {
+      return (this as APIImpl.Recording)._id;
     },
   };
 
@@ -793,6 +828,7 @@ self.injectedExtensionAPI = function(
   const ExtensionSidebarPane = declareInterfaceClass(ExtensionSidebarPaneImpl);
   const PanelWithSidebarClass = declareInterfaceClass(PanelWithSidebarImpl);
   const Request = declareInterfaceClass(RequestImpl);
+  const Recording = declareInterfaceClass(RecordingImpl);
   const Resource = declareInterfaceClass(ResourceImpl);
   const TraceSession = declareInterfaceClass(TraceSessionImpl);
 
@@ -949,9 +985,9 @@ self.injectedExtensionAPI = function(
     }
 
     this.onRecordingStarted =
-        new (Constructor(EventSink))(PrivateAPI.Events.RecordingStarted + id, dispatchRecordingStarted);
+        new (Constructor(EventSink))(PrivateAPI.Events.TraceRecordingStartedForProvider + id, dispatchRecordingStarted);
 
-    this.onRecordingStopped = new (Constructor(EventSink))(PrivateAPI.Events.RecordingStopped + id);
+    this.onRecordingStopped = new (Constructor(EventSink))(PrivateAPI.Events.TraceRecordingStoppedForProvider + id);
   }
 
   function InspectedWindow(this: PublicAPI.Chrome.DevTools.InspectedWindow): void {

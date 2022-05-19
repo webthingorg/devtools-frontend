@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ExtensionServer} from './ExtensionServer.js';
 import type * as Platform from '../../core/platform/platform.js';
+import {ExtensionServer} from './ExtensionServer.js';
 
 export class ExtensionTraceProvider {
   private readonly extensionOrigin: string;
@@ -19,11 +19,11 @@ export class ExtensionTraceProvider {
 
   start(session: TracingSession): void {
     const sessionId = String(++_lastSessionId);
-    ExtensionServer.instance().startTraceRecording(this.id, sessionId, session);
+    ExtensionServer.instance().notifyTraceRecordingStartedForProvider(this.id, sessionId, session);
   }
 
   stop(): void {
-    ExtensionServer.instance().stopTraceRecording(this.id);
+    ExtensionServer.instance().notifyTraceRecordingStoppedForProvider(this.id);
   }
 
   shortDisplayName(): string {
