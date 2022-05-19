@@ -37,9 +37,9 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
-import * as _ProtocolClient from '../../core/protocol_client/protocol_client.js';  // eslint-disable-line @typescript-eslint/no-unused-vars
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -48,13 +48,11 @@ import * as Bindings from '../bindings/bindings.js';
 import * as HAR from '../har/har.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
-import type * as Protocol from '../../generated/protocol.js';
-
+import {PrivateAPI} from './ExtensionAPI.js';
 import {ExtensionButton, ExtensionPanel, ExtensionSidebarPane} from './ExtensionPanel.js';
 import type {TracingSession} from './ExtensionTraceProvider.js';
 import {ExtensionTraceProvider} from './ExtensionTraceProvider.js';
 import {LanguageExtensionEndpoint} from './LanguageExtensionEndpoint.js';
-import {PrivateAPI} from './ExtensionAPI.js';
 
 const extensionOrigins: WeakMap<MessagePort, string> = new WeakMap();
 
@@ -230,13 +228,21 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.postNotification(PrivateAPI.Events.InspectedURLChanged, url);
   }
 
-  startTraceRecording(providerId: string, sessionId: string, session: TracingSession): void {
-    this.traceSessions.set(sessionId, session);
-    this.postNotification('trace-recording-started-' + providerId, sessionId);
+  notifyTraceRecordingStarted(sessionId: string): void {
+    this.postNotification(PrivateAPI.Events.TraceRecordingStarted, sessionId);
   }
 
-  stopTraceRecording(providerId: string): void {
-    this.postNotification('trace-recording-stopped-' + providerId);
+  notifyTraceRecordingStopped(sessionId: string): void {
+    this.postNotification(PrivateAPI.Events.TraceRecordingStopped, sessionId);
+  }
+
+  notifyTraceRecordingStartedForProvider(providerId: string, sessionId: string, session: TracingSession): void {
+    this.traceSessions.set(sessionId, session);
+    this.postNotification(PrivateAPI.Events.TraceRecordingStartedForProvider + providerId, sessionId);
+  }
+
+  notifyTraceRecordingStoppedForProvider(providerId: string): void {
+    this.postNotification(PrivateAPI.Events.TraceRecordingStoppedForProvider + providerId);
   }
 
   hasSubscribers(type: string): boolean {
