@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b05d3da_b743e0d8",
+        "filename": "DEPS",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-05-19T09:14:56Z",
+      "side": 1,
+      "message": "git_revision:c547ca1497e3ff0dcbc0b2cb036b3d40380cbeeb",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 70
+      },
+      "revId": "53662a4451abfd4a1df4809a0765abc664690bfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
