@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "042125e4_d3d54efc",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-19T11:21:08Z",
+      "side": 1,
+      "message": "Another option is to just slap `true` here, because if `current` is out-of-bounds, the indexOf on the next line will just return -1 and break from the loop.",
+      "parentUuid": "8ca01391_da1822e7",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afa22a18_9d158732",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-05-19T07:17:07Z",
       "side": 1,
       "message": "nit: It looks as is we might get an out of bounds access here, if `start \u003d\u003d\u003d scopeDescriptor.length - 1`",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8a2ff8_3d25ea1c",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-19T11:21:08Z",
+      "side": 1,
+      "message": "Right, this does not really matter because out of bounds gives undefined, but let me be less sloppy here.",
+      "parentUuid": "afa22a18_9d158732",
       "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "257ff7cc_24c843f8",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-19T11:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba7da65_a7896f91",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9875a711_d360d831",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efda9487_6a5e3315",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-19T11:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9875a711_d360d831",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2914aa9e_b33e084b",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-05-19T07:17:07Z",
       "side": 1,
       "message": "nit: then",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3a1b88_553b29cb",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-19T11:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2914aa9e_b33e084b",
       "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
