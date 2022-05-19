@@ -16,6 +16,24 @@
       "message": "The only working approach I found for getting the right target is to iterate over all of them and check each executionContext\u0027s `uniqueId`. I was hoping that `modelForDebuggerId()` would help, but it returns `null`.",
       "revId": "49465f29de61b763d51527e17f9db5d4e638daae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edff9015_1e1c4eb1",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-19T09:24:38Z",
+      "side": 1,
+      "message": "If `modelForDebuggerId()` doesn\u0027t return it, then something is wrong: Either the `debuggerId` is invalid, or the target to which it belongs was not reported.",
+      "parentUuid": "9785603e_914df45a",
+      "revId": "49465f29de61b763d51527e17f9db5d4e638daae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
