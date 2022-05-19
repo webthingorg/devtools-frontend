@@ -22,6 +22,9 @@ Extensions.ExtensionServer.Events = ExtensionsModule.ExtensionServer.Events;
 Extensions.ExtensionStatus = ExtensionsModule.ExtensionServer.ExtensionStatus;
 
 /** @constructor */
+Extensions.ExtensionTraceNotifications = ExtensionsModule.ExtensionTraceNotifications.ExtensionTraceNotifications;
+
+/** @constructor */
 Extensions.ExtensionTraceProvider = ExtensionsModule.ExtensionTraceProvider.ExtensionTraceProvider;
 
 /** @interface */

@@ -7,11 +7,10 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
-import type * as Protocol from '../../generated/protocol.js';
-
 import {ExtensionTracingSession} from './ExtensionTracingSession.js';
 import {PerformanceModel} from './PerformanceModel.js';
 
@@ -40,6 +39,7 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
   private performanceModel: PerformanceModel;
   private readonly client: Client;
   private readonly tracingModel: SDK.TracingModel.TracingModel;
+  private extensionTraceNotifications = new Extensions.ExtensionTraceNotifications.ExtensionTraceNotifications();
   private extensionSessions: ExtensionTracingSession[];
   private extensionTraceProviders?: Extensions.ExtensionTraceProvider.ExtensionTraceProvider[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -124,11 +124,13 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
       categoriesArray.push(disabledByDefault('devtools.screenshot'));
     }
 
+    this.extensionTraceNotifications.start();
     this.extensionSessions = providers.map(provider => new ExtensionTracingSession(provider, this.performanceModel));
     this.extensionSessions.forEach(session => session.start());
     this.performanceModel.setRecordStartTime(Date.now());
     const response = await this.startRecordingWithCategories(categoriesArray.join(','), options.enableJSSampling);
     if (response.getError()) {
+      this.extensionTraceNotifications.stop();
       await this.waitForTracingToStop(false);
       await SDK.TargetManager.TargetManager.instance().resumeAllTargets();
     }
@@ -141,7 +143,10 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
     }
 
     this.client.loadingStarted();
+
+    this.extensionTraceNotifications.stop();
     await this.waitForTracingToStop(true);
+
     this.allSourcesFinished();
     return this.performanceModel;
   }
