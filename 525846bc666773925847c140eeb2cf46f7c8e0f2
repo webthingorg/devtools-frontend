@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57ca57bc_515addb1",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T11:27:44Z",
+      "side": 1,
+      "message": "Right, whatever you prefer!",
+      "parentUuid": "042125e4_d3d54efc",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afa22a18_9d158732",
