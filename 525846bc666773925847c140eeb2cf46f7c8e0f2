@@ -16,6 +16,108 @@
       "message": "Kim, could you take another look?\n\nI have added more tests and fixed the fallout.",
       "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce723abb_a7124d31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "Thanks for the tests, I really like the format! Small nits, still LGTM",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca01391_da1822e7",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "nit: I think checking for `current \u003c scopeDescriptor.length` should be enough",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa22a18_9d158732",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "nit: It looks as is we might get an out of bounds access here, if `start \u003d\u003d\u003d scopeDescriptor.length - 1`",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba7da65_a7896f91",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "super nit: `return a list`, `form [{name, offset}]` (space)",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9875a711_d360d831",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "nit: I think a word is missing here/sentence is not complete?",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2914aa9e_b33e084b",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-19T07:17:07Z",
+      "side": 1,
+      "message": "nit: then",
+      "revId": "525846bc666773925847c140eeb2cf46f7c8e0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
