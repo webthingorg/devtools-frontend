@@ -47,19 +47,20 @@ const UIStrings = {
   */
   domBreakpointsList: 'DOM Breakpoints list',
   /**
-  *@description Text with two placeholders separated by a colon
+  *@description Text with three placeholders separated by a colon and a comma
   *@example {Node removed} PH1
   *@example {div#id1} PH2
+  *@example {checked} PH3
   */
-  sS: '{PH1}: {PH2}',
+  sSS: '{PH1}: {PH2}, {PH3}',
   /**
   *@description Text exposed to screen readers on checked items.
   */
-  checked: 'checked',
+  cChecked: 'checkbox checked',
   /**
   *@description Accessible text exposed to screen readers when the screen reader encounters an unchecked checkbox.
   */
-  unchecked: 'unchecked',
+  cUnchecked: 'checkbox unchecked',
   /**
   *@description Accessibility label for hit breakpoints in the Sources panel.
   *@example {checked} PH1
@@ -195,7 +196,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     const breakpointTypeLabel = BreakpointTypeLabels.get(item.type);
     description.textContent = breakpointTypeLabel ? breakpointTypeLabel() : null;
     const breakpointTypeText = breakpointTypeLabel ? breakpointTypeLabel() : '';
-    UI.ARIAUtils.setAccessibleName(checkboxElement, breakpointTypeText);
+    const checkedStateText = item.enabled ? i18nString(UIStrings.cChecked) : i18nString(UIStrings.cUnchecked);
     const linkifiedNode = document.createElement('monospace');
     linkifiedNode.style.display = 'block';
     labelElement.appendChild(linkifiedNode);
@@ -203,12 +204,13 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
         .then(linkified => {
           linkifiedNode.appendChild(linkified);
           UI.ARIAUtils.setAccessibleName(
-              checkboxElement, i18nString(UIStrings.sS, {PH1: breakpointTypeText, PH2: linkified.deepTextContent()}));
+              element,
+              i18nString(
+                  UIStrings.sSS, {PH1: breakpointTypeText, PH2: linkified.deepTextContent(), PH3: checkedStateText}));
         });
 
     labelElement.appendChild(description);
 
-    const checkedStateText = item.enabled ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);
     if (item === this.#highlightedBreakpoint) {
       element.classList.add('breakpoint-hit');
       UI.ARIAUtils.setDescription(element, i18nString(UIStrings.sBreakpointHit, {PH1: checkedStateText}));
