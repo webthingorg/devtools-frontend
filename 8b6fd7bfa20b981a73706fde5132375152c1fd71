@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a3d2115_7a6af54a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-19T22:13:25Z",
+      "side": 1,
+      "message": "Need to clean up some things accessibility wise before opening this CL up to more reviewers.",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f46580_d0b5701b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-19T22:13:25Z",
+      "side": 1,
+      "message": "In terms of accessibility and screen readers, we want to make an announcement when the user performs the scroll action. To a screen reader user, when they click on the tree item, the manifest view scrolls, but the screen reader will stay silent, so they would be confused if anything actually happened.\n\nYou can force a screen reader to announce something using ARIAUtils.alert:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ARIAUtils.ts;l\u003d502?q\u003dARIAUtils.ts\u0026ss\u003dchromium\n\nLook at other uses of this method and use it here to give some sort of indication that the manifest view has scrolled to that given section.",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f94bb7e_4d23dd9b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-19T22:13:25Z",
+      "side": 1,
+      "message": "In terms of accessibility, we want to label the element to indicate that invoking it will trigger a scroll to that section header.\n\nMaybe set it to something like\n\"Identity: Invoke to scroll to the identity section in manifest\"\n\nYou can use this helper here and check out the other references of this helper for examples:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ARIAUtils.ts;l\u003d343?q\u003dARIAUtils.ts\u0026ss\u003dchromium",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1151de2_d34915f4",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-19T22:13:25Z",
+      "side": 1,
+      "message": "I rebased this branch on top of the latest commit in the main branch.  They changed the typing of itemURL() so this throws a build error now.\n\nI would just make the same change here as they did in the other itemURL() calls to fix the build error.",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
