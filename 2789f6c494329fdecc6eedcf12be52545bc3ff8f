@@ -16,6 +16,74 @@
       "message": "In the course of doing this I also had to bring script deduplication logic to another part of the UI, so I also laid the groundwork for future script id changes by creating a method on UISourceCode to create this id. (Note no behavior change for now -- it just returns url, but this way we\u0027ll have one place to change in the future.)",
       "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22313ff0_f9751a64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-05-19T07:34:00Z",
+      "side": 1,
+      "message": "LGTM, a couple of questions about testing. The prospect of getting this into some real world testing is exciting!",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f079e90_ee36b93f",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-05-19T07:34:00Z",
+      "side": 1,
+      "message": "Uber nit: could be fancy here and do something like:\n```\n  const results \u003d await Promise.all(promises);\n  return results.map(item \u003d\u003e item.replace(...));\n```\nto avoid resolving sequentially, but I doubt a change here would make a perceivable difference.",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f3e326_52e1511f",
+        "filename": "test/e2e/sources/authored-deployed-grouping_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-05-19T07:34:00Z",
+      "side": 1,
+      "message": "Is it worth testing the 4 combinations of\n- no grouping\n- authored/deployed only grouping\n- domain only grouping\n- authored/deployed + domain grouping\n?",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf1b813_8e8b9c35",
+        "filename": "test/e2e/sources/authored-deployed-grouping_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-05-19T07:34:00Z",
+      "side": 1,
+      "message": "Is it worth adding a test that checks what happens after a page reload?",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
