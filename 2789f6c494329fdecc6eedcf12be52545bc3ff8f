@@ -55,6 +55,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2efa4ba9_95973d8f",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-19T07:58:08Z",
+      "side": 1,
+      "message": "nit: Can we duplicate some of the CL description here as a comment. Just having this standalone in UISourceCode might be confusing depending on how fast we\u0027ll move with the identity work.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 21
+      },
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f079e90_ee36b93f",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 2
