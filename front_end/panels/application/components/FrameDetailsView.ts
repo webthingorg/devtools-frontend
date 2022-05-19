@@ -10,7 +10,7 @@ import * as Bindings from '../../../models/bindings/bindings.js';
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
-import type * as Platform from '../../../core/platform/platform.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as Root from '../../../core/root/root.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -284,6 +284,7 @@ export class FrameDetailsReportView extends HTMLElement {
   #permissionsPolicies: Promise<Protocol.Page.PermissionsPolicyFeatureState[]|null>|null = null;
   #permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
   #originTrialTreeView: OriginTrialTreeView = new OriginTrialTreeView();
+  #linkifier = new Components.Linkifier.Linkifier();
 
   connectedCallback(): void {
     this.#protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -386,7 +387,7 @@ export class FrameDetailsReportView extends HTMLElement {
       ${this.#maybeRenderOrigin()}
       ${LitHtml.Directives.until(this.#renderOwnerElement(), LitHtml.nothing)}
       ${this.#maybeRenderCreationStacktrace()}
-      ${this.#maybeRenderAdStatus()}
+      ${LitHtml.Directives.until(this.#maybeRenderAdStatus(), LitHtml.nothing)}
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
@@ -560,7 +561,7 @@ export class FrameDetailsReportView extends HTMLElement {
     }
   }
 
-  #maybeRenderAdStatus(): LitHtml.LitTemplate {
+  async #maybeRenderAdStatus(): Promise<LitHtml.LitTemplate> {
     if (!this.#frame) {
       return LitHtml.nothing;
     }
@@ -573,6 +574,27 @@ export class FrameDetailsReportView extends HTMLElement {
     for (const explanation of this.#frame.adFrameStatus()?.explanations || []) {
       rows.push(LitHtml.html`<div>${this.#getAdFrameExplanationString(explanation)}</div>`);
     }
+
+    // TODO: get the correct target for the linkifier
+    const targetManager = SDK.TargetManager.TargetManager.instance();
+    const debuggerId = this.#frame.getDebuggerId();
+    if (debuggerId) {
+      // This is null, model cannot be found in this way.
+      const debuggerModel = await SDK.DebuggerModel.DebuggerModel.modelForDebuggerId(debuggerId);
+      console.log('debuggerModel', debuggerModel);  // eslint-disable-line no-console
+    }
+
+    // Check each executionContext for each target.
+    const targetForDebuggerId = targetManager.targets().find(target => {
+      const executionContexts = target.model(SDK.RuntimeModel.RuntimeModel)?.executionContexts();
+      return Boolean(
+          executionContexts && executionContexts.find(executionContext => executionContext.uniqueId === debuggerId));
+    });
+
+    const sourceAnchor = this.#linkifier.linkifyScriptLocation(
+        targetForDebuggerId || null, this.#frame.getAdScriptId(), Platform.DevToolsPath.EmptyUrlString, undefined,
+        undefined);
+
     return LitHtml.html`
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
@@ -580,6 +602,11 @@ export class FrameDetailsReportView extends HTMLElement {
          <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
         {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
         ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>adScriptId</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>${this.#frame.getAdScriptId()} ${sourceAnchor}</${
+        ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>debuggerId</${ReportView.ReportView.ReportKey.litTagName}>
+        <${ReportView.ReportView.ReportValue.litTagName}>${debuggerId}</${ReportView.ReportView.ReportValue.litTagName}>
       `;
   }
 

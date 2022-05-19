@@ -2382,7 +2382,8 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Page.FileChooserOpenedEventMode', {SelectSingle: 'selectSingle', SelectMultiple: 'selectMultiple'});
   inspectorBackend.registerEvent('Page.fileChooserOpened', ['frameId', 'backendNodeId', 'mode']);
-  inspectorBackend.registerEvent('Page.frameAttached', ['frameId', 'parentFrameId', 'stack']);
+  inspectorBackend.registerEvent(
+      'Page.frameAttached', ['frameId', 'parentFrameId', 'stack', 'adScriptId', 'debuggerId']);
   inspectorBackend.registerEvent('Page.frameClearedScheduledNavigation', ['frameId']);
   inspectorBackend.registerEnum('Page.FrameDetachedEventReason', {Remove: 'remove', Swap: 'swap'});
   inspectorBackend.registerEvent('Page.frameDetached', ['frameId', 'reason']);
