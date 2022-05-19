@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64969e11_b15bcf7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-05-19T07:13:10Z",
+      "side": 1,
+      "message": "Afaict, we require all code which affects artifacts shipped to end users to be reviewed by two trusted parties (usually Googlers). That is transparent for internal repositories where reviewers and owners are FTEs, but more difficult for public and external repositories. For puppeteer, it looks like this is not guaranteed for (i) changes made by dependabot and (ii) PRs by external developers. In those cases, we only have one trusted party accepting the change.\n\nI would suggest you continue with the setup of the rollers, and – depending on the follow-up security decisions – we might need to alter the bot configuration.",
+      "parentUuid": "fd781e6c_d870e232",
+      "revId": "8db37697eb64a72f43a354ca6c6e3e8426e43b8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "304ac418_3096f243",
