@@ -3773,8 +3773,11 @@
   "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | breakpointSet": {
     "message": "Breakpoint set"
   },
-  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | checked": {
-    "message": "checked"
+  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | cChecked": {
+    "message": "checkbox checked"
+  },
+  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | cUnchecked": {
+    "message": "checkbox unchecked"
   },
   "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | domBreakpointsList": {
     "message": "DOM Breakpoints list"
@@ -3797,14 +3800,11 @@
   "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | sBreakpointHit": {
     "message": "{PH1} breakpoint hit"
   },
-  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | sS": {
-    "message": "{PH1}: {PH2}"
+  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | sSS": {
+    "message": "{PH1}: {PH2}, {PH3}"
   },
   "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | subtreeModified": {
     "message": "Subtree modified"
-  },
-  "panels/browser_debugger/DOMBreakpointsSidebarPane.ts | unchecked": {
-    "message": "unchecked"
   },
   "panels/browser_debugger/ObjectEventListenersSidebarPane.ts | refreshGlobalListeners": {
     "message": "Refresh global listeners"
