@@ -6,6 +6,7 @@ import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import {assertNotNullOrUndefined} from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
+import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -44,6 +45,10 @@ const UIStrings = {
   */
   general: 'General',
   /**
+  *@description Text in Request Headers View of the Network panel
+  */
+  requestHeaders: 'Request Headers',
+  /**
   *@description The URL of a request
   */
   requestUrl: 'Request URL',
@@ -51,6 +56,10 @@ const UIStrings = {
   *@description The HTTP method of a request
   */
   requestMethod: 'Request Method',
+  /**
+  *@description A context menu item in the Network Log View Columns of the Network panel
+  */
+  responseHeaders: 'Response Headers',
   /**
   *@description HTTP response code
   */
@@ -63,6 +72,14 @@ const UIStrings = {
   *@description Text in Request Headers View of the Network panel
   */
   referrerPolicy: 'Referrer Policy',
+  /**
+  *@description Text for toggling the view of header data (e.g. query string parameters) from source to parsed in the headers tab
+  */
+  viewParsed: 'View parsed',
+  /**
+  *@description Text for toggling the view of header data (e.g. query string parameters) from parsed to source in the headers tab
+  */
+  viewSource: 'View source',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/components/RequestHeadersView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -103,6 +120,8 @@ export class RequestHeadersComponent extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-request-headers`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
+  #showResponseHeadersText = false;
+  #showRequestHeadersText = false;
 
   set data(data: RequestHeadersComponentData) {
     this.#request = data.request;
@@ -120,8 +139,87 @@ export class RequestHeadersComponent extends HTMLElement {
     // clang-format off
     render(html`
       ${this.#renderGeneralSection()}
+      ${this.#renderResponseHeaders()}
+      ${this.#renderRequestHeaders()}
     `, this.#shadow, {host: this});
     // clang-format on
+  }
+
+  #renderResponseHeaders(): LitHtml.TemplateResult {
+    assertNotNullOrUndefined(this.#request);
+
+    const toggleShowRaw = (): void => {
+      this.#showResponseHeadersText = !this.#showResponseHeadersText;
+      this.#render();
+    };
+
+    const toggleRawButtonText = this.#request.responseHeadersText ?
+        (this.#showResponseHeadersText ? i18nString(UIStrings.viewParsed) : i18nString(UIStrings.viewSource)) :
+        '';
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return html`
+      <${Category.litTagName}
+        @togglerawevent=${toggleShowRaw}
+        .data=${{
+          name: 'responseHeaders',
+          title: i18nString(UIStrings.responseHeaders),
+          headerCount: this.#request.sortedResponseHeaders.length,
+          toggleRawButtonText,
+        } as CategoryData}
+        aria-label="Response Headers"
+      >
+        ${this.#showResponseHeadersText ? html`
+          <div class="row raw-headers">${this.#request.responseHeadersText.trim()}</div>
+        ` : html`
+          ${this.#request.sortedResponseHeaders.map(header => html`
+            <div class="row">
+              <div class="header-name">${header.name}:</div>
+              <div class="header-value">${header.value}</div>
+            </div>
+          `)}
+        `}
+      </${Category.litTagName}>
+    `;
+  }
+
+  #renderRequestHeaders(): LitHtml.TemplateResult {
+    assertNotNullOrUndefined(this.#request);
+
+    const toggleShowRaw = (): void => {
+      this.#showRequestHeadersText = !this.#showRequestHeadersText;
+      this.#render();
+    };
+
+    const requestHeadersText = this.#request.requestHeadersText();
+    const toggleRawButtonText = requestHeadersText ? (this.#showRequestHeadersText ? i18nString(UIStrings.viewParsed) : i18nString(UIStrings.viewSource)) : '';
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return html`
+      <${Category.litTagName}
+        @togglerawevent=${toggleShowRaw}
+        .data=${{
+          name: 'requestHeaders',
+          title: i18nString(UIStrings.requestHeaders),
+          headerCount: this.#request.requestHeaders().length,
+          toggleRawButtonText,
+        } as CategoryData}
+        aria-label="Request Headers"
+      >
+        ${(this.#showRequestHeadersText && requestHeadersText) ? html`
+          <div class="row raw-headers">${requestHeadersText.trim()}</div>
+        ` : html`
+          ${this.#request.requestHeaders().map(header => html`
+            <div class="row">
+              <div class="header-name">${header.name}:</div>
+              <div class="header-value">${header.value}</div>
+            </div>
+          `)}
+        `}
+      </${Category.litTagName}>
+    `;
   }
 
   #renderGeneralSection(): LitHtml.TemplateResult {
@@ -159,7 +257,10 @@ export class RequestHeadersComponent extends HTMLElement {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`
-      <${Category.litTagName} .data=${{name: 'general', title: i18nString(UIStrings.general)} as CategoryData}>
+      <${Category.litTagName}
+        .data=${{name: 'general', title: i18nString(UIStrings.general)} as CategoryData}
+        aria-label="General"
+      >
         <div class="row">
           <div class="header-name">${i18nString(UIStrings.requestUrl)}:</div>
           <div class="header-value">${this.#request.url()}</div>
@@ -192,9 +293,19 @@ export class RequestHeadersComponent extends HTMLElement {
   }
 }
 
+export class ToggleRawHeadersEvent extends Event {
+  static readonly eventName = 'togglerawevent';
+
+  constructor() {
+    super(ToggleRawHeadersEvent.eventName, {});
+  }
+}
+
 export interface CategoryData {
   name: string;
   title: Common.UIString.LocalizedString;
+  headerCount?: number;
+  toggleRawButtonText?: Common.UIString.LocalizedString;
 }
 
 export class Category extends HTMLElement {
@@ -202,6 +313,8 @@ export class Category extends HTMLElement {
   readonly #shadow = this.attachShadow({mode: 'open'});
   #expandedSetting?: Common.Settings.Setting<boolean>;
   #title: Common.UIString.LocalizedString = Common.UIString.LocalizedEmptyString;
+  #headerCount?: number = undefined;
+  #buttonText: Common.UIString.LocalizedString = Common.UIString.LocalizedEmptyString;
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [requestHeadersViewStyles];
@@ -211,15 +324,36 @@ export class Category extends HTMLElement {
     this.#title = data.title;
     this.#expandedSetting =
         Common.Settings.Settings.instance().createSetting('request-info-' + data.name + '-category-expanded', true);
+    this.#headerCount = data.headerCount;
+    this.#buttonText = data.toggleRawButtonText || Common.UIString.LocalizedEmptyString;
     this.#render();
   }
 
+  #onClick(): void {
+    this.dispatchEvent(new ToggleRawHeadersEvent());
+  }
+
   #render(): void {
+    const isOpen = this.#expandedSetting ? this.#expandedSetting.get() : true;
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
-      <details ?open=${this.#expandedSetting ? this.#expandedSetting.get() : true} @toggle=${this.#onToggle}>
-        <summary class="header" @keydown=${this.#onSummaryKeyDown}>${this.#title}</summary>
+      <details ?open=${isOpen} @toggle=${this.#onToggle}>
+        <summary class="header" @keydown=${this.#onSummaryKeyDown}>
+          ${this.#title}${this.#headerCount ?
+            html`<span class="header-count"> (${this.#headerCount})</span>` :
+            LitHtml.nothing
+          }
+          ${this.#buttonText ? html`
+            <${Buttons.Button.Button.litTagName}
+              .size=${Buttons.Button.Size.SMALL}
+              .variant=${Buttons.Button.Variant.SECONDARY}
+              @click=${this.#onClick}
+            >
+              ${this.#buttonText}
+            </${Buttons.Button.Button.litTagName}>
+          ` : LitHtml.nothing}
+        </summary>
         <slot></slot>
       </details>
     `, this.#shadow, {host: this});
