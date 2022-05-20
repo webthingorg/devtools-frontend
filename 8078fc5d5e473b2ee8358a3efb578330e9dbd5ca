@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0a635b3_cd5df99b",
+        "filename": "package.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:51:40Z",
+      "side": 1,
+      "message": "Revert all package.json changes",
+      "parentUuid": "640dd078_9a601694",
+      "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "483709a6_54c78801",
         "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
         "patchSetId": 9

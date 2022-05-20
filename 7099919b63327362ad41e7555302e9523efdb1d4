@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c61a1ab3_8342a94c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:51:40Z",
+      "side": 1,
+      "message": "Add screenshot/gifs to commit message.",
+      "revId": "7099919b63327362ad41e7555302e9523efdb1d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9dd5202_97693ad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:51:40Z",
+      "side": 1,
+      "message": "Rebase from main branch",
+      "revId": "7099919b63327362ad41e7555302e9523efdb1d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
