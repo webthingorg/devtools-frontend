@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6c5019_f781ad84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2022-05-20T21:07:37Z",
+      "side": 1,
+      "message": "Small A11y improvement, PTAL, thank you!",
+      "revId": "8443b23c7f630a23d0104fce0f68d2511e8fc42d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
