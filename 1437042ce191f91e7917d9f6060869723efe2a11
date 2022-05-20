@@ -16,6 +16,98 @@
       "message": "Added tests, not WIP anymore",
       "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca5fec5_25d32daa",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T11:22:02Z",
+      "side": 1,
+      "message": "This will return an empty sting on the first call. \nI think it should  return a promise instead: a pending promise if the key is not yet fetched or a resolved promise if it was fetched already.",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 36
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5e62a5_73845cb6",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T11:22:02Z",
+      "side": 1,
+      "message": "Does it has to be a member var? You seem to be using it as a return value, so maybe make it such.",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 37
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd23ed5_0d03fc19",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T11:22:02Z",
+      "side": 1,
+      "message": "Let\u0027s set up a mock value (using `setMockConnectionResponseHandler`)",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 64
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd017e02_e52e3c15",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T11:22:02Z",
+      "side": 1,
+      "message": "What does this describe DOMStorageModel or StorageView?",
+      "range": {
+        "startLine": 14,
+        "startChar": 28,
+        "endLine": 14,
+        "endChar": 43
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
