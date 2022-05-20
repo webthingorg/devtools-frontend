@@ -76,8 +76,10 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
   }
 
   private inspectedURLChanged(event: Common.EventTarget.EventTargetEvent<Target>): void {
-    if (event.data !== this.#target) {
-      return;
+    for (let target: Target|null = this.#target; target !== event.data; target = target.parentTarget()) {
+      if (target === null) {
+        return;
+      }
     }
 
     // We need this copy, because `this.#resolvedSourceMapId` is getting modified
