@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19c855df_87f1825f",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-20T14:56:49Z",
+      "side": 1,
+      "message": "This function is called when the Timeline panel is loaded for the first time in order to get the default concurrency value. This is to show the value in the UI and set up all the actions. If the panel is open on start, this may happen before the main target is there. The promise and callback stuff here is so that we can block that initial call until the target appears.",
+      "parentUuid": "ee4f2744_682d39dc",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d77f9c22_9c4e08fc",
         "filename": "test/shared/helper.ts",
         "patchSetId": 8
@@ -77,6 +101,30 @@
       "writtenOn": "2022-05-20T14:35:06Z",
       "side": 1,
       "message": ".only :)",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0caeeaf_ca43c8ec",
+        "filename": "test/unittests/front_end/core/sdk/CPUThrottlingManager_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-20T14:56:49Z",
+      "side": 1,
+      "message": "Huh, don\u0027t we have a linter for this?",
+      "parentUuid": "d53f3109_a3112d2f",
       "range": {
         "startLine": 8,
         "startChar": 27,
