@@ -16,6 +16,24 @@
       "message": "Why?",
       "revId": "7cff5e43302b6848487207ff6b3aefc47f6ddb6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf7214f_158d4133",
+        "filename": "scripts/deps/roll_front_end_third_party.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2022-05-20T09:56:03Z",
+      "side": 1,
+      "message": "The import is not available until it is sourced by the above path.",
+      "parentUuid": "1ab3aa37_3c8be010",
+      "revId": "7cff5e43302b6848487207ff6b3aefc47f6ddb6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
