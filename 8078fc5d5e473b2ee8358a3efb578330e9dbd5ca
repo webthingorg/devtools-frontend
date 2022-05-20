@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea3a7dd1_8347bb12",
+        "filename": "package.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-20T20:33:08Z",
+      "side": 1,
+      "message": "This should be resolved in patchset 13. Let me know if there are any issues!",
+      "parentUuid": "a0a635b3_cd5df99b",
+      "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "483709a6_54c78801",
