@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30232e9_a628037d",
+        "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:50:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "483709a6_54c78801",
+      "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "641a1c85_b6fcef1b",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e21c708_d095d1de",
+        "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:50:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641a1c85_b6fcef1b",
+      "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16dc1423_47d730e9",
@@ -82,6 +118,24 @@
       "writtenOn": "2022-05-19T16:52:01Z",
       "side": 1,
       "message": "Since you are navigating to manifest section in every test, it would be useful if you create a helper function in application-helpers.ts\n\n```\nexport async function navigateToManifestInApplicationTab() {\n    const MANIFEST_SELECTOR \u003d \u0027[aria-label\u003d\"Manifest\"]\u0027;\n    const {target} \u003d getBrowserAndPages();\n    await navigateToApplicationTab(target, \u0027app-manifest-protocol\u0027);\n    await click(MANIFEST_SELECTOR);\n}\n```",
+      "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00391f9_6e836a07",
+        "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-05-20T18:50:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16dc1423_47d730e9",
       "revId": "8078fc5d5e473b2ee8358a3efb578330e9dbd5ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
