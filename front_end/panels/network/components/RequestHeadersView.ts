@@ -102,11 +102,12 @@ export interface RequestHeadersComponentData {
 export class RequestHeadersComponent extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-request-headers`;
   readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly #boundRender = this.#render.bind(this);
   #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
 
   set data(data: RequestHeadersComponentData) {
     this.#request = data.request;
-    this.#render();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   connectedCallback(): void {
@@ -114,6 +115,9 @@ export class RequestHeadersComponent extends HTMLElement {
   }
 
   #render(): void {
+    if (!ComponentHelpers.ScheduledRender.isScheduledRender(this)) {
+      throw new Error('RequestHeadersComponent render was not scheduled');
+    }
     assertNotNullOrUndefined(this.#request);
 
     // Disabled until https://crbug.com/1079231 is fixed.
@@ -200,6 +204,7 @@ export interface CategoryData {
 export class Category extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-request-headers-category`;
   readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly #boundRender = this.#render.bind(this);
   #expandedSetting?: Common.Settings.Setting<boolean>;
   #title: Common.UIString.LocalizedString = Common.UIString.LocalizedEmptyString;
 
@@ -211,10 +216,14 @@ export class Category extends HTMLElement {
     this.#title = data.title;
     this.#expandedSetting =
         Common.Settings.Settings.instance().createSetting('request-info-' + data.name + '-category-expanded', true);
-    this.#render();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #render(): void {
+    if (!ComponentHelpers.ScheduledRender.isScheduledRender(this)) {
+      throw new Error('Category render was not scheduled');
+    }
+
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
