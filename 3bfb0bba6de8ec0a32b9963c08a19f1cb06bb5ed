@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afeeac90_51fe5006",
+        "filename": "front_end/panels/elements/components/computedStyleTrace.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-20T12:12:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d85724e_637565c0",
+      "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4470051f_0f566957",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "I\u0027m also not sure. Maybe I misunderstood the stylelint rules. I\u0027m mostly surprised that the stylelink checks didn\u0027t complain. What we can do is assigning this color value to a variable prefixed with `--override-`, and use the variable instead, i.e.:\n```\ntext-decoration-color: var(--override-text-decoration-color);\n--override-text-decoration-color: rgb(153, 153, 153);\n```",
       "parentUuid": "b9acb42c_97bbd271",
+      "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d63aa3_edd75c66",
+        "filename": "front_end/panels/elements/components/computedStyleTrace.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-20T12:12:05Z",
+      "side": 1,
+      "message": "Sure! Done.",
+      "parentUuid": "e23b3c1a_bdcbab29",
       "revId": "3bfb0bba6de8ec0a32b9963c08a19f1cb06bb5ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
