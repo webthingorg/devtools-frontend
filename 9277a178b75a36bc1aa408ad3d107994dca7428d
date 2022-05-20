@@ -124,6 +124,24 @@
       "parentUuid": "d16ced30_cd17e145",
       "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "774370f1_2d6e5060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-20T06:45:04Z",
+      "side": 1,
+      "message": "3) has already been taken care of in https://crrev.com/c/3651085",
+      "parentUuid": "c956709a_8fd26dda",
+      "revId": "9277a178b75a36bc1aa408ad3d107994dca7428d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
