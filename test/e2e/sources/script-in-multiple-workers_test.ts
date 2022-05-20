@@ -13,6 +13,7 @@ import {
   timeout,
   waitFor,
   waitForFunction,
+  waitForNone,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -59,6 +60,27 @@ describe('Multi-Workers', async function() {
       assert.deepEqual(await getBreakpointDecorators(), [6, 12]);
       assert.deepEqual(await getBreakpointDecorators(true), [6]);
     }
+
+    it('repros bug with puppeteer/sources panel interaction', async () => {
+      // load page without sourcemaps
+      await goToResource(targetPage);
+      await click('#tab-sources');
+
+      // validate that all workers loaded
+      await validateNavigationTree();
+
+      // Correct on first load...
+      await waitFor('[aria-label^="localhost:"]');
+      await waitForNone('[aria-label="__puppeteer_utility_world__, domain"]');
+
+      // Load page with source maps
+      await goToResource(targetPage);
+
+      // Why does this show up?
+      await waitFor('[aria-label="__puppeteer_utility_world__, domain"]');
+      // Instead of this?
+      await waitForNone('[aria-label^="localhost:"]');
+    });
 
     describe(`loads scripts exactly once ${withOrWithout}`, () => {
       beforeEach(async () => {
