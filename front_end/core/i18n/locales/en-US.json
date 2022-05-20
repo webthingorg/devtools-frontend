@@ -6620,14 +6620,26 @@
   "panels/network/components/RequestHeadersView.ts | remoteAddress": {
     "message": "Remote Address"
   },
+  "panels/network/components/RequestHeadersView.ts | requestHeaders": {
+    "message": "Request Headers"
+  },
   "panels/network/components/RequestHeadersView.ts | requestMethod": {
     "message": "Request Method"
   },
   "panels/network/components/RequestHeadersView.ts | requestUrl": {
     "message": "Request URL"
   },
+  "panels/network/components/RequestHeadersView.ts | responseHeaders": {
+    "message": "Response Headers"
+  },
   "panels/network/components/RequestHeadersView.ts | statusCode": {
     "message": "Status Code"
+  },
+  "panels/network/components/RequestHeadersView.ts | viewParsed": {
+    "message": "View parsed"
+  },
+  "panels/network/components/RequestHeadersView.ts | viewSource": {
+    "message": "View source"
   },
   "panels/network/components/RequestTrustTokensView.ts | aClientprovidedArgumentWas": {
     "message": "A client-provided argument was malformed or otherwise invalid."
