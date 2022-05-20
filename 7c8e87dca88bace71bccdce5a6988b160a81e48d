@@ -16,6 +16,75 @@
       "message": "Please take another look",
       "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7adf66f_eaaa294f",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T13:07:17Z",
+      "side": 1,
+      "message": "You can handle all async operations in parallel for better performance, i.e.:\n\n  for(const storageKey of \n      Promise.all(this.framesInternal.values().map((f)\u003d\u003ef.storageKey))) {\n    if (!storageKey) {\n       continue;\n    }\n    storageKeys.add(storageKey)\n  }",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 55
+      },
+      "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d047d30b_f24d2b73",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T13:07:17Z",
+      "side": 1,
+      "message": "Another this to test would be that security key manager gets updated when frame tree changes. You get one from the target and listen to its events to verify that.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 5
+      },
+      "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9679c86c_b64a7e17",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-20T13:07:17Z",
+      "side": 1,
+      "message": "It also updates when the main storage key changes. We can at least check the the title is updated.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
