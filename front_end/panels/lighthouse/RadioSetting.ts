@@ -63,7 +63,11 @@ export class RadioSetting {
   private settingChanged(): void {
     const value = this.setting.get();
     this.selectedIndex = this.options.findIndex(option => option.value === value);
-    this.updateUI();
+    try {
+      this.updateUI();
+    } catch {
+      console.log(this.options.map(o => o.value));
+    }
   }
 
   private valueChanged(_event: Event): void {

@@ -7,7 +7,7 @@ import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import type {LighthouseController} from './LighthouseController.js';
+import type {LighthouseController, Preset} from './LighthouseController.js';
 import {Events, Presets, RuntimeSettings} from './LighthouseController.js';
 import {RadioSetting} from './RadioSetting.js';
 
@@ -61,6 +61,8 @@ export class StartView extends UI.Widget.Widget {
   }
 
   protected populateRuntimeSettingAsRadio(settingName: string, label: string, parentElement: Element): void {
+    parentElement.textContent = '';
+
     const runtimeSetting = RuntimeSettings.find(item => item.setting.name === settingName);
     if (!runtimeSetting || !runtimeSetting.options) {
       throw new Error(`${settingName} is not a setting with options`);
@@ -102,22 +104,23 @@ export class StartView extends UI.Widget.Widget {
     }
   }
 
-  protected populateFormControls(fragment: UI.Fragment.Fragment, mode?: string): void {
+  protected populateFormControls(fragment: UI.Fragment.Fragment, mode?: string): (mode: string) => void {
     // Populate the device type
     const deviceTypeFormElements = fragment.$('device-type-form-elements');
     this.populateRuntimeSettingAsRadio('lighthouse.device_type', i18nString(UIStrings.device), deviceTypeFormElements);
 
     // Populate the categories
     const categoryFormElements = fragment.$('categories-form-elements') as HTMLElement;
-    categoryFormElements.textContent = '';
     const pluginFormElements = fragment.$('plugins-form-elements') as HTMLElement;
-    pluginFormElements.textContent = '';
+
+    const checkboxes: Array<{preset: Preset, checkbox: UI.Toolbar.ToolbarCheckbox}> = [];
     for (const preset of Presets) {
       const formElements = preset.plugin ? pluginFormElements : categoryFormElements;
       preset.setting.setTitle(preset.title());
       const checkbox = new UI.Toolbar.ToolbarSettingCheckbox(preset.setting, preset.description());
       const row = formElements.createChild('div', 'vbox lighthouse-launcher-row');
       row.appendChild(checkbox.element);
+      checkboxes.push({preset, checkbox});
       if (mode && !preset.supportedModes.includes(mode)) {
         checkbox.setEnabled(false);
         checkbox.setIndeterminate(true);
@@ -127,6 +130,18 @@ export class StartView extends UI.Widget.Widget {
     UI.ARIAUtils.setAccessibleName(categoryFormElements, i18nString(UIStrings.categories));
     UI.ARIAUtils.markAsGroup(pluginFormElements);
     UI.ARIAUtils.setAccessibleName(pluginFormElements, i18nString(UIStrings.communityPluginsBeta));
+
+    return (mode: string): void => {
+      for (const {checkbox, preset} of checkboxes) {
+        if (preset.supportedModes.includes(mode)) {
+          checkbox.setEnabled(true);
+          checkbox.setIndeterminate(false);
+        } else {
+          checkbox.setEnabled(false);
+          checkbox.setIndeterminate(true);
+        }
+      }
+    };
   }
 
   protected render(): void {

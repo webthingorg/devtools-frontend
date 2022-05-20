@@ -44,60 +44,16 @@ const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthouseStartViewF
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class StartViewFR extends StartView {
+  changeFormMode?: (mode: string) => void;
+
   protected render(): void {
     super.render();
-    this.refresh();
-  }
-
-  private createStartButton(mode: string): HTMLButtonElement {
-    let buttonLabel: Platform.UIString.LocalizedString;
-    let callback: () => void;
-
-    if (mode === 'timespan') {
-      buttonLabel = i18nString(UIStrings.startTimespan);
-      callback = (): void => {
-        this.controller.dispatchEventToListeners(
-            Events.RequestLighthouseTimespanStart,
-            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
-        );
-      };
-    } else if (mode === 'snapshot') {
-      buttonLabel = i18nString(UIStrings.analyzeSnapshot);
-      callback = (): void => {
-        this.controller.dispatchEventToListeners(
-            Events.RequestLighthouseStart,
-            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
-        );
-      };
-    } else {
-      buttonLabel = i18nString(UIStrings.analyzeNavigation);
-      callback = (): void => {
-        this.controller.dispatchEventToListeners(
-            Events.RequestLighthouseStart,
-            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
-        );
-      };
-    }
-
-    return UI.UIUtils.createTextButton(
-        buttonLabel,
-        callback,
-        /* className */ '',
-        /* primary */ true,
-    );
-  }
-
-  refresh(): void {
-    const {mode} = this.controller.getFlags();
-
-    this.startButton = this.createStartButton(mode);
-
     const fragment = UI.Fragment.Fragment.build`
 <form class="lighthouse-start-view-fr">
   <header class="hbox">
     <div class="lighthouse-logo"></div>
     <div class="lighthouse-title">${i18nString(UIStrings.generateLighthouseReport)}</div>
-    <div class="lighthouse-start-button-container">${this.startButton}</div>
+    <div class="lighthouse-start-button-container" $="start-button-container">${this.startButton}</div>
   </header>
   <div $="help-text" class="lighthouse-help-text hidden"></div>
   <div class="lighthouse-options hbox">
@@ -127,15 +83,68 @@ export class StartViewFR extends StartView {
     this.helpText = fragment.$('help-text');
     this.warningText = fragment.$('warning-text');
 
-    // The previous radios are removed later and don't exist on the new fragment yet.
-    this.populateFormControls(fragment, mode);
-
-    // Populate the Lighthouse mode
     const modeFormElements = fragment.$('mode-form-elements');
     this.populateRuntimeSettingAsRadio('lighthouse.mode', i18nString(UIStrings.mode), modeFormElements);
 
+    // The previous radios are removed later and don't exist on the new fragment yet.
+    const {mode} = this.controller.getFlags();
+    this.changeFormMode = this.populateFormControls(fragment, mode);
+    this.populateStartButton(mode);
+
     this.contentElement.textContent = '';
     this.contentElement.append(fragment.element());
+
+    this.refresh();
+  }
+
+  private populateStartButton(mode: string): void {
+    let buttonLabel: Platform.UIString.LocalizedString;
+    let callback: () => void;
+
+    if (mode === 'timespan') {
+      buttonLabel = i18nString(UIStrings.startTimespan);
+      callback = (): void => {
+        this.controller.dispatchEventToListeners(
+            Events.RequestLighthouseTimespanStart,
+            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
+        );
+      };
+    } else if (mode === 'snapshot') {
+      buttonLabel = i18nString(UIStrings.analyzeSnapshot);
+      callback = (): void => {
+        this.controller.dispatchEventToListeners(
+            Events.RequestLighthouseStart,
+            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
+        );
+      };
+    } else {
+      buttonLabel = i18nString(UIStrings.analyzeNavigation);
+      callback = (): void => {
+        this.controller.dispatchEventToListeners(
+            Events.RequestLighthouseStart,
+            /* keyboardInitiated */ this.startButton.matches(':focus-visible'),
+        );
+      };
+    }
+
+    const startButtonContainer = this.contentElement.querySelector('.lighthouse-start-button-container');
+    if (startButtonContainer) {
+      startButtonContainer.textContent = '';
+      this.startButton = UI.UIUtils.createTextButton(
+          buttonLabel,
+          callback,
+          /* className */ '',
+          /* primary */ true,
+      );
+      startButtonContainer.append(this.startButton);
+    }
+  }
+
+  refresh(): void {
+    const {mode} = this.controller.getFlags();
+    this.populateStartButton(mode);
+
+    this.changeFormMode?.(mode);
 
     // Ensure the correct layout is used after refresh.
     this.onResize();
