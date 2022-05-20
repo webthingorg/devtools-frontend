@@ -426,8 +426,7 @@ export function retrieveSourceFilesAdded(frontend: puppeteer.Page) {
 export type NestedFileSelector = {
   rootSelector: string,
   domainSelector: string,
-  folderSelector: string,
-  fileSelector: string,
+  folderSelector?: string, fileSelector: string,
 };
 
 export function createSelectorsForWorkerFile(
@@ -462,7 +461,9 @@ async function expandSourceTreeItem(selector: string) {
 export async function expandFileTree(selectors: NestedFileSelector) {
   await expandSourceTreeItem(selectors.rootSelector);
   await expandSourceTreeItem(selectors.domainSelector);
-  await expandSourceTreeItem(selectors.folderSelector);
+  if (selectors.folderSelector) {
+    await expandSourceTreeItem(selectors.folderSelector);
+  }
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
   return await waitFor(selectors.fileSelector);
