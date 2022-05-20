@@ -23,6 +23,18 @@
   background-color: var(--legacy-focus-bg-color);
 }
 
+details[open] .header-count {
+  display: none;
+}
+
+details summary devtools-button {
+  display: none;
+}
+
+details[open] summary devtools-button {
+  display: inline-flex;
+}
+
 .row {
   display: flex;
   line-height: 20px;
@@ -75,4 +87,10 @@
 
 .status-with-comment {
   color: var(--color-text-secondary);
+}
+
+.raw-headers {
+  font-family: var(--source-code-font-family);
+  font-size: var(--source-code-font-size);
+  white-space: pre-wrap;
 }
