@@ -105,4 +105,26 @@ describeWithMockConnection('ResourceTreeModel', () => {
     assert.strictEqual(
         resourceTreeModel.mainFrame.prerenderFinalStatus, Protocol.Page.PrerenderFinalStatus.ClientCertRequested);
   });
+
+  it('added frame has storageKey when navigated', () => {
+    assert.isEmpty(resourceTreeModel?.frames());
+    dispatchEvent(target, 'Page.frameNavigated', {
+      frame: {
+        id: 'main',
+        loaderId: 'foo',
+        url: 'http://example.com',
+        securityOrigin: 'http://example.com',
+        mimeType: 'text/html',
+      },
+    });
+    const frames = resourceTreeModel?.frames();
+    assertNotNullOrUndefined(frames);
+    assert.lengthOf(frames, 1);
+    const addedFrame = frames[0];
+    assertNotNullOrUndefined(addedFrame);
+    const key = addedFrame.storageKey;
+    assertNotNullOrUndefined(key);
+    // is empty because frame isn't coming from the real backend
+    assert.isEmpty(key);
+  });
 });
