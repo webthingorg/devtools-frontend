@@ -6,7 +6,11 @@ import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/p
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
-import {describeWithMockConnection, dispatchEvent} from '../../helpers/MockConnection.js';
+import {
+  describeWithMockConnection,
+  dispatchEvent,
+  setMockConnectionResponseHandler,
+} from '../../helpers/MockConnection.js';
 
 const {assert} = chai;
 
@@ -104,5 +108,33 @@ describeWithMockConnection('ResourceTreeModel', () => {
     assertNotNullOrUndefined(resourceTreeModel.mainFrame);
     assert.strictEqual(
         resourceTreeModel.mainFrame.prerenderFinalStatus, Protocol.Page.PrerenderFinalStatus.ClientCertRequested);
+  });
+
+  it('added frame has storageKey when navigated', async () => {
+    const testKey = 'test-storage-key';
+    setMockConnectionResponseHandler('Storage.getStorageKeyForFrame', () => {
+      return {
+        storageKey: testKey,
+      };
+    });
+
+    assert.isEmpty(resourceTreeModel?.frames());
+    dispatchEvent(target, 'Page.frameNavigated', {
+      frame: {
+        id: 'main',
+        loaderId: 'foo',
+        url: 'http://example.com',
+        securityOrigin: 'http://example.com',
+        mimeType: 'text/html',
+      },
+    });
+    const frames = resourceTreeModel?.frames();
+    assertNotNullOrUndefined(frames);
+    assert.lengthOf(frames, 1);
+    const addedFrame = frames[0];
+    assertNotNullOrUndefined(addedFrame);
+    const key = await addedFrame.storageKey;
+    assertNotNullOrUndefined(key);
+    assert.strictEqual(key, testKey);
   });
 });
