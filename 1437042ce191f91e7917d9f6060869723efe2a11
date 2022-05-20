@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab23edaf_8965233b",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-20T12:45:53Z",
+      "side": 1,
+      "message": "Is what I changed it to what you meant? Or did you want me to do smth different?",
+      "parentUuid": "1ca5fec5_25d32daa",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 36
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f5e62a5_73845cb6",
         "filename": "front_end/panels/application/StorageView.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-20T11:22:02Z",
       "side": 1,
       "message": "Does it has to be a member var? You seem to be using it as a return value, so maybe make it such.",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 37
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7306a2a6_ba2c6be5",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-20T12:45:53Z",
+      "side": 1,
+      "message": "As discussed offline, `handleClear` cannot be async, therefore blindly returning true there.",
+      "parentUuid": "3f5e62a5_73845cb6",
       "range": {
         "startLine": 615,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d350711_6194d3c9",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-20T12:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cd23ed5_0d03fc19",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 64
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd017e02_e52e3c15",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-05-20T11:22:02Z",
       "side": 1,
       "message": "What does this describe DOMStorageModel or StorageView?",
+      "range": {
+        "startLine": 14,
+        "startChar": 28,
+        "endLine": 14,
+        "endChar": 43
+      },
+      "revId": "1437042ce191f91e7917d9f6060869723efe2a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a746e00_9510de98",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-20T12:45:53Z",
+      "side": 1,
+      "message": "Ah, sorry, copied over and forgot to change",
+      "parentUuid": "fd017e02_e52e3c15",
       "range": {
         "startLine": 14,
         "startChar": 28,
