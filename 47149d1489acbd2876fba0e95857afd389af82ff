@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c100125e_2aa568b9",
+        "filename": "front_end/panels/mobile_throttling/ThrottlingManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-20T14:35:06Z",
+      "side": 1,
+      "message": "here I would just do:\n\nreset.element.classList.add(\u0027hidden-reset\u0027)\n\nAnd then where you make it visible:\n\nreset.element.classList.remove(\u0027hidden-reset\u0027);\n\nOr you can also do:\n\nreset.element.classList.toggle(\u0027hidden-reset\u0027) to toggle it on/off\n\nAnd then add styles to whichever CSS file has `devtools-concurrency-input` in",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 46
+      },
+      "revId": "47149d1489acbd2876fba0e95857afd389af82ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

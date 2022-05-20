@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6013a12d_e5edab11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-20T14:35:06Z",
+      "side": 1,
+      "message": "LGTM with some thoughts. Will defer UX to Peter :)",
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4f2744_682d39dc",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-20T14:35:06Z",
+      "side": 1,
+      "message": "gonna ask probably a naive question as I\u0027m not familiar with how we typically do this in SDK, but why do we need all this extra promise stuff? Can\u0027t this method just call `invoke_evaluate` and then return the number or an error? Why do all the existing callback and promise bits?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d77f9c22_9c4e08fc",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-20T14:35:06Z",
+      "side": 1,
+      "message": "Could you change the return type to `value is T` ? And then I think you can then do:\n\n```\nconst foo \u003d someMaybeThing(); // T|undefined\nassertNonNull(foo)\n// now foo is type T\n```",
+      "range": {
+        "startLine": 699,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 1
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53f3109_a3112d2f",
+        "filename": "test/unittests/front_end/core/sdk/CPUThrottlingManager_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-20T14:35:06Z",
+      "side": 1,
+      "message": ".only :)",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
