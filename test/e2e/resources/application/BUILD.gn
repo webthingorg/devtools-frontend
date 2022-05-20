@@ -8,6 +8,7 @@ copy_to_gen("application") {
   sources = [
     "app-manifest-id.html",
     "app-manifest-no-id.html",
+    "app-manifest-protocol.html",
     "cookies.html",
     "cross-origin-cookies.html",
     "dedicated-worker.js",
@@ -18,6 +19,7 @@ copy_to_gen("application") {
     "main.css",
     "manifest-id.json",
     "manifest-no-id.json",
+    "manifest-protocol.json",
     "reporting-api.html",
     "reporting-api.rawresponse",
     "service-worker-network.html",
