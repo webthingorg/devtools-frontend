@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea25bf9_d22ca1cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-20T14:15:07Z",
+      "side": 1,
+      "message": "Hey Jack, Peter, PTAL! A screenshot can be found on the bug/doc!",
+      "revId": "465e2ed36c24a15f51b87966dfec80c1c23c1ad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
