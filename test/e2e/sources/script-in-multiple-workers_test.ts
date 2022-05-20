@@ -13,6 +13,7 @@ import {
   timeout,
   waitFor,
   waitForFunction,
+  waitForNone,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -41,6 +42,26 @@ describe('Multi-Workers', async function() {
     this.timeout(10000);
   }
 
+  // it.only('repros bug with puppeteer/sources panel interaction', async () => {
+  //   // load page without sourcemaps
+  //   await goToResource('sources/multi-workers.html');
+  //   await click('#tab-sources');
+
+  //   // validate that all workers loaded
+  //   await waitFor(createSelectorsForWorkerFile('multi-workers.js', 'test/e2e/resources/sources', 'multi-workers.js', 10).rootSelector);
+
+  //   // Not on the first load...
+  //   await waitForNone('[aria-label="__puppeteer_utility_world__, domain"]');
+
+  //   // Load page with source maps
+  //   await goToResource('sources/multi-workers-sourcemap.html');
+  //   // Validate that all workers loaded
+  //   await waitFor(createSelectorsForWorkerFile('multi-workers.min.js', 'test/e2e/resources/sources', 'multi-workers.js', 10).rootSelector);
+
+  //   // Why is this here?
+  //   await waitFor('[aria-label="__puppeteer_utility_world__, domain"]');
+  // });
+
   [false, true].forEach(sourceMaps => {
     const withOrWithout = sourceMaps ? 'with source maps' : 'without source maps';
     const targetPage = sourceMaps ? 'sources/multi-workers-sourcemap.html' : 'sources/multi-workers.html';
@@ -59,6 +80,27 @@ describe('Multi-Workers', async function() {
       assert.deepEqual(await getBreakpointDecorators(), [6, 12]);
       assert.deepEqual(await getBreakpointDecorators(true), [6]);
     }
+
+    it('repros bug with puppeteer/sources panel interaction', async () => {
+      // load page without sourcemaps
+      await goToResource(targetPage);
+      await click('#tab-sources');
+
+      // validate that all workers loaded
+      await validateNavigationTree();
+
+      // Correct on first load...
+      await waitFor('[aria-label^="localhost:"]');
+      await waitForNone('[aria-label="__puppeteer_utility_world__, domain"]');
+
+      // Load page with source maps
+      await goToResource(targetPage);
+
+      // Why does this show up?
+      await waitFor('[aria-label="__puppeteer_utility_world__, domain"]');
+      // Instead of this?
+      await waitForNone('[aria-label^="localhost:"]');
+    });
 
     describe(`loads scripts exactly once ${withOrWithout}`, () => {
       beforeEach(async () => {
