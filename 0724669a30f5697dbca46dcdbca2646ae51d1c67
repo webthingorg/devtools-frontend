@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a578019c_01bf6a93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-20T07:52:47Z",
+      "side": 1,
+      "message": "Hi Jack, could you please help me figure out what\u0027s going on here?\n\nIf you watch the screencast from the CL description, you\u0027ll see that these changes result in the component not being rendered sometimes. I\u0027ve only witnessed this behaviour when both `RequestHeadersComponent` and `Category` use `scheduleRender()`, it does not seem to happen when only one of them uses it.\n\nAm I using the `coordinator` incorrectly?",
+      "revId": "0724669a30f5697dbca46dcdbca2646ae51d1c67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
