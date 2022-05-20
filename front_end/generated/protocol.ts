@@ -1038,10 +1038,7 @@ export namespace Audits {
     GetUserMediaInsecureOrigin = 'GetUserMediaInsecureOrigin',
     HostCandidateAttributeGetter = 'HostCandidateAttributeGetter',
     InsecurePrivateNetworkSubresourceRequest = 'InsecurePrivateNetworkSubresourceRequest',
-    LegacyConstraintGoogCpuOveruseDetection = 'LegacyConstraintGoogCpuOveruseDetection',
     LegacyConstraintGoogIPv6 = 'LegacyConstraintGoogIPv6',
-    LegacyConstraintGoogScreencastMinBitrate = 'LegacyConstraintGoogScreencastMinBitrate',
-    LegacyConstraintGoogSuspendBelowMinBitrate = 'LegacyConstraintGoogSuspendBelowMinBitrate',
     LocalCSSFileExtensionRejected = 'LocalCSSFileExtensionRejected',
     MediaElementAudioSourceNode = 'MediaElementAudioSourceNode',
     MediaSourceAbortRemove = 'MediaSourceAbortRemove',
@@ -1068,16 +1065,13 @@ export namespace Audits {
     RTCConstraintEnableDtlsSrtpTrue = 'RTCConstraintEnableDtlsSrtpTrue',
     RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics =
         'RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics',
-    RTCPeerConnectionLegacyCreateWithMediaConstraints = 'RTCPeerConnectionLegacyCreateWithMediaConstraints',
     RTCPeerConnectionSdpSemanticsPlanB = 'RTCPeerConnectionSdpSemanticsPlanB',
     RtcpMuxPolicyNegotiate = 'RtcpMuxPolicyNegotiate',
     RTPDataChannel = 'RTPDataChannel',
-    SelectionAddRangeIntersect = 'SelectionAddRangeIntersect',
     SharedArrayBufferConstructedWithoutIsolation = 'SharedArrayBufferConstructedWithoutIsolation',
     TextToSpeech_DisallowedByAutoplay = 'TextToSpeech_DisallowedByAutoplay',
     V8SharedArrayBufferConstructedInExtensionWithoutIsolation =
         'V8SharedArrayBufferConstructedInExtensionWithoutIsolation',
-    WebCodecsVideoFrameDefaultTimestamp = 'WebCodecsVideoFrameDefaultTimestamp',
     XHRJSONEncodingDetection = 'XHRJSONEncodingDetection',
     XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload = 'XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload',
     XRSupportsSession = 'XRSupportsSession',
@@ -4939,6 +4933,8 @@ export namespace DOMSnapshot {
  */
 export namespace DOMStorage {
 
+  export type SerializedStorageKey = string;
+
   /**
    * DOM Storage identifier.
    */
@@ -4946,7 +4942,11 @@ export namespace DOMStorage {
     /**
      * Security origin for the storage.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Represents a key by which DOM Storage keys its CachedStorageAreas
+     */
+    storageKey?: SerializedStorageKey;
     /**
      * Whether the storage is local storage (not session storage).
      */
@@ -4979,6 +4979,14 @@ export namespace DOMStorage {
     storageId: StorageId;
     key: string;
     value: string;
+  }
+
+  export interface GetStorageKeyForFrameRequest {
+    frameId: Page.FrameId;
+  }
+
+  export interface GetStorageKeyForFrameResponse extends ProtocolResponseWithError {
+    storageKey: SerializedStorageKey;
   }
 
   export interface DomStorageItemAddedEvent {
@@ -9200,6 +9208,16 @@ export namespace Network {
      * The client security state set for the request.
      */
     clientSecurityState?: ClientSecurityState;
+    /**
+     * Present if an extension changed the headers for this request. These are the original
+     * headers before the extension modified them.
+     */
+    extensionOriginalHeaders?: Headers;
+    /**
+     * Present if an extension changed the headers for this request. These are the modified
+     * headers after the extension modified them.
+     */
+    extensionReplacedHeaders?: Headers;
   }
 
   /**
@@ -9238,6 +9256,16 @@ export namespace Network {
      * available, such as in the case of HTTP/2 or QUIC.
      */
     headersText?: string;
+    /**
+     * Present if an extension changed the headers for this response. These are the original
+     * headers before the extension modified them.
+     */
+    extensionOriginalHeaders?: Headers;
+    /**
+     * Present if an extension changed the headers for this response. These are the modified
+     * headers after the extension modified them.
+     */
+    extensionReplacedHeaders?: Headers;
   }
 
   export const enum TrustTokenOperationDoneEventStatus {
@@ -12660,6 +12688,8 @@ export namespace ServiceWorker {
 }
 
 export namespace Storage {
+
+  export type SerializedStorageKey = string;
 
   /**
    * Enum of possible storage types.

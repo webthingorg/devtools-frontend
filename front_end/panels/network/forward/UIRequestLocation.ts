@@ -31,6 +31,7 @@ export enum UIRequestTabs {
   Timing = 'timing',
   TrustTokens = 'trustTokens',
   WsFrames = 'webSocketFrames',
+  Extensions = 'extensions',
 }
 
 export interface FilterOptions {

@@ -38,6 +38,7 @@ import * as NetworkComponents from './components/components.js';
 import {EventSourceMessagesView} from './EventSourceMessagesView.js';
 import type {NetworkTimeCalculator} from './NetworkTimeCalculator.js';
 import {RequestCookiesView} from './RequestCookiesView.js';
+import {RequestExtensionsView} from './RequestExtensionsView.js';
 import {RequestHeadersView} from './RequestHeadersView.js';
 import {RequestPayloadView} from './RequestPayloadView.js';
 import {RequestInitiatorView} from './RequestInitiatorView.js';
@@ -123,6 +124,14 @@ const UIStrings = {
   *@description Text in Network Item View of the Network panel
   */
   requestAndResponseCookies: 'Request and response cookies',
+  /**
+  *@description Text for extensions
+  */
+  extensions: 'Extensions',
+  /**
+  *@description Text in Network Item View of the Network panel
+  */
+  requestAndResponseExtensions: 'Request and response extensions',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkItemView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -133,6 +142,7 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   private payloadView: RequestPayloadView|null;
   private readonly responseView: RequestResponseView|undefined;
   private cookiesView: RequestCookiesView|null;
+  private extensionsView: RequestExtensionsView|null;
   private initialTab?: NetworkForward.UIRequestLocation.UIRequestTabs;
 
   constructor(
@@ -197,6 +207,7 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     }
 
     this.cookiesView = null;
+    this.extensionsView = null;
 
     this.initialTab = initialTab || this.resourceViewTabSetting.get();
     // Selecting tabs should not be handled by the super class.
@@ -210,8 +221,11 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this.requestInternal.addEventListener(
         SDK.NetworkRequest.Events.ResponseHeadersChanged, this.maybeAppendCookiesPanel, this);
     this.requestInternal.addEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.maybeAppendExtensionsPanel, this);
+    this.requestInternal.addEventListener(
         SDK.NetworkRequest.Events.TrustTokenResultAdded, this.maybeShowErrorIconInTrustTokenTabHeader, this);
     this.maybeAppendCookiesPanel();
+    this.maybeAppendExtensionsPanel();
     this.maybeShowErrorIconInTrustTokenTabHeader();
 
     // Only select the initial tab the first time the view is shown after construction.
@@ -230,11 +244,14 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this.requestInternal.removeEventListener(
         SDK.NetworkRequest.Events.ResponseHeadersChanged, this.maybeAppendCookiesPanel, this);
     this.requestInternal.removeEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.maybeAppendExtensionsPanel, this);
+    this.requestInternal.removeEventListener(
         SDK.NetworkRequest.Events.TrustTokenResultAdded, this.maybeShowErrorIconInTrustTokenTabHeader, this);
   }
 
   private async requestHeadersChanged(): Promise<void> {
     this.maybeAppendCookiesPanel();
+    this.maybeAppendExtensionsPanel();
     void this.maybeAppendPayloadPanel();
   }
 
@@ -246,6 +263,17 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
       this.appendTab(
           NetworkForward.UIRequestLocation.UIRequestTabs.Cookies, i18nString(UIStrings.cookies), this.cookiesView,
           i18nString(UIStrings.requestAndResponseCookies));
+    }
+  }
+
+  private maybeAppendExtensionsPanel(): void {
+    const extensionsPresent = this.requestInternal.extensionRequestReplacedHeaders() ||
+        this.requestInternal.extensionResponseReplacedHeaders();
+    if (extensionsPresent && !this.extensionsView) {
+      this.extensionsView = new RequestExtensionsView(this.requestInternal);
+      this.appendTab(
+          NetworkForward.UIRequestLocation.UIRequestTabs.Extensions, i18nString(UIStrings.extensions),
+          this.extensionsView, i18nString(UIStrings.requestAndResponseExtensions));
     }
   }
 

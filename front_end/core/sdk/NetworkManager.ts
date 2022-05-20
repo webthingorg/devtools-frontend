@@ -820,8 +820,15 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   requestIntercepted({}: Protocol.Network.RequestInterceptedEvent): void {
   }
 
-  requestWillBeSentExtraInfo({requestId, associatedCookies, headers, clientSecurityState, connectTiming}:
-                                 Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
+  requestWillBeSentExtraInfo({
+    requestId,
+    associatedCookies,
+    headers,
+    clientSecurityState,
+    connectTiming,
+    extensionOriginalHeaders,
+    extensionReplacedHeaders,
+  }: Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
     const blockedRequestCookies: BlockedCookieWithReason[] = [];
     const includedRequestCookies = [];
     for (const {blockedReasons, cookie} of associatedCookies) {
@@ -831,18 +838,30 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
         blockedRequestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
       }
     }
-    const extraRequestInfo = {
+    const extraRequestInfo: ExtraRequestInfo = {
       blockedRequestCookies,
       includedRequestCookies,
       requestHeaders: this.headersMapToHeadersArray(headers),
       clientSecurityState: clientSecurityState,
       connectTiming,
+      extensionOriginalHeaders: extensionOriginalHeaders ? this.headersMapToHeadersArray(extensionOriginalHeaders) :
+                                                           undefined,
+      extensionReplacedHeaders: extensionReplacedHeaders ? this.headersMapToHeadersArray(extensionReplacedHeaders) :
+                                                           undefined,
     };
     this.getExtraInfoBuilder(requestId).addRequestExtraInfo(extraRequestInfo);
   }
 
-  responseReceivedExtraInfo({requestId, blockedCookies, headers, headersText, resourceIPAddressSpace, statusCode}:
-                                Protocol.Network.ResponseReceivedExtraInfoEvent): void {
+  responseReceivedExtraInfo({
+    requestId,
+    blockedCookies,
+    headers,
+    headersText,
+    resourceIPAddressSpace,
+    statusCode,
+    extensionReplacedHeaders,
+    extensionOriginalHeaders,
+  }: Protocol.Network.ResponseReceivedExtraInfoEvent): void {
     const extraResponseInfo: ExtraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
         return {
@@ -855,6 +874,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       responseHeadersText: headersText,
       resourceIPAddressSpace,
       statusCode,
+      extensionOriginalHeaders: extensionOriginalHeaders ? this.headersMapToHeadersArray(extensionOriginalHeaders) :
+                                                           undefined,
+      extensionReplacedHeaders: extensionReplacedHeaders ? this.headersMapToHeadersArray(extensionReplacedHeaders) :
+                                                           undefined,
     };
     this.getExtraInfoBuilder(requestId).addResponseExtraInfo(extraResponseInfo);
   }

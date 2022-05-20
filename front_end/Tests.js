@@ -1536,7 +1536,88 @@
     this.evaluateInConsole_(`new WebSocket('ws://127.0.0.1:${websocketPort}')`, () => {});
   };
 
-  TestSuite.prototype.testExtensionWebSocketOfflineNetworkConditions = async function(websocketPort) {
+  TestSuite.prototype.testExtensionHeaderEvents =
+      async function(httpPort) {
+    this.takeControl();
+
+    function onRequestUpdated(event) {
+      const request = event.data;
+      if (request.resourceType() !== Common.resourceTypes.Fetch)
+        return;
+
+      function copyAndSort(nameValueArray) {
+        const copy = nameValueArray.map(nameValue => {
+          return {name: nameValue.name, value: nameValue.value};
+        });
+        copy.sort((a, b) => a.name.localeCompare(b.name));
+        return copy;
+      }
+      function diff(originalNameValue, replacedNameValue) {
+        const added = [];
+        const removed = [];
+
+        const originalSorted = copyAndSort(originalNameValue);
+        const replacedSorted = copyAndSort(replacedNameValue);
+
+        let originalIndex = 0;
+        let replacedIndex = 0;
+        while (originalIndex != originalSorted.length || replacedIndex != replacedSorted.length) {
+          if (originalIndex == originalSorted.length) {
+            added.push(replacedSorted[replacedIndex++]);
+          } else if (replacedIndex == replacedSorted.length) {
+            removed.push(originalSorted[originalIndex++]);
+          } else {
+            const nextOriginal = originalSorted[originalIndex];
+            const nextReplaced = replacedSorted[replacedIndex];
+            const localeCompare = nextOriginal.name.localeCompare(nextReplaced.name);
+            if (localeCompare > 1) {
+              added.push(replacedSorted[replacedIndex++]);
+            } else if (localeCompare < 0) {
+              removed.push(originalSorted[originalIndex++]);
+            } else if (nextOriginal.value !== nextReplaced.value) {
+              added.push(replacedSorted[replacedIndex++]);
+              removed.push(originalSorted[originalIndex++]);
+            } else {
+              // names and values match
+              replacedIndex++;
+              originalIndex++;
+            }
+          }
+        }
+
+        return [added, removed];
+      }
+
+      const [requestAdded, requestRemoved] =
+          diff(request.extensionRequestOriginalHeaders(), request.extensionRequestReplacedHeaders());
+      const [responseAdded, responseRemoved] =
+          diff(request.extensionResponseOriginalHeaders(), request.extensionResponseReplacedHeaders());
+
+      const expectedRequestAdded = [{name: 'x-test-req-header', value: 'dnr-set-req-test'}];
+      const expectedRequestRemoved = [];
+      const expectedResponseAdded = [{name: 'x-test-resp-header', value: 'dnr-set-resp-test'}];
+      const expectedResponseRemoved = [];
+
+      this.assertEquals(
+          JSON.stringify(expectedRequestAdded), JSON.stringify(requestAdded), 'Added request headers do not match.');
+      this.assertEquals(
+          JSON.stringify(expectedRequestRemoved), JSON.stringify(requestRemoved),
+          'Removed request headers do not match.');
+      this.assertEquals(
+          JSON.stringify(expectedResponseAdded), JSON.stringify(responseAdded), 'Added response headers do not match.');
+      this.assertEquals(
+          JSON.stringify(expectedResponseRemoved), JSON.stringify(responseRemoved),
+          'Removed response headers do not match.');
+
+      this.releaseControl();
+    }
+    self.SDK.targetManager.addModelListener(
+        SDK.NetworkManager, SDK.NetworkManager.Events.RequestUpdated, onRequestUpdated.bind(this));
+
+    this.evaluateInConsole_(`fetch(window.location.href)`, () => {});
+  }
+
+      TestSuite.prototype.testExtensionWebSocketOfflineNetworkConditions = async function(websocketPort) {
     self.SDK.multitargetNetworkManager.setNetworkConditions(SDK.NetworkManager.OfflineConditions);
 
     // TODO(crbug.com/1263900): Currently we don't send loadingFailed for web sockets.
