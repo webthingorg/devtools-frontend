@@ -16,7 +16,7 @@ import * as SourcesComponents from '../../../../../front_end/panels/sources/comp
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import {initializeGlobalVars, deinitializeGlobalVars} from '../../helpers/EnvironmentHelpers.js';
-import {createUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
+import {createFileSystemUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
 
 describe('SourcesView', () => {
   beforeEach(async () => {
@@ -41,9 +41,10 @@ describe('SourcesView', () => {
   it('creates new source view of updated type when renamed file requires a different viewer', async () => {
     const sourcesView = new Sources.SourcesView.SourcesView();
     const workspace = Workspace.Workspace.WorkspaceImpl.instance();
-    const {uiSourceCode, project} = createUISourceCode({
+    const {uiSourceCode, project} = createFileSystemUISourceCode({
       url: 'file:///path/to/overrides/example.html' as Platform.DevToolsPath.UrlString,
       mimeType: 'text/html',
+      content: '',
     });
     project.canSetFileContent = () => true;
     project.rename =
