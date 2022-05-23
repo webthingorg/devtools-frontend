@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf19f013_de18ed90",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-23T09:55:36Z",
+      "side": 1,
+      "message": "Yes, thanks.",
+      "parentUuid": "d36a32c7_9d9ed614",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 37
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beda343b_8819597e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b446dc59_80373c96",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-23T09:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beda343b_8819597e",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 36
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5abd21ba_9c914c09",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-23T08:10:15Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05200b41_0b703c47",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-23T09:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5abd21ba_9c914c09",
       "range": {
         "startLine": 262,
         "startChar": 0,
