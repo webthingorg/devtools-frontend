@@ -39,6 +39,30 @@
       },
       "revId": "e0db9d9f398a78c1e63387dd335421240629e164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0367a809_cbf663da",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2022-05-23T16:05:53Z",
+      "side": 1,
+      "message": "Having the link on the same line sounds good to me, removed the ReportSection. Thanks!",
+      "parentUuid": "3bf601e6_468491a5",
+      "range": {
+        "startLine": 547,
+        "startChar": 14,
+        "endLine": 547,
+        "endChar": 65
+      },
+      "revId": "e0db9d9f398a78c1e63387dd335421240629e164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
