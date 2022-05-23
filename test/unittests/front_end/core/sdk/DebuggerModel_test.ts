@@ -4,7 +4,7 @@
 
 import type * as SDKModule from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Protocol from '../../../../../front_end/generated/protocol.js';
 
 import {createTarget, describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {
@@ -12,6 +12,7 @@ import {
   dispatchEvent,
   setMockConnectionResponseHandler,
 } from '../../helpers/MockConnection.js';
+import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 
 const {assert} = chai;
 
@@ -315,5 +316,52 @@ describeWithEnvironment('LocationRanges', () => {
     const reduced = sortAndMerge(locationRangesToBeReduced);
     assert.deepEqual(reduced, locationRangesExpected);
     checkIsMaximallyMerged(reduced);
+  });
+});
+
+describeWithRealConnection('Scope', () => {
+  it('Scope.typeName covers every enum value', async () => {
+    const SDK = await import('../../../../../front_end/core/sdk/sdk.js');
+    const target = createTarget();
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel) as SDKModule.DebuggerModel.DebuggerModel;
+    const scriptUrl = 'https://script-host/script.js' as Platform.DevToolsPath.UrlString;
+    const script = new SDK.Script.Script(
+        debuggerModel, '1' as Protocol.Runtime.ScriptId, scriptUrl, 0, 0, 0, 0, 0, '', false, false, undefined, false,
+        0, null, null, null, null, null, null);
+    const scopeTypes: Protocol.Debugger.ScopeType[] = [
+      Protocol.Debugger.ScopeType.Global,
+      Protocol.Debugger.ScopeType.Local,
+      Protocol.Debugger.ScopeType.With,
+      Protocol.Debugger.ScopeType.Closure,
+      Protocol.Debugger.ScopeType.Catch,
+      Protocol.Debugger.ScopeType.Block,
+      Protocol.Debugger.ScopeType.Script,
+      Protocol.Debugger.ScopeType.Eval,
+      Protocol.Debugger.ScopeType.Module,
+      Protocol.Debugger.ScopeType.WasmExpressionStack,
+    ];
+    for (const scopeType of scopeTypes) {
+      const payload: Protocol.Debugger.CallFrame = {
+        callFrameId: '0' as Protocol.Debugger.CallFrameId,
+        functionName: 'test',
+        functionLocation: undefined,
+        location: {
+          scriptId: '0' as Protocol.Runtime.ScriptId,
+          lineNumber: 0,
+          columnNumber: 0,
+        },
+        url: 'test-url',
+        scopeChain: [{
+          type: scopeType,
+          object: {type: 'object'} as Protocol.Runtime.RemoteObject,
+        }],
+        this: {type: 'object'} as Protocol.Runtime.RemoteObject,
+        returnValue: undefined,
+        canBeRestarted: false,
+      };
+      const callFrame = new SDK.DebuggerModel.CallFrame(debuggerModel, script, payload, 0);
+      const scope = new SDK.DebuggerModel.Scope(callFrame, 0);
+      assert.notEqual('', scope.typeName());
+    }
   });
 });
