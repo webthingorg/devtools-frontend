@@ -33,6 +33,23 @@
       "message": "Johan, could you PTAL?",
       "revId": "8443b23c7f630a23d0104fce0f68d2511e8fc42d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b59abdf_a998f853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T07:22:22Z",
+      "side": 1,
+      "message": "LGTM, bot failure looks like a flake",
+      "revId": "8443b23c7f630a23d0104fce0f68d2511e8fc42d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
