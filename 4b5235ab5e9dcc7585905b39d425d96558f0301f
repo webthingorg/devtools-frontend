@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4682b99d_dc994f1b",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-23T10:59:05Z",
+      "side": 1,
+      "message": "OK, understood, thanks. Do you thin it would be cleaner to handle this via a call to `setImmediate` or `requestAnimationFrame` or `setTimeout` with a low `ms` value? I wonder if that might leave the code showing the intent a bit clearer. Entirely up to you.",
+      "parentUuid": "9989a8d2_e564bfe4",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d77f9c22_9c4e08fc",
