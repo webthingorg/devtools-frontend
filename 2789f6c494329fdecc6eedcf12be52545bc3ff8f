@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d25b1e_02156359",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-23T15:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2efa4ba9_95973d8f",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 21
+      },
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f079e90_ee36b93f",
@@ -89,6 +113,24 @@
       "writtenOn": "2022-05-19T07:34:00Z",
       "side": 1,
       "message": "Uber nit: could be fancy here and do something like:\n```\n  const results \u003d await Promise.all(promises);\n  return results.map(item \u003d\u003e item.replace(...));\n```\nto avoid resolving sequentially, but I doubt a change here would make a perceivable difference.",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d36ed0_999f3f29",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-23T15:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f079e90_ee36b93f",
       "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -110,6 +152,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab921962_ef34496c",
+        "filename": "test/e2e/sources/authored-deployed-grouping_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-23T15:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f3e326_52e1511f",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcf1b813_8e8b9c35",
@@ -123,6 +183,24 @@
       "writtenOn": "2022-05-19T07:34:00Z",
       "side": 1,
       "message": "Is it worth adding a test that checks what happens after a page reload?",
+      "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70f518ee_1a8ed54d",
+        "filename": "test/e2e/sources/authored-deployed-grouping_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-05-23T15:25:15Z",
+      "side": 1,
+      "message": "This one uncovered some bugs! Both an actual bug in the implementation regarding deleting the Authored/Deployed tree nodes, and also an existing bug where the domain gets renamed. In order to not enforce incorrect behavior in the case of the latter bug, I\u0027m checking it in disabled.",
+      "parentUuid": "dcf1b813_8e8b9c35",
       "revId": "2789f6c494329fdecc6eedcf12be52545bc3ff8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
