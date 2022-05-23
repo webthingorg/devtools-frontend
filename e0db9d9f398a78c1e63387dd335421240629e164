@@ -16,6 +16,29 @@
       "message": "PTAL 😊",
       "revId": "e0db9d9f398a78c1e63387dd335421240629e164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf601e6_468491a5",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-23T09:34:41Z",
+      "side": 1,
+      "message": "By using a `ReportSection`, the link renders in a new line with an additional margin on the left. My suggestion would be to remove this tag and directly render the `x-link`, which results in the link being rendered in the same line as the explanation (which would match how we render similar things elsewhere).\n\nIf you\u0027d rather have the link on a separate line, just wrap it in a `div` and maybe add styling for correct whitespace.",
+      "range": {
+        "startLine": 547,
+        "startChar": 14,
+        "endLine": 547,
+        "endChar": 65
+      },
+      "revId": "e0db9d9f398a78c1e63387dd335421240629e164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
