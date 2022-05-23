@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66ca87fc_f6ab5630",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T08:58:43Z",
+      "side": 1,
+      "message": "It should :/ It seems like something has changed in how TS resolves files. I have changed the logic to list every single file we want resolved and disabled TS\u0027s own resolver. Hopefully this is more stable going forward.",
+      "parentUuid": "cbbe8f64_f8840846",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8344ed37_e4b20836",
         "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
         "patchSetId": 3
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3598c7b9_17c0c6bb",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T08:58:43Z",
+      "side": 1,
+      "message": "If all receivers have the same signature we omit the receivers all together to save a few bits. We only ever lookup signatures for functions that (a) exist and (b) are of type \"Native\", so we don\u0027t need to know the receiver class.",
+      "parentUuid": "8344ed37_e4b20836",
+      "range": {
+        "startLine": 755,
+        "startChar": 9,
+        "endLine": 755,
+        "endChar": 17
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7505e8a_1d3732a3",
         "filename": "front_end/ui/components/text_editor/javascript.ts",
         "patchSetId": 3
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-11T09:21:23Z",
       "side": 1,
       "message": "This shouldn\u0027t really make a difference as the promise from evaluateExpression is chained onto the promise from the async function. We are just adding one more promise in-between. Or is it a readability change?",
+      "range": {
+        "startLine": 531,
+        "startChar": 13,
+        "endLine": 531,
+        "endChar": 18
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bdaac6b_e0426ad0",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T08:58:43Z",
+      "side": 1,
+      "message": "I think I added this because of the `finally`: We want to resolve the promise here and only then can we release the object in the `finally` clause. Otherwise I think we risk having the evaluate sent after the object has already been released?",
+      "parentUuid": "d7505e8a_1d3732a3",
       "range": {
         "startLine": 531,
         "startChar": 13,
