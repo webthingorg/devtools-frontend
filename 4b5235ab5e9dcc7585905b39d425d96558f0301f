@@ -154,6 +154,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7b23dc_0d8f1fcc",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-23T11:38:43Z",
+      "side": 1,
+      "message": "No, I was more thinking code along the lines of:\n\n```\nif (!target) { setTimeout(runAgain, 10)}\n```\n\nor similar, and wondering if it would be cleaner. I\u0027m not convinced, so let\u0027s leave it. I do wonder if a comment here explaining that the promise/callback dance is done to ensure we have the target might be useful.",
+      "parentUuid": "8e90c4a0_c71b060e",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d77f9c22_9c4e08fc",
