@@ -16,6 +16,75 @@
       "message": "PTAL\n\nPeter: PTAL at the video linked to in the CL description. Please let me know if I need to change the UI, especially the button which isn\u0027t covered in the design from http://doc/1If6hdMu7weLAuTCJNCzeHarDGhPmVyfhqYiM6v6siVc#heading\u003dh.55nc2im26ah7.\n\nDanil: PTAL at the code :-)",
       "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d36a32c7_9d9ed614",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-23T08:10:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this string be localized?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 37
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beda343b_8819597e",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-23T08:10:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 36
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5abd21ba_9c914c09",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-23T08:10:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
