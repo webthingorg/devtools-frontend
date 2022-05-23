@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ff3606_9dfa2b6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T12:24:11Z",
+      "side": 1,
+      "message": "LGTM with two suggestions.",
+      "revId": "a36a243df2ef3661375e26216241540b1743c8c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e57fe3_e8633bb4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T12:24:11Z",
+      "side": 1,
+      "message": "This was copied from below, but it\u0027s debugging code. Unless you specifically care about timings, no need to do this here as well. In fact it could probably be removed below as well.",
+      "revId": "a36a243df2ef3661375e26216241540b1743c8c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bedda124_dc5fb30e",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T12:24:11Z",
+      "side": 1,
+      "message": "Can we use the Chrome.DevTools typings from //extensions here?",
+      "revId": "a36a243df2ef3661375e26216241540b1743c8c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
