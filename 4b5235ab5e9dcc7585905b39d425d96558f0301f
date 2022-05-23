@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9989a8d2_e564bfe4",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T10:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19c855df_87f1825f",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d77f9c22_9c4e08fc",
@@ -95,6 +119,30 @@
       "writtenOn": "2022-05-20T14:35:06Z",
       "side": 1,
       "message": "Could you change the return type to `value is T` ? And then I think you can then do:\n\n```\nconst foo \u003d someMaybeThing(); // T|undefined\nassertNonNull(foo)\n// now foo is type T\n```",
+      "range": {
+        "startLine": 699,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 1
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7c032d_7f1ffc11",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T10:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d77f9c22_9c4e08fc",
       "range": {
         "startLine": 699,
         "startChar": 0,
@@ -142,6 +190,30 @@
       "side": 1,
       "message": "Huh, don\u0027t we have a linter for this?",
       "parentUuid": "d53f3109_a3112d2f",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "4b5235ab5e9dcc7585905b39d425d96558f0301f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "861233e9_8e0089a9",
+        "filename": "test/unittests/front_end/core/sdk/CPUThrottlingManager_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-23T10:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0caeeaf_ca43c8ec",
       "range": {
         "startLine": 8,
         "startChar": 27,
