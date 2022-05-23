@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2be6ce81_66afc863",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-23T09:29:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "66ca87fc_f6ab5630",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 23
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8344ed37_e4b20836",
@@ -112,6 +136,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5445f6f_d774ce1d",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-23T09:29:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3598c7b9_17c0c6bb",
+      "range": {
+        "startLine": 755,
+        "startChar": 9,
+        "endLine": 755,
+        "endChar": 17
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7505e8a_1d3732a3",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "I think I added this because of the `finally`: We want to resolve the promise here and only then can we release the object in the `finally` clause. Otherwise I think we risk having the evaluate sent after the object has already been released?",
       "parentUuid": "d7505e8a_1d3732a3",
+      "range": {
+        "startLine": 531,
+        "startChar": 13,
+        "endLine": 531,
+        "endChar": 18
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d96c01f_67de4cd9",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-23T09:29:33Z",
+      "side": 1,
+      "message": "In that case you might have to `await` the call for `getArgumentsForFunctionValue` on line 517 instead. Otherwise you release the object group before you even get to the `evaluateExpression` call.\n\nIf you switch the explicit await from line 522 to 517 I\u0027d suggest a comment. That says that `getArgumentForFunctionValue` can throw and we want to do some cleanup work, thats why we await.",
+      "parentUuid": "9bdaac6b_e0426ad0",
       "range": {
         "startLine": 531,
         "startChar": 13,
