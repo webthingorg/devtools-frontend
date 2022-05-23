@@ -229,6 +229,30 @@
       },
       "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e25e500_0151437c",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T12:14:47Z",
+      "side": 1,
+      "message": "Ah yes that\u0027s a good point:-)\nI have rewritten to instead use Promise.finally which seems to be a more clean solution.",
+      "parentUuid": "6d96c01f_67de4cd9",
+      "range": {
+        "startLine": 531,
+        "startChar": 13,
+        "endLine": 531,
+        "endChar": 18
+      },
+      "revId": "60afbabc790b1e7598cbb840af75c8ee04941a1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
