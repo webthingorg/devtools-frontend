@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb6ec98_00b41e9b",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Can we make exposing this conditional on whether it is actually supported, i.e. only make it non-null on chrome-branded builds, so `recorder?: RecorderExtensions` here?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08050ca0_a44be4a4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "just `recorder`?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c881016_a45408e0",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Why do we need `targetWindow`? Are we passing it now? Having extension API clients talk to arbitrary windows looks conceptually strange to me.",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0701d95f_b1f531c4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Should we have a default case with some diagnostics?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "817490f5_707eb9bf",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "ditto, let\u0027s make this conditional on chrome-branded builds. You can follow the implementation of `exposeExperimentalAPIs` below.",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0d2732_3a0ac424",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Why do we need this now?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ae0521_49ba0278",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Should we extract a common subclass for various plugins? There seems to be plenty of boilerplate between this and LanguageServicesEndpoint, perhaps we could do all the IPC magic on a lower level and only leave actual dispatch (i.e. LL43-57) to the specific implementation?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d385f46_1b492455",
+        "filename": "front_end/models/extensions/RecorderPluginManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "nit: use a Set?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1290372a_01a9429e",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-23T18:17:53Z",
+      "side": 1,
+      "message": "Let\u0027s have the word \"recorder\" somewhere in the test name to reflect what we\u0027re testing.",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
