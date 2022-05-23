@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e627ad2_05913e09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-05-23T13:06:41Z",
+      "side": 1,
+      "message": "A suggestion regarding the button: the correct UI pattern here would be a checkbox-toggle. It\u0027s also consistent with other DevTools (Firefox). Could we use a checkbox instead? :) \n\nhttps://screenshot.googleplex.com/6B6LuHSdJ4APdB4.png\n\n[ ] Raw (\"R\" uppercase)",
+      "revId": "98bd17747a4367eca681d33d3cab574d6b49b2f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223bb413_fa7b0d35",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-05-23T13:06:41Z",
+      "side": 1,
+      "message": "```\npadding-left: 8px;\ngap: 12px;\n```",
+      "revId": "98bd17747a4367eca681d33d3cab574d6b49b2f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a3c614_10f407d6",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-05-23T13:06:41Z",
+      "side": 1,
+      "message": "```\nfont-weight: 500;\n```",
+      "revId": "98bd17747a4367eca681d33d3cab574d6b49b2f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
