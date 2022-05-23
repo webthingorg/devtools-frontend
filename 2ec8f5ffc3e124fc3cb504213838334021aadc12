@@ -16,6 +16,24 @@
       "message": "How are we retaining focus now, now that we have removed this part? Would the new TreeOutline automatically handle this?",
       "revId": "2ec8f5ffc3e124fc3cb504213838334021aadc12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1371d6e_a1ba7a84",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T13:51:24Z",
+      "side": 0,
+      "message": "Since the TreeOutline component reuses the DOM elements between renders, I don\u0027t think we need to manually do anything here.",
+      "parentUuid": "14894a4b_5eb85a48",
+      "revId": "2ec8f5ffc3e124fc3cb504213838334021aadc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

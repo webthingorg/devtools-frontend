@@ -22,6 +22,30 @@
       },
       "revId": "7e5fa8feedb62b11cdc72fed5926a8d17d9ad548",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51dc117c_a871a5e9",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-23T13:51:24Z",
+      "side": 1,
+      "message": "Oops, no this shouldn\u0027t be here anymore.",
+      "parentUuid": "34e165b4_49e451f9",
+      "range": {
+        "startLine": 202,
+        "startChar": 10,
+        "endLine": 202,
+        "endChar": 29
+      },
+      "revId": "7e5fa8feedb62b11cdc72fed5926a8d17d9ad548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
