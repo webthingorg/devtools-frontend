@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be41e48f_75826c61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-23T07:56:01Z",
+      "side": 1,
+      "message": "PTAL\n\nPeter: PTAL at the video linked to in the CL description. Please let me know if I need to change the UI, especially the button which isn\u0027t covered in the design from http://doc/1If6hdMu7weLAuTCJNCzeHarDGhPmVyfhqYiM6v6siVc#heading\u003dh.55nc2im26ah7.\n\nDanil: PTAL at the code :-)",
+      "revId": "1501c68c0234f1bc32be719ed32ff63d4bcee280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
