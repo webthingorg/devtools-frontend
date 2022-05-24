@@ -103,4 +103,5 @@ details summary input {
   font-family: var(--source-code-font-family);
   font-size: var(--source-code-font-size);
   white-space: pre-wrap;
+  word-break: break-all;
 }
