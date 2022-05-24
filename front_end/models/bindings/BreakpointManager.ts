@@ -51,6 +51,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   readonly debuggerWorkspaceBinding: DebuggerWorkspaceBinding;
   readonly #breakpointsForUISourceCode: Map<Workspace.UISourceCode.UISourceCode, Map<string, BreakpointLocation>>;
   readonly #breakpointByStorageId: Map<string, Breakpoint>;
+  #updateBindingsCallbacks: ((uiSourceCode: Workspace.UISourceCode.UISourceCode) => Promise<void>)[];
 
   private constructor(
       targetManager: SDK.TargetManager.TargetManager, workspace: Workspace.Workspace.WorkspaceImpl,
@@ -69,6 +70,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
 
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
+    this.#updateBindingsCallbacks = [];
   }
 
   static instance(opts: {
@@ -108,6 +110,10 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     debuggerModel.setSynchronizeBreakpointsCallback(null);
   }
 
+  addUpateBindingsCallback(callback: ((uiSourceCode: Workspace.UISourceCode.UISourceCode) => Promise<void>)): void {
+    this.#updateBindingsCallbacks.push(callback);
+  }
+
   async copyBreakpoints(fromURL: Platform.DevToolsPath.UrlString, toSourceCode: Workspace.UISourceCode.UISourceCode):
       Promise<void> {
     const breakpointItems = this.storage.breakpointItems(fromURL);
@@ -122,15 +128,13 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     if (!Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS)) {
       return;
     }
+    if (!script.sourceURL) {
+      return;
+    }
+
     const debuggerModel = script.debuggerModel;
+    const uiSourceCode = await this.getUpdatedUISourceCode(script);
     if (this.#hasBreakpointsForUrl(script.sourceURL)) {
-      // Handle inline scripts without sourceURL comment separately:
-      // The UISourceCode of inline scripts without sourceURLs will not be availabe
-      // until a later point. Use the v8 script for setting the breakpoint.
-      const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-      const sourceURL =
-          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
-      const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
       await this.#restoreBreakpointsForUrl(uiSourceCode);
     }
 
@@ -159,6 +163,38 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
         }
       }
     }
+  }
+
+  async getUpdatedUISourceCode(script: SDK.Script.Script): Promise<Workspace.UISourceCode.UISourceCode> {
+    const isSnippet = script.sourceURL.startsWith('snippet://');
+    const projectType = isSnippet ? Workspace.Workspace.projectTypes.Network : undefined;
+    // Check if the UiSourceCode is already available. This is necessary as for inline scripts
+    // without sourceURL the UISourceCode for the html may not be available until a later point.
+    // If we were directly awaiting the UISourceCode for the html, we would block.
+    let uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(script.sourceURL, projectType);
+    if (!uiSourceCode) {
+      // The UiSourceCode is not yet available, explicitly await it and handle inline scripts
+      // without sourceURL differently: wait for the UISourceCode of the v8 parsed script.
+      const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
+      const sourceURL =
+          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
+      uiSourceCode =
+          await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL, projectType);
+    }
+
+    if (this.#updateBindingsCallbacks.length > 0) {
+      // It's possible to set breakpoints on files on the file system, and to have them
+      // hit whenever we navigate to a page that serves that file.
+      // To make sure that we have all breakpoint information moved from the file system
+      // to the served file, we need to update the bindings and await it. This will
+      // move the breakpoints from the FileSystem UISourceCode to the Network UiSourceCode.
+      const promises = [];
+      for (const callback of this.#updateBindingsCallbacks) {
+        promises.push(callback(uiSourceCode));
+      }
+      await Promise.all(promises);
+    }
+    return uiSourceCode;
   }
 
   async #restoreBreakpointsForUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -713,20 +749,22 @@ export class ModelBreakpoint {
           };
         });
         newState = new Breakpoint.State(positions, condition);
-      } else if (this.#breakpoint.currentState) {
-        newState = new Breakpoint.State(this.#breakpoint.currentState.positions, condition);
-      } else {
-        // TODO(bmeurer): This fallback doesn't make a whole lot of sense, we should
-        // at least signal a warning to the developer that this #breakpoint wasn't
-        // really resolved.
-        const position = {
-          url: this.#breakpoint.url(),
-          scriptId: '' as Protocol.Runtime.ScriptId,
-          scriptHash: '',
-          lineNumber,
-          columnNumber,
-        };
-        newState = new Breakpoint.State([position], condition);
+      } else if (!Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS)) {
+        if (this.#breakpoint.currentState) {
+          newState = new Breakpoint.State(this.#breakpoint.currentState.positions, condition);
+        } else {
+          // TODO(bmeurer): This fallback doesn't make a whole lot of sense, we should
+          // at least signal a warning to the developer that this #breakpoint wasn't
+          // really resolved.
+          const position = {
+            url: this.#breakpoint.url(),
+            scriptId: '' as Protocol.Runtime.ScriptId,
+            scriptHash: '',
+            lineNumber,
+            columnNumber,
+          };
+          newState = new Breakpoint.State([position], condition);
+        }
       }
     }
 
