@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2258637d_22a78f8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-05-24T22:42:20Z",
+      "side": 1,
+      "message": "dropdown looks good but it doesnt appear to do anything.\n\nthe value correctly carries into the worker as `throttlingMethod` but then is lost in the handoff to FR navigation. (i imagine this bug was present prior to this CL, too)",
+      "revId": "0d6886ff0baa173f051b9522187b8d96df15bcda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
