@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f7a94dc9_80b6fdad",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-24T11:11:06Z",
+      "side": 1,
+      "message": "Ah I\u0027m rubbish at Vim, clearly :D. Fixed!",
+      "parentUuid": "13150293_7533452d",
+      "revId": "d6209ffb18ee86c1a3a4add5d5568d46b14f1466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59d3aee1_9d9e17b9",
         "filename": "front_end/core/sdk/NetworkManager.ts",
         "patchSetId": 1
