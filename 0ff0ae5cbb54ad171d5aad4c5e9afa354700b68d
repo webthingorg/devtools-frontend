@@ -50,6 +50,24 @@
       "message": "nit: shall we call this `boundVariables`?",
       "revId": "0ff0ae5cbb54ad171d5aad4c5e9afa354700b68d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "837aacfa_ff2eeee6",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-24T10:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2b70ed9_efe2ba0f",
+      "revId": "0ff0ae5cbb54ad171d5aad4c5e9afa354700b68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
