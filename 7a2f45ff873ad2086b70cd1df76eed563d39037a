@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217e13dd_dab48ed9",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "`MaxValue` needs to be increased (follow the instructions in the comment right before this enum).",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 26
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "565841bc_7f8e188e",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "nit: this could be moved up a few lines before the icons part so that it matches the order of how the items appear on screen.",
+      "range": {
+        "startLine": 714,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 75
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb18d18a_8a940056",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Do you think this abbreviation should be spelled out somewhere? I think so far \u0027PWA\u0027 is not occurring elsewhere on this panel.",
+      "range": {
+        "startLine": 25,
+        "startChar": 82,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d4e98f6_7977ddb1",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "`#queryInputState` and the input\u0027s content can get out of sync. If you enter a query and then push the test button, it\u0027ll take you to the correct destination. Upon pressing the button a 2nd time, it won\u0027t. That\u0027s because `update()` has been called in the meantime, which reset the state variable, but the input still contains the previous content.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "673708be_a1b4e074",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Is non-matching width/height on purpose? Do we even need both values?",
+      "range": {
+        "startLine": 104,
+        "startChar": 85,
+        "endLine": 105,
+        "endChar": 99
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3493d3dc_60fffbe9",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "nit: Is this the autoformatter\u0027s work? Maybe it can be tricked it into something less ugly by playing around with the line breaks.",
+      "range": {
+        "startLine": 101,
+        "startChar": 83,
+        "endLine": 106,
+        "endChar": 85
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b3feb0_d42451e2",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Why is this class needed? Although, you could add it to the css and play around with `verital-align` for the icon.",
+      "range": {
+        "startLine": 110,
+        "startChar": 55,
+        "endLine": 110,
+        "endChar": 66
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf7ff16a_01c702a3",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Nice, TIL about this function :-)",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 48
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb053652_fd1e91f4",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "nit: Since the whole file basically already is a section of the app manifest page, maybe rename it to something like `#renderProtocolTest`?",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 30
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "440ce5cd_320a1635",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "`LitHtml.nothing`",
+      "range": {
+        "startLine": 123,
+        "startChar": 13,
+        "endLine": 123,
+        "endChar": 27
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c8129b_0f6acf71",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Is the id needed?",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 36
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748cf583_f2e152ba",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Is the id needed? The styles could be added to the class name.",
+      "range": {
+        "startLine": 136,
+        "startChar": 15,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84aab12c_0be66e9c",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 137,
+        "startChar": 45,
+        "endLine": 137,
+        "endChar": 62
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e0ed85_a2f75374",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "The metrics calls are causing DevTools to crash for me locally with a \"Terminating renderer for bad IPC message, reason 18\" error. Maybe you need to update the metrics enums in the backend first?",
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe04d52_147f8822",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "What\u0027s the effect of this?",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68fc3117_60b86006",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Do we need this in addition to the `.protocol-handlers-row`\u0027s margin?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbed76ea_88da7c42",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:23:30Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
