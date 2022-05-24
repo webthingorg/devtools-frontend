@@ -88,7 +88,7 @@ export class Automapping {
       const networkProjects = this.workspace.projectsForType(Workspace.Workspace.projectTypes.Network);
       for (const networkProject of networkProjects) {
         for (const uiSourceCode of networkProject.uiSourceCodes()) {
-          this.computeNetworkStatus(uiSourceCode);
+          void this.computeNetworkStatus(uiSourceCode);
         }
       }
       this.onSweepHappenedForTest();
@@ -137,7 +137,7 @@ export class Automapping {
       this.fileSystemUISourceCodes.add(uiSourceCode);
       this.scheduleSweep();
     } else if (project.type() === Workspace.Workspace.projectTypes.Network) {
-      this.computeNetworkStatus(uiSourceCode);
+      void this.computeNetworkStatus(uiSourceCode);
     }
   }
 
@@ -173,20 +173,24 @@ export class Automapping {
     this.scheduleSweep();
   }
 
-  private computeNetworkStatus(networkSourceCode: Workspace.UISourceCode.UISourceCode): void {
-    if (this.sourceCodeToProcessingPromiseMap.has(networkSourceCode) ||
-        this.sourceCodeToAutoMappingStatusMap.has(networkSourceCode)) {
-      return;
+  computeNetworkStatus(networkSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    if (this.sourceCodeToAutoMappingStatusMap.has(networkSourceCode)) {
+      return Promise.resolve();
+    }
+    const processingPromise = this.sourceCodeToProcessingPromiseMap.get(networkSourceCode);
+    if (processingPromise) {
+      return processingPromise;
     }
     if (this.interceptors.some(interceptor => interceptor(networkSourceCode))) {
-      return;
+      return Promise.resolve();
     }
     if (networkSourceCode.url().startsWith('wasm://')) {
-      return;
+      return Promise.resolve();
     }
     const createBindingPromise =
         this.createBinding(networkSourceCode).then(validateStatus.bind(this)).then(onStatus.bind(this));
     this.sourceCodeToProcessingPromiseMap.set(networkSourceCode, createBindingPromise);
+    return createBindingPromise;
 
     async function validateStatus(this: Automapping, status: AutomappingStatus|null): Promise<AutomappingStatus|null> {
       if (!status) {
@@ -252,19 +256,19 @@ export class Automapping {
       return status;
     }
 
-    function onStatus(this: Automapping, status: AutomappingStatus|null): void {
+    function onStatus(this: Automapping, status: AutomappingStatus|null): Promise<void> {
       if (this.sourceCodeToProcessingPromiseMap.get(networkSourceCode) !== createBindingPromise) {
-        return;
+        return Promise.resolve();
       }
       this.sourceCodeToProcessingPromiseMap.delete(networkSourceCode);
       if (!status) {
         this.onBindingFailedForTest();
-        return;
+        return Promise.resolve();
       }
       // TODO(lushnikov): remove this check once there's a single uiSourceCode per url. @see crbug.com/670180
       if (this.sourceCodeToAutoMappingStatusMap.has(status.network) ||
           this.sourceCodeToAutoMappingStatusMap.has(status.fileSystem)) {
-        return;
+        return Promise.resolve();
       }
 
       this.statuses.add(status);
@@ -277,7 +281,7 @@ export class Automapping {
           this.scheduleSweep();
         }
       }
-      void this.onStatusAdded.call(null, status);
+      return this.onStatusAdded.call(null, status);
     }
   }
 
@@ -485,6 +489,10 @@ class FileSystemUISourceCodes {
   delete(fileUrl: Platform.DevToolsPath.UrlString): void {
     fileUrl = this.getPlatformCanonicalFileUrl(fileUrl);
     this.sourceCodes.delete(fileUrl);
+  }
+
+  get size(): number {
+    return this.sourceCodes.size;
   }
 }
 
