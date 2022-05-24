@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f19de8_d1926021",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T08:12:52Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "8fde0882_fc473ac5",
+      "revId": "f4168adec03ca856488797f332fd2d98d780e58b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fd96546_1c890031",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-24T07:14:40Z",
       "side": 1,
       "message": "```\ndisplay: inline-flex;\ngap: 2px;\n```",
+      "revId": "f4168adec03ca856488797f332fd2d98d780e58b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57bafb42_dbc84cdc",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T08:12:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fd96546_1c890031",
       "revId": "f4168adec03ca856488797f332fd2d98d780e58b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
