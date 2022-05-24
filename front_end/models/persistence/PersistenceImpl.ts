@@ -29,6 +29,7 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     super();
     this.workspace = workspace;
     this.breakpointManager = breakpointManager;
+    this.breakpointManager.addUpateBindingsCallback(this.ensureBindings.bind(this));
     this.filePathPrefixesToBindingCount = new FilePathPrefixesBindingCounts();
 
     this.subscribedBindingEventListeners = new Platform.MapUtilities.Multimap();
@@ -53,6 +54,13 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
 
     return persistenceInstance;
+  }
+
+  ensureBindings(networkUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    if (networkUISourceCode.project().type() !== Workspace.Workspace.projectTypes.Network) {
+      return Promise.resolve();
+    }
+    return this.mapping.computeNetworkStatus(networkUISourceCode);
   }
 
   addNetworkInterceptor(interceptor: (arg0: Workspace.UISourceCode.UISourceCode) => boolean): void {
@@ -140,10 +148,10 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.dispatchEventToListeners(Events.BindingRemoved, binding);
   }
 
-  private async onStatusAdded(status: AutomappingStatus): Promise<void> {
+  private onStatusAdded(status: AutomappingStatus): Promise<void> {
     const binding = new PersistenceBinding(status.network, status.fileSystem);
     statusBindings.set(status, binding);
-    await this.innerAddBinding(binding);
+    return this.innerAddBinding(binding);
   }
 
   private async onStatusRemoved(status: AutomappingStatus): Promise<void> {
