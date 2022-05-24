@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4204af9b_2400b92a",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-24T17:30:29Z",
+      "side": 1,
+      "message": "That\u0027s a good point, I thought it may be handy for auto-detecting of whether the API is function, but then perhaps it\u0027s not that useful after all, so perhaps we can avoid the additional complexity of plumbing the flag.",
+      "parentUuid": "98138d9a_eebcb75f",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08050ca0_a44be4a4",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 7
@@ -142,6 +160,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93dc7c2c_d0f1324e",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-24T17:30:29Z",
+      "side": 1,
+      "message": "Thanks, this makes better sense now!",
+      "parentUuid": "b5f91af3_a9baf203",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0701d95f_b1f531c4",
@@ -232,6 +268,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "172d8933_b84f1cd9",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-24T17:30:29Z",
+      "side": 1,
+      "message": "I rather meant it as an example of plumbing something from the native/backend side (perhaps you don\u0027t need that if you have some indication of chrome-branded builds in the front-end).",
+      "parentUuid": "9ad8d65f_e9091d26",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f0d2732_3a0ac424",
         "filename": "front_end/models/extensions/ExtensionServer.ts",
         "patchSetId": 7
@@ -261,6 +315,24 @@
       "side": 1,
       "message": "This is used by the test: to test most of the functionality without actually involving iframes.",
       "parentUuid": "9f0d2732_3a0ac424",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c4df725_dd1998d5",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-05-24T17:30:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba424adf_10264db0",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
