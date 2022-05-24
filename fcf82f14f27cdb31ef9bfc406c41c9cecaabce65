@@ -39,6 +39,30 @@
       },
       "revId": "fcf82f14f27cdb31ef9bfc406c41c9cecaabce65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee8a5ce_959fd7d8",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-24T15:51:36Z",
+      "side": 1,
+      "message": "The `row`-class is `display: flex`, and in the raw headers case I want it to only have 1 direct child to prevent a 2 column layout.\nRemoved the diff and added a class for `display: block` instead.",
+      "parentUuid": "6004c035_7a58fa21",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 13
+      },
+      "revId": "fcf82f14f27cdb31ef9bfc406c41c9cecaabce65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
