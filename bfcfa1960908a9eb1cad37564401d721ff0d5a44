@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98138d9a_eebcb75f",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "Are there substantial benefits for doing this? Since the API only allows configuring the callback it seems it is simpler to always have it available?",
+      "parentUuid": "aeb6ec98_00b41e9b",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08050ca0_a44be4a4",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 7
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-23T18:17:53Z",
       "side": 1,
       "message": "just `recorder`?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d8f16b_9377cc54",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "Good point, changed!",
+      "parentUuid": "08050ca0_a44be4a4",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b88cf17_7dd0e72d",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "The targetWindow is only used in tests and as far as I see it\u0027s not accessible to the extension contexts.",
+      "parentUuid": "9c881016_a45408e0",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0701d95f_b1f531c4",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 7
@@ -65,6 +119,24 @@
       "writtenOn": "2022-05-23T18:17:53Z",
       "side": 1,
       "message": "Should we have a default case with some diagnostics?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fa7df0e_fbfc306f",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0701d95f_b1f531c4",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e92076f0_6dd41b7d",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "oh! what\u0027s the history behind `exposeExperimentalAPIs`? is it also the flag that is on in chrome-branded builds? should we perhaps also mark Recorder as experimental?",
+      "parentUuid": "817490f5_707eb9bf",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f0d2732_3a0ac424",
         "filename": "front_end/models/extensions/ExtensionServer.ts",
         "patchSetId": 7
@@ -99,6 +189,24 @@
       "writtenOn": "2022-05-23T18:17:53Z",
       "side": 1,
       "message": "Why do we need this now?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba424adf_10264db0",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "This is used by the test: to test most of the functionality without actually involving iframes.",
+      "parentUuid": "9f0d2732_3a0ac424",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d02c551_ac7e5e16",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "I think it\u0027s a good idea, thanks! Let me do that",
+      "parentUuid": "28ae0521_49ba0278",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d385f46_1b492455",
         "filename": "front_end/models/extensions/RecorderPluginManager.ts",
         "patchSetId": 7
@@ -133,6 +259,24 @@
       "writtenOn": "2022-05-23T18:17:53Z",
       "side": 1,
       "message": "nit: use a Set?",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36126684_f9ef848a",
+        "filename": "front_end/models/extensions/RecorderPluginManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d385f46_1b492455",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -150,6 +294,24 @@
       "writtenOn": "2022-05-23T18:17:53Z",
       "side": 1,
       "message": "Let\u0027s have the word \"recorder\" somewhere in the test name to reflect what we\u0027re testing.",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "151576d5_f0c17afa",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T06:14:01Z",
+      "side": 1,
+      "message": "The test name has the word \"recorder\" in it: `can register a recorder extension`. Note that the filename is not a test name though and by convention test file names follow the code structure: as we are testing the ExtensionServer as the primary class here I went for ExtensionServer_test.",
+      "parentUuid": "1290372a_01a9429e",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
