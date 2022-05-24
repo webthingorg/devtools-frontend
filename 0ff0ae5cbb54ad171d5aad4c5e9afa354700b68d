@@ -16,6 +16,40 @@
       "message": "Kim, I fixed the problem with \u0027this\u0027 reference by also computing and mapping the list of free variables to figure out the mapping of \u0027this\u0027 if it is among the free variables.\n\nIt is done in a somewhat wasteful way (for simplicity) - we currently always collect and map the free variables, even though we only really need them for arrow functions. That said, it should not be worse than the original mapping code.",
       "revId": "0ff0ae5cbb54ad171d5aad4c5e9afa354700b68d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3249be8_43109012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-24T09:53:56Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "0ff0ae5cbb54ad171d5aad4c5e9afa354700b68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b70ed9_efe2ba0f",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-24T09:53:56Z",
+      "side": 1,
+      "message": "nit: shall we call this `boundVariables`?",
+      "revId": "0ff0ae5cbb54ad171d5aad4c5e9afa354700b68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
