@@ -1085,7 +1085,6 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
         'navigator-' + uiSourceCode.contentType().name() + '-tree-item', 'navigator-file-tree-item');
     this.tooltip = uiSourceCode.url();
     UI.ARIAUtils.setAccessibleName(this.listItemElement, `${uiSourceCode.name()}, ${this.nodeType}`);
-    Common.EventTarget.fireEvent('source-tree-file-added', uiSourceCode.fullDisplayName());
     this.navigatorView = navigatorView;
     this.uiSourceCodeInternal = uiSourceCode;
     this.updateIcon();
@@ -1329,6 +1328,7 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
       frame: SDK.ResourceTreeModel.ResourceTreeFrame|null) {
     super(navigatorView, uiSourceCode.project().id() + ':' + uiSourceCode.url(), Types.File);
     this.uiSourceCodeInternal = uiSourceCode;
+    Common.EventTarget.fireEvent('source-tree-file-added', uiSourceCode.fullDisplayName());
     this.treeElement = null;
     this.eventListeners = [];
     this.frameInternal = frame;
