@@ -266,6 +266,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60227701_0d5c9473",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-24T07:11:12Z",
+      "side": 1,
+      "message": "I have refactored the code a bit. The only complication is that the LanguageExtensionEndpoint is also a DebuggerLanguagePlugin so I went for the composition. Philip, could you please take another look?",
+      "parentUuid": "2d02c551_ac7e5e16",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d385f46_1b492455",
         "filename": "front_end/models/extensions/RecorderPluginManager.ts",
         "patchSetId": 7
