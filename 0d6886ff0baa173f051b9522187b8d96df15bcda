@@ -34,6 +34,24 @@
       "parentUuid": "2258637d_22a78f8d",
       "revId": "0d6886ff0baa173f051b9522187b8d96df15bcda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e46e66_498e2e91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-24T23:05:30Z",
+      "side": 1,
+      "message": "Oh cuz legacy navigation mode is still the default.",
+      "parentUuid": "5bd12772_10463a7e",
+      "revId": "0d6886ff0baa173f051b9522187b8d96df15bcda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
