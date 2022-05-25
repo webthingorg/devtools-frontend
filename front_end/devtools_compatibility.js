@@ -1098,7 +1098,6 @@
       'messageLevelFilters',
       'messageURLFilters',
       'monitoringXHREnabled',
-      'navigatorGroupByAuthored',
       'navigatorGroupByFolder',
       'navigatorHidden',
       'networkColorCodeResourceTypes',

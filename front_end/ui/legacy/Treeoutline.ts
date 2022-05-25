@@ -40,7 +40,6 @@ import * as ARIAUtils from './ARIAUtils.js';
 import * as ThemeSupport from './theme_support/theme_support.js';
 import * as Utils from './utils/utils.js';
 
-import type * as IconButton from '../components/icon_button/icon_button.js';
 import type {Icon} from './Icon.js';
 import type {Config} from './InplaceEditor.js';
 import {InplaceEditor} from './InplaceEditor.js';
@@ -48,8 +47,6 @@ import {Keys} from './KeyboardShortcut.js';
 import {Tooltip} from './Tooltip.js';
 import {deepElementFromPoint, enclosingNodeOrSelfWithNodeNameInArray, isEditing} from './UIUtils.js';
 import treeoutlineStyles from './treeoutline.css.legacy.js';
-
-type AnyIcon = Icon|IconButton.Icon.Icon;
 
 const nodeToParentTreeElementMap = new WeakMap<Node, TreeElement>();
 
@@ -784,7 +781,7 @@ export class TreeElement {
     }
   }
 
-  setLeadingIcons(icons: AnyIcon[]): void {
+  setLeadingIcons(icons: Icon[]): void {
     if (!this.leadingIconsElement && !icons.length) {
       return;
     }
@@ -801,7 +798,7 @@ export class TreeElement {
     }
   }
 
-  setTrailingIcons(icons: AnyIcon[]): void {
+  setTrailingIcons(icons: Icon[]): void {
     if (!this.trailingIconsElement && !icons.length) {
       return;
     }
