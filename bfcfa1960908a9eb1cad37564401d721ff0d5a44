@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b43adee_36ccfb21",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-25T07:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4204af9b_2400b92a",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08050ca0_a44be4a4",
@@ -284,6 +302,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ee6ed0f_50ad1311",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-25T07:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "172d8933_b84f1cd9",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f0d2732_3a0ac424",
@@ -408,6 +444,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "371379be_58c91f6b",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-25T07:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "602072ce_0bfcc32d",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d385f46_1b492455",
@@ -474,6 +528,24 @@
       "side": 1,
       "message": "The test name has the word \"recorder\" in it: `can register a recorder extension`. Note that the filename is not a test name though and by convention test file names follow the code structure: as we are testing the ExtensionServer as the primary class here I went for ExtensionServer_test.",
       "parentUuid": "1290372a_01a9429e",
+      "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9ffc18_b6591090",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-05-25T07:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151576d5_f0c17afa",
       "revId": "bfcfa1960908a9eb1cad37564401d721ff0d5a44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
