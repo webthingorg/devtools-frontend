@@ -11,6 +11,8 @@ import {Target} from './Target.js';
 import type {SDKModel} from './SDKModel.js';
 import * as Root from '../root/root.js';
 import * as Host from '../host/host.js';
+import {Events as RuntimeModelEvents, RuntimeModel} from './RuntimeModel.js';
+import type {ExecutionContext} from './RuntimeModel.js';
 
 let targetManagerInstance: TargetManager|undefined;
 
@@ -28,6 +30,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   readonly #modelObservers: Platform.MapUtilities.Multimap<new(arg1: Target) => SDKModel, SDKModelObserver<any>>;
   #isSuspended: boolean;
   #browserTargetInternal: Target|null;
+  readonly #targetForDebuggerId: Map<Protocol.Runtime.UniqueDebuggerId, Target>;
 
   private constructor() {
     super();
@@ -37,6 +40,12 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     this.#modelObservers = new Platform.MapUtilities.Multimap();
     this.#isSuspended = false;
     this.#browserTargetInternal = null;
+    this.#targetForDebuggerId = new Map();
+
+    this.addModelListener(
+        RuntimeModel, RuntimeModelEvents.ExecutionContextCreated, this.#executionContextCreated, this);
+    this.addModelListener(
+        RuntimeModel, RuntimeModelEvents.ExecutionContextDestroyed, this.#executionContextDestroyed, this);
   }
 
   static instance({forceNew}: {
@@ -262,6 +271,21 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       waitForDebuggerOnStart: true,
     });
     return true;
+  }
+
+  #executionContextCreated(event: Common.EventTarget.EventTargetEvent<ExecutionContext>): void {
+    const executionContext = event.data;
+    this.#targetForDebuggerId.set(
+        executionContext.uniqueId as Protocol.Runtime.UniqueDebuggerId, executionContext.target());
+  }
+
+  #executionContextDestroyed(event: Common.EventTarget.EventTargetEvent<ExecutionContext>): void {
+    const executionContext = event.data;
+    this.#targetForDebuggerId.delete(executionContext.uniqueId as Protocol.Runtime.UniqueDebuggerId);
+  }
+
+  targetByDebuggerId(debuggerId: Protocol.Runtime.UniqueDebuggerId): Target|null {
+    return this.#targetForDebuggerId.get(debuggerId) || null;
   }
 
   clearAllTargetsForTest(): void {
