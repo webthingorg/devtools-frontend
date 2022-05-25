@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70bc5cdf_142a96de",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-25T17:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b02b36b_f6ea541a",
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eecbe8e9_b655ff33",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef42cbd_04a87cd8",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-25T17:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eecbe8e9_b655ff33",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 164
+      },
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f705758_54a0a811",
@@ -71,6 +113,24 @@
       "writtenOn": "2022-05-25T07:09:02Z",
       "side": 1,
       "message": "Should we be setting this in CSS (either based on the above class name or a more specific one) rather than from JS?",
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f88c5c5c_162736da",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-25T17:04:03Z",
+      "side": 1,
+      "message": "This was copied from `populateRuntimeSettingAsToolbarCheckbox`. I think it was done here because `link` is inside a shadow root.",
+      "parentUuid": "9f705758_54a0a811",
       "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

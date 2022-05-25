@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c561c6_86697462",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-05-25T17:04:03Z",
+      "side": 1,
+      "message": "Good suggestions. Still some web tests stuff to work out before landing.",
+      "revId": "177c6e2da528e36ce5e099258ea13851e10a6ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
