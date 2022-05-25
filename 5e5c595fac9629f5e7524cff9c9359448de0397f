@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1145d272_5480337a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-25T09:38:01Z",
+      "side": 1,
+      "message": "PTAL!\n\nchromium-third-party@: I don\u0027t know whether I need a review here, but I\u0027m introducing new uses of things in //third_party and I\u0027m adding you for good measure!",
+      "revId": "5e5c595fac9629f5e7524cff9c9359448de0397f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
