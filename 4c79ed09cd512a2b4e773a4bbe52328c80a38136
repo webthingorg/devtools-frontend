@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7451c67b_8e261b36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-25T07:14:25Z",
+      "side": 1,
+      "message": "As discussed, let\u0027s not do any magic on the script content, but display exactly what\u0027s executed to the user. Please take a look (will temporarily disable web tests and rebaseline them afterwards).",
+      "revId": "4c79ed09cd512a2b4e773a4bbe52328c80a38136",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
