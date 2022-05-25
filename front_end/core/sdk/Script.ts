@@ -219,11 +219,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
                   if (bytecode) {
                     return {content: bytecode, isEncoded: true};
                   }
-                  let content: string = scriptSource || '';
-                  if (this.hasSourceURL) {
-                    content = Script.trimSourceURLComment(content);
-                  }
-                  return {content, isEncoded: false};
+                  return {content: scriptSource, isEncoded: false};
 
                 } catch (err) {
                   // TODO(bmeurer): Propagate errors as exceptions / rejections.
