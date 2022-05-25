@@ -130,6 +130,9 @@ LighthouseTestRunner.dumpStartAuditState = function() {
     TestRunner.addResult(LighthouseTestRunner._checkboxStateLabel(element));
   });
 
+  const throttlingSelectEl = toolbarShadowRoot.querySelector('select');
+  TestRunner.addResult(`Throttling method: ${throttlingSelectEl.value}`);
+
   const helpText = containerElement.querySelector('.lighthouse-help-text');
   if (!helpText.classList.contains('hidden')) {
     TestRunner.addResult(`Help text: ${helpText.textContent}`);
