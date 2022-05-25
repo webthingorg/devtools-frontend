@@ -8,7 +8,7 @@ import type {Chrome} from '../../../extension-api/ExtensionAPI.js'; // eslint-di
 
 import {PrivateAPI} from './ExtensionAPI.js';
 
-export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin {
+export class LanguageExtensionEndpoint implements Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin {
   private readonly supportedScriptTypes: {
     language: string,
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -22,6 +22,8 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private pendingRequests: Map<any, any>;
+  name: string;
+
   constructor(
       name: string, supportedScriptTypes: {
         language: string,
@@ -30,7 +32,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
         symbol_types: Array<string>,
       },
       port: MessagePort) {
-    super(name);
+    this.name = name;
     this.supportedScriptTypes = supportedScriptTypes;
     this.port = port;
     this.port.onmessage = this.onResponse.bind(this);
@@ -204,6 +206,16 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
     return this.sendRequest(PrivateAPI.LanguageExtensionPluginCommands.GetMappedLines, {rawModuleId, sourceFileURL});
   }
 
-  dispose(): void {
+  evaluate(expression: string, context: Chrome.DevTools.RawLocation, stopId: number):
+      Promise<Chrome.DevTools.RemoteObject> {
+    return this.sendRequest(PrivateAPI.LanguageExtensionPluginCommands.FormatValue, {expression, context, stopId});
+  }
+
+  getProperties(objectId: Chrome.DevTools.RemoteObjectId): Promise<Chrome.DevTools.PropertyDescriptor[]> {
+    return this.sendRequest(PrivateAPI.LanguageExtensionPluginCommands.GetProperties, {objectId});
+  }
+
+  releaseObject(objectId: Chrome.DevTools.RemoteObjectId): Promise<void> {
+    return this.sendRequest(PrivateAPI.LanguageExtensionPluginCommands.ReleaseObject, {objectId});
   }
 }

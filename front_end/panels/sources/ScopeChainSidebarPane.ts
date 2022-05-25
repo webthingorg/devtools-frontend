@@ -321,7 +321,8 @@ export class OpenLinearMemoryInspector extends UI.Widget.VBox implements UI.Cont
       return obj.inspectableAddress !== undefined;
     }
 
-    return false;
+    return obj instanceof Bindings.DebuggerLanguagePlugins.ExtensionRemoteObject &&
+        obj.linearMemoryAddress !== undefined;
   }
 
   appendApplicableItems(event: Event, contextMenu: UI.ContextMenu.ContextMenu, target: Object): void {
@@ -339,9 +340,11 @@ export class OpenLinearMemoryInspector extends UI.Widget.VBox implements UI.Cont
     let address = 0;
     let memoryObj: SDK.RemoteObject.RemoteObject = obj;
 
-    if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
+    if (obj instanceof Bindings.DebuggerLanguagePlugins.ExtensionRemoteObject ||
+        obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
       const valueNode = obj;
-      address = valueNode.inspectableAddress || 0;
+      address = 'linearMemoryAddress' in valueNode ? valueNode.linearMemoryAddress ?? 0 : 0;
+      address = 'inspectableAddress' in valueNode ? valueNode.inspectableAddress ?? 0 : 0;
       const callFrame = valueNode.callFrame;
       const response = await obj.debuggerModel().agent.invoke_evaluateOnCallFrame({
         callFrameId: callFrame.id,
