@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "403451e5_75227642",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "This is not the only string containing \u0027PWA\u0027.",
+      "parentUuid": "ef884447_babe15e0",
+      "range": {
+        "startLine": 25,
+        "startChar": 82,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d4e98f6_7977ddb1",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Thanks for pointing this out. This is still being investigated. We\u0027ve tried adding .value to the input, but that didn\u0027t change the behavior: \n\n\u003cinput id\u003d\"user-input\" class\u003d\"harmony-input\" type\u003d\"text\" .value\u003d${this.#queryInputState} @change\u003d${this.#handleQueryInputChange}/\u003e\n\nA 2nd button click seems to work when this line is completely removed from update(), but it needs to be investigated more before we decide to just remove it. If you have any suggestions, please let me know.",
       "parentUuid": "4d4e98f6_7977ddb1",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b0c0d66_c326af57",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "Hm, why do we even need separate `set data` and `#update` methods? I think you can indeed remove the `this.#queryInputState \u003d \u0027\u0027;` line, it should be enough that it is being set on object construction.\nI worry about `#selectedProtocolState` though? Can you check its behaviour on a page with multiple protocols to select from? Does it reset on re-render? Maybe you can set it to `null` initially and then only change it here if it\u0027s current value is still `null`?",
+      "parentUuid": "67d7b49c_f0f1aada",
       "range": {
         "startLine": 88,
         "startChar": 4,
@@ -273,6 +321,30 @@
       "side": 1,
       "message": "Yes, this is because of the autoformatter during presubmit checks. Unfortunately, I\u0027ve tried several times and I\u0027m not quite sure how to fix this. In the interest of time, I will leave it as is. If you know of a solution or if you could elaborate more on what you mean by line breaks, please do share.",
       "parentUuid": "3493d3dc_60fffbe9",
+      "range": {
+        "startLine": 101,
+        "startChar": 83,
+        "endLine": 106,
+        "endChar": 85
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7723fc85_54a4b6d0",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "It seems the autoformatter prefers to align the object\u0027s `{` with the ternary operator `?`. You could do this:\n```\nconst iconData: IconButton.Icon.IconData \u003d {\n  iconName: this.#protocolHandlers.length \u003e 0 ? \u0027ic_checkmark_16x16\u0027 : \u0027ic_info_black_18dp\u0027,\n  color: this.#protocolHandlers.length \u003e 0 ? \u0027var( --color-ic-file-image)\u0027 : \u0027var(--color-link)\u0027,\n  width: \u002716px\u0027,\n};\n```\nbut I\u0027m not sure this is better. I don\u0027t have a strong opinion either way.",
+      "parentUuid": "792c3d11_0ab87549",
       "range": {
         "startLine": 101,
         "startChar": 83,
@@ -494,6 +566,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "308210b1_31b41eb6",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23478e07_4d9f1cc7",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 36
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "748cf583_f2e152ba",
@@ -531,6 +627,30 @@
       "side": 1,
       "message": "The \"harmony-class\" is a legacy class from inspectorCommon.css, and it was overruling any changes trying to be made to fit the styling of the protocol handler section. To manage this, an id selector is being used to override parts of the legacy class, which was deemed better than using \"!important.\"",
       "parentUuid": "748cf583_f2e152ba",
+      "range": {
+        "startLine": 136,
+        "startChar": 15,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942cdaea_5e504300",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "Ah, as Michael already suggested earlier, a more specific css selector would work:\n```\ninput.harmony-input[type\u003d\"text\"] {\n  margin-left: 4px;\n  margin-right: 4px;\n  width: 250px;\n  height: 22px;\n}\n```",
+      "parentUuid": "be8a15da_35b963c9",
       "range": {
         "startLine": 136,
         "startChar": 15,
@@ -619,6 +739,24 @@
       "side": 1,
       "message": "The backend CL for the telemetry events is now available here: https://chromium-review.googlesource.com/c/chromium/src/+/3664012\nI\u0027ve also added this link to the description. Apologies for the delay on that. It should hopefully work now.",
       "parentUuid": "c2e0ed85_a2f75374",
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3009a98f_e118aa20",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "Now it works for me, thanks!",
+      "parentUuid": "ceaafc27_3d8d3259",
       "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -754,6 +892,30 @@
       "side": 1,
       "message": "After some revisions thanks to a suggestion from another comment, this is no longer needed and has been removed from the CSS file, but it has been kept in the .ts file as a class selector for E2E testing.",
       "parentUuid": "dbed76ea_88da7c42",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d956d3fb_5dc6d084",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-25T20:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "def4c897_52442db7",
       "range": {
         "startLine": 34,
         "startChar": 0,
