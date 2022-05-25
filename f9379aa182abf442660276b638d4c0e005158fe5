@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed32bf66_bbacf16e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-25T07:58:41Z",
+      "side": 1,
+      "message": "I have replied to all the comments. Please take another look when you can and refer to patchset 16 for the updated code. Thanks! ",
+      "revId": "f9379aa182abf442660276b638d4c0e005158fe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
