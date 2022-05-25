@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb307d3e_710c6c7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-25T07:09:02Z",
+      "side": 1,
+      "message": "LGTM % some suggestions you should feel empowered to ignore :) ",
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b02b36b_f6ea541a",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-25T07:09:02Z",
+      "side": 1,
+      "message": "This is such a nit, so feel free to disregard, but… Why is “default” capitalized? Per go/punctuation-standards we should use sentence case unless there’s a reason to. (Same for “Advanced” below.)",
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eecbe8e9_b655ff33",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-25T07:09:02Z",
+      "side": 1,
+      "message": "One of Steve Souders writing tips is to “avoid will” (https://twitter.com/mathias/status/839160485324947456). Applying that here, we’d get:\n\n    \u0027Simulated throttling simulates a slower page load based on data from an initial unthrottled load. DevTools throttling actually slows down the page.\u0027,\n    \n…which indeed flows a little more nicely IMHO.\n\nWDYT?",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 164
+      },
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f705758_54a0a811",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-25T07:09:02Z",
+      "side": 1,
+      "message": "Should we be setting this in CSS (either based on the above class name or a more specific one) rather than from JS?",
+      "revId": "0c40f2dbe8486038f4f1a79f49382e6db21429ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
