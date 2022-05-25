@@ -16,6 +16,23 @@
       "message": "PTAL and let me know if I should change anything or you have any questions. Thanks!",
       "revId": "6da87a1bfaaec424f59d0d6d705061be7c307244",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e7d053_7a2324f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-05-25T07:00:05Z",
+      "side": 1,
+      "message": "Danil is the right reviewer for this.",
+      "revId": "6da87a1bfaaec424f59d0d6d705061be7c307244",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
