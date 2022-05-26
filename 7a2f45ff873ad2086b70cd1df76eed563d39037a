@@ -359,6 +359,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de46d1bf_0e58d888",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-26T18:36:51Z",
+      "side": 1,
+      "message": "\u003e We just cleaned up #update() more so please refer to patchset 20 instead.\n\nNote: This is referring to my previous comment above\n\nAs for your response, I just tried reproducing the video you sent and it looks like the text does not reset on navigation for the first time only. It works after navigating to another PWA the 2nd time and after that. \n\nWe\u0027ll look into this and your question about if we can get rid of the state variables.",
+      "parentUuid": "a43872e6_7143cea6",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
