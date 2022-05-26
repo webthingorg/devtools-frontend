@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db286ef_3db34674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-26T00:42:09Z",
+      "side": 1,
+      "message": "Hi Wolfgang, thank you for taking another look and for your replies. The bugs discussed have been fixed and the code has been updated (patchset 18). Please take another look when you can. ",
+      "revId": "bb86b57f6e08e2efeb63719a7c23f07d7897db5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
