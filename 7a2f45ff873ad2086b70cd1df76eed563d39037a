@@ -190,6 +190,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19e70bd3_afc6f64f",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-26T18:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ae4297f_ca56c453",
+      "range": {
+        "startLine": 25,
+        "startChar": 82,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d4e98f6_7977ddb1",
@@ -275,6 +299,30 @@
       "side": 1,
       "message": "Thanks for pointing that out as well! #selectProtocolState was resetting after re-rendering, but the text in the dropdown wasn\u0027t. We used your suggestion to only have it change here if its current value is still null which worked so that is now fixed.\n\nWe also fixed the other issue so clicking on the button a 2nd time or more now works fine. Additionally, when you change from one PWA to another PWA in the browser, the input now resets. Previously, it was not resetting. Please refer to patchset 18 to see the changes in #update().  \n\nAs for why we have #update(), it was adopted from other LitHTML files in the codebase and thought it might help we readability, but I don\u0027t think any of us have strong opinions on it. if you think it\u0027s harder to read this way, let me know and I can look into changing it.",
       "parentUuid": "3b0c0d66_c326af57",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b390877_1dd845f3",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-26T18:08:53Z",
+      "side": 1,
+      "message": "This is turning out to be tricky! I suspect that using a `querySelector` and then directly changing the HTMLElement isn\u0027t how it should be done either. I also found an instance in which the text does not reset on navigation (https://i.imgur.com/sOfLNxj.mp4).\n\nWould it be worth trying to get rid of the state variables and just read the form state when the button is pressed?\n\nJack, as our LitHtml guru, are there best practices regarding forms in LitHtml?",
+      "parentUuid": "83f3e816_43cfd8a9",
       "range": {
         "startLine": 88,
         "startChar": 4,

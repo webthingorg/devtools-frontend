@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a9aafb_ed0ebd87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-05-26T18:08:53Z",
+      "side": 1,
+      "message": "Jack, PTAL at our questions regarding LitHtml, forms and state.\n\nDanil, as agreed to offline, please take over the review from me since I\u0027ll be OOO.",
+      "revId": "628a2a03546b23d166e097d1b0395ff828a9950d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
