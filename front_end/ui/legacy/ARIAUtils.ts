@@ -83,6 +83,10 @@ export function markAsTreeitem(element: Element): void {
   element.setAttribute('role', 'treeitem');
 }
 
+export function markAsTreegrid(element: Element): void {
+  element.setAttribute('role', 'treegrid');
+}
+
 export function markAsTextBox(element: Element): void {
   element.setAttribute('role', 'textbox');
 }
