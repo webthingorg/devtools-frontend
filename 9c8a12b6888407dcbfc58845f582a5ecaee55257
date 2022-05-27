@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29bf7a86_99f150a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1531662
+      },
+      "writtenOn": "2022-05-27T23:13:56Z",
+      "side": 1,
+      "message": "Hopefully a simple change to aria labels for a legacy ui element, thanks for taking a look!",
+      "revId": "9c8a12b6888407dcbfc58845f582a5ecaee55257",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
