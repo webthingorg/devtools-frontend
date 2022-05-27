@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9789ff7d_d12ac227",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-27T09:42:34Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nFor completeness, this is likely still somewhat incorrect w.r.t. to the spec you dug out (https://url.spec.whatwg.org/#normalized-windows-drive-letter) because the is-relative should take the Windows drive letters into account only if the base Url\u0027s scheme is \u0027file\u0027. However, extracting the base Url\u0027s scheme is also tricky, so I think it is better to go for this simpler solution.",
+      "revId": "61da763c7a4e84a9ee516fe4302160b39261518e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
