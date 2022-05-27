@@ -383,6 +383,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "522d28ad_c89d1c34",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-27T07:21:12Z",
+      "side": 1,
+      "message": "+1 to getting rid of state vars",
+      "parentUuid": "de46d1bf_0e58d888",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
