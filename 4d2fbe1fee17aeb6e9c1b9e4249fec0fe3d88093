@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2156686b_1920c12b",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-27T22:02:01Z",
+      "side": 1,
+      "message": "Yes, for harmony-input and chrome-select. Although only for two classes, I wasn\u0027t sure of another way of easily applying these classes. I\u0027m happy to use textInput.css instead of harmony-input, but would you happen to know of an alternative for chrome-select as well?",
+      "parentUuid": "60943b53_d0e24381",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7defe89_bd264e45",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 20
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-27T07:21:12Z",
       "side": 1,
       "message": "since it is a short lambda, we could use shorter names for parameters like `p` for brevity and hence better readability",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 107
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1213866f_abc6b051",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-27T22:02:01Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "d7defe89_bd264e45",
       "range": {
         "startLine": 124,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6431b58a_b1c5011c",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-27T22:02:01Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "a3295c76_7cf048fd",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8661e7bb_05b53f76",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-05-27T07:21:12Z",
       "side": 1,
       "message": "e2e are fine but for new code we\u0027d prefer unit tests. E.g. create an instance of a ProtocolHandlersView, give it some data, let it render and assert that HTML is more or less as expected.\n\nSee test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts for example",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 88
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb829bfc_5d2f5957",
+        "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-27T22:02:01Z",
+      "side": 1,
+      "message": "We will look into this. Thanks for sharing an example!",
+      "parentUuid": "8661e7bb_05b53f76",
       "range": {
         "startLine": 21,
         "startChar": 0,

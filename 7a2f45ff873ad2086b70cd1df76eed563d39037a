@@ -431,6 +431,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91c9654b_ee72ac85",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-05-27T22:02:01Z",
+      "side": 1,
+      "message": "Correct me if I\u0027m wrong. It seems the questions is whether we should use method #1 (controlled version) or #2 (uncontrolled version) that Jack shared. \n\nPreviously, this was written in the uncontrolled version, but given that there weren\u0027t many instances of the uncontrolled version, we had changed it to the current version which is method #1 to follow prior art. \n\nAre there any thoughts or preferences on these two methods?",
+      "parentUuid": "cc38e875_7f73980c",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
