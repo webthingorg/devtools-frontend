@@ -407,6 +407,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc38e875_7f73980c",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-27T10:35:25Z",
+      "side": 1,
+      "message": "I don\u0027t quite have the full context in my head yet (happy to VC) but the current solution feels off.\n\nTypically you have two options:\n\n1. Control the input. Store its value in state, and have an @change (or @input, can\u0027t remember off the top of my head) handler that updates the value every time the user types in it.\n2. Don\u0027t control the input, and on form submit use FormData [https://developer.mozilla.org/en-US/docs/Web/API/FormData] to get all the data from the form. Then you can clear the input manually using .value \u003d \u0027\u0027. If you do this, you should also use our on-render directive to get the value rather than querying the DOM (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/helpers/directives.ts;l\u003d12?q\u003ddirectives.ts\u0026ss\u003dchromium).",
+      "parentUuid": "522d28ad_c89d1c34",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14

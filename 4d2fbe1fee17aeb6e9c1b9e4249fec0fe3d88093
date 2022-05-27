@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60943b53_d0e24381",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-27T10:35:25Z",
+      "side": 1,
+      "message": "I\u0027d rather avoid this if we can; is this needed for harmony-input? If so, we should not use that and instead use https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/input/textInput.css",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7defe89_bd264e45",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 20
