@@ -1,0 +1,18 @@
+{
+    "short_name": "Test PWA",
+    "name": "Test PWA with manifest with id",
+    "start_url": "start_url.html",
+    "id": "some_id",
+    "protocol_handlers": [
+        {
+        "protocol": "web+coffee",
+        "url": "./?coffee=%s"
+      },
+      {
+        "protocol": "web+pwinter",
+        "url": "index.html?colors=%s"
+        },
+      {
+        "invalid-protocol": "this is an invalid protocol entry for testing purposes"
+        }
+    ]}
