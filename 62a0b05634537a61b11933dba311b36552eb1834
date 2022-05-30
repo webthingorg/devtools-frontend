@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f573b1_26ba3f3f",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T12:34:28Z",
+      "side": 1,
+      "message": "nit: Since the function is already async we should be able to use `return;` here and below?",
+      "range": {
+        "startLine": 261,
+        "startChar": 8,
+        "endLine": 261,
+        "endChar": 33
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dc918c2_bbd4f8cc",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T12:34:28Z",
+      "side": 1,
+      "message": "I\u0027m assuming this is the core of the CL, that we want to await binding creation here?\n\nMy question is why we can\u0027t split the `restoreBreakpoints` method in two. Let the BreakpointManager listen for the `BindingCreated` event we already have, and continue breakpoint restoration once the necessary events are in.\n\nOr am I miss-understanding what is going on? (I have to admit I have a hard time following code/event flow).",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
