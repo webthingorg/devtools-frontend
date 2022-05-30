@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as Bindings from '../bindings/bindings.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import type {FileSystem} from './FileSystemWorkspaceBinding.js';
@@ -35,6 +36,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private enabled: boolean;
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
   #headerOverridesMap: Map<Platform.DevToolsPath.EncodedPathString, HeaderOverrideWithRegex[]> = new Map();
+  private readonly sourceCodeToProcessingPromiseMap: WeakMap<Workspace.UISourceCode.UISourceCode, Promise<void>>;
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -58,6 +60,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.activeInternal = false;
     this.enabled = false;
 
+    this.sourceCodeToProcessingPromiseMap = new Map();
+
     this.workspace.addEventListener(Workspace.Workspace.Events.ProjectAdded, event => {
       void this.onProjectAdded(event.data);
     });
@@ -66,6 +70,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     });
 
     PersistenceImpl.instance().addNetworkInterceptor(this.canHandleNetworkUISourceCode.bind(this));
+    Bindings.BreakpointManager.BreakpointManager.instance().addUpateBindingsCallback(
+        this.networkUISourceCodeAdded.bind(this));
 
     this.eventDescriptors = [];
     void this.enabledChanged();
@@ -310,15 +316,30 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  ensureBindings(networkUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    return this.networkUISourceCodeAdded(networkUISourceCode);
+  }
+
   private async bind(
       networkUISourceCode: Workspace.UISourceCode.UISourceCode,
       fileSystemUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    if (this.bindings.has(networkUISourceCode)) {
+    const existingBinding = this.bindings.get(networkUISourceCode);
+    if (existingBinding) {
+      const {network, fileSystem} = existingBinding;
+      if (networkUISourceCode === network && fileSystemUISourceCode === fileSystem) {
+        return this.sourceCodeToProcessingPromiseMap.get(networkUISourceCode);
+      }
       await this.unbind(networkUISourceCode);
     }
-    if (this.bindings.has(fileSystemUISourceCode)) {
-      await this.unbind(fileSystemUISourceCode);
-    }
+    const addBinding = this.#innerAddBinding(networkUISourceCode, fileSystemUISourceCode);
+    this.sourceCodeToProcessingPromiseMap.set(networkUISourceCode, addBinding);
+    await addBinding;
+    this.sourceCodeToProcessingPromiseMap.delete(networkUISourceCode);
+  }
+
+  async #innerAddBinding(
+      networkUISourceCode: Workspace.UISourceCode.UISourceCode,
+      fileSystemUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     const binding = new PersistenceBinding(networkUISourceCode, fileSystemUISourceCode);
     this.bindings.set(networkUISourceCode, binding);
     this.bindings.set(fileSystemUISourceCode, binding);
