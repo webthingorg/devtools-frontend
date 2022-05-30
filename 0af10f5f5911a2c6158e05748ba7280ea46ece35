@@ -16,6 +16,121 @@
       "message": "Could you take a look please?",
       "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07141192_b9c245b4",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-30T13:21:41Z",
+      "side": 1,
+      "message": "0-\u003e2",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45af447d_bac394c5",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-30T13:21:41Z",
+      "side": 1,
+      "message": "Could we also have a test for a line that is not the first one? It would actually be nice to test more of the if-then-else machinery in ResourceMapping.uiLocationToJSLocations.",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d142518c_343599fe",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-30T13:21:41Z",
+      "side": 1,
+      "message": "Should not the name be different from the first test?",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 70
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b62c52d8_4227f2b4",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-30T13:21:41Z",
+      "side": 1,
+      "message": "As far as I understand, this tests a location outside the inline script. Could you also test a location inside the inline script?",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f94b9d5_68b56e52",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-30T13:21:41Z",
+      "side": 1,
+      "message": "Make this different from the first test?",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 73
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
