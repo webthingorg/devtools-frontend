@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d4a7b50_e1208cd7",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-30T13:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f573b1_26ba3f3f",
+      "range": {
+        "startLine": 261,
+        "startChar": 8,
+        "endLine": 261,
+        "endChar": 33
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dc918c2_bbd4f8cc",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-30T12:34:28Z",
       "side": 1,
       "message": "I\u0027m assuming this is the core of the CL, that we want to await binding creation here?\n\nMy question is why we can\u0027t split the `restoreBreakpoints` method in two. Let the BreakpointManager listen for the `BindingCreated` event we already have, and continue breakpoint restoration once the necessary events are in.\n\nOr am I miss-understanding what is going on? (I have to admit I have a hard time following code/event flow).",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6878f25c_a7eafa7b",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-30T13:36:00Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right, this is the core of the CL.\n\n\nCurrently the flow is the following:\n\n -\u003e BreakpointManager: await callback(uiSourceCode)\n -\u003e PersistenceImpl: computeNetworkStatus(..)\n -\u003e Automapping: onStatusAdded.call(..)\n -\u003e PersistenceImpl: (among others) moveBreakpoints`\n\nAs is, the BreakpointManager can\u0027t depend on the PersistenceImpl (circular dependency).\n \nAn alternative would be to entirely move the `moveBreakpoint` call from the PersistenceImpl to the BreakpointManager, which would take care of `moveBreakpoint` on the BreakpointManager side (to break the cycle), such that we can listen on the `BindingCreated` event for that particular UISourceCode. Since this is not always fired, we\u0027d then require some Event / status map to signal that there is no binding.",
+      "parentUuid": "5dc918c2_bbd4f8cc",
       "range": {
         "startLine": 285,
         "startChar": 6,
