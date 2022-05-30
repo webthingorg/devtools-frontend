@@ -16,6 +16,23 @@
       "message": "Merge approved",
       "revId": "c200bdbcc51ab653c6b94ae6bbcafc539738b5f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20732f5_67e6f086",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-05-30T04:13:59Z",
+      "side": 1,
+      "message": "lgtm to merge to M103.",
+      "revId": "c200bdbcc51ab653c6b94ae6bbcafc539738b5f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
