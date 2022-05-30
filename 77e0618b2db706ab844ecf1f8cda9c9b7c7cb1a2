@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b19b1a5_bf39f7d4",
+        "filename": "scripts/build/ninja/wasm.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "$target_gen_dir refers to the specific gen dir of the target (as opposed to $root_gen_dir), so the wasm file for the test case below for example would be emitted as `gen/test/e2e/resources/extensions/global_variable.wasm`",
+      "parentUuid": "e8486404_0bb271a5",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 61
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f019062_c93b05a8",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-30T06:32:29Z",
       "side": 1,
       "message": "q: Why do the source files also need to be copied to the `gen` directory?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec4a626_acd5f1df",
+        "filename": "scripts/build/ninja/wasm.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Tests that deal with some sort of source mapping might be interested in using the source file as \"authored\" part of the mapping, so as to set breakpoints for example. The global_variable test below does this.\n\nTests could bring their own sources and fake mappings of course, but it\u0027s easier to write and maintain tests that just use a real mapping.",
+      "parentUuid": "2f019062_c93b05a8",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc2c28c_dfdea8a9",
+        "filename": "scripts/build/wasm-as.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b4f618_bd353a46",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 70
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6680d8f_93b8021d",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-05-30T06:32:29Z",
       "side": 1,
       "message": "nit: Let\u0027s associate this TODO with this crbug: `TODO(crbug.com/1328729)`",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a931f5d6_e285db92",
+        "filename": "scripts/build/wasm-as.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6680d8f_93b8021d",
       "range": {
         "startLine": 56,
         "startChar": 10,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0571d8c_10ff80a1",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "I chose `type` on purpose because pptr understands that that is a thing it can serialize and pass on to evaluate().",
+      "parentUuid": "f86b9a27_6cce1a01",
+      "range": {
+        "startLine": 618,
+        "startChar": 7,
+        "endLine": 618,
+        "endChar": 11
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a3ac8e9_603d5eaa",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 4
@@ -146,6 +266,30 @@
       "writtenOn": "2022-05-30T06:32:29Z",
       "side": 1,
       "message": "Mark these `readonly`.",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 16
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f4c8b4_2987a01d",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3ac8e9_603d5eaa",
       "range": {
         "startLine": 627,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16786c0e_487d1d27",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "188fa6ad_4ea13f44",
+      "range": {
+        "startLine": 630,
+        "startChar": 66,
+        "endLine": 630,
+        "endChar": 85
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89ba76b2_547d6ca2",
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf4196bb_d5339689",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ba76b2_547d6ca2",
+      "range": {
+        "startLine": 711,
+        "startChar": 8,
+        "endLine": 711,
+        "endChar": 26
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79b56275_2d5a38a6",
@@ -215,6 +407,30 @@
       "writtenOn": "2022-05-30T06:32:29Z",
       "side": 1,
       "message": "Similar here. The method does not actually guarantee that we reach the label. Its more a `continueAndCheckForLabel`. Wdyt?",
+      "range": {
+        "startLine": 727,
+        "startChar": 8,
+        "endLine": 727,
+        "endChar": 23
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f06282_de565539",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-05-30T10:10:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b56275_2d5a38a6",
       "range": {
         "startLine": 727,
         "startChar": 8,
