@@ -16,6 +16,23 @@
       "message": "Hi Jaro, hi Benedikt,\n\nthis is the change to explicitly wait for the Automapping to create its binding for new network UISourceCodes. This is the case if we have local files and corresponding network files that need to be mapped (including snippets). At the end, the PersistenceImpl will move the breakpoints from the file to the network UISourceCode. Only at that time we know whether or not the current url is associated to any breakpoint or not.\n\nThis change will fail one of my previously added tests, but that is an unrelated issue that needs to be fixed. For now, I skip that test to land this change, and will need to investigate more into breakpoints for inline scripts without source URL comment. There\u0027s another comment dedicated to this below.\n\nPTAL!",
       "revId": "4e31c4897d012e32491661e1a0dd0d78687878b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3c518bb_3b9db3bf",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-30T11:59:14Z",
+      "side": 1,
+      "message": "This basically creates a tight coupling between `BreakpointManager` and `DefaultScriptMapping`, which is not obvious.\n\nI wonder if we should rather have a dedicated API that asks for URLs to await on a given `Script`?",
+      "revId": "4e31c4897d012e32491661e1a0dd0d78687878b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
