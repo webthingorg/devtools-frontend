@@ -16,6 +16,23 @@
       "message": "ptal!",
       "revId": "e195ac058232dedf8e41c53e8cc36a5d9687995b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d736a17_7d6abbb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-30T08:02:54Z",
+      "side": 1,
+      "message": "LGTM, I\u0027m very sorry for the long delay, this slipped my mind!",
+      "revId": "e195ac058232dedf8e41c53e8cc36a5d9687995b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
