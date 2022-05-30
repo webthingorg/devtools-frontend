@@ -33,6 +33,24 @@
       "message": "Could we maybe internalize this function to be part of `ElementsTreeElement`, and only have one of `isOpeningTag` or `isClosingTag`? Now the open|close checking is a little scattered. WDYT?",
       "revId": "90622b7481b61a8b2f1f44f2800f6502ea058bfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a996a2_59940607",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-05-30T11:12:30Z",
+      "side": 1,
+      "message": "I think they serve slightly different purposes: One is part of the \"API\" of the ElementsTreeElement and the other is for inspecting the type of a TagTypeContext. \nAlthough I do agree that it looks confusing :/",
+      "parentUuid": "e218746b_05545424",
+      "revId": "90622b7481b61a8b2f1f44f2800f6502ea058bfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
