@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b0b34a_240d1e76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-05-30T10:59:13Z",
+      "side": 1,
+      "message": "teeny nit from me, but otherwise +1. But please wait for Changhao\u0027s +1 too :)",
+      "revId": "90622b7481b61a8b2f1f44f2800f6502ea058bfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
