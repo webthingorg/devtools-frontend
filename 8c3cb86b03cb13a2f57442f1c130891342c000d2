@@ -16,6 +16,40 @@
       "message": "Friendly ping:)",
       "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a17898a_ff91328d",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-30T07:51:29Z",
+      "side": 1,
+      "message": "This seems to duplicate the `debuggerIdToModel` we have in `DebuggerModel.ts`. Why do we need that twice?",
+      "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "674cbfcc_be5d075b",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-30T07:51:29Z",
+      "side": 1,
+      "message": "We probably need line/column number here as well, otherwise inline `\u003cscript\u003e`s will not show correctly.",
+      "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
