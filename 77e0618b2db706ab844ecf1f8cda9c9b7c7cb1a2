@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81b0ac9b_f960133f",
+        "filename": "scripts/build/ninja/wasm.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T10:12:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ec4a626_acd5f1df",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96b4f618_bd353a46",
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "I chose `type` on purpose because pptr understands that that is a thing it can serialize and pass on to evaluate().",
       "parentUuid": "f86b9a27_6cce1a01",
+      "range": {
+        "startLine": 618,
+        "startChar": 7,
+        "endLine": 618,
+        "endChar": 11
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6300dfb0_5a665c29",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T10:12:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0571d8c_10ff80a1",
       "range": {
         "startLine": 618,
         "startChar": 7,
