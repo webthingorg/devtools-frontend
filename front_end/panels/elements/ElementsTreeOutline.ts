@@ -41,6 +41,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
+import {ElementsTreeElementWithoutNode} from './ElementsTreeElementWithoutNode.js';
 import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 
@@ -1181,6 +1182,16 @@ export class ElementsTreeOutline extends
       treeElement.setCollapsible(false);
     }
     treeElement.selectable = Boolean(this.selectEnabled);
+    return treeElement;
+  }
+
+  createTopLayerContainer(bodyElement: ElementsTreeElement): void {
+    bodyElement.appendChild(this.createElementTreeElementWithoutNode());
+  }
+
+  private createElementTreeElementWithoutNode(): ElementsTreeElementWithoutNode {
+    const treeElement = new ElementsTreeElementWithoutNode();
+    treeElement.setExpandable(true);
     return treeElement;
   }
 

@@ -205,6 +205,10 @@ export class DOMNode {
     }
   }
 
+  // setNodeName(name: string): void {
+  //   this.#nodeNameInternal = name;
+  // }
+
   private async requestChildDocument(frameId: Protocol.Page.FrameId, notInTarget: Target): Promise<DOMDocument|null> {
     const frame = await FrameManager.instance().getOrWaitForFrame(frameId, notInTarget);
     const childModel = frame.resourceTreeModel()?.target().model(DOMModel);
@@ -1466,6 +1470,10 @@ export class DOMModel extends SDKModel<EventTypes> {
 
   querySelectorAll(nodeId: Protocol.DOM.NodeId, selector: string): Promise<Protocol.DOM.NodeId[]|null> {
     return this.agent.invoke_querySelectorAll({nodeId, selector}).then(({nodeIds}) => nodeIds);
+  }
+
+  getTopLayerElements(): Promise<Protocol.DOM.NodeId[]|null> {
+    return this.agent.invoke_getTopLayerElements().then(({nodeIds}) => nodeIds);
   }
 
   markUndoableState(minorChange?: boolean): void {

@@ -229,6 +229,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
   private styleAdorners: Adorners.Adorner.Adorner[];
+  private topLayerElementExists: boolean;
+  // private topLayerRepresentationElement: TreeElement;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
   private readonly adornersThrottler: Common.Throttler.Throttler;
@@ -242,6 +244,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
     // The title will be updated in onattach.
     super();
+    this.topLayerElementExists = false;
     this.nodeInternal = node;
     this.treeOutline = null;
     this.contentElement = this.listItemElement.createChild('div');
@@ -281,6 +284,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         const adorner = this.adorn(config);
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
+    }
+
+    if (!this.isClosingTag() && this.node().nodeName() === 'BODY') {
+      void this.getTopLayerElements();
     }
 
     this.expandAllButtonElement = null;
@@ -1323,7 +1330,35 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
+    if (this.node().nodeName() === 'BODY') {
+      // void this.getTopLayerElements();
+      this.treeOutline?.createTopLayerContainer(this);
+    }
+
     this.highlightSearchResultsInternal();
+  }
+
+  async getTopLayerElements(): Promise<void> {
+    if (this.topLayerElementExists === false) {
+      // const onlyElementNode = new ElementsTreeElementWithoutNode(false);
+
+      const topLayerElements = await this.node().domModel().getTopLayerElements();
+      const topLayerRepresentation = new SDK.DOMModel.DOMNode(this.node().domModel());
+      topLayerRepresentation.setNodeName('TLN');  // just so it would not be breaking because it is required by DOMNode
+      const topLayerVisibleNode = this.treeOutline.insertChildElement(this, topLayerRepresentation, 0);
+      const tagName = topLayerVisibleNode.contentElement.createChild('span');
+      tagName.textContent = 'top-layer';
+      tagName?.classList.add('webkit-html-tag-name');
+      for (const childID of topLayerElements) {
+        const topLayerNode = this.node().domModel().idToDOMNode.get(childID);
+
+        if (topLayerNode !== undefined && topLayerVisibleNode !== undefined && topLayerVisibleNode !== null) {
+          this.treeOutline?.insertChildElement(topLayerVisibleNode, topLayerNode, 0, false);
+        }
+      }
+    }
+    this.topLayerElementExists = true;
+    return;
   }
 
   private computeLeftIndent(): number {

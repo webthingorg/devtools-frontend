@@ -43,6 +43,7 @@ devtools_module("elements") {
     "ElementsSidebarPane.ts",
     "ElementsTreeElement.ts",
     "ElementsTreeElementHighlighter.ts",
+    "ElementsTreeElementWithoutNode.ts",
     "ElementsTreeOutline.ts",
     "EventListenersWidget.ts",
     "ImagePreviewPopover.ts",
