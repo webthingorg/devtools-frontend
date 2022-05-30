@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435e1acc_30654be1",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-30T10:08:54Z",
+      "side": 1,
+      "message": "This will need to change / require some updates. But for now, I\u0027m keeping the code as is, since the persistence change is unrelated to this part (see skipped e2e test).\n\nWhy does this need an update?\nCase 1: we already have the network UISourceCode for the inline script, so we should definitely put the breakpoint there (and not in the debugger UISourceCode)\nCase 2: we don\u0027t have the network UISourceCode yet. My current attempt is to set it on the debugger UISourceCode, but I\u0027m seeing that it sometimes doesn\u0027t get moved to the network UISourceCode one (needs investigation)",
+      "revId": "1fef8688d1f713730ac0ba17a8b8838b3c484195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
