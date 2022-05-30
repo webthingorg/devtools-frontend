@@ -9,6 +9,8 @@ import * as Workspace from '../../../../../front_end/models/workspace/workspace.
 import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Common from '../../../../../front_end/core/common/common.js';
+import * as Persistence from '../../../../../front_end/models/persistence/persistence.js';
 
 import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 import {createContentProviderUISourceCode, createFileSystemUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
@@ -275,5 +277,53 @@ describeWithRealConnection('BreakpointManager', () => {
     breakpointManager.removeBreakpoint(breakpoint, true);
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(network.project);
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(fileSystem.project);
+  });
+
+  it('can wait for breakpoints in overrides to be mapped to network ui source code', async () => {
+    const persistenceSetting =
+        Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled').get();
+    Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled').set('true');
+
+    const metadata = new Workspace.UISourceCode.UISourceCodeMetadata(new Date(), 10);
+    const url = 'file://path/to/overrides/www.google.com/example.js' as Platform.DevToolsPath.UrlString;
+    const fileSystem = createFileSystemUISourceCode({
+      url,
+      metadata,
+      content: 'hello',
+      mimeType: JS_MIME_TYPE,
+      autoMapping: true,
+      type: 'overrides',
+      fileSystemPath: 'file://path/to/overrides',
+    });
+
+    const debuggerModel = new TestDebuggerModel(target);
+    const breakpoint = await breakpointManager.setBreakpoint(fileSystem.uiSourceCode, 0, 0, '', true);
+
+    const spy = sinon.spy(Persistence.Persistence.PersistenceImpl.instance(), 'addBinding');
+    const networkPersistence = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance();
+    await networkPersistence.setProject(fileSystem.project);
+
+    const networkURL = 'http://www.google.com/example.js' as Platform.DevToolsPath.UrlString;
+    const network = createContentProviderUISourceCode({
+      url: networkURL,
+      mimeType: JS_MIME_TYPE,
+      projectType: Workspace.Workspace.projectTypes.Network,
+      metadata,
+      content: 'hello',
+    });
+
+    const script = new SDK.Script.Script(
+        debuggerModel, SCRIPT_ID, networkURL, 0, 0, 43, 0, 0, '0', true, false, undefined, false, 10, null, null, null,
+        null, null, null);
+    assert.lengthOf(breakpointManager.breakpointLocationsForUISourceCode(fileSystem.uiSourceCode), 1);
+    assert.isEmpty(breakpointManager.breakpointLocationsForUISourceCode(network.uiSourceCode));
+    await breakpointManager.getUpdatedUISourceCode(script);
+    assert.lengthOf(breakpointManager.breakpointLocationsForUISourceCode(network.uiSourceCode), 1);
+    assert.isTrue(spy.called);
+
+    breakpointManager.removeBreakpoint(breakpoint, true);
+    Workspace.Workspace.WorkspaceImpl.instance().removeProject(network.project);
+    Workspace.Workspace.WorkspaceImpl.instance().removeProject(fileSystem.project);
+    Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled').set(persistenceSetting);
   });
 });
