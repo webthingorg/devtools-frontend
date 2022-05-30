@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd0b0228_37d31804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "Some comments, but in general I like the solution a lot!",
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8486404_0bb271a5",
+        "filename": "scripts/build/ninja/wasm.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "q: Does this mean all output files will be flattened into the `gen` directory? Or would this still preserve the relative path? IMO we want to preserve the behavior that generated files mirror the directory structure of their source files. Otherwise people have to look at this gni file or use the `find` command to find the generated files.\n\nAlternatively we dump the generated files in a dedicated directory.",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 61
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f019062_c93b05a8",
+        "filename": "scripts/build/ninja/wasm.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "q: Why do the source files also need to be copied to the `gen` directory?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b4f618_bd353a46",
+        "filename": "scripts/build/wasm-as.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "nit: Lets move these 2 variables down to the subprocess.check_output call where they are actually needed",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 70
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6680d8f_93b8021d",
+        "filename": "scripts/build/wasm-as.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "nit: Let\u0027s associate this TODO with this crbug: `TODO(crbug.com/1328729)`",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f86b9a27_6cce1a01",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "style-nit: Prefer `interface` over type as per go/tsstyle#interfaces-vs-type-aliases",
+      "range": {
+        "startLine": 618,
+        "startChar": 7,
+        "endLine": 618,
+        "endChar": 11
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a3ac8e9_603d5eaa",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "Mark these `readonly`.",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 16
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "188fa6ad_4ea13f44",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "any reason why the private field is typed with `LabelMapping[]` and the parameter as `Array\u003cLabelMapping\u003e`? If not, lets pick one :)",
+      "range": {
+        "startLine": 630,
+        "startChar": 66,
+        "endLine": 630,
+        "endChar": 85
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ba76b2_547d6ca2",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "The naming seems a bit off. What the method does is `setBreakpointAtLabelAndRun`. IMO, if I read `runToLabelInSource`, then I would expect the method to\n1) set a temporary breakpoint\n2) run until we hit exactly that breakpoint\n3) remove the temporary breakpoint",
+      "range": {
+        "startLine": 711,
+        "startChar": 8,
+        "endLine": 711,
+        "endChar": 26
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b56275_2d5a38a6",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-30T06:32:29Z",
+      "side": 1,
+      "message": "Similar here. The method does not actually guarantee that we reach the label. Its more a `continueAndCheckForLabel`. Wdyt?",
+      "range": {
+        "startLine": 727,
+        "startChar": 8,
+        "endLine": 727,
+        "endChar": 23
+      },
+      "revId": "77e0618b2db706ab844ecf1f8cda9c9b7c7cb1a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
