@@ -33,6 +33,24 @@
       "message": "This basically creates a tight coupling between `BreakpointManager` and `DefaultScriptMapping`, which is not obvious.\n\nI wonder if we should rather have a dedicated API that asks for URLs to await on a given `Script`?",
       "revId": "4e31c4897d012e32491661e1a0dd0d78687878b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8ee0a6_b7aa2342",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-30T12:25:19Z",
+      "side": 1,
+      "message": "That sounds good -- I\u0027ll need to revisit this part in any case (see comment above), and can look into this. I\u0027d suggest to keep it separate from this CL though if that\u0027s fine with you (since the code is mostly moved, not changed in this CL).",
+      "parentUuid": "d3c518bb_3b9db3bf",
+      "revId": "4e31c4897d012e32491661e1a0dd0d78687878b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
