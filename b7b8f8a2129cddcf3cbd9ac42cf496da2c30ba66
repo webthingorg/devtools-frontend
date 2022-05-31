@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d72003_94ce6729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T14:12:15Z",
+      "side": 1,
+      "message": "I\u0027ve refactored the test to be more readable and exercise all the different paths through the two methods under test. PTAL",
+      "revId": "b7b8f8a2129cddcf3cbd9ac42cf496da2c30ba66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
