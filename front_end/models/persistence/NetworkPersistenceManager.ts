@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as Bindings from '../bindings/bindings.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import type {FileSystem} from './FileSystemWorkspaceBinding.js';
@@ -35,6 +36,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private enabled: boolean;
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
   #headerOverridesMap: Map<Platform.DevToolsPath.EncodedPathString, HeaderOverrideWithRegex[]> = new Map();
+  readonly #sourceCodeToProcessingPromiseMap: WeakMap<Workspace.UISourceCode.UISourceCode, Promise<void>>;
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -58,6 +60,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.activeInternal = false;
     this.enabled = false;
 
+    this.#sourceCodeToProcessingPromiseMap = new Map();
+
     this.workspace.addEventListener(Workspace.Workspace.Events.ProjectAdded, event => {
       void this.onProjectAdded(event.data);
     });
@@ -66,6 +70,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     });
 
     PersistenceImpl.instance().addNetworkInterceptor(this.canHandleNetworkUISourceCode.bind(this));
+    Bindings.BreakpointManager.BreakpointManager.instance().addUpdateBindingsCallback(
+        this.networkUISourceCodeAdded.bind(this));
 
     this.eventDescriptors = [];
     void this.enabledChanged();
@@ -304,6 +310,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private async unbind(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     const binding = this.bindings.get(uiSourceCode);
     if (binding) {
+      // First await prior binding processes that involve this binding to finish.
+      await this.#sourceCodeToProcessingPromiseMap.get(binding.network);
+      this.#sourceCodeToProcessingPromiseMap.delete(binding.network);
       this.bindings.delete(binding.network);
       this.bindings.delete(binding.fileSystem);
       await PersistenceImpl.instance().removeBinding(binding);
@@ -313,12 +322,27 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private async bind(
       networkUISourceCode: Workspace.UISourceCode.UISourceCode,
       fileSystemUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    if (this.bindings.has(networkUISourceCode)) {
-      await this.unbind(networkUISourceCode);
+    const existingBinding = this.bindings.get(networkUISourceCode);
+    if (existingBinding) {
+      const {network, fileSystem} = existingBinding;
+      const createBindingPromise = this.#sourceCodeToProcessingPromiseMap.get(networkUISourceCode);
+      if (networkUISourceCode === network && fileSystemUISourceCode === fileSystem) {
+        return createBindingPromise;
+      }
     }
-    if (this.bindings.has(fileSystemUISourceCode)) {
-      await this.unbind(fileSystemUISourceCode);
-    }
+
+    const addBindingPromise = this.unbind(networkUISourceCode)
+                                  .then(
+                                      () => this.#innerAddBinding(networkUISourceCode, fileSystemUISourceCode),
+                                  );
+    this.#sourceCodeToProcessingPromiseMap.set(networkUISourceCode, addBindingPromise);
+    await addBindingPromise;
+    this.#sourceCodeToProcessingPromiseMap.delete(networkUISourceCode);
+  }
+
+  async #innerAddBinding(
+      networkUISourceCode: Workspace.UISourceCode.UISourceCode,
+      fileSystemUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     const binding = new PersistenceBinding(networkUISourceCode, fileSystemUISourceCode);
     this.bindings.set(networkUISourceCode, binding);
     this.bindings.set(fileSystemUISourceCode, binding);
