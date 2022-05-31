@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ac23e6_89aab954",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T05:27:08Z",
+      "side": 1,
+      "message": "It is indeed `0`, since it\u0027s the start line of a script *with* a sourceURL annotation. The contract is:\n\n(1) If the script has a sourceURL annotation, then all line/column numbers are relative to the start of the script.\n(2) If the script does not have a sourceURL annotation, then all line/column numbers are relative to the start of the document.\n\nThere\u0027s no other way for (1), since V8 only speaks in terms of the script and has no understanding of the surrounding document.",
+      "parentUuid": "07141192_b9c245b4",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45af447d_bac394c5",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-30T13:21:41Z",
       "side": 1,
       "message": "Could we also have a test for a line that is not the first one? It would actually be nice to test more of the if-then-else machinery in ResourceMapping.uiLocationToJSLocations.",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c9e7f0_0e3cda68",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T05:27:08Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "45af447d_bac394c5",
       "range": {
         "startLine": 74,
         "startChar": 6,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4155ec_40560c1a",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T05:27:08Z",
+      "side": 1,
+      "message": "It tests the same, but for `jsLocationToUILocation`.",
+      "parentUuid": "d142518c_343599fe",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 70
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b62c52d8_4227f2b4",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b67838_82a7c967",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T05:27:08Z",
+      "side": 1,
+      "message": "It is inside the inline \u003cscript\u003e. But I\u0027ll refactor the test to also test locations outside (which will exercise the if-then-else\u0027s).",
+      "parentUuid": "b62c52d8_4227f2b4",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f94b9d5_68b56e52",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-05-30T13:21:41Z",
       "side": 1,
       "message": "Make this different from the first test?",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 73
+      },
+      "revId": "0af10f5f5911a2c6158e05748ba7280ea46ece35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3aafe74_f170bdb0",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-05-31T05:27:08Z",
+      "side": 1,
+      "message": "It is: The first is using the sourceURL annotation, the second is using the url (the embedderName). But I\u0027ll restructure this to make it more obvious.",
+      "parentUuid": "9f94b9d5_68b56e52",
       "range": {
         "startLine": 124,
         "startChar": 8,
