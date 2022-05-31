@@ -9473,6 +9473,9 @@
   "panels/sources/AddSourceMapURLDialog.ts | add": {
     "message": "Add"
   },
+  "panels/sources/AddSourceMapURLDialog.ts | debugInfoUrl": {
+    "message": "Debug info URL: "
+  },
   "panels/sources/AddSourceMapURLDialog.ts | sourceMapUrl": {
     "message": "Source map URL: "
   },
@@ -9640,6 +9643,9 @@
   },
   "panels/sources/DebuggerPlugin.ts | addSourceMap": {
     "message": "Add source map…"
+  },
+  "panels/sources/DebuggerPlugin.ts | addWasmDebugInfo": {
+    "message": "Add DWARF debug info…"
   },
   "panels/sources/DebuggerPlugin.ts | associatedFilesAreAvailable": {
     "message": "Associated files are available via file tree or {PH1}."
