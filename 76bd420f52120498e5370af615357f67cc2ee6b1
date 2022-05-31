@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c456b908_a19ad01a",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-31T15:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ab9544_08fb76de",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 28
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fcbed34_f4551e96",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca78090_a6061355",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-31T15:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcbed34_f4551e96",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 7
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "512b8a63_1a5628b9",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-31T14:19:25Z",
       "side": 1,
       "message": "This resolves immediately. What is the point of awaiting on this promise?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14e5fce_860cb552",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-31T15:58:05Z",
+      "side": 1,
+      "message": "Indeed, works without it!",
+      "parentUuid": "512b8a63_1a5628b9",
       "range": {
         "startLine": 55,
         "startChar": 0,
