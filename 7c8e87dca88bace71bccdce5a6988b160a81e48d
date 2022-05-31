@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49b12bad_8d88ac03",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-31T14:19:25Z",
+      "side": 1,
+      "message": "execution order of what?\n\nWith your newest change, I guess it is better expresses as \n\n  for (const {isMainFrame, storageKey} of await \n       Promise.all([...this.framesInternal.values()].map(\n          async f \u003d\u003e f.storageKey.then(k \u003d\u003e ({\n            isMainFrame: f.isMainFrame(), storageKey: k})))) {\n    if (isMainFrame) mainStorageKey \u003d storageKey;      \n    storageKeys.add(storageKey)            \n  }",
+      "parentUuid": "9d1d935e_f9d5716a",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 55
+      },
+      "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d047d30b_f24d2b73",
         "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
         "patchSetId": 3

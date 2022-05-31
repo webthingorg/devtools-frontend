@@ -16,6 +16,75 @@
       "message": "PTAnotherL",
       "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ab9544_08fb76de",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-31T14:19:25Z",
+      "side": 1,
+      "message": "Why not just `return this.mainFrame.storageKey;` ?",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 28
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcbed34_f4551e96",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-31T14:19:25Z",
+      "side": 1,
+      "message": "key is fairly generic. I\u0027d suggest calling it `storageKey` here and then simply having `()\u003d\u003e({storageKey})` below.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 7
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512b8a63_1a5628b9",
+        "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-31T14:19:25Z",
+      "side": 1,
+      "message": "This resolves immediately. What is the point of awaiting on this promise?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "76bd420f52120498e5370af615357f67cc2ee6b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
