@@ -50,10 +50,13 @@ import {Capability} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {TargetManager} from './TargetManager.js';
 import {SecurityOriginManager} from './SecurityOriginManager.js';
+import {StorageKeyManager} from './StorageKeyManager.js';
 
 export class ResourceTreeModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.PageApi;
+  readonly storageAgent: ProtocolProxyApi.StorageApi;
   readonly #securityOriginManager: SecurityOriginManager;
+  readonly #storageKeyManager: StorageKeyManager;
   readonly framesInternal: Map<string, ResourceTreeFrame>;
   #cachedResourcesProcessed: boolean;
   #pendingReloadOptions: {
@@ -75,8 +78,10 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       networkManager.addEventListener(NetworkManagerEvents.RequestUpdateDropped, this.onRequestUpdateDropped, this);
     }
     this.agent = target.pageAgent();
+    this.storageAgent = target.storageAgent();
     void this.agent.invoke_enable();
     this.#securityOriginManager = (target.model(SecurityOriginManager) as SecurityOriginManager);
+    this.#storageKeyManager = (target.model(StorageKeyManager) as StorageKeyManager);
     this.#pendingBackForwardCacheNotUsedEvents = new Set<Protocol.Page.BackForwardCacheNotUsedEvent>();
     this.#pendingPrerenderAttemptCompletedEvents = new Set<Protocol.Page.PrerenderAttemptCompletedEvent>();
     target.registerPageDispatcher(new PageDispatcher(this));
@@ -88,8 +93,8 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     this.isInterstitialShowing = false;
     this.mainFrame = null;
 
-    void this.agent.invoke_getResourceTree().then(event => {
-      this.processCachedResources(event.getError() ? null : event.frameTree);
+    void this.agent.invoke_getResourceTree().then(async event => {
+      await this.processCachedResources(event.getError() ? null : event.frameTree);
     });
   }
 
@@ -129,11 +134,15 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
   }
 
+  async storageKeyForFrame(frameId: Protocol.Page.FrameId): Promise<string> {
+    return (await this.storageAgent.invoke_getStorageKeyForFrame({frameId: frameId})).storageKey;
+  }
+
   domModel(): DOMModel {
     return this.target().model(DOMModel) as DOMModel;
   }
 
-  private processCachedResources(mainFramePayload: Protocol.Page.FrameResourceTree|null): void {
+  private async processCachedResources(mainFramePayload: Protocol.Page.FrameResourceTree|null): Promise<void> {
     // TODO(caseq): the url check below is a mergeable, conservative
     // workaround for a problem caused by us requesting resources from a
     // subtarget frame before it has committed. The proper fix is likely
@@ -141,7 +150,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     // See https://crbug.com/1081270 for details.
     if (mainFramePayload && mainFramePayload.frame.url !== ':') {
       this.dispatchEventToListeners(Events.WillLoadCachedResources);
-      this.addFramesRecursively(null, mainFramePayload);
+      await this.addFramesRecursively(null, mainFramePayload);
       this.target().setInspectedURL(mainFramePayload.frame.url as Platform.DevToolsPath.UrlString);
     }
     this.#cachedResourcesProcessed = true;
@@ -157,18 +166,19 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     return this.#cachedResourcesProcessed;
   }
 
-  private addFrame(frame: ResourceTreeFrame, _aboutToNavigate?: boolean): void {
+  private async addFrame(frame: ResourceTreeFrame, _aboutToNavigate?: boolean): Promise<void> {
     this.framesInternal.set(frame.id, frame);
     if (frame.isMainFrame()) {
       this.mainFrame = frame;
     }
     this.dispatchEventToListeners(Events.FrameAdded, frame);
     this.updateSecurityOrigins();
+    await this.updateStorageKeys();
   }
 
-  frameAttached(
+  async frameAttached(
       frameId: Protocol.Page.FrameId, parentFrameId: Protocol.Page.FrameId|null,
-      stackTrace?: Protocol.Runtime.StackTrace): ResourceTreeFrame|null {
+      stackTrace?: Protocol.Runtime.StackTrace): Promise<ResourceTreeFrame|null> {
     const sameTargetParentFrame = parentFrameId ? (this.framesInternal.get(parentFrameId) || null) : null;
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
     if (!this.#cachedResourcesProcessed && sameTargetParentFrame) {
@@ -184,13 +194,13 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
     if (frame.isMainFrame() && this.mainFrame) {
       // Navigation to the new backend process.
-      this.frameDetached(this.mainFrame.id, false);
+      await this.frameDetached(this.mainFrame.id, false);
     }
-    this.addFrame(frame, true);
+    await this.addFrame(frame, true);
     return frame;
   }
 
-  frameNavigated(framePayload: Protocol.Page.Frame, type: Protocol.Page.NavigationType|undefined): void {
+  async frameNavigated(framePayload: Protocol.Page.Frame, type: Protocol.Page.NavigationType|undefined): Promise<void> {
     const sameTargetParentFrame =
         framePayload.parentId ? (this.framesInternal.get(framePayload.parentId) || null) : null;
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
@@ -200,7 +210,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     let frame: (ResourceTreeFrame|null) = this.framesInternal.get(framePayload.id) || null;
     if (!frame) {
       // Simulate missed "frameAttached" for a main frame navigation to the new backend process.
-      frame = this.frameAttached(framePayload.id, framePayload.parentId || null);
+      frame = await this.frameAttached(framePayload.id, framePayload.parentId || null);
       console.assert(Boolean(frame));
       if (!frame) {
         return;
@@ -233,10 +243,11 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       this.target().setInspectedURL(frame.url);
     }
     this.updateSecurityOrigins();
+    await this.updateStorageKeys();
   }
 
-  documentOpened(framePayload: Protocol.Page.Frame): void {
-    this.frameNavigated(framePayload, undefined);
+  async documentOpened(framePayload: Protocol.Page.Frame): Promise<void> {
+    await this.frameNavigated(framePayload, undefined);
     const frame = this.framesInternal.get(framePayload.id);
     if (frame && !frame.getResourcesMap().get(framePayload.url)) {
       const frameResource = this.createResourceFromFramePayload(
@@ -247,7 +258,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
   }
 
-  frameDetached(frameId: Protocol.Page.FrameId, isSwap: boolean): void {
+  async frameDetached(frameId: Protocol.Page.FrameId, isSwap: boolean): Promise<void> {
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
     if (!this.#cachedResourcesProcessed) {
       return;
@@ -265,6 +276,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       frame.remove(isSwap);
     }
     this.updateSecurityOrigins();
+    await this.updateStorageKeys();
   }
 
   private onRequestFinished(event: Common.EventTarget.EventTargetEvent<NetworkRequest>): void {
@@ -329,17 +341,17 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     return this.mainFrame ? this.mainFrame.resourceForURL(url) : null;
   }
 
-  private addFramesRecursively(
-      sameTargetParentFrame: ResourceTreeFrame|null, frameTreePayload: Protocol.Page.FrameResourceTree): void {
+  private async addFramesRecursively(
+      sameTargetParentFrame: ResourceTreeFrame|null, frameTreePayload: Protocol.Page.FrameResourceTree): Promise<void> {
     const framePayload = frameTreePayload.frame;
     const frame = new ResourceTreeFrame(this, sameTargetParentFrame, framePayload.id, framePayload, null);
     if (!sameTargetParentFrame && framePayload.parentId) {
       frame.crossTargetParentFrameId = framePayload.parentId;
     }
-    this.addFrame(frame);
+    await this.addFrame(frame);
 
     for (const childFrame of frameTreePayload.childFrames || []) {
-      this.addFramesRecursively(frame, childFrame);
+      await this.addFramesRecursively(frame, childFrame);
     }
 
     for (let i = 0; i < frameTreePayload.resources.length; ++i) {
@@ -520,11 +532,50 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     };
   }
 
+  private async getStorageKeyData(): Promise<StorageKeyData> {
+    const storageKeys = new Set<string>();
+    let mainStorageKey: string|null = null;
+
+    for (const storageKey of await Promise.all([...this.framesInternal.values()].map(async f => {
+           if (f.isMainFrame()) {
+             mainStorageKey = await f.storageKey;
+             return mainStorageKey;
+           }
+           return f.storageKey;
+         }))) {
+      if (!storageKey) {
+        continue;
+      }
+      storageKeys.add(storageKey);
+    }
+    return {storageKeys: storageKeys, mainStorageKey: mainStorageKey};
+  }
+
   private updateSecurityOrigins(): void {
     const data = this.getSecurityOriginData();
     this.#securityOriginManager.setMainSecurityOrigin(
         data.mainSecurityOrigin || '', data.unreachableMainSecurityOrigin || '');
     this.#securityOriginManager.updateSecurityOrigins(data.securityOrigins);
+  }
+
+  private async updateStorageKeys(): Promise<void> {
+    const data = await this.getStorageKeyData();
+    this.#storageKeyManager.setMainStorageKey(data.mainStorageKey || '');
+    this.#storageKeyManager.updateStorageKeys(data.storageKeys);
+  }
+
+  async getMainStorageKey(): Promise<string|null> {
+    let mainStorageKey = '';
+
+    const mainFrame = this.mainFrame;
+    if (mainFrame) {
+      mainStorageKey = await mainFrame.storageKey;
+    }
+
+    if (!mainStorageKey) {
+      return null;
+    }
+    return mainStorageKey;
   }
 
   getMainSecurityOrigin(): string|null {
@@ -626,6 +677,7 @@ export class ResourceTreeFrame {
   #urlInternal: Platform.DevToolsPath.UrlString;
   #domainAndRegistryInternal: string;
   #securityOriginInternal: string|null;
+  #storageKeyInternal: string|Promise<string>;
   #unreachableUrlInternal: Platform.DevToolsPath.UrlString;
   #adFrameStatusInternal?: Protocol.Page.AdFrameStatus;
   #secureContextType: Protocol.Page.SecureContextType|null;
@@ -660,6 +712,7 @@ export class ResourceTreeFrame {
         payload && payload.url as Platform.DevToolsPath.UrlString || Platform.DevToolsPath.EmptyUrlString;
     this.#domainAndRegistryInternal = (payload && payload.domainAndRegistry) || '';
     this.#securityOriginInternal = payload && payload.securityOrigin;
+    this.#storageKeyInternal = '';
     this.#unreachableUrlInternal =
         (payload && payload.unreachableUrl as Platform.DevToolsPath.UrlString) || Platform.DevToolsPath.EmptyUrlString;
     this.#adFrameStatusInternal = payload?.adFrameStatus;
@@ -756,6 +809,13 @@ export class ResourceTreeFrame {
 
   get securityOrigin(): string|null {
     return this.#securityOriginInternal;
+  }
+
+  get storageKey(): string|Promise<string> {
+    if (!this.#storageKeyInternal) {
+      this.#storageKeyInternal = this.#model.storageKeyForFrame(this.#idInternal);
+    }
+    return this.#storageKeyInternal;
   }
 
   unreachableUrl(): Platform.DevToolsPath.UrlString {
@@ -1034,18 +1094,22 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
   }
 
   frameAttached({frameId, parentFrameId, stack}: Protocol.Page.FrameAttachedEvent): void {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.#resourceTreeModel.frameAttached(frameId, parentFrameId, stack);
   }
 
   frameNavigated({frame, type}: Protocol.Page.FrameNavigatedEvent): void {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.#resourceTreeModel.frameNavigated(frame, type);
   }
 
   documentOpened({frame}: Protocol.Page.DocumentOpenedEvent): void {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.#resourceTreeModel.documentOpened(frame);
   }
 
   frameDetached({frameId, reason}: Protocol.Page.FrameDetachedEvent): void {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.#resourceTreeModel.frameDetached(frameId, reason === Protocol.Page.FrameDetachedEventReason.Swap);
   }
 
@@ -1121,4 +1185,9 @@ export interface SecurityOriginData {
   securityOrigins: Set<string>;
   mainSecurityOrigin: string|null;
   unreachableMainSecurityOrigin: string|null;
+}
+
+export interface StorageKeyData {
+  storageKeys: Set<string>;
+  mainStorageKey: string|null;
 }
