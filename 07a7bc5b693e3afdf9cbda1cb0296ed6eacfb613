@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75086f04_7654c551",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-31T16:59:39Z",
+      "side": 1,
+      "message": "Ah, sorry, of course not",
+      "parentUuid": "47b89392_889ed863",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 97
+      },
+      "revId": "07a7bc5b693e3afdf9cbda1cb0296ed6eacfb613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "881cf7a3_4a17292e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-31T16:20:30Z",
       "side": 1,
       "message": "You can \"cast to void\" like `void #resourceTreeModel.frameAttached(...);` instead of suppressing linter. Also thought the CL",
+      "range": {
+        "startLine": 1098,
+        "startChar": 4,
+        "endLine": 1098,
+        "endChar": 8
+      },
+      "revId": "07a7bc5b693e3afdf9cbda1cb0296ed6eacfb613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9084a47b_59c4f111",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-05-31T16:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "881cf7a3_4a17292e",
       "range": {
         "startLine": 1098,
         "startChar": 4,
