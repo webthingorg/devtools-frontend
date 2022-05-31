@@ -117,6 +117,30 @@
       },
       "revId": "62a0b05634537a61b11933dba311b36552eb1834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "316d446e_28befa54",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-05-31T05:40:16Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation!\n\nI\u0027ll +1 the CL to unblock here. Long term I really hope we find a better solution to implement all these timing dependencies. Awaiting event handlers in a class (`BreakpointManager`) that can\u0027t know about the event itself feels brittle.\n\nMaybe we have to bite the bullet and have something like `DebuggerCoordinator`, that knows about all these timing dependencies and can schedule these bits in the appropriate order. But I\u0027m just spitballing here.",
+      "parentUuid": "57e109f2_96533e52",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
