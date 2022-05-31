@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83128563_562a7f63",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-05-31T07:26:50Z",
+      "side": 1,
+      "message": "Comment, please.",
+      "range": {
+        "startLine": 273,
+        "startChar": 10,
+        "endLine": 273,
+        "endChar": 64
+      },
+      "revId": "9f44b8b786e4fe263cb4a51d8d948d429849f50d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
