@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c518899_1c20ab17",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-05-31T16:20:30Z",
+      "side": 1,
+      "message": "There\u0027s no true parallelism in JS but you\u0027re right, these could be executed out of order. Does it matter?",
+      "parentUuid": "9c043f58_15c930ca",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 55
+      },
+      "revId": "7c8e87dca88bace71bccdce5a6988b160a81e48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d047d30b_f24d2b73",
         "filename": "test/unittests/front_end/core/sdk/ResourceTreeModel_test.ts",
         "patchSetId": 3
