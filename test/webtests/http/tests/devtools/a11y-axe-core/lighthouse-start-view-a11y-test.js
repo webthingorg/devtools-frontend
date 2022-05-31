@@ -7,6 +7,6 @@
   await TestRunner.loadTestModule('axe_core_test_runner');
   await TestRunner.loadTestModule('lighthouse_test_runner');
   await TestRunner.showPanel('lighthouse');
-  await AxeCoreTestRunner.runValidation(LighthouseTestRunner.getContainerElement());
+  await AxeCoreTestRunner.runValidation(getPanel().contentElement);
   TestRunner.completeTest();
 })();

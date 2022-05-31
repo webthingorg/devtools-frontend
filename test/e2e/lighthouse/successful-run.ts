@@ -1,4 +1,4 @@
-// Copyright 2022 The Chromium Authors. All rights reserved.
+// Copyright 2017 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -32,25 +32,17 @@
     'modern-image-formats',
   ];
 
-  TestRunner.addResult('Tests that navigation mode works correctly.\n');
-  await TestRunner.navigatePromise('resources/lighthouse-basic.html');
+  TestRunner.addResult('Tests that audits panel works.');
+  await navigateToLighthouseTab('resources/lighthouse-basic.html');
 
-  await TestRunner.loadTestModule('lighthouse_test_runner');
-  await TestRunner.showPanel('lighthouse');
-
-  // Enable Publisher Ads.
-  const containerElement = LighthouseTestRunner.getContainerElement();
+  // Use all the default settings, but also enable a plugin.
+  const containerElement = getPanel().contentElement;
   const checkboxes = containerElement.querySelectorAll('.checkbox');
   for (const checkbox of checkboxes) {
     if (checkbox.textElement.textContent === 'Publisher Ads') {
       checkbox.checkboxElement.click();
     }
   }
-
-  // Enable FR navigation.
-  containerElement.querySelector('.lighthouse-settings-pane > div').shadowRoot
-               .querySelectorAll('span')[0].shadowRoot
-               .querySelector('input').click();
 
   LighthouseTestRunner.dumpStartAuditState();
 
@@ -63,7 +55,7 @@
   TestRunner.addResult(`URL: ${lhr.finalUrl}`);
   TestRunner.addResult(`Version: ${lhr.lighthouseVersion}`);
   TestRunner.addResult(`ViewportDimensions: ${JSON.stringify(artifacts.ViewportDimensions, null, 2)}`);
-  TestRunner.addResult('\n');
+  TestRunner.addResult('');
 
   Object.keys(lhr.audits).sort().forEach(auditName => {
     const audit = lhr.audits[auditName];
@@ -96,4 +88,5 @@
   }
 
   TestRunner.completeTest();
-})();
+});
+});

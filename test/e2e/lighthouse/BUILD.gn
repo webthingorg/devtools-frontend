@@ -5,10 +5,25 @@
 import("../../../third_party/typescript/typescript.gni")
 
 node_ts_library("lighthouse") {
-  sources = [ "generate-report.ts" ]
+  sources = [
+    "block-url.ts",
+    "clear-data-warning.ts",
+    "emulate-run.ts",
+    "export-run.ts",
+    "flags-run.ts",
+    "generate-report.ts",
+    "i18n-run.ts",
+    "limited-run.ts",
+    "prevent-run.ts",
+    "successful-navigation.ts",
+    "successful-run.ts",
+    "view-trace-run.ts",
+  ]
 
   deps = [
     "../../shared",
     "../helpers",
   ]
 }
+
+
