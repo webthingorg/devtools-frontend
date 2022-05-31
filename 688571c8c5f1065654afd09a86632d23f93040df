@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4573fc44_179402d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-05-31T20:16:25Z",
+      "side": 1,
+      "message": "+Benedikt as owner to review\n\nHey Benedikt. This is a small CL addressing a screen reader issue when clearing local storage tables.",
+      "revId": "688571c8c5f1065654afd09a86632d23f93040df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
