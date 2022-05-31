@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b49c969b_ed68f7aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-31T12:16:06Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "490dd9cd97edcf45dc3954bf972cc900e1c7684f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3950540b_423c2021",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-05-31T12:16:06Z",
+      "side": 1,
+      "message": "typo: developers",
+      "range": {
+        "startLine": 116,
+        "startChar": 154,
+        "endLine": 116,
+        "endChar": 163
+      },
+      "revId": "490dd9cd97edcf45dc3954bf972cc900e1c7684f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
