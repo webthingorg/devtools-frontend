@@ -141,6 +141,30 @@
       },
       "revId": "62a0b05634537a61b11933dba311b36552eb1834",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb580b76_84e1dea5",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-05-31T08:38:11Z",
+      "side": 1,
+      "message": "Yes, actually in a previous version of the synchronization, we introduced a coordinator, but since there was not a lot of code, we decided to move it into the BreakpointManager. I think it is worth rethinking this as soon as we have all bits in place for the syncrhonization, such that we can make it more clear as you say. So +1 to that.",
+      "parentUuid": "316d446e_28befa54",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "62a0b05634537a61b11933dba311b36552eb1834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
