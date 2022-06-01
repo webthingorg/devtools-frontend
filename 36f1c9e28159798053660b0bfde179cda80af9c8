@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb5aab2_ebe73fa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-01T20:36:55Z",
+      "side": 1,
+      "message": "+bmeurer for specific question about e2e tests",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f557c0e_df43ab9e",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-01T20:36:55Z",
+      "side": 1,
+      "message": "cc @bmeurer\n\nIn the Lighthouse webtests we used `TestRunner.addSniffer` to intercept the LH results via `LighthouseTestRunner.waitForResults`. Any suggestion on doing something similar in an e2e test, without doing a globalThis hack like this?",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d91019_d14573c6",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-01T20:36:55Z",
+      "side": 1,
+      "message": "what does this mean? open by default... but we have to navigate to it?",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af4633bd_d6fe5a43",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-01T20:36:55Z",
+      "side": 1,
+      "message": "prefer single line assertion:\n\n   assert(\u0027foo\u0027 !\u003d\u003d \u0027bar\u0027, \u0027foo is not bar\u0027);",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca67417e_9c42b822",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-01T20:36:55Z",
+      "side": 1,
+      "message": "should this be in `before`?",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
