@@ -45,7 +45,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 
-import {AddSourceMapURLDialog} from './AddSourceMapURLDialog.js';
+import {AddDebugInfoURLDialog, AddSourceMapURLDialog} from './AddSourceMapURLDialog.js';
 import {BreakpointEditDialog, LogpointPrefix} from './BreakpointEditDialog.js';
 import {Plugin} from './Plugin.js';
 import {ScriptFormatterEditorAction} from './ScriptFormatterEditorAction.js';
@@ -109,6 +109,10 @@ const UIStrings = {
   *@description Text in Debugger Plugin of the Sources panel
   */
   addSourceMap: 'Add source map…',
+  /**
+  *@description Text in Debugger Plugin of the Sources panel
+  */
+  addWasmDebugInfo: 'Add DWARF debug info…',
   /**
   *@description Text in Debugger Plugin of the Sources panel
   */
@@ -479,13 +483,33 @@ export class DebuggerPlugin extends Plugin {
       scriptFile.addSourceMapURL(url);
     }
 
+    function addDebugInfoURL(scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile): void {
+      const dialog = new AddDebugInfoURLDialog(addDebugInfoURLDialogCallback.bind(null, scriptFile));
+      dialog.show();
+    }
+
+    function addDebugInfoURLDialogCallback(
+        scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile, url: Platform.DevToolsPath.UrlString): void {
+      if (!url) {
+        return;
+      }
+      scriptFile.addDebugInfoURL(url);
+    }
+
     if (this.uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
         Common.Settings.Settings.instance().moduleSetting('jsSourceMapsEnabled').get() &&
         !Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(this.uiSourceCode)) {
       if (this.scriptFileForDebuggerModel.size) {
-        const scriptFile = this.scriptFileForDebuggerModel.values().next().value;
+        const scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile =
+            this.scriptFileForDebuggerModel.values().next().value;
         const addSourceMapURLLabel = i18nString(UIStrings.addSourceMap);
         contextMenu.debugSection().appendItem(addSourceMapURLLabel, addSourceMapURL.bind(null, scriptFile));
+        if (scriptFile.script?.isWasm() &&
+            !Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().pluginManager?.hasPluginForScript(
+                scriptFile.script)) {
+          contextMenu.debugSection().appendItem(
+              i18nString(UIStrings.addWasmDebugInfo), addDebugInfoURL.bind(null, scriptFile));
+        }
       }
     }
   }
