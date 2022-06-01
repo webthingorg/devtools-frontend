@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f84bcbdf_f6ec4067",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-01T10:22:15Z",
+      "side": 1,
+      "message": "PTAL!\n\nCurious about your thoughts on:\n- Namespacing of the new APIs\n- Error reporting. Are the Record objects sensible userspace errors?\n- asnyc vs callbacks. Existing APIs predate async/await and use callbacks instead. Should we really keep that pattern or write modern APIs?\n- New APIs are implemented on evaluateOnCallFrame. Should we introduce dedicated CDP commands instead?",
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
