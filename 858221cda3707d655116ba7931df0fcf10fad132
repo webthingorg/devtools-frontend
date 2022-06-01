@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nthis CL is fixing one of the instrumentation breakpoint tests that I added. During one of our 1:1s I figured out that my test is not correctly testing what I\u0027d expect it to (due to the missing space in the source url comment). This CL is now fixing the missing space and adapting the test to reflect the breakpoint test on inline scripts with source urls. PTAL!",
       "revId": "858221cda3707d655116ba7931df0fcf10fad132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee69c8f7_68e477d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-01T06:49:57Z",
+      "side": 1,
+      "message": "Hi Jaro, friendly ping, in case you missed the notification about this CL 😊",
+      "revId": "858221cda3707d655116ba7931df0fcf10fad132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
