@@ -4800,6 +4800,11 @@
                             "name": "compatibilityMode",
                             "optional": true,
                             "$ref": "CompatibilityMode"
+                        },
+                        {
+                            "name": "assignedSlot",
+                            "optional": true,
+                            "$ref": "BackendNode"
                         }
                     ]
                 },
@@ -5608,6 +5613,20 @@
                         {
                             "name": "nodeIds",
                             "description": "Query selector result.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "NodeId"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getTopLayerElements",
+                    "description": "Returns current top layer elements",
+                    "returns": [
+                        {
+                            "name": "nodeIds",
+                            "description": "backendNodeIds of top layer elements",
                             "type": "array",
                             "items": {
                                 "$ref": "NodeId"

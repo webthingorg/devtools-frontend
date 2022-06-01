@@ -560,7 +560,8 @@ export class TreeElement {
 
   appendChild(child: TreeElement, comparator?: ((arg0: TreeElement, arg1: TreeElement) => number)): void {
     if (!this.childrenInternal) {
-      this.childrenInternal = [];
+      // will need to uncomment this line before when the bug with only new node is solved
+      // this.childrenInternal = [];
     }
 
     let insertionIndex;

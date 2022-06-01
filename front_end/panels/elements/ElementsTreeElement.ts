@@ -229,6 +229,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
   private styleAdorners: Adorners.Adorner.Adorner[];
+  private topLayerElementExists: boolean;
+  // private topLayerRepresentationElement: TreeElement;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
   private readonly adornersThrottler: Common.Throttler.Throttler;
@@ -242,6 +244,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
     // The title will be updated in onattach.
     super();
+    this.topLayerElementExists = false;
     this.nodeInternal = node;
     this.treeOutline = null;
     this.contentElement = this.listItemElement.createChild('div');
@@ -1323,7 +1326,19 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
+    if (this.node().nodeName() === 'BODY' && !this.topLayerElementExists) {
+      void this.createTopLayer();
+    }
+
     this.highlightSearchResultsInternal();
+  }
+
+  async createTopLayer(): Promise<void> {
+    if (this.topLayerElementExists === false) {
+      await this.treeOutline?.createTopLayerContainer(this);
+    }
+    this.topLayerElementExists = true;
+    return;
   }
 
   private computeLeftIndent(): number {
@@ -1922,9 +1937,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   // TODO: add unit tests for adorner-related methods after component and TypeScript works are done
-  adorn({name}: {name: string}): Adorners.Adorner.Adorner {
-    const adornerContent = document.createElement('span');
+  adorn({name}: {name: string}, content?: HTMLElement): Adorners.Adorner.Adorner {
+    let adornerContent = document.createElement('span');
     adornerContent.textContent = name;
+    if (content) {
+      adornerContent = content;
+    }
     const adorner = new Adorners.Adorner.Adorner();
     adorner.data = {
       name,
