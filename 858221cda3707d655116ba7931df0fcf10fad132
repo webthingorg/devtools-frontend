@@ -33,6 +33,23 @@
       "message": "Hi Jaro, friendly ping, in case you missed the notification about this CL 😊",
       "revId": "858221cda3707d655116ba7931df0fcf10fad132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c4abae9_3299f8ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-01T12:33:56Z",
+      "side": 1,
+      "message": "Thanks, submitting!",
+      "revId": "858221cda3707d655116ba7931df0fcf10fad132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
