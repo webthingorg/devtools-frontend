@@ -279,6 +279,8 @@ export class LighthousePanel extends UI.Panel.Panel {
   }
 
   private renderReport(lighthouseResult: ReportJSON, artifacts?: RunnerResultArtifacts): void {
+    // @ts-ignore globalThis
+    globalThis.__lighthouseResult = lighthouseResult;
     this.toggleSettingsDisplay(false);
     this.contentElement.classList.toggle('in-progress', false);
     this.startView.hideWidget();

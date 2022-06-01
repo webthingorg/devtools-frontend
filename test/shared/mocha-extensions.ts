@@ -23,10 +23,10 @@ export async function takeScreenshots() {
     const targetScreenshot = await target.screenshot(opts);
     const frontendScreenshot = await frontend.screenshot(opts);
     const prefix = 'data:image/png;base64,';
-    console.error('Target page screenshot (copy the next line and open in the browser):');
-    console.error(prefix + targetScreenshot);
-    console.error('Frontend screenshot (copy the next line and open in the browser):');
-    console.error(prefix + frontendScreenshot);
+    // console.error('Target page screenshot (copy the next line and open in the browser):');
+    // console.error(prefix + targetScreenshot);
+    // console.error('Frontend screenshot (copy the next line and open in the browser):');
+    // console.error(prefix + frontendScreenshot);
   } catch (err) {
     console.error('Error taking a screenshot', err);
   }
