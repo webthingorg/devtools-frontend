@@ -16,6 +16,24 @@
       "message": "Note: TS now complains that `throw new Error` is not reached.",
       "revId": "af81a37c29ebbbb16c35c18e13f42b6012a1152c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe60f0c_e6749684",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-01T13:47:06Z",
+      "side": 1,
+      "message": "If you keep the throw and a //@ts-expect-error, forgetting to handle a command here would fail to compile. It doesn\u0027t help if the command enum entry is missing though :/",
+      "parentUuid": "94ed2d71_8f1bd217",
+      "revId": "af81a37c29ebbbb16c35c18e13f42b6012a1152c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
