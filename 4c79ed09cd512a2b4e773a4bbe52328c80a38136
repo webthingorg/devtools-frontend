@@ -50,6 +50,24 @@
       "message": "So this CL does indeed break snippet evaluation. The reason for that is that we no longer establish the binding between the \"filesystem\" snippet, and the \"network\" snippet thats created from the VM script when we evaluate.\n\nThe reason is rather straight-forward. When we evaluate snippets we append the sourceURL manually, so we can match it later back to the snippet. This happens here:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/snippets/ScriptSnippetFileSystem.ts;l\u003d165;drc\u003dcbe0e6e59572fedc3a4f6de91413549f353ef568\n\nThen, once we get the \"Debugger.scriptParsed\" event and the Automapping machinery kicks in, DevTools tries to establish a binding, but fails, because the content between the \"network\" script and the \"filesystem\" script no longer matches. (As we no longer massage the \"network\" script by removing the sourceURL). The now failing check is here:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/persistence/Automapping.ts;l\u003d245;drc\u003d684d26dccda0d48bf402f979d3187440c60c455d\n\nA potential solution here would be to change `Runtime.evaluate` to take an optional sourceUrl parameter. Then we don\u0027t have to muck with the content of snippets (or scripts) and can rip this out. But as it is we currently require appending the `sourceURL` annotation to snippet evaluation so we can match the executed snippet code back to the correct snippet.",
       "revId": "4c79ed09cd512a2b4e773a4bbe52328c80a38136",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "970c5114_57ee4229",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-01T06:57:29Z",
+      "side": 1,
+      "message": "@Jaro IMO we have two solutions here:\n\n1) We add a sourceURL parameter to `Runtime.evaluate`.\n2) We special case snippet URLs and keep the sourceURL massaging of snippet content.\n\nI feel (1) is cleaner but a bit more intrusive. It also extends the already large lists of parameters to `Runtime.evaluate`. Wdyt?",
+      "parentUuid": "2cbb19aa_d7c7cbc5",
+      "revId": "4c79ed09cd512a2b4e773a4bbe52328c80a38136",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
