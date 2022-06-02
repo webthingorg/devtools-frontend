@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0f0ab1_a83f1da4",
+        "filename": "test/e2e/resources/lighthouse/BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-02T16:49:42Z",
+      "side": 1,
+      "message": "2022",
+      "revId": "65cf75d30ccc551585bbdc071605abea8363363f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8be73d9_28b9eeb0",
+        "filename": "test/e2e/resources/lighthouse/lighthouse-storage.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-02T16:49:42Z",
+      "side": 1,
+      "message": "Is it possible to keep the websql stuff? Would be nice to leverage multiple data sources. Maybe localstorage would work instead?",
+      "revId": "65cf75d30ccc551585bbdc071605abea8363363f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
