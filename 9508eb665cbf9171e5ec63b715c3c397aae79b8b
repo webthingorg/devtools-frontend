@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc52249_510c7a9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T03:02:50Z",
+      "side": 1,
+      "message": "While we\u0027re on the topic.... we have this owners setup for the rest of our tests: https://source.chromium.org/search?q\u003df:lighthouse%20f:owners\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2F\n\n\nDoes this work?",
+      "revId": "9508eb665cbf9171e5ec63b715c3c397aae79b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
