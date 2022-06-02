@@ -16,6 +16,69 @@
       "message": "PTAL!\n\nCurious about your thoughts on:\n- Namespacing of the new APIs\n- Error reporting. Are the Record objects sensible userspace errors?\n- asnyc vs callbacks. Existing APIs predate async/await and use callbacks instead. Should we really keep that pattern or write modern APIs?\n- New APIs are implemented on evaluateOnCallFrame. Should we introduce dedicated CDP commands instead?",
       "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9ac4f4e_0a8e4b28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T08:32:54Z",
+      "side": 1,
+      "message": "Looking great, but some tests seem to be failing.",
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65539838_08411f97",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T08:32:54Z",
+      "side": 1,
+      "message": "It looks like all the existing methods in this interface have descriptions. Please add descriptions for all the newly introduced methods, too.\n\nAlso, the stopId sounds more like a frameId, perhaps we remove this? We should also say that the frame ids are fresh for every stop, but I am guessing you are not really relying on that?",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 102
+      },
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0590d98_f806a29f",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T08:32:54Z",
+      "side": 1,
+      "message": "This seems to be handling exactly the same situation as the \u0027if\u0027 below.\n\nShould not it be `instanceof Bindings.DebuggerLanguagePlugins.ExtensionRemoteObject` and then check `obj.linearMemoryAddress !\u003d\u003d undefined`?",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 65
+      },
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
