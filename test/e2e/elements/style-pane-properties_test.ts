@@ -11,7 +11,6 @@ import {
   click,
   getBrowserAndPages,
   goToResource,
-  timeout,
   waitFor,
   waitForFunction,
 } from '../../shared/helper.js';
@@ -58,13 +57,9 @@ const goToResourceAndWaitForStyleSection = async (path: string) => {
 
   // Check to make sure we have the correct node selected after opening a file.
   await waitForPartialContentOfSelectedElementsNode('<body>\u200B');
-
-  // FIXME(crbug/1112692): Refactor test to remove the timeout.
-  await timeout(50);
 };
 
-// Flaky test group
-describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
+describe.only('The Styles pane', async () => {
   it('can display the CSS properties of the selected element', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/simple-styled-page.html');
@@ -75,29 +70,31 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
     await frontend.keyboard.press('ArrowDown');
     await onH1RuleAppeared;
 
-    const h1Rules = await getDisplayedStyleRules();
-    // Checking the first h1 rule, that's the authored rule, right after the element style.
-    assert.deepEqual(
-        h1Rules[1],
-        {selectorText: 'body h1', propertyData: [{propertyName: 'color', isOverLoaded: false, isInherited: false}]},
-        'The correct rule is displayed');
+    await waitForFunction(async () => {
+      const h1Rules = await getDisplayedStyleRules();
+      // Waiting for the first h1 rule, that's the authored rule, right after the element style.
+      return JSON.stringify(h1Rules[1]) === JSON.stringify({
+        selectorText: 'body h1',
+        propertyData: [{propertyName: 'color', isOverLoaded: false, isInherited: false}],
+      });
+    });
 
     // Select the H2 element by pressing down.
     const onH2RuleAppeared = waitForStyleRule('h2');
     await frontend.keyboard.press('ArrowDown');
     await onH2RuleAppeared;
 
-    const h2Rules = await getDisplayedStyleRules();
-    // Checking the first h2 rule, that's the authored rule, right after the element style.
-    assert.deepEqual(
-        h2Rules[1], {
-          selectorText: 'h2',
-          propertyData: [
-            {propertyName: 'background-color', isOverLoaded: false, isInherited: false},
-            {propertyName: 'color', isOverLoaded: false, isInherited: false},
-          ],
-        },
-        'The correct rule is displayed');
+    // Waiting for the first h2 rule, that's the authored rule, right after the element style.
+    await waitForFunction(async () => {
+      const h2Rules = await getDisplayedStyleRules();
+      return JSON.stringify(h2Rules[1]) === JSON.stringify({
+        selectorText: 'h2',
+        propertyData: [
+          {propertyName: 'background-color', isOverLoaded: false, isInherited: false},
+          {propertyName: 'color', isOverLoaded: false, isInherited: false},
+        ],
+      });
+    });
   });
 
   it('can jump to a CSS variable definition', async () => {
@@ -269,8 +266,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
         'The correct rule is displayed');
   });
 
-  // Flaky after introducing pooled frontend instances.
-  it.skip('[crbug.com/1297458] can edit multiple constructed stylesheets', async () => {
+  it('can edit multiple constructed stylesheets', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/multiple-constructed-stylesheets.html');
 
