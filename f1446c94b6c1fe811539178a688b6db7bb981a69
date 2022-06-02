@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9c585d_61c423bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-02T08:50:53Z",
+      "side": 1,
+      "message": "Hi Jaro, hi Simon,\n\nthis is a CL to also synchronize all binding updates that are kicked off by the NetworkPersistenceManager, which is taking care of overrides. Similar to the previous CL, we need to make sure that the binding is created, and the breakpoint is moved. The NetworkPersistenceManager is creating the binding, and informing the PersistenceManager about it, which will then take care of moving.\n\nPTAL!",
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
