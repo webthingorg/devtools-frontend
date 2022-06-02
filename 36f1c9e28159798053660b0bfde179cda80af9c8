@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c888cbf1_27851c8e",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T02:51:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68923935_077f5774",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4d91019_d14573c6",
@@ -83,6 +101,24 @@
       "writtenOn": "2022-06-01T20:36:55Z",
       "side": 1,
       "message": "what does this mean? open by default... but we have to navigate to it?",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "813ee0ef_af82bfa8",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T02:51:55Z",
+      "side": 1,
+      "message": "i stole the test from the Security panel tests. it means \"you can click to the Lighthouse tab (from the tab strip) and then the panel shows up\"\n\nbut i\u0027ve removed it now.",
+      "parentUuid": "a4d91019_d14573c6",
       "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -104,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa7fab8_260e303d",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T02:51:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af4633bd_d6fe5a43",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca67417e_9c42b822",
@@ -117,6 +171,24 @@
       "writtenOn": "2022-06-01T20:36:55Z",
       "side": 1,
       "message": "should this be in `before`?",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7c1470_b311d42a",
+        "filename": "test/e2e/lighthouse/block-url_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T02:51:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca67417e_9c42b822",
       "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
