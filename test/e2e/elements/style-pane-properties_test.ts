@@ -11,7 +11,6 @@ import {
   click,
   getBrowserAndPages,
   goToResource,
-  timeout,
   waitFor,
   waitForFunction,
 } from '../../shared/helper.js';
@@ -30,6 +29,7 @@ import {
   waitForPropertyToHighlight,
   waitForStyleRule,
   expandSelectedNodeRecursively,
+  clickTreeElementWithPartialText,
 } from '../helpers/elements-helpers.js';
 
 const PROPERTIES_TO_DELETE_SELECTOR = '#properties-to-delete';
@@ -58,13 +58,9 @@ const goToResourceAndWaitForStyleSection = async (path: string) => {
 
   // Check to make sure we have the correct node selected after opening a file.
   await waitForPartialContentOfSelectedElementsNode('<body>\u200B');
-
-  // FIXME(crbug/1112692): Refactor test to remove the timeout.
-  await timeout(50);
 };
 
-// Flaky test group
-describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
+describe('The Styles pane', async () => {
   it('can display the CSS properties of the selected element', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/simple-styled-page.html');
@@ -73,31 +69,35 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
     const onH1RuleAppeared = waitForStyleRule('h1');
 
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<h1');
     await onH1RuleAppeared;
 
-    const h1Rules = await getDisplayedStyleRules();
-    // Checking the first h1 rule, that's the authored rule, right after the element style.
-    assert.deepEqual(
-        h1Rules[1],
-        {selectorText: 'body h1', propertyData: [{propertyName: 'color', isOverLoaded: false, isInherited: false}]},
-        'The correct rule is displayed');
+    await waitForFunction(async () => {
+      const h1Rules = await getDisplayedStyleRules();
+      // Waiting for the first h1 rule, that's the authored rule, right after the element style.
+      return JSON.stringify(h1Rules[1]) === JSON.stringify({
+        selectorText: 'body h1',
+        propertyData: [{propertyName: 'color', isOverLoaded: false, isInherited: false}],
+      });
+    });
 
     // Select the H2 element by pressing down.
     const onH2RuleAppeared = waitForStyleRule('h2');
+    await clickTreeElementWithPartialText('<h2');
     await frontend.keyboard.press('ArrowDown');
     await onH2RuleAppeared;
 
-    const h2Rules = await getDisplayedStyleRules();
-    // Checking the first h2 rule, that's the authored rule, right after the element style.
-    assert.deepEqual(
-        h2Rules[1], {
-          selectorText: 'h2',
-          propertyData: [
-            {propertyName: 'background-color', isOverLoaded: false, isInherited: false},
-            {propertyName: 'color', isOverLoaded: false, isInherited: false},
-          ],
-        },
-        'The correct rule is displayed');
+    // Waiting for the first h2 rule, that's the authored rule, right after the element style.
+    await waitForFunction(async () => {
+      const h2Rules = await getDisplayedStyleRules();
+      return JSON.stringify(h2Rules[1]) === JSON.stringify({
+        selectorText: 'h2',
+        propertyData: [
+          {propertyName: 'background-color', isOverLoaded: false, isInherited: false},
+          {propertyName: 'color', isOverLoaded: false, isInherited: false},
+        ],
+      });
+    });
   });
 
   it('can jump to a CSS variable definition', async () => {
@@ -106,6 +106,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('properties-to-inspect');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const testElementRule = await getStyleRule(PROPERTIES_TO_INSPECT_SELECTOR);
@@ -120,6 +121,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('properties-to-inspect');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const testElementRule = await getStyleRule(PROPERTIES_TO_INSPECT_SELECTOR);
@@ -134,6 +136,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('properties-to-inspect');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const propertiesSection = await getStyleRule(PROPERTIES_TO_INSPECT_SELECTOR);
@@ -152,6 +155,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('properties-to-inspect');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
 
     const propertiesSection = await getStyleRule(PROPERTIES_TO_INSPECT_SELECTOR);
@@ -167,6 +171,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
     // Select div that we will inspect the CSS variables for
     await frontend.keyboard.press('ArrowRight');
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('keyframes-rule');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"keyframes-rule">\u200B</div>\u200B');
 
     const propertiesSection = await getStyleRule(KEYFRAMES_100_PERCENT_RULE_SELECTOR);
@@ -182,6 +187,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select div that we will remove the CSS properties from
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('properties-to-delete');
     await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-delete">\u200B</div>\u200B');
 
     const propertiesSection = await getStyleRule(PROPERTIES_TO_DELETE_SELECTOR);
@@ -228,6 +234,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
     const onDivRuleAppeared = waitForStyleRule('div');
 
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div');
     await onDivRuleAppeared;
 
     const subtitles = await getStyleSectionSubtitles();
@@ -269,13 +276,13 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
         'The correct rule is displayed');
   });
 
-  // Flaky after introducing pooled frontend instances.
-  it.skip('[crbug.com/1297458] can edit multiple constructed stylesheets', async () => {
+  it('can edit multiple constructed stylesheets', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/multiple-constructed-stylesheets.html');
 
     // Select div that we will remove a CSS property from.
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
 
     // Verify that initial CSS properties correspond to the ones in the test file.
@@ -340,6 +347,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the child that has container queries.
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
 
     // Verify that initial CSS properties correspond to the ones in the test file.
@@ -381,6 +389,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the child that has container queries.
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
 
     const rule1PropertiesSection = await getStyleRule(RULE1_SELECTOR);
@@ -402,6 +411,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the child that has @supports rules.
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
 
     const rule1PropertiesSection = await getStyleRule(RULE1_SELECTOR);
@@ -416,6 +426,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the child that has @layer rules.
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
 
     const layerSeparators = await waitForFunction(async () => {
@@ -441,6 +452,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the child that has @layer rules.
     await frontend.keyboard.press('ArrowDown');
+    await clickTreeElementWithPartialText('<div class=\u200B"rule1">\u200B</div>\u200B');
     await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
 
     const overruleButton = await waitFor('overrule[role="button"]', undefined, undefined, 'aria');
@@ -458,6 +470,7 @@ describe.skip('[crbug.com/1318314]: The Styles pane', async () => {
 
     // Select the h1 for which we will inspect the pseudo styles
     await frontend.keyboard.press('ArrowRight');
+    await clickTreeElementWithPartialText('<h1');
 
     await onH1RuleAppeared;
 

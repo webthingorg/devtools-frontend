@@ -177,6 +177,19 @@ export const waitForChildrenOfSelectedElementNode = async () => {
   await waitFor(`${SELECTED_TREE_ELEMENT_SELECTOR} + ol > li`);
 };
 
+export const clickTreeElementWithPartialText = async (text: string) => {
+  const tree = await waitFor('Page DOM[role="tree"]', undefined, undefined, 'aria');
+  const elements = await $$('[role="treeitem"]', tree, 'aria');
+  for (const handle of elements) {
+    const match = await handle.evaluate((element, text) => element.textContent?.includes(text), text);
+    if (match) {
+      await click(handle);
+      return;
+    }
+  }
+  throw Error('No element found with given partial text');
+};
+
 export const clickNthChildOfSelectedElementNode = async (childIndex: number) => {
   assert(childIndex > 0, 'CSS :nth-child() selector indices are 1-based.');
   const element = await waitFor(`${SELECTED_TREE_ELEMENT_SELECTOR} + ol > li:nth-child(${childIndex})`);
