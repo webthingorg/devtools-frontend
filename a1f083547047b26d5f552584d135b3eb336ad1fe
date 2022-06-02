@@ -16,6 +16,23 @@
       "message": "Eric, OWNERS review for Script.ts as I took over the CL from Benedikt.",
       "revId": "a1f083547047b26d5f552584d135b3eb336ad1fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c36fab_912f70f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T05:32:12Z",
+      "side": 1,
+      "message": "Eric is OOO, Alex could you OWNERS stamp Script.ts?",
+      "revId": "a1f083547047b26d5f552584d135b3eb336ad1fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
