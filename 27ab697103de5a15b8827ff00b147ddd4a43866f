@@ -16,6 +16,24 @@
       "message": "Hi arichiv@, after removing the basic-card deprecation message in chromium here: https://chromium-review.googlesource.com/c/chromium/src/+/3655698\n\nI am working on this follow-up devtools roll, following the steps from Stephen\u0027s recent roll for another payments deprecation message removal: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3651085\n\nThis patch is the result of running the commands in the description. I see there\u0027s a lot of unrelated changes to the PaymentRequestBasicCard message though, is that expected or should I revert everything unrelated to the message I\u0027m removing?",
       "revId": "27ab697103de5a15b8827ff00b147ddd4a43866f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28f5560_4ec4e068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-06-02T20:00:23Z",
+      "side": 1,
+      "message": "you\u0027ll often have to update other code due to browser protocol changes. it\u0027s expected you resolve them in the same CL (but save non-compile changes for other CLs)",
+      "parentUuid": "4642f5fa_10c83bba",
+      "revId": "27ab697103de5a15b8827ff00b147ddd4a43866f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
