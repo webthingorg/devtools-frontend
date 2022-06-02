@@ -9,6 +9,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
 import type {ProtocolService} from './LighthouseProtocolService.js';
+import type {ReportJSON} from './LighthouseReporterTypes.js';
 
 const UIStrings = {
   /**
@@ -576,6 +577,7 @@ export enum Events {
   RequestLighthouseTimespanEnd = 'RequestLighthouseTimespanEnd',
   RequestLighthouseStart = 'RequestLighthouseStart',
   RequestLighthouseCancel = 'RequestLighthouseCancel',
+  LighthouseResultReceived = 'LighthouseResultReceived',
 }
 
 export interface PageAuditabilityChangedEvent {
@@ -590,6 +592,10 @@ export interface AuditProgressChangedEvent {
   message: string;
 }
 
+export interface LighthouseResultReceivedEvent {
+  lighthouseResult: ReportJSON;
+}
+
 export type EventTypes = {
   [Events.PageAuditabilityChanged]: PageAuditabilityChangedEvent,
   [Events.PageWarningsChanged]: PageWarningsChangedEvent,
@@ -598,6 +604,7 @@ export type EventTypes = {
   [Events.RequestLighthouseTimespanEnd]: boolean,
   [Events.RequestLighthouseStart]: boolean,
   [Events.RequestLighthouseCancel]: void,
+  [Events.LighthouseResultReceived]: LighthouseResultReceivedEvent,
 };
 
 export interface Preset {

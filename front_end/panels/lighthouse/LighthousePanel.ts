@@ -335,6 +335,8 @@ export class LighthousePanel extends UI.Panel.Panel {
       return;
     }
 
+    this.controller.dispatchEventToListeners(Events.LighthouseResultReceived, {lighthouseResult});
+
     const optionElement = new Item(
         lighthouseResult, () => this.renderReport(lighthouseResult, artifacts), this.renderStartView.bind(this));
     this.reportSelector.prepend(optionElement);

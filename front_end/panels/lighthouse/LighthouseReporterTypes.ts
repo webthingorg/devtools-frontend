@@ -61,6 +61,10 @@ export interface DetailsJSON {
   summary?: OpportunitySummary;
   granularity?: number;
   displayUnit?: string;
+  items?: TableItem[];
+}
+export interface TableItem {
+  [p: string]: undefined|string|number|boolean;
 }
 export interface RunnerResultArtifacts {
   traces: {defaultPass: {traceEvents: SDK.TracingManager.EventPayload[]}};
