@@ -455,6 +455,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a27e17ec_63c9006a",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-06-02T22:52:47Z",
+      "side": 1,
+      "message": "@jack we are trying to do controlled state management, we set a private variable in the class `this.#queryInputState` and updating it with @change. We event bound it input using `.value` attribute. However resetting the `this.#queryInputState` in `#update` function does not seem to work, so we had to rely on shadowRoot querySelector to reset the value. If you can give any pointers on how to solve this better, please let us know.",
+      "parentUuid": "91c9654b_ee72ac85",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
