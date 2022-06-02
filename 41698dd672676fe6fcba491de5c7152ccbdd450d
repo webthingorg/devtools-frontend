@@ -102,6 +102,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4451977d_04a66c27",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T10:38:51Z",
+      "side": 1,
+      "message": "Eh, I am sorry, I meant rename stopId to frameId.",
+      "parentUuid": "b8429082_40023f9c",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 102
+      },
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0590d98_f806a29f",
         "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
         "patchSetId": 3
