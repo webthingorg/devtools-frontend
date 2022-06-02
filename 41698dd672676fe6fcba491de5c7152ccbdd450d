@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "859c3c07_04b21c64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-02T10:36:39Z",
+      "side": 1,
+      "message": "Yes, there\u0027s a web_test that checks the shape of the extension api. That needs to be disabled for this change to land. The windows bot I presume is flaking, looks unrelated.",
+      "parentUuid": "f9ac4f4e_0a8e4b28",
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65539838_08411f97",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-06-02T08:32:54Z",
       "side": 1,
       "message": "It looks like all the existing methods in this interface have descriptions. Please add descriptions for all the newly introduced methods, too.\n\nAlso, the stopId sounds more like a frameId, perhaps we remove this? We should also say that the frame ids are fresh for every stop, but I am guessing you are not really relying on that?",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 102
+      },
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8429082_40023f9c",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-02T10:36:39Z",
+      "side": 1,
+      "message": "\u003e Also, the stopId sounds more like a frameId, perhaps we remove this? We should also say that the frame ids are fresh for every stop, but I am guessing you are not really relying on that?\n\nCan you say why stopId should be removed?",
+      "parentUuid": "65539838_08411f97",
       "range": {
         "startLine": 251,
         "startChar": 6,
