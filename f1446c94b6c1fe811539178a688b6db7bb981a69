@@ -77,6 +77,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "235bd922_63db8a39",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T10:32:07Z",
+      "side": 1,
+      "message": "Can\u0027t it happen that there is binding in progress for a different file system source code?",
+      "range": {
+        "startLine": 329,
+        "startChar": 6,
+        "endLine": 329,
+        "endChar": 84
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e10b2543_027bd28f",
         "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
         "patchSetId": 7
@@ -138,6 +161,29 @@
       "range": {
         "startLine": 334,
         "startChar": 30,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4a903a9_ca8fcded",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-02T10:32:07Z",
+      "side": 1,
+      "message": "The original code was also unbinding the file system UISourceCode. Why does not the new code unbind that, too?",
+      "range": {
+        "startLine": 334,
+        "startChar": 35,
         "endLine": 334,
         "endChar": 62
       },
