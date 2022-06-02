@@ -73,6 +73,7 @@ export class TimelineModelImpl {
   private sessionId!: string|null;
   private mainFrameNodeId!: number|null;
   private pageFrames!: Map<Protocol.Page.FrameId, PageFrame>;
+  private auctionWorklets!: Map<string, AuctionWorklet>;
   private cpuProfilesInternal!: SDK.CPUProfileDataModel.CPUProfileDataModel[];
   private workerIdByThread!: WeakMap<SDK.TracingModel.Thread, string>;
   private requestsFromBrowser!: Map<string, SDK.TracingModel.Event>;
@@ -390,6 +391,22 @@ export class TimelineModelImpl {
         const to = i === frame.processes.length - 1 ? (frame.deletedTime || Infinity) : frame.processes[i + 1].time;
         data.push({from: frame.processes[i].time, to: to, main: !frame.parent, url: frame.processes[i].url});
       }
+    }
+    for (const auctionWorklet of this.auctionWorklets.values()) {
+      const pid = auctionWorklet.processId;
+      let data = processData.get(pid);
+      if (!data) {
+        data = [];
+        processData.set(pid, data);
+      }
+      data.push({
+        from: auctionWorklet.startTime,
+        to: auctionWorklet.endTime,
+        main: false,
+        url:
+            (auctionWorklet.host ? 'https://' + auctionWorklet.host as Platform.DevToolsPath.UrlString :
+                                   Platform.DevToolsPath.EmptyUrlString),
+      });
     }
     const allMetadataEvents = tracingModel.devToolsMetadataEvents();
     for (const process of tracingModel.sortedProcesses()) {
@@ -1237,6 +1254,18 @@ export class TimelineModelImpl {
         }
         return;
       }
+      if (event.name === TimelineModelImpl.DevToolsMetadataEvent.AuctionWorkletRunningInProcess &&
+          this.browserFrameTracking) {
+        const worklet = new AuctionWorklet(event, data);
+        this.auctionWorklets.set(data['target'], worklet);
+      }
+      if (event.name === TimelineModelImpl.DevToolsMetadataEvent.AuctionWorkletDoneWithProcess &&
+          this.browserFrameTracking) {
+        const worklet = this.auctionWorklets.get(data['target']);
+        if (worklet) {
+          worklet.endTime = event.startTime;
+        }
+      }
     }
   }
 
@@ -1288,6 +1317,7 @@ export class TimelineModelImpl {
     this.cpuProfilesInternal = [];
     this.workerIdByThread = new WeakMap();
     this.pageFrames = new Map();
+    this.auctionWorklets = new Map();
     this.requestsFromBrowser = new Map();
 
     this.minimumRecordTimeInternal = 0;
@@ -1582,6 +1612,8 @@ export namespace TimelineModelImpl {
     FrameCommittedInBrowser: 'FrameCommittedInBrowser',
     ProcessReadyInBrowser: 'ProcessReadyInBrowser',
     FrameDeletedInBrowser: 'FrameDeletedInBrowser',
+    AuctionWorkletRunningInProcess: 'AuctionWorkletRunningInProcess',
+    AuctionWorkletDoneWithProcess: 'AuctionWorkletDoneWithProcess',
   };
 
   export const Thresholds = {
@@ -1729,6 +1761,21 @@ export class PageFrame {
   addChild(child: PageFrame): void {
     this.children.push(child);
     child.parent = this;
+  }
+}
+
+export class AuctionWorklet {
+  targetId: string;
+  processId: number;
+  host?: string;
+  startTime: number;
+  endTime: number;
+  constructor(event: SDK.TracingModel.Event, data: any) {
+    this.targetId = (typeof data['target'] === 'string') ? data['target'] : '';
+    this.processId = (typeof data['pid'] === 'number') ? data['pid'] : 0;
+    this.host = (typeof data['host'] === 'string') ? data['string'] : null;
+    this.startTime = event.startTime;
+    this.endTime = Infinity;
   }
 }
 
