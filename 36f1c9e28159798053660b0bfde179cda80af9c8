@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72a7bfd_4a108c5a",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T02:50:10Z",
+      "side": 1,
+      "message": "Actually, we\u0027ll hold off on the question. I\u0027m going to kick off this migration with a simpler test.",
+      "parentUuid": "0f557c0e_df43ab9e",
+      "revId": "36f1c9e28159798053660b0bfde179cda80af9c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68923935_077f5774",
