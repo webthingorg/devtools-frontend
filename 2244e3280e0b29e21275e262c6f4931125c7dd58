@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6554829f_22d10f68",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T20:03:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45effb4_ebd2ee00",
+      "range": {
+        "startLine": 9,
+        "startChar": 22,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "2244e3280e0b29e21275e262c6f4931125c7dd58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c8291ee_da6408f4",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-06-02T19:53:42Z",
       "side": 1,
       "message": "seems like you accidentally deleted the old generate-report_test ?",
+      "revId": "2244e3280e0b29e21275e262c6f4931125c7dd58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51fb8b1c_a820a284",
+        "filename": "test/e2e/lighthouse/indexeddb-warning_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T20:03:28Z",
+      "side": 1,
+      "message": "it was named \ntest/e2e/lighthouse/generate-report.ts\nbut i renamed it\ntest/e2e/lighthouse/generate-report_test.ts\n\ndunno what happened, but the fact that it didnt have the `_test` suffix meant it wasn\u0027t included in the run of all e2e tests. (so i fixed that)",
+      "parentUuid": "9c8291ee_da6408f4",
       "revId": "2244e3280e0b29e21275e262c6f4931125c7dd58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
