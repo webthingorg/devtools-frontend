@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c20d31_638c78c5",
+        "filename": "test/e2e/resources/lighthouse/BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T18:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b0f0ab1_a83f1da4",
+      "revId": "65cf75d30ccc551585bbdc071605abea8363363f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8be73d9_28b9eeb0",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-02T16:49:42Z",
       "side": 1,
       "message": "Is it possible to keep the websql stuff? Would be nice to leverage multiple data sources. Maybe localstorage would work instead?",
+      "revId": "65cf75d30ccc551585bbdc071605abea8363363f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9df2737_f9f44775",
+        "filename": "test/e2e/resources/lighthouse/lighthouse-storage.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-02T18:42:05Z",
+      "side": 1,
+      "message": "discussed offline.\n\nthere\u0027s some serious issues with how websql interacts with the getUsageAndQuota implementation. it\u0027s impossible to get a reliable and correct response without adding arbitrary ~500ms timeouts.\n\nand as websql has been deprecated for ages, it\u0027s not worth escalating those bugs.\n\nso we\u0027ll go without. :)\n\n-- \n\nLuckily, the exercise helped me find a few improvements to the test script which I\u0027ve now added.",
+      "parentUuid": "a8be73d9_28b9eeb0",
       "revId": "65cf75d30ccc551585bbdc071605abea8363363f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
