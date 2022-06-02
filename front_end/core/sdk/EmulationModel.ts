@@ -21,6 +21,7 @@ export class EmulationModel extends SDKModel<void> {
   readonly #mediaConfiguration: Map<string, string>;
   #touchEnabled: boolean;
   #touchMobile: boolean;
+  #canEnableTouchEmulation: boolean;
   #customTouchEnabled: boolean;
   #touchConfiguration: {
     enabled: boolean,
@@ -176,6 +177,7 @@ export class EmulationModel extends SDKModel<void> {
       updateDisabledImageFormats();
     }
 
+    this.#canEnableTouchEmulation = true;
     this.#touchEnabled = false;
     this.#touchMobile = false;
     this.#customTouchEnabled = false;
@@ -183,6 +185,10 @@ export class EmulationModel extends SDKModel<void> {
       enabled: false,
       configuration: Protocol.Emulation.SetEmitTouchEventsForMouseRequestConfiguration.Mobile,
     };
+  }
+
+  setCanEnableTouchEmulation(canEnableTouchEmulation: boolean): void {
+    this.#canEnableTouchEmulation = canEnableTouchEmulation;
   }
 
   supportsDeviceEmulation(): boolean {
@@ -322,13 +328,13 @@ export class EmulationModel extends SDKModel<void> {
   }
 
   async emulateTouch(enabled: boolean, mobile: boolean): Promise<void> {
-    this.#touchEnabled = enabled;
-    this.#touchMobile = mobile;
+    this.#touchEnabled = enabled && this.#canEnableTouchEmulation;
+    this.#touchMobile = mobile && this.#canEnableTouchEmulation;
     await this.updateTouch();
   }
 
   async overrideEmulateTouch(enabled: boolean): Promise<void> {
-    this.#customTouchEnabled = enabled;
+    this.#customTouchEnabled = enabled && this.#canEnableTouchEmulation;
     await this.updateTouch();
   }
 
