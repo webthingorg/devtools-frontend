@@ -16,6 +16,115 @@
       "message": "Hi Jaro, hi Simon,\n\nthis is a CL to also synchronize all binding updates that are kicked off by the NetworkPersistenceManager, which is taking care of overrides. Similar to the previous CL, we need to make sure that the binding is created, and the breakpoint is moved. The NetworkPersistenceManager is creating the binding, and informing the PersistenceManager about it, which will then take care of moving.\n\nPTAL!",
       "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae372c4_8a04d342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T09:27:33Z",
+      "side": 1,
+      "message": "Some comments. In general I find it very hard to reason about the bind/unbind w.r.t. to `sourceCodeToProcessingPromiseMap` (see inline comment).",
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5cdec8b_786040f2",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T09:27:33Z",
+      "side": 1,
+      "message": "nit: We should move all these trivial initializations to where the property is declared. Then we would have also caught that we are creating a `Map` here even though the type is declared as a `WeakMap`.",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 55
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10b2543_027bd28f",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T09:27:33Z",
+      "side": 1,
+      "message": "I think there might be a race here to the `this.#sourceCodeToProcessingPromiseMap`. Imagine we have a \"bind/unbind\" in process for this network UISourceCode, but the filesystem UISourceCode doesn\u0027t match and we don\u0027t take the early exit. Then:\n\n1) We call this.unbind which will `await` the old \"bind/unbind\" process\n2) Meanwhile, we update this.#sourceCodeToProcessingPromiseMap with the new promise we create in `bind`.\n3) We `await addBindingPromise`\n4) The first `await` in `unbind` returns and deletes the wrong process promise from the map. The Promise we added here in step 2.\n\nNow we are in the middle of binding/unbinding, but the map doesn\u0027t reflect that, so we could potentially be re-entrant again.\n\nMaybe the better solution here is to use a Lock/Mutex on the individual binding? I remember Alex implementing one but could be we have to move it from devtools-internal to here.",
+      "range": {
+        "startLine": 334,
+        "startChar": 30,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57769b1_b6623b6e",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T09:27:33Z",
+      "side": 1,
+      "message": "The old code called `this.unbind` only when a binding already exists. Now we call `unbind` unconditionally. It doesn\u0027t really matter since `unbind` will be a no-op if the binding doesn\u0027t exist but now we need to be careful to not add any code outside the if in unbind since it would also be called here.\n\nMaybe in a follow-up we could change `unbind` to take a concrete binding instead of a UISourceCode.",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c9927e4_7bf35151",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-02T09:27:33Z",
+      "side": 1,
+      "message": "nit: IMO we should move this test into its own `describe` block and use `before` and `after` to save + restore the setting. If any assertion fails or any function throws an exception than we keep the override enabled, which might lead to other cascading errors.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 102
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
