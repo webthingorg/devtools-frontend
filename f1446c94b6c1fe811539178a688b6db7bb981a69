@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42dd0205_7c749bef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-02T09:54:25Z",
+      "side": 1,
+      "message": "Thanks, Simon for catching this! I\u0027ll look into the Mutex.",
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5cdec8b_786040f2",
@@ -97,6 +114,30 @@
       "range": {
         "startLine": 334,
         "startChar": 4,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "028c341b_c53c42f0",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-02T09:54:25Z",
+      "side": 1,
+      "message": "Yes you\u0027re right! Makes sense, I\u0027ll have a look at the Mutex from Alex.",
+      "parentUuid": "e10b2543_027bd28f",
+      "range": {
+        "startLine": 334,
+        "startChar": 30,
         "endLine": 334,
         "endChar": 62
       },
