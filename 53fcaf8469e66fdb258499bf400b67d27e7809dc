@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e285808a_31a22d6d",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-clear-data-warning.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-03T22:23:00Z",
+      "side": 0,
+      "message": "deleting these is fine, but please wait for v9.6.2 to merge into devtools first.",
+      "revId": "53fcaf8469e66fdb258499bf400b67d27e7809dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
