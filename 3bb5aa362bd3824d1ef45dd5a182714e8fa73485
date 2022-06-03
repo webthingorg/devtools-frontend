@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90a5342a_abab658c",
+        "filename": "test/e2e/lighthouse/indexeddb-warning_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-03T17:06:24Z",
+      "side": 1,
+      "message": "So the warning doesn\u0027t change when the user navigates to a new URL? We should probably fix this at some point.",
+      "revId": "3bb5aa362bd3824d1ef45dd5a182714e8fa73485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62184eb3_802b87fc",
+        "filename": "test/e2e/resources/lighthouse/lighthouse-storage.html",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-03T17:06:24Z",
+      "side": 1,
+      "message": "super nit: this comment isn\u0027t very helpful without other storage methods",
+      "revId": "3bb5aa362bd3824d1ef45dd5a182714e8fa73485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
