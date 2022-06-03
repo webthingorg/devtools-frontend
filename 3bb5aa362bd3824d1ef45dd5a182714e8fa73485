@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6889d8dd_9a60da04",
+        "filename": "test/e2e/lighthouse/indexeddb-warning_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-03T21:26:30Z",
+      "side": 1,
+      "message": "dropped the twiddle!",
+      "parentUuid": "37127203_09c19b1b",
+      "revId": "3bb5aa362bd3824d1ef45dd5a182714e8fa73485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62184eb3_802b87fc",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "lol true.",
       "parentUuid": "62184eb3_802b87fc",
+      "revId": "3bb5aa362bd3824d1ef45dd5a182714e8fa73485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39aab24f_96fa9c7a",
+        "filename": "test/e2e/resources/lighthouse/lighthouse-storage.html",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-03T21:26:30Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "5ccf679e_e225cb2d",
       "revId": "3bb5aa362bd3824d1ef45dd5a182714e8fa73485",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
