@@ -52,6 +52,24 @@
       "parentUuid": "edff9015_1e1c4eb1",
       "revId": "49465f29de61b763d51527e17f9db5d4e638daae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902e0c7f_143de602",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-06-03T12:17:18Z",
+      "side": 1,
+      "message": "ExecutionContextCreated contains contextId, whereas what we need is contextId. Updated the backend and frontend accordingly.",
+      "parentUuid": "541a0a32_e690bbeb",
+      "revId": "49465f29de61b763d51527e17f9db5d4e638daae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
