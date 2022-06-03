@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "448a5432_f07e60e9",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-06-03T12:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a17898a_ff91328d",
+      "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "674cbfcc_be5d075b",
