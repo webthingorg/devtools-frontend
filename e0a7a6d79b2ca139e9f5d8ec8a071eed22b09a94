@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "965087b7_55a1d609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327907
+      },
+      "writtenOn": "2022-06-03T16:20:18Z",
+      "side": 1,
+      "message": "Thanks! Had a merge conflict but I think I\u0027ve got it resolved correctly...",
+      "revId": "e0a7a6d79b2ca139e9f5d8ec8a071eed22b09a94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
