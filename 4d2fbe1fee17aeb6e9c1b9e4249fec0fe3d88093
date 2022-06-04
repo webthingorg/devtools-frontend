@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f4c0d28_2d680ff5",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-04T03:50:06Z",
+      "side": 1,
+      "message": "Hi @Jack, I\u0027ve changed it so \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/input/textInput.css is now being used instead of harmony-input. I have looked into finding another way to apply chrome-select without having to import InspectorCommonStyles, but, unfortunately, a solution hasn\u0027t been found yet. I\u0027m told chrome-select should apply without any imports, but it\u0027s not working as shown in this screenshot (https://drive.google.com/file/d/1PI89zNcadqIBsplQJr-DlcVG38sAEDC9/view?usp\u003dsharing). So I\u0027ve left the import in for now since that seems to work. If you know of any possible solutions, please do share.",
+      "parentUuid": "2156686b_1920c12b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7defe89_bd264e45",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 20
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "We will look into this. Thanks for sharing an example!",
       "parentUuid": "8661e7bb_05b53f76",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 88
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e5c69c_9eaba8f4",
+        "filename": "test/e2e/application/manifest-protocol-handlers_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-04T03:50:06Z",
+      "side": 1,
+      "message": "We\u0027ve removed the e2e tests and added unit tests.",
+      "parentUuid": "fb829bfc_5d2f5957",
       "range": {
         "startLine": 21,
         "startChar": 0,
