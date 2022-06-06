@@ -345,7 +345,10 @@ export enum Action {
   PerfPanelTraceImported = 54,
   PerfPanelTraceExported = 55,
   StackFrameRestarted = 56,
-  MaxValue = 57,
+  CaptureTestProtocolClicked = 57,
+  PwaWithProtocol = 58,
+  PwaWithoutProtocol = 59,
+  MaxValue = 60,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
