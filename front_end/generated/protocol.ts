@@ -3212,6 +3212,7 @@ export namespace DOM {
      */
     isSVG?: boolean;
     compatibilityMode?: CompatibilityMode;
+    assignedSlot?: BackendNode;
   }
 
   /**
@@ -3768,6 +3769,13 @@ export namespace DOM {
   export interface QuerySelectorAllResponse extends ProtocolResponseWithError {
     /**
      * Query selector result.
+     */
+    nodeIds: NodeId[];
+  }
+
+  export interface GetTopLayerElementsResponse extends ProtocolResponseWithError {
+    /**
+     * backendNodeIds of top layer elements
      */
     nodeIds: NodeId[];
   }

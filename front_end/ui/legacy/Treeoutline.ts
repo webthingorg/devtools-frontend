@@ -558,7 +558,9 @@ export class TreeElement {
     return this.childrenInternal ? this.childrenInternal.indexOf(child) : -1;
   }
 
-  appendChild(child: TreeElement, comparator?: ((arg0: TreeElement, arg1: TreeElement) => number)): void {
+  appendChild(
+      child: TreeElement, comparator?: ((arg0: TreeElement, arg1: TreeElement) => number),
+      appendBeforeClosingTag?: boolean): void {
     if (!this.childrenInternal) {
       this.childrenInternal = [];
     }
@@ -568,6 +570,8 @@ export class TreeElement {
       insertionIndex = Platform.ArrayUtilities.lowerBound(this.childrenInternal, child, comparator);
     } else if (this.treeOutline && this.treeOutline.comparator) {
       insertionIndex = Platform.ArrayUtilities.lowerBound(this.childrenInternal, child, this.treeOutline.comparator);
+    } else if (appendBeforeClosingTag) {
+      insertionIndex = this.childrenInternal.length - 1;
     } else {
       insertionIndex = this.childrenInternal.length;
     }

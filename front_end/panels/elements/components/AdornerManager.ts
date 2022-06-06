@@ -29,6 +29,8 @@ export enum RegisteredAdorners {
   AD = 'ad',
   SCROLL_SNAP = 'scroll-snap',
   CONTAINER = 'container',
+  ELEMENT_LINK = 'element-link',
+  TOP_LAYER = 'top-layer',
 }
 
 // This enum-like const object serves as the authoritative registry for all the
@@ -62,6 +64,18 @@ export function getRegisteredAdorner(which: RegisteredAdorners): RegisteredAdorn
     case RegisteredAdorners.CONTAINER:
       return {
         name: 'container',
+        category: AdornerCategories.LAYOUT,
+        enabledByDefault: true,
+      };
+    case RegisteredAdorners.ELEMENT_LINK:
+      return {
+        name: 'element-link',
+        category: AdornerCategories.LAYOUT,
+        enabledByDefault: true,
+      };
+    case RegisteredAdorners.TOP_LAYER:
+      return {
+        name: 'top-layer',
         category: AdornerCategories.LAYOUT,
         enabledByDefault: true,
       };
