@@ -479,6 +479,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0744fd5d_27f47b9a",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-06-06T15:14:43Z",
+      "side": 1,
+      "message": "That should work and is definitely something that can be done.\n\nHere\u0027s a slimmed down codepen showing it working: https://codepen.io/jackfranklin/pen/KKQBLza.\n\nObviously we do somethings slightly differently in DevTools but I would expect this to still work fine. Happy to have a VC if you want another pair of eyes on it?",
+      "parentUuid": "a27e17ec_63c9006a",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14
