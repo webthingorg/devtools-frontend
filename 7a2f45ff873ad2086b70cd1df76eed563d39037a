@@ -503,6 +503,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af8c4e8b_04cc65c6",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-06T20:49:32Z",
+      "side": 1,
+      "message": "Thanks for sharing the codepen! We added this.#render() to #handleQueryInputChange and believe that has fixed the issue. Please take a look at patchset 28 when you can. \n\nThough, we\u0027re not sure why this.#render() would be required because LitHTML should bind the variable. Do you have any insights on this?",
+      "parentUuid": "0744fd5d_27f47b9a",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "673708be_a1b4e074",
         "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
         "patchSetId": 14

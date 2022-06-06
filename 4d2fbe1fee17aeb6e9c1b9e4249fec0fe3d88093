@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea3474ce_762b4ab1",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-06T20:49:32Z",
+      "side": 1,
+      "message": "Absolutely! I can add that.",
+      "parentUuid": "9005d483_b74b6a46",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "4d2fbe1fee17aeb6e9c1b9e4249fec0fe3d88093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7defe89_bd264e45",
