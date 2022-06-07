@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55e0371f_47b46ce7",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-07T10:42:40Z",
+      "side": 1,
+      "message": "DevTools usage of RE is experimental and doesn\u0027t really work at the moment. At the same time it\u0027s also not on our list to pick it up again. As such, we should leave it separate from `use_remoteexec` for now.",
+      "parentUuid": "eb979bfc_9018bffc",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 67
+      },
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf6ab3f6_aceb6f74",
         "filename": "third_party/typescript/typescript.gni",
         "patchSetId": 4
