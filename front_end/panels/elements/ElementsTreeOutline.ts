@@ -41,6 +41,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
+import {ElementsTreeElementWithoutNode} from './ElementsTreeElementWithoutNode.js';
 import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 
@@ -100,6 +101,7 @@ export class ElementsTreeOutline extends
   private treeElementBeingDragged?: ElementsTreeElement;
   private dragOverTreeElement?: ElementsTreeElement;
   private updateModifiedNodesTimeout?: number;
+  topLayerElementExists: boolean = false;
 
   constructor(omitRootDOMNode?: boolean, selectEnabled?: boolean, hideGutter?: boolean) {
     super();
@@ -1164,13 +1166,29 @@ export class ElementsTreeOutline extends
       return Promise.resolve();
     }
 
-    return new Promise(resolve => {
-      treeElement.node().getChildNodes(() => {
-        populatedTreeElements.add(treeElement);
-        this.updateModifiedParentNode(treeElement.node());
-        resolve();
-      });
-    });
+    return new Promise<void>(resolve => {
+             treeElement.node().getChildNodes(() => {
+               populatedTreeElements.add(treeElement);
+               this.updateModifiedParentNode(treeElement.node());
+               resolve();
+             });
+           })
+        .then(() => {
+          if (treeElement.node().nodeName() === 'BODY' && !this.topLayerElementExists) {
+            void this.createTopLayerContainer(treeElement);
+            this.topLayerElementExists = true;
+          }
+        });
+  }
+
+  async createTopLayerContainer(bodyElement: ElementsTreeElement): Promise<void> {
+    const topLayerRepresentationElement =
+        this.createElementTreeElementWithoutNode(bodyElement.node().domModel(), '#top-layer');
+    bodyElement.appendChild(topLayerRepresentationElement, undefined, true);
+    const topLayerElementsExists = await topLayerRepresentationElement.addTopLayerElementsAsChildren();
+    if (!topLayerElementsExists) {
+      bodyElement.removeChild(topLayerRepresentationElement);
+    }
   }
 
   private createElementTreeElement(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean): ElementsTreeElement {
@@ -1186,6 +1204,12 @@ export class ElementsTreeOutline extends
     }
 
     treeElement.selectable = Boolean(this.selectEnabled);
+    return treeElement;
+  }
+
+  private createElementTreeElementWithoutNode(domModel: SDK.DOMModel.DOMModel, nodeName: string):
+      ElementsTreeElementWithoutNode {
+    const treeElement = new ElementsTreeElementWithoutNode(domModel, nodeName);
     return treeElement;
   }
 
@@ -1316,7 +1340,7 @@ export class ElementsTreeOutline extends
   }
 
   insertChildElement(
-      treeElement: ElementsTreeElement, child: SDK.DOMModel.DOMNode, index: number,
+      treeElement: ElementsTreeElement|ElementsTreeElementWithoutNode, child: SDK.DOMModel.DOMNode, index: number,
       isClosingTag?: boolean): ElementsTreeElement {
     const newElement = this.createElementTreeElement(child, isClosingTag);
     treeElement.insertChild(newElement, index);

@@ -5616,6 +5616,20 @@
                     ]
                 },
                 {
+                    "name": "getTopLayerElements",
+                    "description": "Returns current top layer elements",
+                    "returns": [
+                        {
+                            "name": "nodeIds",
+                            "description": "backendNodeIds of top layer elements",
+                            "type": "array",
+                            "items": {
+                                "$ref": "NodeId"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "redo",
                     "description": "Re-does the last undone action.",
                     "experimental": true

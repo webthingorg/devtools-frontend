@@ -960,6 +960,11 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.DOM.QuerySelectorAllResponse>;
 
     /**
+     * Returns current top layer elements
+     */
+    invoke_getTopLayerElements(): Promise<Protocol.DOM.GetTopLayerElementsResponse>;
+
+    /**
      * Re-does the last undone action.
      */
     invoke_redo(): Promise<Protocol.ProtocolResponseWithError>;

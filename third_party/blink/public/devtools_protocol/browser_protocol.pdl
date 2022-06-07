@@ -2643,6 +2643,12 @@ domain DOM
       # Query selector result.
       array of NodeId nodeIds
 
+  # Returns current top layer elements
+  command getTopLayerElements
+    returns
+      # backendNodeIds of top layer elements
+      array of NodeId nodeIds
+
   # Re-does the last undone action.
   experimental command redo
 
