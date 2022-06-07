@@ -39,6 +39,30 @@
       },
       "revId": "7ebaf7be42979b652af8284a04daae2cf08425db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a679dd_1e240f6d",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 28
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-07T18:20:07Z",
+      "side": 1,
+      "message": "Without altering the height, it looks quite strange, but we may not have to alter the padding. \n\nScreenshot with current CSS: https://drive.google.com/file/d/1J-7ZP9SAFPZ0OHKjgEN21UC_sMPZj9kH/view?usp\u003dsharing\n\nWithout padding/height alters: https://drive.google.com/file/d/1pkYjor78LPynjmMtspXdtPDfINpdfrUh/view?usp\u003dsharing\n\nWith height(25px) alters only. No alters to padding: https://drive.google.com/file/d/1tF-NAdSNHkIf5-TxlAubeCX6cHpv7fQw/view?usp\u003dsharing\n\nLet me know what you think. I think it would be best to alter the height as so (unless there is a better way), but there are no strong opinions about the padding.",
+      "parentUuid": "40649643_7eb7d3b6",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "7ebaf7be42979b652af8284a04daae2cf08425db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

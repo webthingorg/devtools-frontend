@@ -549,6 +549,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe61adbc_b4cfd632",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-07T18:20:07Z",
+      "side": 1,
+      "message": "Got it, thanks for the explanation!",
+      "parentUuid": "ba1e5367_958a259b",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "673708be_a1b4e074",
