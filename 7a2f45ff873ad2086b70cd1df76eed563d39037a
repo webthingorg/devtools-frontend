@@ -525,6 +525,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1e5367_958a259b",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-06-07T07:34:33Z",
+      "side": 1,
+      "message": "LitHtml doesn\u0027t listen to any variable changes and automatically re-render, so when you set `this.queryInputState \u003d \u0027\u0027`, LitHtml isn\u0027t listening for that change. So you need to call `this.#render()` to tell Lit to re-render and check for updates.",
+      "parentUuid": "af8c4e8b_04cc65c6",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2f45ff873ad2086b70cd1df76eed563d39037a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "673708be_a1b4e074",
