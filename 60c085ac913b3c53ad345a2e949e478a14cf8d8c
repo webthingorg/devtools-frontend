@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfa8be9_a2e2e629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T12:43:11Z",
+      "side": 1,
+      "message": "Hi Simon!\n\nAdding the mutex and its test, ptal!",
+      "revId": "60c085ac913b3c53ad345a2e949e478a14cf8d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
