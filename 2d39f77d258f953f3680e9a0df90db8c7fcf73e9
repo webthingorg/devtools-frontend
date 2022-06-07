@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eacdaa7f_95e4105d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-07T12:32:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab3764ee_0c28178c",
+      "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "44023db1_d0c9199a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -82,6 +100,30 @@
       "writtenOn": "2022-06-07T11:50:38Z",
       "side": 1,
       "message": "typo: missing space",
+      "range": {
+        "startLine": 1398,
+        "startChar": 74,
+        "endLine": 1398,
+        "endChar": 84
+      },
+      "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3c549e4_a0ffc1f9",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-07T12:32:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae53947_30ca49cd",
       "range": {
         "startLine": 1398,
         "startChar": 74,
