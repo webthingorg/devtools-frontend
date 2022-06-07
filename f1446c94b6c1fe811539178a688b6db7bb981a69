@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b34fbfde_99d87f61",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5cdec8b_786040f2",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 55
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "235bd922_63db8a39",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-06-02T10:32:07Z",
       "side": 1,
       "message": "Can\u0027t it happen that there is binding in progress for a different file system source code?",
+      "range": {
+        "startLine": 329,
+        "startChar": 6,
+        "endLine": 329,
+        "endChar": 84
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14a9219_126c4f08",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "We\u0027re now synchronizing based on the mutex, as Simon suggested; so at this point there\u0027s only one binding process for this networkUISourceCode in progress. (As far as I understood now, you had the same question as Simon below)",
+      "parentUuid": "235bd922_63db8a39",
       "range": {
         "startLine": 329,
         "startChar": 6,
@@ -191,6 +239,78 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c31751d_64d322d5",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "Ack, can do that in a follow up!",
+      "parentUuid": "a57769b1_b6623b6e",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cff5641_e17b5c72",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "I\u0027m using the mutex now to synchronize. PTAL if this is easier to follow in terms of flow? I\u0027m creating a mutex per networkUISourceCode now.",
+      "parentUuid": "028c341b_c53c42f0",
+      "range": {
+        "startLine": 334,
+        "startChar": 30,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "290f6c06_cbb3cadd",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "As discussed offline, I think that one unbind is actually enough, but I\u0027m keeping both to be on the safe side.",
+      "parentUuid": "c4a903a9_ca8fcded",
+      "range": {
+        "startLine": 334,
+        "startChar": 35,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c9927e4_7bf35151",
@@ -204,6 +324,30 @@
       "writtenOn": "2022-06-02T09:27:33Z",
       "side": 1,
       "message": "nit: IMO we should move this test into its own `describe` block and use `before` and `after` to save + restore the setting. If any assertion fails or any function throws an exception than we keep the override enabled, which might lead to other cascading errors.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 102
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16fc07fe_4a24c504",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c9927e4_7bf35151",
       "range": {
         "startLine": 307,
         "startChar": 0,

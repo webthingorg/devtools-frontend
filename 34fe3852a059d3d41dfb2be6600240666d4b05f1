@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2ceff0_b5315c07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T11:21:55Z",
+      "side": 1,
+      "message": "Thanks for the reviews! I\u0027m changing to use a Mutex now. I\u0027ll send out the Mutex CL (on which this is dependent) as soon as you think that this CL is fine.",
+      "revId": "34fe3852a059d3d41dfb2be6600240666d4b05f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
