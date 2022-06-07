@@ -311,6 +311,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d4e164_8f693344",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-07T12:17:18Z",
+      "side": 1,
+      "message": "Nice! I think its better then the Promise map :)",
+      "parentUuid": "3cff5641_e17b5c72",
+      "range": {
+        "startLine": 334,
+        "startChar": 30,
+        "endLine": 334,
+        "endChar": 62
+      },
+      "revId": "f1446c94b6c1fe811539178a688b6db7bb981a69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c9927e4_7bf35151",
