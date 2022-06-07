@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c3097aa_e4c8151d",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1429892
+      },
+      "writtenOn": "2022-06-07T10:48:47Z",
+      "side": 1,
+      "message": "Ack. It seems unrelated to this CL to remove the TODO, is this something you would prefer to be done in this CL?",
+      "parentUuid": "55e0371f_47b46ce7",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 67
+      },
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf6ab3f6_aceb6f74",
         "filename": "third_party/typescript/typescript.gni",
         "patchSetId": 4
