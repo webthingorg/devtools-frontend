@@ -16,6 +16,29 @@
       "message": "Thanks for the reviews! I\u0027m changing to use a Mutex now. I\u0027ll send out the Mutex CL (on which this is dependent) as soon as you think that this CL is fine.",
       "revId": "34fe3852a059d3d41dfb2be6600240666d4b05f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b4eb440_77a27ec1",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-07T11:48:09Z",
+      "side": 1,
+      "message": "What would you think about using try-finally here? That way, you do not have to worry about missing a `release` call (and, as a bonus, it would be exception-safe).\n\n```\n  const release \u003d await mutex.acquire();\n  try {\n    const existingBinding \u003d this.bindings.get(networkUISourceCode);\n    ...\n  } finally() {\n    release();\n  }\n```",
+      "range": {
+        "startLine": 336,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 42
+      },
+      "revId": "34fe3852a059d3d41dfb2be6600240666d4b05f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
