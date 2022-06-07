@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccfb99d7_7ed85bce",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-07T10:51:41Z",
+      "side": 1,
+      "message": "No, we should leave the TODO :)",
+      "parentUuid": "4c3097aa_e4c8151d",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 67
+      },
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf6ab3f6_aceb6f74",
         "filename": "third_party/typescript/typescript.gni",
         "patchSetId": 4
