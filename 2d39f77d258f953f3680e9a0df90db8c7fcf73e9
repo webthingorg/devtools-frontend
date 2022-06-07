@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3764ee_0c28178c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-07T11:50:38Z",
+      "side": 1,
+      "message": "Tip: you can link to the image directly https://i.imgur.com/goNjT6h.png",
+      "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "44023db1_d0c9199a",
@@ -31,6 +48,46 @@
       "writtenOn": "2022-06-07T11:10:54Z",
       "side": 1,
       "message": "Adding Mathias since Ergün is OOO this afternoon. Thanks!",
+      "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af6eef86_d9daab66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-07T11:50:38Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae53947_30ca49cd",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-07T11:50:38Z",
+      "side": 1,
+      "message": "typo: missing space",
+      "range": {
+        "startLine": 1398,
+        "startChar": 74,
+        "endLine": 1398,
+        "endChar": 84
+      },
       "revId": "2d39f77d258f953f3680e9a0df90db8c7fcf73e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
