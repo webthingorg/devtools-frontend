@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2066425_cedafe33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429892
+      },
+      "writtenOn": "2022-06-07T10:40:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24fc7919_916eaf47",
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb979bfc_9018bffc",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d618766_e8bf019c",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1429892
+      },
+      "writtenOn": "2022-06-07T10:40:18Z",
+      "side": 1,
+      "message": "I assume that devtools_use_remoteexec should be folded into use_remoteexec rather than maintaining a separate variable.",
+      "parentUuid": "eb979bfc_9018bffc",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 67
+      },
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf6ab3f6_aceb6f74",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-06-07T09:25:38Z",
       "side": 1,
       "message": "Remove this and replace devtools_use_rbe usage with devtools_use_remoteexec?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "caecfeaf6042ab1b9ceaea5a3649a6d882b4b96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7272d74_3a55a8d8",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1429892
+      },
+      "writtenOn": "2022-06-07T10:40:18Z",
+      "side": 1,
+      "message": "devtools_use_rbe usage is outside of third_party.\n\nPresubmits warn on simultaneous changes to third_party and outside of third_party. Hence this will be done in a followup CL",
+      "parentUuid": "cf6ab3f6_aceb6f74",
       "range": {
         "startLine": 27,
         "startChar": 0,
