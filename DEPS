@@ -11,16 +11,16 @@ vars = {
   'checkout_reclient': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '8682a2dc8565f68d22248726580f60e02db87315',
+  'build_revision': '7cc62c48a54224e52ffb130ad4ac3ef32ed4b6ad',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
   'buildtools_revision': '8b16338d17cd71b04a6ba28da7322ab6739892c2',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '10a8286824639fe34a8c14e8d4075cdf56c5a69d',
+  'depot_tools_revision': '89b222dba5ea3fd91598e821c0b82797f2e2fa3c',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': '606d2d28372f47934373d8ce82c90d866dc2e7a7',
+  'inspector_protocol_revision': 'd8c621ec67006b4b23b7b40ae18817e99ebc7d98',
 
   'clang_format_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git',
   'clang_format_revision': 'e435ad79c17b1888b34df88d6a30a094936e3836',
@@ -28,18 +28,18 @@ vars = {
   'emscripten_tag': '6ab7fc5622a67e6111d07c4ba61c8d3c8fc33ed2',
 
   # GN CIPD package version.
-  'gn_version': 'git_revision:c547ca1497e3ff0dcbc0b2cb036b3d40380cbeeb',
+  'gn_version': 'git_revision:37baefb026b199605affa7bcb24810d1724ce373',
 
   # reclient CIPD package version
   'reclient_version': 're_client_version:0.19.2.319f839',
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '1008989',
+  'chromium_linux': '1010942',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '1008980',
+  'chromium_win': '1010936',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '1008983',
+  'chromium_mac': '1010936',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.

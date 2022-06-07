@@ -172,7 +172,8 @@ export namespace Chrome {
     }
 
     export interface RecorderExtensionPlugin {
-      stringify(obj: Record<string, any>): Promise<string>;
+      stringify(recording: Record<string, any>): Promise<string>;
+      stringifyStep(step: Record<string, any>): Promise<string>;
     }
 
     export interface LanguageExtensionPlugin {
@@ -180,7 +181,8 @@ export namespace Chrome {
        * A new raw module has been loaded. If the raw wasm module references an external debug info module, its URL will be
        * passed as symbolsURL.
        */
-      addRawModule(rawModuleId: string, symbolsURL: string|undefined, rawModule: RawModule): Promise<string[]>;
+      addRawModule(rawModuleId: string, symbolsURL: string|undefined, rawModule: RawModule):
+          Promise<string[]|{missingSymbolFiles: string[]}>;
 
       /**
        * Find locations in raw modules from a location in a source file.
@@ -241,9 +243,8 @@ export namespace Chrome {
       /**
        * Find locations in source files from a location in a raw module
        */
-      getFunctionInfo(rawLocation: RawLocation): Promise<{
-        frames: Array<FunctionInfo>,
-      }>;
+      getFunctionInfo(rawLocation: RawLocation):
+          Promise<{frames: Array<FunctionInfo>}|{missingSymbolFiles: Array<string>}>;
 
       /**
        * Find locations in raw modules corresponding to the inline function
@@ -278,7 +279,8 @@ export namespace Chrome {
     }
 
     export interface RecorderExtensions {
-      registerRecorderExtensionPlugin(plugin: RecorderExtensionPlugin, pluginName: string): Promise<void>;
+      registerRecorderExtensionPlugin(plugin: RecorderExtensionPlugin, pluginName: string, mediaType: string):
+          Promise<void>;
       unregisterRecorderExtensionPlugin(plugin: RecorderExtensionPlugin): Promise<void>;
     }
 

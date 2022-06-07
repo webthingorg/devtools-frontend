@@ -113,7 +113,7 @@ const UIStrings = {
   getUserMediaInsecureOrigin:
       '`getUserMedia()` no longer works on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS. See https://goo.gle/chrome-insecure-origins for more details.',
   /**
-   * @description TODO(crbug.com/1320342): Description needed for translation
+   * @description A deprecation warning shown to developers in the DevTools Issues tab when code tries to use the deprecated hostCandidate field, guiding developers to use the the equivalent information in the .address and .port fields instead.
    */
   hostCandidateAttributeGetter:
       '`RTCPeerConnectionIceErrorEvent.hostCandidate` is deprecated. Please use `RTCPeerConnectionIceErrorEvent.address` or `RTCPeerConnectionIceErrorEvent.port` instead.',
@@ -164,10 +164,6 @@ const UIStrings = {
    */
   obsoleteWebRtcCipherSuite:
       'Your partner is negotiating an obsolete (D)TLS version. Please check with your partner to have this fixed.',
-  /**
-   * @description TODO(crbug.com/1320349): Description needed for translation
-   */
-  paymentRequestBasicCard: 'The `basic-card` payment method is deprecated and will be removed.',
   /**
    * @description This issue indicates that a `<source>` element with a `<picture>` parent was using an `src` attribute, which is not valid and is ignored by the browser. The `srcset` attribute should be used instead.
    */
@@ -410,11 +406,6 @@ export class DeprecationIssue extends Issue {
       case Protocol.Audits.DeprecationIssueType.ObsoleteWebRtcCipherSuite:
         messageFunction = i18nLazyString(UIStrings.obsoleteWebRtcCipherSuite);
         milestone = 81;
-        break;
-      case Protocol.Audits.DeprecationIssueType.PaymentRequestBasicCard:
-        messageFunction = i18nLazyString(UIStrings.paymentRequestBasicCard);
-        feature = 5730051011117056;
-        milestone = 100;
         break;
       case Protocol.Audits.DeprecationIssueType.PictureSourceSrc:
         messageFunction = i18nLazyString(UIStrings.pictureSourceSrc);

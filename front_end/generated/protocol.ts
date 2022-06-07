@@ -970,7 +970,7 @@ export namespace Audits {
 
   /**
    * Details for issues around "Attribution Reporting API" usage.
-   * Explainer: https://github.com/WICG/conversion-measurement-api
+   * Explainer: https://github.com/WICG/attribution-reporting-api
    */
   export interface AttributionReportingIssueDetails {
     violationType: AttributionReportingIssueType;
@@ -1043,7 +1043,6 @@ export namespace Audits {
     NotificationInsecureOrigin = 'NotificationInsecureOrigin',
     NotificationPermissionRequestedIframe = 'NotificationPermissionRequestedIframe',
     ObsoleteWebRtcCipherSuite = 'ObsoleteWebRtcCipherSuite',
-    PaymentRequestBasicCard = 'PaymentRequestBasicCard',
     PictureSourceSrc = 'PictureSourceSrc',
     PrefixedCancelAnimationFrame = 'PrefixedCancelAnimationFrame',
     PrefixedRequestAnimationFrame = 'PrefixedRequestAnimationFrame',
@@ -8156,9 +8155,10 @@ export namespace Network {
   export const enum CrossOriginOpenerPolicyValue {
     SameOrigin = 'SameOrigin',
     SameOriginAllowPopups = 'SameOriginAllowPopups',
+    RestrictProperties = 'RestrictProperties',
     UnsafeNone = 'UnsafeNone',
     SameOriginPlusCoep = 'SameOriginPlusCoep',
-    SameOriginAllowPopupsPlusCoep = 'SameOriginAllowPopupsPlusCoep',
+    RestrictPropertiesPlusCoep = 'RestrictPropertiesPlusCoep',
   }
 
   export interface CrossOriginOpenerPolicyStatus {
@@ -10139,6 +10139,22 @@ export namespace Page {
   }
 
   /**
+   * Identifies the bottom-most script which caused the frame to be labelled
+   * as an ad.
+   */
+  export interface AdScriptId {
+    /**
+     * Script Id of the bottom-most script which caused the frame to be labelled
+     * as an ad.
+     */
+    scriptId: Runtime.ScriptId;
+    /**
+     * Id of adScriptId's debugger.
+     */
+    debuggerId: Runtime.UniqueDebuggerId;
+  }
+
+  /**
    * Indicates whether the frame is a secure context and why it is the case.
    */
   export const enum SecureContextType {
@@ -10180,7 +10196,6 @@ export namespace Page {
     ChDeviceMemory = 'ch-device-memory',
     ChDownlink = 'ch-downlink',
     ChEct = 'ch-ect',
-    ChPartitionedCookies = 'ch-partitioned-cookies',
     ChPrefersColorScheme = 'ch-prefers-color-scheme',
     ChRtt = 'ch-rtt',
     ChSaveData = 'ch-save-data',
@@ -10914,7 +10929,6 @@ export namespace Page {
     ContentMediaDevicesDispatcherHost = 'ContentMediaDevicesDispatcherHost',
     ContentWebBluetooth = 'ContentWebBluetooth',
     ContentWebUSB = 'ContentWebUSB',
-    ContentMediaSession = 'ContentMediaSession',
     ContentMediaSessionService = 'ContentMediaSessionService',
     ContentScreenReader = 'ContentScreenReader',
     EmbedderPopupBlockerTabHelper = 'EmbedderPopupBlockerTabHelper',
@@ -11764,8 +11778,11 @@ export namespace Page {
      * JavaScript stack trace of when frame was attached, only set if frame initiated from script.
      */
     stack?: Runtime.StackTrace;
-    adScriptId?: Runtime.ScriptId;
-    debuggerId?: Runtime.UniqueDebuggerId;
+    /**
+     * Identifies the bottom-most script which caused the frame to be labelled
+     * as an ad. Only sent if frame is labelled as an ad and id is available.
+     */
+    adScriptId?: AdScriptId;
   }
 
   /**

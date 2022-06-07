@@ -32,8 +32,11 @@ describe('Extensions', () => {
       async stringify(recording: object) {
         return JSON.stringify(recording);
       }
+      async stringifyStep(step: object) {
+        return JSON.stringify(step);
+      }
     }
-    await chrome.devtools?.recorder.registerRecorderExtensionPlugin(new RecorderPlugin(), 'Test');
+    await chrome.devtools?.recorder.registerRecorderExtensionPlugin(new RecorderPlugin(), 'Test', 'text/javascript');
 
     const manager = Extensions.RecorderPluginManager.RecorderPluginManager.instance();
     assert.strictEqual(manager.plugins().length, 1);
@@ -44,7 +47,14 @@ describe('Extensions', () => {
       steps: [],
     });
 
+    const stepResult = await plugin.stringifyStep({
+      type: 'scroll',
+    });
+
     assert.strictEqual(manager.plugins().length, 1);
+    assert.strictEqual(manager.plugins()[0].getMediaType(), 'text/javascript');
+    assert.strictEqual(manager.plugins()[0].getName(), 'Test');
     assert.deepStrictEqual(result, '{"name":"test","steps":[]}');
+    assert.deepStrictEqual(stepResult, '{"type":"scroll"}');
   });
 });

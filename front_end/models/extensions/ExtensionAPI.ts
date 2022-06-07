@@ -111,6 +111,7 @@ export namespace PrivateAPI {
 
   export const enum RecorderExtensionPluginCommands {
     Stringify = 'stringify',
+    StringifyStep = 'stringifyStep',
   }
 
   export const enum RecorderExtensionPluginEvents {
@@ -132,6 +133,7 @@ export namespace PrivateAPI {
   type RegisterRecorderExtensionPluginRequest = {
     command: Commands.RegisterRecorderExtensionPlugin,
     pluginName: string,
+    mediaType: string,
     port: MessagePort,
   };
   type SubscribeRequest = {command: Commands.Subscribe, type: string};
@@ -276,7 +278,12 @@ export namespace PrivateAPI {
     parameters: {recording: Record<string, unknown>},
   };
 
-  export type RecorderExtensionRequests = StringifyRequest;
+  type StringifyStepRequest = {
+    method: RecorderExtensionPluginCommands.StringifyStep,
+    parameters: {step: Record<string, unknown>},
+  };
+
+  export type RecorderExtensionRequests = StringifyRequest|StringifyStepRequest;
 }
 
 declare global {
@@ -705,8 +712,8 @@ self.injectedExtensionAPI = function(
   (RecorderServicesAPIImpl.prototype as
    Pick<APIImpl.RecorderExtensions, 'registerRecorderExtensionPlugin'|'unregisterRecorderExtensionPlugin'>) = {
     registerRecorderExtensionPlugin: async function(
-        this: APIImpl.RecorderExtensions, plugin: PublicAPI.Chrome.DevTools.RecorderExtensionPlugin,
-        pluginName: string): Promise<void> {
+        this: APIImpl.RecorderExtensions, plugin: PublicAPI.Chrome.DevTools.RecorderExtensionPlugin, pluginName: string,
+        mediaType: string): Promise<void> {
       if (this._plugins.has(plugin)) {
         throw new Error(`Tried to register plugin '${pluginName}' twice`);
       }
@@ -720,11 +727,14 @@ self.injectedExtensionAPI = function(
             .catch(error => port.postMessage({requestId, error: {message: error.message}}));
       };
 
-      function dispatchMethodCall(request: PrivateAPI.RecorderExtensionRequests): Promise<unknown> {
+      async function dispatchMethodCall(request: PrivateAPI.RecorderExtensionRequests): Promise<unknown> {
         switch (request.method) {
           case PrivateAPI.RecorderExtensionPluginCommands.Stringify:
             return plugin.stringify(request.parameters.recording);
+          case PrivateAPI.RecorderExtensionPluginCommands.StringifyStep:
+            return plugin.stringifyStep(request.parameters.step);
           default:
+            // @ts-expect-error
             throw new Error(`'${request.method}' is not recognized`);
         }
       }
@@ -734,6 +744,7 @@ self.injectedExtensionAPI = function(
             {
               command: PrivateAPI.Commands.RegisterRecorderExtensionPlugin,
               pluginName,
+              mediaType,
               port: channel.port2,
             },
             () => resolve(), [channel.port2]);
