@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd1d5af_4398142f",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-07T04:17:45Z",
+      "side": 1,
+      "message": "Please file a bug for this and make it block 1301265.",
+      "revId": "9401388232a016310c9ae9831c26f7f11aea77bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
