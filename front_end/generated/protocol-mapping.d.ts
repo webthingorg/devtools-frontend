@@ -1267,6 +1267,10 @@ export namespace ProtocolMapping {
     'DOM.querySelectorAll':
         {paramsType: [Protocol.DOM.QuerySelectorAllRequest]; returnType: Protocol.DOM.QuerySelectorAllResponse;};
     /**
+     * Returns current top layer elements
+     */
+    'DOM.getTopLayerElements': {paramsType: []; returnType: Protocol.DOM.GetTopLayerElementsResponse;};
+    /**
      * Re-does the last undone action.
      */
     'DOM.redo': {paramsType: []; returnType: void;};

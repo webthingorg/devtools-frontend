@@ -1483,6 +1483,10 @@ export class DOMModel extends SDKModel<EventTypes> {
     return this.agent.invoke_querySelectorAll({nodeId, selector}).then(({nodeIds}) => nodeIds);
   }
 
+  getTopLayerElements(): Promise<Protocol.DOM.NodeId[]|null> {
+    return this.agent.invoke_getTopLayerElements().then(({nodeIds}) => nodeIds);
+  }
+
   markUndoableState(minorChange?: boolean): void {
     void DOMModelUndoStack.instance().markUndoableState(this, minorChange || false);
   }

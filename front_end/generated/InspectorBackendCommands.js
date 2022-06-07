@@ -873,6 +873,7 @@ export function registerCommands(inspectorBackend) {
         {'name': 'selector', 'type': 'string', 'optional': false}
       ],
       ['nodeIds']);
+  inspectorBackend.registerCommand('DOM.getTopLayerElements', [], ['nodeIds']);
   inspectorBackend.registerCommand('DOM.redo', [], []);
   inspectorBackend.registerCommand(
       'DOM.removeAttribute',

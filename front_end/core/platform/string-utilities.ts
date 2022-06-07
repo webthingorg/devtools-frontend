@@ -200,6 +200,9 @@ export const trimURL = (url: string, baseURLDomain?: string): string => {
 };
 
 export const collapseWhitespace = (inputString: string): string => {
+  if (inputString === undefined) {
+    return '';
+  }
   return inputString.replace(/[\s\xA0]+/g, ' ');
 };
 
