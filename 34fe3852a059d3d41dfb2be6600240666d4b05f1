@@ -39,6 +39,30 @@
       },
       "revId": "34fe3852a059d3d41dfb2be6600240666d4b05f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e65ae532_557e65e9",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-07T12:06:46Z",
+      "side": 1,
+      "message": "SG, done!",
+      "parentUuid": "7b4eb440_77a27ec1",
+      "range": {
+        "startLine": 336,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 42
+      },
+      "revId": "34fe3852a059d3d41dfb2be6600240666d4b05f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
