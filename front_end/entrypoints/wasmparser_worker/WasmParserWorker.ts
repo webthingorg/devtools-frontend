@@ -55,11 +55,11 @@ export function dissambleWASM(
     const lines = [];
     const offsets = [];
     const functionBodyOffsets = [];
-    const MAX_LINES = 1000 * 1000;
     let chunkSize: number = 128 * 1024;
     let buffer: Uint8Array = new Uint8Array(chunkSize);
     let pendingSize = 0;
     let offsetInModule = 0;
+    let sourceLength = 0;
     for (let i = 0; i < data.length;) {
       if (chunkSize > data.length - i) {
         chunkSize = data.length - i;
@@ -76,7 +76,7 @@ export function dissambleWASM(
       parser.setData(buffer.buffer, 0, bufferSize, i === data.length);
 
       // The disassemble will attemp to fetch the data as much as possible.
-      const finished = dis.disassembleChunk(parser, offsetInModule);
+      let finished = dis.disassembleChunk(parser, offsetInModule);
 
       const result = (dis.getResult() as {
         lines: Array<string>,
@@ -86,6 +86,22 @@ export function dissambleWASM(
           end: number,
         }>,
       });
+
+      // from //v8/include/v8-primitive.h
+      const MAX_STRING_LEN = (1 << 28) - 16;
+      const truncMessage = ';; truncated due to size';
+      for (let line = 0; line < result.lines.length; ++line) {
+        if (sourceLength + result.lines[line].length + truncMessage.length >= MAX_STRING_LEN) {
+          result.lines.splice(line);
+          result.lines.push(truncMessage);
+          result.offsets.splice(line);
+          result.functionBodyOffsets.splice(line);
+          finished = true;
+          break;
+        }
+        sourceLength += result.lines[line].length;
+      }
+
       for (const line of result.lines) {
         lines.push(line);
       }
@@ -96,14 +112,6 @@ export function dissambleWASM(
         functionBodyOffsets.push(functionBodyOffset);
       }
 
-      if (lines.length > MAX_LINES) {
-        lines[MAX_LINES] = ';; .... text is truncated due to size';
-        lines.splice(MAX_LINES + 1);
-        if (offsets) {
-          offsets.splice(MAX_LINES + 1);
-        }
-        break;
-      }
       if (finished) {
         break;
       }
