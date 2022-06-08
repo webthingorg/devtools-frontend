@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0cd0b59_20456fa2",
+        "filename": "front_end/entrypoints/wasmparser_worker/WasmParserWorker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-08T12:42:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8309465_7760458a",
+      "range": {
+        "startLine": 121,
+        "startChar": 49,
+        "endLine": 121,
+        "endChar": 62
+      },
+      "revId": "810f36f34dd2a6f93a16f33ec87bb99dda85a8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f32a7e6_8a47070b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-08T12:33:27Z",
       "side": 1,
       "message": "If `.toString()` works, why not use that instead of `.sliceString(0)` above? Also, you can just call `.toString()` regardless -- it is a noop on strings -- to keep the code simple.",
+      "range": {
+        "startLine": 667,
+        "startChar": 72,
+        "endLine": 667,
+        "endChar": 83
+      },
+      "revId": "810f36f34dd2a6f93a16f33ec87bb99dda85a8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6429e3_7ec17bcf",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-08T12:42:32Z",
+      "side": 1,
+      "message": "Good catch, I don\u0027t actually know if this works and it\u0027s probably just the Object .toString() I was calling.",
+      "parentUuid": "4f32a7e6_8a47070b",
       "range": {
         "startLine": 667,
         "startChar": 72,
