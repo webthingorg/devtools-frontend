@@ -38,14 +38,14 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
   };
   private endpoint: LanguageExtensionEndpointImpl;
   constructor(
-      name: string, supportedScriptTypes: {
+      extensionOrigin: string, name: string, supportedScriptTypes: {
         language: string,
         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
         // eslint-disable-next-line @typescript-eslint/naming-convention
         symbol_types: Array<string>,
       },
       port: MessagePort) {
-    super(name);
+    super(extensionOrigin, name);
     this.supportedScriptTypes = supportedScriptTypes;
     this.endpoint = new LanguageExtensionEndpointImpl(this, port);
   }
