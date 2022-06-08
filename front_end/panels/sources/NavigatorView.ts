@@ -162,18 +162,18 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private navigatorGroupByFolderSetting: Common.Settings.Setting<any>;
-  private navigatorGroupByAuthoredSetting: Common.Settings.Setting<boolean>;
+  private navigatorGroupByAuthoredSetting?: Common.Settings.Setting<boolean>;
   private workspaceInternal!: Workspace.Workspace.WorkspaceImpl;
   private lastSelectedUISourceCode?: Workspace.UISourceCode.UISourceCode;
   private groupByFrame?: boolean;
-  private groupByAuthored?: boolean;
+  groupByAuthored?: boolean;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private groupByDomain?: any;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private groupByFolder?: any;
-  constructor() {
+  constructor(enableAuthoredGrouping?: boolean) {
     super(true);
 
     this.placeholder = null;
@@ -198,9 +198,11 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
 
     this.navigatorGroupByFolderSetting = Common.Settings.Settings.instance().moduleSetting('navigatorGroupByFolder');
     this.navigatorGroupByFolderSetting.addChangeListener(this.groupingChanged.bind(this));
-    this.navigatorGroupByAuthoredSetting =
-        Common.Settings.Settings.instance().moduleSetting('navigatorGroupByAuthored');
-    this.navigatorGroupByAuthoredSetting.addChangeListener(this.groupingChanged.bind(this));
+    if (enableAuthoredGrouping) {
+      this.navigatorGroupByAuthoredSetting =
+          Common.Settings.Settings.instance().moduleSetting('navigatorGroupByAuthored');
+      this.navigatorGroupByAuthoredSetting.addChangeListener(this.groupingChanged.bind(this));
+    }
 
     this.initGrouping();
 
@@ -1007,11 +1009,15 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     }
   }
 
+  onGroupingChanged(): void {
+  }
+
   private groupingChanged(): void {
     this.reset(true);
     this.initGrouping();
     // Reset the workspace to repopulate filesystem folders.
     this.resetWorkspace(Workspace.Workspace.WorkspaceImpl.instance());
+    this.onGroupingChanged();
     this.workspaceInternal.uiSourceCodes().forEach(this.addUISourceCode.bind(this));
   }
 
@@ -1019,7 +1025,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     this.groupByFrame = true;
     this.groupByDomain = this.navigatorGroupByFolderSetting.get();
     this.groupByFolder = this.groupByDomain;
-    this.groupByAuthored = this.navigatorGroupByAuthoredSetting.get();
+    this.groupByAuthored = this.navigatorGroupByAuthoredSetting && this.navigatorGroupByAuthoredSetting.get();
   }
 
   private resetForTest(): void {

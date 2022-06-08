@@ -36,6 +36,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Snippets from '../snippets/snippets.js';
@@ -108,7 +109,7 @@ const UIStrings = {
   /**
   *@description Text in Sources Panel of the Sources panel
   */
-  groupByAuthored: 'Group by Authored/Deployed (experimental)',
+  groupByAuthored: 'Group by Authored/Deployed',
   /**
   *@description Text for pausing the debugger on exceptions
   */
@@ -554,9 +555,15 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
         i18nString(UIStrings.groupByFolder), () => groupByFolderSetting.set(!groupByFolderSetting.get()),
         groupByFolderSetting.get());
     const groupByAuthoredSetting = Common.Settings.Settings.instance().moduleSetting('navigatorGroupByAuthored');
+    const previewIcon = new IconButton.Icon.Icon();
+    previewIcon.data = {
+      iconName: 'ic_preview_feature',
+      color: 'var(--icon-color)',
+      width: '14px',
+    };
     contextMenu.viewSection().appendCheckboxItem(
         i18nString(UIStrings.groupByAuthored), () => groupByAuthoredSetting.set(!groupByAuthoredSetting.get()),
-        groupByAuthoredSetting.get());
+        groupByAuthoredSetting.get(), false, previewIcon);
   }
 
   setIgnoreExecutionLineEvents(ignoreExecutionLineEvents: boolean): void {
