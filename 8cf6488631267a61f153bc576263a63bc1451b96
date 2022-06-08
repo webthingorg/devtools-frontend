@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f225d7_57530a50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-08T08:19:35Z",
+      "side": 1,
+      "message": "Hi Simon,\n\na follow up on the bind/unbind as you requested. Especially now since we guard everything with the mutex it\u0027s easy to move it into the if case without needing to explicitly pass a binding into `unbind`. PTAL!",
+      "revId": "8cf6488631267a61f153bc576263a63bc1451b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
