@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352744a2_f5406033",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-08T17:30:58Z",
+      "side": 1,
+      "message": "This looks a little sad being so empty here. Maybe add a comment?",
+      "revId": "07ffce72e1382b8e9663e3ec58b9013bf0680696",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
