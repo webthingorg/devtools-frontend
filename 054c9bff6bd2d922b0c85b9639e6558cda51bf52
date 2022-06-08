@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3161fb9c_95b71c71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-08T11:16:07Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nas suggested, using a try/finally block to release the mutex. PTAL!",
+      "revId": "054c9bff6bd2d922b0c85b9639e6558cda51bf52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
