@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "713f317a_fcbbd033",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-08T09:52:50Z",
+      "side": 1,
+      "message": "would it make sense to use `try/finally` to release the lock for the case an error happens?",
+      "revId": "4dc35fa938ab3b3ce0a908c8bb52c3aa38fb1097",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
