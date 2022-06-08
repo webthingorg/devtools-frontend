@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8309465_7760458a",
+        "filename": "front_end/entrypoints/wasmparser_worker/WasmParserWorker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-06-08T12:33:27Z",
+      "side": 1,
+      "message": "Nit: Change name to lines, here and below.",
+      "range": {
+        "startLine": 121,
+        "startChar": 49,
+        "endLine": 121,
+        "endChar": 62
+      },
+      "revId": "810f36f34dd2a6f93a16f33ec87bb99dda85a8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f32a7e6_8a47070b",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-06-08T12:33:27Z",
+      "side": 1,
+      "message": "If `.toString()` works, why not use that instead of `.sliceString(0)` above? Also, you can just call `.toString()` regardless -- it is a noop on strings -- to keep the code simple.",
+      "range": {
+        "startLine": 667,
+        "startChar": 72,
+        "endLine": 667,
+        "endChar": 83
+      },
+      "revId": "810f36f34dd2a6f93a16f33ec87bb99dda85a8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
