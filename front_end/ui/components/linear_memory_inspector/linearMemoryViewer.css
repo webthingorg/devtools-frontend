@@ -16,6 +16,7 @@
   box-sizing: border-box;
   background: var(--color-background);
   outline: none;
+  margin: 0 auto;
 }
 
 .row {
