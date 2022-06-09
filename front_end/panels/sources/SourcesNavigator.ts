@@ -40,6 +40,7 @@ import * as Snippets from '../snippets/snippets.js';
 
 import type {NavigatorUISourceCodeTreeNode} from './NavigatorView.js';
 import {NavigatorView} from './NavigatorView.js';
+import sourcesNavigatorStyles from './sourcesNavigator.css.js';
 
 const UIStrings = {
   /**
@@ -100,20 +101,51 @@ const UIStrings = {
   *@description Text to save content as a specific file type
   */
   saveAs: 'Save as...',
+  /**
+   *@description Description of the new experimental Authored/Deployed view
+   */
+  authoredDescription:
+      'Under this view, original sources that were compiled or bundled will appear under "Authored", while "Deployed" contains the final sources the browser sees.',
+  /**
+  *@description Link text the user can click to provide feedback to the team.
+  */
+  previewTextFeedbackLink: 'Send us your feedback.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/SourcesNavigator.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let networkNavigatorViewInstance: NetworkNavigatorView;
 
 export class NetworkNavigatorView extends NavigatorView {
+  private description: HTMLElement;
   private constructor() {
-    super();
+    super(true);
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.InspectedURLChanged, this.inspectedURLChanged, this);
+    this.description =
+        UI.Fragment.html`<div class="helper">${
+            i18nString(UIStrings.authoredDescription)} <x-link href="https://goo.gle/authored-deployed-feedback">${
+            i18nString(UIStrings.previewTextFeedbackLink)}</x-link></div>` as HTMLElement;
+
+    this.onGroupingChanged();
+    this.contentElement.insertBefore(this.description, this.contentElement.firstChild);
 
     // Record the sources tool load time after the file navigator has loaded.
     Host.userMetrics.panelLoaded('sources', 'DevTools.Launch.Sources');
   }
+
+  wasShown(): void {
+    this.registerCSSFiles([sourcesNavigatorStyles]);
+    super.wasShown();
+  }
+
+  onGroupingChanged(): void {
+    if (this.groupByAuthored) {
+      this.description.removeAttribute('invisible');
+    } else {
+      this.description.setAttribute('invisible', '');
+    }
+  }
+
   static instance(opts: {
     forceNew: boolean|null,
   } = {forceNew: null}): NetworkNavigatorView {

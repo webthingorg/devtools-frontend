@@ -1,0 +1,24 @@
+/*
+ * Copyright 2022 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.helper {
+  text-align: center;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 6px;
+  border-bottom: 1px solid var(--color-details-hairline);
+}
+
+.helper[invisible] {
+  display: none;
+}
+
+x-link { /* stylelint-disable-line selector-type-no-unknown */
+  color: var(--color-primary);
+  text-decoration-line: underline;
+}
