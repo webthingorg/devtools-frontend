@@ -10163,6 +10163,9 @@
   "panels/sources/sources-meta.ts | watch": {
     "message": "Watch"
   },
+  "panels/sources/SourcesNavigator.ts | authoredDescription": {
+    "message": "Under this view, original sources that were compiled or bundled will appear under \"Authored\", while \"Deployed\" contains the final sources the browser sees."
+  },
   "panels/sources/SourcesNavigator.ts | clearConfiguration": {
     "message": "Clear configuration"
   },
@@ -10186,6 +10189,9 @@
   },
   "panels/sources/SourcesNavigator.ts | overridePageAssetsWithFilesFromA": {
     "message": "Override page assets with files from a local folder"
+  },
+  "panels/sources/SourcesNavigator.ts | previewTextFeedbackLink": {
+    "message": "Send us your feedback."
   },
   "panels/sources/SourcesNavigator.ts | remove": {
     "message": "Remove"
@@ -10233,7 +10239,7 @@
     "message": "Drop workspace folder here"
   },
   "panels/sources/SourcesPanel.ts | groupByAuthored": {
-    "message": "Group by Authored/Deployed (experimental)"
+    "message": "Group by Authored/Deployed"
   },
   "panels/sources/SourcesPanel.ts | groupByFolder": {
     "message": "Group by folder"
