@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bb6b7c_e49bfd1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-09T16:20:56Z",
+      "side": 1,
+      "message": "Not sure if the CL comment is clear enough. I tried to capture the essence of it without going into too much detail. Thank you for your help :) ",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
