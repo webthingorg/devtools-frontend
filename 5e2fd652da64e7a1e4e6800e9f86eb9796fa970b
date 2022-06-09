@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02684025_a6fe3e22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-09T14:59:50Z",
+      "side": 1,
+      "message": "Left some fun non-blocking tips \u0026 tricks for next time",
+      "revId": "5e2fd652da64e7a1e4e6800e9f86eb9796fa970b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efba529e_1ece0637",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-09T14:59:50Z",
+      "side": 1,
+      "message": "Simpler:\n\n    div.append(this.previewToggle);",
+      "revId": "5e2fd652da64e7a1e4e6800e9f86eb9796fa970b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f583b11_9b6b9f80",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-09T14:59:50Z",
+      "side": 1,
+      "message": "Simpler:\n\n    this.contentElement.prepend(div);",
+      "revId": "5e2fd652da64e7a1e4e6800e9f86eb9796fa970b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
