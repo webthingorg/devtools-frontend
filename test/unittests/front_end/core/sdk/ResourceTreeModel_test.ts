@@ -6,16 +6,47 @@ import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/p
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
-import {describeWithMockConnection, dispatchEvent} from '../../helpers/MockConnection.js';
+import {
+  describeWithMockConnection,
+  dispatchEvent,
+  setMockConnectionResponseHandler,
+} from '../../helpers/MockConnection.js';
 
 const {assert} = chai;
+
+async function navigateFrameWithMockConnection(
+    storageKey: string, resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel|null) {
+  setMockConnectionResponseHandler('Storage.getStorageKeyForFrame', () => ({storageKey}));
+  await resourceTreeModel?.frameNavigated(
+      {
+        id: 'main',
+        loaderId: 'foo',
+        url: 'http://example.com',
+        securityOrigin: 'http://example.com',
+        mimeType: 'text/html',
+      } as Protocol.Page.Frame,
+      undefined,
+  );
+}
 
 describeWithMockConnection('ResourceTreeModel', () => {
   let target: SDK.Target.Target;
   let resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel|null;
   let networkManager: SDK.NetworkManager.NetworkManager|null;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    setMockConnectionResponseHandler('Page.getResourceTree', () => {
+      return {
+        frame: {
+          id: 'test-id',
+          loaderId: 'test',
+          url: 'http://example.com',
+          securityOrigin: 'http://example.com',
+          mimeType: 'text/html',
+        },
+        resources: [],
+      };
+    });
     target = createTarget();
     resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     networkManager = target.model(SDK.NetworkManager.NetworkManager);
@@ -104,5 +135,41 @@ describeWithMockConnection('ResourceTreeModel', () => {
     assertNotNullOrUndefined(resourceTreeModel.mainFrame);
     assert.strictEqual(
         resourceTreeModel.mainFrame.prerenderFinalStatus, Protocol.Page.PrerenderFinalStatus.ClientCertRequested);
+  });
+
+  it('added frame has storageKey when navigated', async () => {
+    const testKey = 'test-storage-key';
+
+    assert.isEmpty(resourceTreeModel?.frames());
+    await navigateFrameWithMockConnection(testKey, resourceTreeModel);
+    const frames = resourceTreeModel?.frames();
+    assertNotNullOrUndefined(frames);
+    assert.lengthOf(frames, 1);
+    const addedFrame = frames[0];
+    assertNotNullOrUndefined(addedFrame);
+    const key = await addedFrame.storageKey;
+    assertNotNullOrUndefined(key);
+    assert.strictEqual(key, testKey);
+  });
+
+  it('storage key gets updated when frame tree changes', async () => {
+    const testKey = 'test-storage-key';
+
+    assert.isEmpty(resourceTreeModel?.frames());
+    await navigateFrameWithMockConnection(testKey, resourceTreeModel);
+    assert.strictEqual(resourceTreeModel?.frames().length, 1);
+
+    const manager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+    assertNotNullOrUndefined(manager);
+    const dispatcherSpy = sinon.spy(manager, 'dispatchEventToListeners');
+
+    await resourceTreeModel?.frameDetached('main' as Protocol.Page.FrameId, false);
+    assert.isEmpty(resourceTreeModel?.frames());
+    sinon.assert.calledTwice(dispatcherSpy);
+    sinon.assert.calledWithExactly(
+        dispatcherSpy, SDK.StorageKeyManager.Events.MainStorageKeyChanged as unknown as sinon.SinonMatcher,
+        {mainStorageKey: ''});
+    sinon.assert.calledWithExactly(
+        dispatcherSpy, SDK.StorageKeyManager.Events.StorageKeyRemoved as unknown as sinon.SinonMatcher, testKey);
   });
 });
