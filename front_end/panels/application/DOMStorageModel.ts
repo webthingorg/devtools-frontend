@@ -166,6 +166,10 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     this.agent = target.domstorageAgent();
   }
 
+  get storageKeyManagerForTest(): SDK.StorageKeyManager.StorageKeyManager|null {
+    return this.storageKeyManagerInternal;
+  }
+
   enable(): void {
     if (this.enabled) {
       return;
@@ -189,7 +193,7 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
           SDK.StorageKeyManager.Events.StorageKeyRemoved, this.storageKeyRemoved, this);
 
       for (const storageKey of this.storageKeyManagerInternal.storageKeys()) {
-        this.addStorageKey(storageKey);
+        // this.addStorageKey(storageKey);
       }
     }
     void this.agent.invoke_enable();
