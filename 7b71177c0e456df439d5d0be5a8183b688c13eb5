@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a629e0_b87389a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-09T14:31:39Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "7b71177c0e456df439d5d0be5a8183b688c13eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a60daf_660fb405",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-09T14:31:39Z",
+      "side": 1,
+      "message": "HTML and Lit don’t support implicitly closing tags in this way. This works due to the browser’s HTML parser’s error correction but let’s not rely on that:\n\n    \u003cdiv class\u003d\"border-container\"\u003e\u003c/div\u003e\n\nhttps://github.com/lit/lit/issues/630",
+      "revId": "7b71177c0e456df439d5d0be5a8183b688c13eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
