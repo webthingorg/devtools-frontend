@@ -190,7 +190,7 @@ describeWithRealConnection('BreakpointManager', () => {
 
     class Plugin extends TestPlugin {
       constructor() {
-        super('InstrumentationBreakpoints');
+        super('extension://BreakpointManager_test', 'InstrumentationBreakpoints');
       }
 
       handleScript(script: SDK.Script.Script) {

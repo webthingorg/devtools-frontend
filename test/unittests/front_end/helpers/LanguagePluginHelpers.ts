@@ -6,10 +6,6 @@ import type {Chrome} from '../../../../extension-api/ExtensionAPI.js';
 import * as Bindings from '../../../../front_end/models/bindings/bindings.js';
 
 export class TestPlugin extends Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin {
-  constructor(name: string) {
-    super(name);
-  }
-
   async addRawModule(_rawModuleId: string, _symbolsURL: string, _rawModule: Chrome.DevTools.RawModule):
       Promise<string[]> {
     return [];

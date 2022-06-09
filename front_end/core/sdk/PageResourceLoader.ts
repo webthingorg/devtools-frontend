@@ -16,6 +16,7 @@ import type {ResourceTreeFrame} from './ResourceTreeModel.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import type {Target} from './Target.js';
 import {TargetManager} from './TargetManager.js';
+import {assertNotNullOrUndefined} from '../platform/platform.js';
 
 const UIStrings = {
   /**
@@ -38,13 +39,28 @@ export type PageResourceLoadInitiator = {
   target: Target,
   frameId: Protocol.Page.FrameId | null,
   initiatorUrl: Platform.DevToolsPath.UrlString | null,
+}|{
+  target: Target | null,
+  frameId: Protocol.Page.FrameId | null,
+  extensionId: string,
+  initiatorUrl: Platform.DevToolsPath.UrlString | null,
 };
+
+export class PageResourceKey {
+  readonly url: Platform.DevToolsPath.UrlString;
+  readonly initiator: PageResourceLoadInitiator;
+
+  constructor(url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator) {
+    this.url = url;
+    this.initiator = initiator;
+  }
+}
 
 export interface PageResource {
   success: boolean|null;
   errorMessage?: string;
-  initiator: PageResourceLoadInitiator;
   url: Platform.DevToolsPath.UrlString;
+  initiator: PageResourceLoadInitiator;
   size: number|null;
 }
 
@@ -169,6 +185,13 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
     return Promise.race([promise, timeoutPromise]);
   }
 
+  static makeExtensionKey(url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): string {
+    if ('extensionId' in initiator && initiator.extensionId) {
+      return `${url}-${initiator.extensionId}`;
+    }
+    throw new Error('Invalid initiator');
+  }
+
   static makeKey(url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): string {
     if (initiator.frameId) {
       return `${url}-${initiator.frameId}`;
@@ -177,6 +200,12 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
       return `${url}-${initiator.target.id()}`;
     }
     throw new Error('Invalid initiator');
+  }
+
+  updateExtensionResourceLoad(pageResource: PageResource): void {
+    const key = PageResourceLoader.makeExtensionKey(pageResource.url, pageResource.initiator);
+    this.#pageResources.set(key, pageResource);
+    this.dispatchEventToListeners(Events.Update);
   }
 
   async loadResource(url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): Promise<{
@@ -231,6 +260,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
           const result = await this.loadFromTarget(initiator.target, initiator.frameId, url);
           return result;
         }
+        assertNotNullOrUndefined(initiator.frameId);
         const frame = FrameManager.instance().getFrame(initiator.frameId);
         if (frame) {
           Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.LoadThroughPageViaFrame);

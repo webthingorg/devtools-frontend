@@ -323,8 +323,8 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
 
     if (callframe && callframe.missingDebugInfoDetails) {
       const icon = UI.Icon.Icon.create('smallicon-warning', 'call-frame-warning-icon');
-      const messages =
-          callframe.missingDebugInfoDetails.resources.map(r => i18nString(UIStrings.debugFileNotFound, {PH1: r}));
+      const messages = callframe.missingDebugInfoDetails.resources.map(
+          r => i18nString(UIStrings.debugFileNotFound, {PH1: r.resource}));
       UI.Tooltip.Tooltip.install(icon, [callframe.missingDebugInfoDetails.details, ...messages].join('\n'));
       element.appendChild(icon);
     }
