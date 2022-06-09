@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b99bd22f_7f20da49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316409
+      },
+      "writtenOn": "2022-06-09T22:15:33Z",
+      "side": 1,
+      "message": "Hi deprecation devtools team, PTAL? Thanks!",
+      "revId": "05f48dd229d03ad07e4a4f758a09407caecaa733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
