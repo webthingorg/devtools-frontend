@@ -153,6 +153,23 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
     }
   }
 
+  select(item: SDK.PageResourceLoader.PageResource): void {
+    const node = this.nodeForItem.get(item);
+    if (!node) {
+      return;
+    }
+    node.select(false);
+  }
+
+  selectedItem(): SDK.PageResourceLoader.PageResource|null {
+    const selectedNode = this.dataGrid.selectedNode;
+    if (!selectedNode) {
+      return null;
+    }
+    const item = (selectedNode as GridNode).item;
+    return item;
+  }
+
   reset(): void {
     this.nodeForItem.clear();
     this.dataGrid.rootNode().removeChildren();

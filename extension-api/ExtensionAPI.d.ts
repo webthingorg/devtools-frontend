@@ -276,6 +276,8 @@ export namespace Chrome {
           plugin: LanguageExtensionPlugin, pluginName: string,
           supportedScriptTypes: SupportedScriptTypes): Promise<void>;
       unregisterLanguageExtensionPlugin(plugin: LanguageExtensionPlugin): Promise<void>;
+
+      reportResourceLoad(url: string, status: {success?: boolean, errorMessage?: string, size?: number}): void;
     }
 
     export interface RecorderExtensions {
