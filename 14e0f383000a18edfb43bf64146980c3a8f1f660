@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d720be_3db84bb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2022-06-09T11:05:28Z",
+      "side": 1,
+      "message": "Provided my comments in chat: \n\n1. Change the section title tool tip to better description. Perhaps:\n    - Authored: View original sources\n    - Deployed: View final sources the browser sees\n2. Then we cut the top long description: \n    - Text should be left align instead of center.\n    - Make it checkbox if we want to make it more visible for more ppl to try out:\n          [  ] 🧪 Group files by Authored/Deployed for quicker file search. [Learn more](a link). \n    - Add a [Send feedback](a link)",
+      "revId": "14e0f383000a18edfb43bf64146980c3a8f1f660",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
