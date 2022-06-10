@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c327579_e99c561a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-10T06:17:00Z",
+      "side": 1,
+      "message": "nit: please wrap the long lines (here and later) to ~72 chars so that it will be easier to read :)",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "12bb6b7c_e49bfd1f",
@@ -14,6 +31,40 @@
       "writtenOn": "2022-06-09T16:20:56Z",
       "side": 1,
       "message": "Not sure if the CL comment is clear enough. I tried to capture the essence of it without going into too much detail. Thank you for your help :) ",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01776428_60b7fe3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-10T06:17:00Z",
+      "side": 1,
+      "message": "LGTM, thanks a lot, looks good!",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8719a5_b18d01e1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-10T06:17:00Z",
+      "side": 1,
+      "message": "super nit: maybe add another line between 121 and 122 with something like:\n` //          |`\nto separate the text a bit more?",
       "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
