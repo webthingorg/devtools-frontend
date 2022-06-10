@@ -41,6 +41,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
+import {ElementsTreeElementWithoutNode} from './ElementsTreeElementWithoutNode.js';
 import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 
@@ -100,6 +101,8 @@ export class ElementsTreeOutline extends
   private treeElementBeingDragged?: ElementsTreeElement;
   private dragOverTreeElement?: ElementsTreeElement;
   private updateModifiedNodesTimeout?: number;
+  private bodyElement?: ElementsTreeElement;
+  private topLayerRepresentationElement?: ElementsTreeElementWithoutNode;
 
   constructor(omitRootDOMNode?: boolean, selectEnabled?: boolean, hideGutter?: boolean) {
     super();
@@ -1001,6 +1004,7 @@ export class ElementsTreeOutline extends
     domModel.addEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
     domModel.addEventListener(SDK.DOMModel.Events.ChildNodeCountUpdated, this.childNodeCountUpdated, this);
     domModel.addEventListener(SDK.DOMModel.Events.DistributedNodesChanged, this.distributedNodesChanged, this);
+    domModel.addEventListener(SDK.DOMModel.Events.TopLayerElementsChanged, this.topLayerElementsChanged, this);
   }
 
   unwireFromDOMModel(domModel: SDK.DOMModel.DOMModel): void {
@@ -1013,6 +1017,7 @@ export class ElementsTreeOutline extends
     domModel.removeEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
     domModel.removeEventListener(SDK.DOMModel.Events.ChildNodeCountUpdated, this.childNodeCountUpdated, this);
     domModel.removeEventListener(SDK.DOMModel.Events.DistributedNodesChanged, this.distributedNodesChanged, this);
+    domModel.removeEventListener(SDK.DOMModel.Events.TopLayerElementsChanged, this.topLayerElementsChanged, this);
     elementsTreeOutlineByDOMModel.delete(domModel);
   }
 
@@ -1164,13 +1169,37 @@ export class ElementsTreeOutline extends
       return Promise.resolve();
     }
 
-    return new Promise(resolve => {
-      treeElement.node().getChildNodes(() => {
-        populatedTreeElements.add(treeElement);
-        this.updateModifiedParentNode(treeElement.node());
-        resolve();
-      });
-    });
+    return new Promise<void>(resolve => {
+             treeElement.node().getChildNodes(() => {
+               populatedTreeElements.add(treeElement);
+               this.updateModifiedParentNode(treeElement.node());
+               resolve();
+             });
+           })
+        .then(() => {
+          if (treeElement.node().nodeName() === 'BODY') {
+            this.bodyElement = treeElement;
+            void this.createTopLayerContainer();
+          }
+        });
+  }
+
+  async createTopLayerContainer(): Promise<void> {
+    if (this.bodyElement) {
+      if (!this.topLayerRepresentationElement) {
+        this.topLayerRepresentationElement =
+            this.createElementTreeElementWithoutNode(this.bodyElement.node().domModel(), '#top-layer');
+      }
+      if (this.topLayerRepresentationElement.children().length == 0 &&
+          !this.bodyElement.children().includes(this.topLayerRepresentationElement)) {
+        this.bodyElement.appendChild(this.topLayerRepresentationElement, undefined, true);
+      }
+      this.topLayerRepresentationElement.removeChildren();
+      const topLayerElementsExists = await this.topLayerRepresentationElement.addTopLayerElementsAsChildren();
+      if (!topLayerElementsExists) {
+        this.bodyElement.removeChild(this.topLayerRepresentationElement);
+      }
+    }
   }
 
   private createElementTreeElement(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean): ElementsTreeElement {
@@ -1186,6 +1215,12 @@ export class ElementsTreeOutline extends
     }
 
     treeElement.selectable = Boolean(this.selectEnabled);
+    return treeElement;
+  }
+
+  private createElementTreeElementWithoutNode(domModel: SDK.DOMModel.DOMModel, nodeName: string):
+      ElementsTreeElementWithoutNode {
+    const treeElement = new ElementsTreeElementWithoutNode(domModel, nodeName);
     return treeElement;
   }
 
@@ -1316,7 +1351,7 @@ export class ElementsTreeOutline extends
   }
 
   insertChildElement(
-      treeElement: ElementsTreeElement, child: SDK.DOMModel.DOMNode, index: number,
+      treeElement: ElementsTreeElement|ElementsTreeElementWithoutNode, child: SDK.DOMModel.DOMNode, index: number,
       isClosingTag?: boolean): ElementsTreeElement {
     const newElement = this.createElementTreeElement(child, isClosingTag);
     treeElement.insertChild(newElement, index);
@@ -1422,6 +1457,12 @@ export class ElementsTreeOutline extends
     const treeElement = this.treeElementByNode.get(node);
     if (treeElement) {
       treeElement.updateDecorations();
+    }
+  }
+
+  private topLayerElementsChanged(): void {
+    if (this.bodyElement) {
+      this.createTopLayerContainer();
     }
   }
 

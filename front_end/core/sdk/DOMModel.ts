@@ -1384,6 +1384,10 @@ export class DOMModel extends SDKModel<EventTypes> {
     this.scheduleMutationEvent(node);
   }
 
+  topElementsUpdated(): void {
+    this.dispatchEventToListeners(Events.TopLayerElementsChanged);
+  }
+
   pseudoElementRemoved(parentId: Protocol.DOM.NodeId, pseudoElementId: Protocol.DOM.NodeId): void {
     const parent = this.idToDOMNode.get(parentId);
     if (!parent) {
@@ -1483,6 +1487,10 @@ export class DOMModel extends SDKModel<EventTypes> {
     return this.agent.invoke_querySelectorAll({nodeId, selector}).then(({nodeIds}) => nodeIds);
   }
 
+  getTopLayerElements(): Promise<Protocol.DOM.NodeId[]|null> {
+    return this.agent.invoke_getTopLayerElements().then(({nodeIds}) => nodeIds);
+  }
+
   markUndoableState(minorChange?: boolean): void {
     void DOMModelUndoStack.instance().markUndoableState(this, minorChange || false);
   }
@@ -1546,6 +1554,7 @@ export enum Events {
   ChildNodeCountUpdated = 'ChildNodeCountUpdated',
   DistributedNodesChanged = 'DistributedNodesChanged',
   MarkersChanged = 'MarkersChanged',
+  TopLayerElementsChanged = 'TopLayerElementsChanged',
 }
 
 export type EventTypes = {
@@ -1559,6 +1568,7 @@ export type EventTypes = {
   [Events.ChildNodeCountUpdated]: DOMNode,
   [Events.DistributedNodesChanged]: DOMNode,
   [Events.MarkersChanged]: DOMNode,
+  [Events.TopLayerElementsChanged]: void,
 };
 
 class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
@@ -1621,6 +1631,10 @@ class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
 
   distributedNodesUpdated({insertionPointId, distributedNodes}: Protocol.DOM.DistributedNodesUpdatedEvent): void {
     this.#domModel.distributedNodesUpdated(insertionPointId, distributedNodes);
+  }
+
+  topElementsUpdated(): void {
+    this.#domModel.topElementsUpdated();
   }
 }
 

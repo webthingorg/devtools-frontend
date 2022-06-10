@@ -125,6 +125,10 @@ export namespace ProtocolMapping {
      */
     'DOM.pseudoElementAdded': [Protocol.DOM.PseudoElementAddedEvent];
     /**
+     * Called when top layer elements are changed.
+     */
+    'DOM.topElementsUpdated': [];
+    /**
      * Called when a pseudo element is removed from an element.
      */
     'DOM.pseudoElementRemoved': [Protocol.DOM.PseudoElementRemovedEvent];
@@ -1266,6 +1270,10 @@ export namespace ProtocolMapping {
      */
     'DOM.querySelectorAll':
         {paramsType: [Protocol.DOM.QuerySelectorAllRequest]; returnType: Protocol.DOM.QuerySelectorAllResponse;};
+    /**
+     * Returns current top layer elements
+     */
+    'DOM.getTopLayerElements': {paramsType: []; returnType: Protocol.DOM.GetTopLayerElementsResponse;};
     /**
      * Re-does the last undone action.
      */
