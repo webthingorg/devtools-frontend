@@ -156,7 +156,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
       <span class="value-type-cell-no-mode value-type-cell">${i18n.i18n.lockedString(type)}</span>
       <div class="value-type-cell">
         <div class="value-type-value-with-link" data-value="true">
-        <span>${unsignedValue}</span>
+        <span class="pointer-address-cell">${unsignedValue}</span>
           ${
             html`
               <button class="jump-to-button" data-jump="true" title=${buttonTitle} ?disabled=${jumpDisabled}
