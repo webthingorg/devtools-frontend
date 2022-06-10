@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb07e5a9_4ed36988",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "2022?",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d6a35c_7a9118b6",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "typo: Properties",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc5da3a_a878b65a",
+        "filename": "scripts/webidl-properties/get-props.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "nit: let’s avoid single-letter variable names and use something that’s clear?",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd9d11de_02d29ef1",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "2022",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e40bbcd7_460fa7bf",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "This would break if `json` were to contain any backtick characters. We could either assert that this doesn’t happen or start simple and just write the JSON.stringify\u0027d result as a literal.\n\nWith the current approach, the data also doesn’t get minified as part of the build process, since it’s inlined as a template literal.\n\nI’m guessing you’re using JSON.parse instead of simply inlining the data as a literal because of https://v8.dev/blog/cost-of-javascript-2019#json? If you insist on this approach, then consider https://v8.dev/features/subsume-json#embedding-json-parse for a more robust version.\n\nBut given the above I’d personally just do it the simple way so that minification works out of the box while still allowing readable diffs.\n\nWDYT?",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82223437_8a716271",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c93871_241dd044",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "Array.is?",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a976e764_e66ae1c5",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:21:57Z",
+      "side": 1,
+      "message": "Alternatively,\n\n    const merged \u003d [...a, ...b];\n    const deduped \u003d Array.from(new Set(merged);\n    return deduped;",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
