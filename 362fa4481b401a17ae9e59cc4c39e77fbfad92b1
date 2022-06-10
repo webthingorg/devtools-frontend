@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3e43dafb_0491f7cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-10T13:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c327579_e99c561a",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "12bb6b7c_e49bfd1f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2022-06-10T06:17:00Z",
       "side": 1,
       "message": "super nit: maybe add another line between 121 and 122 with something like:\n` //          |`\nto separate the text a bit more?",
+      "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36787852_d6d00608",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-10T13:15:57Z",
+      "side": 1,
+      "message": "I was thinking about it, but thought that maybe it made the comment-block a bit too bulky. Good to know that clarity \u003e compactness.",
+      "parentUuid": "8c8719a5_b18d01e1",
       "revId": "362fa4481b401a17ae9e59cc4c39e77fbfad92b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
