@@ -1,5 +1,6 @@
 {
   "test-suite-path": "gen/test/e2e",
   "test-suite-source-dir": "test/e2e",
-  "test-server-type": "hosted-mode"
+  "test-server-type": "hosted-mode",
+  "chrome-binary-path": "/usr/local/google/home/alinavarkki/chromium/src/out/Default/chrome"
 }

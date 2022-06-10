@@ -9,6 +9,7 @@ import './DOMLinkifier.js';
 import './DOMPath.js';
 import './ElementsSidebarPane.js';
 import './ElementsTreeElement.js';
+import './ElementsTreeElementWithoutNode.js';
 import './ElementsTreeOutline.js';
 import './EventListenersWidget.js';
 import './MarkerDecorator.js';
@@ -37,6 +38,7 @@ import * as ElementsSidebarPane from './ElementsSidebarPane.js';
 import * as ElementStatePaneWidget from './ElementStatePaneWidget.js';
 import * as ElementsTreeElement from './ElementsTreeElement.js';
 import * as ElementsTreeElementHighlighter from './ElementsTreeElementHighlighter.js';
+import * as ElementsTreeElementWithoutNode from './ElementsTreeElementWithoutNode.js';
 import * as ElementsTreeOutline from './ElementsTreeOutline.js';
 import * as EventListenersWidget from './EventListenersWidget.js';
 import * as InspectElementModeController from './InspectElementModeController.js';
@@ -66,6 +68,7 @@ export {
   ElementStatePaneWidget,
   ElementsTreeElement,
   ElementsTreeElementHighlighter,
+  ElementsTreeElementWithoutNode,
   ElementsTreeOutline,
   EventListenersWidget,
   InspectElementModeController,
