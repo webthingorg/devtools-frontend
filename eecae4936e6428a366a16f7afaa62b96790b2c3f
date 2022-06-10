@@ -16,6 +16,24 @@
       "message": "Mathias, is this going in the right direction?\nJust need to add some tests if so.",
       "revId": "eecae4936e6428a366a16f7afaa62b96790b2c3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71bf4bc_7ac48b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-10T14:05:10Z",
+      "side": 1,
+      "message": "\u003e Mathias, is this going in the right direction?\n\u003e Just need to add some tests if so.\n\nscripts/deps/manage_node_deps.py LGTM. I trust that the rest of the changes are indeed mechanical, so consider this rubberstamped :)\n\nWe don’t usually add tests for CLs that just add a dependency by the way, so I think this one is good to go as-is.\n\nBtw, the LGTM is for the technical aspects of the CL; I’m not sure if we’ve decided yet that we want auto-complete hints for unsupported APIs as well. Do you think this needs a green doc? (It’s fine if the answer is “no”, just wondering.)",
+      "parentUuid": "7ef8f88e_6186ec99",
+      "revId": "eecae4936e6428a366a16f7afaa62b96790b2c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
