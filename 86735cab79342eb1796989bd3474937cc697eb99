@@ -235,6 +235,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "223beff7_9dd8c882",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-13T12:17:23Z",
+      "side": 1,
+      "message": "\u003e Aren\u0027t these already addressed with the `const json \u003d JSON.stringify(output, null, 2);` line above? Or is there something in addition that I\u0027m missing? 😊\n\nThey weren’t. If you want to have output that looks like `JSON.parse(\"\\\"some literal\\\"\")` then you need not one but two layers of escaping. The second link I posted explains this in more detail for the string literal case. In your case you were using a template literal which would require a custom JSON.stringify-like thing that creates template literal output (i.e. takes care of escaping any inner backticks), but the same principle applies.\n\n\u003e I\u0027ll do the simple inlining thing.\n\nNice 👍 This avoids the issues altogether.",
+      "parentUuid": "0555737c_5c99ff62",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c93871_241dd044",
@@ -313,6 +337,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a976e764_e66ae1c5",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5223a7cf_32707c0c",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-13T12:17:23Z",
+      "side": 1,
+      "message": "Looks like this wasn’t applied — just wanted to double-check that this was a conscious choice? My rationale was that this seems more efficient: Array#includes is O(n) whereas set lookups are O(1), and with the snippet I suggested the JS engine handles the deduping as opposed to it happening in userland JS. (Either way performance doesn’t matter too much since this only runs at build time but still…)",
+      "parentUuid": "0d6b9fc6_215766f0",
       "revId": "86735cab79342eb1796989bd3474937cc697eb99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
