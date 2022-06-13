@@ -357,6 +357,24 @@
       "parentUuid": "0d6b9fc6_215766f0",
       "revId": "86735cab79342eb1796989bd3474937cc697eb99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76bbc01e_a8dcc6f6",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T13:11:49Z",
+      "side": 1,
+      "message": "Ah I missed this! Will apply.",
+      "parentUuid": "5223a7cf_32707c0c",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
