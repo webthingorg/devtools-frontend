@@ -34,6 +34,24 @@
       "parentUuid": "03dbd8a4_ee1ea85f",
       "revId": "555ca6c7933ea5381fa9a2be87e120b7cf2c781a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c9fab2_b8c2a3d5",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-13T08:49:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5bc8e160_f396279f",
+      "revId": "555ca6c7933ea5381fa9a2be87e120b7cf2c781a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
