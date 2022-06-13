@@ -16,6 +16,23 @@
       "message": "It would be cool if we also generated a .d.ts file no? :D",
       "revId": "ff0d7d1dd1a05ae2556d17763eec5d25ac041d36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6817851_9cf739fb",
+        "filename": "scripts/webidl-properties/get-props.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T12:16:37Z",
+      "side": 1,
+      "message": "We could also remove this entire field if we wanted to. If missing, we consider it to be \"html\". If it\u0027s not missing, then it\u0027s some other spec or combination of specs.",
+      "revId": "ff0d7d1dd1a05ae2556d17763eec5d25ac041d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
