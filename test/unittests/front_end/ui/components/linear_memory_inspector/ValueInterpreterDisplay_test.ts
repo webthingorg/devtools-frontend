@@ -382,4 +382,65 @@ describeWithLocale('ValueInterpreterDisplay', () => {
     assert.isTrue(buttons[0].disabled);
     assert.isTrue(buttons[1].disabled);
   });
+
+  it('selects text in data-value elements if user selects it', () => {
+    // to test the failing case, set .value-type user-select to `none`.
+    // This is necessary as we render the component in isolation, so it doesn't
+    // inherit this property from its parent.
+
+    const component = new LinearMemoryInspector.ValueInterpreterDisplay.ValueInterpreterDisplay();
+    const array = [1, 132, 172, 71];
+    component.data = {
+      buffer: new Uint8Array(array).buffer,
+      endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little,
+      valueTypes: new Set([
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Int8,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Int16,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Float32,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Pointer32,
+      ]),
+      memoryLength: array.length,
+    };
+    renderElementIntoDOM(component);
+
+    const dataValues = getElementsWithinComponent(component, '.selectable-text', HTMLSpanElement);
+    assert.lengthOf(dataValues, 9);
+
+    const expectedValues = [
+      'Integer 8-bit',
+      '1',
+      'Integer 16-bit',
+      '33793',
+      '-31743',
+      'Float 32-bit',
+      '88328.01',
+      'Pointer 32-bit',
+      '0x47AC8401',
+    ];
+
+    // I did not find a way to make the dblClick event highlight text, so
+    // this is a potentially hacky work-around.
+    // We can use a range to specify an element. Range can be converted into
+    // a selection. We then check if the selected text meets our expectations.
+
+    // continuous part of a document, independent of any visual representation
+    const range = document.createRange();
+    // represents user's highlighted text
+    const selection = document.getSelection();
+
+    for (let i = 0; i < dataValues.length; ++i) {
+      if (selection === null) {
+        assert.fail('Selection is null');
+      }
+      // set range around the element
+      range.selectNodeContents(dataValues[i]);
+      // remove ranges associated with selection
+      selection?.removeAllRanges();
+      // select element using range
+      selection?.addRange(range);
+
+      const text = window.getSelection()?.toString();
+      assert.strictEqual(text, expectedValues[i]);
+    }
+  });
 });
