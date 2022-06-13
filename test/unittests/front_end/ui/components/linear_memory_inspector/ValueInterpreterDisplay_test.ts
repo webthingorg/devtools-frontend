@@ -382,4 +382,79 @@ describeWithLocale('ValueInterpreterDisplay', () => {
     assert.isTrue(buttons[0].disabled);
     assert.isTrue(buttons[1].disabled);
   });
+
+  it('selects text in data-value elements if user selects it', () => {
+    // to test the failing case, set .value-type user-select to `none`.
+    // This is necessary as we render the component in isolation, so it doesn't
+    // inherit this property from its parent and defaults to `auto`.
+
+    const component = new LinearMemoryInspector.ValueInterpreterDisplay.ValueInterpreterDisplay();
+    const array = [1, 132, 172, 71];
+    component.data = {
+      buffer: new Uint8Array(array).buffer,
+      endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little,
+      valueTypes: new Set([
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Int8,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Int16,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Float32,
+      ]),
+      memoryLength: array.length,
+    };
+    renderElementIntoDOM(component);
+
+    const dataValues = getElementsWithinComponent(component, '[data-value]', HTMLSpanElement);
+    assert.lengthOf(dataValues, 4);
+    const expectedValues = ['1', '33793', '-31743', '88328.01'];
+
+    for (let i = 0; i < dataValues.length; ++i) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(dataValues[i]);
+      if (!selection) {
+        assert.fail('selection is empty');
+      } else {
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      const text = window.getSelection()?.toString();
+      assert.strictEqual(text, expectedValues[i]);
+    }
+  });
+
+  it('selects text in pointer address cells if user selects it', () => {
+    // to test the failing case, set .value-type user-select to `none`.
+    // This is necessary as we render the component in isolation, so it doesn't
+    // inherit this property from its parent and defaults to `auto`.
+
+    const component = new LinearMemoryInspector.ValueInterpreterDisplay.ValueInterpreterDisplay();
+    const array = [8, 0, 0, 0, 0, 0, 0, 0];
+    component.data = {
+      buffer: new Uint8Array(array).buffer,
+      endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little,
+      valueTypes: new Set([
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Pointer32,
+        LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType.Pointer64,
+      ]),
+      memoryLength: array.length,
+    };
+    renderElementIntoDOM(component);
+
+    const dataValues = getElementsWithinComponent(component, '.pointer-address-cell', HTMLSpanElement);
+    assert.lengthOf(dataValues, 2);
+    const expectedValues = ['0x8', '0x8'];
+
+    for (let i = 0; i < dataValues.length; ++i) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(dataValues[i]);
+      if (!selection) {
+        assert.fail('selection is empty');
+      } else {
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      const text = window.getSelection()?.toString();
+      assert.strictEqual(text, expectedValues[i]);
+    }
+  });
 });
