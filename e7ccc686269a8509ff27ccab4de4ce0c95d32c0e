@@ -16,6 +16,24 @@
       "message": "I\u0027m not that familiar with how DEPS and GN play together so I\u0027ll let Liviu review and +1 this CL :)",
       "revId": "e7ccc686269a8509ff27ccab4de4ce0c95d32c0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a149d3_a031b9a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-13T08:45:09Z",
+      "side": 1,
+      "message": "ah sorry for the ping then, I was not aware that Liviu is also in the owners here.",
+      "parentUuid": "007fe2ac_be5c6790",
+      "revId": "e7ccc686269a8509ff27ccab4de4ce0c95d32c0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
