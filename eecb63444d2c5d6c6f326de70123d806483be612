@@ -16,6 +16,23 @@
       "message": "Hi deprecation-devtool-issues team, PTAL? Thanks!",
       "revId": "eecb63444d2c5d6c6f326de70123d806483be612",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e0f7f5e_3655d7fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316409
+      },
+      "writtenOn": "2022-06-13T13:41:44Z",
+      "side": 1,
+      "message": "Thanks for the review!",
+      "revId": "eecb63444d2c5d6c6f326de70123d806483be612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
