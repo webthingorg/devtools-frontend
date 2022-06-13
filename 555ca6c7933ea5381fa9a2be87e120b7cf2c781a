@@ -16,6 +16,24 @@
       "message": "Just curious: which code in this file needs this particular Copyright notice?",
       "revId": "555ca6c7933ea5381fa9a2be87e120b7cf2c781a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bc8e160_f396279f",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-13T08:30:51Z",
+      "side": 1,
+      "message": "Hey Changhao, I think I accidentally pasted it when copying the chromium copyright notice from another file.\n\nI have uploaded the new patch that removes the apple one.",
+      "parentUuid": "03dbd8a4_ee1ea85f",
+      "revId": "555ca6c7933ea5381fa9a2be87e120b7cf2c781a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
