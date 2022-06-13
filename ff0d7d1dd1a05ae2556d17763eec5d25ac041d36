@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c27fe3f_8080058f",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T13:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01a9c668_e15c33f1",
+      "revId": "ff0d7d1dd1a05ae2556d17763eec5d25ac041d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6817851_9cf739fb",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Did this in the latest patchset.",
       "parentUuid": "c6817851_9cf739fb",
+      "revId": "ff0d7d1dd1a05ae2556d17763eec5d25ac041d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b35a78ac_e7e0cdd2",
+        "filename": "scripts/webidl-properties/get-props.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T13:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd187afa_262f5ab7",
       "revId": "ff0d7d1dd1a05ae2556d17763eec5d25ac041d36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
