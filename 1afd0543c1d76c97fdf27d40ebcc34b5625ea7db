@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9cc828e_fd66ff4d",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-13T08:37:15Z",
+      "side": 1,
+      "message": "nit: let\u0027s rewrite these with for-of loops and also do that in a method instead of globally.",
+      "revId": "1afd0543c1d76c97fdf27d40ebcc34b5625ea7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8ef47f_02f79c9c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-13T08:37:15Z",
+      "side": 1,
+      "message": "let\u0027s do the style fetching the the current node styles are being fetched instead of in the rendering function?",
+      "revId": "1afd0543c1d76c97fdf27d40ebcc34b5625ea7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
