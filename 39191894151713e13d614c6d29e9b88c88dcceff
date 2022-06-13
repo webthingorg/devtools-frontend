@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5e2268_85b2c3b6",
+        "filename": "front_end/panels/elements/ElementsTreeElementWithoutNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-13T09:02:58Z",
+      "side": 1,
+      "message": "I think it would be better to either find a way to decouple `currentTopLayerElements` from this class `ElementsTreeElementWithoutNode`, or rename this class to something like `TopLayerElementsContainer`. Currently this `ElementsTreeElementWithoutNode` can only be used for the Top Layer container.",
+      "revId": "39191894151713e13d614c6d29e9b88c88dcceff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "018397b4_abba3640",
+        "filename": "front_end/panels/elements/ElementsTreeElementWithoutNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-13T09:02:58Z",
+      "side": 1,
+      "message": "nit: change this comment to:\n// TODO: will need to add support for backdrop in the future.\n\nWe usually end comments with `.`, as in a sentence 😊",
+      "revId": "39191894151713e13d614c6d29e9b88c88dcceff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6574164_d0fdb534",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-13T09:02:58Z",
+      "side": 1,
+      "message": "Instead of holding a reference to `bodyElement`, is it possible to detect a bodyElement when it\u0027s created, and only use a reference to the topLayerRepresentationElement?",
+      "revId": "39191894151713e13d614c6d29e9b88c88dcceff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c777f15_a85c6a2c",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-13T09:02:58Z",
+      "side": 1,
+      "message": "Why would we need this in Treeoutline here? Would it be possible to put it somewhere in ElementsTreeElementWithoutNode?",
+      "revId": "39191894151713e13d614c6d29e9b88c88dcceff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
