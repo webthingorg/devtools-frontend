@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da339cd1_019829e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-13T11:04:14Z",
+      "side": 1,
+      "message": "As asked offline, I added unittests to check if text in the ValueInterpreter is selectable. ",
+      "revId": "5cbaab646f905fe59ece69d6bb4a9858df13d7c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
