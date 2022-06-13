@@ -34,6 +34,24 @@
       "parentUuid": "7ef8f88e_6186ec99",
       "revId": "eecae4936e6428a366a16f7afaa62b96790b2c3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67645a9c_d5f3058b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T08:54:32Z",
+      "side": 1,
+      "message": "go/pinned-properties is the doc.\n\nFor now we just want to improve the DOM properties display in the object inspector, and only based on standard web APIs, which are in the spec IDLs.\n\nOther stuff warrants their own green docs.",
+      "parentUuid": "f71bf4bc_7ac48b0f",
+      "revId": "eecae4936e6428a366a16f7afaa62b96790b2c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
