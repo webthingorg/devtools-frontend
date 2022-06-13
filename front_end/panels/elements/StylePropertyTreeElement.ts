@@ -21,6 +21,7 @@ import {StyleEditorWidget} from './StyleEditorWidget.js';
 import type {StylePropertiesSection} from './StylePropertiesSection.js';
 import {CSSPropertyPrompt, StylesSidebarPane, StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';
 import {getCssDeclarationAsJavascriptProperty} from './StylePropertyUtils.js';
+import {cssRuleValidatorsMap} from './CSSRuleValidator.js';
 
 const FlexboxEditor = ElementsComponents.StylePropertyEditor.FlexboxEditor;
 const GridEditor = ElementsComponents.StylePropertyEditor.GridEditor;
@@ -702,6 +703,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
+    void this.validateRule();
+
     if (!this.property.parsedOk) {
       // Avoid having longhands under an invalid shorthand.
       this.listItemElement.classList.add('not-parsed-ok');
@@ -791,6 +794,78 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.listItemElement.classList.add('has-warning');
     this.listItemElement.insertBefore(
         StylesSidebarPane.createExclamationMark(this.property, warnings.join(' ')), this.listItemElement.firstChild);
+  }
+
+  private async validateRule(): Promise<void> {
+    const computedStylesModel = await this.parentPaneInternal.computedStyleModel().fetchComputedStyle();
+    if (computedStylesModel === null) {
+      return;
+    }
+
+    const computedStyles = computedStylesModel.computedStyle;
+    // TODO: fetch parent node id using CDP command
+    const parentComputedStyles = await this.getParentComputedStyles();
+
+    const hintMessage = this.getHintMessage(computedStyles, parentComputedStyles);
+    if (hintMessage !== null) {
+      const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
+      const hintPopover =
+          new UI.PopoverHelper.PopoverHelper(hintIcon, event => this.handleHintPopoverRequest(hintMessage, event));
+      hintPopover.setHasPadding(true);
+      hintPopover.setTimeout(0, 100);
+
+      this.listItemElement.append(hintIcon);
+    }
+  }
+
+  private async getParentComputedStyles(): Promise<Map<string, string>|null|undefined> {
+    const parentNode = this.node()?.parentNode;
+    if (parentNode) {
+      return await this.parentPaneInternal.cssModel()?.getComputedStyle(parentNode.id);
+    }
+    return null;
+  }
+
+  private getHintMessage(computedStyles: Map<string, string>, parentComputedStyles: Map<string, string>|null|undefined):
+      string|null {
+    const propertyName: string = this.property.name;
+
+    if (!Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.CSS_AUTHORING_HINTS) ||
+        !cssRuleValidatorsMap.has(propertyName)) {
+      return null;
+    }
+
+    const propertyValidators = cssRuleValidatorsMap.get(propertyName);
+    if (propertyValidators) {
+      for (let i = 0; i < propertyValidators.length; i++) {
+        const validator = propertyValidators[i];
+        if (!validator.isRuleValid(computedStyles, parentComputedStyles)) {
+          return validator.getHintMessage(propertyName);
+        }
+      }
+    }
+
+    return null;
+  }
+
+  private handleHintPopoverRequest(hintMessageContent: string, event: Event): UI.PopoverHelper.PopoverRequest|null {
+    const link: EventTarget|null = event.composedPath()[0];
+    if (link instanceof Element === false) {
+      return null;
+    }
+
+    return {
+      box: (link as Element).boxInWindow(),
+      hide: undefined,
+      show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+        const node = this.node();
+        if (!node) {
+          return false;
+        }
+        popover.contentElement.insertAdjacentHTML('beforeend', hintMessageContent);
+        return true;
+      },
+    };
   }
 
   private mouseUp(event: MouseEvent): void {
