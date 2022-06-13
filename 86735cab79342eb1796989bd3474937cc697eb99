@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9249ee9_e16db0b1",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb07e5a9_4ed36988",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83d6a35c_7a9118b6",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-06-10T14:21:57Z",
       "side": 1,
       "message": "typo: Properties",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e6feda_d983a1c4",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83d6a35c_7a9118b6",
       "range": {
         "startLine": 7,
         "startChar": 13,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a65f0177_92c9cba1",
+        "filename": "scripts/webidl-properties/get-props.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8bc5da3a_a878b65a",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd9d11de_02d29ef1",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-06-10T14:21:57Z",
       "side": 1,
       "message": "2022",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60437f0_0d4b303f",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd9d11de_02d29ef1",
       "revId": "86735cab79342eb1796989bd3474937cc697eb99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -115,6 +193,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0555737c_5c99ff62",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Aren\u0027t these already addressed with the `const json \u003d JSON.stringify(output, null, 2);` line above? Or is there something in addition that I\u0027m missing? 😊\n\nEither way, I\u0027m happy to go either way. One additional reason to go the inlined string is that the generated JSON needs to be formatted before landed, and the simple JSON.stringify doesn\u0027t agree with our clang format rules. But that\u0027s more of an annoyance than an issue, because our presubmit checks will do that for us.\n\nI\u0027ll do the simple inlining thing.",
+      "parentUuid": "e40bbcd7_460fa7bf",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad399e0_4f57f0c0",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82223437_8a716271",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c93871_241dd044",
@@ -138,6 +258,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04a3010f_e6be960d",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c93871_241dd044",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a976e764_e66ae1c5",
@@ -151,6 +295,24 @@
       "writtenOn": "2022-06-10T14:21:57Z",
       "side": 1,
       "message": "Alternatively,\n\n    const merged \u003d [...a, ...b];\n    const deduped \u003d Array.from(new Set(merged);\n    return deduped;",
+      "revId": "86735cab79342eb1796989bd3474937cc697eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d6b9fc6_215766f0",
+        "filename": "scripts/webidl-properties/util.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-13T11:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a976e764_e66ae1c5",
       "revId": "86735cab79342eb1796989bd3474937cc697eb99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
