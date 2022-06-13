@@ -66,6 +66,11 @@ export interface SourceMap {
       TextUtils.ContentProvider.ContentProvider;
   embeddedContentByURL(sourceURL: Platform.DevToolsPath.UrlString): string|null;
   findEntry(lineNumber: number, columnNumber: number): SourceMapEntry|null;
+  findEntryRanges(lineNumber: number, columnNumber: number): {
+    range: TextUtils.TextRange.TextRange,
+    sourceRange: TextUtils.TextRange.TextRange,
+    sourceUrl: Platform.DevToolsPath.UrlString,
+  }|null;
   findReverseRanges(sourceURL: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number):
       TextUtils.TextRange.TextRange[];
   sourceLineMapping(sourceURL: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number):
@@ -231,6 +236,49 @@ export class TextSourceMap implements SourceMap {
     const index = Platform.ArrayUtilities.upperBound(
         mappings, undefined, (unused, entry) => lineNumber - entry.lineNumber || columnNumber - entry.columnNumber);
     return index ? mappings[index - 1] : null;
+  }
+
+  findEntryRanges(lineNumber: number, columnNumber: number): {
+    range: TextUtils.TextRange.TextRange,
+    sourceRange: TextUtils.TextRange.TextRange,
+    sourceUrl: Platform.DevToolsPath.UrlString,
+  }|null {
+    const mappings = this.mappings();
+    const index = Platform.ArrayUtilities.upperBound(
+        mappings, undefined, (unused, entry) => lineNumber - entry.lineNumber || columnNumber - entry.columnNumber);
+    if (!index) {
+      return null;
+    }
+    const sourceUrl = mappings[index].sourceURL;
+    if (!sourceUrl) {
+      return null;
+    }
+
+    const endLine = index < mappings.length ? mappings[index].lineNumber : 2 ** 31 - 1;
+    const endColumn = index < mappings.length ? mappings[index].columnNumber : 2 ** 31 - 1;
+    const range = new TextUtils.TextRange.TextRange(
+        mappings[index - 1].lineNumber, mappings[index - 1].columnNumber, endLine, endColumn);
+
+    const reverseMappings = this.reversedMappings(sourceUrl);
+    const startSourceLine = mappings[index - 1].sourceLineNumber;
+    const startSourceColumn = mappings[index - 1].sourceColumnNumber;
+    const endReverseIndex = Platform.ArrayUtilities.upperBound(
+        reverseMappings, undefined,
+        (unused, i) =>
+            startSourceLine - mappings[i].sourceLineNumber || startSourceColumn - mappings[i].sourceColumnNumber);
+    if (!endReverseIndex) {
+      return null;
+    }
+    const endSourceLine = endReverseIndex < reverseMappings.length ?
+        mappings[reverseMappings[endReverseIndex]].sourceLineNumber :
+        2 ** 31 - 1;
+    const endSourceColumn = endReverseIndex < reverseMappings.length ?
+        mappings[reverseMappings[endReverseIndex]].sourceColumnNumber :
+        2 ** 31 - 1;
+
+    const sourceRange =
+        new TextUtils.TextRange.TextRange(startSourceLine, startSourceColumn, endSourceLine, endSourceColumn);
+    return {range, sourceRange, sourceUrl};
   }
 
   sourceLineMapping(sourceURL: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number):
