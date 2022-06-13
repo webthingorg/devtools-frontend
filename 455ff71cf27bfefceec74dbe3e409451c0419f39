@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "825997dc_29f2366f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-13T13:39:18Z",
+      "side": 1,
+      "message": "Unified the two unittests as discussed offline. Now, all selectable elements have the `selectable-text` class. \n\nUsing `dblclick` to highlight didn\u0027t work. The current test uses range (a continuous part of a document, independent of any visual representation) to specify a selection (user\u0027s highlighted text). This is potentially different from double-clicking, but it seems like both are governed by the `user-select` css property. ",
+      "revId": "455ff71cf27bfefceec74dbe3e409451c0419f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
