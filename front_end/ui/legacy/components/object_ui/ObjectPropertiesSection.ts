@@ -36,6 +36,7 @@ import * as LinearMemoryInspector from '../../../components/linear_memory_inspec
 import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as JavaScriptMetaData from '../../../../models/javascript_metadata/javascript_metadata.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
 import * as UI from '../../legacy.js';
@@ -126,8 +127,8 @@ const EXPANDABLE_MAX_LENGTH = 50;
 const EXPANDABLE_MAX_DEPTH = 100;
 
 const parentMap = new WeakMap<SDK.RemoteObject.RemoteObjectProperty, SDK.RemoteObject.RemoteObject|null>();
-
 const objectPropertiesSectionMap = new WeakMap<Element, ObjectPropertiesSection>();
+const domPinnedProperties = JavaScriptMetaData.JavaScriptMetadata.JavaScriptMetadataImpl.domPinnedProperties;
 
 export const getObjectPropertiesSectionFrom = (element: Element): ObjectPropertiesSection|undefined => {
   return objectPropertiesSectionMap.get(element);
@@ -1050,12 +1051,40 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.expandedValueElement = this.createExpandedValueElement(this.property.value);
     }
 
+    let adorner: Element|string = '';
+
+    const parent = parentMap.get(this.property) as SDK.RemoteObject.RemoteObject;
+    const isNodeParent = parent.type === 'object' && parent.subtype === 'node' && parent.className !== null;
+    const webIDLType = isNodeParent && domPinnedProperties[parent.className];
+    const webIDLProperty = webIDLType && webIDLType.props?.[this.property.name];
+
+    if (webIDLProperty) {
+      const icon = new IconButton.Icon.Icon();
+      icon.data = {
+        iconName: 'elements_panel_icon',
+        color: 'var(--color-text-secondary)',
+        width: '16px',
+        height: '16px',
+      };
+      adorner = UI.Fragment.html`
+        <span class='important-property-adorner'>
+          ${icon}
+        </span>
+      `;
+    }
+
     this.listItemElement.removeChildren();
     let container: Element;
     if (isInternalEntries) {
-      container = UI.Fragment.html`<span class='name-and-value'>${this.nameElement}</span>`;
+      container = UI.Fragment.html`
+        ${adorner}
+        <span class='name-and-value'>${this.nameElement}</span>
+      `;
     } else {
-      container = UI.Fragment.html`<span class='name-and-value'>${this.nameElement}: ${this.valueElement}</span>`;
+      container = UI.Fragment.html`
+        ${adorner}
+        <span class='name-and-value'>${this.nameElement}: ${this.valueElement}</span>
+      `;
     }
     this.rowContainer = (container as HTMLElement);
     this.listItemElement.appendChild(this.rowContainer);

@@ -59,6 +59,16 @@
   overflow: hidden;
 }
 
+.important-property-adorner {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.important-property-adorner + .name-and-value .name {
+  font-weight: bold;
+}
+
 .name-and-value {
   overflow: hidden;
   line-height: 16px;
