@@ -25,18 +25,20 @@ export class CSSMatchedStyles {
   readonly #pseudoDOMCascades: Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>;
   readonly #customHighlightPseudoDOMCascades: Map<string, DOMInheritanceCascade>;
   readonly #styleToDOMCascade: Map<CSSStyleDeclaration, DOMInheritanceCascade>;
+  readonly #rootLayer: Protocol.CSS.CSSLayerData;
 
   constructor(
       cssModel: CSSModel, node: DOMNode, inlinePayload: Protocol.CSS.CSSStyle|null,
       attributesPayload: Protocol.CSS.CSSStyle|null, matchedPayload: Protocol.CSS.RuleMatch[],
       pseudoPayload: Protocol.CSS.PseudoElementMatches[], inheritedPayload: Protocol.CSS.InheritedStyleEntry[],
       inheritedPseudoPayload: Protocol.CSS.InheritedPseudoElementMatches[],
-      animationsPayload: Protocol.CSS.CSSKeyframesRule[]) {
+      animationsPayload: Protocol.CSS.CSSKeyframesRule[], rootLayer: Protocol.CSS.CSSLayerData) {
     this.#cssModelInternal = cssModel;
     this.#nodeInternal = node;
     this.#addedStyles = new Map();
     this.#matchingSelectors = new Map();
     this.#keyframesInternal = [];
+    this.#rootLayer = rootLayer;
     if (animationsPayload) {
       this.#keyframesInternal = animationsPayload.map(rule => new CSSKeyframesRule(cssModel, rule));
     }
@@ -160,7 +162,7 @@ export class CSSMatchedStyles {
     if (!addedAttributesStyle) {
       addAttributesStyle.call(this);
     }
-    nodeCascades.push(new NodeCascade(this, nodeStyles, false /* #isInherited */));
+    nodeCascades.push(new NodeCascade(this, nodeStyles, false /* #isInherited */, this.#rootLayer));
 
     // Walk the node structure and identify styles with inherited properties.
     let parentNode: (DOMNode|null) = this.#nodeInternal.parentNode;
@@ -192,7 +194,7 @@ export class CSSMatchedStyles {
         this.#inheritedStyles.add(inheritedRule.style);
       }
       parentNode = parentNode.parentNode;
-      nodeCascades.push(new NodeCascade(this, inheritedStyles, true /* #isInherited */));
+      nodeCascades.push(new NodeCascade(this, inheritedStyles, true /* #isInherited */, this.#rootLayer));
     }
 
     return new DOMInheritanceCascade(nodeCascades);
@@ -246,7 +248,8 @@ export class CSSMatchedStyles {
     }
 
     for (const [highlightName, highlightStyles] of splitHighlightRules) {
-      const nodeCascade = new NodeCascade(this, highlightStyles, isInherited, true /* #isHighlightPseudoCascade*/);
+      const nodeCascade =
+          new NodeCascade(this, highlightStyles, isInherited, this.#rootLayer, true /* #isHighlightPseudoCascade*/);
       const cascadeListForHighlightName = pseudoCascades.get(highlightName);
       if (cascadeListForHighlightName) {
         cascadeListForHighlightName.push(nodeCascade);
@@ -335,7 +338,8 @@ export class CSSMatchedStyles {
         }
         const isHighlightPseudoCascade = cssMetadata().isHighlightPseudoType(entryPayload.pseudoType);
         const nodeCascade = new NodeCascade(
-            this, pseudoStyles, false /* #isInherited */, isHighlightPseudoCascade /* #isHighlightPseudoCascade*/);
+            this, pseudoStyles, false /* #isInherited */, this.#rootLayer,
+            isHighlightPseudoCascade /* #isHighlightPseudoCascade*/);
         pseudoCascades.set(entryPayload.pseudoType, [nodeCascade]);
       }
     }
@@ -363,7 +367,8 @@ export class CSSMatchedStyles {
 
             const isHighlightPseudoCascade = cssMetadata().isHighlightPseudoType(inheritedEntryPayload.pseudoType);
             const nodeCascade = new NodeCascade(
-                this, pseudoStyles, true /* #isInherited */, isHighlightPseudoCascade /* #isHighlightPseudoCascade*/);
+                this, pseudoStyles, true /* #isInherited */, this.#rootLayer,
+                isHighlightPseudoCascade /* #isHighlightPseudoCascade*/);
             const cascadeListForPseudoType = pseudoCascades.get(inheritedEntryPayload.pseudoType);
             if (cascadeListForPseudoType) {
               cascadeListForPseudoType.push(nodeCascade);
@@ -597,15 +602,70 @@ class NodeCascade {
   readonly #isHighlightPseudoCascade: boolean;
   readonly propertiesState: Map<CSSProperty, PropertyState>;
   readonly activeProperties: Map<string, CSSProperty>;
+  readonly #rootLayer: Protocol.CSS.CSSLayerData;
   constructor(
       matchedStyles: CSSMatchedStyles, styles: CSSStyleDeclaration[], isInherited: boolean,
-      isHighlightPseudoCascade: boolean = false) {
+      rootLayer: Protocol.CSS.CSSLayerData, isHighlightPseudoCascade: boolean = false) {
     this.#matchedStyles = matchedStyles;
     this.styles = styles;
     this.#isInherited = isInherited;
     this.#isHighlightPseudoCascade = isHighlightPseudoCascade;
     this.propertiesState = new Map();
     this.activeProperties = new Map();
+    this.#rootLayer = rootLayer;
+  }
+
+  #findLayerOrders(layerName: string): number[] {
+    let iteratorLayer: Protocol.CSS.CSSLayerData|undefined = this.#rootLayer;
+    const layerNames = layerName.split('.');
+    const layerOrders = [];
+    for (const layer of layerNames) {
+      iteratorLayer = iteratorLayer?.subLayers?.find(subLayer => subLayer.name === layer);
+      // We expect the `layer` to be found in the
+      // current node. Nevertheless, if the layer
+      // is not found, we can assume it is a new layer on the branch.
+      // (somehow the rootLayer doesn't
+      // contain the layer definition that is referenced
+      // on the node.)
+      layerOrders.push(iteratorLayer?.order || 0);
+    }
+
+    return layerOrders;
+  }
+
+  #compareLayerOrder(leftRule: CSSStyleRule|null, rightRule?: CSSStyleRule|null): number {
+    const leftLayer = leftRule?.layers[0]?.text || 'implicit outer layer';
+    const rightLayer = rightRule?.layers[0]?.text || 'implicit outer layer';
+    const leftOrders = this.#findLayerOrders(leftLayer);
+    const rightOrders = this.#findLayerOrders(rightLayer);
+
+    for (let i = 0; i < Math.min(leftOrders.length, rightOrders.length); i++) {
+      if (leftOrders[i] > rightOrders[i]) {
+        return 1;
+      }
+
+      if (leftOrders[i] < rightOrders[i]) {
+        return -1;
+      }
+    }
+
+    // The one with the smaller length wins
+    // because it exists on the top level
+    // of the sublayer.
+    // Say, with the layer definitions `first`, `first.first`
+    // and `first.second` comparing `first.second` and `first`
+    // `first.second` gets `[0, 1] orders
+    // and `first` get [0] orders and
+    // we expect the rule with layer `first` to win.
+    if (leftOrders.length < rightOrders.length) {
+      return 1;
+    }
+
+    if (leftOrders.length > rightOrders.length) {
+      return -1;
+    }
+
+    return 0;
   }
 
   computeActiveProperties(): void {
@@ -656,16 +716,25 @@ class NodeCascade {
         }
 
         const activeProperty = this.activeProperties.get(canonicalName);
-        if (activeProperty && (activeProperty.important || !property.important)) {
+        if (activeProperty && activeProperty.ownerStyle.parentRule instanceof CSSStyleRule &&
+            activeProperty.important && property.important) {
+          const compareResult = this.#compareLayerOrder(activeProperty.ownerStyle.parentRule, rule);
+          if (compareResult < 0) {
+            this.propertiesState.set(property, PropertyState.Overloaded);
+          } else {
+            this.propertiesState.set(activeProperty, PropertyState.Overloaded);
+            this.propertiesState.set(property, PropertyState.Active);
+            this.activeProperties.set(canonicalName, property);
+          }
+        } else if (activeProperty && (activeProperty.important || !property.important)) {
           this.propertiesState.set(property, PropertyState.Overloaded);
-          continue;
+        } else {
+          if (activeProperty) {
+            this.propertiesState.set(activeProperty, PropertyState.Overloaded);
+          }
+          this.propertiesState.set(property, PropertyState.Active);
+          this.activeProperties.set(canonicalName, property);
         }
-
-        if (activeProperty) {
-          this.propertiesState.set(activeProperty, PropertyState.Overloaded);
-        }
-        this.propertiesState.set(property, PropertyState.Active);
-        this.activeProperties.set(canonicalName, property);
       }
     }
   }
