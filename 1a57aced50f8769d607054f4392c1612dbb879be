@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3aef294e_fadb527e",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-14T13:50:54Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/core/sdk/SourceMap_test.ts;l\u003d169;drc\u003dbace714649e6cc9010cc64a5d5f52d598ebf0ce3",
+      "parentUuid": "f89cb004_aea03cc0",
+      "range": {
+        "startLine": 322,
+        "startChar": 10,
+        "endLine": 322,
+        "endChar": 26
+      },
+      "revId": "1a57aced50f8769d607054f4392c1612dbb879be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c102ad5_c468696d",
         "filename": "front_end/core/sdk/SourceMap.ts",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2022-06-14T13:32:08Z",
       "side": 1,
       "message": "Alternatively:\n\n for (const [i, {sourceURL}] of mappings.entries())\n \nIf its performance critical the current for loop might be faster though.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 45
+      },
+      "revId": "1a57aced50f8769d607054f4392c1612dbb879be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f58fb224_4149db18",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-14T13:50:54Z",
+      "side": 1,
+      "message": "Right, that looks like a lot of machinery, so I would prefer not to go there.",
+      "parentUuid": "8c102ad5_c468696d",
       "range": {
         "startLine": 338,
         "startChar": 0,
