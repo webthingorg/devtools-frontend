@@ -960,6 +960,13 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.DOM.QuerySelectorAllResponse>;
 
     /**
+     * Returns NodeIds of current top layer elements.
+     * Top layer is rendered closest to the user within a viewport, therefore its elements always
+     * appears on top of all other content.
+     */
+    invoke_getTopLayerElements(): Promise<Protocol.DOM.GetTopLayerElementsResponse>;
+
+    /**
      * Re-does the last undone action.
      */
     invoke_redo(): Promise<Protocol.ProtocolResponseWithError>;
@@ -1127,6 +1134,11 @@ declare namespace ProtocolProxyApi {
      * Called when a pseudo element is added to an element.
      */
     pseudoElementAdded(params: Protocol.DOM.PseudoElementAddedEvent): void;
+
+    /**
+     * Called when top layer elements are changed.
+     */
+    topLayerElementsUpdated(): void;
 
     /**
      * Called when a pseudo element is removed from an element.

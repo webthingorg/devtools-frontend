@@ -730,6 +730,7 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('DOM.documentUpdated', []);
   inspectorBackend.registerEvent('DOM.inlineStyleInvalidated', ['nodeIds']);
   inspectorBackend.registerEvent('DOM.pseudoElementAdded', ['parentId', 'pseudoElement']);
+  inspectorBackend.registerEvent('DOM.topLayerElementsUpdated', []);
   inspectorBackend.registerEvent('DOM.pseudoElementRemoved', ['parentId', 'pseudoElementId']);
   inspectorBackend.registerEvent('DOM.setChildNodes', ['parentId', 'nodes']);
   inspectorBackend.registerEvent('DOM.shadowRootPopped', ['hostId', 'rootId']);
@@ -873,6 +874,7 @@ export function registerCommands(inspectorBackend) {
         {'name': 'selector', 'type': 'string', 'optional': false}
       ],
       ['nodeIds']);
+  inspectorBackend.registerCommand('DOM.getTopLayerElements', [], ['nodeIds']);
   inspectorBackend.registerCommand('DOM.redo', [], []);
   inspectorBackend.registerCommand(
       'DOM.removeAttribute',
