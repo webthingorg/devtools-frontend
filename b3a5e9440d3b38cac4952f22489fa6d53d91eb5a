@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d90fc9_2ddb38d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-14T04:55:13Z",
+      "side": 1,
+      "message": "lgtm, I assume we need to wait for the Chromium binary that runs e2e tests to update? We usually roll the binary once per day.",
+      "revId": "b3a5e9440d3b38cac4952f22489fa6d53d91eb5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
