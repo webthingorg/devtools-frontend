@@ -49,12 +49,27 @@ describe('DOM pinned properties dataset generation', function() {
     assert.deepEqual(type.props.checked, {
       global: false,
       specs: ['html'],
+      states: ['type=checkbox', 'type=radio'],
     });
-    assert.deepEqual(type.states['[type=checkbox]'], {
-      checked: {global: false, specs: ['html']},
-      required: {global: false, specs: ['html']},
-      value: {global: false, specs: ['html']},
+    assert.deepEqual(type.props.required, {
+      global: false,
+      specs: ['html'],
+      states: [
+        'type=text', 'type=search', 'type=url', 'type=tel', 'type=email', 'type=password', 'type=date', 'type=month',
+        'type=week', 'type=time', 'type=datetime-local', 'type=number', 'type=checkbox', 'type=radio', 'type=file'
+      ]
     });
+    assert.deepEqual(type.props.value, {
+      global: false,
+      specs: ['html'],
+      states: type.states,
+    });
+    assert.deepEqual(type.states, [
+      'type=hidden',   'type=text',  'type=search', 'type=url',      'type=tel',   'type=email',
+      'type=password', 'type=date',  'type=month',  'type=week',     'type=time',  'type=datetime-local',
+      'type=number',   'type=range', 'type=color',  'type=checkbox', 'type=radio', 'type=file',
+      'type=submit',   'type=image', 'type=reset',  'type=button',
+    ]);
   });
 
   it('generates valid data for MouseEvent', () => {
@@ -92,12 +107,27 @@ describe('DOM pinned properties dataset generation', function() {
     const type = minimized.HTMLInputElement;
     assert.strictEqual(type.inheritance, 'HTMLElement');
     assert.strictEqual(type.includes, undefined);
-    assert.deepEqual(type.props.checked, {});
-    assert.deepEqual(type.states['[type=checkbox]'], {
-      checked: {},
-      required: {},
-      value: {},
+    assert.deepEqual(type.props.checked, {
+      states: [
+        'type=checkbox',
+        'type=radio',
+      ],
     });
+    assert.deepEqual(type.props.required, {
+      states: [
+        'type=text', 'type=search', 'type=url', 'type=tel', 'type=email', 'type=password', 'type=date', 'type=month',
+        'type=week', 'type=time', 'type=datetime-local', 'type=number', 'type=checkbox', 'type=radio', 'type=file'
+      ],
+    });
+    assert.deepEqual(type.props.value, {
+      states: type.states,
+    });
+    assert.deepEqual(type.states, [
+      'type=hidden',   'type=text',  'type=search', 'type=url',      'type=tel',   'type=email',
+      'type=password', 'type=date',  'type=month',  'type=week',     'type=time',  'type=datetime-local',
+      'type=number',   'type=range', 'type=color',  'type=checkbox', 'type=radio', 'type=file',
+      'type=submit',   'type=image', 'type=reset',  'type=button',
+    ]);
   });
 
   it('minimizes the data for PointerEvent', () => {
