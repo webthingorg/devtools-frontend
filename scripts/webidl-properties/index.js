@@ -41,7 +41,7 @@ fs.writeFileSync(outPath, `
 /**
  * All the specs used when generating the DOM pinned properties dataset.
  */
-export const SPECS = ${JSON.stringify(SPECS)};
+export const SPECS = ${JSON.stringify(SPECS, null, 2)};
 
 export interface DOMPinnedWebIDLProp {
   // A flag specifying whether it's a "global" attribute.
@@ -81,5 +81,6 @@ export interface DOMPinnedPropertiesDataset {
  * This is an object with WebIDL type names as keys and their WebIDL properties
  * and inheritance/include chains as values.
  */
-export const DOMPinnedProperties: DOMPinnedPropertiesDataset = ${JSON.stringify(minimize(output))};
+export const DOMPinnedProperties: DOMPinnedPropertiesDataset = ${JSON.stringify(minimize(output), null, 2)};
+
 `);
