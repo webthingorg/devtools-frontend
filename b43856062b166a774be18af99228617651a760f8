@@ -16,6 +16,23 @@
       "message": "Incorporated feedback :) Many thanks!",
       "revId": "b43856062b166a774be18af99228617651a760f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d39661c_5631d4c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-14T06:58:50Z",
+      "side": 1,
+      "message": "Thanks Michal, still LGTM",
+      "revId": "b43856062b166a774be18af99228617651a760f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
