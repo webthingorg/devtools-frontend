@@ -313,6 +313,8 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
                           .map(usage => STORAGE_TYPE_NAMES.get(usage.storageType))
                           .map(i18nStringFn => i18nStringFn ? i18nStringFn() : undefined)
                           .filter(Boolean);
+    console.log('breakdown', JSON.stringify(usageData.usageBreakdown.filter(usage => usage.usage)));
+    console.log('locations', JSON.stringify(locations));
     if (locations.length === 1) {
       return i18nString(UIStrings.thereMayBeStoredDataAffectingSingular, {PH1: String(locations[0])});
     }
@@ -386,6 +388,12 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
     const unauditablePageMessage = this.unauditablePageMessage();
     const javaScriptDisabled = this.javaScriptDisabled();
 
+    console.log('recomputePageAuditability', JSON.stringify({
+      hasActiveServiceWorker,
+      hasAtLeastOneCategory,
+      unauditablePageMessage,
+      javaScriptDisabled,
+    }));
     let helpText = '';
     if (hasActiveServiceWorker) {
       helpText = i18nString(UIStrings.multipleTabsAreBeingControlledBy);
@@ -403,6 +411,7 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
       if (this.getFlags().mode !== 'navigation') {
         warning = '';
       }
+      console.log('hasImportantResourcesNotCleared', warning, '<--');
       this.dispatchEventToListeners(Events.PageWarningsChanged, {warning});
     });
   }
