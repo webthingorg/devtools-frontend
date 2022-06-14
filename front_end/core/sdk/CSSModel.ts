@@ -292,6 +292,7 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   async getMatchedStyles(nodeId: Protocol.DOM.NodeId): Promise<CSSMatchedStyles|null> {
     const response = await this.agent.invoke_getMatchedStylesForNode({nodeId});
+    const {rootLayer} = await this.agent.invoke_getLayersForNode({nodeId});
 
     if (response.getError()) {
       return null;
@@ -305,7 +306,7 @@ export class CSSModel extends SDKModel<EventTypes> {
     return new CSSMatchedStyles(
         this, (node as DOMNode), response.inlineStyle || null, response.attributesStyle || null,
         response.matchedCSSRules || [], response.pseudoElements || [], response.inherited || [],
-        response.inheritedPseudoElements || [], response.cssKeyframesRules || []);
+        response.inheritedPseudoElements || [], response.cssKeyframesRules || [], rootLayer);
   }
 
   async getClassNames(styleSheetId: Protocol.CSS.StyleSheetId): Promise<string[]> {
