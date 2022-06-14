@@ -36,6 +36,7 @@ import * as LinearMemoryInspector from '../../../components/linear_memory_inspec
 import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as JavaScriptMetaData from '../../../../models/javascript_metadata/javascript_metadata.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
 import * as UI from '../../legacy.js';
@@ -128,6 +129,10 @@ const EXPANDABLE_MAX_DEPTH = 100;
 const parentMap = new WeakMap<SDK.RemoteObject.RemoteObjectProperty, SDK.RemoteObject.RemoteObject|null>();
 
 const objectPropertiesSectionMap = new WeakMap<Element, ObjectPropertiesSection>();
+
+const domParentStates = JavaScriptMetaData.JavaScriptMetadata.JavaScriptMetadataImpl.domPinnedProperties.STATES;
+const domPinnedProperties =
+    JavaScriptMetaData.JavaScriptMetadata.JavaScriptMetadataImpl.domPinnedProperties.DOMPinnedProperties;
 
 export const getObjectPropertiesSectionFrom = (element: Element): ObjectPropertiesSection|undefined => {
   return objectPropertiesSectionMap.get(element);
@@ -580,6 +585,20 @@ export class ObjectPropertiesSectionsTreeOutline extends UI.TreeOutline.TreeOutl
   private readonly editable: boolean;
   constructor(options?: TreeOutlineOptions|null) {
     super();
+    for (const state of domParentStates) {
+      const ofTypeInAnyState = ':not([webidl-type-in-specific-state])';
+      const ofTypeInSpecificState = `[webidl-type-in-specific-state][${state}]`;
+      objectPropertiesSectionStyles.insertRule(/* css */ `
+        .children${ofTypeInAnyState} > .webidl-property > .adorner,
+        .children${ofTypeInSpecificState} > .webidl-property[applicable-in-${state}] > .adorner {
+          display: initial;
+        }`);
+      objectPropertiesSectionStyles.insertRule(/* css */ `
+        .children${ofTypeInAnyState} > .webidl-property > .name-and-value .name,
+        .children${ofTypeInSpecificState} > .webidl-property[applicable-in-${state}] > .name-and-value .name {
+          font-weight: bold;
+        }`);
+    }
     this.registerCSSFiles([objectValueStyles, objectPropertiesSectionStyles]);
     this.editable = !(options && options.readOnly);
     this.contentElement.classList.add('source-code');
@@ -1050,13 +1069,64 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.expandedValueElement = this.createExpandedValueElement(this.property.value);
     }
 
-    this.listItemElement.removeChildren();
-    let container: Element;
-    if (isInternalEntries) {
-      container = UI.Fragment.html`<span class='name-and-value'>${this.nameElement}</span>`;
-    } else {
-      container = UI.Fragment.html`<span class='name-and-value'>${this.nameElement}: ${this.valueElement}</span>`;
+    let adorner: Element|string = '';
+    let nameAndValue: Element;
+
+    const parentObject = parentMap.get(this.property) as SDK.RemoteObject.RemoteObject;
+    const isDescendantOfInstance = parentObject.type === 'object' && parentObject.className !== null;
+
+    const parentWebIDLType = isDescendantOfInstance ? domPinnedProperties[parentObject.className] : null;
+    const webIDLProperty = parentWebIDLType ? parentWebIDLType.props?.[this.property.name] : null;
+
+    if (webIDLProperty) {
+      const icon = new IconButton.Icon.Icon();
+      icon.data = {
+        iconName: 'elements_panel_icon',
+        color: 'var(--color-text-secondary)',
+        width: '16px',
+        height: '16px',
+      };
+      adorner = UI.Fragment.html`
+        <span class='adorner'>${icon}</span>
+      `;
     }
+
+    if (isInternalEntries) {
+      nameAndValue = UI.Fragment.html`
+        <span class='name-and-value'>${this.nameElement}</span>
+      `;
+    } else {
+      nameAndValue = UI.Fragment.html`
+        <span class='name-and-value'>${this.nameElement}: ${this.valueElement}</span>
+      `;
+    }
+
+    if (webIDLProperty) {
+      this.listItemElement.classList.add('webidl-property');
+    }
+
+    if (parentWebIDLType?.states) {
+      for (const state of parentWebIDLType?.states) {
+        const [property, expected] = state.split('=');
+        if (this.property.name === property && this.property.value?.value === expected) {
+          this.parent?.childrenListElement.setAttribute('webidl-type-in-specific-state', '');
+          this.parent?.childrenListElement.setAttribute(`${parentObject.className}-${property}-${expected}`, '');
+        }
+      }
+    }
+
+    if (webIDLProperty?.states) {
+      for (const state of webIDLProperty?.states) {
+        const [property, expected] = state.split('=');
+        this.listItemElement.setAttribute(`applicable-in-${parentObject.className}-${property}-${expected}`, '');
+      }
+    }
+
+    this.listItemElement.removeChildren();
+    const container = UI.Fragment.html`
+      ${adorner}
+      ${nameAndValue}
+    `;
     this.rowContainer = (container as HTMLElement);
     this.listItemElement.appendChild(this.rowContainer);
   }

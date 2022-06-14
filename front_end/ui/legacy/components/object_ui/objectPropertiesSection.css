@@ -59,6 +59,13 @@
   overflow: hidden;
 }
 
+.object-properties-section .adorner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
 .name-and-value {
   overflow: hidden;
   line-height: 16px;
