@@ -9,7 +9,7 @@ import * as path from 'path';
 import * as url from 'url';
 
 import {SPECS} from './config.js';
-import {addMetadata, getIDLProps, minimize} from './get-props.js';
+import {addMetadata, getAllPossibleStates, getIDLProps, minimize} from './get-props.js';
 import {getMissingTypes} from './util.js';
 
 if (process.argv.length !== 3) {
@@ -21,8 +21,9 @@ const names = Object.keys(SPECS);
 const specs = await Promise.all(names.map(name => files[name].parse().then(idls => ({name, idls}))));
 
 const output = addMetadata(getIDLProps(specs));
-const missing = getMissingTypes(output);
+const states = getAllPossibleStates();
 
+const missing = getMissingTypes(output);
 for (const type of missing) {
   console.warn('Found missing type:', type);
 }
@@ -49,6 +50,9 @@ export interface DOMPinnedWebIDLProp {
   // A bitfield of the specs in which the property is found.
   // If missing, it implies the default spec: "html".
   specs?: number;
+  // The "states" in which this property is "applicable".
+  // Has the form "property=value".
+  states?: Array<string>;
 }
 
 export interface DOMPinnedWebIDLType {
@@ -62,12 +66,8 @@ export interface DOMPinnedWebIDLType {
     [PropName: string]: DOMPinnedWebIDLProp,
   };
   // The "states" in which only certain properties are "applicable".
-  states?: {
-    // A CSS selector such as "[type=checkbox]".
-    [State: string]: {
-      [PropName: string]: DOMPinnedWebIDLProp,
-    },
-  };
+  // Has the form "property=value".
+  states?: Array<string>;
 }
 
 export interface DOMPinnedPropertiesDataset {
@@ -83,4 +83,13 @@ export interface DOMPinnedPropertiesDataset {
  */
 export const DOMPinnedProperties: DOMPinnedPropertiesDataset = ${JSON.stringify(minimize(output), null, 2)};
 
+/**
+ * A list of strings, naming all the possible states in which a WebIDL type can
+ * be in.
+ *
+ * For example, a HTMLInputElement can be in several different states depending
+ * on the value of its type property. These determine which members are
+ * "applicable" in which state.
+ */
+export const STATES = ${JSON.stringify(states, null, 2)};
 `);

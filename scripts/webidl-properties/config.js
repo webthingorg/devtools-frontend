@@ -35,33 +35,16 @@ export const GLOBAL_ATTRIBUTES = new Set([
  * The "applicable" members for certain "states" that WebIDL types can be in.
  * In other words, some members are "valid" only valid in certain situations:
  * for example, with the HTML input element, the set of valid members are
- * determined by the "type" attribute.
+ * determined by the "type" property.
  */
 export const VALID_MEMBERS = {
   // https://html.spec.whatwg.org/multipage/input.html#input-type-attr-summary
   HTMLInputElement: {
-    '[type=hidden]': new Set([
+    'type=hidden': new Set([
       'autocomplete',
       'value',
     ]),
-    '[type=text]': new Set([
-      'autocomplete',
-      'dirname',
-      'list',
-      'maxlength',
-      'minlength',
-      'pattern',
-      'placeholder',
-      'readonly',
-      'required',
-      'size',
-      'value',
-      'list',
-      'selectionstart',
-      'selectionend',
-      'selectiondirection',
-    ]),
-    '[type=search]': new Set([
+    'type=text': new Set([
       'autocomplete',
       'dirname',
       'list',
@@ -78,7 +61,24 @@ export const VALID_MEMBERS = {
       'selectionend',
       'selectiondirection',
     ]),
-    '[type=url]': new Set([
+    'type=search': new Set([
+      'autocomplete',
+      'dirname',
+      'list',
+      'maxlength',
+      'minlength',
+      'pattern',
+      'placeholder',
+      'readonly',
+      'required',
+      'size',
+      'value',
+      'list',
+      'selectionstart',
+      'selectionend',
+      'selectiondirection',
+    ]),
+    'type=url': new Set([
       'autocomplete',
       'list',
       'maxlength',
@@ -94,7 +94,7 @@ export const VALID_MEMBERS = {
       'selectionend',
       'selectiondirection',
     ]),
-    '[type=tel]': new Set([
+    'type=tel': new Set([
       'autocomplete',
       'list',
       'maxlength',
@@ -110,7 +110,7 @@ export const VALID_MEMBERS = {
       'selectionend',
       'selectiondirection',
     ]),
-    '[type=email]': new Set([
+    'type=email': new Set([
       'autocomplete',
       'list',
       'maxlength',
@@ -124,7 +124,7 @@ export const VALID_MEMBERS = {
       'value',
       'list',
     ]),
-    '[type=password]': new Set([
+    'type=password': new Set([
       'autocomplete',
       'maxlength',
       'minlength',
@@ -138,7 +138,7 @@ export const VALID_MEMBERS = {
       'selectionend',
       'selectiondirection',
     ]),
-    '[type=date]': new Set([
+    'type=date': new Set([
       'autocomplete',
       'list',
       'max',
@@ -151,7 +151,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=month]': new Set([
+    'type=month': new Set([
       'autocomplete',
       'list',
       'max',
@@ -164,7 +164,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=week]': new Set([
+    'type=week': new Set([
       'autocomplete',
       'list',
       'max',
@@ -177,7 +177,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=time]': new Set([
+    'type=time': new Set([
       'autocomplete',
       'list',
       'max',
@@ -190,7 +190,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=datetime-local]': new Set([
+    'type=datetime-local': new Set([
       'autocomplete',
       'list',
       'max',
@@ -202,7 +202,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=number]': new Set([
+    'type=number': new Set([
       'autocomplete',
       'list',
       'max',
@@ -215,7 +215,7 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=range]': new Set([
+    'type=range': new Set([
       'autocomplete',
       'list',
       'max',
@@ -225,31 +225,31 @@ export const VALID_MEMBERS = {
       'valueasnumber',
       'list',
     ]),
-    '[type=color]': new Set([
+    'type=color': new Set([
       'autocomplete',
       'list',
       'value',
     ]),
-    '[type=checkbox]': new Set([
+    'type=checkbox': new Set([
       'checked',
       'required',
       'checked',
       'value',
     ]),
-    '[type=radio]': new Set([
+    'type=radio': new Set([
       'checked',
       'required',
       'checked',
       'value',
     ]),
-    '[type=file]': new Set([
+    'type=file': new Set([
       'accept',
       'multiple',
       'required',
       'files',
       'value',
     ]),
-    '[type=submit]': new Set([
+    'type=submit': new Set([
       'formaction',
       'formenctype',
       'formmethod',
@@ -257,7 +257,7 @@ export const VALID_MEMBERS = {
       'formtarget',
       'value',
     ]),
-    '[type=image]': new Set([
+    'type=image': new Set([
       'alt',
       'formaction',
       'formenctype',
@@ -269,10 +269,10 @@ export const VALID_MEMBERS = {
       'width',
       'value',
     ]),
-    '[type=reset]': new Set([
+    'type=reset': new Set([
       'value',
     ]),
-    '[type=button]': new Set([
+    'type=button': new Set([
       'value',
     ]),
   },

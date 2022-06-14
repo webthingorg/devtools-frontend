@@ -22,6 +22,9 @@ export interface DOMPinnedWebIDLProp {
   // A bitfield of the specs in which the property is found.
   // If missing, it implies the default spec: "html".
   specs?: number;
+  // The "states" in which this property is "applicable".
+  // Has the form "property=value".
+  states?: Array<string>;
 }
 
 export interface DOMPinnedWebIDLType {
@@ -35,12 +38,8 @@ export interface DOMPinnedWebIDLType {
     [PropName: string]: DOMPinnedWebIDLProp,
   };
   // The "states" in which only certain properties are "applicable".
-  states?: {
-    // A CSS selector such as "[type=checkbox]".
-    [State: string]: {
-      [PropName: string]: DOMPinnedWebIDLProp,
-    },
-  };
+  // Has the form "property=value".
+  states?: Array<string>;
 }
 
 export interface DOMPinnedPropertiesDataset {
@@ -848,275 +847,313 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'HTMLInputElement': {
     'inheritance': 'HTMLElement',
     'props': {
-      'accept': {},
-      'alt': {},
-      'autocomplete': {},
+      'accept': {
+        'states': [
+          'type=file',
+        ],
+      },
+      'alt': {
+        'states': [
+          'type=image',
+        ],
+      },
+      'autocomplete': {
+        'states': [
+          'type=hidden',
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+          'type=color',
+        ],
+      },
       'defaultChecked': {},
-      'checked': {},
-      'dirName': {},
+      'checked': {
+        'states': [
+          'type=checkbox',
+          'type=radio',
+        ],
+      },
+      'dirName': {
+        'states': [
+          'type=text',
+          'type=search',
+        ],
+      },
       'disabled': {},
       'form': {},
-      'files': {},
-      'formAction': {},
-      'formEnctype': {},
-      'formMethod': {},
-      'formNoValidate': {},
-      'formTarget': {},
-      'height': {},
+      'files': {
+        'states': [
+          'type=file',
+        ],
+      },
+      'formAction': {
+        'states': [
+          'type=submit',
+          'type=image',
+        ],
+      },
+      'formEnctype': {
+        'states': [
+          'type=submit',
+          'type=image',
+        ],
+      },
+      'formMethod': {
+        'states': [
+          'type=submit',
+          'type=image',
+        ],
+      },
+      'formNoValidate': {
+        'states': [
+          'type=submit',
+          'type=image',
+        ],
+      },
+      'formTarget': {
+        'states': [
+          'type=submit',
+          'type=image',
+        ],
+      },
+      'height': {
+        'states': [
+          'type=image',
+        ],
+      },
       'indeterminate': {},
-      'list': {},
-      'max': {},
-      'maxLength': {},
-      'min': {},
-      'minLength': {},
-      'multiple': {},
+      'list': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+          'type=color',
+        ],
+      },
+      'max': {
+        'states': [
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+        ],
+      },
+      'maxLength': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+        ],
+      },
+      'min': {
+        'states': [
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+        ],
+      },
+      'minLength': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+        ],
+      },
+      'multiple': {
+        'states': [
+          'type=email',
+          'type=file',
+        ],
+      },
       'name': {},
-      'pattern': {},
-      'placeholder': {},
-      'readOnly': {},
-      'required': {},
-      'size': {},
-      'src': {},
-      'step': {},
+      'pattern': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+        ],
+      },
+      'placeholder': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+          'type=number',
+        ],
+      },
+      'readOnly': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+        ],
+      },
+      'required': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=checkbox',
+          'type=radio',
+          'type=file',
+        ],
+      },
+      'size': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=email',
+          'type=password',
+        ],
+      },
+      'src': {
+        'states': [
+          'type=image',
+        ],
+      },
+      'step': {
+        'states': [
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+        ],
+      },
       'type': {},
       'defaultValue': {},
-      'value': {},
-      'valueAsDate': {},
-      'valueAsNumber': {},
-      'width': {},
+      'value': {
+        'states': [
+          'type=hidden',   'type=text',  'type=search', 'type=url',      'type=tel',   'type=email',
+          'type=password', 'type=date',  'type=month',  'type=week',     'type=time',  'type=datetime-local',
+          'type=number',   'type=range', 'type=color',  'type=checkbox', 'type=radio', 'type=file',
+          'type=submit',   'type=image', 'type=reset',  'type=button',
+        ],
+      },
+      'valueAsDate': {
+        'states': [
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+        ],
+      },
+      'valueAsNumber': {
+        'states': [
+          'type=date',
+          'type=month',
+          'type=week',
+          'type=time',
+          'type=datetime-local',
+          'type=number',
+          'type=range',
+        ],
+      },
+      'width': {
+        'states': [
+          'type=image',
+        ],
+      },
       'willValidate': {},
       'validity': {},
       'validationMessage': {},
       'labels': {},
-      'selectionStart': {},
-      'selectionEnd': {},
-      'selectionDirection': {},
+      'selectionStart': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=password',
+        ],
+      },
+      'selectionEnd': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=password',
+        ],
+      },
+      'selectionDirection': {
+        'states': [
+          'type=text',
+          'type=search',
+          'type=url',
+          'type=tel',
+          'type=password',
+        ],
+      },
       'align': {},
       'useMap': {},
     },
-    'states': {
-      '[type=hidden]': {
-        'autocomplete': {},
-        'value': {},
-      },
-      '[type=text]': {
-        'autocomplete': {},
-        'dirName': {},
-        'list': {},
-        'maxLength': {},
-        'minLength': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-        'selectionStart': {},
-        'selectionEnd': {},
-        'selectionDirection': {},
-      },
-      '[type=search]': {
-        'autocomplete': {},
-        'dirName': {},
-        'list': {},
-        'maxLength': {},
-        'minLength': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-        'selectionStart': {},
-        'selectionEnd': {},
-        'selectionDirection': {},
-      },
-      '[type=url]': {
-        'autocomplete': {},
-        'list': {},
-        'maxLength': {},
-        'minLength': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-        'selectionStart': {},
-        'selectionEnd': {},
-        'selectionDirection': {},
-      },
-      '[type=tel]': {
-        'autocomplete': {},
-        'list': {},
-        'maxLength': {},
-        'minLength': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-        'selectionStart': {},
-        'selectionEnd': {},
-        'selectionDirection': {},
-      },
-      '[type=email]': {
-        'autocomplete': {},
-        'list': {},
-        'maxLength': {},
-        'minLength': {},
-        'multiple': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-      },
-      '[type=password]': {
-        'autocomplete': {},
-        'maxLength': {},
-        'minLength': {},
-        'pattern': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'size': {},
-        'value': {},
-        'selectionStart': {},
-        'selectionEnd': {},
-        'selectionDirection': {},
-      },
-      '[type=date]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsDate': {},
-        'valueAsNumber': {},
-      },
-      '[type=month]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsDate': {},
-        'valueAsNumber': {},
-      },
-      '[type=week]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsDate': {},
-        'valueAsNumber': {},
-      },
-      '[type=time]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsDate': {},
-        'valueAsNumber': {},
-      },
-      '[type=datetime-local]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsNumber': {},
-      },
-      '[type=number]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'placeholder': {},
-        'readOnly': {},
-        'required': {},
-        'step': {},
-        'value': {},
-        'valueAsNumber': {},
-      },
-      '[type=range]': {
-        'autocomplete': {},
-        'list': {},
-        'max': {},
-        'min': {},
-        'step': {},
-        'value': {},
-        'valueAsNumber': {},
-      },
-      '[type=color]': {
-        'autocomplete': {},
-        'list': {},
-        'value': {},
-      },
-      '[type=checkbox]': {
-        'checked': {},
-        'required': {},
-        'value': {},
-      },
-      '[type=radio]': {
-        'checked': {},
-        'required': {},
-        'value': {},
-      },
-      '[type=file]': {
-        'accept': {},
-        'files': {},
-        'multiple': {},
-        'required': {},
-        'value': {},
-      },
-      '[type=submit]': {
-        'formAction': {},
-        'formEnctype': {},
-        'formMethod': {},
-        'formNoValidate': {},
-        'formTarget': {},
-        'value': {},
-      },
-      '[type=image]': {
-        'alt': {},
-        'formAction': {},
-        'formEnctype': {},
-        'formMethod': {},
-        'formNoValidate': {},
-        'formTarget': {},
-        'height': {},
-        'src': {},
-        'value': {},
-        'width': {},
-      },
-      '[type=reset]': {
-        'value': {},
-      },
-      '[type=button]': {
-        'value': {},
-      },
-    },
+    'states': [
+      'type=hidden',   'type=text',  'type=search', 'type=url',      'type=tel',   'type=email',
+      'type=password', 'type=date',  'type=month',  'type=week',     'type=time',  'type=datetime-local',
+      'type=number',   'type=range', 'type=color',  'type=checkbox', 'type=radio', 'type=file',
+      'type=submit',   'type=image', 'type=reset',  'type=button',
+    ],
   },
   'HTMLButtonElement': {
     'inheritance': 'HTMLElement',
@@ -2643,8 +2680,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'ElementCreationOptions': {
     'props': {
       'is': {
-        'global': true,
         'specs': 2,
+        'global': true,
       },
     },
   },
@@ -3262,8 +3299,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
         'specs': 16,
       },
       'title': {
-        'global': true,
         'specs': 16,
+        'global': true,
       },
       'media': {
         'specs': 16,
@@ -3344,8 +3381,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
         'specs': 16,
       },
       'style': {
-        'global': true,
         'specs': 16,
+        'global': true,
       },
     },
   },
@@ -3378,8 +3415,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
         'specs': 16,
       },
       'style': {
-        'global': true,
         'specs': 16,
+        'global': true,
       },
     },
   },
@@ -3390,8 +3427,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
         'specs': 16,
       },
       'style': {
-        'global': true,
         'specs': 16,
+        'global': true,
       },
     },
   },
@@ -3425,8 +3462,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'ElementCSSInlineStyle': {
     'props': {
       'style': {
-        'global': true,
         'specs': 16,
+        'global': true,
       },
     },
   },
@@ -3568,3 +3605,22 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
     },
   },
 };
+
+/**
+ * A list of strings, naming all the possible states in which a WebIDL type can
+ * be in.
+ *
+ * For example, a HTMLInputElement can be in several different states depending
+ * on the value of its type property. These determine which members are
+ * "applicable" in which state.
+ */
+export const STATES = [
+  'htmlinputelement-type-hidden',   'htmlinputelement-type-text',  'htmlinputelement-type-search',
+  'htmlinputelement-type-url',      'htmlinputelement-type-tel',   'htmlinputelement-type-email',
+  'htmlinputelement-type-password', 'htmlinputelement-type-date',  'htmlinputelement-type-month',
+  'htmlinputelement-type-week',     'htmlinputelement-type-time',  'htmlinputelement-type-datetime-local',
+  'htmlinputelement-type-number',   'htmlinputelement-type-range', 'htmlinputelement-type-color',
+  'htmlinputelement-type-checkbox', 'htmlinputelement-type-radio', 'htmlinputelement-type-file',
+  'htmlinputelement-type-submit',   'htmlinputelement-type-image', 'htmlinputelement-type-reset',
+  'htmlinputelement-type-button',
+];
