@@ -56,6 +56,30 @@
       },
       "revId": "3356c3acb68cb5b18714f1f8c0f136416ced925a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8ffed3_fb991db0",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1002114
+      },
+      "writtenOn": "2022-06-14T23:38:51Z",
+      "side": 1,
+      "message": "Done, great idea! 👍",
+      "parentUuid": "33c57ec4_871b16b6",
+      "range": {
+        "startLine": 125,
+        "startChar": 156,
+        "endLine": 125,
+        "endChar": 218
+      },
+      "revId": "3356c3acb68cb5b18714f1f8c0f136416ced925a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
