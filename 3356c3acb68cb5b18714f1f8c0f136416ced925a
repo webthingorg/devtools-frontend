@@ -16,6 +16,46 @@
       "message": "deprecation-devtool-issues: PTAL.",
       "revId": "3356c3acb68cb5b18714f1f8c0f136416ced925a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00fcba91_0213c23f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-14T04:50:04Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
+      "revId": "3356c3acb68cb5b18714f1f8c0f136416ced925a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c57ec4_871b16b6",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-14T04:50:04Z",
+      "side": 1,
+      "message": "We can use back-ticks to mark parts of a string that should not be translated. See e.g. the string above (`hostCandidateAttributeGetter`). Should we mark \"topOrigin\" etc as such?",
+      "range": {
+        "startLine": 125,
+        "startChar": 156,
+        "endLine": 125,
+        "endChar": 218
+      },
+      "revId": "3356c3acb68cb5b18714f1f8c0f136416ced925a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
