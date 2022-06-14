@@ -33,6 +33,24 @@
       "message": "I suppose we\u0027d want to change the name of this as well?",
       "revId": "879e067625f6147ce945edff91ef9880983e9c1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f29ccfe4_cdee343f",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-14T14:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0fb8398_b6a69c15",
+      "revId": "879e067625f6147ce945edff91ef9880983e9c1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
