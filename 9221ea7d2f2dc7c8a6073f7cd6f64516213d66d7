@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "955b719d_4c03caf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-15T09:08:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9221ea7d2f2dc7c8a6073f7cd6f64516213d66d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f41f370_a776fa8a",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-15T09:08:05Z",
+      "side": 1,
+      "message": "Could you add a comment here? (Basically what you have in the commit message)",
+      "revId": "9221ea7d2f2dc7c8a6073f7cd6f64516213d66d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
