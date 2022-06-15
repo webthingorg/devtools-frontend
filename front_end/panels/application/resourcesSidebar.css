@@ -62,3 +62,13 @@ li.storage-group-list-item::before {
 .window-closed .tree-element-title {
   text-decoration: line-through;
 }
+
+li.manifest-child:focus {
+  background-color: var(--legacy-selection-bg-color);
+}
+
+@media (forced-colors: active) {
+  li.manifest-child:focus {
+    background-color: var(--legacy-selection-bg-color);
+  }
+}
