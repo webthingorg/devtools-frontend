@@ -16,6 +16,46 @@
       "message": "Could you take a look, please?",
       "revId": "ba6d2a29475ca033c88695a0fa523ee54ac3d0a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b441e06_6bb6b1c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-15T05:36:08Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "ba6d2a29475ca033c88695a0fa523ee54ac3d0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cd360ba_f712102d",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-15T05:36:08Z",
+      "side": 1,
+      "message": "My regex foo is not the strongest, I guess this is technically UNREACHABLE() and we need it for TS?",
+      "range": {
+        "startLine": 343,
+        "startChar": 8,
+        "endLine": 343,
+        "endChar": 20
+      },
+      "revId": "ba6d2a29475ca033c88695a0fa523ee54ac3d0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
