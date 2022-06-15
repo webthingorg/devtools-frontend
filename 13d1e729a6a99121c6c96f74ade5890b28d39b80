@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dfa95a5_3bb49c2d",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-15T09:48:04Z",
+      "side": 1,
+      "message": "Let\u0027s add a unit test for the code here verifying that it works as expected",
+      "revId": "13d1e729a6a99121c6c96f74ade5890b28d39b80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f5103f_715b38f6",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-15T09:48:04Z",
+      "side": 1,
+      "message": "Instead of doing this globally let\u0027s extract this into a function: `setupCSSRulesValidators` returns the map.",
+      "revId": "13d1e729a6a99121c6c96f74ade5890b28d39b80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fd180e_7a81a0f7",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-15T09:48:04Z",
+      "side": 1,
+      "message": "let\u0027s make the type either undefined or null but not both. I think this applies to multiple places. `null` would be more in line with the rest of the code.",
+      "range": {
+        "startLine": 124,
+        "startChar": 46,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "13d1e729a6a99121c6c96f74ade5890b28d39b80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
