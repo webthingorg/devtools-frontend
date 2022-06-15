@@ -583,8 +583,18 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       }, 200 /* only spin for loading time > 200ms to avoid unpleasant render flashes */);
     }
 
+    const node = this.node();
+    const parentNode = node?.parentNode;
+
+    let computedStyles: Map<string, string>|null|undefined;
+    let parentsComputedStyles: Map<string, string>|null|undefined;
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.CSS_AUTHORING_HINTS)) {
+      computedStyles = await this.fetchComputedStylesFor(node);
+      parentsComputedStyles = await this.fetchComputedStylesFor(parentNode);
+    }
+
     const matchedStyles = await this.fetchMatchedCascade();
-    await this.innerRebuildUpdate(matchedStyles);
+    await this.innerRebuildUpdate(matchedStyles, computedStyles, parentsComputedStyles);
     if (!this.initialUpdateCompleted) {
       this.initialUpdateCompleted = true;
       this.appendToolbarItem(this.createRenderingShortcuts());
@@ -597,6 +607,14 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     }
 
     this.dispatchEventToListeners(Events.StylesUpdateCompleted, {hasMatchedStyles: this.hasMatchedStyles});
+  }
+
+  private async fetchComputedStylesFor(node: SDK.DOMModel.DOMNode|null|
+                                       undefined): Promise<Map<string, string>|null|undefined> {
+    if (node === null || node === undefined) {
+      return null;
+    }
+    return await node.domModel().cssModel().getComputedStyle(node.id);
   }
 
   onResize(): void {
@@ -718,7 +736,9 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     }
   }
 
-  private async innerRebuildUpdate(matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles|null): Promise<void> {
+  private async innerRebuildUpdate(
+      matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles|null, computedStyles: Map<string, string>|null|undefined,
+      parentsComputedStyles: Map<string, string>|null|undefined): Promise<void> {
     // ElementsSidebarPane's throttler schedules this method. Usually,
     // rebuild is suppressed while editing (see onCSSModelChanged()), but we need a
     // 'force' flag since the currently running throttler process cannot be canceled.
@@ -742,8 +762,8 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       return;
     }
 
-    this.sectionBlocks =
-        await this.rebuildSectionsForMatchedStyleRules((matchedStyles as SDK.CSSMatchedStyles.CSSMatchedStyles));
+    this.sectionBlocks = await this.rebuildSectionsForMatchedStyleRules(
+        (matchedStyles as SDK.CSSMatchedStyles.CSSMatchedStyles), computedStyles, parentsComputedStyles);
 
     // Style sections maybe re-created when flexbox editor is activated.
     // With the following code we re-bind the flexbox editor to the new
@@ -814,8 +834,9 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     // For sniffing in tests.
   }
 
-  private async rebuildSectionsForMatchedStyleRules(matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles):
-      Promise<SectionBlock[]> {
+  private async rebuildSectionsForMatchedStyleRules(
+      matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles, computedStyles: Map<string, string>|null|undefined,
+      parentsComputedStyles: Map<string, string>|null|undefined): Promise<SectionBlock[]> {
     if (this.idleCallbackManager) {
       this.idleCallbackManager.discard();
     }
@@ -872,7 +893,8 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       const lastBlock = blocks[blocks.length - 1];
       if (lastBlock) {
         this.idleCallbackManager.schedule(() => {
-          const section = new StylePropertiesSection(this, matchedStyles, style, sectionIdx);
+          const section =
+              new StylePropertiesSection(this, matchedStyles, style, sectionIdx, computedStyles, parentsComputedStyles);
           sectionIdx++;
           lastBlock.sections.push(section);
         });
@@ -941,7 +963,8 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         addLayerSeparator(style);
         const lastBlock = blocks[blocks.length - 1];
         this.idleCallbackManager.schedule(() => {
-          const section = new HighlightPseudoStylePropertiesSection(this, matchedStyles, style, sectionIdx);
+          const section = new HighlightPseudoStylePropertiesSection(
+              this, matchedStyles, style, sectionIdx, computedStyles, parentsComputedStyles);
           sectionIdx++;
           lastBlock.sections.push(section);
         });
