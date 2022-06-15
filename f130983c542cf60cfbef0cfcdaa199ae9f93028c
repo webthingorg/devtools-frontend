@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c616149_0e64be1b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-15T23:59:26Z",
+      "side": 1,
+      "message": "This worked! Thanks!",
+      "parentUuid": "ec72ab25_86be3f46",
+      "revId": "f130983c542cf60cfbef0cfcdaa199ae9f93028c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22dfb356_931457dd",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-06-15T22:51:57Z",
       "side": 1,
       "message": "We don\u0027t need this if we define the background color in the non-high contrast version which you did above.  The OS will know to replace the background-color with their version of BackgroundColor.\n\nTry deleting this section and seeing if you still see the highlight",
+      "revId": "f130983c542cf60cfbef0cfcdaa199ae9f93028c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9a8d47_18444e79",
+        "filename": "front_end/panels/application/resourcesSidebar.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-15T23:59:26Z",
+      "side": 1,
+      "message": "Deleted!",
+      "parentUuid": "22dfb356_931457dd",
       "revId": "f130983c542cf60cfbef0cfcdaa199ae9f93028c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b2c8b36_ec69ec6c",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-15T23:59:26Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "44f46580_d0b5701b",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f94bb7e_4d23dd9b",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-19T22:13:25Z",
       "side": 1,
       "message": "In terms of accessibility, we want to label the element to indicate that invoking it will trigger a scroll to that section header.\n\nMaybe set it to something like\n\"Identity: Invoke to scroll to the identity section in manifest\"\n\nYou can use this helper here and check out the other references of this helper for examples:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ARIAUtils.ts;l\u003d343?q\u003dARIAUtils.ts\u0026ss\u003dchromium",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03dfa2d7_6e6a8bd9",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-15T23:59:26Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "9f94bb7e_4d23dd9b",
       "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
