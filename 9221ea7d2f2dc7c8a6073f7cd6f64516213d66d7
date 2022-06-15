@@ -33,6 +33,24 @@
       "message": "Could you add a comment here? (Basically what you have in the commit message)",
       "revId": "9221ea7d2f2dc7c8a6073f7cd6f64516213d66d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55fdf05f_a27cf4a3",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-15T14:03:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f41f370_a776fa8a",
+      "revId": "9221ea7d2f2dc7c8a6073f7cd6f64516213d66d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
