@@ -56,6 +56,30 @@
       },
       "revId": "ba6d2a29475ca033c88695a0fa523ee54ac3d0a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7755f6aa_50b0ceb1",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-15T08:07:41Z",
+      "side": 1,
+      "message": "Indeed, I rewrote the code to log an error for this case.",
+      "parentUuid": "4cd360ba_f712102d",
+      "range": {
+        "startLine": 343,
+        "startChar": 8,
+        "endLine": 343,
+        "endChar": 20
+      },
+      "revId": "ba6d2a29475ca033c88695a0fa523ee54ac3d0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
