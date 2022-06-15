@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "505e405c_d4ff3db5",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-15T09:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9cc828e_fd66ff4d",
+      "revId": "1afd0543c1d76c97fdf27d40ebcc34b5625ea7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e8ef47f_02f79c9c",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-13T08:37:15Z",
       "side": 1,
       "message": "let\u0027s do the style fetching the the current node styles are being fetched instead of in the rendering function?",
+      "revId": "1afd0543c1d76c97fdf27d40ebcc34b5625ea7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0371ef2_ae07cca3",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-15T09:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e8ef47f_02f79c9c",
       "revId": "1afd0543c1d76c97fdf27d40ebcc34b5625ea7db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
