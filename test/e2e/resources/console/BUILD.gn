@@ -10,6 +10,8 @@ copy_to_gen("console") {
     "big-int.html",
     "built-ins.html",
     "console-filter.html",
+    "console-resource-errors-iframe.html",
+    "console-resource-errors.html",
     "cors-issue.html",
     "data-url-exceptions.html",
     "document-write.html",

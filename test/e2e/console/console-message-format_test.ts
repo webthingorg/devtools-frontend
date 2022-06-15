@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {getTestServerPort} from '../../shared/helper.js';
+import {$$, getTestServerPort} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   getConsoleMessages,
@@ -264,5 +264,34 @@ describe('The Console Tab', async () => {
         'After iframe navigation.',
       ]);
     });
+  });
+
+  it('shows network request messages in a dedicated format', async () => {
+    const messages =
+        await getConsoleMessages('console-resource-errors', false, () => waitForConsoleMessagesToBeNonEmpty(5));
+
+    assert.deepEqual(messages, [
+      'GET unknown-scheme://foo net::ERR_UNKNOWN_URL_SCHEME',
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/console/non-existent-xhr 404 (Not Found)`,
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/missing.css net::ERR_ABORTED 404 (Not Found)`,
+      `GET https://localhost:${
+          getTestServerPort()}/test/e2e/resources/non-existent-script.js net::ERR_ABORTED 404 (Not Found)`,
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/non-existent-iframe.html 404 (Not Found)`,
+    ]);
+    const stackContainers = await $$('.stack-preview-container');
+    const stacks = await Promise.all(stackContainers.map(s => s.evaluate(s => s.textContent || '')));
+
+    assert.deepEqual(stacks, [
+      `
+Image (async)
+performActions @ console-resource-errors.html:9
+(anonymous) @ console-resource-errors.html:31`,
+      `
+loadXHR @ console-resource-errors.html:21
+step2 @ console-resource-errors.html:13
+error (async)
+performActions @ console-resource-errors.html:8
+(anonymous) @ console-resource-errors.html:31`,
+    ]);
   });
 });
