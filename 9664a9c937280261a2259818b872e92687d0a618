@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb69acc9_74fa50ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-15T09:04:33Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9664a9c937280261a2259818b872e92687d0a618",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708f88d4_3f77d72b",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-15T09:04:33Z",
+      "side": 1,
+      "message": "nit: sourceURL",
+      "revId": "9664a9c937280261a2259818b872e92687d0a618",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
