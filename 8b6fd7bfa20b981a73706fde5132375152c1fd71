@@ -67,6 +67,24 @@
       "message": "I rebased this branch on top of the latest commit in the main branch.  They changed the typing of itemURL() so this throws a build error now.\n\nI would just make the same change here as they did in the other itemURL() calls to fix the build error.",
       "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8710488_4b82391f",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-15T01:32:02Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "f1151de2_d34915f4",
+      "revId": "8b6fd7bfa20b981a73706fde5132375152c1fd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
