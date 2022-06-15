@@ -16,6 +16,40 @@
       "message": "Hi Michael, please review when you can. Thanks! ",
       "revId": "6a65df183f850ae14c00d560fd7132ea5eaf2d54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8f0a10_5adc3ef5",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-06-15T21:45:00Z",
+      "side": 1,
+      "message": "We should try avoiding duplicating css code for outlining/hovering/etc. if it exists elsewhere in the codebase.  For example, if we wanted to change the color of a highlight, we would want it to be changed in one place instead of having multiple locations to modify the color.\n\nThe classes we want are in \"inspectorSyntaxHighlight.css\" which is applied broadly across the DevTools, but since we are in a shadow root, we need to inject it to the shadow root element.\n\nCalling ThemeSupport.ThemeSupport.instance().injectHighlightStyleSheets(this.#shadow);\nin ProtocolHandlersView.ts should do the trick here.",
+      "revId": "6a65df183f850ae14c00d560fd7132ea5eaf2d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a0469c_ebd2ce59",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-06-15T21:45:00Z",
+      "side": 1,
+      "message": "Is there a reason we are using \u0027devtools-text-input\u0027 over \u0027harmony-input\u0027 here? I forget if this was a deliberate choice.  It looks like if we use harmony-input, we get the right styling you\u0027re doing here to devtools-text-input.",
+      "revId": "6a65df183f850ae14c00d560fd7132ea5eaf2d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
