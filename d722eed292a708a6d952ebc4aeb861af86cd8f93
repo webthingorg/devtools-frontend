@@ -33,6 +33,24 @@
       "message": "If we end up doing this more often we could do\n\n    const stringify \u003d (object) \u003d\u003e JSON.stringify(object, null, 2);\n    \n…and then use `stringify` here and on line 44.",
       "revId": "d722eed292a708a6d952ebc4aeb861af86cd8f93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e26af82d_d5ac77b4",
+        "filename": "scripts/webidl-properties/index.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-15T12:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b2dae01_1bdc67f7",
+      "revId": "d722eed292a708a6d952ebc4aeb861af86cd8f93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
