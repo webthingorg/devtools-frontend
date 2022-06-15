@@ -265,4 +265,18 @@ describe('The Console Tab', async () => {
       ]);
     });
   });
+
+  it('shows network request messages in a dedicated format', async () => {
+    const messages =
+        await getConsoleMessages('console-resource-errors', false, () => waitForConsoleMessagesToBeNonEmpty(5));
+
+    assert.deepEqual(messages, [
+      'GET unknown-scheme://foo net::ERR_UNKNOWN_URL_SCHEME',
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/console/non-existent-xhr 404 (Not Found)`,
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/missing.css net::ERR_ABORTED 404 (Not Found)`,
+      `GET https://localhost:${
+          getTestServerPort()}/test/e2e/resources/non-existent-script.js net::ERR_ABORTED 404 (Not Found)`,
+      `GET https://localhost:${getTestServerPort()}/test/e2e/resources/non-existent-iframe.html 404 (Not Found)`,
+    ]);
+  });
 });
