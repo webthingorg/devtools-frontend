@@ -4,6 +4,7 @@
 
 import * as Common from '../../../core/common/common.js';
 import * as Host from '../../../core/host/host.js';
+import * as i18n from '../../../core/i18n/i18n.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Protocol from '../../../generated/protocol.js';
 import * as UI from '../../legacy/legacy.js';
@@ -12,6 +13,13 @@ import type {Settings} from './LinearMemoryInspector.js';
 import {Events as LmiEvents, LinearMemoryInspectorPaneImpl} from './LinearMemoryInspectorPane.js';
 import type {ValueType, ValueTypeMode} from './ValueInterpreterDisplayUtils.js';
 import {Endianness, getDefaultValueTypeMapping} from './ValueInterpreterDisplayUtils.js';
+import * as Bindings from '../../../models/bindings/bindings.js';
+
+const UIStrings = {};
+
+const str_ =
+    i18n.i18n.registerUIStrings('ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP = 'linear-memory-inspector';
 const MEMORY_TRANSFER_MIN_CHUNK_SIZE = 1000;
@@ -64,6 +72,21 @@ async function getBufferFromObject(obj: SDK.RemoteObject.RemoteObject): Promise<
   }
   obj = obj.runtimeModel().createRemoteObject(response.result);
   return new SDK.RemoteObject.RemoteArrayBuffer(obj);
+}
+
+// Maybe move this function to a new "memoryObjectUtils" file?
+export function isMemoryObjectProperty(obj: SDK.RemoteObject.RemoteObject): boolean {
+  const isWasmOrBuffer = obj.type === 'object' && obj.subtype && ACCEPTED_MEMORY_TYPES.includes(obj.subtype);
+  if (isWasmOrBuffer) {
+    return true;
+  }
+
+  const isWasmDWARF = obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode;
+  if (isWasmDWARF) {
+    return obj.inspectableAddress !== undefined;
+  }
+
+  return false;
 }
 
 type SerializableSettings = {
@@ -142,6 +165,31 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     };
   }
 
+  static async retrieveDwarfMemoryObjectAndAddress(obj: SDK.RemoteObject.RemoteObject):
+      Promise<{obj: SDK.RemoteObject.RemoteObject, address: number}|undefined> {
+    let address;
+    if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
+      const valueNode = obj;
+      address = valueNode.inspectableAddress || 0;
+      const callFrame = valueNode.callFrame;
+      const response = await obj.debuggerModel().agent.invoke_evaluateOnCallFrame({
+        callFrameId: callFrame.id,
+        expression: 'memories[0]',
+      });
+      const error = response.getError();
+      if (error) {
+        console.error(error);
+        Common.Console.Console.instance().error(i18nString.couldNotOpenLinearMemory);
+      }
+      const runtimeModel = obj.debuggerModel().runtimeModel();
+      obj = runtimeModel.createRemoteObject(response.result);
+      return {obj, address};
+    }
+    return;
+  }
+
+  // Testing:
+  // - How to thoroughly test that this still works for all memory types?
   async openInspectorView(obj: SDK.RemoteObject.RemoteObject, address?: number): Promise<void> {
     if (address !== undefined) {
       Host.userMetrics.linearMemoryInspectorTarget(
@@ -156,6 +204,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
       console.assert(obj.subtype === Protocol.Runtime.RemoteObjectSubtype.Webassemblymemory);
       Host.userMetrics.linearMemoryInspectorTarget(Host.UserMetrics.LinearMemoryInspectorTarget.WebAssemblyMemory);
     }
+
     const buffer = await getBufferFromObject(obj);
     const {internalProperties} = await buffer.object().getOwnProperties(false);
     const idProperty = internalProperties?.find(({name}) => name === '[[ArrayBufferData]]');
