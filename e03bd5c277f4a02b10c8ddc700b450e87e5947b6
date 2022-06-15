@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84bcf124_49bb88b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-15T08:19:23Z",
+      "side": 1,
+      "message": "Hi Jaro, hi Simon,\n\nI\u0027m doing a refactoring of the BreakpointManager which will also get rid of the deadlock that we experienced, since `ModelBreakpoint.scheduleUpdateInDebugger` would be able to call itself again (either directly, or through removing the outer `Breakpoint`).\n\nPTAL and let me know what you think. My goals with the refactoring was:\n\n1. Letting the breakpoint decide whether or not it should be removed (and not the ModelBreakpoint)\n2. Having just one single point where `scheduleUpdateInDebugger` is called, to properly take care of removing breakpoints (see point 1 above)\n3. Make it clear what is the result of `scheduleUpdateInDebugger` (do we need to re-run, was there an error?)\n\nNote that there is a failing layout test. This is due to changed timing, since we have one more await when scheduling an update (i.e. it needs to wait a bit longer before the breakpoint is set). I\u0027ll adapt the test, but will wait until I know how this CL turns out.",
+      "revId": "e03bd5c277f4a02b10c8ddc700b450e87e5947b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
