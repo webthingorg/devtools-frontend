@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2910ded6_01d01bd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-15T10:34:21Z",
+      "side": 1,
+      "message": "PTAL!\n\nSee the \"Visually distinguish important DOM properties in the object inspector\" CL (WIP) in the series if you\u0027d like to see more context on how this change will be relevant in the frontend. ",
+      "revId": "df49e22cf87553af9a9a87873ebcfd3fc4ca80e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
