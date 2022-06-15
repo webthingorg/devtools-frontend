@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264fde35_33cc8db8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-15T14:00:58Z",
+      "side": 1,
+      "message": "As discussed offline, the caller of `controller.openInspectorView()` now needs to call the preprocessing step on objects debugged using the extension (I call this method `retrieveDwarfMemoryObjectAndAddress()`, but I\u0027m not too sure if this is a technically correct name).\n\nEither-way, since the logic for rendering the memory icon and the logic for opening the viewer are kinda separate, having the caller responsible for calling  \n`retrieveDwarfMemoryObjectAndAddress()`can lead to unexpected behavior: If the caller forgets to call the function, the icon will still render, just be unclickable). \n",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
