@@ -16,6 +16,24 @@
       "message": "Hi Jack, could you please help me figure out what\u0027s going on here?\n\nIf you watch the screencast from the CL description, you\u0027ll see that these changes result in the component not being rendered sometimes. I\u0027ve only witnessed this behaviour when both `RequestHeadersComponent` and `Category` use `scheduleRender()`, it does not seem to happen when only one of them uses it.\n\nAm I using the `coordinator` incorrectly?",
       "revId": "0724669a30f5697dbca46dcdbca2646ae51d1c67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "024ecd47_19aded7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-06-16T13:32:11Z",
+      "side": 1,
+      "message": "Hey I\u0027m so sorry I didn\u0027t get emailed about this so I\u0027ve only just seen it!\n\nI can\u0027t see anything obvious that\u0027s going on, but I wondering if one of the asserts that you have in the components is throwing, or something?\n\nI think there\u0027s also a way to turn on logging for the render scheduler, so might be worth digging in to that and having a look through the logs.",
+      "parentUuid": "a578019c_01bf6a93",
+      "revId": "0724669a30f5697dbca46dcdbca2646ae51d1c67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
