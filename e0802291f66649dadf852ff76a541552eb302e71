@@ -16,6 +16,23 @@
       "message": "Hi Michael and Chait! I added the frontend telemetry. Please see patchset 15 when you get the chance",
       "revId": "e0802291f66649dadf852ff76a541552eb302e71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f20add_522442ac",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-06-16T21:33:59Z",
+      "side": 1,
+      "message": "In general, this looks good to me.  One thing I would change is that we should create an \"Other\" category at index 1 to default to when we can\u0027t find the sectionTitle in the enum.\n\nI\u0027m not sure what happens when we fire code value 0 when we don\u0027t define what that means, but it could result in a failure/crash.",
+      "revId": "e0802291f66649dadf852ff76a541552eb302e71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
