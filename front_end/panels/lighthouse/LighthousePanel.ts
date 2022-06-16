@@ -81,7 +81,12 @@ export class LighthousePanel extends UI.Panel.Panel {
   private rightToolbar!: UI.Toolbar.Toolbar;
   private showSettingsPaneSetting!: Common.Settings.Setting<boolean>;
   private stateBefore?: {
-    emulation: {enabled: boolean, outlineEnabled: boolean, toolbarControlsEnabled: boolean},
+    emulation: {
+      enabled: boolean,
+      outlineEnabled: boolean,
+      toolbarControlsEnabled: boolean,
+      device: EmulationModel.EmulatedDevices.EmulatedDevice|null,
+    },
     network: {conditions: SDK.NetworkManager.Conditions},
   };
   private isLHAttached?: boolean;
@@ -450,6 +455,7 @@ export class LighthousePanel extends UI.Panel.Panel {
         enabled: emulationModel.enabledSetting().get(),
         outlineEnabled: emulationModel.deviceOutlineSetting().get(),
         toolbarControlsEnabled: emulationModel.toolbarControlsEnabledSetting().get(),
+        device: emulationModel.device(),
       },
       network: {conditions: SDK.NetworkManager.MultitargetNetworkManager.instance().networkConditions()},
     };
@@ -483,9 +489,20 @@ export class LighthousePanel extends UI.Panel.Panel {
 
     if (this.stateBefore) {
       const emulationModel = EmulationModel.DeviceModeModel.DeviceModeModel.instance();
+
+      // For some reason, detaching a session after overriding device metrics will prevent other sessions from overriding device metrics in the future.
+      // A workaround is to call "Emulation.clearDeviceMetricOverrides" which is the result of the next line.
+      emulationModel.emulate(EmulationModel.DeviceModeModel.Type.None, null, null);
+
       emulationModel.enabledSetting().set(this.stateBefore.emulation.enabled);
       emulationModel.deviceOutlineSetting().set(this.stateBefore.emulation.outlineEnabled);
       emulationModel.toolbarControlsEnabledSetting().set(this.stateBefore.emulation.toolbarControlsEnabled);
+
+      const {device} = this.stateBefore.emulation;
+      if (device) {
+        emulationModel.emulate(EmulationModel.DeviceModeModel.Type.Device, device, device.modes[0], 1);
+      }
+
       SDK.NetworkManager.MultitargetNetworkManager.instance().setNetworkConditions(this.stateBefore.network.conditions);
       delete this.stateBefore;
     }
