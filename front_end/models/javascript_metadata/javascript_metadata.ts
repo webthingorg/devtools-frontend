@@ -10,6 +10,7 @@ import * as DOMPinnedProperties from './DOMPinnedProperties.js';
 import * as JavaScriptMetadata from './JavaScriptMetadata.js';
 import * as NativeFunctions from './NativeFunctions.js';
 
+export {DOMPinnedPropertiesDataset, DOMPinnedWebIDLProp, DOMPinnedWebIDLType} from './DOMPinnedProperties.js';
 export {
   DOMPinnedProperties,
   JavaScriptMetadata,
