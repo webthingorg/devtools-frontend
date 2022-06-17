@@ -2654,6 +2654,14 @@ domain DOM
 
   # Returns NodeIds of current top layer elements.
   # Top layer is rendered closest to the user within a viewport, therefore its elements always 
+  # appears on top of all other content.
+  experimental command getTopLayerElements
+    returns
+      # NodeIds of top layer elements
+      array of NodeId nodeIds
+
+  # Returns NodeIds of current top layer elements.
+  # Top layer is rendered closest to the user within a viewport, therefore its elements always 
   # appear on top of all other content.
   experimental command getTopLayerElements
     returns

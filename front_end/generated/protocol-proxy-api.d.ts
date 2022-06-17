@@ -962,6 +962,13 @@ declare namespace ProtocolProxyApi {
     /**
      * Returns NodeIds of current top layer elements.
      * Top layer is rendered closest to the user within a viewport, therefore its elements always
+     * appears on top of all other content.
+     */
+    invoke_getTopLayerElements(): Promise<Protocol.DOM.GetTopLayerElementsResponse>;
+
+    /**
+     * Returns NodeIds of current top layer elements.
+     * Top layer is rendered closest to the user within a viewport, therefore its elements always
      * appear on top of all other content.
      */
     invoke_getTopLayerElements(): Promise<Protocol.DOM.GetTopLayerElementsResponse>;

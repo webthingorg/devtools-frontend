@@ -3790,6 +3790,13 @@ export namespace DOM {
     nodeIds: NodeId[];
   }
 
+  export interface GetTopLayerElementsResponse extends ProtocolResponseWithError {
+    /**
+     * NodeIds of top layer elements
+     */
+    nodeIds: NodeId[];
+  }
+
   export interface RemoveAttributeRequest {
     /**
      * Id of the element to remove attribute from.

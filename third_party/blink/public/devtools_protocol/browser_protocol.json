@@ -1,4 +1,8 @@
 {
+    "version": {
+        "major": "1",
+        "minor": "3"
+    },
     "domains": [
         {
             "domain": "Accessibility",
@@ -5627,6 +5631,21 @@
                         {
                             "name": "nodeIds",
                             "description": "Query selector result.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "NodeId"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getTopLayerElements",
+                    "description": "Returns NodeIds of current top layer elements.\nTop layer is rendered closest to the user within a viewport, therefore its elements always\nappears on top of all other content.",
+                    "experimental": true,
+                    "returns": [
+                        {
+                            "name": "nodeIds",
+                            "description": "NodeIds of top layer elements",
                             "type": "array",
                             "items": {
                                 "$ref": "NodeId"
@@ -25600,9 +25619,5 @@
                 }
             ]
         }
-    ],
-    "version": {
-        "major": "1",
-        "minor": "3"
-    }
+    ]
 }
