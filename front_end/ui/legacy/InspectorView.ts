@@ -229,6 +229,10 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     return inspectorViewInstance;
   }
 
+  headerIcon(): Promise<HTMLElement|undefined> {
+    return Promise.resolve(undefined);
+  }
+
   static maybeGetInspectorViewInstance(): InspectorView|undefined {
     return inspectorViewInstance;
   }

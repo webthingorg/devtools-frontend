@@ -54,6 +54,13 @@ export class PreRegisteredView implements View {
     this.widgetRequested = false;
   }
 
+  headerIcon(): Promise<HTMLElement|undefined> {
+    if (this.viewRegistration.loadHeader) {
+      return this.viewRegistration.loadHeader();
+    }
+    return Promise.resolve(undefined);
+  }
+
   title(): Common.UIString.LocalizedString {
     return this.viewRegistration.title();
   }
@@ -479,6 +486,11 @@ export class _ExpandableContainerWidget extends VBox {
       this.widget = widget;
       widgetForView.set(this.view, widget);
       widget.show(this.element);
+    }));
+    promises.push(this.view.headerIcon().then(icon => {
+      if (icon) {
+        this.titleElement.appendChild(icon);
+      }
     }));
     this.materializePromise = Promise.all(promises);
     return this.materializePromise;

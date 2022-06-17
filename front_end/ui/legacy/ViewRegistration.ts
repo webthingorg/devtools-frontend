@@ -105,6 +105,8 @@ export interface ViewRegistration {
    * ```
    */
   loadView: () => Promise<Widget>;
+
+  loadHeader?: () => Promise<HTMLElement>;
   /**
    * Used to sort the views that appear in a shared location.
    */

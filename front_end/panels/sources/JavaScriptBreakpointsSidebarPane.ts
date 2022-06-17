@@ -9,9 +9,10 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import {LogpointPrefix} from './BreakpointEditDialog.js';
 
+import {LogpointPrefix} from './BreakpointEditDialog.js';
 import javaScriptBreakpointsSidebarPaneStyles from './javaScriptBreakpointsSidebarPane.css.js';
 
 const UIStrings = {
@@ -84,6 +85,23 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/sources/JavaScriptBreakpointsSidebarPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let javaScriptBreakpointsSidebarPaneInstance: JavaScriptBreakpointsSidebarPane;
+
+export function createHeaderIcon(): HTMLElement {
+  const deactivateButton = new IconButton.IconButton.IconButton();
+  // deactivateButton.title = i18nString('deactivate');
+  deactivateButton.data = {
+    groups: [{
+      iconName: 'copy_icon',
+      iconHeight: '12px',
+      iconWidth: '12px',
+      text: '',
+      iconColor: 'var(--color-text-primary)',
+    }],
+    clickHandler: (): void => {},
+    compact: true,
+  };
+  return deactivateButton;
+}
 
 export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.ThrottledWidget implements
     UI.ContextFlavorListener.ContextFlavorListener, UI.ListControl.ListDelegate<BreakpointItem> {

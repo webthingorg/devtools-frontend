@@ -26,6 +26,8 @@ export interface View {
   widget(): Promise<Widget>;
 
   disposeView(): void|Promise<void>;
+
+  headerIcon(): Promise<HTMLElement|undefined>;
 }
 
 export class SimpleView extends VBox implements View {
@@ -36,6 +38,10 @@ export class SimpleView extends VBox implements View {
     super(isWebComponent);
     this.#title = title;
     this.#viewId = viewId ?? title;
+  }
+
+  headerIcon(): Promise<HTMLElement|undefined> {
+    return Promise.resolve(undefined);
   }
 
   viewId(): string {

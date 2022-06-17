@@ -514,6 +514,10 @@ UI.ViewManager.registerViewExtension({
     const Sources = await loadSourcesModule();
     return Sources.JavaScriptBreakpointsSidebarPane.JavaScriptBreakpointsSidebarPane.instance();
   },
+  async loadHeader() {
+    const Sources = await loadSourcesModule();
+    return Sources.JavaScriptBreakpointsSidebarPane.createHeaderIcon();
+  },
 });
 
 UI.ActionRegistration.registerActionExtension({
