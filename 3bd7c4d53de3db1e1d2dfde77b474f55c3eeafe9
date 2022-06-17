@@ -66,6 +66,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ca8b428_7d97584f",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-17T08:38:05Z",
+      "side": 1,
+      "message": "This should be DebuggerWasDisabled(?).",
+      "range": {
+        "startLine": 490,
+        "startChar": 63,
+        "endLine": 490,
+        "endChar": 81
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f4b3f9b_76482f4e",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 13
