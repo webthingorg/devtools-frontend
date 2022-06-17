@@ -81,7 +81,14 @@ export class LighthousePanel extends UI.Panel.Panel {
   private rightToolbar!: UI.Toolbar.Toolbar;
   private showSettingsPaneSetting!: Common.Settings.Setting<boolean>;
   private stateBefore?: {
-    emulation: {enabled: boolean, outlineEnabled: boolean, toolbarControlsEnabled: boolean},
+    emulation: {
+      enabled: boolean,
+      outlineEnabled: boolean,
+      toolbarControlsEnabled: boolean,
+      scale: number,
+      device: EmulationModel.EmulatedDevices.EmulatedDevice|null,
+      mode: EmulationModel.EmulatedDevices.Mode|null,
+    },
     network: {conditions: SDK.NetworkManager.Conditions},
   };
   private isLHAttached?: boolean;
@@ -450,6 +457,9 @@ export class LighthousePanel extends UI.Panel.Panel {
         enabled: emulationModel.enabledSetting().get(),
         outlineEnabled: emulationModel.deviceOutlineSetting().get(),
         toolbarControlsEnabled: emulationModel.toolbarControlsEnabledSetting().get(),
+        scale: emulationModel.scaleSetting().get(),
+        device: emulationModel.device(),
+        mode: emulationModel.mode(),
       },
       network: {conditions: SDK.NetworkManager.MultitargetNetworkManager.instance().networkConditions()},
     };
@@ -483,9 +493,18 @@ export class LighthousePanel extends UI.Panel.Panel {
 
     if (this.stateBefore) {
       const emulationModel = EmulationModel.DeviceModeModel.DeviceModeModel.instance();
-      emulationModel.enabledSetting().set(this.stateBefore.emulation.enabled);
-      emulationModel.deviceOutlineSetting().set(this.stateBefore.emulation.outlineEnabled);
-      emulationModel.toolbarControlsEnabledSetting().set(this.stateBefore.emulation.toolbarControlsEnabled);
+
+      // Detaching a session after overriding device metrics will prevent other sessions from overriding device metrics in the future.
+      // A workaround is to call "Emulation.clearDeviceMetricOverride" which is the result of the next line.
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=1337089
+      emulationModel.emulate(EmulationModel.DeviceModeModel.Type.None, null, null);
+
+      const {enabled, outlineEnabled, toolbarControlsEnabled, scale, device, mode} = this.stateBefore.emulation;
+      emulationModel.enabledSetting().set(enabled);
+      emulationModel.deviceOutlineSetting().set(outlineEnabled);
+      emulationModel.toolbarControlsEnabledSetting().set(toolbarControlsEnabled);
+      emulationModel.emulate(EmulationModel.DeviceModeModel.Type.Device, device, mode, scale);
+
       SDK.NetworkManager.MultitargetNetworkManager.instance().setNetworkConditions(this.stateBefore.network.conditions);
       delete this.stateBefore;
     }
