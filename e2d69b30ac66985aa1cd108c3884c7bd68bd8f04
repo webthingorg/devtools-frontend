@@ -33,6 +33,24 @@
       "message": "Let\u0027s not commit this change. I believe it\u0027s accidental.",
       "revId": "e2d69b30ac66985aa1cd108c3884c7bd68bd8f04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75c29f1c_cd5f6e2c",
+        "filename": "test/e2e/test-runner-config.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-17T17:27:05Z",
+      "side": 1,
+      "message": "yes, it is accidental. Thanks!",
+      "parentUuid": "f27585c9_db6593f3",
+      "revId": "e2d69b30ac66985aa1cd108c3884c7bd68bd8f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
