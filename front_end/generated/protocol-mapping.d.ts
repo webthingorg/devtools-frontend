@@ -125,6 +125,10 @@ export namespace ProtocolMapping {
      */
     'DOM.pseudoElementAdded': [Protocol.DOM.PseudoElementAddedEvent];
     /**
+     * Called when top layer elements are changed.
+     */
+    'DOM.topLayerElementsUpdated': [];
+    /**
      * Called when a pseudo element is removed from an element.
      */
     'DOM.pseudoElementRemoved': [Protocol.DOM.PseudoElementRemovedEvent];
@@ -1266,6 +1270,12 @@ export namespace ProtocolMapping {
      */
     'DOM.querySelectorAll':
         {paramsType: [Protocol.DOM.QuerySelectorAllRequest]; returnType: Protocol.DOM.QuerySelectorAllResponse;};
+    /**
+     * Returns NodeIds of current top layer elements.
+     * Top layer is rendered closest to the user within a viewport, therefore its elements always
+     * appears on top of all other content.
+     */
+    'DOM.getTopLayerElements': {paramsType: []; returnType: Protocol.DOM.GetTopLayerElementsResponse;};
     /**
      * Re-does the last undone action.
      */
