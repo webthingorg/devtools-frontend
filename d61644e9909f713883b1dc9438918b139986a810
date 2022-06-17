@@ -70,6 +70,24 @@
       "parentUuid": "96236411_00cc27da",
       "revId": "d61644e9909f713883b1dc9438918b139986a810",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb19a05e_89c6083f",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-17T09:14:45Z",
+      "side": 0,
+      "message": "I just ran the web IDL properties script manually again against the new ToT, and modulo some eslint formatting the output stayed the same as it is in this CL.",
+      "parentUuid": "55afba94_4f8a0e2e",
+      "revId": "d61644e9909f713883b1dc9438918b139986a810",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
