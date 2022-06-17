@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06005443_ee7e0337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-17T12:08:36Z",
+      "side": 1,
+      "message": "LGTM with some minor comments/thoughts that you should feel free to ignore :) Thanks!",
+      "revId": "bdc7abbb0aeedb2e1d593633c97dba875f5dd1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d6c9de6_327f2828",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-17T12:08:36Z",
+      "side": 1,
+      "message": "If we want to stick to valid HTML/DOM, we could use `data-webidl\u003d\"…\"`. All we’d need to do is\n\n    this.listItemElement.dataset.webidl \u003d …;\n    \n…and change the CSS selectors in objectPropertiesSection.css and in the tests accordingly. WDYT?",
+      "revId": "bdc7abbb0aeedb2e1d593633c97dba875f5dd1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5771464_94190f35",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-17T12:08:36Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 69,
+        "startChar": 58,
+        "endLine": 69,
+        "endChar": 67
+      },
+      "revId": "bdc7abbb0aeedb2e1d593633c97dba875f5dd1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad2dd8cd_5364fe64",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-17T12:08:36Z",
+      "side": 1,
+      "message": "If this snippet was under review I’d suggest to leverage the DOM and do `input.type \u003d \u0027checkbox\u0027` :P Similar below",
+      "revId": "bdc7abbb0aeedb2e1d593633c97dba875f5dd1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
