@@ -16,6 +16,193 @@
       "message": "As discussed offline, the caller of `controller.openInspectorView()` now needs to call the preprocessing step on objects debugged using the extension (I call this method `retrieveDwarfMemoryObjectAndAddress()`, but I\u0027m not too sure if this is a technically correct name).\n\nEither-way, since the logic for rendering the memory icon and the logic for opening the viewer are kinda separate, having the caller responsible for calling  \n`retrieveDwarfMemoryObjectAndAddress()`can lead to unexpected behavior: If the caller forgets to call the function, the icon will still render, just be unclickable). \n",
       "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "463cc7ad_8d55ba4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Thanks Michal! Some comments.",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9911c0_07de3b64",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "nit `DWARF`",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d669ab_5d144c12",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Can we add another variable for `obj`? I.e. `let memoryObj \u003d obj`, and then assigning it in the if case. It is more clear in that case that it\u0027s not necessarily the same object as the one that is passed in as parameter.",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a2e8e7_4e335802",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Not your typo, but could you fix my typo \u0027lienar-\u003elinear\u0027 :D?",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d962f4cf_4055339e",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Let\u0027s leave it here for now and remove this comment",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8c481a_4b48afc3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "How about having an early exit instead? Also, address is not required in the outer scope, we should be able to move it down and use const instead, i.e.:\n```\nif (!obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {\n  return;\n}\n\nconst valueNode \u003d obj;\nconst address \u003d ..\n```",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4568c1b7_d41e6dad",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Is this a question to us? I\u0027ve notices that you added other comments with questions:\n\nIf yes: I think the usual way is to not include comments to reviewers in the code, but rather as comments on the gerrit patch.\n\nIf no: We have e2e tests that test the DWARF + TypedArray. I agree that we could add more tests here to cover the other parts too, but right now this is not the highest priority, but we can keep this in mind. Please remove the comment though, I think it would be better to file a bug instead (it\u0027s hard to track comments).",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e57b3e8_eff74794",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "nit: remove empty line",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d688e6_9a6e0f12",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Ok, you were right, let\u0027s move this into the `openInspectorView` instead, then we can remove this comment.",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9069ab0_c4edbe5a",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "Same comments as in the above (in the other instance of opening it)",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f23efc7e_73b93e2e",
+        "filename": "front_end/ui/legacy/components/object_ui/objectValue.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T08:12:23Z",
+      "side": 1,
+      "message": "I think I remember that you mentioned we could use the \u0027.object-value-with-memory-icon\u0027 that already exists.\n\nDoes `.object-value-with-memory-icon \u003e devtools-icon` work?",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
