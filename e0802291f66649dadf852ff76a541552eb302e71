@@ -51,6 +51,24 @@
       "parentUuid": "84f20add_522442ac",
       "revId": "e0802291f66649dadf852ff76a541552eb302e71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3006afb8_7c829740",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-06-17T17:09:07Z",
+      "side": 1,
+      "message": "Looking at it now, it looks like they create the \"Other\" category at index 0 (See SidebarPaneCodes and KeybindSetSettings enums).\n\nLet\u0027s change it to follow that pattern for consistency. Sorry for making you swap it back and forth :)",
+      "parentUuid": "0bf0507e_0cb7a7b5",
+      "revId": "e0802291f66649dadf852ff76a541552eb302e71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
