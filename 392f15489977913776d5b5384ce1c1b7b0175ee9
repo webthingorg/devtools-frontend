@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "546e1ae3_ff48299b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T21:42:38Z",
+      "side": 1,
+      "message": "It seems like there are more test errors. Let\u0027s figure them out on Monday then.",
+      "revId": "392f15489977913776d5b5384ce1c1b7b0175ee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe4d534_dd6119e2",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T21:42:38Z",
+      "side": 1,
+      "message": "We can just check `if (newTopLayerElementsIDs)` here to guard against both `null` and `undefined`.",
+      "revId": "392f15489977913776d5b5384ce1c1b7b0175ee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
