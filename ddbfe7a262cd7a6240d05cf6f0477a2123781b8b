@@ -316,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9257227e_d90b8ec9",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T09:54:31Z",
+      "side": 1,
+      "message": "I\u0027m not aware of empty lines guiding principle. In general, you can take a look here for ts guidelines: go/devtools-tsstyle\n\nThis was more a nit of: this looked as if it was accidentally added. I don\u0027t have a strong opinon on this, so if you think it makes more sense (logically) to add an empty line here, feel free to do so :).",
+      "parentUuid": "6413addd_fe0c3101",
+      "revId": "ddbfe7a262cd7a6240d05cf6f0477a2123781b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49d688e6_9a6e0f12",
