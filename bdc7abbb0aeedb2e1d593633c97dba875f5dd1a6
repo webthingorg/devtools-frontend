@@ -100,6 +100,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34999859_993269e2",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-06-17T12:47:46Z",
+      "side": 1,
+      "message": "\u003e such checkboxe. very doge. wow.\n\n😅",
+      "parentUuid": "348ecc3d_e6b44d1b",
+      "range": {
+        "startLine": 69,
+        "startChar": 58,
+        "endLine": 69,
+        "endChar": 67
+      },
+      "revId": "bdc7abbb0aeedb2e1d593633c97dba875f5dd1a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad2dd8cd_5364fe64",
