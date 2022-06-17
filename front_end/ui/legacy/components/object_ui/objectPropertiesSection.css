@@ -59,6 +59,17 @@
   overflow: hidden;
 }
 
+.object-properties-section [webidl="true"] > .adorner {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+}
+
+.object-properties-section [webidl="true"] > .name-and-value .name {
+  font-weight: bold;
+}
+
 .name-and-value {
   overflow: hidden;
   line-height: 16px;
