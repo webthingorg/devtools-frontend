@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7e606a1_1c3f2af8",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "Right now I don\u0027t anticipate more shared logic, but it may well be that I\u0027m wrong. Since it is currently very few code that is shared I\u0027m a bit hesitant, but I don\u0027t have a strong opinion on that. If you want, I can add a helper?",
+      "parentUuid": "bfbed386_3242276f",
+      "range": {
+        "startLine": 466,
+        "startChar": 2,
+        "endLine": 466,
+        "endChar": 12
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea453a06_6cdb6c59",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 13
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-17T05:10:15Z",
       "side": 1,
       "message": "nit:\n\n modelBreakpoint?.cleanUpAfterDebuggerIsGone();",
+      "range": {
+        "startLine": 482,
+        "startChar": 4,
+        "endLine": 485,
+        "endChar": 49
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a0eb40d_152c3f22",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea453a06_6cdb6c59",
       "range": {
         "startLine": 482,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a981ef_264da9f7",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "Good catch, thanks! Done",
+      "parentUuid": "2ca8b428_7d97584f",
+      "range": {
+        "startLine": 490,
+        "startChar": 63,
+        "endLine": 490,
+        "endChar": 81
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f4b3f9b_76482f4e",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a395879_2482f160",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f4b3f9b_76482f4e",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 5
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "980dafe1_078c69b3",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-06-17T05:10:15Z",
       "side": 1,
       "message": "Since this method can never return the `PENDING` variant would it make sense to turn this into a `Promise\u003cboolean\u003e` to signal success/failure? Then we can make the `DebuggerUpdateResult` enum class internal and hide this re-try logic from the \"public facing class interface\".",
+      "range": {
+        "startLine": 730,
+        "startChar": 36,
+        "endLine": 730,
+        "endChar": 65
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d494e4_dab02696",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "Good point, done!",
+      "parentUuid": "980dafe1_078c69b3",
       "range": {
         "startLine": 730,
         "startChar": 36,
@@ -169,6 +289,30 @@
       "writtenOn": "2022-06-17T05:10:15Z",
       "side": 1,
       "message": "I think we should remove or at least change this. We can\u0027t really test this negative. All we could do is wait for some time and assert that we didn\u0027t pause in that time frame (or add a console.log and wait for that to appear).",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 26
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e226a6e4_6b1e825f",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-17T13:02:39Z",
+      "side": 1,
+      "message": "The `await target.reload` will actually never finish if we still have a breakpoint (i.e. if we don\u0027t add line 244) as far as I can see, so I think as long as the `await` is there, we should be fine.",
+      "parentUuid": "a65fb276_fb5dbdad",
       "range": {
         "startLine": 243,
         "startChar": 0,
