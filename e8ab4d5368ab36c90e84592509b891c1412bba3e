@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c77f27b_9cddadd2",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "nit: I would suggest renaming this variable to `topLayerContainer` to be more clear.",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96288418_2b87b9cf",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "Could we use a Set\u003cElementsTreeElement\u003e for this instead? It looks like we don\u0027t use this array to get the order of top layer elements anyway.",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b6bc33_4fed9eba",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "Why would this `bodyElement` be optional? Would there be cases where it can be null/undefined?",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a88ad849_b7222c19",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "Same here: does it need to be optional?",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b774c9a_d47ed45e",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "nit: Let\u0027s early-return false here if `newTopLayerElementsIDs \u003d\u003d\u003d null`, and we don\u0027t need the if check in line 35 anymore.",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5540ee8b_0190c405",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "We could shorten this boolean return to `return topLayerElementIndex \u003e 0;`",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f9ab94a_66c29453",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "Would there be any case when we give an undefined `element` to this function?",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d955ccf_dbf6f66d",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "nit: let\u0027s use string template, i.e. ``top-layer(${topLayerElementIndex})``.",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc5f407_c758634f",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T09:04:40Z",
+      "side": 1,
+      "message": "Let\u0027s use adorner\u0027s API `addInteraction` to add event listener here. You can find some examples in ElementsTreeElement.ts.",
+      "revId": "e8ab4d5368ab36c90e84592509b891c1412bba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
