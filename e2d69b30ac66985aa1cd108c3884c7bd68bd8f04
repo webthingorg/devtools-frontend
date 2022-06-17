@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "711b7995_d2d37ef1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T17:05:43Z",
+      "side": 1,
+      "message": "It seems like there are some failing alayout tests. Let\u0027s figure out how to resolve those next week then.",
+      "revId": "e2d69b30ac66985aa1cd108c3884c7bd68bd8f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27585c9_db6593f3",
+        "filename": "test/e2e/test-runner-config.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-17T17:05:43Z",
+      "side": 1,
+      "message": "Let\u0027s not commit this change. I believe it\u0027s accidental.",
+      "revId": "e2d69b30ac66985aa1cd108c3884c7bd68bd8f04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
