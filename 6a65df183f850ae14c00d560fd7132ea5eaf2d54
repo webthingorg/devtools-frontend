@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81df60ad_1e199bf4",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-17T18:23:58Z",
+      "side": 1,
+      "message": "Thanks for the suggestion and for pointing that out! Using ThemeSupport worked. My only concern is that when I tried importing ThemeSupport for a previous issue I was told that ThemeSupport is meant for light and dark themes and generally isn\u0027t meant for importing for classes. \n\nI decided to push up this change for now, but I was also given the suggestion to import inspectorSyntaxHighlight.css at the top of the file, and then include it in adoptedStyleSheets array. When I tried this, it causes the Application Pane to crash, so will need more time to look into.",
+      "parentUuid": "ff8f0a10_5adc3ef5",
+      "revId": "6a65df183f850ae14c00d560fd7132ea5eaf2d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0a0469c_ebd2ce59",
         "filename": "front_end/panels/application/components/protocolHandlersView.css",
         "patchSetId": 2
