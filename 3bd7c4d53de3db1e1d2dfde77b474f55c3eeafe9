@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c1bb39c_513e8571",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-18T06:42:31Z",
+      "side": 1,
+      "message": "Let\u0027s leave it as is then :)",
+      "parentUuid": "c7e606a1_1c3f2af8",
+      "range": {
+        "startLine": 466,
+        "startChar": 2,
+        "endLine": 466,
+        "endChar": 12
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea453a06_6cdb6c59",
@@ -313,6 +337,30 @@
       "side": 1,
       "message": "The `await target.reload` will actually never finish if we still have a breakpoint (i.e. if we don\u0027t add line 244) as far as I can see, so I think as long as the `await` is there, we should be fine.",
       "parentUuid": "a65fb276_fb5dbdad",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 26
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f082d1_de779300",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-18T06:42:31Z",
+      "side": 1,
+      "message": "Can we change the comment to be more explicit and include that information? I wasn\u0027t aware that `target.reload` would not resolve with a breakpoint :)",
+      "parentUuid": "e226a6e4_6b1e825f",
       "range": {
         "startLine": 243,
         "startChar": 0,
