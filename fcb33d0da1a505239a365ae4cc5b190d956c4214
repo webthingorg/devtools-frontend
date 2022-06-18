@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7f0e1d_f2f5c86a",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-18T04:52:15Z",
+      "side": 1,
+      "message": "i wouldn\u0027t complain if you wanted to, as a driveby, do a  s/resetEmulationAndProtocolConnection/restoreEmulationAndProtocolConnection/\n\n\n:)",
+      "revId": "fcb33d0da1a505239a365ae4cc5b190d956c4214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
