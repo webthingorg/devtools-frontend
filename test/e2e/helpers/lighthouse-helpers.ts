@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {click, goToResource, waitFor} from '../../shared/helper.js';
+import {click, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
 
 import {waitForQuotaUsage} from './application-helpers.js';
 
@@ -20,6 +20,44 @@ export async function navigateToLighthouseTab(path?: string): Promise<ElementHan
   }
 
   return waitFor('.lighthouse-start-view-fr');
+}
+
+// Instead of watching the worker or controller/panel internals, we wait for the Lighthouse renderer
+// to create the new report DOM. And we pull the LHR off the lh-root node.
+export async function waitForLHR() {
+  return await waitForFunction(async () => {
+    const reportEl = await waitFor('.lh-root');
+    return await reportEl.evaluate(elem => {
+      // @ts-ignore we installed this obj on a DOM element
+      const lhr = elem.lighthouseResult;
+      // Delete so any subsequent runs don't accidentally reuse this.
+      // @ts-ignore
+      delete elem.lighthouseResult;
+      return lhr;
+    });
+  });
+}
+
+type LhCategoryId = 'performance'|'accessibility'|'best-practices'|'seo'|'pwa'|'lighthouse-plugin-publisher-ads';
+export async function selectCategories(selectedCategoryIds: Array<LhCategoryId>) {
+  const panel = await waitFor('.lighthouse-start-view-fr');
+  // @ts-ignore Resolving this categoryId enum is hard…
+  await panel.$$eval('[is=dt-checkbox]', (dtCheckboxes, selectedCategoryIds: Array<string>) => {
+    dtCheckboxes.forEach(dtCheckboxElem => {
+      const categoryId = dtCheckboxElem.getAttribute('data-lhCategory') || '';
+      // @ts-ignore Can't reference ToolbarSettingCheckbox inside e2e :/
+      dtCheckboxElem.checkboxElement.checked = selectedCategoryIds.includes(categoryId);
+    });
+  }, selectedCategoryIds);
+}
+
+export async function clickButton() {
+  const panel = await waitFor('.lighthouse-start-view-fr');
+  const button = await panel.$('button');
+  if (!button) {
+    assert.fail('no button');
+  }
+  await button.click();
 }
 
 export async function isGenerateReportButtonDisabled() {
