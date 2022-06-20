@@ -369,6 +369,30 @@
       },
       "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16377d10_67ca30a4",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T04:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95f082d1_de779300",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 26
+      },
+      "revId": "3bd7c4d53de3db1e1d2dfde77b474f55c3eeafe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
