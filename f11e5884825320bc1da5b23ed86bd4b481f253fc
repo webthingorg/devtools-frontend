@@ -16,6 +16,24 @@
       "message": "If you narrow the pane until the text wraps into three lines, are the lines unevenly spaced?\n\nI was about to try wrapping the x-links in a div so the padding could be on the div instead of the x-link, but no strong preference. ",
       "revId": "f11e5884825320bc1da5b23ed86bd4b481f253fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e408232e_51479312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-06-20T14:29:11Z",
+      "side": 1,
+      "message": "You\u0027re totally right actually! They were unevenly spaced. I added the line-height to the `.helper` div so that the lines will be spaced evenly and they will have a line-height suitable for the outline to not overlap with the text. WDYT?",
+      "parentUuid": "10ad74f0_c4a072e3",
+      "revId": "f11e5884825320bc1da5b23ed86bd4b481f253fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
