@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10ad74f0_c4a072e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-06-20T13:10:23Z",
+      "side": 1,
+      "message": "If you narrow the pane until the text wraps into three lines, are the lines unevenly spaced?\n\nI was about to try wrapping the x-links in a div so the padding could be on the div instead of the x-link, but no strong preference. ",
+      "revId": "f11e5884825320bc1da5b23ed86bd4b481f253fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
