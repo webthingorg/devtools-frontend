@@ -16,6 +16,46 @@
       "message": "Could you take a look, please?",
       "revId": "71d23c9fc369927cdf5d37245f3b4fcfd29b34ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b48628_1d89fcac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-20T09:30:13Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "71d23c9fc369927cdf5d37245f3b4fcfd29b34ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99a6d387_f3c2cb08",
+        "filename": "test/unittests/front_end/models/source_map_scopes/NamesResolver_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-20T09:30:13Z",
+      "side": 1,
+      "message": "I recommend using `scopeChain.unshift` instead for better readability :)",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 119
+      },
+      "revId": "71d23c9fc369927cdf5d37245f3b4fcfd29b34ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
