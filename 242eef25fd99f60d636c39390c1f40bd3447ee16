@@ -123,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a166d844_b9e67215",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T18:26:03Z",
+      "side": 1,
+      "message": "Happy to hear that it works :)!",
+      "parentUuid": "deb98f49_97b0ee4b",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 0
+      },
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ec8e92_dfdac8b7",
@@ -154,6 +178,24 @@
       "side": 1,
       "message": "Yes indeed. But we\u0027ll handle that in a follow-up when we move the errors from the console to an infobar in the editor. The reason is that its really bad practice to string concatenate translations. So we have to redo the strings regardless and this way we reduce the churn for translators depending on when the CLs land.",
       "parentUuid": "f0ec8e92_dfdac8b7",
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1db2a70a_28c711f9",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T18:26:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae277fee_b3f44f9c",
       "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
