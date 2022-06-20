@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75700e1a_71879d0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-20T13:45:20Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\n(The CL removes some noise in the console when debugging vscode.dev.)\n",
+      "revId": "fcaf9d32f5ff4b6af5b6d073ba8fae7c68e88e1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
