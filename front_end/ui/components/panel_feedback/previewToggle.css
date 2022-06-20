@@ -37,6 +37,9 @@
   color: var(--color-primary);
   text-decoration-line: underline;
   padding: 4px;
+  /* For outline not to paint over the other elements
+  we need to have 2 * <padding>px additional line height */
+  line-height: calc(1em + 8px);
 }
 
 .feedback .x-link {
