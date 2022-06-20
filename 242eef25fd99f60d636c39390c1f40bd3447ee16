@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0483863e_8eaa8e44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-20T08:32:11Z",
+      "side": 1,
+      "message": "PTAL\n\nI\u0027ll enable the new \"live edit top level stack frame\" in a separate CL so we can revert more easily.",
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d97ab4_92b1d4f7",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-20T08:32:11Z",
+      "side": 1,
+      "message": "I tried to add a test for this, but unfortunately `getError` is created by the backend here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/protocol_client/InspectorBackend.ts;l\u003d1021;drc\u003d7cf7079ca2fa0bb24861fbcd46aedaaba426a448\n\nIn case an `error` is present on the low-level protocol message which we currently can\u0027t override via mocking (only the `result`).",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 0
+      },
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

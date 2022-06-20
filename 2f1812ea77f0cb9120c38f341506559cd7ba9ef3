@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610f3952_2e2d5cf6",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-06-20T08:32:11Z",
+      "side": 0,
+      "message": "Note, i didn\u0027t find any path how this script could be undefined or an empty string. The backend always reports a scriptId even if the script fails to parse.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 5
+      },
+      "revId": "2f1812ea77f0cb9120c38f341506559cd7ba9ef3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
