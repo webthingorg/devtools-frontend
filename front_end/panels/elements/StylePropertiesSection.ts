@@ -703,6 +703,7 @@ export class StylePropertiesSection {
   protected createAtRuleLists(rule: SDK.CSSRule.CSSStyleRule): void {
     this.createMediaList(rule.media);
     this.createContainerQueryList(rule.containerQueries);
+    this.createScopesList(rule.scopes);
     this.createSupportsList(rule.supports);
   }
 
@@ -770,6 +771,28 @@ export class StylePropertiesSection {
       this.queryListElement.append(containerQueryElement);
 
       void this.addContainerForContainerQuery(containerQuery);
+    }
+  }
+
+  protected createScopesList(scopesList: SDK.CSSScope.CSSScope[]): void {
+    for (let i = scopesList.length - 1; i >= 0; --i) {
+      const scope = scopesList[i];
+      if (!scope.text) {
+        continue;
+      }
+
+      let onQueryTextClick;
+      if (scope.styleSheetId) {
+        onQueryTextClick = this.handleQueryRuleClick.bind(this, scope);
+      }
+
+      const scopeElement = new ElementsComponents.CSSQuery.CSSQuery();
+      scopeElement.data = {
+        queryPrefix: '@scope',
+        queryText: scope.text,
+        onQueryTextClick,
+      };
+      this.queryListElement.append(scopeElement);
     }
   }
 
