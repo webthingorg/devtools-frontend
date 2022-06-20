@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "714d8a3a_d126f168",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-20T09:24:02Z",
+      "side": 1,
+      "message": "nit: either null or undefined",
+      "range": {
+        "startLine": 609,
+        "startChar": 66,
+        "endLine": 609,
+        "endChar": 70
+      },
+      "revId": "038b861028b053f08f6acb3eb5afc642c4cbdfbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb3b4ee_c297fe2c",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-20T09:24:02Z",
+      "side": 1,
+      "message": "let\u0027s add an e2e test",
+      "revId": "038b861028b053f08f6acb3eb5afc642c4cbdfbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0563f93_8bbf8030",
         "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
         "patchSetId": 13
