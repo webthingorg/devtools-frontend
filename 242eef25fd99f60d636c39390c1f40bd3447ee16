@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "684ad10a_2a45fcce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T13:00:15Z",
+      "side": 1,
+      "message": "LGTM, just some small comments",
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75d97ab4_92b1d4f7",
@@ -37,6 +54,47 @@
         "endLine": 277,
         "endChar": 0
       },
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba7213c_95528fd4",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T13:00:15Z",
+      "side": 1,
+      "message": "Is it possible to use sinon to return a different response for `invoke_setScriptSource`?",
+      "parentUuid": "75d97ab4_92b1d4f7",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 0
+      },
+      "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ec8e92_dfdac8b7",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-20T13:00:15Z",
+      "side": 1,
+      "message": "Don\u0027t we want these strings to be be translatable too?",
       "revId": "242eef25fd99f60d636c39390c1f40bd3447ee16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
