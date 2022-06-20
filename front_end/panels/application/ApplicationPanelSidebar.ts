@@ -603,14 +603,30 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
   private addDOMStorage(domStorage: DOMStorage): void {
     console.assert(!this.domStorageTreeElements.get(domStorage));
+    console.assert(Boolean(domStorage.storageKey) || Boolean(domStorage.securityOrigin));
 
-    const domStorageTreeElement = new DOMStorageTreeElement(this.panel, domStorage);
-    this.domStorageTreeElements.set(domStorage, domStorageTreeElement);
-    if (domStorage.isLocalStorage) {
-      this.localStorageListTreeElement.appendChild(domStorageTreeElement);
-    } else {
-      this.sessionStorageListTreeElement.appendChild(domStorageTreeElement);
+    if (!this.containsDuplicate(this.domStorageTreeElements, domStorage)) {
+      const domStorageTreeElement = new DOMStorageTreeElement(this.panel, domStorage);
+      this.domStorageTreeElements.set(domStorage, domStorageTreeElement);
+      if (domStorage.isLocalStorage) {
+        this.localStorageListTreeElement.appendChild(domStorageTreeElement);
+      } else {
+        this.sessionStorageListTreeElement.appendChild(domStorageTreeElement);
+      }
     }
+  }
+
+  private containsDuplicate(domStorageTreeElements: Map<DOMStorage, DOMStorageTreeElement>, domStorage: DOMStorage):
+      boolean {
+    for (const storage of domStorageTreeElements.keys()) {
+      if (domStorage.isLocalStorage === storage.isLocalStorage) {
+        if (domStorage.storageKey?.slice(0, -1) === storage.securityOrigin ||
+            domStorage.securityOrigin === storage.storageKey?.slice(0, -1)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   private domStorageRemoved(event: Common.EventTarget.EventTargetEvent<DOMStorage>): void {
@@ -1422,7 +1438,10 @@ export class DOMStorageTreeElement extends ApplicationPanelTreeElement {
   private readonly domStorage: DOMStorage;
   constructor(storagePanel: ResourcesPanel, domStorage: DOMStorage) {
     super(
-        storagePanel, domStorage.securityOrigin ? domStorage.securityOrigin : i18nString(UIStrings.localFiles), false);
+        storagePanel,
+        domStorage.securityOrigin ? domStorage.securityOrigin :
+                                    (domStorage.storageKey ? domStorage.storageKey : i18nString(UIStrings.localFiles)),
+        false);
     this.domStorage = domStorage;
     const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
