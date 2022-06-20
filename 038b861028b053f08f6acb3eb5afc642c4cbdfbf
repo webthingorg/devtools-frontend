@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0563f93_8bbf8030",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-20T09:21:06Z",
+      "side": 1,
+      "message": "```\nconst tests \u003d [\n { \n   description: \u0027\u0027,\n   computedStyles: [[]],\n   parentStyles: null,\n   validator: Elements.CSSRuleValidator.AlignContentValidator,\n   expectedResult: true\n }\n]\n\nfor (const test of tests) {\n  it(test.description, )\n}\n```",
+      "revId": "038b861028b053f08f6acb3eb5afc642c4cbdfbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
