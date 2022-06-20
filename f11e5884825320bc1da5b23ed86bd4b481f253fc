@@ -34,6 +34,24 @@
       "parentUuid": "10ad74f0_c4a072e3",
       "revId": "f11e5884825320bc1da5b23ed86bd4b481f253fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10936aac_e6990065",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-06-20T15:14:48Z",
+      "side": 1,
+      "message": "If you go to the Sources panel and tab to the \"Learn More\" link in the preview toggle on the left, there is some overlap with the surrounding text there too, so it would be good to come up with a fix that works both places. I think that wrapping these links in divs (in PreviewToggle.ts) and putting the padding on them would work, and we don\u0027t really want these controls to take up more vertical space if they don\u0027t need to. That said, setting the line height on an element higher in the tree would work too.",
+      "parentUuid": "e408232e_51479312",
+      "revId": "f11e5884825320bc1da5b23ed86bd4b481f253fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
