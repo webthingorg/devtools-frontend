@@ -48,6 +48,10 @@ const UIStrings = {
  *@description Text for test protocol button
  */
   testProtocol: 'Test protocol',
+  /**
+  * @description Aria text for screen reader to announce they can select a protocol handler in the dropdown
+  */
+  dropdownLabel: 'Select protocol handler',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/ProtocolHandlersView.ts', UIStrings);
@@ -121,7 +125,8 @@ export class ProtocolHandlersView extends HTMLElement {
                                 .map(p => LitHtml.html`<option value=${p.protocol}>${p.protocol}://</option>`);
     return LitHtml.html`
        <div class="protocol-handlers-row">
-        <select class="chrome-select protocol-select" @change=${this.#handleProtocolSelect}>
+        <select class="chrome-select protocol-select" @change=${this.#handleProtocolSelect} aria-label=${
+        i18nString(UIStrings.dropdownLabel)}>
            ${protocolOptions}
         </select>
         <input .value=${this.#queryInputState} class="devtools-text-input" type="text" @change=${
