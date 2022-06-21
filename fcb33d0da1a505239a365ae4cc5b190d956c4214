@@ -16,6 +16,24 @@
       "message": "i wouldn\u0027t complain if you wanted to, as a driveby, do a  s/resetEmulationAndProtocolConnection/restoreEmulationAndProtocolConnection/\n\n\n:)",
       "revId": "fcb33d0da1a505239a365ae4cc5b190d956c4214",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "519fe5b3_d1939c0f",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T16:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be7f0e1d_f2f5c86a",
+      "revId": "fcb33d0da1a505239a365ae4cc5b190d956c4214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
