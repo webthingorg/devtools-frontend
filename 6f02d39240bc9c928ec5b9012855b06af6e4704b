@@ -16,6 +16,23 @@
       "message": "Please take a look when you can. Thanks! ",
       "revId": "6f02d39240bc9c928ec5b9012855b06af6e4704b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34e71fbb_91f759ea",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-06-21T16:23:34Z",
+      "side": 1,
+      "message": "Screen reader already announces the dropdown from the html, \"Select a protocol\" should suffice.",
+      "revId": "6f02d39240bc9c928ec5b9012855b06af6e4704b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
