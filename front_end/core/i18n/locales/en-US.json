@@ -3206,6 +3206,9 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Show details"
   },
+  "panels/application/components/ProtocolHandlersView.ts | dropdownLabel": {
+    "message": "Dropdown: select a protocol to test"
+  },
   "panels/application/components/ProtocolHandlersView.ts | manifest": {
     "message": "manifest"
   },

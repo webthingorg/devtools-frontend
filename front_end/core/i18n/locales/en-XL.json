@@ -3206,6 +3206,9 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Ŝh́ôẃ d̂ét̂áîĺŝ"
   },
+  "panels/application/components/ProtocolHandlersView.ts | dropdownLabel": {
+    "message": "D̂ŕôṕd̂óŵń: ŝél̂éĉt́ â ṕr̂ót̂óĉól̂ t́ô t́êśt̂"
+  },
   "panels/application/components/ProtocolHandlersView.ts | manifest": {
     "message": "m̂án̂íf̂éŝt́"
   },
