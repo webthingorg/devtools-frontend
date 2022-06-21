@@ -16,6 +16,91 @@
       "message": "I meant to just make a spike, but it worked the first time, so I just kept going..",
       "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2acd2a3_3f7f2f86",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T21:28:19Z",
+      "side": 1,
+      "message": "nit: could you add an underscore to this, just to make it super clear that this is a testing value.",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d69a19_3f79405d",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T21:28:19Z",
+      "side": 1,
+      "message": "You might want to be careful here. I\u0027m not sure this will trigger the checkbox `change` event automatically.",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbaee52b_ef824998",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T21:28:19Z",
+      "side": 1,
+      "message": "Could this be more specific like `clickStartButton` or `initiateLighthouseRun`",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe0967b_2933da82",
+        "filename": "test/e2e/lighthouse/request_blocking_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T21:28:19Z",
+      "side": 1,
+      "message": "nit: this comment shouldn\u0027t be necessary if `clickButton` had a more descriptive name (see my other suggestion)",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa90188a_f0288ec5",
+        "filename": "test/e2e/lighthouse/request_blocking_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-21T21:28:19Z",
+      "side": 1,
+      "message": "Would `Record\u003cstring, unknown\u003e` work in place of `TableItem`?",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
