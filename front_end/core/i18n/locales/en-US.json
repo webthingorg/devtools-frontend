@@ -3224,6 +3224,9 @@
   "panels/application/components/ProtocolHandlersView.ts | testProtocol": {
     "message": "Test protocol"
   },
+  "panels/application/components/ProtocolHandlersView.ts | textboxLabel": {
+    "message": "Query parameter or endpoint for protocol handler"
+  },
   "panels/application/components/ReportsGrid.ts | destination": {
     "message": "Destination"
   },
