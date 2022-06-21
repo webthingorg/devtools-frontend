@@ -33,6 +33,24 @@
       "message": "I think \"Query parameter or endpoint for protocol handler\" should work here.",
       "revId": "b64577c5f0e683a2b5a7810586d66e675f18f8f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e2a4608_29af542d",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-21T18:29:11Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "c67104a3_92332e85",
+      "revId": "b64577c5f0e683a2b5a7810586d66e675f18f8f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
