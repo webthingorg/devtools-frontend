@@ -33,6 +33,24 @@
       "message": "Thanks for the patch!\n\nIs it possible to add tests for all of this?",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6dd23f9_be02d1bf",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-06-22T18:00:54Z",
+      "side": 1,
+      "message": "Any suggestions for a good approach? Something like test/unittests/front_end/models/timeline_model/TimelineJSProfile_test.ts or should I use something else for inspiration?",
+      "parentUuid": "1d60f060_64e6061c",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
