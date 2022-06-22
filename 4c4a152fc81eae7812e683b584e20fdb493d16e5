@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nwith the recent change for adding the memory icon for DWARF as well crrev.com/c/3707811, we\u0027re now opening the memory inspector for all inspectable objects. This was not the desired outcome, as this was cluttering the scope view. This CL makes sure that we go back to only opening it for buffers, webassembly memories and DWARF objects. PTAL!",
       "revId": "4c4a152fc81eae7812e683b584e20fdb493d16e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88f02872_7d3b25be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-22T06:28:21Z",
+      "side": 1,
+      "message": "Thanks, submitting!",
+      "revId": "4c4a152fc81eae7812e683b584e20fdb493d16e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
