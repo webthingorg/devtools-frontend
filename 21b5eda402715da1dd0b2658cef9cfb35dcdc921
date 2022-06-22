@@ -207,6 +207,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed60b556_b7ae3ebe",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-22T12:40:07Z",
+      "side": 1,
+      "message": "There is a table in the design doc (http://doc/1gh9bF66vWUI9H5JDLCjvRuR75CRas4DWCvl1TlehzeA#bookmark\u003did.vqra8jt4pb4n) which mentions all non-chromium/src dependencies and how they are rolled.\n\nFor devtools-frontend, we roll the inspector_protocol manually.",
+      "parentUuid": "8f0e9502_0601f4f0",
+      "range": {
+        "startLine": 47,
+        "startChar": 28,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53fb44a_27fc3cd7",
