@@ -22,6 +22,30 @@
       },
       "revId": "02f002f6752bc5febb06f04b93cbf80c945d3403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "176ce8c2_4a740ff0",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:28:08Z",
+      "side": 1,
+      "message": "Or, guess you added a public privileged pool. Then it\u0027s probably ok, but we could also move all the builders to the same place...",
+      "parentUuid": "f8b6321b_8c24fc3a",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "02f002f6752bc5febb06f04b93cbf80c945d3403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
