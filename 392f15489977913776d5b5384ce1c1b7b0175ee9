@@ -33,6 +33,24 @@
       "message": "We can just check `if (newTopLayerElementsIDs)` here to guard against both `null` and `undefined`.",
       "revId": "392f15489977913776d5b5384ce1c1b7b0175ee9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968de46b_8ead7d14",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-22T08:05:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fe4d534_dd6119e2",
+      "revId": "392f15489977913776d5b5384ce1c1b7b0175ee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
