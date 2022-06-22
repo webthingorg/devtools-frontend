@@ -16,6 +16,29 @@
       "message": "Added a few comments, PTAL.",
       "revId": "2d3b27e6eb01d97caabdf96cf8bab4bb1d299224",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bd1f40_1d3cf457",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T12:25:17Z",
+      "side": 1,
+      "message": "nit: DevTools",
+      "range": {
+        "startLine": 45,
+        "startChar": 37,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "2d3b27e6eb01d97caabdf96cf8bab4bb1d299224",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

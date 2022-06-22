@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e31b238_dbbfce7d",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T12:25:17Z",
+      "side": 1,
+      "message": "LG, thanks!",
+      "parentUuid": "6a4c50c4_1c8e4cda",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e9d313b_49f088e7",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "esbuild was excluded before, and is still excluded with this config. I think I don\u0027t quite understand this comment.",
       "parentUuid": "3e9d313b_49f088e7",
+      "range": {
+        "startLine": 47,
+        "startChar": 28,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0e9502_0601f4f0",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T12:25:17Z",
+      "side": 1,
+      "message": "Right! I was somehow holding it wrong. What I wonder, is there anything left that is going to be rolled here and needs human review?",
+      "parentUuid": "c3fa9431_f54eb01c",
       "range": {
         "startLine": 47,
         "startChar": 28,
