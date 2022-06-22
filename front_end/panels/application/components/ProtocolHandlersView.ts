@@ -13,6 +13,7 @@ import * as Input from '../../../ui/components/input/input.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import inspectorCommonStyles from '../../../ui/legacy/inspectorCommon.css.js';
 import * as UI from '../../../ui/legacy/legacy.js';
+import * as ThemeSupport from '../../../ui/legacy/theme_support/theme_support.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import protocolHandlersViewStyles from './protocolHandlersView.css.js';
@@ -155,6 +156,7 @@ export class ProtocolHandlersView extends HTMLElement {
       inspectorCommonStyles,
       Input.textInputStyles,
     ];
+    ThemeSupport.ThemeSupport.instance().injectHighlightStyleSheets(this.#shadow);
   }
 
   #render(): void {
