@@ -20,7 +20,10 @@ def GetBinaryPath():
 
 
 def RunNode(cmd_parts, output=subprocess.PIPE):
-    cmd = [GetBinaryPath()] + cmd_parts
+    cmd = [
+        GetBinaryPath(), '-r',
+        os.path.abspath(os.path.join(os.path.dirname(__file__), 'env_hook.js'))
+    ] + cmd_parts
     process = subprocess.Popen(cmd,
                                cwd=os.getcwd(),
                                stdout=output,
