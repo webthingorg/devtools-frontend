@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b6321b_8c24fc3a",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:25:40Z",
+      "side": 1,
+      "message": "Though wait a second... this is in chrome-swarming, right? While the builder is still in chromium-swarm. Probably this builder should migrate to devtools-internal.",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "02f002f6752bc5febb06f04b93cbf80c945d3403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
