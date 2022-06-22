@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "775de0cd_f63a2a4c",
+        "filename": "buckets/ci.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-22T12:15:38Z",
+      "side": 1,
+      "message": "The chromium pin cannot be untrusted, has slightly different properties, and does not use excludes / includes. As a result, the builder is excluded from the incoming_rollers definition. Not perfectly consistent though, and could be improved in a follow-up CL.",
+      "parentUuid": "6f202c80_a2a93ed5",
+      "range": {
+        "startLine": 155,
+        "startChar": 68,
+        "endLine": 155,
+        "endChar": 101
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9aaa242e_d95c87ca",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-22T11:48:50Z",
       "side": 1,
       "message": "Lets assume someone later adds a builder here, but forgets to list any includes. Will the assert in the builder fire? I.e. does the setting skip_untrusted_origins-False and disable_bot_commit-False require an includes list?\n\nMaybe we should have a builder with an empty list? It\u0027d waste a minute or so every day, but it\u0027d be clearer where to add the deps...",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a4c50c4_1c8e4cda",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-22T12:15:38Z",
+      "side": 1,
+      "message": "I have added some skeleton code in patchset 6 to simplify the process of adding new builders to this group.\n\nThough, crrev.com/c/3714623 ensures that includes cannot be None for builders added here.",
+      "parentUuid": "9aaa242e_d95c87ca",
       "range": {
         "startLine": 33,
         "startChar": 9,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3fa9431_f54eb01c",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-22T12:15:38Z",
+      "side": 1,
+      "message": "esbuild was excluded before, and is still excluded with this config. I think I don\u0027t quite understand this comment.",
+      "parentUuid": "3e9d313b_49f088e7",
+      "range": {
+        "startLine": 47,
+        "startChar": 28,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a53fb44a_27fc3cd7",
         "filename": "lib/builders.star",
         "patchSetId": 5
@@ -100,6 +172,30 @@
       "writtenOn": "2022-06-22T11:48:50Z",
       "side": 1,
       "message": "I\u0027d be happy to change this btw. Maybe as a follow up. Not sure about Liviu, but I have these filtered... So maybe we don\u0027t need any reviewers for the bot-commit ones. And rather sheriffs for anything untrusted.",
+      "range": {
+        "startLine": 266,
+        "startChar": 24,
+        "endLine": 267,
+        "endChar": 48
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb68d95_65e7b849",
+        "filename": "lib/builders.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-22T12:15:38Z",
+      "side": 1,
+      "message": "Sg, I added this to the stash of the design doc to decide on the reviewers.",
+      "parentUuid": "a53fb44a_27fc3cd7",
       "range": {
         "startLine": 266,
         "startChar": 24,
