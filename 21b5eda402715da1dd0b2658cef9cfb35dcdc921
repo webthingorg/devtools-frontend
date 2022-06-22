@@ -231,6 +231,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "585bc320_9456123d",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T13:56:23Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "ed60b556_b7ae3ebe",
+      "range": {
+        "startLine": 47,
+        "startChar": 28,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53fb44a_27fc3cd7",
