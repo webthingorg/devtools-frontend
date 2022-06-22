@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9dd64d_1a2aead7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:48:50Z",
+      "side": 1,
+      "message": "Minor comments. The only blocking one is about esbuild.",
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f202c80_a2a93ed5",
+        "filename": "buckets/ci.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:48:50Z",
+      "side": 1,
+      "message": "nit: Principally this is also incoming, i.e. it changes the DevTools DEPS file. But it updates the prebuilt chromium pin, which is different to the other deps and probably a different logical path, setting roll_chromium_pin",
+      "range": {
+        "startLine": 155,
+        "startChar": 68,
+        "endLine": 155,
+        "endChar": 101
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aaa242e_d95c87ca",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:48:50Z",
+      "side": 1,
+      "message": "Lets assume someone later adds a builder here, but forgets to list any includes. Will the assert in the builder fire? I.e. does the setting skip_untrusted_origins-False and disable_bot_commit-False require an includes list?\n\nMaybe we should have a builder with an empty list? It\u0027d waste a minute or so every day, but it\u0027d be clearer where to add the deps...",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9d313b_49f088e7",
+        "filename": "configs/incoming_rollers.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:48:50Z",
+      "side": 1,
+      "message": "Does the team actually want to roll esbuild? There was no such roller before, right?",
+      "range": {
+        "startLine": 47,
+        "startChar": 28,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53fb44a_27fc3cd7",
+        "filename": "lib/builders.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-06-22T11:48:50Z",
+      "side": 1,
+      "message": "I\u0027d be happy to change this btw. Maybe as a follow up. Not sure about Liviu, but I have these filtered... So maybe we don\u0027t need any reviewers for the bot-commit ones. And rather sheriffs for anything untrusted.",
+      "range": {
+        "startLine": 266,
+        "startChar": 24,
+        "endLine": 267,
+        "endChar": 48
+      },
+      "revId": "21b5eda402715da1dd0b2658cef9cfb35dcdc921",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
