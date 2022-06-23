@@ -51,6 +51,24 @@
       "parentUuid": "1d60f060_64e6061c",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f29594b_f4ed6fcd",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-23T10:54:15Z",
+      "side": 1,
+      "message": "Danil will know more. Cc\u0027d.",
+      "parentUuid": "e6dd23f9_be02d1bf",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
