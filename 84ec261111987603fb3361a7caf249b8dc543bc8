@@ -69,6 +69,24 @@
       "parentUuid": "e6dd23f9_be02d1bf",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b593a96_57f88758",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-06-23T12:58:34Z",
+      "side": 1,
+      "message": "I\u0027d imagine something like \n\ntest/unittests/front_end/models/timeline_model/TimelineModel_test.ts\n\nwith the test along these line\n\n  const model \u003d TimelineModelImpl();\n  model.setEvents({...} as unknown as SDK.TracingModel.TracingModel);\n  assert.deepEqual(model.tracks(), [...]);\n  \nDoes it make sense? Happy to help with the details.",
+      "parentUuid": "1f29594b_f4ed6fcd",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
