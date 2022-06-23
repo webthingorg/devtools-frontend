@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2efa556a_95cb0a42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-06-23T16:06:03Z",
+      "side": 1,
+      "message": "LGTM after fixing the build errors",
+      "revId": "ac3e41cf7f2f9c788eb2c8b9f15e6bc8613c907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
