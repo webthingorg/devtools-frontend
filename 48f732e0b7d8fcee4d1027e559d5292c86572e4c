@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb2e6586_bb531134",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "@changhaohan Could you please review as well? ",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8547c001_c0cadf2d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "nit: probably the type can be inferred without explicitly specifying it",
+      "range": {
+        "startLine": 822,
+        "startChar": 22,
+        "endLine": 822,
+        "endChar": 30
+      },
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8016c55_ee476032",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "nit: `for (const validator of cssRuleValidatorsMap.get(propertyName) || []) { ... }`",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ceee0af_6e508478",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "does this branch happen in practice? nit: `if (!(link instanceof Element))`",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f47c2d6_04a3a760",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "nit: `if (!node) { return null; }`",
+      "range": {
+        "startLine": 611,
+        "startChar": 25,
+        "endLine": 611,
+        "endChar": 43
+      },
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2541226_fe380a15",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "`it` should be inside the loop. The idea is that the loop generated a bunch of tests and `it` in mocha denotes a test. Let\u0027s also fill out test description to summarize what\u0027s being tested.",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36cf9f3_04724fbc",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-23T07:59:59Z",
+      "side": 1,
+      "message": "assert.strictEqual(actualResult, expectedResult)",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
