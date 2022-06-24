@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15d8c2e_e0acf6b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-24T21:04:20Z",
+      "side": 1,
+      "message": "Is there a crbug for this or did you just notice it yourself?",
+      "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be083fda_8810c447",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-24T21:04:20Z",
+      "side": 1,
+      "message": "When catching and ignoring a specific error, it\u0027s important to check that the error being ignored is what you expect (and if not, re-throw).\n\nBut then, we\u0027re asserting on some error message (or doing an instanceof?) and in that case this may need a test to prevent upstream from breaking the try/catch behavior.",
+      "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
