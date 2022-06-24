@@ -87,6 +87,24 @@
       "parentUuid": "1f29594b_f4ed6fcd",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b55a0bd_e9fae393",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-06-24T19:28:21Z",
+      "side": 1,
+      "message": "Thanks. Making good progress, though having difficulty getting the locale registered if I run with --mocha-fgrep",
+      "parentUuid": "6b593a96_57f88758",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
