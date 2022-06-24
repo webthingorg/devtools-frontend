@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43d6708_1845e8cc",
+        "filename": "front_end/panels/media/PlayerMessagesView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-06-24T09:51:59Z",
+      "side": 1,
+      "message": "Thanks! All of this looks good. It would be nice if it was tested though, is it possible to add a test that makes sure the right bits are present in the UI?",
+      "revId": "d6a3ce733d52dc672dd157d9b82d391d19b08b0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
