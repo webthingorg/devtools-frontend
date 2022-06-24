@@ -32,6 +32,7 @@ import {
 import {openCommandMenu} from '../helpers/quick_open-helpers.js';
 import {closeSecurityTab, navigateToSecurityTab} from '../helpers/security-helpers.js';
 import {openPanelViaMoreTools, openSettingsTab} from '../helpers/settings-helpers.js';
+import {navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 interface UserMetrics {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -635,5 +636,27 @@ describe('User Metrics for the Page Resource Loader', () => {
           actionName: 'DevTools.DeveloperResourceScheme',
         },
     );
+  });
+});
+
+describe('User Metrics for Manifest submenu', () => {
+  beforeEach(async () => {
+    const MANIFEST_SELECTOR = '[aria-label="Manifest"]';
+    const {target} = getBrowserAndPages();
+    await navigateToApplicationTab(target, 'app-manifest-id');
+    await click(MANIFEST_SELECTOR);
+  });
+
+  it('dispatches when test protocol button is clicked', async () => {
+    const {frontend} = getBrowserAndPages();
+    await frontend.evaluate(() => {
+      self.Host.userMetrics.actionTaken(self.Host.UserMetrics.Action.CaptureTestProtocolClicked);
+    });
+    await assertHistogramEventsInclude([
+      {
+        actionName: 'DevTools.ActionTaken',
+        actionCode: 57,  // CaptureTestProtocolClicked
+      },
+    ]);
   });
 });
