@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a58f600_3043e755",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-06-24T21:04:54Z",
+      "side": 1,
+      "message": "This is a pretty big try/catch. Which line does the error happen?",
+      "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be083fda_8810c447",
         "filename": "front_end/panels/lighthouse/LighthouseController.ts",
         "patchSetId": 2
