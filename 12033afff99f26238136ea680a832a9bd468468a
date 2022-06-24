@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96cfd912_59d9586e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "lgtm with a bunch of comments",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d074b819_cfa91fdc",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "Does our JS type/subtype taxonomy make sense in the WASM world? Just wondering if we could offer something simpler and more relevant and then convert this to appropriate front-end types/sub internally. I can imagine \"array\" being a subtype of an \"object\" may look weird outside of JS  :-) Maybe we could go with a single type enum?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb1d5b2_7b42072c",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "`CallFrameByStopId` above and `StopIdByCallFrame` here, perhaps? `reverse` is a bit confusing.",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260b905d_93f6f0f7",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "I think this and releaseObject() should perhaps be errors if absent (i.e. fall-through to throw below, rather than quietly return undefined)? I.e. if the plugin supports evaluate, these two should also be supported?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb628b1_6d61405d",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "Hmm... Why these checks (and similar ones below)? Aren\u0027t we trusting onMessage() to dispatch to proper handler?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f3527cc_a47d735e",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "nit: no need for async as long as we don\u0027t use await?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd10df9_7676ec4b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "Did you mean to use `address` somewhere?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd98053_8585e67c",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "Should we also return something different in this branch, rather than always create a remote object?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e403896_36d37622",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "Do you still need this one considering the call below?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

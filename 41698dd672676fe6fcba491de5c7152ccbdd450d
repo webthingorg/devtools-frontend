@@ -172,6 +172,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "000406b2_a3d57cfa",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-06-24T23:28:32Z",
+      "side": 1,
+      "message": "frameId is wa-ay too overloaded I think, we use it for iframes and then callFrameIds would also contribute to confusion. Considering stopId is only valid until execution is resumed, I think the name conveys the semantics much better than (stack|call)frameId.",
+      "parentUuid": "85eeae0a_702c006f",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 102
+      },
+      "revId": "41698dd672676fe6fcba491de5c7152ccbdd450d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0590d98_f806a29f",
