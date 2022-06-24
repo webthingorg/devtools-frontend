@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5bc83e_992189ed",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "Yes, thank you.",
+      "parentUuid": "8547c001_c0cadf2d",
+      "range": {
+        "startLine": 822,
+        "startChar": 22,
+        "endLine": 822,
+        "endChar": 30
+      },
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8016c55_ee476032",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "881c7318_c1414e1e",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "Done, Thanks.",
+      "parentUuid": "e8016c55_ee476032",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ceee0af_6e508478",
@@ -71,6 +113,24 @@
       "writtenOn": "2022-06-23T07:59:59Z",
       "side": 1,
       "message": "does this branch happen in practice? nit: `if (!(link instanceof Element))`",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6664c7_d0d80329",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "As discussed offline: removing this part of the code.",
+      "parentUuid": "2ceee0af_6e508478",
       "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -98,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea1ba62e_0be669e5",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "Done, Thank you! 😊",
+      "parentUuid": "2f47c2d6_04a3a760",
+      "range": {
+        "startLine": 611,
+        "startChar": 25,
+        "endLine": 611,
+        "endChar": 43
+      },
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2541226_fe380a15",
@@ -115,6 +199,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3ecc74b_73d2c0d6",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2541226_fe380a15",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c36cf9f3_04724fbc",
@@ -128,6 +230,24 @@
       "writtenOn": "2022-06-23T07:59:59Z",
       "side": 1,
       "message": "assert.strictEqual(actualResult, expectedResult)",
+      "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5a953c_ec08cb19",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-06-24T06:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c36cf9f3_04724fbc",
       "revId": "48f732e0b7d8fcee4d1027e559d5292c86572e4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
