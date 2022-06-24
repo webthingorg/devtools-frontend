@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d94c834_c60a96ad",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-24T06:13:26Z",
+      "side": 1,
+      "message": "nit: returns false under which condition?",
+      "range": {
+        "startLine": 14,
+        "startChar": 20,
+        "endLine": 14,
+        "endChar": 55
+      },
+      "revId": "790ac1f1cdac3b2801ff389198f8af1b3339176c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c15ce0_5c68ee9e",
+        "filename": "test/unittests/front_end/panels/elements/CSSRuleValidator_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-24T06:13:26Z",
+      "side": 1,
+      "message": "nit: instead of defining what it should return can we rephrase it in a more understandable way? e.g.\"AlignContentValidator reports a rule violation when align-content is set on an element whose parent is not a flex container.\" Also, let\u0027s drop `AlignContentValidator` and other names in the description?",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "790ac1f1cdac3b2801ff389198f8af1b3339176c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
