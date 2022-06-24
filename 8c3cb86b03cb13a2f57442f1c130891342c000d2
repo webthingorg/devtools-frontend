@@ -68,6 +68,24 @@
       "message": "We probably need line/column number here as well, otherwise inline `\u003cscript\u003e`s will not show correctly.",
       "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc220c2a_e653d237",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-06-24T15:03:17Z",
+      "side": 1,
+      "message": "As discussed offline, we don\u0027t need that, as we are referring to the entire script.\n\nThere are different issues with linkifying inline `\u003cscript\u003e`s but I believe these could be better addressed as a follow up CL.",
+      "parentUuid": "674cbfcc_be5d075b",
+      "revId": "8c3cb86b03cb13a2f57442f1c130891342c000d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
