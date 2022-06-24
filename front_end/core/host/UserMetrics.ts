@@ -270,6 +270,13 @@ export class UserMetrics {
     InspectorFrontendHostInstance.recordEnumeratedHistogram(
         EnumeratedHistogram.StyleTextCopied, value, StyleTextCopied.MaxValue);
   }
+
+  manifestSectionSelected(sectionTitle: string): void {
+    const code =
+        ManifestSectionCodes[sectionTitle as keyof typeof ManifestSectionCodes] || ManifestSectionCodes.OtherSection;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.ManifestSectionSelected, code, ManifestSectionCodes.MaxValue);
+  }
 }
 
 /**
@@ -973,3 +980,15 @@ export enum StyleTextCopied {
 }
 
 /* eslint-enable @typescript-eslint/naming-convention */
+
+/* eslint-disable @typescript-eslint/naming-convention */
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum ManifestSectionCodes {
+  OtherSection = 0,
+  'Identity' = 1,
+  'Presentation' = 2,
+  'Protocol Handlers' = 3,
+  'Icons' = 4,
+  MaxValue = 5,
+}
