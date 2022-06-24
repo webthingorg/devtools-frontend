@@ -295,31 +295,37 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
   }
 
   private async hasImportantResourcesNotCleared(): Promise<string> {
-    const clearStorageSetting =
-        RuntimeSettings.find(runtimeSetting => runtimeSetting.setting.name === 'lighthouse.clear_storage');
-    if (clearStorageSetting && !clearStorageSetting.setting.get()) {
+    try {
+      const clearStorageSetting =
+          RuntimeSettings.find(runtimeSetting => runtimeSetting.setting.name === 'lighthouse.clear_storage');
+      if (clearStorageSetting && !clearStorageSetting.setting.get()) {
+        return '';
+      }
+      if (!this.manager) {
+        return '';
+      }
+      const mainTarget = this.manager.target();
+      const origin = mainTarget.inspectedURL();
+      if (!origin) {
+        return '';
+      }
+      const usageData = await mainTarget.storageAgent().invoke_getUsageAndQuota({origin});
+      const locations = usageData.usageBreakdown.filter(usage => usage.usage)
+                            .map(usage => STORAGE_TYPE_NAMES.get(usage.storageType))
+                            .map(i18nStringFn => i18nStringFn ? i18nStringFn() : undefined)
+                            .filter(Boolean);
+      if (locations.length === 1) {
+        return i18nString(UIStrings.thereMayBeStoredDataAffectingSingular, {PH1: String(locations[0])});
+      }
+      if (locations.length > 1) {
+        return i18nString(UIStrings.thereMayBeStoredDataAffectingLoadingPlural, {PH1: locations.join(', ')});
+      }
+      return '';
+    } catch {
+      // This warning message isn't critical.
+      // We can just return nothing if there was an issue getting storage data (e.g. unexpected CDP result)
       return '';
     }
-    if (!this.manager) {
-      return '';
-    }
-    const mainTarget = this.manager.target();
-    const origin = mainTarget.inspectedURL();
-    if (!origin) {
-      return '';
-    }
-    const usageData = await mainTarget.storageAgent().invoke_getUsageAndQuota({origin});
-    const locations = usageData.usageBreakdown.filter(usage => usage.usage)
-                          .map(usage => STORAGE_TYPE_NAMES.get(usage.storageType))
-                          .map(i18nStringFn => i18nStringFn ? i18nStringFn() : undefined)
-                          .filter(Boolean);
-    if (locations.length === 1) {
-      return i18nString(UIStrings.thereMayBeStoredDataAffectingSingular, {PH1: String(locations[0])});
-    }
-    if (locations.length > 1) {
-      return i18nString(UIStrings.thereMayBeStoredDataAffectingLoadingPlural, {PH1: locations.join(', ')});
-    }
-    return '';
   }
 
   private async evaluateInspectedURL(): Promise<Platform.DevToolsPath.UrlString> {
