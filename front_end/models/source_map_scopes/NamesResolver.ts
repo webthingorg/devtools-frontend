@@ -641,6 +641,24 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
   }
 }
 
+export async function resolveFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {
+  const script = frame.script;
+  const scope = frame.localScope();
+  if (!scope || !script) {
+    return null;
+  }
+  const startLocation = scope.startLocation();
+  if (!startLocation) {
+    return null;
+  }
+  const sourceMap = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().sourceMapForScript(script);
+  if (!sourceMap) {
+    return null;
+  }
+  const entry = sourceMap.findEntry(startLocation.lineNumber, startLocation.columnNumber);
+  return entry?.name ?? null;
+}
+
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
 // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-explicit-any
 let _scopeResolvedForTest: (...arg0: any[]) => void = function(): void {};

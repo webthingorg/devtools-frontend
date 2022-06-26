@@ -324,6 +324,35 @@ describe('The Sources Tab', async function() {
     });
   });
 
+  it('shows unminified function name in stack trace', async () => {
+    const {target} = getBrowserAndPages();
+    await openSourceCodeEditorForFile('sourcemap-minified-function-name.js', 'sourcemap-minified-function-name.html');
+
+    let scriptEvaluation: Promise<unknown>;
+    const breakLocationOuterRegExp = /sourcemap-.*-name\.js:3$/;
+
+    await step('Run to reakpoint', async () => {
+      scriptEvaluation = target.evaluate('o(1, 2)');
+
+      const scriptLocation = await waitForStackTopMatch(breakLocationOuterRegExp);
+      assert.match(scriptLocation, breakLocationOuterRegExp);
+    });
+
+    await step('Check function name is eventually un-minified', async () => {
+      const functionName = await waitForFunction(async () => {
+        const locationHandle = await waitFor('.call-frame-title-text');
+        const functionName = await locationHandle.evaluate(location => location.textContent);
+        return functionName && functionName === 'unminified' ? functionName : undefined;
+      });
+      assert.strictEqual(functionName, 'unminified');
+    });
+
+    await step('Resume execution', async () => {
+      await click(RESUME_BUTTON);
+      await scriptEvaluation;
+    });
+  });
+
   it('updates decorators for removed breakpoints in case of code-splitting (crbug.com/1251675)', async () => {
     const {frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-disjoint.js', 'sourcemap-disjoint.html');

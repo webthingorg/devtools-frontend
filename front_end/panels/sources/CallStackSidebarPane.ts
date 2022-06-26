@@ -34,6 +34,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -565,7 +566,8 @@ export class Item {
   static async createForDebuggerCallFrame(
       frame: SDK.DebuggerModel.CallFrame, locationPool: Bindings.LiveLocation.LiveLocationPool,
       updateDelegate: (arg0: Item) => void): Promise<Item> {
-    const item = new Item(UI.UIUtils.beautifyFunctionName(frame.functionName), updateDelegate);
+    const name = await SourceMapScopes.NamesResolver.resolveFrameFunctionName(frame) ?? frame.functionName;
+    const item = new Item(UI.UIUtils.beautifyFunctionName(name), updateDelegate);
     await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createCallFrameLiveLocation(
         frame.location(), item.update.bind(item), locationPool);
     return item;
