@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b769711c_ac5af61e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-27T11:13:00Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m unflaking one workflow e2e test, ptal!",
+      "revId": "99955951c41cd1c434bf675000c447b9c8354ad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
