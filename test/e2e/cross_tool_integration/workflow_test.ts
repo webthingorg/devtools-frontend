@@ -31,7 +31,7 @@ import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('A user can navigate across', async function() {
   // These tests move between panels, which takes time.
-  this.timeout(10000);
+  this.timeout(20000);
 
   beforeEach(async function() {
     await prepareForCrossToolScenario();
@@ -43,8 +43,7 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Flaky on mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1322534]: Console -> Issues', async () => {
+  it('Console -> Issues', async () => {
     await navigateToConsoleTab();
     await navigateToIssuesPanelViaInfoBar();
 
