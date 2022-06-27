@@ -240,12 +240,14 @@ export async function removeBreakpointForLine(frontend: puppeteer.Page, index: n
 
   await waitForFunction(async () => await isBreakpointSet(index));
   await breakpointLine?.click();
+  console.log('breakpointLine: ', breakpointLine)
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
 export async function isBreakpointSet(lineNumber: number|string) {
   const lineNumberElement = await getLineNumberElement(lineNumber);
   const breakpointLineParentClasses = await lineNumberElement?.evaluate(n => n.className);
+  console.log('classes: ', breakpointLineParentClasses);
   return breakpointLineParentClasses?.includes('cm-breakpoint');
 }
 
