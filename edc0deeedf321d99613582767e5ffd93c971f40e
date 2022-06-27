@@ -33,6 +33,86 @@
       "message": "Hi Wolfgang, please take a look when you can when you are back. Thanks! ",
       "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24abef48_0aaa902d",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-27T16:18:49Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4d7191_3e6d300f",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-27T16:18:49Z",
+      "side": 1,
+      "message": "nit: Would it make sense to use CamelCase instead of having an empty space? You probably wouldn\u0027t need \u0027\u0027 then either.",
+      "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5152647a_c6467bf3",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-27T16:18:49Z",
+      "side": 1,
+      "message": "`return this.reportView.getHeaderElement();`?",
+      "range": {
+        "startLine": 503,
+        "startChar": 0,
+        "endLine": 504,
+        "endChar": 33
+      },
+      "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c96e6f_d40a55ff",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-27T16:18:49Z",
+      "side": 1,
+      "message": "This looks like it belongs to your previous CL?",
+      "range": {
+        "startLine": 650,
+        "startChar": 2,
+        "endLine": 650,
+        "endChar": 56
+      },
+      "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
