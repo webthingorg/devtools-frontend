@@ -239,13 +239,16 @@ export async function removeBreakpointForLine(frontend: puppeteer.Page, index: n
   assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
 
   await waitForFunction(async () => await isBreakpointSet(index));
+  console.log('before click breakpointLine: ', await breakpointLine?.evaluate(n => n.className));
   await breakpointLine?.click();
+  console.log('after click breakpointLine: ', await breakpointLine?.evaluate(n => n.className));
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
 export async function isBreakpointSet(lineNumber: number|string) {
   const lineNumberElement = await getLineNumberElement(lineNumber);
   const breakpointLineParentClasses = await lineNumberElement?.evaluate(n => n.className);
+  console.log('classes: ', breakpointLineParentClasses);
   return breakpointLineParentClasses?.includes('cm-breakpoint');
 }
 
