@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60df599f_54d5728c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-27T09:03:12Z",
+      "side": 1,
+      "message": "Let\u0027s use a DCHECK then.",
+      "parentUuid": "49394c00_b1fa3f68",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b523c279_830cf9c0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 19
