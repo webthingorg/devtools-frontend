@@ -16,6 +16,24 @@
       "message": "Thanks! All of this looks good. It would be nice if it was tested though, is it possible to add a test that makes sure the right bits are present in the UI?",
       "revId": "d6a3ce733d52dc672dd157d9b82d391d19b08b0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e843c733_0e112276",
+        "filename": "front_end/panels/media/PlayerMessagesView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-06-27T20:51:55Z",
+      "side": 1,
+      "message": "sure thing!",
+      "parentUuid": "d43d6708_1845e8cc",
+      "revId": "d6a3ce733d52dc672dd157d9b82d391d19b08b0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
