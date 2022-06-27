@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8fc2534_2b8c1cb5",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-27T08:36:38Z",
+      "side": 1,
+      "message": "Also a question for Alex: would a DCHECK make more sense here? I had the impression that we are trying to move away from console.assert, but maybe I remembered wrong.",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b523c279_830cf9c0",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-27T08:36:38Z",
+      "side": 1,
+      "message": "Do we have a plan in the future to replace the GlassPane with either native \u003cdialog\u003e/\u003cpopup\u003e or maybe a LitHTML version of the component, since I know that Peter would like to work on standardizing popups in DevTools.",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d53ad9c_7d4d7e4c",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-27T08:36:38Z",
+      "side": 1,
+      "message": "Just curious, do we want to continue if we don\u0027t have parentNode?",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
