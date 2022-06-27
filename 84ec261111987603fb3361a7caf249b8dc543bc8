@@ -105,6 +105,24 @@
       "parentUuid": "6b593a96_57f88758",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91a4defe_d2788eea",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-06-27T12:46:29Z",
+      "side": 1,
+      "message": "And solved with describeWithEnvironment --- thanks.\nI am going to also add a few tests covering the life range, as I discovered I completely broke the end event somehow (though having technical differences ATM).",
+      "parentUuid": "8b55a0bd_e9fae393",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
