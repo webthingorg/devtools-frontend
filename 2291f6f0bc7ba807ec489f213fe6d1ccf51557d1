@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89aebdb8_1f359571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-27T22:52:24Z",
+      "side": 1,
+      "message": "Thanks for taking a look so soon, Wolfgang. I\u0027ve replied to your comments. Please take another look when you can.",
+      "revId": "2291f6f0bc7ba807ec489f213fe6d1ccf51557d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
