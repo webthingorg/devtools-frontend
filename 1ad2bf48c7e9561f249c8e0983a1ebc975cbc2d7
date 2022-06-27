@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52daf87c_11094955",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-06-27T05:50:50Z",
+      "side": 1,
+      "message": "Actually since we don\u0027t use the returned `scope` here, do we really need to return it in here[1]. If that\u0027s not the case (if we need only `success` response from CDP) we can remove some of the code (mainly parsing the new scope rule after it is changed), wdyt?\n\n[1]: https://chromium-review.googlesource.com/c/chromium/src/+/3719941/4/third_party/blink/renderer/core/inspector/inspector_style_sheet.cc#1415",
+      "revId": "1ad2bf48c7e9561f249c8e0983a1ebc975cbc2d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
