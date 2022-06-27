@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62941528_d81bafd6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-27T12:38:56Z",
+      "side": 1,
+      "message": "SGTM. I was just curious.",
+      "parentUuid": "8afebc42_ec618258",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d53ad9c_7d4d7e4c",
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "There are some validators that do not need the parents computed styles for validation.\n\nFor example: AlignContentValidator - align-content has no effect if the element is a flex container and has \u0027flex-wrap\u0027 set to \u0027nowrap\u0027.\n\nTherefore, I think we should still continue validation of rules even if we do not have the parent node or it\u0027s computed styles.\n\nPlease let me know what you think 😊",
       "parentUuid": "8d53ad9c_7d4d7e4c",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efed2cfd_51dbc9aa",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-27T12:38:56Z",
+      "side": 1,
+      "message": "Makes sense. Thanks for explaining!",
+      "parentUuid": "c354fab9_59ff5c09",
       "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
