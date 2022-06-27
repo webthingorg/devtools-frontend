@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49394c00_b1fa3f68",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-27T08:41:51Z",
+      "side": 1,
+      "message": "I am not sure either, do you have a link to DCHECK impl?",
+      "parentUuid": "c8fc2534_2b8c1cb5",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b523c279_830cf9c0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 19
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-27T08:36:38Z",
       "side": 1,
       "message": "Do we have a plan in the future to replace the GlassPane with either native \u003cdialog\u003e/\u003cpopup\u003e or maybe a LitHTML version of the component, since I know that Peter would like to work on standardizing popups in DevTools.",
+      "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8afebc42_ec618258",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-27T08:41:51Z",
+      "side": 1,
+      "message": "I think we don\u0027t have a plan to re-implement the GlassPane as part of this project",
+      "parentUuid": "b523c279_830cf9c0",
       "revId": "f887daa7c712e31ac22483d9e310b0868c95dc81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
