@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang, please take a look at this as well when you get the chance. We would appreciate your input on the unresolved comment.\n",
       "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df558c4_d80e9d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-27T23:40:43Z",
+      "side": 1,
+      "message": "Adding more context to the unresolved comments. ",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

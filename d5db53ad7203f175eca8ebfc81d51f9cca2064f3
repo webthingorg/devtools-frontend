@@ -50,6 +50,24 @@
       "message": "Personally, I think making the input box a harmony-input and using ThemeSupport to inject the correct styles (as opposed to importing inspectorCommonStyles directly) makes the most sense to me.\n\nJust seems odd to me that we\u0027re using a devtools-text-input and then adding extra css to try to style it like a harmony-input.\n\nI understand that the decision to make it a devtools-text-input was due to a previous comment by a Chromium reviewer, but might be worth revisiting this topic with the Chromium reviewer for this CL.\n\nGoing to sign off on this CL, but keeping this comment unresolved for further discussion.",
       "revId": "d5db53ad7203f175eca8ebfc81d51f9cca2064f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d159fc_3c9a2b16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-27T23:40:43Z",
+      "side": 1,
+      "message": "Thanks! I think this would be good to keep for further discussion as well.\n\nFor reference, these are the two previous comments we are referring to:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3640142/comment/60943b53_d0e24381/\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3640142/comment/40649643_7eb7d3b6/\n\nThe CL where this change from harmony-input to devtools-text-input was made: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3640142",
+      "parentUuid": "f52c6d50_14e74a5f",
+      "revId": "d5db53ad7203f175eca8ebfc81d51f9cca2064f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
