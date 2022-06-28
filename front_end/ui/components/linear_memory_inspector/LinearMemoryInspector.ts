@@ -29,6 +29,7 @@ import type {JumpToPointerAddressEvent, ValueTypeModeChangedEvent} from './Value
 import {LinearMemoryViewer} from './LinearMemoryViewer.js';
 
 import * as i18n from '../../../core/i18n/i18n.js';
+
 const UIStrings = {
   /**
   *@description Tooltip text that appears when hovering over an invalid address in the address line in the Linear Memory Inspector
@@ -51,6 +52,12 @@ export interface LinearMemoryInspectorData {
   valueTypes?: Set<ValueType>;
   valueTypeModes?: Map<ValueType, ValueTypeMode>;
   endianness?: Endianness;
+  memoryObjectInfo?: MemoryObjectInfo;
+}
+
+export interface MemoryObjectInfo {
+  startAddress: number;
+  size: number;
 }
 
 export type Settings = {
@@ -120,6 +127,10 @@ export class LinearMemoryInspector extends HTMLElement {
   #outerMemoryLength = 0;
 
   #address = -1;
+  #memoryObjectInfo: MemoryObjectInfo = {
+    size: 0,
+    startAddress: 0,
+  };
 
   #currentNavigatorMode = Mode.Submitted;
   #currentNavigatorAddressLine = `${this.#address}`;
@@ -143,12 +154,24 @@ export class LinearMemoryInspector extends HTMLElement {
       throw new Error('Memory offset has to be greater or equal to zero.');
     }
 
+    if (data.memoryObjectInfo !== undefined) {
+      if (data.memoryObjectInfo.size < 0) {
+        throw new Error('Object size has to be greater than or equal to zero');
+      }
+      if (data.address < data.memoryOffset ||
+          data.memoryObjectInfo.startAddress > data.memoryOffset + data.memory.length ||
+          data.memoryObjectInfo.startAddress < 0) {
+        throw new Error('Object start address is out of bounds.');
+      }
+    }
+
     this.#memory = data.memory;
     this.#memoryOffset = data.memoryOffset;
     this.#outerMemoryLength = data.outerMemoryLength;
     this.#valueTypeModes = data.valueTypeModes || this.#valueTypeModes;
     this.#valueTypes = data.valueTypes || this.#valueTypes;
     this.#endianness = data.endianness || this.#endianness;
+    this.#memoryObjectInfo = data.memoryObjectInfo || this.#memoryObjectInfo;
     this.#setAddress(data.address);
     this.#render();
   }
@@ -179,7 +202,12 @@ export class LinearMemoryInspector extends HTMLElement {
           @pagenavigation=${this.#navigatePage}
           @historynavigation=${this.#navigateHistory}></${LinearMemoryNavigator.litTagName}>
         <${LinearMemoryViewer.litTagName}
-          .data=${{memory: this.#memory.slice(start - this.#memoryOffset, end - this.#memoryOffset), address: this.#address, memoryOffset: start, focus: this.#currentNavigatorMode === Mode.Submitted} as LinearMemoryViewerData}
+          .data=${{
+            memory: this.#memory.slice(start - this.#memoryOffset,
+            end - this.#memoryOffset),
+            address: this.#address, memoryOffset: start,
+            focus: this.#currentNavigatorMode === Mode.Submitted,
+            memoryObjectInfo: this.#memoryObjectInfo } as LinearMemoryViewerData}
           @byteselected=${this.#onByteSelected}
           @resize=${this.#resize}>
         </${LinearMemoryViewer.litTagName}>
@@ -204,7 +232,6 @@ export class LinearMemoryInspector extends HTMLElement {
     });
     // clang-format on
   }
-
   #onJumpToPointerAddress(e: JumpToPointerAddressEvent): void {
     // Stop event from bubbling up, since no element further up needs the event.
     e.stopPropagation();
