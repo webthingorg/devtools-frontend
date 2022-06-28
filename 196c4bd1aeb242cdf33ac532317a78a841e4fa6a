@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c2727ce_3d826949",
+        "filename": "buckets/ci.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-28T07:47:56Z",
+      "side": 0,
+      "message": "We included this builder in configs/incoming_rollers.star",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 1
+      },
+      "revId": "196c4bd1aeb242cdf33ac532317a78a841e4fa6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
