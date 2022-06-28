@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f3e389_837f0596",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-28T19:55:03Z",
+      "side": 1,
+      "message": "Hi Kim,\n\nI packaged up changes for the 1st mile-stone. I added two simple sanity-check unit tests, as they were quite easy to add. Though, I couldn\u0027t figure out a way to import the `memoryObjectInfo` inside of the unittest without a \"cross-module import error\" eslint error, so I suppressed it for now. \n\n\nThank you for the review!",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
