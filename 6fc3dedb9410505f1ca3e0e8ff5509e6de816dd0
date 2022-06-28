@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46755b4_ce970826",
+        "filename": "generated/realms.cfg",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-06-28T07:56:55Z",
+      "side": 1,
+      "message": "Noting, `swarming.poolOwner` does not allow creating tasks ( https://crsrc.org/i/luci/appengine/auth_service/realms/permissions.py;l\u003d124?q\u003dpoolOwner\u0026ss\u003dchromium )",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 35
+      },
+      "revId": "6fc3dedb9410505f1ca3e0e8ff5509e6de816dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
