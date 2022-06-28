@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {getBrowserAndPages, goToResource, waitFor, waitForFunction, waitForMany} from '../../shared/helper.js';
+import {click, getBrowserAndPages, goToResource, waitFor, waitForFunction, waitForMany} from '../../shared/helper.js';
 
 export async function playMediaFile(media: string) {
   const {target} = getBrowserAndPages();
@@ -28,6 +28,22 @@ export async function playMediaFile(media: string) {
 
 export async function getPlayerButton() {
   return await waitFor('.player-entry-player-title');
+}
+
+export async function getPlayerErrors(count: number) {
+  await waitFor('.player-entry-row');
+  await click('.player-entry-row');
+
+  await waitFor('#tab-messages');
+  await click('#tab-messages');
+
+  if (count > 0) {
+    throw 'we were able to click on the messages!';
+  } else {
+    return [];
+  }
+  // await waitFor('.media-messages-body');
+  // return await waitForMany('.media-message-error', count);
 }
 
 export async function getPlayerButtonText() {
