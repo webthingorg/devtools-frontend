@@ -16,6 +16,18 @@ excluded_deps = trusted_origin_deps + [
 ]
 
 incoming_roller_definitions = [
+    # Chromium's pinned version
+    {
+        "roll_chromium_pin": True,
+        "builders": [
+            {
+                "name": "Auto-roll - devtools chromium",
+                "subject": "Update DevTools Chromium DEPS.",
+                "includes": [],
+            },
+        ],
+    },
+
     # Trusted versions (from chromium/src)
     # ...the rolled version is trusted by chromium/src and therefore trusted
     #    by devtools-frontend
