@@ -3,6 +3,10 @@
 // found in the LICENSE file.
 
 import * as LinearMemoryInspectorModule from '../../../../../../front_end/ui/components/linear_memory_inspector/linear_memory_inspector.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {
+  MemoryObjectInfo} from '../../../../../../front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.js';
+
 import {
   dispatchClickEvent,
   getElementsWithinComponent,
@@ -59,6 +63,7 @@ describeWithLocale('LinearMemoryInspector', () => {
     for (let i = 0; i < size; ++i) {
       memory[i] = i;
     }
+
     const data = {
       memory: new Uint8Array(memory),
       address: 20,
@@ -401,5 +406,59 @@ describeWithLocale('LinearMemoryInspector', () => {
     const address = '-20';
     const parsedAddress = LinearMemoryInspectorModule.LinearMemoryInspectorUtils.parseAddress(address);
     assert.strictEqual(parsedAddress, undefined);
+  });
+
+  it('no highlighted bytes belonging to a memory object', () => {
+    const {component} = setUpComponent();
+    const viewer = getViewer(component);
+    const highlightedByteCells =
+        getElementsWithinComponent(viewer, '.byte-cell.belongsToMemoryObject', HTMLSpanElement);
+    const highlightedTextCells =
+        getElementsWithinComponent(viewer, '.text-cell.belongsToMemoryObject', HTMLSpanElement);
+    assert.strictEqual(highlightedByteCells.length, 0);
+    assert.strictEqual(highlightedTextCells.length, 0);
+  });
+
+  it('highlights byte-cells and text-cells belonging to a memory object', () => {
+    const component = new LinearMemoryInspectorModule.LinearMemoryInspector.LinearMemoryInspector();
+
+    const flexWrapper = document.createElement('div');
+    flexWrapper.style.width = '500px';
+    flexWrapper.style.height = '500px';
+    flexWrapper.style.display = 'flex';
+    flexWrapper.appendChild(component);
+    renderElementIntoDOM(flexWrapper);
+
+    const size = 1000;
+    const memory = [];
+    for (let i = 0; i < size; ++i) {
+      memory[i] = i;
+    }
+
+    const memoryObjectInfo: MemoryObjectInfo = {
+      startAddress: 20,
+      size: 4,
+    };
+
+    const data = {
+      memory: new Uint8Array(memory),
+      address: 20,
+      memoryOffset: 0,
+      outerMemoryLength: memory.length,
+      endianness: LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.Endianness.Little,
+      valueTypes: new Set<LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.ValueType>(
+          LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.getDefaultValueTypeMapping().keys()),
+      memoryObjectInfo: memoryObjectInfo,
+    };
+    component.data = data;
+
+    const viewer = getViewer(component);
+    const highlightedByteCells =
+        getElementsWithinComponent(viewer, '.byte-cell.belongsToMemoryObject', HTMLSpanElement);
+    const highlightedTextCells =
+        getElementsWithinComponent(viewer, '.text-cell.belongsToMemoryObject', HTMLSpanElement);
+
+    assert.strictEqual(highlightedByteCells.length, memoryObjectInfo.size);
+    assert.strictEqual(highlightedTextCells.length, memoryObjectInfo.size);
   });
 });
