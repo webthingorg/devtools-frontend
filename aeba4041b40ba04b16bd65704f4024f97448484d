@@ -33,6 +33,63 @@
       "message": "Adding more context to the unresolved comments. ",
       "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0706b374_0f61b451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-28T15:47:51Z",
+      "side": 1,
+      "message": "Alex PTAL, thanks!",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f410eda7_ba52c4e2",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-28T15:47:51Z",
+      "side": 1,
+      "message": "This puzzles me. There are other components without this line where tabbing through links works.",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e89f78b_3121f52c",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-28T15:47:51Z",
+      "side": 1,
+      "message": "If this focus ring color is more consistent, maybe we should make this change apply to all such text inputs and move the change to \u0027textInput.css\u0027.\nAlex WDYT?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
