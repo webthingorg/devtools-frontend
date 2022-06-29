@@ -31,7 +31,7 @@ describe('Cross-origin portal post message issue', async () => {
   });
 
   // TODO: crbug/1325742 flaky test
-  it.skipOnPlatforms(['mac'], '[crbug.com/1325742] should handle multiple issue correctly', async () => {
+  it.only('[crbug.com/1325742] should handle multiple issue correctly', async () => {
     await goToResource('issues/cross-origin-portal-post-2.html');
     await navigateToIssuesTab();
     await expandIssue();
