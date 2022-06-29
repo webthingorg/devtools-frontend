@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c86292f_d4b69252",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T13:35:52Z",
+      "side": 1,
+      "message": "This looks like it\u0027s for a different change?",
+      "revId": "d37e031e11062ea86592a248147534b7d45ec76b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e66c623_52c1b986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T13:35:52Z",
+      "side": 1,
+      "message": "Looks good, have you also tried to run this on the stressor bots?",
+      "revId": "d37e031e11062ea86592a248147534b7d45ec76b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
