@@ -52,14 +52,16 @@ export async function navigateToLine(frontend: puppeteer.Page, lineNumber: numbe
   // event for this file.
   await listenForSourceFilesLoaded(frontend);
 
+  const source = await getSelectedSource();
+  const loadPromise = waitForSourceLoadedEvent(frontend, source);
+
   await frontend.keyboard.down('Control');
   await frontend.keyboard.press('KeyG');
   await frontend.keyboard.up('Control');
   await frontend.keyboard.type(`${lineNumber}`);
   await frontend.keyboard.press('Enter');
 
-  const source = await getSelectedSource();
-  await waitForSourceLoadedEvent(frontend, source);
+  await loadPromise;
 }
 
 export async function toggleNavigatorSidebar(frontend: puppeteer.Page) {
@@ -175,10 +177,12 @@ export async function openFileInEditor(sourceFile: string) {
 
   await listenForSourceFilesLoaded(frontend);
 
+  const loadPromise = waitForSourceLoadedEvent(frontend, sourceFile);
+
   // Open a particular file in the editor
   await doubleClickSourceTreeItem(`[aria-label="${sourceFile}, file"]`);
 
-  await waitForSourceLoadedEvent(frontend, sourceFile);
+  await loadPromise;
 }
 
 export async function openSourceCodeEditorForFile(sourceFile: string, testInput: string) {
@@ -353,8 +357,9 @@ declare global {
 export async function reloadPageAndWaitForSourceFile(
     frontend: puppeteer.Page, target: puppeteer.Page, sourceFile: string) {
   await listenForSourceFilesLoaded(frontend);
+  const loadPromise = waitForSourceLoadedEvent(frontend, sourceFile);
   await target.reload();
-  await waitForSourceLoadedEvent(frontend, sourceFile);
+  await loadPromise;
 }
 
 export function listenForSourceFilesLoaded(frontend: puppeteer.Page) {
