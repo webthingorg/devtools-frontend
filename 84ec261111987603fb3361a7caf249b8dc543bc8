@@ -177,6 +177,24 @@
       "parentUuid": "a6165820_9c931fb9",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf05814_0a5501b6",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-06-29T07:09:03Z",
+      "side": 1,
+      "message": "Generally the test looks good to me, but I lack domain knowledge to judge if it adequately covers the change. Did you make sure that the test fails if you revert the change to the TimelineModel.ts ?",
+      "parentUuid": "3ac4818e_e333a5f8",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
