@@ -142,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7afe53fb_3b317c59",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-29T23:53:32Z",
+      "side": 1,
+      "message": "Hi Jack, thanks for digging into this and for finding another solution!\nWe followed your proposition and added that CSS to protocolHandlersView.css to land this CL and we removed theme support.\n\nAs for creating another stylesheet for devtools-link, this sounds like a good idea. We\u0027ve created a bug for it here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1340722",
+      "parentUuid": "9fa19ed6_382d3e97",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e89f78b_3121f52c",
         "filename": "front_end/panels/application/components/protocolHandlersView.css",
         "patchSetId": 6
