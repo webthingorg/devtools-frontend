@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab784c2b_da08c9d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-29T08:23:54Z",
+      "side": 1,
+      "message": "Peter, PTAL at the video and questions regarding focus ring styles.",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f410eda7_ba52c4e2",
@@ -124,6 +141,30 @@
       "side": 1,
       "message": "Are you asking if it\u0027s more consistent with other components or other text inputs? I\u0027m not entirely sure which prior art would be best to follow. \nHere is an example of a text input that uses the harmony-input class and is why we were under the impression harmony-input should be used: https://drive.google.com/file/d/1grmZRHxaQ-YFvIGuB_TZJ6zDCYffNPZD/view?usp\u003dsharing\n(Note: the focus box is a slightly different color) \n\nBut it seems harmony-input is not recommended. Do you mind sharing some insights as to why that is to better understand the direction we\u0027re going for?",
       "parentUuid": "0e89f78b_3121f52c",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d79dadf_2fc53f4b",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-29T08:23:54Z",
+      "side": 1,
+      "message": "What I meant to say was that because your CSS rule makes the focus ring style match other DevTools text inputs, maybe we should add the rule to textInput.css to prevent creating text inputs with an inconsistent focus ring style in the future.\n\nYour video shows that we have at least 3 different focus ring colors/styles (same in light theme where it\u0027s 3 different kinds of blue). Peter Mueller, do you have any guidance here?",
+      "parentUuid": "7a528d6c_e2e6b443",
       "range": {
         "startLine": 22,
         "startChar": 0,
