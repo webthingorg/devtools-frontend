@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82e6636_41185d31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-29T10:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3cff57a_e84fc062",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac64504_d5fa20cb",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-29T09:01:36Z",
       "side": 1,
       "message": "Let\u0027s add a Bug number to this. Possible ones are the top layer crbug issue, and another adorner-related tracking issue: 1066772",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebedbdfa_bd919dfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-29T10:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac64504_d5fa20cb",
       "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
