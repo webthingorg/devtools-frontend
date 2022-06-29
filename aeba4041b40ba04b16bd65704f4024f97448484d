@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9fa19ed6_382d3e97",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-06-29T10:32:11Z",
+      "side": 1,
+      "message": "I did some digging into this and ended up very confused. What I found is:\n\n1. If you remove this line, and then manually make of the links have :focus-visible applied (via DevTools), it works, and you see the outline.\n2. But, tabbing to it doesn\u0027t apply the focus, as per the bug report.\n3. I then tried to figure out what part of the highlight stylesheets did the trick and discovered that all we needed was:\n\n```\n.devtools-link:focus-visible {\n  outline-width: unset;\n}\n```\n\nTo fix the issue. I currently have no idea why that fixes the issue. What I\u0027d propose is to land this CL we add that CSS to `protocolHandlersView.css`, and remove the theme support injection of the highlight stylesheets.\n\nAs a follow-up, we should create another stylesheet (much like the text input styles) but for devtools-links, as we use them everywhere. This would contain something like:\n\n```\n.devtools-link {\n  color: var(--color-link);\n  text-decoration: underline;\n  cursor: pointer;\n  padding: 2px 0; /* adjust focus ring size */\n}\n\n.devtools-link:focus-visible {\n  outline-width: unset;\n}\n```\n\nAnd then, for any future code that uses \u003cx-link\u003e, we can get people to adopt this stylesheet rather than duplicate styling again. Would you mind doing that in a follow-up, please? (The creation of this stylesheet + using it here, don\u0027t worry about rolling it out everywhere!).",
+      "parentUuid": "4c3bfd55_b830e300",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e89f78b_3121f52c",
         "filename": "front_end/panels/application/components/protocolHandlersView.css",
         "patchSetId": 6
