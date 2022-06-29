@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e01c2d_254aba39",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fd0675e_f77a67a1",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0805c42_95906fec",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "What do you think about adding this to a LinearMemoryViewerUtils.ts? Logically this belongs to the LinearMemoryViewer, and we only need to pass this on. Similar to how things are done with the `ValueType` enum?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8069ce_39ed0157",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "it\u0027s in line with the way ValueInterpreterDisplayUtils.ts exports interface `FormatData`. ValueInterpreterDisplay also defines an interface ValueDisplayData. \n\nIs the decision where each of these lives based on its use? e.g. ValueDisplayData is only used to pass to ValueInterpreterDisplay, while the FormatData needs to be passed from more distant classes?",
+      "parentUuid": "e0805c42_95906fec",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca4fb467_60e017bd",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "I\u0027m happy to make it as general as sensible. I have the idea of users hovering over the bytes and more info getting displayed in my mind, e.g. name, type, size, etc. \n\nhighlightInfo sounds good :)",
+      "parentUuid": "67cc6042_4426a114",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3381054_83b49e3f",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "What do you think about generalizing this? E.g. calling it `HighlightInfo`?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34993e9_79c18bcd",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3381054_83b49e3f",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad43c8f3_919ed3c5",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c3ad39_efaa0f3d",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6cc55d7_1685b1e7",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "nit: please re-add the space",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3374b5bd_85419f8a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6cc55d7_1685b1e7",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +262,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2126f340_f2fae5ce",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46521c3a_61acd474",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fab4aa99_bed3a3fd",
@@ -167,6 +293,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "Maybe rename this to fit the other naming schemes (noun), e.g.: memory-object, or highlight-area maybe?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c63577b9_df303100",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab4aa99_bed3a3fd",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -188,6 +332,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "358ff979_a1c6f3ee",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "883f44ae_efe62396",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea2503b_616d9431",
@@ -201,6 +363,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "nit: please remove additional line.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae47916_15782c2c",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dea2503b_616d9431",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -222,6 +402,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adeb94c4_0b1aa7b5",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d52606f_ebcbe389",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e03ef5cb_8742a25d",
@@ -235,6 +433,24 @@
       "writtenOn": "2022-06-29T06:34:11Z",
       "side": 1,
       "message": "Awesome! Can we also add a test that the correct bytes are highlighted? \nI\u0027m fine to do that in a follow up CL.\n\nAlso, I think logically these test should be in `LinearMemoryViewer_test.ts`, could you move it there?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa738e4e_a502ed3d",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "Discovered unreliability of tests due to the multi-stage rendering of the Viewer. Since the tests are relatively minor, I\u0027ve removed them from the CL and will add tests in a separate future CL.",
+      "parentUuid": "e03ef5cb_8742a25d",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

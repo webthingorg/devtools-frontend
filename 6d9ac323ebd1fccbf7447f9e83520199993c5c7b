@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92239b47_7ed32b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-29T15:20:07Z",
+      "side": 1,
+      "message": "I think this should address all feedback. \n\nAs mentioned offlien, I removed the proposed unittests from the first patchset, as they proved flaky. I believe it has to do with the Viewer\u0027s pre-rendering. Since the tests are currently inconsequential, I will re-add them once I have a fix in a future CL. ",
+      "revId": "6d9ac323ebd1fccbf7447f9e83520199993c5c7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
