@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LinearMemoryInspectorModule from '../../../../../../front_end/ui/components/linear_memory_inspector/linear_memory_inspector.js';
+
 import {
   dispatchClickEvent,
   getElementsWithinComponent,
@@ -59,6 +60,7 @@ describeWithLocale('LinearMemoryInspector', () => {
     for (let i = 0; i < size; ++i) {
       memory[i] = i;
     }
+
     const data = {
       memory: new Uint8Array(memory),
       address: 20,
