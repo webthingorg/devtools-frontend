@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3cff57a_e84fc062",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-29T09:01:36Z",
+      "side": 1,
+      "message": "Let\u0027s also add a screenshot link here. How this is usually done is that we upload a before/after pair of screenshots to a public image site like imgur.com, and reference the link here, e.g.:\n\"screenshot: imgur.com/abcde\"",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac64504_d5fa20cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-29T09:01:36Z",
+      "side": 1,
+      "message": "Let\u0027s add a Bug number to this. Possible ones are the top layer crbug issue, and another adorner-related tracking issue: 1066772",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab2d2f84_4fdda989",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-29T09:01:36Z",
+      "side": 1,
+      "message": "Would we still need this check here now that we definitively created this adorner variable in line 1637?",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcabe190_aeaeeb0a",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-29T09:01:36Z",
+      "side": 1,
+      "message": "I\u0027m just curious, why would we want to \"consume\" mousedown here?",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
