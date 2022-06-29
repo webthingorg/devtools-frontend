@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nI\u0027m replacing a flaky e2e test with a unit test. This is the e2e test that I added for the issue that Jecelyn filed (https://crbug.com/1334930). It started to flake, so I\u0027m replacing it with a unittest. \n\nThe test makes sure that if we have a breakpoint clash (two breakpoints resolve to the same uiLocation), the second breakpoint will be removed. \n\nPTAL!",
       "revId": "738997059eb47f6763df5ccfd1fd5f9aa6762e12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a9bbfd9_e02b01a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:33:07Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "738997059eb47f6763df5ccfd1fd5f9aa6762e12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
