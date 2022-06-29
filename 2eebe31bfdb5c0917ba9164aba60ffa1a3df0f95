@@ -16,6 +16,227 @@
       "message": "Hi Kim,\n\nI packaged up changes for the 1st mile-stone. I added two simple sanity-check unit tests, as they were quite easy to add. Though, I couldn\u0027t figure out a way to import the `memoryObjectInfo` inside of the unittest without a \"cross-module import error\" eslint error, so I suppressed it for now. \n\n\nThank you for the review!",
       "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dfc44d_811c48ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "Thanks Michal, great job! I have some comments.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fd0675e_f77a67a1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "nit: please remove the empty line",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0805c42_95906fec",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "What do you think about adding this to a LinearMemoryViewerUtils.ts? Logically this belongs to the LinearMemoryViewer, and we only need to pass this on. Similar to how things are done with the `ValueType` enum?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67cc6042_4426a114",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "Also, what do you think about making the naming more general, e.g. `HighlightInfo`? I guess it would depend on how we wnat to extend this at some point.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3381054_83b49e3f",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "What do you think about generalizing this? E.g. calling it `HighlightInfo`?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c3ad39_efaa0f3d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "We already have this check in line 149, so we should be able to remove it here",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6cc55d7_1685b1e7",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "nit: please re-add the space",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46521c3a_61acd474",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "How about a helper function here, to de-duplicate the code? E.g. `shouldBeHighlighted`?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab4aa99_bed3a3fd",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "Maybe rename this to fit the other naming schemes (noun), e.g.: memory-object, or highlight-area maybe?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883f44ae_efe62396",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "You can edit `front_end/ui/components/linear_memory_inspector/linear_memory_inspector.ts` to export the definition of the object.\n\nThen use `LinearMemoryInspectorModule.(wherever that object type is)` when using it.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea2503b_616d9431",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "nit: please remove additional line.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d52606f_ebcbe389",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "The sentence will be completed to:\n`LinearMemoryInspector no highlighted bytes belonging to a memory object` (see describe block containing this `it` block.\n\nThe text here should start with a verb, e.g.: `does not highlight any bytes if no memory object info is set`.",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e03ef5cb_8742a25d",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T06:34:11Z",
+      "side": 1,
+      "message": "Awesome! Can we also add a test that the correct bytes are highlighted? \nI\u0027m fine to do that in a follow up CL.\n\nAlso, I think logically these test should be in `LinearMemoryViewer_test.ts`, could you move it there?",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
