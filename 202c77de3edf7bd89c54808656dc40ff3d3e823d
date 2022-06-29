@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be050f91_6a68e0bf",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-29T09:21:44Z",
+      "side": 1,
+      "message": "You are right, no need for it",
+      "parentUuid": "ab2d2f84_4fdda989",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcabe190_aeaeeb0a",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-06-29T09:01:36Z",
       "side": 1,
       "message": "I\u0027m just curious, why would we want to \"consume\" mousedown here?",
+      "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe371d9_e8176537",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2022-06-29T09:21:44Z",
+      "side": 1,
+      "message": "sending you a video",
+      "parentUuid": "fcabe190_aeaeeb0a",
       "revId": "202c77de3edf7bd89c54808656dc40ff3d3e823d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
