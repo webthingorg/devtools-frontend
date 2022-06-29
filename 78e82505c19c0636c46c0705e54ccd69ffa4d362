@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c0ec553_af3867f9",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-29T23:50:10Z",
+      "side": 1,
+      "message": "313, `invoke_getUsageAndQuota` returns `{}`",
+      "parentUuid": "1a58f600_3043e755",
+      "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be083fda_8810c447",
         "filename": "front_end/panels/lighthouse/LighthouseController.ts",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2022-06-24T21:04:20Z",
       "side": 1,
       "message": "When catching and ignoring a specific error, it\u0027s important to check that the error being ignored is what you expect (and if not, re-throw).\n\nBut then, we\u0027re asserting on some error message (or doing an instanceof?) and in that case this may need a test to prevent upstream from breaking the try/catch behavior.",
+      "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de77cb95_63eade20",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-06-29T23:50:10Z",
+      "side": 1,
+      "message": "There wasn\u0027t a specific error. This is the second time I\u0027ve had to come into this file to solve a bug where the return value disobeys our types. The catch block is supposed to catch any generic error because we don\u0027t want future breakages to fail fatally.",
+      "parentUuid": "be083fda_8810c447",
       "revId": "78e82505c19c0636c46c0705e54ccd69ffa4d362",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
