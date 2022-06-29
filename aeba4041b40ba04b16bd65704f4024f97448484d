@@ -106,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c3bfd55_b830e300",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-29T09:05:32Z",
+      "side": 1,
+      "message": "Jack, could you please review and advise if this is needed for the styles to work?",
+      "parentUuid": "0be6380b_c55f1967",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e89f78b_3121f52c",
         "filename": "front_end/panels/application/components/protocolHandlersView.css",
         "patchSetId": 6
@@ -165,6 +183,30 @@
       "side": 1,
       "message": "What I meant to say was that because your CSS rule makes the focus ring style match other DevTools text inputs, maybe we should add the rule to textInput.css to prevent creating text inputs with an inconsistent focus ring style in the future.\n\nYour video shows that we have at least 3 different focus ring colors/styles (same in light theme where it\u0027s 3 different kinds of blue). Peter Mueller, do you have any guidance here?",
       "parentUuid": "7a528d6c_e2e6b443",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "527df5e9_8fdd6d9f",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-06-29T09:05:32Z",
+      "side": 1,
+      "message": "`.devtools-text-input` already defines :focus-visible styles and, AFAIK, they are according to the latest UX by petermueller@ I guess this is an instance where the older UI styles don\u0027t play well together with the newer styles. I will leave it for Peter to triage.",
+      "parentUuid": "0d79dadf_2fc53f4b",
       "range": {
         "startLine": 22,
         "startChar": 0,
