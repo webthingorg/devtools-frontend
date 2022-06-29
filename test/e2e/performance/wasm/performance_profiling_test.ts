@@ -27,6 +27,10 @@ import {
   stopRecording,
   SUMMARY_TAB_SELECTOR,
 } from '../../helpers/performance-helpers.js';
+import {
+  getSelectedSource,
+  openSourceCodeEditorForFile,
+} from '../../helpers/sources-helpers.js';
 
 async function expandAndCheckActivityTree(frontend: puppeteer.Page, expectedActivities: string[]) {
   let index = 0;
@@ -54,64 +58,22 @@ async function expandAndCheckActivityTree(frontend: puppeteer.Page, expectedActi
 }
 
 describe('The Performance panel', async function() {
-  it('is able to record performance', async () => {
+  // We are taking a performance trace, which will take a long time.
+  if (this.timeout() !== 0) {
+    this.timeout(20000);
+  }
+
+  it.only('is able to record performance', async () => {
     const {target, frontend} = getBrowserAndPages();
-
-    await step('navigate to the Performance tab', async () => {
-      await navigateToPerformanceTab('wasm/profiling');
-    });
-
-    await step('open up the console', async () => {
-      await frontend.keyboard.press('Escape');
-      await waitFor('.console-searchable-view');
-    });
-
-    await step('click the record button', async () => {
-      await startRecording();
-    });
-
-    await step('reload the page', async () => {
-      await target.reload();
-    });
-
-    await step('navigate to console-filter.html and get console messages', async () => {
-      await waitFor('.console-message-text .source-code');
-    });
-
-    await step('stop the recording', async () => {
-      await stopRecording();
-    });
-
+    await recordProfile(frontend, target);
     await step('check that the recording finished successfully', async () => {
       await waitFor(SUMMARY_TAB_SELECTOR);
       await waitFor(BOTTOM_UP_SELECTOR);
       await waitFor(CALL_TREE_SELECTOR);
     });
-  });
-});
 
-describe('The Performance panel', async function() {
-  // These tests have lots of waiting which might take more time to execute
-  this.timeout(20000);
+    await searchForWasmCall();
 
-  beforeEach(async () => {
-    const {frontend} = getBrowserAndPages();
-
-    await step('navigate to the Performance tab and uplaod performance profile', async () => {
-      await navigateToPerformanceTab('wasm/profiling');
-
-      const uploadProfileHandle = await waitFor('input[type=file]');
-      assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
-      await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
-    });
-
-    await step('search for "mainWasm"', async () => {
-      await searchForComponent(frontend, 'mainWasm');
-    });
-  });
-
-  // Link to wasm function is broken in profiling tab
-  it.skip('[crbug.com/1125986] is able to inspect how long a wasm function takes to execute', async () => {
     await step('check that the total time is more than zero', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'total time for "mainWasm" is not above zero');
@@ -121,11 +83,49 @@ describe('The Performance panel', async function() {
       await clickOnFunctionLink();
     });
 
-    // TODO(almuthanna): this step will be added once the bug crbug.com/1125986 is solved
     await step(
-        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted',
-        async () => {
-            // step pending
+        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted', async () => {
+          const source = await getSelectedSource();
+          assert.strictEqual(source, 'profiling.wasm');
+        });
+  });
+});
+
+describe('The Performance panel', async function() {
+  // These tests have lots of waiting which might take more time to execute
+  if (this.timeout() !== 0) {
+    this.timeout(100000);
+  }
+
+  // For these tests we will rely on an already recorded profile.
+  beforeEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await step('navigate to the Performance tab and uplaod performance profile', async () => {
+      await openSourceCodeEditorForFile('profiling.wasm', '../performance/wasm/profiling.html');
+      await navigateToPerformanceTab();
+
+      const uploadProfileHandle = await waitFor('input[type=file]');
+      assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
+      await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
+      await searchForWasmCall();
+    });
+  });
+
+  // Link to wasm function is broken in profiling tab
+  it('is able to inspect how long a wasm function takes to execute', async () => {
+    await step('check that the total time is more than zero', async () => {
+      const totalTime = await getTotalTimeFromSummary();
+      assert.isAbove(totalTime, 0, 'total time for "mainWasm" is not above zero');
+    });
+
+    await step('click on the function link', async () => {
+      await clickOnFunctionLink();
+    });
+
+    await step(
+        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted', async () => {
+          const source = await getSelectedSource();
+          assert.strictEqual(source, 'profiling.wasm');
         });
   });
 
@@ -183,3 +183,43 @@ describe('The Performance panel', async function() {
         });
   });
 });
+async function searchForWasmCall() {
+  const {frontend} = getBrowserAndPages();
+  await waitForFunction(async () => {
+    await searchForComponent(frontend, 'mainWasm');
+    const link = await $('.timeline-details-view .devtools-link');
+    if (!link) {
+      return false;
+    }
+    const linkText = await link.evaluate(x => x.textContent);
+    return linkText === 'profiling.wasm:0x3e';
+  });
+}
+
+async function recordProfile(frontend: puppeteer.Page, target: puppeteer.Page) {
+  await step('navigate to the Performance tab', async () => {
+    await navigateToPerformanceTab('wasm/profiling');
+  });
+
+  await step('open up the console', async () => {
+    await frontend.keyboard.press('Escape');
+    await waitFor('.console-searchable-view');
+  });
+
+  await step('click the record button', async () => {
+    await startRecording();
+  });
+
+  await step('reload the page', async () => {
+    await target.reload();
+  });
+
+  await step('navigate to console-filter.html and get console messages', async () => {
+    await waitFor('.console-message-text .source-code');
+  });
+
+  await step('stop the recording', async () => {
+    await stopRecording();
+  });
+}
+
