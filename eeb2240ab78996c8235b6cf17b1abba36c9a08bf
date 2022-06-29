@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9271a389_18733971",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-29T21:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2acd2a3_3f7f2f86",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d69a19_3f79405d",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-06-21T21:28:19Z",
       "side": 1,
       "message": "You might want to be careful here. I\u0027m not sure this will trigger the checkbox `change` event automatically.",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c107dd5a_a9a517ae",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-29T21:03:45Z",
+      "side": 1,
+      "message": "True. Good catch!",
+      "parentUuid": "74d69a19_3f79405d",
       "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cebb335_d649b694",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-29T21:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbaee52b_ef824998",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebe0967b_2933da82",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6030c875_befbd7ea",
+        "filename": "test/e2e/lighthouse/request_blocking_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-29T21:03:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ebe0967b_2933da82",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa90188a_f0288ec5",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-06-21T21:28:19Z",
       "side": 1,
       "message": "Would `Record\u003cstring, unknown\u003e` work in place of `TableItem`?",
+      "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fa581bf_94e8559a",
+        "filename": "test/e2e/lighthouse/request_blocking_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-29T21:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa90188a_f0288ec5",
       "revId": "eeb2240ab78996c8235b6cf17b1abba36c9a08bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
