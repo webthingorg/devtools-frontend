@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e95901_ee1ac6fa",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "Nice idea! A bunch of the types and subtypes also don\u0027t make a lot of sense for wasm.",
+      "parentUuid": "d074b819_cfa91fdc",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bb1d5b2_7b42072c",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e6123c_08404bf9",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb1d5b2_7b42072c",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "260b905d_93f6f0f7",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-06-24T23:28:32Z",
       "side": 1,
       "message": "I think this and releaseObject() should perhaps be errors if absent (i.e. fall-through to throw below, rather than quietly return undefined)? I.e. if the plugin supports evaluate, these two should also be supported?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa08044_4599aad4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260b905d_93f6f0f7",
       "revId": "12033afff99f26238136ea680a832a9bd468468a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcf564da_eee4271c",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "We do trust, but this check makes sure typescript understands the concrete type we\u0027re passing in.",
+      "parentUuid": "ecb628b1_6d61405d",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f3527cc_a47d735e",
         "filename": "front_end/models/extensions/ExtensionServer.ts",
         "patchSetId": 4
@@ -105,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad050522_b18787b5",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "Without async I would have to wrap the status code return value into a Promise.resolve(). I find async slightly more readable, but I don\u0027t have a strong opinion.",
+      "parentUuid": "4f3527cc_a47d735e",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4dd10df9_7676ec4b",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
         "patchSetId": 4
@@ -116,6 +206,24 @@
       "writtenOn": "2022-06-24T23:28:32Z",
       "side": 1,
       "message": "Did you mean to use `address` somewhere?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d0e63ec_c6661541",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "`address` is returned below.",
+      "parentUuid": "4dd10df9_7676ec4b",
       "revId": "12033afff99f26238136ea680a832a9bd468468a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +247,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df3d97f1_55bd9586",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "Yes, I think we may want to return `undefined` in this case too, also below. Michal is working in this code currently, we\u0027ll look at this in a followup!",
+      "parentUuid": "9fd98053_8585e67c",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e403896_36d37622",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
         "patchSetId": 4
@@ -150,6 +276,24 @@
       "writtenOn": "2022-06-24T23:28:32Z",
       "side": 1,
       "message": "Do you still need this one considering the call below?",
+      "revId": "12033afff99f26238136ea680a832a9bd468468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "656b0814_a3ab12af",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-06-29T09:22:49Z",
+      "side": 1,
+      "message": "This call logs the concrete error on the devtools-on-devtools console which helps with debugging. The call below reports a user-facing error message in the devtools being used.",
+      "parentUuid": "6e403896_36d37622",
       "revId": "12033afff99f26238136ea680a832a9bd468468a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
