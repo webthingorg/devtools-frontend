@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd4b780_edad92a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-29T08:01:44Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nhere\u0027s the CL which differentiates the errors that are coming from `updateInDebugger`. Depending on that update, we\u0027ll decide whether or not to keep a breakpoint in the storage (after removing it for the current session).\n\nPTAL!",
+      "revId": "995b6123a79fa9e8e82347e0db1e1ff0627c1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
