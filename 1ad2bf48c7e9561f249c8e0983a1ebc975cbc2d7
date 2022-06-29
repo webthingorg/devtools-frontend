@@ -34,6 +34,24 @@
       "parentUuid": "52daf87c_11094955",
       "revId": "1ad2bf48c7e9561f249c8e0983a1ebc975cbc2d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de884522_a3288dce",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-06-29T13:33:35Z",
+      "side": 1,
+      "message": "Oh that\u0027s true, thanks for the information!",
+      "parentUuid": "16b1eaa4_3d6fdd90",
+      "revId": "1ad2bf48c7e9561f249c8e0983a1ebc975cbc2d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
