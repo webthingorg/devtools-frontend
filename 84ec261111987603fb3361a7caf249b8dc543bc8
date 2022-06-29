@@ -213,6 +213,24 @@
       "parentUuid": "bdf05814_0a5501b6",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d9aef6f_62f54399",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-06-29T17:12:06Z",
+      "side": 1,
+      "message": "Did try this with disabling code now, and tests indeed fail, but it\u0027s sort of obvious that they would.\n\nAnyway, do I need to wait for Jack\u0027s review as well?",
+      "parentUuid": "8087246a_5922aacc",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
