@@ -72,7 +72,7 @@ export async function stopRecording() {
 export async function getTotalTimeFromSummary(): Promise<number> {
   const pieChartTotal = await waitFor('.pie-chart-total');
   const totalText = await pieChartTotal.evaluate(node => node.textContent as string);
-  return parseInt(totalText, 10);
+  return parseFloat(totalText);
 }
 
 export async function retrieveSelectedAndExpandedActivityItems(frontend: puppeteer.Page) {
