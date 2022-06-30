@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed934fc_612ac3b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-06-30T11:49:07Z",
+      "side": 1,
+      "message": "As discussed offline, I\u0027ve unit tests as a separate CL. \nNow the tests cover: \n- correct number of byte-cells highlighted.\n- correct number of text-cells highlighted.\n- highlighted byte-cells\u0027 content matches the expectation.  ",
+      "revId": "13087fac63b3ce1e879e9119f8f34ee68fdf0fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
