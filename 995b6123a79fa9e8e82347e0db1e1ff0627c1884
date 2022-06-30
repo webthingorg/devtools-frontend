@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nhere\u0027s the CL which differentiates the errors that are coming from `updateInDebugger`. Depending on that update, we\u0027ll decide whether or not to keep a breakpoint in the storage (after removing it for the current session).\n\nPTAL!",
       "revId": "995b6123a79fa9e8e82347e0db1e1ff0627c1884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c3c25a_c2e9f71f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-06-30T04:21:38Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "995b6123a79fa9e8e82347e0db1e1ff0627c1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
