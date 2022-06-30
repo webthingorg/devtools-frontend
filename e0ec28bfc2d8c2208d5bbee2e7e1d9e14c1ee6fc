@@ -33,6 +33,24 @@
       "message": "nit: 2022 also rm the blank on line 1",
       "revId": "e0ec28bfc2d8c2208d5bbee2e7e1d9e14c1ee6fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8bdbc24_68c87f07",
+        "filename": "test/e2e/lighthouse/request_blocking_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-06-30T17:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95e3f8e2_2e9f801c",
+      "revId": "e0ec28bfc2d8c2208d5bbee2e7e1d9e14c1ee6fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
