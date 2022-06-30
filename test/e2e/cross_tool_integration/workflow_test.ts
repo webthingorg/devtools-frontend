@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {
+  $,
   assertNotNullOrUndefined,
   click,
   reloadDevTools,
@@ -35,9 +36,13 @@ import {
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('A user can navigate across', async function() {
+  async function navigateFromConsoleToIssues(): Promise<void> {
+    await navigateToConsoleTab();
+    await navigateToIssuesPanelViaInfoBar();
+  }
   // These tests move between panels, which takes time.
   if (this.timeout() !== 0) {
-    this.timeout(10000);
+    this.timeout(3000);
   }
 
   beforeEach(async function() {
@@ -50,10 +55,21 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Flaky on mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1322534]: Console -> Issues', async () => {
-    await navigateToConsoleTab();
-    await navigateToIssuesPanelViaInfoBar();
+  it('Console -> Issues', async () => {
+    await navigateFromConsoleToIssues();
+    await waitForFunction(async () => {
+      // This is a workaround for a race condition between the navigation of the
+      // test resource page and the issue reporting. If issues where not detected
+      // at this point, navigate again to the resource page and repeat until issues
+      // are detected appropriately.
+      const issue = await $('li.issue.parent');
+      if (issue) {
+        return true;
+      }
+      await prepareForCrossToolScenario();
+      await navigateFromConsoleToIssues();
+      return false;
+    });
 
     // Expand the first issue
     await click('li.issue.parent');
