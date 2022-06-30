@@ -16,6 +16,24 @@
       "message": "After your +1 I updated here since CSSScope from the protocol doesn\u0027t contain an `active` property\n\nCan you take a final look again?",
       "revId": "37cf547467d7edc3fba8382a969746bb9e7ada71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ead9128_a99dd6a9",
+        "filename": "front_end/core/sdk/CSSScope.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-06-30T07:49:09Z",
+      "side": 1,
+      "message": "I think this is fine for now.",
+      "parentUuid": "164b86f2_d5dea210",
+      "revId": "37cf547467d7edc3fba8382a969746bb9e7ada71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
