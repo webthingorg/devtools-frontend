@@ -16,6 +16,24 @@
       "message": "It\u0027s pretty interesting that this change caused flakiness 🥺 Can you share which test it was and an example run?",
       "revId": "b3f0febdf02497b320570901b6c0c634a1eb9b91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3a13536_e96667ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-06-30T09:58:03Z",
+      "side": 1,
+      "message": "Starting with this checkin, practically every test involving the sources panel has been flaky on mac. It is certainly weird that this change would cause problems, but it does slightly alter the sources panel and it is when the problems started. I\u0027m testing to see if the revert fixes the tests.",
+      "parentUuid": "cd88e91d_c9c545b0",
+      "revId": "b3f0febdf02497b320570901b6c0c634a1eb9b91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
