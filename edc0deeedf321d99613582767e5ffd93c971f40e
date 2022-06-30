@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f64510b_a67673d0",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-06-30T21:23:13Z",
+      "side": 1,
+      "message": "I see, you\u0027re right of course. Let\u0027s leave it like it is then.",
+      "parentUuid": "3c4c1fe6_d12625ef",
+      "revId": "edc0deeedf321d99613582767e5ffd93c971f40e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5152647a_c6467bf3",
