@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5154a5f_6fa40072",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-30T08:39:13Z",
+      "side": 1,
+      "message": "Right, so think of it as such: you might want to use a single component somewhere else, e.g. the Viewer, outside of the Linear Memory Inspector. In that case you only want to include the parts that directly belong to the viewer.",
+      "parentUuid": "ef8069ce_39ed0157",
+      "revId": "2eebe31bfdb5c0917ba9164aba60ffa1a3df0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67cc6042_4426a114",

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "958992fb_a9202ad0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-30T08:39:13Z",
+      "side": 1,
+      "message": "LGTM! Thanks a lot",
+      "revId": "1a26d1a585faf49af081fb403161e6c8059994f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3091bc_7c1d1e04",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-06-30T08:39:13Z",
+      "side": 1,
+      "message": "I think this needs to be renamed still?",
+      "revId": "1a26d1a585faf49af081fb403161e6c8059994f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
