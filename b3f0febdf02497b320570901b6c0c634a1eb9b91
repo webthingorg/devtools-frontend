@@ -34,6 +34,24 @@
       "parentUuid": "cd88e91d_c9c545b0",
       "revId": "b3f0febdf02497b320570901b6c0c634a1eb9b91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1fcf1e_bc3aaddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-06-30T11:47:23Z",
+      "side": 1,
+      "message": "Oh I see, can you keep me updated if the revert fixed the tests? I\u0027d be curious to investigate for a non-flaky fix here :)",
+      "parentUuid": "c3a13536_e96667ad",
+      "revId": "b3f0febdf02497b320570901b6c0c634a1eb9b91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
