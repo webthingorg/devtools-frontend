@@ -249,6 +249,24 @@
       "parentUuid": "6d9aef6f_62f54399",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcd9fd79_d2e5591c",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-06-30T19:38:34Z",
+      "side": 1,
+      "message": "It actually failed 2/3 this time, too.... https://ci.chromium.org/p/devtools-frontend/g/main/console showed a lot of flakiness of e2e tests, though. I wonder if some timeout is too low or something.",
+      "parentUuid": "ecccd9da_e7fa92da",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
