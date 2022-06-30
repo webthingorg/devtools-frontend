@@ -158,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea8cc06_b0427826",
+        "filename": "front_end/panels/application/components/ProtocolHandlersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-30T20:01:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afe53fb_3b317c59",
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e89f78b_3121f52c",
@@ -267,6 +285,30 @@
       "side": 1,
       "message": "The outline color of the text inputs should be good for any outline in my opinion. Let\u0027s make sure that the text link outline stays 2px wide, so it\u0027s clearly visible.",
       "parentUuid": "527df5e9_8fdd6d9f",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "aeba4041b40ba04b16bd65704f4024f97448484d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a363f245_c0ed3250",
+        "filename": "front_end/panels/application/components/protocolHandlersView.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-30T20:01:46Z",
+      "side": 1,
+      "message": "Our initial reason for using this styling for the focus ring was to follow the pattern of other text inputs. For example, this one that I shared in an earlier comment that uses harmony-input: https://drive.google.com/file/d/1grmZRHxaQ-YFvIGuB_TZJ6zDCYffNPZD/view?usp\u003dsharing\n\nNow that I know that the focus ring for .devtools-text-input is the latest UX, I think it makes more sense to remove this and to just use the :focus-visible styles for .devtools-text-input. I\u0027ve made this change so now the focus ring looks like this:\nhttps://drive.google.com/file/d/1jpRjG4vSbF4L7rS2xblsiY5aWQp6pG5D/view?usp\u003dsharing\n\nI am marking this as resolved, but please feel free to add.",
+      "parentUuid": "1c2ddc39_78352a82",
       "range": {
         "startLine": 22,
         "startChar": 0,

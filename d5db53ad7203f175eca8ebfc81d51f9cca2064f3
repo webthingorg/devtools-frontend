@@ -68,6 +68,24 @@
       "parentUuid": "f52c6d50_14e74a5f",
       "revId": "d5db53ad7203f175eca8ebfc81d51f9cca2064f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a287d4ac_dd60c14f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-06-30T20:01:46Z",
+      "side": 1,
+      "message": "Marking this as resolved because .devtools-text-input has the latest UX.",
+      "parentUuid": "43d159fc_3c9a2b16",
+      "revId": "d5db53ad7203f175eca8ebfc81d51f9cca2064f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
