@@ -10,6 +10,7 @@ import type {AddressChangedEvent, MemoryRequestEvent, Settings, SettingsChangedE
 import {LinearMemoryInspector} from './LinearMemoryInspector.js';
 import type {LazyUint8Array} from './LinearMemoryInspectorController.js';
 import {LinearMemoryInspectorController} from './LinearMemoryInspectorController.js';
+import type {HighlightInfo} from './LinearMemoryViewerUtils.js';
 
 const UIStrings = {
   /**
@@ -74,8 +75,9 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
     return inspectorInstance;
   }
 
-  create(tabId: string, title: string, arrayWrapper: LazyUint8Array, address?: number): void {
-    const inspectorView = new LinearMemoryInspectorView(arrayWrapper, address);
+  create(tabId: string, title: string, arrayWrapper: LazyUint8Array, address?: number, highlightInfo?: HighlightInfo):
+      void {
+    const inspectorView = new LinearMemoryInspectorView(arrayWrapper, address, highlightInfo);
     this.#tabIdToInspectorView.set(tabId, inspectorView);
     this.#tabbedPane.appendTab(tabId, title, inspectorView, undefined, false, true);
     this.#tabbedPane.selectTab(tabId);
@@ -85,7 +87,7 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
     this.#tabbedPane.closeTab(tabId, false);
   }
 
-  reveal(tabId: string, address?: number): void {
+  reveal(tabId: string, address?: number, highlightInfo?: HighlightInfo): void {
     const view = this.#tabIdToInspectorView.get(tabId);
     if (!view) {
       throw new Error(`No linear memory inspector view for given tab id: ${tabId}`);
@@ -93,6 +95,9 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
 
     if (address !== undefined) {
       view.updateAddress(address);
+    }
+    if (highlightInfo !== undefined) {
+      view.updateHighlightInfo(highlightInfo);
     }
     this.refreshView(tabId);
     this.#tabbedPane.selectTab(tabId);
@@ -104,6 +109,14 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
       throw new Error(`View for specified tab id does not exist: ${tabId}`);
     }
     view.refreshData();
+  }
+
+  resetHighlightInfo(tabId: string): void {
+    const view = this.#tabIdToInspectorView.get(tabId);
+    if (!view) {
+      throw new Error(`View for specified tab id does not exist: ${tabId}`);
+    }
+    view.updateHighlightInfo({startAddress: 0, size: 0});
   }
 
   #tabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void {
@@ -124,9 +137,10 @@ export type EventTypes = {
 class LinearMemoryInspectorView extends UI.Widget.VBox {
   #memoryWrapper: LazyUint8Array;
   #address: number;
+  #highlightInfo: HighlightInfo;
   #inspector: LinearMemoryInspector;
   firstTimeOpen: boolean;
-  constructor(memoryWrapper: LazyUint8Array, address: number|undefined = 0) {
+  constructor(memoryWrapper: LazyUint8Array, address: number|undefined = 0, highlightInfo: HighlightInfo|undefined) {
     super(false);
 
     if (address < 0 || address >= memoryWrapper.length()) {
@@ -135,6 +149,7 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
 
     this.#memoryWrapper = memoryWrapper;
     this.#address = address;
+    this.#highlightInfo = highlightInfo || {startAddress: 0, size: 0};
     this.#inspector = new LinearMemoryInspector();
     this.#inspector.addEventListener('memoryrequest', (event: MemoryRequestEvent) => {
       this.#memoryRequested(event);
@@ -166,6 +181,13 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
     this.#address = address;
   }
 
+  updateHighlightInfo(highlightInfo: HighlightInfo): void {
+    if (highlightInfo.startAddress < 0 || highlightInfo.startAddress >= this.#memoryWrapper.length()) {
+      throw new Error('Highlight info start address is out of bounds.');
+    }
+    this.#highlightInfo = highlightInfo;
+  }
+
   refreshData(): void {
     void LinearMemoryInspectorController.getMemoryForAddress(this.#memoryWrapper, this.#address).then(({
                                                                                                         memory,
@@ -189,6 +211,7 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
         valueTypes,
         valueTypeModes,
         endianness,
+        highlightInfo: this.#highlightInfo,
       };
     });
   }

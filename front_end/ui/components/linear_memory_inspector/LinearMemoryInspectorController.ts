@@ -198,6 +198,21 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
       memoryObj = response.obj;
     }
 
+    let highlightInfo;
+    if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
+      try {
+        highlightInfo = {
+          startAddress: memoryAddress || 0,
+          size: obj.sourceType.typeInfo.size,
+        };
+      } catch {
+        highlightInfo = {
+          startAddress: 0,
+          size: 0,
+        };
+      }
+    }
+
     if (memoryAddress !== undefined) {
       Host.userMetrics.linearMemoryInspectorTarget(
           Host.UserMetrics.LinearMemoryInspectorTarget.DWARFInspectableAddress);
@@ -222,7 +237,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     const memory = memoryProperty?.value;
 
     if (this.#bufferIdToRemoteObject.has(id)) {
-      this.#paneInstance.reveal(id, memoryAddress);
+      this.#paneInstance.reveal(id, memoryAddress, highlightInfo);
       void UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
       return;
     }
@@ -231,7 +246,8 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     this.#bufferIdToRemoteObject.set(id, buffer.object());
     const arrayBufferWrapper = new RemoteArrayBufferWrapper(buffer);
 
-    this.#paneInstance.create(id, title, arrayBufferWrapper, memoryAddress);
+    // TODO: Package arguments in a wrapper object.
+    this.#paneInstance.create(id, title, arrayBufferWrapper, memoryAddress, highlightInfo);
     void UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
   }
 
@@ -248,6 +264,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     const debuggerModel = event.data;
     for (const [bufferId, remoteObject] of this.#bufferIdToRemoteObject) {
       if (debuggerModel.runtimeModel() === remoteObject.runtimeModel()) {
+        this.#paneInstance.resetHighlightInfo(bufferId);
         this.#paneInstance.refreshView(bufferId);
       }
     }
