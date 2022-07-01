@@ -1202,10 +1202,7 @@ export class ElementsTreeOutline extends
         bodyElement.insertChild(this.topLayerContainer, bodyElement.childCount() - 1);
       }
       this.topLayerContainer.removeChildren();
-      const topLayerElementsExists = await this.topLayerContainer.addTopLayerElementsAsChildren();
-      if (!topLayerElementsExists) {
-        bodyElement.removeChild(this.topLayerContainer);
-      }
+      await this.topLayerContainer.throttledAddTopLayerElementsAsChildren();
     }
   }
 
@@ -1278,6 +1275,11 @@ export class ElementsTreeOutline extends
     const afterPseudoElement = node.afterPseudoElement();
     if (afterPseudoElement) {
       visibleChildren.push(afterPseudoElement);
+    }
+
+    const backropPseudoElement = node.backdropPseudoElement();
+    if (backropPseudoElement) {
+      visibleChildren.push(backropPseudoElement);
     }
 
     return visibleChildren;
