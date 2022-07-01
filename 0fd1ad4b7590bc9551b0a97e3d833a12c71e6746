@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1bf9e3d_004b0935",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T08:06:24Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere are the changes to performance_profiling tests. I\u0027m removing one test, and change the others a bit to wait for the component to show up before actually continuing.\n\nPTAL!",
+      "revId": "0fd1ad4b7590bc9551b0a97e3d833a12c71e6746",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
