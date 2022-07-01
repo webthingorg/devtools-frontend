@@ -1126,6 +1126,10 @@ export class NetworkRequestNode extends NetworkNode {
           displayShowHeadersLink = true;
           reason = i18n.i18n.lockedString('CoepFrameResourceNeedsCoepHeader');
           break;
+        case Protocol.Network.BlockedReason.CoepDedicatedWorkerNeedsCoepHeader:
+          displayShowHeadersLink = true;
+          reason = i18n.i18n.lockedString('CoepDedicatedWorkerNeedsCoepHeader');
+          break;
         case Protocol.Network.BlockedReason.CoopSandboxedIframeCannotNavigateToCoopPage:
           displayShowHeadersLink = true;
           reason = i18n.i18n.lockedString('CoopSandboxedIframeCannotNavigateToCoopPage');
