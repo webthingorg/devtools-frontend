@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e663290_1f0d0f70",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-01T13:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed3f5f30_d97960b4",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cf8604b_e7f382e0",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-07-01T09:37:49Z",
       "side": 1,
       "message": "Put this into a helper, then this will be more readable. At some point this will grow, so we can already take it out.",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8382705e_1a22a598",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-01T13:31:27Z",
+      "side": 1,
+      "message": "Yea, that\u0027s true. We should be able to eliminate the try clause, but will instead need to do type-specific setting (e.g. different logic for arrays and pointers to arrays).",
+      "parentUuid": "9cf8604b_e7f382e0",
       "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "087e6b8f_db720d3f",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-01T13:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "285a1608_be3c6329",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b0beb1_06d289b4",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6db806a_bcb33b43",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-01T13:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b0beb1_06d289b4",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566011de_23995e0e",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-07-01T09:37:49Z",
       "side": 1,
       "message": "Why not allow it to be undefined? \n`#highlightInfo: HighlightInfo | undefined`\n\nthen you can use undefined for when you reset it.",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cb8858_df402dca",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-01T13:31:27Z",
+      "side": 1,
+      "message": "I considered this. It makes resetting easier, but pollutes method signatures when passing around. Not sure which one outweighs the other. \n\nSwitching to undefined :)",
+      "parentUuid": "566011de_23995e0e",
       "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
