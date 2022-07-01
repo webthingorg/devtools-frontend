@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0127a69_5b6a1ab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "Some comments, since I had a first look",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3f5f30_d97960b4",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "`throw new Error(..)`",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cf8604b_e7f382e0",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "Put this into a helper, then this will be more readable. At some point this will grow, so we can already take it out.",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285a1608_be3c6329",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "Maybe add a comment here on when it is available and when not (and thus throwing an exception)",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b0beb1_06d289b4",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "`highlightInfo \u003d undefined`",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "566011de_23995e0e",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T09:37:49Z",
+      "side": 1,
+      "message": "Why not allow it to be undefined? \n`#highlightInfo: HighlightInfo | undefined`\n\nthen you can use undefined for when you reset it.",
+      "revId": "672e2d7f59cf384a1325ae32783e3e9599981dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
