@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {getBrowserAndPages, goToResource, waitFor, waitForFunction, waitForMany} from '../../shared/helper.js';
+import {click, getBrowserAndPages, goToResource, waitFor, waitForFunction, waitForMany} from '../../shared/helper.js';
 
 export async function playMediaFile(media: string) {
   const {target} = getBrowserAndPages();
@@ -28,6 +28,30 @@ export async function playMediaFile(media: string) {
 
 export async function getPlayerButton() {
   return await waitFor('.player-entry-player-title');
+}
+
+export async function getPlayerErrors(count: number) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+  await click(await waitFor('.player-entry-player-title'));
+  await click(await waitFor('#tab-messages'));
+  return await waitForMany('.media-message-error', count);
+=======
+  await waitFor('.player-entry-player-title');
+
+  if (count > 0) {
+    throw 'we were able to click on the messages!';
+  } else {
+    await click(await waitFor('#tab-messages'));
+    await waitFor('.media-messages-body');
+    return await waitForMany('.media-message-error', count);
+  }
+>>>>>>> 632bdc690 (errors)
+=======
+  await click(await waitFor('.player-entry-player-title'));
+  await click(await waitFor('#tab-messages'));
+  return await waitForMany('.media-message-error', count);
+>>>>>>> 8dc1299c5 (its alive!)
 }
 
 export async function getPlayerButtonText() {
