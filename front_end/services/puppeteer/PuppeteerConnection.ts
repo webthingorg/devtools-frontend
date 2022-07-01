@@ -67,7 +67,7 @@ export class PuppeteerConnection extends puppeteer.Connection {
     if (msgObj.sessionId && !this._sessions.has(msgObj.sessionId)) {
       return;
     }
-    void super._onMessage(message);
+    void super.onMessage(message);
   }
 }
 
@@ -90,7 +90,7 @@ export async function getPuppeteerConnection(
     return targetInfo.targetId === mainTargetId || targetInfo.openerId === mainTargetId || targetInfo.type === 'iframe';
   };
 
-  const browser = await puppeteer.Browser.create(
+  const browser = await puppeteer.Browser._create(
       connection,
       [] /* contextIds */,
       false /* ignoreHTTPSErrors */,

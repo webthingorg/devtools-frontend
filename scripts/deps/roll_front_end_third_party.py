@@ -30,14 +30,12 @@ parser.add_argument("-cb",
                     "--create-branch",
                     dest="create_branch",
                     help="Creates a new branch for each dependency",
-                    default=False,
-                    type=bool)
+                    action='store_true')
 parser.add_argument("-u",
                     "--upload-cl",
                     dest="upload_cl",
                     help="Uploads a CL for each dependency",
-                    default=False,
-                    type=bool)
+                    action='store_true')
 
 args = parser.parse_args()
 
