@@ -27,6 +27,8 @@ export function isCrossOriginEmbedderPolicyIssue(reason: Protocol.Audits.Blocked
   switch (reason) {
     case Protocol.Audits.BlockedByResponseReason.CoepFrameResourceNeedsCoepHeader:
       return true;
+    case Protocol.Audits.BlockedByResponseReason.CoepDedicatedWorkerNeedsCoepHeader:
+      return true;
     case Protocol.Audits.BlockedByResponseReason.CoopSandboxedIFrameCannotNavigateToCoopPage:
       return true;
     case Protocol.Audits.BlockedByResponseReason.CorpNotSameOrigin:
@@ -91,6 +93,15 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
     'CrossOriginEmbedderPolicyIssue::CoepFrameResourceNeedsCoepHeader',
     {
       file: 'CoepFrameResourceNeedsCoepHeader.md',
+      links: [
+        {link: 'https://web.dev/coop-coep/', linkTitle: i18nLazyString(UIStrings.coopAndCoep)},
+      ],
+    },
+  ],
+  [
+    'CrossOriginEmbedderPolicyIssue::CoepDedicatedWorkerNeedsCoepHeader',
+    {
+      file: 'CoepDedicatedWorkerCoepHeader.md',
       links: [
         {link: 'https://web.dev/coop-coep/', linkTitle: i18nLazyString(UIStrings.coopAndCoep)},
       ],

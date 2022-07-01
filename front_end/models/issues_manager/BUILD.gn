@@ -66,6 +66,7 @@ devtools_issue_description_files = [
   "CoepCorpNotSameOriginAfterDefaultedToSameOriginByCoep.md",
   "CoepCorpNotSameSite.md",
   "CoepFrameResourceNeedsCoepHeader.md",
+  "CoepDedicatedWorkerNeedsCoepHeader.md",
   "CompatibilityModeQuirks.md",
   "CookieAttributeValueExceedsMaxSize.md",
   "corsAllowCredentialsRequired.md",
