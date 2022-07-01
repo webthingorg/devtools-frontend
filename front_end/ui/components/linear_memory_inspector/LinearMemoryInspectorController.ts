@@ -14,6 +14,7 @@ import {Events as LmiEvents, LinearMemoryInspectorPaneImpl} from './LinearMemory
 import type {ValueType, ValueTypeMode} from './ValueInterpreterDisplayUtils.js';
 import {Endianness, getDefaultValueTypeMapping} from './ValueInterpreterDisplayUtils.js';
 import * as Bindings from '../../../models/bindings/bindings.js';
+import type {HighlightInfo} from './LinearMemoryViewerUtils.js';
 
 const UIStrings = {
   /**
@@ -198,6 +199,8 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
       memoryObj = response.obj;
     }
 
+    const highlightInfo = this.#extractHighlightInfo(obj, memoryAddress);
+
     if (memoryAddress !== undefined) {
       Host.userMetrics.linearMemoryInspectorTarget(
           Host.UserMetrics.LinearMemoryInspectorTarget.DWARFInspectableAddress);
@@ -222,7 +225,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     const memory = memoryProperty?.value;
 
     if (this.#bufferIdToRemoteObject.has(id)) {
-      this.#paneInstance.reveal(id, memoryAddress);
+      this.#paneInstance.reveal(id, memoryAddress, highlightInfo);
       void UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
       return;
     }
@@ -231,8 +234,26 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     this.#bufferIdToRemoteObject.set(id, buffer.object());
     const arrayBufferWrapper = new RemoteArrayBufferWrapper(buffer);
 
-    this.#paneInstance.create(id, title, arrayBufferWrapper, memoryAddress);
+    // TODO: Package arguments in a wrapper object.
+    this.#paneInstance.create(id, title, arrayBufferWrapper, memoryAddress, highlightInfo);
     void UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
+  }
+
+  #extractHighlightInfo(obj: SDK.RemoteObject.RemoteObject, memoryAddress: number|undefined): HighlightInfo|undefined {
+    let highlightInfo;
+    if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
+      // Currently, only the StaticallyTypedValueNode subclass implements the sourceType getter,
+      // so other subclasses throw a "Not Implemented" Error.
+      try {
+        highlightInfo = {
+          startAddress: memoryAddress || 0,
+          size: obj.sourceType.typeInfo.size,
+        };
+      } catch {
+        highlightInfo = undefined;
+      }
+    }
+    return highlightInfo;
   }
 
   modelRemoved(model: SDK.RuntimeModel.RuntimeModel): void {
@@ -248,6 +269,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     const debuggerModel = event.data;
     for (const [bufferId, remoteObject] of this.#bufferIdToRemoteObject) {
       if (debuggerModel.runtimeModel() === remoteObject.runtimeModel()) {
+        this.#paneInstance.resetHighlightInfo(bufferId);
         this.#paneInstance.refreshView(bufferId);
       }
     }
