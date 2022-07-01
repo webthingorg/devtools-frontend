@@ -75,7 +75,7 @@ export class LinearMemoryViewer extends HTMLElement {
 
     this.#memory = data.memory;
     this.#address = data.address;
-    this.#highlightInfo = data.highlightInfo || this.#highlightInfo;
+    this.#highlightInfo = data.highlightInfo || {size: 0, startAddress: 0};
     this.#memoryOffset = data.memoryOffset;
     this.#focusOnByte = data.focus;
     this.#update();
