@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2aa07ae_79149400",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T06:13:15Z",
+      "side": 1,
+      "message": "So do I understand it correctly that this is purely because of our set up and that it cannot happen out in the wild?",
+      "revId": "c2b7cfb2cd36f5a6538ff9a372289a484605619f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae8bc78_8726d967",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T06:13:15Z",
+      "side": 1,
+      "message": "There are the stressor bots that you can use to test its flakiness:\ne.g.: `git cl try -B devtools-frontend/try -b e2e_stressor_win64 -b e2e_stressor_linux -b e2e_stressor_mac -p e2e_env\u003d\u0027{\"TEST_PATTERNS\":\"performance/wasm/performance_profiling_test.ts\",\"ITERATIONS\":30}\u0027 -p builder_config\u003dRelease`",
+      "revId": "c2b7cfb2cd36f5a6538ff9a372289a484605619f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4dd4f94_32d8dfc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-01T06:13:15Z",
+      "side": 1,
+      "message": "LGTM, thanks Andrés! ",
+      "revId": "c2b7cfb2cd36f5a6538ff9a372289a484605619f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
