@@ -734,7 +734,8 @@ export enum IssueCreated {
   'ClientHintIssue::MetaTagAllowListInvalidOrigin' = 61,
   'ClientHintIssue::MetaTagModifiedHTML' = 62,
   'CorsIssue::PreflightAllowPrivateNetworkError' = 63,
-  MaxValue = 64,
+  'CrossOriginEmbedderPolicyIssue::CoepDedicatedWorkerNeedsCoepHeader' = 64,
+  MaxValue = 65,
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again

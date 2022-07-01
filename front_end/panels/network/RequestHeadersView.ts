@@ -168,6 +168,11 @@ const UIStrings = {
   /**
   *@description Text in Headers View of the Network panel
   */
+  toEmbedThisDedicatedWorker:
+      'To embed this DedicatedWorker, the response needs to enable the cross-origin embedder policy by specifying the following response header:',
+  /**
+  *@description Text in Headers View of the Network panel
+  */
   toUseThisResourceFromADifferent:
       'To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:',
   /**
@@ -821,6 +826,20 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, BlockedReas
       headerValueIncorrect: null,
       details: {
         explanation: i18nLazyString(UIStrings.toEmbedThisFrameInYourDocument),
+        examples: [{codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined}],
+        link: {url: 'https://web.dev/coop-coep/'},
+      },
+      headerNotSet: null,
+    },
+  ],
+  [
+    Protocol.Network.BlockedReason.CoepDedicatedWorkerNeedsCoepHeader,
+    {
+      name: 'cross-origin-embedder-policy',
+      value: null,
+      headerValueIncorrect: null,
+      details: {
+        explanation: i18nLazyString(UIStrings.toEmbedThisDedicatedWorkerInYourDocument),
         examples: [{codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined}],
         link: {url: 'https://web.dev/coop-coep/'},
       },
