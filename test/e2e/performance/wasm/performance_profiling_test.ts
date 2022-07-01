@@ -17,7 +17,6 @@ import {describe, it} from '../../../shared/mocha-extensions.js';
 import {
   BOTTOM_UP_SELECTOR,
   CALL_TREE_SELECTOR,
-  clickOnFunctionLink,
   getTotalTimeFromSummary,
   navigateToBottomUpTab,
   navigateToCallTreeTab,
@@ -27,6 +26,9 @@ import {
   stopRecording,
   SUMMARY_TAB_SELECTOR,
 } from '../../helpers/performance-helpers.js';
+import {
+  openSourceCodeEditorForFile,
+} from '../../helpers/sources-helpers.js';
 
 async function expandAndCheckActivityTree(frontend: puppeteer.Page, expectedActivities: string[]) {
   let index = 0;
@@ -51,6 +53,19 @@ async function expandAndCheckActivityTree(frontend: puppeteer.Page, expectedActi
     await frontend.keyboard.press('ArrowRight');
     await frontend.keyboard.press('ArrowRight');
   } while (index < expectedActivities.length);
+}
+
+async function searchForWasmCall() {
+  const {frontend} = getBrowserAndPages();
+  await waitForFunction(async () => {
+    await searchForComponent(frontend, 'mainWasm');
+    const link = await $('.timeline-details-view .devtools-link');
+    if (!link) {
+      return false;
+    }
+    const linkText = await link.evaluate(x => x.textContent);
+    return linkText === 'profiling.wasm:0x3e';
+  });
 }
 
 describe('The Performance panel', async function() {
@@ -87,99 +102,80 @@ describe('The Performance panel', async function() {
       await waitFor(BOTTOM_UP_SELECTOR);
       await waitFor(CALL_TREE_SELECTOR);
     });
-  });
 });
 
-describe('The Performance panel', async function() {
-  // These tests have lots of waiting which might take more time to execute
-  this.timeout(20000);
+  describe('The Performance panel', async function() {
+    // These tests have lots of waiting which might take more time to execute
+    if (this.timeout() !== 0) {
+      this.timeout(100000);
+    }
 
-  beforeEach(async () => {
-    const {frontend} = getBrowserAndPages();
+    // For these tests we will rely on an already recorded profile.
+    beforeEach(async () => {
+      await step('navigate to the Performance tab and upload performance profile', async () => {
+        await openSourceCodeEditorForFile('profiling.wasm', '../performance/wasm/profiling.html');
+        await navigateToPerformanceTab();
 
-    await step('navigate to the Performance tab and uplaod performance profile', async () => {
-      await navigateToPerformanceTab('wasm/profiling');
-
-      const uploadProfileHandle = await waitFor('input[type=file]');
-      assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
-      await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
+        const uploadProfileHandle = await waitFor('input[type=file]');
+        assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
+        await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
+        await searchForWasmCall();
+      });
     });
 
-    await step('search for "mainWasm"', async () => {
-      await searchForComponent(frontend, 'mainWasm');
-    });
-  });
-
-  // Link to wasm function is broken in profiling tab
-  it.skip('[crbug.com/1125986] is able to inspect how long a wasm function takes to execute', async () => {
-    await step('check that the total time is more than zero', async () => {
-      const totalTime = await getTotalTimeFromSummary();
-      assert.isAbove(totalTime, 0, 'total time for "mainWasm" is not above zero');
+    it('is able to display the execution time for a wasm function', async () => {
+      await step('check that the Summary tab shows more than zero total time for "mainWasm"', async () => {
+        const totalTime = await getTotalTimeFromSummary();
+        assert.isAbove(totalTime, 0, 'mainWasm function execution time is displayed incorrectly');
+      });
     });
 
-    await step('click on the function link', async () => {
-      await clickOnFunctionLink();
+    it('is able to inspect the call stack for a wasm function from the bottom up', async () => {
+      const {frontend} = getBrowserAndPages();
+      const expectedActivities = ['mainWasm', 'js-to-wasm::i', '(anonymous)', 'Run Microtasks'];
+
+      await step('navigate to the Bottom Up tab', async () => {
+        await navigateToBottomUpTab();
+      });
+
+      await step(
+          'expand the tree for the "mainWasm" activity and check that it displays the correct values', async () => {
+            const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
+            const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
+            if (!rootActivity) {
+              assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
+            }
+            await rootActivity.click();
+            await expandAndCheckActivityTree(frontend, expectedActivities);
+          });
     });
 
-    // TODO(almuthanna): this step will be added once the bug crbug.com/1125986 is solved
-    await step(
-        'check that the system has navigated to the Sources tab with the "mainWasm" function highlighted',
-        async () => {
-            // step pending
-        });
-  });
+    it('is able to inspect the call stack for a wasm function from the call tree', async () => {
+      const {frontend} = getBrowserAndPages();
+      const expectedActivities = [
+        'Run Microtasks',
+        '(anonymous)',
+        'js-to-wasm::i',
+        'mainWasm',
+        'wasm-to-js::l-imports.getTime',
+        'getTime',
+      ];
 
-  it(' is able to display the execution time for a wasm function', async () => {
-    await step('check that the Summary tab shows more than zero total time for "mainWasm"', async () => {
-      const totalTime = await getTotalTimeFromSummary();
-      assert.isAbove(totalTime, 0, 'mainWasm function execution time is displayed incorrectly');
+      await step('navigate to the Call Tree tab', async () => {
+        await navigateToCallTreeTab();
+      });
+
+      await step(
+          'expand the tree for the "Run Microtasks" activity and check that it displays the correct values',
+          async () => {
+            const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
+            const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
+            if (!rootActivity) {
+              assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
+            }
+            await rootActivity.click();
+            await expandAndCheckActivityTree(frontend, expectedActivities);
+          });
     });
-  });
-
-  it('is able to inspect the call stack for a wasm function from the bottom up', async () => {
-    const {frontend} = getBrowserAndPages();
-    const expectedActivities = ['mainWasm', 'js-to-wasm::i', '(anonymous)', 'Run Microtasks'];
-
-    await step('navigate to the Bottom Up tab', async () => {
-      await navigateToBottomUpTab();
-    });
-
-    await step(
-        'expand the tree for the "mainWasm" activity and check that it displays the correct values', async () => {
-          const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
-          const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
-          if (!rootActivity) {
-            assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
-          }
-          await rootActivity.click();
-          await expandAndCheckActivityTree(frontend, expectedActivities);
-        });
-  });
-
-  it('is able to inspect the call stack for a wasm function from the call tree', async () => {
-    const {frontend} = getBrowserAndPages();
-    const expectedActivities = [
-      'Run Microtasks',
-      '(anonymous)',
-      'js-to-wasm::i',
-      'mainWasm',
-      'wasm-to-js::l-imports.getTime',
-      'getTime',
-    ];
-
-    await step('navigate to the Call Tree tab', async () => {
-      await navigateToCallTreeTab();
-    });
-
-    await step(
-        'expand the tree for the "Run Microtasks" activity and check that it displays the correct values', async () => {
-          const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
-          const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
-          if (!rootActivity) {
-            assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
-          }
-          await rootActivity.click();
-          await expandAndCheckActivityTree(frontend, expectedActivities);
-        });
   });
 });
