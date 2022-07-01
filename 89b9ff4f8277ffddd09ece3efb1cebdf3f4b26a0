@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73aa64a0_ceb36e33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-01T09:09:05Z",
+      "side": 1,
+      "message": "lgtm with two nits. Thanks!",
+      "revId": "89b9ff4f8277ffddd09ece3efb1cebdf3f4b26a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3a53fc_cd34adb0",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-01T09:09:05Z",
+      "side": 1,
+      "message": "what error is causing you to need to ignore here?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "89b9ff4f8277ffddd09ece3efb1cebdf3f4b26a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a8d436_1ebea659",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-01T09:09:05Z",
+      "side": 1,
+      "message": "I think if you did:\n\n```\nconst button \u003d await waitFor(\u0027button\u0027, panel)\n```\n\nYou could lose the `if(!button)` bit",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "89b9ff4f8277ffddd09ece3efb1cebdf3f4b26a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
