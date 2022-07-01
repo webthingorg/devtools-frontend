@@ -68,6 +68,24 @@
       "message": "change to\n`#sectionElement: Element`",
       "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b3838f_74da8305",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T18:21:48Z",
+      "side": 1,
+      "message": "(for new code we prefer JS\u0027s private fields)",
+      "parentUuid": "0a9692a1_d744cbe2",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

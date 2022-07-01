@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8517cb5_8dac5d18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T18:21:48Z",
+      "side": 1,
+      "message": "Sorry for the delay! This is looking good, just a few questions left.",
+      "revId": "f81ff275c213a67bce67dd10303c98d8bb2680f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fedd5076_8bf2deeb",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T18:21:48Z",
+      "side": 1,
+      "message": "Maybe this line isn\u0027t even needed? Or does it help regarding accessibility?",
+      "revId": "f81ff275c213a67bce67dd10303c98d8bb2680f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
