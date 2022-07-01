@@ -7541,6 +7541,9 @@
   "panels/network/RequestHeadersView.ts | thisDocumentWasBlockedFrom": {
     "message": "This document was blocked from loading in an iframe with a sandbox attribute because this document specified a cross-origin opener policy."
   },
+  "panels/network/RequestHeadersView.ts | toEmbedThisDedicatedWorker": {
+    "message": "To embed this DedicatedWorker, the response needs to enable the cross-origin embedder policy by specifying the following response header:"
+  },
   "panels/network/RequestHeadersView.ts | toEmbedThisFrameInYourDocument": {
     "message": "To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:"
   },
