@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a66f08_889eff17",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-01T22:01:00Z",
+      "side": 1,
+      "message": "\u003e Argument of type \u0027string\u0027 is not assignable to parameter of type \u0027LhCategoryId\u0027\n\non the includes() line.\n\n----\n\nEh. The idea is to assert all uses of this fn will only use the allowable IDs.  But I\u0027m kinda over it. I also tried this with an enum and failed.\n(Something about the elemH.$$eval types isn\u0027t carrying params though like the elemH.evaluate types are. Odd.)\n\nMy new changeset just drops it back to `string[]` which means we don\u0027t need the tsignore anymore. whatevz.",
+      "parentUuid": "4a3a53fc_cd34adb0",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "89b9ff4f8277ffddd09ece3efb1cebdf3f4b26a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89a8d436_1ebea659",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-01T09:09:05Z",
       "side": 1,
       "message": "I think if you did:\n\n```\nconst button \u003d await waitFor(\u0027button\u0027, panel)\n```\n\nYou could lose the `if(!button)` bit",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "89b9ff4f8277ffddd09ece3efb1cebdf3f4b26a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b24c18_76bb9055",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-01T22:01:00Z",
+      "side": 1,
+      "message": "oOOOOOOOH thank you.",
+      "parentUuid": "89a8d436_1ebea659",
       "range": {
         "startLine": 61,
         "startChar": 0,
