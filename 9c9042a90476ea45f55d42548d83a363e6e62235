@@ -16,6 +16,23 @@
       "message": "Danil, PTAL\n\nPeter, PTAL at the screenshot. Is porting over the existing UI 1:1 fine or are updates necessary?",
       "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97bc4c0f_d8aa5c70",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T12:25:28Z",
+      "side": 1,
+      "message": "note: unchanged from https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/network/RequestHeadersView.ts;l\u003d850",
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
