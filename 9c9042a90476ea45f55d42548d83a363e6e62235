@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be78e18d_238b3799",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-01T12:43:27Z",
+      "side": 1,
+      "message": "That\u0027s a bit hard to follow as it is written. We could have rewritten this cause without affecting performance, but given that it is not performance-critical we can take a little performance hit and have it as simple as \n\n    const headersByName \u003d new Map(headers.map(h\u003d\u003e[h.name, h]);\n    const headersWithIssuesByName \u003d new Map(headersWithIssues.map(h\u003d\u003e[h.name, h]);\n    for (const name of new Set([...headersByName.keys(), \n                                ...headersWithIssuesByName.keys())) {\n      const header \u003d headersByName.get(name);\n      const headerWithIssue \u003d headersWithIssuesByName.get(name);\n      if (header \u0026\u0026 headerWithIssue) {\n        results.push({...header, ...headerWithIssues, headerNotSet: false});\n      } else if (header) {\n        result.push({...header, headerNotSet: false});\n      } else if (headerWithIssues) {\n        result.push({...headerWithIssues, headerNotSet: true});\n      }\n    }",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 57
+      },
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae8ce93_c56968da",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-01T12:43:27Z",
+      "side": 1,
+      "message": "This function does a lot for \"just rendering a header\". Can we have link and details rendering pulled out into helper functions?",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 149
+      },
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97bc4c0f_d8aa5c70",
         "filename": "front_end/panels/network/components/RequestHeadersView.ts",
         "patchSetId": 3
