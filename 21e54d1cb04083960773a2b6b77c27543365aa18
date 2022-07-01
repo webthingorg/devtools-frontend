@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538aa1e9_49a668de",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-01T13:01:12Z",
+      "side": 1,
+      "message": "nit: is it only for deprecated properties?",
+      "range": {
+        "startLine": 13,
+        "startChar": 34,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7cf95e_c238e468",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-01T13:01:12Z",
+      "side": 1,
+      "message": "nit: let\u0027s remove popup as the suffix for all class names as the component is not a popup itself, it\u0027s only used in a popup? \n\nsuggestion: let\u0027s call it `CSSHintDetails` or `CSSHintDetailsView`",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7ac52a_f5bfe7f7",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-01T13:01:12Z",
+      "side": 1,
+      "message": "let\u0027s just have a single class `link` and set all properties on it. Also, I think we might need to import the XLink component to make sure it overrides the built-in x-link.",
+      "range": {
+        "startLine": 51,
+        "startChar": 108,
+        "endLine": 51,
+        "endChar": 145
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f292c43_a51cf936",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-01T13:01:12Z",
+      "side": 1,
+      "message": "same comment about \u0027-popup\u0027",
+      "range": {
+        "startLine": 64,
+        "startChar": 74,
+        "endLine": 64,
+        "endChar": 79
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
