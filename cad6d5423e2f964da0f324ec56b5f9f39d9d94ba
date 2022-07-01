@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc281fd1_53aa29f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-07-01T23:27:48Z",
+      "side": 1,
+      "message": "No worries! Thanks for letting us know and for the new comments.",
+      "parentUuid": "e2fb8da1_c0d9ae98",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3258202_b96a7bc0",
@@ -49,6 +67,24 @@
       "writtenOn": "2022-07-01T12:43:01Z",
       "side": 1,
       "message": "This looks like it adds a an additional event listener each time the method is called.",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc5f330_946a42dc",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-07-01T23:27:48Z",
+      "side": 1,
+      "message": "Are you referring to handleExpansion on line 965 being the additional event listener or are you seeing a different event listener being added each time the method is called? \n\nIf you are referring to handleExpansion, this is intentional, and it is what\u0027s handling the dropdown carrot to disappear and for Manifest to be unexpandable in the sidebar when no manifest is detected(https://drive.google.com/file/d/1lEv9vnIAWbuabKcNSbsg11g0ZRHC6A-A/view?usp\u003dsharing). I hope this clarifies things, but if it doesn\u0027t, let me know.",
+      "parentUuid": "f3258202_b96a7bc0",
       "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -84,6 +120,24 @@
       "side": 1,
       "message": "(for new code we prefer JS\u0027s private fields)",
       "parentUuid": "0a9692a1_d744cbe2",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58732db7_1a7937f0",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-07-01T23:27:48Z",
+      "side": 1,
+      "message": "That makes sense. Done!",
+      "parentUuid": "98b3838f_74da8305",
       "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
