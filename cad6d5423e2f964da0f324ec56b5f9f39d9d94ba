@@ -34,6 +34,40 @@
       "parentUuid": "611ace1f_c85b9920",
       "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3258202_b96a7bc0",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T12:43:01Z",
+      "side": 1,
+      "message": "This looks like it adds a an additional event listener each time the method is called.",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9692a1_d744cbe2",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-01T12:43:01Z",
+      "side": 1,
+      "message": "change to\n`#sectionElement: Element`",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
