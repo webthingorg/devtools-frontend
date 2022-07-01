@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "c86381861d11218662ce14b6494ba45c7ee7e3e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4e44e9f_e4e7d011",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-07-01T10:39:12Z",
+      "side": 1,
+      "message": "I think this will not work. But rubber stamping since no harm will be done in case you want to try...\n\nReasons: The recipe interacts with depot_tools API for CLs to fetch the changed files. Post-commit there is no such thing.\n\nIn V8 we run a dedicated own recipe that hooks up our own \"v8_presubmit.py\" script. It shares some of the presubmit checks with the real PRESUBMIT.py, but passes all files of the workspace instead.",
+      "revId": "c86381861d11218662ce14b6494ba45c7ee7e3e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
