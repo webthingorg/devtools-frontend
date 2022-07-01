@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 import { WaitForSelectorOptions, DOMWorld } from './DOMWorld.js';
-import { ElementHandle, JSHandle } from './JSHandle.js';
+import { JSHandle } from './JSHandle.js';
+import { ElementHandle } from './ElementHandle.js';
 /**
  * @internal
  */
@@ -22,11 +23,11 @@ export interface InternalQueryHandler {
     queryOne?: (element: ElementHandle, selector: string) => Promise<ElementHandle | null>;
     waitFor?: (domWorld: DOMWorld, selector: string, options: WaitForSelectorOptions) => Promise<ElementHandle | null>;
     queryAll?: (element: ElementHandle, selector: string) => Promise<ElementHandle[]>;
-    queryAllArray?: (element: ElementHandle, selector: string) => Promise<JSHandle>;
+    queryAllArray?: (element: ElementHandle, selector: string) => Promise<JSHandle<Element[]>>;
 }
 /**
  * Contains two functions `queryOne` and `queryAll` that can
- * be {@link Puppeteer.registerCustomQueryHandler | registered}
+ * be {@link registerCustomQueryHandler | registered}
  * as alternative querying strategies. The functions `queryOne` and `queryAll`
  * are executed in the page context.  `queryOne` should take an `Element` and a
  * selector string as argument and return a single `Element` or `null` if no
@@ -40,19 +41,43 @@ export interface CustomQueryHandler {
     queryAll?: (element: Element | Document, selector: string) => Element[] | NodeListOf<Element>;
 }
 /**
- * @internal
+ * Registers a {@link CustomQueryHandler | custom query handler}.
+ *
+ * @remarks
+ * After registration, the handler can be used everywhere where a selector is
+ * expected by prepending the selection string with `<name>/`. The name is only
+ * allowed to consist of lower- and upper case latin letters.
+ *
+ * @example
+ * ```
+ * puppeteer.registerCustomQueryHandler('text', { … });
+ * const aHandle = await page.$('text/…');
+ * ```
+ *
+ * @param name - The name that the custom query handler will be registered
+ * under.
+ * @param queryHandler - The {@link CustomQueryHandler | custom query handler}
+ * to register.
+ *
+ * @public
  */
 export declare function registerCustomQueryHandler(name: string, handler: CustomQueryHandler): void;
 /**
- * @internal
+ * @param name - The name of the query handler to unregistered.
+ *
+ * @public
  */
 export declare function unregisterCustomQueryHandler(name: string): void;
 /**
- * @internal
+ * @returns a list with the names of all registered custom query handlers.
+ *
+ * @public
  */
 export declare function customQueryHandlerNames(): string[];
 /**
- * @internal
+ * Clears all registered handlers.
+ *
+ * @public
  */
 export declare function clearCustomQueryHandlers(): void;
 /**
