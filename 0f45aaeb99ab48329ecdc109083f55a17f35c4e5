@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27a1c32_c0e01e61",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-04T05:36:11Z",
+      "side": 1,
+      "message": "this should be `onMessage`",
+      "revId": "0f45aaeb99ab48329ecdc109083f55a17f35c4e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87a7f906_3e930f3f",
+        "filename": "scripts/deps/roll_front_end_third_party.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-04T05:36:11Z",
+      "side": 1,
+      "message": "what is this change about?",
+      "revId": "0f45aaeb99ab48329ecdc109083f55a17f35c4e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
