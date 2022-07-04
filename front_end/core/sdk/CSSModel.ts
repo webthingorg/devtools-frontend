@@ -683,15 +683,15 @@ export class CSSModel extends SDKModel<EventTypes> {
     // is different from the regular navigations. In this case, events about CSS
     // stylesheet has already been received and they are mixed with the previous page
     // stylesheets. Therefore, we re-enable the CSS agent to get fresh events.
-    // For the regular navigatons, we can just clear the local data because events about
+    // For the regular navigations, we can just clear the local data because events about
     // stylesheets will arrive later.
     if (event.data.backForwardCacheDetails.restoredFromCache) {
       await this.suspendModel();
-      await this.resumeModel();
     } else {
       this.resetStyleSheets();
       this.resetFontFaces();
     }
+    await this.resumeModel();
   }
 
   private resetStyleSheets(): void {
