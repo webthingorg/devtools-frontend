@@ -16,6 +16,142 @@
       "message": "Thank you for the review!",
       "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c3e6a0_f701e6a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "Thanks Michal! Some minor comments!",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50ab6c8_92428883",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "Normally this is our convention if there\u0027s not a bug that is created for it: `// TODO(michalpitr):`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac6c406_c459e502",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "You can write: `memoryAddress?: number`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c60e4b_22d43e16",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "super nit, since I don\u0027t think we use \" anywhere: `\u0027Not Implemented\u0027`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044345e2_50dd69e0",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "Same here: `highlightInfo?: HiglightInfo`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a27f4b_758241ff",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "No need to set the right part of it, I assume? I.e. `this.#highlightInfo \u003d highlightInfo` should be enough?",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5001e116_df297298",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "Same here: `highlightInfo?: HighlightInfo`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1638894_8b00aa88",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-04T07:03:04Z",
+      "side": 1,
+      "message": "This is part of your previous CL, but would it make sense to keep this as potentially undefined too? I think, if the component doesn\u0027t have anything to highlight, we don\u0027t necessarily need to set it? This would be more explicit, wdyt?",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
