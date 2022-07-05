@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00613223_0a79e575",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Good to know, but this is an oversight and should\u0027ve been removed unless we want to package everything in a temp object. I\u0027d say maybe right now the trade-off between obfuscating the meaning of the individual parameters and the inconvenience of having 6 of them isn\u0027t quite there.",
+      "parentUuid": "e50ab6c8_92428883",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac6c406_c459e502",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-07-04T07:03:04Z",
       "side": 1,
       "message": "You can write: `memoryAddress?: number`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "062b288d_10f90a0c",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac6c406_c459e502",
       "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "497aed1b_03360f3e",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "That\u0027s true, very good catch.",
+      "parentUuid": "f3c60e4b_22d43e16",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044345e2_50dd69e0",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-07-04T07:03:04Z",
       "side": 1,
       "message": "Same here: `highlightInfo?: HiglightInfo`",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c1efd9_9475e45d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "044345e2_50dd69e0",
       "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66c000b_14d08156",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a27f4b_758241ff",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5001e116_df297298",
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4fcb9f_c43f7ad1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5001e116_df297298",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1638894_8b00aa88",
@@ -150,6 +258,24 @@
       "writtenOn": "2022-07-04T07:03:04Z",
       "side": 1,
       "message": "This is part of your previous CL, but would it make sense to keep this as potentially undefined too? I think, if the component doesn\u0027t have anything to highlight, we don\u0027t necessarily need to set it? This would be more explicit, wdyt?",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9e8f00_df5321ce",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-05T13:03:57Z",
+      "side": 1,
+      "message": "Yes, can be done and is probably more explicit:\n- No highlightInfo provided -\u003e no highlight\n- Some highlightInfo provided -\u003e potentially some highlight",
+      "parentUuid": "a1638894_8b00aa88",
       "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
