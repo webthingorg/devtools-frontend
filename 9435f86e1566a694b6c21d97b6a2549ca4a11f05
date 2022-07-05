@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa2fbbf_fd1ad93b",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T23:46:30Z",
+      "side": 1,
+      "message": "Thanks for letting me know Alex. Removed the extra tags from @example",
+      "parentUuid": "26667b96_d198faff",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 69
+      },
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a17daecc_26aa83ff",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-05T08:56:32Z",
       "side": 1,
       "message": "The component name should be singular, I suggest we change it to `devtools-css-hint-details-view`",
+      "range": {
+        "startLine": 64,
+        "startChar": 49,
+        "endLine": 64,
+        "endChar": 73
+      },
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d937b266_2a2e21c2",
+        "filename": "front_end/panels/elements/components/CSSHintDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a17daecc_26aa83ff",
       "range": {
         "startLine": 64,
         "startChar": 49,
@@ -81,6 +129,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e9b775_bbac3120",
+        "filename": "front_end/panels/elements/components/CSSHintDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94ded269_83fd77f1",
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20725c33_6dfda209",
@@ -98,6 +164,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eeb09ca_18fc6bec",
+        "filename": "front_end/panels/elements/stylesSectionTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T23:46:30Z",
+      "side": 1,
+      "message": "Done, Thanks 😊",
+      "parentUuid": "20725c33_6dfda209",
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f38cac1e_f96245b2",
@@ -111,6 +195,24 @@
       "writtenOn": "2022-07-05T09:21:38Z",
       "side": 1,
       "message": "nit: typo, should be `popupLearnMoreRendered` here.",
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb67a6d_0aa101db",
+        "filename": "test/unittests/front_end/panels/elements/components/CSSHintDetailsView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T23:46:30Z",
+      "side": 1,
+      "message": "Done, thanks for flagging this Changhao 😊",
+      "parentUuid": "f38cac1e_f96245b2",
       "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
