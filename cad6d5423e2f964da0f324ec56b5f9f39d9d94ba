@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1197162a_86584e4e",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-05T16:53:28Z",
+      "side": 1,
+      "message": "I think what you want is to create 1 event listener. In the current implementation, selecting \u0027Manifest\u0027 multiple times causes multiple event listeners to be created. How about moving the creation of the event listener into the constructor so that it only happens once?",
+      "parentUuid": "fdc5f330_946a42dc",
+      "revId": "cad6d5423e2f964da0f324ec56b5f9f39d9d94ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a9692a1_d744cbe2",
         "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
         "patchSetId": 29
