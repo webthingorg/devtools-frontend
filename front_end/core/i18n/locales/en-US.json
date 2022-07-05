@@ -2996,6 +2996,9 @@
   "panels/application/components/FrameDetailsView.ts | apiAvailability": {
     "message": "API availability"
   },
+  "panels/application/components/FrameDetailsView.ts | AudioOutputDeviceRequested": {
+    "message": "Prerendering has not supported the AudioContext API yet."
+  },
   "panels/application/components/FrameDetailsView.ts | availabilityOfCertainApisDepends": {
     "message": "Availability of certain APIs depends on the document being cross-origin isolated."
   },
@@ -3007,6 +3010,9 @@
   },
   "panels/application/components/FrameDetailsView.ts | availableTransferable": {
     "message": "available, transferable"
+  },
+  "panels/application/components/FrameDetailsView.ts | BlockedByClient": {
+    "message": "Resource load is blocked by the client."
   },
   "panels/application/components/FrameDetailsView.ts | child": {
     "message": "child"
@@ -3026,6 +3032,9 @@
   "panels/application/components/FrameDetailsView.ts | clickToRevealInSourcesPanel": {
     "message": "Click to reveal in Sources panel"
   },
+  "panels/application/components/FrameDetailsView.ts | ClientCertRequested": {
+    "message": "The page is requesting client cert, which is not suitable for a hidden page like prerendering."
+  },
   "panels/application/components/FrameDetailsView.ts | createdByAdScriptExplanation": {
     "message": "There was an ad script in the (async) stack when this frame was created. Examining the creation stack trace of this frame might provide more insight."
   },
@@ -3041,11 +3050,41 @@
   "panels/application/components/FrameDetailsView.ts | crossoriginIsolated": {
     "message": "Cross-Origin Isolated"
   },
+  "panels/application/components/FrameDetailsView.ts | CrossOriginNavigation": {
+    "message": "The prerendered page navigated to a cross-origin URL after loading. Currently prerendering cross-origin pages is disallowed."
+  },
+  "panels/application/components/FrameDetailsView.ts | CrossOriginRedirect": {
+    "message": "Attempted to prerender a URL which redirected to a cross-origin URL. Currently prerendering cross-origin pages is disallowed."
+  },
+  "panels/application/components/FrameDetailsView.ts | Destroyed": {
+    "message": "A prerendered page was abandoned for unknown reasons."
+  },
+  "panels/application/components/FrameDetailsView.ts | DidFailLoad": {
+    "message": "DidFailLoadWithError happened during prerendering."
+  },
   "panels/application/components/FrameDetailsView.ts | document": {
     "message": "Document"
   },
+  "panels/application/components/FrameDetailsView.ts | Download": {
+    "message": "Download is disallowed in Prerender."
+  },
+  "panels/application/components/FrameDetailsView.ts | EmbedderTriggeredAndCrossOriginRedirected": {
+    "message": "Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is is canceled because the navigation is redirected to another cross-origin page."
+  },
+  "panels/application/components/FrameDetailsView.ts | EmbedderTriggeredAndDestroyed": {
+    "message": "Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is is destroyed in the destructor."
+  },
+  "panels/application/components/FrameDetailsView.ts | EmbedderTriggeredAndSameOriginRedirected": {
+    "message": "Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is canceled because the navigation is redirected to another same-origin page."
+  },
   "panels/application/components/FrameDetailsView.ts | frameId": {
     "message": "Frame ID"
+  },
+  "panels/application/components/FrameDetailsView.ts | InvalidSchemeNavigation": {
+    "message": "Only HTTP(S) navigation allowed for Prerender."
+  },
+  "panels/application/components/FrameDetailsView.ts | InvalidSchemeRedirect": {
+    "message": "Attempted to prerender a URL that redirected to a non-HTTP(S) URL. Only HTTP(S) pages can be prerendered."
   },
   "panels/application/components/FrameDetailsView.ts | learnMore": {
     "message": "Learn more"
@@ -3053,11 +3092,41 @@
   "panels/application/components/FrameDetailsView.ts | localhostIsAlwaysASecureContext": {
     "message": "Localhost is always a secure context"
   },
+  "panels/application/components/FrameDetailsView.ts | LoginAuthRequested": {
+    "message": "Prerender does not support auth requests from UI."
+  },
+  "panels/application/components/FrameDetailsView.ts | LowEndDevice": {
+    "message": "Prerendering is not supported for low-memory devices."
+  },
+  "panels/application/components/FrameDetailsView.ts | MainFrameNavigation": {
+    "message": "Navigations after the initial prerendering navigation are disallowed"
+  },
   "panels/application/components/FrameDetailsView.ts | matchedBlockingRuleExplanation": {
     "message": "This frame is considered an ad frame because its current (or previous) main document is an ad resource."
   },
+  "panels/application/components/FrameDetailsView.ts | MaxNumOfRunningPrerendersExceeded": {
+    "message": "Max number of prerendering exceeded."
+  },
   "panels/application/components/FrameDetailsView.ts | measureMemory": {
     "message": "Measure Memory"
+  },
+  "panels/application/components/FrameDetailsView.ts | MixedContent": {
+    "message": "Prerendering is canceled by a mixed content frame."
+  },
+  "panels/application/components/FrameDetailsView.ts | MojoBinderPolicy": {
+    "message": "A disallowed API was used by the prerendered page"
+  },
+  "panels/application/components/FrameDetailsView.ts | NavigationBadHttpStatus": {
+    "message": "The initial prerendering navigation was not successful due to the server returning a non-200/204/205 status code."
+  },
+  "panels/application/components/FrameDetailsView.ts | NavigationNotCommitted": {
+    "message": "The prerendering page is not committed in the end."
+  },
+  "panels/application/components/FrameDetailsView.ts | NavigationRequestBlockedByCsp": {
+    "message": "Navigation request is blocked by CSP."
+  },
+  "panels/application/components/FrameDetailsView.ts | NavigationRequestNetworkError": {
+    "message": "Encountered a network error during prerendering."
   },
   "panels/application/components/FrameDetailsView.ts | no": {
     "message": "No"
@@ -3079,6 +3148,12 @@
   },
   "panels/application/components/FrameDetailsView.ts | refresh": {
     "message": "Refresh"
+  },
+  "panels/application/components/FrameDetailsView.ts | RendererProcessCrashed": {
+    "message": "The prerendered page crashed."
+  },
+  "panels/application/components/FrameDetailsView.ts | RendererProcessKilled": {
+    "message": "The renderer process for the prerendering page was killed."
   },
   "panels/application/components/FrameDetailsView.ts | reportingTo": {
     "message": "reporting to"
@@ -3104,6 +3179,12 @@
   "panels/application/components/FrameDetailsView.ts | sharedarraybufferConstructorIsAvailable": {
     "message": "SharedArrayBuffer constructor is available but SABs cannot be transferred via postMessage"
   },
+  "panels/application/components/FrameDetailsView.ts | SslCertificateError": {
+    "message": "Ssl certificate error."
+  },
+  "panels/application/components/FrameDetailsView.ts | Stop": {
+    "message": "The tab is stopped."
+  },
   "panels/application/components/FrameDetailsView.ts | theFramesSchemeIsInsecure": {
     "message": "The frame's scheme is insecure"
   },
@@ -3118,6 +3199,15 @@
   },
   "panels/application/components/FrameDetailsView.ts | transferRequiresCrossoriginIsolatedPermission": {
     "message": "SharedArrayBuffer transfer requires enabling the permission policy:"
+  },
+  "panels/application/components/FrameDetailsView.ts | TriggerBackgrounded": {
+    "message": "The tab is in the background"
+  },
+  "panels/application/components/FrameDetailsView.ts | TriggerDestroyed": {
+    "message": "Prerender is not activated and destroyed with the trigger."
+  },
+  "panels/application/components/FrameDetailsView.ts | UaChangeRequiresReload": {
+    "message": "Reload is needed after UserAgentOverride."
   },
   "panels/application/components/FrameDetailsView.ts | unavailable": {
     "message": "unavailable"
