@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b0fa31_e4d67e06",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T08:45:52Z",
+      "side": 1,
+      "message": "No, when I copy/pasted UIStrings, I left this description as TODO and then forgot to change it. 😊\n\nThanks for flagging this.",
+      "parentUuid": "538aa1e9_49a668de",
+      "range": {
+        "startLine": 13,
+        "startChar": 34,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d7cf95e_c238e468",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-01T13:01:12Z",
       "side": 1,
       "message": "nit: let\u0027s remove popup as the suffix for all class names as the component is not a popup itself, it\u0027s only used in a popup? \n\nsuggestion: let\u0027s call it `CSSHintDetails` or `CSSHintDetailsView`",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "522f5f1e_1f4c41de",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T08:45:52Z",
+      "side": 1,
+      "message": "Makes sense. I renamed the class and the file and now it\u0027s CSSHintDetailsView. 😊",
+      "parentUuid": "2d7cf95e_c238e468",
       "range": {
         "startLine": 29,
         "startChar": 26,
@@ -83,6 +131,30 @@
       "writtenOn": "2022-07-01T13:01:12Z",
       "side": 1,
       "message": "same comment about \u0027-popup\u0027",
+      "range": {
+        "startLine": 64,
+        "startChar": 74,
+        "endLine": 64,
+        "endChar": 79
+      },
+      "revId": "21e54d1cb04083960773a2b6b77c27543365aa18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b761ad91_76e6d41e",
+        "filename": "front_end/panels/elements/components/AuthoringHintPopup.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-05T08:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f292c43_a51cf936",
       "range": {
         "startLine": 64,
         "startChar": 74,
