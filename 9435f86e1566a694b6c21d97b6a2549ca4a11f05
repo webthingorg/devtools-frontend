@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26667b96_d198faff",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-05T13:37:34Z",
+      "side": 1,
+      "message": "nit: let\u0027s remove the code here and in other strings and just leave `flex-wrap: nowrap` as an example since the translators are only concerned with what the users see and not the syntax highlighting code.",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 69
+      },
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a17daecc_26aa83ff",
         "filename": "front_end/panels/elements/components/CSSHintDetailsView.ts",
         "patchSetId": 7
