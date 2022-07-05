@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81c5b0d_c38dc9cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-05T08:56:32Z",
+      "side": 1,
+      "message": "Changhao, PTAL too.",
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a17daecc_26aa83ff",
+        "filename": "front_end/panels/elements/components/CSSHintDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-05T08:56:32Z",
+      "side": 1,
+      "message": "The component name should be singular, I suggest we change it to `devtools-css-hint-details-view`",
+      "range": {
+        "startLine": 64,
+        "startChar": 49,
+        "endLine": 64,
+        "endChar": 73
+      },
+      "revId": "9435f86e1566a694b6c21d97b6a2549ca4a11f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
