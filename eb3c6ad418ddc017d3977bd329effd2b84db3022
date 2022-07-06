@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5919cc3c_fb0ced09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T09:27:11Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m disabling for all platforms now.",
+      "revId": "eb3c6ad418ddc017d3977bd329effd2b84db3022",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
