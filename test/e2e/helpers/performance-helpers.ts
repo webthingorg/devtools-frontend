@@ -38,7 +38,6 @@ export async function searchForComponent(frontend: puppeteer.Page, searchEntry: 
   await frontend.keyboard.press('KeyF');
   await frontend.keyboard.up('Control');
   await frontend.keyboard.type(searchEntry);
-  await frontend.keyboard.press('Enter');
 }
 
 export async function navigateToSummaryTab() {
