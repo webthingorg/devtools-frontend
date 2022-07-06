@@ -1538,8 +1538,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const nodeName = node ? node.nodeName().toLowerCase() : '';
-    if (nodeName && (name === 'src' || name === 'href')) {
-      attrValueElement.appendChild(linkifyValue.call(this, value));
+    // If the href/src attribute has a value, attempt to link it.
+    // There's no point trying to link it if the value is empty (e.g. <a href=''>).
+    if (nodeName && (name === 'src' || name === 'href') && value) {
+      if (value) {
+        attrValueElement.appendChild(linkifyValue.call(this, value));
+      }
     } else if ((nodeName === 'img' || nodeName === 'source') && name === 'srcset') {
       attrValueElement.appendChild(linkifySrcset.call(this, value));
     } else if (nodeName === 'image' && (name === 'xlink:href' || name === 'href')) {
