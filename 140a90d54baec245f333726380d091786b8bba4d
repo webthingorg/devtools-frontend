@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d42bdae5_8c5cd27b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-07-06T17:35:23Z",
+      "side": 1,
+      "message": "Sounds good, thanks! I will submit this CL today. As for the backend CL, it is currently being checked. Once it\u0027s ready, we\u0027ll send it your way for review. I\u0027ve also created a follow-up item on our side to add tests.",
+      "parentUuid": "d2c3ff9c_7e025c0a",
+      "revId": "140a90d54baec245f333726380d091786b8bba4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28a03b78_1f8932a1",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-06T15:16:11Z",
       "side": 1,
       "message": "Please create a backend CL documenting the additional histogram (similar tohttps://crrev.com/c/3529067, see also https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md#documenting-histograms)",
+      "revId": "140a90d54baec245f333726380d091786b8bba4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e31aa865_69208904",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 33
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1537843
+      },
+      "writtenOn": "2022-07-06T17:35:23Z",
+      "side": 1,
+      "message": "Thanks for sharing references!",
+      "parentUuid": "28a03b78_1f8932a1",
       "revId": "140a90d54baec245f333726380d091786b8bba4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
