@@ -537,6 +537,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
   }
 
   searchInPath(query: string, progress: Common.Progress.Progress): Promise<string[]> {
+    console.log("SEARCH IN PATH isol file system, query: ", query.length);
     return new Promise(resolve => {
       const requestId = this.manager.registerCallback(innerCallback);
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.searchInPath(

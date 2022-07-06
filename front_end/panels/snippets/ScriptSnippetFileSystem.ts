@@ -117,6 +117,7 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
   }
 
   async searchInPath(query: string, _progress: Common.Progress.Progress): Promise<string[]> {
+    console.log("snippets' search in path");
     const re = new RegExp(Platform.StringUtilities.escapeForRegExp(query), 'i');
     const allSnippets: Snippet[] = this.snippetsSetting.get();
     const matchedSnippets = allSnippets.filter(snippet => snippet.content.match(re));

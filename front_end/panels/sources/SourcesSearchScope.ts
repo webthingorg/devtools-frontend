@@ -159,6 +159,7 @@ export class SourcesSearchScope implements Search.SearchConfig.SearchScope {
       if (searchConfig.filePathMatchesFileQuery(
               uiSourceCode.fullDisplayName() as Platform.DevToolsPath.UrlString |
               Platform.DevToolsPath.EncodedPathString)) {
+        console.log("FILE PATH MATCHES FILE QUERY RETURNED TRUE");
         result.push(uiSourceCode.url());
       }
     }
@@ -195,6 +196,7 @@ export class SourcesSearchScope implements Search.SearchConfig.SearchScope {
     uiSourceCodes.sort(SourcesSearchScope.filesComparator);
     this.searchResultCandidates = Platform.ArrayUtilities.mergeOrdered(
         this.searchResultCandidates, uiSourceCodes, SourcesSearchScope.filesComparator);
+    console.log("search result candidates: ", this.searchResultCandidates);
   }
 
   private processMatchingFiles(searchId: number, progress: Common.Progress.Progress, callback: () => void): void {

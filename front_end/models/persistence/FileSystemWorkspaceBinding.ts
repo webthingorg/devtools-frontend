@@ -292,6 +292,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
   async searchInFileContent(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, query: string, caseSensitive: boolean,
       isRegex: boolean): Promise<TextUtils.ContentProvider.SearchMatch[]> {
+    console.log("FILE SYSTEM WORKSPACE BINIDING");
     const filePath = this.filePathForUISourceCode(uiSourceCode);
     const {content} = await this.fileSystemInternal.requestFileContent(filePath);
     if (content) {
@@ -304,6 +305,8 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
       searchConfig: Workspace.Workspace.ProjectSearchConfig, filesMatchingFileQuery: Platform.DevToolsPath.UrlString[],
       progress: Common.Progress.Progress): Promise<string[]> {
     let result: string[] = filesMatchingFileQuery;
+    console.log("files matching file quesry before: ", filesMatchingFileQuery);
+    console.log(new Error().stack);
     const queriesToRun = searchConfig.queries().slice();
     if (!queriesToRun.length) {
       queriesToRun.push('');
@@ -312,6 +315,8 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
 
     for (const query of queriesToRun) {
       const files = await this.fileSystemInternal.searchInPath(searchConfig.isRegex() ? '' : query, progress);
+      console.log("QUESRY: ", query);
+      console.log("FILES: ", files);
       files.sort(Platform.StringUtilities.naturalOrderComparator);
       result = Platform.ArrayUtilities.intersectOrdered(result, files, Platform.StringUtilities.naturalOrderComparator);
       progress.incrementWorked(1);

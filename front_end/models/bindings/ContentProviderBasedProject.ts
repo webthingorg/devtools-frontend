@@ -169,6 +169,7 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
   searchInFileContent(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, query: string, caseSensitive: boolean,
       isRegex: boolean): Promise<TextUtils.ContentProvider.SearchMatch[]> {
+    console.log("CONTENT PROVIDER BASED PROJECT");
     const contentProvider =
         (this.#contentProviders.get(uiSourceCode.url()) as TextUtils.ContentProvider.ContentProvider);
     return contentProvider.searchInContent(query, caseSensitive, isRegex);
