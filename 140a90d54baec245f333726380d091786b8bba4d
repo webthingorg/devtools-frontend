@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c3ff9c_7e025c0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-06T15:16:11Z",
+      "side": 1,
+      "message": "I don\u0027t want to delay this CL any longer. Please create a CL for documenting the new histogram. And a follow-up adding a test would be great too!\nLGTM",
+      "revId": "140a90d54baec245f333726380d091786b8bba4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a03b78_1f8932a1",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 33
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-06T15:16:11Z",
+      "side": 1,
+      "message": "Please create a backend CL documenting the additional histogram (similar tohttps://crrev.com/c/3529067, see also https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md#documenting-histograms)",
+      "revId": "140a90d54baec245f333726380d091786b8bba4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
