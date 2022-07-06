@@ -122,7 +122,19 @@ describe('The Performance panel', async function() {
     });
   });
 
-  it('is able to display the execution time for a wasm function', async () => {
+  it.only('is able to display the execution time for a wasm function', async () => {
+    const {frontend} = getBrowserAndPages();
+    await waitForFunction(async () => {
+      await searchForComponent(frontend, 'mainWasm');
+      const title = await $('.timeline-details-chip-title');
+      if (!title) {
+        return false;
+      }
+      const titleText = await title.evaluate(x => x.textContent);
+  
+      return titleText === 'mainWasm';
+    });
+  
     await step('check that the Summary tab shows more than zero total time for "mainWasm"', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'mainWasm function execution time is displayed incorrectly');
