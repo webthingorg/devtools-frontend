@@ -33,6 +33,29 @@
       "message": "Nice, thanks a lot!",
       "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0166c670_5b552fb7",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-06T05:53:57Z",
+      "side": 1,
+      "message": "Out of curiosity, what does it mean if sourceUrl is empty, but hasSourceURL is true?\n\nCan it happen that hasSourceURL is false, but sourceUrl is non-empty?",
+      "range": {
+        "startLine": 182,
+        "startChar": 61,
+        "endLine": 182,
+        "endChar": 77
+      },
+      "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
