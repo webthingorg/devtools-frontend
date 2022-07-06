@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5258fce_0fe1072e",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2022-07-06T10:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d49b6208_fe59bf76",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 795,
+        "endChar": 54
+      },
+      "revId": "5e281097bc909390cbcfb31ff52b1d16f4e0c0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b14ac720_d493b7ff",
@@ -70,6 +94,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0e51356_f0b65cc2",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2022-07-06T10:34:25Z",
+      "side": 1,
+      "message": "Thanks, updated.",
+      "parentUuid": "b14ac720_d493b7ff",
+      "range": {
+        "startLine": 797,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 115
+      },
+      "revId": "5e281097bc909390cbcfb31ff52b1d16f4e0c0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e69bcf_7bfc4db8",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2022-07-06T10:34:25Z",
+      "side": 1,
+      "message": "Hmmm, in this case, due to the fact that Prerender2ReasonDescription will cover all cases or compile error. I change it to  Prerender2ReasonDescription[finalStatus].name() only.",
+      "parentUuid": "7d8c6ccb_f23439de",
+      "range": {
+        "startLine": 797,
+        "startChar": 23,
+        "endLine": 797,
+        "endChar": 50
+      },
+      "revId": "5e281097bc909390cbcfb31ff52b1d16f4e0c0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb5b60c4_b8e51e84",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-06T07:50:48Z",
       "side": 1,
       "message": "SSL?",
+      "range": {
+        "startLine": 96,
+        "startChar": 24,
+        "endLine": 96,
+        "endChar": 27
+      },
+      "revId": "5e281097bc909390cbcfb31ff52b1d16f4e0c0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6eded3_55a3909a",
+        "filename": "front_end/panels/application/components/Prerender2.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2022-07-06T10:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb5b60c4_b8e51e84",
       "range": {
         "startLine": 96,
         "startChar": 24,
