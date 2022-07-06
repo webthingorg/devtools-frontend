@@ -16,6 +16,23 @@
       "message": "I\u0027ve updated the code, ptal!",
       "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b74da5f_837667dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-06T05:29:27Z",
+      "side": 1,
+      "message": "Nice, thanks a lot!",
+      "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
