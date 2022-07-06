@@ -27,6 +27,7 @@ import {OriginTrialTreeView} from './OriginTrialTreeView.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 
 import frameDetailsReportViewStyles from './frameDetailsReportView.css.js';
+import {Prerender2ReasonDescription} from './Prerender2.js';
 
 const UIStrings = {
   /**
