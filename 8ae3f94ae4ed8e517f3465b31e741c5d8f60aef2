@@ -56,6 +56,30 @@
       },
       "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0826a86b_1d3651fd",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-06T06:05:12Z",
+      "side": 1,
+      "message": "hasSourceURL is only true if there\u0027s a non-empty `//# sourceURL\u003d\u003c...\u003e` annotation, in which case the sourceURL will be set to the `\u003c...\u003e` string. In all other cases, hasSourceURL will be false and sourceURL (on the Script object) will be the Blink provided embedderName.",
+      "parentUuid": "0166c670_5b552fb7",
+      "range": {
+        "startLine": 182,
+        "startChar": 61,
+        "endLine": 182,
+        "endChar": 77
+      },
+      "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
