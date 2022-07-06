@@ -80,6 +80,30 @@
       },
       "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e655e243_22470f17",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T09:36:48Z",
+      "side": 1,
+      "message": "I was also confused about this part in the past, should we rename `hasSourceURL` to `hasSourceURLComment`?",
+      "parentUuid": "0826a86b_1d3651fd",
+      "range": {
+        "startLine": 182,
+        "startChar": 61,
+        "endLine": 182,
+        "endChar": 77
+      },
+      "revId": "8ae3f94ae4ed8e517f3465b31e741c5d8f60aef2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
