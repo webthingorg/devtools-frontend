@@ -16,6 +16,23 @@
       "message": "Thanks for the review Alex, Changhao 😊",
       "revId": "189858706d73d1e6c64176bc86f06180fbc1c2db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb526c2_742dd3d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-06T05:56:53Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "189858706d73d1e6c64176bc86f06180fbc1c2db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
