@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1435c6bc_7553a78b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T10:33:23Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nthis is an update to performance-helpers.ts. \n\nThis function is used in one of the profiling tests, and a test was failing on mac because it wouldn\u0027t use the Meta key instead of the Ctrl key when searching for a keyword in the performance panel. \n\nI\u0027ve added the stressor bots to run those tests to make sure that it\u0027s not failing again. PTAL!",
+      "revId": "6c8862f17eba60e1abab52d4f460b3fde8a05cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

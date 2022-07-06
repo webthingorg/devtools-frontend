@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1fcf8e_5c9e04a4",
+        "filename": "test/e2e/helpers/performance-helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T10:33:23Z",
+      "side": 0,
+      "message": "I\u0027m removing this line, since it\u0027s unnecessary and only has side effects (it would find the first one, and after \u0027enter\u0027 it would jump to the next occurrrence.",
+      "revId": "c4664651ea997ef04105d844e0c42e9f1d5b383b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
