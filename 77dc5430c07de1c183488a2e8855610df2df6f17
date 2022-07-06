@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e03a610e_222e7ece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T08:50:47Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m disabling a flaky e2e test in reveal-correct-node_test, ptal!",
+      "revId": "77dc5430c07de1c183488a2e8855610df2df6f17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
