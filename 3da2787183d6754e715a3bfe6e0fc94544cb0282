@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee2b27c6_72f52dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-06T10:38:04Z",
+      "side": 1,
+      "message": "Could you also please update the test at https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts;l\u003d169?",
+      "revId": "3da2787183d6754e715a3bfe6e0fc94544cb0282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
