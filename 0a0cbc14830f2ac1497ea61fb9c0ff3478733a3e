@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a5f26d_c348d43a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T05:13:35Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinon on that, it\u0027s fine to me to not package.",
+      "parentUuid": "00613223_0a79e575",
+      "revId": "0a0cbc14830f2ac1497ea61fb9c0ff3478733a3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac6c406_c459e502",

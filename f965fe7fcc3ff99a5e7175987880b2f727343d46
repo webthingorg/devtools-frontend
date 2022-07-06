@@ -16,6 +16,41 @@
       "message": "I think I\u0027ve incorporated your feedback. As mentioned offline, I think another CL just focusing on unit testing would make sense at this point.    \n\nI had a look if using the syntax `#someProperty?: someType;` is used for defining properties in classes and other modules use this syntax regularly (one can regex the codebase for `#[A-z]+\\?`. I think we can safely use it, what do you think?",
       "revId": "f965fe7fcc3ff99a5e7175987880b2f727343d46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e8893a_5bc61e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T05:13:35Z",
+      "side": 1,
+      "message": "SG, thanks!",
+      "parentUuid": "20193adf_1d1ee666",
+      "revId": "f965fe7fcc3ff99a5e7175987880b2f727343d46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41cc5b4d_53171445",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-06T05:13:35Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "f965fe7fcc3ff99a5e7175987880b2f727343d46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
