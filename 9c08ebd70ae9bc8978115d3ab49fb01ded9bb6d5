@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "547c9fbc_30cfd3fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-07T09:16:49Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nI\u0027m disabling a flaky newtork-requst-view test since it\u0027s flaky on mac, ptal!",
+      "revId": "9c08ebd70ae9bc8978115d3ab49fb01ded9bb6d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
