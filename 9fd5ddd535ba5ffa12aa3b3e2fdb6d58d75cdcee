@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df2478a_47356dd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-07T09:09:57Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nI\u0027m disabling the flaky flexbox-editortest, ptal!",
+      "revId": "9fd5ddd535ba5ffa12aa3b3e2fdb6d58d75cdcee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
