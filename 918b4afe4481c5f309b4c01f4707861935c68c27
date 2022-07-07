@@ -34,6 +34,24 @@
       "parentUuid": "1e2fc220_a6ebc685",
       "revId": "918b4afe4481c5f309b4c01f4707861935c68c27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c90b5dd_15ba1b6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-07T08:51:42Z",
+      "side": 1,
+      "message": "Yeah, we do have a rule that should check this! I\u0027ll try to figure out why it didn\u0027t error: crbug.com/1342530",
+      "parentUuid": "7938aabd_dabe35ce",
+      "revId": "918b4afe4481c5f309b4c01f4707861935c68c27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
