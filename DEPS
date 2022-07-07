@@ -14,7 +14,7 @@ vars = {
   'checkout_reclient': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': 'a0959e5ede36f0d3155dffb3e72461d9ac8cf302',
+  'build_revision': 'b7af620e3e25340895f0e8d757a294092b305b06',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
   'buildtools_revision': '34f9ff8fd5f494bf2b886337e6ef6fcea414cb11',
