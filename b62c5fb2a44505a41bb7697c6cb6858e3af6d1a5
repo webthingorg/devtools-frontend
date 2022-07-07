@@ -16,6 +16,24 @@
       "message": "Hi, we renamed id token to token for FedCM error messages in the chromium repository: crrev.com/c/3730132. This change is to match our changes there, thanks for reviewing!",
       "revId": "b62c5fb2a44505a41bb7697c6cb6858e3af6d1a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fcde84c_1f688114",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545268
+      },
+      "writtenOn": "2022-07-07T21:27:28Z",
+      "side": 1,
+      "message": "We do not rename id token endpoint to token endpoint so there will still be instances of id token for FedCM error messages in the repo.",
+      "parentUuid": "ab083cc7_475a34e8",
+      "revId": "b62c5fb2a44505a41bb7697c6cb6858e3af6d1a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
