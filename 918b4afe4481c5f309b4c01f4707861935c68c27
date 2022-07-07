@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e2fc220_a6ebc685",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-07-07T01:20:25Z",
+      "side": 1,
+      "message": "FWIW we wrote an eslint rule for this exact thing. Dunno if it\u0027s helpful to you, given this is built output, but... sharing regardless :) \n\nhttps://github.com/GoogleChrome/lighthouse/blob/03af4038e0f0168c8d93b8706e8d287592704008/eslint-local-rules.cjs#L35-L39\n",
+      "revId": "918b4afe4481c5f309b4c01f4707861935c68c27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
