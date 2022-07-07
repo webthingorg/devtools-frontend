@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc8c81a_4a17e19a",
+        "filename": "scripts/eslint_rules/lib/custom_element_definitions_location.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-07T13:58:24Z",
+      "side": 1,
+      "message": "nit: `context.options?.[0]?.rootFrontendDirectory`?",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 68
+      },
+      "revId": "12cfecfcce6a925849c8bfa1dd66cda4ad77ca20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
