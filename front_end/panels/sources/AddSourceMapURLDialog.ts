@@ -14,6 +14,10 @@ const UIStrings = {
   */
   sourceMapUrl: 'Source map URL: ',
   /**
+  *@description Text in Add Debug Info URL Dialog of the Sources panel
+  */
+  debugInfoUrl: 'Debug info URL: ',
+  /**
   *@description Text to add something
   */
   add: 'Add',
@@ -24,10 +28,12 @@ export class AddSourceMapURLDialog extends UI.Widget.HBox {
   private readonly input: HTMLInputElement;
   private readonly dialog: UI.Dialog.Dialog;
   private readonly callback: (arg0: Platform.DevToolsPath.UrlString) => void;
+  protected readonly label: HTMLElement;
   constructor(callback: (arg0: Platform.DevToolsPath.UrlString) => void) {
     super(/* isWebComponent */ true);
 
-    this.contentElement.createChild('label').textContent = i18nString(UIStrings.sourceMapUrl);
+    this.label = this.contentElement.createChild('label');
+    this.label.textContent = i18nString(UIStrings.sourceMapUrl);
 
     this.input = UI.UIUtils.createInput('add-source-map', 'text');
     this.input.addEventListener('keydown', this.onKeyDown.bind(this), false);
@@ -70,5 +76,12 @@ export class AddSourceMapURLDialog extends UI.Widget.HBox {
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([dialogStyles]);
+  }
+}
+
+export class AddDebugInfoURLDialog extends AddSourceMapURLDialog {
+  constructor(callback: (url: Platform.DevToolsPath.UrlString) => void) {
+    super(callback);
+    this.label.textContent = i18nString(UIStrings.debugInfoUrl);
   }
 }
