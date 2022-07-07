@@ -267,6 +267,24 @@
       "parentUuid": "ecccd9da_e7fa92da",
       "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4901c6b0_4b82a8dd",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2022-07-07T16:37:05Z",
+      "side": 1,
+      "message": "Not sure how to proceed, and would appreciate advise. The e2e flakiness doesn\u0027t look like it\u0027s related, but also too frequent to ignore?",
+      "parentUuid": "bcd9fd79_d2e5591c",
+      "revId": "84ec261111987603fb3361a7caf249b8dc543bc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
