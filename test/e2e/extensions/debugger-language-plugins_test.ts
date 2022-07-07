@@ -14,7 +14,10 @@ import {
   getResourcesPath,
   goToResource,
   pasteText,
+  pressKey,
+  typeText,
   waitFor,
+  waitForAria,
   waitForFunction,
   waitForMany,
   waitForNone,
@@ -28,6 +31,7 @@ import {
   getStructuredConsoleMessages,
 } from '../helpers/console-helpers.js';
 import type {LabelMapping} from '../helpers/sources-helpers.js';
+import {clearSourceFilesAdded} from '../helpers/sources-helpers.js';
 import {
   getCallFrameLocations,
   getCallFrameNames,
@@ -959,5 +963,57 @@ describe('The Debugger Language Plugins', async () => {
 
     const messages = await getCurrentConsoleMessages();
     assert.deepStrictEqual(messages.filter(m => !m.startsWith('[Formatter Errors]')), ['Uncaught No typeinfo for bar']);
+  });
+
+  it('lets users manually attach debug info', async () => {
+    const {target, frontend} = getBrowserAndPages();
+    const extension = await loadExtension(
+        'TestExtension', `${getResourcesPathWithDevToolsHostname()}/extensions/language_extensions.html`);
+    await extension.evaluate(() => {
+      // A simple plugin that resolves to a single source file
+      class DWARFSymbolsWithSingleFilePlugin {
+        async addRawModule(rawModuleId: string, symbols: string, rawModule: Chrome.DevTools.RawModule) {
+          if (symbols !== 'foobar81') {
+            return [];
+          }
+          const fileUrl = new URL('/source_file.c', rawModule.url || symbols);
+          return [fileUrl.href];
+        }
+      }
+
+      RegisterExtension(
+          new DWARFSymbolsWithSingleFilePlugin(), 'Single File',
+          {language: 'WebAssembly', symbol_types: ['ExternalDWARF']});
+    });
+
+    await goToResource(
+        'extensions/wasm_module.html?module=/test/e2e/resources/extensions/global_variable.wasm&defer=1');
+    await openSourcesPanel();
+    await listenForSourceFilesAdded(frontend);
+    const additionalFilesPromise = waitForAdditionalSourceFiles(frontend);
+    await target.evaluate('loadModule();');
+    await additionalFilesPromise;
+
+    const capturedFileNames = await retrieveSourceFilesAdded(frontend);
+    assert.deepEqual(capturedFileNames, ['/test/e2e/resources/extensions/global_variable.wasm']);
+
+    {
+      await clearSourceFilesAdded(frontend);
+      const additionalFilesPromise = waitForAdditionalSourceFiles(frontend);
+      await openFileInEditor('global_variable.wasm');
+
+      const editor = await waitForAria('Code editor');
+      await click(editor, {clickOptions: {button: 'right'}});
+      const menuItem = await waitForAria('Add DWARF debug info…');
+      await click(menuItem);
+      await waitFor('.add-source-map');
+      await typeText('foobar81');
+      await pressKey('Enter');
+
+      await additionalFilesPromise;
+
+      const capturedFileNames = await retrieveSourceFilesAdded(frontend);
+      assert.deepEqual(capturedFileNames, ['/source_file.c']);
+    }
   });
 });
