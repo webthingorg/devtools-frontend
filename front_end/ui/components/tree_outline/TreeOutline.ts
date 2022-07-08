@@ -10,13 +10,12 @@ import * as Coordinator from '../render_coordinator/render_coordinator.js';
 
 import treeOutlineStyles from './treeOutline.css.js';
 
-import type {TreeNodeId, TreeNode, TreeNodeWithChildren} from './TreeOutlineUtils.js';
 import {
   findNextNodeForTreeOutlineKeyboardNavigation,
   getNodeChildren,
   getPathToTreeNode,
   isExpandableNode,
-  trackDOMNodeToTreeNode,
+  trackDOMNodeToTreeNode, type TreeNodeId, type TreeNode, type TreeNodeWithChildren,
 } from './TreeOutlineUtils.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();

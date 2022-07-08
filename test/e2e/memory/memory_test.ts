@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import type {puppeteer} from '../../shared/helper.js';
+
 import {
   $$,
   assertNotNullOrUndefined,
@@ -15,7 +15,7 @@ import {
   waitForElementsWithTextContent,
   waitForElementWithTextContent,
   waitForFunction,
-  waitForNoElementsWithTextContent,
+  waitForNoElementsWithTextContent, type puppeteer,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {

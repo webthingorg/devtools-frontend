@@ -4,7 +4,6 @@
 
 import * as UI from '../../../ui/legacy/legacy.js';
 
-import type {NodeCreationData, NodeLayout, Port} from './GraphStyle.js';
 import {
   BottomPaddingWithoutParam,
   BottomPaddingWithParam,
@@ -16,7 +15,7 @@ import {
   RightMarginOfText,
   TotalInputPortHeight,
   TotalOutputPortHeight,
-  TotalParamPortHeight,
+  TotalParamPortHeight, type NodeCreationData, type NodeLayout, type Port,
 } from './GraphStyle.js';
 import {calculateInputPortXY, calculateOutputPortXY, calculateParamPortXY} from './NodeRendererUtility.js';
 

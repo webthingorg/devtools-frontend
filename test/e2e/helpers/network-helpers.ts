@@ -10,10 +10,9 @@ import {
   goToResource,
   setCheckBox,
   waitFor,
-  waitForFunction,
+  waitForFunction, type puppeteer,
 } from '../../shared/helper.js';
 
-import type {puppeteer} from '../../shared/helper.js';
 const REQUEST_LIST_SELECTOR = '.network-log-grid tbody';
 
 /**
