@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3508f1b_494bb7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-08T12:16:42Z",
+      "side": 1,
+      "message": "Changhao, PTAL! Also perhaps you know why Events.StylesUpdateCompleted is dispatched twice per render",
+      "revId": "fde6e20b419adea2cc3b89aae042d4dd8b08413f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
