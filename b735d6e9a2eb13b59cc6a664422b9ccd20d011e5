@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0328d4_e68f1481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1531662
+      },
+      "writtenOn": "2022-07-08T19:40:24Z",
+      "side": 1,
+      "message": "Hi Yang, could you help me get this CSS accessibility fix routed to an appropriate reviewer? Thanks!",
+      "revId": "b735d6e9a2eb13b59cc6a664422b9ccd20d011e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
