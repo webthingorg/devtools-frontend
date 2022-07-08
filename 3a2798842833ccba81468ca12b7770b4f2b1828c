@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8fb34c_44ebe898",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-08T07:09:22Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\none of the flexbox editor tests is now also flaky on linux, so I\u0027m adding linux to platforms. PTAL!",
+      "revId": "3a2798842833ccba81468ca12b7770b4f2b1828c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
