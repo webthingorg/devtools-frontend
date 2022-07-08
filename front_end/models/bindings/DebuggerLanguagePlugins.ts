@@ -173,6 +173,10 @@ export class ValueNode extends SDK.RemoteObject.RemoteObjectImpl {
   get sourceType(): SourceType {
     throw new Error('Not Implemented');
   }
+
+  get size(): number {
+    throw new Error('Not Implemented');
+  }
 }
 
 // Debugger language #plugins present source-language values as trees with mixed dynamic and static structural
@@ -351,6 +355,12 @@ class FormattedValueNode extends ValueNode {
     this.#evalOptions = evalOptions;
   }
 
+  get size(): number {
+    // For FormattedValueNodes, we want the size of the pointed to object/variable.
+    const sourceType = Array.from(this.#sourceType.typeMap.values()).pop() || this.#sourceType;
+    return sourceType.typeInfo.size;
+  }
+
   async findProperties(...properties: string[]): Promise<{
     [x: string]: FormattedValueNode | undefined,
   }> {
@@ -507,6 +517,10 @@ class StaticallyTypedValueNode extends ValueNode {
 
   get sourceType(): SourceType {
     return this.#sourceType;
+  }
+
+  get size(): number {
+    return this.#sourceType.typeInfo.size;
   }
 
   private async expandMember(sourceType: SourceType, fieldInfo: Chrome.DevTools.FieldInfo):
