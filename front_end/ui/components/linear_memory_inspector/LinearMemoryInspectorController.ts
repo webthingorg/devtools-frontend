@@ -263,15 +263,10 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
   #extractHighlightInfo(obj: SDK.RemoteObject.RemoteObject, memoryAddress?: number): HighlightInfo|undefined {
     let highlightInfo;
     if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
-      // Currently, only the StaticallyTypedValueNode subclass implements the sourceType getter.
-      // The other subclasses throw a 'Not Implemented' Error.
-      try {
-        highlightInfo = {
-          startAddress: memoryAddress || 0,
-          size: obj.sourceType.typeInfo.size,
-        };
-      } catch (unusedError) {
-      }
+      highlightInfo = {
+        startAddress: memoryAddress || 0,
+        size: obj.size,
+      };
     }
     return highlightInfo;
   }
