@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ff2192d_88f8c3f9",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-08T11:59:24Z",
+      "side": 1,
+      "message": "I personally find the original version slightly easier to read than the alternative using intermediate maps. In addition, by using maps the alphabetical order is not preserved and we\u0027d need to sort the result array at the end.\nWhat about the following? Do you find that easier to follow?\n```\nwhile (i \u003c headers.length \u0026\u0026 j \u003c headersWithIssues.length) {\n  if (headers[i].name \u003c headersWithIssues[j].name) {\n    result.push({...headers[i++], headerNotSet: false});\n  } else if (headers[i].name \u003e headersWithIssues[j].name) {\n    result.push({...headersWithIssues[j++], headerNotSet: true});\n  } else {\n    result.push({...headersWithIssues[j++], ...headers[i++], headerNotSet: false});\n  }\n}\nwhile (i \u003c headers.length) {\n  result.push({...headers[i++], headerNotSet: false});\n}\nwhile (j \u003c headersWithIssues.length) {\n  result.push({...headersWithIssues[j++], headerNotSet: true});\n}\n```",
+      "parentUuid": "be78e18d_238b3799",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 57
+      },
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fae8ce93_c56968da",
         "filename": "front_end/panels/network/components/RequestHeadersView.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-01T12:43:27Z",
       "side": 1,
       "message": "This function does a lot for \"just rendering a header\". Can we have link and details rendering pulled out into helper functions?",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 149
+      },
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e7c362_af510ec2",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-08T11:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae8ce93_c56968da",
       "range": {
         "startLine": 296,
         "startChar": 0,
