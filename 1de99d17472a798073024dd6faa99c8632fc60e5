@@ -16,6 +16,23 @@
       "message": "PTAL. This enables the rule landed in crrev.com/c/3605262.",
       "revId": "1de99d17472a798073024dd6faa99c8632fc60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "882d4f51_21fc6769",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-08T13:48:03Z",
+      "side": 1,
+      "message": "actually, I have been wondering if it makes sense to keep the front `type` if all imports are type imports? Otherwise, examples like this look a regression: 1) more duplication and 2) longer. WDYT?",
+      "revId": "1de99d17472a798073024dd6faa99c8632fc60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
