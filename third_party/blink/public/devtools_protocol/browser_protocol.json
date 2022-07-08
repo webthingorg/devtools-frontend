@@ -22539,6 +22539,83 @@
                     ]
                 },
                 {
+                    "name": "disassembleWasmModule",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "scriptId",
+                            "description": "Id of the script to disassemble",
+                            "$ref": "Runtime.ScriptId"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "streamId",
+                            "description": "For large modules, return a stream from which additional chunks of\ndisassembly can be read successively.",
+                            "optional": true,
+                            "type": "string"
+                        },
+                        {
+                            "name": "totalNumberOfLines",
+                            "description": "The total number of lines in the disassembly text.",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "functionBodyOffsets",
+                            "description": "The offsets of all function bodies plus one additional entry pointing\none by past the end of the last function.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        {
+                            "name": "lines",
+                            "description": "The first chunk of disassembled lines.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "bytecodeOffsets",
+                            "description": "The bytecode offsets describing the start of each line.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "nextWasmDissassemblyChunk",
+                    "description": "Disassemble the next chunk of lines for the module corresponding to the\nstream. If disassembly is complete, an empty array is returned and the\nstreamId is invalidated.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "streamId",
+                            "type": "string"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "lines",
+                            "description": "The next chunk of disassembled lines.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "bytecodeOffsets",
+                            "description": "The bytecode offsets describing the start of each line.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "getWasmBytecode",
                     "description": "This command is deprecated. Use getScriptSource instead.",
                     "deprecated": true,

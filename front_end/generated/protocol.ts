@@ -15097,6 +15097,53 @@ export namespace Debugger {
     bytecode?: binary;
   }
 
+  export interface DisassembleWasmModuleRequest {
+    /**
+     * Id of the script to disassemble
+     */
+    scriptId: Runtime.ScriptId;
+  }
+
+  export interface DisassembleWasmModuleResponse extends ProtocolResponseWithError {
+    /**
+     * For large modules, return a stream from which additional chunks of
+     * disassembly can be read successively.
+     */
+    streamId?: string;
+    /**
+     * The total number of lines in the disassembly text.
+     */
+    totalNumberOfLines: integer;
+    /**
+     * The offsets of all function bodies plus one additional entry pointing
+     * one by past the end of the last function.
+     */
+    functionBodyOffsets: integer[];
+    /**
+     * The first chunk of disassembled lines.
+     */
+    lines: string[];
+    /**
+     * The bytecode offsets describing the start of each line.
+     */
+    bytecodeOffsets: integer[];
+  }
+
+  export interface NextWasmDissassemblyChunkRequest {
+    streamId: string;
+  }
+
+  export interface NextWasmDissassemblyChunkResponse extends ProtocolResponseWithError {
+    /**
+     * The next chunk of disassembled lines.
+     */
+    lines: string[];
+    /**
+     * The bytecode offsets describing the start of each line.
+     */
+    bytecodeOffsets: integer[];
+  }
+
   export interface GetWasmBytecodeRequest {
     /**
      * Id of the Wasm script to get source for.

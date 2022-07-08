@@ -3228,6 +3228,12 @@ export function registerCommands(inspectorBackend) {
       'Debugger.getScriptSource', [{'name': 'scriptId', 'type': 'string', 'optional': false}],
       ['scriptSource', 'bytecode']);
   inspectorBackend.registerCommand(
+      'Debugger.disassembleWasmModule', [{'name': 'scriptId', 'type': 'string', 'optional': false}],
+      ['streamId', 'totalNumberOfLines', 'functionBodyOffsets', 'lines', 'bytecodeOffsets']);
+  inspectorBackend.registerCommand(
+      'Debugger.nextWasmDissassemblyChunk', [{'name': 'streamId', 'type': 'string', 'optional': false}],
+      ['lines', 'bytecodeOffsets']);
+  inspectorBackend.registerCommand(
       'Debugger.getWasmBytecode', [{'name': 'scriptId', 'type': 'string', 'optional': false}], ['bytecode']);
   inspectorBackend.registerCommand(
       'Debugger.getStackTrace', [{'name': 'stackTraceId', 'type': 'object', 'optional': false}], ['stackTrace']);

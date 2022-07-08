@@ -3676,6 +3676,17 @@ declare namespace ProtocolProxyApi {
     invoke_getScriptSource(params: Protocol.Debugger.GetScriptSourceRequest):
         Promise<Protocol.Debugger.GetScriptSourceResponse>;
 
+    invoke_disassembleWasmModule(params: Protocol.Debugger.DisassembleWasmModuleRequest):
+        Promise<Protocol.Debugger.DisassembleWasmModuleResponse>;
+
+    /**
+     * Disassemble the next chunk of lines for the module corresponding to the
+     * stream. If disassembly is complete, an empty array is returned and the
+     * streamId is invalidated.
+     */
+    invoke_nextWasmDissassemblyChunk(params: Protocol.Debugger.NextWasmDissassemblyChunkRequest):
+        Promise<Protocol.Debugger.NextWasmDissassemblyChunkResponse>;
+
     /**
      * This command is deprecated. Use getScriptSource instead.
      */
