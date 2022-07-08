@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44122975_9eea6c1b",
+        "filename": "front_end/panels/sources/AddSourceMapURLDialog.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-08T12:42:31Z",
+      "side": 1,
+      "message": "Nit: Rather than subclassing, could you just add an argument to the constructor, and then have two static factory methods (one for source map and one for debug info)?",
+      "range": {
+        "startLine": 82,
+        "startChar": 13,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "7939d5174a5ccde6e4cdfeae633fda572c10acda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
