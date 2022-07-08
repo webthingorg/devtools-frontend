@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ae8b9d_dafeeae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-08T14:39:07Z",
+      "side": 1,
+      "message": "Hi Kim, \na short CL adding support for highlighting FormattedValueNodes. As dicussed offline, I only got to test the behavior for a subset of the supported C++ types (references to primitives and pointers to arrays of primitives). \n\nIt may make sense to remove the `sourceType` getter in ValueNodes, as it\u0027s currently unused.\n\nThanks for the review! :) \n",
+      "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
