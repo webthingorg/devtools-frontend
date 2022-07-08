@@ -16,6 +16,29 @@
       "message": "PTAL again",
       "revId": "9be59bc2d97c6ffc823596fcdd6ce4cbdd689717",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b2c539_fda02a90",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-08T12:05:23Z",
+      "side": 1,
+      "message": "Will there ever be more then one element in headersWithIssues?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 49
+      },
+      "revId": "9be59bc2d97c6ffc823596fcdd6ce4cbdd689717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

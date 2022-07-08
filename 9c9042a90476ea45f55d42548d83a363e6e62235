@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "daca3e33_258f7743",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-08T12:05:23Z",
+      "side": 1,
+      "message": "Yes, let\u0027s agree on this version.",
+      "parentUuid": "4ff2192d_88f8c3f9",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 57
+      },
+      "revId": "9c9042a90476ea45f55d42548d83a363e6e62235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fae8ce93_c56968da",
