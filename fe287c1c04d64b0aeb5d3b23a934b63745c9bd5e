@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "27efa481_18471c44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-11T08:37:35Z",
+      "side": 1,
+      "message": "nit: remove empty line",
+      "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c53dbd_7bb9346e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-11T08:37:35Z",
+      "side": 1,
+      "message": "Could you add a before/after screenshot, and add instructions how to test it as soon as the github PR is pushed? This will help our Devrels to reproduce.",
+      "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "98ae8b9d_dafeeae6",
@@ -14,6 +48,40 @@
       "writtenOn": "2022-07-08T14:39:07Z",
       "side": 1,
       "message": "Hi Kim, \na short CL adding support for highlighting FormattedValueNodes. As dicussed offline, I only got to test the behavior for a subset of the supported C++ types (references to primitives and pointers to arrays of primitives). \n\nIt may make sense to remove the `sourceType` getter in ValueNodes, as it\u0027s currently unused.\n\nThanks for the review! :) \n",
+      "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61492db7_3f2b8beb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-11T08:37:35Z",
+      "side": 1,
+      "message": "Thanks Michal, some comments!",
+      "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e0ee433_392dc823",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-11T08:37:35Z",
+      "side": 1,
+      "message": "Exposing size() is very specific to our use case -- it\u0027s the user of sourceType that is deciding what the size of that object is. While it depends on the extension, I\u0027d rather have an if/else case in the memory inspector that picks out the size than revealing it here.\n\nAs discussed offline, let\u0027s purely use the sourceType in order to get the size of the pointed object.",
       "revId": "fe287c1c04d64b0aeb5d3b23a934b63745c9bd5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
