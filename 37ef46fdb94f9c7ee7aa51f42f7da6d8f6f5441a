@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d038ba47_ffee8155",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-11T07:58:21Z",
+      "side": 1,
+      "message": "Changhao, PTAL",
+      "revId": "37ef46fdb94f9c7ee7aa51f42f7da6d8f6f5441a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
