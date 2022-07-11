@@ -21,7 +21,7 @@ import {
   getBrowserAndPages,
   getResourcesPath,
 } from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
 import {triggerLocalFindDialog} from '../helpers/memory-helpers.js';
 import {
@@ -29,149 +29,150 @@ import {
   navigateToNetworkTab,
   selectRequestByName,
   waitForSomeRequestsToAppear,
+  setCacheDisabled,
 } from '../helpers/network-helpers.js';
 
 const SIMPLE_PAGE_REQUEST_NUMBER = 2;
 const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
 
 describe('The Network Request view', async () => {
-  it('re-opens the same tab after switching to another panel and navigating back to the "Network" tab (https://crbug.com/1184578)',
-     async () => {
-       await navigateToNetworkTab(SIMPLE_PAGE_URL);
-
-       await step('wait for all requests to be shown', async () => {
-         await waitForSomeRequestsToAppear(SIMPLE_PAGE_REQUEST_NUMBER + 1);
-       });
-
-       await step('select the first SVG request', async () => {
-         await selectRequestByName('image.svg?id=0');
-       });
-
-       await step('select the "Timing" tab', async () => {
-         const networkView = await waitFor('.network-item-view');
-         const timingTabHeader = await waitFor('[aria-label=Timing][role="tab"]', networkView);
-         await click(timingTabHeader);
-         await waitFor('[aria-label=Timing][role=tab][aria-selected=true]', networkView);
-       });
-
-       await step('open the "Console" panel', async () => {
-         await click(CONSOLE_TAB_SELECTOR);
-         await focusConsolePrompt();
-       });
-
-       await step('open the "Network" panel', async () => {
-         await click('#tab-network');
-         await waitFor('.network-log-grid');
-       });
-
-       await step('ensure that the "Timing" tab is shown', async () => {
-         const networkView = await waitFor('.network-item-view');
-         const selectedTabHeader = await waitFor('[role=tab][aria-selected=true]', networkView);
-         const selectedTabText = await selectedTabHeader.evaluate(element => element.textContent || '');
-
-         assert.strictEqual(selectedTabText, 'Timing');
-       });
-     });
-
-  it('shows webbundle content on preview tab', async () => {
-    await navigateToNetworkTab('resources-from-webbundle.html');
-
-    await waitForSomeRequestsToAppear(3);
-
-    await selectRequestByName('webbundle.wbn');
-
-    const networkView = await waitFor('.network-item-view');
-    const previewTabHeader = await waitFor('[aria-label=Preview][role=tab]', networkView);
-    await click(previewTabHeader);
-    await waitFor('[aria-label=Preview][role=tab][aria-selected=true]', networkView);
-
-    await waitForElementWithTextContent('webbundle.wbn', networkView);
-    await waitForElementWithTextContent('uuid-in-package:429fcc4e-0696-4bad-b099-ee9175f023ae', networkView);
-    await waitForElementWithTextContent('uuid-in-package:020111b3-437a-4c5c-ae07-adb6bbffb720', networkView);
-  });
-
-  it('prevents requests on the preview tab.', async () => {
-    await navigateToNetworkTab('embedded_requests.html');
-
-    // For the issue to manifest it's mandatory to load the stylesheet by absolute URL. A relative URL would be treated
-    // relative to the data URL in the preview iframe and thus not work. We need to generate the URL because the
-    // resources path is dynamic, but we can't have any scripts in the resource page since they would be disabled in the
-    // preview. Therefore, the resource page contains just an iframe and we're filling it dynamically with content here.
-    const stylesheet = `${getResourcesPath()}/network/style.css`;
-    const contents = `<head><link rel="stylesheet" href="${stylesheet}"></head><body><p>Content</p></body>`;
-    const {target} = getBrowserAndPages();
-    await waitForFunction(async () => (await target.$('iframe')) ?? undefined);
-    const dataUrl = `data:text/html,${contents}`;
-    await target.evaluate((dataUrl: string) => {
-      (document.querySelector('iframe') as HTMLIFrameElement).src = dataUrl;
-    }, dataUrl);
-
-    await waitForSomeRequestsToAppear(3);
-
-    const names = await getAllRequestNames();
-    const name = names.find(v => v && v.startsWith('data:'));
-    assert.isNotNull(name);
-    await selectRequestByName(name as string);
-
-    const styleSrcError = expectError(`Refused to load the stylesheet '${stylesheet}'`);
-    const networkView = await waitFor('.network-item-view');
-    const previewTabHeader = await waitFor('[aria-label=Preview][role=tab]', networkView);
-    await click(previewTabHeader);
-    await waitFor('[aria-label=Preview][role=tab][aria-selected=true]', networkView);
-
-    const frame = await waitFor('.html-preview-frame');
-    const content = await waitForFunction(async () => (await frame.contentFrame() ?? undefined));
-    const p = await waitForFunction(async () => (await content.$('p') ?? undefined));
-
-    const color = await p.evaluate(e => getComputedStyle(e).color);
-
-    assert.deepEqual(color, 'rgb(0, 0, 0)');
-    await waitForFunction(async () => await styleSrcError.caught);
-  });
-
-  it('stores websocket filter', async () => {
-    const navigateToWebsocketMessages = async () => {
-      await navigateToNetworkTab('websocket.html');
-
-      await waitForSomeRequestsToAppear(2);
-
-      await selectRequestByName('localhost');
-
-      const networkView = await waitFor('.network-item-view');
-      const messagesTabHeader = await waitFor('[aria-label=Messages][role=tab]', networkView);
-      await click(messagesTabHeader);
-      await waitFor('[aria-label=Messages][role=tab][aria-selected=true]', networkView);
-      return waitFor('.websocket-frame-view');
-    };
-
-    let messagesView = await navigateToWebsocketMessages();
-    const waitForMessages = async (count: number) => {
-      return waitForFunction(async () => {
-        const messages = await $$('.data-column.websocket-frame-view-td', messagesView);
-        if (messages.length !== count) {
-          return undefined;
-        }
-        return Promise.all(messages.map(message => {
-          return message.evaluate(message => message.textContent || '');
-        }));
-      });
-    };
-    let messages = await waitForMessages(4);
-
-    const filterInput =
-        await waitFor('[aria-label="Enter regex, for example: (web)?socket"][role=textbox]', messagesView);
-    filterInput.focus();
-    void typeText('ping');
-
-    messages = await waitForMessages(2);
-    assert.deepEqual(messages, ['ping', 'ping']);
-
-    messagesView = await navigateToWebsocketMessages();
-    messages = await waitForMessages(2);
-
-    assert.deepEqual(messages, ['ping', 'ping']);
-  });
-
+  // it('re-opens the same tab after switching to another panel and navigating back to the "Network" tab (https://crbug.com/1184578)',
+  //    async () => {
+  //      await navigateToNetworkTab(SIMPLE_PAGE_URL);
+  //
+  //      await step('wait for all requests to be shown', async () => {
+  //        await waitForSomeRequestsToAppear(SIMPLE_PAGE_REQUEST_NUMBER + 1);
+  //      });
+  //
+  //      await step('select the first SVG request', async () => {
+  //        await selectRequestByName('image.svg?id=0');
+  //      });
+  //
+  //      await step('select the "Timing" tab', async () => {
+  //        const networkView = await waitFor('.network-item-view');
+  //        const timingTabHeader = await waitFor('[aria-label=Timing][role="tab"]', networkView);
+  //        await click(timingTabHeader);
+  //        await waitFor('[aria-label=Timing][role=tab][aria-selected=true]', networkView);
+  //      });
+  //
+  //      await step('open the "Console" panel', async () => {
+  //        await click(CONSOLE_TAB_SELECTOR);
+  //        await focusConsolePrompt();
+  //      });
+  //
+  //      await step('open the "Network" panel', async () => {
+  //        await click('#tab-network');
+  //        await waitFor('.network-log-grid');
+  //      });
+  //
+  //      await step('ensure that the "Timing" tab is shown', async () => {
+  //        const networkView = await waitFor('.network-item-view');
+  //        const selectedTabHeader = await waitFor('[role=tab][aria-selected=true]', networkView);
+  //        const selectedTabText = await selectedTabHeader.evaluate(element => element.textContent || '');
+  //
+  //        assert.strictEqual(selectedTabText, 'Timing');
+  //      });
+  //    });
+  //
+  // it('shows webbundle content on preview tab', async () => {
+  //   await navigateToNetworkTab('resources-from-webbundle.html');
+  //
+  //   await waitForSomeRequestsToAppear(3);
+  //
+  //   await selectRequestByName('webbundle.wbn');
+  //
+  //   const networkView = await waitFor('.network-item-view');
+  //   const previewTabHeader = await waitFor('[aria-label=Preview][role=tab]', networkView);
+  //   await click(previewTabHeader);
+  //   await waitFor('[aria-label=Preview][role=tab][aria-selected=true]', networkView);
+  //
+  //   await waitForElementWithTextContent('webbundle.wbn', networkView);
+  //   await waitForElementWithTextContent('uuid-in-package:429fcc4e-0696-4bad-b099-ee9175f023ae', networkView);
+  //   await waitForElementWithTextContent('uuid-in-package:020111b3-437a-4c5c-ae07-adb6bbffb720', networkView);
+  // });
+  //
+  // it('prevents requests on the preview tab.', async () => {
+  //   await navigateToNetworkTab('embedded_requests.html');
+  //
+  //   // For the issue to manifest it's mandatory to load the stylesheet by absolute URL. A relative URL would be treated
+  //   // relative to the data URL in the preview iframe and thus not work. We need to generate the URL because the
+  //   // resources path is dynamic, but we can't have any scripts in the resource page since they would be disabled in the
+  //   // preview. Therefore, the resource page contains just an iframe and we're filling it dynamically with content here.
+  //   const stylesheet = `${getResourcesPath()}/network/style.css`;
+  //   const contents = `<head><link rel="stylesheet" href="${stylesheet}"></head><body><p>Content</p></body>`;
+  //   const {target} = getBrowserAndPages();
+  //   await waitForFunction(async () => (await target.$('iframe')) ?? undefined);
+  //   const dataUrl = `data:text/html,${contents}`;
+  //   await target.evaluate((dataUrl: string) => {
+  //     (document.querySelector('iframe') as HTMLIFrameElement).src = dataUrl;
+  //   }, dataUrl);
+  //
+  //   await waitForSomeRequestsToAppear(3);
+  //
+  //   const names = await getAllRequestNames();
+  //   const name = names.find(v => v && v.startsWith('data:'));
+  //   assert.isNotNull(name);
+  //   await selectRequestByName(name as string);
+  //
+  //   const styleSrcError = expectError(`Refused to load the stylesheet '${stylesheet}'`);
+  //   const networkView = await waitFor('.network-item-view');
+  //   const previewTabHeader = await waitFor('[aria-label=Preview][role=tab]', networkView);
+  //   await click(previewTabHeader);
+  //   await waitFor('[aria-label=Preview][role=tab][aria-selected=true]', networkView);
+  //
+  //   const frame = await waitFor('.html-preview-frame');
+  //   const content = await waitForFunction(async () => (await frame.contentFrame() ?? undefined));
+  //   const p = await waitForFunction(async () => (await content.$('p') ?? undefined));
+  //
+  //   const color = await p.evaluate(e => getComputedStyle(e).color);
+  //
+  //   assert.deepEqual(color, 'rgb(0, 0, 0)');
+  //   await waitForFunction(async () => await styleSrcError.caught);
+  // });
+  //
+  // it('stores websocket filter', async () => {
+  //   const navigateToWebsocketMessages = async () => {
+  //     await navigateToNetworkTab('websocket.html');
+  //
+  //     await waitForSomeRequestsToAppear(2);
+  //
+  //     await selectRequestByName('localhost');
+  //
+  //     const networkView = await waitFor('.network-item-view');
+  //     const messagesTabHeader = await waitFor('[aria-label=Messages][role=tab]', networkView);
+  //     await click(messagesTabHeader);
+  //     await waitFor('[aria-label=Messages][role=tab][aria-selected=true]', networkView);
+  //     return waitFor('.websocket-frame-view');
+  //   };
+  //
+  //   let messagesView = await navigateToWebsocketMessages();
+  //   const waitForMessages = async (count: number) => {
+  //     return waitForFunction(async () => {
+  //       const messages = await $$('.data-column.websocket-frame-view-td', messagesView);
+  //       if (messages.length !== count) {
+  //         return undefined;
+  //       }
+  //       return Promise.all(messages.map(message => {
+  //         return message.evaluate(message => message.textContent || '');
+  //       }));
+  //     });
+  //   };
+  //   let messages = await waitForMessages(4);
+  //
+  //   const filterInput =
+  //       await waitFor('[aria-label="Enter regex, for example: (web)?socket"][role=textbox]', messagesView);
+  //   filterInput.focus();
+  //   void typeText('ping');
+  //
+  //   messages = await waitForMessages(2);
+  //   assert.deepEqual(messages, ['ping', 'ping']);
+  //
+  //   messagesView = await navigateToWebsocketMessages();
+  //   messages = await waitForMessages(2);
+  //
+  //   assert.deepEqual(messages, ['ping', 'ping']);
+  // });
+  //
   async function assertOutlineMatches(expectedPatterns: string[], outline: ElementHandle<Element>[]) {
     const regexpSpecialChars = /[-\/\\^$*+?.()|[\]{}]/g;
     for (const item of outline) {
@@ -185,9 +186,11 @@ describe('The Network Request view', async () => {
     }
   }
 
-  // Flaky on mac bots.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1342537] shows request headers and payload', async () => {
+  it('shows request headers and payload', async () => {
+    const {target} = getBrowserAndPages();
     await navigateToNetworkTab('headers-and-payload.html');
+    await setCacheDisabled(true);
+    await target.reload({waitUntil: 'networkidle0'});
 
     await waitForSomeRequestsToAppear(2);
 
@@ -218,16 +221,18 @@ describe('The Network Request view', async () => {
         'Transfer-Encoding: chunked',
         'Vary: Origin',
       ],
-      'Request Headers (17)View source',
+      'Request Headers (19)View source',
       [
         'accept: */*',
         'Accept-Encoding: gzip, deflate, br',
         'Accept-Language: en-US',
+        'Cache-Control: no-cache',
         'Connection: keep-alive',
         'Content-Length: 32',
         'content-type: application/x-www-form-urlencoded;charset=UTF-8',
         'Host: localhost:%',
         'Origin: https://localhost:%',
+        'Pragma: no-cache',
         'Referer: https://localhost:%/test/e2e/resources/network/headers-and-payload.html',
         'sec-ch-ua',
         'sec-ch-ua-mobile: ?0',
@@ -240,7 +245,14 @@ describe('The Network Request view', async () => {
       ],
     ].flat();
 
-    await assertOutlineMatches(expectedHeadersContent, headersOutline);
+    try {
+      await assertOutlineMatches(expectedHeadersContent, headersOutline);
+    } catch (e) {
+      await takeScreenshots();
+      await new Promimse(r => setTimeout(r, 500));
+      await takeScreenshots();
+      throw e;
+    }
 
     const payloadTabHeader = await waitFor('[aria-label=Payload][role="tab"]', networkView);
     await click(payloadTabHeader);
@@ -324,72 +336,72 @@ describe('The Network Request view', async () => {
     await assertOutlineMatches(expectedHeadersContent, headersOutline);
   });
 
-  it('payload tab selection is preserved', async () => {
-    await navigateToNetworkTab('headers-and-payload.html');
-
-    await waitForSomeRequestsToAppear(3);
-
-    await selectRequestByName('image.svg?id=42&param=a%20b');
-
-    const networkView = await waitFor('.network-item-view');
-    const payloadTabHeader = await waitFor('[aria-label=Payload][role="tab"]', networkView);
-    await click(payloadTabHeader);
-    await waitFor('[aria-label=Payload][role=tab][aria-selected=true]', networkView);
-
-    await selectRequestByName('image.svg');
-    await waitForElementWithTextContent('foo: gamma');
-  });
-
-  it('no duplicate payload tab on headers update', async () => {
-    await navigateToNetworkTab('requests.html');
-    const {target} = getBrowserAndPages();
-    target.evaluate(() => fetch('image.svg?delay'));
-    await waitForSomeRequestsToAppear(2);
-
-    await selectRequestByName('image.svg?delay');
-    await target.evaluate(async () => await fetch('/?send_delayed'));
-  });
-
-  it('can create header overrides via context menu', async () => {
-    await enableExperiment('headerOverrides');
-    await navigateToNetworkTab('hello.html');
-    await selectRequestByName('hello.html', {button: 'right'});
-
-    const createHeaderOverrideMenuEntry = await waitForAria('Create response header override');
-    await click(createHeaderOverrideMenuEntry);
-    const infoBar = await waitForAria('Select a folder to store override files in.');
-    const button = await waitFor('.infobar-main-row .infobar-button', infoBar);
-    await click(button);
-
-    await waitFor('devtools-button.add-block');
-    const folderElement = await waitFor('.tree-outline-disclosure ol.tree-outline .navigator-fs-folder-tree-item');
-    const textContent = await folderElement.evaluate(el => el.textContent || '');
-    assert.match(textContent, new RegExp(`localhost(:|%3A)${getTestServerPort()}/test/e2e/resources/network`));
-
-    await waitFor('.tabbed-pane-header-tab[aria-label=".headers"]');
-  });
-
-  it('can search by headers name', async () => {
-    await navigateToNetworkTab('headers-and-payload.html');
-
-    await waitForSomeRequestsToAppear(2);
-
-    await selectRequestByName('image.svg?id=42&param=a%20b');
-    const SEARCH_QUERY = '[aria-label="Search Query"]';
-    const SEARCH_RESULT = '.search-result';
-    const {frontend} = getBrowserAndPages();
-
-    await triggerLocalFindDialog(frontend);
-    await waitFor(SEARCH_QUERY);
-    const inputElement = await $(SEARCH_QUERY);
-    if (!inputElement) {
-      assert.fail('Unable to find search input field');
-    }
-
-    await inputElement.focus();
-    await inputElement.type('Cache-Control');
-    await frontend.keyboard.press('Enter');
-
-    await waitFor(SEARCH_RESULT);
-  });
+  // it('payload tab selection is preserved', async () => {
+  //   await navigateToNetworkTab('headers-and-payload.html');
+  //
+  //   await waitForSomeRequestsToAppear(3);
+  //
+  //   await selectRequestByName('image.svg?id=42&param=a%20b');
+  //
+  //   const networkView = await waitFor('.network-item-view');
+  //   const payloadTabHeader = await waitFor('[aria-label=Payload][role="tab"]', networkView);
+  //   await click(payloadTabHeader);
+  //   await waitFor('[aria-label=Payload][role=tab][aria-selected=true]', networkView);
+  //
+  //   await selectRequestByName('image.svg');
+  //   await waitForElementWithTextContent('foo: gamma');
+  // });
+  //
+  // it('no duplicate payload tab on headers update', async () => {
+  //   await navigateToNetworkTab('requests.html');
+  //   const {target} = getBrowserAndPages();
+  //   target.evaluate(() => fetch('image.svg?delay'));
+  //   await waitForSomeRequestsToAppear(2);
+  //
+  //   await selectRequestByName('image.svg?delay');
+  //   await target.evaluate(async () => await fetch('/?send_delayed'));
+  // });
+  //
+  // it('can create header overrides via context menu', async () => {
+  //   await enableExperiment('headerOverrides');
+  //   await navigateToNetworkTab('hello.html');
+  //   await selectRequestByName('hello.html', {button: 'right'});
+  //
+  //   const createHeaderOverrideMenuEntry = await waitForAria('Create response header override');
+  //   await click(createHeaderOverrideMenuEntry);
+  //   const infoBar = await waitForAria('Select a folder to store override files in.');
+  //   const button = await waitFor('.infobar-main-row .infobar-button', infoBar);
+  //   await click(button);
+  //
+  //   await waitFor('devtools-button.add-block');
+  //   const folderElement = await waitFor('.tree-outline-disclosure ol.tree-outline .navigator-fs-folder-tree-item');
+  //   const textContent = await folderElement.evaluate(el => el.textContent || '');
+  //   assert.match(textContent, new RegExp(`localhost(:|%3A)${getTestServerPort()}/test/e2e/resources/network`));
+  //
+  //   await waitFor('.tabbed-pane-header-tab[aria-label=".headers"]');
+  // });
+  //
+  // it('can search by headers name', async () => {
+  //   await navigateToNetworkTab('headers-and-payload.html');
+  //
+  //   await waitForSomeRequestsToAppear(2);
+  //
+  //   await selectRequestByName('image.svg?id=42&param=a%20b');
+  //   const SEARCH_QUERY = '[aria-label="Search Query"]';
+  //   const SEARCH_RESULT = '.search-result';
+  //   const {frontend} = getBrowserAndPages();
+  //
+  //   await triggerLocalFindDialog(frontend);
+  //   await waitFor(SEARCH_QUERY);
+  //   const inputElement = await $(SEARCH_QUERY);
+  //   if (!inputElement) {
+  //     assert.fail('Unable to find search input field');
+  //   }
+  //
+  //   await inputElement.focus();
+  //   await inputElement.type('Cache-Control');
+  //   await frontend.keyboard.press('Enter');
+  //
+  //   await waitFor(SEARCH_RESULT);
+  // });
 });
