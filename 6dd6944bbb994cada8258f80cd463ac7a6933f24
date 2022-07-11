@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a36d6cee_18d0928c",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-07-11T12:14:28Z",
+      "side": 1,
+      "message": "I\u0027m also wondering if it makes sense to do this at the ElementsSidebarPane level, where this throttle behavior is created.",
+      "revId": "6dd6944bbb994cada8258f80cd463ac7a6933f24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4556afb_c32dc1bd",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 5
