@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03001295_ea72d040",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-11T13:57:50Z",
+      "side": 1,
+      "message": "Tip: When using `Fixed:`, you no longer need the `Bug:` line.\n\nAnother tip: you can optionally be explicit about monorail project by using\n\n\u003e Fixed: chromium:1343360\n\nThis can be useful if you ever need to work across multiple projects, e.g. V8\n\n\u003e Fixed: chromium:1343360, v8:1234, chromedriver:5678",
+      "revId": "5ba3479bc7a4894bbaa545faa976a34a88a86e8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
