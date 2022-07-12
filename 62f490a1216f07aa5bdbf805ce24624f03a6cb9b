@@ -50,6 +50,24 @@
       "message": "Are handlers even supposed to returning everything?\n\nAre stopPropagation() and preventDefault() the equivalent of returning false in the handler? If so this is different from before where the handler would return false even if the key was not \u0027Enter\u0027.",
       "revId": "62f490a1216f07aa5bdbf805ce24624f03a6cb9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee2343a8_65ff9c71",
+        "filename": "front_end/panels/elements/DOMLinkifier.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-12T14:35:16Z",
+      "side": 1,
+      "message": "Great catch, thanks! I researched it and turns out `return false` does nothing when you add a listener with `addEventListener`, so I\u0027ve tidied the code to just call `reveal` if the key was the enter key.",
+      "parentUuid": "02b90c2b_19958c6a",
+      "revId": "62f490a1216f07aa5bdbf805ce24624f03a6cb9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
