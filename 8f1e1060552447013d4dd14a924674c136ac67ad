@@ -33,6 +33,24 @@
       "message": "LGTM, but what I\u0027m worried about: Do the scriptes generating the resources produce a consistent, reproducible output across all platforms? If not, I fear changes to protocol resources etc. will cause huge diffs. ",
       "revId": "8f1e1060552447013d4dd14a924674c136ac67ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e7ef67_0c5b19f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-12T08:34:43Z",
+      "side": 1,
+      "message": "Hmm I take the point. The other option we have is to update the `generate_protocol_resources.py` script to run `clang` after writing the files, and then have them ignored? So they do get formatted at generation, and then left alone?",
+      "parentUuid": "48d02650_c1025ccb",
+      "revId": "8f1e1060552447013d4dd14a924674c136ac67ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
