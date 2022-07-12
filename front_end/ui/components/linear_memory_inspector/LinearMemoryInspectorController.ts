@@ -97,6 +97,23 @@ export function isMemoryObjectProperty(obj: SDK.RemoteObject.RemoteObject): bool
   return false;
 }
 
+function retrieveSizeOfSourceLevelValue(obj: Bindings.DebuggerLanguagePlugins.ValueNode): number {
+  // Currently, we follow a pointer one level deep as the object address
+  // provided by the DWARF extension also only goes one level deep.
+  let typeInfo = obj.sourceType.typeInfo;
+  const pointerMembers = typeInfo.members.filter(member => member.name === '*');
+  if (pointerMembers.length > 0) {
+    const typeId = pointerMembers[0].typeId;
+    const newTypeInfo = obj.sourceType.typeMap.get(typeId)?.typeInfo;
+    if (newTypeInfo !== undefined) {
+      typeInfo = newTypeInfo;
+    } else {
+      throw new Error(`typeMap has no key ${typeId}.`);
+    }
+  }
+  return typeInfo.size;
+}
+
 type SerializableSettings = {
   valueTypes: ValueType[],
   valueTypeModes: [ValueType, ValueTypeMode][],
@@ -263,15 +280,10 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
   #extractHighlightInfo(obj: SDK.RemoteObject.RemoteObject, memoryAddress?: number): HighlightInfo|undefined {
     let highlightInfo;
     if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
-      // Currently, only the StaticallyTypedValueNode subclass implements the sourceType getter.
-      // The other subclasses throw a 'Not Implemented' Error.
-      try {
-        highlightInfo = {
-          startAddress: memoryAddress || 0,
-          size: obj.sourceType.typeInfo.size,
-        };
-      } catch (unusedError) {
-      }
+      highlightInfo = {
+        startAddress: memoryAddress || 0,
+        size: retrieveSizeOfSourceLevelValue(obj),
+      };
     }
     return highlightInfo;
   }
