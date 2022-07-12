@@ -50,6 +50,24 @@
       "message": "actually, I have been wondering if it makes sense to keep the front `type` if all imports are type imports? Otherwise, examples like this look a regression: 1) more duplication and 2) longer. WDYT?",
       "revId": "1de99d17472a798073024dd6faa99c8632fc60e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df98a21_74262538",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-12T16:00:05Z",
+      "side": 1,
+      "message": "I see the point, but I think the positive here is that if you then need to add a value import, the diff is literally `, Foo` where `Foo` is the value, rather than 1) adding another import for the values, or 2) the diff being the moving of the `type` keyword inline to each import apart from the value one.\n\nSo in this instance I think it\u0027s a small regression, but broadly it\u0027s still a clear net positive. I also think the de-duplication of import paths makes this worth it.",
+      "parentUuid": "882d4f51_21fc6769",
+      "revId": "1de99d17472a798073024dd6faa99c8632fc60e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
