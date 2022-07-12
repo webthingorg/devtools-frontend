@@ -16,6 +16,40 @@
       "message": "PTAL!",
       "revId": "62f490a1216f07aa5bdbf805ce24624f03a6cb9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0fb6a45_c08aa6e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-07-12T13:51:50Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "62f490a1216f07aa5bdbf805ce24624f03a6cb9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b90c2b_19958c6a",
+        "filename": "front_end/panels/elements/DOMLinkifier.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-07-12T13:51:50Z",
+      "side": 1,
+      "message": "Are handlers even supposed to returning everything?\n\nAre stopPropagation() and preventDefault() the equivalent of returning false in the handler? If so this is different from before where the handler would return false even if the key was not \u0027Enter\u0027.",
+      "revId": "62f490a1216f07aa5bdbf805ce24624f03a6cb9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
