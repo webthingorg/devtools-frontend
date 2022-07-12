@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeca0fb7_9c501287",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-12T21:56:08Z",
+      "side": 1,
+      "message": "Ah, I guess the CQ answers my question. :-)",
+      "parentUuid": "789265c6_ff5f5a76",
+      "revId": "2fbbc478699904cae97b077819f14aeff604ea86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "47efded3_1d7cfa86",
