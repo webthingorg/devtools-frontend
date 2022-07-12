@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a245873e_4db1c0e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-12T21:43:38Z",
+      "side": 1,
+      "message": "Thoughts? Happy to skip this, but as I was looking at the UI to make tweaks, \"key exchange group\" just kept looking weirder and weirder.",
+      "revId": "16ed1fb29c26cdc73134eccfc433a18876538deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
