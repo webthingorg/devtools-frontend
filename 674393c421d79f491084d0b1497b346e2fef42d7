@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f11ea02a_d6e62153",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-12T13:58:25Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "674393c421d79f491084d0b1497b346e2fef42d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5a8931_83628f32",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-12T13:58:25Z",
+      "side": 1,
+      "message": "drive-by: we don\u0027t need the outer-most div here",
+      "revId": "674393c421d79f491084d0b1497b346e2fef42d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
