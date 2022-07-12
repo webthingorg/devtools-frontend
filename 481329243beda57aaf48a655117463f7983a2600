@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f33acbf_bf0303d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-12T14:16:08Z",
+      "side": 1,
+      "message": "I\u0027ve modified the CL to reflect your feedback. Not sure if the CL description is the clearest. As discussed offline, revealing a pointer-to-pointer highlights the target pointer to be consistent with the extension. \n\nLet me know if anything needs more work. Thanks!",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
