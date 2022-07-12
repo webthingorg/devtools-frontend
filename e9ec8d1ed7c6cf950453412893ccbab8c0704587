@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cca371bd_167eccdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-12T21:42:55Z",
+      "side": 1,
+      "message": "My immediate motivation is the later CLs in the chain, but cutting off text seems generally problematic for translations.",
+      "revId": "e9ec8d1ed7c6cf950453412893ccbab8c0704587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
