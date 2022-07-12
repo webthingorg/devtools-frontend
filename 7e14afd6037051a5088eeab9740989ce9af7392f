@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c361a295_45f6923d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-07-12T06:21:46Z",
+      "side": 1,
+      "message": "Maybe mention: We add it because Chromium also declares it as allowed: https://source.chromium.org/chromium/chromium/src/+/main:DEPS;drc\u003d47e2f6acbdcbed278a082c27a88a78f2a3393afc;l\u003d474\n\n - i.e. it already has been vetted by ChOps team.\n \nThis feature is btw stone old: https://codereview.chromium.org/575283005 - weird that we just stumble over this now.\n\n+Alex Schulze, in case this is BCID relevant, but given the original commit there I doubt it. Unless it got recently extended.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "7e14afd6037051a5088eeab9740989ce9af7392f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
