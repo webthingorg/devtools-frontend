@@ -16,6 +16,132 @@
       "message": "PTAL!",
       "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d36501_7214686f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "LGTM with some really minor nitty suggestions that you should feel free to ignore (but that I loved learning about when Steve Souders \u0026 Stoyan Stefanov taught me this tech writing life hack™)",
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ab4b4e_71ae90f0",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "nit: avoid “will” (in general)\n\n    That folder will also contain an entrypoint\n    →\n    That folder also contains an entrypoint",
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ca6c69_d182432e",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "nit: returns",
+      "range": {
+        "startLine": 55,
+        "startChar": 101,
+        "endLine": 55,
+        "endChar": 112
+      },
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e084504_11ac119c",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "nit: ensures",
+      "range": {
+        "startLine": 57,
+        "startChar": 34,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34792723_a4171f4c",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "nit: is",
+      "range": {
+        "startLine": 74,
+        "startChar": 48,
+        "endLine": 74,
+        "endChar": 55
+      },
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaa056d3_6cc2b0c9",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-13T13:50:16Z",
+      "side": 1,
+      "message": "nit: calls",
+      "range": {
+        "startLine": 78,
+        "startChar": 21,
+        "endLine": 78,
+        "endChar": 30
+      },
+      "revId": "d57cd05321c37c447addaec2bd2357be1ab2eed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
