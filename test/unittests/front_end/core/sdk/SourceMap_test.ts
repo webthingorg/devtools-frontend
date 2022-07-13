@@ -679,4 +679,113 @@ describe('TextSourceMap', () => {
          });
     }
   });
+
+  describe('automatic ignore-listing', () => {
+    it('parses the known third parties from the `x_google_ignoreList` section', () => {
+      const mappingPayload = encodeSourceMap(
+          [
+            // clang-format off
+            '0:0 => vendor.js:1:0',
+            '1:0 => main.js:1:0',
+            '2:0 => example.js:1:0',
+            '3:0 => other.js:1:0',
+            // clang-format on
+          ],
+          'wp:///' /* sourceRoot */);
+
+      mappingPayload.x_google_ignoreList = [0 /* vendor.js */, 3 /* other.js */];
+
+      const sourceMapJsonUrl = 'wp://test/source-map.json' as Platform.DevToolsPath.UrlString;
+      const sourceMap = new SDK.SourceMap.TextSourceMap(compiledUrl, sourceMapJsonUrl, mappingPayload, fakeInitiator);
+
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor.js' as Platform.DevToolsPath.UrlString), true);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///main.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///example.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///other.js' as Platform.DevToolsPath.UrlString), true);
+    });
+
+    it('computes ranges for third party code in a simple case', () => {
+      const mappingPayload = encodeSourceMap(
+          [
+            // clang-format off
+            '0:0 => vendor1.js:1:0',
+            '1:0 => vendor2.js:1:0',
+            '2:0 => vendor3.js:1:0',
+            '3:0 => foo.js:1:0', // known end
+            // clang-format on
+          ],
+          'wp:///' /* sourceRoot */);
+
+      mappingPayload.x_google_ignoreList = [0 /* vendor1.js */, 1 /* vendor2.js */, 2 /* vendor3.js */];
+
+      const sourceMapJsonUrl = 'wp://test/source-map.json' as Platform.DevToolsPath.UrlString;
+      const sourceMap = new SDK.SourceMap.TextSourceMap(compiledUrl, sourceMapJsonUrl, mappingPayload, fakeInitiator);
+
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///foo.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor1.js' as Platform.DevToolsPath.UrlString), true);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor2.js' as Platform.DevToolsPath.UrlString), true);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor3.js' as Platform.DevToolsPath.UrlString), true);
+
+      assert.deepEqual(sourceMap.knownThirdPartyRanges() as [], [
+        {
+          'startLine': 0,
+          'startColumn': 0,
+          'endLine': 3,
+          'endColumn': 0,
+        },
+      ]);
+    });
+
+    it('computes ranges for third party code when parts of the script are third-party', () => {
+      const mappingPayload = encodeSourceMap(
+          [
+            // clang-format off
+            '10:9 => foo.js:1:0',
+            '11:8 => vendor1.js:1:0',
+            '12:7 => vendor1.js:1:0',
+            '13:6 => bar.js:1:0',
+            '14:5 => vendor1.js:1:0',
+            '15:4 => vendor2.js:1:0',
+            '16:3 => vendor1.js:1:0',
+            '17:2 => foo.js:1:0',
+            '18:1 => baz.js:1:0',
+            '19:0 => vendor3.js:1:0', // unknown end
+            // clang-format on
+          ],
+          'wp:///' /* sourceRoot */);
+
+      mappingPayload.x_google_ignoreList = [1 /* vendor1.js */, 3 /* vendor2.js */, 5 /* vendor3.js */];
+
+      const sourceMapJsonUrl = 'wp://test/source-map.json' as Platform.DevToolsPath.UrlString;
+      const sourceMap = new SDK.SourceMap.TextSourceMap(compiledUrl, sourceMapJsonUrl, mappingPayload, fakeInitiator);
+
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///foo.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///bar.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///baz.js' as Platform.DevToolsPath.UrlString), false);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor1.js' as Platform.DevToolsPath.UrlString), true);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor2.js' as Platform.DevToolsPath.UrlString), true);
+      assert.strictEqual(sourceMap.isKnownThirdParty('wp:///vendor3.js' as Platform.DevToolsPath.UrlString), true);
+
+      assert.deepEqual(sourceMap.knownThirdPartyRanges() as [], [
+        {
+          'startLine': 11,
+          'startColumn': 8,
+          'endLine': 13,
+          'endColumn': 6,
+        },
+        {
+          'startLine': 14,
+          'startColumn': 5,
+          'endLine': 17,
+          'endColumn': 2,
+        },
+        {
+          'startLine': 19,
+          'startColumn': 0,
+          'endLine': 2147483647,
+          'endColumn': 2147483647,
+        },
+      ]);
+    });
+  });
 });
