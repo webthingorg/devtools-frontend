@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dade87e9_1701a0f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "efficiency!",
+      "parentUuid": "fd6b456d_343e47ec",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07874f20_a597d627",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-13T06:12:46Z",
       "side": 1,
       "message": "Great summary, thanks!",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "388a7aa5_a172203d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07874f20_a597d627",
       "revId": "481329243beda57aaf48a655117463f7983a2600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e83a60_375bd4de",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac21d51b_037f9252",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abb6fcc4_40bdbd42",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-07-13T06:12:46Z",
       "side": 1,
       "message": "Can we add a unit test for this function?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45b4ead_99aa33a4",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "Added unittests for the different cases.",
+      "parentUuid": "abb6fcc4_40bdbd42",
       "revId": "481329243beda57aaf48a655117463f7983a2600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1db1bfa_e084cbd8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "so far I\u0027ve called these values, whether pointers to primitives or arrays, \"dwarfMemoryObjects\", \"memoryObject\", or just \"object\", which I\u0027m not too sure if it\u0027s quite technically correct/clear. Looking through DebuggerLanguagePlugins.ts, the term \"source-language values\" gets used quite a bit to refer to values in C++ represented with ValueNodes. \n\nI\u0027m happy to go with retrieveObjectSize + comment if you find it clear enough :)",
+      "parentUuid": "4d339465_87cbfee5",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0fa1c75_3e673d2b",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-07-13T06:12:46Z",
       "side": 1,
       "message": "Don\u0027t we want to make sure that we only have one pointer?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5410856a_4a0b6618",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "Now throws an error if length \u003e 1.",
+      "parentUuid": "e0fa1c75_3e673d2b",
       "revId": "481329243beda57aaf48a655117463f7983a2600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +262,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da1810cd_3b1f11bb",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "I like yours more :)",
+      "parentUuid": "16ac2014_bcf83557",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9be1902_ba36a4dc",
@@ -167,6 +293,24 @@
       "writtenOn": "2022-07-13T06:12:46Z",
       "side": 1,
       "message": "There may still be an error that is thrown. I think we still want to catch and return undefined in that case.",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a21b138_3a3441c8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-13T14:23:10Z",
+      "side": 1,
+      "message": "good catch",
+      "parentUuid": "b9be1902_ba36a4dc",
       "revId": "481329243beda57aaf48a655117463f7983a2600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
