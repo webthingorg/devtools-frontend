@@ -570,6 +570,21 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
         Events.ResponseReceived, {request: networkRequest, response: info.outerResponse});
   }
 
+
+  appendDebug(text: string):void  {
+    let debug = document.getElementById('dsv-debug');
+    if (!debug) {
+      debug = document.createElement('div');
+      debug.id = 'dsv-debug';
+      debug.style.zIndex = '100';
+      debug.style.position = 'fixed';
+      debug.style.top = '300px';
+      debug.style.background = 'white';
+      document.body.appendChild(debug);
+    }
+    debug.innerText += ' ' + text;
+  }
+
   requestWillBeSent(
       {requestId, loaderId, documentURL, request, timestamp, wallTime, initiator, redirectResponse, type, frameId}:
           Protocol.Network.RequestWillBeSentEvent): void {
@@ -630,6 +645,9 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     networkRequest.setFromMemoryCache();
   }
 
+  // async responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
+  //     Promise<void> {
+  //   await new Promise(r=>setTimeout(r, 100));
   responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
       void {
     const networkRequest = this.#requestsById.get(requestId);
