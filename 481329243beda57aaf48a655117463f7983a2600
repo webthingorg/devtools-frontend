@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6b456d_343e47ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "nit: Maybe directly head to `https://emscripten-dbg-stories.netlify.app/lmi-primitives.html`",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07874f20_a597d627",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Great summary, thanks!",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5f33acbf_bf0303d0",
@@ -14,6 +48,125 @@
       "writtenOn": "2022-07-12T14:16:08Z",
       "side": 1,
       "message": "I\u0027ve modified the CL to reflect your feedback. Not sure if the CL description is the clearest. As discussed offline, revealing a pointer-to-pointer highlights the target pointer to be consistent with the extension. \n\nLet me know if anything needs more work. Thanks!",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc0f784_2e3a05ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Thanks Michal! ",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac21d51b_037f9252",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "How about making this function static?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb6fcc4_40bdbd42",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Can we add a unit test for this function?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d339465_87cbfee5",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Also, `retrieveSizeOfSourceLevelValue` is not very clear. How about adding an example on top of the function (as a comment) to show what one could expect?\n\nNot sure why `SourceLevel`? Maybe the combination of hte comment plus `retrieveObjectSize` would be fine, wdyt?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0fa1c75_3e673d2b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Don\u0027t we want to make sure that we only have one pointer?",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ac2014_bcf83557",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "Maybe be more specific: `Cannot find the source type information for typeId ${typeId}`",
+      "revId": "481329243beda57aaf48a655117463f7983a2600",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9be1902_ba36a4dc",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-13T06:12:46Z",
+      "side": 1,
+      "message": "There may still be an error that is thrown. I think we still want to catch and return undefined in that case.",
       "revId": "481329243beda57aaf48a655117463f7983a2600",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
