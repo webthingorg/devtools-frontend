@@ -33,6 +33,24 @@
       "message": "I see devtools_frontend_linux_blink_light_rel has some failures due to code being split between Blink and DevTools. What\u0027s the process for handling this? Disable the test and re-enable it afterwards?",
       "revId": "e9ec8d1ed7c6cf950453412893ccbab8c0704587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a95c34b_2d0f2641",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-13T20:29:25Z",
+      "side": 1,
+      "message": "I see there\u0027s also a test/webtests in the DevTools frontend repo. Should I just move http/tests/devtool/security from Chromium into this repo?",
+      "parentUuid": "9f2dd70a_782691c2",
+      "revId": "e9ec8d1ed7c6cf950453412893ccbab8c0704587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
