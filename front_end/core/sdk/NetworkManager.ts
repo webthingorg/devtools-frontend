@@ -570,9 +570,25 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
         Events.ResponseReceived, {request: networkRequest, response: info.outerResponse});
   }
 
+
+  appendDebug(text: string):void  {
+    let debug = document.getElementById('dsv-debug');
+    if (!debug) {
+      debug = document.createElement('div');
+      debug.id = 'dsv-debug';
+      debug.style.zIndex = '100';
+      debug.style.position = 'fixed';
+      debug.style.top = '300px';
+      debug.style.background = 'white';
+      document.body.appendChild(debug);
+    }
+    debug.innerText += ' ' + text;
+  }
+
   requestWillBeSent(
       {requestId, loaderId, documentURL, request, timestamp, wallTime, initiator, redirectResponse, type, frameId}:
           Protocol.Network.RequestWillBeSentEvent): void {
+    this.appendDebug('requestWillBeSent');
     let networkRequest = this.#requestsById.get(requestId);
     if (networkRequest) {
       // FIXME: move this check to the backend.
@@ -632,6 +648,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
       void {
+    this.appendDebug('responseReceived');
     const networkRequest = this.#requestsById.get(requestId);
     const lowercaseHeaders = NetworkManager.lowercaseHeaders(response.headers);
     if (!networkRequest) {
@@ -826,6 +843,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   requestWillBeSentExtraInfo({requestId, associatedCookies, headers, clientSecurityState, connectTiming}:
                                  Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
+    this.appendDebug('requestWillBeSentExtraInfo');
     const blockedRequestCookies: BlockedCookieWithReason[] = [];
     const includedRequestCookies = [];
     for (const {blockedReasons, cookie} of associatedCookies) {
@@ -847,6 +865,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   responseReceivedExtraInfo({requestId, blockedCookies, headers, headersText, resourceIPAddressSpace, statusCode}:
                                 Protocol.Network.ResponseReceivedExtraInfoEvent): void {
+    this.appendDebug('responseReceivedExtraInfo');
     const extraResponseInfo: ExtraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
         return {
