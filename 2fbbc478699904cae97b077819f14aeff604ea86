@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e0facb_60c22775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-13T15:16:47Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with the testing framework you all have. Do you have anything that configures TLS in interesting ways?\n\nThere seem to be some tests in Blink that just mock out what\u0027s sent over the protocol, but they\u0027re over in the other repo. I can add some tests there, but it\u0027d have to be after this lands due to the repo split. :-/\nthird_party/blink/web_tests/http/tests/devtools/security/security-details-updated-with-security-state.js\n\nNot sure how easy that\u0027d be to migrate that into the DevTools repo.\n\nMy suspicious is we can\u0027t do a proper end-to-end test easily. (But happy to be proven wrong!) ECH is an experimental TLS feature and almost certainly won\u0027t be available in whatever HTTPS test server you use. Server signatures are a thing but often aren\u0027t configurable. And I expect web-platform-level test infra tends to be designed to configure things closer to web content.",
+      "parentUuid": "61de3a45_2f05c8f3",
+      "revId": "2fbbc478699904cae97b077819f14aeff604ea86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "47efded3_1d7cfa86",
