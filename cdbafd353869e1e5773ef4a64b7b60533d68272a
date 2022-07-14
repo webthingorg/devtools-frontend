@@ -33,6 +33,24 @@
       "message": "after https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3750934 lands, before and after we fetch the computed styles we need to check of the update has been aborted.",
       "revId": "cdbafd353869e1e5773ef4a64b7b60533d68272a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8de1f2_ba42b22a",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-14T11:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b13189a6_08787da2",
+      "revId": "cdbafd353869e1e5773ef4a64b7b60533d68272a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
