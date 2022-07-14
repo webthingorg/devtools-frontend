@@ -51,6 +51,24 @@
       "parentUuid": "9f2dd70a_782691c2",
       "revId": "e9ec8d1ed7c6cf950453412893ccbab8c0704587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b88163fa_1cb72a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-14T06:27:03Z",
+      "side": 1,
+      "message": "No, the test remains where it is. The usual workflow involves a bit of hoop-jumping:\n\n1. temporarily disable the test in Chromium (referring to this CL when doing so)\n2. land this CL\n3. wait for this CL to roll into Chromium (https://chromium-review.googlesource.com/q/owner:chromium-autoroll%2540skia-public.iam.gserviceaccount.com+devtools-frontend)\n4. finally, re-enable the Chromium test.\n\nHope this helps.",
+      "parentUuid": "4a95c34b_2d0f2641",
+      "revId": "e9ec8d1ed7c6cf950453412893ccbab8c0704587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
