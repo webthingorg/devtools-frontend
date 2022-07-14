@@ -718,10 +718,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     const authoringHint = this.getAuthoringHint(this.computedStyles, this.parentsComputedStyles);
     if (authoringHint !== null) {
       const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
-      const hintPopover =
-          new UI.PopoverHelper.PopoverHelper(hintIcon, event => this.handleHintPopoverRequest(authoringHint, event));
+      const hintPopover = new UI.PopoverHelper.PopoverHelper(
+          hintIcon, event => this.handleHintPopoverRequest(authoringHint, event), true, false);
+      hintPopover.setToggleOnClick(true);
       hintPopover.setHasPadding(true);
-      hintPopover.setTimeout(0, 100);
+      hintPopover.setTimeout(0);
 
       this.listItemElement.append(hintIcon);
     }
