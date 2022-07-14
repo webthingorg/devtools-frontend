@@ -21,7 +21,7 @@ import {
   getBrowserAndPages,
   getResourcesPath,
 } from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
 import {triggerLocalFindDialog} from '../helpers/memory-helpers.js';
 import {
@@ -29,6 +29,7 @@ import {
   navigateToNetworkTab,
   selectRequestByName,
   waitForSomeRequestsToAppear,
+  setCacheDisabled,
 } from '../helpers/network-helpers.js';
 
 const SIMPLE_PAGE_REQUEST_NUMBER = 2;
@@ -174,20 +175,36 @@ describe('The Network Request view', async () => {
 
   async function assertOutlineMatches(expectedPatterns: string[], outline: ElementHandle<Element>[]) {
     const regexpSpecialChars = /[-\/\\^$*+?.()|[\]{}]/g;
-    for (const item of outline) {
-      const actualText = await item.evaluate(el => el.textContent || '');
-      const expectedPattern = expectedPatterns.shift();
-      if (expectedPattern) {
-        assert.match(actualText, new RegExp(expectedPattern.replace(regexpSpecialChars, '\\$&').replace(/%/g, '.*')));
-      } else {
-        assert.fail('Unexpected text: ' + actualText);
+    await waitForFunction(async () => {
+      for (const item of outline) {
+        const actualText = await item.evaluate(el => el.textContent || '');
+        const expectedPattern = expectedPatterns.shift();
+        if (expectedPattern) {
+          if (!actualText.match(new RegExp(expectedPattern.replace(regexpSpecialChars, '\\$&').replace(/%/g, '.*')))) {
+            return false;
+          }
+        } else {
+          return false;
+        }
       }
-    }
+      return true;
+    });
+    // for (const item of outline) {
+    //   const actualText = await item.evaluate(el => el.textContent || '');
+    //   const expectedPattern = expectedPatterns.shift();
+    //   if (expectedPattern) {
+    //     assert.match(actualText, new RegExp(expectedPattern.replace(regexpSpecialChars, '\\$&').replace(/%/g, '.*')));
+    //   } else {
+    //     assert.fail('Unexpected text: ' + actualText);
+    //   }
+    // }
   }
 
-  // Flaky on mac bots.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1342537] shows request headers and payload', async () => {
+  it('shows request headers and payload', async () => {
+    const {target} = getBrowserAndPages();
     await navigateToNetworkTab('headers-and-payload.html');
+    await setCacheDisabled(true);
+    await target.reload({waitUntil: 'networkidle0'});
 
     await waitForSomeRequestsToAppear(2);
 
@@ -218,16 +235,18 @@ describe('The Network Request view', async () => {
         'Transfer-Encoding: chunked',
         'Vary: Origin',
       ],
-      'Request Headers (17)View source',
+      'Request Headers (19)View source',
       [
         'accept: */*',
         'Accept-Encoding: gzip, deflate, br',
         'Accept-Language: en-US',
+        'Cache-Control: no-cache',
         'Connection: keep-alive',
         'Content-Length: 32',
         'content-type: application/x-www-form-urlencoded;charset=UTF-8',
         'Host: localhost:%',
         'Origin: https://localhost:%',
+        'Pragma: no-cache',
         'Referer: https://localhost:%/test/e2e/resources/network/headers-and-payload.html',
         'sec-ch-ua',
         'sec-ch-ua-mobile: ?0',
@@ -260,6 +279,8 @@ describe('The Network Request view', async () => {
     ].flat();
 
     await assertOutlineMatches(expectedPayloadContent, payloadOutline);
+    // await new Promise(r=>setTimeout(r, 5000));
+    // await takeScreenshots();
   });
 
   it('shows raw headers', async () => {
@@ -322,6 +343,7 @@ describe('The Network Request view', async () => {
     ].flat();
 
     await assertOutlineMatches(expectedHeadersContent, headersOutline);
+    // await takeScreenshots();
   });
 
   it('payload tab selection is preserved', async () => {
