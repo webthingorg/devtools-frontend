@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1be9a05_138c8e3d",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-14T04:42:03Z",
+      "side": 1,
+      "message": "Can we use consistent naming? In the sourcemap this is called \"ignoreList\", so let\u0027s also go with \"isIgnoreListed\" and \"knownIgnoreListedRanges\", etc. here?",
+      "revId": "c4c909e4d9c2aa3c72de21edb1391c9672ea2a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
