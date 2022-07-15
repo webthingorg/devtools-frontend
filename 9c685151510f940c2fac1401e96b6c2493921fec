@@ -16,6 +16,23 @@
       "message": "PTAL at a short bug fix :)\nThanks!",
       "revId": "9c685151510f940c2fac1401e96b6c2493921fec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf5d8c4_1e071e5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-07-15T08:39:23Z",
+      "side": 1,
+      "message": "The comment is so clear!",
+      "revId": "9c685151510f940c2fac1401e96b6c2493921fec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
