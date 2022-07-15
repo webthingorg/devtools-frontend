@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad807d3_3b5c0b62",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-15T11:25:14Z",
+      "side": 1,
+      "message": "As discussed, we suspect this whole type (and the others in this file) should be defined something like this:\n\n```\ninterface SourceMapV3 {\n  version: number;\n  file?: string;\n  sources: Platform.DevToolsPath.UrlString[];\n  sections?: Section[];\n  mappings: string;\n  sourceRoot?: Platform.DevToolsPath.UrlString;\n  names?: string[];\n  sourcesContent?: string;\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  x_google_ignoreList?: number[];\n}\n```\n\nBut we can leave that for a separate discussion and CL. I\u0027ll change this to be consistent for now.",
+      "parentUuid": "a3db727f_6b688741",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "c4c909e4d9c2aa3c72de21edb1391c9672ea2a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1be9a05_138c8e3d",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-07-14T04:42:03Z",
       "side": 1,
       "message": "Can we use consistent naming? In the sourcemap this is called \"ignoreList\", so let\u0027s also go with \"isIgnoreListed\" and \"knownIgnoreListedRanges\", etc. here?",
+      "revId": "c4c909e4d9c2aa3c72de21edb1391c9672ea2a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a4c52e_a38714df",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-15T11:25:14Z",
+      "side": 1,
+      "message": "I\u0027ve discussed this with Jaro as well: the reasoning behind the naming is that the source map itself cannot make any guarantees that these urls are ignore-listed, only that they are hinted for ignore-listing. It\u0027s the consumers downstream who are responsible with this. In many years time, if someone reads this code and concludes that a source is ignore-listed based on this method returning true, this might be wrong 😊\n\nThe \"known third party\" nomenclature attempts this, but I think we can replace it with \"hasIgnoreListHint\" to also keep things consistent.",
+      "parentUuid": "c1be9a05_138c8e3d",
       "revId": "c4c909e4d9c2aa3c72de21edb1391c9672ea2a03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
