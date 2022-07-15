@@ -138,7 +138,9 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
   private async updateScriptRanges(script: SDK.Script.Script, sourceMap: SDK.SourceMap.SourceMap|null): Promise<void> {
     let hasIgnoreListedMappings = false;
     if (!IgnoreListManager.instance().isIgnoreListedURL(script.sourceURL, script.isContentScript())) {
-      hasIgnoreListedMappings = sourceMap ? sourceMap.sourceURLs().some(url => this.isIgnoreListedURL(url)) : false;
+      hasIgnoreListedMappings = sourceMap ?
+          sourceMap.sourceURLs().some(url => this.isIgnoreListedURL(url) || sourceMap.hasIgnoreListHint(url)) :
+          false;
     }
     if (!hasIgnoreListedMappings) {
       if (scriptToRange.get(script) && await script.setBlackboxedRanges([])) {
@@ -152,21 +154,10 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
       return;
     }
 
-    const mappings = sourceMap.mappings();
-    const newRanges: SourceRange[] = [];
-    if (mappings.length > 0) {
-      let currentIgnoreListed = false;
-      if (mappings[0].lineNumber !== 0 || mappings[0].columnNumber !== 0) {
-        newRanges.push({lineNumber: 0, columnNumber: 0});
-        currentIgnoreListed = true;
-      }
-      for (const mapping of mappings) {
-        if (mapping.sourceURL && currentIgnoreListed !== this.isIgnoreListedURL(mapping.sourceURL)) {
-          newRanges.push({lineNumber: mapping.lineNumber, columnNumber: mapping.columnNumber});
-          currentIgnoreListed = !currentIgnoreListed;
-        }
-      }
-    }
+    const newRanges =
+        sourceMap
+            .findRanges(url => this.isIgnoreListedURL(url) || sourceMap.hasIgnoreListHint(url), {isStartMatching: true})
+            .flatMap(range => [range.start, range.end]);
 
     const oldRanges = scriptToRange.get(script) || [];
     if (!isEqual(oldRanges, newRanges) && await script.setBlackboxedRanges(newRanges)) {
