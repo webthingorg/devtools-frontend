@@ -50,6 +50,9 @@
   "core/common/ResourceType.ts | ping": {
     "message": "P̂ín̂ǵ"
   },
+  "core/common/ResourceType.ts | prefetch": {
+    "message": "P̂ŕêf́êt́ĉh́"
+  },
   "core/common/ResourceType.ts | preflight": {
     "message": "P̂ŕêf́l̂íĝh́t̂"
   },

@@ -10670,6 +10670,7 @@
                         "TextTrack",
                         "XHR",
                         "Fetch",
+                        "Prefetch",
                         "EventSource",
                         "WebSocket",
                         "Manifest",
@@ -25679,5 +25680,5 @@
     "version": {
         "major": "1",
         "minor": "3"
-    }
+    }    
 }
