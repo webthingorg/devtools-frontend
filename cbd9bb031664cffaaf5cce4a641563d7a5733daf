@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff53e30a_933fd53c",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-16T05:43:54Z",
+      "side": 1,
+      "message": "As discussed, we suspect this whole type (and the others in this file) should be defined something like this:\n```\ninterface SourceMapV3 {\n  version: number;\n  file?: string;\n  sources: Platform.DevToolsPath.UrlString[];\n  sections?: Section[];\n  mappings: string;\n  sourceRoot?: Platform.DevToolsPath.UrlString;\n  names?: string[];\n  sourcesContent?: string;\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  x_google_ignoreList?: number[];\n}\n```\nBut we can leave that for a separate discussion and CL. Let\u0027s keep consistent for now.",
+      "revId": "cbd9bb031664cffaaf5cce4a641563d7a5733daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
