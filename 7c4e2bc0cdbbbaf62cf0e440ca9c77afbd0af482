@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d14a57a_2c2a7e8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-16T15:22:59Z",
+      "side": 1,
+      "message": "Unifying the logic wasn\u0027t too bad, and now with the added benefit that it\u0027s tested. I think this is sensible, as opposed to adding more complexity with unions of disjoint sets. What do you think about going this route? WIP pending your feedback.",
+      "revId": "7c4e2bc0cdbbbaf62cf0e440ca9c77afbd0af482",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
