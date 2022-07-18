@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "337e1523_4c6ba7d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-18T07:18:26Z",
+      "side": 1,
+      "message": "Sorry, I was on vacation the last 3 weeks.",
+      "revId": "b394f69c151261bc48eda5cb7b1c6ece21f20a76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
