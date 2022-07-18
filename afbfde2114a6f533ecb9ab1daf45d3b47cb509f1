@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "286ba05d_8a08a3b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-18T15:28:40Z",
+      "side": 1,
+      "message": "LGTM modulo some testing timeouts concerns. Danil, do you have thoughts?",
+      "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb79c909_46feebf6",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-18T15:28:40Z",
+      "side": 1,
+      "message": "Intentional comment?",
+      "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c251ec5_d89d6597",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-18T15:28:40Z",
+      "side": 1,
+      "message": "Ooof. This seems like it\u0027ll break at some point. But it seems that we don\u0027t have a better way to do this for now judging from the other tests in this file. Maybe Danil will have some thoughts.",
+      "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
