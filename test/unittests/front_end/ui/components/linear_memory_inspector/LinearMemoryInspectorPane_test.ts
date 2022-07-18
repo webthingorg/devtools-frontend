@@ -53,7 +53,7 @@ describeWithEnvironment('LinearMemoryInspectorPane', () => {
     assertElement(inspector, LinearMemoryInspector.LinearMemoryInspector.LinearMemoryInspector);
   });
 
-  it('triggers view.updateHighlightInfo() when resetHighlightInfo() called', () => {
+  it('triggers view.setHighlightInfo() when resetHighlightInfo() called', async () => {
     const instance = LinearMemoryInspector.LinearMemoryInspectorPane.LinearMemoryInspectorPaneImpl.instance();
     const arrayWrapper = new Uint8Wrapper(createArray());
     const tabId = 'tabId';
@@ -65,8 +65,8 @@ describeWithEnvironment('LinearMemoryInspectorPane', () => {
     };
     instance.create(tabId, title, arrayWrapper, 10, highlightInfo);
     const view = instance.getViewForTabId(tabId);
-    const spy = sinon.spy(view, 'updateHighlightInfo');
-    instance.resetHighlightInfo(tabId);
+    const spy = sinon.spy(view, 'setHighlightInfo');
+    await instance.updateHighlightInfo(tabId, undefined);
     assert.isTrue(spy.calledOnce);
   });
 

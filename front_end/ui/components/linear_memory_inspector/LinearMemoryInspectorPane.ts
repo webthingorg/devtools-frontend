@@ -5,6 +5,7 @@
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as UI from '../../legacy/legacy.js';
+import type * as SDK from '../../../core/sdk/sdk.js';
 
 import {
   LinearMemoryInspector,
@@ -108,7 +109,7 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
       view.updateAddress(address);
     }
     if (highlightInfo !== undefined) {
-      view.updateHighlightInfo(highlightInfo);
+      view.setHighlightInfo(highlightInfo);
     }
     this.refreshView(tabId);
     this.#tabbedPane.selectTab(tabId);
@@ -119,9 +120,12 @@ export class LinearMemoryInspectorPaneImpl extends Common.ObjectWrapper.eventMix
     view.refreshData();
   }
 
-  resetHighlightInfo(tabId: string): void {
+  async updateHighlightInfo(tabId: string, callframe: SDK.DebuggerModel.CallFrame|undefined): Promise<void> {
     const view = this.getViewForTabId(tabId);
-    view.updateHighlightInfo(undefined);
+    // Retrieves highlightInfo on the currently highlighted variable if still
+    // in scope (and has the same type), otherwise resets its highlight.
+    const newHighlightInfo = await view.evaluateExpression(callframe);
+    view.setHighlightInfo(newHighlightInfo);
   }
 
   #tabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void {
@@ -186,7 +190,7 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
     this.#address = address;
   }
 
-  updateHighlightInfo(highlightInfo?: HighlightInfo): void {
+  setHighlightInfo(highlightInfo?: HighlightInfo): void {
     if (highlightInfo !== undefined) {
       if (highlightInfo.startAddress < 0 || highlightInfo.startAddress >= this.#memoryWrapper.length()) {
         throw new Error('Highlight info start address is out of bounds.');
@@ -196,6 +200,25 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
       }
     }
     this.#highlightInfo = highlightInfo;
+  }
+
+  async evaluateExpression(callframe: SDK.DebuggerModel.CallFrame|undefined): Promise<HighlightInfo|undefined> {
+    let newHighlightInfo;
+    if (callframe !== undefined && this.#highlightInfo?.name) {
+      const res = await callframe.evaluate({
+        expression: this.#highlightInfo.name,
+      });
+      if ('object' in res && res.object) {
+        newHighlightInfo =
+            LinearMemoryInspectorController.extractHighlightInfo(res.object, undefined, this.#highlightInfo?.name);
+      } else {
+        console.error(res);
+      }
+    }
+    if (newHighlightInfo !== undefined && this.#highlightInfo?.type === newHighlightInfo?.type) {
+      return newHighlightInfo;
+    }
+    return undefined;
   }
 
   refreshData(): void {

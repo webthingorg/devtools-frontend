@@ -244,7 +244,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     return typeInfo.size;
   }
 
-  async openInspectorView(obj: SDK.RemoteObject.RemoteObject, address?: number): Promise<void> {
+  async openInspectorView(obj: SDK.RemoteObject.RemoteObject, address?: number, variableName?: string): Promise<void> {
     const response = await LinearMemoryInspectorController.retrieveDWARFMemoryObjectAndAddress(obj);
     let memoryObj = obj;
     let memoryAddress = address;
@@ -253,7 +253,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
       memoryObj = response.obj;
     }
 
-    const highlightInfo = this.#extractHighlightInfo(obj, memoryAddress);
+    const highlightInfo = LinearMemoryInspectorController.extractHighlightInfo(obj, memoryAddress, variableName);
 
     if (memoryAddress !== undefined) {
       Host.userMetrics.linearMemoryInspectorTarget(
@@ -292,13 +292,16 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     void UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
   }
 
-  #extractHighlightInfo(obj: SDK.RemoteObject.RemoteObject, memoryAddress?: number): HighlightInfo|undefined {
+  static extractHighlightInfo(obj: SDK.RemoteObject.RemoteObject, memoryAddress?: number, variableName?: string):
+      HighlightInfo|undefined {
     let highlightInfo;
     if (obj instanceof Bindings.DebuggerLanguagePlugins.ValueNode) {
       try {
         highlightInfo = {
-          startAddress: memoryAddress || 0,
+          startAddress: memoryAddress || obj.inspectableAddress || 0,
           size: LinearMemoryInspectorController.retrieveObjectSize(obj),
+          name: variableName,
+          type: obj.sourceType.typeInfo.typeNames[0],
         };
       } catch (err) {
         highlightInfo = undefined;
@@ -316,11 +319,11 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     }
   }
 
-  #onDebuggerPause(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): void {
+  async #onDebuggerPause(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): Promise<void> {
     const debuggerModel = event.data;
     for (const [bufferId, remoteObject] of this.#bufferIdToRemoteObject) {
       if (debuggerModel.runtimeModel() === remoteObject.runtimeModel()) {
-        this.#paneInstance.resetHighlightInfo(bufferId);
+        await this.#paneInstance.updateHighlightInfo(bufferId, debuggerModel.debuggerPausedDetails()?.callFrames[0]);
         this.#paneInstance.refreshView(bufferId);
       }
     }
