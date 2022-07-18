@@ -16,6 +16,40 @@
       "message": "Could you take a look?",
       "revId": "5314a5259222ca2a995b664f56f084e465d4b661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef34f3cd_a49e1e2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-18T09:58:44Z",
+      "side": 1,
+      "message": "Thanks! Everything LGTM, except for CallStackSidebarPane.ts which I\u0027m not particularly familiar with. Might want to double-check that.a",
+      "revId": "5314a5259222ca2a995b664f56f084e465d4b661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77680d39_dfd6aa8a",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-18T09:58:44Z",
+      "side": 1,
+      "message": "Double-checked with Mathias, and indeed it\u0027s fine to do this.",
+      "revId": "5314a5259222ca2a995b664f56f084e465d4b661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
