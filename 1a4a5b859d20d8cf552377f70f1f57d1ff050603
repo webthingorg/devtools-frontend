@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad2c2536_8f487f7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-18T08:45:14Z",
+      "side": 1,
+      "message": "PTAL. I\u0027ve added a more detailed explanation at https://crbug.com/1330482#c9.",
+      "revId": "1a4a5b859d20d8cf552377f70f1f57d1ff050603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
