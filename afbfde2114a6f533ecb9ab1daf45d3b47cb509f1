@@ -104,6 +104,24 @@
       "parentUuid": "6c429234_ea67a630",
       "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b148b1_0b45ec74",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-07-19T11:13:33Z",
+      "side": 1,
+      "message": "Added some waits to the test that seem to make it work locally.",
+      "parentUuid": "6d7fe601_deccc758",
+      "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
