@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d568c9d7_73ee2426",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-19T08:05:30Z",
+      "side": 0,
+      "message": "This was causing issues in the following cases:\n\n\u003e car TeslaS \u003d new Car(\"tesla S\");\n\nIf user put a breakpoint on this line, the variable TeslaS would already be in scope (probably a DWARF quirk?), but TeslaS would be a pointer to address 0. Stepping one would run the line, and initialize TeslaS to the car instance. Since this instance would likely lie at a very different location than 0, it would cause the \"Object out of bounds error\".\n\nIt may make sense to reintroduce some upper limit for the highlight startAddress, e.g. the size of the underlying wasm memory.",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 83
+      },
+      "revId": "df99bb9ec60c9161b90c9605a44f2856d8d60c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
