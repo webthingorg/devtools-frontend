@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c22f04_5cb4185f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "Some notes from our meeting.",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fec8cbb3_5d1598a5",
@@ -37,6 +54,98 @@
         "endLine": 295,
         "endChar": 113
       },
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8c2303d_d8dbe64a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "* now we have more dependencies on the linearmemorycontroller from the memoryinspectorpane",
+      "parentUuid": "fec8cbb3_5d1598a5",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 113
+      },
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407894e3_b1910f18",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "Making things async is not necessarily needed, we can use .then() clause.\n\nFor Kim: double check the use of highlighting and then refreshing thew view",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14cacebb_00dd9d43",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "`evaluateExpression` should not be in the view, but rather in the controller",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e0af8a_ba7d148c",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "Add early exits for undefined case",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a25b78_5f4e04b8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T09:22:09Z",
+      "side": 1,
+      "message": "Maybe add some more sensible output (use description of what you were trying to do and use the res.error)",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
