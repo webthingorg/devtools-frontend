@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2d82b3_f1ae2bcd",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-19T22:46:10Z",
+      "side": 1,
+      "message": "how about we just do `reportContainer._runnerResultForTesting \u003d {lighthouseResult, artifacts};`\n\nand then use a single fn in the helper?",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7137078_d0555fcf",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-19T22:46:10Z",
+      "side": 1,
+      "message": "maybe an assertion that all of `lhr.audits` are accounted for in these 4 groups?\nand theres no overlap?",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c223edf4_99040301",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-19T22:46:10Z",
+      "side": 1,
+      "message": "seems juicy",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "988860de_6b845933",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-19T22:46:10Z",
+      "side": 1,
+      "message": "without a ^ in that regex you could start it with `/test\\/…` and ignore the localhost port bs.. clearly not a big deal tho",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e1771a_5c3ff8e9",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-07-19T22:46:10Z",
+      "side": 1,
+      "message": "maybe list these out?\n\nalso... looking at lighthouse-successful-run-expected.txt i\u0027m seeing 13 failures there. do you know what the 1 extra is about?",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
