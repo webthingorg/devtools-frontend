@@ -35,6 +35,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ca9a3b_4d62b2bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "A first look, didn\u0027t have time to think about the tests yet, will get back to you tomorrow!",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba83aac2_9a625be3",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "nit: `undefined /*address*/`",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fec8cbb3_5d1598a5",
@@ -84,6 +118,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e32cf473_bdeef31a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "How about always using `obj.inspectableAddress`, and not passing the `memoryAddress`?",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f20afa6a_9845c496",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "Is this also correct for double pointers?",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "407894e3_b1910f18",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
         "patchSetId": 2
@@ -95,6 +163,41 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "Making things async is not necessarily needed, we can use .then() clause.\n\nFor Kim: double check the use of highlighting and then refreshing thew view",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24cd24c3_71d6b0d4",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "Ok SGTM regarding how the update highlihgt is requested at the moment. But please add a comment so that people understand why we need to refresh here.\n\nAlso, there\u0027s a refresh button on the memory inspector, we should update the highlightinfo in that case too.",
+      "parentUuid": "407894e3_b1910f18",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42848fae_be679c09",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "I don\u0027t think we should allow undefined for `callframe`. Better catch that outside.",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -129,6 +232,23 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "Add early exits for undefined case",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c2bfe8_4bf1ae19",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-19T13:14:58Z",
+      "side": 1,
+      "message": "Style question, but nit: how about having an early exit for `this.#highlightInfo` too, if it\u0027s not set?",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
