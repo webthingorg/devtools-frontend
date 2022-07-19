@@ -16,6 +16,29 @@
       "message": "Hi Mathias, could you PTAL? This is a WIP CL from Alina but she didn\u0027t have enough time to finish it, and I\u0027m patching it now.",
       "revId": "63f848e2b5d8ad8e716c4d245620d5f05d86bf59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e934de_728a8fc0",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-19T13:38:31Z",
+      "side": 1,
+      "message": "Nice use of .at()!",
+      "range": {
+        "startLine": 348,
+        "startChar": 73,
+        "endLine": 348,
+        "endChar": 80
+      },
+      "revId": "63f848e2b5d8ad8e716c4d245620d5f05d86bf59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
