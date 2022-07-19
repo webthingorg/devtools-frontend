@@ -68,6 +68,24 @@
       "message": "Ooof. This seems like it\u0027ll break at some point. But it seems that we don\u0027t have a better way to do this for now judging from the other tests in this file. Maybe Danil will have some thoughts.",
       "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c429234_ea67a630",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-19T07:26:12Z",
+      "side": 1,
+      "message": "Maybe something like this?\n\n     getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT);\n     waitForFunction(() \u003d\u003e {\n       await frontend.keyboard.down(\u0027Shift\u0027);\n       await frontend.keyboard.press(\u0027F11\u0027);\n       await frontend.keyboard.up(\u0027Shift\u0027);\n       return hasPausedEvents(frontend);\n     });",
+      "parentUuid": "1c251ec5_d89d6597",
+      "revId": "afbfde2114a6f533ecb9ab1daf45d3b47cb509f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

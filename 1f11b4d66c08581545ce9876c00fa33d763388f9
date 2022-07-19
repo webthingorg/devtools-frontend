@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63450ce9_37848d0d",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-19T07:26:12Z",
+      "side": 1,
+      "message": "make the method name plural and return an object to make confusing return values harder?",
+      "range": {
+        "startLine": 126,
+        "startChar": 75,
+        "endLine": 126,
+        "endChar": 105
+      },
+      "revId": "1f11b4d66c08581545ce9876c00fa33d763388f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
