@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d4c24b_0451ac47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:26:50Z",
+      "side": 1,
+      "message": "Changhao PTAL lighthouse-helpers.ts",
+      "revId": "2a407a97629edc01b7b7322187b327f2468422b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
