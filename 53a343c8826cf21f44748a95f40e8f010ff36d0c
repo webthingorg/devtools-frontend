@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ce6fac_e7671611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-20T05:16:32Z",
+      "side": 1,
+      "message": "Q: Did you update the files in `node_modules` manually? We update those projects via a script \"manage_node_deps.py\" where we specify the versions of the npm package. This seems suspect, as the `package.json.lock` gets out of sync with what is actually in `node_modules`.\n\nThe `node_modules` browser_protocol.pdl is not really used by DevTools itself, but by the bundled puppeteer, so this could even cause problems with the bundled puppeteer.\n\nIdeally a CL like this is created using the `roll_deps.py` script + `npm run generate-protocol-resources`, but I\u0027m fine with removing the `node_modules` changes and than landing.",
+      "revId": "53a343c8826cf21f44748a95f40e8f010ff36d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
