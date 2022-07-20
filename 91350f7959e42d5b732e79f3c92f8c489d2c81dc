@@ -33,6 +33,23 @@
       "message": "As Changhao mentioned, the source of truth for browser_protocol.pdl is in Chromium. I needs to be changed there first before propagating the change to devtools frontend.",
       "revId": "91350f7959e42d5b732e79f3c92f8c489d2c81dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f00fc19_97521f8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1211034
+      },
+      "writtenOn": "2022-07-20T08:55:13Z",
+      "side": 1,
+      "message": "Thank you all.\nI will wait for crrev.com/c/3771943 to land, then update and land this one.",
+      "revId": "91350f7959e42d5b732e79f3c92f8c489d2c81dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
