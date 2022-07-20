@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd4c3c9_460a8960",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f2d82b3_f1ae2bcd",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7137078_d0555fcf",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-19T22:46:10Z",
       "side": 1,
       "message": "maybe an assertion that all of `lhr.audits` are accounted for in these 4 groups?\nand theres no overlap?",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "342c219c_bee686e7",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:25:32Z",
+      "side": 1,
+      "message": "`auditResults` should contain everything in `lhr.audits` by definition.",
+      "parentUuid": "d7137078_d0555fcf",
       "revId": "d42cecffb76c3e2b46667d27b608126335633986",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4baa6441_5ba7179b",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:25:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c223edf4_99040301",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "988860de_6b845933",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9fe47f9_5f3395c9",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "988860de_6b845933",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2e1771a_5c3ff8e9",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-07-19T22:46:10Z",
       "side": 1,
       "message": "maybe list these out?\n\nalso... looking at lighthouse-successful-run-expected.txt i\u0027m seeing 13 failures there. do you know what the 1 extra is about?",
+      "revId": "d42cecffb76c3e2b46667d27b608126335633986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f04461f_36fa0dfe",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-20T00:25:32Z",
+      "side": 1,
+      "message": "Listing them out sounds good.\n\n`render-blocking-resources`.\nThe web tests will only say an audit fails if it has a score of 0.\nThese e2e tests will say the audit fails if the score is \u003c1.\n\nNeither of these are really correct though, we use 0.5 as the boundary for fail and 0.9 as the boundary for average. I think 0.5 makes the most sense here, we can add an \"average\" filter later if we need it.",
+      "parentUuid": "c2e1771a_5c3ff8e9",
       "revId": "d42cecffb76c3e2b46667d27b608126335633986",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
