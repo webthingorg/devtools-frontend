@@ -509,7 +509,10 @@ export class Location extends LiveLocationWithPool {
 
   async isIgnoreListed(): Promise<boolean> {
     const uiLocation = await this.uiLocation();
-    return uiLocation ? IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode) : false;
+    const manager = this.rawLocation.debuggerModel.sourceMapManager();
+    const script = this.rawLocation.script();
+    const map = script ? await manager.sourceMapForClientPromise(script) : null;
+    return uiLocation ? IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode, map) : false;
   }
 }
 
