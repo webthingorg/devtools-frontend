@@ -579,9 +579,30 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
         Events.ResponseReceived, {request: networkRequest, response: info.outerResponse});
   }
 
+
+  appendDebug(text: string):void  {
+    console.log(text);
+    // // @ts-ignore
+    // if (!window.dsvDebug) window.dsvDebug = '';
+    // // @ts-ignore
+    // window.dsvDebug += ' ' + text;
+    // // let debug = document.getElementById('dsv-debug');
+    // // if (!debug) {
+    // //   debug = document.createElement('div');
+    // //   debug.id = 'dsv-debug';
+    // //   debug.style.zIndex = '100';
+    // //   debug.style.position = 'fixed';
+    // //   debug.style.top = '300px';
+    // //   debug.style.background = 'white';
+    // //   document.body.appendChild(debug);
+    // // }
+    // // debug.innerText += ' ' + text;
+  }
+
   requestWillBeSent(
       {requestId, loaderId, documentURL, request, timestamp, wallTime, initiator, redirectResponse, type, frameId}:
           Protocol.Network.RequestWillBeSentEvent): void {
+    this.appendDebug('requestWillBeSent' + requestId);
     let networkRequest = this.#requestsById.get(requestId);
     if (networkRequest) {
       // FIXME: move this check to the backend.
@@ -639,8 +660,12 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     networkRequest.setFromMemoryCache();
   }
 
+  // async responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
+  //     Promise<void> {
+  //   await new Promise(r=>setTimeout(r, 100));
   responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
       void {
+    this.appendDebug('responseReceived' + requestId);
     const networkRequest = this.#requestsById.get(requestId);
     const lowercaseHeaders = NetworkManager.lowercaseHeaders(response.headers);
     if (!networkRequest) {
@@ -835,6 +860,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   requestWillBeSentExtraInfo({requestId, associatedCookies, headers, clientSecurityState, connectTiming}:
                                  Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
+    this.appendDebug('requestWillBeSentExtraInfo' + requestId);
     const blockedRequestCookies: BlockedCookieWithReason[] = [];
     const includedRequestCookies = [];
     for (const {blockedReasons, cookie} of associatedCookies) {
@@ -856,6 +882,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   responseReceivedExtraInfo({requestId, blockedCookies, headers, headersText, resourceIPAddressSpace, statusCode}:
                                 Protocol.Network.ResponseReceivedExtraInfoEvent): void {
+    this.appendDebug('responseReceivedExtraInfo' + requestId);
     const extraResponseInfo: ExtraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
         return {
@@ -914,8 +941,13 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     const oldDispatcher = (NetworkManager.forRequest(request) as NetworkManager).dispatcher;
     oldDispatcher.#requestsById.delete(requestId);
     oldDispatcher.#requestsByURL.delete(request.url());
+    const builder = oldDispatcher.#requestIdToExtraInfoBuilder.get(requestId);
+    oldDispatcher.#requestIdToExtraInfoBuilder.delete(requestId);
     this.#requestsById.set(requestId, request);
     this.#requestsByURL.set(request.url(), request);
+    if (builder) {
+      this.#requestIdToExtraInfoBuilder.set(requestId, builder);
+    }
     requestToManagerMap.set(request, this.#manager);
     return request;
   }
@@ -981,9 +1013,14 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   }
 
   clearRequests(): void {
+    console.log((new Error()).stack || 'clearRequests <no stack>');
     this.#requestsById.clear();
     this.#requestsByURL.clear();
-    this.#requestIdToExtraInfoBuilder.clear();
+    for (const [requestId, builder] of this.#requestIdToExtraInfoBuilder.entries()) {
+      if (builder.isFinished()) {
+        this.#requestIdToExtraInfoBuilder.delete(requestId);
+      }
+    }
   }
 
   webTransportCreated({transportId, url: requestURL, timestamp: time, initiator}:
@@ -1615,6 +1652,7 @@ class ExtraInfoBuilder {
 
   addRequest(req: NetworkRequest): void {
     this.#requests.push(req);
+    console.log('ExtraInfoBuilder.addRequest: ' + this.#requests.length);
     this.sync(this.#requests.length - 1);
   }
 
@@ -1643,16 +1681,25 @@ class ExtraInfoBuilder {
     this.updateFinalRequest();
   }
 
+  isFinished(): boolean {
+    return this.#finishedInternal;
+  }
+
   private sync(index: number): void {
     const req = this.#requests[index];
     if (!req) {
+      console.log('sync ' + index + ' early return');
       return;
     }
+     console.log('sync ' + index + ' no early return');
 
     const requestExtraInfo = this.#requestExtraInfos[index];
     if (requestExtraInfo) {
+      console.log('sync ' + index + ' addExtraRequestInfo');
       req.addExtraRequestInfo(requestExtraInfo);
       this.#requestExtraInfos[index] = null;
+    } else {
+      console.log('sync ' + index + ' no extra info ' + this.#requestExtraInfos.length);
     }
 
     const responseExtraInfo = this.#responseExtraInfos[index];

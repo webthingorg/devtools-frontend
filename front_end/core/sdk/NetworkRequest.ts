@@ -300,6 +300,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#requestIdInternal = requestId;
     this.#backendRequestIdInternal = backendRequestId;
     this.setUrl(url);
+    // @ts-ignore
+    // if (this.#urlInternal.endsWith('image.svg?id=42&param=a%20b')) window.dsvDebug = '';
     this.#documentURLInternal = documentURL;
     this.#frameIdInternal = frameId;
     this.#loaderIdInternal = loaderId;
@@ -422,6 +424,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     }
 
     this.#urlInternal = x;
+    // @ts-ignore
+    // if (this.#urlInternal.endsWith('image.svg?id=42&param=a%20b')) appendDebug(this.#requestIdInternal);
     this.#parsedURLInternal = new Common.ParsedURL.ParsedURL(x);
     this.#queryStringInternal = undefined;
     this.#parsedQueryParameters = undefined;
@@ -867,7 +871,36 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#requestHeadersInternal;
   }
 
+  appendDebug(text: string):void  {
+    if (!this.#urlInternal.endsWith('image.svg?id=42&param=a%20b')) return;
+    console.log(text);
+    // // @ts-ignore
+    // window.dsvDebug = window.dsvDebug || '';
+    // // @ts-ignore
+    // window.dsvDebug += ' ' + text;
+    // // @ts-ignore
+    // if (window.dsvDebugTimeout) clearTimeout(window.dsvDebugTimeout);
+    // // @ts-ignore
+    // window.dsvDebugTimeout = setTimeout(()=>this.renderDebug(window.dsvDebug), 4000);
+  }
+  // renderDebug(text: string) {
+  //   let debug = document.getElementById('dsv-debug');
+  //   if (!debug) {
+  //     debug = document.createElement('div');
+  //     debug.id = 'dsv-debug';
+  //     debug.style.zIndex = '100';
+  //     debug.style.position = 'fixed';
+  //     // debug.style.top = '250px';
+  //     debug.style.background = 'white';
+  //     document.body.appendChild(debug);
+  //   }
+  //   debug.innerText =  text;
+  // }
+
   setRequestHeaders(headers: NameValue[]): void {
+    this.appendDebug(JSON.stringify(headers.map(h=>h.name)));
+    this.appendDebug(((new Error()).stack || '<no stack>').split('\n').slice(2,5).join('\n'));
+    this.appendDebug('\n');
     this.#requestHeadersInternal = headers;
 
     this.dispatchEventToListeners(Events.RequestHeadersChanged);
