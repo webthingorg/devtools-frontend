@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4105c7cb_51a37a06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-20T07:57:51Z",
+      "side": 1,
+      "message": "Some more comments, also on testing.\n\nAt this stage, it would be good to have some diagram to see what\u0027s happening in the design doc, something like a sequence diagram (which is also in the linear memory inspector design doc). No need for it to be super pretty, just so that one understands the dependencies here.",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba83aac2_9a625be3",
@@ -204,6 +221,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fdb744ba_f5733eb6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-20T07:57:51Z",
+      "side": 1,
+      "message": "for testing: you can test whether updateHighlightInfo is doing its job: create the pane, and call into updateHighlightInfo. Create a callframe object ({} as ...CallFrame) that has a function `evaluate` and overwrite it.",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14cacebb_00dd9d43",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
         "patchSetId": 2
@@ -215,6 +249,23 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "`evaluateExpression` should not be in the view, but rather in the controller",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bcf78f5_52caad3c",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-20T07:57:51Z",
+      "side": 1,
+      "message": "What do you think about splitting this function up. `evaluateExpression` should, imho, only evaluate the expression and handle the error case. Extracting the highlightInfo should happen outside of it, and since there\u0027s only one callsite of evaluateExpression, you can just add the call to that to where it is used (or alternatively, wrap both functions within a new one).",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
