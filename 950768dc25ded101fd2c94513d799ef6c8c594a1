@@ -33,6 +33,24 @@
       "message": "TypeScript compilation failed. Used tsconfig gen/front_end/panels/security/security-tsconfig.json\n\n../../front_end/panels/security/SecurityPanel.ts(1509,39): error TS2339: Property \u0027serverSignatureAlgorithm\u0027 does not exist on type \u0027SecurityDetails\u0027.\n../../front_end/panels/security/SecurityPanel.ts(1511,25): error TS7053: Element implicitly has an \u0027any\u0027 type because expression of type \u0027any\u0027 can\u0027t be used to index type \u0027{ 513: string; 1025: string; 1281: string; 1537: string; 1027: string; 1283: string; 2052: string; 2053: string; 2054: string; }\u0027.\n../../front_end/panels/security/SecurityPanel.ts(1511,76): error TS2339: Property \u0027serverSignatureAlgorithm\u0027 does not exist on type \u0027SecurityDetails\u0027.\n../../front_end/panels/security/SecurityPanel.ts(1514,87): error TS2339: Property \u0027serverSignatureAlgorithm\u0027 does not exist on type \u0027SecurityDetails\u0027.\n../../front_end/panels/security/SecurityPanel.ts(1524,39): error TS2339: Property \u0027encryptedClientHello\u0027 does not exist on type \u0027SecurityDetails\u0027.\n\nYou might need to trigger a dependency roll using the script at devtools-frontend/src/scripts/deps/roll_deps.py.",
       "revId": "950768dc25ded101fd2c94513d799ef6c8c594a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29aa03a8_5506bd44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-20T18:40:31Z",
+      "side": 1,
+      "message": "Looks like someone else has done one of those since. :-)\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3773599/\n\nLet\u0027s see it works...",
+      "parentUuid": "1db465ed_c9afe0c8",
+      "revId": "950768dc25ded101fd2c94513d799ef6c8c594a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

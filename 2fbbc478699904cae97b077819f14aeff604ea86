@@ -109,6 +109,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "929ddfab_525c37a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-20T18:40:31Z",
+      "side": 1,
+      "message": "(resolving thread)",
+      "parentUuid": "970b72df_25f72c9d",
+      "revId": "2fbbc478699904cae97b077819f14aeff604ea86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "47efded3_1d7cfa86",
         "filename": "front_end/panels/security/SecurityPanel.ts",
         "patchSetId": 1
