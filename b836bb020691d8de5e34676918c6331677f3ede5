@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66886846_03982ecd",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-07-20T12:01:22Z",
+      "side": 1,
+      "message": "I\u0027m surprised this works, as it doesn\u0027t appear to check source maps.",
+      "range": {
+        "startLine": 497,
+        "startChar": 64,
+        "endLine": 497,
+        "endChar": 85
+      },
+      "revId": "b836bb020691d8de5e34676918c6331677f3ede5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "956b6456_e58ae838",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-07-20T12:01:22Z",
+      "side": 1,
+      "message": "nit: breakpoint",
+      "range": {
+        "startLine": 375,
+        "startChar": 23,
+        "endLine": 375,
+        "endChar": 32
+      },
+      "revId": "b836bb020691d8de5e34676918c6331677f3ede5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
