@@ -33,6 +33,23 @@
       "message": "Finally blocking the CL fully, it seems that the `generated` parts are also missing the changes to `InspectorBackendCommand.js`.",
       "revId": "53a343c8826cf21f44748a95f40e8f010ff36d0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a815f5_e1182741",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-20T06:16:02Z",
+      "side": 1,
+      "message": "I landed a roll created by `roll_deps.py` here https://crrev.com/c/3773599. So Prefetch is in now :)",
+      "revId": "53a343c8826cf21f44748a95f40e8f010ff36d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
