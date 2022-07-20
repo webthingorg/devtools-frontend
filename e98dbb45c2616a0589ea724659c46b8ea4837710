@@ -69,6 +69,24 @@
       "message": "Since the roll is a bit involved I went ahead and did one manually (https://crrev.com/c/3773599). Sorry for the troubles, this process could be a bit smoother.",
       "revId": "e98dbb45c2616a0589ea724659c46b8ea4837710",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98fe0905_90dbd5c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1126726
+      },
+      "writtenOn": "2022-07-20T16:34:10Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "2facd756_f6ed627d",
+      "revId": "e98dbb45c2616a0589ea724659c46b8ea4837710",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
