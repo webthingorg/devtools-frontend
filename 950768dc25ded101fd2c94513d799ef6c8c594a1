@@ -51,6 +51,24 @@
       "parentUuid": "1db465ed_c9afe0c8",
       "revId": "950768dc25ded101fd2c94513d799ef6c8c594a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae61221_542dcc30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001604
+      },
+      "writtenOn": "2022-07-20T20:14:08Z",
+      "side": 1,
+      "message": "Latest failure was an actual type error in TypeScript, just one I didn\u0027t notice because of this somewhat tedious workflow. :-)\n\nFixed by switching it to a map. I guess TypeScript doesn\u0027t want to type that lookup as string|undefined because objects have other properties lying around.",
+      "parentUuid": "29aa03a8_5506bd44",
+      "revId": "950768dc25ded101fd2c94513d799ef6c8c594a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
