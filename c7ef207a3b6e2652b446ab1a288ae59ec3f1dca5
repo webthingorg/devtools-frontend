@@ -16,6 +16,23 @@
       "message": "Sheriffing as well",
       "revId": "c7ef207a3b6e2652b446ab1a288ae59ec3f1dca5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a98341d_e995307e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-21T12:41:06Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c7ef207a3b6e2652b446ab1a288ae59ec3f1dca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
