@@ -16,6 +16,63 @@
       "message": "PTAL!",
       "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a97549_9062581b",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-21T09:50:24Z",
+      "side": 1,
+      "message": "nit: our JS style guide mandates single-quoted string literals. I know in this particular case we’re talking about string literals embedded in a template literal but… let’s still follow the existing style?",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6547b8f_21d5d225",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-21T09:50:24Z",
+      "side": 1,
+      "message": "(non-blocking, just a tip:) appendChild could be append",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1a93544_befc5fd9",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-21T09:50:24Z",
+      "side": 1,
+      "message": "I’m confused by these unmatched quotes — is this valid TS somehow?\nSimilar to the above, WDYT about sticking to the style guide and consistently using single-quoted string literals? (Here and on the next few lines)",
+      "range": {
+        "startLine": 163,
+        "startChar": 25,
+        "endLine": 163,
+        "endChar": 27
+      },
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
