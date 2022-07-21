@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17303782_759e12ad",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T12:40:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f3acdcc_bdd1a91b",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6547b8f_21d5d225",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Neat!",
       "parentUuid": "f6547b8f_21d5d225",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db549cde_363dc5f4",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T12:40:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d940e2e_db187987",
       "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
