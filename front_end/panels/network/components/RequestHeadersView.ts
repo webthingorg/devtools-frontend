@@ -260,6 +260,22 @@ export class RequestHeadersComponent extends HTMLElement {
 
     const mergedHeaders = mergeHeadersWithIssues(this.#request.sortedResponseHeaders.slice(), headersWithIssues);
 
+    const blockedResponseCookies = this.#request.blockedResponseCookies();
+    const blockedCookieLineToReasons = new Map<string, Protocol.Network.SetCookieBlockedReason[]>();
+    if (blockedResponseCookies) {
+      blockedResponseCookies.forEach(blockedCookie => {
+        blockedCookieLineToReasons.set(blockedCookie.cookieLine, blockedCookie.blockedReasons);
+      });
+    }
+    for (const header of mergedHeaders) {
+      if (header.name.toLowerCase() === 'set-cookie' && header.value) {
+        const matchingBlockedReasons = blockedCookieLineToReasons.get(header.value.toString());
+        if (matchingBlockedReasons) {
+          header.setCookieBlockedReasons = matchingBlockedReasons;
+        }
+      }
+    }
+
     const toggleShowRaw = (): void => {
       this.#showResponseHeadersText = !this.#showResponseHeadersText;
       this.#render();
@@ -359,12 +375,34 @@ export class RequestHeadersComponent extends HTMLElement {
         <div class="header-name">${header.headerNotSet ? html`<div class="header-badge header-badge-text">not-set</div>` : ''}${header.name}:</div>
         ${this.#renderHeaderValue(header)}
       </div>
-      ${this.#maybeRenderHeaderDetails(header.details)}
+      ${this.#maybeRenderBlockedDetails(header.blockedDetails)}
     `;
   }
 
   #renderHeaderValue(header: HeaderDescriptor): LitHtml.TemplateResult {
     const headerId = header.name.toLowerCase();
+
+    if (headerId === 'set-cookie' && header.setCookieBlockedReasons) {
+      let titleText = '';
+      for (const blockedReason of header.setCookieBlockedReasons) {
+        if (titleText) {
+          titleText += '\n';
+        }
+        titleText += SDK.NetworkRequest.setCookieBlockedReasonToUiString(blockedReason);
+      }
+      return html`
+        <div class="header-value ${header.headerValueIncorrect ? 'header-warning' : ''}">
+        ${header.value?.toString()||''}
+        <${IconButton.Icon.Icon.litTagName} class="inline-icon" title=${titleText} .data=${{
+          iconName: 'warning_icon',
+          width: '12px',
+          height: '12px',
+          } as IconButton.Icon.IconData}>
+        </${IconButton.Icon.Icon.litTagName}>
+        </div>
+      `;
+    }
+
     if (headerId === 'x-client-data') {
       const data = ClientVariations.parseClientVariations(header.value?.toString()||'');
       const output = ClientVariations.formatClientVariations(
@@ -384,15 +422,15 @@ export class RequestHeadersComponent extends HTMLElement {
     `;
   }
 
-  #maybeRenderHeaderDetails(headerDetails?: HeaderDetailsDescriptor): LitHtml.LitTemplate {
-    if (!headerDetails) {
+  #maybeRenderBlockedDetails(blockedDetails?: BlockedDetailsDescriptor): LitHtml.LitTemplate {
+    if (!blockedDetails) {
       return LitHtml.nothing;
     }
     return html`
       <div class="call-to-action">
         <div class="call-to-action-body">
-          <div class="explanation">${headerDetails.explanation()}</div>
-          ${headerDetails.examples.map(example => html`
+          <div class="explanation">${blockedDetails.explanation()}</div>
+          ${blockedDetails.examples.map(example => html`
             <div class="example">
               <code>${example.codeSnippet}</code>
               ${example.comment ? html`
@@ -400,13 +438,13 @@ export class RequestHeadersComponent extends HTMLElement {
               ` : ''}
             </div>
           `)}
-          ${this.#maybeRenderHeaderDetailsLink(headerDetails)}
+          ${this.#maybeRenderBlockedDetailsLink(blockedDetails)}
         </div>
       </div>
     `;
   }
 
-  #maybeRenderHeaderDetailsLink(headerDetails?: HeaderDetailsDescriptor): LitHtml.LitTemplate {
+  #maybeRenderBlockedDetailsLink(blockedDetails?: BlockedDetailsDescriptor): LitHtml.LitTemplate {
     if (this.#request && IssuesManager.RelatedIssue.hasIssueOfCategory(this.#request, IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
       const followLink = (): void => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.LearnMoreLinkCOEP);
@@ -428,9 +466,9 @@ export class RequestHeadersComponent extends HTMLElement {
         </div>
       `;
     }
-    if (headerDetails?.link) {
+    if (blockedDetails?.link) {
       return html`
-        <x-link href=${headerDetails.link.url} class="link">
+        <x-link href=${blockedDetails.link.url} class="link">
           <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
             iconName: 'link_icon',
             color: 'var(--color-link)',
@@ -661,7 +699,7 @@ declare global {
   }
 }
 
-interface HeaderDetailsDescriptor {
+interface BlockedDetailsDescriptor {
   explanation: () => string;
   examples: Array<{
     codeSnippet: string,
@@ -676,8 +714,9 @@ interface HeaderDescriptor {
   name: string;
   value: Object|null;
   headerValueIncorrect?: boolean|null;
-  details?: HeaderDetailsDescriptor;
+  blockedDetails?: BlockedDetailsDescriptor;
   headerNotSet: boolean|null;
+  setCookieBlockedReasons?: Protocol.Network.SetCookieBlockedReason[];
 }
 
 const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescriptor>([
@@ -687,7 +726,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
       name: 'cross-origin-embedder-policy',
       value: null,
       headerValueIncorrect: null,
-      details: {
+      blockedDetails: {
         explanation: i18nLazyString(UIStrings.toEmbedThisFrameInYourDocument),
         examples: [{codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined}],
         link: {url: 'https://web.dev/coop-coep/'},
@@ -701,7 +740,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
       name: 'cross-origin-resource-policy',
       value: null,
       headerValueIncorrect: null,
-      details: {
+      blockedDetails: {
         explanation: i18nLazyString(UIStrings.toUseThisResourceFromADifferent),
         examples: [
           {
@@ -724,7 +763,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
       name: 'cross-origin-opener-policy',
       value: null,
       headerValueIncorrect: false,
-      details: {
+      blockedDetails: {
         explanation: i18nLazyString(UIStrings.thisDocumentWasBlockedFrom),
         examples: [],
         link: {url: 'https://web.dev/coop-coep/'},
@@ -738,7 +777,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
       name: 'cross-origin-resource-policy',
       value: null,
       headerValueIncorrect: true,
-      details: {
+      blockedDetails: {
         explanation: i18nLazyString(UIStrings.toUseThisResourceFromADifferentSite),
         examples: [
           {
@@ -757,7 +796,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
       name: 'cross-origin-resource-policy',
       value: null,
       headerValueIncorrect: true,
-      details: {
+      blockedDetails: {
         explanation: i18nLazyString(UIStrings.toUseThisResourceFromADifferentOrigin),
         examples: [
           {
