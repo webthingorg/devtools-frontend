@@ -16,6 +16,23 @@
       "message": "Yeah this solution is definitely preferable to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3721466",
       "revId": "eeaa7945ba085c321cd511deef1fe1d8e3ac358c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2047eb6_cbe301dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-21T17:49:35Z",
+      "side": 1,
+      "message": "Also if it helps, these tests got out of sync with the Lighthouse repo right before we removed them.\n\nMight be a useful reference: https://github.com/GoogleChrome/lighthouse/commit/8c0ca2d484ac026fc60410970bd300416742105c",
+      "revId": "eeaa7945ba085c321cd511deef1fe1d8e3ac358c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
