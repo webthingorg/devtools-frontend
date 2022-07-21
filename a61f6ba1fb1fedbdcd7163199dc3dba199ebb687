@@ -133,6 +133,30 @@
       },
       "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "565aeff8_03a00f4f",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-07-21T12:04:17Z",
+      "side": 1,
+      "message": "\u003e This is the text content of what\u0027s displayed in the UI. In the object inspector, double-quotes are used for strings. I cannot change these kinds of quotes because then it won\u0027t be what\u0027s shown in the UI 😊\n\u003e \n\u003e Note: these aren\u0027t unmatched quotes. IUC, the entire line here is a single quoted string, which includes a double-quoted section inside.\n\nI see, I totally misread. Thank you!",
+      "parentUuid": "ab95b849_fd616cd1",
+      "range": {
+        "startLine": 163,
+        "startChar": 25,
+        "endLine": 163,
+        "endChar": 27
+      },
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
