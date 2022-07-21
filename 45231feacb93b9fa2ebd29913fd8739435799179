@@ -16,6 +16,40 @@
       "message": "Also sherifiing, PTAL",
       "revId": "45231feacb93b9fa2ebd29913fd8739435799179",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cf14722_fff42b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-21T10:54:25Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "45231feacb93b9fa2ebd29913fd8739435799179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bf12f98_be312a0f",
+        "filename": "test/e2e/sources/ignore-list_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-21T10:54:25Z",
+      "side": 1,
+      "message": "nit: maybe add `describe` here as well",
+      "revId": "45231feacb93b9fa2ebd29913fd8739435799179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
