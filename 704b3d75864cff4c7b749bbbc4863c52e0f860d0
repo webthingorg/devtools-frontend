@@ -22,6 +22,30 @@
       },
       "revId": "704b3d75864cff4c7b749bbbc4863c52e0f860d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8640f81f_bae72551",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T15:17:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08c86259_72526001",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 0
+      },
+      "revId": "704b3d75864cff4c7b749bbbc4863c52e0f860d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
