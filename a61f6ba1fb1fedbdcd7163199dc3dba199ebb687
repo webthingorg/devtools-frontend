@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f3acdcc_bdd1a91b",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T11:01:37Z",
+      "side": 1,
+      "message": "Happy to change!",
+      "parentUuid": "32a97549_9062581b",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6547b8f_21d5d225",
         "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d940e2e_db187987",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T11:01:37Z",
+      "side": 1,
+      "message": "Neat!",
+      "parentUuid": "f6547b8f_21d5d225",
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1a93544_befc5fd9",
         "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
         "patchSetId": 2
@@ -65,6 +101,30 @@
       "writtenOn": "2022-07-21T09:50:24Z",
       "side": 1,
       "message": "I’m confused by these unmatched quotes — is this valid TS somehow?\nSimilar to the above, WDYT about sticking to the style guide and consistently using single-quoted string literals? (Here and on the next few lines)",
+      "range": {
+        "startLine": 163,
+        "startChar": 25,
+        "endLine": 163,
+        "endChar": 27
+      },
+      "revId": "a61f6ba1fb1fedbdcd7163199dc3dba199ebb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab95b849_fd616cd1",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-21T11:01:37Z",
+      "side": 1,
+      "message": "This is the text content of what\u0027s displayed in the UI. In the object inspector, double-quotes are used for strings. I cannot change these kinds of quotes because then it won\u0027t be what\u0027s shown in the UI 😊\n\nNote: these aren\u0027t unmatched quotes. IUC, the entire line here is a single quoted string, which includes a double-quoted section inside.",
+      "parentUuid": "b1a93544_befc5fd9",
       "range": {
         "startLine": 163,
         "startChar": 25,
