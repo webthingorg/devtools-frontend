@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad758d28_cd7580bd",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-flags-run.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-21T17:43:37Z",
+      "side": 0,
+      "message": "\u003e Another bug seems to be that changing the throttling drop down does not affect the underlying setting, so we change the test to massage the settings directly instead of poking the UI.\n\nYeah it turns out we need to manually issue a \"change\" event for the select box. Can you see if this test works if we do that.",
+      "revId": "5f35502b3cac269497b03d63cbd8e14449419220",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

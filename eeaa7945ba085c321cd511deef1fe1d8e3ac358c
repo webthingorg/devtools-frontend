@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "060709a8_ad719cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-21T17:43:37Z",
+      "side": 1,
+      "message": "Yeah this solution is definitely preferable to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3721466",
+      "revId": "eeaa7945ba085c321cd511deef1fe1d8e3ac358c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
