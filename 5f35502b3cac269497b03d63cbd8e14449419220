@@ -34,6 +34,24 @@
       "parentUuid": "ad758d28_cd7580bd",
       "revId": "5f35502b3cac269497b03d63cbd8e14449419220",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcd3610_85e423ae",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-flags-run.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-22T17:16:32Z",
+      "side": 0,
+      "message": "Yeah sounds good!",
+      "parentUuid": "9091e545_688341d8",
+      "revId": "5f35502b3cac269497b03d63cbd8e14449419220",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
