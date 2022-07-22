@@ -16,6 +16,24 @@
       "message": "\u003e Another bug seems to be that changing the throttling drop down does not affect the underlying setting, so we change the test to massage the settings directly instead of poking the UI.\n\nYeah it turns out we need to manually issue a \"change\" event for the select box. Can you see if this test works if we do that.",
       "revId": "5f35502b3cac269497b03d63cbd8e14449419220",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9091e545_688341d8",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-flags-run.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-22T07:26:23Z",
+      "side": 0,
+      "message": "Is it ok to leave the test as-is for now? Since you plan to migrate it to e2e anyway it seems a little bit of a waste to put effort into cleaning up the web tests given that they seem stable on our CQ now.",
+      "parentUuid": "ad758d28_cd7580bd",
+      "revId": "5f35502b3cac269497b03d63cbd8e14449419220",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
