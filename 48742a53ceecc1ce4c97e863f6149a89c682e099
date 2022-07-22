@@ -16,6 +16,75 @@
       "message": "PTAL",
       "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ab7751_bcc5ca21",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-22T12:16:16Z",
+      "side": 1,
+      "message": "Just `blockedResponseCookies?.forEach(...)`\n\nOr even more compact\n\n    new Map\u003cstring, Protocol.Network.SetCookieBlockedReason[]\u003e(\n      blockedResponseCookies?.map(c \u003d\u003e [c.cookieLine, c.blockedReasons]))",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 6
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea2c415_525fc14e",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-22T12:16:16Z",
+      "side": 1,
+      "message": "titleText \u003d header.setCookieBlockedReasons.map(\n        SDK.NetworkRequest.setCookieBlockedReasonToUiString).join(\u0027\\n\u0027)",
+      "range": {
+        "startLine": 386,
+        "startChar": 10,
+        "endLine": 386,
+        "endChar": 19
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce6048d0_fbc43b52",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-22T12:16:16Z",
+      "side": 1,
+      "message": "This is the third time we repeat `\u003cdiv class\u003d\"header-value...` mantra.\n\nShould we output it unconditionally and have a function producing an optional suffix?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 89
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
