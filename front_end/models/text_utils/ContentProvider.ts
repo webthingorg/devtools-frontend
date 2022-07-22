@@ -59,4 +59,5 @@ export const contentAsDataURL = function(
 export type DeferredContent = {
   content: string,
   isEncoded: boolean,
+  wasmDisassemblyInfo?: Common.WasmDisassembly.WasmDisassembly,
 }|{content: null, error: string, isEncoded: boolean};
