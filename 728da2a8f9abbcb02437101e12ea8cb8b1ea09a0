@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "728da2a8f9abbcb02437101e12ea8cb8b1ea09a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e9c8b7_35efb5d2",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-22T12:24:55Z",
+      "side": 1,
+      "message": "Please have a whitespace on both sides of any binary or ternary operator. See https://google.github.io/styleguide/jsguide.html#formatting-horizontal-whitespace",
+      "range": {
+        "startLine": 369,
+        "startChar": 82,
+        "endLine": 369,
+        "endChar": 83
+      },
+      "revId": "728da2a8f9abbcb02437101e12ea8cb8b1ea09a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba9526ab_6618974e",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-22T12:24:55Z",
+      "side": 1,
+      "message": "See my comment in crrev.com/c/3779788 regarding the duplication of `\u003cdiv class\u003d\"header-value...` block",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 18
+      },
+      "revId": "728da2a8f9abbcb02437101e12ea8cb8b1ea09a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
