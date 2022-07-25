@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "de725265f3e3d02e830c4c597c3f1fb9e7216952",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363c1e31_6d3a32bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-25T20:33:40Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll investigate the root cause of the flakiness",
+      "revId": "de725265f3e3d02e830c4c597c3f1fb9e7216952",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
