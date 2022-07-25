@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "52dfac31716c6291d4407f0649307c9549814147",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ef9203a_d48ef969",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-25T11:15:03Z",
+      "side": 1,
+      "message": "The original test does two more things: it verifies that the edit is reflected on the page (indirectly, via listening to the `nodeStylesUpdatedForTest`) and verifies that editing is not active after reload. Unless I am missing something, both should be possible to check here as well.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1082,
+        "endChar": 34
+      },
+      "revId": "52dfac31716c6291d4407f0649307c9549814147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
