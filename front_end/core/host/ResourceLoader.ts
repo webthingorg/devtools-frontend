@@ -242,11 +242,24 @@ export const loadAsStream = function(
         ((arg0: boolean, arg1: {
            [x: string]: string,
          },
-          arg2: LoadErrorDescription) => void)): void {
+          arg2: LoadErrorDescription) => void),
+    allowFileUNCPaths: boolean = false): void {
   const streamId = _bindOutputStream(stream);
   const parsedURL = new Common.ParsedURL.ParsedURL(url);
   if (parsedURL.isDataURL()) {
     loadXHR(url).then(dataURLDecodeSuccessful).catch(dataURLDecodeFailed);
+    return;
+  }
+
+  if (!allowFileUNCPaths && url.startsWith('file:////')) {
+    if (callback) {
+      callback(/* success */ false, /* headers */ {}, {
+        statusCode: 400,  // BAD_REQUEST
+        netError: -20,    // BLOCKED_BY_CLIENT
+        netErrorName: 'net::BLOCKED_BY_CLIENT',
+        message: 'UNC path blocked. Loading from a Windows Share is prohibited.',
+      });
+    }
     return;
   }
 

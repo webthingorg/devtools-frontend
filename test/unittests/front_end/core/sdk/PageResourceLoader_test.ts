@@ -8,13 +8,19 @@ import type * as Host from '../../../../../front_end/core/host/host.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import {describeWithLocale} from '../../helpers/EnvironmentHelpers.js';
+import {describeWithEnvironment, describeWithLocale} from '../../helpers/EnvironmentHelpers.js';
 
 interface LoadResult {
   success: boolean;
   content: string;
   errorDescription: Host.ResourceLoader.LoadErrorDescription;
 }
+
+const initiator = {
+  target: null,
+  frameId: '123' as Protocol.Page.FrameId,
+  initiatorUrl: Platform.DevToolsPath.EmptyUrlString,
+};
 
 describeWithLocale('PageResourceLoader', () => {
   const foo1Url = 'foo1' as Platform.DevToolsPath.UrlString;
@@ -29,12 +35,6 @@ describeWithLocale('PageResourceLoader', () => {
       content: `${url} - content`,
       errorDescription: {message: '', statusCode: 0, netError: 0, netErrorName: '', urlValid: true},
     };
-  };
-
-  const initiator = {
-    target: null,
-    frameId: '123' as Protocol.Page.FrameId,
-    initiatorUrl: Platform.DevToolsPath.EmptyUrlString,
   };
 
   beforeEach(() => {
@@ -127,5 +127,21 @@ describeWithLocale('PageResourceLoader', () => {
     assert.deepEqual(loader.getNumberOfResources(), {loading: 0, queued: 0, resources: 3});
     const resources = Array.from(loader.getResourcesLoaded().values());
     assert.isTrue(resources.every(x => x.success));
+  });
+});
+
+describeWithEnvironment('PageResourceLoader', () => {
+  it('blocks UNC file paths', async () => {
+    // Loading without a mock `loadOverride` requires the Settings infra to be booted.
+    // Hence we run this lone test in `describeWithEnvironment`.
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance(
+        {forceNew: true, loadOverride: null, maxConcurrentLoads: 1, loadTimeout: 30_000});
+
+    const message =
+        await loader
+            .loadResource('file:////127.0.0.1/share/source-map.js.map' as Platform.DevToolsPath.UrlString, initiator)
+            .catch(e => e.message);
+
+    assert.include(message, 'UNC');
   });
 });
