@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae1b4c4_5375d214",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-25T11:37:42Z",
+      "side": 1,
+      "message": "IIUC then this is called when we drag\u0026drop trace files as well as some query parameter shenanigans.\n\nLoading a trace from a file via dialog takes a different path, so we could also prohibit UNC paths unconditionally.",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
