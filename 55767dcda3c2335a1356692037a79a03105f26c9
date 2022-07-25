@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e5988a_6c1b086d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-25T12:21:57Z",
+      "side": 1,
+      "message": "Looks good, but could you also add a kill switch for this, please?",
+      "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ae1b4c4_5375d214",
