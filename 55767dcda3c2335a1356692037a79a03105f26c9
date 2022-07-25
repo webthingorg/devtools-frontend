@@ -22,6 +22,30 @@
       },
       "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0f53da_04b64df4",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-25T11:41:24Z",
+      "side": 1,
+      "message": "Correction, it\u0027s used when a string is drag\u0026dropped into the timeline panel as well as when the `loadTimelineFromURL` query parameter is provided to DevTools. Maybe we should prohibit UNC paths also in those cases?",
+      "parentUuid": "3ae1b4c4_5375d214",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
