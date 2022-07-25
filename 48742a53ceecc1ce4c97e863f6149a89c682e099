@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f0d19e_1ab561fb",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-25T16:02:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85ab7751_bcc5ca21",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 6
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eea2c415_525fc14e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84021a10_bfe64a9a",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-25T16:02:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eea2c415_525fc14e",
+      "range": {
+        "startLine": 386,
+        "startChar": 10,
+        "endLine": 386,
+        "endChar": 19
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce6048d0_fbc43b52",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-07-22T12:16:16Z",
       "side": 1,
       "message": "This is the third time we repeat `\u003cdiv class\u003d\"header-value...` mantra.\n\nShould we output it unconditionally and have a function producing an optional suffix?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 89
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cfbc039_51bae5d5",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-25T16:02:51Z",
+      "side": 1,
+      "message": "yes, thanks, updated.",
+      "parentUuid": "ce6048d0_fbc43b52",
       "range": {
         "startLine": 394,
         "startChar": 0,
