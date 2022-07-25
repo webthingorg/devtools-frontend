@@ -719,9 +719,13 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (authoringHint !== null) {
       const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
       const hintPopover =
-          new UI.PopoverHelper.PopoverHelper(hintIcon, event => this.handleHintPopoverRequest(authoringHint, event));
+          new UI.PopoverHelper.PopoverHelper(hintIcon, () => this.handleHintPopoverRequest(authoringHint, hintIcon), {
+            showPopoverOnClick: true,
+            showPopoverOnHover: false,
+          });
+      hintPopover.setToggleOnClick(true);
       hintPopover.setHasPadding(true);
-      hintPopover.setTimeout(0, 100);
+      hintPopover.setTimeout(0);
 
       this.listItemElement.append(hintIcon);
     }
@@ -835,12 +839,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return null;
   }
 
-  private handleHintPopoverRequest(authoringHint: AuthoringHint, event: Event): UI.PopoverHelper.PopoverRequest|null {
-    const link = event.composedPath()[0];
-    Platform.DCHECK(() => link instanceof Element, 'Link is not an instance of Element');
-
+  private handleHintPopoverRequest(authoringHint: AuthoringHint, hintIcon: UI.Icon.Icon):
+      UI.PopoverHelper.PopoverRequest|null {
     return {
-      box: (link as Element).boxInWindow(),
+      box: hintIcon.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
         const node = this.node();
         if (!node) {

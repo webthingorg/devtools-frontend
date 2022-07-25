@@ -33,6 +33,9 @@ import popoverStyles from './popover.css.legacy.js';
 
 export class PopoverHelper {
   private disableOnClick: boolean;
+  private toggleOnClick: boolean;
+  private showPopoverOnClick: boolean;
+  private showPopoverOnHover: boolean;
   private hasPadding: boolean;
   private getRequest: (arg0: MouseEvent) => PopoverRequest | null;
   private scheduledRequest: PopoverRequest|null;
@@ -45,9 +48,15 @@ export class PopoverHelper {
   private readonly boundMouseDown: (event: Event) => void;
   private readonly boundMouseMove: (ev: Event) => void;
   private readonly boundMouseOut: (event: Event) => void;
-  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null) {
+  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null, props = {
+    showPopoverOnClick: true,
+    showPopoverOnHover: true,
+  }) {
+    this.toggleOnClick = true;
     this.disableOnClick = false;
     this.hasPadding = false;
+    this.showPopoverOnClick = props.showPopoverOnClick;
+    this.showPopoverOnHover = props.showPopoverOnHover;
     this.getRequest = getRequest;
     this.scheduledRequest = null;
     this.hidePopoverCallback = null;
@@ -59,9 +68,13 @@ export class PopoverHelper {
     this.boundMouseDown = this.mouseDown.bind(this);
     this.boundMouseMove = this.mouseMove.bind(this);
     this.boundMouseOut = this.mouseOut.bind(this);
-    this.container.addEventListener('mousedown', this.boundMouseDown, false);
-    this.container.addEventListener('mousemove', this.boundMouseMove, false);
-    this.container.addEventListener('mouseout', this.boundMouseOut, false);
+    if (this.showPopoverOnClick) {
+      this.container.addEventListener('mousedown', this.boundMouseDown, false);
+    }
+    if (this.showPopoverOnHover) {
+      this.container.addEventListener('mousemove', this.boundMouseMove, false);
+      this.container.addEventListener('mouseout', this.boundMouseOut, false);
+    }
     this.setTimeout(1000);
   }
 
@@ -78,13 +91,19 @@ export class PopoverHelper {
     this.disableOnClick = disableOnClick;
   }
 
+  setToggleOnClick(toggleOnClick: boolean): void {
+    this.toggleOnClick = toggleOnClick;
+  }
+
   private eventInScheduledContent(ev: Event): boolean {
     const event = (ev as MouseEvent);
     return this.scheduledRequest ? this.scheduledRequest.box.contains(event.clientX, event.clientY) : false;
   }
 
   private mouseDown(event: Event): void {
-    if (this.disableOnClick) {
+    event.consume(true);
+
+    if (this.disableOnClick || (this.toggleOnClick && this.isPopoverVisible())) {
       this.hidePopover();
       return;
     }
@@ -118,7 +137,7 @@ export class PopoverHelper {
 
   private popoverMouseOut(popover: GlassPane, ev: Event): void {
     const event = (ev as MouseEvent);
-    if (!popover.isShowing()) {
+    if (!popover.isShowing() || this.toggleOnClick) {
       return;
     }
     const node = (event.relatedTarget as Node | null);
