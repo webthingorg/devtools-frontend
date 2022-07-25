@@ -42,6 +42,9 @@ describe('Navigation', async function() {
 
         const {lhr, artifacts, reportEl} = await waitForResult();
 
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(lhr.audits['server-response-time'], null, 2));
+
         assert.strictEqual(lhr.lighthouseVersion, '9.6.2');
         assert.match(lhr.finalUrl, /^https:\/\/localhost:[0-9]+\/test\/e2e\/resources\/lighthouse\/hello.html/);
         assert.strictEqual(lhr.configSettings.throttlingMethod, 'simulate');
