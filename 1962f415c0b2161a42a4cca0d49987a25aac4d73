@@ -16,6 +16,23 @@
       "message": "Hey Alex,\n\nI have added e2e tests for this CL. PTAL, Thanks 😄",
       "revId": "1962f415c0b2161a42a4cca0d49987a25aac4d73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8df869_1e7d7d8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-25T09:32:46Z",
+      "side": 1,
+      "message": "very nice! LGTM!",
+      "revId": "1962f415c0b2161a42a4cca0d49987a25aac4d73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
