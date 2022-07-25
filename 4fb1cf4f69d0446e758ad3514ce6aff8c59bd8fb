@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7779f02c_f0e2d15a",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-07-25T09:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65896bf8_6d9474d3",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 61
+      },
+      "revId": "4fb1cf4f69d0446e758ad3514ce6aff8c59bd8fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dad9ea13_2d7456c3",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-25T07:34:29Z",
       "side": 1,
       "message": "Just `{storageKey, ...`",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 80
+      },
+      "revId": "4fb1cf4f69d0446e758ad3514ce6aff8c59bd8fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aac8f01_865d2b14",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-07-25T09:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dad9ea13_2d7456c3",
       "range": {
         "startLine": 477,
         "startChar": 0,
