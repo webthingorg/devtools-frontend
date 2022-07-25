@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9263de3_e11682e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-25T13:33:33Z",
+      "side": 1,
+      "message": "Very nice! Thanks!\nr+ with a test (gotta have a test 😊)",
+      "revId": "997da07a46086aa845675b3c52a7024ce5d6b8c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5cfdb41_2de6f6b2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-07-25T13:33:33Z",
+      "side": 1,
+      "message": "Can you move \"Just my code\" to be next to the `AUTHORED_DEPLOYED_GROUPING` experiment? It\u0027d be nice if they were next to each other in the UI.",
+      "revId": "997da07a46086aa845675b3c52a7024ce5d6b8c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
