@@ -63,6 +63,30 @@
       },
       "revId": "52dfac31716c6291d4407f0649307c9549814147",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a934d0fe_7c6be8cc",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-25T11:57:27Z",
+      "side": 1,
+      "message": "That\u0027s exactly what I had in mind.",
+      "parentUuid": "2d9cea94_aa756f55",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1082,
+        "endChar": 34
+      },
+      "revId": "52dfac31716c6291d4407f0649307c9549814147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
