@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cecba2b6_753653e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-25T21:09:48Z",
+      "side": 1,
+      "message": "Yes, this was not intentional, I though I was writing the name of the patchset.\n\nThanks for flagging this. reverting it back to `Show authoring hint popover on click only`",
+      "parentUuid": "6e3aefa3_733799c5",
+      "revId": "dc39723deaec778579b552c2bd15e7ce065c1d5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ceb85f35_90cef944",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
