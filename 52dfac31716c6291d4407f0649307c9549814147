@@ -39,6 +39,30 @@
       },
       "revId": "52dfac31716c6291d4407f0649307c9549814147",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d9cea94_aa756f55",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-25T11:41:25Z",
+      "side": 1,
+      "message": "Thanks! Yeah, I think it makes sense to have those. WDYT about checking the computed styles on the edited element directly instead of verifying the internal state and checking for the presence of .child-editing class to detect the editing mode? PTAL",
+      "parentUuid": "5ef9203a_d48ef969",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1082,
+        "endChar": 34
+      },
+      "revId": "52dfac31716c6291d4407f0649307c9549814147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
