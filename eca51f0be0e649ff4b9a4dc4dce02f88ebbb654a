@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea74c89f_b650c3d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-25T09:23:44Z",
+      "side": 1,
+      "message": "nit: parsed",
+      "revId": "eca51f0be0e649ff4b9a4dc4dce02f88ebbb654a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee6137e_a141d3d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-25T09:23:44Z",
+      "side": 1,
+      "message": "LGTM, only nits!",
+      "revId": "eca51f0be0e649ff4b9a4dc4dce02f88ebbb654a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd30d9d7_87e0c469",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-25T09:23:44Z",
+      "side": 1,
+      "message": "What do you think about adding a comment here to clarify that these urls are not vetted at this point, and therefore not typed as a `DevToolsPath.UrlString`?",
+      "revId": "eca51f0be0e649ff4b9a4dc4dce02f88ebbb654a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
