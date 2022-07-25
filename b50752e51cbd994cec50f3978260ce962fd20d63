@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a26cdab7_d854709d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "Hello! A CL to move the storage of highlightInfo from the LMIView instances to the Controller. As a reminder, this is still the case where we remove highlights after a debuggerPaused event. I ended up going with an approach where the LMIView instance gets the highlightInfo data from the Controller directly via a getter. \n\nLet me know what you think :) Thanks!",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d348758_8c65fb81",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "I think it makes sense to use these wrapper functions as they already provide some benefit now and will become more useful when we support multiple highlights. \ne.g. by changing the map to \u003cbufferId, set\u003cHighlightInfo\u003e\u003e\n\nNot quite sure about visibility. I\u0027d like to unit-test these, so I kept set and get public. reset is simple enough (and dangerous enough) that I kept is private.",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 3
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4450e161_7ce329d6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "drive-by, makes more sense to be static imo.",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 116
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dacb127f_87e51d37",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "remove highlights on debuggerPaused",
+      "range": {
+        "startLine": 341,
+        "startChar": 7,
+        "endLine": 341,
+        "endChar": 43
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "157ddba4_39ba3afb",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "Now storing tabId to allow View to access the correct HighlightInfo in Controller\u0027s Map. Ideally View wouldn\u0027t need to know it\u0027s tabId/bufferId, but I see this as a fair sacrifice for the simplification it allows. If you see a way to avoid this, please share :)",
+      "range": {
+        "startLine": 139,
+        "startChar": 76,
+        "endLine": 139,
+        "endChar": 90
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "562de308_d81da19d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "Same idea as loadingSettings(). \n\n1) There\u0027s a precedent for this\n2) Simplifies data flow significantly.",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 48
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bcfc4cb_5b5afff1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-25T11:15:56Z",
+      "side": 1,
+      "message": "Wrapper for validation",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 48
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
