@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e3aefa3_733799c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-07-25T21:05:25Z",
+      "side": 1,
+      "message": "nit: Could we have a more descriptive title here please? Thanks!\n\nOr maybe this line is not intentional, and only from your local commit that you forgot to remove? Because L10 looks more like the title.",
+      "revId": "dc39723deaec778579b552c2bd15e7ce065c1d5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ceb85f35_90cef944",
