@@ -14,6 +14,8 @@ export const enum IssueCode {
   AttributionSourceUntrustworthyOrigin = 'AttributionReportingIssue::AttributionSourceUntrustworthyOrigin',
   AttributionUntrustworthyFrameOrigin = 'AttributionReportingIssue::AttributionUntrustworthyFrameOrigin',
   AttributionUntrustworthyOrigin = 'AttributionReportingIssue::AttributionUntrustworthyOrigin',
+  UntrustworthyReportingOrigin = 'AttributionReportingIssue::UntrustworthyReportingOrigin',
+  InsecureContext = 'AttributionReportingIssue::InsecureContext',
   InvalidHeader = 'AttributionReportingIssue::InvalidHeader',
 }
 
@@ -27,6 +29,10 @@ function getIssueCode(details: Protocol.Audits.AttributionReportingIssueDetails)
     case Protocol.Audits.AttributionReportingIssueType.AttributionUntrustworthyOrigin:
       return details.frame !== undefined ? IssueCode.AttributionUntrustworthyFrameOrigin :
                                            IssueCode.AttributionUntrustworthyOrigin;
+    case Protocol.Audits.AttributionReportingIssueType.UntrustworthyReportingOrigin:
+      return IssueCode.UntrustworthyReportingOrigin;
+    case Protocol.Audits.AttributionReportingIssueType.InsecureContext:
+      return IssueCode.InsecureContext;
     case Protocol.Audits.AttributionReportingIssueType.InvalidHeader:
       return IssueCode.InvalidHeader;
   }
@@ -88,6 +94,10 @@ export class AttributionReportingIssue extends Issue<IssueCode> {
           file: 'arInvalidHeader.md',
           links: [],
         };
+      case IssueCode.InsecureContext:
+        return null;
+      case IssueCode.UntrustworthyReportingOrigin:
+        return null;
     }
   }
 
