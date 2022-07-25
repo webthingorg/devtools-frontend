@@ -241,6 +241,23 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
       assert.strictEqual(error.message, 'Cannot find the source type information for typeId 1.');
     }
   });
+
+  it('sets highlightInfo and retrieves the same highlight', () => {
+    const highlightInfo = {startAddress: 42, size: 8} as LinearMemoryInspector.LinearMemoryViewerUtils.HighlightInfo;
+    const bufferId = 'myBufferId';
+    const instance = LinearMemoryInspectorController.LinearMemoryInspectorController.instance();
+    instance.setHighlightInfo(bufferId, highlightInfo);
+    assert.deepEqual(instance.getHighlightInfo(bufferId), highlightInfo);
+  });
+
+  it('does not overwrite highlightInfo when setting undefined', () => {
+    const highlightInfo = {startAddress: 42, size: 8} as LinearMemoryInspector.LinearMemoryViewerUtils.HighlightInfo;
+    const bufferId = 'myBufferId';
+    const instance = LinearMemoryInspectorController.LinearMemoryInspectorController.instance();
+    instance.setHighlightInfo(bufferId, highlightInfo);
+    instance.setHighlightInfo(bufferId, undefined);
+    assert.deepEqual(instance.getHighlightInfo(bufferId), highlightInfo);
+  });
 });
 
 describe('RemoteArrayBufferWrapper', () => {
