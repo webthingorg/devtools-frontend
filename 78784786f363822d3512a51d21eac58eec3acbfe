@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebf220c4_fad0c6c5",
+        "filename": "front_end/ui/legacy/PopoverHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-25T11:46:37Z",
+      "side": 1,
+      "message": "let\u0027s define new props in an object called ops that would have two flags?",
+      "revId": "78784786f363822d3512a51d21eac58eec3acbfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
