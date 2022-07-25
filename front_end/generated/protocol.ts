@@ -965,6 +965,8 @@ export namespace Audits {
     PermissionPolicyDisabled = 'PermissionPolicyDisabled',
     AttributionSourceUntrustworthyOrigin = 'AttributionSourceUntrustworthyOrigin',
     AttributionUntrustworthyOrigin = 'AttributionUntrustworthyOrigin',
+    UntrustworthyReportingOrigin = 'UntrustworthyReportingOrigin',
+    InsecureContext = 'InsecureContext',
     InvalidHeader = 'InvalidHeader',
   }
 
@@ -974,6 +976,9 @@ export namespace Audits {
    */
   export interface AttributionReportingIssueDetails {
     violationType: AttributionReportingIssueType;
+    /**
+     * TODO(apaseltiner): Remove this once it is no longer referenced by the frontend.
+     */
     frame?: AffectedFrame;
     request?: AffectedRequest;
     violatingNodeId?: DOM.BackendNodeId;
@@ -5858,9 +5863,14 @@ export namespace IndexedDB {
 
   export interface ClearObjectStoreRequest {
     /**
+     * At least and at most one of securityOrigin, storageKey must be specified.
      * Security origin.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key.
+     */
+    storageKey?: string;
     /**
      * Database name.
      */
@@ -5873,9 +5883,14 @@ export namespace IndexedDB {
 
   export interface DeleteDatabaseRequest {
     /**
+     * At least and at most one of securityOrigin, storageKey must be specified.
      * Security origin.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key.
+     */
+    storageKey?: string;
     /**
      * Database name.
      */
@@ -11110,6 +11125,8 @@ export namespace Page {
     EmbedderTriggeredAndSameOriginRedirected = 'EmbedderTriggeredAndSameOriginRedirected',
     EmbedderTriggeredAndCrossOriginRedirected = 'EmbedderTriggeredAndCrossOriginRedirected',
     EmbedderTriggeredAndDestroyed = 'EmbedderTriggeredAndDestroyed',
+    MemoryLimitExceeded = 'MemoryLimitExceeded',
+    FailToGetMemoryUsage = 'FailToGetMemoryUsage',
   }
 
   export interface AddScriptToEvaluateOnLoadRequest {
@@ -15154,8 +15171,8 @@ export namespace Debugger {
      */
     totalNumberOfLines: integer;
     /**
-     * The offsets of all function bodies plus one additional entry pointing
-     * one by past the end of the last function.
+     * The offsets of all function bodies, in the format [start1, end1,
+     * start2, end2, ...] where all ends are exclusive.
      */
     functionBodyOffsets: integer[];
     /**
