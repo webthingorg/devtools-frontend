@@ -16,6 +16,23 @@
       "message": "Are tests possible to add? https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/deprecation/README.md",
       "revId": "b283bc223ea9de535c7789477b47fc281bf5d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6623d650_6756dd0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-26T06:02:28Z",
+      "side": 1,
+      "message": "I\u0027m not a huge fan of the current e2e issues tests. If these deprecations are covered on the backend side by inspector-protocol tests than I\u0027m good.",
+      "revId": "b283bc223ea9de535c7789477b47fc281bf5d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
