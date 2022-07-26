@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec26271_819028fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "Please have a look and let me know if the tests are easy to understand and easy to write.",
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb5deb2_2e1393b5",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "I did not test this function because I was not sure how to verify the success. Also it has many branching paths, does that maybe indicate that it needs to be broken down to smalled functions?",
+      "range": {
+        "startLine": 255,
+        "startChar": 8,
+        "endLine": 255,
+        "endChar": 27
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7397e89_e19ccd64",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "note that the format is that we have a line break between the setup, action, and assertion.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c1f7d7_e0893cab",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "here we can also check if the function was called with a spy (i.e. without stubbing it)",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 53
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e48e8c_4c51d2be",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "maybe I should have put `uiSourceCode.canRename()` on a separate line to make it clear what the action is",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f17a2c_830cb6dd",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "it is preferred to have one assertion in a unit test. However here I am asserting that the value has changed. Let me know if there is a better way to check the a value has changed.",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

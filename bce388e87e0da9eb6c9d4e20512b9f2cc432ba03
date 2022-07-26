@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3837619_e12ea8ec",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-26T08:41:58Z",
+      "side": 1,
+      "message": "is it necessary to test the contructor?",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 13
+      },
+      "revId": "bce388e87e0da9eb6c9d4e20512b9f2cc432ba03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
