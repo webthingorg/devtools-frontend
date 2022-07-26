@@ -52,6 +52,24 @@
       "parentUuid": "b9f5b8e1_66340147",
       "revId": "0167825e079a5c9bfbc0621cb3544a6f87545991",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1c3d91_96c51256",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-26T13:23:22Z",
+      "side": 1,
+      "message": "Weird. Running\n\n `./scripts/deps/roll_deps.py ... \u0026\u0026 npm run generate-protocol-resources \u0026\u0026 npm run check-lint`\n\nlocally doesn\u0027t produce the huge diff for me. I\u0027m not gonna block the CL on this though, since its an auto-generated CL anyway. Just a bit unfortunate if we start ping-ponging between different roll CLs.",
+      "parentUuid": "91d2d051_26ecd830",
+      "revId": "0167825e079a5c9bfbc0621cb3544a6f87545991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
