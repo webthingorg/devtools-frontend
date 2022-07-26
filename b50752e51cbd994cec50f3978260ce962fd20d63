@@ -18,6 +18,57 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f254da43_af601166",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Thanks for the refactoring Michal, definitely a much better data flow than before 😊! Some comments.",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "674a1e76_be820858",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "This is just code that you moved, but I realized it just now:\nYou can directly use this.#bufferIdToHighlightInfo.get(bufferId)`. (No need for the if case)",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33cf97ae_6791b622",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "I think the function signature is a bit misleading, as it will only set it if it\u0027s not undefined. One could read it as: set it as undefined if there\u0027s none. How about moving the if case to the caller side?",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d348758_8c65fb81",
@@ -43,6 +94,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a16d9113_380d61c3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "We normally don\u0027t test simple getters/setters; With the suggested changes above (to remove the if case in `getHighlightInfo`, and not allow the parameter to be undefined) these functions are only changing the map. Since you already have them we can keep them, however.\n\nMaking the function private makes sense.",
+      "parentUuid": "3d348758_8c65fb81",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 3
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44287b9f_1c13c4e5",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "if the `highlightInfo` is undefined at this point, should we not reset it?",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4450e161_7ce329d6",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
         "patchSetId": 4
@@ -54,6 +146,54 @@
       "writtenOn": "2022-07-25T11:15:56Z",
       "side": 1,
       "message": "drive-by, makes more sense to be static imo.",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 116
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc4e27f_e070713c",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4450e161_7ce329d6",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 116
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79d2c56_946e1f57",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4450e161_7ce329d6",
       "range": {
         "startLine": 312,
         "startChar": 2,
@@ -87,6 +227,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60470be_d6b33519",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dacb127f_87e51d37",
+      "range": {
+        "startLine": 341,
+        "startChar": 7,
+        "endLine": 341,
+        "endChar": 43
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "157ddba4_39ba3afb",
@@ -100,6 +264,30 @@
       "writtenOn": "2022-07-25T11:15:56Z",
       "side": 1,
       "message": "Now storing tabId to allow View to access the correct HighlightInfo in Controller\u0027s Map. Ideally View wouldn\u0027t need to know it\u0027s tabId/bufferId, but I see this as a fair sacrifice for the simplification it allows. If you see a way to avoid this, please share :)",
+      "range": {
+        "startLine": 139,
+        "startChar": 76,
+        "endLine": 139,
+        "endChar": 90
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c11153c5_4e7fc62f",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack, for now.",
+      "parentUuid": "157ddba4_39ba3afb",
       "range": {
         "startLine": 139,
         "startChar": 76,
@@ -133,6 +321,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d73076c_07f82c6e",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "562de308_d81da19d",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 48
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bcfc4cb_5b5afff1",
@@ -152,6 +364,47 @@
         "endLine": 225,
         "endChar": 48
       },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db827b7f_d46c6c17",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5bcfc4cb_5b5afff1",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 48
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaeedd45_a17f1937",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T07:09:23Z",
+      "side": 1,
+      "message": "I don\u0027t think that this is very intuitive (as mentioned before (setting highlightinfo with undefined resulting in nothing being done). Let\u0027s not make it accept undefined instead.",
       "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
