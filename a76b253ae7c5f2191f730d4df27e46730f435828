@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f58a7dab_414624ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-26T04:37:30Z",
+      "side": 1,
+      "message": "Nit: Link directly to the `.png` file (https://i.imgur.com/xf54x97.png in this case).",
+      "revId": "a76b253ae7c5f2191f730d4df27e46730f435828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42403e1c_2329f540",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-26T04:37:30Z",
+      "side": 1,
+      "message": "Two nits. Otherwise LGTM.",
+      "revId": "a76b253ae7c5f2191f730d4df27e46730f435828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e93685ab_e47f16ef",
+        "filename": "front_end/core/host/ResourceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-26T04:37:30Z",
+      "side": 1,
+      "message": "Nit: I\u0027d rephrase this a little to \"Loading from a Windows Share via UNC path is prohibited for security reasons.\"",
+      "revId": "a76b253ae7c5f2191f730d4df27e46730f435828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
