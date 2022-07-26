@@ -16,6 +16,23 @@
       "message": "PTAL, I\u0027ve included your feedback. Thanks!",
       "revId": "bb4edf0db85b66d0e53703393bfd1acf119f91e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c8e4f3c_b8b0faf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-26T11:21:29Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "bb4edf0db85b66d0e53703393bfd1acf119f91e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
