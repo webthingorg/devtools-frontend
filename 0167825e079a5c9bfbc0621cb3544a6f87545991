@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f5b8e1_66340147",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-26T13:07:26Z",
+      "side": 1,
+      "message": "The CL itself lgtm but the huge diff of the DOMPinnedProperties looks a bit weird. Could you double check that formatting and eslint did their job? `git cl format --js` and running eslint via `npm run check-lint`",
+      "revId": "0167825e079a5c9bfbc0621cb3544a6f87545991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
