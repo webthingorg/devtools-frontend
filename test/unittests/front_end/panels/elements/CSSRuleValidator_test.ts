@@ -45,7 +45,7 @@ describeWithEnvironment('CSSRuleValidator', async () => {
       expectedResult: false,
     },
     {
-      description: 'Passes the vlaidation when flex properties are set to flex items',
+      description: 'Passes the validation when flex properties are set to flex items',
       computedStyles: new Map<string, string>([
         ['flex', '1'],
       ]),
@@ -54,6 +54,26 @@ describeWithEnvironment('CSSRuleValidator', async () => {
       ]),
       validator: () => new Elements.CSSRuleValidator.FlexItemValidator(),
       expectedResult: true,
+    },
+    {
+      description: 'Passes the validation when element is flex container',
+      computedStyles: new Map<string, string>([
+        ['display', 'flex'],
+        ['flex-direction', 'column'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.FlexContainerValidator(),
+      expectedResult: true,
+    },
+    {
+      description: 'Reports a rule validation when element is not flex container',
+      computedStyles: new Map<string, string>([
+        ['display', 'block'],
+        ['flex-direction', 'column'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.FlexContainerValidator(),
+      expectedResult: false,
     },
   ];
 
