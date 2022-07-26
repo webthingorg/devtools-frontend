@@ -136,6 +136,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a93c50_c65702d4",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-26T12:13:37Z",
+      "side": 1,
+      "message": "You\u0027re right, I don\u0027t",
+      "parentUuid": "7c095a9e_f2b05dfd",
+      "range": {
+        "startLine": 386,
+        "startChar": 10,
+        "endLine": 386,
+        "endChar": 19
+      },
+      "revId": "48742a53ceecc1ce4c97e863f6149a89c682e099",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce6048d0_fbc43b52",
