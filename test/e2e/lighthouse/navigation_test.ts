@@ -18,8 +18,7 @@ import {
 // This test will fail (by default) in headful mode, as the target page never gets painted.
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
-// Flaky on Mac
-describe.skipOnPlatforms(['mac'], '[crbug.com/1347220] Navigation', async function() {
+describe('Navigation', async function() {
   // The tests in this suite are particularly slow
   this.timeout(60_000);
 
@@ -91,7 +90,8 @@ describe.skipOnPlatforms(['mac'], '[crbug.com/1347220] Navigation', async functi
 
         assert.strictEqual(lhr.configSettings.throttlingMethod, 'devtools');
 
-        const {auditResults, erroredAudits, failedAudits} = getAuditsBreakdown(lhr);
+        // [crbug.com/1347220] server-response-time can sometimes be slow enough to fail when DevTools throttling is applied.
+        const {auditResults, erroredAudits, failedAudits} = getAuditsBreakdown(lhr, ['server-response-time']);
         assert.strictEqual(auditResults.length, 152);
         assert.strictEqual(erroredAudits.length, 0);
         assert.deepStrictEqual(failedAudits.map(audit => audit.id), [
