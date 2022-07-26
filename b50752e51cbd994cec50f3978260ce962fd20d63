@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4db6395_52760de2",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-26T11:13:34Z",
+      "side": 1,
+      "message": "Ahh good catch, a Map returns undefined if key doesn\u0027t exist.",
+      "parentUuid": "674a1e76_be820858",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33cf97ae_6791b622",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-07-26T07:09:23Z",
       "side": 1,
       "message": "I think the function signature is a bit misleading, as it will only set it if it\u0027s not undefined. One could read it as: set it as undefined if there\u0027s none. How about moving the if case to the caller side?",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a0ee38_d70e785b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-26T11:13:34Z",
+      "side": 1,
+      "message": "Agree that it doesn\u0027t behave as expected. Moving guards to the caller side.",
+      "parentUuid": "33cf97ae_6791b622",
       "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -116,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "007da896_06e579df",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-26T11:13:34Z",
+      "side": 1,
+      "message": "I think since we\u0027ve removed the if statements or moved them to the caller side, the functions are just pass-through wrappers for a Map. I think testing only made sense for the setter with its unusual \"do nothing when arg undefined\" behavior. \n\nRemoving the tests and I will re-introduce them when needed, e.g. when extending to multiple highlights.",
+      "parentUuid": "a16d9113_380d61c3",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 3
+      },
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44287b9f_1c13c4e5",
@@ -129,6 +189,24 @@
       "writtenOn": "2022-07-26T07:09:23Z",
       "side": 1,
       "message": "if the `highlightInfo` is undefined at this point, should we not reset it?",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7369271_0a62c7f6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-26T11:13:34Z",
+      "side": 1,
+      "message": "I think resetting in this case makes sense.",
+      "parentUuid": "44287b9f_1c13c4e5",
       "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -405,6 +483,24 @@
       "writtenOn": "2022-07-26T07:09:23Z",
       "side": 1,
       "message": "I don\u0027t think that this is very intuitive (as mentioned before (setting highlightinfo with undefined resulting in nothing being done). Let\u0027s not make it accept undefined instead.",
+      "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbcbacd1_25f3625f",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-26T11:13:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aaeedd45_a17f1937",
       "revId": "b50752e51cbd994cec50f3978260ce962fd20d63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
