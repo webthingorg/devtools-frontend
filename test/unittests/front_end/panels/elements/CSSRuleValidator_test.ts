@@ -45,7 +45,7 @@ describeWithEnvironment('CSSRuleValidator', async () => {
       expectedResult: false,
     },
     {
-      description: 'Passes the vlaidation when flex properties are set to flex items',
+      description: 'Passes the validation when flex properties are set to flex items',
       computedStyles: new Map<string, string>([
         ['flex', '1'],
       ]),
@@ -54,6 +54,66 @@ describeWithEnvironment('CSSRuleValidator', async () => {
       ]),
       validator: () => new Elements.CSSRuleValidator.FlexItemValidator(),
       expectedResult: true,
+    },
+    {
+      description: 'Passes the validation when flex container properties are set to flex container',
+      computedStyles: new Map<string, string>([
+        ['display', 'flex'],
+        ['flex-direction', 'column'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.FlexContainerValidator(),
+      expectedResult: true,
+    },
+    {
+      description: 'Reports a rule validation when flex container properties are set to non-flex container',
+      computedStyles: new Map<string, string>([
+        ['display', 'block'],
+        ['flex-direction', 'column'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.FlexContainerValidator(),
+      expectedResult: false,
+    },
+    {
+      description: 'Passes the validation when grid container properties are set to grid container',
+      computedStyles: new Map<string, string>([
+        ['display', 'grid'],
+        ['grid', '100px / 200px'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.GridContainerValidator(),
+      expectedResult: true,
+    },
+    {
+      description: 'Reports a rule validation when grid container properties are set to non-grid container',
+      computedStyles: new Map<string, string>([
+        ['display', 'flex'],
+        ['grid', '100px / 200px'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.GridContainerValidator(),
+      expectedResult: false,
+    },
+    {
+      description: 'Passes the validation when grid item properties are set to grid items',
+      computedStyles: new Map<string, string>([
+        ['display', 'grid'],
+        ['grid', '100px / 200px'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.GridContainerValidator(),
+      expectedResult: true,
+    },
+    {
+      description: 'Reports a rule validation when grid item properties are set to non-grid items',
+      computedStyles: new Map<string, string>([
+        ['display', 'flex'],
+        ['grid', '100px / 200px'],
+      ]),
+      parentsComputedStyles: new Map<string, string>(),
+      validator: () => new Elements.CSSRuleValidator.GridContainerValidator(),
+      expectedResult: false,
     },
   ];
 
