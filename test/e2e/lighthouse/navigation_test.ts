@@ -19,7 +19,7 @@ import {
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
 // Flaky on Mac
-describe.skipOnPlatforms(['mac'], '[crbug.com/1347220] Navigation', async function() {
+describe('[crbug.com/1347220] Navigation', async function() {
   // The tests in this suite are particularly slow
   this.timeout(60_000);
 
@@ -42,6 +42,9 @@ describe.skipOnPlatforms(['mac'], '[crbug.com/1347220] Navigation', async functi
         await clickStartButton();
 
         const {lhr, artifacts, reportEl} = await waitForResult();
+
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(lhr.audits['server-response-time'], null, 2));
 
         assert.strictEqual(lhr.lighthouseVersion, '9.6.2');
         assert.match(lhr.finalUrl, /^https:\/\/localhost:[0-9]+\/test\/e2e\/resources\/lighthouse\/hello.html/);
