@@ -16,6 +16,23 @@
       "message": "PTAL, or please help reassign!",
       "revId": "03b9f25f814cd92628f9a7e28e5a12663309d65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "688af36f_27de3603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-07-27T18:39:16Z",
+      "side": 1,
+      "message": "LGTM, thanks.\n\nI think we need to eventually revisit the implementation of `ContentProvider` inside `Script` (also for other reasons).",
+      "revId": "03b9f25f814cd92628f9a7e28e5a12663309d65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
