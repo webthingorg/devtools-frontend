@@ -39,6 +39,30 @@
       },
       "revId": "a5d0480a354d84de811a709a5920c227f518a2fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9e581d_e7fc51d9",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-07-27T20:20:04Z",
+      "side": 1,
+      "message": "Yeah I discovered another audit that was flaky for similar reasons. Should be good now:\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8807460091547124833/overview",
+      "parentUuid": "85fcaeb0_3bb9c874",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "a5d0480a354d84de811a709a5920c227f518a2fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
