@@ -241,6 +241,48 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
       assert.strictEqual(error.message, 'Cannot find the source type information for typeId 1.');
     }
   });
+
+  it('returns undefined when error happens in evaluateExpressionOnCallFrame', async () => {
+    const callFrame = {} as SDK.DebuggerModel.CallFrame;
+    console.error = () => {};
+    callFrame.evaluate = function(): Promise<SDK.RuntimeModel.EvaluationResult> {
+      return new Promise(resolve => {
+        resolve({error: 'This is a test error'} as SDK.RuntimeModel.EvaluationResult);
+      });
+    };
+    const result = await LinearMemoryInspectorController.LinearMemoryInspectorController.evaluateExpressionOnCallFrame(
+        callFrame, 'variableName');
+    assert.strictEqual(result, undefined);
+  });
+
+  it('returns undefined when exceptionDetails property on result of evaluateExpressionOnCallFrame', async () => {
+    const callFrame = {} as SDK.DebuggerModel.CallFrame;
+    callFrame.evaluate = function(): Promise<SDK.RuntimeModel.EvaluationResult> {
+      return new Promise(resolve => {
+        resolve({
+          object: {type: 'object'} as SDK.RemoteObject.RemoteObject,
+          exceptionDetails: {text: 'This is a test exception\'s detail text'},
+        } as SDK.RuntimeModel.EvaluationResult);
+      });
+    };
+    const result = await LinearMemoryInspectorController.LinearMemoryInspectorController.evaluateExpressionOnCallFrame(
+        callFrame, 'myCar.manufacturer');
+    assert.strictEqual(result, undefined);
+  });
+
+  it('returns RemoteObject when exception happens in evaluateExpressionOnCallFrame', async () => {
+    const callFrame = {} as SDK.DebuggerModel.CallFrame;
+    callFrame.evaluate = function(): Promise<SDK.RuntimeModel.EvaluationResult> {
+      return new Promise(resolve => {
+        resolve({
+          object: {type: 'object'} as SDK.RemoteObject.RemoteObject,
+        } as SDK.RuntimeModel.EvaluationResult);
+      });
+    };
+    const result = await LinearMemoryInspectorController.LinearMemoryInspectorController.evaluateExpressionOnCallFrame(
+        callFrame, 'myCar.manufacturer');
+    assert.deepEqual(result, {type: 'object'} as SDK.RemoteObject.RemoteObject);
+  });
 });
 
 describe('RemoteArrayBufferWrapper', () => {
