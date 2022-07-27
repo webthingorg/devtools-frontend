@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc88052_2e95c3e8",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:45:46Z",
+      "side": 1,
+      "message": "Hmm, most branches are \u0027early exits\u0027. Not sure whether it makes sense to break this up.\n\nThe actual update happens, as far as I can see, in ll. 274 (new content is null), ll. 286 (the current content is not dirty, so we can just commit the current content), ll. 297 (user confirms that one s hould update, can be stubbed), and ll. 299 (user denies updating). One could also think about checking if no update happened.. but yeah it\u0027s quite a lot of branches.\n\nI think it should be possible to test at least the cases here that I mentioned with the lines, but you probably need to:\n1. stub `requestFileContent` and return null as content for testing for ll. 274 \n2. check that the content was updated (similar to your other tests)\n\n1. stub `requestFileContent` to return some string as content for ll. 286 \n2. check that the content was updated (similar to your other tests)\n\n\n1. stub `requestFileContent` to return some string as content for ll. 297\n2. stub window.confirm to return true\n3. setWorkingCopy so that the file gets dirty\n4. check that the content was updated (similar to your other tests)\n\n1. stub `requestFileContent` to return some string as content for ll. 299\n2. stub window.confirm to return false\n3. setWorkingCopy so that the file gets dirty\n4. check that the content was NOT updated",
+      "parentUuid": "efb5deb2_2e1393b5",
+      "range": {
+        "startLine": 255,
+        "startChar": 8,
+        "endLine": 255,
+        "endChar": 27
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7397e89_e19ccd64",
