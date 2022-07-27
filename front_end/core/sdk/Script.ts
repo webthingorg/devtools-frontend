@@ -194,17 +194,45 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
       this.#originalContentProviderInternal =
           new TextUtils.StaticContentProvider.StaticContentProvider(this.contentURL(), this.contentType(), () => {
             if (!lazyContentPromise) {
-              lazyContentPromise = (async(): Promise<{
-                                      content: null,
-                                      error: Common.UIString.LocalizedString,
-                                      isEncoded: boolean,
-                                    }|{
-                                      content: string,
-                                      isEncoded: boolean,
-                                      error?: undefined,
-                                    }> => {
+              lazyContentPromise = (async(): Promise<TextUtils.ContentProvider.DeferredContent> => {
                 if (!this.scriptId) {
                   return {content: null, error: i18nString(UIStrings.scriptRemovedOrDeleted), isEncoded: false};
+                }
+                if (this.isWasm()) {
+                  const result = await this.debuggerModel.target().debuggerAgent().invoke_disassembleWasmModule(
+                      {scriptId: this.scriptId});
+
+                  if (result.getError()) {
+                    throw new Error(result.getError());
+                  }
+
+                  const {streamId, functionBodyOffsets, chunk} = result;
+                  let {lines, bytecodeOffsets} = chunk;
+                  if (streamId) {
+                    while (true) {
+                      const result =
+                          await this.debuggerModel.target().debuggerAgent().invoke_nextWasmDisassemblyChunk({streamId});
+
+                      if (result.getError()) {
+                        throw new Error(result.getError());
+                      }
+
+                      const {chunk: {lines: linesChunk, bytecodeOffsets: bytecodeOffsetsChunk}} = result;
+                      if (linesChunk.length === 0) {
+                        break;
+                      }
+                      lines = lines.concat(linesChunk);
+                      bytecodeOffsets = bytecodeOffsets.concat(bytecodeOffsetsChunk);
+                    }
+                  }
+                  const functionBodyRanges: Array<{start: number, end: number}> = [];
+                  // functionBodyOffsets contains a sequence of pairs of start and end offsets
+                  for (let i = 0; i < functionBodyOffsets.length; i += 2) {
+                    functionBodyRanges.push({start: functionBodyOffsets[i], end: functionBodyOffsets[i + 1]});
+                  }
+                  const wasmDisassemblyInfo =
+                      new Common.WasmDisassembly.WasmDisassembly(lines, bytecodeOffsets, functionBodyRanges);
+                  return {content: '', isEncoded: false, wasmDisassemblyInfo};
                 }
                 try {
                   const result = await this.debuggerModel.target().debuggerAgent().invoke_getScriptSource(
@@ -212,10 +240,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
                   if (result.getError()) {
                     throw new Error(result.getError());
                   }
-                  const {scriptSource, bytecode} = result;
-                  if (bytecode) {
-                    return {content: bytecode, isEncoded: true};
-                  }
+                  const {scriptSource} = result;
                   let content: string = scriptSource || '';
                   if (this.hasSourceURL && this.sourceURL.startsWith('snippet://')) {
                     // TODO(crbug.com/1330846): Find a better way to establish the snippet automapping binding then adding
