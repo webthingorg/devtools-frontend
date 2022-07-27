@@ -112,6 +112,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bc56cc5_c720d782",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "I think it\u0027s clear like that already",
+      "parentUuid": "63e48e8c_4c51d2be",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 44
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48005ef4_b8a7a3a2",
         "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
         "patchSetId": 3
@@ -123,6 +147,30 @@
       "writtenOn": "2022-07-26T09:19:07Z",
       "side": 1,
       "message": "is this the correct way to stub the callback?",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 75
+      },
+      "revId": "e67d7f17973e9184ca67bca1894e052445b24b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3b7066_c3cad66e",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Maybe you can use `callsFake`? This would explicitly spell out the function arguments that you can use to call the callback, so that it\u0027s more clear what\u0027s happening here. Just from looking at the test one reads that there\u0027s some callback on index 2, but I think that\u0027s a bit hidden.",
+      "parentUuid": "48005ef4_b8a7a3a2",
       "range": {
         "startLine": 168,
         "startChar": 4,

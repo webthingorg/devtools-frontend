@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a441e3c_44224285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Hi Al!\n\nThanks a lot for this!! I didn\u0027t know about `sinon.createStubInstance`, it looks pretty useful!\n\nSome comments below!",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd910016_1c29980e",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Why do we need the \u0027username@\u0027 here? (Same in the following examples). Interesting though that we just seem to ignore that part. Did you want to showcase that behavior?",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d60cc19_3f827e75",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "I think it would make sense to use a simple url here now (since this is not relevant for testing this case?)",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178d30fc_3dac3660",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "nit: `deferredContentStub`",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ac8dac_02f7e534",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Same as above (`deferred`)",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31783cd_74e42247",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Same typo here",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35bdf92_230bfffe",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "Maybe we also want to check here if the content wasn\u0027t loaded before?",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48768625_efe657a8",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "nit: `uiLocation`",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f5e16e_6d387ad0",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-27T07:14:20Z",
+      "side": 1,
+      "message": "maybe also check if the uiLocation actually has the same uiSourceCode? I.e. `uiLocation.uiSourceCode` is the same.",
+      "revId": "aec9b9471651c8d0050209f8aba13f2884f28743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
