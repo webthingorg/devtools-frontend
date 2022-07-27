@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4d7e708_7dcd5848",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-07-27T12:20:29Z",
+      "side": 1,
+      "message": "LGTM with suggestion to use stressor bots. Thanks for the quick fix!\n\n",
+      "revId": "a5d0480a354d84de811a709a5920c227f518a2fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fcaeb0_3bb9c874",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-07-27T12:20:29Z",
+      "side": 1,
+      "message": "Could we run the stressor bots to double check the fix? (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/README.md;l\u003d77)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "a5d0480a354d84de811a709a5920c227f518a2fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
