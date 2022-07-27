@@ -17,6 +17,14 @@ import {
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import * as Root from '../../../../../../front_end/core/root/root.js';
+import {createTarget, deinitializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
+import * as Workspace from '../../../../../../front_end/models/workspace/workspace.js';
+import * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
+import * as Bindings from '../../../../../../front_end/models/bindings/bindings.js';
+import {describeWithMockConnection} from '../../../helpers/MockConnection.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
+import {createFileSystemUISourceCode} from '../../../helpers/UISourceCodeHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -50,6 +58,18 @@ const defaultRequest = {
   blockedResponseCookies: () => [],
 } as unknown as SDK.NetworkRequest.NetworkRequest;
 
+function setUpEnvironment() {
+  createTarget();
+  const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+  const targetManager = SDK.TargetManager.TargetManager.instance();
+  const debuggerWorkspaceBinding =
+      Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance({forceNew: true, targetManager, workspace});
+  const breakpointManager = Bindings.BreakpointManager.BreakpointManager.instance(
+      {forceNew: true, targetManager, workspace, debuggerWorkspaceBinding});
+  Persistence.Persistence.PersistenceImpl.instance({forceNew: true, workspace, breakpointManager});
+  Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance({forceNew: true, workspace});
+}
+
 async function renderHeadersComponent(request: SDK.NetworkRequest.NetworkRequest) {
   const component = new NetworkComponents.RequestHeadersView.RequestHeadersComponent();
   renderElementIntoDOM(component);
@@ -59,8 +79,18 @@ async function renderHeadersComponent(request: SDK.NetworkRequest.NetworkRequest
   return component;
 }
 
-describeWithEnvironment('RequestHeadersView', () => {
+describeWithMockConnection('RequestHeadersView', () => {
+  beforeEach(async () => {
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, '');
+    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
+  });
+
+  afterEach(async () => {
+    await deinitializeGlobalVars();
+  });
+
   it('renders the General section', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
@@ -87,6 +117,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('renders request and response headers', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
@@ -120,6 +151,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('renders detailed reason for blocked requests', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent({
       ...defaultRequest,
       wasBlocked: () => true,
@@ -145,6 +177,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('renders provisional headers warning', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent({
       ...defaultRequest,
       requestHeadersText: () => undefined,
@@ -160,6 +193,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('can switch between source and parsed view', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
@@ -194,6 +228,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('cuts off long raw headers and shows full content on button click', async () => {
+    setUpEnvironment();
     const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
@@ -229,6 +264,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('displays decoded "x-client-data"-header', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent({
       ...defaultRequest,
       requestHeaders: () => [{name: 'x-client-data', value: 'CJa2yQEIpLbJAQiTocsB'}],
@@ -250,6 +286,7 @@ describeWithEnvironment('RequestHeadersView', () => {
   });
 
   it('displays info about blocked "Set-Cookie"-headers', async () => {
+    setUpEnvironment();
     const component = await renderHeadersComponent({
       ...defaultRequest,
       sortedResponseHeaders: [{name: 'Set-Cookie', value: 'secure=only; Secure'}],
@@ -277,6 +314,51 @@ describeWithEnvironment('RequestHeadersView', () => {
             '"Secure" attribute but was not received over a secure connection.\nThis attempt to ' +
             'set a cookie via a Set-Cookie header was blocked because it was not sent over a ' +
             'secure connection and would have overwritten a cookie with the Secure attribute.');
+  });
+
+  it('renders a link to \'.headers\'', async () => {
+    await setUpEnvironment();
+
+    const {project} = createFileSystemUISourceCode({
+      url: 'file:///path/to/overrides/www.example.com/.headers' as Platform.DevToolsPath.UrlString,
+      mimeType: 'text/plain',
+      fileSystemPath: 'file:///path/to/overrides',
+    });
+
+    await Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().setProject(project);
+
+    const component = await renderHeadersComponent(defaultRequest);
+    assertShadowRoot(component.shadowRoot);
+
+    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
+    assertElement(responseHeadersCategory, HTMLElement);
+    assertShadowRoot(responseHeadersCategory.shadowRoot);
+
+    const linkElement = responseHeadersCategory.shadowRoot.querySelector('x-link');
+    assertElement(linkElement, HTMLElement);
+    assert.strictEqual(linkElement.textContent?.trim(), 'Header overrides');
+  });
+
+  it('does not render a link to \'.headers\' if a matching \'.headers\' does not exist', async () => {
+    await setUpEnvironment();
+
+    const {project} = createFileSystemUISourceCode({
+      url: 'file:///path/to/overrides/www.mismatch.com/.headers' as Platform.DevToolsPath.UrlString,
+      mimeType: 'text/plain',
+      fileSystemPath: 'file:///path/to/overrides',
+    });
+
+    await Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().setProject(project);
+
+    const component = await renderHeadersComponent(defaultRequest);
+    assertShadowRoot(component.shadowRoot);
+
+    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
+    assertElement(responseHeadersCategory, HTMLElement);
+    assertShadowRoot(responseHeadersCategory.shadowRoot);
+
+    const linkElement = responseHeadersCategory.shadowRoot.querySelector('x-link');
+    assert.isNull(linkElement);
   });
 });
 
