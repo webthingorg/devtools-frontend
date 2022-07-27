@@ -164,9 +164,13 @@ export class LinearMemoryInspector extends HTMLElement {
       if (data.highlightInfo.size < 0) {
         throw new Error('Object size has to be greater than or equal to zero');
       }
-      if (data.highlightInfo.startAddress > data.memoryOffset + data.memory.length ||
-          data.highlightInfo.startAddress < 0) {
-        throw new Error('Object start address is out of bounds.');
+      // Technically it's fine when startAddress > data.memoryOffset + data.memory.length
+      // because memory.length isn't all of the available memory buffer, but just a slice.
+      // The highlight can be outside of this slice, e.g. when pointer declared
+      // and then initialized. Maybe it would make sense to check against some upper limit for
+      // incorrect input.
+      if (data.highlightInfo.startAddress < 0) {
+        throw new Error('Object cannot start address at a negative memory index');
       }
     }
 
