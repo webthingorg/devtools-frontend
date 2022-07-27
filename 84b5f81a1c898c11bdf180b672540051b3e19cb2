@@ -16,6 +16,91 @@
       "message": "lgtm for the technical changes. Please wait for Maud\u0027s feedback for the issue descriptions.",
       "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30888859_1f6ec786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-07-27T13:05:43Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7cf6ab0_a52744dd",
+        "filename": "front_end/models/issues_manager/descriptions/arInsecureContext.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-07-27T13:05:43Z",
+      "side": 1,
+      "message": "Nit: define \"registration context\" e.g. as \"the page where the registration took place\" (or something better)",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67eb82f8_dd61ad0a",
+        "filename": "front_end/models/issues_manager/descriptions/arInsecureContext.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-07-27T13:05:43Z",
+      "side": 1,
+      "message": "Nit: \"localhost or 127.0.0.1\"?",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "382e29b9_27a666c7",
+        "filename": "front_end/models/issues_manager/descriptions/arUntrustworthyReportingOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-07-27T13:05:43Z",
+      "side": 1,
+      "message": "Maybe precise reporting origin, as this isn\u0027t directly a field name in the API:\n\"The reporting origin is typically the server that sets the source and trigger response headers.\" (or something better / more accurate)",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e61b191e_febcba3d",
+        "filename": "front_end/models/issues_manager/descriptions/arUntrustworthyReportingOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-07-27T13:05:43Z",
+      "side": 1,
+      "message": "Nit: \"localhost or 127.0.0.1\"?",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
