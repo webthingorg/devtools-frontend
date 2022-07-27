@@ -81,6 +81,30 @@
       },
       "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6c98d8_d13cde6e",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-27T08:26:00Z",
+      "side": 1,
+      "message": "Right, maybe we should prohibit that as well (it is not clear to me to what degree the path comes from the user rather than from a potentially attacker controlled webpage).",
+      "parentUuid": "9f0f53da_04b64df4",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
