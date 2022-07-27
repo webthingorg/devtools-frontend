@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8dd3c3_d66ea6df",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "drive-by, moving closer to where it gets used.",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 38
+      },
+      "revId": "5a42acfdfe4907cf6e705e5bb8186f5bd68fd968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

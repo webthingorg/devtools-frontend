@@ -86,6 +86,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0111d6c3_51d426aa",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "modified",
+      "parentUuid": "ba83aac2_9a625be3",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fec8cbb3_5d1598a5",
@@ -133,6 +151,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68dbc295_1b7e8715",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c8c2303d_d8dbe64a",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 113
+      },
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e32cf473_bdeef31a",
@@ -150,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e03b74a_85ef5714",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "That works!",
+      "parentUuid": "e32cf473_bdeef31a",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f20afa6a_9845c496",
@@ -163,6 +223,24 @@
       "writtenOn": "2022-07-19T13:14:58Z",
       "side": 1,
       "message": "Is this also correct for double pointers?",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6273d3b2_bc0a032a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Started using obj.description instead. Afaik, description \u003d\u003d\u003d typeNames[0], but description is used for rendering in UI, so this increases consistency. \n\nWe may want to store the full typeNames array, as in some cases it has more than 1 element, e.g. [\"std::complex\u003cdouble\u003e\",\"std::__2::complex\u003cdouble\u003e\"]. Then, to compare if two variable types are the same, we can look for a match for each item. Philip cautioned against assuming any ordering of the array\u0027s elements, albeit we already sort of do that.",
+      "parentUuid": "f20afa6a_9845c496",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -204,6 +282,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5749d943_f501d300",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Do you think the refresh button should trigger a re-evaluation of the current highlightInfo? I\u0027m a little hesitant on that as no actions inside of the MemoryViewer/Inspector/Navigator should affect whether the current highlightInfo is still valid and hence require re-evaluation. Validity of highlightInfo depends (afaik) entirely on the current scope, but the LMI doesn\u0027t affect that. \n\nMaybe I don\u0027t understand the purpose of the refresh button though, is it there mainly as a backup if resizing doesn\u0027t trigger memoryRequestEvent?\n\nThat being said, we could make the refresh button re-evaluate the highlightInfo as well just so that the refresh button \"actually refreshes stuff\".",
+      "parentUuid": "24cd24c3_71d6b0d4",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42848fae_be679c09",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
         "patchSetId": 2
@@ -236,6 +332,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dadc14c_b6bc3700",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "42848fae_be679c09",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9066bd0_6d1727fe",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "I\u0027ve tried doing something hopefully similar, but now for in Controller.",
+      "parentUuid": "fdb744ba_f5733eb6",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14cacebb_00dd9d43",
@@ -249,6 +381,24 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "`evaluateExpression` should not be in the view, but rather in the controller",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0af9524_e6432284",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "14cacebb_00dd9d43",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -272,6 +422,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27ebb2f5_af83701a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "A great reminder of the single responsibility principle :) Thank you",
+      "parentUuid": "2bcf78f5_52caad3c",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83e0af8a_ba7d148c",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
         "patchSetId": 2
@@ -283,6 +451,24 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "Add early exits for undefined case",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa051c8_e08db0ba",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "83e0af8a_ba7d148c",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -304,6 +490,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe7a6281_34beb86b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c2bfe8_4bf1ae19",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2a25b78_5f4e04b8",
@@ -317,6 +521,24 @@
       "writtenOn": "2022-07-19T09:22:09Z",
       "side": 1,
       "message": "Maybe add some more sensible output (use description of what you were trying to do and use the res.error)",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "257da3b0_8a1979b8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-07-27T13:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a25b78_5f4e04b8",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
