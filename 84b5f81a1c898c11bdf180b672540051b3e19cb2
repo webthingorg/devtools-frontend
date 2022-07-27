@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f06977f5_9cc18200",
+        "filename": "front_end/models/issues_manager/descriptions/arInsecureContext.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-07-27T13:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7cf6ab0_a52744dd",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67eb82f8_dd61ad0a",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-07-27T13:05:43Z",
       "side": 1,
       "message": "Nit: \"localhost or 127.0.0.1\"?",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e368811_e985ffe2",
+        "filename": "front_end/models/issues_manager/descriptions/arInsecureContext.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-07-27T13:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67eb82f8_dd61ad0a",
       "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff73ea64_a96c2ad6",
+        "filename": "front_end/models/issues_manager/descriptions/arUntrustworthyReportingOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-07-27T13:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "382e29b9_27a666c7",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e61b191e_febcba3d",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-07-27T13:05:43Z",
       "side": 1,
       "message": "Nit: \"localhost or 127.0.0.1\"?",
+      "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b99f9f4_205f5fb1",
+        "filename": "front_end/models/issues_manager/descriptions/arUntrustworthyReportingOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-07-27T13:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e61b191e_febcba3d",
       "revId": "84b5f81a1c898c11bdf180b672540051b3e19cb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
