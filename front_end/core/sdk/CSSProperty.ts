@@ -193,10 +193,10 @@ export class CSSProperty {
 
     function processToken(token: string, tokenType: string|null): void {
       if (!insideProperty) {
-        const disabledProperty = tokenType?.includes('comment') && isDisabledProperty(token);
+        const disabledProperty = tokenType === 'comment' && isDisabledProperty(token);
         const isPropertyStart =
-            (tokenType?.includes('string') || tokenType?.includes('meta') || tokenType?.includes('property') ||
-             tokenType?.includes('variableName'));
+            (tokenType === 'string' || tokenType === 'meta' || tokenType === 'property' ||
+             tokenType === 'variableName');
         if (disabledProperty) {
           result = result.trimEnd() + indentation + token;
         } else if (isPropertyStart) {
@@ -204,7 +204,7 @@ export class CSSProperty {
           propertyText = token;
         } else if (token !== ';' || needsSemi) {
           result += token;
-          if (token.trim() && !(tokenType?.includes('comment'))) {
+          if (token.trim() && tokenType !== 'comment') {
             needsSemi = token !== ';';
           }
         }
