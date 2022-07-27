@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef05a746_08f32162",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-07-27T14:56:46Z",
+      "side": 1,
+      "message": "I have used `./rebuild` for rebuilding CodeMirror bundle.ts and it generated those files.",
+      "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
