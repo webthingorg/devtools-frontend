@@ -1095,6 +1095,7 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   refreshIndexedDB(): void {
     for (const indexedDBModel of SDK.TargetManager.TargetManager.instance().models(IndexedDBModel)) {
       void indexedDBModel.refreshDatabaseNames();
+      void indexedDBModel.refreshDatabaseNamesByStorageKey();
     }
   }
 
