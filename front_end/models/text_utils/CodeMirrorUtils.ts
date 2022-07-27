@@ -40,8 +40,9 @@ export function createCssTokenizer(): Tokenizer {
     const startState = streamParser.startState();
     let lastPos = stream.pos;
     while (!stream.eol()) {
+      stream.start = lastPos;
       const token = streamParser.token(stream, startState);
-      const segment = stream.current().substring(lastPos, stream.pos);
+      const segment = stream.current();
       callback(segment, token);
       lastPos = stream.pos;
     }
