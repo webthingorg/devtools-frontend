@@ -105,6 +105,30 @@
       },
       "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f82b303b_0e14a04c",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-28T05:28:43Z",
+      "side": 1,
+      "message": "Now that we have a setting we use the setting here as well.",
+      "parentUuid": "6d6c98d8_d13cde6e",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "55767dcda3c2335a1356692037a79a03105f26c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
