@@ -4,11 +4,13 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages} from '../../shared/helper.js';
+import {getBrowserAndPages, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
+import {navigateToElementsTab} from '../helpers/elements-helpers.js';
 import {
   listenForSourceFilesAdded,
   openFileInSourcesPanel,
+  openSourcesPanel,
   retrieveSourceFilesAdded,
   waitForAdditionalSourceFiles,
 } from '../helpers/sources-helpers.js';
@@ -21,7 +23,7 @@ declare global {
   }
 }
 
-describe('The Sources Tab', async () => {
+describe.only('The Sources Tab', async () => {
   it('can show JavaScript files after dynamic loading', async () => {
     const {target, frontend} = getBrowserAndPages();
 
@@ -60,6 +62,24 @@ describe('The Sources Tab', async () => {
 
     assert.deepEqual(capturedFileNames, [
       '/test/e2e/resources/sources/dynamic.css',
+    ]);
+  });
+
+  it('populates sources even if it the Sources Tab was not open at refresh', async () => {
+    const {target, frontend} = getBrowserAndPages();
+    await goToResource('pages/hello-world.html');
+    await navigateToElementsTab();
+    await listenForSourceFilesAdded(frontend);
+
+    await target.reload({waitUntil: 'networkidle0'});
+    await openSourcesPanel();
+
+    await waitForAdditionalSourceFiles(frontend);
+
+    const capturedFileNames = await retrieveSourceFilesAdded(frontend);
+
+    assert.deepEqual(capturedFileNames, [
+      '/test/e2e/resources/pages/hello-world.html',
     ]);
   });
 });
