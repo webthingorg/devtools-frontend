@@ -16,6 +16,46 @@
       "message": "Hi deprecation devtools team, PTAL? Thanks!",
       "revId": "9f4f827607913824b6f680920e0be98288c35c58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb7f8b6_0c497718",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-28T04:54:12Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "9f4f827607913824b6f680920e0be98288c35c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c75c49c5_8c83ebca",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-28T04:54:12Z",
+      "side": 1,
+      "message": "Should we also lock this part of the string? I don\u0027t think `StorageType.persistent` needs to be translated.",
+      "range": {
+        "startLine": 188,
+        "startChar": 7,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "9f4f827607913824b6f680920e0be98288c35c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
