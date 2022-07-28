@@ -1,0 +1,344 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a931ebeb_640b5e09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "We can never guarantee this. Maybe rephrase: \u0027We cannot guarantee..\u0027",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b5e8dc_875686fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Maybe type + address?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062ad6e5_3c32a6ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Design Doc: go/extending-memory-inspector",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08fe32a3_99db2cf6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Maybe a before/after gif would be good to have here?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed06fa6d_a7fa6b62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Hi Michal!\n\nThanks for the changes! This is a first batch, I\u0027ll look at the testing more later :).",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6333cda_8e3380ae",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "nit nit nit: Maybe have `name` before `value`? I think this is more intuitive when passing? I know I\u0027m very picky right now, sorry for that!",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "098a1a69_6fcae647",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Didn\u0027t we want to check against the `outerMemoryLength` here?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aaf5b70_77486440",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "`exceptionDetails` is only available if `error` is set, so you won\u0027t get to this code.\n\nI don\u0027t think that we want to issue an error here (later, we\u0027ll show that in the UI that something is wrong, right?), since it\u0027s expected that at some point the variable will be out of scope.",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4873a9_78f059fb",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Hmmm, so do you want to reflect the actual type that we\u0027re showing here, or the type of the object? The type of the data that we\u0027re showing is not necessarily the type of the object, correct (i.e. we show the pointed to data if it\u0027s a pointer).",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea43a567_781330d6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "`if (!topCallFrame)`",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c59825_0b816dd7",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "If it\u0027s undefined, maybe reset the highlight info?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03190e06_b5360dbf",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "I think `callFrame` shouldn\u0027t be allowed to be undefined?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20788728_9c3aa3f9",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "`if (!oldHighlightInfo||!expressionName|..` (taking out possibility of `callFrame` being undefined too)",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d37ca31_85928195",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "`if (!obj)`",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2c83da_a7ba01a0",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Same here: `if(!newHighlightInfo..)`\n\nSome context: if 0 is a valid value, you want to use the comparison against undefined (`value !\u003d\u003d\u003d undefined`), but if 0 is not a valid value, you can just use  `value`.",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b96b9dc_83a89e0b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewerUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Maybe add a comment explaining in which case we have info on these two.",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e7247c6_c608dd9b",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "For clarification: is this the name?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67cacfa_46bf8a7d",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Thanks for this!",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e79cc8_40f99bf0",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "This sentence seems incomplete, but I think we don\u0027t necessarily need this test, as we won\u0027t have exceptionDetails anyway if we don\u0027t have an error. See the comment that I added before on this.",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173ed3ba_0a79ef00",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "I think this should be \u0027when no exception happens\u0027?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

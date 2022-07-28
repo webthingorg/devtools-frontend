@@ -300,6 +300,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd66c5f8_242c10d7",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-28T10:01:22Z",
+      "side": 1,
+      "message": "Yes. The refresh button is not about re-rendering, but about refreshing the data it shows (the actual content sent to from v8). Imagine the following scenario: the execution is currently paused and the developer opens the memory inspector. The developer afterwards *changes* the content of your array buffer by directly editing it through the console. Afterwards you want to be able to refresh your data with the refresh button.",
+      "parentUuid": "5749d943_f501d300",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42848fae_be679c09",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
         "patchSetId": 2
