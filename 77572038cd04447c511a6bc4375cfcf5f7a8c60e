@@ -16,6 +16,23 @@
       "message": "I have used `./rebuild` for rebuilding CodeMirror bundle.ts and it generated those files.",
       "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "291f9171_a9c4be80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-07-28T11:08:16Z",
+      "side": 1,
+      "message": "Hi Michael, could you PTAL since you made the original changes, and do you remember why you chose to use sCSS parser instead? Thanks!",
+      "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
