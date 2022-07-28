@@ -50,6 +50,24 @@
       "message": "LGTM. Any use of an SCSS stream parser was unintentional, so agree with the decision to switch to a CSS parser.\n\nWhat part of the original commit used an SCSS parser?  Does \"cssStreamParser()\" return a SCSS stream parser?",
       "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47ea4e7_56dc00cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-07-28T19:48:00Z",
+      "side": 1,
+      "message": "Hey hey, thanks for the confirmation! :)\n\nYep! `cssStreamParser()` returned `(await import(\u0027@codemirror/legacy-modes/mode/css\u0027) as any).sCSS` which points to `SCSS` parser from here[1]\n\n[1]: https://github.com/codemirror/legacy-modes/blob/31553acf171d1243ca7a6d8aadd63f392f7e1c12/mode/css.js#L746",
+      "parentUuid": "3b79f363_1d3b881f",
+      "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
