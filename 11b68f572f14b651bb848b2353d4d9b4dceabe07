@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b12416_64499c2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1516569
+      },
+      "writtenOn": "2022-07-28T00:54:54Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nI have updated the CL. PTAL. Thanks 😄",
+      "revId": "11b68f572f14b651bb848b2353d4d9b4dceabe07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
