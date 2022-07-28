@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "237930ee_49ee5fa7",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-28T16:49:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2dd0c9_84487ddf",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 96
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0997575_6f081cc1",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-28T09:58:54Z",
       "side": 1,
       "message": "And here may don\u0027t do an early return as it doesn\u0027t seem to bring much benefit.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 28
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edbf9d9a_08688e24",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-28T16:49:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0997575_6f081cc1",
       "range": {
         "startLine": 356,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d293352e_4bb95761",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-28T16:49:02Z",
+      "side": 1,
+      "message": "It should not happen. But since we have this in multiple places, let me clean that up in a separate CL: https://crrev.com/c/3790859",
+      "parentUuid": "726f7e0b_46249ec3",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 44
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3d8d212_6614eeba",
         "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
         "patchSetId": 3
@@ -100,6 +172,30 @@
       "writtenOn": "2022-07-28T09:58:54Z",
       "side": 1,
       "message": "Put it into the `beforeEach`?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e008fdf8_129b790b",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-07-28T16:49:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d8d212_6614eeba",
       "range": {
         "startLine": 93,
         "startChar": 0,
