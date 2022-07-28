@@ -16,6 +16,98 @@
       "message": "PTAL",
       "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2dd0c9_84487ddf",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-28T09:58:54Z",
+      "side": 1,
+      "message": "How about an early return to reduce the indentation.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 96
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0997575_6f081cc1",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-28T09:58:54Z",
+      "side": 1,
+      "message": "And here may don\u0027t do an early return as it doesn\u0027t seem to bring much benefit.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 28
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726f7e0b_46249ec3",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-28T09:58:54Z",
+      "side": 1,
+      "message": "This could throw an exception. Do we want this. Or is it really not going to happen?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 44
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d8d212_6614eeba",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-07-28T09:58:54Z",
+      "side": 1,
+      "message": "Put it into the `beforeEach`?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "2b82918e843ae9cc204f54b8c61f99cfcbd7fabd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
