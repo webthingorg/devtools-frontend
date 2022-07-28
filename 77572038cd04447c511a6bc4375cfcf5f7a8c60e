@@ -33,6 +33,23 @@
       "message": "Hi Michael, could you PTAL since you made the original changes, and do you remember why you chose to use sCSS parser instead? Thanks!",
       "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b79f363_1d3b881f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-07-28T17:32:29Z",
+      "side": 1,
+      "message": "LGTM. Any use of an SCSS stream parser was unintentional, so agree with the decision to switch to a CSS parser.\n\nWhat part of the original commit used an SCSS parser?  Does \"cssStreamParser()\" return a SCSS stream parser?",
+      "revId": "77572038cd04447c511a6bc4375cfcf5f7a8c60e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
