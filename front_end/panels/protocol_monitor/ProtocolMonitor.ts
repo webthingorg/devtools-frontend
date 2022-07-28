@@ -125,6 +125,8 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private messages: LogMessage[] = [];
   private isRecording: boolean = false;
 
+  #commandHistory: Set<string> = new Set();
+
   constructor() {
     super(true);
     this.started = false;
@@ -303,18 +305,40 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     const shrinkFactor = 0.2;
     const tooltip = i18nString(UIStrings.sendRawCDPCommandExplanation);
     const input = new UI.Toolbar.ToolbarInput(
-        placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip, undefined, false);
+        placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip, this.#buildCommandCompletions.bind(this),
+        false);
     input.addEventListener(UI.Toolbar.ToolbarInput.Event.EnterPressed, () => this.#onCommandSend(input));
     return input;
   }
 
+  async #buildCommandCompletions(expression: string, prefix: string, force?: boolean):
+      Promise<UI.SuggestBox.Suggestions> {
+    if (!prefix && !force && expression) {
+      return [];
+    }
+    return Array.from(this.#commandHistory.values()).reverse().filter(value => value.startsWith(prefix)).map(c => {
+      return {
+        text: c,
+      };
+    });
+  }
+
   #onCommandSend(input: UI.Toolbar.ToolbarInput): void {
-    const {command, parameters} = parseCommandInput(input.value());
+    const value = input.value();
+    const {command, parameters} = parseCommandInput(value);
     const test = ProtocolClient.InspectorBackend.test;
     // TODO: TS thinks that properties are read-only because
     // in TS test is defined as a namespace.
     // @ts-ignore
     test.sendRawMessage(command, parameters, () => {});
+    if (this.#commandHistory.has(value)) {
+      this.#commandHistory.delete(value);
+    }
+    this.#commandHistory.add(value);
+    if (this.#commandHistory.size > 200) {
+      const earliestEntry = this.#commandHistory.values().next().value;
+      this.#commandHistory.delete(earliestEntry);
+    }
   }
 
   static instance(opts = {forceNew: null}): ProtocolMonitorImpl {
