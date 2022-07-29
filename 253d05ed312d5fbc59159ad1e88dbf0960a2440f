@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9be63861_241705d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T07:56:16Z",
+      "side": 1,
+      "message": "It is kind of difficult to manipulate the legacy text prompt as it has multiple event handlers (e.g., onInput, onKeydown) with complex logic so I think it\u0027s difficult to replicate the real interaction in the unit test. I will add a unit test testing the new code though!",
+      "parentUuid": "66f01a65_ffe2301d",
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2afbc9d_f34dbb61",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 3
@@ -67,6 +85,30 @@
       "writtenOn": "2022-07-29T05:50:53Z",
       "side": 1,
       "message": "nit: `#commandHistory \u003d new Set\u003cstring\u003e();`",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 43
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51613234_ae9743d3",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T07:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2afbc9d_f34dbb61",
       "range": {
         "startLine": 128,
         "startChar": 2,
@@ -100,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4336a17e_62d0c758",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T07:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6390d596_c97eb042",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 8
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc8cd54a_f3f97136",
@@ -113,6 +179,30 @@
       "writtenOn": "2022-07-29T05:50:53Z",
       "side": 1,
       "message": "nit: Lets move this into a static const COMMAND_HISTORY_MAX_SIZE next to `#commandHistory`.",
+      "range": {
+        "startLine": 338,
+        "startChar": 36,
+        "endLine": 338,
+        "endChar": 39
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43aaec5_41df59fe",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T07:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc8cd54a_f3f97136",
       "range": {
         "startLine": 338,
         "startChar": 36,
