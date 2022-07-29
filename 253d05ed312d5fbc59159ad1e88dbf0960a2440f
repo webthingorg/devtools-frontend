@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3c5b3d_2f2fdc41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-29T05:50:53Z",
+      "side": 1,
+      "message": "Q: How tricky would it be to add a test or two to check that auto complete works in the protocol monitor?",
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2afbc9d_f34dbb61",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-29T05:50:53Z",
+      "side": 1,
+      "message": "nit: `#commandHistory \u003d new Set\u003cstring\u003e();`",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 43
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6390d596_c97eb042",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-29T05:50:53Z",
+      "side": 1,
+      "message": "I\u0027d find it slightly more readable if we split this up:\n\n```\nconst newestToOldest \u003d [...this.#commandHistory].reverse();\nreturn newestToOldest.filter(v \u003d\u003e v.startsWith(prefix).map(text \u003d\u003e ({text}));\n```\n\nwdyt?",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 8
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc8cd54a_f3f97136",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-29T05:50:53Z",
+      "side": 1,
+      "message": "nit: Lets move this into a static const COMMAND_HISTORY_MAX_SIZE next to `#commandHistory`.",
+      "range": {
+        "startLine": 338,
+        "startChar": 36,
+        "endLine": 338,
+        "endChar": 39
+      },
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
