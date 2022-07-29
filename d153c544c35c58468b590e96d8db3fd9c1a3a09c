@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba5bfce_e3edceb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-29T09:46:04Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6654384f_58378d8f",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-29T09:46:04Z",
+      "side": 1,
+      "message": "This stands for `System Under Test`, it makes it easier to keep track of which class we are testing. Please let me know if you like this idea, if not we can revert back to using the class actual name. (source `Unit Testing Principles, Practices, and Patterns: 3.1.7 Differentiating the system under test`)",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
