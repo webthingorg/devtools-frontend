@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d83395_01b3abb3",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-07-29T13:17:10Z",
+      "side": 0,
+      "message": "I wonder if the issue here is the nested coordinator read/scrolls, because I guess the height that is got from the `read` block could then be incorrect by the time the `scroll` happens.\n\nIf we remove the `read`, and do it all in scroll:\n\n```\ncoordinator.scroll(() \u003d\u003e /* query DOM for height, then scroll */)\n```\n\ndoes that solve it, out of interest?\n\nAnother fix might be to move to the `ScheduledRender` which will deal properly with batching these and may make this more reliable. I can see how currently many new events may lead to many scroll handlers and it might get very confusing very quickly. \n\nOr we might need to do some work to queue scrolls on each render, and cancel pending scrolls if new events come in in a short period of time.\n\nI\u0027m happy for this to land as is, just thinking about alternatives. wdyt?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 7
+      },
+      "revId": "995b2f7b4b348581a2310346be89a8205270ddeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
