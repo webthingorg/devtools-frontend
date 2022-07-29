@@ -30,6 +30,20 @@
 
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 type Tokenizer = (line: string, callback: (value: string, style: string|null) => void) => void;
+type ParserState = {
+  state: string|null,
+};
+/**
+ * We expect unknown properties (like `unknownProp: unknownPropVal`) to still be
+ * formatted correctly. However, `tokenType` for such properties are marked
+ * as `error` from CodeMirror side and the internal state of the parser becomes `maybeprop`.
+ *
+ * So, we handle that specific keyword to be marked as `property` even though it is
+ * not a known property. We do this because for our formatting purposes it doesn't matter.
+ */
+function fixUnknownPropertyType(tokenType: string|null, state: ParserState): string|null {
+  return tokenType === 'error' && state.state === 'maybeprop' ? 'property' : tokenType;
+}
 
 export function createCssTokenizer(): Tokenizer {
   async function tokenize(line: string, callback: (value: string, style: string|null) => void): Promise<void> {
@@ -37,12 +51,14 @@ export function createCssTokenizer(): Tokenizer {
     const stream = new CodeMirror.StringStream();
     stream.string = line;
 
-    const startState = streamParser.startState();
+    const state = streamParser.startState();
     let lastPos = stream.pos;
     while (!stream.eol()) {
-      const token = streamParser.token(stream, startState);
-      const segment = stream.current().substring(lastPos, stream.pos);
-      callback(segment, token);
+      stream.start = lastPos;
+      const tokenType = streamParser.token(stream, state);
+      const updatedTokenType = fixUnknownPropertyType(tokenType, state);
+      const segment = stream.current();
+      callback(segment, updatedTokenType);
       lastPos = stream.pos;
     }
   }
