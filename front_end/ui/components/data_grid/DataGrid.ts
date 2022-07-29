@@ -220,16 +220,12 @@ export class DataGrid extends HTMLElement {
       return;
     }
 
-    void coordinator.read(() => {
-      const wrapper = this.#shadow.querySelector('.wrapping-container');
-      if (!wrapper) {
-        return;
-      }
-      const scrollHeight = wrapper.scrollHeight;
-      void coordinator.scroll(() => {
-        wrapper.scrollTo(0, scrollHeight);
-      });
-    });
+    const wrapper = this.#shadow.querySelector('.wrapping-container');
+    if (!wrapper) {
+      return;
+    }
+    const scrollHeight = wrapper.scrollHeight;
+    wrapper.scrollTo(0, scrollHeight);
   }
 
   #engageResizeObserver(): void {
