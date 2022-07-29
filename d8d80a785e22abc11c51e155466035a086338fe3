@@ -16,6 +16,40 @@
       "message": "ptal!",
       "revId": "d8d80a785e22abc11c51e155466035a086338fe3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c7f432_7e9f1391",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-29T11:40:37Z",
+      "side": 1,
+      "message": "LGTM, thanks a lot Jack for adding documentation! Just a tiny question.",
+      "revId": "d8d80a785e22abc11c51e155466035a086338fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95cfefc5_71841382",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/StylingComponents.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-29T11:40:37Z",
+      "side": 1,
+      "message": "Q: Should this maybe be \u0027DEPS\u0027? Or maybe you want to say that this is \u0027just one\u0027 dependency so therefore \u0027DEP\u0027? Would it make sense to use \u0027dep\u0027/\u0027deps\u0027 here instead of using capital letters since it\u0027s called \u0027deps\u0027 below?",
+      "revId": "d8d80a785e22abc11c51e155466035a086338fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
