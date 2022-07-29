@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e0a5c96_e37f79e7",
+        "filename": "front_end/models/text_utils/CodeMirrorUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-07-29T13:18:00Z",
+      "side": 1,
+      "message": "Hey hey @changhaohan, I needed to do a workaround for fixing an issue with formatting \"unknown\" properties. (See the layout_test failures in Patches 1 and the comment for this function)\n\nCan you take a look at this and approve it if it makes sense?",
+      "revId": "946309a245e0cc8ec7753fdae1aba9ec24c07f6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
