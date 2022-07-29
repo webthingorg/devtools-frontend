@@ -16,6 +16,23 @@
       "message": "Kateryna, could you please review this one? ",
       "revId": "5a72e5bbae652eb28f659d8231e64b1bd8eccbfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e190f6cc_4ada90df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-07-29T09:34:47Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "5a72e5bbae652eb28f659d8231e64b1bd8eccbfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
