@@ -39,6 +39,30 @@
       },
       "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392570ba_8ef2ccea",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-07-29T11:44:51Z",
+      "side": 1,
+      "message": "Fine with me, I don\u0027t have a strong opinion here.",
+      "parentUuid": "6654384f_58378d8f",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
