@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66f01a65_ffe2301d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-07-29T05:56:26Z",
+      "side": 1,
+      "message": "More like a component unit test where the \"unit\" is the whole protocol monitor. We poke the input element and check that the autocomplete thingy shows up with the right entries.\n\nIf its not feasible we can land as-is.",
+      "parentUuid": "895bad3a_b9e32232",
+      "revId": "253d05ed312d5fbc59159ad1e88dbf0960a2440f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2afbc9d_f34dbb61",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 3
