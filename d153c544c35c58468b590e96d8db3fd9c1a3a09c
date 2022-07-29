@@ -63,6 +63,30 @@
       },
       "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de37cabb_a5a676bf",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-07-29T12:20:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "392570ba_8ef2ccea",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "d153c544c35c58468b590e96d8db3fd9c1a3a09c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
