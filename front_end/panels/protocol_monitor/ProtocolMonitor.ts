@@ -112,6 +112,8 @@ export interface LogMessage {
   type: 'send'|'recv';
 }
 
+const COMMAND_HISTORY_MAX_SIZE = 200;
+
 let protocolMonitorImplInstance: ProtocolMonitorImpl;
 export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private started: boolean;
@@ -124,6 +126,8 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private readonly textFilterUI: UI.Toolbar.ToolbarInput;
   private messages: LogMessage[] = [];
   private isRecording: boolean = false;
+
+  #commandHistory = new Set<string>();
 
   constructor() {
     super(true);
@@ -303,18 +307,39 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     const shrinkFactor = 0.2;
     const tooltip = i18nString(UIStrings.sendRawCDPCommandExplanation);
     const input = new UI.Toolbar.ToolbarInput(
-        placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip, undefined, false);
+        placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip, this.#buildCommandCompletions.bind(this),
+        false);
     input.addEventListener(UI.Toolbar.ToolbarInput.Event.EnterPressed, () => this.#onCommandSend(input));
     return input;
   }
 
+  async #buildCommandCompletions(expression: string, prefix: string, force?: boolean):
+      Promise<UI.SuggestBox.Suggestions> {
+    if (!prefix && !force && expression) {
+      return [];
+    }
+    const newestToOldest = [...this.#commandHistory].reverse();
+    return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
+                                                                      text,
+                                                                    }));
+  }
+
   #onCommandSend(input: UI.Toolbar.ToolbarInput): void {
-    const {command, parameters} = parseCommandInput(input.value());
+    const value = input.value();
+    const {command, parameters} = parseCommandInput(value);
     const test = ProtocolClient.InspectorBackend.test;
     // TODO: TS thinks that properties are read-only because
     // in TS test is defined as a namespace.
     // @ts-ignore
     test.sendRawMessage(command, parameters, () => {});
+    if (this.#commandHistory.has(value)) {
+      this.#commandHistory.delete(value);
+    }
+    this.#commandHistory.add(value);
+    if (this.#commandHistory.size > COMMAND_HISTORY_MAX_SIZE) {
+      const earliestEntry = this.#commandHistory.values().next().value;
+      this.#commandHistory.delete(earliestEntry);
+    }
   }
 
   static instance(opts = {forceNew: null}): ProtocolMonitorImpl {
