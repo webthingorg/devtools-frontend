@@ -16,6 +16,52 @@
       "message": "Thanks for the updates, LGTM from my side!",
       "revId": "df663dd1fcba088255bd593e38a3790d6742a448",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a9a28e_426fb465",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-29T12:34:34Z",
+      "side": 1,
+      "message": "I am curious why the construction gets repeated in every test (as opposed to setting the test objects up in some test suite setup function). This will make changes to the constructor signature extremely tedious.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 107
+      },
+      "revId": "df663dd1fcba088255bd593e38a3790d6742a448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff0a2de_c875e56e",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-07-29T12:34:34Z",
+      "side": 1,
+      "message": "This seems to overfit the implementation. How about just testing that the display name ends with the three dots and that everything before the dots is a prefix of the name.",
+      "range": {
+        "startLine": 76,
+        "startChar": 47,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "df663dd1fcba088255bd593e38a3790d6742a448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
