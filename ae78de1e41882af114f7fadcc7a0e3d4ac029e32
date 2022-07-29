@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5cf43cb_4d1e15a7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T05:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aab079d_54538dd7",
+      "range": {
+        "startLine": 89,
+        "startChar": 15,
+        "endLine": 89,
+        "endChar": 37
+      },
+      "revId": "ae78de1e41882af114f7fadcc7a0e3d4ac029e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc807791_990875dc",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-29T05:39:46Z",
       "side": 1,
       "message": "Since ware here, could you leave inline comments `/* */` for these as well? :)",
+      "range": {
+        "startLine": 306,
+        "startChar": 79,
+        "endLine": 306,
+        "endChar": 95
+      },
+      "revId": "ae78de1e41882af114f7fadcc7a0e3d4ac029e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da84488b_851b8306",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-07-29T05:49:58Z",
+      "side": 1,
+      "message": "Let\u0027s do that in the next CL? I actually make use of these params there",
+      "parentUuid": "bc807791_990875dc",
       "range": {
         "startLine": 306,
         "startChar": 79,
