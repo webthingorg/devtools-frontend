@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bbbf2b2_d751d4a0",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-08-01T14:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a9a28e_426fb465",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 107
+      },
+      "revId": "df663dd1fcba088255bd593e38a3790d6742a448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ff0a2de_c875e56e",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-29T12:34:34Z",
       "side": 1,
       "message": "This seems to overfit the implementation. How about just testing that the display name ends with the three dots and that everything before the dots is a prefix of the name.",
+      "range": {
+        "startLine": 76,
+        "startChar": 47,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "df663dd1fcba088255bd593e38a3790d6742a448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32975054_30e1a4e6",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-08-01T14:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff0a2de_c875e56e",
       "range": {
         "startLine": 76,
         "startChar": 47,
