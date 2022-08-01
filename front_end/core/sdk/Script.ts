@@ -195,7 +195,9 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
         await this.debuggerModel.target().debuggerAgent().invoke_disassembleWasmModule({scriptId: this.scriptId});
 
     if (result.getError()) {
-      throw new Error(result.getError());
+      // Fall through to text content loading if v8-based disassembly fails. This is to ensure backwards compatibility with
+      // older v8 versions;
+      return this.loadTextContent();
     }
 
     const {streamId, functionBodyOffsets, chunk: {lines, bytecodeOffsets}} = result;

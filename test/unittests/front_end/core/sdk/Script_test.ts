@@ -49,7 +49,7 @@ console.log("foo");
         };
       });
       const script = debuggerModel.scriptForId(scriptId) as SDKModule.Script.Script;
-      const {content} = await script.originalContentProvider().requestContent();
+      const {content} = await script.requestContent();
       assert.strictEqual(content, scriptSource);
     });
   });
