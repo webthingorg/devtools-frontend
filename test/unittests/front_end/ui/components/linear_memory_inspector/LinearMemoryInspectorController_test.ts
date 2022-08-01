@@ -119,7 +119,7 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
       },
     } as Bindings.DebuggerLanguagePlugins.ValueNode;
 
-    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.retrieveObjectSize(mockValueNode);
+    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectSize(mockValueNode);
     assert.strictEqual(size, expectedSize);
   });
 
@@ -146,7 +146,7 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
       },
     } as Bindings.DebuggerLanguagePlugins.ValueNode;
 
-    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.retrieveObjectSize(pointerValueNode);
+    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectSize(pointerValueNode);
     assert.strictEqual(size, expectedSize);
   });
 
@@ -183,7 +183,7 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
       },
     } as Bindings.DebuggerLanguagePlugins.ValueNode;
 
-    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.retrieveObjectSize(pointerValueNode);
+    const size = LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectSize(pointerValueNode);
     assert.strictEqual(size, expectedSize);
   });
 
@@ -212,7 +212,7 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
     } as Bindings.DebuggerLanguagePlugins.ValueNode;
 
     try {
-      LinearMemoryInspectorController.LinearMemoryInspectorController.retrieveObjectSize(pointerValueNode);
+      LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectSize(pointerValueNode);
       throw new Error('Function did now throw an error.');
     } catch (e) {
       const error = e as Error;
@@ -234,12 +234,85 @@ describeWithEnvironment('LinearMemoryInspectorController', () => {
     } as Bindings.DebuggerLanguagePlugins.ValueNode;
 
     try {
-      LinearMemoryInspectorController.LinearMemoryInspectorController.retrieveObjectSize(pointerValueNode);
+      LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectSize(pointerValueNode);
       throw new Error('Function did now throw an error.');
     } catch (e) {
       const error = e as Error;
       assert.strictEqual(error.message, 'Cannot find the source type information for typeId 1.');
     }
+  });
+
+  it('returns undefined when error happens in evaluateExpression', async () => {
+    const callFrame = {
+      evaluate: ({}) => {
+        return new Promise(resolve => {
+          resolve({error: 'This is a test error'} as SDK.RuntimeModel.EvaluationResult);
+        });
+      },
+    } as SDK.DebuggerModel.CallFrame;
+
+    const instance = LinearMemoryInspectorController.LinearMemoryInspectorController.instance();
+    const result = await instance.evaluateExpression(callFrame, 'variableName');
+    assert.strictEqual(result, undefined);
+  });
+
+  it('returns undefined when exceptionDetails is set on the result of evaluateExpression', async () => {
+    const callFrame = {
+      evaluate: ({}) => {
+        return new Promise(resolve => {
+          resolve({
+            object: {type: 'object'} as SDK.RemoteObject.RemoteObject,
+            exceptionDetails: {text: 'This is a test exception\'s detail text'},
+          } as SDK.RuntimeModel.EvaluationResult);
+        });
+      },
+    } as SDK.DebuggerModel.CallFrame;
+    const instance = LinearMemoryInspectorController.LinearMemoryInspectorController.instance();
+    const result = await instance.evaluateExpression(callFrame, 'myCar.manufacturer');
+    assert.strictEqual(result, undefined);
+  });
+
+  it('returns RemoteObject when no exception happens in evaluateExpression', async () => {
+    const callFrame = {
+      evaluate: ({}) => {
+        return new Promise(resolve => {
+          resolve({
+            object: {type: 'object'} as SDK.RemoteObject.RemoteObject,
+          } as SDK.RuntimeModel.EvaluationResult);
+        });
+      },
+    } as SDK.DebuggerModel.CallFrame;
+    const instance = LinearMemoryInspectorController.LinearMemoryInspectorController.instance();
+    const result = await instance.evaluateExpression(callFrame, 'myCar.manufacturer');
+    assert.deepEqual(result, {type: 'object'} as SDK.RemoteObject.RemoteObject);
+  });
+
+  it('extracts array type correctly', () => {
+    const obj = {description: 'int[]'} as Bindings.DebuggerLanguagePlugins.ValueNode;
+    const extractedType =
+        LinearMemoryInspector.LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectType(obj);
+    assert.strictEqual(extractedType, 'int[]');
+  });
+
+  it('extracts multi-level pointer correctly', () => {
+    const obj = {description: 'int **'} as Bindings.DebuggerLanguagePlugins.ValueNode;
+    const extractedType =
+        LinearMemoryInspector.LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectType(obj);
+    assert.strictEqual(extractedType, 'int *');
+  });
+
+  it('extracts reference type correctly', () => {
+    const obj = {description: 'int &'} as Bindings.DebuggerLanguagePlugins.ValueNode;
+    const extractedType =
+        LinearMemoryInspector.LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectType(obj);
+    assert.strictEqual(extractedType, 'int');
+  });
+
+  it('extracts pointer type correctly', () => {
+    const obj = {description: 'int *'} as Bindings.DebuggerLanguagePlugins.ValueNode;
+    const extractedType =
+        LinearMemoryInspector.LinearMemoryInspectorController.LinearMemoryInspectorController.extractObjectType(obj);
+    assert.strictEqual(extractedType, 'int');
   });
 });
 
