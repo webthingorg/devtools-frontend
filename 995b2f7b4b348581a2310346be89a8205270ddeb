@@ -22,6 +22,30 @@
       },
       "revId": "995b2f7b4b348581a2310346be89a8205270ddeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46948bc_049351f3",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-01T05:38:01Z",
+      "side": 0,
+      "message": "Scheduling with coorindate.scroll (with sync read/scroll) works too!",
+      "parentUuid": "b5d83395_01b3abb3",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 7
+      },
+      "revId": "995b2f7b4b348581a2310346be89a8205270ddeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
