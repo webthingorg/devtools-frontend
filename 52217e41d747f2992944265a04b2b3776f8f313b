@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "542ca3dc_80f7769c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-01T06:17:47Z",
+      "side": 1,
+      "message": "PTAL. Is there another way to fix the blank space issue? Or do you think rendering 100 rows as padding too much? ",
+      "revId": "52217e41d747f2992944265a04b2b3776f8f313b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
