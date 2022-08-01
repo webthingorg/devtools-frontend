@@ -16,6 +16,41 @@
       "message": "PTAL. Is there another way to fix the blank space issue? Or do you think rendering 100 rows as padding too much? ",
       "revId": "52217e41d747f2992944265a04b2b3776f8f313b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8efcfb69_2df1186a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-01T09:11:26Z",
+      "side": 1,
+      "message": "There\u0027s no silver bullet here unfortunately; if a load of data changes really quickly we\u0027re basically trading off a flash of white space whilst a render happens vs performance when rendering 100s of rows.\n\nI suspect 100 is fine and won\u0027t cause any issues, so let\u0027s go with it.",
+      "parentUuid": "542ca3dc_80f7769c",
+      "revId": "52217e41d747f2992944265a04b2b3776f8f313b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7949ccc4_e10ef807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-01T09:11:26Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "52217e41d747f2992944265a04b2b3776f8f313b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
