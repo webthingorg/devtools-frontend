@@ -16,6 +16,23 @@
       "message": "To dsv@ for review.",
       "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cf62dc_11f8c936",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-01T08:36:10Z",
+      "side": 1,
+      "message": "Thanks for the patch, this looks great! Could you please add a unit-test for the Log.ts and Linkifier.ts change to the src/test/unittests/front_end/models/har/HARLog_test.ts and third_party/devtools-frontend/src/test/unittests/front_end/ui/components/Linkifier_test.ts respectively?\n\nThere are also bunch of tests in chromium that *might* need updating. See e. g. third_party/blink/web_tests/http/tests/devtools/har-importer.js and third_party/blink/web_tests/http/tests/devtools/network/har-content.js\n\nSee https://chromium.googlesource.com/chromium/src.git/+/HEAD/docs/testing/web_tests.md\nfor details on these tests. Basically you need to checkout chromium, patch in your devtools change, build it and run tests under third_party/blink/web_tests/http/tests/devtools with `third_party/blink/tools/run_web_tests.py -t Default \n third_party/blink/web_tests/http/tests/devtools`. I don\u0027t expect you to update these more then what\u0027s required for them to pass. Generally, we\u0027re migrating away from these tests in chromium, so any investments in these apart from keeping them green is strictly optional.",
+      "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
