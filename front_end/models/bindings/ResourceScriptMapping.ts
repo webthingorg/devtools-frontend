@@ -210,8 +210,7 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     }
 
     // Create UISourceCode.
-    const originalContentProvider = script.originalContentProvider();
-    const uiSourceCode = project.createUISourceCode(url, originalContentProvider.contentType());
+    const uiSourceCode = project.createUISourceCode(url, script.contentType());
     NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
     const metadata = metadataForURL(this.debuggerModel.target(), script.frameId, url);
 
@@ -221,7 +220,7 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     this.#scriptToUISourceCode.set(script, uiSourceCode);
 
     const mimeType = script.isWasm() ? 'application/wasm' : 'text/javascript';
-    project.addUISourceCodeWithProvider(uiSourceCode, originalContentProvider, metadata, mimeType);
+    project.addUISourceCodeWithProvider(uiSourceCode, script, metadata, mimeType);
     void this.debuggerWorkspaceBinding.updateLocations(script);
   }
 
