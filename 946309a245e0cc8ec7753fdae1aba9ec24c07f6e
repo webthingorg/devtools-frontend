@@ -16,6 +16,23 @@
       "message": "Hey hey @changhaohan, I needed to do a workaround for fixing an issue with formatting \"unknown\" properties. (See the layout_test failures in Patches 1 and the comment for this function)\n\nCan you take a look at this and approve it if it makes sense?",
       "revId": "946309a245e0cc8ec7753fdae1aba9ec24c07f6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c79fe3_8a12893a",
+        "filename": "front_end/models/text_utils/CodeMirrorUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-01T18:22:49Z",
+      "side": 1,
+      "message": "I think in general it looks good. Just one nit: can we inline this function, i.e. fix the unknown property type inside an if condition, such as:\n```\nlet tokenType \u003d streamParser.token(stream, state);\n/* the very nice explanatory comments go here */\nif (tokenType \u003d\u003d\u003d \u0027error\u0027 \u0026\u0026 state.state \u003d\u003d\u003d \u0027maybeprop\u0027) {\n  tokenType \u003d \u0027property\u0027;\n}\n...\ncallback(segment, tokenType);\n```\n\nI feel this would save an extra jump of function call, and would make the logic clear that under this particular case, we modify the token type. WDYT?\n\nOtherwise LGTM, and I don\u0027t feel strongly towards this way either, so feel free to choose by yourself.",
+      "revId": "946309a245e0cc8ec7753fdae1aba9ec24c07f6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
