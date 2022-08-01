@@ -51,6 +51,24 @@
       "parentUuid": "a8cf62dc_11f8c936",
       "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "106730fe_f25c4836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-01T08:46:36Z",
+      "side": 1,
+      "message": "If they do fail, you need to disable them in chromium first, land your change, wait for it to roll into chromium, then update and enable them back. Sorry about that, this is one of the reasons why we migrating away from them.",
+      "parentUuid": "7cbd815f_91c0b91c",
+      "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
