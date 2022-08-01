@@ -198,42 +198,48 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
                 if (!this.scriptId) {
                   return {content: null, error: i18nString(UIStrings.scriptRemovedOrDeleted), isEncoded: false};
                 }
-                if (this.isWasm()) {
-                  const result = await this.debuggerModel.target().debuggerAgent().invoke_disassembleWasmModule(
-                      {scriptId: this.scriptId});
+                try {
+                  if (this.isWasm()) {
+                    const result = await this.debuggerModel.target().debuggerAgent().invoke_disassembleWasmModule(
+                        {scriptId: this.scriptId});
 
-                  if (result.getError()) {
-                    throw new Error(result.getError());
-                  }
-
-                  const {streamId, functionBodyOffsets, chunk: {lines, bytecodeOffsets}} = result;
-                  const lineChunks = [];
-                  const bytecodeOffsetChunks = [];
-                  if (streamId) {
-                    while (true) {
-                      const result =
-                          await this.debuggerModel.target().debuggerAgent().invoke_nextWasmDisassemblyChunk({streamId});
-
-                      if (result.getError()) {
-                        throw new Error(result.getError());
-                      }
-
-                      const {chunk: {lines: linesChunk, bytecodeOffsets: bytecodeOffsetsChunk}} = result;
-                      if (linesChunk.length === 0) {
-                        break;
-                      }
-                      lineChunks.push(linesChunk);
-                      bytecodeOffsetChunks.push(bytecodeOffsetsChunk);
+                    if (result.getError()) {
+                      throw new Error(result.getError());
                     }
+
+                    const {streamId, functionBodyOffsets, chunk: {lines, bytecodeOffsets}} = result;
+                    const lineChunks = [];
+                    const bytecodeOffsetChunks = [];
+                    if (streamId) {
+                      while (true) {
+                        const result =
+                            await this.debuggerModel.target().debuggerAgent().invoke_nextWasmDisassemblyChunk(
+                                {streamId});
+
+                        if (result.getError()) {
+                          throw new Error(result.getError());
+                        }
+
+                        const {chunk: {lines: linesChunk, bytecodeOffsets: bytecodeOffsetsChunk}} = result;
+                        if (linesChunk.length === 0) {
+                          break;
+                        }
+                        lineChunks.push(linesChunk);
+                        bytecodeOffsetChunks.push(bytecodeOffsetsChunk);
+                      }
+                    }
+                    const functionBodyRanges: Array<{start: number, end: number}> = [];
+                    // functionBodyOffsets contains a sequence of pairs of start and end offsets
+                    for (let i = 0; i < functionBodyOffsets.length; i += 2) {
+                      functionBodyRanges.push({start: functionBodyOffsets[i], end: functionBodyOffsets[i + 1]});
+                    }
+                    const wasmDisassemblyInfo = new Common.WasmDisassembly.WasmDisassembly(
+                        lines.concat(...lineChunks), bytecodeOffsets.concat(...bytecodeOffsetChunks),
+                        functionBodyRanges);
+                    return {content: '', isEncoded: false, wasmDisassemblyInfo};
                   }
-                  const functionBodyRanges: Array<{start: number, end: number}> = [];
-                  // functionBodyOffsets contains a sequence of pairs of start and end offsets
-                  for (let i = 0; i < functionBodyOffsets.length; i += 2) {
-                    functionBodyRanges.push({start: functionBodyOffsets[i], end: functionBodyOffsets[i + 1]});
-                  }
-                  const wasmDisassemblyInfo = new Common.WasmDisassembly.WasmDisassembly(
-                      lines.concat(...lineChunks), bytecodeOffsets.concat(...bytecodeOffsetChunks), functionBodyRanges);
-                  return {content: '', isEncoded: false, wasmDisassemblyInfo};
+                } catch (err) {
+                  // fall through
                 }
                 try {
                   const result = await this.debuggerModel.target().debuggerAgent().invoke_getScriptSource(
@@ -241,7 +247,10 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
                   if (result.getError()) {
                     throw new Error(result.getError());
                   }
-                  const {scriptSource} = result;
+                  const {scriptSource, bytecode} = result;
+                  if (bytecode) {
+                    return {content: bytecode, isEncoded: true};
+                  }
                   let content: string = scriptSource || '';
                   if (this.hasSourceURL && this.sourceURL.startsWith('snippet://')) {
                     // TODO(crbug.com/1330846): Find a better way to establish the snippet automapping binding then adding
