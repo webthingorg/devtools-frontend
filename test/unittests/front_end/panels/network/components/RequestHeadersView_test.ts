@@ -8,6 +8,7 @@ import * as Coordinator from '../../../../../../front_end/ui/components/render_c
 import type * as Common from '../../../../../../front_end/core/common/common.js';
 import * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import * as Host from '../../../../../../front_end/core/host/host.js';
+import * as NetworkForward from '../../../../../../front_end/panels/network/forward/forward.js';
 
 import {
   assertElement,
@@ -356,6 +357,32 @@ describeWithMockConnection('RequestHeadersView', () => {
     assert.isTrue(spy.set.calledOnce);
     assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-name'), ['updatedName:']);
     assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value'), ['updatedValue']);
+
+    view.detach();
+  });
+
+  it('can highlight individual headers', async () => {
+    const request = SDK.NetworkRequest.NetworkRequest.create(
+        'requestId' as Protocol.Network.RequestId,
+        'https://www.example.com/foo.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
+        null, null, null);
+    request.responseHeaders = [{name: 'highlightMe', value: 'some value'}];
+
+    const view = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
+    const div = document.createElement('div');
+    renderElementIntoDOM(div);
+    view.markAsRoot();
+    view.show(div);
+
+    const component = view.element.querySelector('devtools-request-headers');
+    assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
+    assertShadowRoot(component.shadowRoot);
+    const responseHeaderRow = component.shadowRoot.querySelector('[aria-label="Response Headers"] .row');
+    assertElement(responseHeaderRow, HTMLElement);
+
+    assert.isFalse(responseHeaderRow.classList.contains('header-highlight'));
+    view.revealHeader(NetworkForward.UIRequestLocation.UIHeaderSection.Response, 'HiGhLiGhTmE');
+    assert.isTrue(responseHeaderRow.classList.contains('header-highlight'));
 
     view.detach();
   });
