@@ -491,7 +491,7 @@ describe('Sources Tab', async function() {
 describe('Raw-Wasm', async () => {
   // TODO(crbug.com/1349290) The test flakily fails with the "Element is no longer attached to the dom"
   // error.
-  it.skip('[crbug.com/1349290] displays correct location in Wasm source', async () => {
+  it.only('[crbug.com/1349290] displays correct location in Wasm source', async () => {
     const {target} = getBrowserAndPages();
 
     // Have the target load the page.
