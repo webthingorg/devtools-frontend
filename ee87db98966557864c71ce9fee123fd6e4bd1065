@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841129e2_b9eac05e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-02T11:03:13Z",
+      "side": 1,
+      "message": "Danil\u003e PTAL\n\nPeter\u003e PTAL at the screenshots. I\u0027ve taken the yellow color from the existing component. Dark theme contrast seems pretty bad (it\u0027s even worse in the existing panel where the bold text is light grey), anything I should change? And should the color be added to the overall theme colours or kept locally for this single use only?",
+      "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
