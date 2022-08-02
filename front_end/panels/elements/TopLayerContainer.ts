@@ -23,14 +23,15 @@ const str_ = i18n.i18n.registerUIStrings('panels/elements/TopLayerContainer.ts',
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class TopLayerContainer extends UI.TreeOutline.TreeElement {
-  domContainer: ElementsTreeOutline.ElementsTreeOutline;
+  tree: ElementsTreeOutline.ElementsTreeOutline;
+  domModel: SDK.DOMModel.DOMModel;
   currentTopLayerElements: Set<ElementsTreeElement>;
   topLayerUpdateThrottler: Common.Throttler.Throttler;
-  #inserted = false;
 
-  constructor(domContainer: ElementsTreeOutline.ElementsTreeOutline) {
+  constructor(tree: ElementsTreeOutline.ElementsTreeOutline, domModel: SDK.DOMModel.DOMModel) {
     super('#top-layer');
-    this.domContainer = domContainer;
+    this.tree = tree;
+    this.domModel = domModel;
     this.currentTopLayerElements = new Set();
     this.topLayerUpdateThrottler = new Common.Throttler.Throttler(1);
   }
@@ -44,26 +45,19 @@ export class TopLayerContainer extends UI.TreeOutline.TreeElement {
     this.removeCurrentTopLayerElementsAdorners();
     this.currentTopLayerElements = new Set();
 
-    const domModel = this.domContainer.rootDOMNode?.domModel();
-    if (!domModel) {
-      this.hidden = true;
-      return;
-    }
-
-    const newTopLayerElementsIDs = await domModel.getTopLayerElements();
+    const newTopLayerElementsIDs = await this.domModel.getTopLayerElements();
     if (!newTopLayerElementsIDs || newTopLayerElementsIDs.length === 0) {
-      this.hidden = true;
       return;
     }
 
     let topLayerElementIndex = 0;
     for (let i = 0; i < newTopLayerElementsIDs.length; i++) {
-      const topLayerDOMNode = domModel.idToDOMNode.get(newTopLayerElementsIDs[i]);
+      const topLayerDOMNode = this.domModel.idToDOMNode.get(newTopLayerElementsIDs[i]);
       if (topLayerDOMNode && topLayerDOMNode.nodeName() !== '::backdrop') {
         const topLayerElementShortcut = new SDK.DOMModel.DOMNodeShortcut(
-            domModel.target(), topLayerDOMNode.backendNodeId(), 0, topLayerDOMNode.nodeName());
+            this.domModel.target(), topLayerDOMNode.backendNodeId(), 0, topLayerDOMNode.nodeName());
         const topLayerElementRepresentation = new ElementsTreeOutline.ShortcutTreeElement(topLayerElementShortcut);
-        const topLayerTreeElement = this.domContainer.treeElementByNode.get(topLayerDOMNode);
+        const topLayerTreeElement = this.tree.treeElementByNode.get(topLayerDOMNode);
         if (!topLayerTreeElement) {
           continue;
         }
@@ -73,20 +67,15 @@ export class TopLayerContainer extends UI.TreeOutline.TreeElement {
         this.currentTopLayerElements.add(topLayerTreeElement);
         this.appendChild(topLayerElementRepresentation);
         // Add the element's backdrop if previous top layer element is a backdrop.
-        const previousTopLayerDOMNode = (i > 0) ? domModel.idToDOMNode.get(newTopLayerElementsIDs[i - 1]) : undefined;
+        const previousTopLayerDOMNode =
+            (i > 0) ? this.domModel.idToDOMNode.get(newTopLayerElementsIDs[i - 1]) : undefined;
         if (previousTopLayerDOMNode && previousTopLayerDOMNode.nodeName() === '::backdrop') {
           const backdropElementShortcut = new SDK.DOMModel.DOMNodeShortcut(
-              domModel.target(), previousTopLayerDOMNode.backendNodeId(), 0, previousTopLayerDOMNode.nodeName());
+              this.domModel.target(), previousTopLayerDOMNode.backendNodeId(), 0, previousTopLayerDOMNode.nodeName());
           const backdropElementRepresentation = new ElementsTreeOutline.ShortcutTreeElement(backdropElementShortcut);
           topLayerElementRepresentation.appendChild(backdropElementRepresentation);
         }
       }
-    }
-
-    this.hidden = topLayerElementIndex <= 0;
-    if (!this.hidden && !this.#inserted) {
-      this.domContainer.appendChild(this);
-      this.#inserted = true;
     }
   }
 
