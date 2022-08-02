@@ -16,6 +16,142 @@
       "message": "Hi Kim! \n\nPlease have a look. I\u0027d say don\u0027t look too deeply into ObjectPropertiesSection and ScopeView. More changes are needed there anyways and this CL is already rather big. Some of required changes there include: Memory icon now appears in places where we (I presume) don\u0027t want it, like watch expressions and popover. Then, controller.openInspectorView accepts an address argument that never gets set by any callers.\n\nAlso, I think a couple of the methods in controller shouldn\u0027t really be public/static. I think those changes are better be left for other CLs. \n\nThank you!",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0969c8cb_b2de9784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "Thanks Michal! LGTM % comments",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca77ac3e_f797dc81",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "No need to check for `isPointerType` anymore, since you have an early exit. Same for the if case in ll. 294.",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d1ff96_fa2fa1fe",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this maybe just be:\n```\nif (isOneLevelPointer) {\n  return ..;\n} else {\n  return ..;\n}\n```\n?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae6bc39_3c11b920",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "nit: no need to check anymore whether the `callFrame` is undefined",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13a94310_748b60e4",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "I think the name can be a bit confusing: what does it mean to be the same highlight? Since I know the context I understand what you are hinting at, but if one doesn\u0027t know the code it can be misleading.\n\nMaybe something like: `pointToSameMemoryObject` or `highlightSameMemoryObject` or so?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79d0361_22bd8a0f",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "You can directly return your checks, i.e.\n`return highlightInfoA.type \u003d\u003d\u003d highlightInfoB.type \u0026\u0026 ..`",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4afb29f3_97a83269",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "I think the expressionName should only be a variable name, i.e. `myCar`",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e45d17_207c847d",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "Maybe extract the `object` variable and use deep equal on that instead of creating a new variable?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

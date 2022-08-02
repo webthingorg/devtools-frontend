@@ -193,6 +193,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf0ea94_df4f9c79",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T11:30:18Z",
+      "side": 1,
+      "message": "Ah, I see! Ok, thanks for the info!\n\nAs discussed offline -\u003e mention this in the follow up section since it\u0027s out of scope.",
+      "parentUuid": "72c0ea63_ef84f595",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "098a1a69_6fcae647",
