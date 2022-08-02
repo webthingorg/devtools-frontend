@@ -41,7 +41,7 @@ async function disableNetworkRequestBlocking() {
 }
 
 // Flakey in the beforeEach step on Mac bot.
-describe.skip('[crbug.com/1259120] Network request blocking panel', async () => {
+describe.only('Network request blocking panel', async () => {
   beforeEach(async () => {
     await navigateToNetworkRequestBlockingTab();
     for (let i = 0; i < 20; i++) {
