@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d70146bf_3c41abf5",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a13aca68_99e690fc",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca77ac3e_f797dc81",
@@ -82,6 +100,24 @@
       "writtenOn": "2022-08-02T11:30:18Z",
       "side": 1,
       "message": "No need to check for `isPointerType` anymore, since you have an early exit. Same for the if case in ll. 294.",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f911ce18_1dd81977",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca77ac3e_f797dc81",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +139,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33b7e2f_5c4b8070",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15784131_42eaa322",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23d1ff96_fa2fa1fe",
@@ -116,6 +170,24 @@
       "writtenOn": "2022-08-02T11:30:18Z",
       "side": 1,
       "message": "Shouldn\u0027t this maybe just be:\n```\nif (isOneLevelPointer) {\n  return ..;\n} else {\n  return ..;\n}\n```\n?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac85aa23_0f9a0874",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Yep, that\u0027s infinitely better!",
+      "parentUuid": "23d1ff96_fa2fa1fe",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +209,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01ac6e9c_1c68d4a3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae6bc39_3c11b920",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13a94310_748b60e4",
@@ -150,6 +240,24 @@
       "writtenOn": "2022-08-02T11:30:18Z",
       "side": 1,
       "message": "I think the name can be a bit confusing: what does it mean to be the same highlight? Since I know the context I understand what you are hinting at, but if one doesn\u0027t know the code it can be misleading.\n\nMaybe something like: `pointToSameMemoryObject` or `highlightSameMemoryObject` or so?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eed457e_bac36c80",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Thank you! That\u0027s definitely clearer.",
+      "parentUuid": "13a94310_748b60e4",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +279,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e71cae_ebda867d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c79d0361_22bd8a0f",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4afb29f3_97a83269",
@@ -188,6 +314,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf9aa9cf_48665245",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4afb29f3_97a83269",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01e45d17_207c847d",
@@ -201,6 +345,24 @@
       "writtenOn": "2022-08-02T11:30:18Z",
       "side": 1,
       "message": "Maybe extract the `object` variable and use deep equal on that instead of creating a new variable?",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a582c59c_1d959cff",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T12:37:26Z",
+      "side": 1,
+      "message": "Agree, seems less error prone + easier to modify",
+      "parentUuid": "01e45d17_207c847d",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
