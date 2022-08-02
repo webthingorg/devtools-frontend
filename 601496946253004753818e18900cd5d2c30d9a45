@@ -39,6 +39,30 @@
       },
       "revId": "601496946253004753818e18900cd5d2c30d9a45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a517b4c_229783ce",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-08-02T12:54:02Z",
+      "side": 1,
+      "message": "Yup!",
+      "parentUuid": "4ab32db9_88d470d0",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 79
+      },
+      "revId": "601496946253004753818e18900cd5d2c30d9a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
