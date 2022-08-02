@@ -47,6 +47,10 @@ const UIStrings = {
   */
   threadS: 'Thread {PH1}',
   /**
+  *@description Text shown when rendering the User Interactions track in the Performance panel
+  */
+  userInteractions: 'User Interactions',
+  /**
   *@description Title of a worker in the timeline flame chart of the Performance panel
   *@example {https://google.com} PH1
   */
@@ -362,7 +366,45 @@ export class TimelineModelImpl {
     this.processAsyncBrowserEvents(tracingModel);
     this.buildGPUEvents(tracingModel);
     this.buildLoadingEvents(tracingModel, layoutShiftEvents);
+    this.collectInteractionEvents(tracingModel);
     this.resetProcessingState();
+  }
+
+  private collectInteractionEvents(tracingModel: SDK.TracingModel.TracingModel): void {
+    const mainRendererThread = tracingModel.getThreadByName('Renderer', 'CrRendererMain');
+    if (!mainRendererThread) {
+      return;
+    }
+
+    const interactionEvents: SDK.TracingModel.AsyncEvent[] = [];
+
+    const track = this.ensureNamedTrack(TrackType.UserInteractions);
+    track.thread = mainRendererThread;
+    track.name = UIStrings.userInteractions;
+    track.forMainFrame = true;
+
+    for (const event of mainRendererThread.asyncEvents()) {
+      if (event.name !== 'EventTiming') {
+        continue;
+      }
+      type InteractionEventData = {
+        duration?: number, interactionId: number,
+      };
+      const data = event.args.data as InteractionEventData;
+      // Filter out:
+      // 1. events without a duration, or a duration of 0
+      // 2. events without an interactionId, or with an interactionId of 0,
+      //    which indicates that it's not a "top level" interaction event and
+      //    we can therefore ignore it. This can happen with "mousedown" for
+      //    example; an interaction ID is assigned to the "pointerdown" event
+      //    as it's the "first" event to be triggered when the user clicks,
+      //    but the browser doesn't attempt to assign IDs to all subsequent
+      //    events, as that's a hard heuristic to get right.
+      if (data.duration && data.duration > 0 && data.interactionId !== undefined && data.interactionId > 0) {
+        interactionEvents.push(event);
+      }
+    }
+    track.asyncEvents = interactionEvents;
   }
 
   private processGenericTrace(tracingModel: SDK.TracingModel.TracingModel): void {
@@ -1610,6 +1652,7 @@ export enum RecordType {
   TimeStamp = 'TimeStamp',
   ConsoleTime = 'ConsoleTime',
   UserTiming = 'UserTiming',
+  EventTiming = 'EventTiming',
 
   ResourceWillSendRequest = 'ResourceWillSendRequest',
   ResourceSendRequest = 'ResourceSendRequest',
@@ -1690,6 +1733,8 @@ export enum RecordType {
   Profile = 'Profile',
 
   AsyncTask = 'AsyncTask',
+
+  ResponsivenessUserInteractions = 'Responsiveness.Renderer.UserInteraction',
 }
 
 export namespace TimelineModelImpl {
@@ -1822,6 +1867,7 @@ export enum TrackType {
   GPU = 'GPU',
   Experience = 'Experience',
   Other = 'Other',
+  UserInteractions = 'UserInteractions',
 }
 
 const enum WorkletType {
