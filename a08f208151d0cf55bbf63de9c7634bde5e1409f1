@@ -316,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3214c48_561068db",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "The example helps a lot! Will re-evaluate on refresh then.",
+      "parentUuid": "dd66c5f8_242c10d7",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42848fae_be679c09",
@@ -452,6 +470,24 @@
       "side": 1,
       "message": "A great reminder of the single responsibility principle :) Thank you",
       "parentUuid": "2bcf78f5_52caad3c",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74c7a9f_6a087555",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27ebb2f5_af83701a",
       "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

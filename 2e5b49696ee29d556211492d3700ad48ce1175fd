@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f77b29e_aebd9880",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a931ebeb_640b5e09",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12b5e8dc_875686fc",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "Maybe type + address?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ae74d1_5d11decf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Depends on how we want to treat pointers. This (probably) reduces the likelihood of misleading the user.",
+      "parentUuid": "12b5e8dc_875686fc",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa3fabac_aa694ad5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "062ad6e5_3c32a6ee",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08fe32a3_99db2cf6",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "Maybe a before/after gif would be good to have here?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4403a563_e2dae217",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done. Should we switch to using something else than imgur?",
+      "parentUuid": "08fe32a3_99db2cf6",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72c0ea63_ef84f595",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Changed, but I think the reason for this ordering is to mimick how we pass other data around inside of ScopeChainSidebarPane / ObjectPropertiesSection. We may want to revisit this later and do more re-ordering/refactoring in these parts.\nAdditionally, we have the issue where the memory icon appears in parts of the UI where we (most likely) don\u0027t want it: watch expressions pane and text editor popover.",
+      "parentUuid": "f6333cda_8e3380ae",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "098a1a69_6fcae647",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
         "patchSetId": 4
@@ -116,6 +206,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "Didn\u0027t we want to check against the `outerMemoryLength` here?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc0cc0c_b4fbfca3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Ahh yes, the whole check is a little redundant now because of \nfront_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts::#getHighlightInfo() already doing these checks. Maybe remove one of these all together?",
+      "parentUuid": "098a1a69_6fcae647",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dce6ae3_6b6243d0",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "```\nexport type EvaluationResult \u003d {\n  object: RemoteObject,\n  exceptionDetails?: Protocol.Runtime.ExceptionDetails,\n}|{\n  error: string,\n};\n```\n\nI thought that exceptionDetails and error are two independent ways to communicate errors.\n\nYea, I think some funny business can happen in which case we get both some object back and exceptionDetails. \n\nThis can be seen when looking at DebuggerLanguagePlugins.ts::evaluateOnCallFrame().",
+      "parentUuid": "8aaf5b70_77486440",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c4873a9_78f059fb",
@@ -150,6 +276,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "Hmmm, so do you want to reflect the actual type that we\u0027re showing here, or the type of the object? The type of the data that we\u0027re showing is not necessarily the type of the object, correct (i.e. we show the pointed to data if it\u0027s a pointer).",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d83dec1_1962c3d7",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Yea, I think I\u0027ll modify this s.t. the type and size correspond together. This way whoever reads the code has .retrieveObjectSize() nearby to get more context for this decision.",
+      "parentUuid": "6c4873a9_78f059fb",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +315,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9e2955_3ab4ef80",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea43a567_781330d6",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07c59825_0b816dd7",
@@ -184,6 +346,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "If it\u0027s undefined, maybe reset the highlight info?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf0a80f_44c55949",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07c59825_0b816dd7",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -205,6 +385,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f1540d_2ac4787a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Yes, this was redundant at this point, good catch!",
+      "parentUuid": "03190e06_b5360dbf",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20788728_9c3aa3f9",
@@ -218,6 +416,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "`if (!oldHighlightInfo||!expressionName|..` (taking out possibility of `callFrame` being undefined too)",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c221a5c_69213dba",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20788728_9c3aa3f9",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -239,6 +455,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaca0e12_f73e2d13",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d37ca31_85928195",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed2c83da_a7ba01a0",
@@ -252,6 +486,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "Same here: `if(!newHighlightInfo..)`\n\nSome context: if 0 is a valid value, you want to use the comparison against undefined (`value !\u003d\u003d\u003d undefined`), but if 0 is not a valid value, you can just use  `value`.",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16585fda_5e506a86",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "I see, that makes sense.",
+      "parentUuid": "ed2c83da_a7ba01a0",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -273,6 +525,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b76903e_7f77a352",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryViewerUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b96b9dc_83a89e0b",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e7247c6_c608dd9b",
@@ -286,6 +556,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "For clarification: is this the name?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653383a7_b2e0171e",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Yes, there\u0027s an existing getter for this. Unfortunate naming imo.",
+      "parentUuid": "8e7247c6_c608dd9b",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -307,6 +595,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "362dbe23_b863cca1",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b67cacfa_46bf8a7d",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6e79cc8_40f99bf0",
@@ -324,6 +630,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98a3fefc_f35845d8",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6e79cc8_40f99bf0",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "173ed3ba_0a79ef00",
@@ -337,6 +661,24 @@
       "writtenOn": "2022-07-28T10:01:22Z",
       "side": 1,
       "message": "I think this should be \u0027when no exception happens\u0027?",
+      "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c769d102_81579b7d",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "173ed3ba_0a79ef00",
       "revId": "2e5b49696ee29d556211492d3700ad48ce1175fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

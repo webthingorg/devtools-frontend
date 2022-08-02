@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a1e101_502ef8d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-02T08:13:40Z",
+      "side": 1,
+      "message": "Hi Kim! \n\nPlease have a look. I\u0027d say don\u0027t look too deeply into ObjectPropertiesSection and ScopeView. More changes are needed there anyways and this CL is already rather big. Some of required changes there include: Memory icon now appears in places where we (I presume) don\u0027t want it, like watch expressions and popover. Then, controller.openInspectorView accepts an address argument that never gets set by any callers.\n\nAlso, I think a couple of the methods in controller shouldn\u0027t really be public/static. I think those changes are better be left for other CLs. \n\nThank you!",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
