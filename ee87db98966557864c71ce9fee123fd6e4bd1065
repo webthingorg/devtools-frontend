@@ -16,6 +16,52 @@
       "message": "Danil\u003e PTAL\n\nPeter\u003e PTAL at the screenshots. I\u0027ve taken the yellow color from the existing component. Dark theme contrast seems pretty bad (it\u0027s even worse in the existing panel where the bold text is light grey), anything I should change? And should the color be added to the overall theme colours or kept locally for this single use only?",
       "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0c475d_0c192ef3",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-02T11:12:08Z",
+      "side": 1,
+      "message": "Can we have a test for this behavior too?",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 62
+      },
+      "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a079bf6a_a73725ed",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-02T11:12:08Z",
+      "side": 1,
+      "message": "Maybe a couple of more headers to check the the right one was highlighted?",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 75
+      },
+      "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
