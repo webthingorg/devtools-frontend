@@ -311,7 +311,12 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   }
 
   revealHeader(section: NetworkForward.UIRequestLocation.UIHeaderSection, header: string|undefined): void {
-    this.selectTabInternal(NetworkForward.UIRequestLocation.UIRequestTabs.Headers);
-    this.headersView.revealHeader(section, header);
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
+      this.selectTabInternal(NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent);
+      this.headersViewComponent.revealHeader(section, header);
+    } else {
+      this.selectTabInternal(NetworkForward.UIRequestLocation.UIRequestTabs.Headers);
+      this.headersView.revealHeader(section, header);
+    }
   }
 }
