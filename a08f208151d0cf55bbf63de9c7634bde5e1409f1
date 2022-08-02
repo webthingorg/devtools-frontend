@@ -245,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b7c5035_1851ad90",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T12:13:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6273d3b2_bc0a032a",
+      "revId": "a08f208151d0cf55bbf63de9c7634bde5e1409f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "407894e3_b1910f18",

@@ -35,6 +35,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91cfce1_2d7919b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T12:13:42Z",
+      "side": 1,
+      "message": "Two more nits!",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a13aca68_99e690fc",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T12:13:42Z",
+      "side": 1,
+      "message": "Maybe rename to `extractObjectTypeDescription` since a string is returned",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca77ac3e_f797dc81",
@@ -48,6 +82,23 @@
       "writtenOn": "2022-08-02T11:30:18Z",
       "side": 1,
       "message": "No need to check for `isPointerType` anymore, since you have an early exit. Same for the if case in ll. 294.",
+      "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15784131_42eaa322",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-02T12:13:42Z",
+      "side": 1,
+      "message": "nit: `E.g. int * or int \u0026.` (the dot, and capital E), same below.",
       "revId": "93ac473313c3fcb1c4ade8ee8a28e08311c4cc50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
