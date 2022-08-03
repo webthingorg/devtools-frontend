@@ -1498,6 +1498,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   private handleGutterClick(line: CodeMirror.Line, event: MouseEvent): boolean {
+    console.error(`handleGutterClick(${line.from})`);
     if (this.muted || event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey) {
       return false;
     }
