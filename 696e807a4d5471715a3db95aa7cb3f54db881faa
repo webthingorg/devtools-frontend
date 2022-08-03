@@ -16,6 +16,23 @@
       "message": "Thank you for the suggested comment improvement. ",
       "revId": "696e807a4d5471715a3db95aa7cb3f54db881faa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2264343_4ac91006",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-03T07:49:06Z",
+      "side": 1,
+      "message": "Still LGTM",
+      "revId": "696e807a4d5471715a3db95aa7cb3f54db881faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

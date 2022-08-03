@@ -86,6 +86,24 @@
       "parentUuid": "0cb879f8_396193e4",
       "revId": "4c73db2eae47d6e0132e8081882af9fc9b3060f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2cd0ac_a1e6ecf6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-03T07:49:06Z",
+      "side": 1,
+      "message": "It\u0027s on a case to case basis, but if in doubt, add more content to your comment. We generally do not have enough comments in our codebase, and we\u0027re trying to change that :).",
+      "parentUuid": "3ac5b9de_0c8761f1",
+      "revId": "4c73db2eae47d6e0132e8081882af9fc9b3060f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
