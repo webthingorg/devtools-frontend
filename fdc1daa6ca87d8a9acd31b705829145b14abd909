@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1543d7_1d515e2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-08-03T14:40:02Z",
+      "side": 1,
+      "message": "https://media4.giphy.com/media/NiOPyn6a7tV3q/giphy.gif?cid\u003d790b76119d4d59f750d3fb3c584da099d88f8b776e028296\u0026rid\u003dgiphy.gif\u0026ct\u003dg",
+      "revId": "fdc1daa6ca87d8a9acd31b705829145b14abd909",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
