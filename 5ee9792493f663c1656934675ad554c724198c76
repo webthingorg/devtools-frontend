@@ -16,6 +16,23 @@
       "message": "PTAL. Looks like the test failures were real as the new filter broke the command search, which was using \\0s to segment its search key. I\u0027ve updated the regex to search from the beginning or after a \\0, which keeps it fast while preserving the behavior with strings using embedded nulls.",
       "revId": "5ee9792493f663c1656934675ad554c724198c76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653b30b3_5673590f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-03T13:39:00Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5ee9792493f663c1656934675ad554c724198c76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
