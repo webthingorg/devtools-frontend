@@ -34,6 +34,24 @@
       "parentUuid": "c69e7929_40d75652",
       "revId": "65cb7b4fed268a419f048067d174a97d7388a104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e0c9d5_9511d5a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-03T16:02:12Z",
+      "side": 1,
+      "message": "Let\u0027s discuss this tomorrow to see how to add tests to important bits in the Elements panel. I feel like they are severely undertested, but in the mean time it\u0027s not easy to stub everything..",
+      "parentUuid": "ffe1d471_38d97df4",
+      "revId": "65cb7b4fed268a419f048067d174a97d7388a104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
