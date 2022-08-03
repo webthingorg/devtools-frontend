@@ -236,10 +236,10 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
 export async function removeBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
   await navigateToLine(frontend, index);
   const breakpointLine = await getLineNumberElement(index);
-  assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
+  assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => await isBreakpointSet(index));
-  await breakpointLine?.click();
+  await click(breakpointLine);
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
