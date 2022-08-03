@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0ce983_349bd85e",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-03T08:03:32Z",
+      "side": 1,
+      "message": "Added tests.",
+      "parentUuid": "ba0c475d_0c192ef3",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 62
+      },
+      "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a079bf6a_a73725ed",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-02T11:12:08Z",
       "side": 1,
       "message": "Maybe a couple of more headers to check the the right one was highlighted?",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 75
+      },
+      "revId": "ee87db98966557864c71ce9fee123fd6e4bd1065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e643b0dd_4f66695d",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-03T08:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a079bf6a_a73725ed",
       "range": {
         "startLine": 369,
         "startChar": 0,
