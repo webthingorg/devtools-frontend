@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0593f2b7_1b9d4cb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-03T15:55:26Z",
+      "side": 1,
+      "message": "Could you please add `Bug: 1178508` before line 9?",
+      "revId": "d0f37572d43c43424558ce7ab1d26770d5c2cfa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "05f6d2eb_92ece9dc",
@@ -14,6 +31,23 @@
       "writtenOn": "2022-08-03T15:29:23Z",
       "side": 1,
       "message": "Tried to shorten a bit and simplified sentence structure to get rid of commas. PTAL",
+      "revId": "d0f37572d43c43424558ce7ab1d26770d5c2cfa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc4297f_3bf0540c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-03T15:55:26Z",
+      "side": 1,
+      "message": "LGTM thanks!",
       "revId": "d0f37572d43c43424558ce7ab1d26770d5c2cfa7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
