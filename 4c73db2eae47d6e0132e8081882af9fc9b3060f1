@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed1dd1df_a1706356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-03T05:23:40Z",
+      "side": 1,
+      "message": "LGTM % nit. Thanks!",
+      "revId": "4c73db2eae47d6e0132e8081882af9fc9b3060f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2b80067_18cd289e",
@@ -31,6 +48,24 @@
       "writtenOn": "2022-08-02T13:21:42Z",
       "side": 1,
       "message": "nit: which / that is missing in the sentence\n\nnit for second sentence: \n```\nFor pointers, we highlight the pointed to object.\n\nExample: The variable `x` has type `int*`. Assume that `x` points to the value 3.\n-\u003e The memory inspector will jump to the \n-\u003e The memory inspector will then show the content of the integer directly, i.e. 3",
+      "revId": "4c73db2eae47d6e0132e8081882af9fc9b3060f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb879f8_396193e4",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-03T05:23:40Z",
+      "side": 1,
+      "message": "Oops, this was supposed to be a draft, not sure how I sent this out. Let me rephrase:\n\n1. nit: which / that is missing in the sentence\n2. I don\u0027t think that the second sentence is clear, maybe add a longer explanation, e.g.:\n\n```\nFor pointers, we highlight the pointed to object.\n\nExample: The variable `x` has type `int *`. Assume that `x` points to the value 3.\n-\u003e The memory inspector will jump to the address where 3 is stored\n-\u003e The memory inspector will highlight the bytes that represent the 3\n-\u003e The object type description of what we show will thus be `int` and not `int *`\n```",
+      "parentUuid": "d2b80067_18cd289e",
       "revId": "4c73db2eae47d6e0132e8081882af9fc9b3060f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
