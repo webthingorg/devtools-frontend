@@ -16,6 +16,24 @@
       "message": "LGTM\n\nThough I wonder if we can add any tests for this change, wdyt?",
       "revId": "65cb7b4fed268a419f048067d174a97d7388a104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe1d471_38d97df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-03T14:42:34Z",
+      "side": 1,
+      "message": "Test looks good to me! AFAIU our coverage for this panel is not great so it might be cool to think about increasing it in the future. WDYT?\n\nFor this change, I think it would have been good to have a test that tests: adding top layer elements for the iframes work.\n\nThough it seems like it is quite cumbersome to add tests for this panel and this probably doesn\u0027t worth the effort. Sooo, I think we can submit this CL and move on for now and we can discuss our overall testing strategy in the meantime.",
+      "parentUuid": "c69e7929_40d75652",
+      "revId": "65cb7b4fed268a419f048067d174a97d7388a104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
