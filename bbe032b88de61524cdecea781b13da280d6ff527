@@ -16,6 +16,24 @@
       "message": "This is totally unrelated to your patch but… this feels more complicated than just hardcoding the regular expression literal. Unless we need `SPECIAL_REGEX_CHARACTERS` elsewhere we might at some point wanna just do that instead.",
       "revId": "bbe032b88de61524cdecea781b13da280d6ff527",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70fe0f7c_8d3188ae",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-03T07:08:21Z",
+      "side": 0,
+      "message": "\u003e This is totally unrelated to your patch but… this feels more complicated than just hardcoding the regular expression literal. Unless we need `SPECIAL_REGEX_CHARACTERS` elsewhere we might at some point wanna just do that instead.\n\nNever mind, I misread. This is creating a dedicated regular expression for the given query input.",
+      "parentUuid": "b35985c3_4a60b4a1",
+      "revId": "bbe032b88de61524cdecea781b13da280d6ff527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
