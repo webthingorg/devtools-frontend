@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f6d2eb_92ece9dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-08-03T15:29:23Z",
+      "side": 1,
+      "message": "Tried to shorten a bit and simplified sentence structure to get rid of commas. PTAL",
+      "revId": "d0f37572d43c43424558ce7ab1d26770d5c2cfa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
