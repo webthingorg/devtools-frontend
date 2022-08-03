@@ -271,7 +271,7 @@ describe('Sources Tab', async function() {
   });
 
   // TODO(crbug.com/1349297) Disabled because of time out flakes.
-  it.skip('[crbug.com/1349297] is able to step with state in multi-threaded code in main thread', async () => {
+  it.only('[crbug.com/1349297] is able to step with state in multi-threaded code in main thread', async () => {
     const {target, frontend} = getBrowserAndPages();
     const fileName = 'stepping-with-state.wasm';
     await step('navigate to a page and open the Sources tab', async () => {
