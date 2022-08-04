@@ -14,6 +14,7 @@ function createSelectorsForFile(domainName: string, folderName: string, fileName
   const fileSelector = `${folderSelector} + ol > [aria-label="${fileName}, file"]`;
 
   return {
+    fileName,
     rootSelector,
     domainSelector,
     folderSelector,
