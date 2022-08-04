@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nI\u0027m adding a new sidebar pane as described in the design doc. Its use is gated behind an experiment. For now, it only renders one line of text (as the current one does if no breakpoints are set). PTAL!",
       "revId": "377d4eba23018c28c0559869bf8c538f5316f255",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a94267_f1a4b8a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-04T12:58:55Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m adding a new BreakpointsSidebarPane as discussed in the doc. This is\na placeholder at the moment and will only show \u0027No breakpoints\u0027. It is gated\nbehind an experiment. PTAL!",
+      "revId": "377d4eba23018c28c0559869bf8c538f5316f255",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
