@@ -68,6 +68,24 @@
       "parentUuid": "bb4308fd_9ea31f1b",
       "revId": "5a72e5bbae652eb28f659d8231e64b1bd8eccbfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6dad7a8_fb6d14d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-08-04T08:31:04Z",
+      "side": 1,
+      "message": "I dont think I have permission, I am NOT googler.\n\nHow should I do ? or I should assign who ?\n\nthanks in advance",
+      "parentUuid": "d6a3980a_6b93d2d8",
+      "revId": "5a72e5bbae652eb28f659d8231e64b1bd8eccbfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
