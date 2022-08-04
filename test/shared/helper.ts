@@ -68,6 +68,7 @@ export const getElementPosition =
     const {left, top, width, height} = element.getBoundingClientRect();
     return {left, top, width, height, isConnected};
   });
+  console.error(JSON.stringify(rectData));
   if (!rectData.isConnected) {
     throw new Error('Element is no longer attached to the dom');
   }
