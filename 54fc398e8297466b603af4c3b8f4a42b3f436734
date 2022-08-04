@@ -86,6 +86,23 @@
       "message": "I am a little worried... I have a test failure (and an unexpected pass) even without applying my changes...\nAny advice here? I would not want to go on a goose chase...\n\nFailure difference -\n--- http/tests/devtools/elements/styles-3/styles-disable-inherited-expected.txt\n+++ http/tests/devtools/elements/styles-3/styles-disable-inherited-actual.txt\n@@ -21,4 +21,9 @@\n div { (user agent stylesheet)\n     display: block;\n \n+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d Inherited from div#container \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n+[expanded] \n+style attribute { ()\n+    font-weight: bold;\n \n+",
       "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63cc8034_732f5e55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1104195
+      },
+      "writtenOn": "2022-08-04T23:05:59Z",
+      "side": 1,
+      "message": "Here it is with proper formatting...\n\n```\n--- C:\\Projects\\chromium\\src\\out\\Default\\layout-test-results\\http/tests/devtools/elements/styles-3/styles-disable-inherited-expected.txt\n+++ C:\\Projects\\chromium\\src\\out\\Default\\layout-test-results\\http/tests/devtools/elements/styles-3/styles-disable-inherited-actual.txt\n@@ -21,4 +21,9 @@\n div { (user agent stylesheet)\n     display: block;\n \n+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d Inherited from div#container \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n+[expanded] \n+style attribute { ()\n+    font-weight: bold;\n \n+\n```",
+      "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
