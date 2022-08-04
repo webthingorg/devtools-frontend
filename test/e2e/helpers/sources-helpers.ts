@@ -26,6 +26,8 @@ import {
   timeout,
   typeText,
   waitFor,
+  waitForAria,
+  waitForAriaNone,
   waitForFunction,
 } from '../../shared/helper.js';
 
@@ -55,8 +57,10 @@ export async function navigateToLine(frontend: puppeteer.Page, lineNumber: numbe
   await frontend.keyboard.down('Control');
   await frontend.keyboard.press('KeyG');
   await frontend.keyboard.up('Control');
-  await frontend.keyboard.type(`${lineNumber}`);
-  await frontend.keyboard.press('Enter');
+  const input = await waitForAria('Quick open prompt');
+  await input.type(`${lineNumber}`);
+  await input.press('Enter');
+  await waitForAriaNone('Quick open');
 
   const source = await getSelectedSource();
   await waitForSourceLoadedEvent(frontend, source);
@@ -236,10 +240,10 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
 export async function removeBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
   await navigateToLine(frontend, index);
   const breakpointLine = await getLineNumberElement(index);
-  assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
+  assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => await isBreakpointSet(index));
-  await breakpointLine?.click();
+  await click(breakpointLine);
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
