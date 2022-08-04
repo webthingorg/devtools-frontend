@@ -264,6 +264,8 @@ export class DebuggerPlugin extends Plugin {
     // system.
     const handlers = this.shortcutHandlers();
 
+    console.error('wireup');
+
     return [
       CodeMirror.EditorView.updateListener.of(update => this.onEditorUpdate(update)),
       CodeMirror.EditorView.domEventHandlers({
@@ -1498,6 +1500,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   private handleGutterClick(line: CodeMirror.Line, event: MouseEvent): boolean {
+    console.error(`handleGutterClick(${line.from})`);
     if (this.muted || event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey) {
       return false;
     }
