@@ -33,6 +33,24 @@
       "message": "I\u0027m not a huge fan of the current e2e issues tests. If these deprecations are covered on the backend side by inspector-protocol tests than I\u0027m good.",
       "revId": "b283bc223ea9de535c7789477b47fc281bf5d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd48eb87_407f4af4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115930
+      },
+      "writtenOn": "2022-08-04T20:05:58Z",
+      "side": 1,
+      "message": "I\u0027d missed that step, but they\u0027re landed now (https://chromium-review.googlesource.com/c/chromium/src/+/3806061). Thanks for the reminder :)",
+      "parentUuid": "6623d650_6756dd0e",
+      "revId": "b283bc223ea9de535c7789477b47fc281bf5d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
