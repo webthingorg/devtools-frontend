@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c64f99ee_1af2c5a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-05T18:02:25Z",
+      "side": 1,
+      "message": "One technical question: I didn\u0027t really see a way to have the equivalent of VirtualTestSuites (run tests with specific Chrome flags) in devtools tests, does that exist? I know there\u0027s a command line option for manual testing.\n\nRowan, as mentioned I\u0027d love to get your help in polishing the developer messaging here. Happy to change things based on your feedback. Thanks!",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
