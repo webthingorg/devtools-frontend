@@ -5,18 +5,24 @@
 import {assert} from 'chai';
 import {type Chrome} from '../../../extension-api/ExtensionAPI.js';
 import {loadExtension} from '../helpers/extension-helpers.js';
-import {waitForHighlightedLine, getToolbarText} from '../helpers/sources-helpers.js';
+import {
+  waitForHighlightedLine,
+  getToolbarText,
+  awaitSourceFileEvent,
+  SourceFileEvents,
+} from '../helpers/sources-helpers.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getBrowserAndPages, getResourcesPath} from '../../shared/helper.js';
 
 describe('The Extension API', async () => {
-  it('can open wasm resources with offset', async () => {
+  it.only('can open wasm resources with offset', async () => {
     const {target} = getBrowserAndPages();
-    await target.goto(`${getResourcesPath()}/sources/wasm/scopes.html`);
+    const resource = `${getResourcesPath()}/sources/wasm/scopes.wasm`;
+    await awaitSourceFileEvent(
+        SourceFileEvents.AddedToSourceTree, {filename: resource},
+        () => target.goto(`${getResourcesPath()}/sources/wasm/scopes.html`));
 
     const extension = await loadExtension('TestExtension');
-
-    const resource = `${getResourcesPath()}/sources/wasm/scopes.wasm`;
 
     await extension.waitForFunction(async (resource: string) => {
       const resources =
