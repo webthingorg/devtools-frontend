@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83473741_d4885dec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-08-05T13:09:13Z",
+      "side": 1,
+      "message": "Lately I\u0027ve found the screenshot links in the logs seem to produce truncated images if they work at all, so I decided it was time to revive this proposal.",
+      "revId": "ea3ab33cc41fe852fb48e91faaab0adacf318503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
