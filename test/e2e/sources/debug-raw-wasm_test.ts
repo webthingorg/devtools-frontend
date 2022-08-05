@@ -8,6 +8,7 @@ import type * as puppeteer from 'puppeteer';
 import {
   $,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   installEventListener,
@@ -51,7 +52,7 @@ describe('Sources Tab', async function() {
 
   beforeEach(async () => {
     const {frontend} = getBrowserAndPages();
-    installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
+    await installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
   });
 
   it('shows the correct wasm source on load and reload', async () => {
@@ -270,9 +271,10 @@ describe('Sources Tab', async function() {
     await checkBreakpointDidNotActivate();
   });
 
-  // TODO(crbug.com/1349297) Disabled because of time out flakes.
-  it.skip('[crbug.com/1349297] is able to step with state in multi-threaded code in main thread', async () => {
+  it('is able to step with state in multi-threaded code in main thread', async () => {
+    await enableExperiment('instrumentationBreakpoints');
     const {target, frontend} = getBrowserAndPages();
+    await installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
     const fileName = 'stepping-with-state.wasm';
     await step('navigate to a page and open the Sources tab', async () => {
       await openSourceCodeEditorForFile('stepping-with-state.wasm', 'wasm/stepping-with-state-and-threads.html');
@@ -382,116 +384,114 @@ describe('Sources Tab', async function() {
     await checkBreakpointDidNotActivate();
   });
 
-  // Flaky test
-  it.skip(
-      '[crbug.com/1321898]: is able to step with state in multi-threaded code in worker thread', async () => {
-        const {target, frontend} = getBrowserAndPages();
-        const fileName = 'stepping-with-state.wasm';
+  it('is able to step with state in multi-threaded code in worker thread', async () => {
+    await enableExperiment('instrumentationBreakpoints');
+    const {target, frontend} = getBrowserAndPages();
+    await installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
+    const fileName = 'stepping-with-state.wasm';
 
-        await step('navigate to a page and open the Sources tab', async () => {
-          await openSourceCodeEditorForFile(fileName, 'wasm/stepping-with-state-and-threads.html');
-        });
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile(fileName, 'wasm/stepping-with-state-and-threads.html');
+    });
 
-        await step('check that the main thread is selected', async () => {
-          const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
-          const selectedThreadName = await selectedThreadElement.evaluate(element => {
-            return (element as HTMLElement).innerText;
-          });
-          assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
-        });
-
-        await step('add a breakpoint to line No.0x06d', async () => {
-          await addBreakpointForLine(frontend, '0x06d');
-        });
-
-        await step('reload the page', async () => {
-          await reloadPageAndWaitForSourceFile(frontend, target, fileName);
-        });
-
-        await waitForFunction(async () => await isBreakpointSet('0x06d'));
-
-        await step('check that the code has paused on the breakpoint at the correct script location', async () => {
-          const scriptLocation = await retrieveTopCallFrameWithoutResuming();
-          assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x6d');
-        });
-
-        await step('check that the worker thread is selected', async () => {
-          const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
-          const selectedThreadName = await selectedThreadElement.evaluate(element => {
-            return (element as HTMLElement).innerText;
-          });
-          assert.strictEqual(
-              selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
-        });
-
-        await step('step two times through the code', async () => {
-          await stepThroughTheCode();
-          await stepThroughTheCode();
-        });
-
-        await step('check that the variables in the scope view show the correct values', async () => {
-          const localScopeValues = await getValuesForScope('Local', 0, 1);
-          assert.deepEqual(localScopeValues, [
-            '$var0: i32 {value: 42}',
-            '$var1: i32 {value: 6}',
-            '$var2: i32 {value: 5}',
-          ]);
-        });
-
-        await step('remove the breakpoint from line 0x06d', async () => {
-          await removeBreakpointForLine(frontend, '0x06d');
-        });
-
-        await step('add a breakpoint to line No.0x050', async () => {
-          await addBreakpointForLine(frontend, '0x050');
-        });
-
-        await step('reload the page', async () => {
-          await reloadPageAndWaitForSourceFile(frontend, target, fileName);
-        });
-
-        await waitForFunction(async () => await isBreakpointSet('0x050'));
-
-        await step('check that the code has paused on the breakpoint at the correct script location', async () => {
-          const scriptLocation = await retrieveTopCallFrameWithoutResuming();
-          assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x50');
-        });
-
-        await step('check that the worker thread is selected', async () => {
-          const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
-          const selectedThreadName = await selectedThreadElement.evaluate(element => {
-            return (element as HTMLElement).innerText;
-          });
-          assert.strictEqual(
-              selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
-        });
-
-        await step('step two times through the code', async () => {
-          await stepThroughTheCode();
-          await stepThroughTheCode();
-        });
-
-        await step('check that the variables in the scope view show the correct values', async () => {
-          const localScopeValues = await getValuesForScope('Local', 0, 1);
-          assert.deepEqual(localScopeValues, [
-            '$var0: i32 {value: 42}',
-            '$var1: i32 {value: 6}',
-          ]);
-        });
-
-        await step('resume script execution', async () => {
-          await frontend.keyboard.press('F8');
-          await waitFor(TURNED_OFF_PAUSE_BUTTON_SELECTOR);
-        });
-
-        await checkBreakpointDidNotActivate();
+    await step('check that the main thread is selected', async () => {
+      const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
+      const selectedThreadName = await selectedThreadElement.evaluate(element => {
+        return (element as HTMLElement).innerText;
       });
+      assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
+    });
+
+    await step('add a breakpoint to line No.0x06d', async () => {
+      await addBreakpointForLine(frontend, '0x06d');
+    });
+
+    await step('reload the page', async () => {
+      await reloadPageAndWaitForSourceFile(frontend, target, fileName);
+    });
+
+    await waitForFunction(async () => await isBreakpointSet('0x06d'));
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x6d');
+    });
+
+    await step('check that the worker thread is selected', async () => {
+      const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
+      const selectedThreadName = await selectedThreadElement.evaluate(element => {
+        return (element as HTMLElement).innerText;
+      });
+      assert.strictEqual(
+          selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
+    });
+
+    await step('step two times through the code', async () => {
+      await stepThroughTheCode();
+      await stepThroughTheCode();
+    });
+
+    await step('check that the variables in the scope view show the correct values', async () => {
+      const localScopeValues = await getValuesForScope('Local', 0, 1);
+      assert.deepEqual(localScopeValues, [
+        '$var0: i32 {value: 42}',
+        '$var1: i32 {value: 6}',
+        '$var2: i32 {value: 5}',
+      ]);
+    });
+
+    await step('remove the breakpoint from line 0x06d', async () => {
+      await removeBreakpointForLine(frontend, '0x06d');
+    });
+
+    await step('add a breakpoint to line No.0x050', async () => {
+      await addBreakpointForLine(frontend, '0x050');
+    });
+
+    await step('reload the page', async () => {
+      await reloadPageAndWaitForSourceFile(frontend, target, fileName);
+    });
+
+    await waitForFunction(async () => await isBreakpointSet('0x050'));
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x50');
+    });
+
+    await step('check that the worker thread is selected', async () => {
+      const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
+      const selectedThreadName = await selectedThreadElement.evaluate(element => {
+        return (element as HTMLElement).innerText;
+      });
+      assert.strictEqual(
+          selectedThreadName, 'worker-stepping-with-state-and-threads.js', 'the worker thread is not active');
+    });
+
+    await step('step two times through the code', async () => {
+      await stepThroughTheCode();
+      await stepThroughTheCode();
+    });
+
+    await step('check that the variables in the scope view show the correct values', async () => {
+      const localScopeValues = await getValuesForScope('Local', 0, 1);
+      assert.deepEqual(localScopeValues, [
+        '$var0: i32 {value: 42}',
+        '$var1: i32 {value: 6}',
+      ]);
+    });
+
+    await step('resume script execution', async () => {
+      await frontend.keyboard.press('F8');
+      await waitFor(TURNED_OFF_PAUSE_BUTTON_SELECTOR);
+    });
+
+    await checkBreakpointDidNotActivate();
+  });
 });
 
 describe('Raw-Wasm', async () => {
-  // TODO(crbug.com/1349290) The test flakily fails with the "Element is no longer attached to the dom"
-  // error.
-  it.skip('[crbug.com/1349290] displays correct location in Wasm source', async () => {
+  it('displays correct location in Wasm source', async () => {
     const {target} = getBrowserAndPages();
 
     // Have the target load the page.
