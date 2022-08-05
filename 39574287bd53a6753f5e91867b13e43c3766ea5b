@@ -16,6 +16,23 @@
       "message": "I\u0027m having trouble accessing my Chromium account so I have added an LGTM from my internal account, which I don\u0027t know if suffices to submit this.\n\n...\n\nIn the future, should we also add the timings of each interaction event (input delay, duration, etc.)?",
       "revId": "39574287bd53a6753f5e91867b13e43c3766ea5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68495cac_eba62e64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-08-05T05:21:27Z",
+      "side": 1,
+      "message": "Got my account back",
+      "revId": "39574287bd53a6753f5e91867b13e43c3766ea5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
