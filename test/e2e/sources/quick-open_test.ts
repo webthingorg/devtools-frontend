@@ -6,12 +6,12 @@ import {assert} from 'chai';
 
 import {
   $$,
-  click,
   enableExperiment,
   goToResource,
   waitFor,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
+import {openFileQuickOpen} from '../helpers/quick_open-helpers.js';
 import {setIgnoreListPattern} from '../helpers/settings-helpers.js';
 import {
   openSourcesPanel,
@@ -21,8 +21,7 @@ describe('Source Panel Quick Open', async () => {
   const targetPage = 'sources/multi-workers-sourcemap.html';
 
   async function typeIntoQuickOpen(query: string, expectEmptyResults?: boolean) {
-    await click('[aria-label="More options"]');
-    await click('[aria-label^="Open file, Ctrl"]');
+    await openFileQuickOpen();
     const prompt = await waitFor('[aria-label="Quick open prompt"]');
     await prompt.type(query);
     if (expectEmptyResults) {
@@ -40,8 +39,7 @@ describe('Source Panel Quick Open', async () => {
     return await Promise.all(items.map(element => element.evaluate(el => el.textContent as string)));
   }
 
-  // Flaky on Mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1337781] sorts authored above deployed', async () => {
+  it('sorts authored above deployed', async () => {
     await goToResource(targetPage);
     await openSourcesPanel();
 
@@ -50,8 +48,7 @@ describe('Source Panel Quick Open', async () => {
     assert.deepEqual(list, ['multi-workers.js', 'multi-workers.min.js', 'multi-workers-sourcemap.html']);
   });
 
-  // Flaky on Mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1350083] Does not list ignore-listed files', async () => {
+  it('Does not list ignore-listed files', async () => {
     await enableExperiment('justMyCode');
     await setIgnoreListPattern('workers.js');
     await goToResource(targetPage);

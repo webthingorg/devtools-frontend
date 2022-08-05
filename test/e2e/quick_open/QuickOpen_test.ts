@@ -30,8 +30,7 @@ async function openAFileWithQuickMenu() {
 }
 
 describe('Quick Open menu', () => {
-  // Flaky on mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1342142] lists available files', async () => {
+  it('lists available files', async () => {
     await goToResource('pages/hello-world.html');
     await openFileQuickOpen();
     const firstItemTitle = await getMenuItemTitleAtPosition(0);
