@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6a770e_231564b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-07T17:02:58Z",
+      "side": 1,
+      "message": "Hi Kim!\n\nI\u0027m adding a chip list component that displays chips when a user inspects an expression when using the C/C++ DWARF extension. A chip lets the user jump to the highlighted area and to remove the highlight.\n\nPTAL!",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
