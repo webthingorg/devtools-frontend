@@ -1,0 +1,113 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import * as LinearMemoryInspector from '../../../../../../front_end/ui/components/linear_memory_inspector/linear_memory_inspector.js';
+import {
+  assertElement,
+  assertShadowRoot,
+  getElementWithinComponent,
+  getEventPromise,
+  renderElementIntoDOM,
+} from '../../../helpers/DOMHelpers.js';
+import {describeWithLocale} from '../../../helpers/EnvironmentHelpers.js';
+
+const {assert} = chai;
+
+export const HIGHLIGHT_CHIP = '.highlight-chip';
+export const HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR = '.jump-to-highlight-button';
+export const HIGHLIGHT_PILL_VARIABLE_NAME = HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR + ' .value';
+export const HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR = '.remove-highlight-button';
+
+describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
+  let component: LinearMemoryInspector.LinearMemoryHighlightChipList.LinearMemoryHighlightChipList;
+
+  beforeEach(renderHighlightRow);
+
+  function renderHighlightRow() {
+    component = new LinearMemoryInspector.LinearMemoryHighlightChipList.LinearMemoryHighlightChipList();
+    renderElementIntoDOM(component);
+
+    component.data = {
+      highlightInfos: [
+        {
+          startAddress: 10,
+          size: 8,
+          type: 'double',
+          name: 'myNumber',
+        },
+      ],
+    };
+  }
+
+  it('renders a highlight chip button', () => {
+    const shadowRoot = component.shadowRoot;
+    assertShadowRoot(shadowRoot);
+    const button = shadowRoot.querySelector(HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR);
+    assertElement(button, HTMLButtonElement);
+    const expressionName = shadowRoot.querySelector(HIGHLIGHT_PILL_VARIABLE_NAME);
+    assertElement(expressionName, HTMLSpanElement);
+    assert.strictEqual(expressionName.innerText, 'myNumber');
+  });
+
+  it('renders multiple chips', () => {
+    const shadowRoot = component.shadowRoot;
+    const highlightInfos = [
+      {
+        startAddress: 10,
+        size: 8,
+        type: 'double',
+        name: 'myNumber',
+      },
+      {
+        startAddress: 20,
+        size: 4,
+        type: 'int',
+        name: 'myInt',
+      },
+    ];
+    component.data = {
+      highlightInfos: highlightInfos,
+    };
+    assertShadowRoot(shadowRoot);
+    const chips = shadowRoot.querySelectorAll(HIGHLIGHT_CHIP);
+    assert.strictEqual(chips.length, highlightInfos.length);
+  });
+
+  it('sends event when clicking on jump to highlighted memory', async () => {
+    const eventPromise =
+        getEventPromise<LinearMemoryInspector.LinearMemoryHighlightChipList.JumpToHighlightedMemoryEvent>(
+            component, 'jumptohighlightedmemory');
+
+    const shadowRoot = component.shadowRoot;
+    assertShadowRoot(shadowRoot);
+    const button = shadowRoot.querySelector(HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR);
+    assertElement(button, HTMLButtonElement);
+    button.click();
+
+    assert.isNotNull(await eventPromise);
+  });
+
+  it('sends event when clicking on remove highlight chip', async () => {
+    const eventPromise = getEventPromise<LinearMemoryInspector.LinearMemoryHighlightChipList.DeleteHighlightChipEvent>(
+        component, 'deletehighlightchip');
+
+    const shadowRoot = component.shadowRoot;
+    assertShadowRoot(shadowRoot);
+    const button = shadowRoot.querySelector(HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR);
+    assertElement(button, HTMLButtonElement);
+    button.click();
+
+    assert.isNotNull(await eventPromise);
+  });
+
+  it('shows tooltip on jump to highlighted memory button', () => {
+    const button = getElementWithinComponent(component, HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR, HTMLButtonElement);
+    assert.strictEqual(button.title, 'Jump to address');
+  });
+
+  it('shows tooltip on remove highlight button', () => {
+    const button = getElementWithinComponent(component, HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR, HTMLButtonElement);
+    assert.strictEqual(button.title, 'Remove memory highlight');
+  });
+});

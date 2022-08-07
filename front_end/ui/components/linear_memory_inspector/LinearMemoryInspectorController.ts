@@ -198,6 +198,13 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     return this.#bufferIdToHighlightInfo.get(bufferId);
   }
 
+  removeHighlight(bufferId: string, highlightInfo: HighlightInfo): void {
+    const currentHighlight = this.getHighlightInfo(bufferId);
+    if (currentHighlight === highlightInfo) {
+      this.#bufferIdToHighlightInfo.delete(bufferId);
+    }
+  }
+
   #setHighlightInfo(bufferId: string, highlightInfo: HighlightInfo): void {
     this.#bufferIdToHighlightInfo.set(bufferId, highlightInfo);
   }
