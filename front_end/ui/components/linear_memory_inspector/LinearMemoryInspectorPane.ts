@@ -9,6 +9,7 @@ import * as UI from '../../legacy/legacy.js';
 import {
   LinearMemoryInspector,
   type AddressChangedEvent,
+  type DeleteHighlightEvent,
   type MemoryRequestEvent,
   type Settings,
   type SettingsChangedEvent,
@@ -157,6 +158,10 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
       // Stop event from bubbling up, since no element further up needs the event.
       event.stopPropagation();
       this.saveSettings(event.data);
+    });
+    this.#inspector.addEventListener('deletehighlight', (event: DeleteHighlightEvent) => {
+      LinearMemoryInspectorController.instance().removeHighlight(this.#tabId, event.data);
+      this.refreshData();
     });
     this.contentElement.appendChild(this.#inspector);
     this.firstTimeOpen = true;

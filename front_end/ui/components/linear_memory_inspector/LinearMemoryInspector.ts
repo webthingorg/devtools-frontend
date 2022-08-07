@@ -41,6 +41,12 @@ import {
   type LinearMemoryViewerData,
   type ResizeEvent,
 } from './LinearMemoryViewer.js';
+import {
+  LinearMemoryHighlightChipList,
+  type LinearMemoryViewerHighlightRowData,
+  type DeleteHighlightChipEvent,
+  type JumpToHighlightedMemoryEvent,
+} from './LinearMemoryHighlightChipList.js';
 import {type HighlightInfo} from './LinearMemoryViewerUtils.js';
 
 import * as i18n from '../../../core/i18n/i18n.js';
@@ -102,6 +108,16 @@ export class SettingsChangedEvent extends Event {
   constructor(settings: Settings) {
     super(SettingsChangedEvent.eventName);
     this.data = settings;
+  }
+}
+
+export class DeleteHighlightEvent extends Event {
+  static readonly eventName = 'deletehighlight';
+  data: HighlightInfo;
+
+  constructor(highlightInfo: HighlightInfo) {
+    super(DeleteHighlightEvent.eventName);
+    this.data = highlightInfo;
   }
 }
 
@@ -205,6 +221,12 @@ export class LinearMemoryInspector extends HTMLElement {
           @addressinputchanged=${this.#onAddressChange}
           @pagenavigation=${this.#navigatePage}
           @historynavigation=${this.#navigateHistory}></${LinearMemoryNavigator.litTagName}>
+          <${LinearMemoryHighlightChipList.litTagName}
+          .data=${{highlightInfos: [this.#highlightInfo]} as LinearMemoryViewerHighlightRowData}
+          @jumptohighlightedmemory=${this.#onJumpToHighlightedMemory}
+          @deletehighlightchip=${this.#onDeleteHighlightChip}
+          @>
+          </${LinearMemoryHighlightChipList.litTagName}>
         <${LinearMemoryViewer.litTagName}
           .data=${{
             memory: this.#memory.slice(start - this.#memoryOffset,
@@ -245,9 +267,21 @@ export class LinearMemoryInspector extends HTMLElement {
     this.#jumpToAddress(addressInRange);
   }
 
+  #onJumpToHighlightedMemory(e: JumpToHighlightedMemoryEvent): void {
+    // Stop event from bubbling up, since no element further up needs the event.
+    e.stopPropagation();
+    this.#currentNavigatorMode = Mode.Submitted;
+    const addressInRange = Math.max(0, Math.min(e.data, this.#outerMemoryLength - 1));
+    this.#jumpToAddress(addressInRange);
+  }
+
   #onRefreshRequest(): void {
     const {start, end} = this.#getPageRangeForAddress(this.#address, this.#numBytesPerPage);
     this.dispatchEvent(new MemoryRequestEvent(start, end, this.#address));
+  }
+
+  #onDeleteHighlightChip(e: DeleteHighlightChipEvent): void {
+    this.dispatchEvent(new DeleteHighlightEvent(e.data));
   }
 
   #onByteSelected(e: ByteSelectedEvent): void {
@@ -375,5 +409,6 @@ declare global {
     'memoryrequest': MemoryRequestEvent;
     'addresschanged': AddressChangedEvent;
     'settingschanged': SettingsChangedEvent;
+    'deletehighlight': DeleteHighlightEvent;
   }
 }
