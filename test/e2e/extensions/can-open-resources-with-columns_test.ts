@@ -8,7 +8,7 @@ import {loadExtension} from '../helpers/extension-helpers.js';
 import {
   waitForHighlightedLine,
   getToolbarText,
-  awaitSourceFileEvent,
+  waitForSourceFiles,
   SourceFileEvents,
   openFileInSourcesPanel,
 } from '../helpers/sources-helpers.js';
@@ -17,8 +17,8 @@ import {getResourcesPath} from '../../shared/helper.js';
 
 describe('The Extension API', async () => {
   it('can open wasm resources with offset', async () => {
-    await awaitSourceFileEvent(
-        SourceFileEvents.AddedToSourceTree, {filename: 'scopes.wasm'},
+    await waitForSourceFiles(
+        SourceFileEvents.AddedToSourceTree, files => files.some(f => f.endsWith('scopes.wasm')),
         () => openFileInSourcesPanel('wasm/scopes.html'));
     const extension = await loadExtension('TestExtension');
     const resource = `${getResourcesPath()}/sources/wasm/scopes.wasm`;
@@ -62,8 +62,8 @@ describe('The Extension API', async () => {
 
   it('can open page resources with column numbers', async () => {
     const resource = `${getResourcesPath()}/sources/wasm/scopes.html`;
-    await awaitSourceFileEvent(
-        SourceFileEvents.AddedToSourceTree, {filename: 'scopes.wasm'},
+    await waitForSourceFiles(
+        SourceFileEvents.AddedToSourceTree, files => files.some(f => f.endsWith('scopes.wasm')),
         () => openFileInSourcesPanel('wasm/scopes.html'));
 
     const extension = await loadExtension('TestExtension');
