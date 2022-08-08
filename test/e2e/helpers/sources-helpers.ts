@@ -182,7 +182,9 @@ export async function openFileInEditor(sourceFile: string) {
 }
 
 export async function openSourceCodeEditorForFile(sourceFile: string, testInput: string) {
-  await openFileInSourcesPanel(testInput);
+  await awaitSourceFileEvent(
+      SourceFileEvents.AddedToSourceTree, {filename: new RegExp(`.*${sourceFile}`)},
+      () => openFileInSourcesPanel(testInput));
   await openFileInEditor(sourceFile);
 }
 
@@ -345,11 +347,63 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
     /* eslint-disable @typescript-eslint/naming-convention */
+    __sourceFileEvents: Map<number, {files: string[], handler: (e: Event) => void}>;
     __sourceFilesAddedEvents: string[];
     __sourceFilesLoadedEvents: string[];
     __sourceFilesLoadedEventListenerAdded: boolean;
     /* eslint-enable @typescript-eslint/naming-convention */
   }
+}
+
+export const enum SourceFileEvents {
+  SourceFileLoaded = 'source-file-loaded',
+  AddedToSourceTree = 'source-tree-file-added',
+}
+
+let nextEventHandlerId = 0;
+export async function awaitSourceFileEvent<T>(
+    eventName: SourceFileEvents, waitOptions: {count: number}|{filename: RegExp | string},
+    action: () => T): Promise<T> {
+  const {frontend} = getBrowserAndPages();
+  const eventHandlerId = nextEventHandlerId++;
+
+  // Install new listener for the event
+  await frontend.evaluate((eventName, eventHandlerId) => {
+    if (!window.__sourceFileEvents) {
+      window.__sourceFileEvents = new Map();
+    }
+    const handler = (event: Event) => {
+      const customEvent = event as CustomEvent<string>;
+      window.__sourceFileEvents.get(eventHandlerId)?.files.push(customEvent.detail);
+    };
+    window.__sourceFileEvents.set(eventHandlerId, {files: [], handler});
+    window.addEventListener(eventName, handler);
+  }, eventName, eventHandlerId);
+
+  const result = await action();
+
+  await waitForFunction(async () => {
+    const files =
+        await frontend.evaluate(eventHandlerId => window.__sourceFileEvents.get(eventHandlerId)?.files, eventHandlerId);
+    assertNotNullOrUndefined(files);
+    if ('count' in waitOptions) {
+      return files.length >= waitOptions.count;
+    }
+    const {filename} = waitOptions;
+    const re = new RegExp(filename);
+    return files.some(f => re.test(f));
+  });
+
+  await frontend.evaluate((eventName, eventHandlerId) => {
+    const handler = window.__sourceFileEvents.get(eventHandlerId);
+    if (!handler) {
+      throw new Error('handler unexpectandly unregistered');
+    }
+    window.__sourceFileEvents.delete(eventHandlerId);
+    window.removeEventListener(eventName, handler.handler);
+  }, eventName, eventHandlerId);
+
+  return result;
 }
 
 export async function reloadPageAndWaitForSourceFile(
@@ -365,7 +419,7 @@ export function listenForSourceFilesLoaded(frontend: puppeteer.Page) {
       window.__sourceFilesLoadedEvents = [];
     }
     if (!window.__sourceFilesLoadedEventListenerAdded) {
-      window.addEventListener('source-file-loaded', (event: Event) => {
+      window.addEventListener(SourceFileEvents.SourceFileLoaded, (event: Event) => {
         const customEvent = event as CustomEvent<string>;
         window.__sourceFilesLoadedEvents.push(customEvent.detail);
       });
@@ -401,7 +455,7 @@ export async function waitForSourceLoadedEvent(frontend: puppeteer.Page, fileNam
 export function listenForSourceFilesAdded(frontend: puppeteer.Page) {
   return frontend.evaluate(() => {
     window.__sourceFilesAddedEvents = [];
-    window.addEventListener('source-tree-file-added', (event: Event) => {
+    window.addEventListener(SourceFileEvents.AddedToSourceTree, (event: Event) => {
       const {detail} = event as CustomEvent<string>;
       if (!detail.endsWith('/__puppeteer_evaluation_script__')) {
         window.__sourceFilesAddedEvents.push(detail);
