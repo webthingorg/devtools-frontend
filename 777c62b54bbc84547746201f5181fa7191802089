@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f6d2ef3_8a96137f",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T09:35:47Z",
+      "side": 1,
+      "message": "Ohh I see! Ok, thanks for the explanation and the comment!",
+      "parentUuid": "9375e33d_09e14576",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c72d657b_27112434",
