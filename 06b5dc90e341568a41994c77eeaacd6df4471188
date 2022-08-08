@@ -33,6 +33,24 @@
       "message": "Note that this misses some cases of valid CSS where parts of the URL are escaped. E.g. `\\64 ata:` (with the space) is equivalent to `data:` in CSS strings and identifiers, but this code wouldn’t consider the former to be a data URL. It might be fine, since this seems like uncommon behavior — but it’s a limitation to be aware of.\n\nQuick example:\n\n    html {\n      background: url(\\64 ata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAF0lEQVR42mM4Awb/wYCBYg6EgghRzAEAWDWBGQVyKPMAAAAASUVORK5CYII\u003d);\n    }\n\nHave we considered a different approach altogether? Instead of trying to reparse the CSS with regular expressions, could we rely on CSP instead?",
       "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2209ccd8_23a3170b",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-08T09:58:08Z",
+      "side": 1,
+      "message": "Yes, we did consider applying CSP: https://crbug.com/1223475. Although it is kinda tricky: In some cases we don\u0027t want to apply CSP, e.g. when loading source maps. Where as in cases like this we\u0027d like CSP to apply. I have no idea how/where to implement this in the backend, so the DevTools renderer handles requests differently depending on what we are loading or who initiated it. (E.g. an explicit load for a source map vs an implicit load from CSS).\n\nLong story short, this is probably an appropriate band-aid until we have a proper plan for the backend.\n\nW.r.t to escaped urls, I\u0027m not sure allowing an escaped `data:` warrants  the increased implementation complexity. Wdyt?",
+      "parentUuid": "77e2af22_a906b0de",
+      "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
