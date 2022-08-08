@@ -97,6 +97,21 @@ interface PuppeteerClickOptions extends puppeteer.ClickOptions {
   modifier?: 'ControlOrMeta';
 }
 
+async function takeScreenshot() {
+  try {
+    const {frontend} = getBrowserAndPages();
+    const opts = {
+      encoding: 'base64' as 'base64',
+    };
+    const frontendScreenshot = await frontend.screenshot(opts);
+    const prefix = 'data:image/png;base64,';
+    console.error('Frontend screenshot (copy the next line and open in the browser):');
+    console.error(prefix + frontendScreenshot);
+  } catch (err) {
+    console.error('Error taking a screenshot', err);
+  }
+}
+
 export const click = async (selector: string|puppeteer.ElementHandle, options?: ClickOptions) => {
   const {frontend} = getBrowserAndPages();
   const clickableElement =
@@ -105,6 +120,9 @@ export const click = async (selector: string|puppeteer.ElementHandle, options?: 
   if (!clickableElement) {
     throw new Error(`Unable to locate clickable element "${selector}".`);
   }
+
+  console.error(`Taking screenshot with clickable element "${selector}"`);
+  await takeScreenshot();
 
   const modifier = platform === 'mac' ? 'Meta' : 'Control';
   if (options?.clickOptions?.modifier) {
