@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85dd6897_33bf91af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T09:22:55Z",
+      "side": 1,
+      "message": "LGTM, thanks a lot for looking into these tests Philip!",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0957818_d9a1581f",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T09:22:55Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken this is already done in the `beforeEach`, do we need it here?",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c72d657b_27112434",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T09:22:55Z",
+      "side": 1,
+      "message": "Same here with the `installEventListener`",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
