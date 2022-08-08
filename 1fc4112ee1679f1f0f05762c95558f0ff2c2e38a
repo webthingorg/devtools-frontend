@@ -22,6 +22,30 @@
       },
       "revId": "1fc4112ee1679f1f0f05762c95558f0ff2c2e38a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d24a4c2_e0ea7491",
+        "filename": "test/e2e/quick_open/QuickOpen_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-08-08T08:43:59Z",
+      "side": 0,
+      "message": "Good point. I was debugging this test with the others since I figured it would have similar failure modes, but I haven\u0027t seen it fail. The linked bug points to an error that appears to be caused by the test that preceded this one, and it passed the stressor bot run, so I don\u0027t see any reason it can\u0027t be enabled.",
+      "parentUuid": "4b14b698_9afe4197",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "1fc4112ee1679f1f0f05762c95558f0ff2c2e38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
