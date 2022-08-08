@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "310cae1c_1d3a1d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "lgtm with suggestions + after Kim\u0027s comments are addressed. Nice!",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85a106a9_921ba764",
@@ -82,6 +99,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "How come that an array of HighlightInfos can be undefined?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dcf1420_7dc6f47a",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "if they can, then the type should become `Array\u003cHighlightInfo|undefined\u003e`.",
+      "parentUuid": "3ee8580a_8379fdfe",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +174,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11618f86_dc3fddf3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "+1, either call it as a lambda or have `@click\u003d${this.#onJumpToHighlightClick}`",
+      "parentUuid": "5c9cb150_2e29280d",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a4a5556_0a6df198",
         "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
         "patchSetId": 3
@@ -150,6 +203,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "I don\u0027t think that it\u0027s recommended to nest spans, should this be a div instead? You can get div behaving like an inline element too.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d833bba_e4e4ba0d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "doesn\u0027t really matter much tbh. Span nesting is valid as far as the HTML spec is concerned.",
+      "parentUuid": "2a4a5556_0a6df198",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -218,6 +289,47 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "By now the code has changed a bit (migrations) and I think instead of using the verbatim string here, you can access this tag by `DeleteHighlightEvent.eventName`",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5db7b5_a2efa8e9",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "d5acf55e_d8728a5b",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8941e862_c1e5e044",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryHighlightChipList.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-08T08:28:32Z",
+      "side": 1,
+      "message": "why do we need this? What is overriding this otherwise?",
+      "range": {
+        "startLine": 75,
+        "startChar": 43,
+        "endLine": 75,
+        "endChar": 52
+      },
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
