@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9375e33d_09e14576",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-08-08T09:33:53Z",
+      "side": 1,
+      "message": "Unfortunately yes, because enableExperiments reloads devtools, so we get a fresh window and need to reinstall the listeners. Left a comment!",
+      "parentUuid": "a0957818_d9a1581f",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c72d657b_27112434",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-08-08T09:22:55Z",
       "side": 1,
       "message": "Same here with the `installEventListener`",
+      "revId": "777c62b54bbc84547746201f5181fa7191802089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71908502_de879245",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-08-08T09:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72d657b_27112434",
       "revId": "777c62b54bbc84547746201f5181fa7191802089",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
