@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b14b698_9afe4197",
+        "filename": "test/e2e/quick_open/QuickOpen_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-08-08T06:04:26Z",
+      "side": 0,
+      "message": "Since this test was untouched, should we keep it disabled?",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "1fc4112ee1679f1f0f05762c95558f0ff2c2e38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
