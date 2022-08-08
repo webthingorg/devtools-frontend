@@ -33,6 +33,125 @@
       "message": "Code lgtm. Rowan might have some comments for the messages.",
       "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ac93d8_338a2289",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "Review pass: minor wording/formatting requests.",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a17e23_75aaed41",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "Looking at the previous SameSite issues, I think I would be consistent with monospace formatting for attribute names, so:\nThe `Domain` attribute in cookies is restricted to the ASCII character set.",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa8b41f_bba9f052",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "`Domain` attribute",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9407be06_16daeb64",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "`Domain`",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44b3823_165632e1",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "As per other file,:\nThe `Domain` attribute in cookies is restricted to the ASCII character set.",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893b147b_b1859266",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "`Domain` attribute",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61e8f69e_8429ba69",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1362849
+      },
+      "writtenOn": "2022-08-08T16:56:40Z",
+      "side": 1,
+      "message": "`Domain`",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
