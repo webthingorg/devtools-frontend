@@ -51,6 +51,24 @@
       "parentUuid": "77e2af22_a906b0de",
       "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3bd556_56a4f11e",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-08T10:31:27Z",
+      "side": 1,
+      "message": "\u003e W.r.t to escaped urls, I\u0027m not sure allowing an escaped `data:` warrants  the increased implementation complexity. Wdyt?\n\nOh, I completely agree.",
+      "parentUuid": "2209ccd8_23a3170b",
+      "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
