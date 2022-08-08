@@ -16,6 +16,23 @@
       "message": "Mathias, can you make sure I\u0027m holding the regex stuff correctly? :)",
       "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77e2af22_a906b0de",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-08T09:42:03Z",
+      "side": 1,
+      "message": "Note that this misses some cases of valid CSS where parts of the URL are escaped. E.g. `\\64 ata:` (with the space) is equivalent to `data:` in CSS strings and identifiers, but this code wouldn’t consider the former to be a data URL. It might be fine, since this seems like uncommon behavior — but it’s a limitation to be aware of.\n\nQuick example:\n\n    html {\n      background: url(\\64 ata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAF0lEQVR42mM4Awb/wYCBYg6EgghRzAEAWDWBGQVyKPMAAAAASUVORK5CYII\u003d);\n    }\n\nHave we considered a different approach altogether? Instead of trying to reparse the CSS with regular expressions, could we rely on CSP instead?",
+      "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
