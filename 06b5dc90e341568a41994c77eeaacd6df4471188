@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a3a3263_a19cb605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-08T08:40:48Z",
+      "side": 1,
+      "message": "Mathias, can you make sure I\u0027m holding the regex stuff correctly? :)",
+      "revId": "06b5dc90e341568a41994c77eeaacd6df4471188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
