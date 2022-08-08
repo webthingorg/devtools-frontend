@@ -16,6 +16,227 @@
       "message": "Hi Kim!\n\nI\u0027m adding a chip list component that displays chips when a user inspects an expression when using the C/C++ DWARF extension. A chip lets the user jump to the highlighted area and to remove the highlight.\n\nPTAL!",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c951e80_6fd6bd32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Thanks Michal, looking great! Just a few comments.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a106a9_921ba764",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be the correct description?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f225b3_c8d7b8b0",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Wdyt about: `Jump to highlighted address`?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee8580a_8379fdfe",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "How come that an array of HighlightInfos can be undefined?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f631d7e_aaba1b65",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Same question here with undefined: why use `highlightInfo?`? (question mark)",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a43b7d9f_7c72b444",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Disable clang-format for this one too, and better manually format the html part below.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c9cb150_2e29280d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Instead of binding, directly call it in a lambda (() \u003d\u003e this.dispatchEvent(..)). We had the discussion at some point to not use `bind` so much (I know this is used in other parts of the LMI, and the code hasn\u0027t been updated for this yet).",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a4a5556_0a6df198",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "I don\u0027t think that it\u0027s recommended to nest spans, should this be a div instead? You can get div behaving like an inline element too.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf7b00c_dde79967",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Since this is the same as `#onJumpToPointerAddress`, how about renaming that function to `jumpToAddress` and accept `e: JumpToPointerAddressEvent | JumpToHighlightedMemoryevent\u0027?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3865d72_24f18f51",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "There\u0027s no need to repackage this event. You can let the `DeleteHighlightChipEvent` bubble up and listen to it. But in that case maybe rename it to just `DeleteHighlightEvent`.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b4ab2e_724ffde1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Maybe also test the `removeHighlight`?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5acf55e_d8728a5b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "By now the code has changed a bit (migrations) and I think instead of using the verbatim string here, you can access this tag by `DeleteHighlightEvent.eventName`",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3564615_2db5580c",
+        "filename": "test/unittests/front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorHighlightChipList_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-08T07:02:50Z",
+      "side": 1,
+      "message": "Awesome, thanks for the tests!",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
