@@ -46,6 +46,30 @@
       },
       "revId": "1fc4112ee1679f1f0f05762c95558f0ff2c2e38a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e017197_709bd66a",
+        "filename": "test/e2e/quick_open/QuickOpen_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-08-08T08:45:23Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "9d24a4c2_e0ea7491",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "1fc4112ee1679f1f0f05762c95558f0ff2c2e38a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
