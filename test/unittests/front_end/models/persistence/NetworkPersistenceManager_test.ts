@@ -4,104 +4,19 @@
 
 const {assert} = chai;
 
-import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import * as Persistence from '../../../../../front_end/models/persistence/persistence.js';
 import * as Host from '../../../../../front_end/core/host/host.js';
 import * as Root from '../../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 import {initializeGlobalVars, deinitializeGlobalVars, createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {createFileSystemUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
-
-async function setUpEnvironment() {
-  const workspace = Workspace.Workspace.WorkspaceImpl.instance();
-  const targetManager = SDK.TargetManager.TargetManager.instance();
-  const debuggerWorkspaceBinding =
-      Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance({forceNew: true, targetManager, workspace});
-  const breakpointManager = Bindings.BreakpointManager.BreakpointManager.instance(
-      {forceNew: true, targetManager, workspace, debuggerWorkspaceBinding});
-  Persistence.Persistence.PersistenceImpl.instance({forceNew: true, workspace, breakpointManager});
-  const networkPersistenceManager =
-      Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance({forceNew: true, workspace});
-  return {networkPersistenceManager};
-}
-
-async function setUpHeaderOverrides() {
-  createTarget();
-  const {networkPersistenceManager} = await setUpEnvironment();
-  const uiSourceCodeMap = new Map<string, Workspace.UISourceCode.UISourceCode>();
-  const fileSystem = {
-    fileSystemPath: () => 'file:///path/to/overrides',
-    fileSystemBaseURL: 'file:///path/to/overrides/',
-    uiSourceCodeForURL: (url: string): Workspace.UISourceCode.UISourceCode | null => uiSourceCodeMap.get(url) || null,
-  } as unknown as Persistence.FileSystemWorkspaceBinding.FileSystem;
-
-  const globalHeaders = `[
-    {
-      "applyTo": "*",
-      "headers": {
-        "age": "overridden"
-      }
-    }
-  ]`;
-
-  const exampleHeaders = `[
-    {
-      "applyTo": "index.html",
-      "headers": {
-        "index-only": "only added to index.html"
-      }
-    },
-    {
-      "applyTo": "*.css",
-      "headers": {
-        "css-only": "only added to css files"
-      }
-    },
-    {
-      "applyTo": "path/to/*.js",
-      "headers": {
-        "another-header": "only added to specific path"
-      }
-    }
-  ]`;
-
-  const exampleSourceCode = {
-    requestContent: () => {
-      return Promise.resolve({content: exampleHeaders});
-    },
-    url: () => 'file:///path/to/overrides/www.example.com/.headers',
-    project: () => fileSystem,
-    name: () => '.headers',
-  } as unknown as Workspace.UISourceCode.UISourceCode;
-
-  const globalSourceCode = {
-    requestContent: () => {
-      return Promise.resolve({content: globalHeaders});
-    },
-    url: () => 'file:///path/to/overrides/.headers',
-    project: () => fileSystem,
-    name: () => '.headers',
-  } as unknown as Workspace.UISourceCode.UISourceCode;
-
-  uiSourceCodeMap.set(exampleSourceCode.url(), exampleSourceCode);
-  uiSourceCodeMap.set(globalSourceCode.url(), globalSourceCode);
-
-  const mockProject = {
-    uiSourceCodes: () => [exampleSourceCode, globalSourceCode],
-    id: () => 'file:///path/to/overrides',
-  } as unknown as Workspace.Workspace.Project;
-
-  await networkPersistenceManager.setProject(mockProject);
-  SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns = async () => {};
-  await networkPersistenceManager.updateInterceptionPatternsForTests();
-  return {networkPersistenceManager};
-}
+import {setUpEnvironment, setUpHeaderOverrides} from '../../helpers/OverridesHelpers.js';
 
 describeWithMockConnection('NetworkPersistenceManager', () => {
   beforeEach(() => {
+    SDK.NetworkManager.MultitargetNetworkManager.discard();
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, '');
     Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
   });
