@@ -16,6 +16,86 @@
       "message": "PTAL",
       "revId": "df26fdf27e794cbf3ff313e7df527dc66c73f9b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef64b37f_4a20147b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-09T13:41:54Z",
+      "side": 1,
+      "message": "Generally, the fact that you need to put 1), 2), 3) and 4) into a CL description is a smell that you need to split your CL. While reviewing, I had to map lines of code back on 1), 2) 3) and 4). I understand that you wanted to have a CL with tests, which I support. I guess next time we could have test support code in a separate CL coming before this one.",
+      "revId": "df26fdf27e794cbf3ff313e7df527dc66c73f9b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86eef619_c88bad81",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-09T13:41:54Z",
+      "side": 1,
+      "message": "I think we typically call such methods `dispose()`.",
+      "range": {
+        "startLine": 1173,
+        "startChar": 0,
+        "endLine": 1173,
+        "endChar": 26
+      },
+      "revId": "df26fdf27e794cbf3ff313e7df527dc66c73f9b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb07f32_84d84e58",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-09T13:41:54Z",
+      "side": 1,
+      "message": "just `resolve` without a lamba?",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 88
+      },
+      "revId": "df26fdf27e794cbf3ff313e7df527dc66c73f9b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48438605_06269dca",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-09T13:41:54Z",
+      "side": 1,
+      "message": "I fid it is pretty hard to understand why is this expected, given that the fixture setup is hidden in helper functions. It is a good idea to extract away a districting fixture setup, but I think it is important for readability to keep the relevant data in the test or at least in `beforeEach`.\n\nHow about the following structure: \n\n    createWorkspaceProject(baseUrls, files) {\n      const {networkPersistenceManager} \u003d await setUpEnvironment();\n      const fileSystem \u003d {\n        fileSystemPath: () \u003d\u003e baseUrl,\n        fileSystemBaseURL: baseUrl + \u0027/\u0027,\n      } as unknown as Persistence.FileSystemWorkspaceBinding.FileSystem;\n\n      const uiSourceCodes \u003d new Map\u003cstring, Workspace.UISourceCode.UISourceCode\u003e();\n      for (const file of files) {\n        uiSourceCodes.set(baseUrls + \u0027/\u0027 + file.name, {\n          requestContent: () \u003d\u003e Promise.resolve({content: file.content}),\n          url: () \u003d\u003e baseUrls + \u0027/\u0027 + file.name,\n          project: () \u003d\u003e fileSystem,\n          name: () \u003d\u003e file.name,          \n        } as unknown as Workspace.UISourceCode.UISourceCode);\n      }\n    \n      const mockProject \u003d {\n        uiSourceCodes: () \u003d\u003e uiSourceCodes.values(),\n        id: () \u003d\u003e baseUrl,\n        fileSystemPath: () \u003d\u003e baseUrl,\n        uiSourceCodeForURL: (url: string) \u003d\u003e uiSourceCode.get(url) || null,\n      } as unknown as Workspace.Workspace.Project;\n\n      await networkPersistenceManager.setProject(mockProject);\n      return networkPersistenceManager;\n    }\n    \n    beforeEach(() \u003d\u003e {\n      SDK.NetworkManager.MultitargetNetworkManager.discard();\n      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, \u0027\u0027);\n      Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);\n      target \u003d createTarget();\n      const networkPersistenceManager \u003d \n          createWorkspaceProject(\u0027file:///path/to/overrides\u0027, [\n            {name: \u0027.headers\u0027, content: \u0027...\u0027}, ... ]);\n      sinon.stub(target.fetchAgent(), \u0027invoke_enable\u0027);\n      await networkPersistenceManager.updateInterceptionPatternsForTests();\n    });\n  \n    checkRequestOverride(request: any, requestId: string, responseStatusCode, responseHeaders, reponseBody, expectedOverriddenResponse) {\n        const {target} \u003d await setUpHeaderOverrides();\n      const multitargetNetworkManager \u003d SDK.NetworkManager.MultitargetNetworkManager.instance();\n      const fetchAgent \u003d target.fetchAgent();\n      const spy \u003d sinon.spy(fetchAgent, \u0027invoke_fulfillRequest\u0027);\n\n      const fulfilledRequest \u003d new Promise(resolve \u003d\u003e {\n        multitargetNetworkManager.addEventListener(\n            SDK.NetworkManager.MultitargetNetworkManager.Events.RequestFulfilled, resolve});\n      });\n\n      const interceptedRequest \u003d new SDK.NetworkManager.InterceptedRequest(\n          fetchAgent, request as Protocol.Network.Request,\n          Protocol.Network.ResourceType.Document,\n          requestId, \n          responseStatusCode, responseHeaders);\n      interceptedRequest.responseBody \u003d async () \u003d\u003e {\n        return {error: null, content: responseBody, encoded: true};\n      };\n\n      assert.isTrue(spy.notCalled);\n      await multitargetNetworkManager.requestIntercepted(interceptedRequest);\n      await fulfilledRequest;\n      assert.isTrue(spy.calledOnceWithExactly(expectedOverriddenResponse));\n    }\n\n    it(\u0027can override headers-only for a status 200 request\u0027, async () \u003d\u003e {\n      const responseCode \u003d 200;\n      const requestId \u003d \u0027request_id_1\u0027 as Protocol.Network.RequestId;\n      const responseBody \u003d \u0027interceptedRequest content\u0027;\n      await checkOverriddenRequest({\n        method: \u0027GET\u0027,\n        url: \u0027https://www.example.com/styles.css\u0027,\n      }, requestId, responseCode, [{\n        name: \u0027content-type\u0027,\n        value: \u0027text/html; charset\u003dutf-8\u0027}],\n      responseBody, {\n        requestId, responseCode,\n        body: responseBody,\n        responseHeaders: [\n          {name: \u0027content-type\u0027, value: \u0027text/html; charset\u003dutf-8\u0027},\n          {name: \u0027age\u0027, value: \u0027overridden\u0027},\n          {name: \u0027css-only\u0027, value: \u0027only added to css files\u0027},\n        ],\n      });\n    });",
+      "revId": "df26fdf27e794cbf3ff313e7df527dc66c73f9b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
