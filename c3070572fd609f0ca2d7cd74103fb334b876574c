@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2da24ec_6da2c8a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T15:18:31Z",
+      "side": 1,
+      "message": "Hi Kim!\n\nThis CL addresses the bug where we would update the type of pointer variables correctly, but leave the name unchanged. \n\nPTAL",
+      "revId": "c3070572fd609f0ca2d7cd74103fb334b876574c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
