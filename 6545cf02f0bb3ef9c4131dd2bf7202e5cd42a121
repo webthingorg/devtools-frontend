@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b384763_f08ab397",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ac93d8_338a2289",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37a17e23_75aaed41",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-08-08T16:56:40Z",
       "side": 1,
       "message": "Looking at the previous SameSite issues, I think I would be consistent with monospace formatting for attribute names, so:\nThe `Domain` attribute in cookies is restricted to the ASCII character set.",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a750c0ab_aafce501",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a17e23_75aaed41",
       "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "814839ea_69085c6f",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa8b41f_bba9f052",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9407be06_16daeb64",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-08-08T16:56:40Z",
       "side": 1,
       "message": "`Domain`",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "251f6b57_2bd6e6e7",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9407be06_16daeb64",
       "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dbb04e6_d08e1019",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e44b3823_165632e1",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "893b147b_b1859266",
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae77d5e8_2cbe4b5d",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893b147b_b1859266",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61e8f69e_8429ba69",
@@ -150,6 +258,24 @@
       "writtenOn": "2022-08-08T16:56:40Z",
       "side": 1,
       "message": "`Domain`",
+      "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe28f73_af386ac8",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnDomainNonAscii.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1531282
+      },
+      "writtenOn": "2022-08-09T14:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61e8f69e_8429ba69",
       "revId": "6545cf02f0bb3ef9c4131dd2bf7202e5cd42a121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
