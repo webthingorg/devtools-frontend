@@ -159,7 +159,7 @@ describe('Multi-Workers', async function() {
         });
       });
 
-      it('when opening different file in editor', async () => {
+      it.only('when opening different file in editor', async () => {
         // Open different worker
         await step('Open different worker', async () => {
           await openNestedWorkerFile(workerFileSelectors(3));
