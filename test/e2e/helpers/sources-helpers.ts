@@ -46,14 +46,6 @@ export const TURNED_ON_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-on';
 export const DEBUGGER_PAUSED_EVENT = 'DevTools.DebuggerPaused';
 const WATCH_EXPRESSION_VALUE_SELECTOR = '.watch-expression-tree-item .object-value-string.value';
 
-export async function navigateToLine(frontend: puppeteer.Page, lineNumber: number|string) {
-  await frontend.keyboard.down('Control');
-  await frontend.keyboard.press('KeyG');
-  await frontend.keyboard.up('Control');
-  await frontend.keyboard.type(`${lineNumber}`);
-  await frontend.keyboard.press('Enter');
-}
-
 export async function toggleNavigatorSidebar(frontend: puppeteer.Page) {
   const modifierKey = platform === 'mac' ? 'Meta' : 'Control';
   await frontend.keyboard.down(modifierKey);
@@ -211,23 +203,21 @@ export async function getToolbarText() {
 }
 
 export async function addBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
-  await navigateToLine(frontend, index);
   const breakpointLine = await getLineNumberElement(index);
-  assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
+  assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => !(await isBreakpointSet(index)));
-  await breakpointLine?.click();
+  await click(breakpointLine);
 
   await waitForFunction(async () => await isBreakpointSet(index));
 }
 
 export async function removeBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
-  await navigateToLine(frontend, index);
   const breakpointLine = await getLineNumberElement(index);
-  assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
+  assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => await isBreakpointSet(index));
-  await breakpointLine?.click();
+  await click(breakpointLine);
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
@@ -411,6 +401,7 @@ export function isEqualOrAbbreviation(abbreviated: string, full: string): boolea
 
 // Helpers for navigating the file tree.
 export type NestedFileSelector = {
+  fileName: string,
   rootSelector: string,
   domainSelector: string,
   folderSelector?: string, fileSelector: string,
@@ -424,6 +415,7 @@ export function createSelectorsForWorkerFile(
   const fileSelector = `${folderSelector} + ol > [aria-label="${fileName}, file"]`;
 
   return {
+    fileName,
     rootSelector,
     domainSelector,
     folderSelector,
@@ -502,7 +494,9 @@ export async function openNestedWorkerFile(selectors: NestedFileSelector) {
   await expandFileTree(selectors);
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
-  await click(selectors.fileSelector);
+  await waitForSourceFiles(
+      SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith(selectors.fileName)),
+      () => click(selectors.fileSelector));
 }
 
 export async function clickOnContextMenu(selector: string, label: string) {
