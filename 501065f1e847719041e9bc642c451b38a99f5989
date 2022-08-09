@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5d4365_c41d669d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Hi Kim and hi Jack,\n\nI\u0027ve revised the CL to include your feedback. \nPTAL! ",
+      "revId": "501065f1e847719041e9bc642c451b38a99f5989",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b505a460_927a6b8d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a106a9_921ba764",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5f225b3_c8d7b8b0",
@@ -82,6 +100,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "Wdyt about: `Jump to highlighted address`?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ae6763_06abd8a7",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "I see where you are coming from. \u0027Jump to address\u0027 doesn\u0027t convey to which address.\nI am not a big fan of \u0027Jump to highlighted address\u0027 because we also have \u0027selected bytes\u0027. \nMaybe \u0027jump to highlighted memory\u0027?",
+      "parentUuid": "d5f225b3_c8d7b8b0",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21de90eb_fe38d9d1",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Removed: Switched to preparing the data before passing it to the HighlightChipList.",
+      "parentUuid": "3ee8580a_8379fdfe",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f631d7e_aaba1b65",
@@ -138,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "498cbe77_b43e5ec2",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "No purpose here, removing!",
+      "parentUuid": "3f631d7e_aaba1b65",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a43b7d9f_7c72b444",
@@ -151,6 +223,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "Disable clang-format for this one too, and better manually format the html part below.",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5239d336_b0524b13",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a43b7d9f_7c72b444",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -190,6 +280,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd03e501_356181c6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Good to know, thanks!",
+      "parentUuid": "11618f86_dc3fddf3",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a4a5556_0a6df198",
@@ -225,6 +333,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3285a3_9f31a1b3",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Keeping as spans then. I don\u0027t like the idea of forcing a div to behave like a span when a span does the job.",
+      "parentUuid": "7d833bba_e4e4ba0d",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccf7b00c_dde79967",
@@ -238,6 +364,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "Since this is the same as `#onJumpToPointerAddress`, how about renaming that function to `jumpToAddress` and accept `e: JumpToPointerAddressEvent | JumpToHighlightedMemoryevent\u0027?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed15c62b_bd0a0d96",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Agree, that\u0027s a nicer solution.",
+      "parentUuid": "ccf7b00c_dde79967",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -259,6 +403,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13aadb41_73911b3d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3865d72_24f18f51",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97b4ab2e_724ffde1",
@@ -272,6 +434,24 @@
       "writtenOn": "2022-08-08T07:02:50Z",
       "side": 1,
       "message": "Maybe also test the `removeHighlight`?",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ddf6b6_0d68d68b",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b4ab2e_724ffde1",
       "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -311,6 +491,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d426586e_148a7526",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd5db7b5_a2efa8e9",
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8941e862_c1e5e044",
@@ -324,6 +522,30 @@
       "writtenOn": "2022-08-08T08:28:32Z",
       "side": 1,
       "message": "why do we need this? What is overriding this otherwise?",
+      "range": {
+        "startLine": 75,
+        "startChar": 43,
+        "endLine": 75,
+        "endChar": 52
+      },
+      "revId": "69f47ab61360bf36ae0af2703d459244d55d06cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a1780c_f0627a66",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryHighlightChipList.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-09T09:02:38Z",
+      "side": 1,
+      "message": "Good catch, doesn\u0027t seem to do anything in our case. May have been necessary in legacy parts of the codebase.",
+      "parentUuid": "8941e862_c1e5e044",
       "range": {
         "startLine": 75,
         "startChar": 43,
