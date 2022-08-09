@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb974364_171bce38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-09T06:10:28Z",
+      "side": 1,
+      "message": "nit: has",
+      "revId": "8855f8047ec805a6868c2e5b355a3ef776eecf16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "305d4bda_f010d34a",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-09T06:10:28Z",
+      "side": 1,
+      "message": "Can we add a comment here, to make it clear that the listener will only be installed for this action, and will be cleaned up afterwards? (in comparison to the other helpers). I think it would be good to add some guidance around these methods as it might not be clear when to use what.",
+      "revId": "8855f8047ec805a6868c2e5b355a3ef776eecf16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406082ea_fd6d19c2",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-09T06:10:28Z",
+      "side": 1,
+      "message": "What do you think about renaming this in order to make it more clear that it performs an action before awaiting the event? Maybe something like `runAndAwaitSourceFileEvent`, `executeAndAwaitSourceFileEvent`, ..?",
+      "revId": "8855f8047ec805a6868c2e5b355a3ef776eecf16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c9fe78_007b3cd8",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-09T06:10:28Z",
+      "side": 1,
+      "message": "Maybe we can replace the usages of `listenForSourceFilesLoaded` where possible (i.e. do we still need the separate listen/wait helpers afterwards)? Same for listenForSourceFilesAdded.",
+      "revId": "8855f8047ec805a6868c2e5b355a3ef776eecf16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
