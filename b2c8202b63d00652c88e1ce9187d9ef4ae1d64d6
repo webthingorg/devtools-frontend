@@ -16,6 +16,40 @@
       "message": "Hi Kim!\n\nThis CL fixes the bug where inspecting a property of an object via the context menu would only pass the name of the property to the LMI, instead of the full name path.\n\nI don\u0027t think unittests are warranted here due to the mocking complexity. WatchExpressions rely on the same method to get full name path without any unittests. wdyt?\n\nPTAL!",
       "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a76834_a4f3b726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-10T12:04:54Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b66209_bc710aa6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-10T12:04:54Z",
+      "side": 1,
+      "message": "Why are we removing the possibility to specify an address here?",
+      "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
