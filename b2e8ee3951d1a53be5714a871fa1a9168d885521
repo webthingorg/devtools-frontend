@@ -16,6 +16,57 @@
       "message": "Code lgtm",
       "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85096621_a4babb81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-08-10T13:08:31Z",
+      "side": 1,
+      "message": "LGTM % Nits!",
+      "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b75d860_d8455af9",
+        "filename": "front_end/models/issues_manager/descriptions/arSourceIgnored.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-08-10T13:08:31Z",
+      "side": 1,
+      "message": "Nit: \n* Customize the text for source vs. trigger issues (which also makes it shorter)? Suggestion below.\n* Not sure to fully understand the last bit \"Additionally, a single HTTP redirect chain may contain only all sources or all triggers, not a combination of both.\" - what\u0027s the header\u0027s role on that one?\n\n# An attribution source registration was ignored because the request was ineligible\n\nThis page tried to register a source using the Attribution Reporting API, but\nthe request was ineligible to do so, so the source registration was ignored.\n\nA request is eligible for source registration if it contains an `Attribution-Reporting-Eligible` header, which itself must contain a structured\ndictionary with a value of either `navigation-source` or `event-source`.\nIf `Attribution-Reporting-Eligible` is absent or has a different value, the request is not eligible for source registration: the source can\u0027t be registered.\n\nAdditionally, a single HTTP redirect chain may contain only all sources or all\ntriggers, not a combination of both.",
+      "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde8c9bd_9740d43c",
+        "filename": "front_end/models/issues_manager/descriptions/arTriggerIgnored.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-08-10T13:08:31Z",
+      "side": 1,
+      "message": "Same comment: maybe customize the issue text and tweak the last sentence?\n\n\n# An attribution trigger registration was ignored because the request was ineligible\n\nThis page tried to register a trigger using the Attribution Reporting API, but\nthe request was ineligible to do so, so the trigger registration was ignored.\n\nA request is eligible for trigger registration if:\n* It doesn\u0027t include an `Attribution-Reporting-Eligible` header\n* It includes an `Attribution-Reporting-Eligible` header, which itself contains a structured dictionary with a value of `trigger`.\n\nIn all other cases, the request is not eligible for trigger registration: the trigger can\u0027t be registered.\n\nAdditionally, a single HTTP redirect chain may contain only all sources or all\ntriggers, not a combination of both.",
+      "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
