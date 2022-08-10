@@ -50,6 +50,24 @@
       "message": "Should this really be \u0027unknown\u0027? Maybe it\u0027s rather on the Chip side that we want to render unknown if it is undefined?",
       "revId": "c3070572fd609f0ca2d7cd74103fb334b876574c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb00f93_7c642207",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-10T08:35:17Z",
+      "side": 1,
+      "message": "Definitely better to keep it undefined, we already handle the undefined case on the Chip side, so no reason to change it. Thanks!",
+      "parentUuid": "cf49c83c_4f97c7b1",
+      "revId": "c3070572fd609f0ca2d7cd74103fb334b876574c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
