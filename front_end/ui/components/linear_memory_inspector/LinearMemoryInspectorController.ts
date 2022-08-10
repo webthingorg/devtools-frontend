@@ -307,10 +307,10 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     return objType.slice(0, objType.length - 1);
   }
 
-  async openInspectorView(obj: SDK.RemoteObject.RemoteObject, address?: number, expression?: string): Promise<void> {
+  async openInspectorView(obj: SDK.RemoteObject.RemoteObject, expression?: string): Promise<void> {
     const response = await LinearMemoryInspectorController.retrieveDWARFMemoryObjectAndAddress(obj);
     let memoryObj = obj;
-    let memoryAddress = address;
+    let memoryAddress = 0;
     if (response !== undefined) {
       memoryAddress = response.address;
       memoryObj = response.obj;
