@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ee44412_a1788304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-10T09:49:15Z",
+      "side": 1,
+      "message": "Hi Kim!\n\nThis CL fixes the bug where inspecting a property of an object via the context menu would only pass the name of the property to the LMI, instead of the full name path.\n\nI don\u0027t think unittests are warranted here due to the mocking complexity. WatchExpressions rely on the same method to get full name path without any unittests. wdyt?\n\nPTAL!",
+      "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
