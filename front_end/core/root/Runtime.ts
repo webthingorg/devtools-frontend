@@ -120,18 +120,23 @@ export class ExperimentsSupport {
   #enabledTransiently: Set<string>;
   readonly #enabledByDefault: Set<string>;
   readonly #serverEnabled: Set<string>;
+  // Experiments that are should not be shown to the user
+  // These can be things like platform specific experiments
+  // They won't be shown in the Settings page
+  readonly #nonConfigurable: Set<string>;
   constructor() {
     this.#experiments = [];
     this.#experimentNames = new Set();
     this.#enabledTransiently = new Set();
     this.#enabledByDefault = new Set();
     this.#serverEnabled = new Set();
+    this.#nonConfigurable = new Set();
   }
 
   allConfigurableExperiments(): Experiment[] {
     const result = [];
     for (const experiment of this.#experiments) {
-      if (!this.#enabledTransiently.has(experiment.name)) {
+      if (!this.#enabledTransiently.has(experiment.name) && !this.#nonConfigurable.has(experiment.name)) {
         result.push(experiment);
       }
     }
@@ -200,6 +205,13 @@ export class ExperimentsSupport {
     for (const experiment of experimentNames) {
       this.checkExperiment(experiment);
       this.#serverEnabled.add(experiment);
+    }
+  }
+
+  setNonConfigurableExperiments(experimentNames: string[]): void {
+    for (const experiment of experimentNames) {
+      this.checkExperiment(experiment);
+      this.#nonConfigurable.add(experiment);
     }
   }
 
