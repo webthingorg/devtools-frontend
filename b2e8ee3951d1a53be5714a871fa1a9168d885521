@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7573f9_3e45ccdb",
+        "filename": "front_end/models/issues_manager/descriptions/arSourceIgnored.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-08-10T13:18:18Z",
+      "side": 1,
+      "message": "\u003e Customize the text for source vs. trigger issues (which also makes it shorter)? Suggestion below.\n\nDone with minor changes. PTAL.\n\n\u003e Not sure to fully understand the last bit \"Additionally, a single HTTP redirect chain may contain only all sources or all triggers, not a combination of both.\" - what\u0027s the header\u0027s role on that one?\n\nThis is a limitation of the current system, in that we enforce that a single attributionsrc redirect chain registers all sources or all triggers, even if the initial request is eligible to register both. We don\u0027t currently update the `Attribution-Reporting-Eligible` header in that situation, which is definitely confusing: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/attribution_src_loader.cc;l\u003d477-478;drc\u003df26bb66a0f935f7c677cbc47ff809c13968b4db3\n\nI\u0027m including that text here so that devs that encounter that problem have at least some indication of what\u0027s happening. In the future, we may change behavior related to that.",
+      "parentUuid": "0b75d860_d8455af9",
+      "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cde8c9bd_9740d43c",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-08-10T13:08:31Z",
       "side": 1,
       "message": "Same comment: maybe customize the issue text and tweak the last sentence?\n\n\n# An attribution trigger registration was ignored because the request was ineligible\n\nThis page tried to register a trigger using the Attribution Reporting API, but\nthe request was ineligible to do so, so the trigger registration was ignored.\n\nA request is eligible for trigger registration if:\n* It doesn\u0027t include an `Attribution-Reporting-Eligible` header\n* It includes an `Attribution-Reporting-Eligible` header, which itself contains a structured dictionary with a value of `trigger`.\n\nIn all other cases, the request is not eligible for trigger registration: the trigger can\u0027t be registered.\n\nAdditionally, a single HTTP redirect chain may contain only all sources or all\ntriggers, not a combination of both.",
+      "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "155fa0f8_3a5cb544",
+        "filename": "front_end/models/issues_manager/descriptions/arTriggerIgnored.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2022-08-10T13:18:18Z",
+      "side": 1,
+      "message": "Done with minor changes. PTAL.",
+      "parentUuid": "cde8c9bd_9740d43c",
       "revId": "b2e8ee3951d1a53be5714a871fa1a9168d885521",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
