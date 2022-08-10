@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16798c0a_68b6c553",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-10T16:50:47Z",
+      "side": 1,
+      "message": "Hey Changhao, instead of not registering the experiment (I thought it might cause some unwanted issues -- when I tried it said we need to remove enum from UserMetrics as well etc.)\n\nI\u0027ve decided to kepe it registered but make it disabled if the feature is not available and made changes to not show it to the users.\n\nWDYT?",
+      "revId": "680bd645101b926a01820ee13bdec6da1cadab89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
