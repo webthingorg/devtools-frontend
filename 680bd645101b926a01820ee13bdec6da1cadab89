@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a18d47a_e615be9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-10T22:07:23Z",
+      "side": 1,
+      "message": "I think this is a good compromise so far. We indeed want to keep this new eyedropper, because it solves the problem of not being able to select colors outside of the browser window. I think only disabling it on unsupported platforms make sense.",
+      "parentUuid": "16798c0a_68b6c553",
+      "revId": "680bd645101b926a01820ee13bdec6da1cadab89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3792029_ea72e39b",
