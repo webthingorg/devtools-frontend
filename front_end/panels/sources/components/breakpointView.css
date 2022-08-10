@@ -1,0 +1,79 @@
+:host {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+} 
+
+details {
+  display: inline;
+}
+
+details summary {
+  font-weight: 500;
+  font-size: var(--source-code-font-size);
+}
+  details summary::marker {
+    font-size: x-small;
+  }
+
+  summary {
+    padding-left: 6px;
+    height: 17px;
+    line-height: 13px;
+    height: 18px
+  }
+
+  .divider {
+    height: 1px;
+    width: inherit;
+    background-color: var(--color-details-hairline);
+  }
+
+  devtools-icon + span {
+    margin-left: 4px;
+  }
+
+  .code-snippet {
+    width: 100%;
+    padding-left: 6px;
+    font-family: var(--source-code-font-family);
+    font-size: var(--source-code-font-size);
+    color: var(--color-text-secondary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+ input {
+    margin: 3px 0px;
+ }
+
+.icon-and-group-info {
+  height: 100%;
+  display: inline-flex; 
+  align-items: center;
+  vertical-align: middle;
+}
+  
+  .breakpoint-item {
+    display:flex;
+    align-items: center;
+  }
+
+  .breakpoint-item:hover {
+    background-color: var(--color-background-elevation-1);
+  }
+
+  .breakpoint-item.hit {
+    --override-breakpoint-hit-background: rgb(255 255 194);
+    --override-breakpoint-hit-border-color: rgb(107 97 48);
+  
+    background-color: var(--override-breakpoint-hit-background);
+    border-right: 3px solid var(--override-breakpoint-hit-border-color);
+  }
+
+  .checkbox-label {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+  }
