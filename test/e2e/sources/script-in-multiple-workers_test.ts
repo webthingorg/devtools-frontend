@@ -23,6 +23,8 @@ import {
   openNestedWorkerFile,
   RESUME_BUTTON,
   retrieveTopCallFrameWithoutResuming,
+  SourceFileEvents,
+  waitForSourceFiles,
 } from '../helpers/sources-helpers.js';
 
 async function validateSourceTabs() {
@@ -112,7 +114,9 @@ describe('Multi-Workers', async function() {
       // Wait for all workers to load
       await validateNavigationTree();
       // Open file from second worker
-      await openNestedWorkerFile(workerFileSelectors(2));
+      await waitForSourceFiles(
+          SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')),
+          () => openNestedWorkerFile(workerFileSelectors(2)));
       // Set a breakpoint
       await addBreakpointForLine(frontend, 6);
 
@@ -132,7 +136,9 @@ describe('Multi-Workers', async function() {
         await validateNavigationTree();
 
         await step('Open file from second worker', async () => {
-          await openNestedWorkerFile(workerFileSelectors(2));
+          await waitForSourceFiles(
+              SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')),
+              () => openNestedWorkerFile(workerFileSelectors(2)));
         });
 
         await step('Set two breakpoints', async () => {
@@ -205,7 +211,9 @@ describe('Multi-Workers', async function() {
         await validateNavigationTree();
 
         await step('Open second worker file', async () => {
-          await openNestedWorkerFile(workerFileSelectors(2));
+          await waitForSourceFiles(
+              SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')),
+              () => openNestedWorkerFile(workerFileSelectors(2)));
         });
 
         await step('Set breakpoint', async () => {
