@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as HeadersView from './HeadersView.js';
+import * as BreakpointView from './BreakpointView.js';
 
 export {
   HeadersView,
+  BreakpointView,
 };
