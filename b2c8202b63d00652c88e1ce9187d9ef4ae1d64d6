@@ -50,6 +50,24 @@
       "message": "Why are we removing the possibility to specify an address here?",
       "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f125ce22_48b066a6",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-10T14:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32b66209_bc710aa6",
+      "revId": "b2c8202b63d00652c88e1ce9187d9ef4ae1d64d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
