@@ -16,6 +16,29 @@
       "message": "PTAL again",
       "revId": "0cc5f1dafb8124db42e82bce7bbba3fad7fc85a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b477540d_7382b85a",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-08-11T11:00:52Z",
+      "side": 1,
+      "message": "Where is this coming from?",
+      "range": {
+        "startLine": 357,
+        "startChar": 17,
+        "endLine": 357,
+        "endChar": 33
+      },
+      "revId": "0cc5f1dafb8124db42e82bce7bbba3fad7fc85a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
