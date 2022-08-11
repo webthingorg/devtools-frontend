@@ -6,7 +6,7 @@ import {selectOption, waitFor, waitForMany} from '../../shared/helper.js';
 import {type ElementHandle} from 'puppeteer';
 
 export async function setCustomOrientation() {
-  const dropDown = await waitFor('.orientation-fields select');
+  const dropDown = await waitFor<HTMLSelectElement>('.orientation-fields select');
   void selectOption(dropDown, 'custom');
 }
 

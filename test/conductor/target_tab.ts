@@ -28,6 +28,7 @@ export class TargetTab {
 
   targetId(): string {
     // TODO(crbug.com/1297458): Replace private property access with public getter once available in puppeteer.
+    // @ts-expect-error
     return this.page.target()._targetId;
   }
 }
