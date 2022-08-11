@@ -39,6 +39,30 @@
       },
       "revId": "0cc5f1dafb8124db42e82bce7bbba3fad7fc85a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ec5f497_02905472",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-11T13:55:10Z",
+      "side": 1,
+      "message": "It\u0027s a base64 encoded string. Updated to make this explicit.",
+      "parentUuid": "b477540d_7382b85a",
+      "range": {
+        "startLine": 357,
+        "startChar": 17,
+        "endLine": 357,
+        "endChar": 33
+      },
+      "revId": "0cc5f1dafb8124db42e82bce7bbba3fad7fc85a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
