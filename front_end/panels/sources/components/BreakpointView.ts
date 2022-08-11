@@ -1,0 +1,165 @@
+// Copyright (c) 2022 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import * as Platform from '../../../core/platform/platform.js';
+import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
+import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+
+import breakpointViewStyles from './breakpointView.css.js';
+
+const MAX_SNIPPET_LENGTH = 200;
+
+export interface BreakpointViewData {
+  groups: BreakpointGroup[];
+}
+
+export interface BreakpointGroup {
+  name: string;
+  url: Platform.DevToolsPath.UrlString;
+  expanded: boolean;
+  breakpointEntries: BreakpointItem[];
+}
+
+export interface BreakpointItem {
+  location: string;
+  codeSnippet: string;
+  isHit: boolean;
+  status: BreakpointStatus;
+  hoverText?: string;
+}
+
+export const enum BreakpointStatus {
+  ENABLED = 'ENABLED',
+  DISABLED = 'DISABLED',
+  INDETERMINATE = 'ENABLED_AND_DISABLED',
+}
+
+export class CheckboxToggledEvent extends Event {
+  static readonly eventName = 'checkboxtoggled';
+  data: {item: BreakpointItem, checked: boolean};
+
+  constructor(item: BreakpointItem, checked: boolean) {
+    super(CheckboxToggledEvent.eventName);
+    this.data = {item: item, checked};
+  }
+}
+
+export class ExpandedStateChangedEvent extends Event {
+  static readonly eventName = 'expandedstatechanged';
+  data: {url: Platform.DevToolsPath.UrlString, expanded: boolean};
+
+  constructor(url: Platform.DevToolsPath.UrlString, expanded: boolean) {
+    super(ExpandedStateChangedEvent.eventName);
+    this.data = {url, expanded};
+  }
+}
+
+export class BreakpointSelectedEvent extends Event {
+  static readonly eventName = 'breakpointselected';
+  data: {item: BreakpointItem};
+
+  constructor(item: BreakpointItem) {
+    super(BreakpointSelectedEvent.eventName);
+    this.data = {item: item};
+  }
+}
+
+export class BreakpointView extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-breakpoint-view`;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly #boundRender = this.#render.bind(this);
+
+  #breakpointGroups: BreakpointGroup[] = [];
+
+  set data(data: BreakpointViewData) {
+    this.#breakpointGroups = data.groups;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [breakpointViewStyles];
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  #render(): void {
+    const renderedGroups = this.#breakpointGroups.map((group, index) => {
+      const out = this.#renderBreakpointGroup(group);
+      if (index === this.#breakpointGroups.length - 1) {
+        return out;
+      }
+      return LitHtml.html`${out}<div class='divider'></div>`;
+    });
+    LitHtml.render(LitHtml.html`${renderedGroups}`, this.#shadow, {host: this});
+  }
+
+  #renderBreakpointGroup(group: BreakpointGroup): LitHtml.TemplateResult {
+    const groupClassMap = {
+      'expanded': group.expanded,
+    };
+    // clang-format off
+    return LitHtml.html`
+      <div data-group='true' class=${LitHtml.Directives.classMap(groupClassMap)}>
+        <div class='group-header' @click=${(): void => this.#onGroupExpandToggled(group)}>
+            <span class='triangle'></span>
+            ${this.#renderFileIcon()}
+            <span class='group-header-title'>${group.name}</span>
+        </div>
+        ${group.expanded? LitHtml.html`
+          ${group.breakpointEntries.map(entry => this.#renderBreakpointEntry(entry))}` : LitHtml.nothing}
+      </div>
+      `;
+    // clang-format on
+  }
+
+  #renderFileIcon(): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <${IconButton.Icon.Icon.litTagName} .data=${
+        {iconName: 'ic_file_script', color: 'var(--color-ic-file-script)', width: '16px', height: '16px'} as
+        IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
+    `;
+  }
+
+  #renderBreakpointEntry(item: BreakpointItem): LitHtml.TemplateResult {
+    const classMap = {
+      'breakpoint-item': true,
+      'hit': item.isHit,
+    };
+
+    // clang-format off
+    return LitHtml.html`
+    <div class=${LitHtml.Directives.classMap(classMap)}>
+      <label class='checkbox-label'>
+        <input type='checkbox' aria-label=${item.location} ?checked=${item.status!== BreakpointStatus.DISABLED} @change=${(e: Event): void => this.#onCheckboxToggled(e, item)} tabIndex=-1>
+      </label>
+      <span class='code-snippet' @click=${():void => {this.dispatchEvent(new BreakpointSelectedEvent(item));}}>${this.#getCodeSnippet(item)}</span>
+      <span class='location'>${item.location}</span>
+    </div>
+    `;
+    // clang-format on
+  }
+
+  #getCodeSnippet(item: BreakpointItem): string {
+    return Platform.StringUtilities.trimEndWithMaxLength(item.codeSnippet, MAX_SNIPPET_LENGTH);
+  }
+
+  #onGroupExpandToggled(group: BreakpointGroup): void {
+    group.expanded = !group.expanded;
+    this.dispatchEvent(new ExpandedStateChangedEvent(group.url, group.expanded));
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  #onCheckboxToggled(e: Event, item: BreakpointItem): void {
+    const element = e.target as HTMLInputElement;
+    this.dispatchEvent(new CheckboxToggledEvent(item, element.checked));
+  }
+}
+
+ComponentHelpers.CustomElements.defineComponent('devtools-breakpoint-view', BreakpointView);
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devtools-breakpoint-view': BreakpointView;
+  }
+}
