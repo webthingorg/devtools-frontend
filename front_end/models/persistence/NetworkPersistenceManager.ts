@@ -622,19 +622,35 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
-  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Network.Headers):
+  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Fetch.HeaderEntry[]):
       Protocol.Fetch.HeaderEntry[] {
+    const lowerCaseBaseHeaders: Protocol.Fetch.HeaderEntry[] =
+        baseHeaders.map(header => ({name: header.name.toLowerCase(), value: header.value}));
+    lowerCaseBaseHeaders.sort((a, b) => (a.name.localeCompare(b.name)));
+    const lowerCaseOverrideHeaders: Protocol.Fetch.HeaderEntry[] =
+        overrideHeaders.map(header => ({name: header.name.toLowerCase(), value: header.value}));
+    lowerCaseOverrideHeaders.sort((a, b) => (a.name.localeCompare(b.name)));
     const result: Protocol.Fetch.HeaderEntry[] = [];
-    const headerMap = new Map<string, string>();
-    for (const header of baseHeaders) {
-      headerMap.set(header.name, header.value);
+    let i = 0, j = 0;
+    while (i < lowerCaseBaseHeaders.length && j < lowerCaseOverrideHeaders.length) {
+      if (lowerCaseBaseHeaders[i].name < lowerCaseOverrideHeaders[j].name) {
+        result.push(lowerCaseBaseHeaders[i++]);
+      } else if (lowerCaseBaseHeaders[i].name > lowerCaseOverrideHeaders[j].name) {
+        result.push(lowerCaseOverrideHeaders[j++]);
+      } else {
+        while (i < lowerCaseBaseHeaders.length && lowerCaseBaseHeaders[i].name === lowerCaseOverrideHeaders[j].name) {
+          i++;
+        }
+        result.push(lowerCaseOverrideHeaders[j++]);
+      }
     }
-    for (const [headerName, headerValue] of Object.entries(overrideHeaders)) {
-      headerMap.set(headerName, headerValue);
+
+    while (i < lowerCaseBaseHeaders.length) {
+      result.push(lowerCaseBaseHeaders[i++]);
     }
-    headerMap.forEach((headerValue, headerName) => {
-      result.push({name: headerName, value: headerValue});
-    });
+    while (j < lowerCaseOverrideHeaders.length) {
+      result.push(lowerCaseOverrideHeaders[j++]);
+    }
     return result;
   }
 
@@ -762,20 +778,23 @@ export type EventTypes = {
 
 export interface HeaderOverride {
   applyTo: string;
-  headers: Protocol.Network.Headers;
+  headers: Protocol.Fetch.HeaderEntry[];
 }
 
 interface HeaderOverrideWithRegex {
   applyToRegex: RegExp;
-  headers: Protocol.Network.Headers;
+  headers: Protocol.Fetch.HeaderEntry[];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isHeaderOverride(arg: any): arg is HeaderOverride {
-  if (!(arg && arg.applyTo && typeof (arg.applyTo === 'string') && arg.headers && Object.keys(arg.headers).length)) {
+  if (!(arg && arg.applyTo && typeof arg.applyTo === 'string' && arg.headers && arg.headers.length &&
+        Array.isArray(arg.headers))) {
     return false;
   }
-  return Object.values(arg.headers).every(value => typeof value === 'string');
+  return arg.headers.every(
+      (header: Protocol.Fetch.HeaderEntry) =>
+          header.name && typeof header.name === 'string' && header.value && typeof header.value === 'string');
 }
 
 export function escapeRegex(pattern: string): string {
