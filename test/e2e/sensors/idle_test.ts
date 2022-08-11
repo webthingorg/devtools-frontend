@@ -75,7 +75,7 @@ describe('Idle Emulation on Sensors panel', () => {
       await goToResource('sensors/idle-detector.html');
     });
 
-    const select = await waitFor('.idle-section select');
+    const select = await waitFor<HTMLSelectElement>('.idle-section select');
 
     // InitialState can be idle as well.
     const initialState = await getState();

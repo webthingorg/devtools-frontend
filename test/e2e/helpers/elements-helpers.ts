@@ -319,7 +319,7 @@ export const getComputedStylesForDomNode = async (elementSelector: string, style
     if (!element) {
       throw new Error(`${elementSelector} could not be found`);
     }
-    return getComputedStyle(element)[styleAttribute];
+    return getComputedStyle(element).getPropertyValue(styleAttribute);
   }, elementSelector, styleAttribute);
 };
 
@@ -541,7 +541,7 @@ export const getCSSPropertyInRule =
         await node.evaluateHandle((node, name) => (name === node.textContent) ? node.parentNode : undefined, name);
     // Note that evaluateHandle always returns a handle, even if it points to an undefined remote object, so we need to
     // check it's defined here or continue iterating.
-    if (await parent.evaluate(n => Boolean(n))) {
+    if (await parent.asElement()?.evaluate(n => Boolean(n))) {
       return parent as puppeteer.ElementHandle;
     }
   }
