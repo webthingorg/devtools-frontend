@@ -23,6 +23,8 @@ import {
   openNestedWorkerFile,
   RESUME_BUTTON,
   retrieveTopCallFrameWithoutResuming,
+  SourceFileEvents,
+  waitForSourceFiles,
 } from '../helpers/sources-helpers.js';
 
 async function validateSourceTabs() {
@@ -105,14 +107,17 @@ describe('Multi-Workers', async function() {
 
     it(`shows exactly one breakpoint ${withOrWithout}`, async () => {
       const {frontend} = getBrowserAndPages();
-      // Have the target load the page.
-      await goToResource(targetPage);
+      await waitForSourceFiles(
+          SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
+            // Have the target load the page.
+            await goToResource(targetPage);
 
-      await click('#tab-sources');
-      // Wait for all workers to load
-      await validateNavigationTree();
-      // Open file from second worker
-      await openNestedWorkerFile(workerFileSelectors(2));
+            await click('#tab-sources');
+            // Wait for all workers to load
+            await validateNavigationTree();
+            // Open file from second worker
+            await openNestedWorkerFile(workerFileSelectors(2));
+          });
       // Set a breakpoint
       await addBreakpointForLine(frontend, 6);
 
@@ -121,19 +126,22 @@ describe('Multi-Workers', async function() {
       assert.strictEqual(breakpoints, 1);
     });
 
-    describe(`copies breakpoints between workers ${withOrWithout}`, () => {
+    describe.only(`copies breakpoints between workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
-        // Have the target load the page.
-        await goToResource(targetPage);
+        await waitForSourceFiles(
+            SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
+              // Have the target load the page.
+              await goToResource(targetPage);
 
-        await click('#tab-sources');
-        // Wait for all workers to load
-        await validateNavigationTree();
+              await click('#tab-sources');
+              // Wait for all workers to load
+              await validateNavigationTree();
 
-        await step('Open file from second worker', async () => {
-          await openNestedWorkerFile(workerFileSelectors(2));
-        });
+              await step('Open file from second worker', async () => {
+                await openNestedWorkerFile(workerFileSelectors(2));
+              });
+            });
 
         await step('Set two breakpoints', async () => {
           await addBreakpointForLine(frontend, 6);
@@ -191,22 +199,32 @@ describe('Multi-Workers', async function() {
       });
     });
 
-    describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
+    describe.only(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
-
-        // Have the target load the page.
-        await goToResource(targetPage);
-
-        await step('Open sources panel', async () => {
-          await click('#tab-sources');
+        await frontend.evaluate(() => {
+          const handler = (event: Event) => {
+            const {detail} = event as CustomEvent<string>;
+            console.error(detail);
+          };
+          window.addEventListener('source-file-loaded', handler);
         });
 
-        await validateNavigationTree();
+        await waitForSourceFiles(
+            SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
+              // Have the target load the page.
+              await goToResource(targetPage);
 
-        await step('Open second worker file', async () => {
-          await openNestedWorkerFile(workerFileSelectors(2));
-        });
+              await step('Open sources panel', async () => {
+                await click('#tab-sources');
+              });
+
+              await validateNavigationTree();
+
+              await step('Open second worker file', async () => {
+                await openNestedWorkerFile(workerFileSelectors(2));
+              });
+            });
 
         await step('Set breakpoint', async () => {
           await addBreakpointForLine(frontend, 6);
