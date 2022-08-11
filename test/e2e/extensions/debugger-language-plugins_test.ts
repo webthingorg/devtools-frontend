@@ -147,9 +147,9 @@ describe('The Debugger Language Plugins', async () => {
     await click(RESUME_BUTTON);
     const error = await waitForFunction(async () => {
       const messages = await getStructuredConsoleMessages();
-      return messages.find(message => message.message.startsWith('Uncaught (in promise) RuntimeError: unreachable'));
+      return messages.find(message => message.message?.startsWith('Uncaught (in promise) RuntimeError: unreachable'));
     });
-    const callframes = error.message.split('\n').slice(1);
+    const callframes = error.message?.split('\n').slice(1);
     assert.deepEqual(callframes, [
       `    at Main (unreachable.wat:${pauseLocation.sourceLine})`,
       '    at window.loadModule (wasm_module.html?mod…&autorun=Main:24:46)',
@@ -1150,7 +1150,8 @@ describe('The Debugger Language Plugins', async () => {
     });
 
     const messages = await getCurrentConsoleMessages();
-    assert.deepStrictEqual(messages.filter(m => !m.startsWith('[Formatter Errors]')), ['Uncaught No typeinfo for bar']);
+    assert.deepStrictEqual(
+        messages.filter(m => m && !m.startsWith('[Formatter Errors]')), ['Uncaught No typeinfo for bar']);
   });
 
   it('can access wasm data directly', async () => {
