@@ -4,7 +4,15 @@
 
 import {assert} from 'chai';
 
-import {$, click, getBrowserAndPages, goToResource, typeText, waitForFunction} from '../../shared/helper.js';
+import {
+  $,
+  assertNotNullOrUndefined,
+  click,
+  getBrowserAndPages,
+  goToResource,
+  typeText,
+  waitForFunction,
+} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt, STACK_PREVIEW_CONTAINER} from '../helpers/console-helpers.js';
 import {openSettingsTab} from '../helpers/settings-helpers.js';
@@ -25,6 +33,7 @@ describe('The Console Tab', async () => {
     await frontend.waitForSelector(CONSOLE_MESSAGE_WRAPPER);
     await click(CONSOLE_MESSAGE_WRAPPER);
     const stack = await $(STACK_PREVIEW_CONTAINER);
+    assertNotNullOrUndefined(stack);
 
     const expected = [
       {text: '\nshown3 @ showMe.js:10', classes: {}},
@@ -62,6 +71,7 @@ describe('The Console Tab', async () => {
     await frontend.waitForSelector(CONSOLE_MESSAGE_WRAPPER);
     await click(CONSOLE_MESSAGE_WRAPPER);
     const stack = await $(STACK_PREVIEW_CONTAINER);
+    assertNotNullOrUndefined(stack);
 
     const expected = [
       {text: '\nshown3 @ showMe.js:10', classes: {}},

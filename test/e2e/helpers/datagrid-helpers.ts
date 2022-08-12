@@ -9,7 +9,9 @@ import {assert} from 'chai';
 export async function getDataGridRows(
     expectedNumberOfRows: number, root?: ElementHandle<Element>,
     matchExactNumberOfRows: boolean = true): Promise<ElementHandle<Element>[][]> {
-  const dataGrid = await waitFor('devtools-data-grid', root);
+  const dataGrid = root && await root.evaluate(el => el.matches('devtools-data-grid')) ?
+      root :
+      await waitFor('devtools-data-grid', root);
   const rowsSelector = 'tbody > tr:not(.padding-row):not(.hidden)';
   const rowsHandler = await waitForFunction(async () => {
     const rows = (await $$(rowsSelector, dataGrid));

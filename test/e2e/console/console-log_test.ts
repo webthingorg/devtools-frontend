@@ -306,7 +306,7 @@ describe('The Console Tab', async () => {
       assert.strictEqual(await activeElementAccessibleName(), 'Console prompt');
 
       const consolePrompt = await activeElement();
-      const wrappingBox = await consolePrompt.boundingBox();
+      const wrappingBox = await consolePrompt?.boundingBox();
       if (!wrappingBox) {
         throw new Error('Can\'t compute bounding box of console prompt.');
       }
@@ -324,15 +324,16 @@ describe('The Console Tab', async () => {
     async function getConsoleMessageTextChunksWithStyle(
         frontend: puppeteer.Page, styles: string[] = []): Promise<string[][][]> {
       return await frontend.evaluate((selector, styles: string[]) => {
-        return [...document.querySelectorAll(selector)].map(message => [...message.childNodes].map(node => {
-          // For all nodes, extract text.
-          const result = [node.textContent];
-          // For element nodes, get the requested styles.
-          for (const style of styles) {
-            result.push(node.style?.[style] ?? '');
-          }
-          return result;
-        }));
+        return [...document.querySelectorAll(selector)].map(
+            message => ([...message.childNodes] as HTMLElement[]).map(node => {
+              // For all nodes, extract text.
+              const result = [node.textContent || ''];
+              // For element nodes, get the requested styles.
+              for (const style of styles) {
+                result.push(node.style.getPropertyValue(style));
+              }
+              return result;
+            }));
       }, CONSOLE_FIRST_MESSAGES_SELECTOR, styles);
     }
 

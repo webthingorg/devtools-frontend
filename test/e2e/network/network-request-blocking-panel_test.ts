@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assert} from 'chai';
-import {expect} from 'chai';
+import {assert, expect} from 'chai';
+
 import {type ElementHandle} from 'puppeteer';
 
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
@@ -34,7 +34,7 @@ async function isVisible(
 }
 
 async function disableNetworkRequestBlocking() {
-  const networkRequestBlockingCheckbox = await waitForAria('Enable network request blocking');
+  const networkRequestBlockingCheckbox = await waitForAria<HTMLInputElement>('Enable network request blocking');
   expect(await checkboxIsChecked(networkRequestBlockingCheckbox)).to.equal(true);
   await networkRequestBlockingCheckbox.click();
   expect(await checkboxIsChecked(networkRequestBlockingCheckbox)).to.equal(false);
@@ -61,7 +61,8 @@ describe('Network request blocking panel', async () => {
     await waitForAriaNone('Remove');
 
     const firstListItem = await waitFor('.blocked-url');
-    const firstCheckbox = await waitFor('.widget > .list > .list-item > .blocked-url > .blocked-url-checkbox');
+    const firstCheckbox =
+        await waitFor<HTMLInputElement>('.widget > .list > .list-item > .blocked-url > .blocked-url-checkbox');
     expect(await checkboxIsChecked(firstCheckbox)).to.equal(true);
     await firstListItem.click();
     expect(await checkboxIsChecked(firstCheckbox)).to.equal(true);
@@ -71,7 +72,7 @@ describe('Network request blocking panel', async () => {
     await setup();
     await disableNetworkRequestBlocking();
 
-    const list = await waitFor('.list');
+    const list = await waitFor<HTMLInputElement>('.list');
     const listBB = await list.boundingBox();
     if (listBB) {
       const {frontend} = getBrowserAndPages();
@@ -83,7 +84,7 @@ describe('Network request blocking panel', async () => {
       assert.fail('Could not obtain a bounding box for the pattern list.');
     }
 
-    const lastListItem = await waitForElementWithTextContent('19');
+    const lastListItem = await waitForElementWithTextContent<HTMLInputElement>('19');
     await waitForFunction(() => isVisible(lastListItem, list));
   });
 });
