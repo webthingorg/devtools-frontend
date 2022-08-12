@@ -16,6 +16,40 @@
       "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding the BreakpointView component for the re-designed breakpoint sidebar pane. Not all features are covered yet, but I\u0027ll work on them incrementally. You can see how it looks like in the screenshot. It\u0027s not viewable from DevTools yet, since it is not yet used within DevTools in this CL.\n\nPTAL!",
       "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb08fa1_d39a215e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-08-12T11:01:10Z",
+      "side": 1,
+      "message": "LGTM besides a meta comment on naming.",
+      "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b29732f_42ef0b60",
+        "filename": "front_end/panels/sources/components/BreakpointView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-08-12T11:01:10Z",
+      "side": 1,
+      "message": "Probably more of a meta comment/question: Shouldn\u0027t this be named `BreakpointListView` or something like that? From `BreakpointView` it\u0027s not clear whether it\u0027s about viewing a single breakpoint or a list of them (the latter is the case here).",
+      "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
