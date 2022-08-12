@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c441ffe0_058074a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-12T09:09:10Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding the BreakpointView component for the re-designed breakpoint sidebar pane. Not all features are covered yet, but I\u0027ll work on them incrementally. You can see how it looks like in the screenshot. It\u0027s not viewable from DevTools yet, since it is not yet used within DevTools in this CL.\n\nPTAL!",
+      "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
