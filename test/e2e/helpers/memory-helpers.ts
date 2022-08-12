@@ -21,7 +21,8 @@ export async function navigateToMemoryTab() {
 }
 
 export async function takeAllocationProfile(frontend: puppeteer.Page) {
-  const [radioButton] = await frontend.$x('//label[text()="Allocation sampling"]');
+  const [radioButton] =
+      await frontend.$x('//label[text()="Allocation sampling"]') as puppeteer.ElementHandle<Element>[];
   await click(radioButton);
   await click('button[aria-label="Start heap profiling"]');
   await new Promise(r => setTimeout(r, 200));
@@ -34,7 +35,8 @@ export async function takeAllocationTimelineProfile(
     frontend: puppeteer.Page, {recordStacks}: {recordStacks: boolean} = {
       recordStacks: false,
     }) {
-  const [radioButton] = await frontend.$x('//label[text()="Allocation instrumentation on timeline"]');
+  const [radioButton] = await frontend.$x('//label[text()="Allocation instrumentation on timeline"]') as
+      puppeteer.ElementHandle<Element>[];
   await click(radioButton);
   if (recordStacks) {
     await click('input[aria-label="Record stack traces of allocations (extra performance overhead)"]');
