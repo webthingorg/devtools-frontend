@@ -446,7 +446,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   async captureScreenshot(): Promise<void> {
-    const screenshot = await this.model.captureScreenshot(false);
+    const screenshot = await this.model.captureScreenshot();
     if (screenshot === null) {
       return;
     }
@@ -488,7 +488,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   async captureFullSizeScreenshot(): Promise<void> {
-    const screenshot = await this.model.captureScreenshot(true);
+    const screenshot = await this.model.captureScreenshot();
     if (screenshot === null) {
       return;
     }
@@ -496,7 +496,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   async captureAreaScreenshot(clip?: Protocol.Page.Viewport): Promise<void> {
-    const screenshot = await this.model.captureScreenshot(false, clip);
+    const screenshot = await this.model.captureScreenshot(clip);
     if (screenshot === null) {
       return;
     }
