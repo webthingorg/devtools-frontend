@@ -718,11 +718,12 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   async captureScreenshot(fullSize: boolean, clip?: Protocol.Page.Viewport): Promise<string|null> {
     const screenCaptureModel =
         this.#emulationModel ? this.#emulationModel.target().model(SDK.ScreenCaptureModel.ScreenCaptureModel) : null;
-    if (!screenCaptureModel) {
+    // Extra if condition to omit other redundant if conditions
+    if (!screenCaptureModel || !this.#emulationModel) {
       return null;
     }
 
-    const overlayModel = this.#emulationModel ? this.#emulationModel.overlayModel() : null;
+    const overlayModel = this.#emulationModel.overlayModel();
     if (overlayModel) {
       overlayModel.setShowViewportSizeOnResize(false);
     }
@@ -747,7 +748,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       deviceScaleFactor: 0,
       mobile: false,
     };
-    if (fullSize && this.#emulationModel) {
+    if (fullSize) {
       if (this.#deviceInternal && this.#modeInternal) {
         const orientation = this.#deviceInternal.orientationByName(this.#modeInternal.orientation);
         deviceMetrics.width = orientation.width;
