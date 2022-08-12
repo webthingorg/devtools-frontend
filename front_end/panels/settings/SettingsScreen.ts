@@ -36,6 +36,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import * as PanelComponents from './components/components.js';
 
 import settingsScreenStyles from './settingsScreen.css.js';
@@ -93,6 +94,10 @@ const UIStrings = {
   *@description Text that is usually a hyperlink to more documentation
   */
   learnMore: 'Learn more',
+  /**
+  *@description Text that is usually a hyperlink to a feedback form
+  */
+  sendFeedback: 'Send feedback',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/settings/SettingsScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -485,6 +490,14 @@ export class ExperimentsSettingsTab extends SettingsTab {
       linkIcon.data = {iconName: 'help_outline', color: 'var(--color-text-secondary)', width: '16px', height: '16px'};
       linkIcon.classList.add('link-icon');
       link.prepend(linkIcon);
+
+      p.appendChild(link);
+    }
+
+    if (experiment.feedbackLink) {
+      const link = UI.XLink.XLink.create(experiment.feedbackLink);
+      link.textContent = i18nString(UIStrings.sendFeedback);
+      link.classList.add('feedback-link');
 
       p.appendChild(link);
     }
