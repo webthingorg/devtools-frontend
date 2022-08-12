@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d75ae71_fbff39fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-12T12:21:23Z",
+      "side": 1,
+      "message": "Boris, thanks a lot for your contribution! I would like to help you getting this merged. I\u0027ve added a test, but in order to merge we need to get the legal stuff out of the way. It would be great if you could sign the Contributor License Agreement as described at https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/contributing.md#Legal-stuff. Thanks a lot!",
+      "revId": "ea4a32515acafaa0cd30ba0c68faed91bd2cefd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
