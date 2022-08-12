@@ -165,6 +165,7 @@ export class IDBDatabaseView extends UI.Widget.VBox {
   private readonly refreshButton: HTMLButtonElement;
   constructor(model: IndexedDBModel, database: Database|null) {
     super();
+    console.log('DATABASE: ', database);
 
     this.model = model;
     const databaseName = database ? database.databaseId.name : i18nString(UIStrings.loading);
@@ -198,7 +199,9 @@ export class IDBDatabaseView extends UI.Widget.VBox {
   }
 
   private refreshDatabase(): void {
-    this.securityOriginElement.textContent = this.database.databaseId.securityOrigin;
+    this.securityOriginElement.textContent = this.database.databaseId.securityOrigin ?
+        this.database.databaseId.securityOrigin :
+        this.database.databaseId.storageKey;
     if (this.versionElement) {
       this.versionElement.textContent = this.database.version.toString();
     }

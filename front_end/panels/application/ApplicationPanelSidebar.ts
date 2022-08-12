@@ -1054,6 +1054,7 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   }
 
   private initialize(): void {
+    console.log('>>>>>>>>>>>>>>>>>INITIALIZE');
     SDK.TargetManager.TargetManager.instance().addModelListener(
         IndexedDBModel, IndexedDBModelEvents.DatabaseAdded, this.indexedDBAdded, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
@@ -1095,16 +1096,19 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   refreshIndexedDB(): void {
     for (const indexedDBModel of SDK.TargetManager.TargetManager.instance().models(IndexedDBModel)) {
       void indexedDBModel.refreshDatabaseNames();
+      void indexedDBModel.refreshDatabaseNamesByStorageKey();
     }
   }
 
   private indexedDBAdded({
     data: {databaseId, model},
   }: Common.EventTarget.EventTargetEvent<{databaseId: DatabaseId, model: IndexedDBModel}>): void {
+    console.log('indexedDBAdded called with databaseId: ', databaseId);
     this.addIndexedDB(model, databaseId);
   }
 
   private addIndexedDB(model: IndexedDBModel, databaseId: DatabaseId): void {
+    console.log('addIndexedDB called with databaseID: ', databaseId);
     const idbDatabaseTreeElement = new IDBDatabaseTreeElement(this.resourcesPanel, model, databaseId);
     this.idbDatabaseTreeElements.push(idbDatabaseTreeElement);
     this.appendChild(idbDatabaseTreeElement);
@@ -1131,6 +1135,7 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   private indexedDBLoaded(
       {data: {database, model, entriesUpdated}}: Common.EventTarget
           .EventTargetEvent<{database: IndexedDBModelDatabase, model: IndexedDBModel, entriesUpdated: boolean}>): void {
+    console.log('indexedDBLoaded in ApplicationSidebarPanel:', database);
     const idbDatabaseTreeElement = this.idbDatabaseTreeElement(model, database.databaseId);
     if (!idbDatabaseTreeElement) {
       return;
@@ -1167,7 +1172,10 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   private view?: IDBDatabaseView;
 
   constructor(storagePanel: ResourcesPanel, model: IndexedDBModel, databaseId: DatabaseId) {
-    super(storagePanel, databaseId.name + ' - ' + databaseId.securityOrigin, false);
+    super(
+        storagePanel,
+        databaseId.name + ' - ' + (databaseId.securityOrigin ? databaseId.securityOrigin : databaseId.storageKey),
+        false);
     this.model = model;
     this.databaseId = databaseId;
     this.idbObjectStoreTreeElements = new Map();
@@ -1177,8 +1185,9 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
-    return 'indexedDB://' + this.databaseId.securityOrigin + '/' + this.databaseId.name as
-        Platform.DevToolsPath.UrlString;
+    return 'indexedDB://' +
+        (this.databaseId.securityOrigin ? this.databaseId.securityOrigin : this.databaseId.storageKey) + '/' +
+        this.databaseId.name as Platform.DevToolsPath.UrlString;
   }
 
   onattach(): void {
@@ -1292,8 +1301,9 @@ export class IDBObjectStoreTreeElement extends ApplicationPanelTreeElement {
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
-    return 'indexedDB://' + this.databaseId.securityOrigin + '/' + this.databaseId.name + '/' + this.objectStore.name as
-        Platform.DevToolsPath.UrlString;
+    return 'indexedDB://' +
+        (this.databaseId.securityOrigin ? this.databaseId.securityOrigin : this.databaseId.storageKey) + '/' +
+        this.databaseId.name + '/' + this.objectStore.name as Platform.DevToolsPath.UrlString;
   }
 
   onattach(): void {

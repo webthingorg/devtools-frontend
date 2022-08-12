@@ -16,6 +16,7 @@ export class StorageKeyManager extends SDKModel<EventTypes> {
   }
 
   updateStorageKeys(storageKeys: Set<string>): void {
+    console.log('UPDATE SK in SKManager, new: ', storageKeys, ' old: ', this.#storageKeysInternal);
     const oldStorageKeys = this.#storageKeysInternal;
     this.#storageKeysInternal = storageKeys;
 
