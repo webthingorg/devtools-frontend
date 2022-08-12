@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0170a85b_d4484990",
+        "filename": "test/e2e/elements/css-hints_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-12T07:41:49Z",
+      "side": 1,
+      "message": "nit: would it be better to put this in a `beforeAll`? Later when we remove the experiment, it would be easier to change.",
+      "revId": "8cf8008b302180f64f5e54417aa9f54eb2f08b14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
