@@ -27,6 +27,9 @@ describe('The Console\'s errors', () => {
            return false;
          }
          const [{message}] = messages;
+         if (!message) {
+           return false;
+         }
          return /^MyError.*error-with-sourcemap.ts:6/.test(message.replace('\n', ''));
        });
      });
