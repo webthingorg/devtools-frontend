@@ -16,6 +16,24 @@
       "message": "Just curious, why is `getPossibleFixMessage()` returning `string|null` while `getLearnMoreLink()` returns `string|undefined`. Are there criteria when we return `null` vs. `undefined`?",
       "revId": "0b7b6fd6c966fb34f5571a267ab45a1d87ffe56e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43231c38_59773b64",
+        "filename": "front_end/panels/elements/components/CSSHintDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-12T12:27:49Z",
+      "side": 1,
+      "message": "There is no criteria, but I slightly prefer undefined. I will update it to be consistent in follow-ups",
+      "parentUuid": "49886836_94c548cc",
+      "revId": "0b7b6fd6c966fb34f5571a267ab45a1d87ffe56e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
