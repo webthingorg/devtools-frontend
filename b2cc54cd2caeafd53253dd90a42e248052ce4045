@@ -50,6 +50,24 @@
       "message": "Probably more of a meta comment/question: Shouldn\u0027t this be named `BreakpointListView` or something like that? From `BreakpointView` it\u0027s not clear whether it\u0027s about viewing a single breakpoint or a list of them (the latter is the case here).",
       "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07494d6d_f8c313be",
+        "filename": "front_end/panels/sources/components/BreakpointView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-12T11:45:10Z",
+      "side": 1,
+      "message": "Makes sense, I\u0027ve renamed it to `BreakpointsView` now, as discussed offline.",
+      "parentUuid": "3b29732f_42ef0b60",
+      "revId": "b2cc54cd2caeafd53253dd90a42e248052ce4045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
