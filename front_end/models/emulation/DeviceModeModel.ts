@@ -728,16 +728,16 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
 
     // Define the right clipping area for fullsize screenshots.
-    if (fullSize) {
-      const metrics = await screenCaptureModel.fetchLayoutMetrics();
-      if (!metrics) {
-        return null;
-      }
+    // if (fullSize) {
+    //   const metrics = await screenCaptureModel.fetchLayoutMetrics();
+    //   if (!metrics) {
+    //     return null;
+    //   }
 
-      // Cap the height to not hit the GPU limit.
-      const contentHeight = Math.min((1 << 14), metrics.contentHeight);
-      clip = {x: 0, y: 0, width: Math.floor(metrics.contentWidth), height: Math.floor(contentHeight), scale: 1};
-    }
+    //   // Cap the height to not hit the GPU limit.
+    //   const contentHeight = Math.min((1 << 14), metrics.contentHeight);
+    //   clip = {x: 0, y: 0, width: Math.floor(metrics.contentWidth), height: Math.floor(contentHeight), scale: 1};
+    // }
     const screenshot =
         await screenCaptureModel.captureScreenshot(Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, clip);
 
