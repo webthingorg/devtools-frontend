@@ -16,6 +16,24 @@
       "message": "Thanks for the CL! Is there a feature request for this feature on crbug.com? I try to see how often users need to export to Python. Also, I wonder if it could be a DevTools extension as the list of copy formats is already quite long. ",
       "revId": "e89c5dfde3e3d6c8cacff6ee225415c191b45f8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e2a9833_64f8fdd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-08-13T21:52:53Z",
+      "side": 1,
+      "message": "Hi Alex, sorry I didn\u0027t see your comment earlier.\n\nI opened a feature request here\n\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1352771\n\n\u003e it could be a DevTools extension as the list of copy formats is already quite long\n\nI wanted to write this as an extension for the reason you mention, but I assumed that there\u0027s no API for adding items to the right click menu for extension (because why would someone spend their time working on that?), and I can\u0027t think of any better interface than that, short of re-implementing a Network panel. I read through the DevTools documentation just now\n\nhttps://developer.chrome.com/docs/extensions/mv3/devtools/#devtools-page\n\nand didn\u0027t see anything that could help here. If you could give me some pointers on how this could be implemented as an extension, that would be great, or if it\u0027s not possible now but the DevTools team ever implements an API for adding options to the right click menu, please email me.\n\nIf it helps, VS Code lets you register a command using JavaScript and then add it to the right click menu through package.json, it even lets you specify exactly where in the menu you want to put your option, you can see an example here:\n\nhttps://github.com/curlconverter/curlconverter-vscode/blob/58ca72f434f6b6c454bb952f79b8d157d3ba8a85/package.json#L56\n\nThere\u0027s a screenshot in the README of what the result looks like.\n\nStill, adding this to Chrome directly would save more people time because there\u0027s probably a long tail of people who don\u0027t have to do this conversion enough to even think that there might be an extension to automate the process.",
+      "parentUuid": "a8220f95_d842c9eb",
+      "revId": "e89c5dfde3e3d6c8cacff6ee225415c191b45f8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
