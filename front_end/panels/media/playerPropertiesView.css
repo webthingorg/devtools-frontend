@@ -12,6 +12,8 @@
   line-height: 20px;
   min-height: 28px;
   padding: 4px 10px;
+  display: block;
+  overflow: hidden;
 }
 
 .media-property-renderer-hidden {
@@ -20,13 +22,17 @@
 
 .media-property-renderer-title {
   font-size: 14px;
+  float: left;
+  width: 150px;
 }
 
 .media-property-renderer-contents {
-  position: absolute;
+  position: relative;
   left: 200px;
+}
+
+.media-property-renderer-contents > .json-view {
   overflow: hidden;
-  height: 20px;
 }
 
 .media-property-renderer:nth-child(even) {
