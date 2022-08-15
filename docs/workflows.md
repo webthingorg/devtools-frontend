@@ -68,7 +68,7 @@ Open DevTools via F12 or Ctrl+Shift+J on Windows/Linux or Cmd+Option+I on Mac.
 
 If you get errors along the line of `Uncaught TypeError: Cannot read property 'setInspectedTabId'` you probably specified an incorrect path - the path has to be absolute. On Mac and Linux, the file url will start with __three__ slashes: `file:///Users/...`.
 
-Tip: You can inspect DevTools with DevTools by undocking DevTools and then opening a second instance of DevTools (F12 on Windows/Linux, Cmd+Option+I on Mac).
+**Tip**: You can inspect DevTools with DevTools by undocking DevTools and then opening a second instance of DevTools (see keyboard shortcut above).
 
 ##### Running from remote URL
 
@@ -82,7 +82,7 @@ Then point to that web server when starting Chromium, for example:
 <path-to-devtools-frontend>/third_party/chrome/chrome-<platform>/chrome --custom-devtools-frontend=http://localhost:8000/
 ```
 
-Open DevTools via F12 on Windows/Linux or Cmd+Option+I on Mac.
+Open DevTools via F12 or Ctrl+Shift+J on Windows/Linux or Cmd+Option+I on Mac.
 
 ##### Running in hosted mode
 
@@ -117,7 +117,7 @@ gclient sync
 Then, disable `gclient sync` for DevTools frontend inside of Chromium by editing `.gclient` config. From `chromium/src/`, run
 
 ```bash
-vim $(gclient root)/.gclient
+vim "$(gclient root)/.gclient"
 ```
 
 In the `custom_deps` section, insert this line:
