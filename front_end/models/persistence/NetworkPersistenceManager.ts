@@ -622,19 +622,37 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
-  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Network.Headers):
+  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Fetch.HeaderEntry[]):
       Protocol.Fetch.HeaderEntry[] {
+    const lowerCaseBaseHeaders: Protocol.Fetch.HeaderEntry[] =
+        baseHeaders.map(header => ({name: header.name.toLowerCase(), value: header.value}));
+    const lowerCaseOverrideHeaders: Protocol.Fetch.HeaderEntry[] =
+        overrideHeaders.map(header => ({name: header.name.toLowerCase(), value: header.value}));
+    lowerCaseOverrideHeaders.sort((a, b) => (a.name.localeCompare(b.name)));
     const result: Protocol.Fetch.HeaderEntry[] = [];
-    const headerMap = new Map<string, string>();
-    for (const header of baseHeaders) {
-      headerMap.set(header.name, header.value);
-    }
-    for (const [headerName, headerValue] of Object.entries(overrideHeaders)) {
-      headerMap.set(headerName, headerValue);
-    }
-    headerMap.forEach((headerValue, headerName) => {
-      result.push({name: headerName, value: headerValue});
+    const headerMap: Platform.MapUtilities.Multimap<string, string> = new Platform.MapUtilities.Multimap();
+    lowerCaseOverrideHeaders.forEach(overrideHeader => {
+      headerMap.set(overrideHeader.name, overrideHeader.value);
     });
+    let alreadyContainsHeaderName = false;
+    lowerCaseBaseHeaders.forEach((baseHeader, i, baseHeaders) => {
+      if (headerMap.has(baseHeader.name)) {
+        if (i > 0 && baseHeaders[i - 1].name === baseHeader.name && !alreadyContainsHeaderName) {
+          headerMap.set(baseHeader.name, baseHeader.value);
+        } else {
+          alreadyContainsHeaderName = true;
+        }
+      } else {
+        headerMap.set(baseHeader.name, baseHeader.value);
+        alreadyContainsHeaderName = false;
+      }
+    });
+
+    for (const headerName of headerMap.keysArray()) {
+      for (const headerValue of headerMap.get(headerName)) {
+        result.push({name: headerName, value: headerValue});
+      }
+    }
     return result;
   }
 
@@ -766,20 +784,23 @@ export type EventTypes = {
 
 export interface HeaderOverride {
   applyTo: string;
-  headers: Protocol.Network.Headers;
+  headers: Protocol.Fetch.HeaderEntry[];
 }
 
 interface HeaderOverrideWithRegex {
   applyToRegex: RegExp;
-  headers: Protocol.Network.Headers;
+  headers: Protocol.Fetch.HeaderEntry[];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isHeaderOverride(arg: any): arg is HeaderOverride {
-  if (!(arg && arg.applyTo && typeof (arg.applyTo === 'string') && arg.headers && Object.keys(arg.headers).length)) {
+  if (!(arg && arg.applyTo && typeof arg.applyTo === 'string' && arg.headers && arg.headers.length &&
+        Array.isArray(arg.headers))) {
     return false;
   }
-  return Object.values(arg.headers).every(value => typeof value === 'string');
+  return arg.headers.every(
+      (header: Protocol.Fetch.HeaderEntry) =>
+          header.name && typeof header.name === 'string' && header.value && typeof header.value === 'string');
 }
 
 export function escapeRegex(pattern: string): string {
