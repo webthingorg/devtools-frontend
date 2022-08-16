@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a1ee7479_9fead67b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-08-16T08:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abe2932a_5cafe6ee",
+      "revId": "40f67a62d8104a92371f7979dc8d36d3e691c298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77efbd60_fc8756c0",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2022-08-16T06:01:59Z",
       "side": 1,
       "message": "nit: Mark as `readonly`.",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 49
+      },
+      "revId": "40f67a62d8104a92371f7979dc8d36d3e691c298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca5cdc68_3fb35d2a",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-08-16T08:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df163061_8b22aebf",
       "range": {
         "startLine": 263,
         "startChar": 2,
