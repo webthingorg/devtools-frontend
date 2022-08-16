@@ -34,6 +34,24 @@
       "parentUuid": "05003c47_b87bba1d",
       "revId": "895712700a3244163aba1a6697a3481fd1b7a7e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2682a99_a51bd612",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-16T13:45:07Z",
+      "side": 1,
+      "message": "Could we use this one? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/Treeoutline.ts;l\u003d540;drc\u003d3a80260722c77d984a637b923cad4883857e57dc\n\nUnless I messed up the inheritance tree and `this.propertiesTreeOutline` doesn\u0027t come from TreeOutline.ts?",
+      "parentUuid": "f477933f_219e869c",
+      "revId": "895712700a3244163aba1a6697a3481fd1b7a7e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
