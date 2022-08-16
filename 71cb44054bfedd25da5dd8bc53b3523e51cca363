@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "117e75c7_e686fca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366833
+      },
+      "writtenOn": "2022-08-16T08:43:19Z",
+      "side": 1,
+      "message": "Vladimir is OOO, changing R\u003d",
+      "revId": "71cb44054bfedd25da5dd8bc53b3523e51cca363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
