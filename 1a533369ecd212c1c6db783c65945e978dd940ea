@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c3b6b1_08950819",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-16T13:43:37Z",
+      "side": 1,
+      "message": "LGTM, with caveat about using \u003cdetails\u003e. I understand the concern around \u003cdetails\u003e and \u003csummary\u003e being that it may not be accessible by default as the contents of the \u003csummary\u003e are not a true summary of the detail.\n\nHowever, I did some research and found this [useful blog post](https://www.scottohara.me/blog/2018/09/03/details-and-summary.html):\n\n\u003e It’s worth noting that a summary element does not necessarily mean it must contain a “summary” of the other children of the details element. The HTML specification defines the element as representing “a summary, caption, or legend”, but you should treat the summary like you would any disclosure widget trigger or toggle button. Provide it an appropriate accessible name to indicate the content it will reveal, and you’ll be good to go!\n\nSo I think we could reasonably use it here and remain accessible, and consider aria-label if we want to change the exact text that is read by the screen reader.\n\nIMO this is an improvement as we don\u0027t have to implement the expand/collapse behaviour ourself, and use of \u003cdetails\u003e/\u003csummary\u003e is more semantic than \u003cdiv\u003es.\n\nI don\u0027t feel so strongly that I\u0027ll block the CL, but I would advocate for re-considering details/summary. However I leave the decision entirely up to you both 😊",
+      "revId": "1a533369ecd212c1c6db783c65945e978dd940ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
