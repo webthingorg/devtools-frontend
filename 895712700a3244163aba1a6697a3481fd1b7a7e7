@@ -52,6 +52,24 @@
       "parentUuid": "f477933f_219e869c",
       "revId": "895712700a3244163aba1a6697a3481fd1b7a7e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b1aaf3_c32b6754",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-16T14:35:57Z",
+      "side": 1,
+      "message": "That appears to be a method on TreeElement not on TreeOutline though. Note that the are multiple classes in the same file.",
+      "parentUuid": "f2682a99_a51bd612",
+      "revId": "895712700a3244163aba1a6697a3481fd1b7a7e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
