@@ -862,7 +862,7 @@ class DOMInheritanceCascade {
       const canonicalName = (entry[0] as string);
       const shorthandProperty = (entry[1] as CSSProperty);
       const shorthandStyle = shorthandProperty.ownerStyle;
-      const longhands = shorthandStyle.longhandProperties(shorthandProperty.name);
+      const longhands = shorthandProperty.getLonghandProperties();
       if (!longhands.length) {
         continue;
       }
