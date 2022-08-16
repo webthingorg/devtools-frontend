@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2931d2b3_be581aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T08:55:35Z",
+      "side": 1,
+      "message": "I\u0027m not really familiar with the Media panel. Therefore I have a few more general questions/suggestions.",
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80ee0d5_ec05ca90",
+        "filename": "front_end/panels/media/PlayerPropertiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T08:55:35Z",
+      "side": 1,
+      "message": "If `data` can be an object, this seems to violate the type for `tabData` for which the values are strings. It seems that these objects are sent in stringified form over CDP. Is there a way to use correct type info once they are parsed on the DevTools side?",
+      "range": {
+        "startLine": 368,
+        "startChar": 10,
+        "endLine": 368,
+        "endChar": 34
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c8e556_37a50597",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T08:55:35Z",
+      "side": 1,
+      "message": "I noticed that these titles in the left column have a bigger font size than the content in the right column. Is this on purpose or would a 12px font make sense for both?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07be1bd4_19b9ed4b",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T08:55:35Z",
+      "side": 1,
+      "message": "You could add the following to improve capitalization for the titles in the left column.\n```\n.media-property-renderer-title:first-letter {\n  text-transform: uppercase;\n}\n```",
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa660079_3e5222d7",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T08:55:35Z",
+      "side": 1,
+      "message": "The JSON-view (already when not expanded) increases the height for this row, which causes the title in the left column to be somewhat mis-aligned. Removing the padding for the JSON-view improves this a bit (and also fixes the indentation of the triangle icon), but not completely.",
+      "range": {
+        "startLine": 34,
+        "startChar": 37,
+        "endLine": 34,
+        "endChar": 48
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
