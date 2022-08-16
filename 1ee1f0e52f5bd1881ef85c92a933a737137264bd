@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "1ee1f0e52f5bd1881ef85c92a933a737137264bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b34b3b6_45238ddc",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-16T05:54:17Z",
+      "side": 1,
+      "message": "Did you consider to use a `Platform.MapUtilities.Multimap` instead? It\u0027s basically a wrapped `Map\u003cK, Set\u003cV\u003e\u003e`. It would boil down to:\n\n1) Add the override headers first to the Multimap\n2) Add the base headers, but only if no entry with that key (i.e. the header name) exists yet.\n\nIIUC then that should be equivalent to the current solution and might be more readable.",
+      "range": {
+        "startLine": 625,
+        "startChar": 2,
+        "endLine": 625,
+        "endChar": 14
+      },
+      "revId": "1ee1f0e52f5bd1881ef85c92a933a737137264bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
