@@ -411,6 +411,19 @@ export const getComputedStyleProperties = async () => {
   return properties;
 };
 
+export const getDisplayedPropertyValues = async () => {
+  const allRuleSelectors = await $$(CSS_STYLE_RULE_SELECTOR);
+  const values = [];
+  for (const ruleSelector of allRuleSelectors) {
+    const cssPropertyValues = await $$(CSS_PROPERTY_VALUE_SELECTOR, ruleSelector);
+    const currentValues =
+        await Promise.all(cssPropertyValues.map(async node => await node.evaluate(n => n.textContent)));
+    values.push(...currentValues);
+  }
+
+  return values;
+};
+
 export const getDisplayedStyleRulesCompact = async () => {
   const compactRules = [];
   for (const rule of await getDisplayedStyleRules()) {

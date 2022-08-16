@@ -19,6 +19,7 @@ import {
   editQueryRuleText,
   getComputedStylesForDomNode,
   getDisplayedCSSPropertyNames,
+  getDisplayedPropertyValues,
   getDisplayedStyleRules,
   getDisplayedStyleRulesCompact,
   getStyleRule,
@@ -672,7 +673,7 @@ describe('The Styles pane', async () => {
     assert.deepEqual(fooRules, expected);
   });
 
-  it('can show overriden shorthands as inactive (ported layout test)', async () => {
+  it('can show overridden shorthands as inactive (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-shorthand-override.html');
     await waitForStyleRule('body');
 
@@ -768,7 +769,7 @@ describe('The Styles pane', async () => {
     assert.deepEqual(inspected3Rules, expectedInspected3Rules);
   });
 
-  it('shows longhands overriden by shorthands with var() as inactive (ported layout test)', async () => {
+  it('shows longhands overridden by shorthands with var() as inactive (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-longhand-override.html');
     await waitForStyleRule('body');
 
@@ -799,7 +800,32 @@ describe('The Styles pane', async () => {
     assert.deepEqual(inspectedRules, expectedInspected1Rules);
   });
 
-  it('shows overriden properties as inactive (ported layout test)', async () => {
+  it('shows longhands with parsed values under a shorthand', async () => {
+    await goToResourceAndWaitForStyleSection('elements/css-shorthand-override.html');
+    await waitForStyleRule('body');
+
+    await waitForAndClickTreeElementWithPartialText('inspected4');
+    await waitForStyleRule('#inspected4');
+
+    const inspectedRules = await getDisplayedPropertyValues();
+    assert.deepStrictEqual(inspectedRules, [
+      'black',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'initial',
+      'black',
+      'yellow',
+      'block',
+    ]);
+  });
+
+  it('shows overridden properties as inactive (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-override.html');
     await waitForStyleRule('body');
 
