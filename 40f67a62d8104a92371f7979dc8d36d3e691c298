@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abe2932a_5cafe6ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-16T06:01:59Z",
+      "side": 1,
+      "message": "Please include a screenshot of the added Links. Not just for me review but also later for Jecelyn :)",
+      "revId": "40f67a62d8104a92371f7979dc8d36d3e691c298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77efbd60_fc8756c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-16T06:01:59Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "40f67a62d8104a92371f7979dc8d36d3e691c298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df163061_8b22aebf",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-16T06:01:59Z",
+      "side": 1,
+      "message": "nit: Mark as `readonly`.",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 49
+      },
+      "revId": "40f67a62d8104a92371f7979dc8d36d3e691c298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
