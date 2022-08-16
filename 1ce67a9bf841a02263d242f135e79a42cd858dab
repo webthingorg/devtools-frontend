@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a57e9d6_58aa43a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T11:12:11Z",
+      "side": 1,
+      "message": "Alex, PTAL again. Added unit test and made method static. BE CL is https://crrev.com/c/3828228",
+      "revId": "1ce67a9bf841a02263d242f135e79a42cd858dab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
