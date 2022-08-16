@@ -39,6 +39,30 @@
       },
       "revId": "1ee1f0e52f5bd1881ef85c92a933a737137264bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d0232ac_1eef0fbe",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-16T14:53:29Z",
+      "side": 1,
+      "message": "That\u0027s a good idea, thanks! I refactored the method to use a MultiMap. Step 2, adding the base headers, still needed some logic, but overall I think it\u0027s slightly easier to follow now.",
+      "parentUuid": "7b34b3b6_45238ddc",
+      "range": {
+        "startLine": 625,
+        "startChar": 2,
+        "endLine": 625,
+        "endChar": 14
+      },
+      "revId": "1ee1f0e52f5bd1881ef85c92a933a737137264bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
