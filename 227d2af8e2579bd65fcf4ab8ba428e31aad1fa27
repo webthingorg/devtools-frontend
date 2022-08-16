@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df769379_a784b00d",
+        "filename": "front_end/panels/media/PlayerPropertiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-08-16T21:50:45Z",
+      "side": 1,
+      "message": "ah, yeah, i forgot to update the tabData type. Surprised that didn\u0027t error at me.",
+      "parentUuid": "d80ee0d5_ec05ca90",
+      "range": {
+        "startLine": 368,
+        "startChar": 10,
+        "endLine": 368,
+        "endChar": 34
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1c8e556_37a50597",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-16T08:55:35Z",
       "side": 1,
       "message": "I noticed that these titles in the left column have a bigger font size than the content in the right column. Is this on purpose or would a 12px font make sense for both?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aecd32e_94311d32",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-08-16T21:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c8e556_37a50597",
       "range": {
         "startLine": 24,
         "startChar": 2,
@@ -81,6 +129,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "522e42d0_b129cfd0",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-08-16T21:50:45Z",
+      "side": 1,
+      "message": "cool. I didn\u0027t realize this was possible.",
+      "parentUuid": "07be1bd4_19b9ed4b",
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa660079_3e5222d7",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-08-16T08:55:35Z",
       "side": 1,
       "message": "The JSON-view (already when not expanded) increases the height for this row, which causes the title in the left column to be somewhat mis-aligned. Removing the padding for the JSON-view improves this a bit (and also fixes the indentation of the triangle icon), but not completely.",
+      "range": {
+        "startLine": 34,
+        "startChar": 37,
+        "endLine": 34,
+        "endChar": 48
+      },
+      "revId": "227d2af8e2579bd65fcf4ab8ba428e31aad1fa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9252bd_4db2d6ad",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-08-16T21:50:45Z",
+      "side": 1,
+      "message": "Done. It looks like it\u0027s one pixel taller now, but almost totally unnoticable.\nhttps://files.tedm.io/dtss/json-collapsed.png\nhttps://files.tedm.io/dtss/json-expanded.png",
+      "parentUuid": "aa660079_3e5222d7",
       "range": {
         "startLine": 34,
         "startChar": 37,
