@@ -33,6 +33,23 @@
       "message": "as we discussed, I try to overcome the fear of committing changes and this CL is not WIP any longer, just waiting for your thoughts regarding if the change is beneficial and who should I put as an owner, so I send it for review ",
       "revId": "622010dd1e5c2254375f5d7862b9872deb8b9108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7debfb92_f437efe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-17T14:29:43Z",
+      "side": 1,
+      "message": "As I am reading TS coding principles I see this might not be a good idea because of strict nullchecks. Should I close that CL?",
+      "revId": "622010dd1e5c2254375f5d7862b9872deb8b9108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
