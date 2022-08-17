@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09d95d9_f9c1c7b7",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-08-17T11:29:29Z",
+      "side": 1,
+      "message": "Note, previously, the pins and the deps were in separate CLs. Probably that had an advantage. A unified CL for those two things might lead to one being blocked in CQ due to failures on the other. Also makes reasoning harder if there are failures/differences and too many things roll/change at once.",
+      "range": {
+        "startLine": 855,
+        "startChar": 13,
+        "endLine": 855,
+        "endChar": 39
+      },
+      "revId": "72be67ac35d3e967c7872c707d629ec82b218f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
