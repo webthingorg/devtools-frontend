@@ -56,7 +56,7 @@ if (platform === 'mac') {
 }
 
 export const selectKeyboardShortcutPreset = async (option: string) => {
-  const presetSelectElement = await waitForElementWithTextContent(SHORTCUT_SELECT_TEXT);
+  const presetSelectElement = await waitForElementWithTextContent<HTMLSelectElement>(SHORTCUT_SELECT_TEXT);
   await selectOption(presetSelectElement, option);
 };
 

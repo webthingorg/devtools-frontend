@@ -184,21 +184,21 @@ export const pasteText = async (text: string) => {
 };
 
 // Get a single element handle. Uses `pierce` handler per default for piercing Shadow DOM.
-export const $ =
-    async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
+export const $ = async<ElementType extends HTMLElement = HTMLElement>(
+    selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root as puppeteer.ElementHandle : frontend;
-  const element = await rootElement.$<ElementType>(`${handler}/${selector}`);
-  return element;
+  const element = await rootElement.$(`${handler}/${selector}`);
+  return element as puppeteer.ElementHandle<ElementType>| null;
 };
 
 // Get multiple element handles. Uses `pierce` handler per default for piercing Shadow DOM.
-export const $$ =
-    async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
+export const $$ = async<ElementType extends HTMLElement = HTMLElement>(
+    selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root.asElement() || frontend : frontend;
-  const elements = await rootElement.$$<ElementType>(`${handler}/${selector}`);
-  return elements;
+  const elements = await rootElement.$$(`${handler}/${selector}`);
+  return elements as puppeteer.ElementHandle<ElementType>[];
 };
 
 /**
@@ -207,8 +207,9 @@ export const $$ =
  * @param textContent The text content to search for.
  * @param root The root of the search.
  */
-export const $textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
-  return $(textContent, root, 'pierceShadowText');
+export const $textContent =
+    async<ElementType extends HTMLElement = HTMLElement>(textContent: string, root?: puppeteer.JSHandle) => {
+  return $<ElementType>(textContent, root, 'pierceShadowText');
 };
 
 /**
@@ -217,13 +218,14 @@ export const $textContent = async (textContent: string, root?: puppeteer.JSHandl
  * @param textContent The text content to search for.
  * @param root The root of the search.
  */
-export const $$textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
-  return $$(textContent, root, 'pierceShadowText');
+export const $$textContent =
+    async<ElementType extends HTMLElement = HTMLElement>(textContent: string, root?: puppeteer.JSHandle) => {
+  return $$<ElementType>(textContent, root, 'pierceShadowText');
 };
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
-export const waitFor = async<ElementType extends Element = Element>(
+export const waitFor = async<ElementType extends HTMLElement = HTMLElement>(
     selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
                                  const element = await $<ElementType>(selector, root, handler);
@@ -231,18 +233,18 @@ export const waitFor = async<ElementType extends Element = Element>(
                                }, asyncScope));
 };
 
-export const waitForMany = async (
+export const waitForMany = async<ElementType extends HTMLElement = HTMLElement>(
     selector: string, count: number, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
-                                 const elements = await $$(selector, root, handler);
+                                 const elements = await $$<ElementType>(selector, root, handler);
                                  return elements.length >= count ? elements : undefined;
                                }, asyncScope));
 };
 
-export const waitForNone =
-    async (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
+export const waitForNone = async<ElementType extends HTMLElement = HTMLElement>(
+    selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
-                                 const elements = await $$(selector, root, handler);
+                                 const elements = await $$<ElementType>(selector, root, handler);
                                  if (elements.length === 0) {
                                    return true;
                                  }
@@ -250,42 +252,44 @@ export const waitForNone =
                                }, asyncScope));
 };
 
-export const waitForAria = (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-  return waitFor(selector, root, asyncScope, 'aria');
+export const waitForAria = <ElementType extends HTMLElement = HTMLElement>(
+    selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return waitFor<ElementType>(selector, root, asyncScope, 'aria');
 };
 
-export const waitForAriaNone = (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-  return waitForNone(selector, root, asyncScope, 'aria');
+export const waitForAriaNone = <ElementType extends HTMLElement = HTMLElement>(
+    selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return waitForNone<ElementType>(selector, root, asyncScope, 'aria');
 };
 
-export const waitForElementWithTextContent =
-    (textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-      return waitFor(textContent, root, asyncScope, 'pierceShadowText');
-    };
+export const waitForElementWithTextContent = <ElementType extends HTMLElement = HTMLElement>(
+    textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return waitFor<ElementType>(textContent, root, asyncScope, 'pierceShadowText');
+};
 
-export const waitForElementsWithTextContent =
-    (textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-      return asyncScope.exec(() => waitForFunction(async () => {
-                               const elems = await $$textContent(textContent, root);
-                               if (elems && elems.length) {
-                                 return elems;
-                               }
+export const waitForElementsWithTextContent = <ElementType extends HTMLElement = HTMLElement>(
+    textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return asyncScope.exec(() => waitForFunction(async () => {
+                           const elems = await $$textContent<ElementType>(textContent, root);
+                           if (elems && elems.length) {
+                             return elems;
+                           }
 
-                               return undefined;
-                             }, asyncScope));
-    };
+                           return undefined;
+                         }, asyncScope));
+};
 
-export const waitForNoElementsWithTextContent =
-    (textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-      return asyncScope.exec(() => waitForFunction(async () => {
-                               const elems = await $$textContent(textContent, root);
-                               if (elems && elems.length === 0) {
-                                 return true;
-                               }
+export const waitForNoElementsWithTextContent = <ElementType extends HTMLElement = HTMLElement>(
+    textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return asyncScope.exec(() => waitForFunction(async () => {
+                           const elems = await $$textContent<ElementType>(textContent, root);
+                           if (elems && elems.length === 0) {
+                             return true;
+                           }
 
-                               return false;
-                             }, asyncScope));
-    };
+                           return false;
+                         }, asyncScope));
+};
 
 export const waitForFunction = async<T>(fn: () => Promise<T|undefined>, asyncScope = new AsyncScope()): Promise<T> => {
   return await asyncScope.exec(async () => {
@@ -439,12 +443,12 @@ export const waitForAnimationFrame = async () => {
   });
 };
 
-export const activeElement = async(): Promise<puppeteer.ElementHandle> => {
+export const activeElement = async(): Promise<puppeteer.ElementHandle|null> => {
   const {frontend} = getBrowserAndPages();
 
   await waitForAnimationFrame();
 
-  return frontend.evaluateHandle(() => {
+  const result = await frontend.evaluateHandle(() => {
     let activeElement = document.activeElement;
 
     while (activeElement && activeElement.shadowRoot) {
@@ -453,16 +457,18 @@ export const activeElement = async(): Promise<puppeteer.ElementHandle> => {
 
     return activeElement;
   });
+
+  return result.asElement() as puppeteer.ElementHandle;
 };
 
 export const activeElementTextContent = async () => {
   const element = await activeElement();
-  return element.evaluate(node => node.textContent);
+  return element?.evaluate(node => node.textContent);
 };
 
 export const activeElementAccessibleName = async () => {
   const element = await activeElement();
-  return element.evaluate(node => node.getAttribute('aria-label'));
+  return element?.evaluate(node => node.getAttribute('aria-label'));
 };
 
 export const tabForward = async (page?: puppeteer.Page) => {
@@ -489,34 +495,6 @@ export const tabBackward = async (page?: puppeteer.Page) => {
   await targetPage.keyboard.down('Shift');
   await targetPage.keyboard.press('Tab');
   await targetPage.keyboard.up('Shift');
-};
-
-export const selectTextFromNodeToNode = async (
-    from: puppeteer.JSHandle|Promise<puppeteer.JSHandle>, to: puppeteer.JSHandle|Promise<puppeteer.JSHandle>,
-    direction: 'up'|'down') => {
-  const {target} = getBrowserAndPages();
-
-  // The clipboard api does not allow you to copy, unless the tab is focused.
-  await target.bringToFront();
-
-  return target.evaluate(async (from, to, direction) => {
-    const selection = from.getRootNode().getSelection();
-    const range = document.createRange();
-    if (direction === 'down') {
-      range.setStartBefore(from);
-      range.setEndAfter(to);
-    } else {
-      range.setStartBefore(to);
-      range.setEndAfter(from);
-    }
-
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    document.execCommand('copy');
-
-    return navigator.clipboard.readText();
-  }, await from, await to, direction);
 };
 
 export const closePanelTab = async (panelTabSelector: string) => {

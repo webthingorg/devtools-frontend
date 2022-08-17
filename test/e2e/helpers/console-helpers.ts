@@ -41,7 +41,7 @@ export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
   await waitFor('.console-main-toolbar');
   const main = await $('.console-main-toolbar');
   await frontend.evaluate(n => {
-    const deleteButton = n.shadowRoot.querySelector('.search-cancel-button');
+    const deleteButton = n?.shadowRoot?.querySelector('.search-cancel-button') as HTMLElement | undefined;
     if (deleteButton) {
       deleteButton.click();
     }
@@ -52,8 +52,8 @@ export async function filterConsoleMessages(frontend: puppeteer.Page, filter: st
   await waitFor('.console-main-toolbar');
   const main = await $('.console-main-toolbar');
   await frontend.evaluate(n => {
-    const toolbar = n.shadowRoot.querySelector('.toolbar-input-prompt.text-prompt');
-    toolbar.focus();
+    const toolbar = n?.shadowRoot?.querySelector('.toolbar-input-prompt.text-prompt') as HTMLElement | undefined;
+    toolbar?.focus();
   }, main);
   await pasteText(filter);
   await frontend.keyboard.press('Enter');
@@ -121,7 +121,7 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
 
   // Get the messages from the console.
   return frontend.evaluate(selector => {
-    return Array.from(document.querySelectorAll(selector)).map(message => message.textContent);
+    return Array.from(document.querySelectorAll(selector)).map(message => message.textContent || '');
   }, selector);
 }
 
@@ -166,12 +166,13 @@ export async function getStructuredConsoleMessages() {
 
   return frontend.evaluate((CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER) => {
     return Array.from(document.querySelectorAll(CONSOLE_MESSAGE_WRAPPER_SELECTOR)).map(wrapper => {
-      const message = wrapper.querySelector('.console-message-text').textContent;
-      const source = wrapper.querySelector('.devtools-link').textContent;
-      const consoleMessage = wrapper.querySelector('.console-message');
+      const message = wrapper.querySelector('.console-message-text')?.textContent as string;
+      const source = wrapper.querySelector('.devtools-link')?.textContent as string;
+      const consoleMessage = wrapper.querySelector('.console-message') as Element;
       const repeatCount = wrapper.querySelector('.console-message-repeat-count');
       const stackPreviewRoot = wrapper.querySelector('.hidden > span');
-      const stackPreview = stackPreviewRoot ? stackPreviewRoot.shadowRoot.querySelector(STACK_PREVIEW_CONTAINER) : null;
+      const stackPreview =
+          stackPreviewRoot ? stackPreviewRoot.shadowRoot?.querySelector(STACK_PREVIEW_CONTAINER) : null;
       return {
         message,
         messageClasses: consoleMessage.className,
