@@ -16,6 +16,69 @@
       "message": "PTAL again",
       "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c595d574_07f37f88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-17T06:07:42Z",
+      "side": 1,
+      "message": "Sorry for being a bit obnoxious about this code :)",
+      "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecd5a92_0c9e8a90",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-17T06:07:42Z",
+      "side": 1,
+      "message": "IIUC then the override headers don\u0027t need to be sorted. Which means we can write the intial part as:\n\n```\nconst headerMap \u003d new Platform.MapUtilities.Multimap\u003cstring, string\u003e();\nfor (const {name, value} of overrideHeaders) {\n  headerMap.set(name.toLowerCase(), value);\n}\n```",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 96
+      },
+      "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139d42bd_268811a9",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-17T06:07:42Z",
+      "side": 1,
+      "message": "This still feels a bit convoluted, I\u0027d suggest sacrificing a bit of space (in the form of an additional set) for clearer code. This assumes I understood the problem correctly: That is if we don\u0027t override a header we need to add all the key/value pairs from that header from baseHeaders to the result.\n\nI\u0027d skip the sorting of baseHeaders and write it like this after the overriden headers are populated:\n\n```\nconst overriddenHeaders \u003d new Set(headerMap.keysArray());\nfor (const {name, value} of baseHeaders) {\n  const lowerCaseName \u003d name.toLowerCase();\n  if (!overridenHeaders.has(lowerCaseName) {\n    headerMap.set(lowerCaseName, value);\n  }\n}\n```",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 0
+      },
+      "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
