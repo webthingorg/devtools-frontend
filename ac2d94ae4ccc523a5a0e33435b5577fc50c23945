@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aecb1cf_a2cf7dc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-17T07:35:21Z",
+      "side": 1,
+      "message": "Seems like we don\u0027t handle `!important` correctly. I need to fix this on the backend before merging this in. This will likely be after the branch cut to be safe.",
+      "revId": "ac2d94ae4ccc523a5a0e33435b5577fc50c23945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
