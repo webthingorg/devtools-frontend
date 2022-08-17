@@ -22,6 +22,30 @@
       },
       "revId": "72be67ac35d3e967c7872c707d629ec82b218f8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6116f1a_34d32cf9",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-08-17T12:02:20Z",
+      "side": 1,
+      "message": "For that reason, we keep creating separate CLs, but within the same builder. Up to 3 different CLs might be created:\n\n* Trusted deps roll\n* Reviewed deps roll\n* Chromium pin roll",
+      "parentUuid": "b09d95d9_f9c1c7b7",
+      "range": {
+        "startLine": 855,
+        "startChar": 13,
+        "endLine": 855,
+        "endChar": 39
+      },
+      "revId": "72be67ac35d3e967c7872c707d629ec82b218f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
