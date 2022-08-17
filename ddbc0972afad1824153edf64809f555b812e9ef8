@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ddd6c6a_c3e054d4",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-17T14:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fadd265_c8734d67",
+      "range": {
+        "startLine": 1548,
+        "startChar": 0,
+        "endLine": 1548,
+        "endChar": 54
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "436c3c39_d0221a04",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9a3f38_f7dd233f",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-17T14:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "436c3c39_d0221a04",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 11
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d44c4059_2ed10338",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-05-12T12:32:28Z",
       "side": 1,
       "message": "Can we also have aa test?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 24
+      },
+      "revId": "ddbc0972afad1824153edf64809f555b812e9ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9b13090_d0a1a83b",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-17T14:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d44c4059_2ed10338",
       "range": {
         "startLine": 218,
         "startChar": 0,
