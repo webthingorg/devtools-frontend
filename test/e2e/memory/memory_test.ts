@@ -132,10 +132,12 @@ describe('The Memory Panel', async function() {
     // Here and below we have to wait until the elements are actually created
     // and visible.
     const [pendingActivitiesSpan] = await waitForFunction(async () => {
-      const elements = await frontend.$x('//span[text()="Pending activities"]');
+      const elements =
+          await frontend.$x('//span[text()="Pending activities"]') as puppeteer.ElementHandle<HTMLElement>[];
       return elements.length > 0 ? elements : undefined;
     });
-    const [pendingActiviesRow] = await pendingActivitiesSpan.$x('ancestor-or-self::tr');
+    const [pendingActiviesRow] =
+        await pendingActivitiesSpan.$x('ancestor-or-self::tr') as puppeteer.ElementHandle<HTMLElement>[];
     await waitForFunction(async () => {
       await click(pendingActivitiesSpan);
       const res = await pendingActiviesRow.evaluate(x => x.classList.toString());
@@ -143,11 +145,14 @@ describe('The Memory Panel', async function() {
     });
     await frontend.keyboard.press('ArrowRight');
     const [internalNodeSpan] = await waitForFunction(async () => {
-      const elements = await frontend.$x(
-          '//span[text()="InternalNode"][ancestor-or-self::tr[preceding-sibling::*[1][//span[text()="Pending activities"]]]]');
+      const elements =
+          await frontend.$x(
+              '//span[text()="InternalNode"][ancestor-or-self::tr[preceding-sibling::*[1][//span[text()="Pending activities"]]]]') as
+          puppeteer.ElementHandle<HTMLElement>[];
       return elements.length === 1 ? elements : undefined;
     });
-    const [internalNodeRow] = await internalNodeSpan.$x('ancestor-or-self::tr');
+    const [internalNodeRow] =
+        await internalNodeSpan.$x('ancestor-or-self::tr') as puppeteer.ElementHandle<HTMLElement>[];
     await waitForFunction(async () => {
       await click(internalNodeSpan);
       const res = await internalNodeRow.evaluate(x => x.classList.toString());
@@ -241,12 +246,11 @@ describe('The Memory Panel', async function() {
     // Now we want to get the two rows below the "shared in leaking()" row and assert on them.
     // Unfortunately they are not structured in the data-grid as children, despite being children in the UI
     // So the best way to get at them is to grab the two subsequent siblings of the "shared in leaking()" row.
-    const nextRow =
-        await sharedInLeakingElementRow.evaluateHandle<puppeteer.ElementHandle<HTMLElement>>(e => e.nextSibling);
+    const nextRow = await sharedInLeakingElementRow.evaluateHandle(e => e.nextSibling as HTMLElement);
     if (!nextRow) {
       assert.fail('Could not find row below "shared in leaking()" row');
     }
-    const nextNextRow = await nextRow.evaluateHandle<puppeteer.ElementHandle<HTMLElement>>(e => e.nextSibling);
+    const nextNextRow = await nextRow.evaluateHandle(e => e.nextSibling as HTMLElement);
     if (!nextNextRow) {
       assert.fail('Could not find 2nd row below "shared in leaking()" row');
     }

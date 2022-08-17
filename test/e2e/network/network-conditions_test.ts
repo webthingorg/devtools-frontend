@@ -61,10 +61,10 @@ describe('The Network Tab', async function() {
 
   it('can change accepted content encodings', async () => {
     const section = await openNetworkConditions('.network-config-accepted-encoding');
-    const autoCheckbox = await waitForAria('Use browser default', section);
-    const deflateCheckbox = await waitForAria('deflate', section);
-    const gzipCheckbox = await waitForAria('gzip', section);
-    const brotliCheckbox = await waitForAria('br', section);
+    const autoCheckbox = await waitForAria<HTMLInputElement>('Use browser default', section);
+    const deflateCheckbox = await waitForAria<HTMLInputElement>('deflate', section);
+    const gzipCheckbox = await waitForAria<HTMLInputElement>('gzip', section);
+    const brotliCheckbox = await waitForAria<HTMLInputElement>('br', section);
     await brotliCheckbox.evaluate(el => el.scrollIntoView(true));
     await assertChecked(autoCheckbox, true);
     await assertChecked(deflateCheckbox, true);
@@ -150,8 +150,8 @@ describe('The Network Tab', async function() {
       'model': '',
     };
     const section = await openNetworkConditions('.network-config-ua');
-    const autoCheckbox = await waitForAria('Use browser default', section);
-    const uaDropdown = await waitForAria('User agent', section);
+    const autoCheckbox = await waitForAria<HTMLInputElement>('Use browser default', section);
+    const uaDropdown = await waitForAria<HTMLInputElement>('User agent', section);
     await assertChecked(autoCheckbox, true);
     await autoCheckbox.click();
     await assertChecked(autoCheckbox, false);
@@ -182,8 +182,8 @@ describe('The Network Tab', async function() {
         `Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${
             fullVersion} Mobile Safari/537.36`;
     const section = await openNetworkConditions('.network-config-ua');
-    const autoCheckbox = await waitForAria('Use browser default', section);
-    const uaDropdown = await waitForAria('User agent', section);
+    const autoCheckbox = await waitForAria<HTMLInputElement>('Use browser default', section);
+    const uaDropdown = await waitForAria<HTMLInputElement>('User agent', section);
     await assertChecked(autoCheckbox, true);
 
     const defaultUserAgentMetadata = await getUserAgentMetadataFromTarget(target);
@@ -205,8 +205,8 @@ describe('The Network Tab', async function() {
   it('can apply customized userAgentMetadata', async () => {
     const {target} = getBrowserAndPages();
     const section = await openNetworkConditions('.network-config-ua');
-    const autoCheckbox = await waitForAria('Use browser default', section);
-    const uaDropdown = await waitForAria('User agent', section);
+    const autoCheckbox = await waitForAria<HTMLInputElement>('Use browser default', section);
+    const uaDropdown = await waitForAria<HTMLInputElement>('User agent', section);
     await assertChecked(autoCheckbox, true);
 
     await autoCheckbox.click();

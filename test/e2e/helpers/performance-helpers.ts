@@ -76,7 +76,8 @@ export async function getTotalTimeFromSummary(): Promise<number> {
 }
 
 export async function retrieveSelectedAndExpandedActivityItems(frontend: puppeteer.Page) {
-  const treeItems = await frontend.$$('.expanded > td.activity-column,.selected > td.activity-column');
+  const treeItems = await frontend.$$('.expanded > td.activity-column,.selected > td.activity-column') as
+      puppeteer.ElementHandle<HTMLElement>[];
   const tree = [];
   for (const item of treeItems) {
     tree.push(await frontend.evaluate(el => el.innerText.split('\n')[0], item));

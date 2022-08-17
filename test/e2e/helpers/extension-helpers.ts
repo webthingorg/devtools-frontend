@@ -46,7 +46,7 @@ export async function loadExtension(name: string, startPage?: string) {
 
   async function doLoad(frontend: puppeteer.Page, extensionInfo: {startPage: string, name: string}) {
     // @ts-ignore The pptr API doesn't allow us to remove the API injection after we're done.
-    const session = await frontend._client;
+    const session = await frontend._client();
     // TODO(chromium:1246836) remove once real extension tests are available
     const injectedAPI = await frontend.evaluate(
         extensionInfo => globalThis.buildExtensionAPIInjectedScript(
