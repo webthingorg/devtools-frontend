@@ -12,11 +12,11 @@
 */
 
 export const querySelectorShadowTextOne = (
-    element: Element|Document|ShadowRoot,
+    element: Node,
     text: string,
     ): Element|null => {
   let found: Element|null = null;
-  const search = (root: Element|ShadowRoot) => {
+  const search = (root: Node) => {
     const iter = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
@@ -42,11 +42,11 @@ export const querySelectorShadowTextOne = (
 };
 
 export const querySelectorShadowTextAll = (
-    element: Element|Document,
+    element: Node,
     selector: string,
     ): Element[] => {
   const result: Element[] = [];
-  const collect = (root: Element|ShadowRoot) => {
+  const collect = (root: Node) => {
     const iter = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
