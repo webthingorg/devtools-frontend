@@ -112,7 +112,7 @@ describe('The Performance panel', async function() {
     await step('navigate to the Performance tab and uplaod performance profile', async () => {
       await navigateToPerformanceTab('wasm/profiling');
 
-      const uploadProfileHandle = await waitFor('input[type=file]');
+      const uploadProfileHandle = await waitFor<HTMLInputElement>('input[type=file]');
       assert.isNotNull(uploadProfileHandle, 'unable to upload the performance profile');
       await uploadProfileHandle.uploadFile('test/e2e/resources/performance/wasm/mainWasm_profile.json');
     });
