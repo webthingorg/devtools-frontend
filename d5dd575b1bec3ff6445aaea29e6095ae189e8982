@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9add4ed6_3a4f7fb5",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-17T08:37:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ecd5a92_0c9e8a90",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 96
+      },
+      "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "139d42bd_268811a9",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-08-17T06:07:42Z",
       "side": 1,
       "message": "This still feels a bit convoluted, I\u0027d suggest sacrificing a bit of space (in the form of an additional set) for clearer code. This assumes I understood the problem correctly: That is if we don\u0027t override a header we need to add all the key/value pairs from that header from baseHeaders to the result.\n\nI\u0027d skip the sorting of baseHeaders and write it like this after the overriden headers are populated:\n\n```\nconst overriddenHeaders \u003d new Set(headerMap.keysArray());\nfor (const {name, value} of baseHeaders) {\n  const lowerCaseName \u003d name.toLowerCase();\n  if (!overridenHeaders.has(lowerCaseName) {\n    headerMap.set(lowerCaseName, value);\n  }\n}\n```",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 0
+      },
+      "revId": "d5dd575b1bec3ff6445aaea29e6095ae189e8982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2bf435_770a39e8",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-17T08:37:27Z",
+      "side": 1,
+      "message": "Awesome, thanks! This makes it easier to understand the logic by a lot!",
+      "parentUuid": "139d42bd_268811a9",
       "range": {
         "startLine": 637,
         "startChar": 0,
