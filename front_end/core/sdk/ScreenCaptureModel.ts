@@ -39,11 +39,14 @@ export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyA
   }
 
   async captureScreenshot(
-      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number,
-      clip?: Protocol.Page.Viewport): Promise<string|null> {
+      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number, clip?: Protocol.Page.Viewport,
+      beyond?: boolean): Promise<string|null> {
     await OverlayModel.muteHighlight();
+    if (beyond === null) {
+      beyond = true;
+    }
     const result = await this.#agent.invoke_captureScreenshot(
-        {format, quality, clip, fromSurface: true, captureBeyondViewport: true});
+        {format, quality, clip, fromSurface: true, captureBeyondViewport: beyond});
     await OverlayModel.unmuteHighlight();
     return result.data;
   }

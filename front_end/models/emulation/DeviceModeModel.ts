@@ -715,7 +715,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return this.#webPlatformExperimentalFeaturesEnabledInternal && this.#experimentDualScreenSupport;
   }
 
-  async captureScreenshot(fullSize: boolean, clip?: Protocol.Page.Viewport): Promise<string|null> {
+  async captureScreenshot(clip?: Protocol.Page.Viewport, fullscreen?: boolean): Promise<string|null> {
     const screenCaptureModel =
         this.#emulationModel ? this.#emulationModel.target().model(SDK.ScreenCaptureModel.ScreenCaptureModel) : null;
     if (!screenCaptureModel) {
@@ -728,7 +728,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
 
     // Define the right clipping area for fullsize screenshots.
-    if (fullSize) {
+    if (fullscreen === null) {
+      fullscreen = false;
+    }
+    if (!fullscreen && !clip) {
       const metrics = await screenCaptureModel.fetchLayoutMetrics();
       if (!metrics) {
         return null;
@@ -738,8 +741,8 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       const contentHeight = Math.min((1 << 14), metrics.contentHeight);
       clip = {x: 0, y: 0, width: Math.floor(metrics.contentWidth), height: Math.floor(contentHeight), scale: 1};
     }
-    const screenshot =
-        await screenCaptureModel.captureScreenshot(Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, clip);
+    const screenshot = await screenCaptureModel.captureScreenshot(
+        Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, clip, !fullscreen);
 
     const deviceMetrics: Protocol.Page.SetDeviceMetricsOverrideRequest = {
       width: 0,
@@ -747,7 +750,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       deviceScaleFactor: 0,
       mobile: false,
     };
-    if (fullSize && this.#emulationModel) {
+    if (!clip && this.#emulationModel) {
       if (this.#deviceInternal && this.#modeInternal) {
         const orientation = this.#deviceInternal.orientationByName(this.#modeInternal.orientation);
         deviceMetrics.width = orientation.width;
