@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd9efc40_c450dddb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-17T07:17:51Z",
+      "side": 1,
+      "message": "I think you can remove this line, since you have the bit.ly link",
+      "revId": "4bf354a5b23b59a168e2c4130a183b24ac6e42b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2f3dd7c4_736b0ceb",
@@ -31,6 +48,23 @@
       "writtenOn": "2022-08-16T15:32:08Z",
       "side": 1,
       "message": "Hi Kim!\n\nThis CL implements Peter\u0027s UI spec for the highlight chips. I\u0027ve documented the behavior of the component in a range of scenarios in the Before/After screenshots. \n\nPTAL!",
+      "revId": "4bf354a5b23b59a168e2c4130a183b24ac6e42b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2a7f45_02f04503",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-17T07:17:51Z",
+      "side": 1,
+      "message": "Awesome, thanks!",
       "revId": "4bf354a5b23b59a168e2c4130a183b24ac6e42b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
