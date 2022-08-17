@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b28071_3eb93076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-08-17T21:29:59Z",
+      "side": 1,
+      "message": "ptal, this is identical to crrev.com/c/3835783, but a reland wasn\u0027t possible since we needed to re-run lucicfg.",
+      "revId": "ca509b42bddf65af2efd71987068b0de781fa49b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
