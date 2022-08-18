@@ -187,7 +187,7 @@ describe('Source Panel grouping', async function() {
   const folderMenuText = 'Group by folder';
 
   async function enableGroupByAuthored(noAuthored?: boolean) {
-    await click('[aria-label="More options"]');
+    await click('[aria-label="More options"]', {screenshot: true});
     await click(`[aria-label="${authoredMenuText}, unchecked"]`);
     await waitForNone('.soft-context-menu');
     await waitFor('.navigator-deployed-tree-item');
@@ -201,7 +201,7 @@ describe('Source Panel grouping', async function() {
   }
 
   async function disableGroupByAuthored() {
-    await click('[aria-label="More options"]');
+    await click('[aria-label="More options"]', {screenshot: true});
     await click(`[aria-label="${authoredMenuText}, checked"]`);
     await waitForNone('.soft-context-menu');
     await waitForNone('.navigator-deployed-tree-item');
@@ -210,7 +210,7 @@ describe('Source Panel grouping', async function() {
   }
 
   async function enableGroupByFolder() {
-    await click('[aria-label="More options"]');
+    await click('[aria-label="More options"]', {screenshot: true});
     await click(`[aria-label="${folderMenuText}, unchecked"]`);
     await waitForNone('.soft-context-menu');
     await waitFor('[aria-label="test/e2e/resources/sources, nw-folder"]');
@@ -218,7 +218,7 @@ describe('Source Panel grouping', async function() {
   }
 
   async function disableGroupByFolder() {
-    await click('[aria-label="More options"]');
+    await click('[aria-label="More options"]', {screenshot: true});
     await click(`[aria-label="${folderMenuText}, checked"]`);
     await waitForNone('.soft-context-menu');
     await waitForNone('[aria-label="test/e2e/resources/sources, nw-folder"]');
@@ -268,8 +268,7 @@ describe('Source Panel grouping', async function() {
     assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1349268] can mix group by authored/deployed and group by folder', async () => {
+  it.justThisOne('can mix group by authored/deployed and group by folder', async () => {
     // Have the target load the page.
     await goToResource(targetPage);
     await openSourcesPanel();
