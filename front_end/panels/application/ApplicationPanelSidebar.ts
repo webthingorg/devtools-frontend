@@ -981,7 +981,8 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
     for (const section of staticSections) {
       const sectionElement = section.getTitleElement();
       const childTitle = section.title();
-      const child = new ManifestChildTreeElement(this.resourcesPanel, sectionElement, childTitle);
+      const sectionFieldElement = section.getFieldElement();
+      const child = new ManifestChildTreeElement(this.resourcesPanel, sectionElement, childTitle, sectionFieldElement);
       this.appendChild(child);
     }
   }
@@ -998,11 +999,13 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
 
 export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
   #sectionElement: Element;
-  constructor(storagePanel: ResourcesPanel, element: Element, childTitle: string) {
+  #sectionFieldElement: HTMLElement;
+  constructor(storagePanel: ResourcesPanel, element: Element, childTitle: string, fieldElement: HTMLElement) {
     super(storagePanel, childTitle, false);
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.#sectionElement = element;
+    this.#sectionFieldElement = fieldElement;
     self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
     UI.ARIAUtils.setAccessibleName(
         this.listItemElement, i18nString(UIStrings.beforeInvokeAlert, {PH1: this.listItemElement.title}));
@@ -1017,6 +1020,42 @@ export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
     this.#sectionElement.scrollIntoView();
     UI.ARIAUtils.alert(i18nString(UIStrings.onInvokeAlert, {PH1: this.listItemElement.title}));
     Host.userMetrics.manifestSectionSelected(this.listItemElement.title);
+    this.listItemElement.addEventListener('keydown', this.onInvokeElementKeydown.bind(this));
+  }
+  // direct focus to the corresponding element
+  onInvokeElementKeydown(event: Event): void {
+    const checkBoxElement = this.#sectionFieldElement.getElementsByClassName('mask-checkbox')[0];
+    let focusableElement = this.#sectionFieldElement.querySelectorAll('[tabindex="0"]')[0] as HTMLElement;
+    if (checkBoxElement) {
+      const checkBoxShadowRoot = checkBoxElement.shadowRoot;
+      if (checkBoxShadowRoot) {
+        focusableElement = checkBoxShadowRoot.querySelectorAll('input')[0];
+      }
+    } else {
+      // special case for protocol handler
+      if (!focusableElement) {
+        const protocolHandlerElement =
+            this.#sectionFieldElement.getElementsByTagName('devtools-protocol-handlers-view')[0];
+        if (protocolHandlerElement.shadowRoot) {
+          focusableElement = protocolHandlerElement.shadowRoot.querySelectorAll('[tabindex="0"]')[0] as HTMLElement;
+        }
+      }
+    }
+    const keyboardEvent = event as KeyboardEvent;
+    if (keyboardEvent.key === 'Tab') {
+      focusableElement.focus();
+      focusableElement.addEventListener('keydown', this.shiftTabKeyPressed.bind(this));
+      event.consume(true);
+    }
+  }
+  // shift tab return to section list Item if its selected
+  shiftTabKeyPressed(event: Event): void {
+    const keyboardEvent = event as KeyboardEvent;
+    if (this.listItemNode && this.listItemNode.hasAttribute('tabIndex') && keyboardEvent.shiftKey &&
+        keyboardEvent.key === 'Tab') {
+      this.listItemElement.focus();
+      event.consume(true);
+    }
   }
 }
 
