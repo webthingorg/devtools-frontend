@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c5ca84_3557ddaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-18T13:35:33Z",
+      "side": 1,
+      "message": "Hi Kim, Hi Nancy,\n\nThis CL implements focusing for memory highlights: depending on the selected byte, a memory highlight (and its chip) will either be muted or vibrant.  \n\nPTAL! ",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
