@@ -19,7 +19,7 @@ import {
 } from '../helpers/sources-helpers.js';
 
 describe('Snippet creation', () => {
-  it('can show newly created snippets show up in command menu', async () => {
+  it.justThisOne('can show newly created snippets show up in command menu', async () => {
     const {frontend} = getBrowserAndPages();
 
     await openSourcesPanel();
@@ -76,7 +76,7 @@ describe('Expression evaluation', () => {
     await frontend.reload();
   });
 
-  it('evaluates a selected expression in the console', async () => {
+  it.justThisOne('evaluates a selected expression in the console', async () => {
     await navigateToSourcesAndRunSnippet();
     const messages = await waitForFunction(async () => {
       await selectFunctionParameterElement();
@@ -111,7 +111,7 @@ describe('Expression evaluation', () => {
 });
 
 describe('Snippet evaluation', () => {
-  it('highlights the correct line when a snippet throws an error', async () => {
+  it.justThisOne('highlights the correct line when a snippet throws an error', async () => {
     await openSourcesPanel();
     await openSnippetsSubPane();
     await createNewSnippet('throwing', `
