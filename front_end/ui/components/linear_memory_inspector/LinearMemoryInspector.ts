@@ -203,6 +203,7 @@ export class LinearMemoryInspector extends HTMLElement {
     const canGoForwardInHistory = this.#history.canRollover();
 
     const highlightedMemoryAreas = this.#highlightInfo ? [this.#highlightInfo] : [];
+    const focusedMemoryHighlight = this.#getSmallestEnclosingMemoryHighlight(highlightedMemoryAreas, this.#address);
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
@@ -214,9 +215,8 @@ export class LinearMemoryInspector extends HTMLElement {
           @pagenavigation=${this.#navigatePage}
           @historynavigation=${this.#navigateHistory}></${LinearMemoryNavigator.litTagName}>
           <${LinearMemoryHighlightChipList.litTagName}
-          .data=${{highlightInfos: highlightedMemoryAreas} as LinearMemoryHighlightChipListData}
-          @jumptohighlightedmemory=${this.#onJumpToAddress}
-          @>
+          .data=${{highlightInfos: highlightedMemoryAreas, focusedMemoryHighlight: focusedMemoryHighlight } as LinearMemoryHighlightChipListData}
+          @jumptohighlightedmemory=${this.#onJumpToAddress}>
           </${LinearMemoryHighlightChipList.litTagName}>
         <${LinearMemoryViewer.litTagName}
           .data=${{
@@ -224,7 +224,8 @@ export class LinearMemoryInspector extends HTMLElement {
             end - this.#memoryOffset),
             address: this.#address, memoryOffset: start,
             focus: this.#currentNavigatorMode === Mode.Submitted,
-            highlightInfo: this.#highlightInfo } as LinearMemoryViewerData}
+            highlightInfo: this.#highlightInfo,
+            focusedMemoryHighlight: focusedMemoryHighlight } as LinearMemoryViewerData}
           @byteselected=${this.#onByteSelected}
           @resize=${this.#resize}>
         </${LinearMemoryViewer.litTagName}>
@@ -264,6 +265,7 @@ export class LinearMemoryInspector extends HTMLElement {
   }
 
   #onByteSelected(e: ByteSelectedEvent): void {
+    // Michal's TODO: decide which highlightinfo chip should get focused, if any.
     this.#currentNavigatorMode = Mode.Submitted;
     const addressInRange = Math.max(0, Math.min(e.data, this.#outerMemoryLength - 1));
     this.#jumpToAddress(addressInRange);
@@ -374,6 +376,26 @@ export class LinearMemoryInspector extends HTMLElement {
     this.#history.push(historyEntry);
     this.#address = address;
     this.dispatchEvent(new AddressChangedEvent(this.#address));
+  }
+
+  // Returns the highlightInfo with the smallest size property that encloses the provided address.
+  // If no such highlightInfo exists, it returns undefined.
+  #getSmallestEnclosingMemoryHighlight(highlightedMemoryAreas: HighlightInfo[], address: number): HighlightInfo
+      |undefined {
+    const enclosingHighlights = [];
+    for (const highlightedMemory of highlightedMemoryAreas) {
+      if (highlightedMemory.startAddress <= address &&
+          address < highlightedMemory.startAddress + highlightedMemory.size) {
+        enclosingHighlights.push(highlightedMemory);
+      }
+    }
+    if (enclosingHighlights.length > 0) {
+      // Returns an enclosing highlight with the smallest size.
+      return enclosingHighlights.reduce((function(prev, curr) {
+        return prev.size < curr.size ? prev : curr;
+      }));
+    }
+    return undefined;
   }
 }
 
