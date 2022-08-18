@@ -722,13 +722,23 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return null;
     }
 
+    let screenshotMode;
+    if (clip) {
+      screenshotMode = 0;
+    } else if (fullSize) {
+      screenshotMode = 1;
+    } else {
+      screenshotMode = 2;
+    }
+
     const overlayModel = this.#emulationModel ? this.#emulationModel.overlayModel() : null;
     if (overlayModel) {
       overlayModel.setShowViewportSizeOnResize(false);
     }
 
     // Define the right clipping area for fullsize screenshots.
-    if (fullSize) {
+    // will be deleted in the final form
+    if (!clip) {
       const metrics = await screenCaptureModel.fetchLayoutMetrics();
       if (!metrics) {
         return null;
@@ -738,33 +748,10 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       const contentHeight = Math.min((1 << 14), metrics.contentHeight);
       clip = {x: 0, y: 0, width: Math.floor(metrics.contentWidth), height: Math.floor(contentHeight), scale: 1};
     }
-    const screenshot =
-        await screenCaptureModel.captureScreenshot(Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, clip);
+    //
+    const screenshot = await screenCaptureModel.captureScreenshot(
+        Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, screenshotMode, clip);
 
-    const deviceMetrics: Protocol.Page.SetDeviceMetricsOverrideRequest = {
-      width: 0,
-      height: 0,
-      deviceScaleFactor: 0,
-      mobile: false,
-    };
-    if (fullSize && this.#emulationModel) {
-      if (this.#deviceInternal && this.#modeInternal) {
-        const orientation = this.#deviceInternal.orientationByName(this.#modeInternal.orientation);
-        deviceMetrics.width = orientation.width;
-        deviceMetrics.height = orientation.height;
-        const dispFeature = this.getDisplayFeature();
-        if (dispFeature) {
-          // @ts-ignore: displayFeature isn't in protocol.d.ts but is an
-          // experimental flag:
-          // https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setDeviceMetricsOverride
-          deviceMetrics.displayFeature = dispFeature;
-        }
-      } else {
-        deviceMetrics.width = 0;
-        deviceMetrics.height = 0;
-      }
-      await this.#emulationModel.emulateDevice(deviceMetrics);
-    }
     this.calculateAndEmulate(false);
     return screenshot;
   }
