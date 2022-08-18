@@ -16,6 +16,46 @@
       "message": "Simon, PTAL and take over from Danil.",
       "revId": "124b122bd36642af0013ca32f42c06d4c6324377",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e71db62_06259121",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-18T05:06:55Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "124b122bd36642af0013ca32f42c06d4c6324377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8676e76_8fca8f1f",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1576,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-18T05:06:55Z",
+      "side": 1,
+      "message": "What\u0027s the difference between setting the `originalResponseHeaders` here, using the headers provided by CDP, vs setting them in the `NetworkRequest#responseHeaders` setter the first time they are set?",
+      "range": {
+        "startLine": 1576,
+        "startChar": 6,
+        "endLine": 1576,
+        "endChar": 112
+      },
+      "revId": "124b122bd36642af0013ca32f42c06d4c6324377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
