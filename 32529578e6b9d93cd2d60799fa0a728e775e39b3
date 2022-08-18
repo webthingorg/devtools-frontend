@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2980882_e444671e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-18T14:01:57Z",
+      "side": 1,
+      "message": "LGTM, submitting to CQ for not blocking it on a nit before branch cut :)",
+      "revId": "32529578e6b9d93cd2d60799fa0a728e775e39b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f73e384_b1973bca",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-18T14:01:57Z",
+      "side": 1,
+      "message": "(nit): Using `topLayerElement` and then increasing it explicitly feels more understandable to me, wdyt?",
+      "revId": "32529578e6b9d93cd2d60799fa0a728e775e39b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
