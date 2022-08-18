@@ -16,6 +16,24 @@
       "message": "TypeScript isn\u0027t happy with this. I believe the new CSS `has()`-selector (https://developer.mozilla.org/en-US/docs/Web/CSS/:has) would achieve the same thing:\n```\n.media-property-renderer:has(.json-view) {\n  padding-bottom: 0;\n}\n```\nAnd to prevent too little padding when expanded you could add:\n```\n.media-property-renderer:has(.json-view \u003e .expanded) {\n  padding-bottom: 4px;\n}\n```",
       "revId": "2c73e8d87e861ae6b21b1e45308b046e9fb18ceb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "943605c8_6cfb4170",
+        "filename": "front_end/panels/media/PlayerPropertiesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-08-18T20:30:06Z",
+      "side": 1,
+      "message": "That\u0027s pretty neat. I had to change around my testing setup for a bit (ie not opening devtools just as a page in the chrome stable, connected via websocket) but I can confirm that it does work!",
+      "parentUuid": "5f814de1_d4ed2fef",
+      "revId": "2c73e8d87e861ae6b21b1e45308b046e9fb18ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
