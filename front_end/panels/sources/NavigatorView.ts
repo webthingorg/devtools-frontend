@@ -489,8 +489,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
 
     const project = uiSourceCode.project();
     const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(uiSourceCode);
-    const folderNode =
-        this.folderNode(uiSourceCode, project, target, frame, uiSourceCode.origin(), path, isFromSourceMap);
+    const folderNode = this.folderNode(
+        uiSourceCode, project, target, frame, this.computeProjectDisplayName(uiSourceCode), path, isFromSourceMap);
     const uiSourceCodeNode = new NavigatorUISourceCodeTreeNode(this, uiSourceCode, frame);
     const existingNode = folderNode.child(uiSourceCodeNode.id);
     if (existingNode && existingNode instanceof NavigatorUISourceCodeTreeNode) {
@@ -662,8 +662,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
       return domainNode;
     }
 
-    domainNode = new NavigatorGroupTreeNode(
-        this, project, projectOrigin, Types.Domain, this.computeProjectDisplayName(target, projectOrigin));
+    domainNode = new NavigatorGroupTreeNode(this, project, projectOrigin, Types.Domain, projectOrigin);
     if (frame && projectOrigin === Common.ParsedURL.ParsedURL.extractOrigin(frame.url)) {
       boostOrderForNode.add(domainNode.treeNode());
     }
@@ -753,15 +752,16 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     return this.rootNode;
   }
 
-  private computeProjectDisplayName(target: SDK.Target.Target, projectOrigin: string): string {
-    const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
-    const executionContexts = runtimeModel ? runtimeModel.executionContexts() : [];
-    for (const context of executionContexts) {
-      if (context.name && context.origin && projectOrigin.startsWith(context.origin)) {
+  private computeProjectDisplayName(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
+    const script = Bindings.DefaultScriptMapping.DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
+    if (script) {
+      const context = script.executionContext();
+      if (context && context.name) {
         return context.name;
       }
     }
 
+    const projectOrigin = uiSourceCode.origin();
     if (!projectOrigin) {
       return i18nString(UIStrings.noDomain);
     }
