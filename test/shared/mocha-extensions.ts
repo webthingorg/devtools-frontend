@@ -156,7 +156,7 @@ export const it = makeCustomWrappedIt();
 
 type MochaCallback = Mocha.Func|Mocha.AsyncFunc;
 
-const iterations = getEnvVar('ITERATIONS', 1);
+const iterations = getEnvVar('ITERATIONS', 40);  // DO NOT CHECK IN!!!!
 
 function iterationSuffix(iteration: number): string {
   if (iteration === 0) {
@@ -188,6 +188,13 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
   };
 
   newMochaItFunc.only = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
+    for (let i = 0; i < iterations; i++) {
+      wrapMochaCall(Mocha.it.only, name + iterationSuffix(i), callback);
+    }
+  };
+
+  // DO NOT CHECK IN!!!! Let's fool the linter
+  newMochaItFunc.justThisOne = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
     for (let i = 0; i < iterations; i++) {
       wrapMochaCall(Mocha.it.only, name + iterationSuffix(i), callback);
     }
