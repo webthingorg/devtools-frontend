@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57bac938_f6fe320e",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-19T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533d6422_106edeba",
+      "revId": "822f26ead2dea903100b098acc51e9697d409ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df4e0b5d_e3ebd1a9",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-19T09:58:45Z",
       "side": 1,
       "message": "setting `clip` and `captureBeyondViewport` and re-setting it afterwards is confusing. Can you remove init from here, and set it where it is needed?",
+      "revId": "822f26ead2dea903100b098acc51e9697d409ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7c0d38_8390fca7",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-19T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4e0b5d_e3ebd1a9",
       "revId": "822f26ead2dea903100b098acc51e9697d409ca9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

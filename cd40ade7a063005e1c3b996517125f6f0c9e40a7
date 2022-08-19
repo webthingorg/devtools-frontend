@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cdad90a_6327988f",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-19T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e425378_606d6d0c",
+      "revId": "cd40ade7a063005e1c3b996517125f6f0c9e40a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5e777a3_a4d40430",
