@@ -1518,6 +1518,14 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
       tooltip = i18nString(UIStrings.sFromSourceMap, {PH1: this.uiSourceCodeInternal.displayName()});
     }
     this.treeElement.tooltip = tooltip;
+
+    if (this.parent) {
+      this.parent.childrenInternal.delete(this.id);
+    }
+    this.id = 'UISourceCode:' + this.uiSourceCodeInternal.canononicalScriptId();
+    if (this.parent) {
+      this.parent.childrenInternal.set(this.id, this);
+    }
   }
 
   hasChildren(): boolean {
