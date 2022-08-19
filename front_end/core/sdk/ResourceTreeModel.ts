@@ -220,7 +220,6 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
         return;
       }
     }
-
     this.dispatchEventToListeners(Events.FrameWillNavigate, frame);
     frame.navigate(framePayload);
     if (type) {
@@ -519,7 +518,6 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       if (!origin) {
         continue;
       }
-
       securityOrigins.add(origin);
       if (frame.isMainFrame()) {
         mainSecurityOrigin = origin;
