@@ -16,6 +16,57 @@
       "message": "Hi Kim, Hi Nancy,\n\nThis CL implements focusing for memory highlights: depending on the selected byte, a memory highlight (and its chip) will either be muted or vibrant.  \n\nPTAL! ",
       "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81efb844_c5bb5728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-19T12:05:54Z",
+      "side": 1,
+      "message": "Generally LGTM, thanks Michal! Two comments.",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14503bd9_0de03b7d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-19T12:05:54Z",
+      "side": 1,
+      "message": "Maybe explain the reasoning behind returning the \u0027smallest enclosing memory highlight\u0027? Also, not that overlapping can also happen if two objects are separate (not contained within each other), maybe add a sentence to that too and define which one will be picked explicitly?",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efa271f_0d786260",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-19T12:05:54Z",
+      "side": 1,
+      "message": "Why not directly caching the smallest one so far?",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
