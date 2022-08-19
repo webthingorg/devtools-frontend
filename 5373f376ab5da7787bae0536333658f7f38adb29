@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a370aa_baba1a7e",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-19T14:19:09Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ve captured the possible outcomes in the comment.",
+      "parentUuid": "14503bd9_0de03b7d",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9efa271f_0d786260",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-08-19T12:05:54Z",
       "side": 1,
       "message": "Why not directly caching the smallest one so far?",
+      "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc421e7a_e84652f8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-19T14:19:09Z",
+      "side": 1,
+      "message": "Together with the comment on \u0027determinism\u0027 I agree that caching it makes the function more explicit.",
+      "parentUuid": "9efa271f_0d786260",
       "revId": "5373f376ab5da7787bae0536333658f7f38adb29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
