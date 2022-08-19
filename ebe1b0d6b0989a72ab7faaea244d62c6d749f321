@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f03aac94_1aa72b6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-19T11:37:49Z",
+      "side": 1,
+      "message": "lgtm - worth considering (for future CLs) if there\u0027s any refactoring we can do to make this easier to unit test as you make subsequent changes. Thanks!",
+      "revId": "ebe1b0d6b0989a72ab7faaea244d62c6d749f321",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
