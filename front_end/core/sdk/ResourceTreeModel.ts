@@ -205,22 +205,26 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
   }
 
   frameNavigated(framePayload: Protocol.Page.Frame, type: Protocol.Page.NavigationType|undefined): void {
+    console.log('frameNavigated called with framePayload: ', framePayload);
     const sameTargetParentFrame =
         framePayload.parentId ? (this.framesInternal.get(framePayload.parentId) || null) : null;
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
     if (!this.#cachedResourcesProcessed && sameTargetParentFrame) {
+      console.log('same target parent frame => return');
       return;
     }
     let frame: (ResourceTreeFrame|null) = this.framesInternal.get(framePayload.id) || null;
     if (!frame) {
+      console.log('frameAttached will be called');
       // Simulate missed "frameAttached" for a main frame navigation to the new backend process.
       frame = this.frameAttached(framePayload.id, framePayload.parentId || null);
       console.assert(Boolean(frame));
       if (!frame) {
+        console.log('still no frame after Attached');
         return;
       }
     }
-
+    console.log('frame will be navigated');
     this.dispatchEventToListeners(Events.FrameWillNavigate, frame);
     frame.navigate(framePayload);
     if (type) {
@@ -519,7 +523,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
       if (!origin) {
         continue;
       }
-
+      console.log('getSecurityOriginData got new securityOrgin: ', origin);
       securityOrigins.add(origin);
       if (frame.isMainFrame()) {
         mainSecurityOrigin = origin;
@@ -540,16 +544,18 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     const storageKeys = new Set<string>();
     let mainStorageKey: string|null = null;
 
-    for (const {isMainFrame, storageKey} of await Promise.all(
-             [...this.framesInternal.values()].map(async f => f.storageKey.then(k => ({
-                                                                                  isMainFrame: f.isMainFrame(),
-                                                                                  storageKey: k,
-                                                                                }))))) {
+    for (const {isMainFrame, storageKey} of await Promise.all([...this.framesInternal.values()].map(
+             async f => f.getStorageKey(false).then(k => ({
+                                                      isMainFrame: f.isMainFrame(),
+                                                      storageKey: k,
+                                                    }))))) {
       if (isMainFrame) {
         mainStorageKey = storageKey;
       }
+      console.log('Storage key data is being obtained');
       if (storageKey) {
         storageKeys.add(storageKey);
+        console.log('getStorageKeyData got new storageKey: ', storageKey);
       }
     }
 
@@ -565,12 +571,13 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
 
   private async updateStorageKeys(): Promise<void> {
     const data = await this.getStorageKeyData();
+    console.log('update storage keys in ResiourceTreeModel called');
     this.#storageKeyManager.setMainStorageKey(data.mainStorageKey || '');
     this.#storageKeyManager.updateStorageKeys(data.storageKeys);
   }
 
   async getMainStorageKey(): Promise<string|null> {
-    return this.mainFrame ? this.mainFrame.storageKey : null;
+    return this.mainFrame ? this.mainFrame.getStorageKey(false) : null;
   }
 
   getMainSecurityOrigin(): string|null {
@@ -767,6 +774,7 @@ export class ResourceTreeFrame {
     this.#urlInternal = framePayload.url as Platform.DevToolsPath.UrlString;
     this.#domainAndRegistryInternal = framePayload.domainAndRegistry;
     this.#securityOriginInternal = framePayload.securityOrigin;
+    this.getStorageKey(true);
     this.#unreachableUrlInternal =
         framePayload.unreachableUrl as Platform.DevToolsPath.UrlString || Platform.DevToolsPath.EmptyUrlString;
     this.#adFrameStatusInternal = framePayload?.adFrameStatus;
@@ -827,10 +835,12 @@ export class ResourceTreeFrame {
     return this.#securityOriginInternal;
   }
 
-  get storageKey(): Promise<string|null> {
-    if (!this.#storageKeyInternal) {
+  getStorageKey(fetchNewKey: boolean): Promise<string|null> {
+    if (!this.#storageKeyInternal || fetchNewKey) {
+      console.log('frameid: ', this.#idInternal, ' frame: ', this, new Error().stack);
       this.#storageKeyInternal = this.#model.storageKeyForFrame(this.#idInternal);
     }
+    console.log('STORAGE KEY GOT: ', this.#storageKeyInternal);
     return this.#storageKeyInternal;
   }
 
