@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd2127f_59d5c086",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-08-19T07:57:22Z",
+      "side": 1,
+      "message": "Please declare and use `enum` for the `mode`. Like:\n```\nenum SCREENSHOT_MODE {\n  FROM_VIEWPORT,\n  FROM_CLIP,\n  FULLPAGE,\n}\n```",
+      "revId": "cd40ade7a063005e1c3b996517125f6f0c9e40a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d43dee5_06e23f70",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-08-19T07:57:22Z",
+      "side": 1,
+      "message": "It would be more readable, if you set the common fields of properties, and add unique fields based on the `mode` value. Setting value and removing it afterwards (`clip`) is confusing, as well as assigning one value and changing it afterwards (`captureBeyondViewport`). If you split the params logic in `switch-case` structure, it would be more structured.",
+      "revId": "cd40ade7a063005e1c3b996517125f6f0c9e40a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5e777a3_a4d40430",
+        "filename": "front_end/models/emulation/DeviceModeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-08-19T07:57:22Z",
+      "side": 1,
+      "message": "`ScreenCaptureModel.SCREENSHOT_MODE.FROM_CLIP`",
+      "revId": "cd40ade7a063005e1c3b996517125f6f0c9e40a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
