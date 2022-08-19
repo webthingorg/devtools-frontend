@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e425378_606d6d0c",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-19T09:47:49Z",
+      "side": 1,
+      "message": "Let me know if that is what you meant",
+      "parentUuid": "5d43dee5_06e23f70",
+      "revId": "cd40ade7a063005e1c3b996517125f6f0c9e40a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5e777a3_a4d40430",
         "filename": "front_end/models/emulation/DeviceModeModel.ts",
         "patchSetId": 3
