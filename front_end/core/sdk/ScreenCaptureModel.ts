@@ -10,6 +10,11 @@ import {OverlayModel} from './OverlayModel.js';
 import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 
+export const enum ScreenshotMode {
+  FROM_VIEWPORT = 'fromViewport',
+  FROM_CLIP = 'fromClip',
+  FULLPAGE = 'fullpage',
+}
 export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyApi.PageDispatcher {
   readonly #agent: ProtocolProxyApi.PageApi;
   #onScreencastFrame: ((arg0: Protocol.binary, arg1: Protocol.Page.ScreencastFrameMetadata) => void)|null;
@@ -39,11 +44,37 @@ export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyA
   }
 
   async captureScreenshot(
-      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number,
+      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number, mode: ScreenshotMode,
       clip?: Protocol.Page.Viewport): Promise<string|null> {
+    const captureBeyondViewport = true;
+    const properties = {
+      format: format,
+      quality: quality,
+      clip,
+      fromSurface: true,
+      captureBeyondViewport,
+    };
+
+    switch (mode) {
+      case 'fromClip':
+        properties.captureBeyondViewport = true;
+        properties.clip = clip;
+        break;
+      case 'fullpage':
+        properties.captureBeyondViewport = true;
+        // line below to be uncommented after CDP change
+        // properties.clip = undefined;
+        break;
+      case 'fromViewport':
+        properties.captureBeyondViewport = false;
+        properties.clip = undefined;
+        break;
+      default:
+        break;
+    }
+
     await OverlayModel.muteHighlight();
-    const result = await this.#agent.invoke_captureScreenshot(
-        {format, quality, clip, fromSurface: true, captureBeyondViewport: true});
+    const result = await this.#agent.invoke_captureScreenshot(properties);
     await OverlayModel.unmuteHighlight();
     return result.data;
   }
