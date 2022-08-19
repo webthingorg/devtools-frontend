@@ -11,6 +11,7 @@ import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-stat
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
 
 import {AsyncScope} from './async-scope.js';
+import {takeScreenshots} from './mocha-extensions.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -93,6 +94,7 @@ export interface ClickOptions {
   root?: puppeteer.JSHandle;
   clickOptions?: PuppeteerClickOptions;
   maxPixelsFromLeft?: number;
+  screenshot?: boolean;
 }
 
 interface PuppeteerClickOptions extends puppeteer.ClickOptions {
@@ -113,6 +115,10 @@ export const click = async (selector: string|puppeteer.ElementHandle, options?: 
     await frontend.keyboard.down(modifier);
   }
 
+  // Take a picture so we see what we clicked on. DO NOT CHECK IN
+  if (options?.screenshot) {
+    await takeScreenshots('click');
+  }
   // Click on the button and wait for the console to load. The reason we use this method
   // rather than elementHandle.click() is because the frontend attaches the behavior to
   // a 'mousedown' event (not the 'click' event). To avoid attaching the test behavior
