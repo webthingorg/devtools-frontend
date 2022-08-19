@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c057d8_113a7bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-19T08:03:34Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nthis CL is changing the BreakpointsView component to use the HTML details element. For now I\u0027m not adding a11y labels, but will take care of that for the whole component at a later stage.\n\nPTAL!",
+      "revId": "982775b384af7839a2d6f1ad0e542353fa93fa87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
