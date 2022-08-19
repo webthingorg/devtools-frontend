@@ -34,6 +34,24 @@
       "parentUuid": "5f814de1_d4ed2fef",
       "revId": "2c73e8d87e861ae6b21b1e45308b046e9fb18ceb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f68a471a_11323b8d",
+        "filename": "front_end/panels/media/PlayerPropertiesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-19T16:10:35Z",
+      "side": 1,
+      "message": "Yup, so new that is hasn\u0027t reached stable yet :-)",
+      "parentUuid": "943605c8_6cfb4170",
+      "revId": "2c73e8d87e861ae6b21b1e45308b046e9fb18ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
