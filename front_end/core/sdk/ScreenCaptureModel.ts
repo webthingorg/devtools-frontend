@@ -9,7 +9,6 @@ import {OverlayModel} from './OverlayModel.js';
 
 import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
-
 export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyApi.PageDispatcher {
   readonly #agent: ProtocolProxyApi.PageApi;
   #onScreencastFrame: ((arg0: Protocol.binary, arg1: Protocol.Page.ScreencastFrameMetadata) => void)|null;
@@ -39,11 +38,21 @@ export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyA
   }
 
   async captureScreenshot(
-      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number,
+      format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number, mode: number,
       clip?: Protocol.Page.Viewport): Promise<string|null> {
     await OverlayModel.muteHighlight();
-    const result = await this.#agent.invoke_captureScreenshot(
-        {format, quality, clip, fromSurface: true, captureBeyondViewport: true});
+    const properties = {
+      format: format,
+      quality: quality,
+      clip: clip,
+      fromSurface: true,
+      captureBeyondViewport: true,
+    };
+    if (mode === 2) {
+      properties.captureBeyondViewport = false;
+      properties.clip = undefined;
+    }
+    const result = await this.#agent.invoke_captureScreenshot(properties);
     await OverlayModel.unmuteHighlight();
     return result.data;
   }
