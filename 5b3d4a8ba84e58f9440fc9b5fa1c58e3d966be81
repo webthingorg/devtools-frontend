@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "5b3d4a8ba84e58f9440fc9b5fa1c58e3d966be81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d2e18a_4120c937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T06:12:50Z",
+      "side": 1,
+      "message": "General lgtm.\n\nI assume all the newly introduced `if` paths will have an else branch that uses the storage key in the future?\n\nAlso it seems that the old layout tests are not yet happy.",
+      "revId": "5b3d4a8ba84e58f9440fc9b5fa1c58e3d966be81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8937528a_b0e5f1a4",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T06:12:50Z",
+      "side": 1,
+      "message": "We prefer `undefined` over `null` in this case since we can write:\n\n```\nreadonly securityOrigin?: string;\nreadonly storageKey?: string;\n```",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 26
+      },
+      "revId": "5b3d4a8ba84e58f9440fc9b5fa1c58e3d966be81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
