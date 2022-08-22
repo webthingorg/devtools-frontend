@@ -16,6 +16,23 @@
       "message": "Eric, PTAL",
       "revId": "ca57218c52a82e77665e0ce9eeac1d08594baa10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d49929_38a6a80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-22T09:20:59Z",
+      "side": 1,
+      "message": "Simon, PTAL (removing Eric from reviewers because he is OOO this week)",
+      "revId": "ca57218c52a82e77665e0ce9eeac1d08594baa10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
