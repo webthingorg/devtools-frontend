@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "c311ffe508082af1964101ca42dcff198246907d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4993dc_92acff30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T05:18:13Z",
+      "side": 1,
+      "message": "lgtm % nits.\n\nBut we need to investigate the e2e issues this test introduces. It seems that we call `Storage.getStorageKeyForFrame` for a frame that no longer exists. PTAL",
+      "revId": "c311ffe508082af1964101ca42dcff198246907d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8890340d_c4917876",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T05:18:13Z",
+      "side": 1,
+      "message": "`async` not needed here, we don\u0027t use `await`.",
+      "range": {
+        "startLine": 544,
+        "startChar": 13,
+        "endLine": 544,
+        "endChar": 18
+      },
+      "revId": "c311ffe508082af1964101ca42dcff198246907d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca160c1c_a9ba5a5e",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T05:18:13Z",
+      "side": 1,
+      "message": "nit: `void this.getStorageKey(/* forceFetch */ true);`\n\nHere and on all other call-sites :)",
+      "range": {
+        "startLine": 770,
+        "startChar": 28,
+        "endLine": 770,
+        "endChar": 32
+      },
+      "revId": "c311ffe508082af1964101ca42dcff198246907d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9e0360_bdcc8f61",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T05:18:13Z",
+      "side": 1,
+      "message": "nit: Such params are usually called `force` or `forceFetch`",
+      "range": {
+        "startLine": 831,
+        "startChar": 16,
+        "endLine": 831,
+        "endChar": 27
+      },
+      "revId": "c311ffe508082af1964101ca42dcff198246907d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
