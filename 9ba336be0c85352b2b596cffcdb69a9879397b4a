@@ -56,6 +56,30 @@
       },
       "revId": "9ba336be0c85352b2b596cffcdb69a9879397b4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f26c7c_0bce60be",
+        "filename": "test/e2e/sources/snippets_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-08-22T14:56:07Z",
+      "side": 1,
+      "message": "Good point, corrected this behaviour. PTAL",
+      "parentUuid": "da47e229_9613da9e",
+      "range": {
+        "startLine": 36,
+        "startChar": 43,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "9ba336be0c85352b2b596cffcdb69a9879397b4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
