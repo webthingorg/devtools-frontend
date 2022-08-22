@@ -152,6 +152,10 @@ const UIStrings = {
     *@description  Description text for Prerender2 cancellation status DataSaverEnabled.
     */
   DataSaverEnabled: 'Data saver enabled',
+  /**
+    *@description  Detail section description text for Prerender2 cancellation status MojoBinderPolicy.
+  */
+  MojoBinderPolicyDetailSection: 'Disallowed API method',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/Prerender2.ts', UIStrings);
@@ -195,4 +199,5 @@ export const Prerender2ReasonDescription = {
   'MemoryLimitExceeded': {name: i18nLazyString(UIStrings.MemoryLimitExceeded)},
   'FailToGetMemoryUsage': {name: i18nLazyString(UIStrings.FailToGetMemoryUsage)},
   'DataSaverEnabled': {name: i18nLazyString(UIStrings.DataSaverEnabled)},
+  'MojoBinderPolicyDetailSection': {name: i18nLazyString(UIStrings.MojoBinderPolicyDetailSection)},
 };
