@@ -33,6 +33,29 @@
       "message": "Simon, PTAL (removing Eric from reviewers because he is OOO this week)",
       "revId": "ca57218c52a82e77665e0ce9eeac1d08594baa10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35dd72fe_a3570cd7",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-22T09:41:48Z",
+      "side": 1,
+      "message": "nit: `this.parent?.childrenInternal.delete(this.id)` (same below).",
+      "range": {
+        "startLine": 1522,
+        "startChar": 0,
+        "endLine": 1524,
+        "endChar": 5
+      },
+      "revId": "ca57218c52a82e77665e0ce9eeac1d08594baa10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
