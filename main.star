@@ -181,6 +181,24 @@ on `{{.Build.EndTime | time}}`
     ),
 )
 
+luci.notifier(
+    name = "autoroll deps look up notifier",
+    on_occurrence = ["FAILURE", "SUCCESS"],
+    failed_step_regexp = [
+        ".*look up .*",
+    ],
+    notify_emails = ["alexschulze@google.com", "machenbach@google.com", "liviurau@google.com"],
+    template = luci.notifier_template(
+        name = "failed_deps_lookup_email",
+        body = """Dependency Roller: {{.Build.Builder.Builder}} has not found a recent version
+
+Builder {{.Build.Builder.Builder}} was not able to find a most recent dependency version at
+<a href=\"https://ci.chromium.org/b/{{.Build.Id}}\">Build {{.Build.Number}}</a>
+on `{{.Build.EndTime | time}}`
+""",
+    ),
+)
+
 luci.milo(
     logo = "https://storage.googleapis.com/chrome-infra-public/logo/devtools.svg",
 )
