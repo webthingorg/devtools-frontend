@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5f18ef_aff93e8a",
+        "filename": "main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-08-23T09:36:41Z",
+      "side": 1,
+      "message": "FAILURE, see other CL comment.",
+      "range": {
+        "startLine": 186,
+        "startChar": 21,
+        "endLine": 186,
+        "endChar": 41
+      },
+      "revId": "db5134bdde4bbd46b96341b3974d6dab4c5c01f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
