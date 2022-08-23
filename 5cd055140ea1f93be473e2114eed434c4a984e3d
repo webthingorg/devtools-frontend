@@ -67,6 +67,125 @@
       "message": "Hi Ergün, could you PTAL? Thanks!",
       "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ad3ca5_6e99602c",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "Can we move this to the constructor so that we attach the event handler once, wdyt?",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2d7f85_e413dc6c",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "I think we can use `querySelector(\u0027.mask-checkbox\u0027)` instead of `getElementsByClassName(\u0027mask-checkbox\u0027)[0]`, wdyt?",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54522f2e_98e07a08",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "I think:\n* We can use `querySelector(\u0027[tabinde\u003d\"0\"]\u0027)` instead of `querySelectorAll(...)[0]` it applies to the other usages as well.\n* It would be safer if we remove the `as HTMLElement` assertion for being more defensive (in case `[tabindex\u003d\"0\"]` query returns nothing) and handle that case.",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c549251_51961af8",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "Can you expand this comment here on to why we need to specially handle the case for protocol handler?",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f964cad_a9958d02",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "I think we can use optional chaining operator here to simplify a bit, so it becomes something like:\n`      focusableElement \u003d this.#sectionFieldElement.querySelector(\u0027devtools-protocol-handlers-view\u0027)?.shadowRoot?.querySelector(\u0027[tabindex\u003d\"0\"]\u0027) || null;\n` if we annotate `focusableElement` as `HTMLElement | null`. wdyt?",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b719ffa0_e9043668",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "I think we can return if the event.key is not `Tab` at the start of the handler so that we don\u0027t execute the code that will not be used. Wdyt?",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a804bc_02027f35",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-23T17:28:10Z",
+      "side": 1,
+      "message": "IMO we can keep the focus in the page when the user navigated the focus to the page itself, wdyt? (So, we can remove this handler for shift + tab handling in the focusable element)",
+      "revId": "5cd055140ea1f93be473e2114eed434c4a984e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
