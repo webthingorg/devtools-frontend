@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "993d6d70_0b6f25f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-23T08:30:12Z",
+      "side": 1,
+      "message": "Hi Kim, Hi Nancy, \nI\u0027ve updated the UI strings in LMI\u0027s Chip List component to make it easier to understand when the tooltips appear and what they convey. Unfortunately, this\nwill require re-translating the strings. \n\nI realize these are some of the more verbose UI strings in the codebase, so any suggestions for improvements are welcome!\n\nPTAL! ",
+      "revId": "fce9cbdcc46bee6d4a5291645b557e5cd4be1ad7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
