@@ -22,6 +22,30 @@
       },
       "revId": "db5134bdde4bbd46b96341b3974d6dab4c5c01f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a839f2a4_6f68d740",
+        "filename": "main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-08-23T15:39:42Z",
+      "side": 1,
+      "message": "Currently, the build succeeds [1] even if we cannot find some dependencies. Though, the notification only triggers if at least one failed step matches the `failed_step_regexp` [2].\n\n\n[1] https://luci-milo.appspot.com/raw/build/logs.chromium.org/v8-internal/led/alexschulze_google.com/c2d8bb4dfde1e47a6a7752e5632627952a9fe93e8392e4b92609ef69acb33d0b/+/build.proto?server\u003dchrome-swarming.appspot.com\n\n[2] https://chromium.googlesource.com/infra/luci/luci-go/+/0299a660d8fd40f7f67c2291f594168da1ae49cb/lucicfg/doc/README.md#luci.notifier-args",
+      "parentUuid": "0f5f18ef_aff93e8a",
+      "range": {
+        "startLine": 186,
+        "startChar": 21,
+        "endLine": 186,
+        "endChar": 41
+      },
+      "revId": "db5134bdde4bbd46b96341b3974d6dab4c5c01f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
