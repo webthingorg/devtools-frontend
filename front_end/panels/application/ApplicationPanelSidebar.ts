@@ -981,7 +981,8 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
     for (const section of staticSections) {
       const sectionElement = section.getTitleElement();
       const childTitle = section.title();
-      const child = new ManifestChildTreeElement(this.resourcesPanel, sectionElement, childTitle);
+      const sectionFieldElement = section.getFieldElement();
+      const child = new ManifestChildTreeElement(this.resourcesPanel, sectionElement, childTitle, sectionFieldElement);
       this.appendChild(child);
     }
   }
@@ -998,11 +999,13 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
 
 export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
   #sectionElement: Element;
-  constructor(storagePanel: ResourcesPanel, element: Element, childTitle: string) {
+  #sectionFieldElement: HTMLElement;
+  constructor(storagePanel: ResourcesPanel, element: Element, childTitle: string, fieldElement: HTMLElement) {
     super(storagePanel, childTitle, false);
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.#sectionElement = element;
+    this.#sectionFieldElement = fieldElement;
     self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
     UI.ARIAUtils.setAccessibleName(
         this.listItemElement, i18nString(UIStrings.beforeInvokeAlert, {PH1: this.listItemElement.title}));
@@ -1017,6 +1020,31 @@ export class ManifestChildTreeElement extends ApplicationPanelTreeElement {
     this.#sectionElement.scrollIntoView();
     UI.ARIAUtils.alert(i18nString(UIStrings.onInvokeAlert, {PH1: this.listItemElement.title}));
     Host.userMetrics.manifestSectionSelected(this.listItemElement.title);
+    this.listItemElement.addEventListener('keydown', this.onInvokeElementKeydown.bind(this));
+  }
+  // direct focus to the corresponding element
+  onInvokeElementKeydown(event: Event): void {
+    const keyboardEvent = event as KeyboardEvent;
+    if (keyboardEvent.key !== 'Tab') {
+      return;
+    }
+    const checkBoxElement = this.#sectionFieldElement.querySelector('.mask-checkbox');
+    let focusableElement: HTMLElement|null = this.#sectionFieldElement.querySelector('[tabindex="0"]');
+    if (checkBoxElement) {
+      const checkBoxShadowRoot = checkBoxElement.shadowRoot;
+      if (checkBoxShadowRoot) {
+        focusableElement = checkBoxShadowRoot.querySelectorAll('input')[0];
+      }
+    } else {
+      // special case for protocol handler section since it is a custom Element and has different structure than the others
+      if (!focusableElement) {
+        focusableElement = this.#sectionFieldElement.querySelector('devtools-protocol-handlers-view')
+                               ?.shadowRoot?.querySelector('[tabindex="0"]') ||
+            null;
+      }
+    }
+    focusableElement?.focus();
+    event.consume(true);
   }
 }
 
