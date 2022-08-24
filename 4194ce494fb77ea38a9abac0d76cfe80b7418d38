@@ -16,6 +16,91 @@
       "message": "Hi Ergün, I\u0027ve updated codes, could you PTAL? Thank you!",
       "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c32aba6_8e97aad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-24T08:20:31Z",
+      "side": 1,
+      "message": "Thanks for the fix! :)\n\nI have a few more comments for the 2nd round and apart from them it looks good to me 🥳",
+      "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af84b3af_74c6a6e3",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-24T08:20:31Z",
+      "side": 1,
+      "message": "(nit): We can use `event: KeyboardEvent` instead of `event: Event` and afterwards we don\u0027t need to assert the `event` as `KeyboardEvent`.",
+      "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b2f82e1_261c3ff3",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-24T08:20:31Z",
+      "side": 1,
+      "message": "I think we shouldn\u0027t move focus to the element in the page if the `shift` modifier is pressed since it means move focus backwards, so we need to add that check here as well.",
+      "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594ace00_98871733",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-24T08:20:31Z",
+      "side": 1,
+      "message": "We can update this part to\n* Use `querySelector` instead of `querySelectorAll(...)[0]`\n* Merge conditions and get rid of nested `if` blocks\n\n```\nif (checkBoxElement \u0026\u0026 checkBoxElement.shadowRoot) {\n    focusableElement \u003d checkBoxElement.shadowRoot.querySelector(\u0027input\u0027) || null;\n} else if (!checkBoxElement \u0026\u0026 !focusableElement) {\n    focusableElement \u003d ...;\n}",
+      "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a41d691_acd6494b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-24T08:20:31Z",
+      "side": 1,
+      "message": "If there isn\u0027t a focusable element, should we still consume the event and preventDefault, wdyt?",
+      "revId": "4194ce494fb77ea38a9abac0d76cfe80b7418d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
