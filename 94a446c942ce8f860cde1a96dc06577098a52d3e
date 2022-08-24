@@ -16,6 +16,40 @@
       "message": "Hi Kim, Hi Nancy, \n\nI\u0027ve addressed Kim\u0027s feedback. LMK if there\u0027s anything else that stands out!\n",
       "revId": "94a446c942ce8f860cde1a96dc06577098a52d3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb1109e_57246f06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-24T07:53:45Z",
+      "side": 1,
+      "message": "LGTM % comment. Thanks!",
+      "revId": "94a446c942ce8f860cde1a96dc06577098a52d3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe2e25f_0adccf65",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-24T07:53:45Z",
+      "side": 1,
+      "message": "This seems to not reflect what you\u0027re describing in the comment (picking the one appearing earliest). Do you maybe meant to use `\u003c` here, instead of `\u003c\u003d`?",
+      "revId": "94a446c942ce8f860cde1a96dc06577098a52d3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
