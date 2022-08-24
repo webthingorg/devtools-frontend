@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cf9c6ff_557b7979",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-24T21:39:57Z",
+      "side": 1,
+      "message": "Since this test case is covered from the inspector-protocol test, I\u0027d hope not to re-test the same thing, especially because e2e tests are generally expensive, and I think we only want to cover really core use cases.\n\nIf it were unit tests, things would be quite different 😞",
+      "parentUuid": "04d2bdbf_ed23077b",
+      "revId": "ac2d94ae4ccc523a5a0e33435b5577fc50c23945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67d153fa_ccd4f702",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2022-08-22T10:57:00Z",
       "side": 1,
       "message": "(nit): I think it might be better to return an object in the form of `{ [propertyName]: value }` and assert it in the test, wdyt?",
+      "revId": "ac2d94ae4ccc523a5a0e33435b5577fc50c23945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb17f869_1c3d3554",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-08-24T21:39:57Z",
+      "side": 1,
+      "message": "Done; I remember we separated property names and values in e2e test mainly because there was no easy way to select their parents. Now we can use :has(), which is quite helpful.",
+      "parentUuid": "67d153fa_ccd4f702",
       "revId": "ac2d94ae4ccc523a5a0e33435b5577fc50c23945",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
