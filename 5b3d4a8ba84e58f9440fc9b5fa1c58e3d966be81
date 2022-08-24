@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eccf7c1d_3e6e0cdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-24T16:58:53Z",
+      "side": 1,
+      "message": "Yes! The following CL handles the else case too",
+      "parentUuid": "64d2e18a_4120c937",
+      "revId": "5b3d4a8ba84e58f9440fc9b5fa1c58e3d966be81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8937528a_b0e5f1a4",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-08-22T06:12:50Z",
       "side": 1,
       "message": "We prefer `undefined` over `null` in this case since we can write:\n\n```\nreadonly securityOrigin?: string;\nreadonly storageKey?: string;\n```",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 26
+      },
+      "revId": "5b3d4a8ba84e58f9440fc9b5fa1c58e3d966be81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bbfe836_b9a41624",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-24T16:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8937528a_b0e5f1a4",
       "range": {
         "startLine": 478,
         "startChar": 0,
