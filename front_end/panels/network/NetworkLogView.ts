@@ -1573,6 +1573,12 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             i18nString(UIStrings.copyAsFetch), this.copyFetchCall.bind(this, request, FetchStyle.Browser),
             disableIfBlob);
         footerSection.appendItem(
+            'Perform Fetch', this.performFetchCall.bind(this, request, FetchStyle.Browser),
+            disableIfBlob);
+        footerSection.appendItem(
+            'loadNetworkResource', this.loadNetworkResource.bind(this, request, FetchStyle.Browser),
+            disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsNodejsFetch), this.copyFetchCall.bind(this, request, FetchStyle.NodeJs),
             disableIfBlob);
         footerSection.appendItem(
@@ -1674,6 +1680,44 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private async copyFetchCall(request: SDK.NetworkRequest.NetworkRequest, style: FetchStyle): Promise<void> {
     const command = await this.generateFetchCall(request, style);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(command);
+  }
+
+  private async performFetchCall(request: SDK.NetworkRequest.NetworkRequest, style: FetchStyle): Promise<void> {
+    const command = await this.generateFetchCall(request, style);
+    console.log('COMMAND', command);
+    const networkManager = SDK.NetworkManager.NetworkManager.forRequest(request);
+    console.log('networkManager', networkManager);
+    if (!networkManager) {
+      return;
+    }
+    const target = networkManager.target();
+    console.log('target', target);
+    const runtimeAgent = target.runtimeAgent();
+    console.log('runtimeAgent', runtimeAgent);
+    const {result} = await runtimeAgent.invoke_evaluate({expression: command, returnByValue: true});
+    console.log('result', result);
+  }
+
+  private async loadNetworkResource(request: SDK.NetworkRequest.NetworkRequest, style: FetchStyle): Promise<void> {
+    const command = await this.generateFetchCall(request, style);
+    console.log('COMMAND', command);
+    const networkManager = SDK.NetworkManager.NetworkManager.forRequest(request);
+    console.log('networkManager', networkManager);
+    if (!networkManager) {
+      return;
+    }
+
+    const result = await networkManager.loadNetworkResource(request.frameId, request.url(), {disableCache: true, includeCredentials: true});
+    console.log('result', result);
+    const ioModel = (networkManager.target().model(SDK.IOModel.IOModel) as SDK.IOModel.IOModel);
+    try {
+      const content = result.stream ? await ioModel.readToString(result.stream) : '';
+      console.log('content', content);
+    } finally {
+      if (result.stream) {
+        void ioModel.close(result.stream);
+      }
+    }
   }
 
   private async copyAllFetchCall(style: FetchStyle): Promise<void> {
