@@ -303,18 +303,6 @@ export class CSSStyleDeclaration {
     return property ? property.implicit : false;
   }
 
-  longhandProperties(name: string): CSSProperty[] {
-    const longhands = cssMetadata().getLonghands(name.toLowerCase());
-    const result = [];
-    for (let i = 0; longhands && i < longhands.length; ++i) {
-      const property = this.#activePropertyMap.get(longhands[i]);
-      if (property) {
-        result.push(property);
-      }
-    }
-    return result;
-  }
-
   propertyAt(index: number): CSSProperty|null {
     return (index < this.allProperties().length) ? this.allProperties()[index] : null;
   }
