@@ -86,6 +86,24 @@
       "message": "I guess we have to process this as error",
       "revId": "822f26ead2dea903100b098acc51e9697d409ca9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e6ab9d5_cbe0deb6",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-24T07:08:42Z",
+      "side": 1,
+      "message": "Done, PTAL if that is a proper error",
+      "parentUuid": "b83eabc8_e602c13e",
+      "revId": "822f26ead2dea903100b098acc51e9697d409ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
