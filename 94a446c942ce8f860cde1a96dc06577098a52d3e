@@ -50,6 +50,24 @@
       "message": "This seems to not reflect what you\u0027re describing in the comment (picking the one appearing earliest). Do you maybe meant to use `\u003c` here, instead of `\u003c\u003d`?",
       "revId": "94a446c942ce8f860cde1a96dc06577098a52d3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b64e419_f34093dd",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1546253
+      },
+      "writtenOn": "2022-08-24T08:21:07Z",
+      "side": 1,
+      "message": "Yes, this should be `\u003c`. Thanks!",
+      "parentUuid": "ebe2e25f_0adccf65",
+      "revId": "94a446c942ce8f860cde1a96dc06577098a52d3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
