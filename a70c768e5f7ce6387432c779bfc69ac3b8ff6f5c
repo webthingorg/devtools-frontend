@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0588b5e6_65fae7c3",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2022-08-25T23:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef9cb28c_5012bbae",
+      "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "260bfd46_9eb796d4",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-08-25T08:12:46Z",
       "side": 1,
       "message": "We can write `else if(!focusableElement) {...` instead of `else { if {` and add the comment inside of the else if block like\n```\nelse if (...) {\n// Special case...\n...\n}\n```",
+      "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d38f7f_315d296a",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2022-08-25T23:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260bfd46_9eb796d4",
       "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
