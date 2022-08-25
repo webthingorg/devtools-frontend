@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af96186c_6ac6457d",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-25T08:05:11Z",
+      "side": 1,
+      "message": "Oh you\u0027re totally right actually. The part I think the logic we can test here is this one[1] about when the backend response doesn\u0027t contain `longhandProperties` but the property itself has `longhandProperties`.\n\nMaybe we can write a unit test for `CSSProperty` that tests when it\u0027s created with `longhandProperties` being empty from the backend, `getLonghandProperties()` returns with empty values. WDYT?\n\n[1]: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3834114/3/front_end/core/sdk/CSSProperty.ts#61",
+      "parentUuid": "9cf9c6ff_557b7979",
+      "revId": "ac2d94ae4ccc523a5a0e33435b5577fc50c23945",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67d153fa_ccd4f702",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 2
