@@ -16,6 +16,57 @@
       "message": "Thank you for your comments. I\u0027ve updated the codes. PTAL😊",
       "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d148702_b54774a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-25T08:12:46Z",
+      "side": 1,
+      "message": "LGTM with two more comments 😊",
+      "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef9cb28c_5012bbae",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-25T08:12:46Z",
+      "side": 1,
+      "message": "We don\u0027t need the `event.key \u003d\u003d\u003d \u0027Tab\u0027` check in the second condition because `||` doesn\u0027t execute the right part when the left part is satisfied.\n\nSo, if we write `event.key !\u003d\u003d \u0027Tab\u0027 || event.shiftKey` it will read as:\n* If event.key !\u003d\u003d \u0027Tab\u0027, return early.\n* If event.key \u003d\u003d\u003d \u0027Tab\u0027 check `event.shiftKey` and if `event.shiftKey` is true, return early as well.\n\nThus we can remove the `event.key \u003d\u003d\u003d \u0027Tab\u0027` check :)",
+      "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260bfd46_9eb796d4",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-08-25T08:12:46Z",
+      "side": 1,
+      "message": "We can write `else if(!focusableElement) {...` instead of `else { if {` and add the comment inside of the else if block like\n```\nelse if (...) {\n// Special case...\n...\n}\n```",
+      "revId": "a70c768e5f7ce6387432c779bfc69ac3b8ff6f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
