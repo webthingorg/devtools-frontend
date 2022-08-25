@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "078ddd877a7c1725200b234ff980f79f22b21d32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc736cbd_0b2ae846",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T08:12:44Z",
+      "side": 1,
+      "message": "Thanks!\n\nI left two suggestions for CLs that we can split off and do before. The CL itself is also too large and we should split it up further. Since there is no CL description I\u0027m having a hard time following what changes go together or why we make them.",
+      "revId": "078ddd877a7c1725200b234ff980f79f22b21d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd50d91_418ac6ea",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T08:12:44Z",
+      "side": 1,
+      "message": "Lets introduce a method `getSecurityOriginOrStorageKey()` on `DatabaseId` and use that here and below.\n\nLets also extract that change into a separate CL that then unit tests `IDBDatabaseTreeElement` and `IDBObjectStoreTreeElement` that they return the correct `itemURL`.",
+      "range": {
+        "startLine": 1173,
+        "startChar": 8,
+        "endLine": 1173,
+        "endChar": 113
+      },
+      "revId": "078ddd877a7c1725200b234ff980f79f22b21d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9dfd384_5bf8835d",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T08:12:44Z",
+      "side": 1,
+      "message": "Ideally this is a `Map\u003cstring, Set\u003cstring\u003e\u003e`. I suggest a small refactor CL beforehand that converts `databaseNamesBySecurityOrigin` to a `Map\u003cstring, Set\u003cstring\u003e\u003e` so we stay \"mirrored\" when we do this CL.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "078ddd877a7c1725200b234ff980f79f22b21d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
