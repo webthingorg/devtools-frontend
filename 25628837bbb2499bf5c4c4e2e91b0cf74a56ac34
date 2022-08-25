@@ -16,6 +16,69 @@
       "message": "PTAnotherL?:)",
       "revId": "25628837bbb2499bf5c4c4e2e91b0cf74a56ac34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e287cf_c3ed7129",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T05:46:09Z",
+      "side": 1,
+      "message": "final nits, then lgtm",
+      "revId": "25628837bbb2499bf5c4c4e2e91b0cf74a56ac34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88234d4a_214523e3",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T05:46:09Z",
+      "side": 1,
+      "message": "No need for the `|undefined`. That is what the `?` is for.\n\nQ: Why can\u0027t `storageKey` be readonly? Do we update it after we created a `DatabaseId` somewhere?",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 32
+      },
+      "revId": "25628837bbb2499bf5c4c4e2e91b0cf74a56ac34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d28c17_822aeb8f",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-25T05:46:09Z",
+      "side": 1,
+      "message": "Please also use `undefined` here. No need to do this dance between null and undefined if we don\u0027t need to.",
+      "range": {
+        "startLine": 481,
+        "startChar": 37,
+        "endLine": 481,
+        "endChar": 41
+      },
+      "revId": "25628837bbb2499bf5c4c4e2e91b0cf74a56ac34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
