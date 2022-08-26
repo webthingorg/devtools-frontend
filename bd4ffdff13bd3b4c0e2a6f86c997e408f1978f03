@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5672907_502c8262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "some thoughts…",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0fc4b16_b1b63346",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "Made a diff between current dtinternal and this one.. https://diff.googleplex.com/#key\u003dQ3eKT6DZey2L",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b108f7e_32b0821b",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "The impl does technically attach to the, but if this is false, then it\u0027ll quickly do `Runtime.runIfWaitingForDebugger` and then `Target.detachFromTarget`\n\nI\u0027m not strongly proposing it\u0027s worth renaming this to `shouldRemainAttachedToTarget` ... but... at the very least, the subtlety is worth noting.",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5230662b_67817587",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "It\u0027d be a problem if this were stricter than https://github.com/GoogleChrome/lighthouse/blob/1482e99e48815d0ea2e126897e0d4865da0e80a2/core/gather/driver/target-manager.js#L100-L104\n\nI don\u0027t see a reason why it would be. But I think we feel confident our test coverage would catch this.",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf0531a_79c5b4be",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "maybe worth renaming the function at this point, as we\u0027re not returning a connection…\n\n(side note. it\u0027s also wild that the dtinternal function was returning the parallelConnection rather than the puppeteerConnection from this function.)",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db8dd2dc_0392d5fe",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-26T23:04:46Z",
+      "side": 1,
+      "message": "s/user/use/  ?",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
