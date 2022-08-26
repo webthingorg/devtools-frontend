@@ -97,7 +97,8 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
     notifyFrontendViaWorkerMessage('statusUpdate', {message: message[1]});
   });
 
-  let puppeteerConnection: Awaited<ReturnType<typeof Puppeteer.PuppeteerConnection['getPuppeteerConnection']>>|
+  let puppeteerConnection:
+      Awaited<ReturnType<typeof Puppeteer.PuppeteerConnection.PuppeteerConnectionHelper['getPuppeteerConnection']>>|
       undefined;
 
   try {
@@ -138,8 +139,12 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
 
     const {mainTargetId, mainFrameId, mainSessionId} = args.target;
     cdpConnection = new ConnectionProxy(mainSessionId);
-    puppeteerConnection =
-        await Puppeteer.PuppeteerConnection.getPuppeteerConnection(cdpConnection, mainFrameId, mainTargetId);
+    puppeteerConnection = await Puppeteer.PuppeteerConnection.PuppeteerConnectionHelper.getPuppeteerConnection(
+        cdpConnection,
+        mainFrameId,
+        mainTargetId,
+        args.targetInfos,
+    );
     const {page} = puppeteerConnection;
     const configContext = {
       logLevel: flags.logLevel,
