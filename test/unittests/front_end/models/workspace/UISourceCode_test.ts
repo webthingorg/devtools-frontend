@@ -407,3 +407,29 @@ describe('UISourceCode', () => {
     assert.deepEqual(result, deferredContentStub);
   });
 });
+
+describe('UILocation', () => {
+  it('formats column as base 16 for WebAssembly source files', () => {
+    const uiSourceCode = sinon.createStubInstance(Workspace.UISourceCode.UISourceCode);
+    uiSourceCode.mimeType.returns('application/wasm');
+    const uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, 0, 15);
+    const actualWithShowColumn = uiLocation.lineAndColumnText(true);
+    const actualWithoutShowColumn = uiLocation.lineAndColumnText(false);
+    assert.strictEqual(actualWithShowColumn, '0xf');
+    assert.strictEqual(actualWithShowColumn, actualWithoutShowColumn);
+  });
+
+  it('formats line for source files', () => {
+    const uiSourceCode = sinon.createStubInstance(Workspace.UISourceCode.UISourceCode);
+    const uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, 0, 15);
+    const actual = uiLocation.lineAndColumnText(false);
+    assert.strictEqual(actual, '1');
+  });
+
+  it('formats line and column for source files', () => {
+    const uiSourceCode = sinon.createStubInstance(Workspace.UISourceCode.UISourceCode);
+    const uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, 0, 15);
+    const actual = uiLocation.lineAndColumnText(true);
+    assert.strictEqual(actual, '1:16');
+  });
+});
