@@ -529,20 +529,26 @@ export class UILocation {
   }
 
   linkText(skipTrim?: boolean, showColumnNumber?: boolean): string {
-    let linkText = this.uiSourceCode.displayName(skipTrim);
+    const displayName = this.uiSourceCode.displayName(skipTrim);
+    const lineAndColumnText = this.lineAndColumnText(showColumnNumber);
+    return lineAndColumnText ? displayName + ':' + lineAndColumnText : displayName;
+  }
+
+  lineAndColumnText(showColumnNumber?: boolean): string|undefined {
+    let lineAndColumnText;
     if (this.uiSourceCode.mimeType() === 'application/wasm') {
       // For WebAssembly locations, we follow the conventions described in
       // github.com/WebAssembly/design/blob/master/Web.md#developer-facing-display-conventions
       if (typeof this.columnNumber === 'number') {
-        linkText += `:0x${this.columnNumber.toString(16)}`;
+        lineAndColumnText = `0x${this.columnNumber.toString(16)}`;
       }
     } else {
-      linkText += ':' + (this.lineNumber + 1);
+      lineAndColumnText = `${this.lineNumber + 1}`;
       if (showColumnNumber && typeof this.columnNumber === 'number') {
-        linkText += ':' + (this.columnNumber + 1);
+        lineAndColumnText += ':' + (this.columnNumber + 1);
       }
     }
-    return linkText;
+    return lineAndColumnText;
   }
 
   id(): string {
