@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b1d676_dd930b9e",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-26T12:54:17Z",
+      "side": 0,
+      "message": "I\u0027ll move this part to be rendered as part of the BreakpointsView.",
+      "revId": "e8b138785380b2186d9e38cc2c2b9d76ad8161c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b5b934e_c322b853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-26T12:54:17Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nhere\u0027s the CL to show the new BreakpointsView. Note that interactions within the BreakpointsView are not listened to in this CL.\nMost of the logic is the same as the JavaScriptBreakpointsSidebarPane. PTAL!\n\nKim",
+      "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
