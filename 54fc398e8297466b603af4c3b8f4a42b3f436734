@@ -103,6 +103,24 @@
       "message": "Here it is with proper formatting...\n\n```\n--- C:\\Projects\\chromium\\src\\out\\Default\\layout-test-results\\http/tests/devtools/elements/styles-3/styles-disable-inherited-expected.txt\n+++ C:\\Projects\\chromium\\src\\out\\Default\\layout-test-results\\http/tests/devtools/elements/styles-3/styles-disable-inherited-actual.txt\n@@ -21,4 +21,9 @@\n div { (user agent stylesheet)\n     display: block;\n \n+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d Inherited from div#container \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n+[expanded] \n+style attribute { ()\n+    font-weight: bold;\n \n+\n```",
       "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24179210_9cfd83f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1104195
+      },
+      "writtenOn": "2022-08-27T13:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "106730fe_f25c4836",
+      "revId": "54fc398e8297466b603af4c3b8f4a42b3f436734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
