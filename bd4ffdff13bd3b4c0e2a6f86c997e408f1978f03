@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b932ad4_e99ed414",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-29T18:33:15Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s necessary. TBH the more we share in target mgmt, the better. \nLet\u0027s only pursue making it customizable if we need to.",
+      "parentUuid": "2187a9b9_6f5bc3d2",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b07fc065_c87ee140",
         "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
         "patchSetId": 1
@@ -135,6 +153,24 @@
       "writtenOn": "2022-08-29T07:44:25Z",
       "side": 1,
       "message": "Should we make this customizable as well? I also wonder if Lighthouse needs to connect to the DevTools targets?",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa243e4c_d9756e6e",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-29T18:33:15Z",
+      "side": 1,
+      "message": "LH doesn\u0027t need to connect to DT targets, but I don\u0027t _think_ it\u0027s a problem if we do. Adam, can you verify?",
+      "parentUuid": "b07fc065_c87ee140",
       "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
