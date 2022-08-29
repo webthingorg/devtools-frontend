@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca27cb65_58120692",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T09:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b00e2890_48dc685d",
+      "range": {
+        "startLine": 165,
+        "startChar": 61,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba73c786_78127577",
@@ -105,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d01e84_280e7b80",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T09:00:49Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "50b22ee9_cfe2a1f6",
+      "range": {
+        "startLine": 229,
+        "startChar": 77,
+        "endLine": 229,
+        "endChar": 78
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f615522_ac39112b",
@@ -128,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c25c3eb_4b9ecd59",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T09:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f615522_ac39112b",
+      "range": {
+        "startLine": 247,
+        "startChar": 59,
+        "endLine": 247,
+        "endChar": 81
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6297551_1211ca16",
@@ -141,6 +213,30 @@
       "writtenOn": "2022-08-29T08:47:04Z",
       "side": 1,
       "message": "`of databaseNames || []`",
+      "range": {
+        "startLine": 265,
+        "startChar": 30,
+        "endLine": 265,
+        "endChar": 32
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc0e8214_1acd2ee7",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T09:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6297551_1211ca16",
       "range": {
         "startLine": 265,
         "startChar": 30,
