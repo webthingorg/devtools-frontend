@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "72691ec4_4735288f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T19:32:14Z",
+      "side": 1,
+      "message": "nit: \"Support storageKey in \u0027clearObjectStore\u0027 and \u0027deleteEntries\u0027\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "edfd534c_767fda3f",
@@ -14,6 +37,46 @@
       "writtenOn": "2022-08-29T14:03:41Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5489133c_5d21a751",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T19:32:14Z",
+      "side": 1,
+      "message": "lgtm % nit and a question",
+      "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a331ee5_e5290fd0",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T19:32:14Z",
+      "side": 1,
+      "message": "q: I assume this is exact? Meaning if the actual call would include the `securityOrigin` then this assert fails?",
+      "range": {
+        "startLine": 33,
+        "startChar": 38,
+        "endLine": 33,
+        "endChar": 52
+      },
       "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
