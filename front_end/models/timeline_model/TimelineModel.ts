@@ -704,10 +704,12 @@ export class TimelineModelImpl {
     if (!thread) {
       return;
     }
-    const gpuEventName = RecordType.GPUTask;
+    const gpuEventNames = [RecordType.GPUTask, RecordType.ThreadControllerActive].map(t => t.toString());
     const track = this.ensureNamedTrack(TrackType.GPU);
     track.thread = thread;
-    track.events = thread.events().filter(event => event.name === gpuEventName);
+    track.events = Root.Runtime.experiments.isEnabled('timelineShowAllEvents')
+      ? thread.events()
+      : thread.events().filter(event => gpuEventNames.includes(event.name));
   }
 
   private buildLoadingEvents(tracingModel: SDK.TracingModel.TracingModel, events: SDK.TracingModel.Event[]): void {
@@ -1603,6 +1605,7 @@ export enum RecordType {
   EventDispatch = 'EventDispatch',
 
   GPUTask = 'GPUTask',
+  ThreadControllerActive = 'ThreadController active',
 
   Animation = 'Animation',
   RequestMainThreadFrame = 'RequestMainThreadFrame',
@@ -1620,11 +1623,13 @@ export enum RecordType {
   Layout = 'Layout',
   LayoutShift = 'LayoutShift',
   UpdateLayer = 'UpdateLayer',
-  UpdateLayerTree = 'UpdateLayerTree',
+  UpdateLayers = 'UpdateLayers',
   PaintSetup = 'PaintSetup',
   Paint = 'Paint',
+  IssuePaint = 'IssuePaint',
   PaintImage = 'PaintImage',
   PrePaint = 'PrePaint',
+  DecodeFont = 'DecodeFont',
   Rasterize = 'Rasterize',
   RasterTask = 'RasterTask',
   ScrollLayer = 'ScrollLayer',
@@ -1661,6 +1666,7 @@ export enum RecordType {
   WasmModuleCacheInvalid = 'v8.wasm.moduleCacheInvalid',
 
   FrameStartedLoading = 'FrameStartedLoading',
+  InitializeWindow = 'LocalWindowProxy::Initialize',
   CommitLoad = 'CommitLoad',
   MarkLoad = 'MarkLoad',
   MarkDOMContent = 'MarkDOMContent',
@@ -1682,6 +1688,12 @@ export enum RecordType {
   ResourceFinish = 'ResourceFinish',
   ResourceMarkAsCached = 'ResourceMarkAsCached',
 
+  OnReceiveResponse = 'ThrottlingURLLoader::OnReceiveResponse',
+  OnReceivedResponse = 'ThrottlingURLLoader::OnReceivedResponse',
+  OnRequestComplete = 'WebResourceRequestSender::OnRequestComplete',
+  OnStartLoadingResponseBody = 'WebResourceRequestSender::OnStartLoadingResponseBody',
+  RequestResource = 'ResourceFetcher::requestResource',
+
   RunMicrotasks = 'RunMicrotasks',
   FunctionCall = 'FunctionCall',
   GCEvent = 'GCEvent',
@@ -1698,6 +1710,8 @@ export enum RecordType {
   StreamingCompileScript = 'v8.parseOnBackground',
   StreamingCompileScriptWaiting = 'v8.parseOnBackgroundWaiting',
   StreamingCompileScriptParsing = 'v8.parseOnBackgroundParsing',
+  StreamingCompileComplete = 'v8.streamingCompile.complete',
+
   V8Execute = 'V8.Execute',
 
   UpdateCounters = 'UpdateCounters',
