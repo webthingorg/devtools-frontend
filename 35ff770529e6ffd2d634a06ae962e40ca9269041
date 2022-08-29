@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4bf1edf_2797cf11",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-29T08:47:15Z",
+      "side": 1,
+      "message": "No good reason, I\u0027ve just kept it the same as in `linkText()`. I\u0027ve changed both `linkText` and `lineAndColumnText` now to both use default values.",
+      "parentUuid": "f0d42044_20bc07df",
+      "range": {
+        "startLine": 537,
+        "startChar": 20,
+        "endLine": 537,
+        "endChar": 37
+      },
+      "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9c7e16c_34d0b1d4",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-08-29T06:33:16Z",
       "side": 1,
       "message": "Should this call `update()` (rather than throwing the data away)?\n\nI am also wondering where we subscribe to get the flavorChanged called.",
+      "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f405c76f_8f1024ae",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-08-29T08:47:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right! Thanks for catching this -- I missed updating this one after a refactoring.\n\nWe subscribe in sources-meta.ts, see changes there. Note that the listener for JavaScriptBreakpointsSidebarPane was registered twice before and that we now just reuse one of the registrations.",
+      "parentUuid": "e9c7e16c_34d0b1d4",
       "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
