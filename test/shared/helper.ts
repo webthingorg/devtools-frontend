@@ -11,6 +11,7 @@ import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-stat
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
 
 import {AsyncScope} from './async-scope.js';
+import {patchJSHandle} from './mocha-extensions.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -227,10 +228,12 @@ export const timeout = (duration: number) => new Promise(resolve => setTimeout(r
 
 export const waitFor = async<ElementType extends Element = Element>(
     selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
-  return await asyncScope.exec(() => waitForFunction(async () => {
-                                 const element = await $<ElementType>(selector, root, handler);
-                                 return (element || undefined);
-                               }, asyncScope));
+  const result = await asyncScope.exec(() => waitForFunction(async () => {
+                                         const element = await $<ElementType>(selector, root, handler);
+                                         return (element || undefined);
+                                       }, asyncScope));
+  patchJSHandle(result);
+  return result;
 };
 
 export const waitForMany = async (
