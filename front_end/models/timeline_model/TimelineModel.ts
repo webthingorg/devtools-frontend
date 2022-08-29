@@ -410,7 +410,7 @@ export class TimelineModelImpl {
   }
 
   private processThreadsForBrowserFrames(tracingModel: SDK.TracingModel.TracingModel): void {
-    const processData = new Map<number, {
+    const processDataByPid = new Map<number, {
       from: number,
       to: number,
       main: boolean,
@@ -420,10 +420,10 @@ export class TimelineModelImpl {
     for (const frame of this.pageFrames.values()) {
       for (let i = 0; i < frame.processes.length; i++) {
         const pid = frame.processes[i].processId;
-        let data = processData.get(pid);
+        let data = processDataByPid.get(pid);
         if (!data) {
           data = [];
-          processData.set(pid, data);
+          processDataByPid.set(pid, data);
         }
         const to = i === frame.processes.length - 1 ? (frame.deletedTime || Infinity) : frame.processes[i + 1].time;
         data.push({
@@ -437,10 +437,10 @@ export class TimelineModelImpl {
     }
     for (const auctionWorklet of this.auctionWorklets.values()) {
       const pid = auctionWorklet.processId;
-      let data = processData.get(pid);
+      let data = processDataByPid.get(pid);
       if (!data) {
         data = [];
-        processData.set(pid, data);
+        processDataByPid.set(pid, data);
       }
       data.push({
         from: auctionWorklet.startTime,
@@ -454,31 +454,57 @@ export class TimelineModelImpl {
     }
     const allMetadataEvents = tracingModel.devToolsMetadataEvents();
     for (const process of tracingModel.sortedProcesses()) {
-      const data = processData.get(process.id());
-      if (!data) {
+      const processData = processDataByPid.get(process.id());
+      if (!processData) {
         continue;
       }
-      data.sort((a, b) => a.from - b.from || a.to - b.to);
+      // Sort ascending by range starts, followed by range ends
+      processData.sort((a, b) => a.from - b.from || a.to - b.to);
       const ranges = [];
       let lastUrl: Platform.DevToolsPath.UrlString|null = null;
       let lastMainUrl: Platform.DevToolsPath.UrlString|null = null;
       let hasMain = false;
-      let allWorklet = true;
 
+      let allWorklet = true;
       // false: not set, true: inconsistent.
       let workletUrl: Platform.DevToolsPath.UrlString|boolean = false;
       // NotWorklet used for not set.
       let workletType: WorkletType = WorkletType.NotWorklet;
-      for (const item of data) {
-        const last = ranges[ranges.length - 1];
-        if (!last || item.from > last.to) {
+
+
+      for (const item of processData) {
+        // Last is range that starts latest
+        let last = ranges[ranges.length - 1];
+        // If there's no ranges defined yet, create a range from this processDataItem
+        // If this processDataItem's start is after the rangeOfRecord's end, create a new range
+        if (!last) {
           ranges.push({from: item.from, to: item.to});
-        } else {
+          last = ranges[ranges.length - 1];
+        }
+
+        if (item.from < last.from) {
+          // If this process data's start is prior to the rangeOfRecord's end, update rangeOfRecord's end
+          last.from = item.from;
+        }
+
+        if (item.to > last.to) {
+          // If this process data's start is prior to the rangeOfRecord's end, update rangeOfRecord's end
           last.to = item.to;
         }
+
+
+
         if (item.main) {
           hasMain = true;
         }
+       if (item.url) {
+          if (item.main) {
+            lastMainUrl = item.url;
+          }
+          lastUrl = item.url;
+        }
+
+        // Worklet BS
         if (item.workletType === WorkletType.NotWorklet) {
           allWorklet = false;
         } else {
@@ -496,12 +522,7 @@ export class TimelineModelImpl {
           }
         }
 
-        if (item.url) {
-          if (item.main) {
-            lastMainUrl = item.url;
-          }
-          lastUrl = item.url;
-        }
+
       }
 
       for (const thread of process.sortedThreads()) {
