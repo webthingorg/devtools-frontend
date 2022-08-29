@@ -5,6 +5,7 @@
 import * as FS from 'fs';
 import * as Mocha from 'mocha';
 import * as Path from 'path';
+import type * as puppeteer from 'puppeteer';
 
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
 
@@ -223,4 +224,45 @@ function wrapMochaCall(
       (callback as Mocha.Func).bind(this)(done);
     }
   });
+}
+
+type PatchedHandle<T> = puppeteer.JSHandle<T>&{
+  rawEvaluate: puppeteer.JSHandle<T>['evaluate'],
+  rawEvaluateHandle: puppeteer.JSHandle<T>['evaluateHandle'],
+};
+
+function patchHandleEvaluateHandle<T, U extends puppeteer.EvaluateFn<T>>(
+    this: PatchedHandle<T>, pageFunction: Exclude<U, string>, ...args: puppeteer.SerializableOrJSHandle[]) {
+  const test = function(element: Element) {
+    if (!element.isConnected) {
+      throw new Error('Element is not connected');
+    }
+  };
+  const patchedFunction =
+      new Function('element', `(${test})(element); return (${pageFunction}).apply(this, arguments);`) as
+      Exclude<U, string>;
+  return this.rawEvaluateHandle(patchedFunction, ...args);
+}
+
+function patchHandleEvaluate<T, U extends puppeteer.EvaluateFn<T>>(
+    this: PatchedHandle<T>, pageFunction: Exclude<U, string>, ...args: puppeteer.SerializableOrJSHandle[]) {
+  const test = function(element: Element) {
+    if (!element.isConnected) {
+      throw new Error('Element is not connected');
+    }
+  };
+  const patchedFunction =
+      new Function('element', `(${test})(element); return (${pageFunction}).apply(this, arguments);`) as
+      Exclude<U, string>;
+  return this.rawEvaluate(patchedFunction, ...args);
+}
+
+export function patchJSHandle(handle: puppeteer.JSHandle) {
+  const prototype = Object.getPrototypeOf(handle);
+  if (prototype.evaluate !== patchHandleEvaluate) {
+    prototype.rawEvaluate = prototype.evaluate;
+    prototype.evaluate = patchHandleEvaluate;
+    prototype.rawEvaluateHandle = prototype.evaluateHandle;
+    prototype.evaluateHandle = patchHandleEvaluateHandle;
+  }
 }
