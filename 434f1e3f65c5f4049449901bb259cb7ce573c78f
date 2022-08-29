@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e0741c1_5e289e0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "go links don’t work over HTTPS. But since this is a public CL and the design doc is public, please just link to the doc directly so everyone can access it.",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "017d4707_1e2f0ac6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "Please always point to a crbug here (same for any other CLs related to this project). It looked like there wasn’t one yet for this project, so I’ve just created one here: crbug.com/1357584. You can use this line:\n\n    Bug: chromium:1357584",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6050b821_1c2c36aa",
@@ -31,6 +65,97 @@
       "writtenOn": "2022-08-29T12:00:54Z",
       "side": 1,
       "message": "This is the CL i mentioned in the chat",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "242c9ef7_74568248",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "LGTM with comments addressed. Thanks!",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec999a3_4501211d",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "Tip: we generally use a TODO comment for these kind of things, e.g.\n\n    // TODO(crbug/1357584): Delete this after the upstream CDP change lands.\n\n(where 1357584 is the crbug ID)",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf6c8819_8a045f88",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089e517c_33465e80",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "typo:\n\n    \u0027Unexpected or unspecified screenshotMode\u0027",
+      "range": {
+        "startLine": 71,
+        "startChar": 25,
+        "endLine": 71,
+        "endChar": 64
+      },
+      "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b161b5_8b7dc6bf",
+        "filename": "front_end/models/emulation/DeviceModeModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-29T12:22:10Z",
+      "side": 1,
+      "message": "Same here — let’s make this a TODO comment.",
       "revId": "434f1e3f65c5f4049449901bb259cb7ce573c78f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
