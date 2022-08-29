@@ -22,6 +22,30 @@
       },
       "revId": "4a8f59a0f3bf75321e0c608e496649ebcedffaf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8b9bda_c4560469",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T08:36:50Z",
+      "side": 1,
+      "message": "Discussed offline, doing in a follow-up since this one is landed already",
+      "parentUuid": "1d284526_d3da2a5a",
+      "range": {
+        "startLine": 482,
+        "startChar": 3,
+        "endLine": 482,
+        "endChar": 116
+      },
+      "revId": "4a8f59a0f3bf75321e0c608e496649ebcedffaf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
