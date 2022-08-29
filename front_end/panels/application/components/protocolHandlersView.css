@@ -21,6 +21,7 @@ input.devtools-text-input[type="text"] {
   margin-right: 4px;
   width: 250px;
   height: 25px;
+  border: 1px solid var(--color-text-disabled);
 }
 
 .protocol-handlers-row {
