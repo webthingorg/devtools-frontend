@@ -196,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30d7ea3f_e4a16c7d",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-08-29T18:57:49Z",
+      "side": 1,
+      "message": "Oops didn\u0027t see paul\u0027s comment. Would attaching to extensions be useful for LH since we issue a warning if extensions affect the page?",
+      "parentUuid": "e7249874_12c74e69",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b07fc065_c87ee140",
         "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
         "patchSetId": 1
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b07fc065_c87ee140",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb03904c_f155ae01",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-08-29T18:57:49Z",
+      "side": 1,
+      "message": "TBH I don\u0027t think it matters. This is to determine which targets get listed under `browser.pages()` IIUC.",
+      "parentUuid": "32aef026_f3bdf972",
       "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
