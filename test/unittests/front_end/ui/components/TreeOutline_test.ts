@@ -16,6 +16,7 @@ import {
   renderElementIntoDOM,
   stripLitHtmlCommentNodes,
 } from '../../helpers/DOMHelpers.js';
+import {treeNodeKeyText, visibleNodesToTree, waitForRenderedTreeNodeCount} from '../../helpers/TreeOutlineHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -49,25 +50,6 @@ async function renderTreeOutline<TreeNodeDataType>({
     component,
     shadowRoot: component.shadowRoot,
   };
-}
-
-/**
- * Wait for a certain number of children are rendered. We need this as the
- * component uses LitHtml's until directive, which is async and not within the
- * render coordinator's control.
- */
-async function waitForRenderedTreeNodeCount(shadowRoot: ShadowRoot, expectedNodeCount: number): Promise<void> {
-  const actualNodeCount = shadowRoot.querySelectorAll('li[role="treeitem"]').length;
-  if (actualNodeCount === expectedNodeCount) {
-    return;
-  }
-
-  await new Promise<void>(resolve => {
-    requestAnimationFrame(async () => {
-      await waitForRenderedTreeNodeCount(shadowRoot, expectedNodeCount);
-      resolve();
-    });
-  });
 }
 
 function getFocusableTreeNode(shadowRoot: ShadowRoot): HTMLLIElement {
@@ -208,47 +190,6 @@ const nodeAustralia = {
 const NODE_COUNT_BASIC_DATA_FULLY_EXPANDED = 15;
 const NODE_COUNT_BASIC_DATA_DEFAULT_EXPANDED = 12;
 
-interface VisibleTreeNodeFromDOM {
-  renderedKey: string;
-  children?: VisibleTreeNodeFromDOM[];
-}
-
-/**
- * Converts the nodes into a tree structure that we can assert against.
- */
-function visibleNodesToTree(shadowRoot: ShadowRoot): VisibleTreeNodeFromDOM[] {
-  const tree: VisibleTreeNodeFromDOM[] = [];
-
-  function buildTreeNode(node: HTMLLIElement): VisibleTreeNodeFromDOM {
-    const item: VisibleTreeNodeFromDOM = {
-      renderedKey: nodeKeyInnerHTML(node),
-    };
-
-    if (node.getAttribute('aria-expanded') && node.getAttribute('aria-expanded') === 'true') {
-      item.children = [];
-      const childNodes = node.querySelectorAll<HTMLLIElement>(':scope > ul[role="group"]>li');
-      for (const child of childNodes) {
-        item.children.push(buildTreeNode(child));
-      }
-    }
-
-    return item;
-  }
-  const rootNodes = shadowRoot.querySelectorAll<HTMLLIElement>('ul[role="tree"]>li');
-  for (const root of rootNodes) {
-    tree.push(buildTreeNode(root));
-  }
-  return tree;
-}
-
-function treeNodeKeyText(node: HTMLLIElement) {
-  const keyNode = node.querySelector('[data-node-key]');
-  if (!keyNode) {
-    throw new Error('Found tree node without a key within it.');
-  }
-  return keyNode.getAttribute('data-node-key') || '';
-}
-
 function nodeKeyInnerHTML(node: HTMLLIElement) {
   const keyNode = node.querySelector('[data-node-key]');
   if (!keyNode) {
@@ -291,7 +232,7 @@ describe('TreeOutline', () => {
     assertElement(arrowIcon, HTMLSpanElement);
     dispatchClickEvent(arrowIcon);
     await waitForRenderedTreeNodeCount(shadowRoot, 3);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {renderedKey: 'Offices', children: [{renderedKey: 'Europe'}]},
       {renderedKey: 'Products'},
@@ -305,7 +246,7 @@ describe('TreeOutline', () => {
     const rootNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
     dispatchClickEvent(rootNode);
     await waitForRenderedTreeNodeCount(shadowRoot, 2);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {renderedKey: 'Offices'},
       {renderedKey: 'Products'},
@@ -320,7 +261,7 @@ describe('TreeOutline', () => {
     const rootNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
     dispatchClickEvent(rootNode);
     await waitForRenderedTreeNodeCount(shadowRoot, 3);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {renderedKey: 'Offices', children: [{renderedKey: 'Europe'}]},
       {renderedKey: 'Products'},
@@ -409,7 +350,7 @@ describe('TreeOutline', () => {
 
     await component.expandRecursively();
     await waitForRenderedTreeNodeCount(shadowRoot, 4);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {
         renderedKey: '<h2 class="item">NAME:</h2>jack',
@@ -434,7 +375,7 @@ describe('TreeOutline', () => {
     });
     await component.expandRecursively();
     await waitForRenderedTreeNodeCount(shadowRoot, 12);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {
         renderedKey: 'Offices',
@@ -473,7 +414,7 @@ describe('TreeOutline', () => {
       });
       await component.expandToAndSelectTreeNode(nodeBelgraveHouse);
       await waitForRenderedTreeNodeCount(shadowRoot, 9);
-      const visibleTree = visibleNodesToTree(shadowRoot);
+      const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
       // The tree is expanded down to include "BEL" but the rest of the tree is still collapsed.
       assert.deepEqual(visibleTree, [
         {
@@ -523,7 +464,7 @@ describe('TreeOutline', () => {
     const europeNode = getVisibleTreeNodeByText(shadowRoot, 'Europe');
     await component.collapseChildrenOfNode(europeNode);
     await waitForRenderedTreeNodeCount(shadowRoot, 7);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {
         renderedKey: 'Offices',
@@ -559,7 +500,7 @@ describe('TreeOutline', () => {
     await waitForRenderedTreeNodeCount(shadowRoot, NODE_COUNT_BASIC_DATA_FULLY_EXPANDED);
     await component.collapseAllNodes();
     await waitForRenderedTreeNodeCount(shadowRoot, 2);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {
         renderedKey: 'Offices',
@@ -611,7 +552,7 @@ describe('TreeOutline', () => {
     // Make sure that we only fetched the children once despite expanding the
     // Tree twice.
     assert.strictEqual(fetchChildrenSpy.callCount, 1);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
     assert.deepEqual(visibleTree, [
       {
         renderedKey: 'Offices',
@@ -972,7 +913,7 @@ describe('TreeOutline', () => {
             getFocusableTreeNode(shadowRoot),
             getVisibleTreeNodeByText(shadowRoot, 'Europe'),
         );
-        const visibleTree = visibleNodesToTree(shadowRoot);
+        const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
         // The tree below "Europe" is hidden as the left arrow press closed that node.
         assert.deepEqual(visibleTree, [
           {
@@ -1274,7 +1215,7 @@ describe('TreeOutline', () => {
       // just as long as you know the id for whatever thing you are looking for.
       await component.expandToAndSelectTreeNode({treeNodeData: 'something else', id: 'gawler'});
       await waitForRenderedTreeNodeCount(shadowRoot, 7);
-      const visibleTree = visibleNodesToTree(shadowRoot);
+      const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
 
       // The tree is expanded down to include "Gawler" but the rest of the tree is still collapsed.
       assert.deepEqual(visibleTree, [{
@@ -1332,7 +1273,7 @@ describe('TreeOutline', () => {
       };
       await waitForRenderedTreeNodeCount(shadowRoot, 4);
       await coordinator.done();
-      const visibleTree = visibleNodesToTree(shadowRoot);
+      const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
 
       // The tree should still be expanded down to the node with key `gawler`.
       assert.deepEqual(visibleTree, [{
@@ -1397,7 +1338,7 @@ describe('TreeOutlineFiltering', () => {
     await component.expandRecursively();
     await coordinator.done();
     await waitForRenderedTreeNodeCount(shadowRoot, 7);
-    const visibleTree = visibleNodesToTree(shadowRoot);
+    const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
 
     assert.deepEqual(visibleTree, [{
                        renderedKey: 'Australia',
@@ -1419,7 +1360,7 @@ describe('TreeOutlineFiltering', () => {
       await component.expandNodeIds(['australia', 'sa', 'adelaide']);
       await coordinator.done();
       await waitForRenderedTreeNodeCount(shadowRoot, 7);
-      const visibleTree = visibleNodesToTree(shadowRoot);
+      const visibleTree = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
 
       assert.deepEqual(visibleTree, [{
                          renderedKey: 'Australia',
@@ -1450,7 +1391,7 @@ describe('TreeOutlineFiltering', () => {
         defaultRenderer: (node => LitHtml.html`${node.treeNodeData}`),
       };
       await waitForRenderedTreeNodeCount(shadowRoot, 9);
-      const visibleTreeAfterFilter = visibleNodesToTree(shadowRoot);
+      const visibleTreeAfterFilter = visibleNodesToTree(shadowRoot, nodeKeyInnerHTML);
 
       assert.deepEqual(visibleTreeAfterFilter, [{
                          renderedKey: 'Australia',

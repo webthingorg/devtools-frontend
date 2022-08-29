@@ -510,7 +510,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
         >
           <span class="arrow-icon" @click=${this.#onArrowClick(node)}>
           </span>
-          <span class="tree-node-key" data-node-key=${node.treeNodeData}>${renderedNodeKey}</span>
+          <span class="tree-node-key" data-node-key=${JSON.stringify(node.treeNodeData)}>${renderedNodeKey}</span>
         </span>
         ${childrenToRender}
       </li>
