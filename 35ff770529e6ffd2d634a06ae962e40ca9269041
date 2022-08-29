@@ -16,6 +16,46 @@
       "message": "Hi Jaro,\n\nhere\u0027s the CL to show the new BreakpointsView. Note that interactions within the BreakpointsView are not listened to in this CL.\nMost of the logic is the same as the JavaScriptBreakpointsSidebarPane. PTAL!\n\nKim",
       "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d42044_20bc07df",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-08-29T06:33:16Z",
+      "side": 1,
+      "message": "Out of curiosity, why does not this use default value (`showColumnNumber: boolean \u003d false`)?",
+      "range": {
+        "startLine": 537,
+        "startChar": 20,
+        "endLine": 537,
+        "endChar": 37
+      },
+      "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c7e16c_34d0b1d4",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-08-29T06:33:16Z",
+      "side": 1,
+      "message": "Should this call `update()` (rather than throwing the data away)?\n\nI am also wondering where we subscribe to get the flavorChanged called.",
+      "revId": "35ff770529e6ffd2d634a06ae962e40ca9269041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
