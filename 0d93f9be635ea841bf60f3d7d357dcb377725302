@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b2f2f8_e025a54a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T08:47:04Z",
+      "side": 1,
+      "message": "lgtm % some nits",
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00e2890_48dc685d",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T08:47:04Z",
+      "side": 1,
+      "message": "nit: `has`",
+      "range": {
+        "startLine": 165,
+        "startChar": 61,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba73c786_78127577",
@@ -36,6 +76,76 @@
         "startChar": 77,
         "endLine": 229,
         "endChar": 78
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b22ee9_cfe2a1f6",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T08:47:04Z",
+      "side": 1,
+      "message": "`|| []` also works :)",
+      "parentUuid": "ba73c786_78127577",
+      "range": {
+        "startLine": 229,
+        "startChar": 77,
+        "endLine": 229,
+        "endChar": 78
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f615522_ac39112b",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T08:47:04Z",
+      "side": 1,
+      "message": "given that we don\u0027t modify `newDatabaseNames` we can use that here directly instead of creating a duplicated set.",
+      "range": {
+        "startLine": 247,
+        "startChar": 59,
+        "endLine": 247,
+        "endChar": 81
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6297551_1211ca16",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-29T08:47:04Z",
+      "side": 1,
+      "message": "`of databaseNames || []`",
+      "range": {
+        "startLine": 265,
+        "startChar": 30,
+        "endLine": 265,
+        "endChar": 32
       },
       "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
