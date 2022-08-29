@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fa89366_577690cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T08:40:00Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba73c786_78127577",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T08:40:00Z",
+      "side": 1,
+      "message": "It works with either `!` or an `if` instead of assert (and then no `!`), if is probably preferred, right?",
+      "range": {
+        "startLine": 229,
+        "startChar": 77,
+        "endLine": 229,
+        "endChar": 78
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf5359c_adb7ff4a",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-29T08:40:00Z",
+      "side": 1,
+      "message": "follow-up to another CL",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 62
+      },
+      "revId": "0d93f9be635ea841bf60f3d7d357dcb377725302",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
