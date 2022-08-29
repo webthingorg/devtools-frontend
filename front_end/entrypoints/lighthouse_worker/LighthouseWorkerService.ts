@@ -97,7 +97,8 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
     notifyFrontendViaWorkerMessage('statusUpdate', {message: message[1]});
   });
 
-  let puppeteerConnection: Awaited<ReturnType<typeof Puppeteer.PuppeteerConnection['getPuppeteerConnection']>>|
+  let puppeteerHandle: Awaited<
+      ReturnType<typeof Puppeteer.PuppeteerConnection.PuppeteerConnectionHelper['connectPuppeteerToConnection']>>|
       undefined;
 
   try {
@@ -138,9 +139,17 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
 
     const {mainTargetId, mainFrameId, mainSessionId} = args.target;
     cdpConnection = new ConnectionProxy(mainSessionId);
-    puppeteerConnection =
-        await Puppeteer.PuppeteerConnection.getPuppeteerConnection(cdpConnection, mainFrameId, mainTargetId);
-    const {page} = puppeteerConnection;
+    puppeteerHandle = await Puppeteer.PuppeteerConnection.PuppeteerConnectionHelper.connectPuppeteerToConnection(
+        cdpConnection,
+        mainFrameId,
+        mainTargetId,
+        args.targetInfos,
+        // Defer to Lighthouse for which targets are important.
+        () => true,
+        // Lighthouse only supports auditing to normal pages.
+        targetInfo => targetInfo.type === 'page',
+    );
+    const {page} = puppeteerHandle;
     const configContext = {
       logLevel: flags.logLevel,
       settingsOverrides: flags,
@@ -172,7 +181,7 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
   } finally {
     // endTimespan will need to use the same connection as startTimespan.
     if (action !== 'startTimespan') {
-      puppeteerConnection?.browser.disconnect();
+      puppeteerHandle?.browser.disconnect();
     }
   }
 }
