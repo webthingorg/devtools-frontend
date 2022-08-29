@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30001267_5f01355e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-29T07:44:25Z",
+      "side": 1,
+      "message": "LGTM thanks for updating it and fixing the issue!",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0fc4b16_b1b63346",
@@ -54,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54dc53a7_bbaebe4f",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-29T07:44:25Z",
+      "side": 1,
+      "message": "I think it\u0027s okay to keep the current name if we consider the state of being attached to Puppeteer to be different from the state of being attached to a CDP session. While it\u0027s true that that Puppeteer detaches CDP sessions not matching the filter, for the users of Puppeteer this should not be observable (unless reaching into internals or debug logs) and the target is only available via `browser.targets()` if it is allowed by the filter.",
+      "parentUuid": "0b108f7e_32b0821b",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5230662b_67817587",
         "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
         "patchSetId": 1
@@ -65,6 +100,41 @@
       "writtenOn": "2022-08-26T23:04:46Z",
       "side": 1,
       "message": "It\u0027d be a problem if this were stricter than https://github.com/GoogleChrome/lighthouse/blob/1482e99e48815d0ea2e126897e0d4865da0e80a2/core/gather/driver/target-manager.js#L100-L104\n\nI don\u0027t see a reason why it would be. But I think we feel confident our test coverage would catch this.",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2187a9b9_6f5bc3d2",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-29T07:44:25Z",
+      "side": 1,
+      "message": "WDYT about making this filter customizable for the clients of PuppeteerConnectionHelper? It might happen that there is a need to customize it based on Lighthouse or Recorder requirements.",
+      "parentUuid": "5230662b_67817587",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b07fc065_c87ee140",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-29T07:44:25Z",
+      "side": 1,
+      "message": "Should we make this customizable as well? I also wonder if Lighthouse needs to connect to the DevTools targets?",
       "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
