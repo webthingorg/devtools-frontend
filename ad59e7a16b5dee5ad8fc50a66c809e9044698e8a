@@ -34,6 +34,41 @@
       "parentUuid": "9240ff2e_b68efdca",
       "revId": "ad59e7a16b5dee5ad8fc50a66c809e9044698e8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142e0c64_f479fb3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1104195
+      },
+      "writtenOn": "2022-08-29T14:40:01Z",
+      "side": 1,
+      "message": "Oops, I thought I replied already - sorry about that.\nIs this a problem only because the Developer Tools feature has a customized tooltip implementation that (probably?) does not use the HTML title attribute as usual?\nIf so, then this is irrelevant to the rest of the screens/toolbars and so on.",
+      "parentUuid": "396462b5_8ca69c6e",
+      "revId": "ad59e7a16b5dee5ad8fc50a66c809e9044698e8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f60caa_2a24013a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1104195
+      },
+      "writtenOn": "2022-08-29T14:40:01Z",
+      "side": 1,
+      "message": "I keep getting confused by this Gerrit interface, I guess... Here is my reply hehe.",
+      "revId": "ad59e7a16b5dee5ad8fc50a66c809e9044698e8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
