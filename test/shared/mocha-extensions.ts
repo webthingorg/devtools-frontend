@@ -5,6 +5,7 @@
 import * as FS from 'fs';
 import * as Mocha from 'mocha';
 import * as Path from 'path';
+import type * as puppeteer from 'puppeteer';
 
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
 
@@ -223,4 +224,26 @@ function wrapMochaCall(
       (callback as Mocha.Func).bind(this)(done);
     }
   });
+}
+
+function patchHandleEvaluate<T, U extends puppeteer.EvaluateFn<T>>(
+    this: puppeteer.JSHandle<T>, pageFunction: Exclude<U, string>, ...args: puppeteer.SerializableOrJSHandle[]) {
+  const test = function(element: Element) {
+    if (!element.isConnected) {
+      throw new Error('Element is not connected');
+    }
+  };
+  const patchedFunction =
+      new Function('element', `(${test})(element); return (${pageFunction}).apply(this, arguments);`) as
+      Exclude<U, string>;
+  // @ts-expect-error
+  return this.rawEvaluate(patchedFunction, ...args);
+}
+
+export function patchJSHandle(handle: puppeteer.JSHandle) {
+  const prototype = Object.getPrototypeOf(handle);
+  if (prototype.evaluate !== patchHandleEvaluate) {
+    prototype.rawEvaluate = prototype.evaluate;
+    prototype.evaluate = patchHandleEvaluate;
+  }
 }
