@@ -214,6 +214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69071ba0_0fd5ad6f",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-08-30T06:05:50Z",
+      "side": 1,
+      "message": "I think the current logic might be very Recorder-specific. E.g., attaching to popups in on(\u0027targetdiscovered\u0027), attaching to DevTools etc and might not make sense for Lighthouse. But if it works for Lighthouse, I am fine with keeping it not customisable.",
+      "parentUuid": "30d7ea3f_e4a16c7d",
+      "revId": "bd4ffdff13bd3b4c0e2a6f86c997e408f1978f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b07fc065_c87ee140",
         "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
         "patchSetId": 1
