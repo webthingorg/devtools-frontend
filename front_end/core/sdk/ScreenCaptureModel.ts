@@ -58,10 +58,7 @@ export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyA
         break;
       case 'fullpage':
         properties.captureBeyondViewport = true;
-        // TODO(crbug/1357584): Delete this after the upstream CDP change lands.
-        properties.clip = clip;
-        // TODO(crbug/1357584): Uncoment this after the upstream CDP change lands.
-        // properties.clip = undefined;
+        properties.clip = undefined;
         break;
       case 'fromViewport':
         properties.captureBeyondViewport = false;
