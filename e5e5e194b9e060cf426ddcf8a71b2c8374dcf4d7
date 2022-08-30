@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd01adb9_7aea5fbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-08-30T07:04:47Z",
+      "side": 1,
+      "message": "As mentioned in the chat I added the comment and am ready to land it, I still need your LGTM as a code-owner",
+      "revId": "e5e5e194b9e060cf426ddcf8a71b2c8374dcf4d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
