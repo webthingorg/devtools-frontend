@@ -16,6 +16,23 @@
       "message": "Hi, this is a simple css change, PTAL, thank you!",
       "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f484de9_a276c21a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-08-30T06:49:49Z",
+      "side": 1,
+      "message": "happy with the change but don\u0027t think we should use --text-disabled as the color here as that\u0027s not its intended purpose.\n\nAdding Peter to advise on the design side: do we have a defined color for the input border?",
+      "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
