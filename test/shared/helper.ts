@@ -12,6 +12,8 @@ import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
 
 import {AsyncScope} from './async-scope.js';
 
+import {patchJSHandle, type PatchedHandle} from './mocha-extensions.js';
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
@@ -60,7 +62,7 @@ export const getElementPosition =
       element = selector;
     }
 
-    return element.evaluate((element: Element) => {
+    return (element as puppeteer.JSHandle<Element>as PatchedHandle<Element>).rawEvaluate((element: Element) => {
       if (!element) {
         return {};
       }
@@ -227,10 +229,12 @@ export const timeout = (duration: number) => new Promise(resolve => setTimeout(r
 
 export const waitFor = async<ElementType extends Element = Element>(
     selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
-  return await asyncScope.exec(() => waitForFunction(async () => {
-                                 const element = await $<ElementType>(selector, root, handler);
-                                 return (element || undefined);
-                               }, asyncScope));
+  const result = await asyncScope.exec(() => waitForFunction(async () => {
+                                         const element = await $<ElementType>(selector, root, handler);
+                                         return (element || undefined);
+                                       }, asyncScope));
+  patchJSHandle(result);
+  return result;
 };
 
 export const waitForMany = async (

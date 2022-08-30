@@ -436,7 +436,14 @@ export const getDisplayedStyleRulesCompact = async () => {
 };
 
 export const getDisplayedStyleRules = async () => {
-  const allRuleSelectors = await $$(CSS_STYLE_RULE_SELECTOR);
+  const allRuleSelectors = await waitForFunction(async () => {
+    const selectors = await $$(CSS_STYLE_RULE_SELECTOR);
+    const isConnected = await Promise.all(selectors.map(element => element.evaluate(e => e.isConnected)));
+    if (isConnected.some(e => e)) {
+      return undefined;
+    }
+    return selectors;
+  });
   const rules = [];
   for (const ruleSelector of allRuleSelectors) {
     const propertyData = await getDisplayedCSSPropertyData(ruleSelector);
