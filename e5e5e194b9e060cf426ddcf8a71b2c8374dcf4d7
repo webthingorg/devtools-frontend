@@ -16,6 +16,24 @@
       "message": "As mentioned in the chat I added the comment and am ready to land it, I still need your LGTM as a code-owner",
       "revId": "e5e5e194b9e060cf426ddcf8a71b2c8374dcf4d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec7e7547_f1041b30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-08-30T07:10:30Z",
+      "side": 1,
+      "message": "\u003e As mentioned in the chat I added the comment and am ready to land it, I still need your LGTM as a code-owner\n\nApologies. I LGTM’d earlier but then the UI bug reset my vote. +1’d again!",
+      "parentUuid": "dd01adb9_7aea5fbf",
+      "revId": "e5e5e194b9e060cf426ddcf8a71b2c8374dcf4d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
