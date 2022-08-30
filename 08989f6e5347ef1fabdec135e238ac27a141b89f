@@ -33,6 +33,23 @@
       "message": "Still LGTM",
       "revId": "08989f6e5347ef1fabdec135e238ac27a141b89f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f411b191_94aa68f4",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-30T17:56:27Z",
+      "side": 1,
+      "message": "Let\u0027s upgrade these ordered arguments to an object. Much easier to keep track of things when calling.",
+      "revId": "08989f6e5347ef1fabdec135e238ac27a141b89f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
