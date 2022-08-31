@@ -35,6 +35,7 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
 export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements ProtocolProxyApi.StorageDispatcher {
   private readonly securityOriginManager: SDK.SecurityOriginManager.SecurityOriginManager|null;
+  private readonly storageKeyManager: SDK.StorageKeyManager.StorageKeyManager|null;
   private readonly indexedDBAgent: ProtocolProxyApi.IndexedDBApi;
   private readonly storageAgent: ProtocolProxyApi.StorageApi;
   private readonly databasesInternal: Map<DatabaseId, Database>;
@@ -48,6 +49,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     super(target);
     target.registerStorageDispatcher(this);
     this.securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
+    this.storageKeyManager = target.model(SDK.StorageKeyManager.StorageKeyManager);
     this.indexedDBAgent = target.indexedDBAgent();
     this.storageAgent = target.storageAgent();
 
@@ -159,6 +161,14 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
         this.addOrigin(securityOrigin);
       }
     }
+    if (this.storageKeyManager) {
+      this.storageKeyManager.addEventListener(SDK.StorageKeyManager.Events.StorageKeyAdded, this.storageKeyAdded, this);
+      this.storageKeyManager.addEventListener(
+          SDK.StorageKeyManager.Events.StorageKeyRemoved, this.storageKeyRemoved, this);
+      for (const storageKey of this.storageKeyManager.storageKeys()) {
+        this.addStorageKey(storageKey);
+      }
+    }
 
     this.enabled = true;
   }
@@ -221,8 +231,16 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     this.addOrigin(event.data);
   }
 
+  private storageKeyAdded(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.addStorageKey(event.data);
+  }
+
   private securityOriginRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
     this.removeOrigin(event.data);
+  }
+
+  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.removeStorageKey(event.data);
   }
 
   private addOrigin(securityOrigin: string): void {
@@ -234,6 +252,13 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     }
   }
 
+  private addStorageKey(storageKey: string): void {
+    console.assert(!this.databaseNamesByStorageKey.has(storageKey));
+    this.databaseNamesByStorageKey.set(storageKey, new Set());
+    void this.loadDatabaseNamesByStorageKey(storageKey);
+    void this.storageAgent.invoke_trackIndexedDBForStorageKey({storageKey});
+  }
+
   private removeOrigin(securityOrigin: string): void {
     console.assert(this.databaseNamesBySecurityOrigin.has(securityOrigin));
     for (const item of this.databaseNamesBySecurityOrigin.get(securityOrigin) || []) {
@@ -243,6 +268,15 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     if (this.isValidSecurityOrigin(securityOrigin)) {
       void this.storageAgent.invoke_untrackIndexedDBForOrigin({origin: securityOrigin});
     }
+  }
+
+  private removeStorageKey(storageKey: string): void {
+    console.assert(this.databaseNamesByStorageKey.has(storageKey));
+    for (const name of this.databaseNamesByStorageKey.get(storageKey) || []) {
+      this.databaseRemovedForStorageKey(storageKey, name);
+    }
+    this.databaseNamesByStorageKey.delete(storageKey);
+    void this.storageAgent.invoke_untrackIndexedDBForStorageKey({storageKey});
   }
 
   private isValidSecurityOrigin(securityOrigin: string): boolean {
