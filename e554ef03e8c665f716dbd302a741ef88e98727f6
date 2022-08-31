@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "50d9ffcb_33796b79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-31T11:46:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72691ec4_4735288f",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "edfd534c_767fda3f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2022-08-29T19:32:14Z",
       "side": 1,
       "message": "q: I assume this is exact? Meaning if the actual call would include the `securityOrigin` then this assert fails?",
+      "range": {
+        "startLine": 33,
+        "startChar": 38,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "e554ef03e8c665f716dbd302a741ef88e98727f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "763c637f_36bb6287",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-08-31T11:46:39Z",
+      "side": 1,
+      "message": "Not really, this one isn\u0027t, changed to the exact one.",
+      "parentUuid": "1a331ee5_e5290fd0",
       "range": {
         "startLine": 33,
         "startChar": 38,
