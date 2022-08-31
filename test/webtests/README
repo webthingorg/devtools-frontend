@@ -1,5 +1,5 @@
 This folder is for Chrome-specific tests only. Tests that should work across
-browsers should be placed in third_party/blink/web_tests/external/wpt.
+browsers should be placed in third_party/blink/wpt_tests/external/wpt.
 
 When using the [integrated checkout workflow](https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/workflows.md#Integrated-checkout), web tests from the DevTools repository can be run as via the following command:
 
