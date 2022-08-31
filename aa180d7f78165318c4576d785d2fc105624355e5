@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db00988_b283962b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-08-31T16:36:58Z",
+      "side": 0,
+      "message": "lol nice find on this and these other properties that never got used.\n\nhowd you spot them? (and howd the lint/tsc tooling not flag them before?)",
+      "revId": "aa180d7f78165318c4576d785d2fc105624355e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
