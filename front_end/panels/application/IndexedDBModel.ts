@@ -195,6 +195,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   }
 
   async clearObjectStore(databaseId: DatabaseId, objectStoreName: string): Promise<void> {
+    // TODO(crbug.com/1347831) Prioritize storageKey once everything is ready
     if (databaseId.securityOrigin) {
       await this.indexedDBAgent.invoke_clearObjectStore(
           {securityOrigin: databaseId.securityOrigin, databaseName: databaseId.name, objectStoreName});
@@ -206,6 +207,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
 
   async deleteEntries(databaseId: DatabaseId, objectStoreName: string, idbKeyRange: IDBKeyRange): Promise<void> {
     const keyRange = IndexedDBModel.keyRangeFromIDBKeyRange(idbKeyRange);
+    // TODO(crbug.com/1347831) Prioritize storageKey once everything is ready
     if (databaseId.securityOrigin) {
       await this.indexedDBAgent.invoke_deleteObjectStoreEntries(
           {securityOrigin: databaseId.securityOrigin, databaseName: databaseId.name, objectStoreName, keyRange});
@@ -333,8 +335,21 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     return databaseNames;
   }
 
+  private async loadDatabaseNamesByStorageKey(storageKey: string): Promise<string[]> {
+    const {databaseNames} = await this.indexedDBAgent.invoke_requestDatabaseNames({storageKey});
+    if (!databaseNames) {
+      return [];
+    }
+    if (!this.databaseNamesByStorageKey.has(storageKey)) {
+      return [];
+    }
+    this.updateStorageKeyDatabaseNames(storageKey, databaseNames);
+    return databaseNames;
+  }
+
   private async loadDatabase(databaseId: DatabaseId, entriesUpdated: boolean): Promise<void> {
     let databaseWithObjectStores: Protocol.IndexedDB.DatabaseWithObjectStores|null = null;
+    // TODO(crbug.com/1347831) Prioritize storageKey once everything is ready
     if (databaseId.securityOrigin) {
       databaseWithObjectStores = (await this.indexedDBAgent.invoke_requestDatabase({
                                    securityOrigin: databaseId.securityOrigin,
@@ -343,8 +358,15 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
       if (!this.databaseNamesBySecurityOrigin.has(databaseId.securityOrigin)) {
         return;
       }
+    } else if (databaseId.storageKey) {
+      databaseWithObjectStores = (await this.indexedDBAgent.invoke_requestDatabase({
+                                   storageKey: databaseId.storageKey,
+                                   databaseName: databaseId.name,
+                                 })).databaseWithObjectStores;
+      if (!this.databaseNamesByStorageKey.has(databaseId.storageKey)) {
+        return;
+      }
     }
-
     if (!databaseWithObjectStores) {
       return;
     }
