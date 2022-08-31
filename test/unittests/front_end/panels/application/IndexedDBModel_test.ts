@@ -9,6 +9,8 @@ import * as Resources from '../../../../../front_end/panels/application/applicat
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {
   describeWithMockConnection,
+  dispatchEvent,
+  setMockConnectionResponseHandler,
 } from '../../helpers/MockConnection.js';
 import type * as ProtocolProxyApi from '../../../../../front_end/generated/protocol-proxy-api.js';
 
@@ -25,6 +27,24 @@ describeWithMockConnection('IndexedDBModel', () => {
     indexedDBModel = new Resources.IndexedDBModel.IndexedDBModel(target);
     indexedDBAgent = target.indexedDBAgent();
     manager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+    setMockConnectionResponseHandler('IndexedDB.requestDatabase', () => {
+      return {
+        databaseWithObjectStores: {
+          name: 'test-database',
+          version: 1,
+          objectStores: [
+            {
+              name: 'test-store',
+              keyPath: {
+                type: 'null',
+              },
+              autoIncrement: false,
+              indexes: [],
+            },
+          ],
+        },
+      };
+    });
   });
 
   it('handles StorageKeyAdded events when enabled up to requestIndexedDBNames', async () => {
@@ -45,6 +65,34 @@ describeWithMockConnection('IndexedDBModel', () => {
 
     manager?.dispatchEventToListeners(SDK.StorageKeyManager.Events.StorageKeyRemoved, testKey);
     assert.isTrue(untrackIndexedDBSpy.calledOnceWithExactly({storageKey: testKey}));
+  });
+
+  it('handles an indexedDBListUpdated event', async () => {
+    const idbListUpdatedSpy = sinon.spy(indexedDBModel, 'indexedDBListUpdated');
+
+    indexedDBModel.enable();
+    dispatchEvent(target, 'Storage.indexedDBListUpdated', {origin: '', storageKey: testKey});
+    assert.isTrue(idbListUpdatedSpy.calledOnce);
+  });
+
+  it('handles an indexedDBContentUpdated event', async () => {
+    const eventDispatcherSpy = sinon.spy(indexedDBModel, 'dispatchEventToListeners');
+
+    indexedDBModel.enable();
+    dispatchEvent(
+        target, 'Storage.indexedDBContentUpdated',
+        {origin: '', storageKey: testKey, databaseName: 'test-database', objectStoreName: 'test-store'});
+    assert.isTrue(eventDispatcherSpy.calledOnceWith(
+        Resources.IndexedDBModel.Events.IndexedDBContentUpdated as unknown as sinon.SinonMatcher,
+        {databaseId: testDBId, objectStoreName: 'test-store', model: indexedDBModel}));
+  });
+
+  it('calls protocol methods on refreshDatabase', () => {
+    const requestDatabaseSpy = sinon.spy(indexedDBAgent, 'invoke_requestDatabase');
+
+    indexedDBModel.enable();
+    indexedDBModel.refreshDatabase(testDBId);
+    assert.isTrue(requestDatabaseSpy.calledOnceWith({storageKey: testKey, databaseName: 'test-database'}));
   });
 
   it('calls protocol method on clearObjectStore', async () => {
@@ -89,5 +137,13 @@ describeWithMockConnection('IndexedDBModel', () => {
     void indexedDBModel.getMetadata(testDBId, new Resources.IndexedDBModel.ObjectStore('test-store', null, false));
     assert.isTrue(getMetadataSpy.calledOnceWithExactly(
         {storageKey: testKey, databaseName: 'test-database', objectStoreName: 'test-store'}));
+  });
+
+  it('calls protocol method on deleteDatabase', async () => {
+    const deleteDatabaseSpy = sinon.spy(indexedDBAgent, 'invoke_deleteDatabase');
+
+    indexedDBModel.enable();
+    void indexedDBModel.deleteDatabase(testDBId);
+    assert.isTrue(deleteDatabaseSpy.calledOnceWith({storageKey: testKey, databaseName: 'test-database'}));
   });
 });
