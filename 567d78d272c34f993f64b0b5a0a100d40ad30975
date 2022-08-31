@@ -213,6 +213,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da4cdf1b_dcc06c7d",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-08-31T09:28:30Z",
+      "side": 1,
+      "message": "Ah, I didn\u0027t know it was typed with `never` :(\n\nOk then the spread variant is fine :) The casting is just too unwieldy.",
+      "parentUuid": "55c22705_4d5a0eef",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 8
+      },
+      "revId": "567d78d272c34f993f64b0b5a0a100d40ad30975",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34d3455e_9c3d4606",
         "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
         "patchSetId": 5
