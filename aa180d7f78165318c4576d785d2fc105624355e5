@@ -16,6 +16,24 @@
       "message": "lol nice find on this and these other properties that never got used.\n\nhowd you spot them? (and howd the lint/tsc tooling not flag them before?)",
       "revId": "aa180d7f78165318c4576d785d2fc105624355e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebcac488_2edf7ea9",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-09-01T07:36:21Z",
+      "side": 0,
+      "message": "They were used via the webGL code; once I removed all the WebGL based methods, these became unused, and TypeScript started shouting :)",
+      "parentUuid": "1db00988_b283962b",
+      "revId": "aa180d7f78165318c4576d785d2fc105624355e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
