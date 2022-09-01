@@ -16,6 +16,23 @@
       "message": "Now it seems to work PT(another)L :)",
       "revId": "0e9b8d358a093985d587a5b30f80d3f0777417e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f5a540e_0cec764b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-01T08:21:31Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "0e9b8d358a093985d587a5b30f80d3f0777417e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
