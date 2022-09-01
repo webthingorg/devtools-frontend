@@ -52,6 +52,24 @@
       "parentUuid": "6c285f23_03a784be",
       "revId": "061fa443ce4160e7bb7566c80273ecdac6e4712b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3bb1bb_c8e15fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-09-01T11:51:49Z",
+      "side": 1,
+      "message": "No worries, thanks a lot for adding this setting in the first place! :)",
+      "parentUuid": "18f27167_13684e6b",
+      "revId": "061fa443ce4160e7bb7566c80273ecdac6e4712b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
