@@ -16,6 +16,23 @@
       "message": "I\u0027ll land this CL once the Chromium CL has landed. Otherwise we would block the roll.",
       "revId": "d92ce492332abe8ead9b58966a3204d3b6867517",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69dc9b1b_88e9bcbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-01T06:46:27Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "d92ce492332abe8ead9b58966a3204d3b6867517",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
