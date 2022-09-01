@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "074b5f1d_4dd3e428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-09-01T12:07:58Z",
+      "side": 1,
+      "message": "Thanks for raising awareness of this. Unfortunately this is not the right fix, as the json files are not the source of truth, and we periodically import translations.\n\nWe fixed the problem at the source so future translation imports should fix this issue.",
+      "revId": "4fa583812153402e4aa6a1d0eb3089860e7c0168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
