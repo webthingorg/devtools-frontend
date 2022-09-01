@@ -6183,7 +6183,7 @@
     "message": "以 fetch 格式复制"
   },
   "panels/network/NetworkLogView.ts | copyAsNodejsFetch": {
-    "message": "以 Node.jsfetch 格式复制"
+    "message": "以 Node.js fetch 格式复制"
   },
   "panels/network/NetworkLogView.ts | copyAsPowershell": {
     "message": "以 PowerShell 格式复制"
