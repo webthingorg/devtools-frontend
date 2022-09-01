@@ -34,6 +34,24 @@
       "parentUuid": "a0a2f44e_9defcb18",
       "revId": "377527ba239d5181adcf06cdebe397a63f25cd3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0787c7b5_2feed32f",
+        "filename": "test/e2e/sources/pause-button_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-01T08:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb874868_a95ac577",
+      "revId": "377527ba239d5181adcf06cdebe397a63f25cd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
