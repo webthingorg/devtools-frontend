@@ -627,7 +627,6 @@ export enum DevtoolsExperiments {
   'experimentalCookieFeatures' = 45,
   'hideIssuesFeature' = 48,
   'reportingApiDebugging' = 49,
-  'syncSettings' = 50,
   'groupAndHideIssuesByKind' = 51,
   'cssTypeComponentLength' = 52,
   'preciseChanges' = 53,
