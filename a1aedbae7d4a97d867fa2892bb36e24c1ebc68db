@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5fede4_4df653f4",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-01T04:56:16Z",
+      "side": 1,
+      "message": "How does this work, is a security key comprised of a origin + one character?\nIf so, we should centralize that logic somewhere, in case it changes.",
+      "range": {
+        "startLine": 288,
+        "startChar": 50,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a5aff1_dc2755ba",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-01T04:56:16Z",
+      "side": 1,
+      "message": "Chaining all of this together is hard to read. Better to do it step by step:\n\n```\nconst securityOrigin \u003d storageKey.slice(0, -1);  // Or whatever, see above comment.\nconst databaseNames \u003d this.databaseNamesBySecurityOrigin.get(securityOrigin);\nreturn Boolean(databaseNames?.has(databaseName));\n```",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 3
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e58c8ee_9b84ae9a",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-01T04:56:16Z",
+      "side": 1,
+      "message": "Can we already have tests for this? Especially a test that exercises the duplication logic from above.\n\nThat is, poke the model with existing public methods and check that the right events get fired.",
+      "range": {
+        "startLine": 311,
+        "startChar": 41,
+        "endLine": 311,
+        "endChar": 54
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
