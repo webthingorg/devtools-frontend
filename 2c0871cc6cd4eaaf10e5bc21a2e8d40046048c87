@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9eeda2c_e778547b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-09-02T14:18:38Z",
+      "side": 1,
+      "message": "LGTM but I wonder if there can be any opportunity to test this behavior?\n\nAFAIU there are some legacy web tests in here[1]\n\n[1]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/elements/styles-3/style-autocomplete.js?q\u003dCSSPropertyPrompt%20-file:out%20file:test",
+      "revId": "2c0871cc6cd4eaaf10e5bc21a2e8d40046048c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1582b8_eccdc492",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-09-02T14:18:38Z",
+      "side": 1,
+      "message": "(nit): It seems like we might want to rename this to `parentComputedStyles` as well?",
+      "revId": "2c0871cc6cd4eaaf10e5bc21a2e8d40046048c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
