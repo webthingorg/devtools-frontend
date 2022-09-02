@@ -84,6 +84,36 @@ async function renderHeadersComponent(request: SDK.NetworkRequest.NetworkRequest
   return component;
 }
 
+const getTextFromRow = (row: HTMLElement): string[] => {
+  assertShadowRoot(row.shadowRoot);
+  const headerNameElement = row.shadowRoot.querySelector('.header-name');
+  const headerName = headerNameElement?.textContent?.trim() || '';
+  const headerValueElement = row.shadowRoot.querySelector('.header-value');
+  const headerValue = headerValueElement?.textContent?.trim() || '';
+  return [headerName, headerValue];
+};
+
+const getRowsFromCategory = (category: HTMLElement): NetworkComponents.HeaderSectionRow.HeaderSectionRow[] => {
+  const slot = getElementWithinComponent(category, 'slot', HTMLSlotElement);
+  const section = slot.assignedElements()[0];
+  assertElement(section, HTMLElement);
+  assertShadowRoot(section.shadowRoot);
+  const rows = section.shadowRoot.querySelectorAll('devtools-header-section-row');
+  return Array.from(rows);
+};
+
+const getRowsTextFromCategory = (category: HTMLElement): string[][] => {
+  return getRowsFromCategory(category).map(row => getTextFromRow(row));
+};
+
+const getRowHighlightStatus = (container: HTMLElement): boolean[] => {
+  const rows = getRowsFromCategory(container);
+  return rows.map(row => {
+    const element = row.shadowRoot?.querySelector('.row');
+    return element?.classList.contains('header-highlight') || false;
+  });
+};
+
 describeWithMockConnection('RequestHeadersView', () => {
   beforeEach(async () => {
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, '');
@@ -127,87 +157,31 @@ describeWithMockConnection('RequestHeadersView', () => {
 
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
     assertElement(responseHeadersCategory, HTMLElement);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-name'), [
-      'age:',
-      'cache-control:',
-      'content-encoding:',
-      'content-length:',
-    ]);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value'), [
-      '0',
-      'max-age=600',
-      'gzip',
-      '661',
-    ]);
+    assert.deepStrictEqual(
+        getRowsTextFromCategory(responseHeadersCategory),
+        [['age:', '0'], ['cache-control:', 'max-age=600'], ['content-encoding:', 'gzip'], ['content-length:', '661']]);
 
     const requestHeadersCategory = component.shadowRoot.querySelector('[aria-label="Request Headers"]');
     assertElement(requestHeadersCategory, HTMLElement);
-    assert.deepEqual(getCleanTextContentFromElements(requestHeadersCategory, '.header-name'), [
-      ':method:',
-      'accept-encoding:',
-      'cache-control:',
-    ]);
-    assert.deepEqual(getCleanTextContentFromElements(requestHeadersCategory, '.header-value'), [
-      'GET',
-      'gzip, deflate, br',
-      'no-cache',
-    ]);
+    assert.deepStrictEqual(
+        getRowsTextFromCategory(requestHeadersCategory),
+        [[':method:', 'GET'], ['accept-encoding:', 'gzip, deflate, br'], ['cache-control:', 'no-cache']]);
   });
 
   it('emits UMA event when a header value is being copied', async () => {
     const component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
-    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
-    assertElement(responseHeadersCategory, HTMLElement);
+    const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
+    assertElement(generalCategory, HTMLElement);
 
     const spy = sinon.spy(Host.userMetrics, 'actionTaken');
-    const headerValue = responseHeadersCategory.querySelector('.header-value');
+    const headerValue = generalCategory.querySelector('.header-value');
     assertElement(headerValue, HTMLElement);
 
     assert.isTrue(spy.notCalled);
     dispatchCopyEvent(headerValue);
     assert.isTrue(spy.calledWith(Host.UserMetrics.Action.NetworkPanelCopyValue));
-  });
-
-  it('renders detailed reason for blocked requests', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      wasBlocked: () => true,
-      blockedReason: () => Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep,
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
-    assertElement(responseHeadersCategory, HTMLElement);
-    assert.strictEqual(
-        getCleanTextContentFromElements(responseHeadersCategory, '.header-name')[4],
-        'not-setcross-origin-resource-policy:',
-    );
-    assert.strictEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value')[4], '');
-    assert.strictEqual(
-        getCleanTextContentFromElements(responseHeadersCategory, '.call-to-action')[0],
-        'To use this resource from a different origin, the server needs to specify a cross-origin ' +
-            'resource policy in the response headers:Cross-Origin-Resource-Policy: same-siteChoose ' +
-            'this option if the resource and the document are served from the same site.' +
-            'Cross-Origin-Resource-Policy: cross-originOnly choose this option if an arbitrary website ' +
-            'including this resource does not impose a security risk.Learn more',
-    );
-  });
-
-  it('renders provisional headers warning', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      requestHeadersText: () => undefined,
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const requestHeadersCategory = component.shadowRoot.querySelector('[aria-label="Request Headers"]');
-    assertElement(requestHeadersCategory, HTMLElement);
-    assert.strictEqual(
-        getCleanTextContentFromElements(requestHeadersCategory, '.call-to-action')[0],
-        'Provisional headers are shown. Disable cache to see full headers. Learn more',
-    );
   });
 
   it('can switch between source and parsed view', async () => {
@@ -230,18 +204,9 @@ describeWithMockConnection('RequestHeadersView', () => {
     // Switch to viewing parsed view
     responseHeadersCategory.dispatchEvent(new NetworkComponents.RequestHeadersView.ToggleRawHeadersEvent());
 
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-name'), [
-      'age:',
-      'cache-control:',
-      'content-encoding:',
-      'content-length:',
-    ]);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value'), [
-      '0',
-      'max-age=600',
-      'gzip',
-      '661',
-    ]);
+    assert.deepStrictEqual(
+        getRowsTextFromCategory(responseHeadersCategory),
+        [['age:', '0'], ['cache-control:', 'max-age=600'], ['content-encoding:', 'gzip'], ['content-length:', '661']]);
   });
 
   it('cuts off long raw headers and shows full content on button click', async () => {
@@ -279,57 +244,6 @@ describeWithMockConnection('RequestHeadersView', () => {
     assert.strictEqual(fullRawTextContent?.length, 4450);
   });
 
-  it('displays decoded "x-client-data"-header', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      requestHeaders: () => [{name: 'x-client-data', value: 'CJa2yQEIpLbJAQiTocsB'}],
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const requestHeadersCategory = component.shadowRoot.querySelector('[aria-label="Request Headers"]');
-    assertElement(requestHeadersCategory, HTMLElement);
-    assert.strictEqual(
-        getCleanTextContentFromElements(requestHeadersCategory, '.header-name')[0],
-        'x-client-data:',
-    );
-    assert.isTrue((getCleanTextContentFromElements(requestHeadersCategory, '.header-value')[0])
-                      .startsWith('CJa2yQEIpLbJAQiTocsB'));
-    assert.strictEqual(
-        getCleanTextContentFromElements(requestHeadersCategory, '.header-value code')[0],
-        'message ClientVariations {// Active client experiment variation IDs.repeated int32 variation_id = [3300118, 3300132, 3330195];\n}',
-    );
-  });
-
-  it('displays info about blocked "Set-Cookie"-headers', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      sortedResponseHeaders: [{name: 'Set-Cookie', value: 'secure=only; Secure'}],
-      blockedResponseCookies: () => [{
-        blockedReasons: ['SecureOnly', 'OverwriteSecure'],
-        cookieLine: 'secure=only; Secure',
-        cookie: null,
-      }],
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
-    assertElement(responseHeadersCategory, HTMLElement);
-    assert.strictEqual(
-        getCleanTextContentFromElements(responseHeadersCategory, '.header-name')[0],
-        'Set-Cookie:',
-    );
-    assert.strictEqual(
-        getCleanTextContentFromElements(responseHeadersCategory, '.header-value')[0], 'secure=only; Secure');
-    const icon = responseHeadersCategory.querySelector('devtools-icon');
-    assertElement(icon, HTMLElement);
-    assert.strictEqual(
-        icon.title,
-        'This attempt to set a cookie via a Set-Cookie header was blocked because it had the ' +
-            '"Secure" attribute but was not received over a secure connection.\nThis attempt to ' +
-            'set a cookie via a Set-Cookie header was blocked because it was not sent over a ' +
-            'secure connection and would have overwritten a cookie with the Secure attribute.');
-  });
-
   it('re-renders on request headers update', async () => {
     const request = SDK.NetworkRequest.NetworkRequest.create(
         'requestId' as Protocol.Network.RequestId,
@@ -351,18 +265,16 @@ describeWithMockConnection('RequestHeadersView', () => {
 
     const spy = sinon.spy(component, 'data', ['set']);
     assert.isTrue(spy.set.notCalled);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-name'), ['originalName:']);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value'), ['originalValue']);
+    assert.deepStrictEqual(getRowsTextFromCategory(responseHeadersCategory), [['originalName:', 'originalValue']]);
 
     request.responseHeaders = [{name: 'updatedName', value: 'updatedValue'}];
     assert.isTrue(spy.set.calledOnce);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-name'), ['updatedName:']);
-    assert.deepEqual(getCleanTextContentFromElements(responseHeadersCategory, '.header-value'), ['updatedValue']);
+    assert.deepStrictEqual(getRowsTextFromCategory(responseHeadersCategory), [['updatedName:', 'updatedValue']]);
 
     view.detach();
   });
 
-  it('can highlight individual headers', async () => {
+  it('can highlight individual response headers', async () => {
     const request = SDK.NetworkRequest.NetworkRequest.create(
         'requestId' as Protocol.Network.RequestId,
         'https://www.example.com/foo.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
@@ -382,18 +294,50 @@ describeWithMockConnection('RequestHeadersView', () => {
     const component = view.element.querySelector('devtools-request-headers');
     assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
     assertShadowRoot(component.shadowRoot);
-    const responseHeaderRows = component.shadowRoot.querySelectorAll('[aria-label="Response Headers"] .row');
-    assertElement(responseHeaderRows[0], HTMLElement);
-    assertElement(responseHeaderRows[1], HTMLElement);
-    assertElement(responseHeaderRows[2], HTMLElement);
 
-    assert.isFalse(responseHeaderRows[0].classList.contains('header-highlight'));
-    assert.isFalse(responseHeaderRows[1].classList.contains('header-highlight'));
-    assert.isFalse(responseHeaderRows[2].classList.contains('header-highlight'));
+    const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
+    assertElement(responseHeadersCategory, HTMLElement);
+    assert.deepStrictEqual(
+        getRowsTextFromCategory(responseHeadersCategory),
+        [['DevTools:', 'rock'], ['foo:', 'bar'], ['highlightMe:', 'some value']]);
+
+    assert.deepStrictEqual(getRowHighlightStatus(responseHeadersCategory), [false, false, false]);
     view.revealHeader(NetworkForward.UIRequestLocation.UIHeaderSection.Response, 'HiGhLiGhTmE');
-    assert.isFalse(responseHeaderRows[0].classList.contains('header-highlight'));
-    assert.isFalse(responseHeaderRows[1].classList.contains('header-highlight'));
-    assert.isTrue(responseHeaderRows[2].classList.contains('header-highlight'));
+    assert.deepStrictEqual(getRowHighlightStatus(responseHeadersCategory), [false, false, true]);
+
+    view.detach();
+  });
+
+  it('can highlight individual request headers', async () => {
+    const request = SDK.NetworkRequest.NetworkRequest.create(
+        'requestId' as Protocol.Network.RequestId,
+        'https://www.example.com/foo.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
+        null, null, null);
+    request.setRequestHeaders([
+      {name: 'foo', value: 'bar'},
+      {name: 'highlightMe', value: 'some value'},
+      {name: 'DevTools', value: 'rock'},
+    ]);
+
+    const view = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
+    const div = document.createElement('div');
+    renderElementIntoDOM(div);
+    view.markAsRoot();
+    view.show(div);
+
+    const component = view.element.querySelector('devtools-request-headers');
+    assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
+    assertShadowRoot(component.shadowRoot);
+
+    const requestHeadersCategory = component.shadowRoot.querySelector('[aria-label="Request Headers"]');
+    assertElement(requestHeadersCategory, HTMLElement);
+    assert.deepStrictEqual(
+        getRowsTextFromCategory(requestHeadersCategory),
+        [['DevTools:', 'rock'], ['foo:', 'bar'], ['highlightMe:', 'some value']]);
+
+    assert.deepStrictEqual(getRowHighlightStatus(requestHeadersCategory), [false, false, false]);
+    view.revealHeader(NetworkForward.UIRequestLocation.UIHeaderSection.Request, 'HiGhLiGhTmE');
+    assert.deepStrictEqual(getRowHighlightStatus(requestHeadersCategory), [false, false, true]);
 
     view.detach();
   });
@@ -437,36 +381,6 @@ describeWithMockConnection('RequestHeadersView', () => {
 
     const linkElement = responseHeadersCategory.shadowRoot.querySelector('x-link');
     assert.isNull(linkElement);
-  });
-
-  it('skips rendering category if there are no headers', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      sortedResponseHeaders: [],
-      requestHeaders: () => [],
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    assert.isNull(component.shadowRoot.querySelector('[aria-label="Response Headers"]'));
-    assert.isNull(component.shadowRoot.querySelector('[aria-label="Request Headers"]'));
-  });
-
-  it('renders provisional headers warning for request headers even if there are no headers', async () => {
-    const component = await renderHeadersComponent({
-      ...defaultRequest,
-      sortedResponseHeaders: [],
-      requestHeaders: () => [],
-      requestHeadersText: () => undefined,
-    } as unknown as SDK.NetworkRequest.NetworkRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    assert.isNull(component.shadowRoot.querySelector('[aria-label="Response Headers"]'));
-    const requestHeadersCategory = component.shadowRoot.querySelector('[aria-label="Request Headers"]');
-    assertElement(requestHeadersCategory, HTMLElement);
-    assert.strictEqual(
-        getCleanTextContentFromElements(requestHeadersCategory, '.call-to-action')[0],
-        'Provisional headers are shown. Disable cache to see full headers. Learn more',
-    );
   });
 });
 
