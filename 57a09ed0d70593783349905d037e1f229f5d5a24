@@ -56,6 +56,30 @@
       },
       "revId": "57a09ed0d70593783349905d037e1f229f5d5a24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abe1a84_1d6d7e0c",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-02T10:28:02Z",
+      "side": 1,
+      "message": "Thanks, that\u0027s even better! Done.",
+      "parentUuid": "4c73703b_00a698cf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 113
+      },
+      "revId": "57a09ed0d70593783349905d037e1f229f5d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
