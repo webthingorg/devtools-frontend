@@ -39,6 +39,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   private readonly storageAgent: ProtocolProxyApi.StorageApi;
   private readonly databasesInternal: Map<DatabaseId, Database>;
   private databaseNamesBySecurityOrigin: Map<string, Set<string>>;
+  private databaseNamesByStorageKey: Map<string, Set<string>>;
   private readonly originsUpdated: Set<string>;
   private readonly throttler: Common.Throttler.Throttler;
   private enabled?: boolean;
@@ -52,6 +53,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
 
     this.databasesInternal = new Map();
     this.databaseNamesBySecurityOrigin = new Map();
+    this.databaseNamesByStorageKey = new Map();
 
     this.originsUpdated = new Set();
     this.throttler = new Common.Throttler.Throttler(1000);
@@ -264,6 +266,30 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     }
   }
 
+  private updateStorageKeyDatabaseNames(storageKey: string, databaseNames: string[]): void {
+    const newDatabaseNames = new Set(databaseNames);
+    const oldDatabaseNames = new Set(databaseNames);
+
+    this.databaseNamesByStorageKey.set(storageKey, newDatabaseNames);
+
+    for (const databaseName of oldDatabaseNames) {
+      if (!newDatabaseNames.has(databaseName)) {
+        this.databaseRemovedForStorageKey(storageKey, databaseName);
+      }
+    }
+    for (const databaseName of newDatabaseNames) {
+      if (!oldDatabaseNames.has(databaseName) && !this.hasDuplicateWithSecurityOrigin(storageKey, databaseName)) {
+        this.databaseAddedForStorageKey(storageKey, databaseName);
+      }
+    }
+  }
+
+  hasDuplicateWithSecurityOrigin(storageKey: string, databaseName: string): boolean {
+    const securityOrigin = storageKey.slice(0, -1);
+    const databaseNames = this.databaseNamesBySecurityOrigin.get(securityOrigin);
+    return Boolean(databaseNames?.has(databaseName));
+  }
+
   databases(): DatabaseId[] {
     const result = [];
     for (const securityOrigin of this.databaseNamesBySecurityOrigin.keys()) {
@@ -280,8 +306,18 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     this.dispatchEventToListeners(Events.DatabaseAdded, {model: this, databaseId: databaseId});
   }
 
+  private databaseAddedForStorageKey(storageKey: string, databaseName: string): void {
+    const databaseId = new DatabaseId(undefined, storageKey, databaseName);
+    this.dispatchEventToListeners(Events.DatabaseAdded, {model: this, databaseId: databaseId});
+  }
+
   private databaseRemoved(securityOrigin: string, databaseName: string): void {
     const databaseId = new DatabaseId(securityOrigin, undefined, databaseName);
+    this.dispatchEventToListeners(Events.DatabaseRemoved, {model: this, databaseId: databaseId});
+  }
+
+  private databaseRemovedForStorageKey(storageKey: string, databaseName: string): void {
+    const databaseId = new DatabaseId(undefined, storageKey, databaseName);
     this.dispatchEventToListeners(Events.DatabaseRemoved, {model: this, databaseId: databaseId});
   }
 
