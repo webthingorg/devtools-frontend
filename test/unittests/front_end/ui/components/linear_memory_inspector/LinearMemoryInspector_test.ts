@@ -67,6 +67,7 @@ describeWithLocale('LinearMemoryInspector', () => {
       endianness: LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.Endianness.Little,
       valueTypes: new Set<LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.ValueType>(
           LinearMemoryInspectorModule.ValueInterpreterDisplayUtils.getDefaultValueTypeMapping().keys()),
+      highlightInfo: [],
     };
     component.data = data;
 

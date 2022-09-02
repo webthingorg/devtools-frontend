@@ -15,7 +15,7 @@ export interface LinearMemoryViewerData {
   address: number;
   memoryOffset: number;
   focus: boolean;
-  highlightInfo?: HighlightInfo;
+  highlightInfo: HighlightInfo[];
   focusedMemoryHighlight?: HighlightInfo;
 }
 
@@ -53,7 +53,7 @@ export class LinearMemoryViewer extends HTMLElement {
   #memory = new Uint8Array();
   #address = 0;
   #memoryOffset = 0;
-  #highlightInfo?: HighlightInfo;
+  #highlightInfo: HighlightInfo[] = [];
   #focusedMemoryHighlight?: HighlightInfo;
 
   #numRows = 1;
@@ -292,11 +292,13 @@ export class LinearMemoryViewer extends HTMLElement {
   }
 
   #shouldBeHighlighted(index: number): boolean {
-    if (this.#highlightInfo === undefined) {
-      return false;
+    for (const memoryHighlight of this.#highlightInfo) {
+      if (memoryHighlight.startAddress <= index
+      && index < memoryHighlight.startAddress + memoryHighlight.size) {
+        return true;
+      }
     }
-    return this.#highlightInfo.startAddress <= index
-    && index < this.#highlightInfo.startAddress + this.#highlightInfo.size;
+    return false;
   }
 
   #isFocusedArea(index: number): boolean {

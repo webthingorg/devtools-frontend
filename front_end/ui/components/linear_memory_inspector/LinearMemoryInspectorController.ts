@@ -111,7 +111,7 @@ type SerializableSettings = {
 export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelObserver<SDK.RuntimeModel.RuntimeModel> {
   #paneInstance = LinearMemoryInspectorPaneImpl.instance();
   #bufferIdToRemoteObject: Map<string, SDK.RemoteObject.RemoteObject> = new Map();
-  #bufferIdToHighlightInfo: Map<string, HighlightInfo> = new Map();
+  #bufferIdToHighlightInfos: Map<string, HighlightInfo[]> = new Map();
   #settings: Common.Settings.Setting<SerializableSettings>;
 
   private constructor() {
@@ -167,6 +167,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
   async evaluateExpression(callFrame: SDK.DebuggerModel.CallFrame, expressionName: string):
       Promise<SDK.RemoteObject.RemoteObject|undefined> {
     const result = await callFrame.evaluate({expression: expressionName});
+
     if ('error' in result) {
       console.error(`Tried to evaluate the expression '${expressionName}' but got an error: ${result.error}`);
       return undefined;
@@ -194,23 +195,36 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     };
   }
 
-  getHighlightInfo(bufferId: string): HighlightInfo|undefined {
-    return this.#bufferIdToHighlightInfo.get(bufferId);
+  getHighlightInfos(bufferId: string): HighlightInfo[] {
+    const highlightedMemories = this.#bufferIdToHighlightInfos.get(bufferId);
+    if (!highlightedMemories || highlightedMemories.length === 0) {
+      return [];
+    }
+    return highlightedMemories;
   }
 
   removeHighlight(bufferId: string, highlightInfo: HighlightInfo): void {
-    const currentHighlight = this.getHighlightInfo(bufferId);
-    if (currentHighlight === highlightInfo) {
-      this.#bufferIdToHighlightInfo.delete(bufferId);
+    const currentHighlights = this.getHighlightInfos(bufferId);
+    const index = currentHighlights.indexOf(highlightInfo);
+    if (index > -1) {
+      currentHighlights.splice(index, 1);
     }
   }
 
-  setHighlightInfo(bufferId: string, highlightInfo: HighlightInfo): void {
-    this.#bufferIdToHighlightInfo.set(bufferId, highlightInfo);
+  setHighlight(bufferId: string, oldHighlight: HighlightInfo, newHighlight: HighlightInfo): void {
+    const currentHighlights = this.getHighlightInfos(bufferId);
+    for (let i = 0; i < currentHighlights.length; ++i) {
+      // THIS IS SHADY
+      if (JSON.stringify(currentHighlights[i]) === JSON.stringify(newHighlight)) {
+        currentHighlights[i] = newHighlight;
+        return;
+      }
+    }
+    this.#bufferIdToHighlightInfos.set(bufferId, [...this.getHighlightInfos(bufferId), newHighlight]);
   }
 
   #resetHighlightInfo(bufferId: string): void {
-    this.#bufferIdToHighlightInfo.delete(bufferId);
+    this.#bufferIdToHighlightInfos.delete(bufferId);
   }
 
   static async retrieveDWARFMemoryObjectAndAddress(obj: SDK.RemoteObject.RemoteObject):
@@ -356,7 +370,7 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
     const memory = memoryProperty?.value;
     const highlightInfo = LinearMemoryInspectorController.extractHighlightInfo(obj, expression);
     if (highlightInfo) {
-      this.setHighlightInfo(id, highlightInfo);
+      this.setHighlight(id, highlightInfo, highlightInfo);
     } else {
       this.#resetHighlightInfo(id);
     }
@@ -435,23 +449,34 @@ export class LinearMemoryInspectorController extends SDK.TargetManager.SDKModelO
   }
 
   async updateHighlightedMemory(bufferId: string, callFrame: SDK.DebuggerModel.CallFrame): Promise<void> {
-    const oldHighlightInfo = this.getHighlightInfo(bufferId);
-    const expressionName = oldHighlightInfo?.name;
-    if (!oldHighlightInfo || !expressionName) {
+    const oldHighlightInfos = this.getHighlightInfos(bufferId);
+    if (oldHighlightInfos.length === 0) {
       this.#resetHighlightInfo(bufferId);
       return;
     }
-    const obj = await this.evaluateExpression(callFrame, expressionName);
-    if (!obj) {
-      this.#resetHighlightInfo(bufferId);
-      return;
+    const toBeRemoved = [];
+    for (const memoryHighlight of oldHighlightInfos) {
+      const expressionName = memoryHighlight?.name;
+      if (!expressionName) {
+        toBeRemoved.push(memoryHighlight);
+        continue;
+      }
+      const obj = await this.evaluateExpression(callFrame, expressionName);
+      if (!obj) {
+        toBeRemoved.push(memoryHighlight);
+        continue;
+      }
+
+      const newHighlightInfo = LinearMemoryInspectorController.extractHighlightInfo(obj, expressionName);
+      if (!newHighlightInfo || !this.#pointToSameMemoryObject(newHighlightInfo, memoryHighlight)) {
+        toBeRemoved.push(memoryHighlight);
+      } else {
+        this.setHighlight(bufferId, memoryHighlight, newHighlightInfo);
+      }
     }
 
-    const newHighlightInfo = LinearMemoryInspectorController.extractHighlightInfo(obj, expressionName);
-    if (!newHighlightInfo || !this.#pointToSameMemoryObject(newHighlightInfo, oldHighlightInfo)) {
-      this.#resetHighlightInfo(bufferId);
-    } else {
-      this.setHighlightInfo(bufferId, newHighlightInfo);
+    for (const memoryHighlight of toBeRemoved) {
+      this.removeHighlight(bufferId, memoryHighlight);
     }
   }
 

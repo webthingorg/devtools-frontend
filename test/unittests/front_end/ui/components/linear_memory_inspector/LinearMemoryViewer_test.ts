@@ -37,11 +37,11 @@ describe('LinearMemoryViewer', () => {
   async function setUpComponentWithHighlightInfo() {
     const component = createComponent();
     const data = createComponentData();
-    const highlightInfo: LinearMemoryInspector.LinearMemoryViewerUtils.HighlightInfo = {
+    const highlightInfo = [{
       startAddress: 2,
       size: 21,  // A large enough odd number so that the highlight spans mulitple rows.
       type: 'bool[]',
-    };
+    }];
     const dataWithHighlightInfo = {
       ...data,
       highlightInfo: highlightInfo,
@@ -78,7 +78,8 @@ describe('LinearMemoryViewer', () => {
       address: 2,
       memoryOffset: 0,
       focus: true,
-    };
+      highlightInfo: [],
+    } as LinearMemoryInspector.LinearMemoryViewer.LinearMemoryViewerData;
 
     return data;
   }
@@ -276,6 +277,7 @@ describe('LinearMemoryViewer', () => {
       address,
       memoryOffset: 0,
       focus: true,
+      highlightInfo: [],
     };
 
     assertSelectedCellIsHighlighted(component, VIEWER_BYTE_CELL_SELECTOR, address);
@@ -351,8 +353,8 @@ describe('LinearMemoryViewer', () => {
     const byteCells = getElementsWithinComponent(component, '.byte-cell.highlight-area', HTMLSpanElement);
     const textCells = getElementsWithinComponent(component, '.text-cell.highlight-area', HTMLSpanElement);
 
-    assert.strictEqual(byteCells.length, dataWithHighlightInfo.highlightInfo.size);
-    assert.strictEqual(textCells.length, dataWithHighlightInfo.highlightInfo.size);
+    assert.strictEqual(byteCells.length, dataWithHighlightInfo.highlightInfo[0].size);
+    assert.strictEqual(textCells.length, dataWithHighlightInfo.highlightInfo[0].size);
   });
 
   it('highlights byte cells at correct positions when highlight info set', async () => {
@@ -361,7 +363,7 @@ describe('LinearMemoryViewer', () => {
 
     for (let i = 0; i < byteCells.length; ++i) {
       const selectedValue = parseInt(byteCells[i].innerText, 16);
-      const index = dataWithHighlightInfo.highlightInfo.startAddress - dataWithHighlightInfo.memoryOffset + i;
+      const index = dataWithHighlightInfo.highlightInfo[0].startAddress - dataWithHighlightInfo.memoryOffset + i;
       assert.strictEqual(selectedValue, dataWithHighlightInfo.memory[index]);
     }
   });
@@ -370,14 +372,14 @@ describe('LinearMemoryViewer', () => {
     const {component, dataWithHighlightInfo} = await setUpComponentWithHighlightInfo();
     const dataWithFocusedMemoryHighlight = {
       ...dataWithHighlightInfo,
-      focusedMemoryHighlight: dataWithHighlightInfo.highlightInfo,
+      focusedMemoryHighlight: dataWithHighlightInfo.highlightInfo[0],
     };
     component.data = dataWithFocusedMemoryHighlight;
     const byteCells = getElementsWithinComponent(component, '.byte-cell.focused', HTMLSpanElement);
 
     for (let i = 0; i < byteCells.length; ++i) {
       const selectedValue = parseInt(byteCells[i].innerText, 16);
-      const index = dataWithHighlightInfo.highlightInfo.startAddress - dataWithHighlightInfo.memoryOffset + i;
+      const index = dataWithHighlightInfo.highlightInfo[0].startAddress - dataWithHighlightInfo.memoryOffset + i;
       assert.strictEqual(selectedValue, dataWithHighlightInfo.memory[index]);
     }
   });
@@ -386,7 +388,7 @@ describe('LinearMemoryViewer', () => {
     const {component, dataWithHighlightInfo} = await setUpComponentWithHighlightInfo();
     const dataWithFocusedMemoryHighlight = {
       ...dataWithHighlightInfo,
-      focusedMemoryHighlight: dataWithHighlightInfo.highlightInfo,
+      focusedMemoryHighlight: dataWithHighlightInfo.highlightInfo[0],
     };
     component.data = dataWithFocusedMemoryHighlight;
     const byteCells = getElementsWithinComponent(component, '.byte-cell.focused', HTMLSpanElement);

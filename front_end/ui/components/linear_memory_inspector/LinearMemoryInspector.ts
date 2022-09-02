@@ -45,7 +45,7 @@ import {
   LinearMemoryHighlightChipList,
   type LinearMemoryHighlightChipListData,
   type DeleteMemoryHighlightEvent,
-  type JumpToHighlightedMemoryEvent,
+  JumpToHighlightedMemoryEvent,
 } from './LinearMemoryHighlightChipList.js';
 import {type HighlightInfo} from './LinearMemoryViewerUtils.js';
 
@@ -72,7 +72,7 @@ export interface LinearMemoryInspectorData {
   valueTypes?: Set<ValueType>;
   valueTypeModes?: Map<ValueType, ValueTypeMode>;
   endianness?: Endianness;
-  highlightInfo?: HighlightInfo;
+  highlightInfo: HighlightInfo[];
 }
 
 export type Settings = {
@@ -142,7 +142,8 @@ export class LinearMemoryInspector extends HTMLElement {
   #outerMemoryLength = 0;
 
   #address = -1;
-  #highlightInfo?: HighlightInfo;
+  #highlightInfo: HighlightInfo[] = [];
+  #focusedMemoryHighlight?: HighlightInfo;
 
   #currentNavigatorMode = Mode.Submitted;
   #currentNavigatorAddressLine = `${this.#address}`;
@@ -166,13 +167,13 @@ export class LinearMemoryInspector extends HTMLElement {
       throw new Error('Memory offset has to be greater or equal to zero.');
     }
 
-    if (data.highlightInfo) {
-      if (data.highlightInfo.size < 0) {
-        throw new Error('Object size has to be greater than or equal to zero');
-      }
-      if (data.highlightInfo.startAddress < 0 || data.highlightInfo.startAddress >= data.outerMemoryLength) {
-        throw new Error('Object start address is out of bounds.');
-      }
+    if (data.highlightInfo.length > 0) {
+      // if (data.highlightInfo.size < 0) {
+      //   throw new Error('Object size has to be greater than or equal to zero');
+      // }
+      // if (data.highlightInfo.startAddress < 0 || data.highlightInfo.startAddress >= data.outerMemoryLength) {
+      //   throw new Error('Object start address is out of bounds.');
+      // }
     }
 
     this.#memory = data.memory;
@@ -202,8 +203,9 @@ export class LinearMemoryInspector extends HTMLElement {
     const canGoBackInHistory = this.#history.canRollback();
     const canGoForwardInHistory = this.#history.canRollover();
 
-    const highlightedMemoryAreas = this.#highlightInfo ? [this.#highlightInfo] : [];
-    const focusedMemoryHighlight = this.#getSmallestEnclosingMemoryHighlight(highlightedMemoryAreas, this.#address);
+    const highlightedMemoryAreas = this.#highlightInfo;
+    // const focusedMemoryHighlight = this.#focusedMemoryHighlight || this.#getSmallestEnclosingMemoryHighlight(highlightedMemoryAreas, this.#address);
+    const focusedMemoryHighlight = this.#getFocusedMemoryHighlight(highlightedMemoryAreas, this.#address);
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
@@ -255,7 +257,14 @@ export class LinearMemoryInspector extends HTMLElement {
     // Stop event from bubbling up, since no element further up needs the event.
     e.stopPropagation();
     this.#currentNavigatorMode = Mode.Submitted;
-    const addressInRange = Math.max(0, Math.min(e.data, this.#outerMemoryLength - 1));
+    let addressInRange;
+    if (e instanceof JumpToHighlightedMemoryEvent) {
+      this.#focusedMemoryHighlight = e.data;
+      addressInRange = Math.max(0, Math.min(e.data.startAddress, this.#outerMemoryLength - 1));
+    } else {
+      this.#focusedMemoryHighlight = undefined;
+      addressInRange = Math.max(0, Math.min(e.data, this.#outerMemoryLength - 1));
+    }
     this.#jumpToAddress(addressInRange);
   }
 
@@ -375,6 +384,17 @@ export class LinearMemoryInspector extends HTMLElement {
     this.#history.push(historyEntry);
     this.#address = address;
     this.dispatchEvent(new AddressChangedEvent(this.#address));
+  }
+
+  #getFocusedMemoryHighlight(highlightedMemoryAreas: HighlightInfo[], address: number): HighlightInfo|undefined {
+    let res;
+    if (this.#focusedMemoryHighlight) {
+      res = this.#focusedMemoryHighlight;
+      this.#focusedMemoryHighlight = undefined;
+      return res;
+    }
+    this.#focusedMemoryHighlight = undefined;
+    return this.#getSmallestEnclosingMemoryHighlight(highlightedMemoryAreas, address);
   }
 
   // Returns the highlightInfo with the smallest size property that encloses the provided address.

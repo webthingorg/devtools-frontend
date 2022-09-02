@@ -29,4 +29,5 @@ memoryInspector.data = {
   address: 0,
   memoryOffset: 0,
   outerMemoryLength: memory.length,
+  highlightInfo: [],
 };

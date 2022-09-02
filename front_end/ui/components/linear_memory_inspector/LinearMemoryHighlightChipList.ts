@@ -45,11 +45,11 @@ export class DeleteMemoryHighlightEvent extends Event {
 
 export class JumpToHighlightedMemoryEvent extends Event {
   static readonly eventName = 'jumptohighlightedmemory';
-  data: number;
+  data: HighlightInfo;
 
-  constructor(address: number) {
+  constructor(highlight: HighlightInfo) {
     super(JumpToHighlightedMemoryEvent.eventName);
-    this.data = address;
+    this.data = highlight;
   }
 }
 
@@ -89,7 +89,7 @@ export class LinearMemoryHighlightChipList extends HTMLElement {
   #createChip(highlightInfo: HighlightInfo): LitHtml.TemplateResult {
     const expressionName = highlightInfo.name || '<anonymous>';
     const expressionType = highlightInfo.type;
-    const isFocused = highlightInfo === this.#focusedMemoryHighlight;
+    const isFocused = Object.is(highlightInfo, this.#focusedMemoryHighlight);
     const classMap = {
       focused: isFocused,
       'highlight-chip': true,
@@ -100,7 +100,7 @@ export class LinearMemoryHighlightChipList extends HTMLElement {
       <div class=${LitHtml.Directives.classMap(classMap)}>
         <button class="jump-to-highlight-button" title=${
             i18nString(UIStrings.jumpToAddress)}
-            @click=${():void => this.#onJumpToHighlightClick(highlightInfo.startAddress)}>
+            @click=${():void => this.#onJumpToHighlightClick(highlightInfo)}>
           <span class="source-code">
             <span class="value">${expressionName}</span><span class="separator">: </span><span>${expressionType}</span>
           </span>
@@ -121,8 +121,8 @@ export class LinearMemoryHighlightChipList extends HTMLElement {
     // clang-format off
   }
 
-  #onJumpToHighlightClick(startAddress: number): void {
-    this.dispatchEvent(new JumpToHighlightedMemoryEvent(startAddress));
+  #onJumpToHighlightClick(highlight: HighlightInfo): void {
+    this.dispatchEvent(new JumpToHighlightedMemoryEvent(highlight));
   }
 
   #onDeleteHighlightClick(highlight:HighlightInfo): void {

@@ -227,16 +227,19 @@ class LinearMemoryInspectorView extends UI.Widget.VBox {
     });
   }
 
-  #getHighlightInfo(): HighlightInfo|undefined {
-    const highlightInfo = LinearMemoryInspectorController.instance().getHighlightInfo(this.#tabId);
-    if (highlightInfo !== undefined) {
-      if (highlightInfo.startAddress < 0 || highlightInfo.startAddress >= this.#memoryWrapper.length()) {
+  #getHighlightInfo(): HighlightInfo[] {
+    const highlightInfos = LinearMemoryInspectorController.instance().getHighlightInfos(this.#tabId);
+    if (highlightInfos.length === 0) {
+      return [];
+    }
+    for (const memoryHighlight of highlightInfos) {
+      if (memoryHighlight.startAddress < 0 || memoryHighlight.startAddress >= this.#memoryWrapper.length()) {
         throw new Error('HighlightInfo start address is out of bounds.');
       }
-      if (highlightInfo.size <= 0) {
+      if (memoryHighlight.size <= 0) {
         throw new Error('Highlight size must be a positive number.');
       }
     }
-    return highlightInfo;
+    return highlightInfos;
   }
 }
