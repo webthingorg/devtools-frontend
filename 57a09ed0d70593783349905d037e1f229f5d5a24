@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "57a09ed0d70593783349905d037e1f229f5d5a24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65757ff4_7acd8d84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-02T08:20:26Z",
+      "side": 1,
+      "message": "lgtm, but suggesting to do it differently",
+      "revId": "57a09ed0d70593783349905d037e1f229f5d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c73703b_00a698cf",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-02T08:20:26Z",
+      "side": 1,
+      "message": "Could we move these all up here?\n\nThat is:\n\n```\nreadonly #eventListeners \u003d new WeakMap\u003cResourceTreeModel, Common.EventTarget.EventDescriptor[]\u003e();\n#frames \u003d new Map\u003cstring, {\n  frame: ResourceTreeFrame,\n  count: number,\n}\u003e();\nreadonly #framesForTarget \u003d new Map\u003cProtocol.Target.TargetID|\u0027main\u0027, Set\u003cProtocol.Page.FrameId\u003e\u003e();\n#topFrame: ResourceTreeFrame|null \u003d null;\n```\n\nand so on. Not to forget the comment for `#frames`. That would remove the subtlety alltogether.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 113
+      },
+      "revId": "57a09ed0d70593783349905d037e1f229f5d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
