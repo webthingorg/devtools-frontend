@@ -39,7 +39,6 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
   constructor() {
     super();
     this.#eventListeners = new WeakMap();
-    TargetManager.instance().observeModels(ResourceTreeModel, this);
 
     // Maps frameIds to #frames and a count of how many ResourceTreeModels contain this frame.
     // (OOPIFs are usually first attached to a new target and then detached from their old target,
@@ -51,6 +50,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
 
     this.#topFrame = null;
     this.#transferringFramesDataCache = new Map();
+    TargetManager.instance().observeModels(ResourceTreeModel, this);
   }
 
   static instance({forceNew}: {
