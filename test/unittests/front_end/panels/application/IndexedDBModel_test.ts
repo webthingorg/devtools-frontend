@@ -4,7 +4,7 @@
 
 const {assert} = chai;
 
-import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Resources from '../../../../../front_end/panels/application/application.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {
@@ -16,6 +16,7 @@ describeWithMockConnection('IndexedDBModel', () => {
   let indexedDBModel: Resources.IndexedDBModel.IndexedDBModel;
   let target: SDK.Target.Target;
   let indexedDBAgent: ProtocolProxyApi.IndexedDBApi;
+  let manager: SDK.StorageKeyManager.StorageKeyManager|null;
   const testKey = 'test-storage-key';
   const testDBId = new Resources.IndexedDBModel.DatabaseId(undefined, testKey, 'test-database');
 
@@ -23,6 +24,7 @@ describeWithMockConnection('IndexedDBModel', () => {
     target = createTarget();
     indexedDBModel = new Resources.IndexedDBModel.IndexedDBModel(target);
     indexedDBAgent = target.indexedDBAgent();
+    manager = target.model(SDK.StorageKeyManager.StorageKeyManager);
   });
 
   it('calls protocol method on clearObjectStore', async () => {
@@ -42,5 +44,18 @@ describeWithMockConnection('IndexedDBModel', () => {
     void indexedDBModel.deleteEntries(testDBId, 'test-store', testKeyRange);
     assert.isTrue(deleteEntriesSpy.calledOnceWithExactly(
         {storageKey: testKey, databaseName: 'test-database', objectStoreName: 'test-store', keyRange: testKeyRange}));
+  });
+
+  it('calls protocol method on refreshDatabaseNames and dispatches event', async () => {
+    const requestDBNamesSpy = sinon.spy(indexedDBAgent, 'invoke_requestDatabaseNames');
+    const dbNamesRefreshedDispatchSpy = sinon.spy(indexedDBModel, 'dispatchEventToListeners');
+    indexedDBModel.enable();
+    manager?.dispatchEventToListeners(SDK.StorageKeyManager.Events.StorageKeyAdded, testKey);
+
+    void indexedDBModel.refreshDatabaseNames();
+
+    assert.isTrue(requestDBNamesSpy.calledOnceWithExactly({storageKey: testKey}));
+    assert.isTrue(dbNamesRefreshedDispatchSpy.calledOnceWithExactly(
+        Resources.IndexedDBModel.Events.DatabaseNamesRefreshed as unknown as sinon.SinonMatcher));
   });
 });
