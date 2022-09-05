@@ -16,6 +16,23 @@
       "message": "Hi Andres, sending this your way because you worked on ConsoleView most recently :)",
       "revId": "08412234d9abbfd4938019c423f992d06e63321d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3a95f2_d2b571fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-05T08:04:45Z",
+      "side": 1,
+      "message": "LGTM\n",
+      "revId": "08412234d9abbfd4938019c423f992d06e63321d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
