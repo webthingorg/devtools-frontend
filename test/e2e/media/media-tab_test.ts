@@ -19,7 +19,7 @@ describe('Media Tab', () => {
     await openPanelViaMoreTools('Media');
     await playMediaFile('fisch.webm');
     const entryName = await getPlayerButtonText();
-    assert.strictEqual(entryName.length, 11);
+    assert.strictEqual(entryName, 'PlayerTitle');
   });
 
   it('ensures video playback adds entry for web worker', async () => {
