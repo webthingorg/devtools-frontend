@@ -16,6 +16,24 @@
       "message": "Whats with these 2 tests? Are they moved to the last CL?",
       "revId": "57316dbbacd0b7f7f8c67b3c55c9754a5924687a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87400abc_1539f6fd",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-05T08:24:21Z",
+      "side": 0,
+      "message": "Not rendering the whole category when it contains no headers is a behaviour I added quite recently. I have changed my mind here. \n\nThe new behaviour is that the category is not skipped entirely, instead it is being rendered and showing a header count of 0. This is more explicitly showing what is going on than just simply not rendering anything at all imo.\n\nThe new behaviour makes these tests obsolete.",
+      "parentUuid": "b7b036a4_fc764f60",
+      "revId": "57316dbbacd0b7f7f8c67b3c55c9754a5924687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
