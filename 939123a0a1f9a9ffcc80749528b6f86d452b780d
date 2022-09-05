@@ -16,6 +16,121 @@
       "message": "Please take another look:)",
       "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe74568_378977bf",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T09:35:44Z",
+      "side": 1,
+      "message": "This will never iterate anything. This should be `const storageKey of this.databaseNamesByStorageKey.keys()`",
+      "range": {
+        "startLine": 201,
+        "startChar": 26,
+        "endLine": 201,
+        "endChar": 65
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73c8a814_8565d36c",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T09:35:44Z",
+      "side": 1,
+      "message": "This needs a comment with a `TODO`.\n\nWill we need to convert between storage keys and security origins even after the migration? If so we should introduce a tagged type for storage keys and have a single dedicated conversion method.",
+      "range": {
+        "startLine": 326,
+        "startChar": 4,
+        "endLine": 326,
+        "endChar": 51
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "369b4afa_c76259d7",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T09:35:44Z",
+      "side": 1,
+      "message": "The de-duplication logic is still not tested, which is arguably the tricky bit of this CL. Please add a CL that\n\n1) Dispatches the CDP event that sets up a security origin DB \n2) Dispatches the CDP event that sets up a DB with the storage key that matches above\n3) Checks that no \"DatbaseNameAdded\" event was sent.",
+      "range": {
+        "startLine": 15,
+        "startChar": 28,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40ec06e9_d875cb19",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T09:35:44Z",
+      "side": 1,
+      "message": "This test checks multiple behaviors at once for multiple methods:\n\n  * It checks that adding DBs via storage key is only recorded when the model is enabled\n  * It checks that adding a DB triggers tracking of that DB via CDP\n  * It checks that removing a DB triggers \"untracking\" of that DB via CDP\n  \nIdeally these are 3 different tests with the following structure:\n\n```\ndescribeWithMockCOnnection(\u0027IndexedDBModel\u0027, () \u003d\u003e {\n  describe(\u0027StorageKeyAdded\u0027, () \u003d\u003e {\n    it(\u0027registers the DB only when the model is enabled\u0027, () \u003d\u003e {...});\n    it(\u0027starts tracking the DB\u0027, () \u003d\u003e { ... });\n  describe(\u0027StorageKeyRemoved\u0027, () \u003d\u003e {\n    it(\u0027stops tracking the DB\u0027, () \u003d\u003e { ... });\n}\n```",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 73
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23a4d83_c9780c6c",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T09:35:44Z",
+      "side": 1,
+      "message": "This is a private method of the `IndexDBModel`. We shouldn\u0027t rely on it to be called. We assert only on publicly observable behavior, that is the `DatabaseAdded` and `DatabaseRemoved` events. You don\u0027t necessarly have to spy that either. You can straight-up register a listener in the test and push the events into an array and verify that the events were received in the right order.",
+      "range": {
+        "startLine": 64,
+        "startChar": 35,
+        "endLine": 64,
+        "endChar": 50
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
