@@ -33,6 +33,23 @@
       "message": "Please, take a look? :)",
       "revId": "22438d0f0882118ae6dc062f73fc52dee71ef4ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f87f6f2_736889dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-05T11:01:17Z",
+      "side": 1,
+      "message": "Sorry for the delay, I was on vacation.",
+      "revId": "22438d0f0882118ae6dc062f73fc52dee71ef4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
