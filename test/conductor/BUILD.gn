@@ -9,6 +9,7 @@ group("conductor") {
     ":implementation",
     "../../scripts/component_server",
     "../../scripts/hosted_mode",
+    "runner-ui",
   ]
 }
 

@@ -25,6 +25,7 @@
     "auto-e2etest": "npm run build && npm run e2etest --",
     "auto-interactionstest": "npm run build && npm run interactionstest --",
     "auto-unittest": "scripts/test/run_auto_unittests.py --no-text-coverage",
+    "auto-i-e2etest": "npm run build && vpython third_party/node/node.py --output out/Default/gen/test/conductor/runner-ui/server/index.js",
     "prebuild": "gn gen out/Default",
     "build": "autoninja -C out/Default",
     "build-release": "autoninja -C out/Release",

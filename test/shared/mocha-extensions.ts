@@ -15,15 +15,28 @@ import {platform, type Platform} from './helper.js';
 
 export {beforeEach} from 'mocha';
 
+const artifactPath = getEnvVar('ARTIFACTS_OUTPUT_PATH');
+if (artifactPath) {
+  if (!FS.existsSync(artifactPath)) {
+    FS.mkdirSync(artifactPath);
+  }
+}
+
+function escapePath(path: string) {
+  return Buffer.from(path).toString('base64').substring(0, 8) + '-' + Math.random().toString(32).substring(8);
+}
+
 function htmlEscape(raw: string) {
   return raw.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 }
 
 export async function takeScreenshots(testName: string) {
   try {
+    const artifactPath = getEnvVar('ARTIFACTS_OUTPUT_PATH');
+
     const {target, frontend} = getBrowserAndPages();
     const opts = {
-      encoding: 'base64' as 'base64',
+      ...(!artifactPath ? {encoding: 'base64' as 'base64'} : null),
     };
     const targetScreenshot = await target.screenshot(opts);
     const frontendScreenshot = await frontend.screenshot(opts);
@@ -40,14 +53,31 @@ export async function takeScreenshots(testName: string) {
       } catch (err) {
         console.error(`Error saving to file "${screenshotFile}": `, err);
       }
+    } else if (artifactPath) {
+      const targetArtifactUrl = escapePath(testName) + '_target.png';
+      const frontendArtifactUrl = escapePath(testName) + '_frontend.png';
+
+      const targetPath = Path.join(artifactPath, targetArtifactUrl);
+      const frontendPath = Path.join(artifactPath, frontendArtifactUrl);
+
+      FS.writeFileSync(targetPath, targetScreenshot, {flag: 'w+'});
+      FS.writeFileSync(frontendPath, frontendScreenshot, {flag: 'w+'});
+
+      return {
+        target: `artifacts/${targetArtifactUrl}`,
+        frontend: `artifacts/${frontendArtifactUrl}`,
+      };
     } else {
       console.error('Target page screenshot (copy the next line and open in the browser):');
       console.error(prefix + targetScreenshot);
       console.error('Frontend screenshot (copy the next line and open in the browser):');
       console.error(prefix + frontendScreenshot);
     }
+
+    return null;
   } catch (err) {
     console.error('Error taking a screenshot', err);
+    return null;
   }
 }
 
@@ -121,6 +151,12 @@ describe.skipOnPlatforms = function(platforms: Array<Platform>, name: string, fn
   }
 };
 
+declare module 'mocha' {
+  interface Runnable {
+    artifacts?: any;
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err?: any) {
   function* joinStacks() {
@@ -138,11 +174,14 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
   }
 
   const stacks = Array.from(joinStacks());
+  this.artifacts = this.artifacts || {};
   if (stacks.length > 0) {
     console.error(`Pending async operations during failure:\n${stacks.join('\n\n')}`);
+    this.artifacts.stacks = stacks;
   }
   if (err && !getEnvVar('DEBUG_TEST')) {
-    await takeScreenshots(this.fullTitle());
+    const result = await takeScreenshots(this.fullTitle());
+    this.artifacts.screenshots = result;
   }
   if (done) {
     // This workaround is needed to allow timeoutHook to be async.

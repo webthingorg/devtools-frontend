@@ -108,6 +108,11 @@ const yargsObject =
           desc: 'Whether to collect code coverage for this test suite',
           default: false,
         })
+        .option('artifacts-output-path', {
+          type: 'string',
+          desc: 'Output path for artifacts',
+          default: '',
+        })
         .parserConfiguration({
           // So that if we pass --foo-bar, Yargs only populates
           // argv with '--foo-bar', not '--foo-bar' and 'fooBar'.
@@ -178,6 +183,7 @@ function executeTestSuite({
   chromeFeatures,
   testFilePattern,
   coverage,
+  artifactsOutputPath,
   cwd,
   mochaOptions = {},
 }) {
@@ -194,6 +200,7 @@ function executeTestSuite({
   setEnvValueIfValuePresent('TARGET', target);
   setEnvValueIfValuePresent('TEST_PATTERNS', testFilePattern);
   setEnvValueIfValuePresent('COVERAGE', coverage);
+  setEnvValueIfValuePresent('ARTIFACTS_OUTPUT_PATH', artifactsOutputPath);
 
   /**
    * This one has to be set as an ENV variable as Node looks for the NODE_PATH environment variable.
@@ -217,7 +224,7 @@ function executeTestSuite({
       log(`extra mocha flag: --${mochaKey}=${mochaValue}`);
     }
   }
-  const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
+  const result = childProcess.spawn(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {
     throw result.error;
@@ -297,8 +304,9 @@ function main() {
       coverage: configurationFlags['coverage'] && '1',
       target,
       cwd: configurationFlags['cwd'],
+      artifactsOutputPath: configurationFlags['artifacts-output-path'],
       mochaOptions: {
-        fgrep: configurationFlags['mocha-fgrep'],
+        grep: configurationFlags['mocha-fgrep'],
         reporter: configurationFlags['mocha-reporter'],
         'reporter-option': configurationFlags['mocha-reporter-option'],
       }
@@ -307,10 +315,19 @@ function main() {
     log('Unexpected error when running test suite', error);
     resultStatusCode = 1;
   }
-  if (resultStatusCode !== 0) {
-    log('ERRORS DETECTED');
-  }
-  process.exit(resultStatusCode);
+  // if (resultStatusCode !== 0) {
+  //   log('ERRORS DETECTED');
+  // }
+  // process.exit(resultStatusCode);
+}
+
+if (process.send) {
+  const mochaToRunnerPipeName = '/tmp/mocha_to_runner';
+  const fd = fs.openSync(mochaToRunnerPipeName, 'r+');
+  const pipe = fs.createReadStream(null, {fd});
+  pipe.on('data', data => {
+    process.send(data.toString());
+  });
 }
 
 main();

@@ -1,0 +1,2 @@
+* Collect all the test information before test starts (runner.suite.suites contains all information)
+and show it to the user -- so that we're able to run specific tests from the UI (without writing 'only')

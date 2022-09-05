@@ -1,0 +1,65 @@
+/*
+ * Copyright 2022 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.test {
+  /* background: rgba(0, 0, 0, 0.05); */
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+details.test:not(.has-detail-content) summary {
+  list-style: none;
+}
+
+details.test.has-detail-content summary {
+  cursor: pointer;
+}
+
+.test summary {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.test.failed {
+  background: rgba(255, 107, 139, 0.5);
+}
+
+.test.passed {
+  background: rgba(107, 255, 114, 0.5);
+}
+
+.test.skipped {
+  background: rgba(255, 188, 107, 0.5);
+}
+
+.detail-content .artifact-title {
+  margin: 0;
+  margin-top: 12px;
+}
+
+.detail-content pre {
+  margin-top: 6px;
+  max-width: 100%;
+  white-space: break-spaces;
+}
+
+.detail-content .screenshot-artifacts {
+  display: flex;
+}
+
+.detail-content .screenshot-artifacts > div:not(:first-child) {
+  margin-left: 8px;
+}
+
+.detail-content .screenshot-artifacts img {
+  max-width: 240px;
+  height: auto;
+}
+
+.detail-content .screenshot-artifacts img:hover {
+  outline: 1px solid -webkit-link;
+}

@@ -1,0 +1,43 @@
+/*
+ * Copyright 2022 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.container:has(runner-ui-test) .no-tests {
+  display: none;
+}
+
+.container h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading .filters label {
+  padding: 0 4px;
+  user-select: none;
+}
+
+.container:not(.passed) runner-ui-test[status="pass"] {
+  display: none;
+}
+
+.container:not(.failed) runner-ui-test[status="fail"] {
+  display: none;
+}
+
+.container:not(.skipped) runner-ui-test[status="skipped"] {
+  display: none;
+}

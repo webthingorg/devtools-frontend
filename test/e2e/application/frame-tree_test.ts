@@ -89,7 +89,7 @@ describe('The Application Tab', async () => {
       `https://localhost:${getTestServerPort()}`,
       '<#document>',
       'Yes\xA0Localhost is always a secure context',
-      'No',
+      'Noasfasf',
       'None',
       'UnsafeNone',
       'unavailable\xA0requires cross-origin isolated context',

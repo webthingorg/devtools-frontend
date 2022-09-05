@@ -19,6 +19,7 @@ interface SupportedEnvVars {
   TIMEOUT: number;           // The timeout in ms to wait for tests.
   CHROME_FEATURES: string;   // --enable-features={} for the Chrome binary.
   HTML_OUTPUT_FILE: string;  // Path to an html file for additional debug output such as screenshots.
+  ARTIFACTS_OUTPUT_PATH: string;  // Output path for artifacts folder
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 

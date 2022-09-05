@@ -1,0 +1,29 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+import("../../../../scripts/build/ninja/copy.gni")
+import("../../../../third_party/typescript/typescript.gni")
+
+copy_to_gen("client") {
+  sources = [
+    "index.css",
+    "index.html",
+  ]
+}
+
+ts_library("store") {
+  sources = [ "store.ts" ]
+}
+
+copy_to_gen("app_css") {
+  sources = [ "app.css" ]
+}
+
+ts_library("implementation") {
+  sources = [ "app.ts" ]
+
+  deps = [
+    "./components/Sidebar:ts",
+    "./components/Tests:ts",
+  ]
+}

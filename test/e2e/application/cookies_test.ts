@@ -27,7 +27,9 @@ import {
 const COOKIES_SELECTOR = '[aria-label="Cookies"].parent';
 let DOMAIN_SELECTOR: string;
 
-describe('The Application Tab', async () => {
+describe('The Application Tab', async function() {
+  this.timeout(220);
+
   before(async () => {
     DOMAIN_SELECTOR = `${COOKIES_SELECTOR} + ol > [aria-label="https://localhost:${getTestServerPort()}"]`;
   });
@@ -63,7 +65,7 @@ describe('The Application Tab', async () => {
         value: 'bar',
       },
       {
-        name: 'foo',
+        name: 'foo11',
         value: 'bar',
       },
     ]);
