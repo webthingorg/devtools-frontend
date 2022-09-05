@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "c143662ee3a6418d71f0baef7d59d2cb03f87294",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a739c6e8_009e915a",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T06:07:17Z",
+      "side": 1,
+      "message": "Same comment as in the other CL. Do we really need to copy here?",
+      "range": {
+        "startLine": 60,
+        "startChar": 50,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "c143662ee3a6418d71f0baef7d59d2cb03f87294",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f55d10d8_bc25ae28",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeaderSection_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T06:07:17Z",
+      "side": 1,
+      "message": "This component has some more behaviors we maybe want to verify. E.g. the sorting/highlighting thing. Is this done in the parent component test?",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "c143662ee3a6418d71f0baef7d59d2cb03f87294",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
