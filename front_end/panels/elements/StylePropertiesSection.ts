@@ -121,7 +121,7 @@ export class StylePropertiesSection {
   styleInternal: SDK.CSSStyleDeclaration.CSSStyleDeclaration;
   readonly matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles;
   private computedStyles: Map<string, string>|null;
-  private parentsComputedStyles: Map<string, string>|null;
+  private parentComputedStyles: Map<string, string>|null;
   editable: boolean;
   private hoverTimer: number|null;
   private willCauseCancelEditing: boolean;
@@ -160,7 +160,7 @@ export class StylePropertiesSection {
     this.styleInternal = style;
     this.matchedStyles = matchedStyles;
     this.computedStyles = computedStyles;
-    this.parentsComputedStyles = parentsComputedStyles;
+    this.parentComputedStyles = parentsComputedStyles;
     this.editable = Boolean(style.styleSheetId && style.range);
     this.hoverTimer = null;
     this.willCauseCancelEditing = false;
@@ -294,8 +294,8 @@ export class StylePropertiesSection {
     this.computedStyles = computedStyles;
   }
 
-  setParentsComputedStyles(parentsComputedStyles: Map<string, string>|null): void {
-    this.parentsComputedStyles = parentsComputedStyles;
+  setParentComputedStyles(parentComputedStyles: Map<string, string>|null): void {
+    this.parentComputedStyles = parentComputedStyles;
   }
 
   updateAuthoringHint(): void {
@@ -303,7 +303,7 @@ export class StylePropertiesSection {
     while (child) {
       if (child instanceof StylePropertyTreeElement) {
         child.setComputedStyles(this.computedStyles);
-        child.setParentsComputedStyles(this.parentsComputedStyles);
+        child.setParentComputedStyles(this.parentComputedStyles);
         child.updateAuthoringHint();
       }
       child = child.nextSibling;
@@ -980,7 +980,7 @@ export class StylePropertiesSection {
       const item = new StylePropertyTreeElement(
           this.parentPane, this.matchedStyles, property, isShorthand, inherited, overloaded, false);
       item.setComputedStyles(this.computedStyles);
-      item.setParentsComputedStyles(this.parentsComputedStyles);
+      item.setParentComputedStyles(this.parentComputedStyles);
       this.propertiesTreeOutline.appendChild(item);
     }
 
@@ -1115,6 +1115,8 @@ export class StylePropertiesSection {
       StylePropertyTreeElement {
     const property = this.styleInternal.newBlankProperty(index);
     const item = new StylePropertyTreeElement(this.parentPane, this.matchedStyles, property, false, false, false, true);
+    item.setComputedStyles(this.computedStyles);
+    item.setParentComputedStyles(this.parentComputedStyles);
     this.propertiesTreeOutline.insertChild(item, property.index);
     return item;
   }

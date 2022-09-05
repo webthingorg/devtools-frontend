@@ -124,7 +124,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private prompt: CSSPropertyPrompt|null;
   private lastComputedValue: string|null;
   private computedStyles: Map<string, string>|null = null;
-  private parentsComputedStyles: Map<string, string>|null = null;
+  private parentComputedStyles: Map<string, string>|null = null;
   private contextForTest!: Context|undefined;
   #propertyTextFromSource: string;
 
@@ -186,10 +186,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
   setComputedStyles(computedStyles: Map<string, string>|null): void {
     this.computedStyles = computedStyles;
+    this.prompt?.setComputedStyles(computedStyles);
   }
 
-  setParentsComputedStyles(parentsComputedStyles: Map<string, string>|null): void {
-    this.parentsComputedStyles = parentsComputedStyles;
+  setParentComputedStyles(parentComputedStyles: Map<string, string>|null): void {
+    this.parentComputedStyles = parentComputedStyles;
+    this.prompt?.setParentComputedStyles(parentComputedStyles);
   }
 
   get name(): string {
@@ -581,7 +583,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       const item = new StylePropertyTreeElement(
           this.parentPaneInternal, this.matchedStylesInternal, property, false, inherited, overloaded, false);
       item.setComputedStyles(this.computedStyles);
-      item.setParentsComputedStyles(this.parentsComputedStyles);
+      item.setParentComputedStyles(this.parentComputedStyles);
       this.appendChild(item);
     }
   }
@@ -778,7 +780,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     for (const validator of cssRuleValidatorsMap.get(propertyName) || []) {
       const hint =
-          validator.getHint(propertyName, this.computedStyles || undefined, this.parentsComputedStyles || undefined);
+          validator.getHint(propertyName, this.computedStyles || undefined, this.parentComputedStyles || undefined);
       if (hint) {
         Host.userMetrics.cssHintShown(validator.getMetricType());
         const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
@@ -1138,6 +1140,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     this.prompt = new CSSPropertyPrompt(this, isEditingName);
     this.prompt.setAutocompletionTimeout(0);
+    this.prompt.setComputedStyles(this.computedStyles);
+    this.prompt.setParentComputedStyles(this.parentComputedStyles);
 
     this.prompt.addEventListener(UI.TextPrompt.Events.TextChanged, _event => {
       void this.applyFreeFlowStyleTextEdit(context);

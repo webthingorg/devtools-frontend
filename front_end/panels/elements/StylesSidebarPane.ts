@@ -775,7 +775,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     const nodeId = this.node()?.id;
     const parentNodeId = matchedStyles?.getParentLayoutNodeId();
 
-    const [computedStyles, parentsComputedStyles] =
+    const [computedStyles, parentComputedStyles] =
         await Promise.all([this.fetchComputedStylesFor(nodeId), this.fetchComputedStylesFor(parentNodeId)]);
 
     if (signal.aborted) {
@@ -784,7 +784,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
 
     for (const section of this.allSections()) {
       section.setComputedStyles(computedStyles);
-      section.setParentsComputedStyles(parentsComputedStyles);
+      section.setParentComputedStyles(parentComputedStyles);
       section.updateAuthoringHint();
     }
   }
@@ -1616,8 +1616,8 @@ export function quoteFamilyName(familyName: string): string {
 export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
   private readonly isColorAware: boolean;
   private readonly cssCompletions: string[];
-  private selectedNodeComputedStyles: Map<string, string>|null;
-  private parentNodeComputedStyles: Map<string, string>|null;
+  private computedStyles: Map<string, string>|null = null;
+  private parentComputedStyles: Map<string, string>|null = null;
   private treeElement: StylePropertyTreeElement;
   private isEditingName: boolean;
   private readonly cssVariables: string[];
@@ -1642,15 +1642,6 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         this.cssCompletions.unshift(...fontFamilies);
       }
     }
-
-    /**
-     * Computed styles cache populated for flexbox features.
-     */
-    this.selectedNodeComputedStyles = null;
-    /**
-     * Computed styles cache populated for flexbox features.
-     */
-    this.parentNodeComputedStyles = null;
     this.treeElement = treeElement;
     this.isEditingName = isEditingName;
     this.cssVariables = treeElement.matchedStyles().availableCSSVariables(treeElement.property.ownerStyle);
@@ -1676,6 +1667,14 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         }
       }
     }
+  }
+
+  setComputedStyles(styles: Map<string, string>|null): void {
+    this.computedStyles = styles;
+  }
+
+  setParentComputedStyles(styles: Map<string, string>|null): void {
+    this.parentComputedStyles = styles;
   }
 
   onKeyDown(event: Event): void {
@@ -1816,29 +1815,10 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       }
     }
 
-    const ensureComputedStyles = async(): Promise<void> => {
-      if (!node || this.selectedNodeComputedStyles) {
-        return;
-      }
-      this.selectedNodeComputedStyles = await node.domModel().cssModel().getComputedStyle(node.id);
-      const parentNode = node.parentNode;
-      if (parentNode) {
-        this.parentNodeComputedStyles = await parentNode.domModel().cssModel().getComputedStyle(parentNode.id);
-      }
-    };
     for (const result of results) {
-      await ensureComputedStyles();
-      // Using parent node's computed styles does not work in all cases. For example:
-      //
-      // <div id="container" style="display: flex;">
-      //  <div id="useless" style="display: contents;">
-      //    <div id="item">item</div>
-      //  </div>
-      // </div>
-      // TODO(crbug/1139945): Find a better way to get the flex container styles.
       const iconInfo = ElementsComponents.CSSPropertyIconResolver.findIcon(
-          this.isEditingName ? result.text : `${this.treeElement.property.name}: ${result.text}`,
-          this.selectedNodeComputedStyles, this.parentNodeComputedStyles);
+          this.isEditingName ? result.text : `${this.treeElement.property.name}: ${result.text}`, this.computedStyles,
+          this.parentComputedStyles);
       if (!iconInfo) {
         continue;
       }
