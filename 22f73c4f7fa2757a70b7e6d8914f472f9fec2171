@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "22f73c4f7fa2757a70b7e6d8914f472f9fec2171",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad19265a_725b9614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T05:47:29Z",
+      "side": 1,
+      "message": "lgtm % questions",
+      "revId": "22f73c4f7fa2757a70b7e6d8914f472f9fec2171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7992a442_d4bb8f15",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T05:47:29Z",
+      "side": 1,
+      "message": "q: where is this code coming from? And similar code below?",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 0
+      },
+      "revId": "22f73c4f7fa2757a70b7e6d8914f472f9fec2171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0862a25d_82597de1",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-05T05:47:29Z",
+      "side": 1,
+      "message": "why the copy when we spread `header` anyway?",
+      "range": {
+        "startLine": 418,
+        "startChar": 38,
+        "endLine": 418,
+        "endChar": 46
+      },
+      "revId": "22f73c4f7fa2757a70b7e6d8914f472f9fec2171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
