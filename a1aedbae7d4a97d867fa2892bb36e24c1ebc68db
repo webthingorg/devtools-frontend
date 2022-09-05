@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01ec197e_f3ebe0f9",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-05T09:00:58Z",
+      "side": 1,
+      "message": "For now no real storage keys are used yet, what is used is `securityOrigin + \u0027/\u0027`, I can add a TODO here",
+      "parentUuid": "fb5fede4_4df653f4",
+      "range": {
+        "startLine": 288,
+        "startChar": 50,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6a5aff1_dc2755ba",
         "filename": "front_end/panels/application/IndexedDBModel.ts",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-01T04:56:16Z",
       "side": 1,
       "message": "Chaining all of this together is hard to read. Better to do it step by step:\n\n```\nconst securityOrigin \u003d storageKey.slice(0, -1);  // Or whatever, see above comment.\nconst databaseNames \u003d this.databaseNamesBySecurityOrigin.get(securityOrigin);\nreturn Boolean(databaseNames?.has(databaseName));\n```",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 3
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64fb6aff_50ed40f2",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-05T09:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6a5aff1_dc2755ba",
       "range": {
         "startLine": 288,
         "startChar": 0,
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-01T04:56:16Z",
       "side": 1,
       "message": "Can we already have tests for this? Especially a test that exercises the duplication logic from above.\n\nThat is, poke the model with existing public methods and check that the right events get fired.",
+      "range": {
+        "startLine": 311,
+        "startChar": 41,
+        "endLine": 311,
+        "endChar": 54
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e4ce95_c411fdb4",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-05T09:00:58Z",
+      "side": 1,
+      "message": "Discussed offline, extended the CL a bit to make adding a test possible",
+      "parentUuid": "4e58c8ee_9b84ae9a",
       "range": {
         "startLine": 311,
         "startChar": 41,
