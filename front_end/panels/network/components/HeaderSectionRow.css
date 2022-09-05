@@ -107,3 +107,10 @@ x-link .inline-icon { /* stylelint-disable-line selector-type-no-unknown */
 .header-warning {
   color: var(--override-error-background-color);
 }
+
+.header-overridden {
+  /* TODO: dark mode */
+  background-color: #edf5ef; /* stylelint-disable-line plugin/use_theme_colors */
+  border-left: 3px solid var(--color-accent-green);
+  padding-left: 5px;
+}
