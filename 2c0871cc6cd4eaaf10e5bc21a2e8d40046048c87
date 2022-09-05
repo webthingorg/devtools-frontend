@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "340b5741_2d52aaaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-05T07:03:14Z",
+      "side": 1,
+      "message": "Yeah, we probably should but it would require porting the tests to the devtools as I don\u0027t think we should add more tests to blink. Not sure if I will find time to port those soon. We can delay this CL until then though as there is nothing critical here.",
+      "parentUuid": "c9eeda2c_e778547b",
+      "revId": "2c0871cc6cd4eaaf10e5bc21a2e8d40046048c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c1582b8_eccdc492",
         "filename": "front_end/panels/elements/StylePropertiesSection.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-02T14:18:38Z",
       "side": 1,
       "message": "(nit): It seems like we might want to rename this to `parentComputedStyles` as well?",
+      "revId": "2c0871cc6cd4eaaf10e5bc21a2e8d40046048c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77f3ec1_fab297da",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-05T07:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1582b8_eccdc492",
       "revId": "2c0871cc6cd4eaaf10e5bc21a2e8d40046048c87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
