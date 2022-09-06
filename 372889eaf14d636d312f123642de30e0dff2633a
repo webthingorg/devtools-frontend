@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d1b735_b0e5340e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-06T10:41:49Z",
+      "side": 1,
+      "message": "PTAL. Does this match what you were thinking of? It doesn\u0027t actually enforce the strings to be lower case, but it makes the requirement explicit.\n\nAlso, do you think I should put the type definition in a separate file?",
+      "revId": "372889eaf14d636d312f123642de30e0dff2633a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
