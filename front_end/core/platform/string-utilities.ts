@@ -452,3 +452,9 @@ export const createPlainTextSearchRegex = function(query: string, flags?: string
   }
   return new RegExp(regex, flags || '');
 };
+
+class LowerCaseStringTag {
+  private lowerCaseStringTag: (string|undefined);
+}
+
+export type LowerCaseString = string&LowerCaseStringTag;
