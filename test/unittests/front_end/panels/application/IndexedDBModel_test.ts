@@ -126,4 +126,11 @@ describeWithMockConnection('IndexedDBModel', () => {
         {model: indexedDBModel, databaseId: testDBId}));
   });
 
+  it('calls protocol method on refreshDatabase', async () => {
+    const requestDatabaseSpy = sinon.spy(indexedDBAgent, 'invoke_requestDatabase');
+
+    indexedDBModel.enable();
+    void indexedDBModel.refreshDatabase(testDBId);
+    assert.isTrue(requestDatabaseSpy.calledOnceWithExactly({storageKey: testKey, databaseName: 'test-database'}));
+  });
 });
