@@ -12,6 +12,7 @@ import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import * as Host from '../../../core/host/host.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import {type HeaderDescriptor, HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
+import type * as Platform from '../../../core/platform/platform.js';
 
 import responseHeaderSectionStyles from './ResponseHeaderSection.css.js';
 
@@ -121,7 +122,11 @@ export class ResponseHeaderSection extends HTMLElement {
     }
 
     this.#headers = this.#request.sortedResponseHeaders.map(
-        header => ({name: header.name.toLowerCase(), value: header.value, headerNotSet: false}));
+        header => ({
+          name: header.name.toLowerCase() as Platform.StringUtilities.LowerCaseString,
+          value: header.value,
+          headerNotSet: false,
+        }));
     this.#headers = mergeHeadersWithIssues(this.#headers, headersWithIssues);
 
     const blockedResponseCookies = this.#request.blockedResponseCookies();
@@ -175,7 +180,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
   [
     Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader,
     {
-      name: 'cross-origin-embedder-policy',
+      name: 'cross-origin-embedder-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerValueIncorrect: null,
       blockedDetails: {
@@ -189,7 +194,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
   [
     Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep,
     {
-      name: 'cross-origin-resource-policy',
+      name: 'cross-origin-resource-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerValueIncorrect: null,
       blockedDetails: {
@@ -212,7 +217,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
   [
     Protocol.Network.BlockedReason.CoopSandboxedIframeCannotNavigateToCoopPage,
     {
-      name: 'cross-origin-opener-policy',
+      name: 'cross-origin-opener-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerValueIncorrect: false,
       blockedDetails: {
@@ -226,7 +231,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
   [
     Protocol.Network.BlockedReason.CorpNotSameSite,
     {
-      name: 'cross-origin-resource-policy',
+      name: 'cross-origin-resource-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerValueIncorrect: true,
       blockedDetails: {
@@ -245,7 +250,7 @@ const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescr
   [
     Protocol.Network.BlockedReason.CorpNotSameOrigin,
     {
-      name: 'cross-origin-resource-policy',
+      name: 'cross-origin-resource-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerValueIncorrect: true,
       blockedDetails: {
