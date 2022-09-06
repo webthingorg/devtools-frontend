@@ -5,6 +5,7 @@
 import {assert} from 'chai';
 
 import {getBrowserAndPages, getTestServerPort, step} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   deleteSelectedStorageItem,
   doubleClickSourceTreeItem,

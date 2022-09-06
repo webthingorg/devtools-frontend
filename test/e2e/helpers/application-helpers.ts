@@ -80,7 +80,7 @@ export async function clearStorageItems() {
 
 export async function selectStorageItemAtIndex(index: number) {
   const dataGridNodes = await $$('.storage-view .data-grid-data-grid-node:not(.creation-node)');
-  dataGridNodes[index].click();
+  await dataGridNodes[index].click();
 }
 
 export async function deleteSelectedStorageItem() {
