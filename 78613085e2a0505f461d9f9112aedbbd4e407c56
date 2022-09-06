@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a110019_ca18a5c4",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T11:20:42Z",
+      "side": 1,
+      "message": "Moved to the previous CL",
+      "parentUuid": "af3e4356_a1a1c6be",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 3
+      },
+      "revId": "78613085e2a0505f461d9f9112aedbbd4e407c56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55f3bb70_ec442a8e",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-01T09:00:14Z",
       "side": 1,
       "message": "Is it possible to have a unit test for this behavior?\n\nSince we should test only behaviors of public APIs maybe we could test this as a test for `refreshDatabase`?",
+      "range": {
+        "startLine": 361,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 39
+      },
+      "revId": "78613085e2a0505f461d9f9112aedbbd4e407c56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62da6c56_f239997e",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T11:20:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55f3bb70_ec442a8e",
       "range": {
         "startLine": 361,
         "startChar": 4,
