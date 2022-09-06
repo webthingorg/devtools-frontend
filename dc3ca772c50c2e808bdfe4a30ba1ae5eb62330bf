@@ -16,6 +16,109 @@
       "message": "PTAL",
       "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf012d6_e104b990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T04:38:12Z",
+      "side": 1,
+      "message": "lgtm % some comments",
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabb789a_bf344b17",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T04:38:12Z",
+      "side": 1,
+      "message": "If we really wanted to enforce this, we could introduce a new tagged string type `HeaderName`, similar to `UrlString`. But I\u0027ll let you decide if its worth it in this case.",
+      "range": {
+        "startLine": 207,
+        "startChar": 9,
+        "endLine": 207,
+        "endChar": 59
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31cef223_92fc722b",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T04:38:12Z",
+      "side": 1,
+      "message": "nit: finally lets rewrite this as an arrow function `(a, b) \u003d\u003e Platform.StringUtilities.compare(a.name, b.name)`",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 7
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f441b095_b5980392",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T04:38:12Z",
+      "side": 1,
+      "message": "Do I understand correctly that we want to show the header name as-is here, not in lower case?",
+      "range": {
+        "startLine": 431,
+        "startChar": 35,
+        "endLine": 431,
+        "endChar": 39
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12720b4f_41c04fc5",
+        "filename": "test/unittests/front_end/panels/network/components/ResponseHeaderSection_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T04:38:12Z",
+      "side": 1,
+      "message": "So in which cases do we also show the to-lower-cased header name in the UI? I thought its internal only?",
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
