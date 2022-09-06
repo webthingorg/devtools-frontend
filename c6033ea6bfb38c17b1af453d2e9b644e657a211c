@@ -33,6 +33,24 @@
       "message": "happy with the change but don\u0027t think we should use --text-disabled as the color here as that\u0027s not its intended purpose.\n\nAdding Peter to advise on the design side: do we have a defined color for the input border?",
       "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb35e3df_c0ea831a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2022-09-06T16:37:29Z",
+      "side": 1,
+      "message": "I\u0027ve tried every \u0027input\u0027 or \u0027outline\u0027 color but couldn\u0027t find one that meet the requirements which is to have color contrast ratio \u003e\u003d 3:1, so used --text-disabled instead. But I\u0027d like to hear any suggestions from you. Thanks!",
+      "parentUuid": "5f484de9_a276c21a",
+      "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
