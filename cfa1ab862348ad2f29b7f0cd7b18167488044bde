@@ -16,6 +16,46 @@
       "message": "Please kindly take another look",
       "revId": "cfa1ab862348ad2f29b7f0cd7b18167488044bde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb20cc8_f0ee664e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T09:09:25Z",
+      "side": 1,
+      "message": "Great job, thanks! one last question then we are good to land :)",
+      "revId": "cfa1ab862348ad2f29b7f0cd7b18167488044bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b2eb33_2131f41a",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T09:09:25Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with sinon. Does the spy reset here after the call to `calledWithExactly`?\n\nDid you check that this test fails by removing the call to `hasDuplicateWithSecurityOrigin` in updateDatabaseNames?",
+      "range": {
+        "startLine": 124,
+        "startChar": 36,
+        "endLine": 124,
+        "endChar": 46
+      },
+      "revId": "cfa1ab862348ad2f29b7f0cd7b18167488044bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

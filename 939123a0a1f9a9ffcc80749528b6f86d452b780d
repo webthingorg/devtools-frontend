@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11af0f5b_c82f64ec",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T09:09:25Z",
+      "side": 1,
+      "message": "I think a tagged type for StorageKeys might make sense regardless. Of course lets do that separately and maybe after your CL chain has landed.",
+      "parentUuid": "43b5d79e_75132f18",
+      "range": {
+        "startLine": 326,
+        "startChar": 4,
+        "endLine": 326,
+        "endChar": 51
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "369b4afa_c76259d7",
