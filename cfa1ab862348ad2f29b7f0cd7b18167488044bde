@@ -56,6 +56,30 @@
       },
       "revId": "cfa1ab862348ad2f29b7f0cd7b18167488044bde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7992bd8_5dc4fda8",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T11:10:01Z",
+      "side": 1,
+      "message": "The spy doesn\u0027t reset, but in the second check I have a different argument (testDBIDWithSecurityOrigin vs testDBId).\n\nThe test does fail if I remove the hasDuplicate check.",
+      "parentUuid": "75b2eb33_2131f41a",
+      "range": {
+        "startLine": 124,
+        "startChar": 36,
+        "endLine": 124,
+        "endChar": 46
+      },
+      "revId": "cfa1ab862348ad2f29b7f0cd7b18167488044bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
