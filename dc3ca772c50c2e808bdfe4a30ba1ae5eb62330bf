@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae0ecb07_14c10446",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-06T10:39:33Z",
+      "side": 1,
+      "message": "I\u0027ve created a separate CL for this https://crrev.com/c/3870498.",
+      "parentUuid": "dabb789a_bf344b17",
+      "range": {
+        "startLine": 207,
+        "startChar": 9,
+        "endLine": 207,
+        "endChar": 59
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31cef223_92fc722b",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-09-06T04:38:12Z",
       "side": 1,
       "message": "nit: finally lets rewrite this as an arrow function `(a, b) \u003d\u003e Platform.StringUtilities.compare(a.name, b.name)`",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 7
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84324987_0da85501",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-06T10:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31cef223_92fc722b",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7aaf93ea_839bb148",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-06T10:39:33Z",
+      "side": 1,
+      "message": "Yes, because here we are rendering \u0027general\u0027 rows, which do not actually contain headers but instead attributes such as \u0027Request URL\u0027, \u0027Request Method\u0027, or \u0027Status Code\u0027 (and the `name` param comes directly from `UIStrings`).\nSimilar to the other question\u0027s answer, CSS applies `text-transform: capitalize` even though it\u0027s not even necessary in this case.",
+      "parentUuid": "f441b095_b5980392",
+      "range": {
+        "startLine": 431,
+        "startChar": 35,
+        "endLine": 431,
+        "endChar": 39
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12720b4f_41c04fc5",
         "filename": "test/unittests/front_end/panels/network/components/ResponseHeaderSection_test.ts",
         "patchSetId": 3
@@ -117,6 +189,24 @@
       "writtenOn": "2022-09-06T04:38:12Z",
       "side": 1,
       "message": "So in which cases do we also show the to-lower-cased header name in the UI? I thought its internal only?",
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b4002c_d0185be6",
+        "filename": "test/unittests/front_end/panels/network/components/ResponseHeaderSection_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-06T10:39:33Z",
+      "side": 1,
+      "message": "The HTML contains lower-cased headers, but due to CSS\u0027s `text-transform: capitalize` what the user sees is capitalized.",
+      "parentUuid": "12720b4f_41c04fc5",
       "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
