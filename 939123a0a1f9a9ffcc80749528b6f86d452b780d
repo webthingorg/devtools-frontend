@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21254c75_e39b4f7f",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T08:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbe74568_378977bf",
+      "range": {
+        "startLine": 201,
+        "startChar": 26,
+        "endLine": 201,
+        "endChar": 65
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73c8a814_8565d36c",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-05T09:35:44Z",
       "side": 1,
       "message": "This needs a comment with a `TODO`.\n\nWill we need to convert between storage keys and security origins even after the migration? If so we should introduce a tagged type for storage keys and have a single dedicated conversion method.",
+      "range": {
+        "startLine": 326,
+        "startChar": 4,
+        "endLine": 326,
+        "endChar": 51
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43b5d79e_75132f18",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T08:55:36Z",
+      "side": 1,
+      "message": "Not directly after the migration, but at some point security origin will not be used anymore.",
+      "parentUuid": "73c8a814_8565d36c",
       "range": {
         "startLine": 326,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2391e0_de6e6b6b",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T08:55:36Z",
+      "side": 1,
+      "message": "I am not sure I fully got it, but hope what I did is what you wanted to see!:)",
+      "parentUuid": "369b4afa_c76259d7",
+      "range": {
+        "startLine": 15,
+        "startChar": 28,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40ec06e9_d875cb19",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bed16ea_b013fa12",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T08:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40ec06e9_d875cb19",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 73
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a23a4d83_c9780c6c",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-09-05T09:35:44Z",
       "side": 1,
       "message": "This is a private method of the `IndexDBModel`. We shouldn\u0027t rely on it to be called. We assert only on publicly observable behavior, that is the `DatabaseAdded` and `DatabaseRemoved` events. You don\u0027t necessarly have to spy that either. You can straight-up register a listener in the test and push the events into an array and verify that the events were received in the right order.",
+      "range": {
+        "startLine": 64,
+        "startChar": 35,
+        "endLine": 64,
+        "endChar": 50
+      },
+      "revId": "939123a0a1f9a9ffcc80749528b6f86d452b780d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e52ba5_0b158ee2",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-06T08:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a23a4d83_c9780c6c",
       "range": {
         "startLine": 64,
         "startChar": 35,
