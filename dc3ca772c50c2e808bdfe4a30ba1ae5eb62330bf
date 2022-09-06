@@ -176,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba96ea3_fef21a85",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T10:49:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7aaf93ea_839bb148",
+      "range": {
+        "startLine": 431,
+        "startChar": 35,
+        "endLine": 431,
+        "endChar": 39
+      },
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12720b4f_41c04fc5",
@@ -207,6 +231,24 @@
       "side": 1,
       "message": "The HTML contains lower-cased headers, but due to CSS\u0027s `text-transform: capitalize` what the user sees is capitalized.",
       "parentUuid": "12720b4f_41c04fc5",
+      "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18dc6d57_3050014a",
+        "filename": "test/unittests/front_end/panels/network/components/ResponseHeaderSection_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-06T10:49:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6b4002c_d0185be6",
       "revId": "dc3ca772c50c2e808bdfe4a30ba1ae5eb62330bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
