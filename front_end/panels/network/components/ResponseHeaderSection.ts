@@ -6,6 +6,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import type * as SDK from '../../../core/sdk/sdk.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as Protocol from '../../../generated/protocol.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
@@ -75,6 +76,9 @@ export class ResponseHeaderSection extends HTMLElement {
 
   set data(data: ResponseHeaderSectionData) {
     this.#request = data.request;
+    this.#headers =
+        this.#request.sortedResponseHeaders.map(header => ({name: header.name.toLowerCase(), value: header.value}));
+    this.#markOverrides();
 
     const headersWithIssues = [];
     if (this.#request.wasBlocked()) {
@@ -120,8 +124,6 @@ export class ResponseHeaderSection extends HTMLElement {
       return result;
     }
 
-    this.#headers = this.#request.sortedResponseHeaders.map(
-        header => ({name: header.name.toLowerCase(), value: header.value, headerNotSet: false}));
     this.#headers = mergeHeadersWithIssues(this.#headers, headersWithIssues);
 
     const blockedResponseCookies = this.#request.blockedResponseCookies();
@@ -143,6 +145,51 @@ export class ResponseHeaderSection extends HTMLElement {
     }
 
     this.#render();
+  }
+
+  #markOverrides(): void {
+    if (!this.#request || this.#request.originalResponseHeaders.length === 0) {
+      return;
+    }
+
+    // Use multimaps to compare original and actual (potentially overridden)
+    // headers, because there can be multiple headers with the same name.
+    const originalHeaders = new Platform.MapUtilities.Multimap<string, string>();
+    for (const header of this.#request?.originalResponseHeaders || []) {
+      originalHeaders.set(header.name.toLowerCase(), header.value);
+    }
+
+    const actualHeaders = new Platform.MapUtilities.Multimap<string, string>();
+    for (const header of this.#headers) {
+      actualHeaders.set(header.name, header.value || '');
+    }
+
+    const isDifferent =
+        (headerName: string, actualHeaders: Platform.MapUtilities.Multimap<string, string>,
+         originalHeaders: Platform.MapUtilities.Multimap<string, string>): boolean => {
+          if (!originalHeaders.has(headerName)) {
+            return true;
+          }
+          const actual = actualHeaders.get(headerName);
+          const original = originalHeaders.get(headerName);
+          if (actual.size !== original.size) {
+            return true;
+          }
+          if (![...actual].every(headerName => original.has(headerName))) {
+            return true;
+          }
+          return false;
+        };
+
+    for (const headerName of actualHeaders.keysArray()) {
+      // If the set of actual headers and the set of original headers do not
+      // exactly match, mark all headers with 'headerName' as being overridden.
+      if (isDifferent(headerName, actualHeaders, originalHeaders)) {
+        this.#headers.filter(header => header.name === headerName).forEach(header => {
+          header.isOverride = true;
+        });
+      }
+    }
   }
 
   #render(): void {

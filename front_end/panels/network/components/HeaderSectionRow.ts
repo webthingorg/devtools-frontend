@@ -68,7 +68,7 @@ export class HeaderSectionRow extends HTMLElement {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
-      <div class="row ${this.#header.highlight ? 'header-highlight' : ''}">
+      <div class="row ${this.#header.highlight ? 'header-highlight' : ''} ${this.#header.isOverride ? 'header-overridden' : ''}">
         <div class="header-name">
           ${this.#header.headerNotSet ?
             html`<div class="header-badge header-badge-text">${i18n.i18n.lockedString('not-set')}</div> ` :
@@ -208,7 +208,8 @@ export interface HeaderDescriptor {
   value: string|null;
   headerValueIncorrect?: boolean|null;
   blockedDetails?: BlockedDetailsDescriptor;
-  headerNotSet: boolean|null;
+  headerNotSet?: boolean|null;
   setCookieBlockedReasons?: Protocol.Network.SetCookieBlockedReason[];
   highlight?: boolean;
+  isOverride?: boolean;
 }
