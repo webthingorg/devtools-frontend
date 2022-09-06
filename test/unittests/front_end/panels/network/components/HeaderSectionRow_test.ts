@@ -14,6 +14,7 @@ import {
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -31,7 +32,7 @@ async function renderHeaderSectionRow(header: NetworkComponents.HeaderSectionRow
 describeWithEnvironment('HeaderSectionRow', () => {
   it('emits UMA event when a header value is being copied', async () => {
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
-      name: 'someHeaderName',
+      name: 'some-header-name' as Platform.StringUtilities.LowerCaseString,
       value: 'someHeaderValue',
       headerNotSet: false,
     };
@@ -49,7 +50,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('renders detailed reason for blocked requests', async () => {
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
-      name: 'cross-origin-resource-policy',
+      name: 'cross-origin-resource-policy' as Platform.StringUtilities.LowerCaseString,
       value: null,
       headerNotSet: true,
       blockedDetails: {
@@ -92,7 +93,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('displays decoded "x-client-data"-header', async () => {
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
-      name: 'x-client-data',
+      name: 'x-client-data' as Platform.StringUtilities.LowerCaseString,
       value: 'CJa2yQEIpLbJAQiTocsB',
       headerNotSet: false,
     };
@@ -114,7 +115,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('displays info about blocked "Set-Cookie"-headers', async () => {
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
-      name: 'set-cookie',
+      name: 'set-cookie' as Platform.StringUtilities.LowerCaseString,
       value: 'secure=only; Secure',
       headerNotSet: false,
       setCookieBlockedReasons:
@@ -144,7 +145,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('can be highlighted', async () => {
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
-      name: 'someHeaderName',
+      name: 'some-header-name' as Platform.StringUtilities.LowerCaseString,
       value: 'someHeaderValue',
       headerNotSet: false,
       highlight: true,
