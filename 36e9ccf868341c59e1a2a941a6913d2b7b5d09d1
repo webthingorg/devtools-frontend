@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d677b21e_294d027c",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-07T08:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682842d7_773bdfb2",
+      "range": {
+        "startLine": 72,
+        "startChar": 6,
+        "endLine": 72,
+        "endChar": 129
+      },
+      "revId": "36e9ccf868341c59e1a2a941a6913d2b7b5d09d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fad97620_de1d7008",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-09-07T05:46:33Z",
       "side": 1,
       "message": "it\u0027s a bit off that this can be `undefined`, `null` and `boolean`. Maybe we can get rid of `null`?",
+      "range": {
+        "startLine": 212,
+        "startChar": 2,
+        "endLine": 212,
+        "endChar": 14
+      },
+      "revId": "36e9ccf868341c59e1a2a941a6913d2b7b5d09d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab76b486_d44fb74a",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-07T08:38:26Z",
+      "side": 1,
+      "message": "Let me handle this in a follow-up CL: https://crrev.com/c/3876146",
+      "parentUuid": "fad97620_de1d7008",
       "range": {
         "startLine": 212,
         "startChar": 2,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d88b9bfc_679d1d5f",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-07T08:38:26Z",
+      "side": 1,
+      "message": "My previous implementation used a MultiMap (see previous patchset https://crrev.com/c/3870496/5). But MultiMaps cannot handle the (admittedly exotic) edge case where there are multiple headers with the same name and some repeated values e.g. {a, b, b} vs {a, a, b} would look the same to a MultiMap.",
+      "parentUuid": "589e7dc6_770b4865",
+      "range": {
+        "startLine": 158,
+        "startChar": 32,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "36e9ccf868341c59e1a2a941a6913d2b7b5d09d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dad67a59_a282f857",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-09-07T05:46:33Z",
       "side": 1,
       "message": "With MultiMap you would compare sets here, so after the length comparison it should be fine to write it like:\n\n```\nfor (const originalHeader of original) {\n  if (!actual.has(originalHeader)) {\n    return true;\n  }\n}\n```",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 11
+      },
+      "revId": "36e9ccf868341c59e1a2a941a6913d2b7b5d09d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "051135ef_0da8662b",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-07T08:38:26Z",
+      "side": 1,
+      "message": "See above why I think MultiMaps are not a solution here.",
+      "parentUuid": "dad67a59_a282f857",
       "range": {
         "startLine": 189,
         "startChar": 0,
