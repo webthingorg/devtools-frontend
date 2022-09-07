@@ -176,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18332232_1c397b01",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-07T08:56:33Z",
+      "side": 1,
+      "message": "Ack, maybe we could leave a comment here explaining that?",
+      "parentUuid": "d88b9bfc_679d1d5f",
+      "range": {
+        "startLine": 158,
+        "startChar": 32,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "36e9ccf868341c59e1a2a941a6913d2b7b5d09d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dad67a59_a282f857",
