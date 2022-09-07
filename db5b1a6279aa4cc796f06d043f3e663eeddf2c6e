@@ -16,6 +16,46 @@
       "message": "PTAnotherL",
       "revId": "db5b1a6279aa4cc796f06d043f3e663eeddf2c6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd1ba07_95a23df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-07T06:08:37Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "db5b1a6279aa4cc796f06d043f3e663eeddf2c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9444e84e_5bc1dd6a",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-07T06:08:37Z",
+      "side": 1,
+      "message": "nit: \u0027requests database with storage key on refreshdatabase\u0027 or\n\n\"describe(\u0027refreshDatabase\u0027), () \u003d\u003e { it(\u0027requests database with storage key\u0027, ...\"",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "db5b1a6279aa4cc796f06d043f3e663eeddf2c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
