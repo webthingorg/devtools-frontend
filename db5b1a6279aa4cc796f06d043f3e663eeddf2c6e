@@ -56,6 +56,30 @@
       },
       "revId": "db5b1a6279aa4cc796f06d043f3e663eeddf2c6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a585db_2bbf2b41",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-08T11:15:22Z",
+      "side": 1,
+      "message": "Done, also addressed the possible racy situation you mentioned in the previous CL",
+      "parentUuid": "9444e84e_5bc1dd6a",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "db5b1a6279aa4cc796f06d043f3e663eeddf2c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
