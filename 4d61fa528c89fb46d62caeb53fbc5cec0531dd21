@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7aee7241_283972c9",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "This was done in order to localize the failure; we can instantiate a real project instance and check that what is returned is the correct `UISourceCode` but we will be testing the `Project` class in this case. I suggest we have a separate unit test for the `Project.uiSourceCodeForURL` function instead, would that be better?",
+      "parentUuid": "ec0b360e_07f6284b",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86985c7a_2ba03602",
         "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
         "patchSetId": 2
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49c58619_bdc8f039",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "Our goal is not to test how a unit will work in production, instead it is to test how a unit will behave under a specific situation. Here we are not concerned about the behaviour of `uiSourceCodeForURL` (which has its own unit test) because we are assuming that there exists a `UISourceCode` with the given URL. We can stub the `Project` and add it to the workspace but we are risking going through another behaviour that is not related to this; for example if `addProject` is broken this will fail even if the function `uiSourceCodeForURLPromise` has no issues.\n\nAnother question related to this is what is the reason why we should not stub parts if the SUT while testing if it is not related to the specific unit, is it possible to describe a scenario where that would be an issue (hide a certain bug for example)?",
+      "parentUuid": "86985c7a_2ba03602",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a782bf6e_5a728c1c",
         "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
         "patchSetId": 2
@@ -77,6 +125,30 @@
       "writtenOn": "2022-09-08T05:12:10Z",
       "side": 1,
       "message": "Again, do we really need to stub here? There is no UISourceCode yet so the call should fail below anyway. If not, we should find another way to test this without stubbing anything in `WorkspaceImpl`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b15573_4d9edb11",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "This test functions the same way if we remove this stub, so I guess this is not needed. Removed.",
+      "parentUuid": "a782bf6e_5a728c1c",
       "range": {
         "startLine": 55,
         "startChar": 4,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "704adea1_e7f3b617",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "Asserting what is returned will be testing the `Project.uiSourceCodeForURL` function because it is the one doing the retrieval. We can make this in a separate test.",
+      "parentUuid": "0f856db9_616b83d4",
+      "range": {
+        "startLine": 72,
+        "startChar": 3,
+        "endLine": 72,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb6ccc00_0702e238",
         "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
         "patchSetId": 2
@@ -123,6 +219,30 @@
       "writtenOn": "2022-09-08T05:12:10Z",
       "side": 1,
       "message": "nit: Maybe remove `it(\u0027can add a project\u0027)`, since this test covers the same behavior.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 41
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a340d62_0c8e8e86",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb6ccc00_0702e238",
       "range": {
         "startLine": 119,
         "startChar": 2,

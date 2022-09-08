@@ -71,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e91621_fc815cd8",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "I think it is the later, removed.",
+      "parentUuid": "ecadd025_e57ba6f6",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "b1eef8ca4887a8fa5eb1d5d38495401ea93212fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ea3e65a_88fb0ae9",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "`assert.notStrictEqual` should be the same and produce a better error message.",
       "parentUuid": "9ea3e65a_88fb0ae9",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "b1eef8ca4887a8fa5eb1d5d38495401ea93212fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08adfb2b_05305907",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T10:09:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51042185_3c433b61",
       "range": {
         "startLine": 24,
         "startChar": 4,
