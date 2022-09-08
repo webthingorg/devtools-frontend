@@ -59,7 +59,16 @@ export async function selectCategories(selectedCategoryIds: string[]) {
   }
 }
 
-export async function selectMode(device: 'mobile'|'desktop') {
+export async function selectMode(mode: 'navigation'|'timespan'|'snapshot') {
+  const startViewHandle = await waitFor('.lighthouse-start-view-fr');
+  await startViewHandle.$eval(`input[value="${mode}"][name="lighthouse.mode"]`, radioElem => {
+    (radioElem as HTMLInputElement).checked = true;
+    (radioElem as HTMLInputElement)
+        .dispatchEvent(new Event('change'));  // Need change event to update the backing setting.
+  });
+}
+
+export async function selectDevice(device: 'mobile'|'desktop') {
   const startViewHandle = await waitFor('.lighthouse-start-view-fr');
   await startViewHandle.$eval(`input[value="${device}"][name="lighthouse.device_type"]`, radioElem => {
     (radioElem as HTMLInputElement).checked = true;
