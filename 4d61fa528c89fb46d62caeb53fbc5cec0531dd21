@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c37972_c7956d73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "Left some comments. Thanks for improving coverage here!",
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec0b360e_07f6284b",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "This asserts that WorkspaceImpl calls project. This is an implementation detail and not relevant to the public API of WorkspaceImpl. It also doesn\u0027t verify the result, just that we called project with some arguments. In essence, this is a change detector, to detect when we change `uiSourceCode`, not if it works correctly.\n\nWe should assert on the result instead. Is it the `UISourceCode` we expect? We don\u0027t care \"how\" its retrieved.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86985c7a_2ba03602",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "The SUT is `WorkspaceImpl`, so we shouldn\u0027t stub out private methods. We are not testing how the unit will actually work in production. I\u0027d prefer if we again stub the project (which is not under test), and let `uiSourceCodeForURL` do its normal thing.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a782bf6e_5a728c1c",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "Again, do we really need to stub here? There is no UISourceCode yet so the call should fail below anyway. If not, we should find another way to test this without stubbing anything in `WorkspaceImpl`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f856db9_616b83d4",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "Let\u0027s also assert on the result here. We care \"what\" the result is, not \"how\" its retrieved after all.",
+      "range": {
+        "startLine": 72,
+        "startChar": 3,
+        "endLine": 72,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6ccc00_0702e238",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "nit: Maybe remove `it(\u0027can add a project\u0027)`, since this test covers the same behavior.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 41
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

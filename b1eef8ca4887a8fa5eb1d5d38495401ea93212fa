@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecadd025_e57ba6f6",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "If instance initialization does some heavy lifting, then the test makes sense. If its just a call to `new`, maybe not.",
+      "parentUuid": "921fd2dd_25092ef3",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "b1eef8ca4887a8fa5eb1d5d38495401ea93212fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ea3e65a_88fb0ae9",
         "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2022-09-07T12:23:36Z",
       "side": 1,
       "message": "please let me know if you disagree with how this is asserted",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "b1eef8ca4887a8fa5eb1d5d38495401ea93212fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51042185_3c433b61",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-08T05:12:10Z",
+      "side": 1,
+      "message": "`assert.notStrictEqual` should be the same and produce a better error message.",
+      "parentUuid": "9ea3e65a_88fb0ae9",
       "range": {
         "startLine": 24,
         "startChar": 4,
