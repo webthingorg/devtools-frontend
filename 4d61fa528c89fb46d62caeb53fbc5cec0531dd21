@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d09a6447_f75969b8",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T12:07:21Z",
+      "side": 1,
+      "message": "Done, however I feel that we are still testing \"how\" it is done because I had to stub the used method (instead of spying on it). Please let me know if you want me to revise this in the future.",
+      "parentUuid": "fdf24a52_6c2cb52e",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86985c7a_2ba03602",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "If we stub out \"random\" function in the SUT, then we are not actually testing the \"class under test\". We are testing a behavior that never happens in production. It\u0027s ok to stub/mock dependencies, but if we stub out parts of the SUT, then we cement implementation details into our unit tests.\n\nAs per go/unit-testing-practices: Only test behaviors and only test public APIs. How a workspace impl implements that behavior is of no concern, and makes unit tests brittle. Stubbing out private functions means we\u0027ll have to also change the test when we change the implementation, even though the behavior and the result stay the same. Which IMO is not a good unit test.",
       "parentUuid": "49c58619_bdc8f039",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4852e773_dba35c51",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T12:07:21Z",
+      "side": 1,
+      "message": "Done, I have stubbed the project class instead",
+      "parentUuid": "06bcad5c_13cb9f9b",
       "range": {
         "startLine": 44,
         "startChar": 4,
@@ -244,6 +292,30 @@
       "side": 1,
       "message": "Asserting what is returned will be testing the `Project.uiSourceCodeForURL` function because it is the one doing the retrieval. We can make this in a separate test.",
       "parentUuid": "0f856db9_616b83d4",
+      "range": {
+        "startLine": 72,
+        "startChar": 3,
+        "endLine": 72,
+        "endChar": 77
+      },
+      "revId": "4d61fa528c89fb46d62caeb53fbc5cec0531dd21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5b9871_7f49f173",
+        "filename": "test/unittests/front_end/models/workspace/WorkspaceImpl_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-09-08T12:07:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "704adea1_e7f3b617",
       "range": {
         "startLine": 72,
         "startChar": 3,
