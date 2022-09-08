@@ -1725,12 +1725,12 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
   async #revealHeaderOverrideEditor(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
     const networkPersistanceManager = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance();
-    const uiSourceCode = await networkPersistanceManager.getOrCreateHeadersUISourceCodeFromUrl(request.url());
-    if (uiSourceCode) {
-      const sourcesPanel = Sources.SourcesPanel.SourcesPanel.instance();
-      sourcesPanel.showUISourceCode(uiSourceCode);
-      sourcesPanel.revealInNavigator(uiSourceCode);
-    }
+    await networkPersistanceManager.getOrCreateHeadersUISourceCodeFromUrl(request.url());
+    // if (uiSourceCode) {
+    //   const sourcesPanel = Sources.SourcesPanel.SourcesPanel.instance();
+    //   sourcesPanel.showUISourceCode(uiSourceCode);
+    //   sourcesPanel.revealInNavigator(uiSourceCode);
+    // }
   }
 
   private clearBrowserCache(): void {

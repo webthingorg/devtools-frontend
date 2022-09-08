@@ -11,7 +11,6 @@ import {
   $$,
   click,
   enableExperiment,
-  getTestServerPort,
   step,
   typeText,
   waitFor,
@@ -392,12 +391,51 @@ describe('The Network Request view', async () => {
     const button = await waitFor('.infobar-main-row .infobar-button', infoBar);
     await click(button);
 
-    await waitFor('devtools-button.add-block');
-    const folderElement = await waitFor('.tree-outline-disclosure ol.tree-outline .navigator-fs-folder-tree-item');
-    const textContent = await folderElement.evaluate(el => el.textContent || '');
-    assert.match(textContent, new RegExp(`localhost(:|%3A)${getTestServerPort()}/test/e2e/resources/network`));
+    await selectRequestByName('hello.html');
 
-    await waitFor('.tabbed-pane-header-tab[aria-label=".headers"]');
+    let networkView = await waitFor('.network-item-view');
+    const headersTabHeader = await waitFor('#tab-headersComponent', networkView);
+    await click(headersTabHeader);
+    await waitFor('#tab-headersComponent[role=tab][aria-selected=true]', networkView);
+
+    let responseHeaderSection = await waitFor('[aria-label="Response Headers"]', networkView);
+    const headerValueElement = await waitFor('.row .header-value', responseHeaderSection);
+    const headerNameElement = await waitFor('.row .header-name', responseHeaderSection);
+
+    await waitForFunction(async () => {
+      await click(headerNameElement);
+      await click(headerValueElement);
+      await typeText('Foo');
+      const headerValueText = await headerValueElement.evaluate(el => el.textContent || '');
+      return headerValueText.trim() === 'Foo';
+    });
+
+    // await click(headerValueElement);
+    // await typeText('Foo');
+    // const headerValueText2 = await headerValueElement.evaluate(el => el.textContent || '');
+    // assert.strictEqual(headerValueText2.trim(), 'Foo');
+
+    const link = await waitFor('.devtools-link');
+    await click(link);
+
+    const headersView = await waitFor('devtools-sources-headers-view');
+    const headersViewRow = await waitFor('.row.padded .header-value', headersView);
+    const headersViewRowText = await headersViewRow.evaluate(el => el.textContent || '');
+    assert.strictEqual(headersViewRowText.trim(), 'Foo');
+
+    await navigateToNetworkTab('hello.html');
+    await selectRequestByName('hello.html');
+    networkView = await waitFor('.network-item-view');
+    responseHeaderSection = await waitFor('[aria-label="Response Headers"]', networkView);
+    const row = await waitFor('.row.header-overridden', responseHeaderSection);
+
+    const headerName = await waitFor('.header-name', row);
+    const headerNameText = await headerName.evaluate(el => el.textContent || '');
+    assert.strictEqual(headerNameText.trim(), 'cache-control:');
+
+    const headerValue = await waitFor('.header-value', row);
+    const headerValueText = await headerValue.evaluate(el => el.textContent || '');
+    assert.strictEqual(headerValueText.trim(), 'Foo');
   });
 
   it('can search by headers name', async () => {
