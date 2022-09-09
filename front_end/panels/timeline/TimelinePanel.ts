@@ -61,6 +61,7 @@ import {
   TimelineEventOverviewCPUActivity,
   TimelineEventOverviewInput,
   TimelineEventOverviewMemory,
+  TimelineEventOverviewPower,
   TimelineEventOverviewNetwork,
   TimelineEventOverviewResponsiveness,
   TimelineFilmStripOverview,
@@ -99,6 +100,10 @@ const UIStrings = {
   */
   memory: 'Memory',
   /**
+  *@description Text for the power of the page
+  */
+  power: 'Power',
+  /**
   *@description Text in Timeline for the Web Vitals lane
   */
   webVitals: 'Web Vitals',
@@ -122,6 +127,10 @@ const UIStrings = {
   *@description Text in Timeline Panel of the Performance panel
   */
   showMemoryTimeline: 'Show memory timeline',
+  /**
+  *@description Text in Timeline Panel of the Performance panel
+  */
+  showPowerTimeline: 'Show power timeline',
   /**
   *@description Text in Timeline for the Web Vitals lane checkbox
   */
@@ -299,6 +308,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private showMemorySetting: Common.Settings.Setting<any>;
+  private showPowerSetting: Common.Settings.Setting<unknown>;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private showWebVitalsSetting: Common.Settings.Setting<any>;
@@ -322,6 +332,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private loader?: TimelineLoader;
   private showScreenshotsToolbarCheckbox?: UI.Toolbar.ToolbarItem;
   private showMemoryToolbarCheckbox?: UI.Toolbar.ToolbarItem;
+  private showPowerToolbarCheckbox?: UI.Toolbar.ToolbarItem;
   private showWebVitalsToolbarCheckbox?: UI.Toolbar.ToolbarItem;
   private startCoverageCheckbox?: UI.Toolbar.ToolbarItem;
   private networkThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
@@ -372,6 +383,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.showMemorySetting = Common.Settings.Settings.instance().createSetting('timelineShowMemory', false);
     this.showMemorySetting.setTitle(i18nString(UIStrings.memory));
     this.showMemorySetting.addChangeListener(this.onModeChanged, this);
+
+    this.showPowerSetting = Common.Settings.Settings.instance().createSetting('timelineShowPower', false);
+    this.showPowerSetting.setTitle(i18nString(UIStrings.power));
+    this.showPowerSetting.addChangeListener(this.onModeChanged, this);
 
     this.showWebVitalsSetting = Common.Settings.Settings.instance().createSetting('timelineWebVitals', false);
     this.showWebVitalsSetting.setTitle(i18nString(UIStrings.webVitals));
@@ -526,6 +541,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.showMemoryToolbarCheckbox =
         this.createSettingCheckbox(this.showMemorySetting, i18nString(UIStrings.showMemoryTimeline));
     this.panelToolbar.appendToolbarItem(this.showMemoryToolbarCheckbox);
+
+    this.showPowerToolbarCheckbox =
+        this.createSettingCheckbox(this.showPowerSetting, i18nString(UIStrings.showPowerTimeline));
+    this.panelToolbar.appendToolbarItem(this.showPowerToolbarCheckbox);
 
     this.showWebVitalsToolbarCheckbox =
         this.createSettingCheckbox(this.showWebVitalsSetting, i18nString(UIStrings.showWebVitals));
@@ -731,6 +750,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
     this.overviewControls.push(new TimelineEventOverviewCPUActivity());
     this.overviewControls.push(new TimelineEventOverviewNetwork());
+    if (this.showPowerSetting.get()) {
+      this.overviewControls.push(new TimelineEventOverviewPower());
+    }
     if (this.showScreenshotsSetting.get() && this.performanceModel &&
         this.performanceModel.filmStripModel().frames().length) {
       this.overviewControls.push(new TimelineFilmStripOverview());

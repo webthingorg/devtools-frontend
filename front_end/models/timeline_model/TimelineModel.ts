@@ -388,6 +388,7 @@ export class TimelineModelImpl {
     this.inspectedTargetEventsInternal.sort(SDK.TracingModel.Event.compareStartTime);
     this.processAsyncBrowserEvents(tracingModel);
     this.buildGPUEvents(tracingModel);
+    this.buildSocWatchEvents(tracingModel);
     this.buildLoadingEvents(tracingModel, layoutShiftEvents);
     this.collectInteractionEvents(tracingModel);
     this.resetProcessingState();
@@ -708,6 +709,21 @@ export class TimelineModelImpl {
     const track = this.ensureNamedTrack(TrackType.GPU);
     track.thread = thread;
     track.events = thread.events().filter(event => event.name === gpuEventName);
+  }
+
+  private buildSocWatchEvents(tracingModel: SDK.TracingModel.TracingModel): void {
+    const process = tracingModel.getProcessByName('Browser');
+    if (!process) {
+      return;
+    }
+    const thread = process?.threadById(process.id());
+    if (!thread) {
+      return;
+    }
+    const socwatchpowerEventName = RecordType.SocWatchPower;
+    const track = this.ensureNamedTrack(TrackType.SocWatch);
+    track.thread = thread;
+    track.events = thread.events().filter(event => event.name === socwatchpowerEventName);
   }
 
   private buildLoadingEvents(tracingModel: SDK.TracingModel.TracingModel, events: SDK.TracingModel.Event[]): void {
@@ -1754,6 +1770,8 @@ export enum RecordType {
   Profile = 'Profile',
 
   AsyncTask = 'AsyncTask',
+
+  SocWatchPower = 'SocWatchPower',
 }
 
 export namespace TimelineModelImpl {
@@ -1887,6 +1905,7 @@ export enum TrackType {
   Experience = 'Experience',
   Other = 'Other',
   UserInteractions = 'UserInteractions',
+  SocWatch = 'SocWatch',
 }
 
 const enum WorkletType {

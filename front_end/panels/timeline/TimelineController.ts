@@ -104,6 +104,7 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
       disabledByDefault('lighthouse'),
       'v8.execute',
       'v8',
+      'socwatch.power',
     ];
 
     if (Root.Runtime.experiments.isEnabled('timelineV8RuntimeCallStats') && options.enableJSSampling) {

@@ -10805,6 +10805,12 @@
   "panels/timeline/TimelineEventOverview.ts | net": {
     "message": "NET"
   },
+  "panels/timeline/TimelineEventOverview.ts | power": {
+    "message": "POWER"
+  },
+  "panels/timeline/TimelineEventOverview.ts | pSDash": {
+    "message": "{PH1} – {PH2}"
+  },
   "panels/timeline/TimelineEventOverview.ts | sSDash": {
     "message": "{PH1} – {PH2}"
   },
@@ -11006,6 +11012,9 @@
   "panels/timeline/TimelinePanel.ts | NetworkThrottlingIsEnabled": {
     "message": "- Network throttling is enabled"
   },
+  "panels/timeline/TimelinePanel.ts | power": {
+    "message": "Power"
+  },
   "panels/timeline/TimelinePanel.ts | processingProfile": {
     "message": "Processing profile…"
   },
@@ -11029,6 +11038,9 @@
   },
   "panels/timeline/TimelinePanel.ts | showMemoryTimeline": {
     "message": "Show memory timeline"
+  },
+  "panels/timeline/TimelinePanel.ts | showPowerTimeline": {
+    "message": "Show power timeline"
   },
   "panels/timeline/TimelinePanel.ts | showWebVitals": {
     "message": "Show Web Vitals"

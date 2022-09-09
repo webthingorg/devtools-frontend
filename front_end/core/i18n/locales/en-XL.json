@@ -10805,6 +10805,12 @@
   "panels/timeline/TimelineEventOverview.ts | net": {
     "message": "N̂ÉT̂"
   },
+  "panels/timeline/TimelineEventOverview.ts | power": {
+    "message": "P̂ÓŴÉR̂"
+  },
+  "panels/timeline/TimelineEventOverview.ts | pSDash": {
+    "message": "{PH1} – {PH2}"
+  },
   "panels/timeline/TimelineEventOverview.ts | sSDash": {
     "message": "{PH1} – {PH2}"
   },
@@ -11006,6 +11012,9 @@
   "panels/timeline/TimelinePanel.ts | NetworkThrottlingIsEnabled": {
     "message": "- N̂ét̂ẃôŕk̂ t́ĥŕôt́t̂ĺîńĝ íŝ én̂áb̂ĺêd́"
   },
+  "panels/timeline/TimelinePanel.ts | power": {
+    "message": "P̂óŵér̂"
+  },
   "panels/timeline/TimelinePanel.ts | processingProfile": {
     "message": "P̂ŕôćêśŝín̂ǵ p̂ŕôf́îĺê…"
   },
@@ -11029,6 +11038,9 @@
   },
   "panels/timeline/TimelinePanel.ts | showMemoryTimeline": {
     "message": "Ŝh́ôẃ m̂ém̂ór̂ý t̂ím̂él̂ín̂é"
+  },
+  "panels/timeline/TimelinePanel.ts | showPowerTimeline": {
+    "message": "Ŝh́ôẃ p̂óŵér̂ t́îḿêĺîńê"
   },
   "panels/timeline/TimelinePanel.ts | showWebVitals": {
     "message": "Ŝh́ôẃ Ŵéb̂ V́ît́âĺŝ"
