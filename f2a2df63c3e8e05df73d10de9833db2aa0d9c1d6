@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de78f89_c03534a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-09T15:10:24Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "f2a2df63c3e8e05df73d10de9833db2aa0d9c1d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b90d61_db0869a5",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-09T15:10:24Z",
+      "side": 1,
+      "message": "nit: these two look very similar, would a refactoring be worth to minimize code duplication?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 1
+      },
+      "revId": "f2a2df63c3e8e05df73d10de9833db2aa0d9c1d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
