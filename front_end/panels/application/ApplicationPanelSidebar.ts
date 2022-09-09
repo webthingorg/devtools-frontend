@@ -1120,6 +1120,7 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   refreshIndexedDB(): void {
     for (const indexedDBModel of SDK.TargetManager.TargetManager.instance().models(IndexedDBModel)) {
       void indexedDBModel.refreshDatabaseNames();
+      void indexedDBModel.refreshDatabaseNamesByStorageKey();
     }
   }
 
@@ -1192,7 +1193,10 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   private view?: IDBDatabaseView;
 
   constructor(storagePanel: ResourcesPanel, model: IndexedDBModel, databaseId: DatabaseId) {
-    super(storagePanel, databaseId.name + ' - ' + databaseId.securityOrigin, false);
+    super(
+        storagePanel,
+        databaseId.name + ' - ' + (databaseId.securityOrigin ? databaseId.securityOrigin : databaseId.storageKey),
+        false);
     this.model = model;
     this.databaseId = databaseId;
     this.idbObjectStoreTreeElements = new Map();
@@ -1202,8 +1206,9 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
-    return 'indexedDB://' + this.databaseId.securityOrigin + '/' + this.databaseId.name as
-        Platform.DevToolsPath.UrlString;
+    return 'indexedDB://' +
+        (this.databaseId.securityOrigin ? this.databaseId.securityOrigin : this.databaseId.storageKey) + '/' +
+        this.databaseId.name as Platform.DevToolsPath.UrlString;
   }
 
   onattach(): void {
@@ -1317,8 +1322,9 @@ export class IDBObjectStoreTreeElement extends ApplicationPanelTreeElement {
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
-    return 'indexedDB://' + this.databaseId.securityOrigin + '/' + this.databaseId.name + '/' + this.objectStore.name as
-        Platform.DevToolsPath.UrlString;
+    return 'indexedDB://' +
+        (this.databaseId.securityOrigin ? this.databaseId.securityOrigin : this.databaseId.storageKey) + '/' +
+        this.databaseId.name + '/' + this.objectStore.name as Platform.DevToolsPath.UrlString;
   }
 
   onattach(): void {

@@ -163,6 +163,14 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
         this.addOrigin(securityOrigin);
       }
     }
+    if (this.storageKeyManager) {
+      this.storageKeyManager.addEventListener(SDK.StorageKeyManager.Events.StorageKeyAdded, this.storageKeyAdded, this);
+      this.storageKeyManager.addEventListener(
+          SDK.StorageKeyManager.Events.StorageKeyRemoved, this.storageKeyRemoved, this);
+      for (const storageKey of this.storageKeyManager.storageKeys()) {
+        this.addStorageKey(storageKey);
+      }
+    }
 
     if (this.storageKeyManager) {
       this.storageKeyManager.addEventListener(SDK.StorageKeyManager.Events.StorageKeyAdded, this.storageKeyAdded, this);
@@ -185,14 +193,28 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     this.addOrigin(origin);
   }
 
+  clearForStorageKey(storageKey: string): void {
+    if (!this.enabled || this.databaseNamesByStorageKey.has(storageKey)) {
+      return;
+    }
+
+    this.removeStorageKey(storageKey);
+    this.addStorageKey(storageKey);
+  }
+
   async deleteDatabase(databaseId: DatabaseId): Promise<void> {
     if (!this.enabled) {
       return;
     }
+    // TODO(crbug.com/1347831) Prioritize storageKey once everything is ready
     if (databaseId.securityOrigin) {
       await this.indexedDBAgent.invoke_deleteDatabase(
           {securityOrigin: databaseId.securityOrigin, databaseName: databaseId.name});
       void this.loadDatabaseNames(databaseId.securityOrigin);
+    } else if (databaseId.storageKey) {
+      await this.indexedDBAgent.invoke_deleteDatabase(
+          {storageKey: databaseId.storageKey, databaseName: databaseId.name});
+      void this.loadDatabaseNamesByStorageKey(databaseId.storageKey);
     }
   }
 
@@ -201,6 +223,13 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
       await this.loadDatabaseNames(securityOrigin);
     }
     for (const storageKey of this.databaseNamesByStorageKey.keys()) {
+      await this.loadDatabaseNamesByStorageKey(storageKey);
+    }
+    this.dispatchEventToListeners(Events.DatabaseNamesRefreshed);
+  }
+
+  async refreshDatabaseNamesByStorageKey(): Promise<void> {
+    for (const storageKey in this.databaseNamesByStorageKey || []) {
       await this.loadDatabaseNamesByStorageKey(storageKey);
     }
     this.dispatchEventToListeners(Events.DatabaseNamesRefreshed);
@@ -245,6 +274,10 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     this.removeOrigin(event.data);
   }
 
+  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.removeStorageKey(event.data);
+  }
+
   private addOrigin(securityOrigin: string): void {
     console.assert(!this.databaseNamesBySecurityOrigin.has(securityOrigin));
     this.databaseNamesBySecurityOrigin.set(securityOrigin, new Set());
@@ -279,10 +312,6 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     }
     this.databaseNamesByStorageKey.delete(storageKey);
     void this.storageAgent.invoke_untrackIndexedDBForStorageKey({storageKey});
-  }
-
-  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
-    this.removeStorageKey(event.data);
   }
 
   private isValidSecurityOrigin(securityOrigin: string): boolean {
@@ -339,6 +368,12 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
       const databaseNames = this.databaseNamesBySecurityOrigin.get(securityOrigin);
       for (const databaseName of databaseNames || []) {
         result.push(new DatabaseId(securityOrigin, undefined, databaseName));
+      }
+    }
+    for (const storageKey in this.databaseNamesByStorageKey) {
+      const databaseNames = this.databaseNamesByStorageKey.get(storageKey);
+      for (const name in databaseNames || []) {
+        result.push(new DatabaseId(undefined, storageKey, name));
       }
     }
     return result;

@@ -26,6 +26,24 @@ describeWithMockConnection('IndexedDBModel', () => {
     indexedDBModel = new Resources.IndexedDBModel.IndexedDBModel(target);
     indexedDBAgent = target.indexedDBAgent();
     manager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+    setMockConnectionResponseHandler('IndexedDB.requestDatabase', () => {
+      return {
+        databaseWithObjectStores: {
+          name: 'test-database',
+          version: 1,
+          objectStores: [
+            {
+              name: 'test-store',
+              keyPath: {
+                type: 'null',
+              },
+              autoIncrement: false,
+              indexes: [],
+            },
+          ],
+        },
+      };
+    });
   });
 
   describe('StorageKeyAdded', () => {
@@ -198,5 +216,13 @@ describeWithMockConnection('IndexedDBModel', () => {
 
     assert.isTrue(requestDBNamesSpy.calledWithExactly({storageKey: testKey}));
     await databaseLoadedPromise;
+  });
+
+  it('calls protocol method on deleteDatabase', async () => {
+    const deleteDatabaseSpy = sinon.spy(indexedDBAgent, 'invoke_deleteDatabase');
+
+    indexedDBModel.enable();
+    void indexedDBModel.deleteDatabase(testDBId);
+    assert.isTrue(deleteDatabaseSpy.calledOnceWith({storageKey: testKey, databaseName: 'test-database'}));
   });
 });
