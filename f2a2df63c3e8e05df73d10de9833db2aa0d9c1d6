@@ -39,6 +39,30 @@
       },
       "revId": "f2a2df63c3e8e05df73d10de9833db2aa0d9c1d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25d5989_22e52ac6",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-09T16:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80b90d61_db0869a5",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 1
+      },
+      "revId": "f2a2df63c3e8e05df73d10de9833db2aa0d9c1d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
