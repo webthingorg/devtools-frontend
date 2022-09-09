@@ -430,8 +430,8 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   async setBreakpointByURL(
-      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number,
-      condition?: string): Promise<SetBreakpointResult> {
+      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number, condition?: string,
+      resolutionMode?: Protocol.Debugger.SetBreakpointByUrlRequestResolutionMode): Promise<SetBreakpointResult> {
     // Convert file url to node-js path.
     let urlRegex;
     if (this.target().type() === Type.Node && url.startsWith('file://')) {
@@ -454,11 +454,12 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     }
     columnNumber = Math.max(columnNumber || 0, minColumnNumber);
     const response = await this.agent.invoke_setBreakpointByUrl({
-      lineNumber: lineNumber,
       url: urlRegex ? undefined : url,
-      urlRegex: urlRegex,
-      columnNumber: columnNumber,
-      condition: condition,
+      urlRegex,
+      lineNumber,
+      columnNumber,
+      condition,
+      resolutionMode,
     });
     if (response.getError()) {
       return {locations: [], breakpointId: null};
@@ -471,9 +472,15 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   async setBreakpointInAnonymousScript(
-      scriptHash: string, lineNumber: number, columnNumber?: number, condition?: string): Promise<SetBreakpointResult> {
-    const response = await this.agent.invoke_setBreakpointByUrl(
-        {lineNumber: lineNumber, scriptHash: scriptHash, columnNumber: columnNumber, condition: condition});
+      scriptHash: string, lineNumber: number, columnNumber?: number, condition?: string,
+      resolutionMode?: Protocol.Debugger.SetBreakpointByUrlRequestResolutionMode): Promise<SetBreakpointResult> {
+    const response = await this.agent.invoke_setBreakpointByUrl({
+      scriptHash,
+      lineNumber,
+      columnNumber,
+      condition,
+      resolutionMode,
+    });
     if (response.getError()) {
       return {locations: [], breakpointId: null};
     }

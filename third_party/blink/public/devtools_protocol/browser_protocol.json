@@ -23047,6 +23047,16 @@
                             "description": "Expression to use as a breakpoint condition. When specified, debugger will only stop on the\nbreakpoint if this expression evaluates to true.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "resolutionMode",
+                            "description": "Breakpoint resolution mode. When unspecified, defaults to `inlineBreakpoint`.",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "lineBreakpoint",
+                                "inlineBreakpoint"
+                            ]
                         }
                     ],
                     "returns": [
@@ -23122,6 +23132,16 @@
                             "description": "Expression to use as a breakpoint condition. When specified, debugger will only stop on the\nbreakpoint if this expression evaluates to true.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "resolutionMode",
+                            "description": "Breakpoint resolution mode. When unspecified, defaults to `inlineBreakpoint`.",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "lineBreakpoint",
+                                "inlineBreakpoint"
+                            ]
                         }
                     ],
                     "returns": [

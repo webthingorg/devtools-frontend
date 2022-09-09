@@ -32,7 +32,7 @@ import * as Common from '../../core/common/common.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Platform from '../../core/platform/platform.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -845,7 +845,10 @@ export class ModelBreakpoint {
 
     // Case 4: State is not null, so we have breakpoints to set and the back-end
     // has no information on breakpoints yet. Set the breakpoints.
-    const {breakpointIds, locations, serverError} = await this.#setBreakpointOnBackend(newState);
+    const resolutionMode = columnNumber === undefined ?
+        Protocol.Debugger.SetBreakpointByUrlRequestResolutionMode.LineBreakpoint :
+        Protocol.Debugger.SetBreakpointByUrlRequestResolutionMode.InlineBreakpoint;
+    const {breakpointIds, locations, serverError} = await this.#setBreakpointOnBackend(newState, resolutionMode);
 
     const maybeRescheduleUpdate =
         serverError && this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause();
@@ -881,7 +884,8 @@ export class ModelBreakpoint {
     return DebuggerUpdateResult.OK;
   }
 
-  async #setBreakpointOnBackend(newState: Breakpoint.State): Promise<{
+  async #setBreakpointOnBackend(
+      newState: Breakpoint.State, resolutionMode: Protocol.Debugger.SetBreakpointByUrlRequestResolutionMode): Promise<{
     breakpointIds: Protocol.Debugger.BreakpointId[],
     locations: SDK.DebuggerModel.Location[],
     serverError: boolean,
@@ -889,10 +893,11 @@ export class ModelBreakpoint {
     const condition = this.#breakpoint.condition();
     const results = await Promise.all(newState.positions.map(pos => {
       if (pos.url) {
-        return this.#debuggerModel.setBreakpointByURL(pos.url, pos.lineNumber, pos.columnNumber, condition);
+        return this.#debuggerModel.setBreakpointByURL(
+            pos.url, pos.lineNumber, pos.columnNumber, condition, resolutionMode);
       }
       return this.#debuggerModel.setBreakpointInAnonymousScript(
-          pos.scriptHash as string, pos.lineNumber, pos.columnNumber, condition);
+          pos.scriptHash as string, pos.lineNumber, pos.columnNumber, condition, resolutionMode);
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];

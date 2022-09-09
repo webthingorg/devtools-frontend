@@ -296,6 +296,10 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     for (const location of rawLocations) {
       const uiLocationCandidate = await this.rawLocationToUILocation(location);
       if (uiLocationCandidate) {
+        if (uiLocationCandidate.uiSourceCode === uiLocation.uiSourceCode &&
+            uiLocationCandidate.lineNumber === uiLocation.lineNumber && uiLocation.columnNumber === undefined) {
+          uiLocationCandidate.columnNumber = undefined;
+        }
         return uiLocationCandidate;
       }
     }

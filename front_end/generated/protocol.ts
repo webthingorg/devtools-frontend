@@ -15425,6 +15425,11 @@ export namespace Debugger {
     positions: ScriptPosition[];
   }
 
+  export const enum SetBreakpointRequestResolutionMode {
+    LineBreakpoint = 'lineBreakpoint',
+    InlineBreakpoint = 'inlineBreakpoint',
+  }
+
   export interface SetBreakpointRequest {
     /**
      * Location to set breakpoint in.
@@ -15435,6 +15440,10 @@ export namespace Debugger {
      * breakpoint if this expression evaluates to true.
      */
     condition?: string;
+    /**
+     * Breakpoint resolution mode. When unspecified, defaults to `inlineBreakpoint`.
+     */
+    resolutionMode?: SetBreakpointRequestResolutionMode;
   }
 
   export interface SetBreakpointResponse extends ProtocolResponseWithError {
@@ -15467,6 +15476,11 @@ export namespace Debugger {
     breakpointId: BreakpointId;
   }
 
+  export const enum SetBreakpointByUrlRequestResolutionMode {
+    LineBreakpoint = 'lineBreakpoint',
+    InlineBreakpoint = 'inlineBreakpoint',
+  }
+
   export interface SetBreakpointByUrlRequest {
     /**
      * Line number to set breakpoint at.
@@ -15494,6 +15508,10 @@ export namespace Debugger {
      * breakpoint if this expression evaluates to true.
      */
     condition?: string;
+    /**
+     * Breakpoint resolution mode. When unspecified, defaults to `inlineBreakpoint`.
+     */
+    resolutionMode?: SetBreakpointByUrlRequestResolutionMode;
   }
 
   export interface SetBreakpointByUrlResponse extends ProtocolResponseWithError {
