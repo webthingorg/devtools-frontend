@@ -51,6 +51,23 @@
       "parentUuid": "5f484de9_a276c21a",
       "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b810b92f_b2abaa14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2022-09-09T17:19:23Z",
+      "side": 1,
+      "message": "Hi, it\u0027s a one line css change, the goal is to ensure the outline of the empty input box is visible, which is to make input-border and background have a color contrast ratio \u003e\u003d 3:1 in both light and dark theme. PTAL. Thank you!",
+      "revId": "c6033ea6bfb38c17b1af453d2e9b644e657a211c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
