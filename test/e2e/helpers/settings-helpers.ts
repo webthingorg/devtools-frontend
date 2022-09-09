@@ -74,3 +74,13 @@ export const setIgnoreListPattern = async (pattern: string) => {
   await waitFor(`[title="Ignore scripts whose names match '${pattern}'"]`);
   await closeSettings();
 };
+
+export const toggleIgnoreListing = async (enable: boolean) => {
+  await openSettingsTab('Ignore List');
+  const enabledPattern = '.ignore-list-options:not(.ignore-listing-disabled)';
+  const disabledPattern = '.ignore-list-options.ignore-listing-disabled';
+  await waitFor(enable ? disabledPattern : enabledPattern);
+  await click('[aria-label="Enable Ignore Listing"]');
+  await waitFor(enable ? enabledPattern : disabledPattern);
+  await closeSettings();
+};
