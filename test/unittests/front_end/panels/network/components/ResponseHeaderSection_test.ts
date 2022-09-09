@@ -13,6 +13,7 @@ import {
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import {setUpEnvironment} from '../../../helpers/OverridesHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -31,6 +32,10 @@ async function renderResponseHeaderSection(request: SDK.NetworkRequest.NetworkRe
 }
 
 describeWithEnvironment('ResponseHeaderSection', () => {
+  beforeEach(async () => {
+    await setUpEnvironment();
+  });
+
   it('renders detailed reason for blocked requests', async () => {
     const request = {
       sortedResponseHeaders: [
@@ -40,6 +45,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
       wasBlocked: () => true,
       blockedReason: () => Protocol.Network.BlockedReason.CorpNotSameOriginAfterDefaultedToSameOriginByCoep,
       originalResponseHeaders: [],
+      url: () => 'https://www.example.com/',
     } as unknown as SDK.NetworkRequest.NetworkRequest;
 
     const component = await renderResponseHeaderSection(request);
@@ -72,6 +78,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
       }],
       wasBlocked: () => false,
       originalResponseHeaders: [],
+      url: () => 'https://www.example.com/',
     } as unknown as SDK.NetworkRequest.NetworkRequest;
 
     const component = await renderResponseHeaderSection(request);
@@ -125,6 +132,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
         {name: 'triplicate', value: '1'},
         {name: 'triplicate', value: '2'},
       ],
+      url: () => 'https://www.example.com/',
     } as unknown as SDK.NetworkRequest.NetworkRequest;
 
     const component = await renderResponseHeaderSection(request);
