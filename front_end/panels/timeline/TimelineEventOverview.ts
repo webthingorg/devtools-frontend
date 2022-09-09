@@ -64,6 +64,16 @@ const UIStrings = {
   *@description Text in Timeline Event Overview of the Performance panel
   */
   coverage: 'COVERAGE',
+  /**
+  *@description Text in Timeline Event Overview of the Performance panel
+  */
+  power: 'POWER',
+  /**
+  *@description Power label text content in Timeline Event Overview of the Performance panel
+  *@example {10 W} PH1
+  *@example {30 W} PH2
+  */
+  pSDash: '{PH1} – {PH2}',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineEventOverview.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -592,6 +602,132 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     this.heapSizeLabel.textContent = i18nString(UIStrings.sSDash, {
       PH1: Platform.NumberUtilities.bytesToString(minUsedHeapSize),
       PH2: Platform.NumberUtilities.bytesToString(maxUsedHeapSize),
+    });
+  }
+}
+
+export class TimelineEventOverviewPower extends TimelineEventOverview {
+  private powerLabel: HTMLElement;
+  constructor() {
+    super('power', i18nString(UIStrings.power));
+    this.powerLabel = this.element.createChild('div', 'power-graph-label');
+  }
+
+  resetPowerLabels(): void {
+    this.powerLabel.textContent = '';
+  }
+
+  update(): void {
+    super.update();
+    const ratio = window.devicePixelRatio;
+
+    if (!this.model) {
+      this.resetPowerLabels();
+      return;
+    }
+
+    const tracks = this.model.timelineModel().tracks().filter(
+        track => track.type === TimelineModel.TimelineModel.TrackType.SocWatch);
+    const trackEvents = tracks.map(track => track.events);
+
+    const lowerOffset = 3 * ratio;
+    let maxUsedPower = 0;
+    let minUsedPower = 100000000000;
+    const minTime = this.model.timelineModel().minimumRecordTime();
+    const maxTime = this.model.timelineModel().maximumRecordTime();
+    const wTime = (maxTime - minTime) * 1000;
+    function isSocWatchEvent(event: SDK.TracingModel.Event): boolean {
+      return event.name === TimelineModel.TimelineModel.RecordType.SocWatchPower;
+    }
+
+    for (let i = 0; i < trackEvents.length; i++) {
+      trackEvents[i] = trackEvents[i].filter(isSocWatchEvent);
+    }
+
+    function calculateMinMaxPower(event: SDK.TracingModel.Event): void {
+      const counters = event.args.data.points;
+      if (!counters) {
+        return;
+      }
+      for (let i = 0; i < counters.length && counters[i].x < wTime; i++) {
+        if (counters[i].y < 0.1) {
+          continue;
+        }
+        maxUsedPower = Math.max(maxUsedPower, counters[i].y);
+        minUsedPower = Math.min(minUsedPower, counters[i].y);
+      }
+    }
+
+    for (let i = 0; i < trackEvents.length; i++) {
+      trackEvents[i].forEach(calculateMinMaxPower);
+    }
+
+    const lineWidth = 1;
+    const width = this.width();
+    const height = this.height() - lowerOffset;
+    const xFactor = width / (maxTime - minTime);
+    const yFactor = (height - lineWidth) / Math.max(maxUsedPower - minUsedPower, 1);
+
+    const histogram = new Array(width);
+    function buildHistogram(event: SDK.TracingModel.Event): void {
+      const counters = event.args.data.points;
+      if (!counters) {
+        return;
+      }
+      for (let i = 0; i < counters.length && counters[i].x < wTime; i++) {
+        if (counters[i].y < 0.1) {
+          continue;
+        }
+        const x = Math.round(counters[i].x / 1000 * xFactor);
+        const y = Math.round((counters[i].y - minUsedPower) * yFactor);
+        histogram[x] = Math.max(histogram[x] || 0, y);
+      }
+    }
+    for (let i = 0; i < trackEvents.length; i++) {
+      trackEvents[i].forEach(buildHistogram);
+    }
+
+    const ctx = this.context();
+    const heightBeyondView = height + lowerOffset + lineWidth;
+
+    ctx.translate(0.5, 0.5);
+    ctx.beginPath();
+    ctx.moveTo(-lineWidth, heightBeyondView);
+    let y = 0;
+    let isFirstPoint = true;
+    let lastX = 0;
+    for (let x = 0; x < histogram.length; x++) {
+      if (typeof histogram[x] === 'undefined') {
+        continue;
+      }
+      if (isFirstPoint) {
+        isFirstPoint = false;
+        y = histogram[x];
+        ctx.lineTo(-lineWidth, height - y);
+      }
+      const nextY = histogram[x];
+      if (Math.abs(nextY - y) > 2 && Math.abs(x - lastX) > 1) {
+        ctx.lineTo(x, height - y);
+      }
+      y = nextY;
+      ctx.lineTo(x, height - y);
+      lastX = x;
+    }
+    ctx.lineTo(width + lineWidth, height - y);
+    ctx.lineTo(width + lineWidth, heightBeyondView);
+    ctx.closePath();
+
+    ctx.fillStyle = 'hsla(350, 90%, 70%, 0.2)';
+    ctx.fill();
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = 'hsl(350, 90%, 70%)';
+    ctx.stroke();
+
+    minUsedPower = minUsedPower / 1000;
+    maxUsedPower = maxUsedPower / 1000;
+    this.powerLabel.textContent = i18nString(UIStrings.pSDash, {
+      PH1: minUsedPower.toFixed(1) + '\xA0W',
+      PH2: maxUsedPower.toFixed(1) + '\xA0W',
     });
   }
 }

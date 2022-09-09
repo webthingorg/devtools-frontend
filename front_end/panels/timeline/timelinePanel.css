@@ -119,6 +119,10 @@
   flex-basis: 20px;
 }
 
+#timeline-overview-power {
+  flex-basis: 20px;
+}
+
 #timeline-overview-network::before,
 #timeline-overview-cpu-activity::before {
   content: "";
@@ -169,6 +173,17 @@
 }
 
 .memory-graph-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 9px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  padding: 0 4px;
+  background-color: var(--color-background-opacity-80);
+}
+
+.power-graph-label {
   position: absolute;
   right: 0;
   bottom: 0;
