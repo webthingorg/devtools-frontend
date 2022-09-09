@@ -341,6 +341,12 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
         result.push(new DatabaseId(securityOrigin, undefined, databaseName));
       }
     }
+    for (const storageKey of this.databaseNamesByStorageKey.keys()) {
+      const databaseNames = this.databaseNamesByStorageKey.get(storageKey);
+      for (const name of databaseNames || []) {
+        result.push(new DatabaseId(undefined, storageKey, name));
+      }
+    }
     return result;
   }
 
