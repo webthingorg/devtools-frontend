@@ -259,6 +259,10 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     this.removeOrigin(event.data);
   }
 
+  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
+    this.removeStorageKey(event.data);
+  }
+
   private addOrigin(securityOrigin: string): void {
     console.assert(!this.databaseNamesBySecurityOrigin.has(securityOrigin));
     this.databaseNamesBySecurityOrigin.set(securityOrigin, new Set());
@@ -293,10 +297,6 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     }
     this.databaseNamesByStorageKey.delete(storageKey);
     void this.storageAgent.invoke_untrackIndexedDBForStorageKey({storageKey});
-  }
-
-  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
-    this.removeStorageKey(event.data);
   }
 
   private isValidSecurityOrigin(securityOrigin: string): boolean {
@@ -643,6 +643,10 @@ export class DatabaseId {
     this.securityOrigin = securityOrigin;
     this.storageKey = securityOrigin ? undefined : storageKey;
     this.name = name;
+  }
+
+  getOriginOrStorageKey(): string|null {
+    return this.securityOrigin ? this.securityOrigin : (this.storageKey ? this.storageKey : null);
   }
 
   equals(databaseId: DatabaseId): boolean {
