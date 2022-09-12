@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6f0a8c_dfdc1ee4",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T12:37:36Z",
+      "side": 1,
+      "message": "This check is no longer needed now :)",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 571,
+        "endChar": 5
+      },
+      "revId": "52e18867e9525cf620309dfe56efdb8714e485e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
