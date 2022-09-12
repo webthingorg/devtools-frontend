@@ -7484,6 +7484,9 @@
   "panels/network/NetworkLogView.ts | unblockS": {
     "message": "Unblock {PH1}"
   },
+  "panels/network/NetworkLogViewColumns.ts | alternateProtocolUsage": {
+    "message": "Alternate Protocol Usage"
+  },
   "panels/network/NetworkLogViewColumns.ts | connectionId": {
     "message": "Connection ID"
   },
