@@ -884,6 +884,10 @@ export class NetworkRequestNode extends NetworkNode {
         this.setTextAndTitle(cell, this.requestInternal.protocol);
         break;
       }
+      case 'alternateProtocolUsage': {
+        this.setTextAndTitle(cell, this.requestInternal.alternateProtocolUsage);
+        break;
+      }
       case 'scheme': {
         this.setTextAndTitle(cell, this.requestInternal.scheme);
         break;

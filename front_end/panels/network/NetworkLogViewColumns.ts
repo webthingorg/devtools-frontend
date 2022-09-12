@@ -87,6 +87,10 @@ const UIStrings = {
   */
   protocol: 'Protocol',
   /**
+  *@description Text for alternate_protocol_usage
+  */
+  alternateProtocolUsage: 'Alternate Protocol Usage',
+  /**
   *@description Text in Network Log View Columns of the Network panel
   */
   scheme: 'Scheme',
@@ -926,6 +930,11 @@ const _temporaryDefaultColumns = [
     id: 'protocol',
     title: i18nLazyString(UIStrings.protocol),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'protocol'),
+  },
+  {
+    id: 'alternateProtocolUsage',
+    title: i18nLazyString(UIStrings.alternateProtocolUsage),
+    sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'alternateProtocolUsage'),
   },
   {
     id: 'scheme',

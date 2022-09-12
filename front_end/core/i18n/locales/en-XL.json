@@ -7484,6 +7484,9 @@
   "panels/network/NetworkLogView.ts | unblockS": {
     "message": "Ûńb̂ĺôćk̂ {PH1}"
   },
+  "panels/network/NetworkLogViewColumns.ts | alternateProtocolUsage": {
+    "message": "Âĺt̂ér̂ńât́ê Ṕr̂ót̂óĉól̂ Úŝáĝé"
+  },
   "panels/network/NetworkLogViewColumns.ts | connectionId": {
     "message": "Ĉón̂ńêćt̂íôń ÎD́"
   },
