@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f4eeac6_2a7ebdda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:44:25Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48a7ca9_939c5536",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:44:25Z",
+      "side": 1,
+      "message": "nit: `for (const [storageKey, databaseNames] of this.databaseNamesByStorageKey)`\n\nand also change it above :)",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 75
+      },
+      "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492af9e3_ac09eb5a",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:44:25Z",
+      "side": 1,
+      "message": "should not be needed after the above refactor.",
+      "range": {
+        "startLine": 346,
+        "startChar": 38,
+        "endLine": 346,
+        "endChar": 44
+      },
+      "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
