@@ -1176,7 +1176,7 @@ self.injectedExtensionAPI = function(
 
     eval: function(
               expression: string,
-              evaluateOptions: {contextSecurityOrigin?: string, frameURL?: string, useContentScriptContext?: boolean}):
+              evaluateOptions: {scriptExecutionContext?: string, frameURL?: string, useContentScriptContext?: boolean}):
               Object |
         null {
           const callback = extractCallbackArgument(arguments);
