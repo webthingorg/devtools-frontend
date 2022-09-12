@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "5db3c31a961613100a2a17b471c947f283e5da96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf00b73_94db104d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:41:14Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "5db3c31a961613100a2a17b471c947f283e5da96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "846f152b_f34efd07",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:41:14Z",
+      "side": 1,
+      "message": "nit: `updatedStorageKeys`?",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "5db3c31a961613100a2a17b471c947f283e5da96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d21f3e_89fdfa23",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:41:14Z",
+      "side": 1,
+      "message": "nit:\n\n```\nconst dataBaseId \u003d securityOrigin\n  ? new DatabaseId(securityOrigin, undefined, databaseName)\n  : new DatabaseId(undefined, storageKey, databaseName);\n```\n\nAnd add a check to the DatabaseId that throws when both `securityOrigin` and `storageKey` are undefined.",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 5
+      },
+      "revId": "5db3c31a961613100a2a17b471c947f283e5da96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
