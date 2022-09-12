@@ -39,6 +39,30 @@
       },
       "revId": "dd318441afe92c30a6c908222fa7a79881794f45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b872e63b_30c0ebda",
+        "filename": "test/e2e/helpers/media-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-12T08:09:13Z",
+      "side": 1,
+      "message": "What would the effect be? Resolving a promise multiple times is fine, right?",
+      "parentUuid": "47ecd14a_cc6cf62b",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 55
+      },
+      "revId": "dd318441afe92c30a6c908222fa7a79881794f45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
