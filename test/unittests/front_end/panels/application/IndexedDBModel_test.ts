@@ -27,6 +27,24 @@ describeWithMockConnection('IndexedDBModel', () => {
     indexedDBModel = new Resources.IndexedDBModel.IndexedDBModel(target);
     indexedDBAgent = target.indexedDBAgent();
     manager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+    setMockConnectionResponseHandler('IndexedDB.requestDatabase', () => {
+      return {
+        databaseWithObjectStores: {
+          name: 'test-database',
+          version: 1,
+          objectStores: [
+            {
+              name: 'test-store',
+              keyPath: {
+                type: 'null',
+              },
+              autoIncrement: false,
+              indexes: [],
+            },
+          ],
+        },
+      };
+    });
   });
 
   describe('StorageKeyAdded', () => {
