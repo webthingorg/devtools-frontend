@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "a101625b047a4992e7cfc70cfda4c50ff466dfed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6d46dd3_435d7164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-12T05:45:54Z",
+      "side": 1,
+      "message": "Thanks for keeping all these CLs small :) Really nice to review :)",
+      "revId": "a101625b047a4992e7cfc70cfda4c50ff466dfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
