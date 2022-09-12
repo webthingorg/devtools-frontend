@@ -585,8 +585,27 @@ export async function editCSSProperty(selector: string, propertyName: string, ne
   await focusCSSPropertyValue(selector, propertyName);
 
   const {frontend} = getBrowserAndPages();
+  const handler = await frontend.evaluateHandle(() => {
+    const handler: ((e: FocusEvent) => void)&{elements?: Set<EventTarget>} = e => {
+      if (!handler.elements) {
+        handler.elements = new Set();
+      }
+      if (e.srcElement) {
+        handler.elements.add(e.srcElement);
+      }
+    };
+    return handler;
+  });
+
+  await frontend.evaluate(handler => window.addEventListener('focusin', handler), handler);
   await frontend.keyboard.type(newValue, {delay: 100});
+  const focusTargetCount =
+      await frontend.evaluate((handler: ((e: FocusEvent) => void)&{elements?: Set<EventTarget>}) => {
+        window.removeEventListener('focusin', handler);
+        return handler.elements?.size ?? 0;
+      }, handler);
   await frontend.keyboard.press('Enter');
+  assert.strictEqual(focusTargetCount, 1, 'Focus changed while typing, some input may have been missed');
 
   await waitForFunction(async () => {
     // Wait until the value element is not a text-prompt anymore.
