@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de07675_d416d4fb",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-12T14:36:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ec197e_f3ebe0f9",
+      "range": {
+        "startLine": 288,
+        "startChar": 50,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "a1aedbae7d4a97d867fa2892bb36e24c1ebc68db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6a5aff1_dc2755ba",
