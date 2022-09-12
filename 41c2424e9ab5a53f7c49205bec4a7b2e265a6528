@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e66abb52_aec6c3df",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-12T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b48a7ca9_939c5536",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 75
+      },
+      "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "492af9e3_ac09eb5a",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-09-12T05:44:25Z",
       "side": 1,
       "message": "should not be needed after the above refactor.",
+      "range": {
+        "startLine": 346,
+        "startChar": 38,
+        "endLine": 346,
+        "endChar": 44
+      },
+      "revId": "41c2424e9ab5a53f7c49205bec4a7b2e265a6528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88d6f545_2578c63f",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-12T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492af9e3_ac09eb5a",
       "range": {
         "startLine": 346,
         "startChar": 38,
