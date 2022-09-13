@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f74203a9_c7755a41",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-13T05:31:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "262b6086_83d40167",
+      "range": {
+        "startLine": 1173,
+        "startChar": 8,
+        "endLine": 1173,
+        "endChar": 113
+      },
+      "revId": "078ddd877a7c1725200b234ff980f79f22b21d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9dfd384_5bf8835d",

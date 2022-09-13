@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "f3e7d163c5c54e94004c1b3c1f7778500b78b2d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5b53b45_ac8bcf82",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-13T05:31:36Z",
+      "side": 1,
+      "message": "nit: This can never be null technically since we check this when we construct a DatabaseId. I think its fine to write this as:\n\n`return this.securityOrigin ? this.securityOrigin : (this.storageKey as string);`\n\nand add a comment why. And then type this method to always return a `string`.",
+      "range": {
+        "startLine": 649,
+        "startChar": 4,
+        "endLine": 649,
+        "endChar": 98
+      },
+      "revId": "f3e7d163c5c54e94004c1b3c1f7778500b78b2d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7cd351a_6e7d3f55",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 25965,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-13T05:31:36Z",
+      "side": 1,
+      "message": "Left-over change?",
+      "revId": "f3e7d163c5c54e94004c1b3c1f7778500b78b2d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
