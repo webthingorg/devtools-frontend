@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a71190_45ba71f7",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T09:32:56Z",
+      "side": 1,
+      "message": "We should also prevent adding the web vitals check box in case of node debugging.",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 539,
+        "endChar": 99
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "534aedce_f0c38881",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T09:32:56Z",
+      "side": 1,
+      "message": "nit: Since these two are executed regardless of `isNode` we can extract them out of the if block.",
+      "range": {
+        "startLine": 860,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 40
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c9c748d_3f3865a4",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T09:32:56Z",
+      "side": 1,
+      "message": "nit: Is there a particular reason why we don\u0027t use `controller.startProfilingOnAllModels` here? If not I think we should reuse that to avoid code duplication",
+      "range": {
+        "startLine": 870,
+        "startChar": 61,
+        "endLine": 870,
+        "endChar": 75
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e01ff15_b875fdeb",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T09:32:56Z",
+      "side": 1,
+      "message": "nit: IIUC this model stopping + JS profile processing behaviour is already happening in [1] which is called by this.controller.stopRecording() on line 890. Do you think we could initialize the controller in case of node debugging as well so that we can omit this part?\n\nI\u0027m trying to minimize code duplication and mantain the boundaries clear between controller and UI stuff. WDYT?\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelineController.ts;l\u003d144-145",
+      "range": {
+        "startLine": 902,
+        "startChar": 0,
+        "endLine": 902,
+        "endChar": 10
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
