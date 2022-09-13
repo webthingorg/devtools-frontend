@@ -333,7 +333,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers-only for a status 200 request', async () => {
     const responseCode = 200;
     const requestId = 'request_id_1' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
@@ -354,7 +354,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers and content for a status 200 request', async () => {
     const responseCode = 200;
     const requestId = 'request_id_2' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
@@ -374,7 +374,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers-only for a status 300 (redirect) request', async () => {
     const responseCode = 300;
     const requestId = 'request_id_3' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
@@ -395,7 +395,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers and content for a status 300 (redirect) request', async () => {
     const responseCode = 300;
     const requestId = 'request_id_4' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
@@ -415,7 +415,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers-only for a status 404 (not found) request', async () => {
     const responseCode = 404;
     const requestId = 'request_id_5' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
@@ -424,7 +424,7 @@ describeWithMockConnection('InterceptedRequest', () => {
         requestId, responseCode, [{name: 'content-type', value: 'text/html; charset=utf-8'}], responseBody, {
           requestId,
           responseCode,
-          body: 'interceptedRequest content',
+          body: responseBody,
           responseHeaders: [
             {name: 'age', value: 'overridden'},
             {name: 'content-type', value: 'text/html; charset=utf-8'},
@@ -435,7 +435,7 @@ describeWithMockConnection('InterceptedRequest', () => {
   it('can override headers and content for a status 404 (not found) request', async () => {
     const responseCode = 404;
     const requestId = 'request_id_6' as Protocol.Fetch.RequestId;
-    const responseBody = 'interceptedRequest content';
+    const responseBody = btoa('interceptedRequest content');
     await checkRequestOverride(
         target, {
           method: 'GET',
