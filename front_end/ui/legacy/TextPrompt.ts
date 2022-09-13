@@ -373,6 +373,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
 
     if (handled) {
       event.consume(true);
+    } else {
+      event.consume(false);
     }
   }
 
