@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bd27e6_7c25bb05",
+        "filename": "front_end/entrypoints/js_app/js_app.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T10:59:20Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused: why do we need to import the mobile_throttling meta file?",
+      "range": {
+        "startLine": 5,
+        "startChar": 39,
+        "endLine": 5,
+        "endChar": 56
+      },
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752ff5a1_99dcb814",
+        "filename": "front_end/panels/js_profiler/js_profiler-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-13T10:59:20Z",
+      "side": 1,
+      "message": "I\u0027d yet again advocate for preventing duplication. It seems we are introducing a lot of duplication from timeline-meta.ts. How about we import timeline-meta.js (as well as js_profiler-meta.ts) in js_app.js? That way we wouldn\u0027t have to register these extensions in two different places.\n\nNote: if we need to know if node is being inspected we can use [1] and use the main target instance in [2]\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/Target.ts;l\u003d115\n[2] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelinePanel.ts;l\u003d832",
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
