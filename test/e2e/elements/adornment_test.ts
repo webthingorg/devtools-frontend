@@ -1,6 +1,7 @@
 // Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import {assert} from 'chai';
 
 import {click, getBrowserAndPages, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
@@ -19,6 +20,12 @@ const prepareElementsTab = async () => {
   await waitForContentOfSelectedElementsNode('<body>\u200B');
   await expandSelectedNodeRecursively();
 };
+
+declare global {
+  interface Window {
+    events?: Error[];
+  }
+}
 
 describe('Adornment in the Elements Tab', async function() {
   // This test relies on the context menu which takes a while to appear, so we bump the timeout a bit.
@@ -87,7 +94,7 @@ describe('Adornment in the Elements Tab', async function() {
     ]);
   });
 
-  it('updates when display properties change', async () => {
+  it.only('updates when display properties change', async () => {
     // Note that this test simulates several property value editing, like a user would type, with delay between
     // keystrokes. So if this test became flaky in the future, we'd likely have to increase the timeout.
     await goToResource('elements/adornment.html');
@@ -95,8 +102,16 @@ describe('Adornment in the Elements Tab', async function() {
 
     // Select the first element.
     const {frontend} = getBrowserAndPages();
-    await frontend.keyboard.press('ArrowDown');
+    await frontend.evaluate(() => {
+      window.addEventListener('keydown', (e) => {
+        if (!window.events) {
+          window.events = [];
+        }
+        window.events.push(new Error(`Key ${e.code} was pressed but not handled`));
+      });
+    });
 
+    await frontend.keyboard.press('ArrowDown');
     await waitForAdornerOnSelectedNode('grid');
 
     await editCSSProperty('.grid', 'display', 'flex');
@@ -104,5 +119,7 @@ describe('Adornment in the Elements Tab', async function() {
 
     await editCSSProperty('.grid', 'display', 'inline-grid');
     await waitForAdornerOnSelectedNode('grid');
+    const events = (await frontend.evaluate(() => window.events)) ?? [];
+    assert.isEmpty(events, events.map(e => e.message).join('\n'));
   });
 });
