@@ -87,7 +87,8 @@ describe('Adornment in the Elements Tab', async function() {
     ]);
   });
 
-  it('updates when display properties change', async () => {
+  it.only('updates when display properties change', async () => {
+
     // Note that this test simulates several property value editing, like a user would type, with delay between
     // keystrokes. So if this test became flaky in the future, we'd likely have to increase the timeout.
     await goToResource('elements/adornment.html');
@@ -95,8 +96,13 @@ describe('Adornment in the Elements Tab', async function() {
 
     // Select the first element.
     const {frontend} = getBrowserAndPages();
-    await frontend.keyboard.press('ArrowDown');
+    await frontend.evaluate(() => {
+      window.addEventListener('keydown', (e) => {
+        throw new Error(`Key ${e.code} was pressed but not handled`);
+      });
+    });
 
+    await frontend.keyboard.press('ArrowDown');
     await waitForAdornerOnSelectedNode('grid');
 
     await editCSSProperty('.grid', 'display', 'flex');
