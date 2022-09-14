@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e1f9ef_d6f93ede",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T21:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03a71190_45ba71f7",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 539,
+        "endChar": 99
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "534aedce_f0c38881",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-13T09:32:56Z",
       "side": 1,
       "message": "nit: Since these two are executed regardless of `isNode` we can extract them out of the if block.",
+      "range": {
+        "startLine": 860,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 40
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e68416a_5470f805",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T21:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "534aedce_f0c38881",
       "range": {
         "startLine": 860,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a02991_d44c9f1f",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T21:48:19Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good way to do so, the `TimelineController` has much more not used functions, and none of the private variables are needed to do the JS sampling.\nI think the best way is to create a new `NodeTimelineController`, but it basically just needs the `startRecording()` and `stopRecording()`. Or another way is to move these duplicated code to a new file as a static helper function.\nAlso startProfilingOnAllModels() doesn\u0027t work well alone because we do need to call `void SDK.TargetManager.TargetManager.instance().suspendAllTargets(\u0027performance-timeline\u0027);`, and not `await ...` for cpu profiling. So if we want it to work, we still need to change the controller\u0027s `startRecording()` and manually return an empty ProtocolResponseWithError, which is not good.",
+      "parentUuid": "2c9c748d_3f3865a4",
+      "range": {
+        "startLine": 870,
+        "startChar": 61,
+        "endLine": 870,
+        "endChar": 75
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e01ff15_b875fdeb",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-13T09:32:56Z",
       "side": 1,
       "message": "nit: IIUC this model stopping + JS profile processing behaviour is already happening in [1] which is called by this.controller.stopRecording() on line 890. Do you think we could initialize the controller in case of node debugging as well so that we can omit this part?\n\nI\u0027m trying to minimize code duplication and mantain the boundaries clear between controller and UI stuff. WDYT?\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelineController.ts;l\u003d144-145",
+      "range": {
+        "startLine": 902,
+        "startChar": 0,
+        "endLine": 902,
+        "endChar": 10
+      },
+      "revId": "7c54be0e04db8d73c6f3ab4ba2d7e9469a8f0a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caaa9740_cc14b8ff",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T21:48:19Z",
+      "side": 1,
+      "message": "The main reason I don\u0027t want to change TimelineController is because it implements the TracingManagerClient, and this will result in misunderstanding.\n\nAlso the `stopRecording()` currently will duplicate the chart view: one in main process, one in main process. and for node, it is just one process for node debugging. So I still need to change the function a lot.\n\nAnother way is to write a new controller to wrap the CPU Profiling functions. But might be too simple to be a class now.",
+      "parentUuid": "2e01ff15_b875fdeb",
       "range": {
         "startLine": 902,
         "startChar": 0,
