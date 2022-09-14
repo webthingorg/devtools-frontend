@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62520c6_18b20b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-14T13:25:35Z",
+      "side": 1,
+      "message": "Hi Simon, hi Mathias,\n\nthis CL is trimming away the BOM note at the start before parsing the JSON. PTAL!",
+      "revId": "5f85760ea104d6e2e1cbf374dd9c9ef98631f17c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
