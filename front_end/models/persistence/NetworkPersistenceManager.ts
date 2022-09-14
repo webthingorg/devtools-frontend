@@ -790,7 +790,7 @@ export function isHeaderOverride(arg: any): arg is HeaderOverride {
   }
   return arg.headers.every(
       (header: Protocol.Fetch.HeaderEntry) =>
-          header.name && typeof header.name === 'string' && header.value && typeof header.value === 'string');
+          header.name && typeof header.name === 'string' && typeof header.value === 'string');
 }
 
 export function escapeRegex(pattern: string): string {
