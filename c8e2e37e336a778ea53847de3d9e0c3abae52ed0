@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7fc9fbd_4b1f1842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-09-14T23:42:55Z",
+      "side": 1,
+      "message": "Accessibility fix, PTAL or refer a better person for review, thank you :) ",
+      "revId": "c8e2e37e336a778ea53847de3d9e0c3abae52ed0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
