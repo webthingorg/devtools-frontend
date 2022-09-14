@@ -11,6 +11,7 @@ import {
   assertElement,
   assertShadowRoot,
   dispatchCopyEvent,
+  dispatchKeyDownEvent,
   getCleanTextContentFromElements,
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
@@ -150,5 +151,56 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assertShadowRoot(component.shadowRoot);
     const headerRowElement = component.shadowRoot.querySelector('.row.header-highlight');
     assertElement(headerRowElement, HTMLDivElement);
+  });
+
+  it('emits event on blur after being edited', async () => {
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
+      value: 'someHeaderValue',
+      editable: true,
+    };
+    const editedHeaderValue = 'new value for header';
+
+    const component = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+
+    let headerValueFromEvent = '';
+    component.addEventListener('headervaluechanged', event => {
+      headerValueFromEvent = event.headerValue;
+    });
+
+    const editable = component.shadowRoot.querySelector('.editable');
+    assertElement(editable, HTMLSpanElement);
+    editable.focus();
+    editable.innerText = editedHeaderValue;
+    editable.blur();
+
+    assert.strictEqual(headerValueFromEvent, editedHeaderValue);
+  });
+
+  it('resets edited value on escape key', async () => {
+    const originalHeaderValue = 'someHeaderValue';
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
+      value: originalHeaderValue,
+      editable: true,
+    };
+
+    const component = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+
+    let eventCount = 0;
+    component.addEventListener('headervaluechanged', () => {
+      eventCount++;
+    });
+
+    const editable = component.shadowRoot.querySelector('.editable');
+    assertElement(editable, HTMLSpanElement);
+    editable.focus();
+    editable.innerText = 'new value for header';
+    dispatchKeyDownEvent(editable, {key: 'Escape', bubbles: true});
+
+    assert.strictEqual(eventCount, 0);
+    assert.strictEqual(editable.innerText, originalHeaderValue);
   });
 });
