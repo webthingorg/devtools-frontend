@@ -16,6 +16,282 @@
       "message": "PTAL",
       "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e62073_1cfba070",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "Have you tried pasting in formatted text?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 137
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3edf1b3a_dd6ea9d9",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "originalValue?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c20621_127763ea",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "We are in the file called ResponseHeaderSection. I think it is pretty clear that overrides refer to headers, so we might just refer to them as overrides instead of headerOverrides to save some chars for reader to parse",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7c777ce_dbacf834",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "How about just overrides or maybe overrideFileContents if you want to be specific?",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97fc62e1_32601b84",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "loadOverridesInfo()?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 35
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40bca58_607e5cb1",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "How about making getHeadersUISourceCodeFromUrl in NetworkPersistenceManager public and using it here?",
+      "range": {
+        "startLine": 167,
+        "startChar": 25,
+        "endLine": 167,
+        "endChar": 95
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee7fb9f_39a04d7b",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "How about an early return to reduce nesting?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d2a26d_2a5f9f24",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "try {\n      await this.#uiSourceCode.requestContent()?\n      ...\n    } catch (e) {\n      ...\n    }",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 41
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fbfe144_b9b8c29b",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "How would this work when we allow adding and removing headers? Would we rerender everything so that data-index will be in sync with this.#headers?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 51
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c47ad9d_17ff6544",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "const headerName \u003d this.#headers[index].name;\n    \n to aid readability",
+      "range": {
+        "startLine": 273,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 9
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "523abb2c_fb323dcd",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "What if  this second condition doesn\u0027t hold? Don\u0027t we want to update the value anyway?",
+      "range": {
+        "startLine": 275,
+        "startChar": 57,
+        "endLine": 275,
+        "endChar": 117
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4774aaa_b171f504",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-14T15:40:29Z",
+      "side": 1,
+      "message": "const [lastOverride] \u003d this.#headerOverrideApplyToBlocks.slice(-1);\n    if (lastOverride?.applyTo \u003d\u003d\u003d rawFileName) {",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 65
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
