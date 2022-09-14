@@ -16,6 +16,24 @@
       "message": "Hi Simon, hi Mathias,\n\nthis CL is trimming away the BOM note at the start before parsing the JSON. PTAL!",
       "revId": "5f85760ea104d6e2e1cbf374dd9c9ef98631f17c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "900a8eab_f7ea2245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-14T15:15:21Z",
+      "side": 1,
+      "message": "I thought we would handle this in the backend, no? Mathias also posted a repro in the bug that showed that this is not just limited to the BOM. Do we plan to band-aid this for now while we work on the proper fix in the backend?",
+      "parentUuid": "e62520c6_18b20b89",
+      "revId": "5f85760ea104d6e2e1cbf374dd9c9ef98631f17c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
