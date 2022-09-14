@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bbd4a12_e48fb25d",
+        "filename": "front_end/entrypoints/js_app/js_app.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T12:23:21Z",
+      "side": 1,
+      "message": "This is needed by TimelinePanel, which is in \"js_profiler-meta.js\".\nWhen I googled how to debug nodejs, some answers mentioned \"throttling\". So I chose to keep it and ask node folks if they need this. If so will add this feature, otherwise remove it for node mode",
+      "parentUuid": "86bd27e6_7c25bb05",
+      "range": {
+        "startLine": 5,
+        "startChar": 39,
+        "endLine": 5,
+        "endChar": 56
+      },
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752ff5a1_99dcb814",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-09-13T10:59:20Z",
       "side": 1,
       "message": "I\u0027d yet again advocate for preventing duplication. It seems we are introducing a lot of duplication from timeline-meta.ts. How about we import timeline-meta.js (as well as js_profiler-meta.ts) in js_app.js? That way we wouldn\u0027t have to register these extensions in two different places.\n\nNote: if we need to know if node is being inspected we can use [1] and use the main target instance in [2]\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/Target.ts;l\u003d115\n[2] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelinePanel.ts;l\u003d832",
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74404b31_78f0a7d8",
+        "filename": "front_end/panels/js_profiler/js_profiler-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-14T12:23:21Z",
+      "side": 1,
+      "message": "I checked MainTarget.type(), and it is different for node_app and js_app, one is Type.Node, one is Type.Frame, so I don\u0027t think it is a good way to use the type()",
+      "parentUuid": "752ff5a1_99dcb814",
       "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
