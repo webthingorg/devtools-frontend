@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e951fbc_5683c809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-09-15T14:53:05Z",
+      "side": 1,
+      "message": "Thanks for the contribution! I really appreciate the help.\n\nSimon, could you also take a quick look at this, as you work more closely with the code?",
+      "revId": "0364ce4865c565081a18c7e483c9081f7d0d0b6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ba28137_136029a6",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-09-15T14:53:05Z",
+      "side": 1,
+      "message": "Why not be explicit about why we are doing this, and just check for `rowProperty.value \u003d\u003d\u003d \u0027\u0027` here?",
+      "range": {
+        "startLine": 1885,
+        "startChar": 38,
+        "endLine": 1885,
+        "endChar": 75
+      },
+      "revId": "0364ce4865c565081a18c7e483c9081f7d0d0b6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
