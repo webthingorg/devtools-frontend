@@ -39,6 +39,30 @@
       },
       "revId": "0364ce4865c565081a18c7e483c9081f7d0d0b6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9381251_9104fe47",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2022-09-15T16:02:54Z",
+      "side": 1,
+      "message": "I could see how this could cause more problems than it would prevent. Being more explicit is the correct decision. Thanks",
+      "parentUuid": "1ba28137_136029a6",
+      "range": {
+        "startLine": 1885,
+        "startChar": 38,
+        "endLine": 1885,
+        "endChar": 75
+      },
+      "revId": "0364ce4865c565081a18c7e483c9081f7d0d0b6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
