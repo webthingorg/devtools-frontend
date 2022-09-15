@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6619d8_97317ea2",
+        "filename": "test/e2e/lighthouse/timespan_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-09-15T18:48:12Z",
+      "side": 1,
+      "message": "Huh. What\u0027s going on here?",
+      "revId": "318be529cc4d5c72a1b94fa8fe0ec3c334b2f8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
