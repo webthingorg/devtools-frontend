@@ -16,6 +16,23 @@
       "message": "Thanks for the review!",
       "revId": "848c5ce2d5c6a3f56eb024d3365469c1c13c8405",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56765544_bbd1a4ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-15T08:56:24Z",
+      "side": 1,
+      "message": "As discussed offline, it still feels like ideally the backend would give us the resource contents (i.e. `decode(responseBytes)`). Then we wouldn’t have to deal with BOM or any other encoding-related issues in the front-end anymore. But for now this seems like a pragmatic \u0026 solid fix for the immediate issue, strictly better than the status quo, so LGTM — let’s ship this!",
+      "revId": "848c5ce2d5c6a3f56eb024d3365469c1c13c8405",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
