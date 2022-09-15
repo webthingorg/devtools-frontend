@@ -16,6 +16,24 @@
       "message": "I noticed that the ellipsis `...` is not used here, is it for vertical centering?",
       "revId": "15fbb46e050a487f001130d8499039cc889a5409",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb742a6e_ecaa63c3",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1714,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-09-15T11:23:39Z",
+      "side": 1,
+      "message": "Yes. The previous one is also a single char “…”.",
+      "parentUuid": "61fb0c9d_79232f32",
+      "revId": "15fbb46e050a487f001130d8499039cc889a5409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
