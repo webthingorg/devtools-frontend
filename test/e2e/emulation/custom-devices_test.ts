@@ -212,3 +212,16 @@ describe('Custom devices', async () => {
     assert.strictEqual(await elementTextContent(zoomButton), '100%');
   });
 });
+
+it.only('Test target click', async () => {
+  await reloadDockableFrontEnd();
+  await waitFor('.tabbed-pane-left-toolbar');
+  await goToResource('lighthouse/hello.html');
+  const {target} = await getBrowserAndPages();
+
+  // This line causes `target.click` to hang forever.
+  // Removing this line allows the test to finish.
+  await openDeviceToolbar();
+
+  await target.click('button');
+});
