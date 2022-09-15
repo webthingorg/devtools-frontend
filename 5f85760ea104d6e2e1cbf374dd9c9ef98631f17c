@@ -34,6 +34,24 @@
       "parentUuid": "e62520c6_18b20b89",
       "revId": "5f85760ea104d6e2e1cbf374dd9c9ef98631f17c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b6987b4_fdaa8bdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-15T08:25:39Z",
+      "side": 1,
+      "message": "Regarding the other non-ascii unicode symbols: We\u0027ve looked at the example, and the other non-ascii codes are rendered correctly (see the updated comment by Mathias: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1353983#c12)\n\nRegarding back-end: I\u0027ve looked at the differences between the two ways of loading the file (navigating directly to file:// vs. serving and going through localhost://). In the latter case the BOM is stripped, while that doesn\u0027t happen for the first case. \n\nThe difference is that we we seem to strip the BOM indirectly when we base64 encode the sourcemap (for some reason; I have also base64 encoded/decoded the file for the other use case and the bom was gone), if we load the served file, as we check for the mime type and it\u0027s an octet stream and thus will be base64 encoded.\n\nSometimes the BOM may be allowed (it\u0027s valid utf8), and if we\u0027d strip it in the back-end it will be stripped for all use cases. It\u0027s only here (knowing that it\u0027s json, and needing to parse it) where we know that we don\u0027t allow BOM at the start. Also, in this case, we don\u0027t know the mime type.",
+      "parentUuid": "900a8eab_f7ea2245",
+      "revId": "5f85760ea104d6e2e1cbf374dd9c9ef98631f17c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
