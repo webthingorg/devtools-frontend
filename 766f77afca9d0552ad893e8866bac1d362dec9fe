@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca8ec4f_74f5727b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-09-15T08:38:36Z",
+      "side": 1,
+      "message": "because Josi\u0027s CL is being accepted now, I believe this is a good moment to start the review of this CL",
+      "revId": "766f77afca9d0552ad893e8866bac1d362dec9fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
