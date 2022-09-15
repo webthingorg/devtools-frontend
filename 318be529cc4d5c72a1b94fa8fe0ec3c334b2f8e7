@@ -34,6 +34,24 @@
       "parentUuid": "7e6619d8_97317ea2",
       "revId": "318be529cc4d5c72a1b94fa8fe0ec3c334b2f8e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b070cc2_91109e2f",
+        "filename": "test/e2e/lighthouse/timespan_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-15T20:28:24Z",
+      "side": 1,
+      "message": "https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1364257",
+      "parentUuid": "1f663ba8_98ed5941",
+      "revId": "318be529cc4d5c72a1b94fa8fe0ec3c334b2f8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
