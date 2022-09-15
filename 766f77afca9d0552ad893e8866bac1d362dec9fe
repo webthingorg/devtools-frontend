@@ -16,6 +16,40 @@
       "message": "because Josi\u0027s CL is being accepted now, I believe this is a good moment to start the review of this CL",
       "revId": "766f77afca9d0552ad893e8866bac1d362dec9fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e2c99e_3905d75e",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-09-15T09:22:12Z",
+      "side": 1,
+      "message": "Use `SDK.ScreenCaptureModel.ScreenshotMode.FROM_CLIP` const here and below",
+      "revId": "766f77afca9d0552ad893e8866bac1d362dec9fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f93f60_78fa9b4e",
+        "filename": "front_end/core/sdk/ScreenCaptureModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-09-15T09:22:12Z",
+      "side": 1,
+      "message": "No need in this line, as well as in line 65.",
+      "revId": "766f77afca9d0552ad893e8866bac1d362dec9fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
