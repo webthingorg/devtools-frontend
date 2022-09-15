@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1844cb_e85f6043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-15T09:24:14Z",
+      "side": 1,
+      "message": "PTAL. This feels hacky, but I couldn\u0027t come up with a better solution that wouldn\u0027t require backend changes as well.",
+      "revId": "6bcb263180b1370827c05859095bed9d13553324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
