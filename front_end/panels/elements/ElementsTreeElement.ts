@@ -1708,8 +1708,21 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
         if (this.isExpandable()) {
           if (!this.expanded) {
-            const textNodeElement = titleDOM.createChild('span', 'webkit-html-text-node bogus');
-            textNodeElement.textContent = '…';
+            const textNodeElement = document.createElement('span');
+            textNodeElement.classList.add('webkit-html-text-node');
+            textNodeElement.classList.add('bogus');
+            textNodeElement.textContent = '⋯';
+
+            const adorner = new Adorners.Adorner.Adorner();
+            adorner.data = {
+              name: 'elements-tree-element-expand-button',
+              content: textNodeElement,
+            };
+            adorner.addEventListener('click', () => {
+              this.expand();
+            });
+            titleDOM.appendChild(adorner);
+
             UI.UIUtils.createTextChild(titleDOM, '\u200B');
             this.buildTagDOM(titleDOM, tagName, true, false, updateRecord);
           }
