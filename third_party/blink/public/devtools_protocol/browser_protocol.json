@@ -23047,6 +23047,16 @@
                             "description": "Expression to use as a breakpoint condition. When specified, debugger will only stop on the\nbreakpoint if this expression evaluates to true.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "kind",
+                            "description": "The kind of breakpoint to set, which primarily controls how the `location` is resolved. If\nunspecified, defaults to `inline`.",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "line",
+                                "inline"
+                            ]
                         }
                     ],
                     "returns": [
@@ -23122,6 +23132,16 @@
                             "description": "Expression to use as a breakpoint condition. When specified, debugger will only stop on the\nbreakpoint if this expression evaluates to true.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "kind",
+                            "description": "The kind of breakpoint to set, which primarily controls how the `lineNumber` and the\noptional `columnNumber` is resolved. If unspecified, defaults to `inline`.",
+                            "optional": true,
+                            "type": "string",
+                            "enum": [
+                                "line",
+                                "inline"
+                            ]
                         }
                     ],
                     "returns": [
