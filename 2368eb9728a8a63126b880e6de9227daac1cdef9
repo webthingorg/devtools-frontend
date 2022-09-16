@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91818191_d314d47a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-16T06:59:02Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027m adding event listeners to the BreakpointSidebarPane to act on jump to source and enable/disable breakpoints. PTAL!",
+      "revId": "2368eb9728a8a63126b880e6de9227daac1cdef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
