@@ -411,6 +411,10 @@ export class MainImpl {
         Root.Runtime.ExperimentName.IMPORTANT_DOM_PROPERTIES,
         'Highlight important DOM properties in the Object Properties viewer');
 
+    // Show  the detail of why Chrom used a specific protocol.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.ALTERNATE_PROTOCOL_USAGE, 'Show the detail of why Chrome used a specific protocol');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'hideIssuesFeature',
