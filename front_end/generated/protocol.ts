@@ -7688,6 +7688,10 @@ export namespace Network {
      */
     protocol?: string;
     /**
+     * The reason why Chrome used or didn’t use specific protocol.
+     */
+    alternateProtocolUsage?: string;
+    /**
      * Security state of the request resource.
      */
     securityState: Security.SecurityState;
