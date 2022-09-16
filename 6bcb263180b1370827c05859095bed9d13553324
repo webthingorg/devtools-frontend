@@ -16,6 +16,52 @@
       "message": "PTAL. This feels hacky, but I couldn\u0027t come up with a better solution that wouldn\u0027t require backend changes as well.",
       "revId": "6bcb263180b1370827c05859095bed9d13553324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "440a7716_f764b183",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-16T08:14:32Z",
+      "side": 1,
+      "message": "There is a number of issues with the constant delay, most importantly 500 might be too long for a first try but too short for retries. We could implement a simple exponential back-off here, such as \n\n    async #waitAndGoBackInHistory(delay): Promise\u003cvoid\u003e {\n      ...\n      if (historyResults.currentIndex \u003d\u003d\u003d this.#historyIndex) {\n        delay *\u003d 2;\n        window.setTimeout(this.#waitAndGoBackInHistory.bind(this, delay), delay);\n      }\n      ...\n    }",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 50
+      },
+      "revId": "6bcb263180b1370827c05859095bed9d13553324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751b524b_ec847936",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-16T08:14:32Z",
+      "side": 1,
+      "message": "Can we mock this navigationHistory() method and have a test coving this case?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 72
+      },
+      "revId": "6bcb263180b1370827c05859095bed9d13553324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
