@@ -16,6 +16,29 @@
       "message": "Hi Jaro,\n\nI\u0027m adding event listeners to the BreakpointSidebarPane to act on jump to source and enable/disable breakpoints. PTAL!",
       "revId": "2368eb9728a8a63126b880e6de9227daac1cdef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6279ac2_b5ca02d4",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-09-16T07:33:17Z",
+      "side": 1,
+      "message": "This can never happen, no?\n\nSo perhaps it could be `assertNotNullOrUndefined(locations);`?\n\nOr maybe you can remove the `undefined` from `#getLocationsForBreakpointItem`\u0027s return type (using `assertNotNullOrUndefined(locations);` there).",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "2368eb9728a8a63126b880e6de9227daac1cdef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
