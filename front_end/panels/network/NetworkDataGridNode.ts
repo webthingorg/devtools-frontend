@@ -881,7 +881,7 @@ export class NetworkRequestNode extends NetworkNode {
         break;
       }
       case 'protocol': {
-        this.setTextAndTitle(cell, this.requestInternal.protocol);
+        this.renderProtocolCell(cell);
         break;
       }
       case 'scheme': {
@@ -1168,6 +1168,12 @@ export class NetworkRequestNode extends NetworkNode {
     } else {
       this.setTextAndTitle(cell, i18nString(UIStrings.pendingq));
     }
+  }
+
+  private renderProtocolCell(cell: HTMLElement): void {
+    UI.UIUtils.createTextChild(cell, this.requestInternal.protocol);
+    UI.Tooltip.Tooltip.install(cell, this.requestInternal.alternateProtocolUsage);
+    cell.classList.add('network-dim-cell');
   }
 
   private renderInitiatorCell(cell: HTMLElement): void {
