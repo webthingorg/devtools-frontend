@@ -51,6 +51,7 @@ devtools_module("profiler") {
     "../../core/sdk:bundle",
     "../../models/bindings:bundle",
     "../../models/heap_snapshot_model:bundle",
+    "../../models/source_map_scopes:bundle",
     "../../models/workspace:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/data_grid:bundle",
