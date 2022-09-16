@@ -222,6 +222,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   requestMethod: string;
   requestTime: number;
   protocol: string;
+  alternateProtocolUsage: string;
   mixedContentType: Protocol.Security.MixedContentType;
   #initialPriorityInternal: Protocol.Network.ResourcePriority|null;
   #currentPriority: Protocol.Network.ResourcePriority|null;
@@ -321,6 +322,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.requestMethod = '';
     this.requestTime = 0;
     this.protocol = '';
+    this.alternateProtocolUsage = '';
     this.mixedContentType = Protocol.Security.MixedContentType.None;
 
     this.#initialPriorityInternal = null;
