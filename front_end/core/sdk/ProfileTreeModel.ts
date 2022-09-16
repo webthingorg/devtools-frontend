@@ -17,8 +17,8 @@ export class ProfileNode {
   children: ProfileNode[];
   depth!: number;
   deoptReason!: string|null;
-
-  constructor(callFrame: Protocol.Runtime.CallFrame) {
+  #target: Target|null;
+  constructor(callFrame: Protocol.Runtime.CallFrame, target: Target|null) {
     this.callFrame = callFrame;
     this.callUID = `${callFrame.functionName}@${callFrame.scriptId}:${callFrame.lineNumber}:${callFrame.columnNumber}`;
     this.self = 0;
@@ -26,6 +26,7 @@ export class ProfileNode {
     this.id = 0;
     this.parent = null;
     this.children = [];
+    this.#target = target;
   }
 
   get functionName(): string {
@@ -46,6 +47,10 @@ export class ProfileNode {
 
   get columnNumber(): number {
     return this.callFrame.columnNumber;
+  }
+
+  target(): Target|null {
+    return this.#target;
   }
 }
 
