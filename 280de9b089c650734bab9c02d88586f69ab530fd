@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2709c52_3b63a241",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-09-18T08:46:45Z",
+      "side": 1,
+      "message": "LGTM % observations that could be tackled as follow ups. :)",
+      "revId": "280de9b089c650734bab9c02d88586f69ab530fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
