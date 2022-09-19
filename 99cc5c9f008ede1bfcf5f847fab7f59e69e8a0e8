@@ -16,6 +16,46 @@
       "message": "Hi Jaro,\n\nthis change is adding the remove buttons to remove the breakpoints in a file and single breakpoints. PTAL!",
       "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e374288d_a070cfe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-09-19T14:50:33Z",
+      "side": 1,
+      "message": "LGTM (even though I do not really speak CSS well enough to review it)",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c1f5a8_96879f80",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-09-19T14:50:33Z",
+      "side": 1,
+      "message": "Out of curiosity, what is this doing? Does it just stop the event propagation?",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 20
+      },
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
