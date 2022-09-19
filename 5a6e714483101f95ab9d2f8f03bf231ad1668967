@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46a224de_93a17c76",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! I\u0027ve now added code to handle \u0027paste\u0027 events which removes formatting and line breaks. And pressing Enter when editing now leaves the contenteditable instead of creating a new line within it.",
+      "parentUuid": "d5e62073_1cfba070",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 137
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3edf1b3a_dd6ea9d9",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-14T15:40:29Z",
       "side": 1,
       "message": "originalValue?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df4dc032_4a03764b",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3edf1b3a_dd6ea9d9",
       "range": {
         "startLine": 275,
         "startChar": 0,
@@ -110,6 +158,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a8cb75_437292d2",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c20621_127763ea",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "918c1a59_2f7734c9",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7c777ce_dbacf834",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97fc62e1_32601b84",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-09-14T15:40:29Z",
       "side": 1,
       "message": "loadOverridesInfo()?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 35
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "747e8517_a2527cbc",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97fc62e1_32601b84",
       "range": {
         "startLine": 166,
         "startChar": 0,
@@ -156,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f307dcb3_397db5e7",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Thanks, done!",
+      "parentUuid": "a40bca58_607e5cb1",
+      "range": {
+        "startLine": 167,
+        "startChar": 25,
+        "endLine": 167,
+        "endChar": 95
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ee7fb9f_39a04d7b",
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91541a97_79612a9f",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee7fb9f_39a04d7b",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 29
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81d2a26d_2a5f9f24",
@@ -192,6 +360,30 @@
       "writtenOn": "2022-09-14T15:40:29Z",
       "side": 1,
       "message": "try {\n      await this.#uiSourceCode.requestContent()?\n      ...\n    } catch (e) {\n      ...\n    }",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 41
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c5bff0_119490e0",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d2a26d_2a5f9f24",
       "range": {
         "startLine": 169,
         "startChar": 0,
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbf1edaf_c553d486",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "I believe it should still work. It\u0027s planned that headers can only be added at the end, therefore not messing up the indices. And a removed header should still be shown (in strike-through), so indices shouldn\u0027t change in that case either.",
+      "parentUuid": "0fbfe144_b9b8c29b",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 51
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c47ad9d_17ff6544",
         "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
         "patchSetId": 9
@@ -238,6 +454,30 @@
       "writtenOn": "2022-09-14T15:40:29Z",
       "side": 1,
       "message": "const headerName \u003d this.#headers[index].name;\n    \n to aid readability",
+      "range": {
+        "startLine": 273,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 9
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6350e112_c1dc57aa",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c47ad9d_17ff6544",
       "range": {
         "startLine": 273,
         "startChar": 4,
@@ -273,6 +513,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a9df812_e852b509",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "If there are 2 \u0027foo\u0027 headers and the user edits one of them, the override should only contain the edited \u0027foo\u0027 header and the 2nd one is dropped by the logic here.\n\nIf the 2 \u0027foo\u0027 headers are already overrides and 1 of them is being edited, both of them should be written to the overrides file.",
+      "parentUuid": "523abb2c_fb323dcd",
+      "range": {
+        "startLine": 275,
+        "startChar": 57,
+        "endLine": 275,
+        "endChar": 117
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4774aaa_b171f504",
         "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
         "patchSetId": 9
@@ -284,6 +548,30 @@
       "writtenOn": "2022-09-14T15:40:29Z",
       "side": 1,
       "message": "const [lastOverride] \u003d this.#headerOverrideApplyToBlocks.slice(-1);\n    if (lastOverride?.applyTo \u003d\u003d\u003d rawFileName) {",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 65
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8452a3_44aaab95",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-19T10:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4774aaa_b171f504",
       "range": {
         "startLine": 286,
         "startChar": 0,
