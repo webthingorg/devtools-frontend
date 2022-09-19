@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa43cc3b_683effec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-09-19T08:12:35Z",
+      "side": 1,
+      "message": "Blocking for now because of the CDP change was reverted: https://crrev.com/c/3899801",
+      "revId": "b1c362cbb3f15f50d0f9caba2c4fabd3975a7c73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
