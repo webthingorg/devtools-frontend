@@ -441,6 +441,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d31151f_ce8813ce",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-19T11:23:46Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "dbf1edaf_c553d486",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 51
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c47ad9d_17ff6544",
@@ -525,6 +549,30 @@
       "side": 1,
       "message": "If there are 2 \u0027foo\u0027 headers and the user edits one of them, the override should only contain the edited \u0027foo\u0027 header and the 2nd one is dropped by the logic here.\n\nIf the 2 \u0027foo\u0027 headers are already overrides and 1 of them is being edited, both of them should be written to the overrides file.",
       "parentUuid": "523abb2c_fb323dcd",
+      "range": {
+        "startLine": 275,
+        "startChar": 57,
+        "endLine": 275,
+        "endChar": 117
+      },
+      "revId": "5a6e714483101f95ab9d2f8f03bf231ad1668967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03adc3ec_1116586f",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-19T11:23:46Z",
+      "side": 1,
+      "message": "Makes sense, thanks!",
+      "parentUuid": "8a9df812_e852b509",
       "range": {
         "startLine": 275,
         "startChar": 57,
