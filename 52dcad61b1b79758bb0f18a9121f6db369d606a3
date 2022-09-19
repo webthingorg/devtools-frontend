@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd5f71fa_15b60d18",
+        "filename": "front_end/entrypoints/js_app/js_app.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-19T08:23:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "30b256eb_eba39892",
+      "range": {
+        "startLine": 5,
+        "startChar": 39,
+        "endLine": 5,
+        "endChar": 56
+      },
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752ff5a1_99dcb814",
@@ -121,6 +145,24 @@
       "side": 1,
       "message": "In that case, we could check if the target type corresponds to one of the values set by the entrypoints of interest. Each entrypoint calls [0] at initializing, with a certain type. If feasible, we could leave this check and the dedup as a follow up\n\n[0] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/TargetManager.ts;l\u003d169",
       "parentUuid": "74404b31_78f0a7d8",
+      "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4df040d1_a9b26633",
+        "filename": "front_end/panels/js_profiler/js_profiler-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-09-19T08:23:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "01ecc362_a7375755",
       "revId": "52dcad61b1b79758bb0f18a9121f6db369d606a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
