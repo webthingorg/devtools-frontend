@@ -28,6 +28,10 @@ const UIStrings = {
   *@example {checked} PH1
   */
   breakpointHit: '{PH1} breakpoint hit',
+  /**
+  *@description Tooltip text that shows when hovered over a remove button of a file in the breakpoint sidebar.
+  */
+  removeBreakpointsInFile: 'Remove all breakpoints in file',
 
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/components/BreakpointsView.ts', UIStrings);
@@ -90,12 +94,23 @@ export class BreakpointSelectedEvent extends Event {
   }
 }
 
+export class BreakpointsRemovedEvent extends Event {
+  static readonly eventName = 'breakpointsremoved';
+  data: {breakpointItems: BreakpointItem[]};
+
+  constructor(breakpointItems: BreakpointItem[]) {
+    super(BreakpointsRemovedEvent.eventName);
+    this.data = {breakpointItems};
+  }
+}
+
 export class BreakpointsView extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-breakpoint-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #boundRender = this.#render.bind(this);
 
   #breakpointGroups: BreakpointGroup[] = [];
+  #hoveredElement: BreakpointGroup|BreakpointItem|undefined;
 
   set data(data: BreakpointsViewData) {
     this.#breakpointGroups = data.groups;
@@ -118,12 +133,37 @@ export class BreakpointsView extends HTMLElement {
     LitHtml.render(LitHtml.html`${renderedGroups}`, this.#shadow, {host: this});
   }
 
+  #renderDeleteButton(clickHandler: () => void, text: string): LitHtml.TemplateResult {
+    // clang-format off
+    return LitHtml.html`
+    <button class='remove-breakpoint-button' @click=${clickHandler} title=${text}>
+    <${IconButton.Icon.Icon.litTagName} .data=${{
+        iconName: 'close-icon',
+        width: '7px',
+        color: 'var(--color-text-secondary)',
+      } as IconButton.Icon.IconData}
+      }>
+      </${IconButton.Icon.Icon.litTagName}>
+    </button>
+      `;
+    // clang-format on
+  }
+
   #renderBreakpointGroup(group: BreakpointGroup): LitHtml.TemplateResult {
+    let removeFileBreakpointsButton: LitHtml.TemplateResult|symbol = LitHtml.nothing;
+    if (group === this.#hoveredElement) {
+      const clickHandler = (): void => {
+        this.dispatchEvent(new BreakpointsRemovedEvent(group.breakpointItems));
+      };
+      removeFileBreakpointsButton =
+          this.#renderDeleteButton(clickHandler, i18nString(UIStrings.removeBreakpointsInFile));
+    }
+
     // clang-format off
     return LitHtml.html`
       <details data-group='true' ?open=${group.expanded} @click=${(e: Event): void => this.#onGroupExpandToggled(e, group)}>
-        <summary>
-          <span class='group-header'>${this.#renderFileIcon()}<span class='group-header-title'>${group.name}</span></span>
+        <summary @mouseover=${():void => this.#onMouseOver(group)} @mouseout=${():void => this.#onMouseOut(group)}>
+          <span class='group-header'>${this.#renderFileIcon()}<span class='group-header-title'>${group.name}</span></span><span class='group-hover-actions'>${removeFileBreakpointsButton}</span>
         </summary>
         ${LitHtml.html`
           ${group.breakpointItems.map(entry => this.#renderBreakpointEntry(entry))}`}
@@ -133,14 +173,25 @@ export class BreakpointsView extends HTMLElement {
   }
 
   #renderFileIcon(): LitHtml.TemplateResult {
+    // clang-format off
     return LitHtml.html`
       <${IconButton.Icon.Icon.litTagName} .data=${
         {iconName: 'ic_file_script', color: 'var(--color-ic-file-script)', width: '16px', height: '16px'} as
         IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
     `;
+    // clang-format on
   }
 
   #renderBreakpointEntry(breakpointItem: BreakpointItem): LitHtml.TemplateResult {
+    const isHovered = breakpointItem === this.#hoveredElement;
+    let deleteButton: LitHtml.TemplateResult|symbol = LitHtml.nothing;
+    if (isHovered) {
+      const clickHandler = (): void => {
+        this.dispatchEvent(new BreakpointsRemovedEvent([breakpointItem]));
+      };
+      deleteButton = this.#renderDeleteButton(clickHandler, i18nString(UIStrings.removeBreakpointsInFile));
+    }
+
     const classMap = {
       'breakpoint-item': true,
       'hit': breakpointItem.isHit,
@@ -150,15 +201,33 @@ export class BreakpointsView extends HTMLElement {
 
     // clang-format off
     return LitHtml.html`
-    <div class=${LitHtml.Directives.classMap(classMap)} aria-label=${breakpointItemDescription}  tabIndex=${breakpointItem.isHit ? 0 : -1}>
+    <div class=${LitHtml.Directives.classMap(classMap)} aria-label=${breakpointItemDescription}  tabIndex=${breakpointItem.isHit ? 0 : -1} @mouseover=${():void => this.#onMouseOver(breakpointItem)} @mouseout=${():void => this.#onMouseOut(breakpointItem)}>
       <label class='checkbox-label'>
         <input type='checkbox' aria-label=${breakpointItem.location} ?indeterminate=${breakpointItem.status === BreakpointStatus.INDETERMINATE} ?checked=${breakpointItem.status === BreakpointStatus.ENABLED} @change=${(e: Event): void => this.#onCheckboxToggled(e, breakpointItem)}>
       </label>
       <span class='code-snippet' @click=${():void => {this.dispatchEvent(new BreakpointSelectedEvent(breakpointItem));}}>${codeSnippet}</span>
-      <span class='location'>${breakpointItem.location}</span>
+      <span class='breakpoint-item-location-or-actions'>
+        ${isHovered ? LitHtml.html`${deleteButton}`: LitHtml.html`<span class='location'>${breakpointItem.location}</span>`}
+      </span>
     </div>
     `;
     // clang-format on
+  }
+
+  #onMouseOver(element: BreakpointGroup|BreakpointItem): void {
+    if (this.#hoveredElement === element) {
+      return;
+    }
+    this.#hoveredElement = element;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  #onMouseOut(element: BreakpointGroup|BreakpointItem): void {
+    if (this.#hoveredElement !== element) {
+      return;
+    }
+    this.#hoveredElement = undefined;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #getBreakpointItemDescription(breakpointItem: BreakpointItem): Platform.UIString.LocalizedString {
