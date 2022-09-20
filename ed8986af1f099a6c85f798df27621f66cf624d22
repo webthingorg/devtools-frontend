@@ -16,6 +16,57 @@
       "message": "Maud: can you review the issue text? I\u0027ve labeled the \"NotDelegated\" message a breaking change, so it will show up in orange in devtools, unlike the other issues which are \"page errors\".",
       "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa20bb91_5d9d0668",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-09-20T16:29:44Z",
+      "side": 1,
+      "message": "I see two issue types, arPermissionPolicyDisabled and arPermissionPolicyNotDelegated.\n\n1. Which will pop when the policy has been explicitly disabled in the parent context? IMU this will be arPermissionPolicyDisabled. \n2. Which will pop for a cross-origin iframe nested within a cross-origin iframe where none of these has explicitly allowed the API? IMU this will be arPermissionPolicyNotDelegated. \n3. Which will pop for a cross-origin iframe (with no allow\u003dattribution-reporting) embedded directly in the top-level? IMU this will also be arPermissionPolicyNotDelegated.\n\n(1) does block API usage, both during and after the testing phase.\n(2) and (3) don\u0027t block API usage during the testing phase. After testing they will become arPermissionPolicyNotDelegated will become an IssueKind.PageError.\n\nIs this correct?\nIf yes:\n* I\u0027m a bit confused by the Note at the end of arPermissionPolicyDisabled.\n* Having different titles for the issues would help (happy to suggest once my understanding is confirmed)",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0baff5e_7a1ecc5c",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-09-20T16:29:44Z",
+      "side": 1,
+      "message": "Nit: cross origin -\u003e cross-origin\nNit: will become -\u003e it will become",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386e3411_d4979181",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyNotDelegated.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-09-20T16:29:44Z",
+      "side": 1,
+      "message": "Nit: cross origin -\u003e cross-origin",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
