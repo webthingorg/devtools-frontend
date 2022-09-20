@@ -13,7 +13,7 @@ export const SPECS = {
   'uievents': 4,
   'pointerevents': 8,
   'cssom': 16,
-  'wai-aria': 32,
+  'wai-aria': 32
 };
 
 export interface DOMPinnedWebIDLProp {
@@ -65,12 +65,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'Document': {
     'inheritance': 'Node',
     'includes': [
-      'GlobalEventHandlers',
-      'DocumentAndElementEventHandlers',
-      'NonElementParentNode',
-      'DocumentOrShadowRoot',
-      'ParentNode',
-      'XPathEvaluatorBase',
+      'GlobalEventHandlers', 'DocumentAndElementEventHandlers', 'NonElementParentNode', 'DocumentOrShadowRoot',
+      'ParentNode', 'XPathEvaluatorBase'
     ],
     'props': {
       'location': {},
@@ -113,19 +109,16 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'inputEncoding': {'specs': 2},
       'contentType': {'specs': 2},
       'doctype': {'specs': 2},
-      'documentElement': {'specs': 2},
-    },
+      'documentElement': {'specs': 2}
+    }
   },
   'DocumentOrShadowRoot':
       {'props': {'activeElement': {}, 'styleSheets': {'specs': 16}, 'adoptedStyleSheets': {'specs': 16}}},
   'HTMLElement': {
     'inheritance': 'Element',
     'includes': [
-      'GlobalEventHandlers',
-      'DocumentAndElementEventHandlers',
-      'ElementContentEditable',
-      'HTMLOrSVGElement',
-      'ElementCSSInlineStyle',
+      'GlobalEventHandlers', 'DocumentAndElementEventHandlers', 'ElementContentEditable', 'HTMLOrSVGElement',
+      'ElementCSSInlineStyle'
     ],
     'props': {
       'title': {'global': true},
@@ -140,8 +133,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'spellcheck': {'global': true},
       'autocapitalize': {'global': true},
       'innerText': {},
-      'outerText': {},
-    },
+      'outerText': {}
+    }
   },
   'HTMLUnknownElement': {'inheritance': 'HTMLElement'},
   'HTMLOrSVGElement':
@@ -171,20 +164,20 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'disabled': {},
       'charset': {},
       'rev': {},
-      'target': {},
-    },
+      'target': {}
+    }
   },
   'HTMLMetaElement':
       {'inheritance': 'HTMLElement', 'props': {'name': {}, 'httpEquiv': {}, 'content': {}, 'media': {}, 'scheme': {}}},
   'HTMLStyleElement': {
     'inheritance': 'HTMLElement',
     'includes': ['LinkStyle'],
-    'props': {'disabled': {}, 'media': {}, 'blocking': {}, 'type': {}},
+    'props': {'disabled': {}, 'media': {}, 'blocking': {}, 'type': {}}
   },
   'HTMLBodyElement': {
     'inheritance': 'HTMLElement',
     'includes': ['WindowEventHandlers'],
-    'props': {'text': {}, 'link': {}, 'vLink': {}, 'aLink': {}, 'bgColor': {}, 'background': {}},
+    'props': {'text': {}, 'link': {}, 'vLink': {}, 'aLink': {}, 'bgColor': {}, 'background': {}}
   },
   'HTMLHeadingElement': {'inheritance': 'HTMLElement', 'props': {'align': {}}},
   'HTMLParagraphElement': {'inheritance': 'HTMLElement', 'props': {'align': {}}},
@@ -215,8 +208,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'charset': {},
       'name': {},
       'rev': {},
-      'shape': {},
-    },
+      'shape': {}
+    }
   },
   'HTMLDataElement': {'inheritance': 'HTMLElement', 'props': {'value': {}}},
   'HTMLTimeElement': {'inheritance': 'HTMLElement', 'props': {'dateTime': {}}},
@@ -234,14 +227,14 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'port': {},
       'pathname': {},
       'search': {},
-      'hash': {},
-    },
+      'hash': {}
+    }
   },
   'HTMLModElement': {'inheritance': 'HTMLElement', 'props': {'cite': {}, 'dateTime': {}}},
   'HTMLPictureElement': {'inheritance': 'HTMLElement'},
   'HTMLSourceElement': {
     'inheritance': 'HTMLElement',
-    'props': {'src': {}, 'type': {}, 'srcset': {}, 'sizes': {}, 'media': {}, 'width': {}, 'height': {}},
+    'props': {'src': {}, 'type': {}, 'srcset': {}, 'sizes': {}, 'media': {}, 'width': {}, 'height': {}}
   },
   'HTMLImageElement': {
     'inheritance': 'HTMLElement',
@@ -268,8 +261,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'hspace': {},
       'vspace': {},
       'longDesc': {},
-      'border': {},
-    },
+      'border': {}
+    }
   },
   'HTMLIFrameElement': {
     'inheritance': 'HTMLElement',
@@ -291,12 +284,12 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'frameBorder': {},
       'longDesc': {},
       'marginHeight': {},
-      'marginWidth': {},
-    },
+      'marginWidth': {}
+    }
   },
   'HTMLEmbedElement': {
     'inheritance': 'HTMLElement',
-    'props': {'src': {}, 'type': {}, 'width': {}, 'height': {}, 'align': {}, 'name': {}},
+    'props': {'src': {}, 'type': {}, 'width': {}, 'height': {}, 'align': {}, 'name': {}}
   },
   'HTMLObjectElement': {
     'inheritance': 'HTMLElement',
@@ -322,17 +315,17 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'codeBase': {},
       'codeType': {},
       'useMap': {},
-      'border': {},
-    },
+      'border': {}
+    }
   },
   'HTMLVideoElement': {
     'inheritance': 'HTMLMediaElement',
-    'props': {'width': {}, 'height': {}, 'videoWidth': {}, 'videoHeight': {}, 'poster': {}, 'playsInline': {}},
+    'props': {'width': {}, 'height': {}, 'videoWidth': {}, 'videoHeight': {}, 'poster': {}, 'playsInline': {}}
   },
   'HTMLAudioElement': {'inheritance': 'HTMLMediaElement'},
   'HTMLTrackElement': {
     'inheritance': 'HTMLElement',
-    'props': {'kind': {}, 'src': {}, 'srclang': {}, 'label': {}, 'default': {}, 'readyState': {}, 'track': {}},
+    'props': {'kind': {}, 'src': {}, 'srclang': {}, 'label': {}, 'default': {}, 'readyState': {}, 'track': {}}
   },
   'HTMLMediaElement': {
     'inheritance': 'HTMLElement',
@@ -364,8 +357,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'defaultMuted': {},
       'audioTracks': {},
       'videoTracks': {},
-      'textTracks': {},
-    },
+      'textTracks': {}
+    }
   },
   'MediaError': {'props': {'code': {}, 'message': {}}},
   'AudioTrackList':
@@ -373,7 +366,7 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'AudioTrack': {'props': {'id': {}, 'kind': {}, 'label': {}, 'language': {}, 'enabled': {}}},
   'VideoTrackList': {
     'inheritance': 'EventTarget',
-    'props': {'length': {}, 'selectedIndex': {}, 'onchange': {}, 'onaddtrack': {}, 'onremovetrack': {}},
+    'props': {'length': {}, 'selectedIndex': {}, 'onchange': {}, 'onaddtrack': {}, 'onremovetrack': {}}
   },
   'VideoTrack': {'props': {'id': {}, 'kind': {}, 'label': {}, 'language': {}, 'selected': {}}},
   'TextTrackList':
@@ -389,13 +382,13 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'mode': {},
       'cues': {},
       'activeCues': {},
-      'oncuechange': {},
-    },
+      'oncuechange': {}
+    }
   },
   'TextTrackCueList': {'props': {'length': {}}},
   'TextTrackCue': {
     'inheritance': 'EventTarget',
-    'props': {'track': {}, 'id': {}, 'startTime': {}, 'endTime': {}, 'pauseOnExit': {}, 'onenter': {}, 'onexit': {}},
+    'props': {'track': {}, 'id': {}, 'startTime': {}, 'endTime': {}, 'pauseOnExit': {}, 'onenter': {}, 'onexit': {}}
   },
   'TimeRanges': {'props': {'length': {}}},
   'TrackEvent': {'inheritance': 'Event', 'props': {'track': {}}},
@@ -414,8 +407,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'rel': {},
       'relList': {},
       'referrerPolicy': {},
-      'noHref': {},
-    },
+      'noHref': {}
+    }
   },
   'HTMLTableElement': {
     'inheritance': 'HTMLElement',
@@ -433,13 +426,13 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'width': {},
       'bgColor': {},
       'cellPadding': {},
-      'cellSpacing': {},
-    },
+      'cellSpacing': {}
+    }
   },
   'HTMLTableCaptionElement': {'inheritance': 'HTMLElement', 'props': {'align': {}}},
   'HTMLTableColElement': {
     'inheritance': 'HTMLElement',
-    'props': {'span': {}, 'align': {}, 'ch': {}, 'chOff': {}, 'vAlign': {}, 'width': {}},
+    'props': {'span': {}, 'align': {}, 'ch': {}, 'chOff': {}, 'vAlign': {}, 'width': {}}
   },
   'HTMLTableSectionElement':
       {'inheritance': 'HTMLElement', 'props': {'rows': {}, 'align': {}, 'ch': {}, 'chOff': {}, 'vAlign': {}}},
@@ -453,8 +446,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'ch': {},
       'chOff': {},
       'vAlign': {},
-      'bgColor': {},
-    },
+      'bgColor': {}
+    }
   },
   'HTMLTableCellElement': {
     'inheritance': 'HTMLElement',
@@ -473,8 +466,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'chOff': {},
       'noWrap': {},
       'vAlign': {},
-      'bgColor': {},
-    },
+      'bgColor': {}
+    }
   },
   'HTMLFormElement': {
     'inheritance': 'HTMLElement',
@@ -491,8 +484,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'rel': {},
       'relList': {},
       'elements': {},
-      'length': {},
-    },
+      'length': {}
+    }
   },
   'HTMLLabelElement': {'inheritance': 'HTMLElement', 'props': {'form': {}, 'htmlFor': {}, 'control': {}}},
   'HTMLInputElement': {
@@ -502,22 +495,12 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'alt': {'rules': [{'when': 'type', 'is': 'image'}]},
       'autocomplete': {
         'rules': [
-          {'when': 'type', 'is': 'hidden'},
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-          {'when': 'type', 'is': 'color'},
-        ],
+          {'when': 'type', 'is': 'hidden'}, {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'},
+          {'when': 'type', 'is': 'url'}, {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'},
+          {'when': 'type', 'is': 'password'}, {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'},
+          {'when': 'type', 'is': 'week'}, {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'},
+          {'when': 'type', 'is': 'number'}, {'when': 'type', 'is': 'range'}, {'when': 'type', 'is': 'color'}
+        ]
       },
       'defaultChecked': {},
       'checked': {'rules': [{'when': 'type', 'is': 'checkbox'}, {'when': 'type', 'is': 'radio'}]},
@@ -534,142 +517,84 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'indeterminate': {},
       'list': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-          {'when': 'type', 'is': 'color'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'date'},
+          {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'}, {'when': 'type', 'is': 'time'},
+          {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'}, {'when': 'type', 'is': 'range'},
+          {'when': 'type', 'is': 'color'}
+        ]
       },
       'max': {
         'rules': [
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-        ],
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'},
+          {'when': 'type', 'is': 'range'}
+        ]
       },
       'maxLength': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'min': {
         'rules': [
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-        ],
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'},
+          {'when': 'type', 'is': 'range'}
+        ]
       },
       'minLength': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'multiple': {'rules': [{'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'file'}]},
       'name': {},
       'pattern': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'placeholder': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-          {'when': 'type', 'is': 'number'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'},
+          {'when': 'type', 'is': 'number'}
+        ]
       },
       'readOnly': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'},
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'}
+        ]
       },
       'required': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'checkbox'},
-          {'when': 'type', 'is': 'radio'},
-          {'when': 'type', 'is': 'file'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'},
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'},
+          {'when': 'type', 'is': 'checkbox'}, {'when': 'type', 'is': 'radio'}, {'when': 'type', 'is': 'file'}
+        ]
       },
       'size': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'email'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'email'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'src': {'rules': [{'when': 'type', 'is': 'image'}]},
       'step': {
         'rules': [
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-        ],
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'},
+          {'when': 'type', 'is': 'range'}
+        ]
       },
       'type': {},
       'defaultValue': {},
@@ -682,27 +607,21 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
           {'when': 'type', 'is': 'number'},   {'when': 'type', 'is': 'range'}, {'when': 'type', 'is': 'color'},
           {'when': 'type', 'is': 'checkbox'}, {'when': 'type', 'is': 'radio'}, {'when': 'type', 'is': 'file'},
           {'when': 'type', 'is': 'submit'},   {'when': 'type', 'is': 'image'}, {'when': 'type', 'is': 'reset'},
-          {'when': 'type', 'is': 'button'},
-        ],
+          {'when': 'type', 'is': 'button'}
+        ]
       },
       'valueAsDate': {
         'rules': [
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-        ],
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}
+        ]
       },
       'valueAsNumber': {
         'rules': [
-          {'when': 'type', 'is': 'date'},
-          {'when': 'type', 'is': 'month'},
-          {'when': 'type', 'is': 'week'},
-          {'when': 'type', 'is': 'time'},
-          {'when': 'type', 'is': 'datetime-local'},
-          {'when': 'type', 'is': 'number'},
-          {'when': 'type', 'is': 'range'},
-        ],
+          {'when': 'type', 'is': 'date'}, {'when': 'type', 'is': 'month'}, {'when': 'type', 'is': 'week'},
+          {'when': 'type', 'is': 'time'}, {'when': 'type', 'is': 'datetime-local'}, {'when': 'type', 'is': 'number'},
+          {'when': 'type', 'is': 'range'}
+        ]
       },
       'width': {'rules': [{'when': 'type', 'is': 'image'}]},
       'willValidate': {},
@@ -711,33 +630,24 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'labels': {},
       'selectionStart': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'selectionEnd': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'selectionDirection': {
         'rules': [
-          {'when': 'type', 'is': 'text'},
-          {'when': 'type', 'is': 'search'},
-          {'when': 'type', 'is': 'url'},
-          {'when': 'type', 'is': 'tel'},
-          {'when': 'type', 'is': 'password'},
-        ],
+          {'when': 'type', 'is': 'text'}, {'when': 'type', 'is': 'search'}, {'when': 'type', 'is': 'url'},
+          {'when': 'type', 'is': 'tel'}, {'when': 'type', 'is': 'password'}
+        ]
       },
       'align': {},
-      'useMap': {},
+      'useMap': {}
     },
     'rules': [
       {'when': 'type', 'is': 'hidden'},   {'when': 'type', 'is': 'text'},  {'when': 'type', 'is': 'search'},
@@ -747,8 +657,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       {'when': 'type', 'is': 'number'},   {'when': 'type', 'is': 'range'}, {'when': 'type', 'is': 'color'},
       {'when': 'type', 'is': 'checkbox'}, {'when': 'type', 'is': 'radio'}, {'when': 'type', 'is': 'file'},
       {'when': 'type', 'is': 'submit'},   {'when': 'type', 'is': 'image'}, {'when': 'type', 'is': 'reset'},
-      {'when': 'type', 'is': 'button'},
-    ],
+      {'when': 'type', 'is': 'button'}
+    ]
   },
   'HTMLButtonElement': {
     'inheritance': 'HTMLElement',
@@ -766,8 +676,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'willValidate': {},
       'validity': {},
       'validationMessage': {},
-      'labels': {},
-    },
+      'labels': {}
+    }
   },
   'HTMLSelectElement': {
     'inheritance': 'HTMLElement',
@@ -788,8 +698,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'willValidate': {},
       'validity': {},
       'validationMessage': {},
-      'labels': {},
-    },
+      'labels': {}
+    }
   },
   'HTMLDataListElement': {'inheritance': 'HTMLElement', 'props': {'options': {}}},
   'HTMLOptGroupElement': {'inheritance': 'HTMLElement', 'props': {'disabled': {}, 'label': {}}},
@@ -803,8 +713,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'selected': {},
       'value': {},
       'text': {},
-      'index': {},
-    },
+      'index': {}
+    }
   },
   'HTMLTextAreaElement': {
     'inheritance': 'HTMLElement',
@@ -832,8 +742,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'labels': {},
       'selectionStart': {},
       'selectionEnd': {},
-      'selectionDirection': {},
-    },
+      'selectionDirection': {}
+    }
   },
   'HTMLOutputElement': {
     'inheritance': 'HTMLElement',
@@ -847,14 +757,14 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'willValidate': {},
       'validity': {},
       'validationMessage': {},
-      'labels': {},
-    },
+      'labels': {}
+    }
   },
   'HTMLProgressElement':
       {'inheritance': 'HTMLElement', 'props': {'value': {}, 'max': {}, 'position': {}, 'labels': {}}},
   'HTMLMeterElement': {
     'inheritance': 'HTMLElement',
-    'props': {'value': {}, 'min': {}, 'max': {}, 'low': {}, 'high': {}, 'optimum': {}, 'labels': {}},
+    'props': {'value': {}, 'min': {}, 'max': {}, 'low': {}, 'high': {}, 'optimum': {}, 'labels': {}}
   },
   'HTMLFieldSetElement': {
     'inheritance': 'HTMLElement',
@@ -866,8 +776,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'elements': {},
       'willValidate': {},
       'validity': {},
-      'validationMessage': {},
-    },
+      'validationMessage': {}
+    }
   },
   'HTMLLegendElement': {'inheritance': 'HTMLElement', 'props': {'form': {}, 'align': {}}},
   'ValidityState': {
@@ -882,8 +792,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'stepMismatch': {},
       'badInput': {},
       'customError': {},
-      'valid': {},
-    },
+      'valid': {}
+    }
   },
   'SubmitEvent': {'inheritance': 'Event', 'props': {'submitter': {}}},
   'SubmitEventInit': {'inheritance': 'EventInit', 'props': {'submitter': {}}},
@@ -906,8 +816,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'blocking': {},
       'charset': {},
       'event': {},
-      'htmlFor': {},
-    },
+      'htmlFor': {}
+    }
   },
   'HTMLTemplateElement': {'inheritance': 'HTMLElement', 'props': {'content': {}}},
   'HTMLSlotElement': {'inheritance': 'HTMLElement', 'props': {'name': {}}},
@@ -917,24 +827,11 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       {'props': {'alpha': {}, 'desynchronized': {}, 'colorSpace': {}, 'willReadFrequently': {}}},
   'CanvasRenderingContext2D': {
     'includes': [
-      'CanvasState',
-      'CanvasTransform',
-      'CanvasCompositing',
-      'CanvasImageSmoothing',
-      'CanvasFillStrokeStyles',
-      'CanvasShadowStyles',
-      'CanvasFilters',
-      'CanvasRect',
-      'CanvasDrawPath',
-      'CanvasUserInterface',
-      'CanvasText',
-      'CanvasDrawImage',
-      'CanvasImageData',
-      'CanvasPathDrawingStyles',
-      'CanvasTextDrawingStyles',
-      'CanvasPath',
+      'CanvasState', 'CanvasTransform', 'CanvasCompositing', 'CanvasImageSmoothing', 'CanvasFillStrokeStyles',
+      'CanvasShadowStyles', 'CanvasFilters', 'CanvasRect', 'CanvasDrawPath', 'CanvasUserInterface', 'CanvasText',
+      'CanvasDrawImage', 'CanvasImageData', 'CanvasPathDrawingStyles', 'CanvasTextDrawingStyles', 'CanvasPath'
     ],
-    'props': {'canvas': {}},
+    'props': {'canvas': {}}
   },
   'CanvasCompositing': {'props': {'globalAlpha': {}, 'globalCompositeOperation': {}}},
   'CanvasImageSmoothing': {'props': {'imageSmoothingEnabled': {}, 'imageSmoothingQuality': {}}},
@@ -954,8 +851,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'fontStretch': {},
       'fontVariantCaps': {},
       'textRendering': {},
-      'wordSpacing': {},
-    },
+      'wordSpacing': {}
+    }
   },
   'TextMetrics': {
     'props': {
@@ -970,8 +867,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'emHeightDescent': {},
       'hangingBaseline': {},
       'alphabeticBaseline': {},
-      'ideographicBaseline': {},
-    },
+      'ideographicBaseline': {}
+    }
   },
   'ImageDataSettings': {'props': {'colorSpace': {}}},
   'ImageData': {'props': {'width': {}, 'height': {}, 'data': {}, 'colorSpace': {}}},
@@ -981,32 +878,20 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'ImageEncodeOptions': {'props': {'type': {}, 'quality': {}}},
   'OffscreenCanvas': {
     'inheritance': 'EventTarget',
-    'props': {'width': {}, 'height': {}, 'oncontextlost': {}, 'oncontextrestored': {}},
+    'props': {'width': {}, 'height': {}, 'oncontextlost': {}, 'oncontextrestored': {}}
   },
   'OffscreenCanvasRenderingContext2D': {
     'includes': [
-      'CanvasState',
-      'CanvasTransform',
-      'CanvasCompositing',
-      'CanvasImageSmoothing',
-      'CanvasFillStrokeStyles',
-      'CanvasShadowStyles',
-      'CanvasFilters',
-      'CanvasRect',
-      'CanvasDrawPath',
-      'CanvasText',
-      'CanvasDrawImage',
-      'CanvasImageData',
-      'CanvasPathDrawingStyles',
-      'CanvasTextDrawingStyles',
-      'CanvasPath',
+      'CanvasState', 'CanvasTransform', 'CanvasCompositing', 'CanvasImageSmoothing', 'CanvasFillStrokeStyles',
+      'CanvasShadowStyles', 'CanvasFilters', 'CanvasRect', 'CanvasDrawPath', 'CanvasText', 'CanvasDrawImage',
+      'CanvasImageData', 'CanvasPathDrawingStyles', 'CanvasTextDrawingStyles', 'CanvasPath'
     ],
-    'props': {'canvas': {}},
+    'props': {'canvas': {}}
   },
   'ElementDefinitionOptions': {'props': {'extends': {}}},
   'ElementInternals': {
     'includes': ['ARIAMixin'],
-    'props': {'shadowRoot': {}, 'form': {}, 'willValidate': {}, 'validity': {}, 'validationMessage': {}, 'labels': {}},
+    'props': {'shadowRoot': {}, 'form': {}, 'willValidate': {}, 'validity': {}, 'validationMessage': {}, 'labels': {}}
   },
   'ValidityStateFlags': {
     'props': {
@@ -1019,8 +904,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'rangeOverflow': {},
       'stepMismatch': {},
       'badInput': {},
-      'customError': {},
-    },
+      'customError': {}
+    }
   },
   'FocusOptions': {'props': {'preventScroll': {}}},
   'ElementContentEditable':
@@ -1033,12 +918,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'Window': {
     'inheritance': 'EventTarget',
     'includes': [
-      'GlobalEventHandlers',
-      'WindowEventHandlers',
-      'WindowOrWorkerGlobalScope',
-      'AnimationFrameProvider',
-      'WindowSessionStorage',
-      'WindowLocalStorage',
+      'GlobalEventHandlers', 'WindowEventHandlers', 'WindowOrWorkerGlobalScope', 'AnimationFrameProvider',
+      'WindowSessionStorage', 'WindowLocalStorage'
     ],
     'props': {
       'window': {},
@@ -1066,8 +947,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'clientInformation': {},
       'originAgentCluster': {},
       'external': {},
-      'event': {'specs': 2},
-    },
+      'event': {'specs': 2}
+    }
   },
   'WindowPostMessageOptions': {'inheritance': 'StructuredSerializeOptions', 'props': {'targetOrigin': {}}},
   'BarProp': {'props': {'visible': {}}},
@@ -1083,8 +964,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'pathname': {},
       'search': {},
       'hash': {},
-      'ancestorOrigins': {},
-    },
+      'ancestorOrigins': {}
+    }
   },
   'PopStateEvent': {'inheritance': 'Event', 'props': {'state': {}}},
   'PopStateEventInit': {'inheritance': 'EventInit', 'props': {'state': {}}},
@@ -1180,8 +1061,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'onpointerover': {'specs': 8},
       'onpointerout': {'specs': 8},
       'onpointerenter': {'specs': 8},
-      'onpointerleave': {'specs': 8},
-    },
+      'onpointerleave': {'specs': 8}
+    }
   },
   'WindowEventHandlers': {
     'props': {
@@ -1200,8 +1081,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'onrejectionhandled': {},
       'onstorage': {},
       'onunhandledrejection': {},
-      'onunload': {},
-    },
+      'onunload': {}
+    }
   },
   'DocumentAndElementEventHandlers': {'props': {'oncopy': {}, 'oncut': {}, 'onpaste': {}}},
   'WindowOrWorkerGlobalScope': {'props': {'origin': {}, 'isSecureContext': {}, 'crossOriginIsolated': {}}},
@@ -1217,20 +1098,15 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'onoffline': {},
       'ononline': {},
       'onrejectionhandled': {},
-      'onunhandledrejection': {},
-    },
+      'onunhandledrejection': {}
+    }
   },
   'Navigator': {
     'includes': [
-      'NavigatorID',
-      'NavigatorLanguage',
-      'NavigatorOnLine',
-      'NavigatorContentUtils',
-      'NavigatorCookies',
-      'NavigatorPlugins',
-      'NavigatorConcurrentHardware',
+      'NavigatorID', 'NavigatorLanguage', 'NavigatorOnLine', 'NavigatorContentUtils', 'NavigatorCookies',
+      'NavigatorPlugins', 'NavigatorConcurrentHardware'
     ],
-    'props': {'maxTouchPoints': {'specs': 8}},
+    'props': {'maxTouchPoints': {'specs': 8}}
   },
   'NavigatorID': {
     'props': {
@@ -1243,8 +1119,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'userAgent': {},
       'vendor': {},
       'vendorSub': {},
-      'oscpu': {},
-    },
+      'oscpu': {}
+    }
   },
   'NavigatorLanguage': {'props': {'language': {}, 'languages': {}}},
   'NavigatorOnLine': {'props': {'onLine': {}}},
@@ -1262,13 +1138,13 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'colorSpaceConversion': {},
       'resizeWidth': {},
       'resizeHeight': {},
-      'resizeQuality': {},
-    },
+      'resizeQuality': {}
+    }
   },
   'DedicatedWorkerGlobalScope': {
     'inheritance': 'WorkerGlobalScope',
     'includes': ['AnimationFrameProvider'],
-    'props': {'name': {}, 'onmessage': {}, 'onmessageerror': {}},
+    'props': {'name': {}, 'onmessage': {}, 'onmessageerror': {}}
   },
   'MessageEvent':
       {'inheritance': 'Event', 'props': {'data': {}, 'origin': {}, 'lastEventId': {}, 'source': {}, 'ports': {}}},
@@ -1276,7 +1152,7 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       {'inheritance': 'EventInit', 'props': {'data': {}, 'origin': {}, 'lastEventId': {}, 'source': {}, 'ports': {}}},
   'EventSource': {
     'inheritance': 'EventTarget',
-    'props': {'url': {}, 'withCredentials': {}, 'readyState': {}, 'onopen': {}, 'onmessage': {}, 'onerror': {}},
+    'props': {'url': {}, 'withCredentials': {}, 'readyState': {}, 'onopen': {}, 'onmessage': {}, 'onerror': {}}
   },
   'EventSourceInit': {'props': {'withCredentials': {}}},
   'MessageChannel': {'props': {'port1': {}, 'port2': {}}},
@@ -1302,8 +1178,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'port': {},
       'pathname': {},
       'search': {},
-      'hash': {},
-    },
+      'hash': {}
+    }
   },
   'WorkletOptions': {'props': {'credentials': {}}},
   'Storage': {'props': {'length': {}}},
@@ -1326,8 +1202,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'scrollDelay': {},
       'trueSpeed': {},
       'vspace': {},
-      'width': {},
-    },
+      'width': {}
+    }
   },
   'HTMLFrameSetElement':
       {'inheritance': 'HTMLElement', 'includes': ['WindowEventHandlers'], 'props': {'cols': {}, 'rows': {}}},
@@ -1343,8 +1219,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'contentDocument': {},
       'contentWindow': {},
       'marginHeight': {},
-      'marginWidth': {},
-    },
+      'marginWidth': {}
+    }
   },
   'HTMLDirectoryElement': {'inheritance': 'HTMLElement', 'props': {'compact': {}}},
   'HTMLFontElement': {'inheritance': 'HTMLElement', 'props': {'color': {}, 'face': {}, 'size': {}}},
@@ -1363,8 +1239,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'defaultPrevented': {'specs': 2},
       'composed': {'specs': 2},
       'isTrusted': {'specs': 2},
-      'timeStamp': {'specs': 2},
-    },
+      'timeStamp': {'specs': 2}
+    }
   },
   'EventInit': {'props': {'bubbles': {'specs': 2}, 'cancelable': {'specs': 2}, 'composed': {'specs': 2}}},
   'CustomEvent': {'inheritance': 'Event', 'props': {'detail': {'specs': 2}}},
@@ -1372,12 +1248,12 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'EventListenerOptions': {'props': {'capture': {'specs': 2}}},
   'AddEventListenerOptions': {
     'inheritance': 'EventListenerOptions',
-    'props': {'passive': {'specs': 2}, 'once': {'specs': 2}, 'signal': {'specs': 2}},
+    'props': {'passive': {'specs': 2}, 'once': {'specs': 2}, 'signal': {'specs': 2}}
   },
   'AbortController': {'props': {'signal': {'specs': 2}}},
   'AbortSignal': {
     'inheritance': 'EventTarget',
-    'props': {'aborted': {'specs': 2}, 'reason': {'specs': 2}, 'onabort': {'specs': 2}},
+    'props': {'aborted': {'specs': 2}, 'reason': {'specs': 2}, 'onabort': {'specs': 2}}
   },
   'DocumentFragment': {'inheritance': 'Node', 'includes': ['NonElementParentNode', 'ParentNode']},
   'ShadowRoot': {
@@ -1388,16 +1264,16 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'delegatesFocus': {'specs': 2},
       'slotAssignment': {'specs': 2},
       'host': {'specs': 2},
-      'onslotchange': {'specs': 2},
-    },
+      'onslotchange': {'specs': 2}
+    }
   },
   'ParentNode': {
     'props': {
       'children': {'specs': 2},
       'firstElementChild': {'specs': 2},
       'lastElementChild': {'specs': 2},
-      'childElementCount': {'specs': 2},
-    },
+      'childElementCount': {'specs': 2}
+    }
   },
   'Element': {
     'inheritance': 'Node',
@@ -1412,19 +1288,19 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'classList': {'specs': 2},
       'slot': {'specs': 2},
       'attributes': {'specs': 2},
-      'shadowRoot': {'specs': 2},
-    },
+      'shadowRoot': {'specs': 2}
+    }
   },
   'NonDocumentTypeChildNode': {'props': {'previousElementSibling': {'specs': 2}, 'nextElementSibling': {'specs': 2}}},
   'CharacterData': {
     'inheritance': 'Node',
     'includes': ['NonDocumentTypeChildNode', 'ChildNode'],
-    'props': {'data': {'specs': 2}, 'length': {'specs': 2}},
+    'props': {'data': {'specs': 2}, 'length': {'specs': 2}}
   },
   'DocumentType': {
     'inheritance': 'Node',
     'includes': ['ChildNode'],
-    'props': {'name': {'specs': 2}, 'publicId': {'specs': 2}, 'systemId': {'specs': 2}},
+    'props': {'name': {'specs': 2}, 'publicId': {'specs': 2}, 'systemId': {'specs': 2}}
   },
   'Slottable': {'props': {'assignedSlot': {'specs': 2}}},
   'Text': {'inheritance': 'CharacterData', 'includes': ['Slottable'], 'props': {'wholeText': {'specs': 2}}},
@@ -1438,8 +1314,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'subtree': {'specs': 2},
       'attributeOldValue': {'specs': 2},
       'characterDataOldValue': {'specs': 2},
-      'attributeFilter': {'specs': 2},
-    },
+      'attributeFilter': {'specs': 2}
+    }
   },
   'MutationRecord': {
     'props': {
@@ -1451,8 +1327,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'nextSibling': {'specs': 2},
       'attributeName': {'specs': 2},
       'attributeNamespace': {'specs': 2},
-      'oldValue': {'specs': 2},
-    },
+      'oldValue': {'specs': 2}
+    }
   },
   'Node': {
     'inheritance': 'EventTarget',
@@ -1470,8 +1346,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'previousSibling': {'specs': 2},
       'nextSibling': {'specs': 2},
       'nodeValue': {'specs': 2},
-      'textContent': {'specs': 2},
-    },
+      'textContent': {'specs': 2}
+    }
   },
   'GetRootNodeOptions': {'props': {'composed': {'specs': 2}}},
   'XMLDocument': {'inheritance': 'Document'},
@@ -1487,8 +1363,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'name': {'specs': 2},
       'value': {'specs': 2},
       'ownerElement': {'specs': 2},
-      'specified': {'specs': 2},
-    },
+      'specified': {'specs': 2}
+    }
   },
   'CDATASection': {'inheritance': 'Text'},
   'ProcessingInstruction':
@@ -1500,16 +1376,16 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'startOffset': {'specs': 2},
       'endContainer': {'specs': 2},
       'endOffset': {'specs': 2},
-      'collapsed': {'specs': 2},
-    },
+      'collapsed': {'specs': 2}
+    }
   },
   'StaticRangeInit': {
     'props': {
       'startContainer': {'specs': 2},
       'startOffset': {'specs': 2},
       'endContainer': {'specs': 2},
-      'endOffset': {'specs': 2},
-    },
+      'endOffset': {'specs': 2}
+    }
   },
   'StaticRange': {'inheritance': 'AbstractRange'},
   'Range': {'inheritance': 'AbstractRange', 'props': {'commonAncestorContainer': {'specs': 2}}},
@@ -1519,11 +1395,11 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'referenceNode': {'specs': 2},
       'pointerBeforeReferenceNode': {'specs': 2},
       'whatToShow': {'specs': 2},
-      'filter': {'specs': 2},
-    },
+      'filter': {'specs': 2}
+    }
   },
   'TreeWalker': {
-    'props': {'root': {'specs': 2}, 'whatToShow': {'specs': 2}, 'filter': {'specs': 2}, 'currentNode': {'specs': 2}},
+    'props': {'root': {'specs': 2}, 'whatToShow': {'specs': 2}, 'filter': {'specs': 2}, 'currentNode': {'specs': 2}}
   },
   'DOMTokenList': {'props': {'length': {'specs': 2}, 'value': {'specs': 2}}},
   'XPathResult': {
@@ -1534,8 +1410,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'booleanValue': {'specs': 2},
       'singleNodeValue': {'specs': 2},
       'invalidIteratorState': {'specs': 2},
-      'snapshotLength': {'specs': 2},
-    },
+      'snapshotLength': {'specs': 2}
+    }
   },
   'XPathEvaluator': {'includes': ['XPathEvaluatorBase']},
   'UIEvent': {'inheritance': 'Event', 'props': {'view': {'specs': 4}, 'detail': {'specs': 4}, 'which': {'specs': 4}}},
@@ -1556,8 +1432,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'metaKey': {'specs': 4},
       'button': {'specs': 4},
       'buttons': {'specs': 4},
-      'relatedTarget': {'specs': 4},
-    },
+      'relatedTarget': {'specs': 4}
+    }
   },
   'MouseEventInit': {
     'inheritance': 'EventModifierInit',
@@ -1568,8 +1444,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'clientY': {'specs': 4},
       'button': {'specs': 4},
       'buttons': {'specs': 4},
-      'relatedTarget': {'specs': 4},
-    },
+      'relatedTarget': {'specs': 4}
+    }
   },
   'EventModifierInit': {
     'inheritance': 'UIEventInit',
@@ -1587,24 +1463,24 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'modifierScrollLock': {'specs': 4},
       'modifierSuper': {'specs': 4},
       'modifierSymbol': {'specs': 4},
-      'modifierSymbolLock': {'specs': 4},
-    },
+      'modifierSymbolLock': {'specs': 4}
+    }
   },
   'WheelEvent': {
     'inheritance': 'MouseEvent',
-    'props': {'deltaX': {'specs': 4}, 'deltaY': {'specs': 4}, 'deltaZ': {'specs': 4}, 'deltaMode': {'specs': 4}},
+    'props': {'deltaX': {'specs': 4}, 'deltaY': {'specs': 4}, 'deltaZ': {'specs': 4}, 'deltaMode': {'specs': 4}}
   },
   'WheelEventInit': {
     'inheritance': 'MouseEventInit',
-    'props': {'deltaX': {'specs': 4}, 'deltaY': {'specs': 4}, 'deltaZ': {'specs': 4}, 'deltaMode': {'specs': 4}},
+    'props': {'deltaX': {'specs': 4}, 'deltaY': {'specs': 4}, 'deltaZ': {'specs': 4}, 'deltaMode': {'specs': 4}}
   },
   'InputEvent': {
     'inheritance': 'UIEvent',
-    'props': {'data': {'specs': 4}, 'isComposing': {'specs': 4}, 'inputType': {'specs': 4}},
+    'props': {'data': {'specs': 4}, 'isComposing': {'specs': 4}, 'inputType': {'specs': 4}}
   },
   'InputEventInit': {
     'inheritance': 'UIEventInit',
-    'props': {'data': {'specs': 4}, 'isComposing': {'specs': 4}, 'inputType': {'specs': 4}},
+    'props': {'data': {'specs': 4}, 'isComposing': {'specs': 4}, 'inputType': {'specs': 4}}
   },
   'KeyboardEvent': {
     'inheritance': 'UIEvent',
@@ -1619,8 +1495,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'repeat': {'specs': 4},
       'isComposing': {'specs': 4},
       'charCode': {'specs': 4},
-      'keyCode': {'specs': 4},
-    },
+      'keyCode': {'specs': 4}
+    }
   },
   'KeyboardEventInit': {
     'inheritance': 'EventModifierInit',
@@ -1631,8 +1507,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'repeat': {'specs': 4},
       'isComposing': {'specs': 4},
       'charCode': {'specs': 4},
-      'keyCode': {'specs': 4},
-    },
+      'keyCode': {'specs': 4}
+    }
   },
   'CompositionEvent': {'inheritance': 'UIEvent', 'props': {'data': {'specs': 4}}},
   'CompositionEventInit': {'inheritance': 'UIEventInit', 'props': {'data': {'specs': 4}}},
@@ -1643,8 +1519,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'prevValue': {'specs': 4},
       'newValue': {'specs': 4},
       'attrName': {'specs': 4},
-      'attrChange': {'specs': 4},
-    },
+      'attrChange': {'specs': 4}
+    }
   },
   'PointerEventInit': {
     'inheritance': 'MouseEventInit',
@@ -1662,8 +1538,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'pointerType': {'specs': 8},
       'isPrimary': {'specs': 8},
       'coalescedEvents': {'specs': 8},
-      'predictedEvents': {'specs': 8},
-    },
+      'predictedEvents': {'specs': 8}
+    }
   },
   'PointerEvent': {
     'inheritance': 'MouseEvent',
@@ -1679,8 +1555,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'altitudeAngle': {'specs': 8},
       'azimuthAngle': {'specs': 8},
       'pointerType': {'specs': 8},
-      'isPrimary': {'specs': 8},
-    },
+      'isPrimary': {'specs': 8}
+    }
   },
   'MediaList': {'props': {'mediaText': {'specs': 16}, 'length': {'specs': 16}}},
   'StyleSheet': {
@@ -1691,12 +1567,12 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'parentStyleSheet': {'specs': 16},
       'title': {'specs': 16, 'global': true},
       'media': {'specs': 16},
-      'disabled': {'specs': 16},
-    },
+      'disabled': {'specs': 16}
+    }
   },
   'CSSStyleSheet': {
     'inheritance': 'StyleSheet',
-    'props': {'ownerRule': {'specs': 16}, 'cssRules': {'specs': 16}, 'rules': {'specs': 16}},
+    'props': {'ownerRule': {'specs': 16}, 'cssRules': {'specs': 16}, 'rules': {'specs': 16}}
   },
   'CSSStyleSheetInit': {'props': {'baseURL': {'specs': 16}, 'media': {'specs': 16}, 'disabled': {'specs': 16}}},
   'StyleSheetList': {'props': {'length': {'specs': 16}}},
@@ -1707,8 +1583,8 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'cssText': {'specs': 16},
       'parentRule': {'specs': 16},
       'parentStyleSheet': {'specs': 16},
-      'type': {'specs': 16},
-    },
+      'type': {'specs': 16}
+    }
   },
   'CSSStyleRule':
       {'inheritance': 'CSSRule', 'props': {'selectorText': {'specs': 16}, 'style': {'specs': 16, 'global': true}}},
@@ -1717,13 +1593,12 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
   'CSSGroupingRule': {'inheritance': 'CSSRule', 'props': {'cssRules': {'specs': 16}}},
   'CSSPageRule': {
     'inheritance': 'CSSGroupingRule',
-    'props': {'selectorText': {'specs': 16}, 'style': {'specs': 16, 'global': true}},
+    'props': {'selectorText': {'specs': 16}, 'style': {'specs': 16, 'global': true}}
   },
   'CSSMarginRule': {'inheritance': 'CSSRule', 'props': {'name': {'specs': 16}, 'style': {'specs': 16, 'global': true}}},
   'CSSNamespaceRule': {'inheritance': 'CSSRule', 'props': {'namespaceURI': {'specs': 16}, 'prefix': {'specs': 16}}},
   'CSSStyleDeclaration': {
-    'props':
-        {'cssText': {'specs': 16}, 'length': {'specs': 16}, 'parentRule': {'specs': 16}, 'cssFloat': {'specs': 16}},
+    'props': {'cssText': {'specs': 16}, 'length': {'specs': 16}, 'parentRule': {'specs': 16}, 'cssFloat': {'specs': 16}}
   },
   'ElementCSSInlineStyle': {'props': {'style': {'specs': 16, 'global': true}}},
   'SVGElement': {'includes': ['ElementCSSInlineStyle']},
@@ -1770,7 +1645,7 @@ export const DOMPinnedProperties: DOMPinnedPropertiesDataset = {
       'ariaValueMax': {'specs': 32},
       'ariaValueMin': {'specs': 32},
       'ariaValueNow': {'specs': 32},
-      'ariaValueText': {'specs': 32},
-    },
-  },
+      'ariaValueText': {'specs': 32}
+    }
+  }
 };
