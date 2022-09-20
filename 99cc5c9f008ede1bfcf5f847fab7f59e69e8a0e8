@@ -86,6 +86,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97ce16d5_60fb0c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-20T09:25:55Z",
+      "side": 1,
+      "message": "Thanks for the review, Changhao! I\u0027ll double check with Vaatika. Thanks for bringing it up!",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2c1f5a8_96879f80",
@@ -150,6 +167,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a3a130_393fad82",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-20T09:25:55Z",
+      "side": 1,
+      "message": "Oh, yes, thanks! Done.",
+      "parentUuid": "c000bc8e_923bed15",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e448c847_941f7231",
@@ -163,6 +198,24 @@
       "writtenOn": "2022-09-20T08:29:03Z",
       "side": 1,
       "message": "These would be things that we could verify with UX: do we always want these buttons to be 13x13? Or do we want them to be responsive and change the size with other elements together?",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163d754b_298e1055",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-20T09:25:55Z",
+      "side": 1,
+      "message": "Good point! I haven\u0027t thought about the responsive sizes before (I wasn\u0027t aware), so thanks for pointing out!! I\u0027ll talk to Vaatika about it, and will update this thread.",
+      "parentUuid": "e448c847_941f7231",
       "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
