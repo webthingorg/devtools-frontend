@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc8053d_d765725f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-20T15:45:53Z",
+      "side": 1,
+      "message": "Maud: can you review the issue text? I\u0027ve labeled the \"NotDelegated\" message a breaking change, so it will show up in orange in devtools, unlike the other issues which are \"page errors\".",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
