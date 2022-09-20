@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "981b3c03_af83562e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-20T15:00:53Z",
+      "side": 1,
+      "message": "Yes they will.",
+      "parentUuid": "7d253020_4d285b94",
+      "revId": "5079f7f6888bf2d410defd94362ba6ad2dbbc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c2eb751_6bf38e4e",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-20T09:36:32Z",
       "side": 1,
       "message": "Could we update this comment, such that it reflects also the new API?",
+      "revId": "5079f7f6888bf2d410defd94362ba6ad2dbbc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80bad3df_3b1b8b2d",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-20T15:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c2eb751_6bf38e4e",
       "revId": "5079f7f6888bf2d410defd94362ba6ad2dbbc793",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
