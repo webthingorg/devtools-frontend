@@ -1,0 +1,11 @@
+# Ensure that the `attribution-reporting` permission policy is enabled
+
+This page tried to use the Attribution Reporting API in a cross origin frame
+that did not receive a specific opt-in via Permissions Policy from its parent
+frame.
+
+For the current origin trial of the Attribution Reporting API, it is not
+required to opt-in cross-origin frames, but will become necessary when the API
+matures. Add the permission policy as follows:
+`<iframe src="..." allow="attribution-reporting">`.
+
