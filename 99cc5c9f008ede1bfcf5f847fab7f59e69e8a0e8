@@ -69,6 +69,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f67a40_e2303871",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-20T08:29:03Z",
+      "side": 1,
+      "message": "LGTM on CSS, except the general question that for length values that are currently fixed (8px, 13px, etc.), have we considered responsive alternatives such as `em` units? This doesn\u0027t mean what we are doing is not good; I just want to make sure this is considered.",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2c1f5a8_96879f80",
@@ -112,6 +129,40 @@
         "endLine": 64,
         "endChar": 20
       },
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c000bc8e_923bed15",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-20T08:29:03Z",
+      "side": 1,
+      "message": "This padding-right is overriding the previous `padding: 0 4px 0 6px`\u0027s padding-right longhand. I assume we could just merge them together with `padding: 0 8px 0 6px`?",
+      "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e448c847_941f7231",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-20T08:29:03Z",
+      "side": 1,
+      "message": "These would be things that we could verify with UX: do we always want these buttons to be 13x13? Or do we want them to be responsive and change the size with other elements together?",
       "revId": "99cc5c9f008ede1bfcf5f847fab7f59e69e8a0e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
