@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e9f179_1760fb4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-20T14:22:42Z",
+      "side": 1,
+      "message": "Hi Jaro, hi Changhao,\n\nThis CL is adding a colored marker for logpoints/conditional breakpoints and shows\nthe details of that breakpoint on hover (see screenshot video). PTAL!",
+      "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
