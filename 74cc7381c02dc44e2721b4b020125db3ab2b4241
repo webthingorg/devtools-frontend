@@ -16,6 +16,40 @@
       "message": "Hi Jaro, hi Changhao,\n\nThis CL is adding a colored marker for logpoints/conditional breakpoints and shows\nthe details of that breakpoint on hover (see screenshot video). PTAL!",
       "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f9ebda5_86aac338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-20T19:52:53Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c75df5d_eb24d292",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-20T19:52:53Z",
+      "side": 1,
+      "message": "Just a question: why are we updating these two color variables for `.breakpoint-item` in the dark mode? It doesn\u0027t seem like `.breakpoint-item` has these color variables set in the light mode. Maybe I\u0027m missing something?",
+      "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
