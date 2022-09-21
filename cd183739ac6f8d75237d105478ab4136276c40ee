@@ -16,6 +16,75 @@
       "message": "PTAL again",
       "revId": "cd183739ac6f8d75237d105478ab4136276c40ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "326a3bc2_51cc5d0f",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-21T12:09:35Z",
+      "side": 1,
+      "message": "navigateToHistoryEntrySpy",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 13
+      },
+      "revId": "cd183739ac6f8d75237d105478ab4136276c40ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa537b9_fc4eb917",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-21T12:09:35Z",
+      "side": 1,
+      "message": "Please file a bug against Kateryna and add it here a TODO to fix this.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 70
+      },
+      "revId": "cd183739ac6f8d75237d105478ab4136276c40ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ebb0cc_ace2b24a",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-21T12:09:35Z",
+      "side": 1,
+      "message": "Is this the same as? \n\n    if (++eventsCount \u003d\u003d 2) resolve()",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 93
+      },
+      "revId": "cd183739ac6f8d75237d105478ab4136276c40ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
