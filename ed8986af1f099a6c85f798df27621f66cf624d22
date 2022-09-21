@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "63249a3c_ef6c1792",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-21T02:12:42Z",
+      "side": 1,
+      "message": "Your understanding is correct.\n\u003e I\u0027m a bit confused by the Note at the end of arPermissionPolicyDisabled.\n\nIt\u0027s confusing, my intent was to have the issue be \"correct in the long term\", with the note explaining the temporary state. Maybe that\u0027s not right and we should just describe the current state.\n\n\u003e Having different titles for the issues would help (happy to suggest once my understanding is confirmed)\n\nYes, that sounds good to me.",
+      "parentUuid": "fa20bb91_5d9d0668",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0baff5e_7a1ecc5c",
         "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
         "patchSetId": 3
