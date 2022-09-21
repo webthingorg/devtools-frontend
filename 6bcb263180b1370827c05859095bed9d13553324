@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "083b5f20_3f7bf62b",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-21T11:23:58Z",
+      "side": 1,
+      "message": "Great suggestion, thanks!",
+      "parentUuid": "440a7716_f764b183",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 50
+      },
+      "revId": "6bcb263180b1370827c05859095bed9d13553324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "751b524b_ec847936",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-16T08:14:32Z",
       "side": 1,
       "message": "Can we mock this navigationHistory() method and have a test coving this case?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 72
+      },
+      "revId": "6bcb263180b1370827c05859095bed9d13553324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e235caa_f13a8db4",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-21T11:23:58Z",
+      "side": 1,
+      "message": "This was a bit tricky, but I managed to add a test.",
+      "parentUuid": "751b524b_ec847936",
       "range": {
         "startLine": 230,
         "startChar": 0,
