@@ -50,6 +50,24 @@
       "message": "Just a question: why are we updating these two color variables for `.breakpoint-item` in the dark mode? It doesn\u0027t seem like `.breakpoint-item` has these color variables set in the light mode. Maybe I\u0027m missing something?",
       "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d846513d_a5d2cbdf",
+        "filename": "front_end/panels/sources/components/breakpointsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-21T05:14:02Z",
+      "side": 1,
+      "message": "Ah right, thanks for pointing this out! This should be `.type-indicator`, not `.breakpoint-item`. I\u0027ve changed that, thanks!",
+      "parentUuid": "1c75df5d_eb24d292",
+      "revId": "74cc7381c02dc44e2721b4b020125db3ab2b4241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
