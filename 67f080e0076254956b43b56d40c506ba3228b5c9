@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14f398b_0c370e73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-21T04:09:27Z",
+      "side": 1,
+      "message": "After this CL (https://crrev.com/c/3890050) is merged, CQ DRY RUN will work. I\u0027d appreciate it if you could review in advance!",
+      "revId": "67f080e0076254956b43b56d40c506ba3228b5c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
