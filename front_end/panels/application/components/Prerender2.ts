@@ -130,11 +130,6 @@ const UIStrings = {
     */
   TriggerBackgrounded: 'The tab is in the background',
   /**
-    *@description  Description text for Prerender2 cancellation status EmbedderTriggeredAndSameOriginRedirected.
-    */
-  EmbedderTriggeredAndSameOriginRedirected:
-      'Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is canceled because the navigation is redirected to another same-origin page.',
-  /**
     *@description  Description text for Prerender2 cancellation status EmbedderTriggeredAndCrossOriginRedirected.
     */
   EmbedderTriggeredAndCrossOriginRedirected:
@@ -152,6 +147,10 @@ const UIStrings = {
     *@description  Description text for Prerender2 cancellation status DataSaverEnabled.
     */
   DataSaverEnabled: 'Data saver enabled',
+  /**
+  *@description  Making protocol changes not break frontend.
+  */
+  Empty: '',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/Prerender2.ts', UIStrings);
@@ -188,11 +187,12 @@ export const Prerender2ReasonDescription = {
   'AudioOutputDeviceRequested': {name: i18nLazyString(UIStrings.AudioOutputDeviceRequested)},
   'MixedContent': {name: i18nLazyString(UIStrings.MixedContent)},
   'TriggerBackgrounded': {name: i18nLazyString(UIStrings.TriggerBackgrounded)},
-  'EmbedderTriggeredAndSameOriginRedirected':
-      {name: i18nLazyString(UIStrings.EmbedderTriggeredAndSameOriginRedirected)},
   'EmbedderTriggeredAndCrossOriginRedirected':
       {name: i18nLazyString(UIStrings.EmbedderTriggeredAndCrossOriginRedirected)},
   'MemoryLimitExceeded': {name: i18nLazyString(UIStrings.MemoryLimitExceeded)},
   'FailToGetMemoryUsage': {name: i18nLazyString(UIStrings.FailToGetMemoryUsage)},
   'DataSaverEnabled': {name: i18nLazyString(UIStrings.DataSaverEnabled)},
+  'HasEffectiveUrl': {name: i18nLazyString(UIStrings.Empty)},
+  'ActivatedBeforeStarted': {name: i18nLazyString(UIStrings.Empty)},
+  'InactivePageRestriction': {name: i18nLazyString(UIStrings.Empty)},
 };

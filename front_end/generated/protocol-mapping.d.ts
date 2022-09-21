@@ -1246,7 +1246,7 @@ export namespace ProtocolMapping {
      * Requests cache names.
      */
     'CacheStorage.requestCacheNames': {
-      paramsType: [Protocol.CacheStorage.RequestCacheNamesRequest];
+      paramsType: [Protocol.CacheStorage.RequestCacheNamesRequest?];
       returnType: Protocol.CacheStorage.RequestCacheNamesResponse;
     };
     /**
@@ -3466,6 +3466,13 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     /**
+     * Registers storage key to be notified when an update occurs to its cache storage list.
+     */
+    'Storage.trackCacheStorageForStorageKey': {
+      paramsType: [Protocol.Storage.TrackCacheStorageForStorageKeyRequest];
+      returnType: void;
+    };
+    /**
      * Registers origin to be notified when an update occurs to its IndexedDB.
      */
     'Storage.trackIndexedDBForOrigin': {
@@ -3484,6 +3491,13 @@ export namespace ProtocolMapping {
      */
     'Storage.untrackCacheStorageForOrigin': {
       paramsType: [Protocol.Storage.UntrackCacheStorageForOriginRequest];
+      returnType: void;
+    };
+    /**
+     * Unregisters storage key from receiving notifications for cache storage.
+     */
+    'Storage.untrackCacheStorageForStorageKey': {
+      paramsType: [Protocol.Storage.UntrackCacheStorageForStorageKeyRequest];
       returnType: void;
     };
     /**

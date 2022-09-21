@@ -965,6 +965,7 @@ export namespace Audits {
 
   export const enum AttributionReportingIssueType {
     PermissionPolicyDisabled = 'PermissionPolicyDisabled',
+    PermissionPolicyNotDelegated = 'PermissionPolicyNotDelegated',
     UntrustworthyReportingOrigin = 'UntrustworthyReportingOrigin',
     InsecureContext = 'InsecureContext',
     InvalidHeader = 'InvalidHeader',
@@ -1044,7 +1045,6 @@ export namespace Audits {
     HostCandidateAttributeGetter = 'HostCandidateAttributeGetter',
     IdentityInCanMakePaymentEvent = 'IdentityInCanMakePaymentEvent',
     InsecurePrivateNetworkSubresourceRequest = 'InsecurePrivateNetworkSubresourceRequest',
-    LegacyConstraintGoogIPv6 = 'LegacyConstraintGoogIPv6',
     LocalCSSFileExtensionRejected = 'LocalCSSFileExtensionRejected',
     MediaSourceAbortRemove = 'MediaSourceAbortRemove',
     MediaSourceDurationTruncatingBuffered = 'MediaSourceDurationTruncatingBuffered',
@@ -1108,7 +1108,7 @@ export namespace Audits {
    * all cases except for success.
    */
   export const enum FederatedAuthRequestIssueReason {
-    ApprovalDeclined = 'ApprovalDeclined',
+    ShouldEmbargo = 'ShouldEmbargo',
     TooManyRequests = 'TooManyRequests',
     ManifestListHttpNotFound = 'ManifestListHttpNotFound',
     ManifestListNoResponse = 'ManifestListNoResponse',
@@ -1133,6 +1133,7 @@ export namespace Audits {
     IdTokenInvalidRequest = 'IdTokenInvalidRequest',
     ErrorIdToken = 'ErrorIdToken',
     Canceled = 'Canceled',
+    RpPageNotVisible = 'RpPageNotVisible',
   }
 
   /**
@@ -2903,7 +2904,11 @@ export namespace CacheStorage {
     /**
      * Security origin of the cache.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key of the cache.
+     */
+    storageKey?: string;
     /**
      * The name of the cache.
      */
@@ -2945,9 +2950,14 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
+     * At least and at most one of securityOrigin, storageKey must be specified.
      * Security origin.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key.
+     */
+    storageKey?: string;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -4159,7 +4169,7 @@ export namespace DOM {
      */
     parentNodeId: NodeId;
     /**
-     * If of the previous siblint.
+     * Id of the previous sibling.
      */
     previousNodeId: NodeId;
     /**
@@ -10379,7 +10389,7 @@ export namespace Page {
     Serial = 'serial',
     SharedAutofill = 'shared-autofill',
     SharedStorage = 'shared-storage',
-    StorageAccessAPI = 'storage-access-api',
+    StorageAccess = 'storage-access',
     SyncXhr = 'sync-xhr',
     TrustTokenRedemption = 'trust-token-redemption',
     Unload = 'unload',
@@ -11158,11 +11168,13 @@ export namespace Page {
     AudioOutputDeviceRequested = 'AudioOutputDeviceRequested',
     MixedContent = 'MixedContent',
     TriggerBackgrounded = 'TriggerBackgrounded',
-    EmbedderTriggeredAndSameOriginRedirected = 'EmbedderTriggeredAndSameOriginRedirected',
     EmbedderTriggeredAndCrossOriginRedirected = 'EmbedderTriggeredAndCrossOriginRedirected',
     MemoryLimitExceeded = 'MemoryLimitExceeded',
     FailToGetMemoryUsage = 'FailToGetMemoryUsage',
     DataSaverEnabled = 'DataSaverEnabled',
+    HasEffectiveUrl = 'HasEffectiveUrl',
+    ActivatedBeforeStarted = 'ActivatedBeforeStarted',
+    InactivePageRestriction = 'InactivePageRestriction',
   }
 
   export interface AddScriptToEvaluateOnLoadRequest {
@@ -12182,10 +12194,10 @@ export namespace Page {
     prerenderingUrl: string;
     finalStatus: PrerenderFinalStatus;
     /**
-     * This is used to give users more information about the cancellation details,
-     * and this will be formatted for display.
+     * This is used to give users more information about the name of the API call
+     * that is incompatible with prerender and has caused the cancellation of the attempt
      */
-    reasonDetails?: string;
+    disallowedApiMethod?: string;
   }
 
   export interface LoadEventFiredEvent {
@@ -13049,6 +13061,13 @@ export namespace Storage {
     origin: string;
   }
 
+  export interface TrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+  }
+
   export interface TrackIndexedDBForOriginRequest {
     /**
      * Security origin.
@@ -13068,6 +13087,13 @@ export namespace Storage {
      * Security origin.
      */
     origin: string;
+  }
+
+  export interface UntrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
   }
 
   export interface UntrackIndexedDBForOriginRequest {
@@ -13121,6 +13147,10 @@ export namespace Storage {
      */
     origin: string;
     /**
+     * Storage key to update.
+     */
+    storageKey: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13134,6 +13164,10 @@ export namespace Storage {
      * Origin to update.
      */
     origin: string;
+    /**
+     * Storage key to update.
+     */
+    storageKey: string;
   }
 
   /**
