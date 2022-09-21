@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "398845e4_bf1a61b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2022-09-21T16:07:32Z",
+      "side": 1,
+      "message": "\u003e My intent was to have the issue be \"correct in the long term\", with the note explaining the temporary state\n\nSGTM! To be sure, arPermissionPolicyDisabled will pop both now and in the long term in the case 1. described above, correct?\n\n\u003e Having different titles\n\nSuggested titles:\narPermissionPolicyDisabled: \"The Attribution Reporting API can\u0027t be used because Permissions-Policy has been disabled\" (this supposes that issue only pops when the API has been explciitly disabled, which was my understanding)\narPermissionPolicyNotDelegated: \"Ensure that the `attribution-reporting` Permissions-Policy is explicitly enabled\"\n\nWDYT?",
+      "parentUuid": "63249a3c_ef6c1792",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0baff5e_7a1ecc5c",
         "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
         "patchSetId": 3
