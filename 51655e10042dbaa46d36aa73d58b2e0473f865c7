@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65232f45_1286bbb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-09-21T15:39:15Z",
+      "side": 1,
+      "message": "New version of the UI based on https://docs.google.com/presentation/d/1nJ3JLZh71SePir_Wa2_lQxMAU07fqSdf6juzJBv55qs/edit#slide\u003did.g142bac79fe9_0_177",
+      "revId": "51655e10042dbaa46d36aa73d58b2e0473f865c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
