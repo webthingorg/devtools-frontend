@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5b18f5f_55af228a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2022-09-21T21:42:57Z",
+      "side": 1,
+      "message": "Hi, we\u0027ve updated the fix for the bug. PTAL, thank you!",
+      "revId": "9b3782fd768b67434d190e28b02d5e1c2ac7a153",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
