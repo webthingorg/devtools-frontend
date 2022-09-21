@@ -52,6 +52,24 @@
       "parentUuid": "fc865a1e_9a649f4d",
       "revId": "b66f97271c3bbe1579fd794fdd3abcb94c44a799",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40827f0d_757493b7",
+        "filename": "docs/workflows.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-21T14:43:27Z",
+      "side": 1,
+      "message": "Oh interesting I didn\u0027t notice that. Updated the text to mention this. I think actually `git cl format --js` is not sufficient because the presubmits will deal with CSS too. I just removed the mention of `git cl format` entirely.",
+      "parentUuid": "9b2edf5d_0b689695",
+      "revId": "b66f97271c3bbe1579fd794fdd3abcb94c44a799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
