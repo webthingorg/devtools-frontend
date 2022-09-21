@@ -7688,6 +7688,10 @@ export namespace Network {
      */
     protocol?: string;
     /**
+     * The reason why Chrome uses a specific transport protocol for HTTP semantics.
+     */
+    alternateProtocolUsage?: string;
+    /**
      * Security state of the request resource.
      */
     securityState: Security.SecurityState;
