@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "d978b737f42f004864edfbb1e12e0928b597a05c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9edb1e3e_497901a0",
+        "filename": "front_end/core/sdk/ServiceWorkerCacheModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-21T13:46:02Z",
+      "side": 1,
+      "message": "addStorageKey? Can we have a test covering this logic?",
+      "range": {
+        "startLine": 74,
+        "startChar": 11,
+        "endLine": 74,
+        "endChar": 20
+      },
+      "revId": "d978b737f42f004864edfbb1e12e0928b597a05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e05ecd_4525daac",
+        "filename": "test/unittests/front_end/panels/application/CacheStorage_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-21T13:46:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be ServiceWorkerCacheModel and the file name be front_end/core/sdk/ServiceWorkerCacheModel_test.ts?",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "d978b737f42f004864edfbb1e12e0928b597a05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
