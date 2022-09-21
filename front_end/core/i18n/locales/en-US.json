@@ -3302,6 +3302,9 @@
   "panels/application/components/Prerender2.ts | Empty": {
     "message": ""
   },
+  "panels/application/components/Prerender2.ts | Empty": {
+    "message": ""
+  },
   "panels/application/components/Prerender2.ts | FailToGetMemoryUsage": {
     "message": "Fail to get memory usage"
   },
