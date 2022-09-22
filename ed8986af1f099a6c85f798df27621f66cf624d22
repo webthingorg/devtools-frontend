@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd193989_054058ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-22T19:04:03Z",
+      "side": 1,
+      "message": "\u003e SGTM! To be sure, arPermissionPolicyDisabled will pop both now and in the long term in the case 1. described above, correct?\n\nYes, correct. The titles seem OK to me but I think that we should reword the copy for arPermissionPolicyDisabled. What do you think about\n```\nThis page tried to use the Attribution Reporting API but failed because the\n`attribution-reporting` permission policy was explicitly disabled.\n\nThis API is currently enabled by default for top-level and cross-origin frames,\nbut it is still possible for frames to have the permission disabled by their\nparent via something like `\u003ciframe src\u003d\"...\" allow\u003d\"attribution-reporting \u0027none\u0027\"\u003e`\n```",
+      "parentUuid": "398845e4_bf1a61b3",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0baff5e_7a1ecc5c",
         "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
         "patchSetId": 3
