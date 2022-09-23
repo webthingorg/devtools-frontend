@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4d310eb_ebb9c5a3",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-23T12:33:57Z",
+      "side": 1,
+      "message": "You\u0027d need to make it public or extract it into a separate module as it does not seem to require any of the ExtensionServer state. I am also fine with leaving it as is but it looks like it\u0027s used to validate that extension URLs don\u0027t try to load other extension\u0027s files? and it\u0027s not obvious to me that it works.",
+      "parentUuid": "12044506_079724b2",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec6b8f0c_2f769251",
         "filename": "test/e2e/extensions/can-create-panels_test.ts",
         "patchSetId": 1
