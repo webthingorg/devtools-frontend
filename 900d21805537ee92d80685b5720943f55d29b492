@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50754aa5_5587af0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-23T12:50:57Z",
+      "side": 1,
+      "message": "It looks like it\u0027s a fresh flakiness? is there the first failing build? maybe smth changed",
+      "revId": "900d21805537ee92d80685b5720943f55d29b492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
