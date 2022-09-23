@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12044506_079724b2",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-23T12:29:27Z",
+      "side": 1,
+      "message": "This case is covered by the first e2e test, i.e., this happens when extensions pass absolute URLs.\n\nHow do we test private methods?",
+      "parentUuid": "7a293f69_d42a64ea",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec6b8f0c_2f769251",
         "filename": "test/e2e/extensions/can-create-panels_test.ts",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-23T11:52:54Z",
       "side": 1,
       "message": "nit: is there type support for these functions? for code review it\u0027d be nice to add comments which parameter is what or extract to variables",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "047ac43e_1bb68311",
+        "filename": "test/e2e/extensions/can-create-panels_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-23T12:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec6b8f0c_2f769251",
       "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2022-09-23T11:52:54Z",
       "side": 1,
       "message": "wdyt about splitting this into two tests with a common setup?",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "600a6b3f_9aafb6db",
+        "filename": "test/e2e/extensions/can-create-panels_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-23T12:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dcda809_e15aace4",
       "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
