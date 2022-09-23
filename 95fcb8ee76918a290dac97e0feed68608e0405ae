@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2744f4ed_6688116d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-23T11:46:29Z",
+      "side": 1,
+      "message": "Sending this your way since you did a bit of extension work recently, PTAL!",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
