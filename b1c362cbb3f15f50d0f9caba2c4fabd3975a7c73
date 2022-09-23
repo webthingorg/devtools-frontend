@@ -33,6 +33,23 @@
       "message": "We relanded CDP change",
       "revId": "b1c362cbb3f15f50d0f9caba2c4fabd3975a7c73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50778805_81981c27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1549117
+      },
+      "writtenOn": "2022-09-23T08:13:35Z",
+      "side": 1,
+      "message": "I know this is blocked by baking on the cdp change. When ready feel free to cherry pick the changes.",
+      "revId": "b1c362cbb3f15f50d0f9caba2c4fabd3975a7c73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
