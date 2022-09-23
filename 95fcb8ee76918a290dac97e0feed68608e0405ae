@@ -16,6 +16,57 @@
       "message": "Sending this your way since you did a bit of extension work recently, PTAL!",
       "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a293f69_d42a64ea",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-23T11:52:54Z",
+      "side": 1,
+      "message": "in what cases is this possible? It\u0027d be nice to add unit tests for this function if possible. Are the URLS here like `chrome://extension/ID`?",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6b8f0c_2f769251",
+        "filename": "test/e2e/extensions/can-create-panels_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-23T11:52:54Z",
+      "side": 1,
+      "message": "nit: is there type support for these functions? for code review it\u0027d be nice to add comments which parameter is what or extract to variables",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dcda809_e15aace4",
+        "filename": "test/e2e/extensions/can-create-panels_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-09-23T11:52:54Z",
+      "side": 1,
+      "message": "wdyt about splitting this into two tests with a common setup?",
+      "revId": "95fcb8ee76918a290dac97e0feed68608e0405ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
