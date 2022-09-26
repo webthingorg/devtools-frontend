@@ -61,7 +61,9 @@ SCRIPTS_BUILD_PATH = path.join(ROOT_DIRECTORY, 'scripts', 'build')
 GENERATE_ARIA_SCRIPT = path.join(SCRIPTS_BUILD_PATH, 'generate_aria.py')
 GENERATE_SUPPORTED_CSS_SCRIPT = path.join(SCRIPTS_BUILD_PATH, 'generate_supported_css.py')
 GENERATE_PROTOCOL_DEFINITIONS_SCRIPT = path.join(SCRIPTS_BUILD_PATH, 'code_generator_frontend.py')
-CONCATENATE_PROTOCOL_SCRIPT = path.join(ROOT_DIRECTORY, 'third_party', 'inspector_protocol', 'concatenate_protocols.py')
+CONCATENATE_PROTOCOL_SCRIPT = path.join(ROOT_DIRECTORY, '..', '..', '..',
+                                        'third_party', 'inspector_protocol',
+                                        'concatenate_protocols.py')
 
 NODE_LOCATION = devtools_paths.node_path()
 TSC_LOCATION = devtools_paths.typescript_compiler_path()

@@ -40,6 +40,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
@@ -881,7 +882,7 @@ export class NetworkRequestNode extends NetworkNode {
         break;
       }
       case 'protocol': {
-        this.setTextAndTitle(cell, this.requestInternal.protocol);
+        this.renderProtocolCell(cell);
         break;
       }
       case 'scheme': {
@@ -1168,6 +1169,14 @@ export class NetworkRequestNode extends NetworkNode {
     } else {
       this.setTextAndTitle(cell, i18nString(UIStrings.pendingq));
     }
+  }
+
+  private renderProtocolCell(cell: HTMLElement): void {
+    UI.UIUtils.createTextChild(cell, this.requestInternal.protocol);
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.ALTERNATE_PROTOCOL_USAGE)) {
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.alternateProtocolUsage);
+    }
+    cell.classList.add('network-dim-cell');
   }
 
   private renderInitiatorCell(cell: HTMLElement): void {
