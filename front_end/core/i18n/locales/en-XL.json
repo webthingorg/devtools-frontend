@@ -3344,6 +3344,9 @@
   "panels/application/components/Prerender2.ts | MojoBinderPolicy": {
     "message": "Â d́îśâĺl̂óŵéd̂ ÁP̂Í ŵáŝ úŝéd̂ b́ŷ t́ĥé p̂ŕêŕêńd̂ér̂éd̂ ṕâǵê"
   },
+  "panels/application/components/Prerender2.ts | MojoBinderPolicyDetailSection": {
+    "message": "D̂íŝál̂ĺôẃêd́ ÂṔÎ ḿêt́ĥód̂"
+  },
   "panels/application/components/Prerender2.ts | NavigationBadHttpStatus": {
     "message": "T̂h́ê ín̂ít̂íâĺ p̂ŕêŕêńd̂ér̂ín̂ǵ n̂áv̂íĝát̂íôń ŵáŝ ńôt́ ŝúĉćêśŝf́ûĺ d̂úê t́ô t́ĥé ŝér̂v́êŕ r̂ét̂úr̂ńîńĝ á n̂ón̂-200/204/205 śt̂át̂úŝ ćôd́ê."
   },
