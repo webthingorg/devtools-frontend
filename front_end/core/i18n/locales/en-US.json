@@ -3344,6 +3344,9 @@
   "panels/application/components/Prerender2.ts | MojoBinderPolicy": {
     "message": "A disallowed API was used by the prerendered page"
   },
+  "panels/application/components/Prerender2.ts | MojoBinderPolicyDetailSection": {
+    "message": "Disallowed API method"
+  },
   "panels/application/components/Prerender2.ts | NavigationBadHttpStatus": {
     "message": "The initial prerendering navigation was not successful due to the server returning a non-200/204/205 status code."
   },
