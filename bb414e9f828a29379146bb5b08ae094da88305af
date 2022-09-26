@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba52bec3_114eac17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-09-26T08:28:07Z",
+      "side": 1,
+      "message": "How to test:\n1. Open devtool, WebAuthn\n2. Drag sub-pane down to decrease pane\u0027s height\n3. Check WebAuthn\u0027s \"learn more content\" does NOT overlay with \"Enable virtual authenticator ...\" \n\nSee video record AFTER fixed:\n- https://youtu.be/zQM7KfourVo",
+      "revId": "bb414e9f828a29379146bb5b08ae094da88305af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
