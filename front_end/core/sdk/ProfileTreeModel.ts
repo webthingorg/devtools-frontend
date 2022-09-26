@@ -6,6 +6,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import type * as Platform from '../platform/platform.js';
 
 import {type Target} from './Target.js';
+import {DebuggerModel} from './DebuggerModel.js';
 
 export class ProfileNode {
   callFrame: Protocol.Runtime.CallFrame;
@@ -17,8 +18,8 @@ export class ProfileNode {
   children: ProfileNode[];
   depth!: number;
   deoptReason!: string|null;
-
-  constructor(callFrame: Protocol.Runtime.CallFrame) {
+  #target: Target|null;
+  constructor(callFrame: Protocol.Runtime.CallFrame, target: Target|null) {
     this.callFrame = callFrame;
     this.callUID = `${callFrame.functionName}@${callFrame.scriptId}:${callFrame.lineNumber}:${callFrame.columnNumber}`;
     this.self = 0;
@@ -26,6 +27,8 @@ export class ProfileNode {
     this.id = 0;
     this.parent = null;
     this.children = [];
+    this.#target = target;
+    void target?.model(DebuggerModel)?.scriptForId(callFrame.scriptId)?.requestContent();
   }
 
   get functionName(): string {
@@ -46,6 +49,10 @@ export class ProfileNode {
 
   get columnNumber(): number {
     return this.callFrame.columnNumber;
+  }
+
+  target(): Target|null {
+    return this.#target;
   }
 }
 

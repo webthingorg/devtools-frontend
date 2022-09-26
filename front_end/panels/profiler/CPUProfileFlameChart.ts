@@ -36,6 +36,8 @@ import type * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as i18n from '../../core/i18n/i18n.js';
 
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
+
 let colorGeneratorInstance: Common.Color.Generator|null = null;
 
 export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameChartDataProvider {
@@ -100,7 +102,9 @@ export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameCha
 
   entryTitle(entryIndex: number): string {
     const node = this.entryNodes[entryIndex];
-    return UI.UIUtils.beautifyFunctionName(node.functionName);
+    const functionName = SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, node.target()) ||
+        node.functionName;
+    return UI.UIUtils.beautifyFunctionName(functionName);
   }
 
   entryFont(entryIndex: number): string|null {
