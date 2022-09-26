@@ -73,6 +73,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   readonly #codeOffsetInternal: number|null;
   readonly #language: string|null;
   #contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
+  #content: TextUtils.ContentProvider.DeferredContent|null;
   readonly #embedderNameInternal: Platform.DevToolsPath.UrlString|null;
   readonly isModule: boolean|null;
   constructor(
@@ -103,7 +104,9 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     this.#codeOffsetInternal = codeOffset;
     this.#language = scriptLanguage;
     this.#contentPromise = null;
+    this.#content = null;
     this.#embedderNameInternal = embedderName;
+    void this.requestContent();
   }
 
   embedderName(): Platform.DevToolsPath.UrlString|null {
@@ -229,7 +232,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     return {content: '', isEncoded: false, wasmDisassemblyInfo};
   }
 
-  requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
+  async requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
     if (!this.#contentPromise) {
       this.#contentPromise = (async(): Promise<TextUtils.ContentProvider.DeferredContent> => {
         if (!this.scriptId) {
@@ -243,7 +246,16 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
         }
       })();
     }
+    void this.#contentPromise.then(this.setContent.bind(this));
     return this.#contentPromise;
+  }
+
+  setContent(content: TextUtils.ContentProvider.DeferredContent): void {
+    this.#content = content;
+  }
+
+  maybeGetContent(): TextUtils.ContentProvider.DeferredContent|null {
+    return this.#content;
   }
 
   async getWasmBytecode(): Promise<ArrayBuffer> {
