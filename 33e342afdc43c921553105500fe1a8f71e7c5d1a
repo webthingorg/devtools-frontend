@@ -39,6 +39,30 @@
       },
       "revId": "33e342afdc43c921553105500fe1a8f71e7c5d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2996d5_258f88f2",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyNotDelegated.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-26T19:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be5194fa_c458d100",
+      "range": {
+        "startLine": 8,
+        "startChar": 35,
+        "endLine": 8,
+        "endChar": 39
+      },
+      "revId": "33e342afdc43c921553105500fe1a8f71e7c5d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

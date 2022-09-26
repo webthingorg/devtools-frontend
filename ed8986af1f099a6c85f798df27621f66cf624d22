@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfd10b9e_7aad4673",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-26T19:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0baff5e_7a1ecc5c",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "386e3411_d4979181",
@@ -154,6 +172,24 @@
       "writtenOn": "2022-09-20T16:29:44Z",
       "side": 1,
       "message": "Nit: cross origin -\u003e cross-origin",
+      "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c907633c_ce1355f5",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyNotDelegated.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-26T19:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "386e3411_d4979181",
       "revId": "ed8986af1f099a6c85f798df27621f66cf624d22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
