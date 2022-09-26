@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e54be1d_29b01dee",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-26T13:35:25Z",
+      "side": 1,
+      "message": "Could this turn into a performance problem when adding multiple headers since each row will have an `requestAnimationFrame`? As an alternative, I could pass a parameter to the component whether to do this or not.",
+      "range": {
+        "startLine": 115,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "d69ae06e424b80ccda9c42145ae63683bdfd9513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
