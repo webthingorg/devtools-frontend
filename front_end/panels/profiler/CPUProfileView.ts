@@ -36,6 +36,7 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Protocol from '../../generated/protocol.js';
 
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 import {ProfileFlameChartDataProvider} from './CPUProfileFlameChart.js';
 
 import {type Formatter, type ProfileDataGridNode} from './ProfileDataGrid.js';
@@ -411,7 +412,10 @@ export class CPUFlameChartDataProvider extends ProfileFlameChartDataProvider {
       }
       return i18n.TimeUtilities.secondsToString(ms / 1000, true);
     }
-    const name = UI.UIUtils.beautifyFunctionName(node.functionName);
+    const functionName = SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, node.target()) ||
+        node.functionName;
+
+    const name = UI.UIUtils.beautifyFunctionName(functionName);
     pushEntryInfoRow(i18nString(UIStrings.name), name);
     const selfTime = millisecondsToString((this.entrySelfTimes as Float32Array)[entryIndex]);
     const totalTime =

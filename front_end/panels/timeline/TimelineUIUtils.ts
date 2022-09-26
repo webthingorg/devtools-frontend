@@ -46,6 +46,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import invalidationsTreeStyles from './invalidationsTree.css.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import {TimelinePanel, TimelineSelection} from './TimelinePanel.js';
@@ -1455,6 +1456,17 @@ export class TimelineUIUtils {
     return frame.functionName;
   }
 
+  static nodeDisplayName(node: SDK.ProfileTreeModel.ProfileNode): string {
+    if (!TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.isNativeRuntimeFrame(node)) {
+      const functionName =
+          SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node, node.target()) || node.functionName;
+
+      const name = UI.UIUtils.beautifyFunctionName(functionName);
+      return UI.UIUtils.beautifyFunctionName(name);
+    }
+    return TimelineUIUtils.frameDisplayName(node.callFrame);
+  }
+
   static testContentMatching(traceEvent: SDK.TracingModel.Event, regExp: RegExp): boolean {
     const title = TimelineUIUtils.eventStyle(traceEvent).title;
     const tokens = [title];
@@ -1571,7 +1583,7 @@ export class TimelineUIUtils {
     const recordType = TimelineModel.TimelineModel.RecordType;
     const eventData = event.args['data'];
     if (event.name === recordType.JSFrame) {
-      return TimelineUIUtils.frameDisplayName(eventData);
+      return TimelineUIUtils.nodeDisplayName(eventData);
     }
 
     if (event.name === 'EventTiming' && event.args.data && event.args.data.interactionId) {
@@ -1713,7 +1725,7 @@ export class TimelineUIUtils {
         }
         break;
       case recordType.JSFrame:
-        detailsText = TimelineUIUtils.frameDisplayName(eventData);
+        detailsText = TimelineUIUtils.nodeDisplayName(eventData);
         break;
       case recordType.EventDispatch:
         detailsText = eventData ? eventData['type'] : null;
@@ -1880,7 +1892,7 @@ export class TimelineUIUtils {
       case recordType.FunctionCall:
       case recordType.JSFrame: {
         details = document.createElement('span');
-        UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(eventData));
+        UI.UIUtils.createTextChild(details, TimelineUIUtils.nodeDisplayName(eventData));
         const location = linkifyLocation(
             eventData['scriptId'], eventData['url'], eventData['lineNumber'], eventData['columnNumber']);
         if (location) {
