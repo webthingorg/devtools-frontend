@@ -411,6 +411,11 @@ export class MainImpl {
         Root.Runtime.ExperimentName.IMPORTANT_DOM_PROPERTIES,
         'Highlight important DOM properties in the Object Properties viewer');
 
+    // Show why Chrome uses a specific transport protocol for HTTP semantics.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.ALTERNATE_PROTOCOL_USAGE,
+        'Show why Chrome uses a specific transport protocol for HTTP semantics');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'hideIssuesFeature',
