@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4308ba7_6b710eba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2022-09-26T22:53:03Z",
+      "side": 1,
+      "message": "@yangguo@chromium.org, can someone help review this accessibility change?",
+      "revId": "6ae54e5fb54328fe9a12e45b12b7f33d623dcad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
