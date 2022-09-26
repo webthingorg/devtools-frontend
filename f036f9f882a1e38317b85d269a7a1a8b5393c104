@@ -16,6 +16,24 @@
       "message": "When you\u0027re updating \u0027browser_protocol.pdl\u0027 in the backend, use `npm run generate-protocol-resources` to update DevTools accordingly.\nYou can either copy the pdl file from the chromium repo to DevTools and then `npm run generate-protocol-resources` or do as described here: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#managing-dependencies\n\nWe usually do this in a separate CL only containing the protocol-related stuff.",
       "revId": "f036f9f882a1e38317b85d269a7a1a8b5393c104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "328aebb5_b7bc0261",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 7694,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-26T08:14:04Z",
+      "side": 1,
+      "message": "Thanks! I did what you suggest, and now see no CQ Dry Run errors.",
+      "parentUuid": "7905e1eb_63404f56",
+      "revId": "f036f9f882a1e38317b85d269a7a1a8b5393c104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
