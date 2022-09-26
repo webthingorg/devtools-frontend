@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a43b9f_e7d73554",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-26T15:12:33Z",
+      "side": 1,
+      "message": "Sometimes imperative code is simpler. Compare with\n\n    for (let i \u003d 0; i \u003c block.headers.length; ++i) {\n      if (block.headers[i].name \u003d\u003d previousName\n          \u0026\u0026 block.headers[i].value \u003d\u003d previousValue) {\n        block.headers.splice(i, 1);\n        break;\n      }\n    }",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 35
+      },
+      "revId": "d46a8a970c01a3357a6cb2ebef51438d044d4992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
