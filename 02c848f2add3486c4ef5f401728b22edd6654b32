@@ -16,6 +16,24 @@
       "message": "If that\u0027s the case, should we be logging these errors in the first place?",
       "revId": "02c848f2add3486c4ef5f401728b22edd6654b32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cf04807_15bac32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-27T14:29:13Z",
+      "side": 1,
+      "message": "No I don\u0027t think we should. The frontend consumes the error here: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/core/sdk/ResourceTreeModel.ts;l\u003d141\nThis reads as if \"no storage key\" should be a valid response of the call, and not an error. But that would be a protocol change (albeit in an experimental domain).",
+      "parentUuid": "7dfb375f_f2599a5a",
+      "revId": "02c848f2add3486c4ef5f401728b22edd6654b32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
