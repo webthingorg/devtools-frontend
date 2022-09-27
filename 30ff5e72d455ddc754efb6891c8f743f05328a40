@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea985fe5_2e69976c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-27T08:20:58Z",
+      "side": 1,
+      "message": "I couldn\u0027t find the reference to this two states counter design in the design doc. Is this component too detailed to be included in the design doc?",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0eb75dcd_054d368c",
@@ -14,6 +31,63 @@
       "writtenOn": "2022-09-27T07:36:37Z",
       "side": 1,
       "message": "Hi Changhao!\n\nI\u0027m adding a new component that represents a counter that captures the count of two different states, e.g. counting active/inactive breakpoints. Also, if you know a better name for this component, please let me know - I tried to find something similar in the MaterialsDesign but it\u0027s not really a chip given it\u0027s behavior I think. PTAL!",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "194c2899_650c4315",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-27T08:20:58Z",
+      "side": 1,
+      "message": "Maybe it\u0027s my poor understanding of TypeScript: if we mark `#width` and `#height` here as Readonly, we shouldn\u0027t be able to set them later in the method `set data(data: TwoStatesCounterData) {}`? Maybe we wouldn\u0027t need to set these fields to `Readonly`?",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "778765cb_1ae65716",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-27T08:20:58Z",
+      "side": 1,
+      "message": "nit: why would we need a `\u003cspan\u003e` to wrap the count, instead of directly putting the count under the parent `\u003cdiv\u003e`?",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0e2926_f238ef8e",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-09-27T08:20:58Z",
+      "side": 1,
+      "message": "nit: this should be `on` here?",
+      "range": {
+        "startLine": 95,
+        "startChar": 20,
+        "endLine": 95,
+        "endChar": 23
+      },
       "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
