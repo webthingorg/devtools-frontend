@@ -33,6 +33,24 @@
       "message": "Lovely, thanks for this!\n\nCan you add a pair of before and after screenshots to the CL description?\n\nYou can post them in the bug and link them in the description, or maybe to imgur if that\u0027s too involved.",
       "revId": "bb414e9f828a29379146bb5b08ae094da88305af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08c8417e_2e5d288b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541007
+      },
+      "writtenOn": "2022-09-27T02:01:45Z",
+      "side": 1,
+      "message": "Updated, thanks",
+      "parentUuid": "9ce1b73e_3cc7d1b8",
+      "revId": "bb414e9f828a29379146bb5b08ae094da88305af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
