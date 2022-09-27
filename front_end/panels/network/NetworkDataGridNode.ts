@@ -40,6 +40,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
@@ -239,6 +240,42 @@ const UIStrings = {
   * between the time a response to a network request is received and the time the request is started.
   */
   timeSubtitleTooltipText: 'Latency (response received time - start time)',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  alternativeJobWonWithoutRace: 'Alternate Protocol was used without racing a normal connection.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  alternativeJobWonRace: 'Alternate Protocol was used by winning a race with a normal connection.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  mainJobWonRace: 'Main Job won a race with an Alternate Protocol job and/or a HTTPS DNS protocol upgrade job.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  mappingMissing: 'Alternate Protocol was not used because no Alternate-Protocol information ' +
+      'was available when the request was issued, but an Alternate-Protocol header ' +
+      'was present in the response.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  broken: 'Alternate Protocol was not used because it was marked broken.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  dnsAlpnH3JobWonWithoutRace: 'HTTPS DNS protocol upgrade job was used without racing with a normal ' +
+      'connection and an Alternate Protocol job.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  dnsAlpnH3JobWonRace: 'HTTPS DNS protocol upgrade job won a race with a normal connection ' +
+      'and an Alternate Protocol job.',
+  /**
+  *@description Text in Network Data Grid Node of the Network panel
+  */
+  unspecifiedReason: 'The reason why this protocol was used is unspecified.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkDataGridNode.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -881,7 +918,7 @@ export class NetworkRequestNode extends NetworkNode {
         break;
       }
       case 'protocol': {
-        this.setTextAndTitle(cell, this.requestInternal.protocol);
+        this.renderProtocolCell(cell);
         break;
       }
       case 'scheme': {
@@ -1167,6 +1204,51 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(cell, i18nString(UIStrings.unknown), i18nString(UIStrings.unknownExplanation));
     } else {
       this.setTextAndTitle(cell, i18nString(UIStrings.pendingq));
+    }
+  }
+
+  private renderProtocolCell(cell: HTMLElement): void {
+    UI.UIUtils.createTextChild(cell, this.requestInternal.protocol);
+    switch (this.requestInternal.alternateProtocolUsage) {
+      case Protocol.Network.AlternateProtocolUsage.AlternativeJobWonWithoutRace: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.alternativeJobWonWithoutRace);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.AlternativeJobWonRace: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.alternativeJobWonRace);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.MainJobWonRace: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.mainJobWonRace);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.MappingMissing: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.mappingMissing);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.Broken: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.broken);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.DnsAlpnH3JobWonWithoutRace: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.dnsAlpnH3JobWonWithoutRace);
+        break;
+      }
+
+      case Protocol.Network.AlternateProtocolUsage.DnsAlpnH3JobWonRace: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.dnsAlpnH3JobWonRace);
+        break;
+      }
+
+      default: {
+        UI.Tooltip.Tooltip.install(cell, UIStrings.unspecifiedReason);
+        break;
+      }
     }
   }
 
