@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ad679f_0189825d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-09-27T15:01:23Z",
+      "side": 1,
+      "message": "Current behavior is pretty annoying so this shouldn\u0027t go to stable I think 😅 After this CL is submitted, I\u0027ll request back merge to M107.",
+      "revId": "d51807dd38e8d94f07abf20dc7d082b920f87dc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
