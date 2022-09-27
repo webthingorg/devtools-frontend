@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ad43334_b042e380",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T08:44:58Z",
+      "side": 1,
+      "message": "Sorry, I think I misunderstood what you said. Currently we assume alternateProtocolUsage is always sent from backend. So we should have an experimental flag.",
+      "parentUuid": "0b6a8456_ec99b10b",
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b91129f_6afd2808",
         "filename": "front_end/core/sdk/NetworkRequest.ts",
         "patchSetId": 17
