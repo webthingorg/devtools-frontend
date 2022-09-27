@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e583a7e_9038b2e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-27T06:54:20Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "92535fd3fc97da37693528257af813640f5cffbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b40d239_6e3b2d72",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-27T06:54:20Z",
+      "side": 1,
+      "message": "nit: Since this is Chrome UI text, we should follow go/punctuation-standards and uses proper typographic quotes and apostrophes.\n\n    can\u0027t",
+      "revId": "92535fd3fc97da37693528257af813640f5cffbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16176047_fa4517f5",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-27T06:54:20Z",
+      "side": 1,
+      "message": "Same here:\n\n    …",
+      "range": {
+        "startLine": 8,
+        "startChar": 32,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "92535fd3fc97da37693528257af813640f5cffbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4fe05f_1b96626b",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyNotDelegated.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-27T06:54:20Z",
+      "side": 1,
+      "message": "…",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "92535fd3fc97da37693528257af813640f5cffbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
