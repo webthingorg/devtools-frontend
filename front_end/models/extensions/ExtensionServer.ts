@@ -701,7 +701,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return {url: contentProvider.contentURL(), type: contentProvider.contentType().name()};
   }
 
-  private onGetPageResources(): {url: string, type: string}[] {
+  private onGetPageResources(message: PrivateAPI.ExtensionServerRequestMessage): {url: string, type: string}[] {
+    if (message.command !== PrivateAPI.Commands.GetPageResources) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.GetPageResources}`);
+    }
     const resources = new Map<unknown, {
       url: string,
       type: string,
@@ -709,6 +712,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
     function pushResourceData(
         this: ExtensionServer, contentProvider: TextUtils.ContentProvider.ContentProvider): boolean {
+      if (!message.allowFileAccess && contentProvider.contentURL().startsWith('file://')) {
+        return false;
+      }
       if (!resources.has(contentProvider.contentURL())) {
         resources.set(contentProvider.contentURL(), this.makeResource(contentProvider));
       }
