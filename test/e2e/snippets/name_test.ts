@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
 
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
 import {createNewSnippet, getOpenSources, openSnippetsSubPane, openSourcesPanel} from '../helpers/sources-helpers.js';
 
@@ -20,18 +20,22 @@ describe('Snippets subpane', () => {
     await openCommandMenu();
     await showSnippetsAutocompletion();
 
-    // Available in autocompletion
-    assert.deepEqual(await getAvailableSnippets(), [
-      name + '\u200B',
-    ]);
+    try {
+      // Available in autocompletion
+      assert.deepEqual(await getAvailableSnippets(), [
+        name + '\u200B',
+      ]);
+    } catch (e) {
+      await takeScreenshots(name);
+      throw e;
+    }
   }
 
   it('can create snippet with simple name', async () => {
     await runTest('MySnippet');
   });
 
-  // TODO(crbug.com/1356139): Disabled due to flakiness.
-  it.skip('[crbug.com/1356139]: can create snippet with name like default name', async () => {
+  it('can create snippet with name like default name', async () => {
     await runTest('My Snippet #555');
   });
 
