@@ -259,7 +259,7 @@ export class TextSourceMap implements SourceMap {
       // If the line and column are preceding all the entries, then there is nothing to map.
       return null;
     }
-    const sourceURL = mappings[index].sourceURL;
+    const sourceURL = mappings[index]?.sourceURL;
     if (!sourceURL) {
       return null;
     }
