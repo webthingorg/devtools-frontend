@@ -33,6 +33,23 @@
       "message": "Kateryna, could you take a look at this?",
       "revId": "6ae54e5fb54328fe9a12e45b12b7f33d623dcad4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a27056_dcbfdc99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-27T09:21:23Z",
+      "side": 1,
+      "message": "Could you please add before/after screenshots?",
+      "revId": "6ae54e5fb54328fe9a12e45b12b7f33d623dcad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
