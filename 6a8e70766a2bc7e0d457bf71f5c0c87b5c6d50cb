@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ccbfc3_f7ae10aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T08:03:42Z",
+      "side": 1,
+      "message": "Hi Jaro!\n\nThis is a small CL to differently format code snippets in the breakpoint sidebar to make it clear that it\u0027s a clickable link. PTAL!",
+      "revId": "6a8e70766a2bc7e0d457bf71f5c0c87b5c6d50cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
