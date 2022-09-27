@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6882e050_cf4867e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "Yes! Please check https://dns-test.glitch.me/index2.html.",
+      "parentUuid": "8f66e3d2_24cfef64",
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ae69085_c0609e0f",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-26T14:05:43Z",
       "side": 1,
       "message": "Maybe we don\u0027t need an experiment for this. The additional info is optional in CDP. What DevTools renders could be unchanged when no `alternateProtocolUsage` info is available, and if it is, make DevTools render the new UI.",
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b6a8456_ec99b10b",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "I see, thanks!",
+      "parentUuid": "0ae69085_c0609e0f",
       "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe595c90_47b7cf37",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b91129f_6afd2808",
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f016cc6_280f1f10",
@@ -65,6 +119,30 @@
       "writtenOn": "2022-09-26T14:05:43Z",
       "side": 1,
       "message": "What happens if the experiment is turned off? Should we show the original tooltip?",
+      "range": {
+        "startLine": 1176,
+        "startChar": 4,
+        "endLine": 1176,
+        "endChar": 97
+      },
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da1443e4_a0dab6ed",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "Yes, just the used protocol was shown. \n\nI eliminated the experimental flag, so this is no longer needed.",
+      "parentUuid": "5f016cc6_280f1f10",
       "range": {
         "startLine": 1176,
         "startChar": 4,
@@ -100,6 +178,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adb15236_4a67cfc2",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "OK! I implemented it as you suggest. Please review!",
+      "parentUuid": "3724583c_189cc0b1",
+      "range": {
+        "startLine": 1177,
+        "startChar": 39,
+        "endLine": 1177,
+        "endChar": 82
+      },
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67930bcf_62dda9d5",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 17
@@ -111,6 +213,30 @@
       "writtenOn": "2022-09-26T14:05:43Z",
       "side": 1,
       "message": "Why does the style for the cell need to change?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 24,
+        "endLine": 1179,
+        "endChar": 40
+      },
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3283a23d_89ed8b0a",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-27T03:45:41Z",
+      "side": 1,
+      "message": "I implemented it with reference to other codes, so I have no special reasons for this.",
+      "parentUuid": "67930bcf_62dda9d5",
       "range": {
         "startLine": 1179,
         "startChar": 24,
