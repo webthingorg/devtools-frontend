@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b84f39_1ec06f98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-27T14:40:28Z",
+      "side": 1,
+      "message": "Since I\u0027m sending you so many CLs already, what\u0027s one more! :)",
+      "revId": "764c90de5746e5e3ba7351337ab456f9fb4df03f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
