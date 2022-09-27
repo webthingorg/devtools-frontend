@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1f9a1f_3f4f5765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002114
+      },
+      "writtenOn": "2022-09-27T16:40:41Z",
+      "side": 1,
+      "message": "deprecation-devtool-issues: PTAL.",
+      "revId": "e25768c0c03e59bfa8df3f7b19ef289675d9407d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
