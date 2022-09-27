@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb75dcd_054d368c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T07:36:37Z",
+      "side": 1,
+      "message": "Hi Changhao!\n\nI\u0027m adding a new component that represents a counter that captures the count of two different states, e.g. counting active/inactive breakpoints. Also, if you know a better name for this component, please let me know - I tried to find something similar in the MaterialsDesign but it\u0027s not really a chip given it\u0027s behavior I think. PTAL!",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
