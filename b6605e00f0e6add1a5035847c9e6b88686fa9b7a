@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a004c0_56238906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T10:06:15Z",
+      "side": 1,
+      "message": "Thanks a lot for the detailed review, Changhao! I\u0027ve updated the code changes.",
+      "revId": "b6605e00f0e6add1a5035847c9e6b88686fa9b7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

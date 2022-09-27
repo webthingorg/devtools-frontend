@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "827dfc16_4ca30abd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T10:06:15Z",
+      "side": 1,
+      "message": "Right, as discussed offline this is not a very complicated component so it\u0027s not included in the design doc.",
+      "parentUuid": "ea985fe5_2e69976c",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0eb75dcd_054d368c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5fddbf4_170ccd99",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T10:06:15Z",
+      "side": 1,
+      "message": "(I\u0027m pretty new to Typescript)\nThanks for pointing this out! I initially had a look at Icon.ts as to how it was doing things with widths/heights, which is also passing widths/heights while using `Readonly`. But now that you ask, and after double checking the type, it definitely isn\u0027t correct here. Removed it, thanks Changhao!",
+      "parentUuid": "194c2899_650c4315",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "778765cb_1ae65716",
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7929a2e3_36aa7199",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T10:06:15Z",
+      "side": 1,
+      "message": "You\u0027re right: I\u0027ve now directly put all I had on the `\u003cdiv\u003e` to the `\u003cspan\u003e` and removed the parent `\u003cdiv\u003e`.",
+      "parentUuid": "778765cb_1ae65716",
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a0e2926_f238ef8e",
@@ -82,6 +136,30 @@
       "writtenOn": "2022-09-27T08:20:58Z",
       "side": 1,
       "message": "nit: this should be `on` here?",
+      "range": {
+        "startLine": 95,
+        "startChar": 20,
+        "endLine": 95,
+        "endChar": 23
+      },
+      "revId": "30ff5e72d455ddc754efb6891c8f743f05328a40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e322c64_201226e8",
+        "filename": "front_end/ui/components/two_states_counter/TwoStatesCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-27T10:06:15Z",
+      "side": 1,
+      "message": "Oh, yes, thanks!",
+      "parentUuid": "2a0e2926_f238ef8e",
       "range": {
         "startLine": 95,
         "startChar": 20,
