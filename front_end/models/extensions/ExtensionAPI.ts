@@ -203,7 +203,7 @@ export namespace PrivateAPI {
     entries: Array<KeyboardEventInit&{eventType: string}>,
   };
   type GetHARRequest = {command: Commands.GetHAR};
-  type GetPageResourcesRequest = {command: Commands.GetPageResources};
+  type GetPageResourcesRequest = {command: Commands.GetPageResources, includeFiles: boolean};
   type GetWasmLinearMemoryRequest = {
     command: Commands.GetWasmLinearMemory,
     offset: number,
@@ -1208,7 +1208,9 @@ self.injectedExtensionAPI = function(
       function callbackWrapper(resources: unknown): void {
         callback && callback((resources as APIImpl.ResourceData[]).map(wrapResource));
       }
-      extensionServer.sendRequest({command: PrivateAPI.Commands.GetPageResources}, callback && callbackWrapper);
+      extensionServer.sendRequest(
+          {command: PrivateAPI.Commands.GetPageResources, includeFiles: extensionInfo.allowFileAccess},
+          callback && callbackWrapper);
     },
   };
 
