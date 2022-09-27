@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe43e51d_55da9d5f",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1142059
+      },
+      "writtenOn": "2022-09-27T15:37:02Z",
+      "side": 1,
+      "message": "No worries, just making sure 😊",
+      "parentUuid": "6f36a981_c4d9538c",
+      "revId": "92535fd3fc97da37693528257af813640f5cffbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16176047_fa4517f5",
