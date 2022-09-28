@@ -104,6 +104,24 @@
       "parentUuid": "3b79d8e6_54d7a43b",
       "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9681860_24c374a4",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-28T22:26:20Z",
+      "side": 1,
+      "message": "Ya looks like we can just combine the html files. Some other audits start passing as well but that shouldn\u0027t matter.",
+      "parentUuid": "19f60cff_c292d8d4",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
