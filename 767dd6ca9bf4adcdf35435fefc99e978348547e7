@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf539bf8_1b40cf97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-28T11:56:30Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nthis CL adds the new TwoStatesCounter (https://crrev.com/c/3918360) to the BreakpointsSidebarPane, in order to show the number of enabled/disabled breakpoints\nfor each file. PTAL!",
+      "revId": "767dd6ca9bf4adcdf35435fefc99e978348547e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
