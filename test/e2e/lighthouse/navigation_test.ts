@@ -52,9 +52,20 @@ describe('Navigation', async function() {
 
         assert.strictEqual(lhr.lighthouseVersion, '9.6.6');
         assert.match(lhr.finalUrl, /^https:\/\/localhost:[0-9]+\/test\/e2e\/resources\/lighthouse\/hello.html/);
+
         assert.strictEqual(lhr.configSettings.throttlingMethod, 'simulate');
         assert.strictEqual(lhr.configSettings.disableStorageReset, false);
         assert.strictEqual(lhr.configSettings.formFactor, 'mobile');
+        assert.strictEqual(lhr.configSettings.throttling.rttMs, 150);
+        assert.strictEqual(lhr.configSettings.screenEmulation.disabled, true);
+        assert.include(lhr.configSettings.emulatedUserAgent, 'Mobile');
+
+        // A bug in FR caused `networkUserAgent` to be excluded from the LHR.
+        // https://github.com/GoogleChrome/lighthouse/pull/14392
+        // TODO: Reenable once the fix lands in DT.
+        if (mode === 'legacy') {
+          assert.include(lhr.environment.networkUserAgent, 'Mobile');
+        }
 
         const {innerWidth, innerHeight, outerWidth, outerHeight, devicePixelRatio} = artifacts.ViewportDimensions;
         // This value can vary slightly, depending on the display.
@@ -158,6 +169,16 @@ describe('Navigation', async function() {
         assert.deepStrictEqual(Object.keys(lhr.categories), ['performance', 'best-practices']);
         assert.strictEqual(lhr.configSettings.disableStorageReset, true);
         assert.strictEqual(lhr.configSettings.formFactor, 'desktop');
+        assert.strictEqual(lhr.configSettings.throttling.rttMs, 40);
+        assert.strictEqual(lhr.configSettings.screenEmulation.disabled, true);
+        assert.notInclude(lhr.configSettings.emulatedUserAgent, 'Mobile');
+
+        // A bug in FR caused `networkUserAgent` to be excluded from the LHR.
+        // https://github.com/GoogleChrome/lighthouse/pull/14392
+        // TODO: Reenable once the fix lands in DT.
+        if (mode === 'legacy') {
+          assert.notInclude(lhr.environment.networkUserAgent, 'Mobile');
+        }
 
         const viewTraceText = await reportEl.$eval('.lh-button--trace', viewTraceEl => {
           return viewTraceEl.textContent;
