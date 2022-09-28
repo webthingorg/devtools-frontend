@@ -126,6 +126,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32c9750b_a8d2bfee",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-28T15:33:21Z",
+      "side": 1,
+      "message": "Exactly, if the backend always sends it, then it should not be optional in the protocol.",
+      "parentUuid": "c858b899_d06d6435",
+      "range": {
+        "startLine": 225,
+        "startChar": 66,
+        "endLine": 225,
+        "endChar": 75
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a98e322_520aae9e",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 20
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "Since the implementation of the reason calculation on the backend side is incomplete, not only the case where there is no HTTP/3 but all the other cases we don\u0027t cover now are classified to this case. \n\nIn the near future, after the backend side covers more possible cases, this case will be shown less frequently. I don\u0027t want \"unspecified reason\" to be the most common case.\n\nSo, should we modify this sentence into something better?",
       "parentUuid": "7419e65d_7bff27c5",
+      "range": {
+        "startLine": 1252,
+        "startChar": 0,
+        "endLine": 1255,
+        "endChar": 7
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7094f28_27d318a5",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-09-28T15:33:21Z",
+      "side": 1,
+      "message": "Would it make sense to fallback to the current behaviour in the \"unspecified reason\" case? i.e. having the cell\u0027s content as title/hover text as well.\n\nThis would IMO allow us to get rid of the DevTools experiment as well. No matter what is going on on the backend, if DevTools receives \"valuable\" info, it\u0027ll show them as hover text, if not, it\u0027ll keep the existing behaviour.",
+      "parentUuid": "63fb945b_7af9bec3",
       "range": {
         "startLine": 1252,
         "startChar": 0,
