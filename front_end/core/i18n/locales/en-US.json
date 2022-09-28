@@ -7154,11 +7154,20 @@
   "panels/network/NetworkConfigView.ts | userAgent": {
     "message": "User agent"
   },
+  "panels/network/NetworkDataGridNode.ts | alternativeJobWonRace": {
+    "message": "Alternative job was used by winning a race with a Main job."
+  },
+  "panels/network/NetworkDataGridNode.ts | alternativeJobWonWithoutRace": {
+    "message": "Alternative job was used without racing a Main job."
+  },
   "panels/network/NetworkDataGridNode.ts | blockeds": {
     "message": "(blocked:{PH1})"
   },
   "panels/network/NetworkDataGridNode.ts | blockedTooltip": {
     "message": "This request was blocked due to misconfigured response headers, click to view the headers"
+  },
+  "panels/network/NetworkDataGridNode.ts | broken": {
+    "message": "Alternative job was not used because it was marked broken."
   },
   "panels/network/NetworkDataGridNode.ts | canceled": {
     "message": "(canceled)"
@@ -7181,6 +7190,12 @@
   "panels/network/NetworkDataGridNode.ts | diskCache": {
     "message": "(disk cache)"
   },
+  "panels/network/NetworkDataGridNode.ts | dnsAlpnH3JobWonRace": {
+    "message": "HTTPS DNS protocol upgrade job won a race with a Main job and an Alternative job."
+  },
+  "panels/network/NetworkDataGridNode.ts | dnsAlpnH3JobWonWithoutRace": {
+    "message": "HTTPS DNS protocol upgrade job was used without racing with a Main job and an Alternative job."
+  },
   "panels/network/NetworkDataGridNode.ts | failed": {
     "message": "(failed)"
   },
@@ -7189,6 +7204,12 @@
   },
   "panels/network/NetworkDataGridNode.ts | level": {
     "message": "level 1"
+  },
+  "panels/network/NetworkDataGridNode.ts | mainJobWonRace": {
+    "message": "Main job won a race with an Alternative job and/or a HTTPS DNS protocol upgrade job."
+  },
+  "panels/network/NetworkDataGridNode.ts | mappingMissing": {
+    "message": "Alternative job was not used because no Alternate-Protocol information was available when the request was issued, but an Alternate-Protocol header was present in the response."
   },
   "panels/network/NetworkDataGridNode.ts | memoryCache": {
     "message": "(memory cache)"
@@ -7270,6 +7291,9 @@
   },
   "panels/network/NetworkDataGridNode.ts | unknownExplanation": {
     "message": "The request status cannot be shown here because the page that issued it unloaded while the request was in flight. You can use chrome://net-export to capture a network log and see all request details."
+  },
+  "panels/network/NetworkDataGridNode.ts | unspecifiedReason": {
+    "message": "The reason why this protocol was used is unspecified."
   },
   "panels/network/NetworkDataGridNode.ts | webBundle": {
     "message": "(Web Bundle)"
