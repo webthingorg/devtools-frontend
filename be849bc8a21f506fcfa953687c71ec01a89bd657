@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1b7771_91f5b870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T14:33:48Z",
+      "side": 1,
+      "message": "Build error was fixed. I\u0027d be happy if you could review!",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
