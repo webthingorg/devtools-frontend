@@ -16,6 +16,125 @@
       "message": "Build error was fixed. I\u0027d be happy if you could review!",
       "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1759f9ed_d7cdeaf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Hello! UI text sheriff here with just several nits 😊",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c5b623b_569229b2",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7158,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Nit: Try to avoid passive voice here and everywhere. Rephrase this sentence to make clear who\u0027s performing the action, if possible. Who used the job?\n\nGuideline and examples: https://developers.google.com/style/voice",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "931e7a04_40317f16",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7161,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Why do we capitalize \"Alternative\" and \"Main\" here and everywhere?\n\nNit: Avoid excessive capitalization unless it\u0027s official capitalization for the names of [...] services, features, and terms defined by companies and open source communities [in their official docs].\n\nGuideline: https://developers.google.com/style/capitalization\n\nAlso, passive voice spotted.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809d0349_4905a181",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7170,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Passive voice spotted.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a348f43_13c9904f",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7197,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Passive voice spotted.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932334bf_9b199d54",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7212,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Edit suggestion:\nDespite an Alternate-Protocol header in the response, [something] didn\u0027t use an alternative job because of missing Alternate-Protocol information.\n\nReplace [something] with the actor.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fdaa90_a0de5b18",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7296,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2022-09-28T15:20:47Z",
+      "side": 1,
+      "message": "Edit suggestion:\nThe reason of protocol choice is unspecified.\n\nJust trying to get rid of passive voice but, in this case, it\u0027s hard 😄",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
