@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "604c136b_7f623949",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-09-28T21:56:14Z",
+      "side": 1,
+      "message": "you can add 1331155\n\nsadly i guess its too late to add to the previous CLs",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca0ea343_ca5d2546",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-09-28T21:56:14Z",
+      "side": 1,
+      "message": "in https://docs.google.com/document/d/1_O8ZDPbrfzhCiuOrrU_TAkNsiwDnz9zItZM1QJJ7sLA/edit# we also called out wanting to assert that emulation was successfully restored to prevent this regression https://github.com/GoogleChrome/lighthouse/issues/14134\n\nthe other day you had a pitch for this. i believe setting to another device/landscape first before the run?",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b79d8e6_54d7a43b",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-09-28T21:56:14Z",
+      "side": 1,
+      "message": "we also want to verify content-width audit passes in both of these",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
