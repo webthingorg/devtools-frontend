@@ -7602,6 +7602,20 @@ export namespace Network {
   }
 
   /**
+   * The reason why Chrome uses a specific transport protocol for HTTP semantics.
+   */
+  export const enum AlternateProtocolUsage {
+    AlternativeJobWonWithoutRace = 'alternativeJobWonWithoutRace',
+    AlternativeJobWonRace = 'alternativeJobWonRace',
+    MainJobWonRace = 'mainJobWonRace',
+    MappingMissing = 'mappingMissing',
+    Broken = 'broken',
+    DnsAlpnH3JobWonWithoutRace = 'dnsAlpnH3JobWonWithoutRace',
+    DnsAlpnH3JobWonRace = 'dnsAlpnH3JobWonRace',
+    UnspecifiedReason = 'unspecifiedReason',
+  }
+
+  /**
    * HTTP response data.
    */
   export interface Response {
@@ -7689,6 +7703,10 @@ export namespace Network {
      * Protocol used to fetch this request.
      */
     protocol?: string;
+    /**
+     * The reason why Chrome uses a specific transport protocol for HTTP semantics.
+     */
+    alternateProtocolUsage?: AlternateProtocolUsage;
     /**
      * Security state of the request resource.
      */

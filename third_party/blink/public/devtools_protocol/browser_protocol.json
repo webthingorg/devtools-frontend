@@ -11352,6 +11352,22 @@
                     ]
                 },
                 {
+                    "id": "AlternateProtocolUsage",
+                    "description": "The reason why Chrome uses a specific transport protocol for HTTP semantics.",
+                    "experimental": true,
+                    "type": "string",
+                    "enum": [
+                        "alternativeJobWonWithoutRace",
+                        "alternativeJobWonRace",
+                        "mainJobWonRace",
+                        "mappingMissing",
+                        "broken",
+                        "dnsAlpnH3JobWonWithoutRace",
+                        "dnsAlpnH3JobWonRace",
+                        "unspecifiedReason"
+                    ]
+                },
+                {
                     "id": "Response",
                     "description": "HTTP response data.",
                     "type": "object",
@@ -11475,6 +11491,13 @@
                             "description": "Protocol used to fetch this request.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "alternateProtocolUsage",
+                            "description": "The reason why Chrome uses a specific transport protocol for HTTP semantics.",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "AlternateProtocolUsage"
                         },
                         {
                             "name": "securityState",
