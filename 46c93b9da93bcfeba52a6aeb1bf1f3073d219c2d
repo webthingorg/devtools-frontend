@@ -33,6 +33,29 @@
       "message": "Hi Rob, thanks for taking a look! I am fine with landing this as a quick fix.",
       "revId": "46c93b9da93bcfeba52a6aeb1bf1f3073d219c2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bfaa037_91c5f47e",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-09-28T07:09:06Z",
+      "side": 1,
+      "message": "Another (I think better) option is to take `mappings[index - 1].sourceURL` here since the start position lives at `index-1` (see line 275 below).",
+      "range": {
+        "startLine": 262,
+        "startChar": 22,
+        "endLine": 262,
+        "endChar": 37
+      },
+      "revId": "46c93b9da93bcfeba52a6aeb1bf1f3073d219c2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
