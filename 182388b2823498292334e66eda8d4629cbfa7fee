@@ -16,6 +16,23 @@
       "message": "Thanks for the fix and welcome to Chromium!",
       "revId": "182388b2823498292334e66eda8d4629cbfa7fee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "371e3a75_7c7e4e46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-09-28T09:43:47Z",
+      "side": 1,
+      "message": "The disparity between ExtensionAPI.d.ts and what\u0027s implemented in PrivateAPI / ExtensionApi.ts is somewhat intentional. ExtensionAPI.d.ts matches the docs, whereas PrivateAPI tracks the delta to what\u0027s implemented (in other words, we should also update the docs and eliminate the delta).\n\nExtension API change LGTM, over to bmeurer@ for AUTHORS!",
+      "revId": "182388b2823498292334e66eda8d4629cbfa7fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
