@@ -102,6 +102,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c858b899_d06d6435",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T13:22:11Z",
+      "side": 1,
+      "message": "With this change, build error occurs. This is because the protocol.pdl file defines this variable as optional. \n\nBut the backend always sends this information, so don\u0027t we need optional? Then I\u0027ll be able to erase this undefined as well, I guess.",
+      "parentUuid": "2a8117a6_f49519a6",
+      "range": {
+        "startLine": 225,
+        "startChar": 66,
+        "endLine": 225,
+        "endChar": 75
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a98e322_520aae9e",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 20

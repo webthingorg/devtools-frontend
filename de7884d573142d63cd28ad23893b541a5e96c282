@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c47f94_61bcbc7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T13:22:11Z",
+      "side": 1,
+      "message": "The protocol.pdl defines alternateProtocolUsage as optional, so currently \"undefined\" seems to be needed on the type definition of NetworkRequest.alternateProtocolUsage.",
+      "revId": "de7884d573142d63cd28ad23893b541a5e96c282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
