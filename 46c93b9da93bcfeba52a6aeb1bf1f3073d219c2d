@@ -56,6 +56,30 @@
       },
       "revId": "46c93b9da93bcfeba52a6aeb1bf1f3073d219c2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0096d5e_56ee0957",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-09-28T18:27:24Z",
+      "side": 1,
+      "message": "Ah, that\u0027s a good catch. I\u0027ve aliased endIndex and startIndex and I\u0027m pretty confident that this ought to address the issue. Thanks for the review!",
+      "parentUuid": "5bfaa037_91c5f47e",
+      "range": {
+        "startLine": 262,
+        "startChar": 22,
+        "endLine": 262,
+        "endChar": 37
+      },
+      "revId": "46c93b9da93bcfeba52a6aeb1bf1f3073d219c2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
