@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c6c139_889d539e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-28T22:03:31Z",
+      "side": 1,
+      "message": "Big oof but better late than never",
+      "parentUuid": "604c136b_7f623949",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca0ea343_ca5d2546",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a9d032b_6285492b",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-28T22:03:31Z",
+      "side": 1,
+      "message": "Yeah definitely still want to do that.\n\nI would consider it a separate change from what\u0027s going on here though since we didn\u0027t test it in any web tests before.",
+      "parentUuid": "ca0ea343_ca5d2546",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b79d8e6_54d7a43b",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-09-28T21:56:14Z",
       "side": 1,
       "message": "we also want to verify content-width audit passes in both of these",
+      "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f60cff_c292d8d4",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-09-28T22:03:31Z",
+      "side": 1,
+      "message": "So this is verified by the failed audits check later in the test.\n\nHowever I\u0027m just now noticing the web test was loading a slightly different page than what we\u0027re doing here. I\u0027m going do dig in and see if we can just combine the two html files.",
+      "parentUuid": "3b79d8e6_54d7a43b",
       "revId": "b6c290b4478bbd7ccfc302683d81db35cf2f68b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
