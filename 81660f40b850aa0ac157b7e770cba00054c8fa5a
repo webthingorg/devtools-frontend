@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "939add23_4fc5ed2d",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "Yeah, just the text when the mouse is hovered on the Protocol Grid is changed from \"h3\" to \"Alternate Protocol was used...\".\n\nBut actually, we cover just a part of all possible cases on the backend side currently . So, I think this feature would be landed with an experimental flag.",
+      "parentUuid": "440a682e_fff81eab",
+      "revId": "81660f40b850aa0ac157b7e770cba00054c8fa5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b91129f_6afd2808",
         "filename": "front_end/core/sdk/NetworkRequest.ts",
         "patchSetId": 17

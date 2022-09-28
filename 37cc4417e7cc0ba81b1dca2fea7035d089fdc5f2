@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e34e9f4_c55b9c98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "OK, thanks! I\u0027ll try!",
+      "parentUuid": "2ab9fd9d_fe14fba8",
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baa130c1_58e17481",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-09-27T15:47:23Z",
       "side": 1,
       "message": "Since you\u0027re assigning a value in the constructor, I think you can remove \u0027|undefined\u0027.",
+      "range": {
+        "startLine": 225,
+        "startChar": 66,
+        "endLine": 225,
+        "endChar": 75
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8117a6_f49519a6",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa130c1_58e17481",
       "range": {
         "startLine": 225,
         "startChar": 66,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bedb009b_8eeb8dfc",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a98e322_520aae9e",
+      "range": {
+        "startLine": 244,
+        "startChar": 16,
+        "endLine": 244,
+        "endChar": 67
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9076250_04457ae5",
@@ -98,6 +164,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e590df29_14e404ce",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "Actually not yet. So I\u0027d be happy if you could ask.",
+      "parentUuid": "b9076250_04457ae5",
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7419e65d_7bff27c5",
@@ -111,6 +195,30 @@
       "writtenOn": "2022-09-27T15:47:23Z",
       "side": 1,
       "message": "If I understand correctly this is the default reason when there is no HTTP3. Will this therefore be the most common option shown? I don\u0027t think that it\u0027ll be obvious to users what \u0027The reason why this protocol was used is unspecified.\u0027 actually means.\nWould it make sense to keep the existing behaviour of showing the cell content as title for these cases?",
+      "range": {
+        "startLine": 1252,
+        "startChar": 0,
+        "endLine": 1255,
+        "endChar": 7
+      },
+      "revId": "37cc4417e7cc0ba81b1dca2fea7035d089fdc5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63fb945b_7af9bec3",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-28T10:13:53Z",
+      "side": 1,
+      "message": "Since the implementation of the reason calculation on the backend side is incomplete, not only the case where there is no HTTP/3 but all the other cases we don\u0027t cover now are classified to this case. \n\nIn the near future, after the backend side covers more possible cases, this case will be shown less frequently. I don\u0027t want \"unspecified reason\" to be the most common case.\n\nSo, should we modify this sentence into something better?",
+      "parentUuid": "7419e65d_7bff27c5",
       "range": {
         "startLine": 1252,
         "startChar": 0,
