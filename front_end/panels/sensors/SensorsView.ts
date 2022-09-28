@@ -373,7 +373,8 @@ export class SensorsView extends UI.Widget.VBox {
       this.Location = location;
     } else if (value === NonPresetOptions.Unavailable) {
       this.LocationOverrideEnabled = true;
-      this.Location = new SDK.EmulationModel.Location(0, 0, '', '', true);
+      this.Location = new SDK.EmulationModel.Location(0, 0, '', '', false);
+      this.clearFieldsetElementInputs();
     } else {
       this.LocationOverrideEnabled = true;
       const coordinates = JSON.parse(value);
