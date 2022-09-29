@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa19e01a_d37c620d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-29T06:31:14Z",
+      "side": 1,
+      "message": "Looks like the relevant *.pdl changes happened here: https://chromium-review.googlesource.com/c/chromium/src/+/3578357/5/third_party/blink/public/devtools_protocol/browser_protocol.pdl This CL landed back in April.\n\nI wonder why there hasn’t been a CDP roll since then…",
+      "revId": "24b0a55a604c92d7269ed8a20ef4a18fc72fe2b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
