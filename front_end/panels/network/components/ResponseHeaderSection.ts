@@ -85,12 +85,13 @@ const plusIconUrl = new URL('../../../Images/plus_icon.svg', import.meta.url).to
 export interface ResponseHeaderSectionData {
   request: SDK.NetworkRequest.NetworkRequest;
   toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string};
+  forceNew: boolean;
 }
 
 export class ResponseHeaderSection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-response-header-section`;
   readonly #shadow = this.attachShadow({mode: 'open'});
-  #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
+  #request?: SDK.NetworkRequest.NetworkRequest;
   #headers: SDK.NetworkRequest.HeaderDescriptor[] = [];
   #uiSourceCode: Workspace.UISourceCode.UISourceCode|null = null;
   #overrides: Persistence.NetworkPersistenceManager.HeaderOverride[] = [];
@@ -102,6 +103,30 @@ export class ResponseHeaderSection extends HTMLElement {
 
   set data(data: ResponseHeaderSectionData) {
     this.#request = data.request;
+    if (!data.forceNew && this.#request.headerOverrides.length) {
+      this.#headers = this.#request.headerOverrides;
+      this.#headers.filter(header => Boolean(header.highlight)).forEach(header => {
+        header.highlight = false;
+      });
+    } else {
+      this.#generateHeaderDescriptors();
+    }
+
+    if (data.toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.Response) {
+      this.#headers.filter(header => header.name === data.toReveal?.header?.toLowerCase()).forEach(header => {
+        header.highlight = true;
+      });
+    }
+
+    void this.#loadOverridesInfo();
+    this.#request.headerOverrides = this.#headers;
+    this.#render();
+  }
+
+  #generateHeaderDescriptors(): void {
+    if (!this.#request) {
+      return;
+    }
     this.#headers =
         this.#request.sortedResponseHeaders.map(header => ({
                                                   name: Platform.StringUtilities.toLowerCaseString(header.name),
@@ -168,15 +193,6 @@ export class ResponseHeaderSection extends HTMLElement {
         }
       }
     }
-
-    if (data.toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.Response) {
-      this.#headers.filter(header => header.name === data.toReveal?.header?.toLowerCase()).forEach(header => {
-        header.highlight = true;
-      });
-    }
-
-    void this.#loadOverridesInfo();
-    this.#render();
   }
 
   async #loadOverridesInfo(): Promise<void> {
@@ -187,6 +203,7 @@ export class ResponseHeaderSection extends HTMLElement {
         Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().getHeadersUISourceCodeFromUrl(
             this.#request.url());
     if (!this.#uiSourceCode) {
+      this.#setAllNotEditable();
       return;
     }
     try {
@@ -205,6 +222,14 @@ export class ResponseHeaderSection extends HTMLElement {
       this.#successfullyParsedOverrides = false;
       console.error(
           'Failed to parse', this.#uiSourceCode?.url() || 'source code file', 'for locally overriding headers.');
+      this.#setAllNotEditable();
+    }
+  }
+
+  #setAllNotEditable(): void {
+    for (const header of this.#headers) {
+      header.valueEditable = false;
+      header.nameEditable = false;
     }
   }
 
@@ -289,6 +314,7 @@ export class ResponseHeaderSection extends HTMLElement {
     const previousValue = this.#headers[index].value;
     this.#headers[index].name = headerName;
     this.#headers[index].value = headerValue;
+    this.#headers[index].isOverride = true;
 
     // If multiple headers have the same name 'foo', we treat them as a unit.
     // If there are overrides for 'foo', all original 'foo' headers are removed
@@ -352,6 +378,10 @@ export class ResponseHeaderSection extends HTMLElement {
     const index = this.#headers.length - 1;
     this.#updateOverrides(this.#headers[index].name, this.#headers[index].value || '', index);
     this.#render();
+
+    const rows = this.#shadow.querySelectorAll<HeaderSectionRow>('devtools-header-section-row');
+    const [lastRow] = Array.from(rows).slice(-1);
+    lastRow?.focus();
   }
 
   #render(): void {
