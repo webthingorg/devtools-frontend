@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e12eb11f_c9ba0f0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-29T05:22:41Z",
+      "side": 1,
+      "message": "You\u0027ll have to add \n\nDISABLE_THIRD_PARTY_CHECK\u003dAlso requries IssueManager changes\n\nto quiet the presubmit",
+      "revId": "78f63161c11e307c332589dd50f0ed382f1a570a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
