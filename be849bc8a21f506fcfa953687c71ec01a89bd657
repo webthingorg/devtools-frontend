@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fad9b515_6dc625d1",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7158,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "I see! Thank you!",
+      "parentUuid": "6c5b623b_569229b2",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "931e7a04_40317f16",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-09-28T15:20:47Z",
       "side": 1,
       "message": "Why do we capitalize \"Alternative\" and \"Main\" here and everywhere?\n\nNit: Avoid excessive capitalization unless it\u0027s official capitalization for the names of [...] services, features, and terms defined by companies and open source communities [in their official docs].\n\nGuideline: https://developers.google.com/style/capitalization\n\nAlso, passive voice spotted.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4eb21cc_9a54e907",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7161,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Thanks!\nNo special reasons, so I fixed them!",
+      "parentUuid": "931e7a04_40317f16",
       "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d842e5b_17fd0225",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7170,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "809d0349_4905a181",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a348f43_13c9904f",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-09-28T15:20:47Z",
       "side": 1,
       "message": "Passive voice spotted.",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29e4fdd_b4499026",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7197,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a348f43_13c9904f",
       "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1324476a_3d1e8a05",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7212,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "932334bf_9b199d54",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21fdaa90_a0de5b18",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-09-28T15:20:47Z",
       "side": 1,
       "message": "Edit suggestion:\nThe reason of protocol choice is unspecified.\n\nJust trying to get rid of passive voice but, in this case, it\u0027s hard 😄",
+      "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c3b9916_62496c52",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 26
+      },
+      "lineNbr": 7296,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Thanks!\nBut this information is not valuable to users, so we decided not to show text this time.",
+      "parentUuid": "21fdaa90_a0de5b18",
       "revId": "be849bc8a21f506fcfa953687c71ec01a89bd657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

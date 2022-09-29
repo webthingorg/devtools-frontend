@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8400c2_3aa395ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550633
+      },
+      "writtenOn": "2022-09-29T15:00:13Z",
+      "side": 1,
+      "message": "Thank you for your review! \nActually I\u0027m an intern and my internship ends tomorrow, but I\u0027m gonna keep working \non this feature. \nThen I created a new CL (content is the same as the one in this CL now) here\n(https://crrev.com/c/3924610) with my gmail account since my google.com account will be disabled. \nSo let\u0027s move to the new CL. Thank you!",
+      "revId": "26756b8acdac508bf025452c70884d7dc9229733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
