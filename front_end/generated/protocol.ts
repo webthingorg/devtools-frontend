@@ -7705,7 +7705,7 @@ export namespace Network {
     /**
      * The reason why Chrome uses a specific transport protocol for HTTP semantics.
      */
-    alternateProtocolUsage?: AlternateProtocolUsage;
+    alternateProtocolUsage: AlternateProtocolUsage;
     /**
      * Security state of the request resource.
      */
