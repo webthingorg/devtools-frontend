@@ -60,6 +60,7 @@ const defaultRequest = {
   wasBlocked: () => false,
   blockedResponseCookies: () => [],
   originalResponseHeaders: [],
+  headerOverrides: [],
 } as unknown as SDK.NetworkRequest.NetworkRequest;
 
 async function renderHeadersComponent(request: SDK.NetworkRequest.NetworkRequest) {
