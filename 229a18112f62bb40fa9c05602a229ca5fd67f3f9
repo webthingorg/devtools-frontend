@@ -16,6 +16,24 @@
       "message": "Would also appreciate an opinion on whether this is ok to merge to 107. The associated deprecation will roll out in M108 so we\u0027ll have one release with a helpful debug message.",
       "revId": "229a18112f62bb40fa9c05602a229ca5fd67f3f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8ce7d4_8f284080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-09-29T05:27:00Z",
+      "side": 1,
+      "message": "Depends if the necessary protocol enum is already in M107. If so, it should be fine, but please note that for 107 the error message will only be available in English since we don\u0027t re-translate after branch cut.",
+      "parentUuid": "09877729_6362091f",
+      "revId": "229a18112f62bb40fa9c05602a229ca5fd67f3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
