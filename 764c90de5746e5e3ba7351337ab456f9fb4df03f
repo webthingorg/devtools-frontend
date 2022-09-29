@@ -16,6 +16,23 @@
       "message": "Since I\u0027m sending you so many CLs already, what\u0027s one more! :)",
       "revId": "764c90de5746e5e3ba7351337ab456f9fb4df03f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa3242a5_3684d1e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-09-29T15:16:06Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "764c90de5746e5e3ba7351337ab456f9fb4df03f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
