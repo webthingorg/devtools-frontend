@@ -6,7 +6,6 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import type * as Protocol from '../../../generated/protocol.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Host from '../../../core/host/host.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
@@ -56,13 +55,13 @@ export class HeaderEditedEvent extends Event {
 }
 
 export interface HeaderSectionRowData {
-  header: HeaderDescriptor;
+  header: SDK.NetworkRequest.HeaderDescriptor;
 }
 
 export class HeaderSectionRow extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-header-section-row`;
   readonly #shadow = this.attachShadow({mode: 'open'});
-  #header: HeaderDescriptor|null = null;
+  #header: SDK.NetworkRequest.HeaderDescriptor|null = null;
   readonly #boundRender = this.#render.bind(this);
 
   connectedCallback(): void {
@@ -130,7 +129,7 @@ export class HeaderSectionRow extends HTMLElement {
     // clang-format on
   }
 
-  #maybeRenderHeaderValueSuffix(header: HeaderDescriptor): LitHtml.LitTemplate {
+  #maybeRenderHeaderValueSuffix(header: SDK.NetworkRequest.HeaderDescriptor): LitHtml.LitTemplate {
     if (header.name === 'set-cookie' && header.setCookieBlockedReasons) {
       const titleText =
           header.setCookieBlockedReasons.map(SDK.NetworkRequest.setCookieBlockedReasonToUiString).join('\n');
@@ -161,7 +160,7 @@ export class HeaderSectionRow extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  #maybeRenderBlockedDetails(blockedDetails?: BlockedDetailsDescriptor): LitHtml.LitTemplate {
+  #maybeRenderBlockedDetails(blockedDetails?: SDK.NetworkRequest.BlockedDetailsDescriptor): LitHtml.LitTemplate {
     if (!blockedDetails) {
       return LitHtml.nothing;
     }
@@ -186,7 +185,7 @@ export class HeaderSectionRow extends HTMLElement {
     // clang-format on
   }
 
-  #maybeRenderBlockedDetailsLink(blockedDetails?: BlockedDetailsDescriptor): LitHtml.LitTemplate {
+  #maybeRenderBlockedDetailsLink(blockedDetails?: SDK.NetworkRequest.BlockedDetailsDescriptor): LitHtml.LitTemplate {
     if (blockedDetails?.reveal) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
@@ -306,30 +305,4 @@ declare global {
   interface HTMLElementEventMap {
     [HeaderEditedEvent.eventName]: HeaderEditedEvent;
   }
-}
-
-interface BlockedDetailsDescriptor {
-  explanation: () => string;
-  examples: Array<{
-    codeSnippet: string,
-    comment?: () => string,
-  }>;
-  link: {
-    url: string,
-  }|null;
-  reveal?: () => void;
-}
-
-export interface HeaderDescriptor {
-  name: Platform.StringUtilities.LowerCaseString;
-  value: string|null;
-  originalValue?: string|null;
-  headerValueIncorrect?: boolean;
-  blockedDetails?: BlockedDetailsDescriptor;
-  headerNotSet?: boolean;
-  setCookieBlockedReasons?: Protocol.Network.SetCookieBlockedReason[];
-  highlight?: boolean;
-  isOverride?: boolean;
-  valueEditable?: boolean;
-  nameEditable?: boolean;
 }

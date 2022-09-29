@@ -12,7 +12,6 @@ import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import * as Host from '../../../core/host/host.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import {
-  type HeaderDescriptor,
   HeaderSectionRow,
   type HeaderSectionRowData,
   type HeaderEditedEvent,
@@ -92,7 +91,7 @@ export class ResponseHeaderSection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-response-header-section`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
-  #headers: HeaderDescriptor[] = [];
+  #headers: SDK.NetworkRequest.HeaderDescriptor[] = [];
   #uiSourceCode: Workspace.UISourceCode.UISourceCode|null = null;
   #overrides: Persistence.NetworkPersistenceManager.HeaderOverride[] = [];
   #successfullyParsedOverrides = false;
@@ -134,9 +133,10 @@ export class ResponseHeaderSection extends HTMLElement {
     }
 
     function mergeHeadersWithIssues(
-        headers: HeaderDescriptor[], headersWithIssues: HeaderDescriptor[]): HeaderDescriptor[] {
+        headers: SDK.NetworkRequest.HeaderDescriptor[],
+        headersWithIssues: SDK.NetworkRequest.HeaderDescriptor[]): SDK.NetworkRequest.HeaderDescriptor[] {
       let i = 0, j = 0;
-      const result: HeaderDescriptor[] = [];
+      const result: SDK.NetworkRequest.HeaderDescriptor[] = [];
       while (i < headers.length && j < headersWithIssues.length) {
         if (headers[i].name < headersWithIssues[j].name) {
           result.push({...headers[i++], headerNotSet: false});
@@ -389,7 +389,7 @@ declare global {
   }
 }
 
-const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, HeaderDescriptor>([
+const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, SDK.NetworkRequest.HeaderDescriptor>([
   [
     Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader,
     {

@@ -1731,3 +1731,29 @@ export interface WebBundleInnerRequestInfo {
   bundleRequestId?: string;
   errorMessage?: string;
 }
+
+export interface BlockedDetailsDescriptor {
+  explanation: () => string;
+  examples: Array<{
+    codeSnippet: string,
+    comment?: () => string,
+  }>;
+  link: {
+    url: string,
+  }|null;
+  reveal?: () => void;
+}
+
+export interface HeaderDescriptor {
+  name: Platform.StringUtilities.LowerCaseString;
+  value: string|null;
+  originalValue?: string;
+  headerValueIncorrect?: boolean;
+  blockedDetails?: BlockedDetailsDescriptor;
+  headerNotSet?: boolean;
+  setCookieBlockedReasons?: Protocol.Network.SetCookieBlockedReason[];
+  highlight?: boolean;
+  isOverride?: boolean;
+  valueEditable?: boolean;
+  nameEditable?: boolean;
+}
