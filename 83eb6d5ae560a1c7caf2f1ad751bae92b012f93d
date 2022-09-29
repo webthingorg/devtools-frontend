@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b79ce6a_758a3067",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-09-29T10:00:28Z",
+      "side": 1,
+      "message": "Please look into adding tests similar to the ones in the https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3645452",
+      "revId": "83eb6d5ae560a1c7caf2f1ad751bae92b012f93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
