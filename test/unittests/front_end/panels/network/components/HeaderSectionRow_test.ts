@@ -17,12 +17,13 @@ import {
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import type * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 const {assert} = chai;
 
-async function renderHeaderSectionRow(header: NetworkComponents.HeaderSectionRow.HeaderDescriptor):
+async function renderHeaderSectionRow(header: SDK.NetworkRequest.HeaderDescriptor):
     Promise<NetworkComponents.HeaderSectionRow.HeaderSectionRow> {
   const component = new NetworkComponents.HeaderSectionRow.HeaderSectionRow();
   renderElementIntoDOM(component);
@@ -33,7 +34,7 @@ async function renderHeaderSectionRow(header: NetworkComponents.HeaderSectionRow
 
 describeWithEnvironment('HeaderSectionRow', () => {
   it('emits UMA event when a header value is being copied', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
       value: 'someHeaderValue',
     };
@@ -50,7 +51,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('renders detailed reason for blocked requests', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('cross-origin-resource-policy'),
       value: null,
       headerNotSet: true,
@@ -93,7 +94,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('displays decoded "x-client-data"-header', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('x-client-data'),
       value: 'CJa2yQEIpLbJAQiTocsB',
     };
@@ -114,7 +115,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('displays info about blocked "Set-Cookie"-headers', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('set-cookie'),
       value: 'secure=only; Secure',
       setCookieBlockedReasons:
@@ -143,7 +144,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('can be highlighted', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
       value: 'someHeaderValue',
       highlight: true,
@@ -157,7 +158,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   it('allows editing header name and header value', async () => {
     const headerName = Platform.StringUtilities.toLowerCaseString('some-header-name');
     const headerValue = 'someHeaderValue';
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: headerName,
       value: headerValue,
       nameEditable: true,
@@ -201,7 +202,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('does not allow setting an emtpy header name', async () => {
     const headerName = Platform.StringUtilities.toLowerCaseString('some-header-name');
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: headerName,
       value: 'someHeaderValue',
       nameEditable: true,
@@ -228,7 +229,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
   it('resets edited value on escape key', async () => {
     const originalHeaderValue = 'someHeaderValue';
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
       value: originalHeaderValue,
       valueEditable: true,
@@ -253,7 +254,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('confirms edited value and exits editing mode on "Enter"-key', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
       value: 'someHeaderValue',
       valueEditable: true,
@@ -281,7 +282,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('removes formatting for pasted content', async () => {
-    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+    const headerData: SDK.NetworkRequest.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
       value: 'someHeaderValue',
       valueEditable: true,

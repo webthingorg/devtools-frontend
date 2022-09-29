@@ -10,7 +10,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../forward/forward.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Platform from '../../../core/platform/platform.js';
-import {type HeaderDescriptor, HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
+import {HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
 
 import requestHeaderSectionStyles from './RequestHeaderSection.css.js';
 
@@ -48,7 +48,7 @@ export class RequestHeaderSection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-request-header-section`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
-  #headers: HeaderDescriptor[] = [];
+  #headers: SDK.NetworkRequest.HeaderDescriptor[] = [];
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [requestHeaderSectionStyles];
