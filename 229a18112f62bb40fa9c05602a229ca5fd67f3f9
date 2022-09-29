@@ -34,6 +34,24 @@
       "parentUuid": "09877729_6362091f",
       "revId": "229a18112f62bb40fa9c05602a229ca5fd67f3f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6579516_54fa814f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1145109
+      },
+      "writtenOn": "2022-09-29T18:20:27Z",
+      "side": 1,
+      "message": "Thanks for confirming. I\u0027ll make a note about the error message limited to English. It\u0027s still better than the current generic error message.\n\nThe protocol addition happened in 105 itself: https://chromiumdash.appspot.com/commit/0d0d8e0a1862e689690a702a5c5295531d9a3a27. The change is here: https://chromium-review.googlesource.com/c/chromium/src/+/3778199/7/third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+      "parentUuid": "de8ce7d4_8f284080",
+      "revId": "229a18112f62bb40fa9c05602a229ca5fd67f3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
