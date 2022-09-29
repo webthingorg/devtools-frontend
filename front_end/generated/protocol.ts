@@ -7703,10 +7703,20 @@ export namespace Network {
      */
     protocol?: string;
     /**
+<<<<<<< HEAD
      * The reason why Chrome uses a specific transport protocol for HTTP semantics.
      */
     alternateProtocolUsage?: AlternateProtocolUsage;
     /**
+=======
+<<<<<<< HEAD
+=======
+     * The reason why Chrome uses a specific transport protocol for HTTP semantics.
+     */
+    alternateProtocolUsage: AlternateProtocolUsage;
+    /**
+>>>>>>> 26756b8ac (Show why Chrome uses a specific transport protocol for HTTP semantics)
+>>>>>>> 729f5a456 ([patch] latest patch of 3889955)
      * Security state of the request resource.
      */
     securityState: Security.SecurityState;
