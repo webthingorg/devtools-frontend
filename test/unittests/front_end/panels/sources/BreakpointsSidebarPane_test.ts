@@ -79,7 +79,7 @@ async function setUpTestWithOneBreakpointLocation(
   assert.lengthOf(data.groups[0].breakpointItems, 1);
   const locations = Bindings.BreakpointManager.BreakpointManager.instance().allBreakpointLocations();
   assert.lengthOf(locations, 1);
-  return {groups: data.groups, location: locations[0]};
+  return {controller, groups: data.groups, location: locations[0]};
 }
 
 describeWithEnvironment('BreakpointsSidebarController', () => {
@@ -336,6 +336,52 @@ describeWithEnvironment('BreakpointsSidebarController', () => {
       const breakpointItem = actualViewData.groups[0].breakpointItems[0];
       assert.strictEqual(breakpointItem.type, SourcesComponents.BreakpointsView.BreakpointType.LOGPOINT);
       assert.strictEqual(breakpointItem.hoverText, logDetail);
+    });
+  });
+
+  describe('breakpoint groups', () => {
+    it('are expanded by default', async () => {
+      const {controller} = await setUpTestWithOneBreakpointLocation();
+      const actualViewData = await controller.getUpdatedBreakpointViewData();
+      assert.isTrue(actualViewData.groups[0].expanded);
+    });
+
+    it('are collapsed if user collapses it', async () => {
+      const {controller, groups} = await setUpTestWithOneBreakpointLocation();
+      controller.expandedStateChanged(groups[0].url, false /* expanded */);
+      const actualViewData = await controller.getUpdatedBreakpointViewData();
+      assert.isFalse(actualViewData.groups[0].expanded);
+    });
+
+    it('are expanded if user expands it', async () => {
+      const {controller, groups} = await setUpTestWithOneBreakpointLocation();
+      controller.expandedStateChanged(groups[0].url, true /* expanded */);
+      const actualViewData = await controller.getUpdatedBreakpointViewData();
+      assert.isTrue(actualViewData.groups[0].expanded);
+    });
+
+    it('remember the collapsed state', async () => {
+      {
+        const {controller, groups} = await setUpTestWithOneBreakpointLocation();
+        controller.expandedStateChanged(groups[0].url, false /* expanded */);
+        const actualViewData = await controller.getUpdatedBreakpointViewData();
+        assert.isFalse(actualViewData.groups[0].expanded);
+      } {// A new controller is created and initialized with the expanded settings.
+         const controller = Sources.BreakpointsSidebarPane.BreakpointsSidebarController.instance({forceNew: true});
+         const actualViewData = await controller.getUpdatedBreakpointViewData();
+         assert.isFalse(actualViewData.groups[0].expanded);}
+    });
+
+    it('remember the expanded state', async () => {
+      {
+        const {controller, groups} = await setUpTestWithOneBreakpointLocation();
+        controller.expandedStateChanged(groups[0].url, true /* expanded */);
+        const actualViewData = await controller.getUpdatedBreakpointViewData();
+        assert.isTrue(actualViewData.groups[0].expanded);
+      } {// A new controller is created and initialized with the expanded settings.
+         const controller = Sources.BreakpointsSidebarPane.BreakpointsSidebarController.instance({forceNew: true});
+         const actualViewData = await controller.getUpdatedBreakpointViewData();
+         assert.isTrue(actualViewData.groups[0].expanded);}
     });
   });
 });
