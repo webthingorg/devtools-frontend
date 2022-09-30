@@ -11495,7 +11495,6 @@
                             "name": "alternateProtocolUsage",
                             "description": "The reason why Chrome uses a specific transport protocol for HTTP semantics.",
                             "experimental": true,
-                            "optional": true,
                             "$ref": "AlternateProtocolUsage"
                         },
                         {
