@@ -16,6 +16,24 @@
       "message": "Looks like the relevant *.pdl changes happened here: https://chromium-review.googlesource.com/c/chromium/src/+/3578357/5/third_party/blink/public/devtools_protocol/browser_protocol.pdl This CL landed back in April.\n\nI wonder why there hasn’t been a CDP roll since then…",
       "revId": "24b0a55a604c92d7269ed8a20ef4a18fc72fe2b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8bbca75_78dd1f20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-09-30T06:51:11Z",
+      "side": 1,
+      "message": "\u003e Looks like the relevant *.pdl changes happened here: https://chromium-review.googlesource.com/c/chromium/src/+/3578357/5/third_party/blink/public/devtools_protocol/browser_protocol.pdl This CL landed back in April.\n\u003e \n\u003e I wonder why there hasn’t been a CDP roll since then…\n\nI looked into this. This devtools-protocol package is only a dependency of Puppeteer and is thus not directly managed by src/scripts/deps/manage_node_deps.py. That’s why it only gets updated when we do a Puppeteer roll into devtools-frontend, which we only do on an as-needed basis. It’s not part of the generic regular rolls.",
+      "parentUuid": "fa19e01a_d37c620d",
+      "revId": "24b0a55a604c92d7269ed8a20ef4a18fc72fe2b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
