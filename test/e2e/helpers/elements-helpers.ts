@@ -20,6 +20,7 @@ import {
   waitForAria,
   waitForFunction,
 } from '../../shared/helper.js';
+import {takeScreenshots} from '../../shared/mocha-extensions.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
 const CSS_PROPERTY_NAME_SELECTOR = '.webkit-css-property';
@@ -422,6 +423,7 @@ export const getComputedStyleProperties = async () => {
 };
 
 export const getDisplayedCSSDeclarations = async () => {
+  await takeScreenshots('css');
   const allRuleSelectors = await $$(CSS_STYLE_RULE_SELECTOR);
   const declarations = [];
   for (const ruleSelector of allRuleSelectors) {
