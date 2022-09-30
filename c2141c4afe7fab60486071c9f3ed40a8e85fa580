@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f0609fc_3bf664ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-09-30T13:06:21Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis CL is making sure that we remember which groups were expanded and not, and to adapt the expansion state if a breakpoint is hit, or if a new breakpoint was added. PTAL!",
+      "revId": "c2141c4afe7fab60486071c9f3ed40a8e85fa580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
