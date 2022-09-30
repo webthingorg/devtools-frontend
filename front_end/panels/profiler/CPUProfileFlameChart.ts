@@ -100,7 +100,8 @@ export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameCha
 
   entryTitle(entryIndex: number): string {
     const node = this.entryNodes[entryIndex];
-    return UI.UIUtils.beautifyFunctionName(node.functionName);
+    const functionName = node.functionName;
+    return UI.UIUtils.beautifyFunctionName(functionName);
   }
 
   entryFont(entryIndex: number): string|null {

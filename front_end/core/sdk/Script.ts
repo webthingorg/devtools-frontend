@@ -73,6 +73,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   readonly #codeOffsetInternal: number|null;
   readonly #language: string|null;
   #contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
+  #content: TextUtils.ContentProvider.DeferredContent|null;
   readonly #embedderNameInternal: Platform.DevToolsPath.UrlString|null;
   readonly isModule: boolean|null;
   constructor(
@@ -103,6 +104,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     this.#codeOffsetInternal = codeOffset;
     this.#language = scriptLanguage;
     this.#contentPromise = null;
+    this.#content = null;
     this.#embedderNameInternal = embedderName;
   }
 
@@ -242,8 +244,17 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
           return {content: null, error: i18nString(UIStrings.unableToFetchScriptSource), isEncoded: false};
         }
       })();
+      void this.#contentPromise.then(this.setContent.bind(this));
     }
     return this.#contentPromise;
+  }
+
+  setContent(content: TextUtils.ContentProvider.DeferredContent): void {
+    this.#content = content;
+  }
+
+  maybeGetContent(): TextUtils.ContentProvider.DeferredContent|null {
+    return this.#content;
   }
 
   async getWasmBytecode(): Promise<ArrayBuffer> {

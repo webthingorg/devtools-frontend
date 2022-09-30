@@ -6,6 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 
@@ -18,6 +19,7 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   private filmStripModelInternal: SDK.FilmStripModel.FilmStripModel|null;
   private readonly irModel: TimelineModel.TimelineIRModel.TimelineIRModel;
   private windowInternal: Window;
+  private readonly cpuProfileNodes: SDK.CPUProfileDataModel.CPUProfileNode[] = [];
   private readonly extensionTracingModels: {
     title: string,
     model: SDK.TracingModel.TracingModel,
@@ -30,7 +32,6 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     this.mainTargetInternal = null;
     this.tracingModelInternal = null;
     this.filtersInternal = [];
-
     this.timelineModelInternal = new TimelineModel.TimelineModel.TimelineModelImpl();
     this.frameModelInternal = new TimelineModel.TimelineFrameModel.TimelineFrameModel(
         event => TimelineUIUtils.eventStyle(event).category.name);
@@ -71,10 +72,10 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     return this.filtersInternal.every(f => f.accept(event));
   }
 
-  setTracingModel(model: SDK.TracingModel.TracingModel): void {
+  async setTracingModel(model: SDK.TracingModel.TracingModel): Promise<void> {
     this.tracingModelInternal = model;
     this.timelineModelInternal.setEvents(model);
-
+    await this.gatherProfilesAndResolveNames();
     let animationEvents: SDK.TracingModel.AsyncEvent[]|null = null;
     for (const track of this.timelineModelInternal.tracks()) {
       if (track.type === TimelineModel.TimelineModel.TrackType.Animation) {
@@ -101,6 +102,53 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
           (this.recordStartTimeInternal as number));
     }
     this.autoWindowTimes();
+  }
+
+  async gatherProfilesAndResolveNames(): Promise<void> {
+    const allDebuggerModels = new Set<SDK.DebuggerModel.DebuggerModel>();
+    for (const profile of this.timelineModel().cpuProfiles()) {
+      if (!profile.samples) {
+        continue;
+      }
+      const nodeIds = new Set([...profile.samples]);
+      for (const nodeId of nodeIds) {
+        const node = profile.nodeById(nodeId);
+        if (!node) {
+          continue;
+        }
+        const target = node.target();
+        const debuggerModel = target?.model(SDK.DebuggerModel.DebuggerModel);
+        if (!debuggerModel) {
+          continue;
+        }
+        this.cpuProfileNodes.push(node);
+        const scriptWasParsed = debuggerModel.scriptForId(String(node.callFrame.scriptId));
+        if (scriptWasParsed) {
+          continue;
+        }
+        allDebuggerModels.add(debuggerModel);
+      }
+      for (const debuggerModel of allDebuggerModels) {
+        debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this.parsedScriptSource, this);
+      }
+      await this.resolveNamesFromCPUProfile();
+    }
+  }
+
+  private async resolveNamesFromCPUProfile(): Promise<void> {
+    for (const node of this.cpuProfileNodes) {
+      const resolvedFunctionName =
+          await SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, node.target());
+      node.setFunctionName(resolvedFunctionName);
+    }
+  }
+
+  private async parsedScriptSource(event: Common.EventTarget.EventTargetEvent<SDK.Script.Script>): Promise<void> {
+    if (!this.cpuProfileNodes.some(node => node.scriptId === event.data.scriptId)) {
+      return;
+    }
+    await this.resolveNamesFromCPUProfile();
+    this.dispatchEventToListeners(Events.ScriptParsed);
   }
 
   addExtensionEvents(title: string, model: SDK.TracingModel.TracingModel, timeOffset: number): void {
@@ -243,6 +291,7 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
 export enum Events {
   ExtensionDataAdded = 'ExtensionDataAdded',
   WindowChanged = 'WindowChanged',
+  ScriptParsed = 'ScriptParsed',
 }
 
 export interface WindowChangedEvent {
@@ -253,6 +302,7 @@ export interface WindowChangedEvent {
 export type EventTypes = {
   [Events.ExtensionDataAdded]: void,
   [Events.WindowChanged]: WindowChangedEvent,
+  [Events.ScriptParsed]: void,
 };
 
 export interface Window {
