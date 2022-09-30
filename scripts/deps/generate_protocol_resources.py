@@ -9,7 +9,7 @@
 # is backwards compatible. That means that if you would update CDP, and
 # DevTools was built with the expectation of an older version of CDP, that
 # should compile and run. This is generally true, but sadly not always. As it
-# turns out, the CDP owners regard some domains in CDP as "experimental",
+# turns out, the CDP owners regard some domains in CDP as 'experimental',
 # which is not covered by the backwards compatibility guarantee.
 
 # The concrete result of that is that, sometimes, the CDP owners update the
@@ -77,7 +77,9 @@ def popen(arguments, cwd=ROOT_DIRECTORY, env=os.environ.copy()):
 
 
 def runTsc(file_to_compile):
-    process = subprocess.Popen([NODE_LOCATION, TSC_LOCATION, file_to_compile], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(
+        [NODE_LOCATION, TSC_LOCATION, file_to_compile], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
     stdout, stderr = process.communicate()
     # TypeScript does not correctly write to stderr because of https://github.com/microsoft/TypeScript/issues/33849
     return process.returncode, stdout + stderr
@@ -90,7 +92,9 @@ def runNode(file_to_execute):
 
 
 def generate_protocol_typescript_definitions():
-    generator_script_to_compile = path.join(ROOT_DIRECTORY, 'scripts', 'protocol_typescript', 'protocol_dts_generator.ts')
+    generator_script_to_compile = path.join(
+        ROOT_DIRECTORY, 'scripts', 'protocol_typescript', 'protocol_dts_generator.ts'
+    )
 
     # first run TSC to convert the script from TS to JS
     typescript_found_errors, typescript_stderr = runTsc(generator_script_to_compile)
@@ -121,12 +125,15 @@ def main():
     popen([GENERATE_ARIA_SCRIPT])
     popen([GENERATE_SUPPORTED_CSS_SCRIPT])
 
-    popen([CONCATENATE_PROTOCOL_SCRIPT] + [
-        path.join(PROTOCOL_LOCATION, 'browser_protocol.pdl'),
-        path.join(V8_DIRECTORY_PATH, 'include', 'js_protocol.pdl'),
-        # output_file
-        path.join(PROTOCOL_LOCATION, 'browser_protocol.json'),
-    ])
+    popen(
+        [CONCATENATE_PROTOCOL_SCRIPT]
+        + [
+            path.join(PROTOCOL_LOCATION, 'browser_protocol.pdl'),
+            path.join(V8_DIRECTORY_PATH, 'include', 'js_protocol.pdl'),
+            # output_file
+            path.join(PROTOCOL_LOCATION, 'browser_protocol.json'),
+        ]
+    )
 
     popen([GENERATE_PROTOCOL_DEFINITIONS_SCRIPT])
 
