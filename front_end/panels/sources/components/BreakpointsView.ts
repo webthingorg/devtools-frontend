@@ -182,7 +182,7 @@ export class BreakpointsView extends HTMLElement {
 
     // clang-format off
     return LitHtml.html`
-      <details data-group='true' ?open=${group.expanded} @click=${(e: Event): void => this.#onGroupExpandToggled(e, group)}>
+      <details data-group='true' ?open=${group.expanded} @toggle=${(e: Event): void => this.#onGroupExpandToggled(e, group)}>
         <summary @mouseover=${():void => this.#onMouseOver(group)} @mouseout=${():void => this.#onMouseOut(group)}>
           <span class='group-header'>${this.#renderFileIcon()}<span class='group-header-title'>${group.name}</span></span>
           <span class='group-hover-actions'>${removeButtonOrCounter}</span>
