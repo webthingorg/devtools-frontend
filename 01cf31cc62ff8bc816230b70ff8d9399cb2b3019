@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f24fb02_75d6edb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-02T03:49:01Z",
+      "side": 1,
+      "message": "Sorry for bothering you, but please continue to review here!\nBut we\u0027re modifying the backend a little bit now and we have to wait for them.",
+      "revId": "01cf31cc62ff8bc816230b70ff8d9399cb2b3019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
