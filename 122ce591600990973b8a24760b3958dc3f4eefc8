@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "200fc944_d4dc9f06",
+        "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T15:12:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b769bab5_8d352d63",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "122ce591600990973b8a24760b3958dc3f4eefc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40d6a80b_38fd950b",
