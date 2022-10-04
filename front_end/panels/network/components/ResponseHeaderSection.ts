@@ -12,7 +12,6 @@ import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import * as Host from '../../../core/host/host.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import {
-  type HeaderDescriptor,
   HeaderSectionRow,
   type HeaderSectionRowData,
   type HeaderEditedEvent,
@@ -22,6 +21,7 @@ import type * as Workspace from '../../../models/workspace/workspace.js';
 import * as Platform from '../../../core/platform/platform.js';
 import * as Common from '../../../core/common/common.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
+import {type HeaderDescriptor, HeaderOverridesManager} from './HeaderOverridesManager.js';
 
 import responseHeaderSectionStyles from './ResponseHeaderSection.css.js';
 
@@ -103,59 +103,12 @@ export class ResponseHeaderSection extends HTMLElement {
 
   set data(data: ResponseHeaderSectionData) {
     this.#request = data.request;
-    this.#headers =
-        this.#request.sortedResponseHeaders.map(header => ({
-                                                  name: Platform.StringUtilities.toLowerCaseString(header.name),
-                                                  value: header.value,
-                                                  originalValue: header.value,
-                                                }));
-    this.#markOverrides();
+    this.#headers = HeaderOverridesManager.generateHeaderDescriptors(this.#request);
 
-    const headersWithIssues = [];
-    if (this.#request.wasBlocked()) {
-      const headerWithIssues =
-          BlockedReasonDetails.get((this.#request.blockedReason() as Protocol.Network.BlockedReason));
-      if (headerWithIssues) {
-        if (IssuesManager.RelatedIssue.hasIssueOfCategory(
-                this.#request, IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
-          const followLink = (): void => {
-            Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.LearnMoreLinkCOEP);
-            if (this.#request) {
-              void IssuesManager.RelatedIssue.reveal(
-                  this.#request, IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy);
-            }
-          };
-          if (headerWithIssues.blockedDetails) {
-            headerWithIssues.blockedDetails.reveal = followLink;
-          }
-        }
-        headersWithIssues.push(headerWithIssues);
-      }
+    const headerWithIssue = this.#maybeGetHeaderWithIssue();
+    if (headerWithIssue) {
+      this.#headers = this.#mergeHeadersWithIssueHeader(this.#headers, headerWithIssue);
     }
-
-    function mergeHeadersWithIssues(
-        headers: HeaderDescriptor[], headersWithIssues: HeaderDescriptor[]): HeaderDescriptor[] {
-      let i = 0, j = 0;
-      const result: HeaderDescriptor[] = [];
-      while (i < headers.length && j < headersWithIssues.length) {
-        if (headers[i].name < headersWithIssues[j].name) {
-          result.push({...headers[i++], headerNotSet: false});
-        } else if (headers[i].name > headersWithIssues[j].name) {
-          result.push({...headersWithIssues[j++], headerNotSet: true});
-        } else {
-          result.push({...headersWithIssues[j++], ...headers[i++], headerNotSet: false});
-        }
-      }
-      while (i < headers.length) {
-        result.push({...headers[i++], headerNotSet: false});
-      }
-      while (j < headersWithIssues.length) {
-        result.push({...headersWithIssues[j++], headerNotSet: true});
-      }
-      return result;
-    }
-
-    this.#headers = mergeHeadersWithIssues(this.#headers, headersWithIssues);
 
     const blockedResponseCookies = this.#request.blockedResponseCookies();
     const blockedCookieLineToReasons = new Map<string, Protocol.Network.SetCookieBlockedReason[]>(
@@ -177,6 +130,47 @@ export class ResponseHeaderSection extends HTMLElement {
 
     void this.#loadOverridesInfo();
     this.#render();
+  }
+
+  #maybeGetHeaderWithIssue(): HeaderDescriptor|null {
+    if (!this.#request?.wasBlocked()) {
+      return null;
+    }
+    const headerWithIssue = BlockedReasonDetails.get((this.#request.blockedReason() as Protocol.Network.BlockedReason));
+    if (!headerWithIssue) {
+      return null;
+    }
+    if (IssuesManager.RelatedIssue.hasIssueOfCategory(
+            this.#request, IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
+      const followLink = (): void => {
+        Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.LearnMoreLinkCOEP);
+        if (this.#request) {
+          void IssuesManager.RelatedIssue.reveal(
+              this.#request, IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy);
+        }
+      };
+      if (headerWithIssue.blockedDetails) {
+        headerWithIssue.blockedDetails.reveal = followLink;
+      }
+    }
+    return headerWithIssue;
+  }
+
+  #mergeHeadersWithIssueHeader(headers: HeaderDescriptor[], headerWithIssue: HeaderDescriptor): HeaderDescriptor[] {
+    let i = 0;
+    const result: HeaderDescriptor[] = [];
+    while (i < headers.length && headers[i].name < headerWithIssue.name) {
+      result.push({...headers[i++], headerNotSet: false});
+    }
+    if (i >= headers.length || headers[i].name > headerWithIssue.name) {
+      result.push({...headerWithIssue, headerNotSet: true});
+    } else {
+      result.push({...headerWithIssue, ...headers[i++], headerNotSet: false});
+    }
+    while (i < headers.length) {
+      result.push({...headers[i++], headerNotSet: false});
+    }
+    return result;
   }
 
   async #loadOverridesInfo(): Promise<void> {
@@ -205,69 +199,6 @@ export class ResponseHeaderSection extends HTMLElement {
       this.#successfullyParsedOverrides = false;
       console.error(
           'Failed to parse', this.#uiSourceCode?.url() || 'source code file', 'for locally overriding headers.');
-    }
-  }
-
-  #markOverrides(): void {
-    if (!this.#request || this.#request.originalResponseHeaders.length === 0) {
-      return;
-    }
-
-    // To compare original headers and actual headers we use a map from header
-    // name to an array of header values. This allows us to handle the cases
-    // in which we have multiple headers with the same name (and corresponding
-    // header values which may or may not occur multiple times as well). We are
-    // not using MultiMaps, because a Set would not able to distinguish between
-    // header values [a, a, b] and [a, b, b].
-    const originalHeaders = new Map<Platform.StringUtilities.LowerCaseString, string[]>();
-    for (const header of this.#request?.originalResponseHeaders || []) {
-      const headerName = Platform.StringUtilities.toLowerCaseString(header.name);
-      const headerValues = originalHeaders.get(headerName);
-      if (headerValues) {
-        headerValues.push(header.value);
-      } else {
-        originalHeaders.set(headerName, [header.value]);
-      }
-    }
-
-    const actualHeaders = new Map<Platform.StringUtilities.LowerCaseString, string[]>();
-    for (const header of this.#headers) {
-      const headerName = Platform.StringUtilities.toLowerCaseString(header.name);
-      const headerValues = actualHeaders.get(headerName);
-      if (headerValues) {
-        headerValues.push(header.value || '');
-      } else {
-        actualHeaders.set(headerName, [header.value || '']);
-      }
-    }
-
-    const isDifferent =
-        (headerName: Platform.StringUtilities.LowerCaseString,
-         actualHeaders: Map<Platform.StringUtilities.LowerCaseString, string[]>,
-         originalHeaders: Map<Platform.StringUtilities.LowerCaseString, string[]>): boolean => {
-          const actual = actualHeaders.get(headerName);
-          const original = originalHeaders.get(headerName);
-          if (!actual || !original || actual.length !== original.length) {
-            return true;
-          }
-          actual.sort();
-          original.sort();
-          for (let i = 0; i < actual.length; i++) {
-            if (actual[i] !== original[i]) {
-              return true;
-            }
-          }
-          return false;
-        };
-
-    for (const headerName of actualHeaders.keys()) {
-      // If the array of actual headers and the array of original headers do not
-      // exactly match, mark all headers with 'headerName' as being overridden.
-      if (isDifferent(headerName, actualHeaders, originalHeaders)) {
-        this.#headers.filter(header => header.name === headerName).forEach(header => {
-          header.isOverride = true;
-        });
-      }
     }
   }
 
