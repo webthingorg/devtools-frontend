@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed0e7443_b2a322eb",
+        "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T14:11:30Z",
+      "side": 1,
+      "message": "Not directly. Do you think that this code should not be in `HeaderOverridesManager` then? If so, how about I rename `HeaderOverridesManager` to `HeaderEditorManager`? Or I could move this part back to `ResponseHeaderSection`, but then very closely linked parts of the code would be in 2 different files.",
+      "parentUuid": "e6130153_36068399",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "122ce591600990973b8a24760b3958dc3f4eefc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40d6a80b_38fd950b",
         "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-04T09:51:32Z",
       "side": 1,
       "message": "This is nested pretty deep, can wee do early returns instead?\n\n    const headerWithIssues \u003d ...;\n    if (!headerWithIssues) return;\n    headersWithIssues.push(headerWithIssues);\n    \n    if (!IssuesManager.RelatedIssue.hasIssueOfCategory(...)\n        || !headerWithIssues.blockedDetails) return;\n    headerWithIssues.blockedDetails.reveal \u003d (): void \u003d\u003e {\n      ...\n    };",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "122ce591600990973b8a24760b3958dc3f4eefc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e0ba426_2833d1d6",
+        "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T14:11:30Z",
+      "side": 1,
+      "message": "Did some cleanup. Since (at least currently) we have max. 1 header with issue, I could simplify the code somewhat.",
+      "parentUuid": "40d6a80b_38fd950b",
       "range": {
         "startLine": 65,
         "startChar": 0,
