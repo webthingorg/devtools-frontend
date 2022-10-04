@@ -86,6 +86,7 @@ const plusIconUrl = new URL('../../../Images/plus_icon.svg', import.meta.url).to
 export interface ResponseHeaderSectionData {
   request: SDK.NetworkRequest.NetworkRequest;
   toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string};
+  forceNew: boolean;
 }
 
 export class ResponseHeaderSection extends HTMLElement {
@@ -103,21 +104,30 @@ export class ResponseHeaderSection extends HTMLElement {
 
   set data(data: ResponseHeaderSectionData) {
     this.#request = data.request;
-    this.#headers = HeaderOverridesManager.generateHeaderDescriptors(this.#request);
+    const headerOverridesManager = HeaderOverridesManager.instance();
+    const editedHeaders = headerOverridesManager.getEditedHeaders(this.#request);
+    if (!data.forceNew && editedHeaders) {
+      this.#headers = editedHeaders;
+      this.#headers.filter(header => Boolean(header.highlight)).forEach(header => {
+        header.highlight = false;
+      });
+    } else {
+      this.#headers = HeaderOverridesManager.generateHeaderDescriptors(this.#request);
 
-    const headerWithIssue = this.#maybeGetHeaderWithIssue();
-    if (headerWithIssue) {
-      this.#headers = this.#mergeHeadersWithIssueHeader(this.#headers, headerWithIssue);
-    }
+      const headerWithIssue = this.#maybeGetHeaderWithIssue();
+      if (headerWithIssue) {
+        this.#headers = this.#mergeHeadersWithIssueHeader(this.#headers, headerWithIssue);
+      }
 
-    const blockedResponseCookies = this.#request.blockedResponseCookies();
-    const blockedCookieLineToReasons = new Map<string, Protocol.Network.SetCookieBlockedReason[]>(
-        blockedResponseCookies?.map(c => [c.cookieLine, c.blockedReasons]));
-    for (const header of this.#headers) {
-      if (header.name === 'set-cookie' && header.value) {
-        const matchingBlockedReasons = blockedCookieLineToReasons.get(header.value);
-        if (matchingBlockedReasons) {
-          header.setCookieBlockedReasons = matchingBlockedReasons;
+      const blockedResponseCookies = this.#request.blockedResponseCookies();
+      const blockedCookieLineToReasons = new Map<string, Protocol.Network.SetCookieBlockedReason[]>(
+          blockedResponseCookies?.map(c => [c.cookieLine, c.blockedReasons]));
+      for (const header of this.#headers) {
+        if (header.name === 'set-cookie' && header.value) {
+          const matchingBlockedReasons = blockedCookieLineToReasons.get(header.value);
+          if (matchingBlockedReasons) {
+            header.setCookieBlockedReasons = matchingBlockedReasons;
+          }
         }
       }
     }
@@ -129,6 +139,7 @@ export class ResponseHeaderSection extends HTMLElement {
     }
 
     void this.#loadOverridesInfo();
+    headerOverridesManager.setEditedHeaders(this.#request, this.#headers);
     this.#render();
   }
 
@@ -181,6 +192,7 @@ export class ResponseHeaderSection extends HTMLElement {
         Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().getHeadersUISourceCodeFromUrl(
             this.#request.url());
     if (!this.#uiSourceCode) {
+      this.#setAllNotEditable();
       return;
     }
     try {
@@ -199,6 +211,14 @@ export class ResponseHeaderSection extends HTMLElement {
       this.#successfullyParsedOverrides = false;
       console.error(
           'Failed to parse', this.#uiSourceCode?.url() || 'source code file', 'for locally overriding headers.');
+      this.#setAllNotEditable();
+    }
+  }
+
+  #setAllNotEditable(): void {
+    for (const header of this.#headers) {
+      header.valueEditable = false;
+      header.nameEditable = false;
     }
   }
 
@@ -220,6 +240,7 @@ export class ResponseHeaderSection extends HTMLElement {
     const previousValue = this.#headers[index].value;
     this.#headers[index].name = headerName;
     this.#headers[index].value = headerValue;
+    this.#headers[index].isOverride = true;
 
     // If multiple headers have the same name 'foo', we treat them as a unit.
     // If there are overrides for 'foo', all original 'foo' headers are removed
@@ -283,6 +304,10 @@ export class ResponseHeaderSection extends HTMLElement {
     const index = this.#headers.length - 1;
     this.#updateOverrides(this.#headers[index].name, this.#headers[index].value || '', index);
     this.#render();
+
+    const rows = this.#shadow.querySelectorAll<HeaderSectionRow>('devtools-header-section-row');
+    const [lastRow] = Array.from(rows).slice(-1);
+    lastRow?.focus();
   }
 
   #render(): void {

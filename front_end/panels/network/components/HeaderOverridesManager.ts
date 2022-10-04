@@ -6,7 +6,32 @@ import type * as SDK from '../../../core/sdk/sdk.js';
 import type * as Protocol from '../../../generated/protocol.js';
 import * as Platform from '../../../core/platform/platform.js';
 
+let headerOverridesManagerInstance: HeaderOverridesManager;
+
 export class HeaderOverridesManager {
+  readonly #requestToHeaderDescriptors: WeakMap<Readonly<SDK.NetworkRequest.NetworkRequest>, HeaderDescriptor[]>;
+
+  private constructor() {
+    this.#requestToHeaderDescriptors = new WeakMap();
+  }
+
+  static instance(opts: {forceNew: boolean|null} = {forceNew: null}): HeaderOverridesManager {
+    const {forceNew} = opts;
+    if (!headerOverridesManagerInstance || forceNew) {
+      headerOverridesManagerInstance = new HeaderOverridesManager();
+    }
+
+    return headerOverridesManagerInstance;
+  }
+
+  getEditedHeaders(request: Readonly<SDK.NetworkRequest.NetworkRequest>): HeaderDescriptor[]|null {
+    return this.#requestToHeaderDescriptors.get(request) || null;
+  }
+
+  setEditedHeaders(request: Readonly<SDK.NetworkRequest.NetworkRequest>, headers: HeaderDescriptor[]): void {
+    this.#requestToHeaderDescriptors.set(request, headers);
+  }
+
   static generateHeaderDescriptors(request: Readonly<SDK.NetworkRequest.NetworkRequest>): HeaderDescriptor[] {
     const headers: HeaderDescriptor[] =
         request.sortedResponseHeaders.map(header => ({
