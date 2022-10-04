@@ -88,12 +88,15 @@ export async function scrollByInEditor({x, y}: {x: number, y: number}) {
   }, codeMirrorScrolDOM, x, y);
 }
 
-export async function getScrollPositionInEditor() {
+export async function waitForScrollPositionInEditor(expected: {scrollLeft: number, scrollTop: number}) {
   const codeMirrorScrolDOM = await waitFor(EDITOR_SCROLL_DOM_SELECTOR);
-  return codeMirrorScrolDOM.evaluate(element => ({
-                                       scrollLeft: element.scrollLeft,
-                                       scrollTop: element.scrollTop,
-                                     }));
+  await waitForFunction(async () => {
+    const actual = await codeMirrorScrolDOM.evaluate(element => ({
+                                                       scrollLeft: element.scrollLeft,
+                                                       scrollTop: element.scrollTop,
+                                                     }));
+    return actual.scrollLeft === expected.scrollLeft && actual.scrollTop === expected.scrollTop;
+  });
 }
 
 export async function doubleClickSourceTreeItem(selector: string) {
@@ -221,6 +224,16 @@ export async function getToolbarText() {
   }
   const textNodes = await $$('.toolbar-text', toolbar);
   return Promise.all(textNodes.map(node => node.evaluate(node => node.textContent, node)));
+}
+
+export async function openEditBreakpointDialog(frontend: puppeteer.Page, index: number|string) {
+  const breakpointLine = await getLineNumberElement(index);
+  assertNotNullOrUndefined(breakpointLine);
+
+  // Make sure that breakpoint exists there
+  await waitForFunction(async () => await isBreakpointSet(index));
+
+  await clickOnContextMenu('.cm-breakpoint', 'Edit breakpoint…');
 }
 
 export async function addBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
