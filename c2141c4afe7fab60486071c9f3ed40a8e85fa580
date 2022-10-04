@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eed91cb_ff3e3ba2",
+        "filename": "test/unittests/front_end/panels/sources/BreakpointsSidebarPane_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-04T09:44:28Z",
+      "side": 1,
+      "message": "I\u0027ve added empty lines now, such that the formatter doesn\u0027t format it weirdly.",
+      "parentUuid": "74367838_290186b3",
+      "range": {
+        "startLine": 384,
+        "startChar": 8,
+        "endLine": 384,
+        "endChar": 11
+      },
+      "revId": "c2141c4afe7fab60486071c9f3ed40a8e85fa580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa2d5e01_418829ce",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-09-30T13:20:27Z",
       "side": 1,
       "message": "Would it also make sense to test that BreakpointOrigin.OTHER does not affect the state?",
+      "range": {
+        "startLine": 402,
+        "startChar": 82,
+        "endLine": 402,
+        "endChar": 93
+      },
+      "revId": "c2141c4afe7fab60486071c9f3ed40a8e85fa580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96402d18_2753f54b",
+        "filename": "test/unittests/front_end/panels/sources/BreakpointsSidebarPane_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-04T09:44:28Z",
+      "side": 1,
+      "message": "Yes it does, I\u0027ve added a test. Thanks!",
+      "parentUuid": "fa2d5e01_418829ce",
       "range": {
         "startLine": 402,
         "startChar": 82,
