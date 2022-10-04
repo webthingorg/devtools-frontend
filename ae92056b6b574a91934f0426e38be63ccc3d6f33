@@ -16,6 +16,23 @@
       "message": "Hey Kim, could you take a look please? Thanks!",
       "revId": "ae92056b6b574a91934f0426e38be63ccc3d6f33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de4778e5_ed42ffae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-04T05:10:02Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "ae92056b6b574a91934f0426e38be63ccc3d6f33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
