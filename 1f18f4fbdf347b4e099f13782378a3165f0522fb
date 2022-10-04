@@ -39,6 +39,30 @@
       },
       "revId": "1f18f4fbdf347b4e099f13782378a3165f0522fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b075f3fe_f6882cf3",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T08:45:14Z",
+      "side": 1,
+      "message": "Instead of putting them into Core/SDK\u0027s NetworkRequest, I\u0027ve created a `HeaderOverridesManager` and moved the logic for creating the initial state of the header overrides editor there. Logic for persisting editor state is added in https://crrev.com/c/3923825",
+      "parentUuid": "8efd9269_da11235b",
+      "range": {
+        "startLine": 1755,
+        "startChar": 0,
+        "endLine": 1758,
+        "endChar": 25
+      },
+      "revId": "1f18f4fbdf347b4e099f13782378a3165f0522fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
