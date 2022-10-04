@@ -29,7 +29,9 @@ devtools_entrypoint("bundle") {
     ":*",
     "../../../test/unittests/front_end/models/source_map_scopes/*",
     "../../panels/console/*",
+    "../../panels/profiler/*",
     "../../panels/sources/*",
+    "../../panels/timeline/*",
   ]
 
   visibility += devtools_models_visibility
