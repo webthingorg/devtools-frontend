@@ -7,6 +7,7 @@ import("../../../../../../third_party/typescript/typescript.gni")
 ts_library("components") {
   testonly = true
   sources = [
+    "HeaderOverridesManager_test.ts",
     "HeaderSectionRow_test.ts",
     "RequestHeaderSection_test.ts",
     "RequestHeadersView_test.ts",

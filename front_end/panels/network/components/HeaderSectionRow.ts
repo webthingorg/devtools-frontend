@@ -6,12 +6,12 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import type * as Protocol from '../../../generated/protocol.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Host from '../../../core/host/host.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as ClientVariations from '../../../third_party/chromium/client-variations/client-variations.js';
 import * as Platform from '../../../core/platform/platform.js';
+import {type BlockedDetailsDescriptor, type HeaderDescriptor} from './HeaderOverridesManager.js';
 
 import headerSectionRowStyles from './HeaderSectionRow.css.js';
 
@@ -306,30 +306,4 @@ declare global {
   interface HTMLElementEventMap {
     [HeaderEditedEvent.eventName]: HeaderEditedEvent;
   }
-}
-
-interface BlockedDetailsDescriptor {
-  explanation: () => string;
-  examples: Array<{
-    codeSnippet: string,
-    comment?: () => string,
-  }>;
-  link: {
-    url: string,
-  }|null;
-  reveal?: () => void;
-}
-
-export interface HeaderDescriptor {
-  name: Platform.StringUtilities.LowerCaseString;
-  value: string|null;
-  originalValue?: string|null;
-  headerValueIncorrect?: boolean;
-  blockedDetails?: BlockedDetailsDescriptor;
-  headerNotSet?: boolean;
-  setCookieBlockedReasons?: Protocol.Network.SetCookieBlockedReason[];
-  highlight?: boolean;
-  isOverride?: boolean;
-  valueEditable?: boolean;
-  nameEditable?: boolean;
 }
