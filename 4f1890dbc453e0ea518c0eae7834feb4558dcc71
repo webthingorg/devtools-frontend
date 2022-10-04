@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3892a3a7_c1d26ac0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T09:06:47Z",
+      "side": 1,
+      "message": "Updated to use `HeaderOverridesManager`. PTAL again.",
+      "revId": "4f1890dbc453e0ea518c0eae7834feb4558dcc71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
