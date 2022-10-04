@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b769bab5_8d352d63",
+        "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-04T14:16:27Z",
+      "side": 1,
+      "message": "I\u0027d move issues-related and merging code back to the ResponseHeaderSection, as it doesn\u0027t seem related to overrides or editing. \n\nMaybe I am missing something, but I don\u0027t see an issues with code being split across different files, if the code is dealing with different aspects of the behavior.",
+      "parentUuid": "ed0e7443_b2a322eb",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "122ce591600990973b8a24760b3958dc3f4eefc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40d6a80b_38fd950b",
         "filename": "front_end/panels/network/components/HeaderOverridesManager.ts",
         "patchSetId": 4
