@@ -79,11 +79,10 @@ export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper<DOMStorage.Ev
   }
 
   get id(): Protocol.DOMStorage.StorageId {
-    // TODO(crbug.com/1313434) Prioritize storageKey once everything is ready
-    if (this.securityOriginInternal) {
-      return this.idWithSecurityOrigin;
+    if (this.storageKeyInternal) {
+      return this.idWithStorageKey;
     }
-    return this.idWithStorageKey;
+    return this.idWithSecurityOrigin;
   }
 
   get securityOrigin(): string|null {
@@ -320,13 +319,12 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel<EventTypes> {
   }
 
   private storageKey(securityOrigin: string|undefined, storageKey: string|undefined, isLocalStorage: boolean): string {
-    // TODO(crbug.com/1313434) Prioritize storageKey once everything is ready
     console.assert(Boolean(securityOrigin) || Boolean(storageKey));
-    if (securityOrigin) {
-      return JSON.stringify(DOMStorage.storageIdWithSecurityOrigin(securityOrigin, isLocalStorage));
-    }
     if (storageKey) {
       return JSON.stringify(DOMStorage.storageIdWithStorageKey(storageKey, isLocalStorage));
+    }
+    if (securityOrigin) {
+      return JSON.stringify(DOMStorage.storageIdWithSecurityOrigin(securityOrigin, isLocalStorage));
     }
     throw new Error('Either securityOrigin or storageKey is required');
   }
