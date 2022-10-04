@@ -103,6 +103,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     this.#codeOffsetInternal = codeOffset;
     this.#language = scriptLanguage;
     this.#contentPromise = null;
+    this.#content = null;
     this.#embedderNameInternal = embedderName;
   }
 
