@@ -217,6 +217,7 @@ export async function deinitializeGlobalVars() {
   Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.removeInstance();
   Bindings.ResourceMapping.ResourceMapping.removeInstance();
   IssuesManager.IssuesManager.IssuesManager.removeInstance();
+
   Common.Settings.resetSettings();
 
   // Protect against the dynamic import not having happened.
