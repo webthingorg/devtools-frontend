@@ -20,6 +20,7 @@ generate_css("css_files") {
 
 devtools_module("components") {
   sources = [
+    "HeaderOverridesManager.ts",
     "HeaderSectionRow.ts",
     "RequestHeaderSection.ts",
     "RequestHeadersView.ts",
