@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e672a5_1fbf16e9",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-04T10:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "387ea43c_a7e33bce",
+      "revId": "75fc687e48c911882228833f8f20e6b3b26d31e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e7a7012_8c36c02e",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-10-04T09:55:24Z",
       "side": 1,
       "message": "Why don\u0027t we directly create a stub instance from `Common.Revealer.Revealer`?",
+      "revId": "75fc687e48c911882228833f8f20e6b3b26d31e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0114369a_16076284",
+        "filename": "test/unittests/front_end/panels/sources/BreakpointsSidebarPane_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-04T10:54:14Z",
+      "side": 1,
+      "message": "`Revealer` is an interface, so it\u0027s compiled away by TypeScript compiler.",
+      "parentUuid": "4e7a7012_8c36c02e",
       "revId": "75fc687e48c911882228833f8f20e6b3b26d31e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
