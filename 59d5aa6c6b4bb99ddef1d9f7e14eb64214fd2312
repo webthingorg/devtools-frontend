@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd78636_8630ae81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-04T07:14:57Z",
+      "side": 1,
+      "message": "Let\u0027s add an e2e test to test/e2e/sensors/location_test.ts to make sure that the location is emulated as expected",
+      "revId": "59d5aa6c6b4bb99ddef1d9f7e14eb64214fd2312",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "685695cf_c8a3cb73",
