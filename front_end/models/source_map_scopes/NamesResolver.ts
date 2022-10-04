@@ -641,11 +641,27 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
   }
 }
 
+async function getFunctionNameFromScopeStart(
+    script: SDK.Script.Script, scriptContent: string, lineNumber: number, columnNumber: number): Promise<string|null> {
+  const text = new TextUtils.Text.Text(scriptContent);
+  const openRange = new TextUtils.TextRange.TextRange(lineNumber, columnNumber, lineNumber, columnNumber + 1);
+  if (text.extract(openRange) !== '(') {
+    return null;
+  }
+  const sourceMap =
+      await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().sourceMapForScriptPromise(script);
+  if (!sourceMap) {
+    return null;
+  }
+  const entry = sourceMap.findEntry(lineNumber, columnNumber);
+  return entry?.name ?? null;
+}
+
 // Resolve the frame's function name using the name associated with the opening
 // paren that starts the scope. If there is no name associated with the scope
 // start or if the function scope does not start with a left paren (e.g., arrow
 // function with one parameter), the resolution returns null.
-export async function resolveFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {
+export async function resolveDebuggerFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {
   const script = frame.script;
   const scope = frame.localScope();
   if (!scope || !script) {
@@ -660,19 +676,28 @@ export async function resolveFrameFunctionName(frame: SDK.DebuggerModel.CallFram
     return null;
   }
 
-  const text = new TextUtils.Text.Text(content);
-  const openRange = new TextUtils.TextRange.TextRange(
-      startLocation.lineNumber, startLocation.columnNumber, startLocation.lineNumber, startLocation.columnNumber + 1);
-  if (text.extract(openRange) !== '(') {
+  return await getFunctionNameFromScopeStart(script, content, startLocation.lineNumber, startLocation.columnNumber);
+}
+
+export async function resolveProfileFrameFunctionName(
+    {scriptId, lineNumber, columnNumber}:
+        {scriptId: Protocol.Runtime.ScriptId, lineNumber: number, columnNumber: number},
+    target: SDK.Target.Target|null): Promise<string|null> {
+  if (!target) {
+    return null;
+  }
+  const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+  const script = debuggerModel?.scriptForId(String(scriptId));
+
+  if (!script) {
     return null;
   }
 
-  const sourceMap = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().sourceMapForScript(script);
-  if (!sourceMap) {
+  const content = await script.requestContent();
+  if (!content?.content) {
     return null;
   }
-  const entry = sourceMap.findEntry(startLocation.lineNumber, startLocation.columnNumber);
-  return entry?.name ?? null;
+  return await getFunctionNameFromScopeStart(script, content.content, lineNumber, columnNumber);
 }
 
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
