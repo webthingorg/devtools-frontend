@@ -108,6 +108,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class RequestHeadersView extends UI.Widget.VBox {
   readonly #requestHeadersComponent = new RequestHeadersComponent();
   readonly #request: SDK.NetworkRequest.NetworkRequest;
+  #boundRefreshHeadersView = this.#refreshHeadersView.bind(this, false);
+  #boundRefreshHeadersViewForceNew = this.#refreshHeadersView.bind(this, true);
 
   constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
@@ -116,23 +118,29 @@ export class RequestHeadersView extends UI.Widget.VBox {
   }
 
   wasShown(): void {
-    this.#request.addEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.#refreshHeadersView, this);
-    this.#request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#refreshHeadersView, this);
-    this.#request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.#refreshHeadersView, this);
-    this.#request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#refreshHeadersView, this);
-    this.#refreshHeadersView();
+    this.#request.addEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.#boundRefreshHeadersView, this);
+    this.#request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#boundRefreshHeadersView, this);
+    this.#request.addEventListener(
+        SDK.NetworkRequest.Events.RequestHeadersChanged, this.#boundRefreshHeadersView, this);
+    this.#request.addEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#boundRefreshHeadersViewForceNew, this);
+    this.#refreshHeadersView(false);
   }
 
   willHide(): void {
-    this.#request.removeEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.#refreshHeadersView, this);
-    this.#request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#refreshHeadersView, this);
-    this.#request.removeEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.#refreshHeadersView, this);
-    this.#request.removeEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#refreshHeadersView, this);
+    this.#request.removeEventListener(
+        SDK.NetworkRequest.Events.RemoteAddressChanged, this.#boundRefreshHeadersView, this);
+    this.#request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#boundRefreshHeadersView, this);
+    this.#request.removeEventListener(
+        SDK.NetworkRequest.Events.RequestHeadersChanged, this.#boundRefreshHeadersView, this);
+    this.#request.removeEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#boundRefreshHeadersViewForceNew, this);
   }
 
-  #refreshHeadersView(): void {
+  #refreshHeadersView(forceNewResponseHeaderEditor: boolean): void {
     this.#requestHeadersComponent.data = {
       request: this.#request,
+      forceNewResponseHeaderEditor,
     };
   }
 
@@ -140,6 +148,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.#requestHeadersComponent.data = {
       request: this.#request,
       toReveal: {section, header: header},
+      forceNewResponseHeaderEditor: false,
     };
   }
 }
@@ -147,6 +156,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 export interface RequestHeadersComponentData {
   request: SDK.NetworkRequest.NetworkRequest;
   toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string};
+  forceNewResponseHeaderEditor: boolean;
 }
 
 export class RequestHeadersComponent extends HTMLElement {
@@ -159,10 +169,12 @@ export class RequestHeadersComponent extends HTMLElement {
   #showRequestHeadersTextFull = false;
   #toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string} = undefined;
   readonly #workspace = Workspace.Workspace.WorkspaceImpl.instance();
+  #forceNewResponseHeaderEditor = false;
 
   set data(data: RequestHeadersComponentData) {
     this.#request = data.request;
     this.#toReveal = data.toReveal;
+    this.#forceNewResponseHeaderEditor = data.forceNewResponseHeaderEditor;
     this.#render();
   }
 
@@ -232,6 +244,7 @@ export class RequestHeadersComponent extends HTMLElement {
           <${ResponseHeaderSection.litTagName} .data=${{
             request: this.#request,
             toReveal: this.#toReveal,
+            forceNew: this.#forceNewResponseHeaderEditor,
           } as ResponseHeaderSectionData}></${ResponseHeaderSection.litTagName}>
         `}
       </${Category.litTagName}>
