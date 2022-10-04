@@ -8,6 +8,7 @@ ts_library("bindings") {
   testonly = true
   sources = [
     "BreakpointManager_test.ts",
+    "BreakpointManager_v2_test.ts",
     "FileUtils_test.ts",
     "LiveLocation_test.ts",
     "ResourceMapping_test.ts",
