@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2f662c6_950a15c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T16:52:21Z",
+      "side": 1,
+      "message": "The presubmit bots are red because you used your gmail address instead of your google email.",
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2c423b4_8f41c079",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T16:52:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the default/\u0027unspecifiedReason\u0027 case have a tooltip as well?\n`UI.Tooltip.Tooltip.install(cell,  this.requestInternal.protocol);`",
+      "range": {
+        "startLine": 1236,
+        "startChar": 0,
+        "endLine": 1239,
+        "endChar": 7
+      },
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba7812aa_bd0775fa",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 21
+      },
+      "lineNbr": 5260,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-04T16:52:21Z",
+      "side": 1,
+      "message": "Why is the whole type now optional?",
+      "range": {
+        "startLine": 5260,
+        "startChar": 15,
+        "endLine": 5260,
+        "endChar": 23
+      },
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
