@@ -10,7 +10,8 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../forward/forward.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Platform from '../../../core/platform/platform.js';
-import {type HeaderDescriptor, HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
+import {HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
+import {type HeaderDescriptor} from './HeaderOverridesManager.js';
 
 import requestHeaderSectionStyles from './RequestHeaderSection.css.js';
 
