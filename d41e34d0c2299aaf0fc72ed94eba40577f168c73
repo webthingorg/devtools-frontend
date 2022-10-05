@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "580ad1e8_7fa7f580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-10-05T10:34:22Z",
+      "side": 1,
+      "message": "PTAL! I\u0027m only semi-convinced this will fix the issue, since I don\u0027t see in the codemirror code how the active editor changing could cause the state to differ during a transaction dispatch.",
+      "revId": "d41e34d0c2299aaf0fc72ed94eba40577f168c73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
