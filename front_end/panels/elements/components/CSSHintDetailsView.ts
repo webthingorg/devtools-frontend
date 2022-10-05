@@ -44,7 +44,7 @@ export class CSSHintDetailsView extends HTMLElement {
       render(html`
         <div class="hint-popup-wrapper">
           <div class="hint-popup-reason">
-              <strong>${this.#authoringHint.getPrefix()}:</strong> ${Directives.unsafeHTML(this.#authoringHint.getMessage())}
+            ${Directives.unsafeHTML(this.#authoringHint.getMessage())}
           </div>
           ${this.#authoringHint.getPossibleFixMessage() ? html`
               <div class="hint-popup-possible-fix">
