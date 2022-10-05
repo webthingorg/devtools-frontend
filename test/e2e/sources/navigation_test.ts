@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, waitFor, waitForNone} from '../../shared/helper.js';
+import {getBrowserAndPages, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   clickOnContextMenu,
@@ -40,10 +40,10 @@ describe('The Sources Tab', async () => {
          await openFileInEditor('tabbed-editor-scroll-position-2.js');
          await openFileInEditor('tabbed-editor-scroll-position-1.js');
 
-         assert.deepEqual(
-             await getScrollPositionInEditor(),
-             {scrollLeft: 30, scrollTop: 30},
-         );
+         await waitForFunction(async () => {
+           const {scrollLeft, scrollTop} = await getScrollPositionInEditor();
+           return scrollLeft === 30 && scrollTop === 30;
+         });
        });
   });
 
