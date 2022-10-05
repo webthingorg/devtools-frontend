@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f244875_0fd1fcd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2022-10-05T19:34:39Z",
+      "side": 1,
+      "message": "Hello, here\u0027s another screen reader fix. PTAL, thanks!",
+      "revId": "154e5ba75c4e771666e5482f28c80a67ca2d1316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
