@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48315f86_965228ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-10-05T08:08:27Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "81105e123640bc2a5d1bbe044254bf756306f310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16be7359_6f73c55d",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-10-05T08:08:27Z",
+      "side": 1,
+      "message": "I think I would have slightly preferred checking/waiting for the condition as part of the test and not the helper, But that\u0027s just my preference, up to you!",
+      "revId": "81105e123640bc2a5d1bbe044254bf756306f310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
