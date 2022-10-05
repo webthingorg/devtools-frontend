@@ -23,6 +23,11 @@ interface TextEditorOptions {
   restoreScrollPosition: boolean;
 }
 
+const TEXT_EDITOR_DEFAULT_MARGINS = {
+  top: 4,   // Margin between top of the editor and the first line
+  left: 4,  // Margin between the left of the editor and the first text column
+};
+
 export class TextEditor extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-text-editor`;
 
@@ -71,14 +76,12 @@ export class TextEditor extends HTMLElement {
     if (this.#options.restoreScrollPosition) {
       this.#restoreScrollPosition(this.#activeEditor);
       this.#activeEditor.scrollDOM.addEventListener('scroll', event => {
-        if (!this.#activeEditor) {
-          return;
-        }
-
-        this.#saveScrollPosition(this.#activeEditor, {
-          scrollLeft: (event.target as HTMLElement).scrollLeft,
-          scrollTop: (event.target as HTMLElement).scrollTop,
-        });
+        // `scrollIntoView` starts the scrolling from the start of the `line`
+        // not the content area and there is a padding between the
+        // sides and initial character of the line. So, we're saving
+        // the last scroll position with this margin taken into account.
+        this.#lastScrollPos.left = (event.target as HTMLElement).scrollLeft - TEXT_EDITOR_DEFAULT_MARGINS.left;
+        this.#lastScrollPos.top = (event.target as HTMLElement).scrollTop - TEXT_EDITOR_DEFAULT_MARGINS.top;
       });
     }
 
@@ -111,30 +114,6 @@ export class TextEditor extends HTMLElement {
         yMargin: -this.#lastScrollPos.top,
       }),
     });
-  }
-
-  // `scrollIntoView` starts the scrolling from the start of the `line`
-  // not the content area and there is a padding between the
-  // sides and initial character of the line. So, we're saving
-  // the last scroll position with this margin taken into account.
-  #saveScrollPosition(editor: CodeMirror.EditorView, {scrollLeft, scrollTop}: {scrollLeft: number, scrollTop: number}):
-      void {
-    const contentRect = editor.contentDOM.getBoundingClientRect();
-
-    // In some cases `editor.coordsAtPos(0)` can return `null`
-    // (maybe, somehow, the editor is not visible yet).
-    // So, in that case, we don't take margins from the sides
-    // into account by setting `coordsAtZero` rectangle
-    // to be the same with `contentRect`.
-    const coordsAtZero = editor.coordsAtPos(0) ?? {
-      top: contentRect.top,
-      left: contentRect.left,
-      bottom: contentRect.bottom,
-      right: contentRect.right,
-    };
-
-    this.#lastScrollPos.left = scrollLeft + (contentRect.left - coordsAtZero.left);
-    this.#lastScrollPos.top = scrollTop + (contentRect.top - coordsAtZero.top);
   }
 
   get editor(): CodeMirror.EditorView {
