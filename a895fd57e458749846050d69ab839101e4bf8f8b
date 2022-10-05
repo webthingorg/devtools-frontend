@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad73a634_73545505",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-10-05T19:24:44Z",
+      "side": 1,
+      "message": "Let\u0027s go with a simple catch-all revert to be safe for now, this way you don\u0027t have to rush to any fixes and be anxious about them. Then we can fix everything in M108.",
+      "revId": "a895fd57e458749846050d69ab839101e4bf8f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
