@@ -16,6 +16,23 @@
       "message": "PTAL at this accessibility fix for the dock side menu. Thanks!",
       "revId": "ed91c285d922e4d2c26fae228ba40c6f42bf369b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "724bf424_0d461400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-10-05T08:46:14Z",
+      "side": 1,
+      "message": "Is this part of the effort that Erica is working on?",
+      "revId": "ed91c285d922e4d2c26fae228ba40c6f42bf369b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
