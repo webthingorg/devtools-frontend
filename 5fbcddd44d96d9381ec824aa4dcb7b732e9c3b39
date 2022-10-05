@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8771482d_75e9fed3",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-05T06:31:31Z",
+      "side": 1,
+      "message": "No sure, assuming the dispatch works correctly it shouldn\u0027t. I was just following the pattern: other functions that take message argument have this check.",
+      "parentUuid": "70e6580f_1e43ad90",
+      "revId": "5fbcddd44d96d9381ec824aa4dcb7b732e9c3b39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a075ba3_472996d8",
         "filename": "front_end/models/extensions/ExtensionServer.ts",
         "patchSetId": 4
@@ -82,6 +100,24 @@
       "writtenOn": "2022-09-27T22:58:35Z",
       "side": 1,
       "message": "Should we just disconnect such extensions altogether when inspecting files?",
+      "revId": "5fbcddd44d96d9381ec824aa4dcb7b732e9c3b39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fdf99cb_72b36760",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-05T06:31:31Z",
+      "side": 1,
+      "message": "At which moment? The extension might not know about local resources on the page and shouldn\u0027t be punished for calling getPageResources.\n\nOr do you suggest to disconnect them when the call getResourceContent on a file resource? That would be an option, but I don\u0027t see how it is better then what I am doing here.",
+      "parentUuid": "5a075ba3_472996d8",
       "revId": "5fbcddd44d96d9381ec824aa4dcb7b732e9c3b39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef5236a_6ce45016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-05T06:31:31Z",
+      "side": 1,
+      "message": "Sorry for missing your comments, Andrey. This wasn\u0027t intentional.",
+      "revId": "28cfaf314c9a3bbc29bdf4d335f220913fcc0c3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
