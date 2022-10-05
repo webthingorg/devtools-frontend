@@ -7,16 +7,11 @@ import {assert} from 'chai';
 import {getBrowserAndPages, waitFor, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
-  addBreakpointForLine,
   clickOnContextMenu,
-  openEditBreakpointDialog,
-  openFileInEditor,
   openSourceCodeEditorForFile,
   openSourcesPanel,
-  scrollByInEditor,
   toggleDebuggerSidebar,
   toggleNavigatorSidebar,
-  waitForScrollPositionInEditor,
 } from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
@@ -29,35 +24,6 @@ describe('The Sources Tab', async () => {
       const value = await element.evaluate(input => (input as HTMLInputElement).value);
 
       assert.strictEqual(value, 'file:test/e2e/resources/sources/navigation');
-    });
-  });
-
-  describe('Scroll and navigation', async () => {
-    // Flaky test
-    it.skipOnPlatforms(
-        ['mac'],
-        '[crbug.com/1370991] after performing scrolls in an editor and navigating between different editor tabs should restore the correct scroll position',
-        async () => {
-          await openSourceCodeEditorForFile('tabbed-editor-scroll-position-1.js', 'tabbed-editor-scroll-position.html');
-
-          await scrollByInEditor({x: 15, y: 15});
-          await scrollByInEditor({x: 15, y: 15});
-          await openFileInEditor('tabbed-editor-scroll-position-2.js');
-          await openFileInEditor('tabbed-editor-scroll-position-1.js');
-
-          await waitForScrollPositionInEditor({scrollLeft: 30, scrollTop: 30});
-        });
-
-    it('scroll position doesn\'t change when edit breakpoint dialog is opened', async () => {
-      const {frontend} = getBrowserAndPages();
-      await openSourceCodeEditorForFile('tabbed-editor-scroll-position-1.js', 'tabbed-editor-scroll-position.html');
-
-      await scrollByInEditor({x: 15, y: 15});
-
-      await addBreakpointForLine(frontend, 5);
-      await openEditBreakpointDialog(frontend, 5);
-
-      await waitForScrollPositionInEditor({scrollLeft: 15, scrollTop: 15});
     });
   });
 
