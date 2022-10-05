@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "987f832c_a6c4381c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-05T12:11:01Z",
+      "side": 1,
+      "message": "Fixed two points with feedback as follows:\n・Remove an optional modifier from AlternateProtocolUsage definition in .pdl\n・Add a tooltip for default case to Protocol Grid",
+      "revId": "89c50a65d8bb1e8280aac1054a52de1ceae89586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

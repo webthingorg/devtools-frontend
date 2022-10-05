@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9c3c426_1a5a6246",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-05T12:11:01Z",
+      "side": 1,
+      "message": "I\u0027m adding my info to AUTHORS file in https://crrev/c/3928537. \nBut should I add my info to any file under third_party/devtools-frontend/src/ as \nwell?",
+      "parentUuid": "a2f662c6_950a15c6",
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2c423b4_8f41c079",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 21
@@ -31,6 +49,30 @@
       "writtenOn": "2022-10-04T16:52:21Z",
       "side": 1,
       "message": "Shouldn\u0027t the default/\u0027unspecifiedReason\u0027 case have a tooltip as well?\n`UI.Tooltip.Tooltip.install(cell,  this.requestInternal.protocol);`",
+      "range": {
+        "startLine": 1236,
+        "startChar": 0,
+        "endLine": 1239,
+        "endChar": 7
+      },
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db01a6bf_e3268d14",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-05T12:11:01Z",
+      "side": 1,
+      "message": "Not showing anything when the default/\u0027unspecifiedReason\u0027 case seems strange.\nSo I added `UI.Tooltip.Tooltip.install(cell,  this.requestInternal.protocol);`.",
+      "parentUuid": "a2c423b4_8f41c079",
       "range": {
         "startLine": 1236,
         "startChar": 0,
@@ -54,6 +96,30 @@
       "writtenOn": "2022-10-04T16:52:21Z",
       "side": 1,
       "message": "Why is the whole type now optional?",
+      "range": {
+        "startLine": 5260,
+        "startChar": 15,
+        "endLine": 5260,
+        "endChar": 23
+      },
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "336c3ab8_ca752445",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 21
+      },
+      "lineNbr": 5260,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-05T12:11:01Z",
+      "side": 1,
+      "message": "Sorry, it\u0027s just my mistake.",
+      "parentUuid": "ba7812aa_bd0775fa",
       "range": {
         "startLine": 5260,
         "startChar": 15,
