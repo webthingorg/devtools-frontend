@@ -16,6 +16,24 @@
       "message": "Could you please add a test for this fix?",
       "revId": "fab54f34382b80712d5582c38ad4ad73492d448a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47bca8b9_ea0590b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-06T13:15:35Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t know how to add a test for it.\nAnd I found that these code was not tested before either.",
+      "parentUuid": "0640fbaf_ef3287d4",
+      "revId": "fab54f34382b80712d5582c38ad4ad73492d448a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
