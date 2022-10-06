@@ -2,10 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../../front_end/core/common/common.js';
 import * as Platform from '../../../../../front_end/core/platform/platform.js';
+import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import * as Logs from '../../../../../front_end/models/logs/logs.js';
+import {createTarget} from '../../helpers/EnvironmentHelpers.js';
+import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 
 const {assert} = chai;
 
@@ -13,7 +17,7 @@ function url(input: string): Platform.DevToolsPath.UrlString {
   return input as unknown as Platform.DevToolsPath.UrlString;
 }
 
-describe('NetworkLog', () => {
+describeWithMockConnection('NetworkLog', () => {
   describe('initiatorInfoForRequest', () => {
     const {initiatorInfoForRequest} = Logs.NetworkLog.NetworkLog;
 
@@ -291,5 +295,38 @@ describe('NetworkLog', () => {
         initiatorRequest: null,
       });
     });
+  });
+
+  it('clears on main frame navigation', () => {
+    Common.Settings.Settings.instance().moduleSetting('network_log.preserve-log').set(false);
+    const networkLog = Logs.NetworkLog.NetworkLog.instance();
+    const tabTarget = createTarget({type: SDK.Target.Type.Tab});
+    const mainFrameUnderTabTarget = createTarget({parentTarget: tabTarget});
+    const mainFrameWithoutTabTarget = createTarget();
+    const subframeTarget = createTarget({parentTarget: mainFrameWithoutTabTarget});
+
+    const navigateTarget = (target: SDK.Target.Target) => {
+      const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel);
+      const frame = {
+        url: 'http://example.com/',
+        backForwardCacheDetails: {},
+        unreachableUrl: () => Platform.DevToolsPath.EmptyUrlString,
+        resourceTreeModel: () => resourceTreeModel,
+      } as SDK.ResourceTreeModel.ResourceTreeFrame;
+      resourceTreeModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.MainFrameNavigated, frame);
+    };
+
+    let networkLogResetEvents = 0;
+    networkLog.addEventListener(Logs.NetworkLog.Events.Reset, () => ++networkLogResetEvents);
+
+    navigateTarget(subframeTarget);
+    assert.strictEqual(networkLogResetEvents, 0);
+
+    navigateTarget(mainFrameUnderTabTarget);
+    assert.strictEqual(networkLogResetEvents, 1);
+
+    navigateTarget(mainFrameWithoutTabTarget);
+    assert.strictEqual(networkLogResetEvents, 2);
   });
 });
