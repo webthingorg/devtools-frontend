@@ -16,6 +16,24 @@
       "message": "Now I\u0027m a little confused. Which one is the ultimate CL you\u0027d like to back-merge? Is it this one?",
       "revId": "ba75856b521b961d276e41c614b9d9c8c17a8f27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "851e4b6e_bab4e906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-06T07:28:43Z",
+      "side": 1,
+      "message": "It was this one though we decided to skip this after talking with leese@, and decided to split the reverts:\n* Revert of initial change that is already on M107 branch (crrev/c/3933552)\n* Revert of the other changes (crrev/c/3933053 and crrev/c/3934777)\n* I\u0027m going to back-merge only the first revert to M107.\n\nThe other ones aren\u0027t there so we\u0027re good. Does it make sense?",
+      "parentUuid": "9c5b8ef5_eab94940",
+      "revId": "ba75856b521b961d276e41c614b9d9c8c17a8f27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
