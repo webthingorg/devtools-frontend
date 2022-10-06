@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c38aa952_f60ff3cf",
+        "filename": "front_end/panels/elements/CSSRuleValidatorHelper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-10-06T13:48:34Z",
+      "side": 1,
+      "message": "QQ again: what\u0027s the advantage here to create a string template instead of DOM elements? Is it because they will be used in the LitHTML template later?",
+      "revId": "8d724c2da498b4b032b5337c1b208aa96da61b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac8f88f5_4a26a735",
         "filename": "front_end/panels/elements/components/cssHintDetailsView.css",
         "patchSetId": 3
