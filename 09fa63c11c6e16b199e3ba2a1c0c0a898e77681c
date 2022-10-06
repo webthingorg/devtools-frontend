@@ -16,6 +16,24 @@
       "message": "This is the second revert on the chain",
       "revId": "09fa63c11c6e16b199e3ba2a1c0c0a898e77681c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "194dc050_2701b273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-10-06T08:53:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9be5fa9_ac3c849c",
+      "revId": "09fa63c11c6e16b199e3ba2a1c0c0a898e77681c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
