@@ -33,6 +33,24 @@
       "message": "I think the default iterator of a Map is `.entries()`, which means you probably can simply say `for (const [breakpoint, treeItem] of this.#breakpoints) {...`.",
       "revId": "154e5ba75c4e771666e5482f28c80a67ca2d1316",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a92128_fd428a70",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2022-10-06T01:31:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d23cbeaa_9d9612f6",
+      "revId": "154e5ba75c4e771666e5482f28c80a67ca2d1316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
