@@ -33,6 +33,24 @@
       "message": "QQ: I suppose this `inherit` is necessary, right?",
       "revId": "8d724c2da498b4b032b5337c1b208aa96da61b09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0948433_5b6158cc",
+        "filename": "front_end/panels/elements/components/cssHintDetailsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-06T13:57:09Z",
+      "side": 1,
+      "message": "yes, `code` has the monospace font-family by default.",
+      "parentUuid": "ac8f88f5_4a26a735",
+      "revId": "8d724c2da498b4b032b5337c1b208aa96da61b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
