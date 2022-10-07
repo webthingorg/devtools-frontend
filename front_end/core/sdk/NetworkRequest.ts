@@ -199,6 +199,9 @@ export enum MIME_TYPE {
   EVENTSTREAM = 'text/event-stream',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor = new (...args: any[]) => any;
+
 export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     TextUtils.ContentProvider.ContentProvider {
   #requestIdInternal: string;
@@ -291,6 +294,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #contentDataProvider?: (() => Promise<ContentData>);
   #isSameSiteInternal: boolean|null;
   #wasIntercepted: boolean;
+  #associatedData: Map<Constructor, object>;
 
   private constructor(
       requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: Platform.DevToolsPath.UrlString,
@@ -367,6 +371,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#isSameSiteInternal = null;
 
     this.#wasIntercepted = false;
+    this.#associatedData = new Map();
   }
 
   static create(
@@ -1480,6 +1485,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   isSameSite(): boolean|null {
     return this.#isSameSiteInternal;
+  }
+
+  getAssociatedData(dataOwner: Constructor): object|null {
+    return this.#associatedData.get(dataOwner) || null;
+  }
+
+  setAssociatedData(dataOwner: Constructor, data: object): void {
+    this.#associatedData.set(dataOwner, data);
   }
 }
 

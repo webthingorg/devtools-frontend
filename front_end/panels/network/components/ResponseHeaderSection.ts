@@ -176,11 +176,17 @@ export class ResponseHeaderSection extends HTMLElement {
       });
     }
 
-    this.#headerEditors =
-        this.#headerDetails.map(header => ({name: header.name, value: header.value, originalValue: header.value}));
-    this.#markOverrides();
+    const dataAssociatedWithRequest = this.#request.getAssociatedData(ResponseHeaderSection);
+    if (dataAssociatedWithRequest) {
+      this.#headerEditors = dataAssociatedWithRequest as HeaderEditorDescriptor[];
+    } else {
+      this.#headerEditors =
+          this.#headerDetails.map(header => ({name: header.name, value: header.value, originalValue: header.value}));
+      this.#markOverrides();
+    }
 
     void this.#loadOverridesFileInfo();
+    this.#request.setAssociatedData(ResponseHeaderSection, this.#headerEditors);
     this.#render();
   }
 
@@ -192,6 +198,7 @@ export class ResponseHeaderSection extends HTMLElement {
         Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().getHeadersUISourceCodeFromUrl(
             this.#request.url());
     if (!this.#uiSourceCode) {
+      this.#setAllNotEditable();
       return;
     }
     try {
@@ -205,11 +212,20 @@ export class ResponseHeaderSection extends HTMLElement {
       for (const header of this.#headerEditors) {
         header.valueEditable = true;
       }
-      this.#render();
     } catch (error) {
       this.#successfullyParsedOverrides = false;
       console.error(
           'Failed to parse', this.#uiSourceCode?.url() || 'source code file', 'for locally overriding headers.');
+      this.#setAllNotEditable();
+    } finally {
+      this.#render();
+    }
+  }
+
+  #setAllNotEditable(): void {
+    for (const header of this.#headerEditors) {
+      header.valueEditable = false;
+      header.nameEditable = false;
     }
   }
 
@@ -293,6 +309,7 @@ export class ResponseHeaderSection extends HTMLElement {
     const previousValue = this.#headerEditors[index].value;
     this.#headerEditors[index].name = headerName;
     this.#headerEditors[index].value = headerValue;
+    this.#headerEditors[index].isOverride = true;
 
     // If multiple headers have the same name 'foo', we treat them as a unit.
     // If there are overrides for 'foo', all original 'foo' headers are removed
@@ -356,6 +373,10 @@ export class ResponseHeaderSection extends HTMLElement {
     const index = this.#headerEditors.length - 1;
     this.#updateOverrides(this.#headerEditors[index].name, this.#headerEditors[index].value || '', index);
     this.#render();
+
+    const rows = this.#shadow.querySelectorAll<HeaderSectionRow>('devtools-header-section-row');
+    const [lastRow] = Array.from(rows).slice(-1);
+    lastRow?.focus();
   }
 
   #render(): void {
