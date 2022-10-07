@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca23a1fa_2fc069c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-07T14:27:10Z",
+      "side": 1,
+      "message": "During the private class fields migration there was a CL migrating this file (https://crrev.com/c/3219233). That CL got reverted, and a revert of the revert abandoned. Can we be sure not to run into the same problems?",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33185867_b7214976",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-07T14:27:10Z",
+      "side": 1,
+      "message": "Would `readonly #columns` work as well?",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
