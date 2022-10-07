@@ -764,8 +764,8 @@ class DOMInheritanceCascade {
     variableName: string|null,
     fallback: string|null,
   } {
-    const match = cssVariableValue.match(/^var\((--[a-zA-Z0-9-_]+)[,]?\s*(.*)\)$/);
-    return {variableName: match && match[1], fallback: match && match[2]};
+    const match = cssVariableValue.match(/^var\(\s*(--\S+)\s*(,\s*(\S*)\s*)?\)$/);
+    return {variableName: match && match[1], fallback: match && match[3]};
   }
 
   private innerComputeCSSVariable(
