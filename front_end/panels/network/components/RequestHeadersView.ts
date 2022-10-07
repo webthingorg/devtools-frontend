@@ -119,7 +119,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.#request.addEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.#refreshHeadersView, this);
     this.#request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#refreshHeadersView, this);
     this.#request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.#refreshHeadersView, this);
-    this.#request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#refreshHeadersView, this);
+    this.#request.addEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#resetAndRefreshHeadersView, this);
     this.#refreshHeadersView();
   }
 
@@ -127,7 +128,15 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.#request.removeEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.#refreshHeadersView, this);
     this.#request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.#refreshHeadersView, this);
     this.#request.removeEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.#refreshHeadersView, this);
-    this.#request.removeEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#refreshHeadersView, this);
+    this.#request.removeEventListener(
+        SDK.NetworkRequest.Events.ResponseHeadersChanged, this.#resetAndRefreshHeadersView, this);
+  }
+
+  #resetAndRefreshHeadersView(): void {
+    this.#request.deleteAssociatedData(ResponseHeaderSection);
+    this.#requestHeadersComponent.data = {
+      request: this.#request,
+    };
   }
 
   #refreshHeadersView(): void {
