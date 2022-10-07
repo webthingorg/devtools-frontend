@@ -36,6 +36,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c7d41b_03c9ff84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-07T14:49:34Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33185867_b7214976",
@@ -67,6 +84,24 @@
       "side": 1,
       "message": "It would, but I was going for consistency with the rest of the file.",
       "parentUuid": "33185867_b7214976",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbc5125_7e9f402c",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-07T14:49:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fbe99ce_29fb0033",
       "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
