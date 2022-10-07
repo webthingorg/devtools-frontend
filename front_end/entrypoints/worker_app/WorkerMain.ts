@@ -48,7 +48,8 @@ Common.Runnable.registerEarlyInitializationRunnable(WorkerMainImpl.instance);
 
 SDK.ChildTargetManager.ChildTargetManager.install(async ({target, waitingForDebugger}) => {
   // Only pause the new worker if debugging SW - we are going through the pause on start checkbox.
-  if (target.parentTarget() || target.type() !== SDK.Target.Type.ServiceWorker || !waitingForDebugger) {
+  if (target.parentTarget()?.type() === SDK.Target.Type.Frame || target.type() !== SDK.Target.Type.ServiceWorker ||
+      !waitingForDebugger) {
     return;
   }
   const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
