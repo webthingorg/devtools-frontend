@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "8000ff26b6088b4afee3ec46affb5e0bf918accd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e6c9d4_4668104f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-07T16:00:26Z",
+      "side": 1,
+      "message": "Could you please extract the drive-by fixes? They make it quite hard to grasp the original CL intent.",
+      "revId": "8000ff26b6088b4afee3ec46affb5e0bf918accd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
