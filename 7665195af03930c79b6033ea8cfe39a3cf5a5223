@@ -33,6 +33,23 @@
       "message": "Could you take a look please, Jaro?",
       "revId": "7665195af03930c79b6033ea8cfe39a3cf5a5223",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c944cc_0d38f470",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-10-07T05:06:01Z",
+      "side": 1,
+      "message": "Thank you for optimizing this!",
+      "revId": "7665195af03930c79b6033ea8cfe39a3cf5a5223",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
