@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f35e4f5d_3ea9f207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-07T14:35:22Z",
+      "side": 1,
+      "message": "Yes, this is why I also sent crrev.com/c/3934860 to disable layout tests relying on the private field.",
+      "parentUuid": "ca23a1fa_2fc069c7",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33185867_b7214976",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-07T14:27:10Z",
       "side": 1,
       "message": "Would `readonly #columns` work as well?",
+      "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbe99ce_29fb0033",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-07T14:35:22Z",
+      "side": 1,
+      "message": "It would, but I was going for consistency with the rest of the file.",
+      "parentUuid": "33185867_b7214976",
       "revId": "3f6cacc8fdf80da26c32c14dcd6cb90feda5b930",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
