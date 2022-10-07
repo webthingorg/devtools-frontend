@@ -1494,6 +1494,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   setAssociatedData(dataOwner: Constructor, data: object): void {
     this.#associatedData.set(dataOwner, data);
   }
+
+  deleteAssociatedData(dataOwner: Constructor): void {
+    this.#associatedData.delete(dataOwner);
+  }
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
