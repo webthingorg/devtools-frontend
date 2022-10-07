@@ -130,7 +130,7 @@ describe('The Application Tab', async () => {
       return previewValue === 'Hello%2BWorld!';
     });
 
-    await click('[aria-label="Show URL decoded"]');
+    await click('.cookie-preview-widget-toggle');
 
     await waitForFunction(async () => {
       const previewValueNode = await waitFor('.cookie-preview-widget-cookie-value');
