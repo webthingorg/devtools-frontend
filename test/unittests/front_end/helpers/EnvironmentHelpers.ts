@@ -148,6 +148,11 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.NETWORK, 'network_log.record-log', true, Common.Settings.SettingType.BOOLEAN),
     createSettingValue(
+        Common.Settings.SettingCategory.NETWORK, 'network.group-by-frame', false, Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
+        Common.Settings.SettingCategory.NETWORK, 'networkColorCodeResourceTypes', false,
+        Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
         Common.Settings.SettingCategory.SOURCES, 'network.enable-unc-loading', false,
         Common.Settings.SettingType.BOOLEAN),
     createSettingValue(
