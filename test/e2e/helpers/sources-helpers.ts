@@ -49,6 +49,7 @@ export const MORE_TABS_SELECTOR = '[aria-label="More tabs"]';
 const OVERRIDES_TAB_SELECTOR = '[aria-label="Overrides"]';
 export const ENABLE_OVERRIDES_SELECTOR = '[aria-label="Select folder for overrides"]';
 const CLEAR_CONFIGURATION_SELECTOR = '[aria-label="Clear configuration"]';
+const EDITOR_SCROLL_DOM_SELECTOR = '.cm-scroller';
 
 export async function toggleNavigatorSidebar(frontend: puppeteer.Page) {
   const modifierKey = platform === 'mac' ? 'Meta' : 'Control';
@@ -77,6 +78,25 @@ export async function getLineNumberElement(lineNumber: number|string) {
     }
   }
   return null;
+}
+
+export async function scrollToInEditor({x, y}: {x: number, y: number}) {
+  const {frontend} = getBrowserAndPages();
+  const codeMirrorScrolDOM = await waitFor(EDITOR_SCROLL_DOM_SELECTOR);
+  await frontend.evaluate((element, x, y) => {
+    element.scrollTo(x, y);
+  }, codeMirrorScrolDOM, x, y);
+}
+
+export async function waitForScrollPositionInEditor(expected: {scrollLeft: number, scrollTop: number}) {
+  const codeMirrorScrolDOM = await waitFor(EDITOR_SCROLL_DOM_SELECTOR);
+  await waitForFunction(async () => {
+    const actual = await codeMirrorScrolDOM.evaluate(element => ({
+                                                       scrollLeft: element.scrollLeft,
+                                                       scrollTop: element.scrollTop,
+                                                     }));
+    return actual.scrollLeft === expected.scrollLeft && actual.scrollTop === expected.scrollTop;
+  });
 }
 
 export async function doubleClickSourceTreeItem(selector: string) {
@@ -204,6 +224,16 @@ export async function getToolbarText() {
   }
   const textNodes = await $$('.toolbar-text', toolbar);
   return Promise.all(textNodes.map(node => node.evaluate(node => node.textContent, node)));
+}
+
+export async function openEditBreakpointDialog(frontend: puppeteer.Page, index: number|string) {
+  const breakpointLine = await getLineNumberElement(index);
+  assertNotNullOrUndefined(breakpointLine);
+
+  // Make sure that breakpoint exists there
+  await waitForFunction(async () => await isBreakpointSet(index));
+
+  await clickOnContextMenu('.cm-breakpoint', 'Edit breakpoint…');
 }
 
 export async function addBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
