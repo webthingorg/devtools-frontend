@@ -1415,6 +1415,12 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
         }
         this.setRequestHeadersText(requestHeadersText);
       }
+
+      // Parse the status text from the first line of the response headers text. See net::HttpResponseHeaders::GetStatusText.
+      const firstLineParts = extraResponseInfo.responseHeadersText.split('\r')[0].split(' ');
+      if (firstLineParts.length > 2) {
+        this.statusText = firstLineParts.slice(2).join(' ');
+      }
     }
     this.#remoteAddressSpaceInternal = extraResponseInfo.resourceIPAddressSpace;
 
