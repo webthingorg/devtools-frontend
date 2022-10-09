@@ -1,2 +1,3 @@
 # tags: [ Release Debug ]
 # results: [ Timeout Crash Pass Failure Slow Skip ]
+http://crbug.com/1351286 http/tests/devtools/console-xhr-logging.js [ Failure ]
