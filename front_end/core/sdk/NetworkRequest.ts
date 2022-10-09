@@ -1394,6 +1394,13 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#includedRequestCookiesInternal.length > 0 || this.#blockedRequestCookiesInternal.length > 0;
   }
 
+  // Parse the status text from the first line of the response headers text.
+  // See net::HttpResponseHeaders::GetStatusText.
+  static parseStatusTextFromResponseHeadersText(responseHeadersText: string): string {
+    const firstLineParts = responseHeadersText.split('\r')[0].split(' ');
+    return firstLineParts.slice(2).join(' ');
+  }
+
   addExtraResponseInfo(extraResponseInfo: ExtraResponseInfo): void {
     this.#blockedResponseCookiesInternal = extraResponseInfo.blockedResponseCookies;
     this.responseHeaders = extraResponseInfo.responseHeaders;
@@ -1415,6 +1422,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
         }
         this.setRequestHeadersText(requestHeadersText);
       }
+
+      this.statusText = NetworkRequest.parseStatusTextFromResponseHeadersText(extraResponseInfo.responseHeadersText);
     }
     this.#remoteAddressSpaceInternal = extraResponseInfo.resourceIPAddressSpace;
 
