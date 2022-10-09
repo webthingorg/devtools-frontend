@@ -451,4 +451,12 @@ describeWithMockConnection('InterceptedRequest', () => {
           ],
         });
   });
+
+  it('can parse statusText from the first line of responseReceivedExtraInfo\'s headersText', () => {
+    assert.strictEqual(
+        NetworkRequest.parseStatusTextFromResponseHeadersText('HTTP/1.1 304 not modified'), 'not modified');
+    assert.strictEqual(NetworkRequest.parseStatusTextFromResponseHeadersText('HTTP/1.1 200 OK'), 'OK');
+    assert.strictEqual(
+        NetworkRequest.parseStatusTextFromResponseHeadersText('HTTP/1.1 200 OK\r\n\r\nfoo: bar\r\n'), 'OK');
+  });
 });
