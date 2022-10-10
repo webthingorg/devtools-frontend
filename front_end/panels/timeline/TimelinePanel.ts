@@ -889,8 +889,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           .then(widget => widget.stopRecording());
     }
     if (this.controller) {
-      const model = await this.controller.stopRecording();
-      this.performanceModel = model;
+      this.performanceModel = this.controller.getPerformanceModel();
+      await this.controller.stopRecording();
       this.setUIControlsEnabled(true);
       this.controller.dispose();
       this.controller = null;
@@ -1148,7 +1148,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
   }
 
-  loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): void {
+  async loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): Promise<void> {
     delete this.loader;
     this.setState(State.Idle);
 
@@ -1165,7 +1165,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (!this.performanceModel) {
       this.performanceModel = new PerformanceModel();
     }
-    this.performanceModel.setTracingModel(tracingModel);
+
+    await this.performanceModel.setTracingModel(tracingModel);
     this.setModel(this.performanceModel);
     this.historyManager.addRecording(this.performanceModel);
 
@@ -1178,6 +1179,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
   }
 
+  loadingCompleteForTest(): void {
+    // Not implemented, added only for allowing the TimelineTestRunner
+    // to be in sync when a trace load is finished.
+  }
   private showRecordingStarted(): void {
     if (this.statusPane) {
       return;
