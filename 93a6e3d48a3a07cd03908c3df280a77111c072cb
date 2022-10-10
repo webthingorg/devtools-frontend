@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb5021e_b272bc8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-10T09:26:35Z",
+      "side": 1,
+      "message": "Thanks, LGTM!\n\nAnother test update is required at https://crsrc.org/c/third_party/devtools-frontend/src/test/e2e/network/network-datagrid_test.ts;l\u003d393",
+      "revId": "93a6e3d48a3a07cd03908c3df280a77111c072cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
