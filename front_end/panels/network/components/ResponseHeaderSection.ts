@@ -176,11 +176,17 @@ export class ResponseHeaderSection extends HTMLElement {
       });
     }
 
-    this.#headerEditors =
-        this.#headerDetails.map(header => ({name: header.name, value: header.value, originalValue: header.value}));
-    this.#markOverrides();
+    const dataAssociatedWithRequest = this.#request.getAssociatedData(ResponseHeaderSection);
+    if (dataAssociatedWithRequest) {
+      this.#headerEditors = dataAssociatedWithRequest as HeaderEditorDescriptor[];
+    } else {
+      this.#headerEditors =
+          this.#headerDetails.map(header => ({name: header.name, value: header.value, originalValue: header.value}));
+      this.#markOverrides();
+    }
 
     void this.#loadOverridesFileInfo();
+    this.#request.setAssociatedData(ResponseHeaderSection, this.#headerEditors);
     this.#render();
   }
 
