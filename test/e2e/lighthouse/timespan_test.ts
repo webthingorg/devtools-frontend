@@ -11,7 +11,9 @@ import {
   clickStartButton,
   endTimespan,
   getAuditsBreakdown,
+  getServiceWorkerCount,
   navigateToLighthouseTab,
+  registerServiceWorker,
   selectDevice,
   selectMode,
   waitForResult,
@@ -36,6 +38,7 @@ describe('Timespan', async function() {
 
   it('successfully returns a Lighthouse report for user interactions', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
+    await registerServiceWorker();
 
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1364257
     await selectDevice('desktop');
@@ -78,5 +81,8 @@ describe('Timespan', async function() {
       return viewTraceEl.textContent;
     });
     assert.strictEqual(viewTraceText, 'View Trace');
+
+    // Ensure service worker is not cleared in timespan mode.
+    assert.strictEqual(await getServiceWorkerCount(), 1);
   });
 });
