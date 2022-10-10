@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eba1798_27a4161d",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-10T10:50:05Z",
+      "side": 1,
+      "message": "Instead of dataOwner, we could use dataType and return typed object here, i.e.\n\n    type Constructor\u003cT\u003e \u003d {\n        new (...args: unknown[]): T,\n    };\n\n    class Foo { \n        private #associatedData \u003d new Map\u003cFunction, Object\u003e();\n    \n        setAssociatedData\u003cT extends object\u003e(obj: T): void {\n            this.#associatedData.set(obj.constructor, obj);\n        }\n        getAssociatedData\u003cT extends object\u003e(constructor: Constructor\u003cT\u003e): T {\n            return this.#associatedData.get(constructor) as T;\n        }\n    }",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 55
+      },
+      "revId": "5f2b5157b46bbb014792af52e2ae288aea7765ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
