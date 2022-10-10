@@ -22,6 +22,30 @@
       },
       "revId": "9a4ea68cc865605a1a2ccd7c11158127255ad9df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8f2509_53a2e203",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-10T13:56:47Z",
+      "side": 1,
+      "message": "Yes, `it.skip` requires a comment. Removing it in https://crrev.com/c/3935056.",
+      "parentUuid": "c3aa0252_6653f1e8",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 72
+      },
+      "revId": "9a4ea68cc865605a1a2ccd7c11158127255ad9df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
