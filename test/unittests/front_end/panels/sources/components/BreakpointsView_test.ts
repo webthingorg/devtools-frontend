@@ -452,9 +452,15 @@ describeWithEnvironment('BreakpointsView', () => {
     const {component, data} = await renderMultipleBreakpoints();
     assertShadowRoot(component.shadowRoot);
 
+    const numCollapsed =
+        data.groups.reduce((previousValue: number, currentValue: SourcesComponents.BreakpointsView.BreakpointGroup) => {
+          return currentValue.expanded ? previousValue : previousValue + 1;
+        }, 0);
+    assert.isAbove(numCollapsed, 0);
+    assert.isBelow(numCollapsed, data.groups.length);
     const counters = component.shadowRoot.querySelectorAll('devtools-two-states-counter');
     assertElements(counters, TwoStatesCounter.TwoStatesCounter.TwoStatesCounter);
-    assert.lengthOf(counters, data.groups.length);
+    assert.lengthOf(counters, numCollapsed);
   });
 
   describe('conditional breakpoints', () => {
