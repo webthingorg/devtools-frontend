@@ -411,7 +411,9 @@ export class CPUFlameChartDataProvider extends ProfileFlameChartDataProvider {
       }
       return i18n.TimeUtilities.secondsToString(ms / 1000, true);
     }
-    const name = UI.UIUtils.beautifyFunctionName(node.functionName);
+    const functionName = node.functionName;
+
+    const name = UI.UIUtils.beautifyFunctionName(functionName);
     pushEntryInfoRow(i18nString(UIStrings.name), name);
     const selfTime = millisecondsToString((this.entrySelfTimes as Float32Array)[entryIndex]);
     const totalTime =
