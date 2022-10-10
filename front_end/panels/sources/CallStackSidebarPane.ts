@@ -600,7 +600,7 @@ export class Item {
   static async createForDebuggerCallFrame(
       frame: SDK.DebuggerModel.CallFrame, locationPool: Bindings.LiveLocation.LiveLocationPool,
       updateDelegate: (arg0: Item) => void): Promise<Item> {
-    const name = await SourceMapScopes.NamesResolver.resolveFrameFunctionName(frame) ?? frame.functionName;
+    const name = await SourceMapScopes.NamesResolver.resolveDebuggerFrameFunctionName(frame) ?? frame.functionName;
     const item = new Item(UI.UIUtils.beautifyFunctionName(name), updateDelegate);
     await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createCallFrameLiveLocation(
         frame.location(), item.update.bind(item), locationPool);
