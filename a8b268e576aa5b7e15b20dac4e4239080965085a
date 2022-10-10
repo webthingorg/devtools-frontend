@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be456d80_6332b9e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-10T12:39:21Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\na small change to only show the counter of enabled/disabled breakpoints if the breakpoint group is collapsed. PTAL!",
+      "revId": "a8b268e576aa5b7e15b20dac4e4239080965085a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
