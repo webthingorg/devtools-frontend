@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb54cbd7_ccbdc0a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-10T08:27:23Z",
+      "side": 1,
+      "message": "LGTM with 1 comment",
+      "revId": "0cb7e1d061d97e2a29f27be8df4ed0cc2144be55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba72dbef_d77e233a",
+        "filename": "test/unittests/front_end/entrypoints/main/ExecutionContextSelector_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-10T08:27:23Z",
+      "side": 1,
+      "message": "remove those commented out imports",
+      "revId": "0cb7e1d061d97e2a29f27be8df4ed0cc2144be55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
