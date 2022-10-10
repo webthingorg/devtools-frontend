@@ -46,6 +46,30 @@
       },
       "revId": "5f2b5157b46bbb014792af52e2ae288aea7765ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a48d67dd_5e91cd16",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-10T13:21:47Z",
+      "side": 1,
+      "message": "Yeah, it does. If you don\u0027t want to change these to classes, you can have a base interface with a member for a \u0027associated data key\u0027 that you can use instead of a constructor. \n\nIf you don\u0027t like this either, we can simply use string keys, as dataOwner constructor doesn\u0027t do anything, that string won\u0027t do.",
+      "parentUuid": "71cbbaa1_c2b4f6db",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 55
+      },
+      "revId": "5f2b5157b46bbb014792af52e2ae288aea7765ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
