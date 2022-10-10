@@ -1482,8 +1482,9 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   async getCertificate(origin: string): Promise<string[]> {
-    const target = TargetManager.instance().mainTarget();
+    const target = TargetManager.instance().mainFrameTarget();
     if (!target) {
+      console.error('no main traget');
       return [];
     }
     const certificate = await target.networkAgent().invoke_getCertificate({origin});
