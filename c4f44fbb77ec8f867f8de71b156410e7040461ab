@@ -16,6 +16,24 @@
       "message": "The failing browser test does not look like a flake.",
       "revId": "c4f44fbb77ec8f867f8de71b156410e7040461ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ffb00a_843a0876",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-10T11:50:57Z",
+      "side": 1,
+      "message": "Thanks, it looks like the change in the WorkerMain isn\u0027t actually needed.",
+      "parentUuid": "cb4ac3bf_82286001",
+      "revId": "c4f44fbb77ec8f867f8de71b156410e7040461ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
