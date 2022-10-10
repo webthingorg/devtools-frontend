@@ -22,6 +22,30 @@
       },
       "revId": "5f2b5157b46bbb014792af52e2ae288aea7765ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cbbaa1_c2b4f6db",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-10T13:16:07Z",
+      "side": 1,
+      "message": "Hm, would this only work for storing classes? How would I call the getter in my case?\nIf the associated data is of type `HeaderDescriptor`, isn\u0027t its constructor the `new Object()` constructor? Or if it\u0027s of type `HeaderDescriptor[]`, wouldn\u0027t it just be the `new Array()` constructor?",
+      "parentUuid": "3eba1798_27a4161d",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 55
+      },
+      "revId": "5f2b5157b46bbb014792af52e2ae288aea7765ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
