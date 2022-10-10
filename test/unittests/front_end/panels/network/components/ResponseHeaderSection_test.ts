@@ -17,6 +17,7 @@ import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {setUpEnvironment} from '../../../helpers/OverridesHelpers.js';
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import {createWorkspaceProject} from '../../../helpers/OverridesHelpers.js';
+import * as Workspace from '../../../../../../front_end/models/workspace/workspace.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -95,6 +96,19 @@ async function setupHeaderEditingWithRequest(
   const component = await renderResponseHeaderSection(request);
   assertShadowRoot(component.shadowRoot);
   return {component, spy};
+}
+
+function checkHeaderSectionRow(
+    row: NetworkComponents.HeaderSectionRow.HeaderSectionRow, headerName: string, headerValue: string,
+    isOverride: boolean, isNameEditable: boolean, isValueEditable: boolean): void {
+  assertShadowRoot(row.shadowRoot);
+  assert.strictEqual(row.shadowRoot.querySelector('.header-name')?.textContent?.trim(), headerName);
+  assert.strictEqual(row.shadowRoot.querySelector('.header-value')?.textContent?.trim(), headerValue);
+  assert.strictEqual(row.shadowRoot.querySelector('.row')?.classList.contains('header-overridden'), isOverride);
+  const nameEditable = row.shadowRoot.querySelector('.header-name .editable');
+  assert.strictEqual(Boolean(nameEditable), isNameEditable);
+  const valueEditable = row.shadowRoot.querySelector('.header-value .editable');
+  assert.strictEqual(Boolean(valueEditable), isValueEditable);
 }
 
 describeWithEnvironment('ResponseHeaderSection', () => {
@@ -690,22 +704,45 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     assertShadowRoot(component2.shadowRoot);
 
     const rows = component2.shadowRoot.querySelectorAll('devtools-header-section-row');
+    assert.strictEqual(rows.length, 2);
+    checkHeaderSectionRow(rows[0], 'server:', 'unit test', true, false, true);
+    checkHeaderSectionRow(rows[1], 'foo:', 'bar', true, true, true);
+  });
 
-    const checkRow =
-        (shadowRoot: ShadowRoot, headerName: string, headerValue: string, isOverride: boolean, isNameEditable: boolean,
-         isValueEditable: boolean): void => {
-          assert.strictEqual(shadowRoot.querySelector('.header-name')?.textContent?.trim(), headerName);
-          assert.strictEqual(shadowRoot.querySelector('.header-value')?.textContent?.trim(), headerValue);
-          assert.strictEqual(shadowRoot.querySelector('.row')?.classList.contains('header-overridden'), isOverride);
-          const nameEditable = shadowRoot.querySelector('.header-name .editable');
-          assert.strictEqual(Boolean(nameEditable), isNameEditable);
-          const valueEditable = shadowRoot.querySelector('.header-value .editable');
-          assert.strictEqual(Boolean(valueEditable), isValueEditable);
-        };
+  it('can handle removal of ".headers" file', async () => {
+    const request = SDK.NetworkRequest.NetworkRequest.create(
+        'requestId' as Protocol.Network.RequestId,
+        'https://www.example.com/index.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
+        null, null, null);
+    request.responseHeaders = [{name: 'server', value: 'overridden server'}];
+    request.originalResponseHeaders = [{name: 'server', value: 'original server'}];
 
-    assertShadowRoot(rows[0].shadowRoot);
-    checkRow(rows[0].shadowRoot, 'server:', 'unit test', true, false, true);
-    assertShadowRoot(rows[1].shadowRoot);
-    checkRow(rows[1].shadowRoot, 'foo:', 'bar', true, true, true);
+    const headerOverridesFileContent = `[
+      {
+        "applyTo": "index.html",
+        "headers": [{
+          "name": "server",
+          "value": "overridden server"
+        }]
+      }
+    ]`;
+
+    const {component} = await setupHeaderEditingWithRequest(headerOverridesFileContent, request);
+    assertShadowRoot(component.shadowRoot);
+    const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
+    assertElement(addHeaderButton, HTMLElement);
+    addHeaderButton.click();
+    await coordinator.done();
+
+    editHeaderRow(component, 0, HeaderAttribute.HeaderValue, 'unit test');
+
+    component.remove();
+    Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL = () => null;
+
+    const component2 = await renderResponseHeaderSection(request);
+    assertShadowRoot(component2.shadowRoot);
+    const rows = component2.shadowRoot.querySelectorAll('devtools-header-section-row');
+    assert.strictEqual(rows.length, 1);
+    checkHeaderSectionRow(rows[0], 'server:', 'overridden server', true, false, false);
   });
 });
