@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4098e32_04e96cb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-10T12:09:34Z",
+      "side": 1,
+      "message": "I have added test infrastructure with https://crrev.com/c/3941706\n\nPlease rebase your CL on that, enable the test and maybe add some more tests.",
+      "revId": "17cb19fb8b5b7a5909246ffe56380c5e9ef448c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
