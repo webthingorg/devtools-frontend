@@ -119,12 +119,12 @@ PerformanceTestRunner.timelineFrameModel = function() {
   return PerformanceTestRunner.performanceModel().frameModel();
 };
 
-PerformanceTestRunner.createPerformanceModelWithEvents = function(events) {
+PerformanceTestRunner.createPerformanceModelWithEvents = async function(events) {
   const tracingModel = new SDK.TracingModel(new Bindings.TempFileBackingStorage('tracing'));
   tracingModel.addEvents(events);
   tracingModel.tracingComplete();
   const performanceModel = new Timeline.PerformanceModel();
-  performanceModel.setTracingModel(tracingModel);
+  await performanceModel.setTracingModel(tracingModel);
   UI.panels.timeline.performanceModel = performanceModel;
   UI.panels.timeline.applyFilters(performanceModel);
   return performanceModel;
@@ -137,7 +137,7 @@ PerformanceTestRunner.createTimelineController = function() {
 };
 
 PerformanceTestRunner.runWhenTimelineIsReady = function(callback) {
-  TestRunner.addSniffer(UI.panels.timeline, 'loadingComplete', () => callback());
+  TestRunner.addSniffer(UI.panels.timeline, 'loadingCompleteForTest', () => callback());
 };
 
 PerformanceTestRunner.startTimeline = function() {
@@ -146,11 +146,8 @@ PerformanceTestRunner.startTimeline = function() {
   return TestRunner.addSnifferPromise(panel, 'recordingStarted');
 };
 
-PerformanceTestRunner.stopTimeline = function() {
-  return new Promise(resolve => {
-    PerformanceTestRunner.runWhenTimelineIsReady(resolve);
-    UI.panels.timeline.toggleRecording();
-  });
+PerformanceTestRunner.stopTimeline = async function() {
+  await UI.panels.timeline.toggleRecording();
 };
 
 PerformanceTestRunner.runPerfTraceWithReload = async function() {
