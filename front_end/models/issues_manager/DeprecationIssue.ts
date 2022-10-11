@@ -145,7 +145,21 @@ const UIStrings = {
   localCSSFileExtensionRejected:
       'CSS cannot be loaded from `file:` URLs unless they end in a `.css` file extension.',
   /**
-   * @description TODO(crbug.com/1320345): Description needed for translation
+   * @description We show this warning to developers when script calls the
+   * SourceBuffer abort() method while the asynchronous processing of a remove()
+   * call on that SourceBuffer is not yet complete. Early versions of the Media
+   * Source Extensions specification allowed such aborts, but standardization of
+   * the specification resulted in disallowing the aborts. The script should
+   * instead wait for the asynchronous remove() operation to complete, which is
+   * observable by listening for the associated 'updateend' event from the
+   * SourceBuffer. A note is also included in the warning, describing when
+   * abort() is meaningful and allowed by the specification for purposes other
+   * than interrupting a remove() operation's asynchronous steps.
+   * See https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-abort for the
+   * currently specified behavior, which would throw an exception once the
+   * deprecated removal abort is no longer supported.
+   * See https://github.com/w3c/media-source/issues/19 for the discussion that
+   * led to the specification change.
    */
   mediaSourceAbortRemove:
       'Using `SourceBuffer.abort()` to abort `remove()`\'s asynchronous range removal is deprecated due to specification change. Support will be removed in the future. You should listen to the `updateend` event instead. `abort()` is intended to only abort an asynchronous media append or reset parser state.',
