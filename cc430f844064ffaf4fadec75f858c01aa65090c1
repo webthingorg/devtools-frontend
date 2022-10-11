@@ -16,6 +16,24 @@
       "message": "It is recommended to add more test cases, e.g.\n\n```js\n\u0027var(--\\30-pink)\u0027 // \u003d\u003e --0-pink\n\u0027var(--_-color-blue)\u0027\n\u0027var(-\\-_-color-blue)\u0027\n\u0027var(\\--color-blue)\u0027\n```",
       "revId": "cc430f844064ffaf4fadec75f858c01aa65090c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa93d0b4_ca64db0b",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-11T12:14:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c873a70_153ac241",
+      "revId": "cc430f844064ffaf4fadec75f858c01aa65090c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
