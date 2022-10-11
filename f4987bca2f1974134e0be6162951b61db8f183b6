@@ -33,6 +33,23 @@
       "message": "Could you take a look please, Kim? Thanks!",
       "revId": "f4987bca2f1974134e0be6162951b61db8f183b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd0dc65_27d55b27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-11T13:12:05Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "f4987bca2f1974134e0be6162951b61db8f183b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
