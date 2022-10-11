@@ -25,11 +25,18 @@ describe('CSSMatchedStyles', () => {
       assert.deepEqual(parseCSSVariableNameAndFallback('var(foo,1px)'), {variableName: null, fallback: null});
     });
 
-    // The regexp doesnin parseCSSVariableNameAndFallback needs to be fixed.
-    it.skip('[crbug.com/1371322] correctly parses variables with special characters', () => {
-      assert.deepEqual(parseCSSVariableNameAndFallback('--🤖)'), {variableName: '--🤖', fallback: ''});
-      assert.deepEqual(parseCSSVariableNameAndFallback('--foo-🤖)'), {variableName: '--foo-🤖', fallback: ''});
-      assert.deepEqual(parseCSSVariableNameAndFallback('--🤖,1px)'), {variableName: '--🤖', fallback: '1px'});
+    it('correctly parses variables with special characters', () => {
+      assert.deepEqual(parseCSSVariableNameAndFallback('var(--🤖)'), {variableName: '--🤖', fallback: ''});
+      assert.deepEqual(parseCSSVariableNameAndFallback('var(--foo-🤖)'), {variableName: '--foo-🤖', fallback: ''});
+      assert.deepEqual(parseCSSVariableNameAndFallback('var(--🤖, 1px)'), {variableName: '--🤖', fallback: '1px'});
+    });
+
+    it('correctly parses variables with blanks in name', () => {
+      assert.deepEqual(parseCSSVariableNameAndFallback('var(--f o o, )'), {variableName: '--f o o', fallback: ''});
+      assert.deepEqual(
+          parseCSSVariableNameAndFallback('var(--f o o, 1px)'), {variableName: '--f o o', fallback: '1px'});
+      assert.deepEqual(
+          parseCSSVariableNameAndFallback('var(--f o o, 1px   )'), {variableName: '--f o o', fallback: '1px   '});
     });
   });
 });
