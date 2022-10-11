@@ -994,6 +994,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   private reset(): void {
     PerfUI.LineLevelProfile.Performance.instance().reset();
+    if (this.performanceModel) {
+      this.performanceModel.removeEventListener(Events.ScriptParsed, this.setPerformanceModel, this);
+    }
     this.setModel(null);
   }
 
@@ -1148,6 +1151,13 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
   }
 
+  setPerformanceModel(): void {
+    if (!this.performanceModel) {
+      return;
+    }
+    this.setModel(this.performanceModel);
+  }
+
   async loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): Promise<void> {
     delete this.loader;
     this.setState(State.Idle);
@@ -1167,6 +1177,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     await this.performanceModel.setTracingModel(tracingModel);
+    if (!this.performanceModel.hasEventListeners(Events.ScriptParsed)) {
+      this.performanceModel.addEventListener(Events.ScriptParsed, this.setPerformanceModel, this);
+    }
     this.setModel(this.performanceModel);
     this.historyManager.addRecording(this.performanceModel);
 

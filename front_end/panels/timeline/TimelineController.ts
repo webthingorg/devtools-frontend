@@ -139,7 +139,6 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
     if (this.tracingManager) {
       this.tracingManager.stop();
     }
-
     this.client.loadingStarted();
     await this.waitForTracingToStop(true);
     await this.allSourcesFinished();
