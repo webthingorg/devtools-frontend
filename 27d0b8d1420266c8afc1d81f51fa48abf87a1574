@@ -16,6 +16,24 @@
       "message": "I don\u0027t think blanks are allowed in property names.",
       "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102ee290_aeee9d23",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-11T10:29:02Z",
+      "side": 1,
+      "message": "Escaped blanks in property names are allowed. Fixed these cases with escaped black.",
+      "parentUuid": "b2f15f52_d8e57502",
+      "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
