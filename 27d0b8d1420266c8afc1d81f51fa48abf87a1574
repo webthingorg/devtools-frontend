@@ -52,6 +52,24 @@
       "parentUuid": "102ee290_aeee9d23",
       "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07c090b_2bd371fc",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-10-11T12:10:37Z",
+      "side": 1,
+      "message": "The `\u003cdashed-ident\u003e` production is a `\u003ccustom-ident\u003e`, escaped characters are accepted in `\u003ccustom-ident\u003e`, which is legal CSS syntax.\n\nhttps://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident#:~:text\u003dan%20escaped%20character",
+      "parentUuid": "5c2f6bc1_b331f966",
+      "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
