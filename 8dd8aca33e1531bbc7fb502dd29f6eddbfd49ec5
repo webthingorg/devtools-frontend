@@ -16,6 +16,24 @@
       "message": "Do we need to remove this line as well? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/host/UserMetrics.ts;l\u003d638;drc\u003d8464ceaf799266853741e79140c021422e80f705",
       "revId": "8dd8aca33e1531bbc7fb502dd29f6eddbfd49ec5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf6fa98_51791a9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-11T13:32:25Z",
+      "side": 1,
+      "message": "No, we are not removing the experiment yet.",
+      "parentUuid": "42f0e87f_1436a5b6",
+      "revId": "8dd8aca33e1531bbc7fb502dd29f6eddbfd49ec5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
