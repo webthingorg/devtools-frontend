@@ -375,14 +375,23 @@
     background-color: ButtonFace;
   }
 
-  .tabbed-pane-header-tab,
-  .tabbed-pane-header-tab.selected {
+  .tabbed-pane-header-contents .tabbed-pane-header-tabs .tabbed-pane-header-tab {
     background: ButtonFace;
     color: ButtonText;
   }
 
-  .tabbed-pane-header-tab:hover,
-  .tabbed-pane-shadow .tabbed-pane-header-tab:focus-visible {
+  .tabbed-pane-header-tab .tabbed-pane-header-tab-title {
+    color: inherit;
+  }
+
+  .tabbed-pane-header-contents .tabbed-pane-header-tabs .tabbed-pane-header-tab.selected,
+  .tabbed-pane-header-contents .tabbed-pane-header-tabs .tabbed-pane-header-tab.selected:focus-visible {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .tabbed-pane-header-tabs .tabbed-pane-header-tab:hover,
+  .tabbed-pane-header-tabs .tabbed-pane-shadow .tabbed-pane-header-tab:focus-visible {
     background-color: Highlight;
     color: HighlightText;
   }
