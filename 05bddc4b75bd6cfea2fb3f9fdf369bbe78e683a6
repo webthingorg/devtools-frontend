@@ -16,6 +16,24 @@
       "message": "@mathias@chromium.org But on the other hand, it\u0027s up to the browser to decide if the property\u0027s name is valid, so it\u0027s not a problem to be permissive in this function. Devtools ensures that the static syntax is correct, and that\u0027s good enough. What do you think?",
       "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eefe5f3_f484a2a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-12T15:17:02Z",
+      "side": 1,
+      "message": "refer: https://codepen.io/suyanhanx/pen/xxjJVea\nThis escaped blank seems to be in effect. So, if we make devtools so strict, it doesn\u0027t match the browser\u0027s behavior either.",
+      "parentUuid": "1a67286f_01442756",
+      "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
