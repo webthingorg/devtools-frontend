@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -62,7 +63,11 @@ describe('Multi-Workers', async function() {
       assert.deepEqual(await getBreakpointDecorators(true), [6]);
     }
 
-    describe(`loads scripts exactly once ${withOrWithout}`, () => {
+    describe.only(`loads scripts exactly once ${withOrWithout}`, () => {
+      before(async () => {
+        await enableExperiment('instrumentationBreakpoints');
+      });
+
       beforeEach(async () => {
         // Have the target load the page.
         await goToResource(targetPage);
@@ -238,8 +243,7 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky on mac
-      it.skipOnPlatforms(['mac'], '[crbug.com/1368493] for newly created workers', async () => {
+      it('for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
