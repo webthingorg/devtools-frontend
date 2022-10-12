@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41c8d50_319ce315",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T13:24:47Z",
+      "side": 1,
+      "message": "Oh, forgot that, thanks, updated it!",
+      "parentUuid": "3ba1d825_fc9716af",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 40
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c67ccf47_6402bd8a",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-10-12T13:11:37Z",
       "side": 1,
       "message": "This contradicts what the comment is saying now. Why does the CL have to change this at all?",
+      "range": {
+        "startLine": 596,
+        "startChar": 63,
+        "endLine": 596,
+        "endChar": 77
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8326a2_a91c67c5",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T13:24:47Z",
+      "side": 1,
+      "message": "Ups, I forgot to remove the comment. Here is the initial CL that fixed this which introduced the other issues I mentioned in the description: crrev/c/3892774.\n\nIn there, I explained that:\n```\n* Fix going to lineNumber + 2 instead of\nlineNumber + 1 (textEditor.toOffset already\nadds +1 to account for the index difference)\n* `scrollIntoView` adds 5px default margin\nfrom the scroll position so the scrolled\nline is somewhere between\ncorrectLine and correctLine + 1 (Since\nwe were scrolling to correctLine + 1 with 5px\nmargin)\n```\n\nDoes it make sense?",
+      "parentUuid": "c67ccf47_6402bd8a",
       "range": {
         "startLine": 596,
         "startChar": 63,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "350672a0_db4fa930",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T13:24:47Z",
+      "side": 1,
+      "message": "Sounds good and this is right. I didn\u0027t want to add the same boilerplate each time I wanted to wait for an event.\n\nRepeatablePromise though seems like a thing that can contain a `repeat` method which would repeats what the promise did initially 😄\n\nI liked ManualPromise because we were able to manually resolve it. I\u0027d call it `RepeatableManualPromise`, wdyt?",
+      "parentUuid": "78a98e72_51fd4532",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edf1b91a_7c461338",
         "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
         "patchSetId": 16
@@ -117,6 +189,30 @@
       "writtenOn": "2022-10-12T13:11:37Z",
       "side": 1,
       "message": "nit: make these private. Otherwise we wouldn\u0027t need the accessors.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b19fc1_5a2a77e6",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T13:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edf1b91a_7c461338",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -140,6 +236,30 @@
       "writtenOn": "2022-10-12T13:11:37Z",
       "side": 1,
       "message": "nit: Rename this to `promise`. The method does not actually wait.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "677cc8d2_e5a9306a",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T13:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d6fca9_65265027",
       "range": {
         "startLine": 38,
         "startChar": 2,
