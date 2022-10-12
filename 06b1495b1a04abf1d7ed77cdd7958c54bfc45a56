@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "745d396a_898330fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T07:59:18Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "06b1495b1a04abf1d7ed77cdd7958c54bfc45a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86ab25b_3062b779",
+        "filename": "front_end/panels/sources/CallStackSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T07:59:18Z",
+      "side": 1,
+      "message": "maybe leave a comment here that we call updateDelegate directly instead of `update` because only the name changed but we don\u0027t want to resolve the location unnecessarily a second time.",
+      "range": {
+        "startLine": 610,
+        "startChar": 8,
+        "endLine": 610,
+        "endChar": 34
+      },
+      "revId": "06b1495b1a04abf1d7ed77cdd7958c54bfc45a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
