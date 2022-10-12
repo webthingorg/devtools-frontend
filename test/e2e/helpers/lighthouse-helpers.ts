@@ -202,3 +202,40 @@ export async function getTargetViewport() {
                            devicePixelRatio: window.devicePixelRatio,
                          }));
 }
+
+/**
+ * We cannot detect system file save with puppeteer, so intercept the frontend api instead.
+ */
+export async function interceptNextFileSave(): Promise<() => Promise<string>> {
+  const {frontend} = await getBrowserAndPages();
+  await frontend.evaluate(() => {
+    // @ts-expect-error
+    const original = InspectorFrontendHost.save;
+    const nextFilePromise = new Promise(resolve => {
+      // @ts-expect-error
+      InspectorFrontendHost.save = (_, content) => {
+        resolve(content);
+      };
+    });
+    nextFilePromise.finally(() => {
+      // @ts-expect-error
+      InspectorFrontendHost.save = original;
+    });
+    // @ts-expect-error
+    window.__nextFile = nextFilePromise;
+  });
+
+  // @ts-expect-error
+  return () => frontend.evaluate(() => window.__nextFile);
+}
+
+export async function renderHtmlInIframe(html: string) {
+  const {target} = await getBrowserAndPages();
+  return target.evaluateHandle<ElementHandle>(async html => {
+    const iframe = document.createElement('iframe');
+    iframe.srcdoc = html;
+    document.documentElement.append(iframe);
+    await new Promise(resolve => iframe.addEventListener('load', resolve));
+    return iframe.contentDocument;
+  }, html);
+}

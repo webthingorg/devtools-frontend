@@ -10,7 +10,9 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   getAuditsBreakdown,
+  interceptNextFileSave,
   navigateToLighthouseTab,
+  renderHtmlInIframe,
   selectCategories,
   selectDevice,
   setLegacyNavigation,
@@ -110,6 +112,29 @@ describe('Navigation', async function() {
           return selectedTabEl.textContent;
         });
         assert.strictEqual(selectedTabText, 'Performance');
+
+        await navigateToLighthouseTab();
+
+        const waitForJson = await interceptNextFileSave();
+
+        // For some reason the CDP click command doesn't work here even if the tools menu is open.
+        const saveJsonButton = await waitFor('a[data-action="save-json"]');
+        await saveJsonButton.evaluate(b => (b as HTMLElement).click());
+
+        const jsonContent = await waitForJson();
+        assert.strictEqual(jsonContent, JSON.stringify(lhr, null, 2));
+
+        const waitForHtml = await interceptNextFileSave();
+
+        // For some reason the CDP click command doesn't work here even if the tools menu is open.
+        const saveHtmlButton = await waitFor('a[data-action="save-html"]');
+        await saveHtmlButton.evaluate(b => (b as HTMLElement).click());
+
+        const htmlContent = await waitForHtml();
+        const iframeHandle = await renderHtmlInIframe(htmlContent);
+        const iframeAuditDivs = await iframeHandle.$$('.lh-audit');
+        const frontendAuditDivs = await reportEl.$$('.lh-audit');
+        assert.strictEqual(frontendAuditDivs.length, iframeAuditDivs.length);
       });
 
       it('successfully returns a Lighthouse report with DevTools throttling', async () => {
