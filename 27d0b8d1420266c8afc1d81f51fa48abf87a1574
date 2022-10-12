@@ -142,6 +142,24 @@
       "parentUuid": "17676096_17efc0d4",
       "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72061fd6_004e7b8a",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-10-12T15:20:12Z",
+      "side": 1,
+      "message": "I was thinking that instead of\n\n    const match \u003d cssVariableValue.match(/^var\\(\\s*(--[^,]+)[,]?\\s*(.*)\\s*\\)$/);\n\nyou’d do something like\n\n    const match \u003d cssVariableValue.match(/^var\\(\\s*(--[a-zA-Z_\\P{ASCII}][a-zA-Z0-9_\\P{ASCII}-]*)[,]?\\s*(.*)\\s*\\)$/u);\n    \nto precisely match the spec",
+      "parentUuid": "630c69ed_31b4cf48",
+      "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
