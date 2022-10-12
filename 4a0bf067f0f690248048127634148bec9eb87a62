@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f0cf43_717b2a22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-12T14:18:03Z",
+      "side": 1,
+      "message": "LGTM now that the backend CL has landed.\n\nDid the tabbed-editor files slip in during a rebase?",
+      "revId": "4a0bf067f0f690248048127634148bec9eb87a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b368bc3b_f973d88b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-12T14:18:03Z",
+      "side": 1,
+      "message": "Ah great, I see. That should be enough and apply to DevTools as well.",
+      "parentUuid": "b9c3c426_1a5a6246",
+      "revId": "8c896152996a262061c45fbc3ddf075d9dcf1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2c423b4_8f41c079",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 21
