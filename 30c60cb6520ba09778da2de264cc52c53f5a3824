@@ -50,6 +50,24 @@
       "message": "We can save another microtick then by removing the `async` keyword from the method :-)",
       "revId": "30c60cb6520ba09778da2de264cc52c53f5a3824",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d319d3d2_55121472",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-12T12:28:09Z",
+      "side": 1,
+      "message": "SG, done!",
+      "parentUuid": "e243aafc_42838291",
+      "revId": "30c60cb6520ba09778da2de264cc52c53f5a3824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
