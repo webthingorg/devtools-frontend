@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02380cd4_55781c44",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-10-12T13:43:04Z",
+      "side": 0,
+      "message": "Was this excluded for the same reason?",
+      "range": {
+        "startLine": 50,
+        "startChar": 29,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "987531d14539d94a9b57492fd65ed116d188ac10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
