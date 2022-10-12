@@ -16,6 +16,138 @@
       "message": "Hello hello, can you take a look at the change?\n\nAfter seeing the flakiness of the E2E test, and talking with @szuend about this flow not being a critical user journey and it shouldn\u0027t contain an E2E test, I\u0027ve created a unit test for the behavior change.",
       "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5241f3bd_7568f81f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "Thanks! Some comments",
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba1d825_fc9716af",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "nit: We usually give methods like this a `ForTest` or `ForTesting` suffix.",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 40
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67ccf47_6402bd8a",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "This contradicts what the comment is saying now. Why does the CL have to change this at all?",
+      "range": {
+        "startLine": 596,
+        "startChar": 63,
+        "endLine": 596,
+        "endChar": 77
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a98e72_51fd4532",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "I propose to rename this. The utility from this class is not really that it stores the `resolve` function, that could easily be achieved with two lines:\n\n```\nlet res;\nnew Promise(r \u003d\u003e {res \u003d r;});\n```\n\nWhat this class actually does is look like a promise that can be resolved/waited for repeatedly. So I\u0027d call it `RepeatablePromise` or something along those lines.",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edf1b91a_7c461338",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "nit: make these private. Otherwise we wouldn\u0027t need the accessors.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d6fca9_65265027",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-12T13:11:37Z",
+      "side": 1,
+      "message": "nit: Rename this to `promise`. The method does not actually wait.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
