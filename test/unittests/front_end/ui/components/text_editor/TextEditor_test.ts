@@ -7,6 +7,7 @@ import * as CodeMirror from '../../../../../../front_end/third_party/codemirror.
 import * as TextEditor from '../../../../../../front_end/ui/components/text_editor/text_editor.js';
 import {renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import {ManualPromise} from '../../../helpers/ManualPromise.js';
 
 const {assert} = chai;
 
@@ -54,6 +55,82 @@ describeWithEnvironment('TextEditor', () => {
       Common.Settings.Settings.instance().moduleSetting('showWhitespacesInEditor').set('none');
       assert.strictEqual(editor.editor.dom.querySelectorAll('.cm-trailingWhitespace, .cm-highlightedSpaces').length, 0);
       editor.remove();
+    });
+
+    it('should restore scroll to the same position after reconnecting to DOM when it is scrollable', async () => {
+      const waitForScrollPromise = new ManualPromise();
+      const dispatchSpy = sinon.spy(CodeMirror.EditorView.prototype, 'dispatch');
+      const editor = new TextEditor.TextEditor.TextEditor(makeState(
+          'line1\nline2\nline3\nline4\nline5\line6',
+          [CodeMirror.EditorView.theme(
+              {'&.cm-editor': {height: '50px', width: '50px'}, '.cm-scroller': {overflow: 'auto'}})]));
+      sinon.stub(editor, 'scrollEventHandledToSaveScrollPosition').callsFake(() => {
+        // Resolves `waitForScrollPromise` whenever `scrollEventHandledToSaveScrollPositionToRestoreForTest` is called
+        waitForScrollPromise.resolve();
+        waitForScrollPromise.reset();
+      });
+      renderElementIntoDOM(editor);
+      editor.editor.dispatch({
+        effects: CodeMirror.EditorView.scrollIntoView(0, {
+          x: 'start',
+          xMargin: -20,
+          y: 'start',
+          yMargin: -20,
+        }),
+      });
+      await waitForScrollPromise.wait();
+
+      editor.remove();
+      dispatchSpy.resetHistory();
+      renderElementIntoDOM(editor);
+      await waitForScrollPromise.wait();
+
+      assert.strictEqual(
+          dispatchSpy.calledWith({
+            effects: CodeMirror.EditorView.scrollIntoView(0, {
+              x: 'start',
+              xMargin: -20,
+              y: 'start',
+              yMargin: -20,
+            }),
+          }),
+          true, 'Scroll is not initiated in TextEditor');
+    });
+
+    it('shouldn\'t restore scroll when code editor is not scrollable', async () => {
+      const dispatchSpy = sinon.spy(CodeMirror.EditorView.prototype, 'dispatch');
+      const editor = new TextEditor.TextEditor.TextEditor(makeState(
+          'line1\nline2\nline3\nline4\nline5\line6',
+          [CodeMirror.EditorView.theme(
+              {'&.cm-editor': {height: '50px', width: '50px'}, '.cm-scroller': {overflow: 'hidden'}})]));
+      const scrollHandledForTestSpy = sinon.spy(editor, 'scrollEventHandledToSaveScrollPosition');
+      renderElementIntoDOM(editor);
+      editor.editor.dispatch({
+        effects: CodeMirror.EditorView.scrollIntoView(0, {
+          x: 'start',
+          xMargin: -20,
+          y: 'start',
+          yMargin: -20,
+        }),
+      });
+
+      editor.remove();
+      dispatchSpy.resetHistory();
+      renderElementIntoDOM(editor);
+
+      assert.strictEqual(
+          dispatchSpy.calledWith({
+            effects: CodeMirror.EditorView.scrollIntoView(0, {
+              x: 'start',
+              xMargin: -20,
+              y: 'start',
+              yMargin: -20,
+            }),
+          }),
+          false, 'Scroll is initiated in TextEditor whereas it shouldn\'t have been');
+      assert.strictEqual(
+          scrollHandledForTestSpy.notCalled, true,
+          'Scroll event for restoring scroll position is handled whereas it shouldn\'t have been');
     });
   });
 
