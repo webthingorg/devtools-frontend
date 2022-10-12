@@ -16,6 +16,7 @@ ts_library("helpers") {
     "MutationHelpers_test.ts",
     "OverridesHelpers.ts",
     "RealConnection.ts",
+    "RepeatableManualPromise.ts",
     "SourceMapEncoder.ts",
     "SourceMapEncoder_test.ts",
     "TimelineHelpers.ts",
