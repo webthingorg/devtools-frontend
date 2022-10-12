@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d747c9f3_6d7bb266",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-12T12:58:58Z",
+      "side": 1,
+      "message": "Hello hello, can you take a look at the change?\n\nAfter seeing the flakiness of the E2E test, and talking with @szuend about this flow not being a critical user journey and it shouldn\u0027t contain an E2E test, I\u0027ve created a unit test for the behavior change.",
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
