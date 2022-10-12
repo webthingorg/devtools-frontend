@@ -88,6 +88,24 @@
       "parentUuid": "c07c090b_2bd371fc",
       "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88cb5401_45f9f00e",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-10-12T13:12:24Z",
+      "side": 1,
+      "message": "Suyan, do you want to update your patch to use the patterns I suggested?",
+      "parentUuid": "026b80b2_bf58b7a7",
+      "revId": "27d0b8d1420266c8afc1d81f51fa48abf87a1574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
