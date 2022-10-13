@@ -56,6 +56,30 @@
       },
       "revId": "c73cf97f10edf5eca9bc6831cb98ac0e0d9540e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e12c2a_58f654a9",
+        "filename": "test/unittests/front_end/helpers/RepeatableManualPromise.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-13T07:17:45Z",
+      "side": 1,
+      "message": "You\u0027re totally right actually, I wasn\u0027t able to think of an expressive way to do these waits but your suggestion makes a lot of sense and looks pretty expressive. \n\nUpdated it and removed the helper; thanks! :)",
+      "parentUuid": "64761ec0_217bd78a",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "c73cf97f10edf5eca9bc6831cb98ac0e0d9540e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
