@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "455fd821_9120377f",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-13T04:48:20Z",
+      "side": 1,
+      "message": "Sure, lets remove the comment then, thanks! :)",
+      "parentUuid": "ba8326a2_a91c67c5",
+      "range": {
+        "startLine": 596,
+        "startChar": 63,
+        "endLine": 596,
+        "endChar": 77
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78a98e72_51fd4532",
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "Sounds good and this is right. I didn\u0027t want to add the same boilerplate each time I wanted to wait for an event.\n\nRepeatablePromise though seems like a thing that can contain a `repeat` method which would repeats what the promise did initially 😄\n\nI liked ManualPromise because we were able to manually resolve it. I\u0027d call it `RepeatableManualPromise`, wdyt?",
       "parentUuid": "78a98e72_51fd4532",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "4e9c170af3be8786267540174a65dbc72c2041ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cac5485_654eafd4",
+        "filename": "test/unittests/front_end/helpers/ManualPromise.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-13T04:48:20Z",
+      "side": 1,
+      "message": "See other comment while I\u0027m not a huge fan of this class. It doesn\u0027t safe too much while at the same time it\u0027s very easy to hold it wrong.",
+      "parentUuid": "350672a0_db4fa930",
       "range": {
         "startLine": 29,
         "startChar": 13,

@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be5abad6_06bc8dc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-13T04:48:20Z",
+      "side": 1,
+      "message": "lgtm % removal of the new helper class.",
+      "revId": "c73cf97f10edf5eca9bc6831cb98ac0e0d9540e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64761ec0_217bd78a",
+        "filename": "test/unittests/front_end/helpers/RepeatableManualPromise.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-13T04:48:20Z",
+      "side": 1,
+      "message": "Actually, can we just inline the `Promise` constructor in the test directly? It\u0027s very subtle why the example actually works.\n\n  1. If you forget the `await` on the first line both lines would wait on the same promise. It is very brittle and easy to get wrong.\n  2. If an event forgets to call both `resolve` + `reset`, any follow-up `await` would immediately resolve and the test code would assume 2 events happened while in reality only one did.\n\nI strongly prefer to do this in the test code manually:\n\n```\nlet resolveEventPromise;\nlet p \u003d new Promise(r \u003d\u003e {resolveEventPromise \u003d r});\n\nelement.addEventHandler(\u0027click\u0027, () \u003d\u003e {\n  resolveEventPromise();\n});\n\nawait p;  // wait for first click\n\np \u003d new Promise(r \u003d\u003e {resolveEventPromise \u003d r});\n\nawait p;  // wait for second click\n```",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "c73cf97f10edf5eca9bc6831cb98ac0e0d9540e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
