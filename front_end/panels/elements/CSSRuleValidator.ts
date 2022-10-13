@@ -11,7 +11,9 @@ import {
   buildPropertyValue,
   isFlexContainer,
   isGridContainer,
+  isInlineElement,
   isMulticolContainer,
+  isPossiblyReplacedElement,
 } from './CSSRuleValidatorHelper.js';
 
 const UIStrings = {
@@ -98,8 +100,8 @@ export abstract class CSSRuleValidator {
   }
 
   abstract getHint(
-      propertyName: string, computedStyles?: Map<string, string>, parentComputedStyles?: Map<string, string>): Hint
-      |undefined;
+      propertyName: string, computedStyles?: Map<string, string>, parentComputedStyles?: Map<string, string>,
+      nodeName?: string): Hint|undefined;
 }
 
 export class AlignContentValidator extends CSSRuleValidator {
@@ -520,13 +522,59 @@ export class ZIndexValidator extends CSSRuleValidator {
   }
 }
 
+export class InlineElementValidator extends CSSRuleValidator {
+  constructor() {
+    super([
+      'width',
+      'height',
+    ]);
+  }
+
+  getMetricType(): Host.UserMetrics.CSSHintType {
+    return Host.UserMetrics.CSSHintType.FlexGrid;
+  }
+
+  #isRuleValid(computedStyles?: Map<string, string>, nodeName?: string): boolean {
+    if (!computedStyles || !nodeName) {
+      return true;
+    }
+    if (!isInlineElement(computedStyles)) {
+      return true;
+    }
+    return isPossiblyReplacedElement(nodeName);
+  }
+
+  getHint(
+      propertyName: string, computedStyles?: Map<string, string>, parentComputedStyles?: Map<string, string>,
+      nodeName?: string): Hint|undefined {
+    if (this.#isRuleValid(computedStyles, nodeName)) {
+      return;
+    }
+
+    const reasonPropertyDeclaration = buildPropertyDefinitionText('display', computedStyles?.get('display'));
+    const affectedPropertyDeclarationCode = buildPropertyName(propertyName);
+
+    return new Hint(
+        i18nString(UIStrings.ruleViolatedBySameElementRuleReason, {
+          'REASON_PROPERTY_DECLARATION_CODE': reasonPropertyDeclaration,
+          'AFFECTED_PROPERTY_DECLARATION_CODE': affectedPropertyDeclarationCode,
+        }),
+        i18nString(UIStrings.ruleViolatedBySameElementRuleFix, {
+          PROPERTY_NAME: buildPropertyName('display'),
+          PROPERTY_VALUE: buildPropertyValue(computedStyles?.get('display') as string),
+        }),
+    );
+  }
+}
+
 const CSS_RULE_VALIDATORS = [
   AlignContentValidator,
-  FlexItemValidator,
   FlexContainerValidator,
+  FlexGridValidator,
+  FlexItemValidator,
   GridContainerValidator,
   GridItemValidator,
-  FlexGridValidator,
+  InlineElementValidator,
   MulticolFlexGridValidator,
   PaddingValidator,
   PositionValidator,
