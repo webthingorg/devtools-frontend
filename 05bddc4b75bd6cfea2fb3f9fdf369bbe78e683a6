@@ -52,6 +52,24 @@
       "parentUuid": "7eefe5f3_f484a2a5",
       "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ad43b7_c0a8fcff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-10-13T04:15:39Z",
+      "side": 1,
+      "message": "IMO, there are pros and cons to loosely or strictly matching CSS syntax, and I don\u0027t have a particular preference between the two options, I listen to the DevTools team.",
+      "parentUuid": "1c4f52a9_4ea29e03",
+      "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
