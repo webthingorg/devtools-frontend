@@ -78,6 +78,7 @@ button.round {
   border-radius: 100%;
   height: 30px;
   width: 30px;
+  /* background-color: var(--color-iconbutton-hover); */
 }
 
 button.toolbar.small {
@@ -97,6 +98,11 @@ button.unified-toolbar-2022 {
 button.round.small {
   height: 24px;
   width: 24px;
+}
+
+button.round.tiny {
+  height: 18px;
+  width: 18px;
 }
 
 button.primary {
@@ -228,6 +234,7 @@ button.small devtools-icon {
   height: 14px;
 }
 
+/* HERE */
 button.toolbar.small devtools-icon,
 button.round.small devtools-icon {
   width: 18px;
