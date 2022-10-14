@@ -33,6 +33,24 @@
       "message": "(super nit): I think it would be beneficial to add a comment description on what this validates and how it is done.\n\nFrom looking at the code, I don\u0027t directly understand \"what\" and \"how\".\n\nSomething like\n```\n/**\n* Validates whether an \u0027inline\u0027 element is given a width or height since having\n* `width` or `height` on an inline element doesn\u0027t have any affect.\n*/\n```\n\naaand then it would be good to understand why we\u0027re checking for replaced elements, so it would be nice to have a comment there as well :)",
       "revId": "9d65ad2e97e23949615b7ae9c0771bf27102f5f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "868202a8_8942a6a4",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-14T10:32:11Z",
+      "side": 1,
+      "message": "Good point, added some more docs and links to specs.",
+      "parentUuid": "3902b8ae_c5cfe1d5",
+      "revId": "9d65ad2e97e23949615b7ae9c0771bf27102f5f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
