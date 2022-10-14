@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6929d383_f14db5ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-14T12:00:38Z",
+      "side": 1,
+      "message": "LGTM! (with a one nit for thought and maybe a later fix :D)",
+      "revId": "cfc7a99c7157869be36b317f7d7c930208f37789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe6e05b_83472fac",
+        "filename": "front_end/panels/elements/CSSRuleValidatorHelper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-14T12:00:38Z",
+      "side": 1,
+      "message": "(super nit for later): I wonder if checking for empty nodeName should be a resonsibility of this function. IMO it might be a better contract if this accepts a non-undefined string.\n\nThen, we can check at the call site if we should call this function or not at all, so that the responsibility of the main function decides how to react for an undefined `nodeName` instead of a helper function.",
+      "revId": "cfc7a99c7157869be36b317f7d7c930208f37789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
