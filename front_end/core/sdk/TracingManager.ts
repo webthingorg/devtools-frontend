@@ -52,6 +52,7 @@ export class TracingManager extends SDKModel<void> {
   tracingComplete(): void {
     this.#eventBufferSize = 0;
     this.#eventsRetrieved = 0;
+
     if (this.#activeClient) {
       this.#activeClient.tracingComplete();
       this.#activeClient = null;
