@@ -278,6 +278,10 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
     return this.#sourceMapManager.sourceMapForClient(script);
   }
 
+  sourceMapForScriptPromise(script: SDK.Script.Script): Promise<SDK.SourceMap.SourceMap|null> {
+    return this.#sourceMapManager.sourceMapForClientPromise(script);
+  }
+
   scriptsForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): SDK.Script.Script[] {
     const binding = uiSourceCodeToBinding.get(uiSourceCode);
     if (!binding) {
