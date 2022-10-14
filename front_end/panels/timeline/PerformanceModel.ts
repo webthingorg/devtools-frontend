@@ -6,6 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 
@@ -18,6 +19,7 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   private filmStripModelInternal: SDK.FilmStripModel.FilmStripModel|null;
   private readonly irModel: TimelineModel.TimelineIRModel.TimelineIRModel;
   private windowInternal: Window;
+  private readonly cpuProfileNodes: SDK.CPUProfileDataModel.CPUProfileNode[] = [];
   private readonly extensionTracingModels: {
     title: string,
     model: SDK.TracingModel.TracingModel,
@@ -30,7 +32,6 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     this.mainTargetInternal = null;
     this.tracingModelInternal = null;
     this.filtersInternal = [];
-
     this.timelineModelInternal = new TimelineModel.TimelineModel.TimelineModelImpl();
     this.frameModelInternal = new TimelineModel.TimelineFrameModel.TimelineFrameModel(
         event => TimelineUIUtils.eventStyle(event).category.name);
@@ -74,7 +75,7 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   async setTracingModel(model: SDK.TracingModel.TracingModel): Promise<void> {
     this.tracingModelInternal = model;
     this.timelineModelInternal.setEvents(model);
-
+    await this.gatherProfilesAndResolveNames();
     let animationEvents: SDK.TracingModel.AsyncEvent[]|null = null;
     for (const track of this.timelineModelInternal.tracks()) {
       if (track.type === TimelineModel.TimelineModel.TrackType.Animation) {
@@ -101,6 +102,74 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
           (this.recordStartTimeInternal as number));
     }
     this.autoWindowTimes();
+  }
+
+  async gatherProfilesAndResolveNames(): Promise<void> {
+    const allDebuggerModels = new Set<SDK.DebuggerModel.DebuggerModel>();
+    for (const profile of this.timelineModel().cpuProfiles()) {
+      const nodes = profile.nodes();
+      if (!nodes) {
+        continue;
+      }
+      for (const node of nodes) {
+        if (!node) {
+          continue;
+        }
+        const debuggerModelToListen = this.maybeGetDebuggerModel(node);
+        if (!debuggerModelToListen) {
+          continue;
+        }
+        this.cpuProfileNodes.push(node);
+
+        allDebuggerModels.add(debuggerModelToListen);
+      }
+      for (const debuggerModel of allDebuggerModels) {
+        debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this.parsedScriptSource, this);
+        debuggerModel.sourceMapManager().addEventListener(
+            SDK.SourceMapManager.Events.SourceMapAttached, this.attachedSoureMap, this);
+      }
+      await this.resolveNamesFromCPUProfile();
+    }
+  }
+
+  private maybeGetDebuggerModel(node: SDK.CPUProfileDataModel.CPUProfileNode): SDK.DebuggerModel.DebuggerModel|null {
+    const target = node.target();
+    const debuggerModel = target?.model(SDK.DebuggerModel.DebuggerModel);
+    if (!debuggerModel) {
+      return null;
+    }
+    const script = debuggerModel.scriptForId(String(node.callFrame.scriptId));
+    const shouldListenToSourceMap = !script || script.sourceMapURL;
+    if (shouldListenToSourceMap) {
+      return debuggerModel;
+    }
+    return null;
+  }
+
+  private async resolveNamesFromCPUProfile(): Promise<void> {
+    for (const node of this.cpuProfileNodes) {
+      const resolvedFunctionName =
+          await SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, node.target());
+      node.setFunctionName(resolvedFunctionName);
+    }
+  }
+
+  private async parsedScriptSource(event: Common.EventTarget.EventTargetEvent<SDK.Script.Script>): Promise<void> {
+    if (!this.cpuProfileNodes.some(node => node.scriptId === event.data.scriptId)) {
+      return;
+    }
+    await this.resolveNamesFromCPUProfile();
+    this.dispatchEventToListeners(Events.NamesResolved, NamesResolvedCause.ParsedScript);
+  }
+
+  private async attachedSoureMap(
+      event: Common.EventTarget.EventTargetEvent<{client: SDK.Script.Script, sourceMap: SDK.SourceMap.SourceMap}>):
+      Promise<void> {
+    if (!this.cpuProfileNodes.some(node => node.scriptId === event.data.client.scriptId)) {
+      return;
+    }
+    await this.resolveNamesFromCPUProfile();
+    this.dispatchEventToListeners(Events.NamesResolved, NamesResolvedCause.AttachedSourcemap);
   }
 
   addExtensionEvents(title: string, model: SDK.TracingModel.TracingModel, timeOffset: number): void {
@@ -243,6 +312,12 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
 export enum Events {
   ExtensionDataAdded = 'ExtensionDataAdded',
   WindowChanged = 'WindowChanged',
+  NamesResolved = 'NamesResolved',
+}
+
+export const enum NamesResolvedCause {
+  ParsedScript = 'ParsedScript',
+  AttachedSourcemap = 'AttachedSourcemap',
 }
 
 export interface WindowChangedEvent {
@@ -253,6 +328,7 @@ export interface WindowChangedEvent {
 export type EventTypes = {
   [Events.ExtensionDataAdded]: void,
   [Events.WindowChanged]: WindowChangedEvent,
+  [Events.NamesResolved]: NamesResolvedCause,
 };
 
 export interface Window {
