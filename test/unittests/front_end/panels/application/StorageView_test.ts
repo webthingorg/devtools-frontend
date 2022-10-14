@@ -35,7 +35,8 @@ describeWithMockConnection('StorageView', () => {
 
     const dispatcherSpy = sinon.spy(domStorageModel, 'dispatchEventToListeners');
     const spyClearDataForStorageKey = sinon.stub(target.storageAgent(), 'invoke_clearDataForStorageKey');
-    Resources.StorageView.StorageView.clearByStorageKey(target, testKey, [Protocol.Storage.StorageType.All]);
+    Resources.StorageView.StorageView.clearByStorageKey(
+        target, testKey, undefined, [Protocol.Storage.StorageType.All], false);
     // must be called 4 times, twice with DOMStorageRemoved for local and non-local storage and twice with DOMStorageAdded
     assert.isTrue(spyClearDataForStorageKey.calledOnce);
     assert.strictEqual(dispatcherSpy.callCount, 4);
