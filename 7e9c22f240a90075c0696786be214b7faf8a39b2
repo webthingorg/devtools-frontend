@@ -16,6 +16,24 @@
       "message": "Could you please split this into 2 separate CLs? The combo box part LGTM, but I couldn\u0027t really reproduce the \"before\"-state for the tabbed pane part. Maybe a separate bug with instructions for reproducing would help.",
       "revId": "7e9c22f240a90075c0696786be214b7faf8a39b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc770af9_c277747d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-10-14T16:58:50Z",
+      "side": 1,
+      "message": "@wolfi@chromium.org This CL is now updated to contain only combox box change - Here\u0027s a link to the separate CL for tabbedPane headers - https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3953216",
+      "parentUuid": "9eba9f0d_4ef87f75",
+      "revId": "7e9c22f240a90075c0696786be214b7faf8a39b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
