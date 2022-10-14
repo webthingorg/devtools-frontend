@@ -33,6 +33,24 @@
       "message": "In the discussion in backend CL, it is pointed that `unspecifiedReason` does not have much value to send since its meaning is ambiguous and is not used in frontend, so backend should not send it.\n\nSo I\u0027ll make alternateProtocolUsage optional again and modify frontend according to \nthat change. But sounds OK?",
       "revId": "4a0bf067f0f690248048127634148bec9eb87a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d398a6_7bb820d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-14T13:58:52Z",
+      "side": 1,
+      "message": "Sure, SGTM.",
+      "parentUuid": "93d6481f_a10594d1",
+      "revId": "4a0bf067f0f690248048127634148bec9eb87a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
