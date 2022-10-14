@@ -406,11 +406,14 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
 
     if (this.target) {
       const includeThirdPartyCookies = this.includeThirdPartyCookiesSetting.get();
-      // TODO(crbug.com/1313434) Prioritize storageKey once everything is ready
-      if (this.securityOrigin) {
-        StorageView.clear(this.target, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
-      } else if (this.storageKey) {
+      if (this.storageKey) {
         StorageView.clearByStorageKey(this.target, this.storageKey, selectedStorageTypes);
+        if (selectedStorageTypes.includes(Protocol.Storage.StorageType.Cookies)) {
+          StorageView.clear(
+              this.target, this.securityOrigin, [Protocol.Storage.StorageType.Cookies], includeThirdPartyCookies);
+        }
+      } else if (this.securityOrigin) {
+        StorageView.clear(this.target, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
       }
     }
 
@@ -616,14 +619,6 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
     return false;
   }
 
-  private async clear(target: SDK.Target.Target, resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel):
-      Promise<void> {
-    const storageKey = await resourceTreeModel.getMainStorageKey();
-    if (storageKey) {
-      StorageView.clearByStorageKey(target, storageKey, AllStorageTypes);
-    }
-  }
-
   private handleClear(includeThirdPartyCookies: boolean): boolean {
     const target = SDK.TargetManager.TargetManager.instance().mainTarget();
     if (!target) {
@@ -634,12 +629,15 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
       return false;
     }
     const securityOrigin = resourceTreeModel.getMainSecurityOrigin();
-    // TODO(crbug.com/1313434) Prioritize storageKey functionality once everything is ready
-    if (securityOrigin) {
+    const storageKey = void resourceTreeModel.getMainStorageKey();
+    if (storageKey) {
+      StorageView.clearByStorageKey(target, storageKey, AllStorageTypes);
+      if (securityOrigin) {
+        StorageView.clear(target, securityOrigin, [Protocol.Storage.StorageType.Cookies], includeThirdPartyCookies);
+      }
+    } else if (securityOrigin) {
       StorageView.clear(target, securityOrigin, AllStorageTypes, includeThirdPartyCookies);
-      return true;
     }
-    void this.clear(target, resourceTreeModel);
     return true;
   }
 }
