@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf389543_e8276624",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-10-14T12:56:00Z",
+      "side": 1,
+      "message": "IIUC we were not planing to change the way we handle cookies wrt. security origin. So if we need to clear cookies as well, we need to do this by origin.",
+      "parentUuid": "a56bc4ce_0466dade",
+      "range": {
+        "startLine": 635,
+        "startChar": 6,
+        "endLine": 637,
+        "endChar": 7
+      },
+      "revId": "762873ce16ab6577d8d21cb8b7af84caf9b92ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52a08eaa_38f1d312",
         "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-13T15:25:01Z",
       "side": 1,
       "message": "Does it fail without your change?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 82
+      },
+      "revId": "762873ce16ab6577d8d21cb8b7af84caf9b92ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7edbffc0_5bd2348a",
+        "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-10-14T12:56:00Z",
+      "side": 1,
+      "message": "Now it does!",
+      "parentUuid": "52a08eaa_38f1d312",
       "range": {
         "startLine": 57,
         "startChar": 0,
