@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51114e50_44f0cff5",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-14T13:01:05Z",
+      "side": 1,
+      "message": "Ok, but do we need to duplicate this logic twice?",
+      "parentUuid": "cf389543_e8276624",
+      "range": {
+        "startLine": 635,
+        "startChar": 6,
+        "endLine": 637,
+        "endChar": 7
+      },
+      "revId": "762873ce16ab6577d8d21cb8b7af84caf9b92ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52a08eaa_38f1d312",
         "filename": "test/unittests/front_end/panels/application/DOMStorageModel_test.ts",
         "patchSetId": 4
