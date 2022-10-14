@@ -33,6 +33,7 @@ export const enum Variant {
 export const enum Size {
   SMALL = 'SMALL',
   MEDIUM = 'MEDIUM',
+  TINY = 'TINY',
 }
 
 type ButtonType = 'button'|'submit'|'reset';
@@ -261,6 +262,7 @@ export class Button extends HTMLElement {
       'text-with-icon': Boolean(this.#props.iconUrl) && !this.#isEmpty,
       'only-icon': Boolean(this.#props.iconUrl) && this.#isEmpty,
       small: Boolean(this.#props.size === Size.SMALL),
+      tiny: Boolean(this.#props.size === Size.TINY),
       active: this.#props.active,
       'explicit-size': Boolean(this.#props.iconHeight || this.#props.iconWidth),
     };
