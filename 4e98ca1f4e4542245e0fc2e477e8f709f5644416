@@ -16,6 +16,41 @@
       "message": "I have updated the behavior to only accept autocompletion at the end of the line.\n\nDoes it make sense or should we also make it accept at the end of the word when the next character is whitespace?\n\nFor providing consistency, I\u0027m favoring not accepting it between words and making the cursor move right whenever there is a next character on the line. WDYT?",
       "revId": "4e98ca1f4e4542245e0fc2e477e8f709f5644416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e12beeb_b05fdc50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-15T17:20:21Z",
+      "side": 1,
+      "message": "LGTM modulo unrelated `DEPS` change.",
+      "revId": "4e98ca1f4e4542245e0fc2e477e8f709f5644416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e306b29_96d59f29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-15T17:20:21Z",
+      "side": 1,
+      "message": "Yes, that matches pre-CodeMirror6 behavior, thanks!",
+      "parentUuid": "e6bb90b0_8520ff57",
+      "revId": "4e98ca1f4e4542245e0fc2e477e8f709f5644416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
