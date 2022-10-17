@@ -41,10 +41,7 @@ describe('The Elements tab', async function() {
       await assertSearchResultMatchesText('1 of 1');
     });
 
-    // FLaky on Mac.
-    it.skipOnPlatforms(
-        ['mac'],
-        '[crbug.com/1375160] search should jump to next match when Enter is pressed when the input is not changed',
+    it.only('[crbug.com/1375160] search should jump to next match when Enter is pressed when the input is not changed',
         async () => {
           await goToResource('elements/elements-search-test.html');
           await summonAndWaitForSearchBox();
