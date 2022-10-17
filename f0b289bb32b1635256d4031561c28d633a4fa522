@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bbc43a7_48064f84",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-10-17T17:17:10Z",
+      "side": 1,
+      "message": "couldn\u0027t you just return this nextFilePromise. and return on L225\nand drop L243?",
+      "revId": "f0b289bb32b1635256d4031561c28d633a4fa522",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b7e1a6_eca7496d",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-10-17T17:17:10Z",
+      "side": 1,
+      "message": "A+ naming. :D really like these.",
+      "revId": "f0b289bb32b1635256d4031561c28d633a4fa522",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
