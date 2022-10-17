@@ -16,6 +16,24 @@
       "message": "Despite adding this, console-xhr-logging.js keeps failing in the trybots. Is there any way I can mark it as failing to land this, or do i have to mark it as failing in the main chromium repo, wait for it to sync here, then make this change, then mark it as not failing in chromium?",
       "revId": "06a2a95756872eebe4baddd65c646928e08951ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f16e9b4_4c0036d7",
+        "filename": "test/webtests/TestExpectations",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T07:39:27Z",
+      "side": 1,
+      "message": "Unfortunately you\u0027ll have to to the 3-way change you described:\nCL 1: main Chromium repo, update TestExpectations\nCL 2: this CL\nCL 3: main Chromium repo, re-activate and update test",
+      "parentUuid": "8653db4b_436be79a",
+      "revId": "06a2a95756872eebe4baddd65c646928e08951ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
