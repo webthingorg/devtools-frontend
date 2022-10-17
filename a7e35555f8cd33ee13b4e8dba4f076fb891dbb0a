@@ -16,6 +16,24 @@
       "message": "Looks like this got mixed up with a chromium roll?",
       "revId": "a7e35555f8cd33ee13b4e8dba4f076fb891dbb0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f7e242e_37016862",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-17T09:56:01Z",
+      "side": 0,
+      "message": "Yep, rebased it, thanks! :)",
+      "parentUuid": "e1009c87_4cfda870",
+      "revId": "a7e35555f8cd33ee13b4e8dba4f076fb891dbb0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
