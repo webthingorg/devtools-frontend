@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b1e6b4_6a08f729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T09:18:14Z",
+      "side": 1,
+      "message": "When testing, I found that if the tabs contain icons, their colour is still off (https://i.imgur.com/sFxG7RT.png).",
+      "revId": "47baab381d3622a4a21b2319c52787da414e2651",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
