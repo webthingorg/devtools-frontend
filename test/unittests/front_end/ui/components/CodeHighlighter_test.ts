@@ -39,9 +39,17 @@ function testHighlight(code: string, mimeType: string) {
 describe('CodeHighlighter', () => {
   // clang-format off
   it('can highlight JavaScript', testHighlight(`
-[keyword function] [variable foo]([variable bar]) {
+[keyword function] [definition foo]([definition bar]) {
   [keyword return] [number 22];
 }`, 'text/javascript'));
+
+  it('can highlight JavaScript compatible with CodeMirror 5', testHighlight(`
+[keyword function] [definition name]([definition params]) {
+  [keyword var] [definition x] = [number 1];
+  [keyword const] [definition y] = [number 2];
+  [keyword let] [definition z] = [number 3];
+  [keyword return] x + params;
+}`, 'text/javascript')),
 
   it('can highlight TypeScript', testHighlight(`
 [keyword type] [type X] = {
@@ -49,7 +57,7 @@ describe('CodeHighlighter', () => {
 }`, 'text/typescript'));
 
   it('can highlight JSX', testHighlight(`
-[keyword const] [variable t] = <[tag div] [attribute disabled]>hello</[tag div]>
+[keyword const] [definition t] = <[tag div] [attribute disabled]>hello</[tag div]>
 `, 'text/jsx'));
 
   it('can highlight HTML', testHighlight(`
@@ -67,9 +75,9 @@ describe('CodeHighlighter', () => {
 
   it('can highlight WAST', testHighlight(`
 ([keyword module]
- ([keyword type] [variable $t] ([keyword func] ([keyword param] [type i32])))
- ([keyword func] [variable $max] [comment (; 1 ;)] ([keyword param] [variable $0] [type i32]) ([keyword result] [type i32])
-   ([keyword get_local] [variable $0])))
+ ([keyword type] $t ([keyword func] ([keyword param] [type i32])))
+ ([keyword func] $max [comment (; 1 ;)] ([keyword param] $0 [type i32]) ([keyword result] [type i32])
+   ([keyword get_local] $0)))
 `, 'text/webassembly'));
 
   it('can highlight JSON', testHighlight(`
@@ -85,8 +93,8 @@ Paragraph with [emphasis&meta *][emphasis emphasized][emphasis&meta *] text.
 `, 'text/markdown'));
 
   it('can highlight Python', testHighlight(`
-[keyword def] [variable f]([variable x] = [atom True]):
-  [keyword return] [variable x] [keyword *] [number 10];
+[keyword def] [definition f](x = [atom True]):
+  [keyword return] x [keyword *] [number 10];
 `, 'text/x-python'));
 
   it('can highlight Shell code', testHighlight(`
