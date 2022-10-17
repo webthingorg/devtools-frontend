@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "e05e04327660ef0c1886af3079dd01054b469723",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6112890a_4d59aeca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T12:46:14Z",
+      "side": 1,
+      "message": "LGTM with 1 comment",
+      "revId": "e05e04327660ef0c1886af3079dd01054b469723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22f5ffa_23afc75e",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T12:46:14Z",
+      "side": 1,
+      "message": "These can probably be removed as well.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 51
+      },
+      "revId": "e05e04327660ef0c1886af3079dd01054b469723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
