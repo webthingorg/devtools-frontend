@@ -80,6 +80,30 @@
       },
       "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cd50fac_6cb3ec0b",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-10-17T11:48:04Z",
+      "side": 1,
+      "message": "I\u0027ll take that back. The order is important because the `performanceModel` property of `TimelinePanel` is accessed during the execution of `this.controller.stopRecording()`, meaning it should have been set before it\u0027s invoked.",
+      "parentUuid": "cc963eff_242fb019",
+      "range": {
+        "startLine": 892,
+        "startChar": 2,
+        "endLine": 893,
+        "endChar": 44
+      },
+      "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
