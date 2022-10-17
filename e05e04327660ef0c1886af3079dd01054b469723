@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abed1e42_41bdb13f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-17T13:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5173b0d_c47c10bc",
+      "revId": "e05e04327660ef0c1886af3079dd01054b469723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f22f5ffa_23afc75e",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-10-17T12:46:14Z",
       "side": 1,
       "message": "These can probably be removed as well.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 51
+      },
+      "revId": "e05e04327660ef0c1886af3079dd01054b469723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24437c55_5d77ac3c",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-10-17T13:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f22f5ffa_23afc75e",
       "range": {
         "startLine": 39,
         "startChar": 4,
