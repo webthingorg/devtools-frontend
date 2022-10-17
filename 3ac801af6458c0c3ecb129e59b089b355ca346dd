@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d539f83_c492c085",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-17T10:42:21Z",
+      "side": 1,
+      "message": "LGTM with one question. Nice!",
+      "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51826a1e_54feabfb",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-17T10:42:21Z",
+      "side": 1,
+      "message": "should these lines be the other way round, so we only get the model after the recording is done?",
+      "range": {
+        "startLine": 892,
+        "startChar": 2,
+        "endLine": 893,
+        "endChar": 44
+      },
+      "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
