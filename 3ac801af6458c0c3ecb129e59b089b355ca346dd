@@ -56,6 +56,30 @@
       },
       "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc963eff_242fb019",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-10-17T10:58:15Z",
+      "side": 1,
+      "message": "good question! In this case, the order isn\u0027t important because during `stopRecording` the controller makes in place the changes we need on the same object we reference here as this.performanceModel. However, for readability I agree that we should invert thes lines. Done.",
+      "parentUuid": "51826a1e_54feabfb",
+      "range": {
+        "startLine": 892,
+        "startChar": 2,
+        "endLine": 893,
+        "endChar": 44
+      },
+      "revId": "3ac801af6458c0c3ecb129e59b089b355ca346dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
