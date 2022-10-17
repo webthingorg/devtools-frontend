@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ce154d_11fcd0dd",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T12:00:17Z",
+      "side": 1,
+      "message": "I switched away from a trash can to the \u0027x\u0027 symbol following Peter\u0027s advice. Currently DevTools uses both trash can and \u0027x\u0027 and we want to standardise on using \u0027x\u0027.",
+      "parentUuid": "4c605b0d_68b9a25d",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 38
+      },
+      "revId": "b3c473e7ceaebf25a4631f003d9d2245af28a3ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea32aa9f_2a3209cd",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-17T10:53:08Z",
       "side": 1,
       "message": "As before, I think we should try to minimize the nesting for better readability when possible. This could have been: \n\n    for (...) {\n      const block \u003d this.#overrides[blockIndex];\n      if (block.applyTo !\u003d\u003d rawFileName) continue;\n      const foundIndex \u003d\n          block.headers.findIndex(header \u003d\u003e header.name \u003d\u003d\u003d event.headerName\n              \u0026\u0026 header.value \u003d\u003d\u003d event.headerValue);\n      if (foundIndex \u003c 0) continue;\n      block.headers.splice(foundIndex, 1);\n      if (block.headers.length \u003d\u003d\u003d 0) {\n        this.#overrides.splice(blockIndex, 1);\n      }\n      break;\n    }\n    \n    \nHowever whenever I see a for loop with a break, I ask if it could be a function and most of the time it could.",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 42
+      },
+      "revId": "b3c473e7ceaebf25a4631f003d9d2245af28a3ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacf500d_94667e35",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-17T12:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea32aa9f_2a3209cd",
       "range": {
         "startLine": 333,
         "startChar": 0,
