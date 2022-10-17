@@ -16,6 +16,24 @@
       "message": "Retain the comment? that\u0027s what it\u0027s for.",
       "revId": "9492df550d7f8c7ae7f0f3e15486f9e829831853",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6e37e51_206a51e3",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-10-17T19:54:48Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f9f218ca_69bcd3e3",
+      "revId": "9492df550d7f8c7ae7f0f3e15486f9e829831853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
