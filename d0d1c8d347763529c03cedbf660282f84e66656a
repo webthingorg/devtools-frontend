@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ea73a9_734f944d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-17T07:45:21Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\na small layout change regarding margins around the pause on exceptions and the \u003chr\u003e tag. PTAL!",
+      "revId": "d0d1c8d347763529c03cedbf660282f84e66656a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
