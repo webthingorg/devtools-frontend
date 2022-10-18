@@ -120,3 +120,36 @@ describe('getFormatLocalizedString', () => {
     assert.strictEqual(messageElement.innerHTML, 'a message with a somewhat nice placeholder');
   });
 });
+
+describe('getLocalizedString', () => {
+  afterEach(() => {
+    i18n.DevToolsLocale.DevToolsLocale.removeInstance();
+  });
+
+  it('falls back to en-US if the en-GB has the wrong placeholder', () => {
+    // Set en-GB as the default language.
+    i18n.DevToolsLocale.DevToolsLocale.instance({
+      create: true,
+      data: {
+        navigatorLanguage: 'en-US',
+        settingLanguage: 'en-GB',
+        lookupClosestDevToolsLocale: () => 'en-GB',
+      },
+    });
+    assert.strictEqual(i18n.DevToolsLocale.DevToolsLocale.instance().locale, 'en-GB');
+
+    const i18nInstance = new i18nRaw.I18n.I18n(['en-US', 'en-GB'], 'en-US');
+    i18nInstance.registerLocaleData('en-US', {'test.ts | foo': {message: 'Message with new placeholder {PH_NEW}'}});
+    i18nInstance.registerLocaleData('en-GB', {'test.ts | foo': {message: 'Message with old placeholder {PH_OLD}'}});
+
+    const uiStrings = {foo: 'Message with a new placeholder {PH_NEW}'};
+    const str = i18nInstance.registerFileStrings('test.ts', uiStrings);
+    const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str);
+
+    const actualOld = i18nString(uiStrings.foo, {PH_OLD: 'PH_OLD'});
+    const actualNew = i18nString(uiStrings.foo, {PH_NEW: 'PH_NEW'});
+
+    assert.strictEqual(actualOld, 'Message with old placeholder PH_OLD');
+    assert.strictEqual(actualNew, 'Message with new placeholder PH_NEW');
+  });
+});

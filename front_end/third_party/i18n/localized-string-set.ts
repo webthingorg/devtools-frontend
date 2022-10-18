@@ -22,18 +22,23 @@ const EMPTY_VALUES_OBJECT = {};
  * the cache. For performance reasons, we store the single possible map entry
  * as a property directly.
  *
+ * There are some rare cases where we have to fallback though, if old locales
+ * use wrong placeholders and we have to fallback to the default locale.
+ * In those cases we re-create the `LocalizedStringSet` for the default locale.
+ *
  * The DevTools locale CANNOT be passed via the constructor. When instances
  * of `RegisteredFileStrings` are created, the DevTools locale has not yet
  * been determined.
  */
 export class RegisteredFileStrings {
   private localizedStringSet?: LocalizedStringSet;
+  private localizedStringSetLocale?: Intl.UnicodeBCP47LocaleIdentifier;
 
   constructor(private filename: string, private stringStructure: UIStrings, private localizedMessages: Map<Intl.UnicodeBCP47LocaleIdentifier, LocalizedMessages>) {
   }
 
   getLocalizedStringSetFor(locale: Intl.UnicodeBCP47LocaleIdentifier): LocalizedStringSet {
-    if (this.localizedStringSet) {
+    if (this.localizedStringSet && this.localizedStringSetLocale === locale) {
       return this.localizedStringSet;
     }
 
@@ -42,7 +47,15 @@ export class RegisteredFileStrings {
       throw new Error(`No locale data registered for '${locale}'`);
     }
 
-    this.localizedStringSet = new LocalizedStringSet(this.filename, this.stringStructure, locale, localeData);
+    const localizedStringSet = new LocalizedStringSet(this.filename, this.stringStructure, locale, localeData);
+    if (this.localizedStringSet) {
+      // In this case we want to keep the previously cached instance as we are
+      // currently on the fallback path.
+      return localizedStringSet;
+    }
+
+    this.localizedStringSet = localizedStringSet;
+    this.localizedStringSetLocale = locale;
     return this.localizedStringSet;
   }
 }

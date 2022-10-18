@@ -82,8 +82,15 @@ export function getLazilyComputedLocalizedString(
 export function getLocalizedString(
     registeredStrings: I18n.LocalizedStringSet.RegisteredFileStrings, id: string,
     values: i18nTypes.Values = {}): Platform.UIString.LocalizedString {
-  return registeredStrings.getLocalizedStringSetFor(DevToolsLocale.instance().locale).getLocalizedString(id, values) as
-      Platform.UIString.LocalizedString;
+  try {
+    return registeredStrings.getLocalizedStringSetFor(DevToolsLocale.instance().locale)
+               .getLocalizedString(id, values) as Platform.UIString.LocalizedString;
+  } catch (e) {
+    // This can happen when we get placeholders out of sync. E.g. when the en-US string changes placeholder names,
+    // but de-DE still references the old placeholder. Return the string with the default locale in that case.
+    return registeredStrings.getLocalizedStringSetFor(i18nInstance.defaultLocale).getLocalizedString(id, values) as
+        Platform.UIString.LocalizedString;
+  }
 }
 
 /**
