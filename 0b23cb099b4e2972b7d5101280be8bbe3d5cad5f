@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38b843e_d85a6f70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-18T04:47:35Z",
+      "side": 1,
+      "message": "Can I haz test plz?",
+      "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3312829_3e4f6ba4",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-18T04:47:35Z",
+      "side": 1,
+      "message": "I think we should also remove the treatment of all JavaScript as JSX. But I think that\u0027s a more involved changed since we check specifically for `text/jsx` in a bunch of places (i.e. in `getLanguageSupport` below). Can you do this as a follow up CL?",
+      "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
