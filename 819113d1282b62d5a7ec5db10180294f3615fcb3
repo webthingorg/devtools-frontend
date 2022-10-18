@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da10435c_07c011ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T13:56:39Z",
+      "side": 1,
+      "message": "PTAL. The `hasSameShadowRoot` was only used for ARIA Utils, so I decided to leave that as an implementation detail in ARIA Utils but extract the more generic function to look up the enclosing shadow root for a given node.",
+      "revId": "819113d1282b62d5a7ec5db10180294f3615fcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
