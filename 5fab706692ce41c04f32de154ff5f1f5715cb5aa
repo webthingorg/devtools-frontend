@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea18d648_f5296ae6",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T14:06:32Z",
+      "side": 0,
+      "message": "I understand the idea to limit this to _test.ts, but equally I can see a world where someone is debugging and adds .only to a helper function, and then forgets about it. I think it might be safer to apply the new rule to the entire tests folder and include a disable-next-line statement here (and in `RealConnection.ts`). WDYT?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 54
+      },
+      "revId": "5fab706692ce41c04f32de154ff5f1f5715cb5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
