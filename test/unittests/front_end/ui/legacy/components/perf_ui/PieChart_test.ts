@@ -203,7 +203,7 @@ describeWithLocale('PieChart', () => {
       assert.isNull(legendRow);
     });
 
-    it('shows a focus ring for keyboard selection', () => {
+    it.skip('shows a focus ring for keyboard selection', () => {
       const chart = new PerfUI.PieChart.PieChart();
       renderElementIntoDOM(chart);
 
