@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "bb337eeb1823c77f3ff6090003b6236e4f000441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b2d2fa_f59b4c8a",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-18T12:47:47Z",
+      "side": 1,
+      "message": "Can we also have a test for this logic?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 63
+      },
+      "revId": "bb337eeb1823c77f3ff6090003b6236e4f000441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
