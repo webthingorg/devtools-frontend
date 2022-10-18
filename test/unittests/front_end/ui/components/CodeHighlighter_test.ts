@@ -39,9 +39,17 @@ function testHighlight(code: string, mimeType: string) {
 describe('CodeHighlighter', () => {
   // clang-format off
   it('can highlight JavaScript', testHighlight(`
-[keyword function] [variable foo]([variable bar]) {
+[keyword function] [variable foo]([definition bar]) {
   [keyword return] [number 22];
 }`, 'text/javascript'));
+
+it('can highlight JavaScript compatible with CodeMirror 5', testHighlight(`
+[keyword function] [variable name]([definition params]) {
+  [keyword var] [definition x] = [number 1];
+  [keyword const] [definition y] = [number 2];
+  [keyword let] [definition z] = [number 3];
+  [keyword return] [variable x] + [variable params];
+}`, 'text/javascript')),
 
   it('can highlight TypeScript', testHighlight(`
 [keyword type] [type X] = {
@@ -49,7 +57,7 @@ describe('CodeHighlighter', () => {
 }`, 'text/typescript'));
 
   it('can highlight JSX', testHighlight(`
-[keyword const] [variable t] = <[tag div] [attribute disabled]>hello</[tag div]>
+[keyword const] [definition t] = <[tag div] [attribute disabled]>hello</[tag div]>
 `, 'text/jsx'));
 
   it('can highlight HTML', testHighlight(`
