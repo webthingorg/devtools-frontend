@@ -22,6 +22,30 @@
       },
       "revId": "5fab706692ce41c04f32de154ff5f1f5715cb5aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feeb6586_9b82213d",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-10-18T14:30:11Z",
+      "side": 0,
+      "message": "I hadn\u0027t considered such scenario but I think it makes sense. I have reverted the overrides change.",
+      "parentUuid": "ea18d648_f5296ae6",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 54
+      },
+      "revId": "5fab706692ce41c04f32de154ff5f1f5715cb5aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

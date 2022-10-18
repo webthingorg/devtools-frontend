@@ -39,6 +39,30 @@
       },
       "revId": "635a6893006209d258e15159e6b836661f20e84d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e39f598_31d3e98f",
+        "filename": "test/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-10-18T14:30:11Z",
+      "side": 1,
+      "message": "yeah, this was the presubmit formatting.",
+      "parentUuid": "9db063dc_aa0eabcf",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "635a6893006209d258e15159e6b836661f20e84d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
