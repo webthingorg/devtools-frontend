@@ -134,7 +134,6 @@ export function describeWithMockConnection(title: string, fn: (this: Mocha.Suite
 describeWithMockConnection.only = function(title: string, fn: (this: Mocha.Suite) => void, opts: {reset: boolean} = {
   reset: true,
 }) {
-  // eslint-disable-next-line mocha/no-exclusive-tests
   return describe.only(`mock-${title}`, () => {
     beforeEach(async () => await enable(opts));
     afterEach(disable);

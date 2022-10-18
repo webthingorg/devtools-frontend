@@ -83,7 +83,6 @@ export function describeWithRealConnection(title: string, fn: (this: Mocha.Suite
 
 describeWithRealConnection.only = function(title: string, fn: (this: Mocha.Suite) => void) {
   hasOnly = true;
-  // eslint-disable-next-line mocha/no-exclusive-tests
   describe.only(`real-${title}`, () => {
     describeBody(title, fn);
   });
