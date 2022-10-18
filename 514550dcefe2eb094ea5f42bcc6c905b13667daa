@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ef34087_0c70a691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-18T04:07:23Z",
+      "side": 1,
+      "message": "Thanks for these, also for adding tests!",
+      "revId": "514550dcefe2eb094ea5f42bcc6c905b13667daa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4e919ff_1c928f8b",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-10-17T14:27:53Z",
       "side": 1,
       "message": "should have added these in my last CL - quickly adding them as a drive-by to this one.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "514550dcefe2eb094ea5f42bcc6c905b13667daa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b30d1a62_dbf6f44a",
+        "filename": "test/unittests/front_end/core/platform/KeyboardUtilities_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-18T04:07:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a4e919ff_1c928f8b",
       "range": {
         "startLine": 31,
         "startChar": 0,
