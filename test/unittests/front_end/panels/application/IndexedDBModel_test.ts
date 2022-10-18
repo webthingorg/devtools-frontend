@@ -237,4 +237,15 @@ describeWithMockConnection('IndexedDBModel', () => {
     assert.isEmpty(indexedDBModel.databases());
   });
 
+  it('dispatches event with storage key on indexedDBContentUpdated when both storage key and origin are set', () => {
+    const dispatcherSpy = sinon.spy(indexedDBModel, 'dispatchEventToListeners');
+
+    indexedDBModel.indexedDBContentUpdated(
+        {origin: 'test-origin', storageKey: testKey, databaseName: 'test-database', objectStoreName: 'test-store'});
+
+    assert.isTrue(dispatcherSpy.calledOnceWithExactly(
+        Resources.IndexedDBModel.Events.IndexedDBContentUpdated as unknown as sinon.SinonMatcher,
+        {databaseId: testDBId, objectStoreName: 'test-store', model: indexedDBModel}));
+  });
+
 });
