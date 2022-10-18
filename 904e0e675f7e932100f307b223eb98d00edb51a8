@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeef3195_6627e476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557227
+      },
+      "writtenOn": "2022-10-18T13:45:24Z",
+      "side": 1,
+      "message": "Now the AUTHOR file is updated.\nBesides the fails which AUTHOR file caused, one test seems to fail. (please see here↓)\n\n(https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_win64_rel/b8799977903303192481/overview?q\u003dExactID%3Ae2e%2Felements%5Cstyle-pane-properties_test.ts%3A+The+Styles+pane%2Fshows+longhands+with+parsed+values+under+a+shorthand+VHash%3Ae3b0c44298fc1c14)\n\nI\u0027m not sure why it happened and how to fix. I\u0027d like to get your help, thanks!",
+      "revId": "904e0e675f7e932100f307b223eb98d00edb51a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
