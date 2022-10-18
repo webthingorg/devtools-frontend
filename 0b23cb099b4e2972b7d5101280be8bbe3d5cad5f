@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8c2548b_a542a0cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-18T09:31:07Z",
+      "side": 1,
+      "message": "Makes sense! Though I\u0027m a bit lost what test to add and where here 😅\n\n* If we want to make sure that CodeMirror language support is correctly provided for each of the mime types, I can add a unit test `SourceFrame_test.ts` that calls `simplifyMimeType` and expects correct mime type to be supplied for each of the handled cases.\n\n* If we want to make sure that the regression doesn\u0027t happen again, I can add an E2E test for syntax highlighting for `.ts` and `.tsx` files then I can assert that syntax is correctly highlighted in both places.\n\nHowever, for unit test approach, it seems to me like the tests won\u0027t be of any meaning because it will kinda directly copy - paste the code that exists in SourceFrame.ts (I remember reading this ToTT episode and it felt similar: https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html)\n\nFor the E2E test approach, I don\u0027t know if the thing we want to test is considered a \"critical user flow\" so I\u0027m a bit reluctant to add an E2E test.\n\nWe can also say that tests for regressions can make a good candidate for E2E tests, then I can go for it. WDYT?\n\n(Sorry for the long comment and opening a discussion 😅)",
+      "parentUuid": "c38b843e_d85a6f70",
+      "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3312829_3e4f6ba4",
         "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-18T04:47:35Z",
       "side": 1,
       "message": "I think we should also remove the treatment of all JavaScript as JSX. But I think that\u0027s a more involved changed since we check specifically for `text/jsx` in a bunch of places (i.e. in `getLanguageSupport` below). Can you do this as a follow up CL?",
+      "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49a8bf7_f4a58583",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-18T09:31:07Z",
+      "side": 1,
+      "message": "Sounds good, yep! :)",
+      "parentUuid": "e3312829_3e4f6ba4",
       "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
