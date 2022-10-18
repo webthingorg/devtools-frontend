@@ -33,6 +33,24 @@
       "message": "LGTM as it\u0027s an improvement from the status quo; that said, https://docs.python.org/3/library/logging.html would likely fit nicely here\n\nIf you feel like it\u0027s worth the effort, integrate it. Otherwise feel free to leave it as a future (best-effort) improvement",
       "revId": "54a1e87079d25ee393bb41b07f0ed87c8fd33776",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b685ee_1c82dfc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T13:41:37Z",
+      "side": 1,
+      "message": "I\u0027ll leave it for future - not sure it\u0027s worth the overhead now. But would be a nice project to standardise across our tooling in the future. Thanks!",
+      "parentUuid": "83d2d605_a3ca2ba5",
+      "revId": "54a1e87079d25ee393bb41b07f0ed87c8fd33776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
