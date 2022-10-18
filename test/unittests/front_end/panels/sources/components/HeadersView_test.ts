@@ -194,7 +194,7 @@ describe('HeadersView', async () => {
     ]);
   });
 
-  it('selects the whole content when clicking on an editable field', async () => {
+  it.skip('selects the whole content when clicking on an editable field', async () => {
     const editor = await renderEditor();
     assertShadowRoot(editor.shadowRoot);
     const editables = editor.shadowRoot?.querySelectorAll('.editable');
@@ -212,7 +212,7 @@ describe('HeadersView', async () => {
     assert.isTrue(isWholeElementContentSelected(element));
   });
 
-  it('un-selects the content when an editable field loses focus', async () => {
+  it.skip('un-selects the content when an editable field loses focus', async () => {
     const editor = await renderEditor();
     assertShadowRoot(editor.shadowRoot);
     const editables = editor.shadowRoot?.querySelectorAll('.editable');
@@ -224,7 +224,7 @@ describe('HeadersView', async () => {
     assert.isFalse(element.hasSelection());
   });
 
-  it('handles pressing \'Enter\' key by removing focus and moving it to the next field if possible', async () => {
+  it.skip('handles pressing \'Enter\' key by removing focus and moving it to the next field if possible', async () => {
     const editor = await renderEditor();
     assertShadowRoot(editor.shadowRoot);
     const editables = editor.shadowRoot?.querySelectorAll('.editable');

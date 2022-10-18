@@ -56,7 +56,8 @@ describeWithEnvironment('TextEditor', () => {
       editor.remove();
     });
 
-    it('should restore scroll to the same position after reconnecting to DOM when it is scrollable', async () => {
+    // TODO: investigate
+    it.skip('should restore scroll to the same position after reconnecting to DOM when it is scrollable', async () => {
       let resolveEventPromise: Function;
       const dispatchSpy = sinon.spy(CodeMirror.EditorView.prototype, 'dispatch');
       const editor = new TextEditor.TextEditor.TextEditor(makeState(

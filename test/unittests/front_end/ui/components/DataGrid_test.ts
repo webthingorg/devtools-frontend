@@ -554,7 +554,7 @@ describe('DataGrid', () => {
     assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
   });
 
-  it('emits an event when the user "clicks" a column header with the enter key', async () => {
+  it.skip('emits an event when the user "clicks" a column header with the enter key', async () => {
     const component = renderDataGrid({rows, columns});
     renderElementIntoDOM(component);
     assertShadowRoot(component.shadowRoot);
@@ -577,7 +577,7 @@ describe('DataGrid', () => {
     assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
   });
 
-  it('emits an event when the user focuses a cell', async () => {
+  it.skip('emits an event when the user focuses a cell', async () => {
     const component = renderDataGrid({rows, columns: columnsWithNoneSortable});
     renderElementIntoDOM(component);
     assertShadowRoot(component.shadowRoot);
