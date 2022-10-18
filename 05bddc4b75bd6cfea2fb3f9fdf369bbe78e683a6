@@ -70,6 +70,24 @@
       "parentUuid": "1c4f52a9_4ea29e03",
       "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c7133da_1fb8f6a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-10-18T13:07:14Z",
+      "side": 1,
+      "message": "I agree that sometimes we stick strictly to the spec in the frontend, and sometimes we need to rely on Blink. In the cases where we need to rely on Blink, it\u0027s usually about complicated syntax where DevTools Frontend cannot easily implement the check. In this case, I think what Mathias provided is a good check, so I\u0027d suggest we strictly check the syntax.",
+      "parentUuid": "85ad43b7_c0a8fcff",
+      "revId": "05bddc4b75bd6cfea2fb3f9fdf369bbe78e683a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
