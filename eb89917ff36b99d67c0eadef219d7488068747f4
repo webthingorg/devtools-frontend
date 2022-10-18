@@ -16,6 +16,138 @@
       "message": "PTAL",
       "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e61d5035_6a71dc7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "LGTM with a few thoughts; but overall this is great!\n\nPlease allow Jaro to review and +1 before submitting, I\u0027d like his eyes on this given his familiarity with sourcemaps compared to me :)",
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d3e8373_ead1c953",
+        "filename": "front_end/core/sdk/ProfileTreeModel.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "do you think it\u0027s worth a comment explaining what the target is here?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e63b1df4_c6c1b3ec",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "nit: let\u0027s not shorten Debug to dbg; let\u0027s call this `maybeGetDebugModelForNode`",
+      "range": {
+        "startLine": 117,
+        "startChar": 42,
+        "endLine": 117,
+        "endChar": 65
+      },
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1011363d_e9f681ad",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "typo, should be `SourceMap`. I\u0027d also consider naming this `onAttachedSourceMap` to make it clear that it\u0027s an event listener.",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 25
+      },
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3e149e_3bd944d7",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "for my understanding, why do we need to do this?",
+      "range": {
+        "startLine": 1159,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 40
+      },
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "902d491e_e1d8322b",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-18T08:10:02Z",
+      "side": 1,
+      "message": "long term, do we expect this to be a setting users have to turn on, or will we just enable this behaviour by default for everyone in a future release once we\u0027re confident with it?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 93
+      },
+      "revId": "eb89917ff36b99d67c0eadef219d7488068747f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
