@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be5a92c4_7d0d994f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-10-19T12:06:10Z",
+      "side": 1,
+      "message": "Done! Exported `simplifyMimeType` in a `TEST_ONLY` parameter to make sure that no one uses it outside the SourceFrame. (It was a convention we were using before)\n\nLet me know if this and the test makes sense, thanks! :)",
+      "parentUuid": "94177fae_433a18cd",
+      "revId": "0b23cb099b4e2972b7d5101280be8bbe3d5cad5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3312829_3e4f6ba4",
         "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
         "patchSetId": 4
