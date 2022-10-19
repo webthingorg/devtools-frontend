@@ -12,6 +12,8 @@ import {
   assertShadowRoot,
   renderElementIntoDOM,
   getEventPromise,
+  dispatchKeyDownEvent,
+  dispatchClickEvent,
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {assertNotNullOrUndefined} from '../../../../../../front_end/core/platform/platform.js';
@@ -620,6 +622,172 @@ describeWithEnvironment('BreakpointsView', () => {
       const {data} = await eventPromise;
 
       assert.strictEqual(data.checked, !checked);
+    });
+  });
+
+  describe('navigating with keyboard', () => {
+    // One expanded group with 2 breakpoints, and one collapsed with 2 breakpoints.
+    async function renderBreakpointsForKeyboardNavigation(): Promise<{
+      component: SourcesComponents.BreakpointsView.BreakpointsView,
+      data: SourcesComponents.BreakpointsView.BreakpointsViewData,
+    }> {
+      const component = new SourcesComponents.BreakpointsView.BreakpointsView();
+      renderElementIntoDOM(component);
+
+      const data: SourcesComponents.BreakpointsView.BreakpointsViewData = {
+        breakpointsActive: true,
+        pauseOnExceptions: false,
+        pauseOnCaughtExceptions: false,
+        groups: [
+          {
+            name: 'test1.js',
+            url: 'https://google.com/test1.js' as Platform.DevToolsPath.UrlString,
+            editable: false,
+            expanded: true,
+            breakpointItems: [
+              {
+                id: '1',
+                type: SourcesComponents.BreakpointsView.BreakpointType.REGULAR_BREAKPOINT,
+                location: '234',
+                codeSnippet: 'const a = x;',
+                isHit: false,
+                status: SourcesComponents.BreakpointsView.BreakpointStatus.ENABLED,
+              },
+              {
+                id: '2',
+                type: SourcesComponents.BreakpointsView.BreakpointType.REGULAR_BREAKPOINT,
+                location: '3:3',
+                codeSnippet: 'if (x > a) {',
+                isHit: true,
+                status: SourcesComponents.BreakpointsView.BreakpointStatus.DISABLED,
+              },
+            ],
+          },
+          {
+            name: 'test2.js',
+            url: 'https://google.com/test2.js' as Platform.DevToolsPath.UrlString,
+            editable: false,
+            expanded: false,
+            breakpointItems: [
+              {
+                id: '3',
+                type: SourcesComponents.BreakpointsView.BreakpointType.REGULAR_BREAKPOINT,
+                location: '11',
+                codeSnippet: 'const y;',
+                isHit: false,
+                status: SourcesComponents.BreakpointsView.BreakpointStatus.ENABLED,
+              },
+              {
+                id: '4',
+                type: SourcesComponents.BreakpointsView.BreakpointType.REGULAR_BREAKPOINT,
+                location: '12',
+                codeSnippet: 'const y;',
+                isHit: false,
+                status: SourcesComponents.BreakpointsView.BreakpointStatus.ENABLED,
+              },
+            ],
+          },
+        ],
+      };
+      component.data = data;
+      await coordinator.done();
+      return {component, data};
+    }
+
+    it('first node is tabbable', async () => {
+      const {component} = await renderBreakpointsForKeyboardNavigation();
+      assertShadowRoot(component.shadowRoot);
+      const focusableElements = component.shadowRoot.querySelectorAll('[tabindex="0"');
+      assert.lengthOf(focusableElements, 1);
+      const firstDetailsElement = component.shadowRoot.querySelector('summary');
+      assert.strictEqual(focusableElements.item(0), firstDetailsElement);
+    });
+
+    describe('pressing the HOME key', () => {
+      it('takes the user to the top most group', async () => {
+        const {component} = await renderBreakpointsForKeyboardNavigation();
+        assertShadowRoot(component.shadowRoot);
+        const secondGroup = component.shadowRoot.querySelector('details:nth-of-type(2) > summary');
+        assertNotNullOrUndefined(secondGroup);
+
+        dispatchKeyDownEvent(secondGroup, {key: 'Home', bubbles: true});
+        await coordinator.done();
+
+        const selected = component.shadowRoot.querySelector('[tabindex="0"]');
+        assertNotNullOrUndefined(selected);
+        const firstGroup = component.shadowRoot.querySelector('summary');
+        assert.strictEqual(selected, firstGroup);
+      });
+    });
+
+    describe('pressing the END key', () => {
+      it('takes the user to the last group (if last group is collapsed)', async () => {
+        const {component} = await renderBreakpointsForKeyboardNavigation();
+        assertShadowRoot(component.shadowRoot);
+        const firstGroup = component.shadowRoot.querySelector('summary');
+        assertNotNullOrUndefined(firstGroup);
+
+        dispatchKeyDownEvent(firstGroup, {key: 'End', bubbles: true});
+        await coordinator.done();
+
+        const selected = component.shadowRoot.querySelector('[tabindex="0"]');
+        assertNotNullOrUndefined(selected);
+
+        const lastGroup = component.shadowRoot.querySelector('details:nth-of-type(2) > summary');
+        assert.strictEqual(selected, lastGroup);
+      });
+
+      it('takes the user to the last breakpoint item (if last group is expanded))', async () => {
+        const {component, data} = await renderBreakpointsForKeyboardNavigation();
+        // Expand the last group.
+        data.groups[1].expanded = true;
+        component.data = data;
+        await coordinator.done();
+
+        assertShadowRoot(component.shadowRoot);
+        const firstGroup = component.shadowRoot.querySelector('summary');
+        assertNotNullOrUndefined(firstGroup);
+
+        dispatchKeyDownEvent(firstGroup, {key: 'End', bubbles: true});
+        await coordinator.done();
+
+        const selected = component.shadowRoot.querySelector('[tabindex="0"]');
+        assertNotNullOrUndefined(selected);
+
+        const breakpointItems = component.shadowRoot.querySelectorAll(BREAKPOINT_ITEM_SELECTOR);
+        assertNotNullOrUndefined(breakpointItems);
+
+        const lastBreakpointItem = breakpointItems.item(breakpointItems.length - 1);
+        assert.strictEqual(selected, lastBreakpointItem);
+      });
+    });
+
+    describe('pressing the ArrowDown key', () => {
+      it('on an expanded group takes the user to the top most breakpoint item of that group', async () => {
+        const {component} = await renderBreakpointsForKeyboardNavigation();
+        assertShadowRoot(component.shadowRoot);
+        const expandedGroup = component.shadowRoot.querySelector('details[open] > summary');
+        assertNotNullOrUndefined(expandedGroup);
+
+        // Focus on the expanded group and navigate down.
+        dispatchClickEvent(expandedGroup);
+        dispatchKeyDownEvent(expandedGroup, {key: 'ArrowDown', bubbles: true});
+        await coordinator.done();
+
+        const selected = component.querySelector('[tabindex="0"]');
+        const firstBreakpointItem = expandedGroup.querySelector(BREAKPOINT_ITEM_SELECTOR);
+
+        assert.strictEqual(selected, firstBreakpointItem);
+      });
+
+      it('on a collapsed group takes the user to the next group', async () => {
+        const {component, data} = await renderBreakpointsForKeyboardNavigation();
+        // Collapse first group.
+        data.groups[0].expanded = false;
+        component.data = data;
+        await coordinator.done();
+        assertShadowRoot(component.shadowRoot);
+      });
     });
   });
 });
