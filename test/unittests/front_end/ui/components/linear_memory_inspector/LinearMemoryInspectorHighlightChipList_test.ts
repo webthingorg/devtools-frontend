@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LinearMemoryInspector from '../../../../../../front_end/ui/components/linear_memory_inspector/linear_memory_inspector.js';
+import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {
   assertElement,
   assertShadowRoot,
@@ -20,11 +21,13 @@ export const HIGHLIGHT_PILL_VARIABLE_NAME = HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR 
 export const HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR = '.delete-highlight-button';
 
 describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
+  // describe.skip('LinearMemoryInspectorHighlightChipList_', () => {
   let component: LinearMemoryInspector.LinearMemoryHighlightChipList.LinearMemoryHighlightChipList;
 
   beforeEach(renderHighlightRow);
 
-  function renderHighlightRow() {
+  async function renderHighlightRow() {
+    const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
     component = new LinearMemoryInspector.LinearMemoryHighlightChipList.LinearMemoryHighlightChipList();
     renderElementIntoDOM(component);
     const highlightInfo = {
@@ -38,6 +41,7 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
         highlightInfo,
       ],
     };
+    await coordinator.done();
   }
 
   it('renders a highlight chip button', () => {
@@ -132,4 +136,5 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
     const button = getElementWithinComponent(component, HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR, HTMLButtonElement);
     assert.strictEqual(button.title, 'Stop highlighting this memory');
   });
+  // });
 });

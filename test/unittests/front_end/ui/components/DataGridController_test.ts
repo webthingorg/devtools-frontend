@@ -204,7 +204,9 @@ describe('DataGridController', () => {
 
   describe('filtering rows', () => {
     const responseIcon = new IconButton.Icon.Icon();
-    responseIcon.data = {iconName: 'ic_response', color: 'var(--color-text-disabled)', width: '16px', height: '16px'};
+    beforeEach(() => {
+      responseIcon.data = {iconName: 'ic_response', color: 'var(--color-text-disabled)', width: '16px', height: '16px'};
+    });
 
     const columns = [
       {id: 'key', title: 'Letter', sortable: true, widthWeighting: 1, visible: true, hideable: false},

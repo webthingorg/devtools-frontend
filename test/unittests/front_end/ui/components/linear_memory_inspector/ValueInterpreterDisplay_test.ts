@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LinearMemoryInspector from '../../../../../../front_end/ui/components/linear_memory_inspector/linear_memory_inspector.js';
+import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {
   dispatchClickEvent,
   getElementsWithinComponent,
@@ -17,6 +18,7 @@ export const DISPLAY_JUMP_TO_POINTER_BUTTON_SELECTOR = '[data-jump]';
 const {assert} = chai;
 
 describeWithLocale('ValueInterpreterDisplay', () => {
+  // describe.skip('ValueInterpreterDisplay_', () => {
   const combinationsForNumbers = [
     {endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little, signed: true},
     {endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little, signed: false},
@@ -209,7 +211,8 @@ describeWithLocale('ValueInterpreterDisplay', () => {
     assert.strictEqual(actualValue, 'N/A');
   });
 
-  it('renders pointer values in LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueTypes', () => {
+  it('renders pointer values in LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueTypes', async () => {
+    const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
     const component = new LinearMemoryInspector.ValueInterpreterDisplay.ValueInterpreterDisplay();
     const array = [1, 132, 172, 71, 43, 12, 12, 66];
     component.data = {
@@ -222,6 +225,7 @@ describeWithLocale('ValueInterpreterDisplay', () => {
       memoryLength: array.length,
     };
     renderElementIntoDOM(component);
+    await coordinator.done();
 
     const dataValues = getElementsWithinComponent(component, '[data-value]', HTMLDivElement);
     assert.lengthOf(dataValues, 2);
@@ -442,4 +446,5 @@ describeWithLocale('ValueInterpreterDisplay', () => {
       assert.strictEqual(text, expectedValues[i]);
     }
   });
+  // });
 });

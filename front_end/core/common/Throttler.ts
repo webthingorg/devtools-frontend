@@ -10,8 +10,8 @@ export class Throttler {
   #asSoonAsPossible: boolean;
   #process: (() => (Promise<unknown>))|null;
   #lastCompleteTime: number;
-  #schedulePromise: Promise<unknown>;
-  #scheduleResolve!: (value: unknown) => void;
+  #schedulePromise?: Promise<unknown>;
+  #scheduleResolve?: (value: unknown) => void;
   #processTimeout?: number;
 
   constructor(timeout: number) {
@@ -20,10 +20,6 @@ export class Throttler {
     this.#asSoonAsPossible = false;
     this.#process = null;
     this.#lastCompleteTime = 0;
-
-    this.#schedulePromise = new Promise(fulfill => {
-      this.#scheduleResolve = fulfill;
-    });
   }
 
   private processCompleted(): void {
@@ -60,6 +56,11 @@ export class Throttler {
   }
 
   schedule(process: () => (Promise<unknown>), asSoonAsPossible?: boolean): Promise<void> {
+    if (!this.#schedulePromise) {
+      this.#schedulePromise = new Promise(fulfill => {
+        this.#scheduleResolve = fulfill;
+      });
+    }
     // Deliberately skip previous #process.
     this.#process = process;
 
