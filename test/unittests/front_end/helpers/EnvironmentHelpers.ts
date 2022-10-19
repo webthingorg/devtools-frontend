@@ -9,6 +9,7 @@ import * as Root from '../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../front_end/models/bindings/bindings.js';
+import * as Persistence from '../../../../front_end/models/persistence/persistence.js';
 import * as Workspace from '../../../../front_end/models/workspace/workspace.js';
 import * as IssuesManager from '../../../../front_end/models/issues_manager/issues_manager.js';
 
@@ -45,7 +46,8 @@ export function createTarget({id, name = 'test', type = SDK.Target.Type.Frame, p
   }
   const targetManager = initializeTargetManagerIfNecessary();
   return targetManager.createTarget(
-      id, name, type, parentTarget ? parentTarget : null, /* sessionId=*/ parentTarget?.id(), /* suspended=*/ false,
+      id, name, type, parentTarget ? parentTarget : null, /* sessionId=*/ parentTarget ? id : undefined,
+      /* suspended=*/ false,
       /* connection=*/ undefined, {subtype} as Protocol.Target.TargetInfo);
 }
 
@@ -228,6 +230,9 @@ export async function deinitializeGlobalVars() {
 
   // Remove instances.
   await deinitializeGlobalLocaleVars();
+  for (const target of SDK.TargetManager.TargetManager.instance().targets()) {
+    target.dispose('End of test');
+  }
   SDK.TargetManager.TargetManager.removeInstance();
   targetManager = null;
   Root.Runtime.Runtime.removeInstance();
@@ -237,6 +242,8 @@ export async function deinitializeGlobalVars() {
   Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.removeInstance();
   Bindings.ResourceMapping.ResourceMapping.removeInstance();
   IssuesManager.IssuesManager.IssuesManager.removeInstance();
+  Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.removeInstance();
+
   Common.Settings.resetSettings();
 
   // Protect against the dynamic import not having happened.
