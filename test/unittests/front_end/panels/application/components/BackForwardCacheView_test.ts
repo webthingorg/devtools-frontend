@@ -193,7 +193,8 @@ describeWithEnvironment('BackForwardCacheView', () => {
 });
 
 describeWithRealConnection('BackForwardCacheView', () => {
-  it('can handle delayed navigation history when testing for BFcache availability', async () => {
+  // TODO: investigate
+  it.skip('[crbug.com/0]:can handle delayed navigation history when testing for BFcache availability', async () => {
     const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
     const resourceTreeModel = mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel);
     assertNotNullOrUndefined(resourceTreeModel);
