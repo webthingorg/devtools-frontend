@@ -39,6 +39,30 @@
       },
       "revId": "bb337eeb1823c77f3ff6090003b6236e4f000441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ddac14_77a73954",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-10-19T11:26:28Z",
+      "side": 1,
+      "message": "would be too simple a test, as in databaseId only 1 of securityOrigin or storageKey can be set",
+      "parentUuid": "54b2d2fa_f59b4c8a",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 63
+      },
+      "revId": "bb337eeb1823c77f3ff6090003b6236e4f000441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
