@@ -52,6 +52,23 @@
       "parentUuid": "9b24b279_32b9c09b",
       "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722f7ed8_af52c571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-10-19T20:09:08Z",
+      "side": 1,
+      "message": "I think there\u0027s also \"InteractionRecord\"/\"InteractionRecords\". I\u0027m not sure this becomes dead now, too but it\u0027s worth a look.\nIn a quick test here, I only saw Animation related trace events come through in it. But these may be the purple animations shown in the flame chart.\n\nEither way, if that is indeed removable, then it could happen in a followup. This CL lgtm",
+      "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
