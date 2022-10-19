@@ -18,6 +18,12 @@ export type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Comman
 export type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
     Omit<ProtocolResponse<C>, 'getError'>;
 export type MessageCallback = (result: string|Object) => void;
+type Message = {
+  id: number,
+  method: ProtocolCommand,
+  params: unknown,
+  sessionId: string,
+};
 
 // Note that we can't set the Function to the correct handler on the basis
 // that we don't know which ProtocolCommand will be stored.
@@ -60,6 +66,54 @@ export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
   target.dispatch({method: event, params: payload[0]});
 }
 
+class MockConnection extends ProtocolClient.InspectorBackend.Connection {
+  messageCallback?: MessageCallback;
+  unhandledMessages: Message[] = [];
+  setOnMessage(callback: MessageCallback) {
+    this.messageCallback = callback;
+  }
+
+  sendRawMessage(message: string) {
+    void (async () => {
+      const outgoingMessage = JSON.parse(message) as Message;
+      const handler = responseMap.get(outgoingMessage.method);
+      if (!handler) {
+        this.unhandledMessages.push(outgoingMessage);
+        return;
+      }
+
+      const result = await handler.call(undefined, outgoingMessage.params);
+
+      // Since we allow the test author to omit the getError call, we
+      // need to add it in here on their behalf so that the calling code
+      // will succeed.
+      if (!('getError' in result)) {
+        result.getError = () => undefined;
+      }
+      this.messageCallback?.call(
+          undefined,
+          {id: outgoingMessage.id, method: outgoingMessage.method, result, sessionId: outgoingMessage.sessionId});
+    })();
+  }
+
+  static instances: MockConnection[] = [];
+  constructor() {
+    super();
+    MockConnection.instances.push(this);
+  }
+  static cleanUpAll() {
+    for (const instance of MockConnection.instances) {
+      instance.cleanUp();
+    }
+    MockConnection.instances.length = 0;
+  }
+  cleanUp() {
+    for (const unhandledMessage of this.unhandledMessages) {
+      this.messageCallback?.call(undefined, unhandledMessage);
+    }
+  }
+}
+
 async function enable({reset = true} = {}) {
   if (reset) {
     responseMap.clear();
@@ -70,52 +124,11 @@ async function enable({reset = true} = {}) {
   // minimally there.
   await initializeGlobalVars({reset});
 
-  let messageCallback: MessageCallback;
-  ProtocolClient.InspectorBackend.Connection.setFactory(() => {
-    return {
-      setOnMessage(callback: MessageCallback) {
-        messageCallback = callback;
-      },
-
-      sendRawMessage(message: string) {
-        void (async () => {
-          const outgoingMessage =
-              JSON.parse(message) as {id: number, method: ProtocolCommand, params: unknown, sessionId: string};
-          const handler = responseMap.get(outgoingMessage.method);
-          if (!handler) {
-            return;
-          }
-
-          const result = await handler.call(undefined, outgoingMessage.params);
-
-          // Since we allow the test author to omit the getError call, we
-          // need to add it in here on their behalf so that the calling code
-          // will succeed.
-          if (!('getError' in result)) {
-            result.getError = () => undefined;
-          }
-          messageCallback.call(
-              undefined,
-              {id: outgoingMessage.id, method: outgoingMessage.method, result, sessionId: outgoingMessage.sessionId});
-        })();
-      },
-
-      async disconnect() {
-        // Included only to meet interface requirements.
-      },
-
-      onMessage() {
-        // Included only to meet interface requirements.
-      },
-
-      setOnDisconnect() {
-        // Included only to meet interface requirements.
-      },
-    };
-  });
+  ProtocolClient.InspectorBackend.Connection.setFactory(() => new MockConnection());
 }
 
 async function disable() {
+  MockConnection.cleanUpAll();
   await deinitializeGlobalVars();
   // @ts-ignore Setting back to undefined as a hard reset.
   ProtocolClient.InspectorBackend.Connection.setFactory(undefined);
