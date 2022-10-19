@@ -83,6 +83,7 @@ export class HeaderSectionRow extends HTMLElement {
   readonly #shadow = this.attachShadow({mode: 'open'});
   #header: HeaderDescriptor|null = null;
   readonly #boundRender = this.#render.bind(this);
+  #originalRenderedValue: string|null|undefined = undefined;
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [headerSectionRowStyles];
@@ -147,6 +148,13 @@ export class HeaderSectionRow extends HTMLElement {
       ${this.#maybeRenderBlockedDetails(this.#header.blockedDetails)}
     `, this.#shadow, {host: this});
     // clang-format on
+
+    if (this.#originalRenderedValue === undefined) {
+      const editable = this.shadowRoot?.querySelector<HTMLSpanElement>('.header-value .editable');
+      if (editable) {
+        this.#originalRenderedValue = editable.innerText;
+      }
+    }
   }
 
   focus(): void {
@@ -282,12 +290,12 @@ export class HeaderSectionRow extends HTMLElement {
     }
 
     const headerNameElement = this.#shadow.querySelector('.header-name') as HTMLElement;
-    const headerValueElement = this.#shadow.querySelector('.header-value') as HTMLElement;
+    const headerValueElement = this.#shadow.querySelector('.header-value .editable') as HTMLElement;
     const headerName = Platform.StringUtilities.toLowerCaseString(headerNameElement.innerText.trim().slice(0, -1));
-    const headerValue = headerValueElement.innerText.trim();
+    const headerValue = headerValueElement.innerText;
 
     if (headerName !== '') {
-      if (headerName !== this.#header?.name || headerValue !== this.#header?.value) {
+      if (headerName !== this.#header?.name || headerValue !== this.#originalRenderedValue) {
         this.dispatchEvent(new HeaderEditedEvent(headerName, headerValue));
       }
     } else {
@@ -354,7 +362,7 @@ export class HeaderSectionRow extends HTMLElement {
     // to prevent a re-render, which would mess up the current cursor position.
     const row = this.shadowRoot?.querySelector<HTMLDivElement>('.row');
     if (row) {
-      if (this.#header?.isOverride || editable.innerText !== this.#header?.originalValue) {
+      if (this.#header?.isOverride || editable.innerText !== this.#originalRenderedValue) {
         row.classList.add('header-overridden');
         row.classList.remove('header-highlight');
       } else {

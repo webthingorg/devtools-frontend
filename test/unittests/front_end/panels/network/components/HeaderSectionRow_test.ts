@@ -239,7 +239,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assertShadowRoot(component.shadowRoot);
 
     let eventCount = 0;
-    component.addEventListener('headervaluechanged', () => {
+    component.addEventListener('headeredited', () => {
       eventCount++;
     });
 
@@ -251,6 +251,39 @@ describeWithEnvironment('HeaderSectionRow', () => {
 
     assert.strictEqual(eventCount, 0);
     assert.strictEqual(editable.innerText, originalHeaderValue);
+    const row = component.shadowRoot.querySelector('.row');
+    assert.isFalse(row?.classList.contains('header-overridden'));
+  });
+
+  it('resets headers with special characters on escape key', async () => {
+    const originalHeaderValue = 'bad syn\tax';
+    const renderedHeaderValue = 'bad syn ax';
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
+      value: originalHeaderValue,
+      valueEditable: true,
+    };
+
+    const component = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+
+    let eventCount = 0;
+    component.addEventListener('headeredited', () => {
+      eventCount++;
+    });
+
+    const editable = component.shadowRoot.querySelector('.editable');
+    assertElement(editable, HTMLSpanElement);
+
+    assert.strictEqual(editable.innerText, renderedHeaderValue);
+    editable.focus();
+    editable.innerText = 'new value for header';
+    dispatchKeyDownEvent(editable, {key: 'Escape', bubbles: true});
+
+    assert.strictEqual(eventCount, 0);
+    assert.strictEqual(editable.innerText, renderedHeaderValue);
+    const row = component.shadowRoot.querySelector('.row');
+    assert.isFalse(row?.classList.contains('header-overridden'));
   });
 
   it('confirms edited value and exits editing mode on "Enter"-key', async () => {
