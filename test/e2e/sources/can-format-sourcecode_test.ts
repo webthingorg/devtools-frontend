@@ -4,8 +4,8 @@
 
 import {assert} from 'chai';
 
-import {$$, click, getBrowserAndPages, waitFor, waitForFunction} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {$$, click, disableExperiment, getBrowserAndPages, waitFor, waitForFunction} from '../../shared/helper.js';
+import {beforeEach, describe, it} from '../../shared/mocha-extensions.js';
 import {
   addBreakpointForLine,
   getSelectedSource,
@@ -44,6 +44,10 @@ describe('The Sources Tab', async function() {
   if (this.timeout() > 0) {
     this.timeout(10000);
   }
+
+  beforeEach(async () => {
+    await disableExperiment('sourcesPrettyPrint');
+  });
 
   it('can format a JavaScript file', async () => {
     await openSourceCodeEditorForFile('minified-sourcecode.js', 'minified-sourcecode.html');

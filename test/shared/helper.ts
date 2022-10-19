@@ -378,6 +378,17 @@ export const enableExperiment = async (
   await reloadDevTools(options);
 };
 
+export const disableExperiment = async (
+    experiment: string, options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) => {
+  const {frontend} = getBrowserAndPages();
+  await frontend.evaluate(experiment => {
+    // @ts-ignore
+    globalThis.Root.Runtime.experiments.setEnabled(experiment, false);
+  }, experiment);
+
+  await reloadDevTools(options);
+};
+
 export const setDevToolsSettings = async (settings: Record<string, string>) => {
   const {frontend} = getBrowserAndPages();
   await frontend.evaluate(settings => {
