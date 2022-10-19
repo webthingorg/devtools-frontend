@@ -46,22 +46,28 @@ const UIStrings = {
   canRequestURLHTTPContainingNewline:
       'Resource requests whose URLs contained both removed whitespace `\\(n|r|t)` characters and less-than characters (`<`) are blocked. Please remove newlines and encode less-than characters from places like element attribute values in order to load these resources.',
   /**
-   * @description TODO(crbug.com/1320335): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().connectionInfo` API.
    */
   chromeLoadTimesConnectionInfo:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: Navigation Timing 2.',
   /**
-   * @description TODO(crbug.com/1320336): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().firstPaintAfterLoadTime` API.
    */
   chromeLoadTimesFirstPaintAfterLoadTime:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: Paint Timing.',
   /**
-   * @description TODO(crbug.com/1320337): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().wasAlternateProtocolAvailable` API.
    */
   chromeLoadTimesWasAlternateProtocolAvailable:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: `nextHopProtocol` in Navigation Timing 2.',
   /**
-   * @description TODO(crbug.com/1318847): Description needed for translation
+   * @description This warning occurs when the browser attempts to store a
+   *    cookie containing a banned character. Rather than the cookie string
+   *    being truncated at the banned character, the entire cookie will be
+   *    rejected now.
    */
   cookieWithTruncatingChar: 'Cookies containing a `\\(0|r|n)` character will be rejected instead of truncated.',
   /**
@@ -119,7 +125,9 @@ const UIStrings = {
   geolocationInsecureOriginDeprecatedNotRemoved:
       '`getCurrentPosition()` and `watchPosition()` are deprecated on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS. See https://goo.gle/chrome-insecure-origins for more details.',
   /**
-   * @description TODO(crbug.com/1318858): Description needed for translation
+   * @description This warning occurs when the `getUserMedia()` API is invoked
+   *    on an insecure (e.g., HTTP) site. This is only permitted on secure sites
+   *    (e.g., HTTPS).
    */
   getUserMediaInsecureOrigin:
       '`getUserMedia()` no longer works on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS. See https://goo.gle/chrome-insecure-origins for more details.',
@@ -272,7 +280,8 @@ const UIStrings = {
    */
   deprecatedWithReplacement: '{PH1} is deprecated. Please use {PH2} instead.',
   /**
-   * @description TODO(crbug.com/1320357): Description needed for translation
+   * @description This warning occurs when a subresource loaded by a page
+   *    has a URL with an authority portion. These are disallowed.
    */
   requestedSubresourceWithEmbeddedCredentials:
       'Subresource requests whose URLs contain embedded credentials (e.g. `https://user:pass@host/`) are blocked.',
