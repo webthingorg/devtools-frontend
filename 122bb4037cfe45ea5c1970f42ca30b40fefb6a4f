@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7126e9ac_5689fd87",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "normally for methods like this we would make the method `async`, and then you can simply `return;` rather than have to create a promise.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 31
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "effea5fb_c894a8c7",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "nit: this is a custom method that is in DOMExtensions; I don\u0027t think we need this. We can just not do anything here and let the event propagate up the DOM tree.\n\nIf we don\u0027t want that, we can call `event.stopPropagation()` instead.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 20
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45148ac2_444456c2",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "is it worth checking if this is undefined + if so early returning?",
+      "range": {
+        "startLine": 293,
+        "startChar": 10,
+        "endLine": 293,
+        "endChar": 12
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dbc4418_f6bceda4",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "should this be `void` ?",
+      "range": {
+        "startLine": 309,
+        "startChar": 99,
+        "endLine": 309,
+        "endChar": 106
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51143a1d_93127d7c",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "this selector feels quite brittle to me; is it possible to add data- attributes to the elements to make this easier?\n\ne.g.\n\ndata-group-1\n\nAnd then:\n\n```\nquerySelector(`[data-group-${numGroups}]`)\n```\n\nOr add `data-first-group` or `data-last-group`, etc.\n\nwdyt?",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 119
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57038175_f994db84",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "same suggestion as earlier RE make the method `async`, and then you don\u0027t need this final return.",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 29
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec2eb49d_4a838160",
+        "filename": "front_end/panels/sources/components/BreakpointsViewUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "I think we have this already in `component_helpers/directives` ?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db483de_335108e1",
+        "filename": "front_end/panels/sources/components/BreakpointsViewUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-19T13:33:18Z",
+      "side": 1,
+      "message": "worth considering again if we can use any data-X attributes that Lit adds in order to make some of these functions cleaner - I\u0027m not sure so entirely up to you !",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 97
+      },
+      "revId": "122bb4037cfe45ea5c1970f42ca30b40fefb6a4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
