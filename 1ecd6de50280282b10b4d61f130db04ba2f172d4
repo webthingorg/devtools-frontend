@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6abca97c_2414563b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-10-19T23:46:46Z",
+      "side": 1,
+      "message": "Hi Jack. Quick follow-up to yesterday\u0027s CL. This has no impact for Chrome DevTools, but makes the styles easier for us to consume downstream. PTAL. Thanks!",
+      "revId": "1ecd6de50280282b10b4d61f130db04ba2f172d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
