@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd06c8de_83dab143",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-19T12:35:25Z",
+      "side": 1,
+      "message": "That\u0027s a bit of an overstatement😊\n\nHow about \u0027Remove security origin support for storage in frontend\u0027?",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "6406ce69eac65415e063ddb17f3cfb23ae2e35ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df06ecd9_d63649e3",
