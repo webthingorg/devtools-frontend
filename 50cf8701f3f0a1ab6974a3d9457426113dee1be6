@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "623b1eee_2b78e64b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-19T12:10:06Z",
+      "side": 1,
+      "message": "Hi Jack, hi Jaro,\n\nin this CL I\u0027m implementing keyboard navigation for the BreakpointsView (similar to how it is done in the TreeOutline component). PTAL!",
+      "revId": "50cf8701f3f0a1ab6974a3d9457426113dee1be6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
