@@ -4,17 +4,19 @@
 
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as IconButton from '../../../../../front_end/ui/components/icon_button/icon_button.js';
-
+import * as Coordinator from '../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertElement, assertElements, assertShadowRoot, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-const renderIconButton = (data: IconButton.IconButton.IconButtonData):
-    {component: IconButton.IconButton.IconButton, shadowRoot: ShadowRoot} => {
+const renderIconButton = async(data: IconButton.IconButton.IconButtonData):
+    Promise<{component: IconButton.IconButton.IconButton, shadowRoot: ShadowRoot}> => {
+      const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
       const component = new IconButton.IconButton.IconButton();
       component.data = data;
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
+      await coordinator.done();
       return {component, shadowRoot: component.shadowRoot};
     };
 
@@ -41,8 +43,8 @@ export const extractIconGroups =
     };
 
 describe('IconButton', () => {
-  it('renders correctly with one icon', () => {
-    const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
+  it('renders correctly with one icon', async () => {
+    const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
 
     const icons = extractIconGroups(shadowRoot);
     assert.strictEqual(icons.length, 1);
@@ -51,8 +53,8 @@ describe('IconButton', () => {
     assert.deepEqual(iconNames, ['error_icon']);
   });
 
-  it('renders correctly with two icons', () => {
-    const {shadowRoot} = renderIconButton({
+  it('renders correctly with two icons', async () => {
+    const {shadowRoot} = await renderIconButton({
       clickHandler: () => {},
       groups: [
         defaultIcon,
@@ -71,9 +73,9 @@ describe('IconButton', () => {
     assert.deepEqual(iconNames, ['error_icon', 'warning_icon']);
   });
 
-  describe('compact mode', async () => {
-    it('renders correctly with one icon', () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon], compact: true});
+  describe('compact mode', () => {
+    it('renders correctly with one icon', async () => {
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon], compact: true});
 
       const icons = extractIconGroups(shadowRoot);
       assert.strictEqual(icons.length, 1);
@@ -82,8 +84,8 @@ describe('IconButton', () => {
       assert.deepEqual(iconNames, ['error_icon']);
     });
 
-    it('renders correctly with two icons', () => {
-      const {shadowRoot} = renderIconButton({
+    it('renders correctly with two icons', async () => {
+      const {shadowRoot} = await renderIconButton({
         clickHandler: () => {},
         groups: [
           defaultIcon,
@@ -104,8 +106,8 @@ describe('IconButton', () => {
     });
   });
 
-  it('renders correctly with two icons where one text is undefined', () => {
-    const {shadowRoot} = renderIconButton({
+  it('renders correctly with two icons where one text is undefined', async () => {
+    const {shadowRoot} = await renderIconButton({
       clickHandler: () => {},
       groups: [
         {
@@ -124,8 +126,8 @@ describe('IconButton', () => {
     assert.deepEqual(iconNames, ['error_icon']);
   });
 
-  it('renders correctly with a customly sized icon', () => {
-    const {shadowRoot} = renderIconButton({
+  it('renders correctly with a customly sized icon', async () => {
+    const {shadowRoot} = await renderIconButton({
       clickHandler: () => {},
       groups: [
         {
@@ -146,8 +148,8 @@ describe('IconButton', () => {
   });
 
   describe('data getter and setter', () => {
-    it('renders correctly with two icons', () => {
-      const {component, shadowRoot} = renderIconButton({
+    it('renders correctly with two icons', async () => {
+      const {component, shadowRoot} = await renderIconButton({
         clickHandler: () => {},
         groups: [
           defaultIcon,
@@ -182,7 +184,7 @@ describe('IconButton', () => {
       const clicked = new Promise<void>(r => {
         clickHandler = r;
       });
-      const {shadowRoot} = renderIconButton({clickHandler, groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({clickHandler, groups: [defaultIcon]});
       const icon = shadowRoot.querySelector('.status-icon');
       assertElement(icon, IconButton.Icon.Icon);
       icon.click();
@@ -194,7 +196,7 @@ describe('IconButton', () => {
       const clicked = new Promise<void>(r => {
         clickHandler = r;
       });
-      const {shadowRoot} = renderIconButton({clickHandler, groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({clickHandler, groups: [defaultIcon]});
       const icon = shadowRoot.querySelector('.icon-button');
       assertElement(icon, HTMLButtonElement);
       icon.click();
@@ -204,14 +206,14 @@ describe('IconButton', () => {
 
   describe('border', () => {
     it('is rendered when there is a click handler', async () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
       const button = shadowRoot.querySelector('.icon-button');
       assertElement(button, HTMLButtonElement);
       assert.isTrue(button.classList.contains('with-click-handler'));
     });
 
     it('is omitted when requested', async () => {
-      const {shadowRoot} = renderIconButton({groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({groups: [defaultIcon]});
       const button = shadowRoot.querySelector('.icon-button');
       assertElement(button, HTMLButtonElement);
       assert.isFalse(button.classList.contains('with-click-handler'));
@@ -220,20 +222,20 @@ describe('IconButton', () => {
 
   describe('leading text', () => {
     it('is rendered if provided', async () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon], leadingText: 'LEAD'});
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon], leadingText: 'LEAD'});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['LEAD', '1']);
     });
 
     it('is omitted in compact mode even if provided', async () => {
       const {shadowRoot} =
-          renderIconButton({clickHandler: () => {}, groups: [defaultIcon], leadingText: 'LEAD', compact: true});
+          await renderIconButton({clickHandler: () => {}, groups: [defaultIcon], leadingText: 'LEAD', compact: true});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['1']);
     });
 
     it('is omitted if not provided', async () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['1']);
     });
@@ -241,38 +243,39 @@ describe('IconButton', () => {
 
   describe('trailing text', () => {
     it('is rendered if provided', async () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon], trailingText: 'TRAIL'});
+      const {shadowRoot} =
+          await renderIconButton({clickHandler: () => {}, groups: [defaultIcon], trailingText: 'TRAIL'});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['1', 'TRAIL']);
     });
 
     it('is omitted in compact mode even if provided', async () => {
       const {shadowRoot} =
-          renderIconButton({clickHandler: () => {}, groups: [defaultIcon], trailingText: 'TRAIL', compact: true});
+          await renderIconButton({clickHandler: () => {}, groups: [defaultIcon], trailingText: 'TRAIL', compact: true});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['1']);
     });
 
     it('is omitted if not provided', async () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
       const texts = Array.from(shadowRoot.querySelectorAll('.icon-button-title'));
       assert.deepEqual(texts.map(x => x.textContent), ['1']);
     });
   });
 
   describe('accessible name', () => {
-    it('is rendered if provided', () => {
+    it('is rendered if provided', async () => {
       const expectedAccessibleName = 'AccessibleName';
-      const {shadowRoot} =
-          renderIconButton({clickHandler: () => {}, groups: [defaultIcon], accessibleName: expectedAccessibleName});
+      const {shadowRoot} = await renderIconButton(
+          {clickHandler: () => {}, groups: [defaultIcon], accessibleName: expectedAccessibleName});
       const button = shadowRoot.querySelector('button');
       assertNotNullOrUndefined(button);
       const accessibleName = button.getAttribute('aria-label');
       assert.deepEqual(accessibleName, expectedAccessibleName);
     });
 
-    it('is omitted if not provided', () => {
-      const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
+    it('is omitted if not provided', async () => {
+      const {shadowRoot} = await renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
       const button = shadowRoot.querySelector('button');
       assertNotNullOrUndefined(button);
       const accessibleName = button.getAttribute('aria-label');

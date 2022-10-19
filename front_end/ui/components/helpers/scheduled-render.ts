@@ -31,7 +31,10 @@ export async function scheduleRender(component: HTMLElement, callback: () => voi
     wrappedCallback = async(): Promise<void> => {
       pendingRenders.delete(component);
       activeRenders.add(component);
-      await callback.call(component);
+      try {
+        await callback.call(component);
+      } catch (e) {
+      }
       activeRenders.delete(component);
     };
 
