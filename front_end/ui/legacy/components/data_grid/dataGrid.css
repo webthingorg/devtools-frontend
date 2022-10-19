@@ -293,11 +293,11 @@
   .sort-order-icon-container [is="ui-icon"].icon-mask,
   .data-grid td.disclosure::before {
     forced-color-adjust: none;
-    background-color: ButtonText;
+    background-color: ButtonText !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid.no-selection:focus-visible * {
-    color: ButtonText;
+    color: ButtonText !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid th.sortable:hover *,
@@ -305,19 +305,19 @@
   .data-grid tr.parent.selected td.disclosure::before,
   .data-grid:focus tr.parent.selected td.disclosure::before,
   .data-grid tbody tr.parent.revealed:hover td.disclosure::before {
-    background-color: HighlightText;
+    background-color: HighlightText !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .striped-data-grid .revealed.data-grid-data-grid-node:nth-child(odd):not(.dirty):not(.selected),
   .striped-data-grid-starts-with-odd .revealed.data-grid-data-grid-node:nth-child(even):not(.dirty):not(.selected),
   .request-cookies-view tr.revealed.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(2n),
   .cookies-table tr.revealed.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(odd) {
-    background-color: canvas;
+    background-color: canvas !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid.no-selection:focus-visible {
     forced-color-adjust: none;
-    border-color: Highlight;
+    border-color: Highlight !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid th.sortable:hover,
@@ -328,18 +328,18 @@
   .request-cookies-view tr.revealed:hover.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(2n),
   .cookies-table tr.revealed:hover.data-grid-data-grid-node.flagged-cookie-attribute-row:not(.selected):nth-child(odd) {
     forced-color-adjust: none;
-    background-color: Highlight;
+    background-color: Highlight !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid tbody tr.revealed:hover *,
   .data-grid tbody tr.revealed.selected *,
   .data-grid tbody tr.revealed:focus *,
   .data-grid tbody tr.revealed:hover .heap-object-tag {
-    color: HighlightText;
+    color: HighlightText !important; /* stylelint-disable-line declaration-no-important */
   }
 
   .data-grid th {
     background-color: canvas;
-    border-color: Highlight;
+    border-color: Highlight !important; /* stylelint-disable-line declaration-no-important */
   }
 }
