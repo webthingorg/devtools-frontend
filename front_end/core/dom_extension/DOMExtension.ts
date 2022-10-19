@@ -131,11 +131,6 @@ export function rangeOfWord(
   return result;
 }
 
-Node.prototype.rangeOfWord = function(
-    offset: number, stopCharacters: string, stayWithinNode: Node, direction?: string): Range {
-  return rangeOfWord(this, offset, stopCharacters, stayWithinNode, direction);
-};
-
 Node.prototype.traverseNextTextNode = function(stayWithin?: Node): Node|null {
   let node = this.traverseNextNode(stayWithin);
   if (!node) {
