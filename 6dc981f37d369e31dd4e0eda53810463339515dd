@@ -16,6 +16,24 @@
       "message": "LGTM. I\u0027m thinking we should also remove the test ([1]) added in https://codereview.chromium.org/1664453004, but interestingly enough it didn\u0027t fail on the dry run.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/components/segmented-range.js",
       "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b24b279_32b9c09b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-10-19T12:09:26Z",
+      "side": 1,
+      "message": "sorry, it seems that test isn\u0027t for the TimelineIRModel so we should be fine.",
+      "parentUuid": "a4bad9a6_d0c1f26a",
+      "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
