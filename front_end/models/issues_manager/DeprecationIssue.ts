@@ -46,22 +46,28 @@ const UIStrings = {
   canRequestURLHTTPContainingNewline:
       'Resource requests whose URLs contained both removed whitespace `\\(n|r|t)` characters and less-than characters (`<`) are blocked. Please remove newlines and encode less-than characters from places like element attribute values in order to load these resources.',
   /**
-   * @description TODO(crbug.com/1320335): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().connectionInfo` API.
    */
   chromeLoadTimesConnectionInfo:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: Navigation Timing 2.',
   /**
-   * @description TODO(crbug.com/1320336): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().firstPaintAfterLoadTime` API.
    */
   chromeLoadTimesFirstPaintAfterLoadTime:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: Paint Timing.',
   /**
-   * @description TODO(crbug.com/1320337): Description needed for translation
+   * @description This warning occurs when the website attempts to invoke the
+   *    deprecated `chrome.loadTimes().wasAlternateProtocolAvailable` API.
    */
   chromeLoadTimesWasAlternateProtocolAvailable:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: `nextHopProtocol` in Navigation Timing 2.',
   /**
-   * @description TODO(crbug.com/1318847): Description needed for translation
+   * @description This warning occurs when the browser attempts to store a
+   *    cookie containing a banned character. Rather than the cookie string
+   *    being truncated at the banned character, the entire cookie will be
+   *    rejected now.
    */
   cookieWithTruncatingChar: 'Cookies containing a `\\(0|r|n)` character will be rejected instead of truncated.',
   /**
