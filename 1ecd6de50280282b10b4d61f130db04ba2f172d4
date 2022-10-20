@@ -33,6 +33,24 @@
       "message": "Hey Brandon,\n\nGiven that the !important flags are not needed within this codebase, I\u0027m not sure we should land this CL. I could also easily see this regressing for you - it would be entirely possible for an engineer to remove these having discovered they aren\u0027t actually required. \n\nGiven that, and the fact that we are trying to remove !importants (hence the lint rule), I don\u0027t think this CL should land.",
       "revId": "1ecd6de50280282b10b4d61f130db04ba2f172d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c454902_6527b9db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-10-20T20:12:54Z",
+      "side": 1,
+      "message": "Thanks for the feedback. I found a better solution on the Edge side this morning, so I\u0027ll abandon this CL.",
+      "parentUuid": "e25ea274_dd7d7bb7",
+      "revId": "1ecd6de50280282b10b4d61f130db04ba2f172d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
