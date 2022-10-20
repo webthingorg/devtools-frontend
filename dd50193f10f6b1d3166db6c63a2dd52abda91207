@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "569cd008_e404ad00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:34:30Z",
+      "side": 1,
+      "message": "Suggestion: Seems like 3 web tests use the helper after all xD. Maybe we could move it to the `ElementsTestRunner` as a utility function? Requires a 3-way change though: 1) introduce utility version. 2) update test, 3) land this CL that removes the DOM extension.\n\nOr update the tests so they don\u0027t need the helper. Haven\u0027t looked at the test code though if that\u0027s easily doable.",
+      "revId": "dd50193f10f6b1d3166db6c63a2dd52abda91207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
