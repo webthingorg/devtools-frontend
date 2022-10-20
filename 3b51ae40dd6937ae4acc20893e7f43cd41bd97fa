@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b2d2fa_a3be77a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:47:52Z",
+      "side": 1,
+      "message": "For future CLs: As per https://chromium.googlesource.com/chromium/src/+/master/docs/contributing.md#uploading-a-change-for-review CL summaries should be one line with max 72 characters, followed by an empty line and then the detailed description.\n\nVarious chromium tooling (e.g. Gerrit, ChromiumDash, LUCI) use the CL summary and too long summaries either get truncated or cause weird layouting.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 162
+      },
+      "revId": "3b51ae40dd6937ae4acc20893e7f43cd41bd97fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
