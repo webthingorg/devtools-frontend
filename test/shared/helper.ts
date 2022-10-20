@@ -6,6 +6,7 @@ import {assert, AssertionError} from 'chai';
 import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
+import {type DevToolsFrontendReloadOptions} from '../conductor/frontend_tab.js';
 import {getDevToolsFrontendHostname, reloadDevTools} from '../conductor/hooks.js';
 import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
@@ -367,16 +368,18 @@ export const logFailure = () => {
   });
 };
 
-export const enableExperiment = async (
-    experiment: string, options: {selectedPanel?: {name: string, selector?: string}, canDock?: boolean} = {}) => {
+function setExperimentEnabled(experiment: string, enabled: boolean) {
   const {frontend} = getBrowserAndPages();
-  await frontend.evaluate(experiment => {
-    // @ts-ignore
-    globalThis.Root.Runtime.experiments.setEnabled(experiment, true);
-  }, experiment);
+  return frontend.evaluate((experiment, enabled) => {
+    globalThis.Root.Runtime.experiments.setEnabled(experiment, enabled);
+  }, experiment, enabled);
+}
 
-  await reloadDevTools(options);
-};
+export const enableExperiment = (experiment: string, options?: DevToolsFrontendReloadOptions) =>
+    Promise.all([setExperimentEnabled(experiment, true), reloadDevTools(options)]);
+
+export const disableExperiment = (experiment: string, options?: DevToolsFrontendReloadOptions) =>
+    Promise.all([setExperimentEnabled(experiment, false), reloadDevTools(options)]);
 
 export const setDevToolsSettings = async (settings: Record<string, string>) => {
   const {frontend} = getBrowserAndPages();
