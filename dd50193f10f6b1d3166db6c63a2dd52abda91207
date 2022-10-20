@@ -16,6 +16,24 @@
       "message": "Suggestion: Seems like 3 web tests use the helper after all xD. Maybe we could move it to the `ElementsTestRunner` as a utility function? Requires a 3-way change though: 1) introduce utility version. 2) update test, 3) land this CL that removes the DOM extension.\n\nOr update the tests so they don\u0027t need the helper. Haven\u0027t looked at the test code though if that\u0027s easily doable.",
       "revId": "dd50193f10f6b1d3166db6c63a2dd52abda91207",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "037e3a57_d3b97627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-20T06:54:27Z",
+      "side": 1,
+      "message": "Ah I thought this might happen! I\u0027ll take a look at the tests sometime and decide what\u0027s best. At the very least let\u0027s move it into ElementsTestRunner as you say, I\u0027d like us to not define methods in our main codebase that are only used by the tests. Thanks!",
+      "parentUuid": "569cd008_e404ad00",
+      "revId": "dd50193f10f6b1d3166db6c63a2dd52abda91207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
