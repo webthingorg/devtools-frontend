@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "2c76c711fea5077ecd37c7d00c3677274e8af3d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb6df973_c59dcc4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-20T06:45:03Z",
+      "side": 1,
+      "message": "Looks like we need these in some layout tests, so I think my new plan will be:\n\n1. Disable the tests\n2. Move rangeOfWord into DOM-Utilities\n3. Expose rangeOfWord globally in the -legacy.ts files so the test runner can use them.\n4. Update + re-enable the tests.",
+      "revId": "2c76c711fea5077ecd37c7d00c3677274e8af3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
