@@ -19,3 +19,4 @@
     TestRunner.completeTest();
   }
 })();
+browser - grant - permissions;
