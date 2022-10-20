@@ -16,6 +16,92 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "951cc9ef_3e5d5c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:25:57Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6ab76c_a6b5fabd",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:25:57Z",
+      "side": 1,
+      "message": "q: This helper assumes that the whole file is done rendering when the `[aria-label\u003d\"Code editor\"]` element is available. Is that how CM works or do we have to wait for some other events so things are settled?",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b44ca66_0f7e0f8b",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:25:57Z",
+      "side": 1,
+      "message": "Since I\u0027m not 100% familiar with this code: What does \"6\" refer to? Is that the editor line or the line in the minified script? And the same for the assertion, I guess `minified-sourcecode.js:6` refers to the minified script?\n\nMaybe we could leave a comment here and below clarifying how this works, since both test cases set the breakpoint \"on line 6\" in pretty-printed, and minified code, and expect the same result.",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 43
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf666b82_cd0859e4",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-20T04:25:57Z",
+      "side": 1,
+      "message": "nit: Maybe we could combine these two into a `setExperiment` helper thats then called from `enableExperiment` and `disableExperiment`. Depending on your preference we can leave the `reloadDevTools` call in the enable/disable methods.",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 2
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
