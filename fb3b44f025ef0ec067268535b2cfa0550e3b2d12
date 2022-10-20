@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64eafa4f_8dd8244f",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-20T05:30:08Z",
+      "side": 1,
+      "message": "Yes, indeed, this is done from `SourceFrame.setContent` indirectly, at which point the `content` already exists.",
+      "parentUuid": "4f6ab76c_a6b5fabd",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b44ca66_0f7e0f8b",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8644338_87425e7c",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-20T05:30:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b44ca66_0f7e0f8b",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 43
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf666b82_cd0859e4",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-10-20T04:25:57Z",
       "side": 1,
       "message": "nit: Maybe we could combine these two into a `setExperiment` helper thats then called from `enableExperiment` and `disableExperiment`. Depending on your preference we can leave the `reloadDevTools` call in the enable/disable methods.",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 2
+      },
+      "revId": "fb3b44f025ef0ec067268535b2cfa0550e3b2d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32865e4b_cbfd4f91",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-20T05:30:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf666b82_cd0859e4",
       "range": {
         "startLine": 381,
         "startChar": 0,
