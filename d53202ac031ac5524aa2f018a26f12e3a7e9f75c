@@ -16,6 +16,24 @@
       "message": "LGTM.\n\nComplete side note, and I think you\u0027ve thought about this much more than I have, but could we add something that runs in a `beforeEach` for every test, that checks the coordinator is done/has no pending work?",
       "revId": "d53202ac031ac5524aa2f018a26f12e3a7e9f75c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3e0f52_cbaae6ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-20T11:25:24Z",
+      "side": 1,
+      "message": "We will have something like this in the end, these CLs are fixing all the cases where this currently doesn\u0027t hold.",
+      "parentUuid": "bf8d7541_6e5a377d",
+      "revId": "d53202ac031ac5524aa2f018a26f12e3a7e9f75c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
