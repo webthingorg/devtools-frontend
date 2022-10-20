@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96cec4ed_54ea9f0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-20T08:17:59Z",
+      "side": 1,
+      "message": "As discussed - so we can remove Text.proto.select from DOMExtensions.",
+      "revId": "b5db56dabce44ac81a417366aef5904034977da4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
