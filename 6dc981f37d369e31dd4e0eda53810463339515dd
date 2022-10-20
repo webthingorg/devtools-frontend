@@ -69,6 +69,24 @@
       "message": "I think there\u0027s also \"InteractionRecord\"/\"InteractionRecords\". I\u0027m not sure this becomes dead now, too but it\u0027s worth a look.\nIn a quick test here, I only saw Animation related trace events come through in it. But these may be the purple animations shown in the flame chart.\n\nEither way, if that is indeed removable, then it could happen in a followup. This CL lgtm",
       "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70942382_c3102bc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-20T06:57:09Z",
+      "side": 1,
+      "message": "Thanks - will dig into this as a follow-up.",
+      "parentUuid": "722f7ed8_af52c571",
+      "revId": "6dc981f37d369e31dd4e0eda53810463339515dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
