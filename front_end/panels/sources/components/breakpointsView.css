@@ -10,15 +10,7 @@
   flex-direction: column;
 }
 
-hr {
-  border: none;
-  background-color: var(--color-details-hairline);
-  height: 0.5pt;
-  width: inherit;
-  margin: 3px 0 0;
-}
-
-.code-snippet {
+code {
   width: 100%;
   font-family: var(--source-code-font-family);
   font-size: var(--source-code-font-size);
@@ -30,7 +22,7 @@ hr {
   cursor: pointer;
 }
 
-.code-snippet:hover {
+code:hover {
   color: var(--color-text-primary);
   text-decoration: underline;
 }
@@ -40,6 +32,12 @@ input {
   width: 12px;
   flex-shrink: 0;
   margin: 3px 0;
+}
+
+details {
+  margin-top: 3px;
+  padding-top: 3px;
+  border-top: 1px solid var(--color-details-hairline);
 }
 
 details:not(.active) {
@@ -101,14 +99,6 @@ details[open] > summary::before {
   font-weight: 500;
 }
 
-.breakpoint-item-location-or-actions {
-  min-width: 20px;
-  flex: 0 0 auto;
-  display: flex;
-  padding-left: 8px;
-  justify-content: right;
-}
-
 button {
   cursor: pointer;
   width: 13px;
@@ -137,16 +127,6 @@ button:hover devtools-icon {
   --icon-color: var(--color-text-primary);
 }
 
-.type-indicator {
-  --override-color-conditional-breakpoint: #f29900;
-  --override-color-logpoint: #f439a0;
-
-  border-right: 4px solid;
-  border-radius: 0 2px 2px 0;
-  border-color: transparent;
-  height: 16px;
-}
-
 .breakpoint-item {
   display: flex;
   align-items: center;
@@ -165,35 +145,40 @@ button:hover devtools-icon {
   background-color: var(--override-breakpoint-hit-background);
 }
 
-.-theme-with-dark-background .type-indicator,
-:host-context(.-theme-with-dark-background) .type-indicator {
+.breakpoint-item label::before {
+  --override-color-conditional-breakpoint: #f29900;
+  --override-color-logpoint: #f439a0;
+
+  content: "";
+  border-right: 4px solid;
+  border-radius: 0 2px 2px 0;
+  border-color: transparent;
+  height: 16px;
+}
+
+.-theme-with-dark-background label::before,
+:host-context(.-theme-with-dark-background) label::before {
   --override-color-conditional-breakpoint: #e9a33a;
   --override-color-logpoint: #e54d9b;
 }
 
-.breakpoint-item.logpoint > label > .type-indicator {
+.breakpoint-item.logpoint label::before {
   border-color: var(--override-color-logpoint);
 }
 
-.breakpoint-item.conditional-breakpoint > label > .type-indicator {
+.breakpoint-item.conditional-breakpoint label::before {
   border-color: var(--override-color-conditional-breakpoint);
 }
 
-.checkbox-label {
+label {
+  width: 100%;
   display: flex;
   align-items: center;
 }
 
-.checkbox-label > input {
+input[type="checkbox"] {
   margin-left: 16px;
   margin-right: 6px;
-}
-
-.location {
-  line-height: 14px;
-  margin-left: auto;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .breakpoint-item:hover .location {
@@ -208,11 +193,11 @@ button:hover devtools-icon {
   margin-top: 3px;
 }
 
-.pause-on-exceptions > .checkbox-label > input {
+.pause-on-exceptions input {
   margin-left: 6px;
 }
 
-.pause-on-caught-exceptions > .checkbox-label > input {
+.pause-on-caught-exceptions input {
   margin-left: 20px;
 }
 

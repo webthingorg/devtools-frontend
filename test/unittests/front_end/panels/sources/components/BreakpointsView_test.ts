@@ -19,13 +19,13 @@ import * as TwoStatesCounter from '../../../../../../front_end/ui/components/two
 
 const EXPANDED_GROUPS_SELECTOR = 'details[open]';
 const COLLAPSED_GROUPS_SELECTOR = 'details:not([open])';
-const CODE_SNIPPET_SELECTOR = '.code-snippet';
+const CODE_SELECTOR = 'code';
 const GROUP_NAME_SELECTOR = '.group-header-title';
 const BREAKPOINT_ITEM_SELECTOR = '.breakpoint-item';
 const HIT_BREAKPOINT_SELECTOR = BREAKPOINT_ITEM_SELECTOR + '.hit';
 const BREAKPOINT_LOCATION_SELECTOR = '.location';
 const REMOVE_FILE_BREAKPOINTS_SELECTOR = '.group-hover-actions > .remove-breakpoint-button';
-const REMOVE_SINGLE_BREAKPOINT_SELECTOR = '.breakpoint-item-location-or-actions > .remove-breakpoint-button';
+const REMOVE_SINGLE_BREAKPOINT_SELECTOR = BREAKPOINT_ITEM_SELECTOR + ' .remove-breakpoint-button';
 const EDIT_SINGLE_BREAKPOINT_SELECTOR = '.edit-breakpoint-button';
 const PAUSE_ON_EXCEPTIONS_SELECTOR = '.pause-on-exceptions';
 const PAUSE_ON_CAUGHT_EXCEPTIONS_SELECTOR = '.pause-on-caught-exceptions';
@@ -174,8 +174,8 @@ function extractBreakpointItems(data: SourcesComponents.BreakpointsView.Breakpoi
 
 function checkCodeSnippet(
     renderedBreakpointItem: HTMLDivElement, breakpointItem: SourcesComponents.BreakpointsView.BreakpointItem): void {
-  const snippetElement = renderedBreakpointItem.querySelector(CODE_SNIPPET_SELECTOR);
-  assertElement(snippetElement, HTMLSpanElement);
+  const snippetElement = renderedBreakpointItem.querySelector(CODE_SELECTOR);
+  assertElement(snippetElement, HTMLElement);
   assert.strictEqual(snippetElement.textContent, breakpointItem.codeSnippet);
 }
 
@@ -326,8 +326,8 @@ describeWithEnvironment('BreakpointsView', () => {
     const {component, data} = await renderSingleBreakpoint();
     assertShadowRoot(component.shadowRoot);
 
-    const snippet = component.shadowRoot.querySelector(CODE_SNIPPET_SELECTOR);
-    assertElement(snippet, HTMLSpanElement);
+    const snippet = component.shadowRoot.querySelector(CODE_SELECTOR);
+    assertElement(snippet, HTMLElement);
 
     const eventPromise = getEventPromise<SourcesComponents.BreakpointsView.BreakpointSelectedEvent>(
         component, SourcesComponents.BreakpointsView.BreakpointSelectedEvent.eventName);
@@ -496,9 +496,9 @@ describeWithEnvironment('BreakpointsView', () => {
     it('show a tooltip', async () => {
       const {component} = await renderSingleBreakpoint(
           SourcesComponents.BreakpointsView.BreakpointType.CONDITIONAL_BREAKPOINT, breakpointDetails);
-      const codeSnippet = component.shadowRoot?.querySelector(CODE_SNIPPET_SELECTOR);
+      const codeSnippet = component.shadowRoot?.querySelector(CODE_SELECTOR);
       assertNotNullOrUndefined(codeSnippet);
-      assertElement(codeSnippet, HTMLSpanElement);
+      assertElement(codeSnippet, HTMLElement);
       assert.strictEqual(codeSnippet.title, `Condition: ${breakpointDetails}`);
     });
   });
@@ -518,9 +518,9 @@ describeWithEnvironment('BreakpointsView', () => {
     it('show a tooltip', async () => {
       const {component} =
           await renderSingleBreakpoint(SourcesComponents.BreakpointsView.BreakpointType.LOGPOINT, breakpointDetails);
-      const codeSnippet = component.shadowRoot?.querySelector(CODE_SNIPPET_SELECTOR);
+      const codeSnippet = component.shadowRoot?.querySelector(CODE_SELECTOR);
       assertNotNullOrUndefined(codeSnippet);
-      assertElement(codeSnippet, HTMLSpanElement);
+      assertElement(codeSnippet, HTMLElement);
       assert.strictEqual(codeSnippet.title, `Logpoint: ${breakpointDetails}`);
     });
   });

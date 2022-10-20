@@ -220,25 +220,21 @@ export class BreakpointsView extends HTMLElement {
   #render(): void {
     // clang-format off
     const out = LitHtml.html`
-    <div class='pause-on-exceptions'>
-      <label class='checkbox-label'>
-        <input type='checkbox' ?checked=${this.#pauseOnExceptions} @change=${this.#onPauseOnExceptionsStateChanged.bind(this)}>
-        <span>${i18nString(UIStrings.pauseOnExceptions)}</span>
-      </label>
-    </div>
+    <label class=pause-on-exceptions>
+      <input type=checkbox ?checked=${this.#pauseOnExceptions} @change=${this.#onPauseOnExceptionsStateChanged.bind(this)}>
+      ${i18nString(UIStrings.pauseOnExceptions)}
+    </label>
     ${this.#pauseOnExceptions ? LitHtml.html`
-      <div class='pause-on-caught-exceptions'>
-        <label class='checkbox-label'>
-          <input type='checkbox' ?checked=${this.#pauseOnCaughtExceptions} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)}>
-          <span>${i18nString(UIStrings.pauseOnCaughtExceptions)}</span>
-        </label>
-      </div>
+      <label class=pause-on-caught-exceptions>
+        <input type=checkbox ?checked=${this.#pauseOnCaughtExceptions} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)}>
+        ${i18nString(UIStrings.pauseOnCaughtExceptions)}
+      </label>
       ` : LitHtml.nothing}
     <div role=tree>
       ${LitHtml.Directives.repeat(
         this.#breakpointGroups,
         group => group.url,
-        group => LitHtml.html`<hr/>${this.#renderBreakpointGroup(group)}`)}
+        group => this.#renderBreakpointGroup(group))}
     </div>`;
     // clang-format on
     LitHtml.render(out, this.#shadow, {host: this});
@@ -341,7 +337,7 @@ export class BreakpointsView extends HTMLElement {
                aria-description='${group.url}'
                ?open=${group.expanded}
                @toggle=${toggleHandler}>
-        <summary @contextmenu=${contextmenuHandler} >
+        <summary @contextmenu=${contextmenuHandler}>
           <span class='group-header' aria-hidden=true>${this.#renderFileIcon()}<span class='group-header-title' title='${group.url}'>${group.name}</span></span>
           <span class='group-hover-actions'>
             ${this.#renderRemoveBreakpointButton(group.breakpointItems, i18nString(UIStrings.removeAllBreakpointsInFile))}
@@ -410,10 +406,15 @@ export class BreakpointsView extends HTMLElement {
   #renderBreakpointEntry(breakpointItem: BreakpointItem, editable: boolean): LitHtml.TemplateResult {
     const clickHandler = (event: Event): void => {
       this.dispatchEvent(new BreakpointSelectedEvent(breakpointItem));
-      event.consume();
+      event.consume(true);
     };
     const contextmenuHandler = (event: Event): void => {
       this.#onBreakpointEntryContextMenu(event, breakpointItem, editable);
+      event.consume();
+    };
+    const changeHandler = (event: Event): void => {
+      const element = event.target as HTMLInputElement;
+      this.dispatchEvent(new CheckboxToggledEvent(breakpointItem, element.checked));
       event.consume();
     };
     const classMap = {
@@ -431,18 +432,18 @@ export class BreakpointsView extends HTMLElement {
     <div class=${LitHtml.Directives.classMap(classMap)}
          aria-label=${breakpointItemDescription}
          role=treeitem
-         tabIndex=${breakpointItem.isHit ? 0 : -1}
          @contextmenu=${contextmenuHandler}>
-      <label class='checkbox-label'>
-        <span class='type-indicator'></span>
-        <input type='checkbox' aria-label=${breakpointItem.location} ?indeterminate=${breakpointItem.status === BreakpointStatus.INDETERMINATE} ?checked=${breakpointItem.status === BreakpointStatus.ENABLED} @change=${(e: Event): void => this.#onCheckboxToggled(e, breakpointItem)}>
-      </label>
-      <span class='code-snippet' @click=${clickHandler} title=${codeSnippetTooltip}>${codeSnippet}</span>
-      <span class='breakpoint-item-location-or-actions'>
+      <label>
+        <input type='checkbox'
+               aria-label=${breakpointItem.location}
+               ?indeterminate=${breakpointItem.status === BreakpointStatus.INDETERMINATE}
+               ?checked=${breakpointItem.status === BreakpointStatus.ENABLED}
+               @change=${changeHandler} />
+        <code @click=${clickHandler} title=${codeSnippetTooltip}>${codeSnippet}</code>
         ${editable ? this.#renderEditBreakpointButton(breakpointItem) : LitHtml.nothing}
         ${this.#renderRemoveBreakpointButton([breakpointItem], i18nString(UIStrings.removeBreakpoint))}
         <span class='location'>${breakpointItem.location}</span>
-      </span>
+      </label>
     </div>
     `;
     // clang-format on
@@ -478,11 +479,6 @@ export class BreakpointsView extends HTMLElement {
       return checkboxDescription;
     }
     return i18nString(UIStrings.breakpointHit, {PH1: checkboxDescription});
-  }
-
-  #onCheckboxToggled(e: Event, item: BreakpointItem): void {
-    const element = e.target as HTMLInputElement;
-    this.dispatchEvent(new CheckboxToggledEvent(item, element.checked));
   }
 
   #onPauseOnCaughtExceptionsStateChanged(e: Event): void {
