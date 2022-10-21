@@ -1638,6 +1638,11 @@ export class DebuggerPlugin extends Plugin {
     debuggerPluginForUISourceCode.delete(this.uiSourceCode);
     super.dispose();
 
+    window.clearTimeout(this.refreshBreakpointsTimeout);
+    // Clear `this.editor` to signal that we are disposed. Any function from this `DebuggerPlugin` instance
+    // still running or scheduled will early return and not do any work.
+    this.editor = undefined;
+
     UI.Context.Context.instance().removeFlavorChangeListener(SDK.DebuggerModel.CallFrame, this.callFrameChanged, this);
     this.liveLocationPool.disposeAll();
   }
