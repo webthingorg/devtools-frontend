@@ -16,6 +16,69 @@
       "message": "Converting the test found here https://crsrc.org/c/third_party/blink/web_tests/http/tests/devtools/console/alert-toString-exception.js;l\u003d1?q\u003dthird_party%2Fblink%2Fweb_tests%2Fhttp%2Ftests%2Fdevtools%2Fconsole%2Falert-toString-exception.js\u0026sq\u003d\u0026ss\u003dchromium",
       "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8493c8d9_6b31008b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-21T09:01:06Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20278065_d0ad9169",
+        "filename": "test/e2e/console/alert-toString-exception_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-21T09:01:06Z",
+      "side": 1,
+      "message": "Is this really needed?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd6bda1_3de30d0c",
+        "filename": "test/webtests/http/tests/devtools/console/console-eval-uses-repl-mode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-21T09:01:06Z",
+      "side": 1,
+      "message": "stray change?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
