@@ -254,12 +254,13 @@ describeWithEnvironment('HeaderSectionRow', () => {
   });
 
   it('confirms edited value and exits editing mode on "Enter"-key', async () => {
+    const originalHeaderValue = 'someHeaderValue';
+    const editedHeaderValue = 'new value for header';
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
       name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
-      value: 'someHeaderValue',
+      value: originalHeaderValue,
       valueEditable: true,
     };
-    const editedHeaderValue = 'new value for header';
 
     const component = await renderHeaderSectionRow(headerData);
     assertShadowRoot(component.shadowRoot);
@@ -277,8 +278,15 @@ describeWithEnvironment('HeaderSectionRow', () => {
     editable.innerText = editedHeaderValue;
     dispatchKeyDownEvent(editable, {key: 'Enter', bubbles: true});
 
-    assert.strictEqual(headerValueFromEvent, editedHeaderValue);
     assert.strictEqual(eventCount, 1);
+    assert.strictEqual(headerValueFromEvent, editedHeaderValue);
+
+    editable.focus();
+    editable.innerText = originalHeaderValue;
+    dispatchKeyDownEvent(editable, {key: 'Enter', bubbles: true});
+
+    assert.strictEqual(eventCount, 2);
+    assert.strictEqual(headerValueFromEvent, originalHeaderValue);
   });
 
   it('removes formatting for pasted content', async () => {
