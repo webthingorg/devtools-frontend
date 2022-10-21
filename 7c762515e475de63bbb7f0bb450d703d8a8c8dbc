@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b77222_6681dafa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-21T14:13:07Z",
+      "side": 1,
+      "message": "What about other wi",
+      "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c877d12e_f8a3ec97",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-21T14:13:07Z",
+      "side": 1,
+      "message": "What about other whitespace characters like no-break space?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 90
+      },
+      "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
