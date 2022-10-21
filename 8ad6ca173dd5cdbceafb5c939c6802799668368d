@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b639da_da2c0a7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-10-21T08:27:50Z",
+      "side": 1,
+      "message": "Converting the test found here https://crsrc.org/c/third_party/blink/web_tests/http/tests/devtools/console/alert-toString-exception.js;l\u003d1?q\u003dthird_party%2Fblink%2Fweb_tests%2Fhttp%2Ftests%2Fdevtools%2Fconsole%2Falert-toString-exception.js\u0026sq\u003d\u0026ss\u003dchromium",
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
