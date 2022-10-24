@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c1c57d_2f7f1be8",
+        "filename": "test/e2e/console/alert-toString-exception_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-10-24T08:32:05Z",
+      "side": 1,
+      "message": "no it is not, removed",
+      "parentUuid": "20278065_d0ad9169",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccd6bda1_3de30d0c",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-10-21T09:01:06Z",
       "side": 1,
       "message": "stray change?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4755da_f787b168",
+        "filename": "test/webtests/http/tests/devtools/console/console-eval-uses-repl-mode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-10-24T08:32:05Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "ccd6bda1_3de30d0c",
       "range": {
         "startLine": 22,
         "startChar": 0,
