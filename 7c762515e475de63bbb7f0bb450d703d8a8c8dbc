@@ -80,6 +80,30 @@
       },
       "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c073ed2c_77a8d18e",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:23:47Z",
+      "side": 1,
+      "message": "I\u0027d say let\u0027s do that.",
+      "parentUuid": "2b62c86d_d9d53b4d",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 90
+      },
+      "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
