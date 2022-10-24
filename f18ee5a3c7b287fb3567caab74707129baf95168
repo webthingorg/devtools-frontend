@@ -41,6 +41,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a5e48ad_2b552930",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-10-24T07:42:42Z",
+      "side": 1,
+      "message": "Thanks for taking a look at this, however to be transparent I\u0027m not sure how comfortable I am with stubbing such an array of methods. I understand the end goal, but anything we do that moves our testing away from what actually runs in the browser is concerning, and the fact that this CL stubs out so many methods does make me nervous.\n\nI admittedly don\u0027t have any alternative proposals, but I need a bit more time to think about this and if we can do anything differently, or if this is a problem enough to warrant what I think is quite a heavy handed solution.",
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62c6de85_ba547e08",
