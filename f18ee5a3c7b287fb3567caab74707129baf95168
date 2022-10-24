@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "36799468_f110868a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9c44eda_62d91576",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cebfb749_1ade96b0",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf2a59f0_204ee9ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "As discussed, I had it as a goal not to deviate from the real thing as much as possible and I am not changing the behavior as long as the test is running, precisely for that reason. I only force run handlers in afterEach which is not where you\u0027re supposed to test anything.\n\nThis does catch real issues, like when some view constructor is calling rAF which once in a while is being run between teardown and setup and caused flaky failures.",
+      "parentUuid": "8a5e48ad_2b552930",
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62c6de85_ba547e08",
@@ -71,6 +113,30 @@
       "writtenOn": "2022-10-24T05:08:49Z",
       "side": 1,
       "message": "2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4820d87_7f62ea80",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62c6de85_ba547e08",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -104,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47b3fd6d_8c8dd508",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c984d7ab_7dd0cb6e",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 28
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31f1c35b_680e058b",
@@ -117,6 +207,30 @@
       "writtenOn": "2022-10-24T05:08:49Z",
       "side": 1,
       "message": "nit: Could probably be `unknown` since we are not looking at the value of it in `checkForPendingActivity`.",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b35ecd91_5d77a7a7",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f1c35b_680e058b",
       "range": {
         "startLine": 11,
         "startChar": 20,
@@ -150,6 +264,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1138e5_6ae5a7f3",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "681368ef_a9f51dd4",
+      "range": {
+        "startLine": 73,
+        "startChar": 42,
+        "endLine": 73,
+        "endChar": 52
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6846e07d_4c6f0ffa",
@@ -163,6 +301,30 @@
       "writtenOn": "2022-10-24T05:08:49Z",
       "side": 1,
       "message": "I had a hard time parsing this logic, until I realised the intention is to only decrease the loop counter when we haven\u0027t made progress. Could we make that more explicit?\n\n  1) replace the `for(;;)` with `while (retries \u003e 0)`\n  2) Unconditionally `--retries` as the last statement in the `try`.\n  3) In the catch block do: `if (\u003ctotal and pending counts are equal\u003e) --retries;`",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bab48a4_f1a5361c",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6846e07d_4c6f0ffa",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -196,6 +358,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fe755a_cbb117eb",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27af79a0_913bd312",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22ab97f5_cce887e9",
@@ -219,6 +405,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c043c16_273e1c28",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "As discussed, we won\u0027t track fetch indeed, but we also don\u0027t use it in the FE code. If we need to, we can also track fetch calls explicitly.",
+      "parentUuid": "22ab97f5_cce887e9",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 23
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c61a2f13_fa2dde4b",
@@ -232,6 +442,30 @@
       "writtenOn": "2022-10-24T05:08:49Z",
       "side": 1,
       "message": "I\u0027m really unsure about whether putting `Promise` on `window` is enough. These methods lookup the Promise constructor via \"there `this` values constructor\" (https://tc39.es/ecma262/#sec-get-promise-@@species). What kind of object does `TrackingPromise.all` now return? The tracking promise or the `original(Promise)`?",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 25
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc770a8_f38ce158",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-24T10:45:01Z",
+      "side": 1,
+      "message": "As discussed, even though there might be untracked promises, this is not a problem because the only thing that can cause a truly delayed code execution is a newly constructed promise (modulo fetch and other native APIs that we might address if needed). Given that our goal is to avoid executing any code triggered by the test, when the test is finished, tracking promise constructors is enough.",
+      "parentUuid": "c61a2f13_fa2dde4b",
       "range": {
         "startLine": 189,
         "startChar": 0,
