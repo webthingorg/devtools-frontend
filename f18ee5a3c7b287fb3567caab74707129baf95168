@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c44eda_62d91576",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "async",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebfb749_1ade96b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "Thanks Danil for taking a stab at this.\n\nThe requestAnimationFrame and the setTimeout tracking looks straight-forward to me, but I\u0027m a bit worried about the Promise tracking (see inline comments).\n\nI\u0027m also not sure how platform APIs like `fetch` actually decide what Promise constructor to use. Same goes for `async` functions. We\u0027d have to check the spec and see how `async` functions construct the promise they return. Maybe someone with more knowledge around promises should also take a look (like Benedikt).",
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c6de85_ba547e08",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c984d7ab_7dd0cb6e",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "TIL about this syntax! Maybe lets stick with `() \u003d\u003e void`.",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 28
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f1c35b_680e058b",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "nit: Could probably be `unknown` since we are not looking at the value of it in `checkForPendingActivity`.",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "681368ef_a9f51dd4",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "iteration",
+      "range": {
+        "startLine": 73,
+        "startChar": 42,
+        "endLine": 73,
+        "endChar": 52
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6846e07d_4c6f0ffa",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "I had a hard time parsing this logic, until I realised the intention is to only decrease the loop counter when we haven\u0027t made progress. Could we make that more explicit?\n\n  1) replace the `for(;;)` with `while (retries \u003e 0)`\n  2) Unconditionally `--retries` as the last statement in the `try`.\n  3) In the catch block do: `if (\u003ctotal and pending counts are equal\u003e) --retries;`",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27af79a0_913bd312",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "is `null` used to signal anything? Otherwise we\u0027d be fine with a `Promise\u003cvoid\u003e` and `resolve()` here and in the other tracking functions.",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ab97f5_cce887e9",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "Isn\u0027t that a problem though? IIUC we only track the top-most promise in a promise chain. But everything chained onto it via `then` is an `original(Promise)` we don\u0027t track. So e.g. if we have something like a `.then(() \u003d\u003e fetch(\u0027...\u0027))`, would we track the fetch?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 23
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c61a2f13_fa2dde4b",
+        "filename": "test/unittests/front_end/helpers/TrackAsyncOperations.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T05:08:49Z",
+      "side": 1,
+      "message": "I\u0027m really unsure about whether putting `Promise` on `window` is enough. These methods lookup the Promise constructor via \"there `this` values constructor\" (https://tc39.es/ecma262/#sec-get-promise-@@species). What kind of object does `TrackingPromise.all` now return? The tracking promise or the `original(Promise)`?",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 25
+      },
+      "revId": "f18ee5a3c7b287fb3567caab74707129baf95168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
