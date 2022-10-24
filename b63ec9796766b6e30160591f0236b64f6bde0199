@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8764440_96b23202",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-10-24T09:47:14Z",
+      "side": 1,
+      "message": "Please take a look. Screenshots can be found here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1365975#c4",
+      "revId": "b63ec9796766b6e30160591f0236b64f6bde0199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
