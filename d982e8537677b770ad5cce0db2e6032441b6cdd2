@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b5bf1f_e30021f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-10-24T07:55:44Z",
+      "side": 1,
+      "message": "The web tests are actual examples where a disposed DebuggerPlugin tries to access/modify an editor. I fear there might be more of these, but I\u0027d rather fail hard on these.",
+      "revId": "d982e8537677b770ad5cce0db2e6032441b6cdd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
