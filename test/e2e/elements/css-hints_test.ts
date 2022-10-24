@@ -15,6 +15,7 @@ import {
   focusCSSPropertyValue,
   getPropertiesWithHints,
   waitForAndClickTreeElementWithPartialText,
+  waitForCSSPropertyValue,
   waitForElementsStyleSection,
   waitForPartialContentOfSelectedElementsNode,
   waitForStyleRule,
@@ -51,7 +52,7 @@ describe('CSS hints in the Styles panel', async () => {
     assert.deepEqual(propertiesWithHints, []);
   });
 
-  it('updates the hint if the styles are edited', async () => {
+  it.only('updates the hint if the styles are edited', async () => {
     await goToResourceAndWaitForStyleSection('elements/inactive-css-page.html');
     await waitForStyleRule('body');
     await waitForAndClickTreeElementWithPartialText('wrapper');
@@ -62,6 +63,7 @@ describe('CSS hints in the Styles panel', async () => {
     await focusCSSPropertyValue('#wrapper', 'flex-wrap');
     const {frontend} = getBrowserAndPages();
     await frontend.keyboard.type('wrap', {delay: 100});
+    await waitForCSSPropertyValue('#wrapper', 'flex-wrap', 'wrap');
     await frontend.keyboard.press('Enter');
 
     await waitForFunction(async () => {
