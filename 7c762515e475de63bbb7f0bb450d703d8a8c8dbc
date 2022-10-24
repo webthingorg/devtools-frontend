@@ -56,6 +56,30 @@
       },
       "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b62c86d_d9d53b4d",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-24T10:18:59Z",
+      "side": 1,
+      "message": "If a header contains a non-breaking space, this is filtered by the backend and never reaches the frontend. It seems that the different treatment of the \u0027tab\u0027 character is on purpose, for \u0027tabs\u0027 the backend sends a warning which DevTools shows to the user.\n\nI tried sending headers with other whitespace chars, but my node/express server did not even allow sending these characters. So while I did not manage to run into this case with any other special characters, I cannot guarantee that it could not be achieved somehow.\n\nI could change the regex to replace all whitespace with regular spaces `header.value.replace(/\\s/g, \u0027 \u0027)`. This should catch additional cases without breaking anything. WDYT?",
+      "parentUuid": "c877d12e_f8a3ec97",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 90
+      },
+      "revId": "7c762515e475de63bbb7f0bb450d703d8a8c8dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
