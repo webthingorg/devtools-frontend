@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ad4daff_e6117f64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-24T07:51:55Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m disabling a flaky style-pane-properties test, ptal!\n(I initially mistakenly linked it to a previous bug that CC\u0027ed you, but now I changed it to a new one since this was written by Patrick. Sorry for the confusion!).",
+      "revId": "3d72f03ba29316f23dd6e50841af0c1c7d6a5475",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
