@@ -33,6 +33,24 @@
       "message": "I can’t say I understand this either, but since it fixes an immediate issue, LGTM.\n\nSome open questions I’d love to hear your thoughts on:\n\n- Do we need to set .height as well?\n- Should we use the `width` and `height` variables that are being used on line 1086-1087?\n- If not, should we do `img.width \u003d img.naturalWidth` and similar for `.naturalHeight` instead?",
       "revId": "0638c5abf005c81fa23e3b23e10b662fd5f98943",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea39c16_2a252c17",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-25T12:57:16Z",
+      "side": 1,
+      "message": "- Do we need to set .height as well?\n  \nIf both `height` and `width` are set, then we can run into the problem of the aspect ratio of the displayed images being off (e.g. 2000x1000 natural will be shown as 200x200 due to `max-width` and `max-height` attributes)\n\n\n- Should we use the width and height variables that are being used on line 1086-1087?\n\nI don\u0027t think so. These vars are only used for screenshots and not for the PWA\u0027s icons.\n\n\n- If not, should we do img.width \u003d img.naturalWidth and similar for .naturalHeight instead?\n\nYes, let\u0027s use `naturalWidth` so that the statement actually conveys some meaning.",
+      "parentUuid": "f7f99cc9_4a6e5f96",
+      "revId": "0638c5abf005c81fa23e3b23e10b662fd5f98943",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
