@@ -2015,6 +2015,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
+    // TODO: How can we detect if a scrollbar is generated when `overflow: auto`?
+    const overflow = styles.get('overflow-x') || styles.get('overflow-y');
+    const isScroll = overflow === 'scroll' || overflow === 'auto';
+
     const display = styles.get('display');
     const isGrid = display === 'grid' || display === 'inline-grid';
     const isFlex = display === 'flex' || display === 'inline-flex';
@@ -2029,6 +2033,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         this.styleAdorners.push(adorner);
       }
     };
+    if (isScroll) {
+      appendAdorner(this.createScollAdorner());
+    }
     if (isGrid) {
       appendAdorner(this.createGridAdorner());
     }
@@ -2041,6 +2048,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (isContainer) {
       appendAdorner(this.createContainerAdorner());
     }
+  }
+
+  createScollAdorner(): Adorners.Adorner.Adorner|null {
+    const node = this.node();
+    const nodeId = node.id;
+    if (!nodeId) {
+      return null;
+    }
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.SCOLL);
+    const adorner = this.adorn(config);
+    adorner.classList.add('scoll');
+
+    return adorner;
   }
 
   createGridAdorner(): Adorners.Adorner.Adorner|null {
