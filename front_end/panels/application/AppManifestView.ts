@@ -1101,6 +1101,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         }
       }
     }
+    image.width = image.width;
 
     const purpose = typeof imageResource['purpose'] === 'string' ? imageResource['purpose'].toLowerCase() : '';
     if (purpose.includes('any') && purpose.includes('maskable')) {
