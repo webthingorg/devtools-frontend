@@ -5577,6 +5577,7 @@ export namespace HeadlessExperimental {
   export const enum ScreenshotParamsFormat {
     Jpeg = 'jpeg',
     Png = 'png',
+    Webp = 'webp',
   }
 
   /**
@@ -5591,6 +5592,10 @@ export namespace HeadlessExperimental {
      * Compression quality from range [0..100] (jpeg only).
      */
     quality?: integer;
+    /**
+     * Optimize image encoding for speed, not for resulting size (defaults to false)
+     */
+    optimizeForSpeed?: boolean;
   }
 
   export interface BeginFrameRequest {
@@ -11075,6 +11080,7 @@ export namespace Page {
     OutstandingNetworkRequestDirectSocket = 'OutstandingNetworkRequestDirectSocket',
     InjectedJavascript = 'InjectedJavascript',
     InjectedStyleSheet = 'InjectedStyleSheet',
+    KeepaliveRequest = 'KeepaliveRequest',
     Dummy = 'Dummy',
     ContentSecurityHandler = 'ContentSecurityHandler',
     ContentWebAuthenticationAPI = 'ContentWebAuthenticationAPI',
@@ -11151,8 +11157,6 @@ export namespace Page {
     Activated = 'Activated',
     Destroyed = 'Destroyed',
     LowEndDevice = 'LowEndDevice',
-    CrossOriginRedirect = 'CrossOriginRedirect',
-    CrossOriginNavigation = 'CrossOriginNavigation',
     InvalidSchemeRedirect = 'InvalidSchemeRedirect',
     InvalidSchemeNavigation = 'InvalidSchemeNavigation',
     InProgressNavigation = 'InProgressNavigation',
@@ -11187,6 +11191,12 @@ export namespace Page {
     InactivePageRestriction = 'InactivePageRestriction',
     StartFailed = 'StartFailed',
     TimeoutBackgrounded = 'TimeoutBackgrounded',
+    CrossSiteRedirect = 'CrossSiteRedirect',
+    CrossSiteNavigation = 'CrossSiteNavigation',
+    SameSiteCrossOriginRedirect = 'SameSiteCrossOriginRedirect',
+    SameSiteCrossOriginNavigation = 'SameSiteCrossOriginNavigation',
+    SameSiteCrossOriginRedirectNotOptIn = 'SameSiteCrossOriginRedirectNotOptIn',
+    SameSiteCrossOriginNavigationNotOptIn = 'SameSiteCrossOriginNavigationNotOptIn',
   }
 
   export interface AddScriptToEvaluateOnLoadRequest {
@@ -11249,6 +11259,10 @@ export namespace Page {
      * Capture the screenshot beyond the viewport. Defaults to false.
      */
     captureBeyondViewport?: boolean;
+    /**
+     * Optimize image encoding for speed, not for resulting size (defaults to false)
+     */
+    optimizeForSpeed?: boolean;
   }
 
   export interface CaptureScreenshotResponse extends ProtocolResponseWithError {
@@ -11950,12 +11964,6 @@ export namespace Page {
      * JavaScript stack trace of when frame was attached, only set if frame initiated from script.
      */
     stack?: Runtime.StackTrace;
-    /**
-     * Identifies the bottom-most script which caused the frame to be labelled
-     * as an ad. Only sent if frame is labelled as an ad and id is available.
-     * Deprecated: use Page.getAdScriptId instead.
-     */
-    adScriptId?: AdScriptId;
   }
 
   /**
@@ -12910,6 +12918,7 @@ export namespace Storage {
     Service_workers = 'service_workers',
     Cache_storage = 'cache_storage',
     Interest_groups = 'interest_groups',
+    Shared_storage = 'shared_storage',
     All = 'all',
     Other = 'other',
   }
@@ -12972,6 +12981,23 @@ export namespace Storage {
     userBiddingSignals?: string;
     ads: InterestGroupAd[];
     adComponents: InterestGroupAd[];
+  }
+
+  /**
+   * Struct for a single key-value pair in an origin's shared storage.
+   */
+  export interface SharedStorageEntry {
+    key: string;
+    value: string;
+  }
+
+  /**
+   * Details for an origin's shared storage.
+   */
+  export interface SharedStorageMetadata {
+    creationTime: Network.TimeSinceEpoch;
+    length: integer;
+    remainingBudget: number;
   }
 
   export interface GetStorageKeyForFrameRequest {
@@ -13147,6 +13173,22 @@ export namespace Storage {
 
   export interface SetInterestGroupTrackingRequest {
     enable: boolean;
+  }
+
+  export interface GetSharedStorageMetadataRequest {
+    ownerOrigin: string;
+  }
+
+  export interface GetSharedStorageMetadataResponse extends ProtocolResponseWithError {
+    metadata: SharedStorageMetadata;
+  }
+
+  export interface GetSharedStorageEntriesRequest {
+    ownerOrigin: string;
+  }
+
+  export interface GetSharedStorageEntriesResponse extends ProtocolResponseWithError {
+    entries: SharedStorageEntry[];
   }
 
   /**

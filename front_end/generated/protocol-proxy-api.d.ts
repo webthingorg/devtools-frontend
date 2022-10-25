@@ -2962,6 +2962,16 @@ declare namespace ProtocolProxyApi {
      */
     invoke_setInterestGroupTracking(params: Protocol.Storage.SetInterestGroupTrackingRequest): Promise<Protocol.ProtocolResponseWithError>;
 
+    /**
+     * Gets metadata for an origin's shared storage.
+     */
+    invoke_getSharedStorageMetadata(params: Protocol.Storage.GetSharedStorageMetadataRequest): Promise<Protocol.Storage.GetSharedStorageMetadataResponse>;
+
+    /**
+     * Gets the entries in an given origin's shared storage.
+     */
+    invoke_getSharedStorageEntries(params: Protocol.Storage.GetSharedStorageEntriesRequest): Promise<Protocol.Storage.GetSharedStorageEntriesResponse>;
+
   }
   export interface StorageDispatcher {
     /**
