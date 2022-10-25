@@ -16,6 +16,23 @@
       "message": "PTAL, I have no idea why this seems to work.",
       "revId": "0638c5abf005c81fa23e3b23e10b662fd5f98943",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f99cc9_4a6e5f96",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-10-25T11:03:32Z",
+      "side": 1,
+      "message": "I can’t say I understand this either, but since it fixes an immediate issue, LGTM.\n\nSome open questions I’d love to hear your thoughts on:\n\n- Do we need to set .height as well?\n- Should we use the `width` and `height` variables that are being used on line 1086-1087?\n- If not, should we do `img.width \u003d img.naturalWidth` and similar for `.naturalHeight` instead?",
+      "revId": "0638c5abf005c81fa23e3b23e10b662fd5f98943",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
