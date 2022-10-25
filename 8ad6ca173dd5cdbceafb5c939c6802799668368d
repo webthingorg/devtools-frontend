@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63385ca1_71edb683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-10-25T10:19:15Z",
+      "side": 1,
+      "message": "Would it be enough to track it in the ticket (chromium:1377770) or do we need to have a doc for that?",
+      "parentUuid": "da9c67b7_4c7dd1f2",
+      "revId": "8ad6ca173dd5cdbceafb5c939c6802799668368d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20278065_d0ad9169",
