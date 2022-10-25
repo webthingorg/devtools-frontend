@@ -1854,7 +1854,7 @@ QuickOpen.FilteredListWidget.registerProvider({
   iconName: 'ic_command_go_to_symbol',
   async provider() {
     const Sources = await loadSourcesModule();
-    return Sources.OutlineQuickOpen.OutlineQuickOpen.instance();
+    return new Sources.OutlineQuickOpen.OutlineQuickOpen();
   },
   titlePrefix: i18nLazyString(UIStrings.goTo),
   titleSuggestion: i18nLazyString(UIStrings.symbol),
