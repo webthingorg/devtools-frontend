@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import type * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as QuickOpen from '../../ui/legacy/components/quick_open/quick_open.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -289,6 +290,11 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
 
   currentUISourceCode(): Workspace.UISourceCode.UISourceCode|null {
     return this.editorContainer.currentFile();
+  }
+
+  currentTextEditor(): TextEditor.TextEditor.TextEditor|null {
+    const sourceFrame = this.currentSourceFrame();
+    return sourceFrame && sourceFrame.textEditor;
   }
 
   onCloseEditorTab(): boolean {
