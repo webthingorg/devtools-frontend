@@ -29,12 +29,19 @@ export enum RegisteredAdorners {
   AD = 'ad',
   SCROLL_SNAP = 'scroll-snap',
   CONTAINER = 'container',
+  SCOLL = 'scoll',
 }
 
 // This enum-like const object serves as the authoritative registry for all the
 // adorners available.
 export function getRegisteredAdorner(which: RegisteredAdorners): RegisteredAdorner {
   switch (which) {
+    case RegisteredAdorners.SCOLL:
+      return {
+        name: 'scoll',
+        category: AdornerCategories.LAYOUT,
+        enabledByDefault: true,
+      };
     case RegisteredAdorners.GRID:
       return {
         name: 'grid',

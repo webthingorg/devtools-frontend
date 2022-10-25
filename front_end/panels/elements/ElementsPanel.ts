@@ -1178,6 +1178,7 @@ export const enum _splitMode {
   Horizontal = 'Horizontal',
 }
 
+// Define the properties that need to be dynamically tracked by the backend.
 const TrackedCSSProperties = [
   {
     name: 'display',
@@ -1206,6 +1207,30 @@ const TrackedCSSProperties = [
   {
     name: 'container-type',
     value: 'size',
+  },
+  {
+    name: 'overflow',
+    value: 'auto',
+  },
+  {
+    name: 'overflow',
+    value: 'scoll',
+  },
+  {
+    name: 'overflow-x',
+    value: 'auto',
+  },
+  {
+    name: 'overflow-x',
+    value: 'scoll',
+  },
+  {
+    name: 'overflow-y',
+    value: 'auto',
+  },
+  {
+    name: 'overflow-y',
+    value: 'scoll',
   },
 ];
 
