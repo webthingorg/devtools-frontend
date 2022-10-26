@@ -96,7 +96,7 @@ export class MockProtocolBackend {
   async createCallFrame(
       target: SDK.Target.Target, script: {url: string, content: string}, scopeDescriptor: string,
       sourceMap: {url: string, content: string},
-      scopeObject: Protocol.Runtime.RemoteObject|null = null): Promise<SDK.DebuggerModel.CallFrame> {
+      scopeObjects: Protocol.Runtime.RemoteObject[] = []): Promise<SDK.DebuggerModel.CallFrame> {
     const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel) as SDK.DebuggerModel.DebuggerModel;
     const scriptObject = await this.addScript(target, script, sourceMap);
 
@@ -107,8 +107,9 @@ export class MockProtocolBackend {
             s.endColumn));
 
     const innerScope = scopeChain[0];
-    if (scopeObject) {
-      innerScope.object = scopeObject;
+    console.assert(scopeObjects.length < scopeChain.length);
+    for (let i = 0; i < scopeObjects.length; ++i) {
+      scopeChain[i].object = scopeObjects[i];
     }
 
     const payload: Protocol.Debugger.CallFrame = {
