@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04dd1c9c_16e9f767",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-26T07:52:51Z",
+      "side": 1,
+      "message": "`git cl format --js` does that. 😕",
+      "parentUuid": "77a2ff6f_b1507740",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e1b9bd7_62644a2f",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-10-26T07:32:32Z",
       "side": 1,
       "message": "Is there always a `ParamList`? Should we make sure here that we are actually arrived at the `ParamList` since it might just be that we have reached the end wihtout reaching it?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d1c9d8_b01ee5bd",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-26T07:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e1b9bd7_62644a2f",
       "revId": "b2325470070a374c202c943af406a11701928d70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66780e0a_32f880c0",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-26T07:52:51Z",
+      "side": 1,
+      "message": "My idea for this CL was to just support exactly the previous feature set, not adding anything new (except for the CSS in HTML which we get for free).",
+      "parentUuid": "d8076b10_47412451",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ada458b2_eb3f4bfe",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-10-26T07:32:32Z",
       "side": 1,
       "message": "There are a few repeating patterns that are more than one line long (like this one). WDYT about extracting a helper for these?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc465d6b_7809c317",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-26T07:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ada458b2_eb3f4bfe",
       "revId": "b2325470070a374c202c943af406a11701928d70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
