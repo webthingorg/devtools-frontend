@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbaf84ab_ac4f6a66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T14:01:49Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m changing the tooltips to use \u0027Edit condition\u0027 on regular and conditional breakpoints, and \u0027Edit logpoint\u0027 on logpoints. PTAL!",
+      "revId": "8f93e1ffc05066d5d09782497a58165b2766ba60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
