@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12694915_369cf469",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T07:32:32Z",
+      "side": 1,
+      "message": "LGTM % a few questions",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a2ff6f_b1507740",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T07:32:32Z",
+      "side": 1,
+      "message": "nit: is there a reason for keeping this in one line?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e1b9bd7_62644a2f",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T07:32:32Z",
+      "side": 1,
+      "message": "Is there always a `ParamList`? Should we make sure here that we are actually arrived at the `ParamList` since it might just be that we have reached the end wihtout reaching it?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8076b10_47412451",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T07:32:32Z",
+      "side": 1,
+      "message": "There also seems to be `PrivatePropertyDefinition`, isn\u0027t this something we also want to parse for the outline?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada458b2_eb3f4bfe",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-26T07:32:32Z",
+      "side": 1,
+      "message": "There are a few repeating patterns that are more than one line long (like this one). WDYT about extracting a helper for these?",
+      "revId": "b2325470070a374c202c943af406a11701928d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
