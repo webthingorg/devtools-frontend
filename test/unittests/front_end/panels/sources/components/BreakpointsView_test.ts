@@ -696,6 +696,19 @@ describeWithEnvironment('BreakpointsView', () => {
       await coordinator.done();
       return {component, data};
     }
+    it('pause on exceptions is tabbable', async () => {
+      const component = await renderNoBreakpoints({pauseOnExceptions: true, pauseOnCaughtExceptions: false});
+      assertShadowRoot(component.shadowRoot);
+
+      const focusableElements = component.shadowRoot.querySelectorAll(TABBABLE_SELECTOR);
+      assertElements(focusableElements, HTMLElement);
+      assert.lengthOf(focusableElements, 2);
+
+      const pauseOnExceptions = component.shadowRoot.querySelector(PAUSE_ON_EXCEPTIONS_SELECTOR);
+      const pauseOnCaughtExceptions = component.shadowRoot.querySelector(PAUSE_ON_CAUGHT_EXCEPTIONS_SELECTOR);
+
+      assert.deepEqual(Array.from(focusableElements), [pauseOnExceptions, pauseOnCaughtExceptions]);
+    });
 
     it('first summary node is tabbable', async () => {
       const {component} = await renderBreakpointsForKeyboardNavigation();
