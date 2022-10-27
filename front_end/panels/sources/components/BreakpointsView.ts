@@ -279,9 +279,11 @@ export class BreakpointsView extends HTMLElement {
     }
 
     if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
       return this.#handleHomeOrEndKey(event.key);
     }
     if (Platform.KeyboardUtilities.keyIsArrowKey(event.key)) {
+      event.preventDefault();
       return this.#handleArrowKey(event.key, event.target);
     }
 
