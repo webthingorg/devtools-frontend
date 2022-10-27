@@ -20,7 +20,7 @@ const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/inline_editor/CSS
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const {render, html, Directives} = LitHtml;
 
-const VARIABLE_FUNCTION_REGEX = /(^var\()\s*(--(?:[\s\w\P{ASCII}-]|\\.)+)(,?\s*.*)\s*(\))$/u;
+const VARIABLE_FUNCTION_REGEX = /(^var\()\s*(--(?:[\s\w\P{ASCII}-]|\\.)+)(,?)(\s*.*)\s*(\))$/u;
 
 interface SwatchRenderData {
   text: string;
@@ -32,7 +32,8 @@ interface SwatchRenderData {
 interface ParsedVariableFunction {
   pre: string;
   variableName: string;
-  fallbackIncludeComma: string;
+  comma: string;
+  fallback: string;
   post: string;
 }
 
@@ -97,12 +98,14 @@ export class CSSVarSwatch extends HTMLElement {
       // Returns the CSS variable name, e.g. `--foo`
       variableName: result[2],
 
-      // Returns the fallback value in the CSS variable, including a comma if
-      // one is present, e.g. `,50px`
-      fallbackIncludeComma: result[3],
+      // Returns comma `,`
+      comma: result[3],
+
+      // Returns the fallback value, e.g. `50px`
+      fallback: result[4],
 
       // Returns `)`
-      post: result[4],
+      post: result[5],
     };
   }
 
@@ -129,6 +132,21 @@ export class CSSVarSwatch extends HTMLElement {
         onActivate} role="link" tabindex="-1">${variableName}</span>`;
   }
 
+  private renderFallback(fallback: string): LitHtml.TemplateResult {
+    if (!fallback) {
+      return '';
+    }
+
+    const isDefined = this.computedValue && this.fromFallback;
+
+    const classes = Directives.classMap({
+      'css-var-fallback': true,
+      'undefined': !isDefined,
+    });
+
+    return html`<span class=${classes} tabindex="-1">${fallback}</span>`;
+  }
+
   private render(): void {
     const functionParts = this.parseVariableFunctionParts();
     if (!functionParts) {
@@ -137,12 +155,12 @@ export class CSSVarSwatch extends HTMLElement {
     }
 
     const variableNameLink = this.renderLink(functionParts.variableName);
-    const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
+    const fallback = this.renderFallback(functionParts.fallback);
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(
-      html`<span title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink}${fallbackIncludeComma}${functionParts.post}</span>`,
+      html`<span title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink}${functionParts.comma}${fallback}${functionParts.post}</span>`,
       this.shadow, { host: this });
     // clang-format on
   }
