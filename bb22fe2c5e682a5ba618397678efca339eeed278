@@ -16,6 +16,74 @@
       "message": "Could you take a look, please?",
       "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8cb4533_d2b8f482",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T05:37:41Z",
+      "side": 1,
+      "message": "LGTM % nits / question",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3abcf9b_c01b9ae7",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T05:37:41Z",
+      "side": 1,
+      "message": "nit: can we introduce a constant for 10000?",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d580a7b5_0788f604",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T05:37:41Z",
+      "side": 1,
+      "message": "nit: Can we make the 500 a constant?",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250c28f7_9f79ebcc",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T05:37:41Z",
+      "side": 1,
+      "message": "Why do we break if this is the local scope?",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
