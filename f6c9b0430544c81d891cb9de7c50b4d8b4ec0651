@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "020ff841_154c828b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T08:46:34Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere I\u0027m adding the consume(true) calls to prevent keyboard navigation from scrolling. PTAL!",
+      "revId": "f6c9b0430544c81d891cb9de7c50b4d8b4ec0651",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
