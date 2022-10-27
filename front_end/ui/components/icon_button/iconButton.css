@@ -58,11 +58,15 @@
   .icon-button {
     forced-color-adjust: none;
     background-color: ButtonFace;
+
+    --icon-color: ButtonText;
   }
 
   .icon-button:focus-visible,
   .icon-button.with-click-handler:hover {
     background-color: Highlight;
     color: HighlightText;
+
+    --icon-color: HighlightText;
   }
 }
