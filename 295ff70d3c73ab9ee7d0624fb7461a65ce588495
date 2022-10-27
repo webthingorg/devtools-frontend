@@ -16,6 +16,23 @@
       "message": "I have also fixed a bug where an empty block scope would bail out from scope computation (and added some extra tests covering that case).\n\nThanks!",
       "revId": "295ff70d3c73ab9ee7d0624fb7461a65ce588495",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0180b2_241cdc71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-27T10:52:51Z",
+      "side": 1,
+      "message": "Thanks, still LGTM % comment!",
+      "revId": "295ff70d3c73ab9ee7d0624fb7461a65ce588495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
