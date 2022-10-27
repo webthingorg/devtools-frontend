@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0fb8e6_2d5b9f0b",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-10-27T08:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3abcf9b_c01b9ae7",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d580a7b5_0788f604",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c7e5fa_7073fa40",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-10-27T08:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d580a7b5_0788f604",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "250c28f7_9f79ebcc",
@@ -82,6 +118,24 @@
       "writtenOn": "2022-10-27T05:37:41Z",
       "side": 1,
       "message": "Why do we break if this is the local scope?",
+      "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09292245_0c8fbc15",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-10-27T08:31:34Z",
+      "side": 1,
+      "message": "We only show inline variables for the current (local) function. That is actually unchanged from before.",
+      "parentUuid": "250c28f7_9f79ebcc",
       "revId": "bb22fe2c5e682a5ba618397678efca339eeed278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
