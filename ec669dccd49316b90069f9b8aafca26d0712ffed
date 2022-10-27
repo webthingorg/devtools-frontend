@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a42533b_6dcef86b",
+        "filename": "front_end/ui/components/icon_button/icon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-10-27T22:50:48Z",
+      "side": 1,
+      "message": "This patch takes out the rule above applying the important keyword first introduced in this PR here - https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3900804 - The important keyword blocks icons elsewhere from showing changes without having an important keyword override. The issues resolved by the aforementioned PR are also resolved within this patch",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
