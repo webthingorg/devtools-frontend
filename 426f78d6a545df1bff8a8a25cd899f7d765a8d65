@@ -51,6 +51,24 @@
       "message": "dsv@, PTAL. Thanks!",
       "revId": "426f78d6a545df1bff8a8a25cd899f7d765a8d65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9d668a_aaa56845",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544232
+      },
+      "writtenOn": "2022-10-28T02:11:33Z",
+      "side": 1,
+      "message": "Thanks for fixing this!",
+      "parentUuid": "e614b6a8_5e41d7de",
+      "revId": "426f78d6a545df1bff8a8a25cd899f7d765a8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
