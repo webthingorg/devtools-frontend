@@ -121,6 +121,8 @@ const str_ = i18n.i18n.registerUIStrings('core/sdk/NetworkManager.ts', UIStrings
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
+export const SET_COOKIE_HEADER_OVERRIDES_DATA_KEY = 'SetCookieHeaderOverrides';
+
 const requestToManagerMap = new WeakMap<NetworkRequest, NetworkManager>();
 
 const CONNECTION_TYPES = new Map([
@@ -1579,12 +1581,43 @@ export class InterceptedRequest {
     return this.#hasRespondedInternal;
   }
 
+  #storeSetCookieHeaders(responseHeaders: Protocol.Fetch.HeaderEntry[]): void {
+    const originalSetCookieHeaders =
+        this.networkRequest?.originalResponseHeaders.filter(header => header.name === 'set-cookie') || [];
+    const setCookieHeadersFromOverrides = responseHeaders.filter(header => header.name === 'set-cookie');
+
+    const malformedHeaders = new Set<string>();
+    const validHeaders = new Map<string, string>();
+    for (const header of originalSetCookieHeaders.concat(setCookieHeadersFromOverrides)) {
+      // The regex matches cookie headers of the form '<header-name>=<header-value>'.
+      // <header-name> is a token as defined in https://www.rfc-editor.org/rfc/rfc9110.html#name-tokens.
+      // The shape of <header-value> is not being validated at all here.
+      const match = header.value.match(/([a-zA-Z0-9!#$%&'*+.^_`|~-]+)=(.*)/);
+      if (match) {
+        validHeaders.set(match[1], match[2]);
+      } else {
+        malformedHeaders.add(header.value);
+      }
+    }
+
+    const mergedHeaders: Protocol.Fetch.HeaderEntry[] = [];
+    for (const [cookieName, cookieValue] of validHeaders) {
+      mergedHeaders.push({name: 'set-cookie', value: `${cookieName}=${cookieValue}`});
+    }
+    for (const headerValue of malformedHeaders) {
+      mergedHeaders.push({name: 'set-cookie', value: headerValue});
+    }
+
+    this.networkRequest?.setAssociatedData(SET_COOKIE_HEADER_OVERRIDES_DATA_KEY, mergedHeaders);
+  }
+
   async continueRequestWithContent(
       contentBlob: Blob, encoded: boolean, responseHeaders: Protocol.Fetch.HeaderEntry[],
       isBodyOverridden: boolean): Promise<void> {
     this.#hasRespondedInternal = true;
     const body = encoded ? await contentBlob.text() : await blobToBase64(contentBlob);
     const responseCode = isBodyOverridden ? 200 : (this.responseStatusCode || 200);
+    this.#storeSetCookieHeaders(responseHeaders);
     void this.#fetchAgent.invoke_fulfillRequest({requestId: this.requestId, responseCode, body, responseHeaders});
     MultitargetNetworkManager.instance().dispatchEventToListeners(
         MultitargetNetworkManager.Events.RequestFulfilled, this.request.url as Platform.DevToolsPath.UrlString);
