@@ -15,11 +15,9 @@ devtools_module("formatter_worker") {
     "FormattedContentBuilder.ts",
     "FormatterWorker.ts",
     "HTMLFormatter.ts",
-    "HTMLOutline.ts",
     "IdentityFormatter.ts",
     "JSONFormatter.ts",
     "JavaScriptFormatter.ts",
-    "JavaScriptOutline.ts",
     "ScopeParser.ts",
     "Substitute.ts",
   ]
