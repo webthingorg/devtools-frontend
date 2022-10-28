@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d18a6b63_b4bb03dd",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-28T14:32:11Z",
+      "side": 1,
+      "message": "Nah, using associated data doesn\u0027t make any sense if you have to do it from NetworkManager which is the same module and at the same level of abstraction as the NetworkRequest. I suggested to use associated data for loose coupling so to have UI-specific data stored in the lower-level abstraction that can\u0027t interpret the data. Here we are populating the data at the same level of abstraction, so we are clearly able to interpret it. Let\u0027s just store it as an explicit member.\n\nSorry for the back and forth:)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 79
+      },
+      "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e517a44b_78e8c571",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-28T14:32:11Z",
+      "side": 1,
+      "message": "What do we achieve by parsing and serializing the header value back? Normalization?",
+      "range": {
+        "startLine": 1605,
+        "startChar": 0,
+        "endLine": 1605,
+        "endChar": 86
+      },
+      "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
