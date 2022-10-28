@@ -1004,6 +1004,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     editHeaderRow(component, 0, HeaderAttribute.HeaderValue, 'unit test');
 
     component.remove();
+    const originalUiSourceCodeForURL = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL;
     Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL = () => null;
 
     const component2 = await renderResponseHeaderSection(request);
@@ -1011,5 +1012,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const rows = component2.shadowRoot.querySelectorAll('devtools-header-section-row');
     assert.strictEqual(rows.length, 1);
     checkHeaderSectionRow(rows[0], 'server:', 'overridden server', true, false, false);
+
+    Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL = originalUiSourceCodeForURL;
   });
 });
