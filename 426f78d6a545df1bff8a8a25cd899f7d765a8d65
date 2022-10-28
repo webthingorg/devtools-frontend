@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88517835_71d5278f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-10-28T00:43:26Z",
+      "side": 1,
+      "message": "mych@, PTAL at front_end/panels/application/components/BackForwardCacheStrings.ts\n\nI need to be able to fix the compilation error below after rolling the protocol, so it seems I have to add the enum value to the frontend.\n\n```\nTypeScript compilation failed. Used tsconfig gen/front_end/panels/application/components/components-tsconfig.json\n\n../../front_end/panels/application/components/BackForwardCacheView.ts(622,17): error TS7053: Element implicitly has an \u0027any\u0027 type because expression of type \u0027BackForwardCacheNotRestoredReason\u0027 can\u0027t be used to index type \u0027{ NotPrimaryMainFrame: { name: () \u003d\u003e LocalizedString; }; BackForwardCacheDisabled: { name: () \u003d\u003e LocalizedString; }; RelatedActiveContentsExist: { name: () \u003d\u003e LocalizedString; }; ... 122 more ...; FencedFramesEmbedder: { ...; }; }\u0027.\n  Property \u0027[BackForwardCacheNotRestoredReason.KeepaliveRequest]\u0027 does not exist on type \u0027{ NotPrimaryMainFrame: { name: () \u003d\u003e LocalizedString; }; BackForwardCacheDisabled: { name: () \u003d\u003e LocalizedString; }; RelatedActiveContentsExist: { name: () \u003d\u003e LocalizedString; }; ... 122 more ...; FencedFramesEmbedder: { ...; }; }\u0027.\n```",
+      "revId": "426f78d6a545df1bff8a8a25cd899f7d765a8d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
