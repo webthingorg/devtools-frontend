@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e985c513_07c0f412",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-10-28T09:11:21Z",
+      "side": 1,
+      "message": "This is yet a draft state, but could you have a look and check direction, Danil?",
+      "revId": "8c8e5226bdf7038f2e3525dd852d5f9ecffd11e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a999507_ee02c44c",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-10-28T09:11:21Z",
+      "side": 1,
+      "message": "TODO: Land CL on chromium repo first.",
+      "revId": "8c8e5226bdf7038f2e3525dd852d5f9ecffd11e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d10bbd_a595dd38",
+        "filename": "front_end/panels/application/components/components.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-10-28T09:11:21Z",
+      "side": 1,
+      "message": "I feel this is ugly. Can we make `preloading` subdirectory and put all of them into it as the following?\n\n```\nfront_end/panels/application/preloading/components/preloadingDetailsReportView.css\nfront_end/panels/application/preloading/components/preloadingGrid.css\nfront_end/panels/application/preloading/PreloadingModel.ts\nfront_end/panels/application/preloading/preloadingView.css\nfront_end/panels/application/preloading/PreloadingView.ts\n```",
+      "revId": "8c8e5226bdf7038f2e3525dd852d5f9ecffd11e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
