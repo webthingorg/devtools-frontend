@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ebe88f_0bbaddb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-28T15:03:53Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "0719efb88984de81c0383cce384ee943d24a1adf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d52768_961b8c92",
+        "filename": "test/unittests/front_end/models/bindings/ResourceUtils_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-28T15:03:53Z",
+      "side": 1,
+      "message": "super-nit: returns a resource...\n(same in L55)",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "0719efb88984de81c0383cce384ee943d24a1adf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0918d45a_7bb28bf0",
+        "filename": "test/unittests/front_end/models/bindings/ResourceUtils_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-28T15:03:53Z",
+      "side": 1,
+      "message": "typo: strips",
+      "range": {
+        "startLine": 93,
+        "startChar": 8,
+        "endLine": 93,
+        "endChar": 13
+      },
+      "revId": "0719efb88984de81c0383cce384ee943d24a1adf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
