@@ -214,6 +214,8 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
   private readonly resizeThrottler: Common.Throttler.Throttler;
   private readonly imagePreviewPopover: ImagePreviewPopover;
   #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
+  #varPopoverHelper: UI.PopoverHelper.PopoverHelper;
+
   activeCSSAngle: InlineEditor.CSSAngle.CSSAngle|null;
   #urlToChangeTracker: Map<Platform.DevToolsPath.UrlString, ChangeTracker> = new Map();
   #copyChangesButton?: UI.Toolbar.ToolbarButton;
@@ -313,6 +315,32 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     });
     this.#hintPopoverHelper.setTimeout(200);
     this.#hintPopoverHelper.setHasPadding(true);
+
+    // Binding cssVarSwatch Popover.
+    // TODO: The popover needs to be hidden when the page is on scrolled.
+    this.#varPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
+      const link = event.composedPath()[0] as HTMLElement;
+      if (!link) {
+        return null;
+      }
+
+      if (!link.matches('.css-var-link')) {
+        return null;
+      }
+
+      return {
+        box: link.boxInWindow(),
+        show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+          const popupElement = document.createElement('div');
+          popupElement.innerText = link.getAttribute('data-title') || '';  // CSS variable value
+          popupElement.style.padding = '.2em .3em';
+          popover.contentElement.appendChild(popupElement);
+          return true;
+        },
+      };
+    });
+    this.#varPopoverHelper.setTimeout(200, 200);
+    this.#varPopoverHelper.setHasPadding(true);
   }
 
   swatchPopoverHelper(): InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper {
@@ -1166,6 +1194,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     if (this.activeCSSAngle) {
       this.activeCSSAngle.minify();
       this.activeCSSAngle = null;
+    }
+    // Hide varPopoverHelper
+    if (this.#varPopoverHelper) {
+      this.#varPopoverHelper.hidePopover();
     }
   }
 
