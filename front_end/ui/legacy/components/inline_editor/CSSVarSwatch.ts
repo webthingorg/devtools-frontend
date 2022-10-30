@@ -150,6 +150,7 @@ export class CSSVarSwatch extends HTMLElement {
     render(
       html`<span data-title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink.html}${fallbackIncludeComma}${functionParts.post}</span>`,
       this.shadow, { host: this });
+    // clang-format on
   }
 }
 
