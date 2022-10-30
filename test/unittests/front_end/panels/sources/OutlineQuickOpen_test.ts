@@ -764,6 +764,44 @@ const sub = (x, y) => x - y;
       );
     });
   });
+
+  describe('generates a correct WebAssembly outline', () => {
+    let extensions: CodeMirror.Extension|undefined;
+
+    before(async () => {
+      const wast = await CodeMirror.wast();
+      extensions = [wast.wast()];
+    });
+
+    function wastOutline(doc: string) {
+      const state = CodeMirror.EditorState.create({doc, extensions});
+      return Sources.OutlineQuickOpen.outline(state);
+    }
+
+    it('for empty modules', () => {
+      assert.deepEqual(wastOutline('(module)'), []);
+      assert.deepEqual(wastOutline('(module $foo)'), [{title: '$foo', lineNumber: 0, columnNumber: 8}]);
+    });
+
+    it('for named functions', () => {
+      assert.deepEqual(
+          wastOutline(`(module
+  (func $add (param $lhs i32) (param $rhs i32) (result i32)
+    local.get $lhs
+    local.get $rhs
+    i32.add)
+  (func (param $x i32) (param $y) (result i32)
+    i32.const 1)
+  (func $id (param $x i32) (result i32))
+    local.get $x)
+)`),
+          [
+            {title: '$add', lineNumber: 1, columnNumber: 8},
+            {title: '$id', lineNumber: 7, columnNumber: 8},
+          ],
+      );
+    });
+  });
 });
 
 describe('OutlineQuickOpen', () => {

@@ -72,6 +72,25 @@ export function outline(state: CodeMirror.EditorState): OutlineItem[] {
   const cursor = tree.cursor();
   do {
     switch (cursor.name) {
+      // wast.grammar
+      case 'App': {
+        cursor.firstChild();
+        if (cursor.nextSibling() && cursor.name as string === 'Keyword') {
+          switch (state.sliceDoc(cursor.from, cursor.to)) {
+            case 'func':
+            case 'module':
+              if (cursor.nextSibling() && cursor.name as string === 'Identifier') {
+                const title = state.sliceDoc(cursor.from, cursor.to);
+                const {lineNumber, columnNumber} = toLineColumn(cursor.from);
+                items.push({title, lineNumber, columnNumber});
+              } else {
+                cursor.prevSibling();
+              }
+              break;
+          }
+        }
+        break;
+      }
       // css.grammar
       case 'RuleSet': {
         for (cursor.firstChild();; cursor.nextSibling()) {
@@ -253,11 +272,24 @@ export class OutlineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     titleElement.textContent = item.title + (item.subtitle ? item.subtitle : '');
     QuickOpen.FilteredListWidget.FilteredListWidget.highlightRanges(titleElement, query);
 
+    const sourceFrame = this.currentSourceFrame();
+    if (!sourceFrame) {
+      return;
+    }
+
     const tagElement = (titleElement.parentElement?.parentElement?.createChild('span', 'tag') as HTMLElement);
     if (!tagElement) {
       return;
     }
-    tagElement.textContent = `:${item.lineNumber + 1}`;
+
+    const disassembly = sourceFrame.wasmDisassembly;
+    if (disassembly) {
+      const lastBytecodeOffset = disassembly.lineNumberToBytecodeOffset(disassembly.lineNumbers - 1);
+      const bytecodeOffsetDigits = lastBytecodeOffset.toString(16).length;
+      tagElement.textContent = `:0x${item.columnNumber.toString(16).padStart(bytecodeOffsetDigits, '0')}`;
+    } else {
+      tagElement.textContent = `:${item.lineNumber + 1}`;
+    }
   }
 
   selectItem(itemIndex: number|null, _promptValue: string): void {
