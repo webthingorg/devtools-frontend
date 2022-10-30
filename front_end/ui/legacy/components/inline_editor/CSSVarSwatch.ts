@@ -4,6 +4,7 @@
 
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+// import * as UI from '../../../../ui/legacy/legacy.js';
 import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 
@@ -26,7 +27,7 @@ interface SwatchRenderData {
   text: string;
   computedValue: string|null;
   fromFallback: boolean;
-  onLinkActivate: (varialeName: string) => void;
+  onLinkActivate: (variableName: string) => void;
 }
 
 interface ParsedVariableFunction {
@@ -42,7 +43,7 @@ export class CSSVarSwatch extends HTMLElement {
   private text: string = '';
   private computedValue: string|null = null;
   private fromFallback: boolean = false;
-  private onLinkActivate: (varialeName: string, event: MouseEvent|KeyboardEvent) => void = () => undefined;
+  private onLinkActivate: (variableName: string, event: MouseEvent|KeyboardEvent) => void = () => undefined;
 
   constructor() {
     super();
@@ -114,7 +115,7 @@ export class CSSVarSwatch extends HTMLElement {
     return '';
   }
 
-  private renderLink(variableName: string): LitHtml.TemplateResult {
+  private renderLink(variableName: string): {html: LitHtml.TemplateResult, title: string} {
     const isDefined = this.computedValue && !this.fromFallback;
 
     const classes = Directives.classMap({
@@ -125,8 +126,13 @@ export class CSSVarSwatch extends HTMLElement {
     // The this.variableName's space must be removed, otherwise it cannot be triggered when clicked.
     const onActivate = isDefined ? this.onLinkActivate.bind(this, this.variableName.trim()) : null;
 
-    return html`<span class=${classes} title=${title} @mousedown=${onActivate} @keydown=${
-        onActivate} role="link" tabindex="-1">${variableName}</span>`;
+    return {
+      // We added var popover, so don't need the title attribute anymore and
+      // only provide the data-title for the popover to get the data.
+      html: html`<span class=${classes} data-title=${title} @mousedown=${onActivate} @keydown=${
+          onActivate} role="link" tabindex="-1">${variableName}</span>`,
+      title: title || '',
+    };
   }
 
   private render(): void {
@@ -135,14 +141,14 @@ export class CSSVarSwatch extends HTMLElement {
       render('', this.shadow, {host: this});
       return;
     }
-
-    const variableNameLink = this.renderLink(functionParts.variableName);
+    const variableName = functionParts.variableName;
+    const variableNameLink = this.renderLink(variableName);
     const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(
-      html`<span title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink}${fallbackIncludeComma}${functionParts.post}</span>`,
+      html`<span data-title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink.html}${fallbackIncludeComma}${functionParts.post}</span>`,
       this.shadow, { host: this });
     // clang-format on
   }
