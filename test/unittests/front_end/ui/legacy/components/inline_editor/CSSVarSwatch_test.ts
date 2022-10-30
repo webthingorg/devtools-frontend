@@ -24,11 +24,12 @@ function assertSwatch(swatch: InlineEditor.CSSVarSwatch.CSSVarSwatch, expected: 
   assertNotNullOrUndefined(link);
 
   assert.strictEqual(
-      container.getAttribute('title'), expected.valueTooltip || '', 'The computed values appears as a tooltip');
+      container.getAttribute('data-title'), expected.valueTooltip || '',
+      'The computed values appears as a data-title for tooltip');
   assert.strictEqual(
       link.classList.contains('undefined'), !expected.isDefined,
       'The link only has the class undefined when the property is undefined');
-  assert.strictEqual(link.getAttribute('title'), expected.linkTooltip, 'The link has the right tooltip');
+  assert.strictEqual(link.getAttribute('data-title'), expected.linkTooltip, 'The link has the right data for tooltip');
   assert.strictEqual(link.textContent, expected.varText, 'The link has the right text content');
 }
 
