@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7985ea34_c05f51be",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-10-30T15:12:56Z",
+      "side": 1,
+      "message": "I think CSSVarPopoverHelper would be better.",
+      "revId": "85492e1d0062becc77d99960110e3c8cd6a7a8a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c786bf_8866f5e5",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-10-30T15:12:56Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "85492e1d0062becc77d99960110e3c8cd6a7a8a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
