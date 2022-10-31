@@ -16,6 +16,57 @@
       "message": "Kim, could you take a look please? Thanks!",
       "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8dba53_da54998d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-31T08:19:37Z",
+      "side": 1,
+      "message": "LGTM % bots \u0026 test comment",
+      "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5fc8a1_7e59914f",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-31T08:19:37Z",
+      "side": 1,
+      "message": "Why not directly wait until we get 3 errorIcons? Isn\u0027t it otherwise racy? I.e. it has rendered one but not the others yet, but we\u0027re already asserting whether there are 3?\n\nIf we await 3 errorIcons we could of course run into a time out, but in that case it shows that we are timing out on waiting for 3 (which would then also reflect the actual problem)",
+      "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41bed45e_f8d3e83e",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-31T08:19:37Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
