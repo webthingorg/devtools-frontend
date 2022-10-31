@@ -5,11 +5,12 @@
 import * as AccessibilityTreeNode from './AccessibilityTreeNode.js';
 import * as AdornerManager from './AdornerManager.js';
 import * as AdornerSettingsPane from './AdornerSettingsPane.js';
-import * as CSSHintDetailsView from './CSSHintDetailsView.js';
 import * as ComputedStyleProperty from './ComputedStyleProperty.js';
 import * as ComputedStyleTrace from './ComputedStyleTrace.js';
+import * as CSSHintDetailsView from './CSSHintDetailsView.js';
 import * as CSSPropertyIconResolver from './CSSPropertyIconResolver.js';
 import * as CSSQuery from './CSSQuery.js';
+import * as CSSVariableValueView from './CSSVariableValueView.js';
 import * as ElementsBreadcrumbs from './ElementsBreadcrumbs.js';
 import * as ElementsBreadcrumbsUtils from './ElementsBreadcrumbsUtils.js';
 import * as ElementsPanelLink from './ElementsPanelLink.js';
@@ -23,11 +24,12 @@ export {
   AccessibilityTreeNode,
   AdornerManager,
   AdornerSettingsPane,
-  CSSHintDetailsView,
   ComputedStyleProperty,
   ComputedStyleTrace,
+  CSSHintDetailsView,
   CSSPropertyIconResolver,
   CSSQuery,
+  CSSVariableValueView,
   ElementsBreadcrumbs,
   ElementsBreadcrumbsUtils,
   ElementsPanelLink,
