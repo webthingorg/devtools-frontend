@@ -16,6 +16,23 @@
       "message": "Wolfgang, here\u0027s the fix for the overflow behavior of the last toolbar item. Could you take a look please? Thanks!",
       "revId": "fc448c412db296bce52ce9aee73a931c8ed85ceb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921918cc_a42fe3bd",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T16:07:11Z",
+      "side": 1,
+      "message": "Would it make sense to apply this not only to the last toolbar-item or would this break something?\nWhen DevTools is resized to about 550px or smaller, it\u0027s already the 2nd to last toolbar item which would profit from this attribute.",
+      "revId": "fc448c412db296bce52ce9aee73a931c8ed85ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
