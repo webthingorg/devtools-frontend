@@ -33,6 +33,24 @@
       "message": "Remove",
       "revId": "85492e1d0062becc77d99960110e3c8cd6a7a8a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb67748c_8bd8c3e5",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-31T01:15:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1c786bf_8866f5e5",
+      "revId": "85492e1d0062becc77d99960110e3c8cd6a7a8a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
