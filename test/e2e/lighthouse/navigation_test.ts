@@ -80,7 +80,7 @@ describe('Navigation', async function() {
           assert.strictEqual(numNavigations, 4);
         }
 
-        assert.strictEqual(lhr.lighthouseVersion, '9.6.6');
+        assert.strictEqual(lhr.lighthouseVersion, '9.6.8');
         assert.match(lhr.finalUrl, /^https:\/\/localhost:[0-9]+\/test\/e2e\/resources\/lighthouse\/hello.html/);
 
         assert.strictEqual(lhr.configSettings.throttlingMethod, 'simulate');
