@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0525d747_e9ab1740",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T11:30:00Z",
+      "side": 1,
+      "message": "Changes look reasonable to me, but I\u0027m not familiar with the theme switching code, so adding Jack to be sure.",
+      "revId": "a07e0a7668578f4317929db23983ce3c6171c706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "639b4beb_fecead5e",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T11:30:00Z",
+      "side": 1,
+      "message": "Would be simpler like this imo:\n```\nthis.themeNameInternal \u003d (isForcedColorsMode || this.setting.get() \u003d\u003d\u003d \u0027systemPreferred\u0027) ? systemPreferredTheme : this.setting.get();\n```",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "a07e0a7668578f4317929db23983ce3c6171c706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
