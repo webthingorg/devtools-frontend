@@ -110,6 +110,30 @@
       },
       "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aae197b_032c5a9b",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T09:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94cf1648_3dce207e",
+      "range": {
+        "startLine": 1605,
+        "startChar": 0,
+        "endLine": 1605,
+        "endChar": 86
+      },
+      "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
