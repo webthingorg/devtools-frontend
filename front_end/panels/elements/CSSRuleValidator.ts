@@ -183,7 +183,7 @@ export class FlexItemValidator extends CSSRuleValidator {
 
 export class FlexContainerValidator extends CSSRuleValidator {
   constructor() {
-    super(['flex-direction', 'flex-flow', 'flex-wrap', 'justify-content']);
+    super(['flex-direction', 'flex-flow', 'flex-wrap']);
   }
 
   getMetricType(): Host.UserMetrics.CSSHintType {
@@ -309,7 +309,9 @@ export class FlexGridValidator extends CSSRuleValidator {
   constructor() {
     super([
       'order',
+      'justify-content',
       'align-content',
+      'place-content',  // Shorthand	<'align-content'> <'justify-content'>?
       'align-items',
       'align-self',
     ]);
