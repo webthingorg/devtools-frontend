@@ -8,8 +8,16 @@ export type ElementId = string;
 
 const SUMMARY_ELEMENT_SELECTOR = 'summary';
 
+const domNodeIsTree = (domNode: HTMLElement): boolean => {
+  return domNode.getAttribute('role') === 'tree';
+};
+
 const domNodeIsBreakpointItemNode = (domNode: HTMLElement): boolean => {
   return domNode.getAttribute('role') === 'treeitem';
+};
+
+const domNodeIsPauseNode = (domNode: HTMLElement): boolean => {
+  return domNode.getAttribute('data-first-pause') !== null || domNode.getAttribute('data-last-pause') !== null;
 };
 
 const domNodeIsSummaryNode = (domNode: HTMLElement): boolean => {
@@ -41,11 +49,7 @@ const getCurrentSummaryNode = (detailsElement: HTMLDetailsElement): HTMLElement|
 };
 
 const getNextDetailsElement = (detailsElement: HTMLDetailsElement): HTMLDetailsElement|null => {
-  // To get to the next details element, we need to access `nextElementSibling` twice, as we
-  // need to step over a horizontal divider :
-  // <details></details> <hr/> <details></details>
-  const dividerElement = detailsElement.nextElementSibling;
-  const nextDetailsElement = dividerElement?.nextElementSibling;
+  const nextDetailsElement = detailsElement.nextElementSibling;
   if (nextDetailsElement && nextDetailsElement instanceof HTMLDetailsElement) {
     return nextDetailsElement;
   }
@@ -53,21 +57,54 @@ const getNextDetailsElement = (detailsElement: HTMLDetailsElement): HTMLDetailsE
 };
 
 const getPreviousDetailsElement = (detailsElement: HTMLDetailsElement): HTMLDetailsElement|null => {
-  // To get to the next details element, we need to access `previousElementSibling` twice, as we
-  // need to step over a horizontal divider :
-  // <details></details> <hr/> <details></details>
-  const dividerElement = detailsElement.previousElementSibling;
-  const previousDetailsElement = dividerElement?.previousElementSibling;
+  const previousDetailsElement = detailsElement.previousElementSibling;
   if (previousDetailsElement && previousDetailsElement instanceof HTMLDetailsElement) {
     return previousDetailsElement;
   }
   return null;
 };
 
+function findNextNodeOnPause(target: HTMLElement, key: Platform.KeyboardUtilities.ArrowKey): HTMLElement|null {
+  let nextNode: HTMLElement|null = null;
+  switch (key) {
+    case Platform.KeyboardUtilities.ArrowKey.UP: {
+      const previousElementSibling = target.previousElementSibling;
+      if (previousElementSibling instanceof HTMLElement) {
+        nextNode = previousElementSibling;
+        console.assert(domNodeIsPauseNode(nextNode));
+      }
+      break;
+    }
+    case Platform.KeyboardUtilities.ArrowKey.DOWN: {
+      const nextElementSibling = target.nextElementSibling;
+      if (nextElementSibling instanceof HTMLElement) {
+        if (domNodeIsTree(nextElementSibling)) {
+          const detailsElement = nextElementSibling.querySelector<HTMLDetailsElement>('[data-first-group]');
+          if (detailsElement) {
+            nextNode = getCurrentSummaryNode(detailsElement);
+          }
+        } else {
+          nextNode = nextElementSibling;
+          console.assert(domNodeIsPauseNode(nextNode));
+        }
+      }
+      break;
+    }
+    default:
+      break;
+  }
+
+  return nextNode;
+}
+
 export async function findNextNodeForKeyboardNavigation(
     target: HTMLElement, key: Platform.KeyboardUtilities.ArrowKey,
     setGroupExpandedStateCallback: (detailsElement: HTMLDetailsElement, expanded: boolean) =>
         Promise<unknown>): Promise<HTMLElement|null> {
+  if (domNodeIsPauseNode(target)) {
+    return findNextNodeOnPause(target, key);
+  }
+
   const detailsElement = target.parentElement;
   if (!detailsElement || !(detailsElement instanceof HTMLDetailsElement)) {
     throw new Error('The selected nodes should be direct children of an HTMLDetails element.');
@@ -133,6 +170,11 @@ export async function findNextNodeForKeyboardNavigation(
             nextNode = getLastBreakpointItemInGroup(previousDetailsElement);
           } else {
             nextNode = getCurrentSummaryNode(previousDetailsElement);
+          }
+        } else {
+          const pauseOnExceptions = detailsElement.parentElement?.previousElementSibling;
+          if (pauseOnExceptions instanceof HTMLElement) {
+            nextNode = pauseOnExceptions;
           }
         }
       } else {
