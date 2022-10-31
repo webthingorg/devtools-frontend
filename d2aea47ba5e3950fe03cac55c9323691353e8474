@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1040838_ef90d2c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-10-31T11:45:06Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthis CL is unifying the keyboard navigation across the whole side bar pane. PTAL!",
+      "revId": "d2aea47ba5e3950fe03cac55c9323691353e8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
