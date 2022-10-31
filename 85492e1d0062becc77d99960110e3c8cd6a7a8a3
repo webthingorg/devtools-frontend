@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a971d49b_69cd24ef",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-10-31T01:17:14Z",
+      "side": 1,
+      "message": "According to the camelCase, renamed.",
+      "parentUuid": "7985ea34_c05f51be",
+      "revId": "85492e1d0062becc77d99960110e3c8cd6a7a8a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1c786bf_8866f5e5",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
