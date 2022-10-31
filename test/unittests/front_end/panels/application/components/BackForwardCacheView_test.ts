@@ -15,8 +15,8 @@ import {
   dispatchClickEvent,
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
-import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
-import {describeWithRealConnection} from '../../../helpers/RealConnection.js';
+import {createTarget, describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import {describeWithMockConnection, dispatchEvent} from '../../../helpers/MockConnection.js';
 
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 
@@ -52,6 +52,60 @@ async function unpromisify(node: TreeOutline.TreeOutlineUtils.TreeNode<NodeData>
   }
   return result;
 }
+
+describeWithMockConnection('BackForwardCacheViewWrapper', () => {
+  const updatesBFCacheView = (targetFactory: () => SDK.Target.Target) => {
+    let target: SDK.Target.Target;
+    let resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel|null;
+    let view: ApplicationComponents.BackForwardCacheView.BackForwardCacheView;
+    const FRAME = {
+      id: 'main',
+      loaderId: 'test',
+      url: 'http://example.com',
+      securityOrigin: 'http://example.com',
+      mimeType: 'text/html',
+    };
+
+    beforeEach(() => {
+      target = targetFactory();
+      resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel);
+      dispatchEvent(target, 'Page.frameNavigated', {frame: FRAME});
+      view = new ApplicationComponents.BackForwardCacheView.BackForwardCacheView();
+      const wrapper = new ApplicationComponents.BackForwardCacheView.BackForwardCacheViewWrapper(view);
+      wrapper.markAsRoot();
+      wrapper.show(document.body);
+    });
+
+    it('updates BFCacheView on main frame navigation', async () => {
+      assertNotNullOrUndefined(resourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel.mainFrame);
+      resourceTreeModel.dispatchEventToListeners(
+          SDK.ResourceTreeModel.Events.MainFrameNavigated, resourceTreeModel.mainFrame);
+
+      const data = await new Promise(resolve => sinon.stub(view, 'data').set(resolve));
+      assert.deepStrictEqual(data, {frame: resourceTreeModel.mainFrame});
+    });
+
+    it('updates BFCacheView on BFCache detail update', async () => {
+      assertNotNullOrUndefined(resourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel.mainFrame);
+      resourceTreeModel.dispatchEventToListeners(
+          SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, resourceTreeModel.mainFrame);
+
+      const data = await new Promise(resolve => sinon.stub(view, 'data').set(resolve));
+      assert.deepStrictEqual(data, {frame: resourceTreeModel.mainFrame});
+    });
+  };
+
+  describe('without tab target', () => updatesBFCacheView(() => createTarget()));
+  describe('with tab target', () => updatesBFCacheView(() => {
+                                const tabTarget = createTarget({type: SDK.Target.Type.Tab});
+                                const frameTarget = createTarget({parentTarget: tabTarget});
+                                createTarget({parentTarget: tabTarget, subtype: 'prerender'});
+                                return frameTarget;
+                              }));
+});
 
 describeWithEnvironment('BackForwardCacheView', () => {
   it('renders status if restored from BFCache', async () => {
@@ -192,67 +246,76 @@ describeWithEnvironment('BackForwardCacheView', () => {
   });
 });
 
-describeWithRealConnection('BackForwardCacheView', () => {
-  it('can handle delayed navigation history when testing for BFcache availability', async () => {
-    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
-    const resourceTreeModel = mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    assertNotNullOrUndefined(resourceTreeModel);
+describeWithMockConnection('BackForwardCacheView', () => {
+  const testBFCacheWorkflow = (targetFactory: () => SDK.Target.Target) => {
+    it('can handle delayed navigation history when testing for BFcache availability', async () => {
+      const mainTarget = targetFactory();
+      const resourceTreeModel = mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel);
 
-    const entries = [
-      {
-        id: 5,
+      const entries = [
+        {
+          id: 5,
+          url: 'about:blank',
+          userTypedURL: 'about:blank',
+          title: '',
+          transitionType: Protocol.Page.TransitionType.Typed,
+        },
+        {
+          id: 8,
+          url: 'chrome://terms/',
+          userTypedURL: '',
+          title: '',
+          transitionType: Protocol.Page.TransitionType.Typed,
+        },
+      ];
+      const stub = sinon.stub();
+      stub.onCall(0).returns({entries, currentIndex: 0});
+      stub.onCall(1).returns({entries, currentIndex: 0});
+      stub.onCall(2).returns({entries, currentIndex: 0});
+      stub.onCall(3).returns({entries, currentIndex: 0});
+      stub.onCall(4).returns({entries, currentIndex: 1});
+      resourceTreeModel.navigationHistory = stub;
+
+      resourceTreeModel.navigate = (url: Platform.DevToolsPath.UrlString): Promise<void> => {
+        resourceTreeModel.frameNavigated({url} as unknown as Protocol.Page.Frame, undefined);
+        return Promise.resolve();
+      };
+      resourceTreeModel.navigateToHistoryEntry = (entry: Protocol.Page.NavigationEntry): void => {
+        resourceTreeModel.frameNavigated({url: entry.url} as unknown as Protocol.Page.Frame, undefined);
+      };
+      const navigateToHistoryEntrySpy = sinon.spy(resourceTreeModel, 'navigateToHistoryEntry');
+      resourceTreeModel.storageKeyForFrame = () => Promise.resolve(null);
+
+      const frame = {
         url: 'about:blank',
-        userTypedURL: 'about:blank',
-        title: '',
-        transitionType: Protocol.Page.TransitionType.Typed,
-      },
-      {
-        id: 8,
-        url: 'chrome://terms/',
-        userTypedURL: '',
-        title: '',
-        transitionType: Protocol.Page.TransitionType.Typed,
-      },
-    ];
-    const stub = sinon.stub();
-    stub.onCall(0).returns({entries, currentIndex: 0});
-    stub.onCall(1).returns({entries, currentIndex: 0});
-    stub.onCall(2).returns({entries, currentIndex: 0});
-    stub.onCall(3).returns({entries, currentIndex: 0});
-    stub.onCall(4).returns({entries, currentIndex: 1});
-    resourceTreeModel.navigationHistory = stub;
+        backForwardCacheDetails: {
+          restoredFromCache: true,
+          explanations: [],
+        },
+      } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
+      const component = await renderBackForwardCacheView(frame);
+      assertShadowRoot(component.shadowRoot);
+      const button = component.shadowRoot.querySelector('[aria-label="Test back/forward cache"]');
+      assertElement(button, HTMLElement);
+      dispatchClickEvent(button);
 
-    resourceTreeModel.navigate = (url: Platform.DevToolsPath.UrlString): Promise<void> => {
-      resourceTreeModel.frameNavigated({url} as unknown as Protocol.Page.Frame, undefined);
-      return Promise.resolve();
-    };
-    resourceTreeModel.navigateToHistoryEntry = (entry: Protocol.Page.NavigationEntry): void => {
-      resourceTreeModel.frameNavigated({url: entry.url} as unknown as Protocol.Page.Frame, undefined);
-    };
-    const navigateToHistoryEntrySpy = sinon.spy(resourceTreeModel, 'navigateToHistoryEntry');
-    resourceTreeModel.storageKeyForFrame = () => Promise.resolve(null);
-
-    const frame = {
-      url: 'about:blank',
-      backForwardCacheDetails: {
-        restoredFromCache: true,
-        explanations: [],
-      },
-    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
-    const component = await renderBackForwardCacheView(frame);
-    assertShadowRoot(component.shadowRoot);
-    const button = component.shadowRoot.querySelector('[aria-label="Test back/forward cache"]');
-    assertElement(button, HTMLElement);
-    dispatchClickEvent(button);
-
-    await new Promise<void>(resolve => {
-      let eventCounter = 0;
-      resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameNavigated, () => {
-        if (++eventCounter === 2) {
-          resolve();
-        }
+      await new Promise<void>(resolve => {
+        let eventCounter = 0;
+        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameNavigated, () => {
+          if (++eventCounter === 2) {
+            resolve();
+          }
+        });
       });
+      assert.isTrue(navigateToHistoryEntrySpy.calledOnceWithExactly(entries[0]));
     });
-    assert.isTrue(navigateToHistoryEntrySpy.calledOnceWithExactly(entries[0]));
-  });
+  };
+  describe('test BFCache workflow without tab taget', () => testBFCacheWorkflow(() => createTarget()));
+  describe('test BFCache workflow with tab taget', () => testBFCacheWorkflow(() => {
+                                                     const tabTarget = createTarget({type: SDK.Target.Type.Tab});
+                                                     const frameTarget = createTarget({parentTarget: tabTarget});
+                                                     createTarget({parentTarget: tabTarget, subtype: 'prerender'});
+                                                     return frameTarget;
+                                                   }));
 });
