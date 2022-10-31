@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca29cd9e_3214f270",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-10-31T14:05:09Z",
+      "side": 1,
+      "message": "This test is about ongoing prerendering, no need to test ad frame type and ad script id here.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 61
+      },
+      "revId": "bbca182da9eac67b0cd0345ce7293bd2f666854d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
