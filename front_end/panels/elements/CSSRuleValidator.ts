@@ -269,6 +269,7 @@ export class GridItemValidator extends CSSRuleValidator {
       'grid-row',
       'grid-row-end',
       'grid-row-start',
+      'justify-self',
     ]);
   }
 
