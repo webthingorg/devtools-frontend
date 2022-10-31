@@ -43,7 +43,6 @@
   background-color: transparent;
   flex: none;
   align-items: center;
-  justify-content: center;
   padding: 0;
   height: var(--toolbar-height);
   border: none;
@@ -57,6 +56,7 @@
 
 .toolbar-item:last-of-type {
   flex-shrink: 1;
+  overflow: hidden;
 }
 
 .toolbar-shadow.vertical .toolbar-item {
