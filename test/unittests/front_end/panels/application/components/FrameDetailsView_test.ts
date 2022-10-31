@@ -201,4 +201,88 @@ describeWithRealConnection('FrameDetailsView', () => {
     assertNotNullOrUndefined(adScriptLink);
     assert.strictEqual(adScriptLink.textContent, '\u200b');
   });
+
+  it('renders report keys and values with on-going prerendering', async () => {
+    const targetManager = SDK.TargetManager.TargetManager.instance();
+    const target = targetManager.mainTarget();
+    assertNotNullOrUndefined(target);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
+    const debuggerId = debuggerModel.debuggerId();
+
+    const frame = makeFrame();
+    frame.adFrameType = () => Protocol.Page.AdFrameType.Root;
+
+    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView();
+    renderElementIntoDOM(component);
+    component.data = {
+      frame,
+      target,
+      adScriptId: {
+        scriptId: 'scriptId' as Protocol.Runtime.ScriptId,
+        debuggerId: debuggerId as Protocol.Runtime.UniqueDebuggerId,
+      },
+      prerenderedUrl: 'https://example.test/',
+    };
+
+    assertShadowRoot(component.shadowRoot);
+    await coordinator.done();
+    await coordinator.done();  // 2nd call awaits async render
+
+    const keys = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-key');
+    assert.deepEqual(keys, [
+      'URL',
+      'Origin',
+      'Owner Element',
+      'Frame Creation Stack Trace',
+      'Ad Status',
+      'Creator Ad Script',
+      'Secure Context',
+      'Cross-Origin Isolated',
+      'Cross-Origin Embedder Policy (COEP)',
+      'Cross-Origin Opener Policy (COOP)',
+      'SharedArrayBuffers',
+      'Measure Memory',
+      'Prerendering Status',
+    ]);
+
+    const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
+    assert.deepEqual(values, [
+      'https://www.example.com/path/page.html',
+      'https://www.example.com',
+      '<iframe>',
+      '',
+      '',
+      '\u200b',
+      'Yes\xA0Localhost is always a secure context',
+      'Yes',
+      'None',
+      'SameOrigin',
+      'available, transferable',
+      'available\xA0Learn more',
+      'Prerendering on-going https://example.test/',
+    ]);
+
+    const stackTrace = getElementWithinComponent(
+        component, 'devtools-resources-stack-trace', ApplicationComponents.StackTrace.StackTrace);
+    assertShadowRoot(stackTrace.shadowRoot);
+    const expandableList =
+        getElementWithinComponent(stackTrace, 'devtools-expandable-list', ExpandableList.ExpandableList.ExpandableList);
+    assertShadowRoot(expandableList.shadowRoot);
+
+    const stackTraceRows = getElementsWithinComponent(
+        expandableList, 'devtools-stack-trace-row', ApplicationComponents.StackTrace.StackTraceRow);
+    let stackTraceText: string[] = [];
+
+    stackTraceRows.forEach(row => {
+      assertShadowRoot(row.shadowRoot);
+      stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
+    });
+
+    assert.deepEqual(stackTraceText[0], 'function1\xA0@\xA0http://www.example.com/script.js:16');
+
+    const adScriptLink = component.shadowRoot.querySelector('devtools-report-value.ad-script-link');
+    assertNotNullOrUndefined(adScriptLink);
+    assert.strictEqual(adScriptLink.textContent, '\u200b');
+  });
 });
