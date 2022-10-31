@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bafb409_1498e8e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T15:29:21Z",
+      "side": 1,
+      "message": "With css changes like this I am always worried about potential unintended side-effects we are unaware of. I only found 1 small instance that I\u0027m unhappy with, but please audit all possible uses of the modified css selector(s) to check that nothing is breaking.\n\nAlmost LGTM",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a42533b_6dcef86b",
@@ -31,6 +48,41 @@
       "writtenOn": "2022-10-27T22:50:48Z",
       "side": 1,
       "message": "This patch takes out the rule above applying the important keyword first introduced in this PR here - https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3900804 - The important keyword blocks icons elsewhere from showing changes without having an important keyword override. The issues resolved by the aforementioned PR are also resolved within this patch",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb807c7_4cf6a407",
+        "filename": "front_end/ui/components/icon_button/icon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T15:29:21Z",
+      "side": 1,
+      "message": "Thanks for getting rid of the \u0027!important\u0027, which I believe also introduced a regression with icon buttons, which you are (mostly - see next comment) solving with this CL.",
+      "parentUuid": "1a42533b_6dcef86b",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749de21e_158e1fd9",
+        "filename": "front_end/ui/components/icon_button/iconButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T15:29:21Z",
+      "side": 1,
+      "message": "What would the negative consequences of removing this line be? In my testing I noticed that this turns the blue issues icon black (https://i.imgur.com/M5Gk927.png).",
       "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
