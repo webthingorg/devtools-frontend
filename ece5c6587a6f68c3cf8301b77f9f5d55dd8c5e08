@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09da5a6c_3604c40f",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-31T12:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5fc8a1_7e59914f",
+      "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41bed45e_f8d3e83e",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-10-31T08:19:37Z",
       "side": 1,
       "message": "Same here.",
+      "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c58ea76a_9349b16c",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-10-31T12:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41bed45e_f8d3e83e",
       "revId": "ece5c6587a6f68c3cf8301b77f9f5d55dd8c5e08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
