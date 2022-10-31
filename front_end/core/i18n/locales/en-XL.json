@@ -3434,6 +3434,45 @@
   "panels/application/components/ReportsGrid.ts | status": {
     "message": "Ŝt́ât́ûś"
   },
+  "panels/application/components/SharedStorageAccessGrid.ts | allSharedStorageEvents": {
+    "message": "Âĺl̂ śĥár̂éd̂ śt̂ór̂áĝé êv́êńt̂ś."
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventParams": {
+    "message": "Ôṕt̂íôńâĺ Êv́êńt̂ Ṕâŕâḿŝ"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventTime": {
+    "message": "Êv́êńt̂ T́îḿê"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventType": {
+    "message": "Âćĉéŝś T̂ýp̂é"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | noEvents": {
+    "message": "N̂ó ŝh́âŕêd́ ŝt́ôŕâǵê év̂én̂t́ŝ ŕêćôŕd̂éd̂."
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | ownerOrigin": {
+    "message": "Ôẃn̂ér̂ Ór̂íĝín̂"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | creationTime": {
+    "message": "Ĉŕêát̂íôń T̂ím̂é"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | entries": {
+    "message": "Êńt̂ŕîéŝ"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | length": {
+    "message": "L̂én̂ǵt̂h́"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | metadata": {
+    "message": "M̂ét̂ád̂át̂á"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | origin": {
+    "message": "Ôŕîǵîń"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | remainingBudget": {
+    "message": "R̂ém̂áîńîńĝ Ṕr̂ív̂áĉý B̂úd̂ǵêt́"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | sharedStorage": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê"
+  },
   "panels/application/components/StackTrace.ts | cannotRenderStackTrace": {
     "message": "Ĉán̂ńôt́ r̂én̂d́êŕ ŝt́âćk̂ t́r̂áĉé"
   },
@@ -3829,6 +3868,39 @@
   },
   "panels/application/ServiceWorkerUpdateCycleView.ts | version": {
     "message": "V̂ér̂śîón̂"
+  },
+  "panels/application/SharedStorageEventsView.ts | clickToDisplayBody": {
+    "message": "Ĉĺîćk̂ ón̂ án̂ý ŝh́âŕêd́ ŝt́ôŕâǵê év̂én̂t́ t̂ó d̂íŝṕl̂áŷ t́ĥé êv́êńt̂ ṕâŕâḿêt́êŕŝ."
+  },
+  "panels/application/SharedStorageEventsView.ts | noDataAvailable": {
+    "message": "N̂ó d̂ét̂áîĺŝ áv̂áîĺâb́l̂é f̂ór̂ t́ĥé ŝél̂éĉt́êd́ ŝh́âŕêd́ ŝt́ôŕâǵê év̂én̂t́."
+  },
+  "panels/application/SharedStorageItemsView.ts | key": {
+    "message": "K̂éŷ"
+  },
+  "panels/application/SharedStorageItemsView.ts | selectAValueToPreview": {
+    "message": "Ŝél̂éĉt́ â v́âĺûé t̂ó p̂ŕêv́îéŵ"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorage": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemDeleted": {
+    "message": "T̂h́ê śt̂ór̂áĝé ît́êḿ ŵáŝ d́êĺêt́êd́."
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItems": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê Ít̂ém̂ś"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemsCleared": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê ít̂ém̂ś ĉĺêár̂éd̂"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageNumberEntries": {
+    "message": "N̂úm̂b́êŕ ôf́ êńt̂ŕîéŝ śĥóŵń îń t̂áb̂ĺê: {PH1}"
+  },
+  "panels/application/SharedStorageItemsView.ts | value": {
+    "message": "V̂ál̂úê"
+  },
+  "panels/application/SharedStorageListTreeElement.ts | sharedStorage": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê"
   },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Ĉĺêár̂ Ál̂ĺ"
