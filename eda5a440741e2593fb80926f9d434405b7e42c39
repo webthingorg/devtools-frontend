@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1abed66d_01356759",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T09:27:47Z",
+      "side": 1,
+      "message": "Sounds good, that reasoning makes sense to me!",
+      "parentUuid": "d18a6b63_b4bb03dd",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 79
+      },
+      "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e517a44b_78e8c571",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-28T14:32:11Z",
       "side": 1,
       "message": "What do we achieve by parsing and serializing the header value back? Normalization?",
+      "range": {
+        "startLine": 1605,
+        "startChar": 0,
+        "endLine": 1605,
+        "endChar": 86
+      },
+      "revId": "eda5a440741e2593fb80926f9d434405b7e42c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cf1648_3dce207e",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-10-31T09:27:47Z",
+      "side": 1,
+      "message": "The goal is to merge/deduplicate `set-cookie` headers, e.g. if there are both \u0027set-cookie: foo\u003doriginal\u0027 and \u0027set-cookie: foo\u003doverride\u0027 the one coming later (i.e. the override) will overwrite the former one in the map so that only the later one is stored. \n\nAdded a comment to point this out.",
+      "parentUuid": "e517a44b_78e8c571",
       "range": {
         "startLine": 1605,
         "startChar": 0,
