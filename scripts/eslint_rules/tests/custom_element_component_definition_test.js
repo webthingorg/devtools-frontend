@@ -16,6 +16,12 @@ ruleTester.run('custom_element_component_definition', rule, {
       `,
       filename: 'front_end/ui/components/component/file.ts',
     },
+    {
+      code: `
+        ComponentHelpers.CustomElements.defineComponent('devtools-shared-storage-metadata-view', SharedStorageMetadataReportView);
+      `,
+      filename: 'front_end/ui/components/component/file.ts',
+    },
   ],
 
   invalid: [
