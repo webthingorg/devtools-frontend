@@ -3434,6 +3434,45 @@
   "panels/application/components/ReportsGrid.ts | status": {
     "message": "Status"
   },
+  "panels/application/components/SharedStorageAccessGrid.ts | allSharedStorageEvents": {
+    "message": "All shared storage events."
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventParams": {
+    "message": "Optional Event Params"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventTime": {
+    "message": "Event Time"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | eventType": {
+    "message": "Access Type"
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | noEvents": {
+    "message": "No shared storage events recorded."
+  },
+  "panels/application/components/SharedStorageAccessGrid.ts | ownerOrigin": {
+    "message": "Owner Origin"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | creationTime": {
+    "message": "Creation Time"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | entries": {
+    "message": "Entries"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | length": {
+    "message": "Length"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | metadata": {
+    "message": "Metadata"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | origin": {
+    "message": "Origin"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | remainingBudget": {
+    "message": "Remaining Privacy Budget"
+  },
+  "panels/application/components/SharedStorageMetadataView.ts | sharedStorage": {
+    "message": "Shared Storage"
+  },
   "panels/application/components/StackTrace.ts | cannotRenderStackTrace": {
     "message": "Cannot render stack trace"
   },
@@ -3829,6 +3868,42 @@
   },
   "panels/application/ServiceWorkerUpdateCycleView.ts | version": {
     "message": "Version"
+  },
+  "panels/application/SharedStorageEventsView.ts | clickToDisplayBody": {
+    "message": "Click on any shared storage event to display the event parameters."
+  },
+  "panels/application/SharedStorageEventsView.ts | noDataAvailable": {
+    "message": "No details available for the selected shared storage event."
+  },
+  "panels/application/SharedStorageItemsView.ts | key": {
+    "message": "Key"
+  },
+  "panels/application/SharedStorageItemsView.ts | selectAValueToPreview": {
+    "message": "Select a value to preview"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorage": {
+    "message": "Shared Storage"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemDeleted": {
+    "message": "The storage item was deleted."
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItems": {
+    "message": "Shared Storage Items"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemsCleared": {
+    "message": "Shared Storage items cleared"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageNumberEntries": {
+    "message": "Number of entries shown in table: {PH1}"
+  },
+  "panels/application/SharedStorageItemsView.ts | value": {
+    "message": "Value"
+  },
+  "panels/application/SharedStorageListTreeElement.ts | sharedStorage": {
+    "message": "Shared Storage"
+  },
+  "panels/application/SharedStorageTreeElement.ts | clear": {
+    "message": "Clear"
   },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Clear All"
