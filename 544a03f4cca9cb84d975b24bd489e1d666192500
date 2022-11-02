@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e005dee4_caad0db0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-02T09:35:16Z",
+      "side": 1,
+      "message": "Suyan and I will be submitting some CLs to continuously improve CSS hints, so I think we need a new issue to track.\n\nI\u0027ll submit a new issue and put together the documentation for it at a later date.",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8badcfc9_6a3d8c36",
@@ -48,6 +65,24 @@
       "writtenOn": "2022-11-02T09:14:11Z",
       "side": 1,
       "message": "It looks like it no only applies to flex/grid layouts? https://w3c.github.io/csswg-drafts/css-align/#place-self-property",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7c4949_a75c2a50",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-02T09:35:16Z",
+      "side": 1,
+      "message": "It only applies to flex/grid items.",
+      "parentUuid": "8badcfc9_6a3d8c36",
       "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
