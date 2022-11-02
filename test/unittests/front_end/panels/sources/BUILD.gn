@@ -10,6 +10,7 @@ ts_library("sources") {
     "BreakpointsSidebarPane_test.ts",
     "DebuggerPlugin_test.ts",
     "FilePathScoreFunction_test.ts",
+    "JavaScriptCompilerPlugin_test.ts",
     "OutlineQuickOpen_test.ts",
     "ScriptSnippetFileSystem_test.ts",
     "SourceFrame_test.ts",
@@ -18,6 +19,7 @@ ts_library("sources") {
 
   deps = [
     "../../../../../front_end/panels/sources:bundle",
+    "../../../../../front_end/ui/components/text_editor:bundle",
     "../../helpers",
     "./components",
   ]
