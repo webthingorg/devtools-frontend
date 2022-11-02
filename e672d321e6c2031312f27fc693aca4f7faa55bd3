@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f844b7_14b80c13",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-02T10:46:52Z",
+      "side": 1,
+      "message": "adScriptId is nullable, no need to set it here",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 19
+      },
+      "revId": "e672d321e6c2031312f27fc693aca4f7faa55bd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
