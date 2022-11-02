@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "41fbd9df_b956d337",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "can you add a screenshot?",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e304ae_4be62786",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "Can you add a sentence here saying you ran the script the updates the protocol file to add support for setOverrideBits?",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0d54b2_64e3db39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "uhm, what is this thing? we almost certainly don\u0027t want it here :thinking:",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7e89f65_99f96db4",
@@ -14,6 +65,223 @@
       "writtenOn": "2022-11-02T20:29:51Z",
       "side": 1,
       "message": "Tests to be added in another CL",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d8a6d06_73244ac6",
+        "filename": "front_end/core/sdk/WebAuthnModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "These booleans should not be optional if they\u0027re passed as parameters.",
+      "range": {
+        "startLine": 36,
+        "startChar": 58,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7af65c8_da296302",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "As discussed offline, these should probably be in a map keyed by authenticator id.",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 47
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80c86035_85e30754",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "in fact you can probably add more stuff to this map",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 31
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f55674_7dbb45b9",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "nit: maybe `overrideResponseBits`? let\u0027s try to stay consistent here.",
+      "range": {
+        "startLine": 545,
+        "startChar": 3,
+        "endLine": 545,
+        "endChar": 14
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1376cd72_d9ff3eb2",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "style: prefer an early return to avoid deep nesting\n\n```\nif (!this.#model) {\n  return;\n}\n\n// rest of the code, but now with one fewer level of nesting\n```",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae30160_9488d08c",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "nit: maybe `responseOverrideBits`?",
+      "range": {
+        "startLine": 547,
+        "startChar": 10,
+        "endLine": 547,
+        "endChar": 27
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265d0f3b_0f148186",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "nit: this has a pair of unnecessary parens",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635de0a3_5ba97cb1",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "It\u0027s cleaner to set this when the authenticator gets added IMO, that way you can remove the check for empty responseBehaviour.",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a44752_af9fb5f5",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "why would this be null? :thinking:",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d25822cb_a3f3cd13",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae16d8c_11c81226",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-02T22:03:11Z",
+      "side": 1,
+      "message": "ditto",
       "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
