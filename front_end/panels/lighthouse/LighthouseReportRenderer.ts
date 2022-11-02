@@ -153,8 +153,8 @@ export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeature
   private beforePrint: (() => void)|null;
   private afterPrint: (() => void)|null;
 
-  constructor(dom: LighthouseReport.DOM) {
-    super(dom);
+  constructor(dom: LighthouseReport.DOM, opts: {}) {
+    super(dom, opts);
     this.beforePrint = null;
     this.afterPrint = null;
     this._topbar._print = this._print.bind(this);
@@ -174,7 +174,7 @@ export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeature
   getReportHtml(): string {
     this.resetUIState();
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    return Lighthouse.ReportGenerator.generateReportHtml(this.json);
+    return Lighthouse.ReportGenerator.ReportGenerator.generateReportHtml(this.json);
   }
 
   /**
