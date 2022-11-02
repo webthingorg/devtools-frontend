@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7910db07_a43c0bd5",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-11-02T09:21:17Z",
+      "side": 1,
+      "message": "Oh yes, I forgot. I chose other before to troubleshoot the problem, and I added the new item later, but I forgot to replace it.",
+      "parentUuid": "c69b8cd1_5eee6499",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b70964c2_caeec2a3",
         "filename": "front_end/panels/elements/CSSRuleValidator.ts",
         "patchSetId": 2
