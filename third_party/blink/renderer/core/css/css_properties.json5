@@ -2158,6 +2158,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "box-shadow",
@@ -3028,6 +3029,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "letter-spacing",
@@ -3076,6 +3078,7 @@
       valid_for_first_line: true,
       valid_for_cue: true,
       valid_for_marker: true,
+      readonly: true,
     },
     {
       name: "line-height-step",
@@ -3150,6 +3153,7 @@
         resolver: "bottom",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "margin-left",
@@ -3169,6 +3173,7 @@
         resolver: "left",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "margin-right",
@@ -3188,6 +3193,7 @@
         resolver: "right",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "margin-top",
@@ -3207,6 +3213,7 @@
         resolver: "top",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "marker-end",
@@ -3315,6 +3322,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "max-width",
@@ -3332,6 +3340,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "min-height",
@@ -3348,6 +3357,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "min-width",
@@ -3364,6 +3374,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "mix-blend-mode",
@@ -3503,6 +3514,7 @@
       valid_for_first_line: true,
       valid_for_cue: true,
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "order",
@@ -3514,6 +3526,7 @@
       type_name: "int",
       computed_style_custom_functions: ["setter"],
       typedom_types: ["Number"],
+      readonly: true,
     },
     {
       // This property is used for testing with origin trial intergration only.
@@ -3538,6 +3551,7 @@
       default_value: "2",
       type_name: "short",
       typedom_types: ["Number"],
+      readonly: true,
     },
     {
       name: "outline-color",
@@ -3762,6 +3776,7 @@
         resolver: "bottom",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "padding-left",
@@ -3780,6 +3795,7 @@
         resolver: "left",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "padding-right",
@@ -3798,6 +3814,7 @@
         resolver: "right",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "padding-top",
@@ -3816,6 +3833,7 @@
         resolver: "top",
       },
       supports_incremental_style: true,
+      readonly: true,
     },
     {
       name: "page",
@@ -3992,6 +4010,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "r",
@@ -4373,6 +4392,7 @@
       type_name: "float",
       computed_style_custom_functions: ["setter"],
       typedom_types: ["Number"],
+      readonly: true,
     },
     {
       name: "shape-margin",
@@ -4606,6 +4626,7 @@
       computed_style_custom_functions: ["setter"],
       typedom_types: ["Number", "Length"],
       valid_for_marker: true,
+      readonly: true,
     },
     {
       name: "text-align",
@@ -4813,6 +4834,7 @@
       converter: "ConvertTextSizeAdjust",
       keywords: ["none", "auto"],
       typedom_types: ["Keyword", "Percentage"],
+      readonly: true,
     },
     {
       name: "text-transform",
@@ -4942,6 +4964,7 @@
       },
       supports_incremental_style: true,
       valid_for_position_fallback: true,
+      readonly: true,
     },
     {
       name: "touch-action",
