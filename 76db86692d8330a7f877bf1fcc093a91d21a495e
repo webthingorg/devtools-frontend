@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74d20532_fb3a5a65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-02T12:50:41Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nThis CL makes keyboard navigation a bit more straightforward, removing the weakmap, the directives used for mapping dom node to an `ElementId` and remembering the selected element itself. Instead, we make use of local updates whenever needed. Let me know what you think! (Also, since we use more coordinator.write, we don\u0027t use the `scheduleUpdate` functionality anymore but need to make sure that rendering is\nenqueued). PTAL!",
+      "revId": "76db86692d8330a7f877bf1fcc093a91d21a495e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
