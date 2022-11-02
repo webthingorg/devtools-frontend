@@ -158,6 +158,24 @@
       "parentUuid": "c604a83d_3ab19e92",
       "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4bc053_f0d7ebd3",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-02T11:24:25Z",
+      "side": 1,
+      "message": "...We can update the popover text.",
+      "parentUuid": "a82752f8_819d1513",
+      "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
