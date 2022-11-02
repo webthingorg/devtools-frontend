@@ -68,6 +68,24 @@
       "message": "Is not the property applicable for other layouts? https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self",
       "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c47052_871d3d8e",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-02T09:24:18Z",
+      "side": 1,
+      "message": "Just for Grid items, See https://w3c.github.io/csswg-drafts/css-align/#justify-self-property\n\nThis project can be a better reference for us: https://github.com/captainbrosset/inactive-css/blob/c284e6298a66825ed9b73cbe707aba7d65ba7a1b/rules#L50-L58",
+      "parentUuid": "58950c8e_c76c6806",
+      "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
