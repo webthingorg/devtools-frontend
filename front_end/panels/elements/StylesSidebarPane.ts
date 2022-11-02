@@ -212,6 +212,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
   private idleCallbackManager: IdleCallbackManager|null;
   private needsForceUpdate: boolean;
   private readonly resizeThrottler: Common.Throttler.Throttler;
+
+  private scrollerElement?: Element;
+  private readonly boundOnScroll: (event: Event) => void;
+
   private readonly imagePreviewPopover: ImagePreviewPopover;
   #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
   activeCSSAngle: InlineEditor.CSSAngle.CSSAngle|null;
@@ -275,6 +279,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.contentElement.addEventListener('copy', this.clipboardCopy.bind(this));
     this.resizeThrottler = new Common.Throttler.Throttler(100);
 
+    this.boundOnScroll = this.onScroll.bind(this);
     this.imagePreviewPopover = new ImagePreviewPopover(this.contentElement, event => {
       const link = event.composedPath()[0];
       if (link instanceof Element) {
@@ -313,6 +318,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     });
     this.#hintPopoverHelper.setTimeout(200);
     this.#hintPopoverHelper.setHasPadding(true);
+  }
+
+  private onScroll(_event: Event): void {
+    this.hideAllPopovers();
   }
 
   swatchPopoverHelper(): InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper {
@@ -610,6 +619,19 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.#updateAbortController?.abort();
     this.#updateAbortController = new AbortController();
     await this.#innerDoUpdate(this.#updateAbortController.signal);
+
+    // Hide all popovers when scrolling.
+    // Styles and Computed panels both have popover (e.g. imagePreviewPopover),
+    // so we need to bind both scroll events.
+    const scrollerElementLists =
+        this?.contentElement?.enclosingNodeOrSelfWithClass('style-panes-wrapper')
+            ?.parentElement?.querySelectorAll('.style-panes-wrapper') as unknown as NodeListOf<Element>;
+    if (scrollerElementLists.length > 0) {
+      for (const element of scrollerElementLists) {
+        this.scrollerElement = element;
+        this.scrollerElement.addEventListener('scroll', this.boundOnScroll, false);
+      }
+    }
   }
 
   async #innerDoUpdate(signal: AbortSignal): Promise<void> {
@@ -1166,6 +1188,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     if (this.activeCSSAngle) {
       this.activeCSSAngle.minify();
       this.activeCSSAngle = null;
+    }
+
+    if (this.#hintPopoverHelper) {
+      this.#hintPopoverHelper.hidePopover();
     }
   }
 
