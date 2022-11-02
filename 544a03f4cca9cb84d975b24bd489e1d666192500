@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8badcfc9_6a3d8c36",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-02T09:14:11Z",
+      "side": 1,
+      "message": "It looks like it no only applies to flex/grid layouts? https://w3c.github.io/csswg-drafts/css-align/#place-self-property",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c69b8cd1_5eee6499",
         "filename": "front_end/panels/elements/CSSRuleValidator.ts",
         "patchSetId": 2
