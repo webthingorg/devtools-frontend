@@ -528,10 +528,6 @@ UI.ActionRegistration.registerActionExtension({
     {
       platform: UI.ActionRegistration.Platforms.Mac,
       shortcut: 'Meta+G',
-      keybindSets: [
-        UI.ActionRegistration.KeybindSet.DEVTOOLS_DEFAULT,
-        UI.ActionRegistration.KeybindSet.VS_CODE,
-      ],
     },
     {
       platform: UI.ActionRegistration.Platforms.WindowsLinux,
