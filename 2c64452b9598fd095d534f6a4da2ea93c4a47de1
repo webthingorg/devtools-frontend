@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e89f65_99f96db4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-02T20:29:51Z",
+      "side": 1,
+      "message": "Tests to be added in another CL",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
