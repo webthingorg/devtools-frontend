@@ -3887,6 +3887,10 @@ export namespace ProtocolMapping {
       paramsType: [Protocol.WebAuthn.AddVirtualAuthenticatorRequest];
       returnType: Protocol.WebAuthn.AddVirtualAuthenticatorResponse;
     };
+    'WebAuthn.setResponseOverrideBits': {
+      paramsType: [Protocol.WebAuthn.SetResponseOverrideBitsRequest];
+      returnType: void;
+    };
     /**
      * Removes the given authenticator.
      */
