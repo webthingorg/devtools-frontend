@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9be032e_9f506649",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-02T11:52:08Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ef62f8f9c5f1226ed93d6ba4985a2351e47e841e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a608a6f_ad5fea61",
+        "filename": "test/unittests/front_end/panels/application/TrustTokensTreeElement_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-02T11:52:08Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 31,
+        "startChar": 35,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "ef62f8f9c5f1226ed93d6ba4985a2351e47e841e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
