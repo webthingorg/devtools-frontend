@@ -288,12 +288,12 @@ export type EventTypes = {
 
 export class Cache {
   readonly #model: ServiceWorkerCacheModel;
-  securityOrigin: string;
+  securityOrigin?: string;
   cacheName: string;
   cacheId: Protocol.CacheStorage.CacheId;
 
   constructor(
-      model: ServiceWorkerCacheModel, securityOrigin: string, cacheName: string,
+      model: ServiceWorkerCacheModel, securityOrigin: string|undefined, cacheName: string,
       cacheId: Protocol.CacheStorage.CacheId) {
     this.#model = model;
     this.securityOrigin = securityOrigin;

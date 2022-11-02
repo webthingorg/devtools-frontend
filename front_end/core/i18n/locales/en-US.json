@@ -3317,9 +3317,6 @@
   "panels/application/components/Prerender2.ts | EmbedderTriggeredAndCrossOriginRedirected": {
     "message": "Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is is canceled because the navigation is redirected to another cross-origin page."
   },
-  "panels/application/components/Prerender2.ts | EmbedderTriggeredAndSameOriginRedirected": {
-    "message": "Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is canceled because the navigation is redirected to another same-origin page."
-  },
   "panels/application/components/Prerender2.ts | FailToGetMemoryUsage": {
     "message": "Fail to get memory usage"
   },

@@ -131,11 +131,6 @@ const UIStrings = {
     */
   TriggerBackgrounded: 'The tab is in the background',
   /**
-    *@description  Description text for Prerender2 cancellation status EmbedderTriggeredAndSameOriginRedirected.
-    */
-  EmbedderTriggeredAndSameOriginRedirected:
-      'Prerendering triggered by Chrome internal (e.g., Omnibox prerendering) is canceled because the navigation is redirected to another same-origin page.',
-  /**
     *@description  Description text for Prerender2 cancellation status EmbedderTriggeredAndCrossOriginRedirected.
     */
   EmbedderTriggeredAndCrossOriginRedirected:
@@ -213,8 +208,6 @@ export const Prerender2ReasonDescription: {[key: string]: {name: () => Platform.
   'AudioOutputDeviceRequested': {name: i18nLazyString(UIStrings.AudioOutputDeviceRequested)},
   'MixedContent': {name: i18nLazyString(UIStrings.MixedContent)},
   'TriggerBackgrounded': {name: i18nLazyString(UIStrings.TriggerBackgrounded)},
-  'EmbedderTriggeredAndSameOriginRedirected':
-      {name: i18nLazyString(UIStrings.EmbedderTriggeredAndSameOriginRedirected)},
   'EmbedderTriggeredAndCrossOriginRedirected':
       {name: i18nLazyString(UIStrings.EmbedderTriggeredAndCrossOriginRedirected)},
   'MemoryLimitExceeded': {name: i18nLazyString(UIStrings.MemoryLimitExceeded)},

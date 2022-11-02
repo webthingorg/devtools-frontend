@@ -3317,9 +3317,6 @@
   "panels/application/components/Prerender2.ts | EmbedderTriggeredAndCrossOriginRedirected": {
     "message": "P̂ŕêŕêńd̂ér̂ín̂ǵ t̂ŕîǵĝér̂éd̂ b́ŷ Ćĥŕôḿê ín̂t́êŕn̂ál̂ (é.ĝ., Óm̂ńîb́ôx́ p̂ŕêŕêńd̂ér̂ín̂ǵ) îś îś ĉán̂ćêĺêd́ b̂éĉáûśê t́ĥé n̂áv̂íĝát̂íôń îś r̂éd̂ír̂éĉt́êd́ t̂ó âńôt́ĥér̂ ćr̂óŝś-ôŕîǵîń p̂áĝé."
   },
-  "panels/application/components/Prerender2.ts | EmbedderTriggeredAndSameOriginRedirected": {
-    "message": "P̂ŕêŕêńd̂ér̂ín̂ǵ t̂ŕîǵĝér̂éd̂ b́ŷ Ćĥŕôḿê ín̂t́êŕn̂ál̂ (é.ĝ., Óm̂ńîb́ôx́ p̂ŕêŕêńd̂ér̂ín̂ǵ) îś ĉán̂ćêĺêd́ b̂éĉáûśê t́ĥé n̂áv̂íĝát̂íôń îś r̂éd̂ír̂éĉt́êd́ t̂ó âńôt́ĥér̂ śâḿê-ór̂íĝín̂ ṕâǵê."
-  },
   "panels/application/components/Prerender2.ts | FailToGetMemoryUsage": {
     "message": "F̂áîĺ t̂ó ĝét̂ ḿêḿôŕŷ úŝáĝé"
   },
