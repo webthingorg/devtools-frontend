@@ -212,6 +212,24 @@
       "parentUuid": "5a7c0774_0beeab51",
       "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "739937bb_4671a10a",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-11-02T13:57:38Z",
+      "side": 1,
+      "message": "@alexrudenko@chromium.org Done.",
+      "parentUuid": "fc34c9f6_7bfef274",
+      "revId": "c94ef56c061359efb03e7d0491bcec0004a04d92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
