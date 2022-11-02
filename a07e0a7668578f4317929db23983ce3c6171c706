@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "945a88e1_89b56c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-02T10:18:43Z",
+      "side": 1,
+      "message": "logic changes look good to me but I\u0027ve left a suggestion for how I think we can make the logic in the code a bit easier to follow. Thanks!",
+      "revId": "a07e0a7668578f4317929db23983ce3c6171c706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "639b4beb_fecead5e",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-10-31T11:30:00Z",
       "side": 1,
       "message": "Would be simpler like this imo:\n```\nthis.themeNameInternal \u003d (isForcedColorsMode || this.setting.get() \u003d\u003d\u003d \u0027systemPreferred\u0027) ? systemPreferredTheme : this.setting.get();\n```",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "a07e0a7668578f4317929db23983ce3c6171c706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a6f0e2_ec302178",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-02T10:18:43Z",
+      "side": 1,
+      "message": "I\u0027d suggest splitting the logic up:\n\n```\nconst useSystemPreferred \u003d this.setting.get() \u003d\u003d\u003d \u0027systemPreferred\u0027 || isForcedColorsMode;\nthis.themeNameInternal \u003d useSystemPreferred ? systemPreferredTheme : this.setting.get();\n```",
+      "parentUuid": "639b4beb_fecead5e",
       "range": {
         "startLine": 141,
         "startChar": 0,
