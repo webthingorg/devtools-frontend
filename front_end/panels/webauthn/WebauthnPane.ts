@@ -12,6 +12,18 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import webauthnPaneStyles from './webauthnPane.css.js';
 
+interface ResponseOverrideBit {
+  isBogusSignature: boolean;
+  isBadUVBit: boolean;
+  isBadUPBit: boolean;
+}
+
+export const enum BadBehaviour {
+  SIGNATURE = 0,
+  UPBIT = 1,
+  UVBIT = 2,
+}
+
 const UIStrings = {
   /**
   *@description Label for button that allows user to download the private key related to a credential.
@@ -246,6 +258,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
   #topToolbar: UI.Toolbar.Toolbar|undefined;
   #learnMoreView: HTMLElement|undefined;
   #newAuthenticatorSection: HTMLElement|undefined;
+  #overrideBitsSection: HTMLElement|undefined;
   #newAuthenticatorForm: HTMLElement|undefined;
   #protocolSelect: HTMLSelectElement|undefined;
   #transportSelect: HTMLSelectElement|undefined;
@@ -255,8 +268,15 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
   #userVerificationCheckbox: HTMLInputElement|undefined;
   #largeBlobCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
   largeBlobCheckbox: HTMLInputElement|undefined;
+  #bogusSignatureCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
+  bogusSignatureCheckbox: HTMLInputElement|undefined;
+  #badUVBitCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
+  badUVBitCheckbox: HTMLInputElement|undefined;
+  #badUPBitCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
+  badUPBitCheckbox: HTMLInputElement|undefined;
   addAuthenticatorButton: HTMLButtonElement|undefined;
   #isEnabling?: Promise<void>;
+  authenticatorIdToResponseBits: Map<Protocol.WebAuthn.AuthenticatorId, ResponseOverrideBit>;
 
   constructor() {
     super(true);
@@ -272,6 +292,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
     this.#authenticatorsView = this.contentElement.createChild('div', 'authenticators-view');
     this.#createNewAuthenticatorSection();
     this.#updateVisibility(false);
+    this.authenticatorIdToResponseBits = new Map();
   }
 
   static instance(opts = {forceNew: null}): WebauthnPaneImpl {
@@ -521,6 +542,39 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
     }
   }
 
+  #overideBits(authenticatorId: Protocol.WebAuthn.AuthenticatorId, behaviourType: BadBehaviour, event: Event): void {
+    if (this.#model) {
+      let responseBehaviour = this.authenticatorIdToResponseBits.get(authenticatorId);
+      if (!(responseBehaviour)) {
+        this.authenticatorIdToResponseBits.set(
+            authenticatorId, {isBogusSignature: false, isBadUVBit: false, isBadUPBit: false});
+        responseBehaviour = this.authenticatorIdToResponseBits.get(authenticatorId);
+      }
+      if (!(responseBehaviour)) {
+        throw new Error('Unexpected Error: cannot set authenticatorId in authenticatorIdToResponseBits');
+      }
+
+      let bogusSignature = responseBehaviour.isBogusSignature;
+      let badUVBit = responseBehaviour.isBadUVBit;
+      let badUPBit = responseBehaviour.isBadUPBit;
+      if (behaviourType === BadBehaviour.SIGNATURE) {
+        bogusSignature = Boolean((event.target as HTMLInputElement).checked);
+        responseBehaviour.isBogusSignature = bogusSignature;
+      } else if (behaviourType === BadBehaviour.UVBIT) {
+        badUVBit = Boolean((event.target as HTMLInputElement).checked);
+        responseBehaviour.isBadUVBit = badUVBit;
+      } else {
+        badUPBit = Boolean((event.target as HTMLInputElement).checked);
+        responseBehaviour.isBadUPBit = badUPBit;
+      }
+      this.#model.setResponseOverrideBits(authenticatorId, bogusSignature, badUVBit, badUPBit)
+          .then(() => {})
+          .catch(error => {
+            throw new Error(error.message);
+          });
+    }
+  }
+
   #createNewAuthenticatorSection(): void {
     this.#learnMoreView = this.contentElement.createChild('div', 'learn-more');
     this.#learnMoreView.appendChild(UI.Fragment.html`
@@ -727,7 +781,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
    * Creates the fields describing the authenticator in the front end.
    */
   #createAuthenticatorFields(
-      section: Element, authenticatorId: string, options: Protocol.WebAuthn.VirtualAuthenticatorOptions): void {
+      section: Element, authenticatorId: Protocol.WebAuthn.AuthenticatorId,
+      options: Protocol.WebAuthn.VirtualAuthenticatorOptions): void {
     const sectionFields = section.createChild('div', 'authenticator-fields');
     const uuidField = sectionFields.createChild('div', 'authenticator-field');
     const protocolField = sectionFields.createChild('div', 'authenticator-field');
@@ -754,6 +809,56 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
         options.hasLargeBlob ? i18nString(UIStrings.yes) : i18nString(UIStrings.no);
     suvField.createChild('div', 'authenticator-field-value').textContent =
         options.hasUserVerification ? i18nString(UIStrings.yes) : i18nString(UIStrings.no);
+
+    this.#overrideBitsSection = this.contentElement.createChild('div', '.override-bits-container');
+    const bogusSignatureGroup = this.#overrideBitsSection.createChild('div', 'authenticator-option');
+    this.#bogusSignatureCheckboxLabel = UI.UIUtils.CheckboxLabel.create('Supports bogus signature', false);
+    this.#bogusSignatureCheckboxLabel.textElement.classList.add('authenticator-option-label');
+    bogusSignatureGroup.appendChild(this.#bogusSignatureCheckboxLabel.textElement);
+    this.bogusSignatureCheckbox = this.#bogusSignatureCheckboxLabel.checkboxElement;
+    this.bogusSignatureCheckbox.checked = false;
+    this.bogusSignatureCheckbox.classList.add('authenticator-option-checkbox');
+    bogusSignatureGroup.appendChild(this.#bogusSignatureCheckboxLabel);
+    suvField.appendChild(bogusSignatureGroup);
+
+    const badUVBitGroup = this.#overrideBitsSection.createChild('div', 'authenticator-option');
+    this.#badUVBitCheckboxLabel = UI.UIUtils.CheckboxLabel.create('Supports bad UV bit', false);
+    this.#badUVBitCheckboxLabel.textElement.classList.add('authenticator-option-label');
+    badUVBitGroup.appendChild(this.#badUVBitCheckboxLabel.textElement);
+    this.badUVBitCheckbox = this.#badUVBitCheckboxLabel.checkboxElement;
+    this.badUVBitCheckbox.checked = false;
+    this.badUVBitCheckbox.classList.add('authenticator-option-checkbox');
+    badUVBitGroup.appendChild(this.#badUVBitCheckboxLabel);
+    suvField.appendChild(badUVBitGroup);
+
+    const badUPBitGroup = this.#overrideBitsSection.createChild('div', 'authenticator-option');
+    this.#badUPBitCheckboxLabel = UI.UIUtils.CheckboxLabel.create('Supports bad UP bit', false);
+    this.#badUPBitCheckboxLabel.textElement.classList.add('authenticator-option-label');
+    badUPBitGroup.appendChild(this.#badUPBitCheckboxLabel.textElement);
+    this.badUPBitCheckbox = this.#badUPBitCheckboxLabel.checkboxElement;
+    this.badUPBitCheckbox.checked = false;
+    this.badUPBitCheckbox.classList.add('authenticator-option-checkbox');
+    badUPBitGroup.appendChild(this.#badUPBitCheckboxLabel);
+    suvField.appendChild(badUPBitGroup);
+
+    if (this.bogusSignatureCheckbox) {
+      this.bogusSignatureCheckbox.addEventListener(
+          'change',
+          this.#overideBits.bind(this, authenticatorId, BadBehaviour.SIGNATURE),
+      );
+    }
+    if (this.badUVBitCheckbox) {
+      this.badUVBitCheckbox.addEventListener(
+          'change',
+          this.#overideBits.bind(this, authenticatorId, BadBehaviour.UVBIT),
+      );
+    }
+    if (this.badUPBitCheckbox) {
+      this.badUPBitCheckbox.addEventListener(
+          'change',
+          this.#overideBits.bind(this, authenticatorId, BadBehaviour.UPBIT),
+      );
+    }
   }
 
   #handleEditNameButton(

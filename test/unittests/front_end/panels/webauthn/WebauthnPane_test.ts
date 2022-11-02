@@ -108,6 +108,33 @@ describeWithMockConnection('WebAuthn pane', () => {
       });
       panel.addAuthenticatorButton?.click();
     });
+
+    it('it verifies that the bogus signature is set to true in the authenticator state', done => {
+      const target = targetFactory();
+      const panel = Webauthn.WebauthnPane.WebauthnPaneImpl.instance();
+      panel.modelAdded(new SDK.WebAuthnModel.WebAuthnModel(target));
+
+      setMockConnectionResponseHandler('WebAuthn.addVirtualAuthenticator', () => {
+        return {
+          authenticatorId: 'test',
+        };
+      });
+
+      panel.addAuthenticatorButton?.click();
+      const bogusSignature = panel.bogusSignatureCheckbox;
+      if (!bogusSignature) {
+        assert.fail('Required checkbox not found');
+        return;
+      }
+      bogusSignature.checked = true;
+      setMockConnectionResponseHandler('WebAuthn.setResponseOverrideBits', params => {
+        assert.isTrue(params.is_bogus_signature);
+        done();
+        return {
+          authenticatorId: 'test',
+        };
+      });
+    });
   };
 
   describe('without tab target', () => largeBlobOption(() => createTarget()));
