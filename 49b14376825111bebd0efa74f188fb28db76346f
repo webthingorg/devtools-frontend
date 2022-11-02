@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a124d397_270679ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-11-02T07:59:21Z",
+      "side": 1,
+      "message": "Changhao and Alex are most closely familiar with this code; I’m happy to defer review to them.",
+      "revId": "49b14376825111bebd0efa74f188fb28db76346f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
