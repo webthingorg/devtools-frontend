@@ -246,6 +246,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
   #topToolbar: UI.Toolbar.Toolbar|undefined;
   #learnMoreView: HTMLElement|undefined;
   #newAuthenticatorSection: HTMLElement|undefined;
+  #overrideBitsSection: HTMLElement|undefined;
   #newAuthenticatorForm: HTMLElement|undefined;
   #protocolSelect: HTMLSelectElement|undefined;
   #transportSelect: HTMLSelectElement|undefined;
@@ -255,6 +256,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
   #userVerificationCheckbox: HTMLInputElement|undefined;
   #largeBlobCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
   largeBlobCheckbox: HTMLInputElement|undefined;
+  #bogusSignatureCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
+  bogusSignatureCheckbox: HTMLInputElement|undefined;
   addAuthenticatorButton: HTMLButtonElement|undefined;
   #isEnabling?: Promise<void>;
 
@@ -316,6 +319,12 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
     this.#availableAuthenticatorSetting.set(availableAuthenticators);
     if (activeAuthenticatorId) {
       void this.#setActiveAuthenticator(activeAuthenticatorId);
+    }
+    if (this.bogusSignatureCheckbox) {
+      this.bogusSignatureCheckbox.addEventListener('change', event => {
+        const isChecked = Boolean((event.target as HTMLInputElement).checked);
+        this.#overideBits(isChecked);
+      });
     }
   }
 
@@ -518,6 +527,14 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
         Protocol.WebAuthn.AuthenticatorTransport.Ble,
         Protocol.WebAuthn.AuthenticatorTransport.Nfc,
       ]);
+    }
+  }
+
+  #overideBits(isChecked: boolean): void {
+    if (this.#model && this.#activeAuthId) {
+      this.#model.setResponseOverrideBits(this.#activeAuthId, isChecked, false, false).then(() => {}).catch(error => {
+        throw new Error(error.message);
+      });
     }
   }
 
@@ -727,7 +744,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
    * Creates the fields describing the authenticator in the front end.
    */
   #createAuthenticatorFields(
-      section: Element, authenticatorId: string, options: Protocol.WebAuthn.VirtualAuthenticatorOptions): void {
+      section: Element, authenticatorId: Protocol.WebAuthn.AuthenticatorId,
+      options: Protocol.WebAuthn.VirtualAuthenticatorOptions): void {
     const sectionFields = section.createChild('div', 'authenticator-fields');
     const uuidField = sectionFields.createChild('div', 'authenticator-field');
     const protocolField = sectionFields.createChild('div', 'authenticator-field');
@@ -754,6 +772,24 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
         options.hasLargeBlob ? i18nString(UIStrings.yes) : i18nString(UIStrings.no);
     suvField.createChild('div', 'authenticator-field-value').textContent =
         options.hasUserVerification ? i18nString(UIStrings.yes) : i18nString(UIStrings.no);
+
+    this.#overrideBitsSection = this.contentElement.createChild('div', '.override-bits-container');
+    const bogusSignatureGroup = this.#overrideBitsSection.createChild('div', 'authenticator-option');
+    this.#bogusSignatureCheckboxLabel = UI.UIUtils.CheckboxLabel.create('Supports bogus signature', false);
+    this.#bogusSignatureCheckboxLabel.textElement.classList.add('authenticator-option-label');
+    bogusSignatureGroup.appendChild(this.#bogusSignatureCheckboxLabel.textElement);
+    this.bogusSignatureCheckbox = this.#bogusSignatureCheckboxLabel.checkboxElement;
+    this.bogusSignatureCheckbox.checked = false;
+    this.bogusSignatureCheckbox.classList.add('authenticator-option-checkbox');
+    bogusSignatureGroup.appendChild(this.#bogusSignatureCheckboxLabel);
+    suvField.appendChild(bogusSignatureGroup);
+
+    if (this.bogusSignatureCheckbox) {
+      this.bogusSignatureCheckbox.addEventListener('change', event => {
+        const isChecked = Boolean((event.target as HTMLInputElement).checked);
+        this.#overideBits(isChecked);
+      });
+    }
   }
 
   #handleEditNameButton(

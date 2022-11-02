@@ -11050,7 +11050,6 @@ export namespace Page {
     DedicatedWorkerOrWorklet = 'DedicatedWorkerOrWorklet',
     OutstandingNetworkRequestOthers = 'OutstandingNetworkRequestOthers',
     OutstandingIndexedDBTransaction = 'OutstandingIndexedDBTransaction',
-    RequestedNotificationsPermission = 'RequestedNotificationsPermission',
     RequestedMIDIPermission = 'RequestedMIDIPermission',
     RequestedAudioCapturePermission = 'RequestedAudioCapturePermission',
     RequestedVideoCapturePermission = 'RequestedVideoCapturePermission',
@@ -14970,6 +14969,25 @@ export namespace WebAuthn {
 
   export interface AddVirtualAuthenticatorResponse extends ProtocolResponseWithError {
     authenticatorId: AuthenticatorId;
+  }
+
+  export interface SetResponseOverrideBitsRequest {
+    authenticatorId: AuthenticatorId;
+    /**
+     * If isBogusSignature is set, overrides the signature in the authenticator response to be zero.
+     * Defaults to false.
+     */
+    isBogusSignature?: boolean;
+    /**
+     * If isBadUV is set, overrides the UV bit in the flags in the authenticator response to
+     * be zero. Defaults to false.
+     */
+    isBadUV?: boolean;
+    /**
+     * If isBadUP is set, overrides the UP bit in the flags in the authenticator response to
+     * be zero. Defaults to false.
+     */
+    isBadUP?: boolean;
   }
 
   export interface RemoveVirtualAuthenticatorRequest {

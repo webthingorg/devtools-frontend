@@ -3425,6 +3425,8 @@ declare namespace ProtocolProxyApi {
      */
     invoke_addVirtualAuthenticator(params: Protocol.WebAuthn.AddVirtualAuthenticatorRequest): Promise<Protocol.WebAuthn.AddVirtualAuthenticatorResponse>;
 
+    invoke_setResponseOverrideBits(params: Protocol.WebAuthn.SetResponseOverrideBitsRequest): Promise<Protocol.ProtocolResponseWithError>;
+
     /**
      * Removes the given authenticator.
      */
