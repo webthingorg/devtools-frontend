@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3090d2_69869d0d",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-02T11:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce7c4949_a75c2a50",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c69b8cd1_5eee6499",
