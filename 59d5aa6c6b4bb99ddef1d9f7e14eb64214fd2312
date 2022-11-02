@@ -120,6 +120,24 @@
       "message": "by having this as true, it was not allowing the location to be overriden with null/0\u0027s",
       "revId": "59d5aa6c6b4bb99ddef1d9f7e14eb64214fd2312",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61e98b13_e82552ce",
+        "filename": "front_end/panels/sensors/SensorsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-02T08:58:36Z",
+      "side": 1,
+      "message": "sorry for the delay here! Looking at the regression CL it looks like the original behaviour was more like this: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3998154 wdyt you think about fixing it in the emulation model?",
+      "parentUuid": "685695cf_c8a3cb73",
+      "revId": "59d5aa6c6b4bb99ddef1d9f7e14eb64214fd2312",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
