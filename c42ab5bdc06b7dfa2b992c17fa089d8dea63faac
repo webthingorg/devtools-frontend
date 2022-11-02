@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32d339ab_a7c7e7dc",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-11-02T23:40:05Z",
+      "side": 1,
+      "message": "Can you update the expectations in `navigation_test.ts` to verify that the button is visible?",
+      "revId": "c42ab5bdc06b7dfa2b992c17fa089d8dea63faac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
