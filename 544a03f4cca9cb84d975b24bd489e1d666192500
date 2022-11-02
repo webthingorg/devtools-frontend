@@ -122,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f6a2ba4_06dab3b2",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-11-02T09:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7910db07_a43c0bd5",
+      "revId": "544a03f4cca9cb84d975b24bd489e1d666192500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b70964c2_caeec2a3",
