@@ -42,6 +42,11 @@
   margin: 10px;
 }
 
+.override-bits-container {
+  display: none;
+  margin: 5px;
+}
+
 .webauthn-pane.enabled .new-authenticator-container {
   display: block;
 }
