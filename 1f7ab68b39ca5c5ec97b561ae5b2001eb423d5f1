@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14803d64_9af3fb1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-02T13:25:02Z",
+      "side": 1,
+      "message": "liviu@ PTAL for roll_front_end_third_party.py",
+      "revId": "1f7ab68b39ca5c5ec97b561ae5b2001eb423d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
