@@ -16,6 +16,24 @@
       "message": "This seems to have effects elsewhere as well. In the network panel top toolbar, the \u0027more network conditions\u0027 icon is now moved further away from the divider to its right.",
       "revId": "de341af90864300c79b0465d7c9c94c5a377d7ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e052676_4e8bf6eb",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-02T05:05:50Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "11300d3b_7107b5a3",
+      "revId": "de341af90864300c79b0465d7c9c94c5a377d7ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

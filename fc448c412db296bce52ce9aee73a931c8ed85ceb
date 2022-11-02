@@ -33,6 +33,24 @@
       "message": "Would it make sense to apply this not only to the last toolbar-item or would this break something?\nWhen DevTools is resized to about 550px or smaller, it\u0027s already the 2nd to last toolbar item which would profit from this attribute.",
       "revId": "fc448c412db296bce52ce9aee73a931c8ed85ceb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b35a36_45e3a5b1",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-02T05:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "921918cc_a42fe3bd",
+      "revId": "fc448c412db296bce52ce9aee73a931c8ed85ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
