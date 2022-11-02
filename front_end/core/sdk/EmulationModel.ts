@@ -215,6 +215,7 @@ export class EmulationModel extends SDKModel<void> {
     if (!location || location.error) {
       await Promise.all([
         this.#emulationAgent.invoke_clearGeolocationOverride(),
+        location?.error ? this.#emulationAgent.invoke_setGeolocationOverride({}) : undefined,
         this.#emulationAgent.invoke_setTimezoneOverride({timezoneId: ''}),
         this.#emulationAgent.invoke_setLocaleOverride({locale: ''}),
         this.#emulationAgent.invoke_setUserAgentOverride(
