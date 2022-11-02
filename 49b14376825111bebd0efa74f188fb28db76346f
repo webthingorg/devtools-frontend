@@ -51,6 +51,23 @@
       "message": "Changhao@ could you please review?",
       "revId": "49b14376825111bebd0efa74f188fb28db76346f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be06e7e7_1e6c3edd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-02T09:49:16Z",
+      "side": 1,
+      "message": "I would defer to Peter to see if this is a good idea. I think allowing more developers to discover the hover-ability is generally a good direction, but it\u0027s the same argument with badges and DOM tree warnings: if we have quite a few variables in the Styles pane, moving your mouse through the pane would trigger many unnecessary popups and therefore visual noises.\n\nI think a compromise in the middle would be to trigger the popup when the mouse stays for \u003eXms, e.g. \u003e500ms? This way we could avoid unintended mousemoves triggering popups.\n\nI also did a bit searching around, and found these two links explaining the delay of ARIA titles:\nhttps://ux.stackexchange.com/questions/62721/why-does-the-title-attribute-have-a-delay\nhttps://ux.stackexchange.com/questions/358/how-long-should-the-delay-be-before-a-tooltip-pops-up\n\nI think they have a good point. But again, I\u0027m not an UX expert, so I\u0027ll defer to Peter 😊",
+      "revId": "49b14376825111bebd0efa74f188fb28db76346f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
