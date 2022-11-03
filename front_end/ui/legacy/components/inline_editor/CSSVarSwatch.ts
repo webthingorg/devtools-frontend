@@ -4,6 +4,8 @@
 
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import {VariableRegex as VariableFunctionRegex} from '../../../../core/sdk/CSSMetadata.js';
 import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 
@@ -20,8 +22,6 @@ const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/inline_editor/CSS
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const {render, html, Directives} = LitHtml;
 
-const VARIABLE_FUNCTION_REGEX = /(^var\()\s*(--(?:[\s\w\P{ASCII}-]|\\.)+)(,?\s*.*)\s*(\))$/u;
-
 interface SwatchRenderData {
   text: string;
   computedValue: string|null;
@@ -32,7 +32,8 @@ interface SwatchRenderData {
 interface ParsedVariableFunction {
   pre: string;
   variableName: string;
-  fallbackIncludeComma: string;
+  comma: string;
+  fallback: string;
   post: string;
 }
 
@@ -85,7 +86,7 @@ export class CSSVarSwatch extends HTMLElement {
     // When the value of CSS var() is greater than two spaces, only one is
     // always displayed, and the actual number of spaces is displayed when
     // editing is clicked.
-    const result = this.text.replace(/\s{2,}/g, ' ').match(VARIABLE_FUNCTION_REGEX);
+    const result = this.text.replace(/\s{2,}/g, ' ').match(VariableFunctionRegex);
     if (!result) {
       return null;
     }
@@ -97,17 +98,19 @@ export class CSSVarSwatch extends HTMLElement {
       // Returns the CSS variable name, e.g. `--foo`
       variableName: result[2],
 
-      // Returns the fallback value in the CSS variable, including a comma if
-      // one is present, e.g. `,50px`
-      fallbackIncludeComma: result[3],
+      // Returns comma `,`
+      comma: result[3],
+
+      // Returns the fallback value, e.g. `50px`
+      fallback: result[4],
 
       // Returns `)`
-      post: result[4],
+      post: result[5],
     };
   }
 
   private get variableName(): string {
-    const match = this.text.match(VARIABLE_FUNCTION_REGEX);
+    const match = this.text.match(VariableFunctionRegex);
     if (match) {
       return match[2];
     }
@@ -129,6 +132,21 @@ export class CSSVarSwatch extends HTMLElement {
         onActivate} role="link" tabindex="-1">${variableName}</span>`;
   }
 
+  private renderFallback(fallback: string): LitHtml.TemplateResult {
+    if (!fallback) {
+      return LitHtml.html``;
+    }
+
+    const isDefined = this.computedValue && this.fromFallback;
+
+    const classes = Directives.classMap({
+      'css-var-fallback': true,
+      'undefined': !isDefined,
+    });
+
+    return html`<span class=${classes} tabindex="-1">${fallback}</span>`;
+  }
+
   private render(): void {
     const functionParts = this.parseVariableFunctionParts();
     if (!functionParts) {
@@ -137,12 +155,12 @@ export class CSSVarSwatch extends HTMLElement {
     }
 
     const variableNameLink = this.renderLink(functionParts.variableName);
-    const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
+    const fallback = this.renderFallback(functionParts.fallback);
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(
-      html`<span title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink}${fallbackIncludeComma}${functionParts.post}</span>`,
+      html`<span title=${this.computedValue || ''}>${functionParts.pre}${variableNameLink}${functionParts.comma}${fallback}${functionParts.post}</span>`,
       this.shadow, { host: this });
     // clang-format on
   }

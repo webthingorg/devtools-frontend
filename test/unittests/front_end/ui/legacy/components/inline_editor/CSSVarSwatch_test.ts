@@ -148,11 +148,11 @@ describeWithLocale('CSSVarSwatch', () => {
     });
   });
 
-  it('renders a var() function with spaces', () => {
+  it('renders a var() function with spaces and uppercase', () => {
     const component = new InlineEditor.CSSVarSwatch.CSSVarSwatch();
     renderElementIntoDOM(component);
     component.data = {
-      text: 'var( --test     )',
+      text: 'VAR( --test     )',
       computedValue: 'red',
       fromFallback: false,
       onLinkActivate: () => {},
