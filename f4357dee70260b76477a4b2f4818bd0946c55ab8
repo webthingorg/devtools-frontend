@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99e70274_529a2aed",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "You should probably mark it as void then I think\n\nhttps://stackoverflow.com/questions/55558875/void-before-promise-syntax",
+      "parentUuid": "aeba510d_483fe434",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 11
+      },
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a0d5f6c_fb2e8fa0",
         "filename": "front_end/panels/webauthn/WebauthnPane.ts",
         "patchSetId": 13

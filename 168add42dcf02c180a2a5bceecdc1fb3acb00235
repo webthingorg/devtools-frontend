@@ -1,0 +1,221 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c50f79_e1e586ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "The checkboxes look pretty disorganized in the screenshot. Perhaps we can add another visual column to the right of the UUID/Protocol/Transport/Etc section instead? And maybe that column can have a title like \"Override behaviour\"? Something like that.\n\nAlso let\u0027s make sure this looks good at different sizes.",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1f6f17_1623746c",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 12111,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "This isn\u0027t a very good name for the label. The virtual authenticator supports this feature regardless of the status of the checkbox.\n\nPerhaps `Override user presence bit`?",
+      "range": {
+        "startLine": 12111,
+        "startChar": 16,
+        "endLine": 12111,
+        "endChar": 35
+      },
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2171c7_6f895238",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 12114,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d68ecff_cac2789f",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 12117,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Perhaps `Override signature` or maybe `Set bogus signature`?",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50e0e1ca_0690e4df",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Are these necessary now that you have the checkboxes? Can you instead infer them from `bogusSignatureCheckbox.checked`, `badUVBitCheckbox.checked`, etc?",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd61c19_227f8710",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be simpler to\n\n```\nthis.#model.setResponseOverrideBits(authenticatorId,\n  bogusSignatureCheckbox.checked,\n  badUVBitCheckbox.checked, ...)\n```\n?\n\nThen you can do away with `behaviourType`.",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9097ce06_20c4a487",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you do `authenticatorIdToResponseBits.get(\"authenticatorId\").bogusSignatureCheckbox` instead of iterating them here?",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de544ee4_75c0df7c",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "I think this can be set to zero.",
+      "range": {
+        "startLine": 139,
+        "startChar": 13,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c025505_51bf4f2d",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "perhaps `authenticatorId` instead? so it\u0027s a little more self referential.",
+      "range": {
+        "startLine": 142,
+        "startChar": 28,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e905818a_212373ad",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Can you assert that the other two bits are false?",
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88daa1ba_5c012a6e",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2022-11-03T19:26:35Z",
+      "side": 1,
+      "message": "Is this really what `setResponseOverrideBits` should return? I think it\u0027s not supposed to return anything.",
+      "range": {
+        "startLine": 149,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 10
+      },
+      "revId": "168add42dcf02c180a2a5bceecdc1fb3acb00235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
