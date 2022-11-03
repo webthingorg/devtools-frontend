@@ -16,6 +16,24 @@
       "message": "This seems to be testing only part of what original test did. Is there a specific reason for that?",
       "revId": "d8c4a569a27a422627d6e27c22d0a7f5d8c03f73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1bfc8e5_d7c1445f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-03T13:55:02Z",
+      "side": 1,
+      "message": "I thought the scenario was less in scope, I have included all the actions now",
+      "parentUuid": "531584e0_711cf12e",
+      "revId": "d8c4a569a27a422627d6e27c22d0a7f5d8c03f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
