@@ -1,0 +1,45 @@
+<p id="foo">
+</p>
+<div id="outer">
+<div id="inner">
+</div>
+</div>
+<div id="empty">
+</div>
+<button id="button" onclick="alert(1)" onmouseover="listener2()"></button>
+<button id="invalid" onclick="Invalid JavaScript"></button>
+<script>
+    function listener1()
+    {
+    }
+    function listener2()
+    {
+    }
+
+    document.getElementById("inner").addEventListener("keydown", listener1, false);
+    document.getElementById("inner").addEventListener("keydown", listener2, true);
+    document.getElementById("inner").addEventListener("wheel", listener2, {"passive": true});
+    document.getElementById("outer").addEventListener("mousemove", listener1, false);
+    document.getElementById("outer").addEventListener("mousedown", listener2, true);
+    document.getElementById("outer").addEventListener("keydown", listener2, true);
+    document.getElementById("outer").addEventListener("keyup", listener2, {once: true});
+    window.addEventListener("popstate", listener1, false);
+
+    function runTestsInPage(getEventListeners)
+    {
+        var innerElement = document.getElementById("inner");
+        var innerListeners = getEventListeners(innerElement);
+        console.log(innerListeners)
+        innerElement.removeEventListener("keydown", innerListeners.keydown[0].listener, innerListeners.keydown[0].useCapture);
+        innerElement.removeEventListener("wheel", innerListeners.wheel[0].listener, innerListeners.wheel[0].useCapture);
+        console.log(getEventListeners(innerElement));
+        console.log(getEventListeners(document.getElementById("outer")));
+        console.log(getEventListeners(document.getElementById("button")));
+        console.log(getEventListeners(window));
+        console.log(getEventListeners(document.getElementById("empty")));
+        console.log(getEventListeners(document.getElementById("invalid")));
+        console.log(getEventListeners({}));
+        console.log(getEventListeners(null));
+        console.log(getEventListeners(undefined));
+    }
+</script>

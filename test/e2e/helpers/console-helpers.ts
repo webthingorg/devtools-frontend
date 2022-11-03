@@ -22,6 +22,8 @@ import {AsyncScope} from '../../shared/async-scope.js';
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
 export const CONSOLE_FIRST_MESSAGES_SELECTOR = '.console-group-messages .source-code .console-message-text';
+export const CONSOLE_INFO_MESSAGES_SELECTOR =
+    '.console-group-messages .console-info-level .source-code .console-message-text';
 export const CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR = '.console-group-messages .source-code';
 export const LOG_LEVELS_SELECTOR = '[aria-label^="Log level: "]';
 export const LOG_LEVELS_VERBOSE_OPTION_SELECTOR = '[aria-label^="Verbose"]';
@@ -123,6 +125,37 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
   return frontend.evaluate(selector => {
     return Array.from(document.querySelectorAll(selector)).map(message => message.textContent);
   }, selector);
+}
+
+export async function getCurrentConsoleInfoMessages(callback?: () => Promise<void>) {
+  const {frontend} = getBrowserAndPages();
+  const asyncScope = new AsyncScope();
+
+  await navigateToConsoleTab();
+
+  // Get console messages that were logged.
+  await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+
+  if (callback) {
+    await callback();
+  }
+
+  // Ensure all messages are populated.
+  await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
+    const messages = document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR);
+    if (messages.length === 0) {
+      return false;
+    }
+    return Array.from(messages).every(message => message.childNodes.length > 0);
+  }, {timeout: 0, polling: 'mutation'}, CONSOLE_FIRST_MESSAGES_SELECTOR));
+
+  // FIXME(crbug/1112692): Refactor test to remove the timeout.
+  await timeout(100);
+
+  // Get the messages from the console.
+  return frontend.evaluate(CONSOLE_INFO_MESSAGES_SELECTOR => {
+    return Array.from(document.querySelectorAll(CONSOLE_INFO_MESSAGES_SELECTOR)).map(message => message.textContent);
+  }, CONSOLE_INFO_MESSAGES_SELECTOR);
 }
 
 export async function maybeGetCurrentConsoleMessages(withAnchor = false, callback?: () => Promise<void>) {
