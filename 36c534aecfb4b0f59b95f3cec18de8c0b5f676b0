@@ -71,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fdcac96_18a0e027",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-03T14:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a751c25c_9db97e0a",
+      "range": {
+        "startLine": 130,
+        "startChar": 22,
+        "endLine": 130,
+        "endChar": 51
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "270fc690_a422b5cb",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I don\u0027t think I have a preference here.\nWhy would it be less flaky?",
       "parentUuid": "270fc690_a422b5cb",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18071add_4d087947",
+        "filename": "test/e2e/resources/console/command-line-api-getEventListeners.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-03T14:58:59Z",
+      "side": 1,
+      "message": "Because we would not rely on the order of the messages; currently if there is a random message that appears between our console messages the test would fail, if this is unlikely to happen though then I guess both mothods are the same.",
+      "parentUuid": "036297ba_bbe04d7d",
       "range": {
         "startLine": 71,
         "startChar": 13,
