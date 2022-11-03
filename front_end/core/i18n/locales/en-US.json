@@ -12107,6 +12107,15 @@
   "panels/webauthn/WebauthnPane.ts | signCount": {
     "message": "Signature Count"
   },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUPBit": {
+    "message": "Supports bad UP bit"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUVBit": {
+    "message": "Supports bad UV bits"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBogusSignature": {
+    "message": "Supports bogus signature"
+  },
   "panels/webauthn/WebauthnPane.ts | supportsLargeBlob": {
     "message": "Supports large blob"
   },

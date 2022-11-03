@@ -12107,6 +12107,15 @@
   "panels/webauthn/WebauthnPane.ts | signCount": {
     "message": "Ŝíĝńât́ûŕê Ćôún̂t́"
   },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUPBit": {
+    "message": "Ŝúp̂ṕôŕt̂ś b̂ád̂ ÚP̂ b́ît́"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUVBit": {
+    "message": "Ŝúp̂ṕôŕt̂ś b̂ád̂ ÚV̂ b́ît́ŝ"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBogusSignature": {
+    "message": "Ŝúp̂ṕôŕt̂ś b̂óĝúŝ śîǵn̂át̂úr̂é"
+  },
   "panels/webauthn/WebauthnPane.ts | supportsLargeBlob": {
     "message": "Ŝúp̂ṕôŕt̂ś l̂ár̂ǵê b́l̂ób̂"
   },

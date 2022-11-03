@@ -32,6 +32,12 @@ export class WebAuthnModel extends SDKModel {
     await this.#agent.invoke_removeVirtualAuthenticator({authenticatorId});
   }
 
+  async setResponseOverrideBits(
+      authenticatorId: Protocol.WebAuthn.AuthenticatorId, isBogusSignature: boolean, isBadUV: boolean,
+      isBadUP: boolean): Promise<void> {
+    await this.#agent.invoke_setResponseOverrideBits({authenticatorId, isBogusSignature, isBadUV, isBadUP});
+  }
+
   async setAutomaticPresenceSimulation(authenticatorId: Protocol.WebAuthn.AuthenticatorId, enabled: boolean):
       Promise<void> {
     await this.#agent.invoke_setAutomaticPresenceSimulation({authenticatorId, enabled});
