@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69354fd4_d59efded",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af88a3e_d05ba6da",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d017aefb_82eabc2b",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "076b79d1_0a452b5b",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "If this check is removed, the compiler complains that\n```\nObject is possibly \u0027undefined\u0027.\n```\nThis error shouldn\u0027t ever get thrown under normal circumstances though.",
+      "parentUuid": "d017aefb_82eabc2b",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a5fa1c5_eb14cd22",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-11-03T15:01:59Z",
       "side": 1,
       "message": "I *think* you don\u0027t need to wrap this in a Boolean like this.",
+      "range": {
+        "startLine": 556,
+        "startChar": 23,
+        "endLine": 556,
+        "endChar": 30
+      },
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3c9032_9cf8252f",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Hmm, I could have sworn I needed to cast it to a boolean when I initially wrote this code. But upon removing, it still works.",
+      "parentUuid": "5a5fa1c5_eb14cd22",
       "range": {
         "startLine": 556,
         "startChar": 23,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeba510d_483fe434",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "`then` is not needed, however `catch` is since the presubmit checks require\n```\n  564:5  error  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises\n```",
+      "parentUuid": "dbe7a0d2_2be76279",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 11
+      },
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a0d5f6c_fb2e8fa0",
@@ -94,6 +178,30 @@
       "writtenOn": "2022-11-03T15:01:59Z",
       "side": 1,
       "message": "This looks like a typo here.",
+      "range": {
+        "startLine": 807,
+        "startChar": 72,
+        "endLine": 807,
+        "endChar": 73
+      },
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02912aa9_78cd9f3d",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a0d5f6c_fb2e8fa0",
       "range": {
         "startLine": 807,
         "startChar": 72,
@@ -127,6 +235,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1745b6_a23b0ee7",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3ec995c_1cd8db71",
+      "range": {
+        "startLine": 809,
+        "startChar": 72,
+        "endLine": 809,
+        "endChar": 98
+      },
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67abe343_9ee6bba7",
@@ -140,6 +272,24 @@
       "writtenOn": "2022-11-03T15:01:59Z",
       "side": 1,
       "message": "I\u0027m not sure what you\u0027re trying to do here. suvField looks like it\u0027s the \"supports user verification\" line, it doesn\u0027t make much sense to have these checkboxes be a child of that element. They should probably be appended to their own section instead (overrideBitsSection looks like is trying to do that?).",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3971fc_4df09638",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67abe343_9ee6bba7",
       "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -161,6 +311,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f74aa89b_1f0d7545",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f62a7229_d0f53fa5",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93ef3545_779d701e",
@@ -178,6 +346,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f3752c_2d9269ca",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93ef3545_779d701e",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c980aa70_4bcbf752",
@@ -191,6 +377,24 @@
       "writtenOn": "2022-11-03T15:01:59Z",
       "side": 1,
       "message": "Is this used? `display: none` here means that whatever has this class would not show up :thinking:",
+      "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60f9024_10ada981",
+        "filename": "front_end/panels/webauthn/webauthnPane.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T18:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c980aa70_4bcbf752",
       "revId": "f4357dee70260b76477a4b2f4818bd0946c55ab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
