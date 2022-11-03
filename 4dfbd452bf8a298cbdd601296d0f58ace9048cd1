@@ -16,6 +16,24 @@
       "message": "I forgot: is this the same regex from the previous CSS variable CL?",
       "revId": "4dfbd452bf8a298cbdd601296d0f58ace9048cd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9b8bd1_b666aec6",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-03T14:18:01Z",
+      "side": 1,
+      "message": "Yes, this has the same definition in CSSVarSwatch.ts, and now I\u0027ve merged them.\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3966398/3/front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+      "parentUuid": "e2b62058_f438a8d0",
+      "revId": "4dfbd452bf8a298cbdd601296d0f58ace9048cd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
