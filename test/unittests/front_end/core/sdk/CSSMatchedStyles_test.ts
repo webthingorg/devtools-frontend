@@ -18,6 +18,13 @@ describe('CSSMatchedStyles', () => {
       assert.deepEqual(parseCSSVariableNameAndFallback('var(--123Abc)'), {variableName: '--123Abc', fallback: ''});
     });
 
+    it('correctly parsing the var() function in uppercase', () => {
+      assert.deepEqual(parseCSSVariableNameAndFallback('VAR(--foo)'), {variableName: '--foo', fallback: ''});
+      assert.deepEqual(parseCSSVariableNameAndFallback('Var(--foo-bar)'), {variableName: '--foo-bar', fallback: ''});
+      assert.deepEqual(parseCSSVariableNameAndFallback('VAr(--123)'), {variableName: '--123', fallback: ''});
+      assert.deepEqual(parseCSSVariableNameAndFallback('VaR(--123Abc)'), {variableName: '--123Abc', fallback: ''});
+    });
+
     it('need to correctly parse escaped characters', () => {
       // `var(--\)` is an invalid CSS value and must have at least 1 character.
       assert.deepEqual(parseCSSVariableNameAndFallback('var(--\\ )'), {variableName: '--\\', fallback: ''});
