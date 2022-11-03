@@ -2904,7 +2904,11 @@ export namespace CacheStorage {
     /**
      * Security origin of the cache.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key of the cache.
+     */
+    storageKey?: string;
     /**
      * The name of the cache.
      */
@@ -2946,9 +2950,14 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
+     * At least and at most one of securityOrigin, storageKey must be specified.
      * Security origin.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key.
+     */
+    storageKey?: string;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -11050,7 +11059,6 @@ export namespace Page {
     DedicatedWorkerOrWorklet = 'DedicatedWorkerOrWorklet',
     OutstandingNetworkRequestOthers = 'OutstandingNetworkRequestOthers',
     OutstandingIndexedDBTransaction = 'OutstandingIndexedDBTransaction',
-    RequestedNotificationsPermission = 'RequestedNotificationsPermission',
     RequestedMIDIPermission = 'RequestedMIDIPermission',
     RequestedAudioCapturePermission = 'RequestedAudioCapturePermission',
     RequestedVideoCapturePermission = 'RequestedVideoCapturePermission',
@@ -13212,6 +13220,13 @@ export namespace Storage {
     origin: string;
   }
 
+  export interface TrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+  }
+
   export interface TrackIndexedDBForOriginRequest {
     /**
      * Security origin.
@@ -13231,6 +13246,13 @@ export namespace Storage {
      * Security origin.
      */
     origin: string;
+  }
+
+  export interface UntrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
   }
 
   export interface UntrackIndexedDBForOriginRequest {
@@ -13304,6 +13326,10 @@ export namespace Storage {
      */
     origin: string;
     /**
+     * Storage key to update.
+     */
+    storageKey: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13317,6 +13343,10 @@ export namespace Storage {
      * Origin to update.
      */
     origin: string;
+    /**
+     * Storage key to update.
+     */
+    storageKey: string;
   }
 
   /**
@@ -14970,6 +15000,25 @@ export namespace WebAuthn {
 
   export interface AddVirtualAuthenticatorResponse extends ProtocolResponseWithError {
     authenticatorId: AuthenticatorId;
+  }
+
+  export interface SetResponseOverrideBitsRequest {
+    authenticatorId: AuthenticatorId;
+    /**
+     * If isBogusSignature is set, overrides the signature in the authenticator response to be zero.
+     * Defaults to false.
+     */
+    isBogusSignature?: boolean;
+    /**
+     * If isBadUV is set, overrides the UV bit in the flags in the authenticator response to
+     * be zero. Defaults to false.
+     */
+    isBadUV?: boolean;
+    /**
+     * If isBadUP is set, overrides the UP bit in the flags in the authenticator response to
+     * be zero. Defaults to false.
+     */
+    isBadUP?: boolean;
   }
 
   export interface RemoveVirtualAuthenticatorRequest {

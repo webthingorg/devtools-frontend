@@ -179,13 +179,15 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
     const oldCaches = new Map<string, Cache>();
 
     for (const cacheJson of cachesJson) {
-      const cache = new Cache(this, cacheJson.securityOrigin, cacheJson.cacheName, cacheJson.cacheId);
-      updatingCachesIds.add(cache.cacheId);
-      if (this.#cachesInternal.has(cache.cacheId)) {
-        continue;
-      }
-      newCaches.set(cache.cacheId, cache);
-      this.#cachesInternal.set(cache.cacheId, cache);
+      if (cacheJson.securityOrigin) {
+        const cache = new Cache(this, cacheJson.securityOrigin, cacheJson.cacheName, cacheJson.cacheId);
+        updatingCachesIds.add(cache.cacheId);
+        if (this.#cachesInternal.has(cache.cacheId)) {
+          continue;
+        }
+        newCaches.set(cache.cacheId, cache);
+        this.#cachesInternal.set(cache.cacheId, cache);
+     }
     }
     this.#cachesInternal.forEach(deleteAndSaveOldCaches, this);
     newCaches.forEach(this.cacheAdded, this);

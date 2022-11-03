@@ -2916,6 +2916,11 @@ declare namespace ProtocolProxyApi {
     invoke_trackCacheStorageForOrigin(params: Protocol.Storage.TrackCacheStorageForOriginRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
+     * Registers storage key to be notified when an update occurs to its cache storage list.
+     */
+    invoke_trackCacheStorageForStorageKey(params: Protocol.Storage.TrackCacheStorageForStorageKeyRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
      * Registers origin to be notified when an update occurs to its IndexedDB.
      */
     invoke_trackIndexedDBForOrigin(params: Protocol.Storage.TrackIndexedDBForOriginRequest): Promise<Protocol.ProtocolResponseWithError>;
@@ -2929,6 +2934,11 @@ declare namespace ProtocolProxyApi {
      * Unregisters origin from receiving notifications for cache storage.
      */
     invoke_untrackCacheStorageForOrigin(params: Protocol.Storage.UntrackCacheStorageForOriginRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Unregisters storage key from receiving notifications for cache storage.
+     */
+    invoke_untrackCacheStorageForStorageKey(params: Protocol.Storage.UntrackCacheStorageForStorageKeyRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
      * Unregisters origin from receiving notifications for IndexedDB.
@@ -3424,6 +3434,11 @@ declare namespace ProtocolProxyApi {
      * Creates and adds a virtual authenticator.
      */
     invoke_addVirtualAuthenticator(params: Protocol.WebAuthn.AddVirtualAuthenticatorRequest): Promise<Protocol.WebAuthn.AddVirtualAuthenticatorResponse>;
+
+    /**
+     * Resets parameters isBogusSignature, isBadUV, isBadUP to false if they are not present.
+     */
+    invoke_setResponseOverrideBits(params: Protocol.WebAuthn.SetResponseOverrideBitsRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
      * Removes the given authenticator.
