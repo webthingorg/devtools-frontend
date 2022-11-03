@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a751c25c_9db97e0a",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-03T14:06:00Z",
+      "side": 1,
+      "message": "I\u0027d add a \u0027level\u0027 parameter to the existing function.",
+      "parentUuid": "a5a0904c_19e33fd6",
+      "range": {
+        "startLine": 130,
+        "startChar": 22,
+        "endLine": 130,
+        "endChar": 51
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "270fc690_a422b5cb",
         "filename": "test/e2e/resources/console/command-line-api-getEventListeners.html",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "writtenOn": "2022-11-03T13:55:02Z",
       "side": 1,
       "message": "a less flaky way to do this would be to type each command in the console and wait for the response, would that be a better approach or should we do it the same as the layout test?",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036297ba_bbe04d7d",
+        "filename": "test/e2e/resources/console/command-line-api-getEventListeners.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-03T14:06:00Z",
+      "side": 1,
+      "message": "I don\u0027t think I have a preference here.\nWhy would it be less flaky?",
+      "parentUuid": "270fc690_a422b5cb",
       "range": {
         "startLine": 71,
         "startChar": 13,
