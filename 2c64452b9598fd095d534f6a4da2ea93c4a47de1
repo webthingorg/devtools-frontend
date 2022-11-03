@@ -35,6 +35,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbf1c508_5fc73aa3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e304ae_4be62786",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10415b2f_383b4f94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41fbd9df_b956d337",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df0d54b2_64e3db39",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "uhm, what is this thing? we almost certainly don\u0027t want it here :thinking:",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e955246_71ba5d57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Messaged mathiasb.\nGetting error\n```\n** Presubmit ERRORS: 1 **\nCLs that affect files in \"third_party, v8, front_end/models/javascript_metadata, front_end/generated\" should be limited to these files/directories.\nUnexpected files: [\u0027front_end/core/sdk/WebAuthnModel.ts\u0027, \u0027front_end/panels/webauthn/WebauthnPane.ts\u0027, \u0027front_end/panels/webauthn/webauthnPane.css\u0027, \u0027node_modules/devtools-protocol/pdl/browser_protocol.pdl\u0027].\nYou can disable this check by adding DISABLE_THIRD_PARTY_CHECK\u003d\u003creason\u003e to your commit mess\n```\nif ```DISABLE_THIRD_PARTY_CHECK``` is not added",
+      "parentUuid": "df0d54b2_64e3db39",
       "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac39d206_bd2a3913",
+        "filename": "front_end/core/sdk/WebAuthnModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d8a6d06_73244ac6",
+      "range": {
+        "startLine": 36,
+        "startChar": 58,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7af65c8_da296302",
@@ -105,6 +183,30 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "As discussed offline, these should probably be in a map keyed by authenticator id.",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 47
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03cdea53_3bd9caf6",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7af65c8_da296302",
       "range": {
         "startLine": 271,
         "startChar": 0,
@@ -138,6 +240,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98e40678_977ec064",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80c86035_85e30754",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 31
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22f55674_7dbb45b9",
@@ -151,6 +277,30 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "nit: maybe `overrideResponseBits`? let\u0027s try to stay consistent here.",
+      "range": {
+        "startLine": 545,
+        "startChar": 3,
+        "endLine": 545,
+        "endChar": 14
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "957a0c03_afda9d69",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22f55674_7dbb45b9",
       "range": {
         "startLine": 545,
         "startChar": 3,
@@ -178,6 +328,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a7f00f_4c31ed53",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1376cd72_d9ff3eb2",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fae30160_9488d08c",
@@ -191,6 +359,30 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "nit: maybe `responseOverrideBits`?",
+      "range": {
+        "startLine": 547,
+        "startChar": 10,
+        "endLine": 547,
+        "endChar": 27
+      },
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b1a97e_28a25d96",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae30160_9488d08c",
       "range": {
         "startLine": 547,
         "startChar": 10,
@@ -218,6 +410,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c79319_fbd4b9a2",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "265d0f3b_0f148186",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "635de0a3_5ba97cb1",
@@ -231,6 +441,24 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "It\u0027s cleaner to set this when the authenticator gets added IMO, that way you can remove the check for empty responseBehaviour.",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a685d7cb_35cf6b8f",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "635de0a3_5ba97cb1",
       "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -252,6 +480,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e048cc2f_dab2b712",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a44752_af9fb5f5",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d25822cb_a3f3cd13",
@@ -269,6 +515,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1200e7be_ce73acaf",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d25822cb_a3f3cd13",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eae16d8c_11c81226",
@@ -282,6 +546,24 @@
       "writtenOn": "2022-11-02T22:03:11Z",
       "side": 1,
       "message": "ditto",
+      "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f148247f_efd02b22",
+        "filename": "front_end/panels/webauthn/WebauthnPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-03T14:42:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae16d8c_11c81226",
       "revId": "2c64452b9598fd095d534f6a4da2ea93c4a47de1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
