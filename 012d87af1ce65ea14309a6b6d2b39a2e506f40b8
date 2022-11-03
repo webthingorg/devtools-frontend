@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6984cf6_86669725",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-03T10:52:03Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "012d87af1ce65ea14309a6b6d2b39a2e506f40b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5169682_f142f0d0",
+        "filename": "test/unittests/front_end/panels/sources/JavaScriptCompilerPlugin_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-03T10:52:03Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 80,
+        "startChar": 12,
+        "endLine": 80,
+        "endChar": 18
+      },
+      "revId": "012d87af1ce65ea14309a6b6d2b39a2e506f40b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca5073f_ac4c02d1",
+        "filename": "test/unittests/front_end/panels/sources/JavaScriptCompilerPlugin_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-03T10:52:03Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 81,
+        "startChar": 12,
+        "endLine": 81,
+        "endChar": 15
+      },
+      "revId": "012d87af1ce65ea14309a6b6d2b39a2e506f40b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
