@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbdd4c2_75c14ba0",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-03T14:19:15Z",
+      "side": 1,
+      "message": "Fixed lint error.",
+      "revId": "9b66420dfa101494445ed06dca41f4e749bf9b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
