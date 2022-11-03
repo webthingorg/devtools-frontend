@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0e482492_c0d37baf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-03T10:18:27Z",
+      "side": 1,
+      "message": "LGTM (Shame on that other CL reviewer)",
+      "revId": "745da4e0d96ceebdb536e1956f5caecbf4014879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1c8be0d6_778d21a0",
         "filename": "front_end/ui/legacy/SoftContextMenu.ts",
         "patchSetId": 1
