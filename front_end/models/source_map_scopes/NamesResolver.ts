@@ -600,27 +600,27 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
     return {properties: newProperties, internalProperties: internalProperties};
   }
 
-  async setPropertyValue(argumentName: string|Protocol.Runtime.CallArgument, value: string): Promise<string|undefined> {
+  async setPropertyValue(argumentName: SDK.RemoteObject.RemoteObjectPropertyName, value: string):
+      Promise<string|undefined> {
     const {variableMapping} = await resolveScope(this.scope);
 
     let name;
     if (typeof argumentName === 'string') {
       name = argumentName;
     } else {
-      name = (argumentName.value as string);
+      name = (argumentName as Protocol.Runtime.CallArgument).value as string;
     }
 
-    let actualName: string = name;
     for (const compiledName of variableMapping.keys()) {
       if (variableMapping.get(compiledName) === name) {
-        actualName = compiledName;
+        argumentName = SDK.RemoteObject.RemoteObject.toCallArgument(compiledName);
         break;
       }
     }
-    return this.object.setPropertyValue(actualName, value);
+    return this.object.setPropertyValue(argumentName, value);
   }
 
-  async deleteProperty(name: Protocol.Runtime.CallArgument): Promise<string|undefined> {
+  async deleteProperty(name: SDK.RemoteObject.RemoteObjectPropertyName): Promise<string|undefined> {
     return this.object.deleteProperty(name);
   }
 

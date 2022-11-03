@@ -1307,7 +1307,9 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private async applyExpression(expression: string): Promise<void> {
-    const property = SDK.RemoteObject.RemoteObject.toCallArgument(this.property.symbol || this.property.name);
+    const property = this.property.private ?
+        {privateName: this.property.name} :
+        SDK.RemoteObject.RemoteObject.toCallArgument(this.property.symbol ?? this.property.name);
     expression = JavaScriptREPL.wrapObjectLiteral(expression.trim());
 
     if (this.property.synthetic) {

@@ -39,6 +39,8 @@ import {type DOMPinnedWebIDLProp, type DOMPinnedWebIDLType} from '../common/Java
 import {type DebuggerModel, type FunctionDetails} from './DebuggerModel.js';
 import {type RuntimeModel} from './RuntimeModel.js';
 
+export type RemoteObjectPropertyName = Protocol.Runtime.CallArgument|{privateName: string};
+
 export class RemoteObject {
   /**
    * This may not be an interface due to "instanceof RemoteObject" checks in the code.
@@ -276,11 +278,11 @@ export class RemoteObject {
     throw 'Not implemented';
   }
 
-  async deleteProperty(_name: Protocol.Runtime.CallArgument): Promise<string|undefined> {
+  async deleteProperty(_name: RemoteObjectPropertyName): Promise<string|undefined> {
     throw 'Not implemented';
   }
 
-  async setPropertyValue(_name: string|Protocol.Runtime.CallArgument, _value: string): Promise<string|undefined> {
+  async setPropertyValue(_name: RemoteObjectPropertyName, _value: string): Promise<string|undefined> {
     throw 'Not implemented';
   }
 
@@ -518,7 +520,7 @@ export class RemoteObjectImpl extends RemoteObject {
     return {properties: result, internalProperties: internalPropertiesResult};
   }
 
-  async setPropertyValue(name: string|Protocol.Runtime.CallArgument, value: string): Promise<string|undefined> {
+  async setPropertyValue(name: string|RemoteObjectPropertyName, value: string): Promise<string|undefined> {
     if (!this.#objectIdInternal) {
       return 'Can’t set a property of non-object.';
     }
@@ -542,18 +544,18 @@ export class RemoteObjectImpl extends RemoteObject {
     return resultPromise;
   }
 
-  async doSetObjectPropertyValue(result: Protocol.Runtime.RemoteObject, name: Protocol.Runtime.CallArgument):
+  async doSetObjectPropertyValue(value: Protocol.Runtime.RemoteObject, name: RemoteObjectPropertyName):
       Promise<string|undefined> {
     // This assignment may be for a regular (data) property, and for an accessor property (with getter/setter).
     // Note the sensitive matter about accessor property: the property may be physically defined in some proto object,
     // but logically it is bound to the object in question. JavaScript passes this object to getters/setters, not the object
     // where property was defined; so do we.
-    const setPropertyValueFunction = 'function(a, b) { this[a] = b; }';
-
-    const argv = [name, RemoteObject.toCallArgument(result)];
+    const functionDeclaration =
+        'privateName' in name ? `function(v) { this.${name.privateName} = v; }` : 'function(a, b) { this[a] = b; }';
+    const argv = 'privateName' in name ? [value] : [name, value];
     const response = await this.#runtimeAgent.invoke_callFunctionOn({
       objectId: this.#objectIdInternal,
-      functionDeclaration: setPropertyValueFunction,
+      functionDeclaration,
       arguments: argv,
       silent: true,
     });
@@ -561,9 +563,12 @@ export class RemoteObjectImpl extends RemoteObject {
     return error || response.exceptionDetails ? error || response.result.description : undefined;
   }
 
-  async deleteProperty(name: Protocol.Runtime.CallArgument): Promise<string|undefined> {
+  async deleteProperty(name: RemoteObjectPropertyName): Promise<string|undefined> {
     if (!this.#objectIdInternal) {
       return 'Can’t delete a property of non-object.';
+    }
+    if ('privateName' in name) {
+      return 'Can’t delete a private field.';
     }
 
     const deletePropertyFunction = 'function(a) { delete this[a]; return !(a in this); }';
@@ -687,11 +692,11 @@ export class ScopeRemoteObject extends RemoteObjectImpl {
     return allProperties;
   }
 
-  async doSetObjectPropertyValue(result: Protocol.Runtime.RemoteObject, argumentName: Protocol.Runtime.CallArgument):
+  async doSetObjectPropertyValue(value: Protocol.Runtime.RemoteObject, argumentName: RemoteObjectPropertyName):
       Promise<string|undefined> {
-    const name = (argumentName.value as string);
+    const name = (argumentName as Protocol.Runtime.CallArgument).value as string;
     const error = await this.debuggerModel().setVariableValue(
-        this.#scopeRef.number, name, RemoteObject.toCallArgument(result),
+        this.#scopeRef.number, name, RemoteObject.toCallArgument(value),
         (this.#scopeRef.callFrameId as Protocol.Debugger.CallFrameId));
     if (error) {
       return error;
@@ -699,7 +704,7 @@ export class ScopeRemoteObject extends RemoteObjectImpl {
     if (this.#savedScopeProperties) {
       for (const property of this.#savedScopeProperties) {
         if (property.name === name) {
-          property.value = this.runtimeModel().createRemoteObject(result);
+          property.value = this.runtimeModel().createRemoteObject(value);
         }
       }
     }
