@@ -1,0 +1,88 @@
+<p id="foo">
+</p>
+<div id="outer">
+<div id="inner">
+</div>
+</div>
+<div id="empty">
+</div>
+<button id="button" onclick="alert(1)" onmouseover="listener2()"></button>
+<button id="invalid" onclick="Invalid JavaScript"></button>
+<script>
+  function output(message) {
+        if (!self._output)
+            self._output = [];
+        self._output.push('[page] ' + message);
+    }
+
+    function listener1()
+    {
+    }
+    function listener2()
+    {
+    }
+
+    document.getElementById("inner").addEventListener("keydown", listener1, false);
+    document.getElementById("inner").addEventListener("keydown", listener2, true);
+    document.getElementById("inner").addEventListener("wheel", listener2, {"passive": true});
+    document.getElementById("outer").addEventListener("mousemove", listener1, false);
+    document.getElementById("outer").addEventListener("mousedown", listener2, true);
+    document.getElementById("outer").addEventListener("keydown", listener2, true);
+    document.getElementById("outer").addEventListener("keyup", listener2, {once: true});
+    window.addEventListener("popstate", listener1, false);
+
+    function dumpObject(object, prefix)
+    {
+        if (!object) {
+            output("FAIL: object is " + object);
+            return;
+        }
+        prefix = prefix || "";
+        var keys = Object.keys(object);
+        keys.sort();
+        for (var i = 0; i < keys.length; ++i) {
+            var value = object[keys[i]];
+            var nameWithPrefix = prefix + keys[i] + ": ";
+            switch (typeof(value)) {
+            case "object":
+                if (value === null) {
+                    output(nameWithPrefix + "null");
+                    break;
+                }
+                output(nameWithPrefix + "{");
+                dumpObject(value, prefix + "    ")
+                output(prefix + "}");
+                break;
+            case "string":
+                output(nameWithPrefix + JSON.stringify(value));
+                break;
+            case "function":
+                var body = value.toString().replace(/[ \\n]+/gm, " ");
+                body = body.replace(/; }/g, " }");
+                output(nameWithPrefix + body);
+                break;
+            default:
+                output(nameWithPrefix + String(value));
+                break;
+            }
+        }
+    }
+
+    function runTestsInPage(getEventListeners)
+    {
+        var innerElement = document.getElementById("inner");
+        var innerListeners = getEventListeners(innerElement);
+        console.log(innerListeners)
+        innerElement.removeEventListener("keydown", innerListeners.keydown[0].listener, innerListeners.keydown[0].useCapture);
+        innerElement.removeEventListener("wheel", innerListeners.wheel[0].listener, innerListeners.wheel[0].useCapture);
+        console.log(getEventListeners(innerElement));
+        console.log(getEventListeners(document.getElementById("outer")));
+        console.log(getEventListeners(document.getElementById("button")));
+        console.log(getEventListeners(window));
+        console.log(getEventListeners(document.getElementById("empty")));
+        console.log(getEventListeners(document.getElementById("invalid")));
+        console.log(getEventListeners({}));
+        console.log(getEventListeners(null));
+        console.log(getEventListeners(undefined));
+    }
+</script>
