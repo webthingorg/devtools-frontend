@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0b53451_129797bf",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-03T15:51:43Z",
+      "side": 1,
+      "message": "Let\u0027s remove the lint disable line and use\n```\nimport * as CSSMetadata from \u0027../.........\u0027\n...\nCSSMetadata.CSSMetadata.VariableRegex\n```\ninstead.",
+      "revId": "9b66420dfa101494445ed06dca41f4e749bf9b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cbdd4c2_75c14ba0",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 4
