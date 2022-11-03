@@ -496,6 +496,14 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
         void cookieModel.clear(undefined, includeThirdPartyCookies ? undefined : originForCookies);
       }
     }
+
+    if (set.has(Protocol.Storage.StorageType.Cache_storage) || hasAll) {
+      const target = SDK.TargetManager.TargetManager.instance().mainTarget();
+      const model = target && target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
+      if (model) {
+        model.clearForStorageKey(storageKey);
+      }
+    }
   }
 
   async doUpdate(): Promise<void> {
