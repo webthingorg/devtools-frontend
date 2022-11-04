@@ -426,6 +426,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         Extensions.ExtensionServer.Events.TraceProviderAdded, this.appendExtensionsToToolbar, this);
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.SuspendStateChanged, this.onSuspendStateChanged, this);
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.CPUProfilerModel.CPUProfilerModel, SDK.CPUProfilerModel.Events.ConsoleProfileFinished,
+        event => this.consoleProfileFinished(event.data), this);
   }
 
   static instance(opts: {
@@ -440,6 +443,23 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     return timelinePanelInstance;
+  }
+
+  consoleProfileFinished(data: SDK.CPUProfilerModel.ProfileFinishedData): void {
+    if (!isNode) {
+      return;
+    }
+    console.debug(data, 'timeline');
+    const profile = data.cpuProfile;
+    try {
+      const traceEvent = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.buildTraceProfileFromCpuProfile(
+          profile, /* tid */ 1, /* injectPageEvent */ true);
+      this.loadFromEvents(traceEvent);
+    } catch (e) {
+      console.error(e.stack);
+      return;
+    }
+    void UI.InspectorView.InspectorView.instance().showPanel('timeline');
   }
 
   searchableView(): UI.SearchableView.SearchableView|null {
