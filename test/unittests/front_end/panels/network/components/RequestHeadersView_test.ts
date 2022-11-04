@@ -20,9 +20,8 @@ import {
   getElementWithinComponent,
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
-import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import {describeWithEnvironment, deinitializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
 import * as Root from '../../../../../../front_end/core/root/root.js';
-import {deinitializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
 import * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
 import {describeWithMockConnection} from '../../../helpers/MockConnection.js';
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
@@ -105,6 +104,8 @@ const getRowHighlightStatus = (container: HTMLElement): boolean[] => {
 };
 
 describeWithMockConnection('RequestHeadersView', () => {
+  let component: HTMLElement|null|undefined = null;
+
   beforeEach(() => {
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, '');
     Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
@@ -112,11 +113,12 @@ describeWithMockConnection('RequestHeadersView', () => {
   });
 
   afterEach(async () => {
+    component?.remove();
     await deinitializeGlobalVars();
   });
 
   it('renders the General section', async () => {
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
@@ -142,7 +144,7 @@ describeWithMockConnection('RequestHeadersView', () => {
   });
 
   it('renders request and response headers', async () => {
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
@@ -159,7 +161,7 @@ describeWithMockConnection('RequestHeadersView', () => {
   });
 
   it('emits UMA event when a header value is being copied', async () => {
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
@@ -175,7 +177,7 @@ describeWithMockConnection('RequestHeadersView', () => {
   });
 
   it('can switch between source and parsed view', async () => {
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
@@ -207,7 +209,7 @@ describeWithMockConnection('RequestHeadersView', () => {
     in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
-    const component = await renderHeadersComponent({
+    component = await renderHeadersComponent({
       ...defaultRequest,
       responseHeadersText: loremIpsum.repeat(10),
     } as unknown as SDK.NetworkRequest.NetworkRequest);
@@ -249,7 +251,7 @@ describeWithMockConnection('RequestHeadersView', () => {
     view.show(div);
     await coordinator.done();
 
-    const component = view.element.querySelector('devtools-request-headers');
+    component = view.element.querySelector('devtools-request-headers');
     assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
     assertShadowRoot(component.shadowRoot);
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
@@ -285,7 +287,7 @@ describeWithMockConnection('RequestHeadersView', () => {
     view.show(div);
     await coordinator.done();
 
-    const component = view.element.querySelector('devtools-request-headers');
+    component = view.element.querySelector('devtools-request-headers');
     assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
     assertShadowRoot(component.shadowRoot);
 
@@ -321,7 +323,7 @@ describeWithMockConnection('RequestHeadersView', () => {
     view.show(div);
     await coordinator.done();
 
-    const component = view.element.querySelector('devtools-request-headers');
+    component = view.element.querySelector('devtools-request-headers');
     assertElement(component, NetworkComponents.RequestHeadersView.RequestHeadersComponent);
     assertShadowRoot(component.shadowRoot);
 
@@ -348,7 +350,7 @@ describeWithMockConnection('RequestHeadersView', () => {
 
     await Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().setProject(project);
 
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
@@ -369,7 +371,7 @@ describeWithMockConnection('RequestHeadersView', () => {
 
     await Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().setProject(project);
 
-    const component = await renderHeadersComponent(defaultRequest);
+    component = await renderHeadersComponent(defaultRequest);
     assertShadowRoot(component.shadowRoot);
 
     const responseHeadersCategory = component.shadowRoot.querySelector('[aria-label="Response Headers"]');
