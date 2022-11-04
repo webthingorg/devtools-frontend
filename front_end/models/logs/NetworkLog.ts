@@ -206,8 +206,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
 
     let type = SDK.NetworkRequest.InitiatorType.Other;
     let url = Platform.DevToolsPath.EmptyUrlString;
-    let lineNumber: number = -Infinity;
-    let columnNumber: number = -Infinity;
+    let lineNumber: number|undefined = undefined;
+    let columnNumber: number|undefined = undefined;
     let scriptId: Protocol.Runtime.ScriptId|null = null;
     let initiatorStack: Protocol.Runtime.StackTrace|null = null;
     let initiatorRequest: (SDK.NetworkRequest.NetworkRequest|null)|null = null;
@@ -221,8 +221,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
       if (initiator.type === Protocol.Network.InitiatorType.Parser) {
         type = SDK.NetworkRequest.InitiatorType.Parser;
         url = initiator.url ? initiator.url as Platform.DevToolsPath.UrlString : url;
-        lineNumber = typeof initiator.lineNumber === 'number' ? initiator.lineNumber : lineNumber;
-        columnNumber = typeof initiator.columnNumber === 'number' ? initiator.columnNumber : columnNumber;
+        lineNumber = initiator.lineNumber;
+        columnNumber = initiator.columnNumber;
       } else if (initiator.type === Protocol.Network.InitiatorType.Script) {
         for (let stack: (Protocol.Runtime.StackTrace|undefined) = initiator.stack; stack;) {
           const topFrame = stack.callFrames.length ? stack.callFrames[0] : null;
@@ -240,7 +240,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
         if (!initiator.stack && initiator.url) {
           type = SDK.NetworkRequest.InitiatorType.Script;
           url = initiator.url as Platform.DevToolsPath.UrlString;
-          lineNumber = initiator.lineNumber || 0;
+          lineNumber = initiator.lineNumber;
         }
         if (initiator.stack && initiator.stack.callFrames && initiator.stack.callFrames.length) {
           initiatorStack = initiator.stack || null;
@@ -609,8 +609,8 @@ export interface InitiatorInfo {
   type: SDK.NetworkRequest.InitiatorType;
   // generally this is a url but can also contain "<anonymous>"
   url: Platform.DevToolsPath.UrlString;
-  lineNumber: number;
-  columnNumber: number;
+  lineNumber: number|undefined;
+  columnNumber: number|undefined;
   scriptId: Protocol.Runtime.ScriptId|null;
   stack: Protocol.Runtime.StackTrace|null;
   initiatorRequest: SDK.NetworkRequest.NetworkRequest|null;
