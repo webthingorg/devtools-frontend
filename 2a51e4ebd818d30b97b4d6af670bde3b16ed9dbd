@@ -120,6 +120,24 @@
       "message": "Got some slightly bad news for ya: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/lighthouse/LighthouseController.ts;l\u003d328-346;drc\u003dc2246db2baba90c420116590d669c3ebec548d5e\n\nIIRC, @alexrudenko@chromium.org suggested this navHistory approach to get the hash. Alex, do you have a smarter approach you use in recorder panel these days?",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e563ff73_c5745fe4",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-11-04T18:23:41Z",
+      "side": 1,
+      "message": "(after a quick peek it looks like the same navHistory approach is used there.)",
+      "parentUuid": "fe3c3a04_36c6f4d3",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
