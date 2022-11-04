@@ -38,6 +38,6 @@ UI.ViewManager.registerViewExtension({
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
     const Accessibility = await loadAccessibilityModule();
-    return Accessibility.AccessibilitySidebarView.AccessibilitySidebarView.instance();
+    return new Accessibility.AccessibilitySidebarView.AccessibilitySidebarView();
   },
 });
