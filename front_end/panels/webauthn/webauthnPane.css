@@ -134,6 +134,14 @@ td .text-button {
   min-width: 28px;
 }
 
+.override-bits-container {
+  display: inline-block;
+  border: none;
+  padding: 10px 0;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
 .edit-name-toolbar {
   display: inline-block;
   vertical-align: middle;

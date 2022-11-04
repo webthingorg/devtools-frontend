@@ -10,6 +10,7 @@ import {
 
 import type * as WebauthnModule from '../../../../../front_end/panels/webauthn/webauthn.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 
 const {assert} = chai;
 
@@ -105,6 +106,127 @@ describeWithMockConnection('WebAuthn pane', () => {
         return {
           authenticatorId: 'test',
         };
+      });
+      panel.addAuthenticatorButton?.click();
+    });
+
+    it('it verifies that the bogus signature is set to true in the authenticator state', done => {
+      const target = targetFactory();
+      const panel = Webauthn.WebauthnPane.WebauthnPaneImpl.instance();
+      panel.modelAdded(new SDK.WebAuthnModel.WebAuthnModel(target));
+      const authId: Types.Protocol.WebAuthn.AuthenticatorId = 'authenticatorId1';
+
+      setMockConnectionResponseHandler('WebAuthn.addVirtualAuthenticator', () => {
+        window.setTimeout(() => {
+          const authenticatorIdToResponseBits = panel.authenticatorIdToResponseBits;
+
+          const value = authenticatorIdToResponseBits.get(authId);
+          if (!value) {
+            return;
+          }
+
+          const bogusSignatureCheckbox = value.bogusSignatureCheckbox;
+          if (!bogusSignatureCheckbox) {
+            assert.fail('Required checkbox not found');
+            done();
+            return;
+          }
+          bogusSignatureCheckbox.checked = true;
+          const event = new Event('change');
+          bogusSignatureCheckbox.dispatchEvent(event);
+        }, 0);
+
+        return {
+          authenticatorId: authId,
+        };
+      });
+
+      setMockConnectionResponseHandler('WebAuthn.setResponseOverrideBits', params => {
+        assert.isTrue(params.isBogusSignature);
+        assert.isFalse(params.isBadUV);
+        assert.isFalse(params.isBadUP);
+        done();
+        return {};
+      });
+      panel.addAuthenticatorButton?.click();
+    });
+
+    it('it verifies that the bad uv bit signature is set to true in the authenticator state', done => {
+      const target = targetFactory();
+      const panel = Webauthn.WebauthnPane.WebauthnPaneImpl.instance();
+      panel.modelAdded(new SDK.WebAuthnModel.WebAuthnModel(target));
+      const authId: Protocol.WebAuthn.AuthenticatorId = 'authenticatorId2';
+
+      setMockConnectionResponseHandler('WebAuthn.addVirtualAuthenticator', () => {
+        window.setTimeout(() => {
+          const authenticatorIdToResponseBits = panel.authenticatorIdToResponseBits;
+
+          const value = authenticatorIdToResponseBits.get(authId);
+          if (!value) {
+            return;
+          }
+
+          const badUVBitCheckbox = value.badUVBitCheckbox;
+          if (!badUVBitCheckbox) {
+            assert.fail('Required checkbox not found');
+            done();
+            return;
+          }
+          badUVBitCheckbox.checked = true;
+          const event = new Event('change');
+          badUVBitCheckbox.dispatchEvent(event);
+        }, 0);
+        return {
+          authenticatorId: authId,
+        };
+      });
+
+      setMockConnectionResponseHandler('WebAuthn.setResponseOverrideBits', params => {
+        assert.isFalse(params.isBogusSignature);
+        assert.isTrue(params.isBadUV);
+        assert.isFalse(params.isBadUP);
+        done();
+        return {};
+      });
+      panel.addAuthenticatorButton?.click();
+    });
+
+    it('it verifies that the bad up bit is set to true in the authenticator state', done => {
+      const target = targetFactory();
+      const panel = Webauthn.WebauthnPane.WebauthnPaneImpl.instance();
+      panel.modelAdded(new SDK.WebAuthnModel.WebAuthnModel(target));
+      const authId: Protocol.WebAuthn.AuthenticatorId = 'authenticatorId3';
+
+      setMockConnectionResponseHandler('WebAuthn.addVirtualAuthenticator', () => {
+        window.setTimeout(() => {
+          const authenticatorIdToResponseBits = panel.authenticatorIdToResponseBits;
+
+          const value = authenticatorIdToResponseBits.get(authId);
+          if (!value) {
+            return;
+          }
+
+          const badUPBitCheckbox = value.badUPBitCheckbox;
+          if (!badUPBitCheckbox) {
+            assert.fail('Required checkbox not found');
+            done();
+            return;
+          }
+          badUPBitCheckbox.checked = true;
+          const event = new Event('change');
+          badUPBitCheckbox.dispatchEvent(event);
+        }, 0);
+        return {
+          authenticatorId: authId,
+        };
+      });
+
+      setMockConnectionResponseHandler('WebAuthn.setResponseOverrideBits', params => {
+        assert.isFalse(params.isBogusSignature);
+        assert.isFalse(params.isBadUV);
+        assert.isTrue(params.isBadUP);
+        done();
+        return {};
       });
       panel.addAuthenticatorButton?.click();
     });
