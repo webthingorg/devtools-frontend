@@ -85,6 +85,41 @@
       "parentUuid": "b35846ee_a8fe15d4",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b11bdd_c5b795d3",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-11-04T18:21:13Z",
+      "side": 1,
+      "message": "for that to happen.. someone needs to do \"reload and record\" button and then navigate to a new url (or ... hit reload manually) --- doing this before \u0027about:blank\u0027 loads up?\n\nseems possible but... feels like they\u0027d gotta do that in about 2ms. :)  \n\nbut.. yeah we could reject this promise if the event.data.url !\u003d\u003d\u003d about:blank.\nthat seems ... reasonable.",
+      "parentUuid": "01bcf87c_efa0b640",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3c3a04_36c6f4d3",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-11-04T18:21:13Z",
+      "side": 1,
+      "message": "Got some slightly bad news for ya: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/lighthouse/LighthouseController.ts;l\u003d328-346;drc\u003dc2246db2baba90c420116590d669c3ebec548d5e\n\nIIRC, @alexrudenko@chromium.org suggested this navHistory approach to get the hash. Alex, do you have a smarter approach you use in recorder panel these days?",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
