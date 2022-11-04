@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "4106b1b5763577d67fad74650b835f6bc49bf783",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd874f47_71d2c926",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 6876,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-04T16:01:48Z",
+      "side": 1,
+      "message": "Should this say \"Override header\" for consistency?",
+      "range": {
+        "startLine": 6876,
+        "startChar": 0,
+        "endLine": 6876,
+        "endChar": 28
+      },
+      "revId": "4106b1b5763577d67fad74650b835f6bc49bf783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd78214_9b22764a",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-04T16:01:48Z",
+      "side": 1,
+      "message": "Having an e2e test is good but how about unit tests?",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 25
+      },
+      "revId": "4106b1b5763577d67fad74650b835f6bc49bf783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
