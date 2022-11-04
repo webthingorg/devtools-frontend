@@ -12107,6 +12107,15 @@
   "panels/webauthn/WebauthnPane.ts | signCount": {
     "message": "Signature Count"
   },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUPBit": {
+    "message": "Override user presence bit"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBadUVBit": {
+    "message": "Override user verification bit"
+  },
+  "panels/webauthn/WebauthnPane.ts | supportsBogusSignature": {
+    "message": "Override signature"
+  },
   "panels/webauthn/WebauthnPane.ts | supportsLargeBlob": {
     "message": "Supports large blob"
   },

@@ -3426,6 +3426,11 @@ declare namespace ProtocolProxyApi {
     invoke_addVirtualAuthenticator(params: Protocol.WebAuthn.AddVirtualAuthenticatorRequest): Promise<Protocol.WebAuthn.AddVirtualAuthenticatorResponse>;
 
     /**
+     * Resets parameters isBogusSignature, isBadUV, isBadUP to false if they are not present.
+     */
+    invoke_setResponseOverrideBits(params: Protocol.WebAuthn.SetResponseOverrideBitsRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
      * Removes the given authenticator.
      */
     invoke_removeVirtualAuthenticator(params: Protocol.WebAuthn.RemoveVirtualAuthenticatorRequest): Promise<Protocol.ProtocolResponseWithError>;
