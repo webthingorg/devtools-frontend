@@ -51,7 +51,6 @@ target with is_debug = true in the args.gn file.`;
 
 const GEN_DIRECTORY = path.join(__dirname, '..', '..');
 const ROOT_DIRECTORY = path.join(GEN_DIRECTORY, '..', '..', '..');
-const browser = DEBUG_ENABLED ? 'Chrome' : 'ChromeHeadless';
 const singleRun = !(DEBUG_ENABLED || REPEAT_ENABLED);
 
 const coverageReporters = COVERAGE_ENABLED ? ['coverage'] : [];
@@ -159,8 +158,37 @@ module.exports = function(config) {
     browsers: ['BrowserWithArgs'],
     customLaunchers: {
       'BrowserWithArgs': {
-        base: browser,
-        flags: [`--remote-debugging-port=${REMOTE_DEBUGGING_PORT}`],
+        base: 'Chrome',
+        flags: [
+          '--allow-pre-commit-input',
+          '--disable-background-networking',
+          '--disable-background-timer-throttling',
+          '--disable-backgrounding-occluded-windows',
+          '--disable-breakpad',
+          '--disable-client-side-phishing-detection',
+          '--disable-component-extensions-with-background-pages',
+          '--disable-default-apps',
+          '--disable-dev-shm-usage',
+          '--disable-extensions',
+          '--disable-features=Translate,BackForwardCache,AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync',
+          '--disable-gpu',
+          '--disable-hang-monitor',
+          '--disable-ipc-flooding-protection',
+          '--disable-popup-blocking',
+          '--disable-prompt-on-repost',
+          '--disable-renderer-backgrounding',
+          '--disable-sync',
+          '--enable-automation',
+          '--enable-features=NetworkServiceInProcess2',
+          '--export-tagged-pdf',
+          '--force-color-profile=srgb',
+          '--metrics-recording-only',
+          '--no-first-run',
+          '--password-store=basic',
+          '--use-mock-keychain',
+          `--remote-debugging-port=${REMOTE_DEBUGGING_PORT}`,
+          ...(DEBUG_ENABLED ? [] : ['--headless=chrome']),
+        ],
       }
     },
 
