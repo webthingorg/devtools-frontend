@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
-import {getBrowserAndPages, setDevToolsSettings, waitFor} from '../../shared/helper.js';
+import {$textContent, getBrowserAndPages, setDevToolsSettings, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
@@ -118,11 +118,10 @@ describe('Navigation', async function() {
           'meta-description',
         ]);
 
-        const viewTraceButton = await waitFor('.lh-button--trace', reportEl);
-        const viewTraceText = await viewTraceButton.evaluate(viewTraceEl => {
-          return viewTraceEl.textContent;
-        });
-        assert.strictEqual(viewTraceText, 'View Original Trace');
+        const viewTraceButton = await $textContent('View Original Trace', reportEl);
+        if (!viewTraceButton) {
+          throw new Error('Could not find view trace button');
+        }
 
         await viewTraceButton.click();
         const selectedTab = await waitFor('.tabbed-pane-header-tab.selected[aria-label="Performance"]');
@@ -191,10 +190,10 @@ describe('Navigation', async function() {
           'meta-description',
         ]);
 
-        const viewTraceText = await reportEl.$eval('.lh-button--trace', viewTraceEl => {
-          return viewTraceEl.textContent;
-        });
-        assert.strictEqual(viewTraceText, 'View Trace');
+        const viewTraceButton = await $textContent('View Trace', reportEl);
+        if (!viewTraceButton) {
+          throw new Error('Could not find view trace button');
+        }
       });
 
       it('successfully returns a Lighthouse report when settings changed', async () => {
@@ -234,10 +233,12 @@ describe('Navigation', async function() {
           assert.notInclude(lhr.environment.networkUserAgent, 'Mobile');
         }
 
-        const viewTraceText = await reportEl.$eval('.lh-button--trace', viewTraceEl => {
-          return viewTraceEl.textContent;
-        });
-        assert.strictEqual(viewTraceText, 'Ver rastro original');
+        // This string is not translated in the Lighthouse roll yet.
+        // TODO: Use the translated version once the strings land in DT.
+        const viewTraceButton = await $textContent('View Original Trace', reportEl);
+        if (!viewTraceButton) {
+          throw new Error('Could not find view trace button');
+        }
 
         const footerIssueText = await reportEl.$eval('.lh-footer__version_issue', footerIssueEl => {
           return footerIssueEl.textContent;
