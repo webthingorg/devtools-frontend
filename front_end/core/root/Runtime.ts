@@ -309,6 +309,8 @@ export enum ExperimentName {
   IMPORTANT_DOM_PROPERTIES = 'importantDOMProperties',
   JUST_MY_CODE = 'justMyCode',
   BREAKPOINT_VIEW = 'breakpointView',
+  TIMELINE_USE_AS_PROFILING = 'timelineUseAsProfiling',
+  HIDE_JS_PROFILER = '!timelineUseAsProfiling',
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
