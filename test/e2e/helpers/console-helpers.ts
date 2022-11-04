@@ -22,6 +22,9 @@ import {AsyncScope} from '../../shared/async-scope.js';
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
 export const CONSOLE_FIRST_MESSAGES_SELECTOR = '.console-group-messages .source-code .console-message-text';
+export const CONSOLE_FIRST_MESSAGES_PARTIAL_SELECTOR = '.console-message-text';
+export const CONSOLE_INFO_MESSAGES_PARTIAL_SELECTOR = '.console-info-level .source-code';
+export const CONSOLE_ERROR_MESSAGES_PARTIAL_SELECTOR = '.console-error-level .source-code';
 export const CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR = '.console-group-messages .source-code';
 export const LOG_LEVELS_SELECTOR = '[aria-label^="Log level: "]';
 export const LOG_LEVELS_VERBOSE_OPTION_SELECTOR = '[aria-label^="Verbose"]';
@@ -36,6 +39,12 @@ export const CONSOLE_SETTINGS_SELECTOR = '[aria-label^="Console settings"]';
 export const AUTOCOMPLETE_FROM_HISTORY_SELECTOR = '[aria-label^="Autocomplete from history"]';
 export const SHOW_CORS_ERRORS_SELECTOR = '[aria-label^="Show CORS errors in console"]';
 export const CONSOLE_CREATE_LIVE_EXPRESSION_SELECTOR = '[aria-label^="Create live expression"]';
+
+const enum Level {
+  All = 'all',
+  Info = 'info',
+  Error = 'error',
+}
 
 export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
   await waitFor('.console-main-toolbar');
@@ -92,7 +101,7 @@ export async function getConsoleMessages(testName: string, withAnchor = false, c
   return getCurrentConsoleMessages(withAnchor, callback);
 }
 
-export async function getCurrentConsoleMessages(withAnchor = false, callback?: () => Promise<void>) {
+export async function getCurrentConsoleMessages(withAnchor = false, callback?: () => Promise<void>, level?: string) {
   const {frontend} = getBrowserAndPages();
   const asyncScope = new AsyncScope();
 
@@ -114,7 +123,18 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
     return Array.from(messages).every(message => message.childNodes.length > 0);
   }, {timeout: 0, polling: 'mutation'}, CONSOLE_FIRST_MESSAGES_SELECTOR));
 
-  const selector = withAnchor ? CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR : CONSOLE_FIRST_MESSAGES_SELECTOR;
+  let selector = CONSOLE_MESSAGES_SELECTOR;
+
+  switch (level) {
+    case Level.Info:
+      selector += ` ${CONSOLE_INFO_MESSAGES_PARTIAL_SELECTOR}`;
+      break;
+    case Level.Error:
+      selector += ` ${CONSOLE_ERROR_MESSAGES_PARTIAL_SELECTOR}`;
+      break;
+  }
+
+  selector += withAnchor ? '' : ` ${CONSOLE_FIRST_MESSAGES_PARTIAL_SELECTOR}`;
 
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(100);
@@ -123,6 +143,10 @@ export async function getCurrentConsoleMessages(withAnchor = false, callback?: (
   return frontend.evaluate(selector => {
     return Array.from(document.querySelectorAll(selector)).map(message => message.textContent);
   }, selector);
+}
+
+export async function getLastConsoleMessages() {
+  return (await getCurrentConsoleMessages()).at(-1);
 }
 
 export async function maybeGetCurrentConsoleMessages(withAnchor = false, callback?: () => Promise<void>) {
