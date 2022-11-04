@@ -24,13 +24,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/web_audio/web_audio-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedWebAudioModule: (typeof WebAudio|undefined);
-
-async function loadWebAudioModule(): Promise<typeof WebAudio> {
-  if (!loadedWebAudioModule) {
-    loadedWebAudioModule = await import('./web_audio.js');
-  }
-  return loadedWebAudioModule;
+function loadWebAudioModule(): Promise<typeof WebAudio> {
+  return import('./web_audio.js');
 }
 
 UI.ViewManager.registerViewExtension({

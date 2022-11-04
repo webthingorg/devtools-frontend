@@ -7,13 +7,8 @@ import * as UI from '../../legacy.js';
 
 import type * as ObjectUI from './object_ui.js';
 
-let loadedObjectUIModule: (typeof ObjectUI|undefined);
-
-async function loadObjectUIModule(): Promise<typeof ObjectUI> {
-  if (!loadedObjectUIModule) {
-    loadedObjectUIModule = await import('./object_ui.js');
-  }
-  return loadedObjectUIModule;
+function loadObjectUIModule(): Promise<typeof ObjectUI> {
+  return import('./object_ui.js');
 }
 
 UI.UIUtils.registerRenderer({

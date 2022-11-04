@@ -21,13 +21,8 @@ const str_ =
     i18n.i18n.registerUIStrings('ui/components/linear_memory_inspector/linear_memory_inspector-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedLinearMemoryInspectorModule: (typeof LinearMemoryInspector|undefined);
-
-async function loadLinearMemoryInspectorModule(): Promise<typeof LinearMemoryInspector> {
-  if (!loadedLinearMemoryInspectorModule) {
-    loadedLinearMemoryInspectorModule = await import('./linear_memory_inspector.js');
-  }
-  return loadedLinearMemoryInspectorModule;
+function loadLinearMemoryInspectorModule(): Promise<typeof LinearMemoryInspector> {
+  return import('./linear_memory_inspector.js');
 }
 
 UI.ViewManager.registerViewExtension({

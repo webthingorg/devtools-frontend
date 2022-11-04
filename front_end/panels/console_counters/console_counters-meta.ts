@@ -6,13 +6,8 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as ConsoleCounters from './console_counters.js';
 
-let loadedConsoleCountersModule: (typeof ConsoleCounters|undefined);
-
-async function loadConsoleCountersModule(): Promise<typeof ConsoleCounters> {
-  if (!loadedConsoleCountersModule) {
-    loadedConsoleCountersModule = await import('./console_counters.js');
-  }
-  return loadedConsoleCountersModule;
+function loadConsoleCountersModule(): Promise<typeof ConsoleCounters> {
+  return import('./console_counters.js');
 }
 
 UI.Toolbar.registerToolbarItem({

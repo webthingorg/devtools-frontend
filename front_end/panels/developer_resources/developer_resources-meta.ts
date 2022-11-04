@@ -21,13 +21,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/developer_resources/developer_resources-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedDeveloperResourcesModule: (typeof DeveloperResources|undefined);
-
-async function loadDeveloperResourcesModule(): Promise<typeof DeveloperResources> {
-  if (!loadedDeveloperResourcesModule) {
-    loadedDeveloperResourcesModule = await import('./developer_resources.js');
-  }
-  return loadedDeveloperResourcesModule;
+function loadDeveloperResourcesModule(): Promise<typeof DeveloperResources> {
+  return import('./developer_resources.js');
 }
 
 UI.ViewManager.registerViewExtension({

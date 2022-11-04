@@ -123,13 +123,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('entrypoints/inspector_main/inspector_main-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedInspectorMainModule: (typeof InspectorMain|undefined);
-
-async function loadInspectorMainModule(): Promise<typeof InspectorMain> {
-  if (!loadedInspectorMainModule) {
-    loadedInspectorMainModule = await import('./inspector_main.js');
-  }
-  return loadedInspectorMainModule;
+function loadInspectorMainModule(): Promise<typeof InspectorMain> {
+  return import('./inspector_main.js');
 }
 
 UI.ViewManager.registerViewExtension({

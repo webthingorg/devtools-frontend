@@ -20,13 +20,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/layers/layers-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedLayersModule: (typeof Layers|undefined);
-
-async function loadLayersModule(): Promise<typeof Layers> {
-  if (!loadedLayersModule) {
-    loadedLayersModule = await import('./layers.js');
-  }
-  return loadedLayersModule;
+function loadLayersModule(): Promise<typeof Layers> {
+  return import('./layers.js');
 }
 
 UI.ViewManager.registerViewExtension({

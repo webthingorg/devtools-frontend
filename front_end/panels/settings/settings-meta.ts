@@ -56,13 +56,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/settings/settings-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedSettingsModule: (typeof Settings|undefined);
-
-async function loadSettingsModule(): Promise<typeof Settings> {
-  if (!loadedSettingsModule) {
-    loadedSettingsModule = await import('./settings.js');
-  }
-  return loadedSettingsModule;
+function loadSettingsModule(): Promise<typeof Settings> {
+  return import('./settings.js');
 }
 
 UI.ViewManager.registerViewExtension({

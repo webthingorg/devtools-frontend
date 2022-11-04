@@ -9,8 +9,6 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Changes from './changes.js';
 
-let loadedChangesModule: (typeof Changes|undefined);
-
 const UIStrings = {
   /**
    * @description Title of the 'Changes' tool in the bottom drawer
@@ -24,11 +22,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/changes/changes-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-async function loadChangesModule(): Promise<typeof Changes> {
-  if (!loadedChangesModule) {
-    loadedChangesModule = await import('./changes.js');
-  }
-  return loadedChangesModule;
+function loadChangesModule(): Promise<typeof Changes> {
+  return import('./changes.js');
 }
 
 UI.ViewManager.registerViewExtension({

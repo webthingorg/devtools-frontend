@@ -56,13 +56,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('models/persistence/persistence-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedPersistenceModule: (typeof Persistence|undefined);
-
-async function loadPersistenceModule(): Promise<typeof Persistence> {
-  if (!loadedPersistenceModule) {
-    loadedPersistenceModule = await import('./persistence.js');
-  }
-  return loadedPersistenceModule;
+function loadPersistenceModule(): Promise<typeof Persistence> {
+  return import('./persistence.js');
 }
 
 UI.ViewManager.registerViewExtension({

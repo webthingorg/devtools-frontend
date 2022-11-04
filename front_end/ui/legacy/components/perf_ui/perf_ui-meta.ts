@@ -46,13 +46,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/perf_ui/perf_ui-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedPerfUIModule: (typeof PerfUI|undefined);
-
-async function loadPerfUIModule(): Promise<typeof PerfUI> {
-  if (!loadedPerfUIModule) {
-    loadedPerfUIModule = await import('./perf_ui.js');
-  }
-  return loadedPerfUIModule;
+function loadPerfUIModule(): Promise<typeof PerfUI> {
+  return import('./perf_ui.js');
 }
 
 UI.ActionRegistration.registerActionExtension({

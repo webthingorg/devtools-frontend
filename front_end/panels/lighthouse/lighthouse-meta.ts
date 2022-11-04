@@ -17,13 +17,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/lighthouse-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedLighthouseModule: (typeof Lighthouse|undefined);
-
-async function loadLighthouseModule(): Promise<typeof Lighthouse> {
-  if (!loadedLighthouseModule) {
-    loadedLighthouseModule = await import('./lighthouse.js');
-  }
-  return loadedLighthouseModule;
+function loadLighthouseModule(): Promise<typeof Lighthouse> {
+  return import('./lighthouse.js');
 }
 
 UI.ViewManager.registerViewExtension({
