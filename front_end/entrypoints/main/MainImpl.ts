@@ -313,6 +313,7 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'timelineV8RuntimeCallStats', 'Timeline: V8 Runtime Call Stats on Timeline', true);
     Root.Runtime.experiments.register('timelineReplayEvent', 'Timeline: Replay input events', true);
+    Root.Runtime.experiments.register('timelineUseAsProfiling', 'Timeline: Use opp to profile Node.js', true);
 
     // Debugging
     Root.Runtime.experiments.register(

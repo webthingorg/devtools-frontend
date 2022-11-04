@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Profiler from '../profiler/profiler.js';
@@ -87,10 +88,12 @@ UI.ViewManager.registerViewExtension({
   title: i18nLazyString(UIStrings.profiler),
   commandPrompt: i18nLazyString(UIStrings.showProfiler),
   order: 65,
+  persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
     const Profiler = await loadProfilerModule();
     return Profiler.ProfilesPanel.JSProfilerPanel.instance();
   },
+  experiment: Root.Runtime.ExperimentName.HIDE_JS_PROFILER,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -99,13 +102,14 @@ UI.ViewManager.registerViewExtension({
   title: i18nLazyString(UIStrings.performance),
   commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 66,
-  persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
+  persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   hasToolbar: false,
   isPreviewFeature: true,
   async loadView() {
     const Timeline = await loadTimelineModule();
     return Timeline.TimelinePanel.TimelinePanel.instance({forceNew: null, isNode: true});
   },
+  experiment: Root.Runtime.ExperimentName.TIMELINE_USE_AS_PROFILING,
 });
 
 UI.ActionRegistration.registerActionExtension({
