@@ -38,8 +38,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.Other,
         url: Platform.DevToolsPath.EmptyUrlString,
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: null,
@@ -60,8 +60,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.Other,
         url: Platform.DevToolsPath.EmptyUrlString,
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: null,
@@ -85,8 +85,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.Redirect,
         url: url('http://localhost:3000/example.js'),
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: null,
@@ -196,7 +196,7 @@ describeWithMockConnection('NetworkLog', () => {
       });
     });
 
-    it('returns the initiator info if the initiator is a script without a stack and defaults the line number to 0',
+    it('returns the initiator info if the initiator is a script without a stack',
        () => {
          const request = {
            initiator() {
@@ -213,8 +213,8 @@ describeWithMockConnection('NetworkLog', () => {
          assert.deepEqual(info, {
            type: SDK.NetworkRequest.InitiatorType.Script,
            url: url('http://localhost:3000/example.js'),
-           lineNumber: 0,
-           columnNumber: -Infinity,
+           lineNumber: undefined,
+           columnNumber: undefined,
            scriptId: null,
            stack: null,
            initiatorRequest: null,
@@ -236,8 +236,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.Preload,
         url: Platform.DevToolsPath.EmptyUrlString,
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: null,
@@ -263,8 +263,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.Preflight,
         url: Platform.DevToolsPath.EmptyUrlString,
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: PREFLIGHT_INITIATOR_REQUEST,
@@ -287,8 +287,8 @@ describeWithMockConnection('NetworkLog', () => {
       assert.deepEqual(info, {
         type: SDK.NetworkRequest.InitiatorType.SignedExchange,
         url: url('http://localhost:3000/example.js'),
-        lineNumber: -Infinity,
-        columnNumber: -Infinity,
+        lineNumber: undefined,
+        columnNumber: undefined,
         scriptId: null,
         stack: null,
         initiatorRequest: null,
