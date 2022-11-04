@@ -64,13 +64,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/emulation/emulation-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedEmulationModule: (typeof Emulation|undefined);
-
-async function loadEmulationModule(): Promise<typeof Emulation> {
-  if (!loadedEmulationModule) {
-    loadedEmulationModule = await import('./emulation.js');
-  }
-  return loadedEmulationModule;
+function loadEmulationModule(): Promise<typeof Emulation> {
+  return import('./emulation.js');
 }
 
 UI.ActionRegistration.registerActionExtension({

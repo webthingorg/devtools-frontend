@@ -7,13 +7,8 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Screencast from './screencast.js';
 
-let loadedScreencastModule: (typeof Screencast|undefined);
-
-async function loadScreencastModule(): Promise<typeof Screencast> {
-  if (!loadedScreencastModule) {
-    loadedScreencastModule = await import('./screencast.js');
-  }
-  return loadedScreencastModule;
+function loadScreencastModule(): Promise<typeof Screencast> {
+  return import('./screencast.js');
 }
 
 UI.Toolbar.registerToolbarItem({

@@ -97,13 +97,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/sensors/sensors-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedSensorsModule: (typeof Sensors|undefined);
-
-async function loadEmulationModule(): Promise<typeof Sensors> {
-  if (!loadedSensorsModule) {
-    loadedSensorsModule = await import('./sensors.js');
-  }
-  return loadedSensorsModule;
+function loadEmulationModule(): Promise<typeof Sensors> {
+  return import('./sensors.js');
 }
 
 UI.ViewManager.registerViewExtension({

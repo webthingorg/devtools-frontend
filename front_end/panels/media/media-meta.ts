@@ -24,13 +24,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/media/media-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedMediaModule: (typeof Media|undefined);
-
-async function loadMediaModule(): Promise<typeof Media> {
-  if (!loadedMediaModule) {
-    loadedMediaModule = await import('./media.js');
-  }
-  return loadedMediaModule;
+function loadMediaModule(): Promise<typeof Media> {
+  return import('./media.js');
 }
 
 UI.ViewManager.registerViewExtension({

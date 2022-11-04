@@ -20,13 +20,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/quick_open-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedQuickOpenModule: (typeof QuickOpen|undefined);
-
-async function loadQuickOpenModule(): Promise<typeof QuickOpen> {
-  if (!loadedQuickOpenModule) {
-    loadedQuickOpenModule = await import('./quick_open.js');
-  }
-  return loadedQuickOpenModule;
+function loadQuickOpenModule(): Promise<typeof QuickOpen> {
+  return import('./quick_open.js');
 }
 
 UI.ActionRegistration.registerActionExtension({

@@ -21,13 +21,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/webauthn/webauthn-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedWebauthnModule: (typeof Webauthn|undefined);
-
-async function loadWebauthnModule(): Promise<typeof Webauthn> {
-  if (!loadedWebauthnModule) {
-    loadedWebauthnModule = await import('./webauthn.js');
-  }
-  return loadedWebauthnModule;
+function loadWebauthnModule(): Promise<typeof Webauthn> {
+  return import('./webauthn.js');
 }
 
 UI.ViewManager.registerViewExtension({

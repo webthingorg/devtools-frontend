@@ -40,13 +40,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('entrypoints/node_app/node_app.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedSourcesModule: (typeof Sources|undefined);
-
-async function loadSourcesModule(): Promise<typeof Sources> {
-  if (!loadedSourcesModule) {
-    loadedSourcesModule = await import('../../panels/sources/sources.js');
-  }
-  return loadedSourcesModule;
+function loadSourcesModule(): Promise<typeof Sources> {
+  return import('../../panels/sources/sources.js');
 }
 
 UI.ViewManager.registerViewExtension({

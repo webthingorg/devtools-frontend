@@ -7,8 +7,6 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Animation from './animation.js';
 
-let loadedAnimationModule: (typeof Animation|undefined);
-
 const UIStrings = {
   /**
    * @description Title for the 'Animations' tool in the bottom drawer
@@ -22,11 +20,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/animation/animation-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-async function loadAnimationModule(): Promise<typeof Animation> {
-  if (!loadedAnimationModule) {
-    loadedAnimationModule = await import('./animation.js');
-  }
-  return loadedAnimationModule;
+function loadAnimationModule(): Promise<typeof Animation> {
+  return import('./animation.js');
 }
 
 UI.ViewManager.registerViewExtension({

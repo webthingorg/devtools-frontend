@@ -47,13 +47,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/mobile_throttling/mobile_throttling-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedMobileThrottlingModule: (typeof MobileThrottling|undefined);
-
-async function loadMobileThrottlingModule(): Promise<typeof MobileThrottling> {
-  if (!loadedMobileThrottlingModule) {
-    loadedMobileThrottlingModule = await import('./mobile_throttling.js');
-  }
-  return loadedMobileThrottlingModule;
+function loadMobileThrottlingModule(): Promise<typeof MobileThrottling> {
+  return import('./mobile_throttling.js');
 }
 
 UI.ViewManager.registerViewExtension({

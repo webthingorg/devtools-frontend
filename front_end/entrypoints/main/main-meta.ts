@@ -216,14 +216,9 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('entrypoints/main/main-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
-let loadedMainModule: (typeof Main|undefined);
-let loadedInspectorMainModule: (typeof InspectorMain|undefined);
 
-async function loadMainModule(): Promise<typeof Main> {
-  if (!loadedMainModule) {
-    loadedMainModule = await import('./main.js');
-  }
-  return loadedMainModule;
+function loadMainModule(): Promise<typeof Main> {
+  return import('./main.js');
 }
 
 // We load the `inspector_main` module for the action `inspector_main.focus-debuggee`
@@ -231,11 +226,8 @@ async function loadMainModule(): Promise<typeof Main> {
 // belongs to the shell app (the module `main` belongs to the`shell` app while
 // `inspector_main` belongs to the `devtools_app`).
 
-async function loadInspectorMainModule(): Promise<typeof InspectorMain> {
-  if (!loadedInspectorMainModule) {
-    loadedInspectorMainModule = await import('../inspector_main/inspector_main.js');
-  }
-  return loadedInspectorMainModule;
+function loadInspectorMainModule(): Promise<typeof InspectorMain> {
+  return import('../inspector_main/inspector_main.js');
 }
 
 UI.ActionRegistration.registerActionExtension({
