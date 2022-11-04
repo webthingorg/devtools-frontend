@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5789d944_36d920e7",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-04T11:37:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "52d63bd6_bd5d5e1a",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5a0904c_19e33fd6",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Oh, I see. In that case maybe let\u0027s do it.",
       "parentUuid": "18071add_4d087947",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "36c534aecfb4b0f59b95f3cec18de8c0b5f676b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1f4296_c8dfa2b7",
+        "filename": "test/e2e/resources/console/command-line-api-getEventListeners.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-04T11:37:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e112310_033f342f",
       "range": {
         "startLine": 71,
         "startChar": 13,
