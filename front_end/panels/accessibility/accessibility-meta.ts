@@ -7,8 +7,6 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Accessibility from './accessibility.js';
 
-let loadedAccessibilityModule: (typeof Accessibility|undefined);
-
 const UIStrings = {
   /**
    * @description Text for accessibility of the web page
@@ -22,11 +20,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/accessibility/accessibility-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-async function loadAccessibilityModule(): Promise<typeof Accessibility> {
-  if (!loadedAccessibilityModule) {
-    loadedAccessibilityModule = await import('./accessibility.js');
-  }
-  return loadedAccessibilityModule;
+function loadAccessibilityModule(): Promise<typeof Accessibility> {
+  return import('./accessibility.js');
 }
 
 UI.ViewManager.registerViewExtension({

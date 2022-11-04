@@ -296,14 +296,8 @@ export interface ActionRegistration {
    * Loads the class that handles the action when it is triggered. The common pattern for implementing
    * this function relies on having the module that contains the action’s handler lazily loaded. For example:
    * ```js
-   *  let loadedElementsModule;
-   *
-   *  async function loadElementsModule() {
-   *
-   *    if (!loadedElementsModule) {
-   *      loadedElementsModule = await import('./elements.js');
-   *    }
-   *    return loadedElementsModule;
+   *  function loadElementsModule() {
+   *    return import('./elements.j');
    *  }
    *  UI.ActionRegistration.registerActionExtension({
    *   <...>

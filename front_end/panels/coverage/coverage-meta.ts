@@ -32,13 +32,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/coverage/coverage-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedCoverageModule: (typeof Coverage|undefined);
-
-async function loadCoverageModule(): Promise<typeof Coverage> {
-  if (!loadedCoverageModule) {
-    loadedCoverageModule = await import('./coverage.js');
-  }
-  return loadedCoverageModule;
+function loadCoverageModule(): Promise<typeof Coverage> {
+  return import('./coverage.js');
 }
 
 UI.ViewManager.registerViewExtension({

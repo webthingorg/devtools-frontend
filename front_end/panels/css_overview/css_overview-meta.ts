@@ -21,13 +21,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/css_overview/css_overview-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedCSSOverviewModule: (typeof CSSOverview|undefined);
-
-async function loadCSSOverviewModule(): Promise<typeof CSSOverview> {
-  if (!loadedCSSOverviewModule) {
-    loadedCSSOverviewModule = await import('./css_overview.js');
-  }
-  return loadedCSSOverviewModule;
+function loadCSSOverviewModule(): Promise<typeof CSSOverview> {
+  return import('./css_overview.js');
 }
 
 UI.ViewManager.registerViewExtension({

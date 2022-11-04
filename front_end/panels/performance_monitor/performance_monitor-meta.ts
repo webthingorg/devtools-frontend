@@ -41,13 +41,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/performance_monitor/performance_monitor-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedPerformanceMonitorModule: (typeof PerformanceMonitor|undefined);
-
-async function loadPerformanceMonitorModule(): Promise<typeof PerformanceMonitor> {
-  if (!loadedPerformanceMonitorModule) {
-    loadedPerformanceMonitorModule = await import('./performance_monitor.js');
-  }
-  return loadedPerformanceMonitorModule;
+function loadPerformanceMonitorModule(): Promise<typeof PerformanceMonitor> {
+  return import('./performance_monitor.js');
 }
 
 UI.ViewManager.registerViewExtension({

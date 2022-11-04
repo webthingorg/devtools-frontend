@@ -85,14 +85,8 @@ export interface ViewRegistration {
    * lazily loaded. As an example:
    *
    * ```js
-   * let loadedElementsModule;
-   *
-   * async function loadElementsModule() {
-   *
-   *   if (!loadedElementsModule) {
-   *     loadedElementsModule = await import('./elements.js');
-   *   }
-   *   return loadedElementsModule;
+   * function loadElementsModule() {
+   *   return import('./elements.js');
    * }
    * UI.ViewManager.registerViewExtension({
    *   <...>

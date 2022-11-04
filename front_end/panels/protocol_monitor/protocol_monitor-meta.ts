@@ -24,13 +24,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/protocol_monitor-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedProtocolMonitorModule: (typeof ProtocolMonitor|undefined);
-
-async function loadProtocolMonitorModule(): Promise<typeof ProtocolMonitor> {
-  if (!loadedProtocolMonitorModule) {
-    loadedProtocolMonitorModule = await import('./protocol_monitor.js');
-  }
-  return loadedProtocolMonitorModule;
+function loadProtocolMonitorModule(): Promise<typeof ProtocolMonitor> {
+  return import('./protocol_monitor.js');
 }
 
 UI.ViewManager.registerViewExtension({
