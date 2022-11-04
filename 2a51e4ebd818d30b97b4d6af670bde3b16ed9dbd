@@ -33,6 +33,40 @@
       "message": "@Brendan would you also mind taking a look as you\u0027re familiar with this approach from LH?",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8448c3_ddc3168b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1243185
+      },
+      "writtenOn": "2022-11-04T17:53:53Z",
+      "side": 1,
+      "message": "Nice! Super clear and slotted in well.",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35846ee_a8fe15d4",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1243185
+      },
+      "writtenOn": "2022-11-04T17:53:53Z",
+      "side": 1,
+      "message": "Seems like there could be issues with the whole flow if rogue navigations could happen here, e.g. a page-triggered navigation racing with the `resourceModel.navigate()` call, maybe? Should it just reject in that case or is it still recoverable enough?",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
