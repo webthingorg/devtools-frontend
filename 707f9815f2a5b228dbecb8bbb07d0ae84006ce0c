@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3edbd34_d088bb7e",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-04T20:50:10Z",
+      "side": 1,
+      "message": "TODO Unrecognized type from import `import type * as Protocol from \u0027../../../../../front_end/generated/protocol.js\u0027;`",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 53
+      },
+      "revId": "707f9815f2a5b228dbecb8bbb07d0ae84006ce0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1034a46_6ab1458f",
+        "filename": "test/unittests/front_end/panels/webauthn/WebauthnPane_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1551698
+      },
+      "writtenOn": "2022-11-04T20:50:10Z",
+      "side": 1,
+      "message": "TODO debug async/timeout issues which are related to the order of the tests",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 48
+      },
+      "revId": "707f9815f2a5b228dbecb8bbb07d0ae84006ce0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
