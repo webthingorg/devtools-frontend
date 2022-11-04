@@ -752,7 +752,7 @@ describe('drawGridLineNames', () => {
       ],
       expectedLabels: [
         {type: 'row', textContent: 'first-row', y: 100},
-        {type: 'row', textContent: 'second-row', y: 199.5},
+        {type: 'row', textContent: 'second-row', y: 200},
         {type: 'row', textContent: 'third-row', y: 299.5},
         {type: 'column', textContent: 'first-col', x: 99},
         {type: 'column', textContent: 'second-col', x: 199},
@@ -790,7 +790,7 @@ describe('drawGridLineNames', () => {
       ],
       expectedLabels: [
         {type: 'row', textContent: 'first-row', y: 200},
-        {type: 'row', textContent: 'second-row', y: 399.5},
+        {type: 'row', textContent: 'second-row', y: 400},
         {type: 'row', textContent: 'third-row', y: 599.5},
         {type: 'column', textContent: 'first-col', x: 199},
         {type: 'column', textContent: 'second-col', x: 399},
