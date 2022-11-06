@@ -23,6 +23,7 @@ import * as ResourcesPanel from './ResourcesPanel.js';
 import * as ServiceWorkerCacheViews from './ServiceWorkerCacheViews.js';
 import * as ServiceWorkersView from './ServiceWorkersView.js';
 import * as ServiceWorkerUpdateCycleView from './ServiceWorkerUpdateCycleView.js';
+import * as SharedStorageEventsView from './SharedStorageEventsView.js';
 import * as SharedStorageModel from './SharedStorageModel.js';
 import * as StorageItemsView from './StorageItemsView.js';
 import * as StorageView from './StorageView.js';
@@ -50,6 +51,7 @@ export {
   ServiceWorkerCacheViews,
   ServiceWorkersView,
   ServiceWorkerUpdateCycleView,
+  SharedStorageEventsView,
   SharedStorageModel,
   StorageItemsView,
   StorageView,
