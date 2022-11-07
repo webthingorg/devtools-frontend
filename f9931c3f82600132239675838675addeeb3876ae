@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b3b1772_00ce63a7",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "In DevTools we use private identifiers instead of TypeScript `private` modifier.\n\n\n    readonly #model: SharedStorageModel;",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fd7c0a_45333f9b",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Just `#securityOrigin`",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b2a3ff_c88d8489",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Don\u0027t we want to wait for this to complete before adding origins at the next line?",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 75
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37ccc3f_9a39595d",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Does this need to be sequential?\nIf not, we can do \n\n    await Promise.all(securityOriginManager.securityOrigins().map(\n      o \u003d\u003e this.maybeAddOrigin(o))\n      \nHowever, you never await on the return value of this funcion, so maybe just drop `await` here instead?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 48
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a26605_218dfac0",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "const storagesTemp \u003d storagesInternal.keys().\n    \nBut why do you need this copy in the first place?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 74
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27ca2e8a_0c708fc1",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Again, you don\u0027t seem to await on the return value, so maybe drop `await` here?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 42
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eabaa7d_d180bbc2",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "`parsedSecurityOrigin`",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 66
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7b7ad7_efeba874",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "return this.storagesInternal.values();",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 46
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a952b55d_7168fe19",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "This only affects e2e tests, is this what you want?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 115
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9416caf9_38ab727f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 83
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1df5cf8_bab064e9",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "Is this really what the test does?",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00fe646d_506bd1ca",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:42:35Z",
+      "side": 1,
+      "message": "We also need to test the behavior of `enable`/`disable` and `sharedStorageAccessed`",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
