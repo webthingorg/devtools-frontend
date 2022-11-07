@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a6377b_0c9d7e69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-07T15:27:20Z",
+      "side": 1,
+      "message": "Thanks all for comments - CL updated.\n\nI am going to wait until after branch point (Thurs 10th Nov) to land this change, just out of caution, so we can more easily revert should we need to.",
+      "revId": "a35c0d10f0aead6e02cd9bf9685f194d45adb16e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

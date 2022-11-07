@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e830b2_7941480b",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-07T15:27:20Z",
+      "side": 1,
+      "message": "Nice thought - updated to `reject()` if the URL is not about:blank. I agree if that happens we should probably bail.",
+      "parentUuid": "85b11bdd_c5b795d3",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe3c3a04_36c6f4d3",
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "Yeah, I don\u0027t think there is anything more reliable currently. Unless you want to look into fixing Target.targetInfoChanged event to be emitted on url/title change (we should do that at one point). I also wonder if Target.getTargets would return the updated URL?",
       "parentUuid": "bf09c44e_c8fc113b",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2b4d33_6b8509e0",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-07T15:27:20Z",
+      "side": 1,
+      "message": "Thanks! For now I\u0027ve taken the method from the LH controller and adapted it. At the very least we should de-duplicate that (crbug.com/1382044).\n\nWith Target.getTargets, would we ever have to worry about it returning multiple targets, or within the context of DevTools would it only ever be one?\n\nHappy to work on follow up CL(s) to make this situation better.",
+      "parentUuid": "aebb4c10_7782f1f8",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
