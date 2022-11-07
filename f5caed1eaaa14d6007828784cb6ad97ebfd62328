@@ -22,6 +22,30 @@
       },
       "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cfaf6ea_86cd5aac",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-07T19:42:04Z",
+      "side": 1,
+      "message": "Thank you.  Yes, I will be writing tests; I just haven\u0027t had a chance yet (which is why it was still a WIP).  \n\nGood idea about injecting the subviews---I will look into it!",
+      "parentUuid": "ea75d2fd_30094474",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
