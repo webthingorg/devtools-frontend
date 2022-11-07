@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d7cc50d2fa98e2eefd09149080eab0e896824cdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4bee8f3_be5ed937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-11-07T11:43:02Z",
+      "side": 1,
+      "message": "Thanks for improving. Now it\u0027s also much easier to read in code-review side-by-side view.",
+      "revId": "d7cc50d2fa98e2eefd09149080eab0e896824cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
