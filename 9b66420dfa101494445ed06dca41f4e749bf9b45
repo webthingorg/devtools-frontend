@@ -69,6 +69,24 @@
       "parentUuid": "8cbdd4c2_75c14ba0",
       "revId": "9b66420dfa101494445ed06dca41f4e749bf9b45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4667ad66_f20dccac",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-07T08:32:35Z",
+      "side": 1,
+      "message": "@changhaohan@chromium.org Ping😝",
+      "parentUuid": "02a9108a_8e5f9f3b",
+      "revId": "9b66420dfa101494445ed06dca41f4e749bf9b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
