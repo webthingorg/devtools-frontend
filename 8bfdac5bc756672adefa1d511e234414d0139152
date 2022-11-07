@@ -16,6 +16,29 @@
       "message": "Hi Jaro!\n\nThis is a CL that fixes a bug in the BreakpointsView UI, where we didn\u0027t manage to keep the focus on a breakpoint line after enabling/disabling it. Now with this patch, enabling/disabling a breakpoint should not affect the focus status. PTAL!",
       "revId": "8bfdac5bc756672adefa1d511e234414d0139152",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15664b20_963accf8",
+        "filename": "test/e2e/sources/breakpoints-sidebarpane_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-07T14:18:35Z",
+      "side": 1,
+      "message": "Non-blocking suggestion: Given Philip\u0027s observation on disconnects from DOM causing e2e flakiness, I am wondering if we should also assert that the element updatedBreakpointItem is still connected. Or perhaps extract the text content as part of the waitForFunction on line 55 and verify that the element remained connected during the extraction.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 60
+      },
+      "revId": "8bfdac5bc756672adefa1d511e234414d0139152",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
