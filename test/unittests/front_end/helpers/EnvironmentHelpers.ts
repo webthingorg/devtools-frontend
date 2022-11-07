@@ -48,7 +48,7 @@ export function createTarget({id, name = 'test', type = SDK.Target.Type.Frame, p
   return targetManager.createTarget(
       id, name, type, parentTarget ? parentTarget : null, /* sessionId=*/ parentTarget ? id : undefined,
       /* suspended=*/ false,
-      /* connection=*/ undefined, {subtype} as Protocol.Target.TargetInfo);
+      /* connection=*/ undefined, {targetId: id, subtype} as Protocol.Target.TargetInfo);
 }
 
 function createSettingValue(
