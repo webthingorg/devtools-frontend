@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73bdf76d_3edd1b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-07T07:33:31Z",
+      "side": 1,
+      "message": "Hi Jaro!\n\nThis CL fixes a naming of one newly added UMA metric to match with another definition of it in InspectorFrontendHostAPI.ts (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/host/InspectorFrontendHostAPI.ts;l\u003d353;drc\u003d9ebe6e30e71d28ccd35558c953eec6041d606e8f),  ptal!",
+      "revId": "b59374be0f7446190d035940e31fa9f72411c59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
