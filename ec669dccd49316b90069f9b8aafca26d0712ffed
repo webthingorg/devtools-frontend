@@ -85,6 +85,24 @@
       "message": "What would the negative consequences of removing this line be? In my testing I noticed that this turns the blue issues icon black (https://i.imgur.com/M5Gk927.png).",
       "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8707d713_15e3fd63",
+        "filename": "front_end/ui/components/icon_button/iconButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-11-07T16:59:37Z",
+      "side": 1,
+      "message": "Without it we were seeing an issue with icons showing black on a black background or white on white background in HC themes - https://i.imgur.com/pO4jyIP.png. The latest patch takes this CSS rule out, resolves this issue and maintains the blue issues icon in HC.",
+      "parentUuid": "749de21e_158e1fd9",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
