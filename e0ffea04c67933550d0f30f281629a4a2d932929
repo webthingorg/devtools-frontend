@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d60de7_7c5ba0c4",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-11-07T09:31:02Z",
+      "side": 1,
+      "message": "nit: IMO, test readability might benefit from inlining this into their respective use sites. They are all used once and the last 4 are trivial. By having them here, I need to keep jumping around in the test code to fully understand it. When it\u0027s inlined, it\u0027s more fluid, at least for me.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "e0ffea04c67933550d0f30f281629a4a2d932929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
