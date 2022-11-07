@@ -14,36 +14,35 @@ import sharedStorageMetadataViewStyles from './sharedStorageMetadataView.css.js'
 
 const UIStrings = {
   /**
-   * @description Text in SharedStorage Metadata View of the Application panel
-   */
+  *@description Text in SharedStorage Metadata View of the Application panel
+  */
   sharedStorage: 'Shared Storage',
   /**
-   * @description Section header for Metadata
-   */
+  *@description Section header for Metadata
+  */
   metadata: 'Metadata',
   /**
-   * @description The origin of a URL (https://web.dev/same-site-same-origin/#origin)
-   * (for a lot of languages this does not need to be translated, please translate only where necessary)
-   */
+  *@description The origin of a URL (https://web.dev/same-site-same-origin/#origin)
+  *(for a lot of languages this does not need to be translated, please translate only where necessary)
+  */
   origin: 'Origin',
   /**
-   * @description The time when the origin most recently created its shared storage database
-   */
+  *@description The time when the origin most recently created its shared storage database
+  */
   creationTime: 'Creation',
   /**
-   * @description The number of entries currently in the origin's database
-   */
+  *@description The number of entries currently in the origin's database
+  */
   length: 'Length',
   /**
-   * @description The number of bits remaining in the origin's shared storage privacy budget
-   */
+  *@description The number of bits remaining in the origin's shared storage privacy budget
+  */
   remainingBudget: 'Budget',
   /**
-   * @description Section header above Entries
-   */
+  *@description Section header above Entries
+  */
   entries: 'Entries',
 };
-
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/SharedStorageMetadataView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
@@ -55,21 +54,21 @@ export class SharedStorageMetadataView extends UI.Widget.VBox {
   readonly #reportView = new SharedStorageMetadataReportView();
   #sharedStorageMetadataGetter: SharedStorageMetadataGetter;
 
-  constructor(sharedStorageMetadataGetter: SharedStorageMetadataGetter, ownerOrigin: string) {
+  constructor(sharedStorageMetadataGetter: SharedStorageMetadataGetter, owner: string) {
     super();
     this.#sharedStorageMetadataGetter = sharedStorageMetadataGetter;
     this.contentElement.classList.add('overflow-auto');
     this.contentElement.appendChild(this.#reportView);
-    this.#reportView.origin = ownerOrigin;
+    this.#reportView.origin = owner;
     void this.doUpdate();
   }
 
   async doUpdate(): Promise<void> {
     const metadata = await this.#sharedStorageMetadataGetter.getMetadata();
-    const timeOrNull: Protocol.Network.TimeSinceEpoch|null = metadata ? metadata.creationTime : null;
-    const len: number = metadata ? metadata.length : -1;
-    const budget: number = metadata ? metadata.remainingBudget : 0;
-    this.#reportView.data = {creationTime: timeOrNull, length: len, remainingBudget: budget};
+    const creationTime = metadata?.creationTime ?? null;
+    const length = metadata?.remainingBudget ?? 0;
+    const remainingBudget = metadata?.remainingBudget ?? 0;
+    this.#reportView.data = {creationTime, length, remainingBudget};
   }
 }
 
@@ -84,9 +83,9 @@ const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 export class SharedStorageMetadataReportView extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-shared-storage-metadata-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
-  origin: string = '';
+  #origin: string = '';
   #creationTime: Protocol.Network.TimeSinceEpoch|null = null;
-  #length: number = -1;
+  #length: number = 0;
   #remainingBudget: number = 0;
 
   connectedCallback(): void {
@@ -100,6 +99,10 @@ export class SharedStorageMetadataReportView extends HTMLElement {
       this.#remainingBudget = data.remainingBudget;
     }
     void this.#render();
+  }
+
+  set origin(origin: string) {
+    this.#origin = origin;
   }
 
   async #render(): Promise<void> {
@@ -125,7 +128,7 @@ export class SharedStorageMetadataReportView extends HTMLElement {
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.origin)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
-          <div class="text-ellipsis" title=${this.origin}>${this.origin}</div>
+          <div class="text-ellipsis" title=${this.#origin}>${this.#origin}</div>
       </${ReportView.ReportView.ReportValue.litTagName}>
      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.creationTime)}</${
         ReportView.ReportView.ReportKey.litTagName}>

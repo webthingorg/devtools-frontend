@@ -9,7 +9,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-button ~ .text-ellipsis {
-  padding-left: 2px;
-}

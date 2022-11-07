@@ -46,6 +46,7 @@ describeWithLocale('SharedStorageMetadataView', () => {
   it('renders report keys and values', async () => {
     const component = new ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataReportView();
     renderElementIntoDOM(component);
+    component.origin = 'a.test';
     component.data = {
       creationTime: 10 as Protocol.Network.TimeSinceEpoch,
       length: 4,
@@ -66,7 +67,7 @@ describeWithLocale('SharedStorageMetadataView', () => {
 
     const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
     assert.deepEqual(values, [
-      '',
+      'a.test',
       (new Date(10 * 1e3)).toLocaleString(),
       '8.3',
       '4',
@@ -95,7 +96,7 @@ describeWithLocale('SharedStorageMetadataView', () => {
       '',
       '',
       '0',
-      '-1',
+      '0',
     ]);
   });
 });
