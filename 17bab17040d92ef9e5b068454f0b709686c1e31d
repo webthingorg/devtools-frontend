@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b9cf72_7036a13e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-07T05:46:24Z",
+      "side": 1,
+      "message": "dsv@, PTAL. Thanks!  (I\u0027ve slightly updated the design doc as well to reflect how things currently look.)",
+      "revId": "17bab17040d92ef9e5b068454f0b709686c1e31d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
