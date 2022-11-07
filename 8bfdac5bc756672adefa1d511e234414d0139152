@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6d1752_03259785",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-07T13:01:32Z",
+      "side": 1,
+      "message": "Hi Jaro!\n\nThis is a CL that fixes a bug in the BreakpointsView UI, where we didn\u0027t manage to keep the focus on a breakpoint line after enabling/disabling it. Now with this patch, enabling/disabling a breakpoint should not affect the focus status. PTAL!",
+      "revId": "8bfdac5bc756672adefa1d511e234414d0139152",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
