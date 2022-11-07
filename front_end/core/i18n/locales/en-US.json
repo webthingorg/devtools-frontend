@@ -2249,6 +2249,9 @@
   "panels/application/ApplicationPanelCacheSection.ts | refreshCaches": {
     "message": "Refresh Caches"
   },
+  "panels/application/ApplicationPanelPreloadingSection.ts | preloading": {
+    "message": "Preloading"
+  },
   "panels/application/ApplicationPanelSidebar.ts | application": {
     "message": "Application"
   },
@@ -2302,6 +2305,9 @@
   },
   "panels/application/ApplicationPanelSidebar.ts | openedWindows": {
     "message": "Opened Windows"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | preloading": {
+    "message": "Preloading"
   },
   "panels/application/ApplicationPanelSidebar.ts | refreshIndexeddb": {
     "message": "Refresh IndexedDB"
@@ -3275,6 +3281,33 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Show details"
   },
+  "panels/application/components/PreloadingDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Select an element for more details"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
+  "panels/application/components/PreloadingGrid.ts | startedAt": {
+    "message": "Started at"
+  },
+  "panels/application/components/PreloadingGrid.ts | status": {
+    "message": "Status"
+  },
+  "panels/application/components/PreloadingGrid.ts | trigger": {
+    "message": "Trigger"
+  },
+  "panels/application/components/PreloadingGrid.ts | type": {
+    "message": "Type"
+  },
   "panels/application/components/Prerender2.ts | Activated": {
     "message": "Activated."
   },
@@ -3670,6 +3703,30 @@
   },
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
+  },
+  "panels/application/PreloadingView.ts | addSpecRulesButton": {
+    "message": "Add new SpeculationRules"
+  },
+  "panels/application/PreloadingView.ts | addSpecRulesPlaceholder": {
+    "message": "Add new SpeculationRules"
+  },
+  "panels/application/PreloadingView.ts | clearNotOngoing": {
+    "message": "Clear not ongoing"
+  },
+  "panels/application/PreloadingView.ts | selectAnElementForMoreDetails": {
+    "message": "Select an element for more details"
+  },
+  "panels/application/PreloadingView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/PreloadingView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/PreloadingView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/PreloadingView.ts | statusPrerendering": {
+    "message": "Prerendering"
   },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Click on any report to display its body"
