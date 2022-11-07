@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0b1d96_7f3bb352",
+        "filename": "front_end/ui/components/icon_button/icon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-11-07T17:19:19Z",
+      "side": 1,
+      "message": "@wolfi@chromium.org Latest patch takes out rule and maintains blue issues icon color. Verified this doesn\u0027t introduce any unintended effects elsewhere",
+      "parentUuid": "abb807c7_4cf6a407",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "749de21e_158e1fd9",
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Without it we were seeing an issue with icons showing black on a black background or white on white background in HC themes - https://i.imgur.com/pO4jyIP.png. The latest patch takes this CSS rule out, resolves this issue and maintains the blue issues icon in HC.",
       "parentUuid": "749de21e_158e1fd9",
+      "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6432c324_90e6ee73",
+        "filename": "front_end/ui/components/icon_button/iconButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-11-07T17:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8707d713_15e3fd63",
       "revId": "ec669dccd49316b90069f9b8aafca26d0712ffed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
