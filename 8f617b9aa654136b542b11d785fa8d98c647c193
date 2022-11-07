@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f507452d_70e6aca3",
+        "filename": "front_end/panels/application/components/SharedStorageMetadataView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:19:53Z",
+      "side": 1,
+      "message": "Just `owner`?",
+      "range": {
+        "startLine": 58,
+        "startChar": 72,
+        "endLine": 58,
+        "endChar": 83
+      },
+      "revId": "8f617b9aa654136b542b11d785fa8d98c647c193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd57d13f_6aaa0670",
+        "filename": "front_end/panels/application/components/SharedStorageMetadataView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:19:53Z",
+      "side": 1,
+      "message": "Just `time`? Otherwise you should can the var on the next line `lenOrMinusOne`:)",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "8f617b9aa654136b542b11d785fa8d98c647c193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a64ea8_6c54a2ab",
+        "filename": "front_end/panels/application/components/SharedStorageMetadataView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:19:53Z",
+      "side": 1,
+      "message": "const creationTime \u003d metadata?.creationTime ?? null;\n    const length \u003d metadata?.remainingBudget ?? 0;\n    const remainingBudget \u003d metadata?.remainingBudget ?? 0;\n    this.#reportView.data \u003d {creationTime, length, remainingBudget};",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 93
+      },
+      "revId": "8f617b9aa654136b542b11d785fa8d98c647c193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a8f1da_e21e1fa2",
+        "filename": "front_end/panels/application/components/SharedStorageMetadataView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:19:53Z",
+      "side": 1,
+      "message": "Do you want to show -1 here?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 119
+      },
+      "revId": "8f617b9aa654136b542b11d785fa8d98c647c193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

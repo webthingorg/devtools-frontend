@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7afdfc_60e41794",
+        "filename": "front_end/panels/application/components/sharedStorageMetadataView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:19:53Z",
+      "side": 1,
+      "message": "Hm... each shortened text after a button should have a left padding? This doesn\u0027t seem to make sense in general. What are you trying to achieve with this CSS rule?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "6e35732743cb0fd32fbdcde8bf24dfae40cda105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
