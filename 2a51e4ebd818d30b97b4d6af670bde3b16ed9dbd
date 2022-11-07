@@ -156,6 +156,24 @@
       "parentUuid": "e563ff73_c5745fe4",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aebb4c10_7782f1f8",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-07T09:11:42Z",
+      "side": 1,
+      "message": "Yeah, I don\u0027t think there is anything more reliable currently. Unless you want to look into fixing Target.targetInfoChanged event to be emitted on url/title change (we should do that at one point). I also wonder if Target.getTargets would return the updated URL?",
+      "parentUuid": "bf09c44e_c8fc113b",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
