@@ -51,6 +51,24 @@
       "parentUuid": "ee421b96_d1b415f0",
       "revId": "31a430ecf04b2979561a567343101bdffb11bdf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a083a879_166edf07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-07T15:45:01Z",
+      "side": 1,
+      "message": "I agree and so does Peter, updated to 2px.",
+      "parentUuid": "ed8bef99_fc51a0c4",
+      "revId": "31a430ecf04b2979561a567343101bdffb11bdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
