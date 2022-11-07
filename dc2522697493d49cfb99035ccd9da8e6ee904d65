@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "968b65d5_aa5e9296",
+        "filename": "front_end/panels/application/components/SharedStorageAccessGrid.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:08:34Z",
+      "side": 1,
+      "message": "Please make sure to use consistent indentation throughout the file.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 78
+      },
+      "revId": "dc2522697493d49cfb99035ccd9da8e6ee904d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
