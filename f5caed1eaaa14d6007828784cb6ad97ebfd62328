@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea75d2fd_30094474",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-07T08:45:41Z",
+      "side": 1,
+      "message": "This logic in this class also needs to be tested.\n\nYou probably want to inject subviews into the constructor instead of creating them here, so that you can spy on them in tests.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
