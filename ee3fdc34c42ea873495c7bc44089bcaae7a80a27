@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3559aa_e61fcdfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2022-11-07T08:34:45Z",
+      "side": 1,
+      "message": "Hi @ballway@chromium.org , Can you help with UX issues?",
+      "revId": "ee3fdc34c42ea873495c7bc44089bcaae7a80a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
