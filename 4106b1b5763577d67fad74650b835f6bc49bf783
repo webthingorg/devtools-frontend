@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2946e362_51c663c7",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 6876,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-07T13:39:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd874f47_71d2c926",
+      "range": {
+        "startLine": 6876,
+        "startChar": 0,
+        "endLine": 6876,
+        "endChar": 28
+      },
+      "revId": "4106b1b5763577d67fad74650b835f6bc49bf783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dd78214_9b22764a",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-04T16:01:48Z",
       "side": 1,
       "message": "Having an e2e test is good but how about unit tests?",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 25
+      },
+      "revId": "4106b1b5763577d67fad74650b835f6bc49bf783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fabf935_a660ae6d",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-07T13:39:52Z",
+      "side": 1,
+      "message": "Added a unit test which covers the case when only the \u0027enable local overrides\u0027 setting needs to be turned on. The e2e test covers the case where file and folder for local overrides need to be specified as well (which would be cumbersome to do in a unit test because it involves lots of different classes).",
+      "parentUuid": "8dd78214_9b22764a",
       "range": {
         "startLine": 523,
         "startChar": 0,
