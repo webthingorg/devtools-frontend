@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "31a430ecf04b2979561a567343101bdffb11bdf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee421b96_d1b415f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-07T14:53:59Z",
+      "side": 1,
+      "message": "Should we add more than 1px?",
+      "revId": "31a430ecf04b2979561a567343101bdffb11bdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
