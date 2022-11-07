@@ -22,6 +22,29 @@
       },
       "revId": "e0ffea04c67933550d0f30f281629a4a2d932929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a1a92d_9a13f387",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-11-07T09:38:44Z",
+      "side": 1,
+      "message": "nit: Maybe add a wrapper function for typeIntoConsoleAndWaitForResult used with this frontend to reduce a bit boiler plate and don\u0027t need to pass frontend all the time.",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 51
+      },
+      "revId": "e0ffea04c67933550d0f30f281629a4a2d932929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
