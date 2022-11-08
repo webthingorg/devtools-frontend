@@ -44,7 +44,7 @@ describeWithMockConnection('LighthouseReportRenderer', () => {
           .withArgs(NODE, {tooltip: SNIPPET, preventKeyboardFocus: undefined})
           .returns(Promise.resolve(linkElement));
 
-      await LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
+      await LighthouseModule.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
 
       assert.include([...sourceElement.firstChild?.childNodes || []], linkElement);
     });
@@ -67,7 +67,7 @@ describeWithMockConnection('LighthouseReportRenderer', () => {
             .returns(Promise.resolve(document.createTextNode(`link${i}`)));
       }
 
-      await LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
+      await LighthouseModule.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
 
       assert.strictEqual(sourceElement.childNodes.length, NUM_NODES);
       assert.deepStrictEqual([...sourceElement.childNodes].map(n => n.textContent), ['link1', 'link2', 'link3']);
@@ -83,7 +83,7 @@ describeWithMockConnection('LighthouseReportRenderer', () => {
       sinon.stub(Common.Linkifier.Linkifier, 'linkify').returns(Promise.resolve(linkElement));
       const installTooltip = sinon.spy(UI.Tooltip.Tooltip, 'install');
 
-      await LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
+      await LighthouseModule.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
 
       assert.isTrue(installTooltip.calledOnceWith(sourceElement.firstChild as HTMLElement, ''));
     });
@@ -99,7 +99,7 @@ describeWithMockConnection('LighthouseReportRenderer', () => {
       sinon.stub(domModel, 'nodeForId').returns(NODE);
       sinon.stub(Common.Linkifier.Linkifier, 'linkify').returns(Promise.resolve(linkElement));
 
-      await LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
+      await LighthouseModule.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
 
       assert.strictEqual(
           sourceElement.firstElementChild.innerHTML, '<div class="lh-element-screenshot"></div><div>link</div>');
@@ -116,7 +116,7 @@ describeWithMockConnection('LighthouseReportRenderer', () => {
       sinon.stub(domModel, 'pushNodeByPathToFrontend').withArgs('PATH_WIHTOUT_NODE').returns(Promise.resolve(NODE_ID));
       sourceElement.innerHTML = originalHtml;
 
-      await LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
+      await LighthouseModule.LighthouseReportRenderer.linkifyNodeDetails(sourceElement);
 
       assert.strictEqual(sourceElement.innerHTML, originalHtml);
     });
