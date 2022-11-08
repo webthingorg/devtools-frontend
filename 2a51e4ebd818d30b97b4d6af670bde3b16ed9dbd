@@ -210,6 +210,24 @@
       "parentUuid": "aebb4c10_7782f1f8",
       "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171dcdd0_0f0cd331",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-11-08T06:33:11Z",
+      "side": 1,
+      "message": "Target.getTargets would return multiple targets so one needs to find the right one by ID. I am not quite sure that it response would always contain the updated URL though.",
+      "parentUuid": "cd2b4d33_6b8509e0",
+      "revId": "2a51e4ebd818d30b97b4d6af670bde3b16ed9dbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
