@@ -39,6 +39,30 @@
       },
       "revId": "8bfdac5bc756672adefa1d511e234414d0139152",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b6738b_8975bc32",
+        "filename": "test/e2e/sources/breakpoints-sidebarpane_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-08T06:53:25Z",
+      "side": 1,
+      "message": "I\u0027ve extracted the text in the waitForFunction now.",
+      "parentUuid": "15664b20_963accf8",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 60
+      },
+      "revId": "8bfdac5bc756672adefa1d511e234414d0139152",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
