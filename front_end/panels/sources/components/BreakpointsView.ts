@@ -378,7 +378,7 @@ export class BreakpointsView extends HTMLElement {
     <button data-edit-breakpoint @click=${clickHandler} title=${title}>
     <${IconButton.Icon.Icon.litTagName} .data=${{
         iconName: 'edit-icon',
-        width: '10px',
+        width: '14px',
         color: 'var(--color-text-secondary)',
       } as IconButton.Icon.IconData}
       }>
@@ -399,7 +399,7 @@ export class BreakpointsView extends HTMLElement {
     <button data-remove-breakpoint @click=${clickHandler} title=${tooltipText}>
     <${IconButton.Icon.Icon.litTagName} .data=${{
         iconName: 'close-icon',
-        width: '7px',
+        width: '10px',
         color: 'var(--color-text-secondary)',
       } as IconButton.Icon.IconData}
       }>
@@ -499,7 +499,7 @@ export class BreakpointsView extends HTMLElement {
     // clang-format off
     const inactiveActiveCounter = LitHtml.html`
     <${TwoStatesCounter.TwoStatesCounter.TwoStatesCounter.litTagName} .data=${
-        {active: numActive, inactive: numInactive, width: '15px', height: '15px'} as
+        {active: numActive, inactive: numInactive, width: '15px', height: '15px', activeTitle: 'Enabled Breakpoints', inactiveTitle: 'Disabled Breakpoints'} as
         TwoStatesCounter.TwoStatesCounter.TwoStatesCounterData}>
     </${TwoStatesCounter.TwoStatesCounter.TwoStatesCounter.litTagName}>
     `;
