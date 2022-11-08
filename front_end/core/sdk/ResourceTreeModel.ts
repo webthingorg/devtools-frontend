@@ -235,6 +235,8 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
 
     if (frame.isMainFrame()) {
       this.processPendingEvents(frame);
+      // debug
+      console.log('Main Frame Navigated');
       this.dispatchEventToListeners(Events.MainFrameNavigated, frame);
       const networkManager = this.target().model(NetworkManager);
       if (networkManager && frame.isTopFrame()) {

@@ -65,6 +65,11 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
     this.#getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.MainFrameNavigated, this.clearEvents, this);
 
+    // debug
+    if (!this.#getMainResourceTreeModel()) {
+      console.error('NO resource tree model');
+    }
+
     this.#noDisplayView.contentElement.classList.add('placeholder');
     const noDisplayDiv = this.#noDisplayView.contentElement.createChild('div');
     noDisplayDiv.textContent = i18nString(UIStrings.clickToDisplayBody);
@@ -76,6 +81,10 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
 
   #getMainResourceTreeModel(): SDK.ResourceTreeModel.ResourceTreeModel|null {
     const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    // debug
+    if (!mainTarget) {
+      console.error('NO main target');
+    }
     return mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel) || null;
   }
 
@@ -112,6 +121,9 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
   }
 
   clearEvents(): void {
+    // debug
+    console.log('clearing events');
+
     this.#events = [];
     this.#sharedStorageEventGrid.data = this.#events;
     this.setSidebarWidget(this.#noDisplayView);
