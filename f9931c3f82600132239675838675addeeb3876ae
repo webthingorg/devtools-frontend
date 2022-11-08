@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d88ec67_bbbf7d20",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b3b1772_00ce63a7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79fd7c0a_45333f9b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-07T08:42:35Z",
       "side": 1,
       "message": "Just `#securityOrigin`",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "937050a7_174190e2",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79fd7c0a_45333f9b",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b12f1622_cd6f2679",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9b2a3ff_c88d8489",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 75
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f37ccc3f_9a39595d",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-07T08:42:35Z",
       "side": 1,
       "message": "Does this need to be sequential?\nIf not, we can do \n\n    await Promise.all(securityOriginManager.securityOrigins().map(\n      o \u003d\u003e this.maybeAddOrigin(o))\n      \nHowever, you never await on the return value of this funcion, so maybe just drop `await` here instead?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 48
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d177690_8d3c2541",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f37ccc3f_9a39595d",
       "range": {
         "startLine": 111,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce0f34ca_7ad46026",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8a26605_218dfac0",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 74
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27ca2e8a_0c708fc1",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-07T08:42:35Z",
       "side": 1,
       "message": "Again, you don\u0027t seem to await on the return value, so maybe drop `await` here?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 42
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9962a844_8da41f53",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27ca2e8a_0c708fc1",
       "range": {
         "startLine": 127,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f1e508_cb026b53",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eabaa7d_d180bbc2",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 66
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f7b7ad7_efeba874",
@@ -185,6 +353,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17dae796_f1dc4f3e",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f7b7ad7_efeba874",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 46
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a952b55d_7168fe19",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-11-07T08:42:35Z",
       "side": 1,
       "message": "This only affects e2e tests, is this what you want?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 115
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb30b47_cb0a10f6",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-08T08:27:53Z",
+      "side": 1,
+      "message": "Moved to the top CL in chain, where I plan to implement an e2e test, thanks.",
+      "parentUuid": "a952b55d_7168fe19",
       "range": {
         "startLine": 63,
         "startChar": 0,
