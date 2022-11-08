@@ -34,6 +34,8 @@ export function setMockConnectionResponseHandler<C extends ProtocolCommand>(
     throw new Error(`Response handler already set for ${command}`);
   }
 
+  // debug
+  console.error('set handler: ', JSON.stringify(command), ' -> ', JSON.stringify(handler));
   responseMap.set(command, handler);
 }
 
@@ -86,10 +88,14 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
   }
 
   sendRawMessage(message: string) {
+    // debug
+    console.error('send raw message for ', JSON.stringify(message));
     void (async () => {
       const outgoingMessage = JSON.parse(message) as Message;
       const handler = responseMap.get(outgoingMessage.method);
       if (!handler) {
+        // debug
+        console.error('handler not found for ', JSON.stringify(outgoingMessage.method));
         return;
       }
 
