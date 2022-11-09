@@ -17,6 +17,7 @@ export type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.C
 export type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['returnType'];
 export type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
     Omit<ProtocolResponse<C>, 'getError'>;
+export type VoidProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) => void;
 export type MessageCallback = (result: string|Object) => void;
 type Message = {
   id: number,
@@ -28,6 +29,7 @@ type Message = {
 // Note that we can't set the Function to the correct handler on the basis
 // that we don't know which ProtocolCommand will be stored.
 const responseMap = new Map<ProtocolCommand, Function>();
+const voidResponseMap = new Map<ProtocolCommand, Function>();
 export function setMockConnectionResponseHandler<C extends ProtocolCommand>(
     command: C, handler: ProtocolCommandHandler<C>) {
   if (responseMap.get(command)) {
@@ -37,16 +39,33 @@ export function setMockConnectionResponseHandler<C extends ProtocolCommand>(
   responseMap.set(command, handler);
 }
 
+export function setVoidMockConnectionResponseHandler<C extends ProtocolCommand>(
+    command: C, handler: VoidProtocolCommandHandler<C>) {
+  if (responseMap.get(command)) {
+    throw new Error(`Response handler already set for ${command}`);
+  }
+
+  voidResponseMap.set(command, handler);
+}
+
 export function getMockConnectionResponseHandler(method: ProtocolCommand) {
-  return responseMap.get(method);
+  if (responseMap.has(method)) {
+    return responseMap.get(method);
+  }
+  if (voidResponseMap.has(method)) {
+    return voidResponseMap.get(method);
+  }
+  return undefined;
 }
 
 export function clearMockConnectionResponseHandler(method: ProtocolCommand) {
   responseMap.delete(method);
+  voidResponseMap.delete(method);
 }
 
 export function clearAllMockConnectionResponseHandlers() {
   responseMap.clear();
+  voidResponseMap.clear();
 }
 
 export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
@@ -90,6 +109,14 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
       const outgoingMessage = JSON.parse(message) as Message;
       const handler = responseMap.get(outgoingMessage.method);
       if (!handler) {
+        const voidHandler = voidResponseMap.get(outgoingMessage.method);
+        if (!voidHandler) {
+          return;
+        }
+
+        await voidHandler.call(undefined, outgoingMessage.params);
+        this.messageCallback?.call(
+            undefined, {id: outgoingMessage.id, method: outgoingMessage.method, sessionId: outgoingMessage.sessionId});
         return;
       }
 
