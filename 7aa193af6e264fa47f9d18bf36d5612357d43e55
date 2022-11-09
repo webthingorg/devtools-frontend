@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c8805a_8d356ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-09T16:00:12Z",
+      "side": 1,
+      "message": "After talking with you in the doc, I\u0027ve decided to give it a try to implement aaaand here we\u0027re :)",
+      "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
