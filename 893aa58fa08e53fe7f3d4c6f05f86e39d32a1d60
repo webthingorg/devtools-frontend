@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffda9876_69e0fd4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-09T09:43:17Z",
+      "side": 1,
+      "message": "Reverting as suggested in crbug.com/1365298",
+      "revId": "893aa58fa08e53fe7f3d4c6f05f86e39d32a1d60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
