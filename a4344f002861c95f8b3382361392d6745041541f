@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd825775_7cb7cd11",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-11-09T14:26:59Z",
+      "side": 1,
+      "message": "Sorry , I mean `console.profile`",
+      "parentUuid": "303db03c_7a9deaff",
+      "range": {
+        "startLine": 317,
+        "startChar": 107,
+        "endLine": 317,
+        "endChar": 115
+      },
+      "revId": "a4344f002861c95f8b3382361392d6745041541f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39ccc05b_4ed5b3c2",
