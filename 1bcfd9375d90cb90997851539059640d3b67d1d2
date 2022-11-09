@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0568169_1e3d867d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-09T10:09:01Z",
+      "side": 1,
+      "message": "Could you take a look, please?",
+      "revId": "1bcfd9375d90cb90997851539059640d3b67d1d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d826d545_948172fe",
+        "filename": "test/unittests/front_end/core/sdk/PageResourceLoader_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-09T10:09:01Z",
+      "side": 1,
+      "message": "Is there some other way to do platform specific tests?",
+      "revId": "1bcfd9375d90cb90997851539059640d3b67d1d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
