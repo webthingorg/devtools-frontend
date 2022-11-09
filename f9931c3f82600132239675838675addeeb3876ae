@@ -447,6 +447,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8449e20a_d5070a99",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T02:22:14Z",
+      "side": 1,
+      "message": "Ack, I need this (uncommented) now that I have made further progress on the test.",
+      "parentUuid": "9416caf9_38ab727f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 83
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1df5cf8_bab064e9",
@@ -494,6 +518,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e965132d_84a453fd",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T02:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7d2d941_a1a61e93",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00fe646d_506bd1ca",
@@ -507,6 +555,30 @@
       "writtenOn": "2022-11-07T08:42:35Z",
       "side": 1,
       "message": "We also need to test the behavior of `enable`/`disable` and `sharedStorageAccessed`",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "f9931c3f82600132239675838675addeeb3876ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf53bfd_c26a3c29",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T02:22:14Z",
+      "side": 1,
+      "message": "Thank you, I will work on these next.",
+      "parentUuid": "00fe646d_506bd1ca",
       "range": {
         "startLine": 36,
         "startChar": 0,
