@@ -5030,6 +5030,9 @@
   "panels/elements/elements-meta.ts | stackTrace": {
     "message": "Ŝt́âćk̂ T́r̂áĉé"
   },
+  "panels/elements/elements-meta.ts | toggleEyeDropper": {
+    "message": "T̂óĝǵl̂é êýê d́r̂óp̂ṕêŕ"
+  },
   "panels/elements/elements-meta.ts | undo": {
     "message": "Ûńd̂ó"
   },
@@ -12423,7 +12426,7 @@
     "message": "{PH1} îń {PH2}"
   },
   "ui/legacy/components/color_picker/Spectrum.ts | toggleColorPicker": {
-    "message": "T̂óĝǵl̂é ĉól̂ór̂ ṕîćk̂ér̂"
+    "message": "T̂óĝǵl̂é ĉól̂ór̂ ṕîćk̂ér̂ (Śĥór̂t́ĉút̂: {PH1})"
   },
   "ui/legacy/components/cookie_table/CookiesTable.ts | cookies": {
     "message": "Ĉóôḱîéŝ"
