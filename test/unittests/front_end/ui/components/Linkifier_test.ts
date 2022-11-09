@@ -61,6 +61,10 @@ describeWithLocale('Linkifier', () => {
       lineNumber: 1,
       columnNumber: 50,
     };
+    component.addEventListener('linkifieractivated', e => {
+      e.stopPropagation();
+      e.preventDefault();
+    });
     renderElementIntoDOM(component);
     await coordinator.done();
     assertShadowRoot(component.shadowRoot);
