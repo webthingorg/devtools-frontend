@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fdd4524_addd45ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-09T13:13:38Z",
+      "side": 1,
+      "message": "Jaro, this disables the automatic pretty printing for what we considered \"authored files\". Could you take a look please?\n\nThanks,\nBenedikt",
+      "revId": "9da09032dbb1314e8c9758b1221b90194f22df67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
