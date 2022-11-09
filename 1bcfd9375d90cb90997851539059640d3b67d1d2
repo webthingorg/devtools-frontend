@@ -33,6 +33,24 @@
       "message": "Is there some other way to do platform specific tests?",
       "revId": "1bcfd9375d90cb90997851539059640d3b67d1d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735224cf_81501535",
+        "filename": "test/unittests/front_end/core/sdk/PageResourceLoader_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-09T10:17:09Z",
+      "side": 1,
+      "message": "Not at the moment. If we have to add more tests outside of these I\u0027d advocate for introducing something like `describeForPlatform`, but not yet I guess.",
+      "parentUuid": "d826d545_948172fe",
+      "revId": "1bcfd9375d90cb90997851539059640d3b67d1d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
