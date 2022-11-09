@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74a55e62_2a56639b",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T19:23:25Z",
+      "side": 1,
+      "message": "These are the per-origin storages inside the `SharedStorageModel`.  Here `SharedStorage.#model` refers to the owning `SharedStorageModel` with its Map of `#storages`.\n\nThis is similar to what `DOMStorageModel` does with its sister class `DOMStorage`.",
+      "parentUuid": "99e684ed_d861840f",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c8e4543_65af1778",
         "filename": "test/unittests/front_end/helpers/MockConnection.ts",
         "patchSetId": 19
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-09T07:32:46Z",
       "side": 1,
       "message": "Why do we need this extra handling? To deal with no return value?\nCan\u0027t we simply handle `result` being undefined after the line 123?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e6343d_263506f0",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T19:23:25Z",
+      "side": 1,
+      "message": "Well, technically in my current test I could likely get away with ```void sharedStorageModel.enable();``` instead of ```await sharedStorageModel.enable();```.  But in the test that I\u0027m writing next to verify that `enable()` fully works properly, I will definitely have to await it.  And if I do, then I must handle it with the mock handler instead of just leaving it undefined, as otherwise the promise isn\u0027t resolved or something...the test just gets left hanging.",
+      "parentUuid": "4c8e4543_65af1778",
       "range": {
         "startLine": 112,
         "startChar": 0,
