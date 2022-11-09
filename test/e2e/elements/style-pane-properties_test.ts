@@ -66,7 +66,7 @@ const goToResourceAndWaitForStyleSection = async (path: string) => {
 describe('The Styles pane', async () => {
   // Flaky on windows.
   it.skipOnPlatforms(
-      ['win32'], '[crbug.com/1377761] can display the CSS properties of the selected element', async () => {
+      ['win32', 'linux'], '[crbug.com/1377761] can display the CSS properties of the selected element', async () => {
         await goToResourceAndWaitForStyleSection('elements/simple-styled-page.html');
 
         const onH1RuleAppeared = waitForStyleRule('h1');
