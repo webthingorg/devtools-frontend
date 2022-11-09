@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5d7426_bf9b21e2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-09T14:25:06Z",
+      "side": 1,
+      "message": "I\u0027m confused - do you mean `console.log` or `console.profile` ?\n\nPrior to this CL, could web developers profiling websites use `console.profile` ?",
+      "parentUuid": "eecb3062_0600c977",
+      "range": {
+        "startLine": 317,
+        "startChar": 107,
+        "endLine": 317,
+        "endChar": 115
+      },
+      "revId": "a4344f002861c95f8b3382361392d6745041541f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39ccc05b_4ed5b3c2",
