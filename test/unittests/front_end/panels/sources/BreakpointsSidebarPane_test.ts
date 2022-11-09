@@ -218,8 +218,9 @@ describeWithEnvironment('BreakpointsSidebarController', () => {
       };
       const expected: SourcesComponents.BreakpointsView.BreakpointsViewData = {
         breakpointsActive: true,
-        pauseOnExceptions: false,
+        pauseOnUncaughtExceptions: false,
         pauseOnCaughtExceptions: false,
+        independentPauseToggles: true,
         groups: testData.map(createExpectedBreakpointGroups),
       };
       assert.deepEqual(actual, expected);
@@ -637,15 +638,15 @@ describeWithRealConnection('BreakpointsSidebarController', () => {
     breakpointManager.allBreakpointLocations.returns([]);
     const controller = Sources.BreakpointsSidebarPane.BreakpointsSidebarController.instance(
         {forceNew: true, breakpointManager, settings});
-    for (const pauseOnExceptions of [true, false]) {
+    for (const pauseOnUncaughtExceptions of [true, false]) {
       for (const pauseOnCaughtExceptions of [true, false]) {
-        controller.setPauseOnExceptions(pauseOnExceptions);
+        controller.setPauseOnUncaughtExceptions(pauseOnUncaughtExceptions);
         controller.setPauseOnCaughtExceptions(pauseOnCaughtExceptions);
 
         const data = await controller.getUpdatedBreakpointViewData();
-        assert.strictEqual(data.pauseOnExceptions, pauseOnExceptions);
+        assert.strictEqual(data.pauseOnUncaughtExceptions, pauseOnUncaughtExceptions);
         assert.strictEqual(data.pauseOnCaughtExceptions, pauseOnCaughtExceptions);
-        assert.strictEqual(settings.moduleSetting('pauseOnExceptionEnabled').get(), pauseOnExceptions);
+        assert.strictEqual(settings.moduleSetting('pauseOnUncaughtException').get(), pauseOnUncaughtExceptions);
         assert.strictEqual(settings.moduleSetting('pauseOnCaughtException').get(), pauseOnCaughtExceptions);
       }
     }
