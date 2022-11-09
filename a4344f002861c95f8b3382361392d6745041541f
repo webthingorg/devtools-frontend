@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eecb3062_0600c977",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-11-09T11:00:47Z",
+      "side": 1,
+      "message": "`console.log` is not limited, so in the final stage, it will work for both web and node.\n\nThis flag is only for Node/Deno folks to test, so I added \"node.js\" here.",
+      "parentUuid": "f956bee7_5810b15f",
+      "range": {
+        "startLine": 317,
+        "startChar": 107,
+        "endLine": 317,
+        "endChar": 115
+      },
+      "revId": "a4344f002861c95f8b3382361392d6745041541f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39ccc05b_4ed5b3c2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-09T09:36:47Z",
       "side": 1,
       "message": "what happens if this ends up triggering multiple times if there are multiple profiles? Do we create a new trace profile for each \u0026 is the dropdown populated correctly to let the user swap between them?",
+      "range": {
+        "startLine": 430,
+        "startChar": 4,
+        "endLine": 435,
+        "endChar": 7
+      },
+      "revId": "a4344f002861c95f8b3382361392d6745041541f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f794a69e_b6793d27",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-11-09T11:00:47Z",
+      "side": 1,
+      "message": "Yes. And eventually it will created with the title you put in `console.profile()`,(this is wip (HistoryManager))",
+      "parentUuid": "39ccc05b_4ed5b3c2",
       "range": {
         "startLine": 430,
         "startChar": 4,
