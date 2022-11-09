@@ -15815,6 +15815,7 @@ export namespace Debugger {
 
   export const enum SetPauseOnExceptionsRequestState {
     None = 'none',
+    Caught = 'caught',
     Uncaught = 'uncaught',
     All = 'all',
   }
