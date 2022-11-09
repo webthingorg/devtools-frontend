@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e684ed_d861840f",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-09T07:32:46Z",
+      "side": 1,
+      "message": "What is the benefit of having this extra wrapper class around the SharedStorageModel?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8e4543_65af1778",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-09T07:32:46Z",
+      "side": 1,
+      "message": "Why do we need this extra handling? To deal with no return value?\nCan\u0027t we simply handle `result` being undefined after the line 123?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
