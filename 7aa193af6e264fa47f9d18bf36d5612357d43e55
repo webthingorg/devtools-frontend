@@ -16,6 +16,40 @@
       "message": "After talking with you in the doc, I\u0027ve decided to give it a try to implement aaaand here we\u0027re :)",
       "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec703a9_7a117e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-09T22:08:30Z",
+      "side": 1,
+      "message": "LGTM! I think we can build this on Friday and show it to Peter to see what he thinks (Peter is at UX university tomorrow).",
+      "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c92ba5d_6ce03b21",
+        "filename": "front_end/panels/elements/elements-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-09T22:08:30Z",
+      "side": 1,
+      "message": "Not sure how this works internally, but have you tried moving the focus out of the color eyedropper, and maybe click the color value input box to focus there. Would the shortcut key stop working (which should be intended?)",
+      "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
