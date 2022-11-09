@@ -93,6 +93,30 @@
       },
       "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06282ac3_626938a9",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-09T20:19:47Z",
+      "side": 1,
+      "message": "That is to say, awaiting `enable()` without having set a handler makes the test fail with a timeout:\n```\nError: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves.\n```\n\nBut I am going to have to await it in the test I am going to write shortly, where I make sure that all origins are added properly during `enable()`.",
+      "parentUuid": "98e6343d_263506f0",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
