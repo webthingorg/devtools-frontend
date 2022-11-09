@@ -51,7 +51,6 @@ target with is_debug = true in the args.gn file.`;
 
 const GEN_DIRECTORY = path.join(__dirname, '..', '..');
 const ROOT_DIRECTORY = path.join(GEN_DIRECTORY, '..', '..', '..');
-const browser = DEBUG_ENABLED ? 'Chrome' : 'ChromeHeadless';
 const singleRun = !(DEBUG_ENABLED || REPEAT_ENABLED);
 
 const coverageReporters = COVERAGE_ENABLED ? ['coverage'] : [];
@@ -159,8 +158,11 @@ module.exports = function(config) {
     browsers: ['BrowserWithArgs'],
     customLaunchers: {
       'BrowserWithArgs': {
-        base: browser,
-        flags: [`--remote-debugging-port=${REMOTE_DEBUGGING_PORT}`],
+        base: 'Chrome',
+        flags: [
+          `--remote-debugging-port=${REMOTE_DEBUGGING_PORT}`,
+          ...(DEBUG_ENABLED ? [] : ['--headless=new']),
+        ],
       }
     },
 
