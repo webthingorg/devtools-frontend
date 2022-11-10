@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "26ce115e2786c2214bfbaf2a5e342d3f54acc3cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d4d83cb_20993e87",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-10T05:42:56Z",
+      "side": 1,
+      "message": "super nit: Maybe we just flaky test here now?",
+      "revId": "26ce115e2786c2214bfbaf2a5e342d3f54acc3cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
