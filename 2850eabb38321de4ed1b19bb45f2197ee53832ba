@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "2850eabb38321de4ed1b19bb45f2197ee53832ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc71478a_f4e121cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-10T11:50:18Z",
+      "side": 1,
+      "message": "Somehow the order of parsed longhands is changed. Let\u0027s disable first and I\u0027ll fix it later.",
+      "revId": "2850eabb38321de4ed1b19bb45f2197ee53832ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
