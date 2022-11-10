@@ -16,6 +16,24 @@
       "message": "The main target is not necessarily node (i.e. when it comes to the js_app entry point), but then it will be one of the child targets, so I chose to go through all targets here. Let me know if that\u0027s not the correct approach!",
       "revId": "37c8c36a94440eef462292fb75e54c421126f639",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18c0a626_d46238db",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-10T13:35:37Z",
+      "side": 1,
+      "message": "This looks good to me.\n\n@dsv@chromium.org WDYT?",
+      "parentUuid": "4e031159_7c53e09a",
+      "revId": "37c8c36a94440eef462292fb75e54c421126f639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

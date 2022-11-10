@@ -33,6 +33,23 @@
       "message": "Hi Benedikt,\n\nhere are the changes for the pause on exceptions checkboxes. PTAL! (I apparently missed to put add you as a reviewer..)",
       "revId": "5e90d91e50851b923b2ee4956d449b9ea1572f6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6614c944_d84745f0",
+        "filename": "front_end/core/sdk/sdk-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-10T13:35:37Z",
+      "side": 1,
+      "message": "Why can\u0027t we repurpose the \u0027pauseOnExceptionEnabled\u0027 setting to represent pause on uncaught exceptions?",
+      "revId": "5e90d91e50851b923b2ee4956d449b9ea1572f6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
