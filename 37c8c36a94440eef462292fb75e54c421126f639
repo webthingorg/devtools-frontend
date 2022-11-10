@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e031159_7c53e09a",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-10T08:38:26Z",
+      "side": 1,
+      "message": "The main target is not necessarily node (i.e. when it comes to the js_app entry point), but then it will be one of the child targets, so I chose to go through all targets here. Let me know if that\u0027s not the correct approach!",
+      "revId": "37c8c36a94440eef462292fb75e54c421126f639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
