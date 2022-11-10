@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9f0636_a2a39235",
+        "filename": "front_end/panels/application/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-10T09:50:41Z",
+      "side": 1,
+      "message": "I don\u0027t have the full context here but @dsv@chromium.org asked me to take a look. If `PreloadingDetailsView` has a shadow root, then any styles by design won\u0027t be applied to it.\n\nThe ways to \"fix\" this depends on what style(s) you need to pass through. If it\u0027s specific colours, etc, you can use CSS variables (which do get passed through shadow boundaries). But if it\u0027s a set of styles, you\u0027ll need to define them in a stylesheet that gets injected into the PreloadingDetailsView shadow dom.\n\nThere\u0027s some docs here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/docs/building-ui-documentation/StylingComponents.md",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 50
+      },
+      "revId": "9a028b6eb150106c1e986db4866be395591eba96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
