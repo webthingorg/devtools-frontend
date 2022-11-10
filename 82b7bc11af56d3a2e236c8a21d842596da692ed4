@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52197a11_edbed799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-10T13:28:18Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027m moving the place where we record the metric if a breakpoint group was collapsed/expanded. With this CL, we only capture the toggle actions that were initiated by the user. PTAL!",
+      "revId": "82b7bc11af56d3a2e236c8a21d842596da692ed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
