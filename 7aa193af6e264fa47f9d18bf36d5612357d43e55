@@ -50,6 +50,24 @@
       "message": "Not sure how this works internally, but have you tried moving the focus out of the color eyedropper, and maybe click the color value input box to focus there. Would the shortcut key stop working (which should be intended?)",
       "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b5a2b9_3ad290c5",
+        "filename": "front_end/panels/elements/elements-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-10T08:50:30Z",
+      "side": 1,
+      "message": "Ohhh great catch! :)\n\nI\u0027ve tested this and shortcut is not triggered when the input is focused. So, users are able to write \"c\" in the input box 😂\n\nThough the condition I was thinking for triggering eye dropper was the color picker to be open. So, regardless of what is focused inside the color picker, the shortcut can be triggered (other than the input box).\n\nIn my opinion, this behavior feels natural:\n* I was changing somethings in the color picker via sliders\n* Then wanted to pick a color from the page\n\nInstead of clicking to eye dropper, I\u0027m pressing key \"c\".\n\nWDYT? I can also check this with Peter.",
+      "parentUuid": "6c92ba5d_6ce03b21",
+      "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
