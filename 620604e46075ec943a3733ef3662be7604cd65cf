@@ -39,6 +39,30 @@
       },
       "revId": "620604e46075ec943a3733ef3662be7604cd65cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba1023c_98ec6e53",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-10T15:55:09Z",
+      "side": 1,
+      "message": "Yeah, it was misplaced originally, but the issue has manifested with this test: LH listens to model removal and schedules some work that tries to read localized strings. Previously these were already deinitialized, so I had to postpone that. But it makes general sense: we run hadnlers first and only then start destroying objects.",
+      "parentUuid": "28d666ee_09660225",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 39
+      },
+      "revId": "620604e46075ec943a3733ef3662be7604cd65cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
