@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b968c7b3_e236de14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-10T13:17:26Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis CL is removing the enabled/disabled counter for the BreakpointsView, ptal!",
+      "revId": "be5dd8a27ab6d04d7c2bf375b408edb72f66fb34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
