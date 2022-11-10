@@ -242,7 +242,9 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
       Common.EventTarget.removeEventListeners(this.serviceWorkerListeners);
     }
     this.manager = null;
-    this.recomputePageAuditability();
+    if (SDK.TargetManager.TargetManager.instance().mainTarget()) {
+      this.recomputePageAuditability();
+    }
   }
 
   private hasActiveServiceWorker(): boolean {
