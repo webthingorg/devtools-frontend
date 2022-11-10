@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f7039da_611df925",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-10T07:53:10Z",
+      "side": 1,
+      "message": "I see, thanks! Let\u0027s make it explicit in the class name, smth like `SharedStorageForOrigin`, `OriginSharedStorage`, `SingleOriginSharedStorage`, etc.",
+      "parentUuid": "74a55e62_2a56639b",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c8e4543_65af1778",
         "filename": "test/unittests/front_end/helpers/MockConnection.ts",
         "patchSetId": 19
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "That is to say, awaiting `enable()` without having set a handler makes the test fail with a timeout:\n```\nError: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves.\n```\n\nBut I am going to have to await it in the test I am going to write shortly, where I make sure that all origins are added properly during `enable()`.",
       "parentUuid": "98e6343d_263506f0",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed98bfd_4a0cad74",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-10T07:53:10Z",
+      "side": 1,
+      "message": "This is probably because you have an exception on a line 128 when result is undefined. Simply check for undefined and you won\u0027t need this code.\n\nEither way, we need understand why the test times out before discussing possible solutions.",
+      "parentUuid": "06282ac3_626938a9",
       "range": {
         "startLine": 112,
         "startChar": 0,
