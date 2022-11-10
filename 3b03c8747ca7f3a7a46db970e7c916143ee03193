@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5334d638_b5e59889",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-11-10T19:48:40Z",
+      "side": 1,
+      "message": "nit: could we use `opts?: {...}` here instead of defaulting to `null`",
+      "revId": "3b03c8747ca7f3a7a46db970e7c916143ee03193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
