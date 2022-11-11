@@ -84,11 +84,10 @@ describeWithMockConnection('LighthousePanel', async () => {
 
       await new Promise<void>(
           resolve =>
-              sinon.stub(LighthouseModule.LighthouseReportRenderer.LighthouseReportRenderer, 'linkifyNodeDetails')
-                  .callsFake((_: Element) => {
-                    resolve();
-                    return Promise.resolve();
-                  }));
+              sinon.stub(LighthouseModule.LighthouseReportRenderer, 'linkifyNodeDetails').callsFake((_: Element) => {
+                resolve();
+                return Promise.resolve();
+              }));
     });
   };
 
