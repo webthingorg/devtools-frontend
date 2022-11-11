@@ -213,6 +213,30 @@
       },
       "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f49c99a_7a2dfaf5",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-11T09:10:14Z",
+      "side": 1,
+      "message": "I think you still need the early return. Otherwise you will immediately respond to every message with an undefined response, which our code doesn\u0027t expect to happen.",
+      "parentUuid": "aff3228a_04891a56",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
