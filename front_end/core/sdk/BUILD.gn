@@ -20,6 +20,7 @@ devtools_module("sdk") {
     "CSSModel.ts",
     "CSSProperty.ts",
     "CSSPropertyParser.ts",
+    "PrerenderingModel.ts",
     "CSSQuery.ts",
     "CSSRule.ts",
     "CSSScope.ts",

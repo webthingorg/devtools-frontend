@@ -2249,6 +2249,9 @@
   "panels/application/ApplicationPanelCacheSection.ts | refreshCaches": {
     "message": "R̂éf̂ŕêśĥ Ćâćĥéŝ"
   },
+  "panels/application/ApplicationPanelPreloadingSection.ts | preloading": {
+    "message": "P̂ŕêĺôád̂ín̂ǵ"
+  },
   "panels/application/ApplicationPanelSidebar.ts | application": {
     "message": "Âṕp̂ĺîćât́îón̂"
   },
@@ -2302,6 +2305,9 @@
   },
   "panels/application/ApplicationPanelSidebar.ts | openedWindows": {
     "message": "Ôṕêńêd́ Ŵín̂d́ôẃŝ"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | preloading": {
+    "message": "P̂ŕêĺôád̂ín̂ǵ"
   },
   "panels/application/ApplicationPanelSidebar.ts | refreshIndexeddb": {
     "message": "R̂éf̂ŕêśĥ Ín̂d́êx́êd́D̂B́"
@@ -3275,6 +3281,33 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Ŝh́ôẃ d̂ét̂áîĺŝ"
   },
+  "panels/application/components/PreloadingDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Ŝél̂éĉt́ âń êĺêḿêńt̂ f́ôŕ m̂ór̂é d̂ét̂áîĺŝ"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusActivated": {
+    "message": "Âćt̂ív̂át̂éd̂"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusCancelled": {
+    "message": "Ĉán̂ćêĺl̂éd̂"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusDiscarded": {
+    "message": "D̂íŝćâŕd̂éd̂"
+  },
+  "panels/application/components/PreloadingDetailsReportView.ts | statusPrerendering": {
+    "message": "P̂ŕêŕêńd̂ér̂ín̂ǵ"
+  },
+  "panels/application/components/PreloadingGrid.ts | startedAt": {
+    "message": "Ŝt́âŕt̂éd̂ át̂"
+  },
+  "panels/application/components/PreloadingGrid.ts | status": {
+    "message": "Ŝt́ât́ûś"
+  },
+  "panels/application/components/PreloadingGrid.ts | trigger": {
+    "message": "T̂ŕîǵĝér̂"
+  },
+  "panels/application/components/PreloadingGrid.ts | type": {
+    "message": "T̂ýp̂é"
+  },
   "panels/application/components/Prerender2.ts | Activated": {
     "message": "Âćt̂ív̂át̂éd̂."
   },
@@ -3670,6 +3703,30 @@
   },
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Ŷéŝ"
+  },
+  "panels/application/PreloadingView.ts | addSpecRulesButton": {
+    "message": "Âd́d̂ ńêẃ Ŝṕêćûĺât́îón̂Ŕûĺêś"
+  },
+  "panels/application/PreloadingView.ts | addSpecRulesPlaceholder": {
+    "message": "Âd́d̂ ńêẃ Ŝṕêćûĺât́îón̂Ŕûĺêś"
+  },
+  "panels/application/PreloadingView.ts | clearNotOngoing": {
+    "message": "Ĉĺêár̂ ńôt́ ôńĝóîńĝ"
+  },
+  "panels/application/PreloadingView.ts | selectAnElementForMoreDetails": {
+    "message": "Ŝél̂éĉt́ âń êĺêḿêńt̂ f́ôŕ m̂ór̂é d̂ét̂áîĺŝ"
+  },
+  "panels/application/PreloadingView.ts | statusActivated": {
+    "message": "Âćt̂ív̂át̂éd̂"
+  },
+  "panels/application/PreloadingView.ts | statusCancelled": {
+    "message": "Ĉán̂ćêĺl̂éd̂"
+  },
+  "panels/application/PreloadingView.ts | statusDiscarded": {
+    "message": "D̂íŝćâŕd̂éd̂"
+  },
+  "panels/application/PreloadingView.ts | statusPrerendering": {
+    "message": "P̂ŕêŕêńd̂ér̂ín̂ǵ"
   },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Ĉĺîćk̂ ón̂ án̂ý r̂ép̂ór̂t́ t̂ó d̂íŝṕl̂áŷ ít̂ś b̂ód̂ý"
