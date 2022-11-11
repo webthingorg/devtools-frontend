@@ -976,6 +976,15 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
               new StylePropertiesSection(this, matchedStyles, style, sectionIdx, computedStyles, parentsComputedStyles);
           sectionIdx++;
           lastBlock.sections.push(section);
+          lastBlock.sections.sort((a, b) => {
+            if (a.getSectionIdx() < b.getSectionIdx()) {
+              return -1;
+            }
+            if (a.getSectionIdx() > b.getSectionIdx()) {
+              return 1;
+            }
+            return 0;
+          });
         });
       }
     }
@@ -1589,12 +1598,12 @@ export class IdleCallbackManager {
           reject(err);
         }
       };
-      window.requestIdleCallback(() => {
+      //window.requestIdleCallback(() => {
         if (this.discarded) {
           return resolve();
         }
         run();
-      }, {timeout});
+      //}, {timeout});
     }));
   }
 
