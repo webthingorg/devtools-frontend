@@ -237,6 +237,30 @@
       },
       "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0927bc3f_7a0d4f43",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-11T22:08:33Z",
+      "side": 1,
+      "message": "The combination of the early return and having no handler set for `Storage.setSharedStorageTracking` is what is causing the problem.  If we\u0027re going to have an early return, then I have to be able to set a handler for a void command, specifically `Storage.setSharedStorageTracking`.  The current template method doesn\u0027t allow that.",
+      "parentUuid": "4f49c99a_7a2dfaf5",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
