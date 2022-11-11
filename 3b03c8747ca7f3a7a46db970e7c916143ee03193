@@ -33,6 +33,24 @@
       "message": "nit: could we use `opts?: {...}` here instead of defaulting to `null`",
       "revId": "3b03c8747ca7f3a7a46db970e7c916143ee03193",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1b4f02c_8f9ddb39",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-11T08:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5334d638_b5e59889",
+      "revId": "3b03c8747ca7f3a7a46db970e7c916143ee03193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
