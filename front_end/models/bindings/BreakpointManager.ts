@@ -185,7 +185,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     if (isInlineScriptWithoutSourceURL) {
       sourceURL = DefaultScriptMapping.createV8ScriptURL(script);
     } else if (hasResourceScriptMapping) {
-      sourceURL = ResourceScriptMapping.resolveRelativeSourceURL(script, script.sourceURL);
+      sourceURL = ResourceScriptMapping.resolveRelativeSourceURL(script.debuggerModel.target(), script.sourceURL);
     }
 
     const uiSourceCode =

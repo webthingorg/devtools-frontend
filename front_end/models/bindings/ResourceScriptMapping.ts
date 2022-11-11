@@ -90,9 +90,8 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     ];
   }
 
-  static resolveRelativeSourceURL(script: SDK.Script.Script, url: Platform.DevToolsPath.UrlString):
+  static resolveRelativeSourceURL(target: SDK.Target.Target|null, url: Platform.DevToolsPath.UrlString):
       Platform.DevToolsPath.UrlString {
-    let target: SDK.Target.Target|null = script.debuggerModel.target();
     while (target && target.type() !== SDK.Target.Type.Frame) {
       target = target.parentTarget();
     }
@@ -183,7 +182,7 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     if (script.hasSourceURL) {
       // Try to resolve `//# sourceURL=` annotations relative to
       // the base URL, according to the sourcemap specification.
-      url = ResourceScriptMapping.resolveRelativeSourceURL(script, url);
+      url = SDK.SourceMapManager.SourceMapManager.resolveRelativeSourceURL(script.debuggerModel.target(), url);
     } else {
       // Ignore inline <script>s without `//# sourceURL` annotation here.
       if (script.isInlineScript()) {
