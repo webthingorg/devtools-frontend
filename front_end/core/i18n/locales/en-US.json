@@ -6377,15 +6377,6 @@
   "panels/lighthouse/LighthousePanel.ts | thePrintPopupWindowIsOpenPlease": {
     "message": "The print popup window is open. Please close it to continue."
   },
-  "panels/lighthouse/LighthouseReportRenderer.ts | thePerformanceMetricsAboveAre": {
-    "message": "The performance metrics above are simulated and won't match the timings found in this trace. Disable simulated throttling in \"Lighthouse Settings\" if you want the timings to match."
-  },
-  "panels/lighthouse/LighthouseReportRenderer.ts | viewOriginalTrace": {
-    "message": "View Original Trace"
-  },
-  "panels/lighthouse/LighthouseReportRenderer.ts | viewTrace": {
-    "message": "View Trace"
-  },
   "panels/lighthouse/LighthouseReportSelector.ts | newReport": {
     "message": "(new report)"
   },
