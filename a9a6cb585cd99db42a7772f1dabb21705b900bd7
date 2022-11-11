@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c8ad81_115fe817",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-11T01:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7039da_611df925",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c8e4543_65af1778",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "This is probably because you have an exception on a line 128 when result is undefined. Simply check for undefined and you won\u0027t need this code.\n\nEither way, we need understand why the test times out before discussing possible solutions.",
       "parentUuid": "06282ac3_626938a9",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff3228a_04891a56",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-11T01:12:20Z",
+      "side": 1,
+      "message": "OK, removed the early return and checked for undefined (cast to null).  Now it works without needing the extra `voidResponseMap`.",
+      "parentUuid": "eed98bfd_4a0cad74",
       "range": {
         "startLine": 112,
         "startChar": 0,
