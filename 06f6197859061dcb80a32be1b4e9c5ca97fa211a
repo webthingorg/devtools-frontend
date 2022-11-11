@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bacfcbe_ae2c9b19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-11T07:00:23Z",
+      "side": 1,
+      "message": "Let\u0027s do less self healing in general and be more explicit. Could you take a look please? Thanks!",
+      "revId": "06f6197859061dcb80a32be1b4e9c5ca97fa211a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
