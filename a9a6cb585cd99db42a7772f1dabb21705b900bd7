@@ -261,6 +261,30 @@
       },
       "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6889b1b5_d80479cc",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T02:36:11Z",
+      "side": 1,
+      "message": "So I either need to remove the early return, or else I need to add a method above (and possibly a secondary map) for setting void handlers and then there can be an early return if no handler is found after checking both non-void and void handlers.",
+      "parentUuid": "0927bc3f_7a0d4f43",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
