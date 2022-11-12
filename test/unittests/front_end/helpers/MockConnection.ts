@@ -89,16 +89,12 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
     void (async () => {
       const outgoingMessage = JSON.parse(message) as Message;
       const handler = responseMap.get(outgoingMessage.method);
-      if (!handler) {
-        return;
-      }
-
-      const result = await handler.call(undefined, outgoingMessage.params);
+      const result = await handler?.call(undefined, outgoingMessage.params) || null;
 
       // Since we allow the test author to omit the getError call, we
       // need to add it in here on their behalf so that the calling code
       // will succeed.
-      if (!('getError' in result)) {
+      if (result && !('getError' in result)) {
         result.getError = () => undefined;
       }
       this.messageCallback?.call(
