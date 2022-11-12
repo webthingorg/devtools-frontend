@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e643f4b_69636731",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05783e9c_0842cead",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 19
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72eb7a4b_faf88172",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-11T09:10:14Z",
       "side": 1,
       "message": "return [\n      Protocol.Storage.SharedStorageAccessType.DocumentSet, \n      Protocol.Storage.SharedStorageAccessType.DocumentAppend,\n      ...,\n      Protocol.Storage.SharedStorageAccessType.WorkletClear\n    ].includes(event.type);",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 12
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df70ffd5_b1aaf7e4",
+        "filename": "front_end/panels/application/SharedStorageModel.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72eb7a4b_faf88172",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -110,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9cd38a1_d9e40cd7",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c895d25_69cdd698",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 37
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9624492a_ef6e2179",
@@ -133,6 +205,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fded75f_887c33c5",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9624492a_ef6e2179",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 85
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0254eee_806700d1",
@@ -146,6 +242,30 @@
       "writtenOn": "2022-11-11T09:10:14Z",
       "side": 1,
       "message": "You won\u0027t need this if you follow my other suggestions, as targets and their models are being disposed after each test.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa90f973_430e8deb",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0254eee_806700d1",
       "range": {
         "startLine": 188,
         "startChar": 0,
@@ -225,6 +345,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab5520a_968f92fa",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "198124d6_ac9fa99a",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 66
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "250ac922_e2743ec2",
@@ -238,6 +382,30 @@
       "writtenOn": "2022-11-11T09:10:14Z",
       "side": 1,
       "message": "Don\u0027t we want to check that `setSharedStorageTracking` is called and the return promise is resolved once we get a response?",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 37
+      },
+      "revId": "6de4e6e6f7e54375e21f589d65a24ce354c3a520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08f12775_0a5a120b",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-12T01:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "250ac922_e2743ec2",
       "range": {
         "startLine": 202,
         "startChar": 0,
