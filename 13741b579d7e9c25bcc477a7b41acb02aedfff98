@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "028a3e6f_4e4a1a88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-13T14:28:04Z",
+      "side": 1,
+      "message": "LGTM with two comments :)",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb5ab01_bad5ae10",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-13T14:28:04Z",
+      "side": 1,
+      "message": "Since we\u0027re here, WDYT of moving this to a utility class and writing unit tests for it? 😅\n\nThat way, we can assert that we expect tasks to be executed in fifo order. Then, we won\u0027t need to test this StylesSidebarPane behavior of rendering CSS styles in incorrect order.\n\n(Sorry for mentioning more work instead of just fixing this particular test/issue 😂)",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a7502e6_db1016ad",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-13T14:28:04Z",
+      "side": 1,
+      "message": "WDYT of removing `timeout` from the public API and using it always as 100? (As it is the case right now for all the callers)\n\n\nThe reason I\u0027m asking is, this change slightly changes the semantics of `schedule` call with `timeout` which might result in hard to find, flaky bugs.\n\n`schedule(task1, 500)` and `schedule(task2, 100)` results in two tasks scheduled with `task1` having deadline of `500ms` to run and `task2` having deadline of `100ms` to run.\n\nThough, with this change, it doesn\u0027t mean that `task2` will be definitely run after 100ms since its deadline now used to schedule for the `task1`.\n\nSince we\u0027re always using a constant timeout for all things above, we can assign it to constant and don\u0027t think about the likelihood of the issue above.",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
