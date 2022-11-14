@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb53b25_6e90f334",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-14T14:53:08Z",
+      "side": 1,
+      "message": "Yep, it is added in `front_end/panels/elements/StylesSidebarPane.ts` line 1896[1] 😅\n\nI\u0027m having some questions regarding the testing strategy. On one hand, we have a similar layout test in chromium/src[2] so maybe I can move it here. Though from my understanding, we should write E2E tests when they really capture our critical parts. So, I think having this as an E2E test (showing circular color swatch when a color with new syntax is present) might not be needed.\n\nSo, I\u0027m thinking of writing a unit test: testing CSSPropertyPrompt to render the color swatches correctly. Though I couldn\u0027t find a very good way of doing that. I was thinking to call `buildPropertyCompletions` in the test and expect that to return correct suggestion for the parameters. Though I wasn\u0027t sure how good of an idea it is since it seems like I\u0027m testing an implementation details. (Mainly, function name etc. 😂)\n\nWDYT, do you have a suggestion on what tests to write for this code? (and for the CL overall? 😊)\n\n[1]: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4013781/5/front_end/panels/elements/StylesSidebarPane.ts#1896\n[2]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/elements/styles-3/style-autocomplete-swatches.js",
+      "parentUuid": "5e9e90bd_629bfdf0",
+      "revId": "db5ce5b2a366a2d69e982e00812eb0f73be5835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7761f137_1e06ba29",
