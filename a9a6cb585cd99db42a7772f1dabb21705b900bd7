@@ -333,6 +333,30 @@
       },
       "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650849d3_0810de84",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-14T18:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2e0723b_e1507816",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 72
+      },
+      "revId": "a9a6cb585cd99db42a7772f1dabb21705b900bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
