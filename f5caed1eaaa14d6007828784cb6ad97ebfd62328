@@ -70,6 +70,30 @@
       },
       "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e64bf5c_1c7fc3c6",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-14T10:06:50Z",
+      "side": 1,
+      "message": "Ok, but why do we have this `#noDataView`?",
+      "parentUuid": "47a0be21_3b1261e0",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
