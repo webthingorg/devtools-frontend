@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55fb0241_032c8e82",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-14T14:01:52Z",
+      "side": 1,
+      "message": "buuuut I\u0027m not feeling very strongly about it and it is not super important, so we can skip it if you don\u0027t think it is worth the time/discussion/work 😂",
+      "parentUuid": "2b1656a4_fee8ad42",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a7502e6_db1016ad",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 6
