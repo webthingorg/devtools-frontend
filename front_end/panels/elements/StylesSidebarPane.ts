@@ -461,6 +461,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.decorator.findAndHighlightPropertyName(propertyName);
   }
 
+  jumpToLayer(section: string): void {
+    this.decorator.findAndHighlightLayer(section);
+  }
+
   forceUpdate(): void {
     this.needsForceUpdate = true;
     this.swatchPopoverHelperInternal.hide();
@@ -1189,6 +1193,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       this.activeCSSAngle.minify();
       this.activeCSSAngle = null;
     }
+  }
+
+  getSectionBlockByName(name: string): SectionBlock|undefined {
+    return this.sectionBlocks.find(block => block.titleElement()?.textContent === name);
   }
 
   allSections(): StylePropertiesSection[] {
@@ -1989,6 +1997,7 @@ export class StylesSidebarPropertyRenderer {
   private varHandler: ((arg0: string) => Node)|null;
   private angleHandler: ((arg0: string) => Node)|null;
   private lengthHandler: ((arg0: string) => Node)|null;
+  private animationNameHandler: ((data: string) => Node)|null;
 
   constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
     this.rule = rule;
@@ -2001,6 +2010,7 @@ export class StylesSidebarPropertyRenderer {
     this.shadowHandler = null;
     this.gridHandler = null;
     this.varHandler = document.createTextNode.bind(document);
+    this.animationNameHandler = null;
     this.angleHandler = null;
     this.lengthHandler = null;
   }
@@ -2027,6 +2037,10 @@ export class StylesSidebarPropertyRenderer {
 
   setVarHandler(handler: (arg0: string) => Node): void {
     this.varHandler = handler;
+  }
+
+  setAnimationNameHandler(handler: (arg0: string) => Node): void {
+    this.animationNameHandler = handler;
   }
 
   setAngleHandler(handler: (arg0: string) => Node): void {
@@ -2100,6 +2114,10 @@ export class StylesSidebarPropertyRenderer {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
       regexes.push(InlineEditor.CSSLengthUtils.CSSLengthRegex);
       processors.push(this.lengthHandler);
+    }
+    if (this.propertyName === 'animation-name') {
+      regexes.push(/^.*$/g);
+      processors.push(this.animationNameHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this.propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {

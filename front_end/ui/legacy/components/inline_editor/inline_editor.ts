@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as AnimationNameSwatch from './AnimationNameSwatch.js';
 import * as BezierEditor from './BezierEditor.js';
 import * as BezierUI from './BezierUI.js';
 import * as ColorSwatch from './ColorSwatch.js';
@@ -20,6 +21,7 @@ import * as Swatches from './Swatches.js';
 import * as SwatchPopoverHelper from './SwatchPopoverHelper.js';
 
 export {
+  AnimationNameSwatch,
   BezierEditor,
   BezierUI,
   ColorSwatch,
