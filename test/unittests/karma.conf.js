@@ -199,7 +199,7 @@ module.exports = function(config) {
     proxies: {
       '/Images': `/base/${targetDir}/front_end/Images`,
       '/locales': `/base/${targetDir}/front_end/core/i18n/locales`,
-      '/json': `http://localhost:${REMOTE_DEBUGGING_PORT}/json`,
+      '/json/new': `http://localhost:${REMOTE_DEBUGGING_PORT}/json/new`,
     },
 
     coverageReporter: {

@@ -1162,7 +1162,7 @@ function markNonBreakableLines(disassembly: Common.WasmDisassembly.WasmDisassemb
 const sourceFrameTheme = CodeMirror.EditorView.theme({
   '&.cm-editor': {height: '100%'},
   '.cm-scroller': {overflow: 'auto'},
-  '.cm-lineNumbers .cm-gutterElement.cm-nonBreakableLine': {color: 'var(--color-non-breakable-line) !important'},
+  '.cm-lineNumbers .cm-gutterElement.cm-nonBreakableLine': {color: 'var(--color-non-breakable-line)'},
   '.cm-searchMatch': {
     border: '1px solid var(--color-search-match-border)',
     borderRadius: '3px',

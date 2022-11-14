@@ -317,8 +317,8 @@ const UIStrings = {
   /**
    * @description Label of a checkbox in the DevTools settings UI.
    */
-  enableRemoteFileLoading:
-      'Allow `DevTools` to load resources, such as source maps, from remote file paths. Disabled by default for security reasons.',
+  enableUNCLoading:
+      'Allow `DevTools` to load resources, such as source maps, from Windows Shares via `UNC` paths. Disabled by default for security reasons.',
 };
 const str_ = i18n.i18n.registerUIStrings('core/sdk/sdk-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -389,6 +389,12 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   settingName: 'pauseOnCaughtException',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: false,
+});
+
+Common.Settings.registerSettingExtension({
+  settingName: 'pauseOnUncaughtException',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: false,
 });
@@ -1056,8 +1062,8 @@ Common.Settings.registerSettingExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.SOURCES,
   storageType: Common.Settings.SettingStorageType.Synced,
-  title: i18nLazyString(UIStrings.enableRemoteFileLoading),
-  settingName: 'network.enable-remote-file-loading',
+  title: i18nLazyString(UIStrings.enableUNCLoading),
+  settingName: 'network.enable-unc-loading',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: false,
 });

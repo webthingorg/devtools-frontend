@@ -2152,8 +2152,6 @@
                         "durableStorage",
                         "flash",
                         "geolocation",
-                        "idleDetection",
-                        "localFonts",
                         "midi",
                         "midiSysex",
                         "nfc",
@@ -2162,12 +2160,11 @@
                         "periodicBackgroundSync",
                         "protectedMediaIdentifier",
                         "sensors",
-                        "storageAccess",
                         "videoCapture",
                         "videoCapturePanTiltZoom",
+                        "idleDetection",
                         "wakeLockScreen",
-                        "wakeLockSystem",
-                        "windowManagement"
+                        "wakeLockSystem"
                     ]
                 },
                 {
@@ -4704,11 +4701,11 @@
                         "scrollbar-corner",
                         "resizer",
                         "input-list-button",
-                        "view-transition",
-                        "view-transition-group",
-                        "view-transition-image-pair",
-                        "view-transition-old",
-                        "view-transition-new"
+                        "page-transition",
+                        "page-transition-container",
+                        "page-transition-image-wrapper",
+                        "page-transition-outgoing-image",
+                        "page-transition-incoming-image"
                     ]
                 },
                 {

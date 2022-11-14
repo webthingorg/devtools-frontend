@@ -26,6 +26,10 @@ export class MarkdownImage extends HTMLElement {
   #imageData?: ImageData;
   #imageTitle?: string;
 
+  constructor() {
+    super();
+  }
+
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [markdownImageStyles];
   }

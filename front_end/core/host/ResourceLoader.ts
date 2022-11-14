@@ -106,9 +106,9 @@ export let load = function(
           [x: string]: string,
         },
         arg2: string, arg3: LoadErrorDescription) => void,
-    allowRemoteFilePaths: boolean): void {
+    allowFileUNCPaths: boolean): void {
   const stream = new Common.StringOutputStream.StringOutputStream();
-  loadAsStream(url, headers, stream, mycallback, allowRemoteFilePaths);
+  loadAsStream(url, headers, stream, mycallback, allowFileUNCPaths);
 
   function mycallback(
       success: boolean, headers: {
@@ -234,15 +234,6 @@ const loadXHR = (url: string): Promise<string> => {
   });
 };
 
-function canBeRemoteFilePath(url: string): boolean {
-  try {
-    const urlObject = new URL(url);
-    return urlObject.protocol === 'file:' && urlObject.host !== '';
-  } catch (exception) {
-    return false;
-  }
-}
-
 export const loadAsStream = function(
     url: string, headers: {
       [x: string]: string,
@@ -253,7 +244,7 @@ export const loadAsStream = function(
            [x: string]: string,
          },
           arg2: LoadErrorDescription) => void),
-    allowRemoteFilePaths?: boolean): void {
+    allowFileUNCPaths?: boolean): void {
   const streamId = _bindOutputStream(stream);
   const parsedURL = new Common.ParsedURL.ParsedURL(url);
   if (parsedURL.isDataURL()) {
@@ -261,14 +252,13 @@ export const loadAsStream = function(
     return;
   }
 
-  if (!allowRemoteFilePaths && canBeRemoteFilePath(url)) {
-    // Remote file paths can cause security problems, see crbug.com/1342722.
+  if (!allowFileUNCPaths && url.startsWith('file:////')) {
     if (callback) {
       callback(/* success */ false, /* headers */ {}, {
         statusCode: 400,  // BAD_REQUEST
         netError: -20,    // BLOCKED_BY_CLIENT
         netErrorName: 'net::BLOCKED_BY_CLIENT',
-        message: 'Loading from a remote file path is prohibited for security reasons.',
+        message: 'Loading from a Windows Share via UNC path is prohibited for security reasons.',
       });
     }
     return;

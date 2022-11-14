@@ -151,10 +151,4 @@ describe('The Sources Tab', function() {
     await frontend.keyboard.press('Enter');
     await waitForHighlightedLine(6);
   });
-
-  it('does not automatically pretty-print authored code', async () => {
-    await openSourceCodeEditorForFile('minified-sourcecode-1.js', 'minified-sourcecode-1.html');
-    const lines = await retrieveCodeMirrorEditorContent();
-    assert.strictEqual(lines.length, 2);
-  });
 });

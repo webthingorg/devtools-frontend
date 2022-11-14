@@ -695,8 +695,8 @@
   "core/sdk/sdk-meta.ts | enableNetworkRequestBlocking": {
     "message": "Enable network request blocking"
   },
-  "core/sdk/sdk-meta.ts | enableRemoteFileLoading": {
-    "message": "Allow DevTools to load resources, such as source maps, from remote file paths. Disabled by default for security reasons."
+  "core/sdk/sdk-meta.ts | enableUNCLoading": {
+    "message": "Allow DevTools to load resources, such as source maps, from Windows Shares via UNC paths. Disabled by default for security reasons."
   },
   "core/sdk/sdk-meta.ts | enableWebpFormat": {
     "message": "Enable WebP format"
@@ -7772,9 +7772,6 @@
   "panels/network/RequestCookiesView.ts | cookiesThatWereSentToTheServerIn": {
     "message": "Cookies that were sent to the server in the 'cookie' header of the request"
   },
-  "panels/network/RequestCookiesView.ts | learnMore": {
-    "message": "Learn more"
-  },
   "panels/network/RequestCookiesView.ts | malformedResponseCookies": {
     "message": "Malformed Response Cookies"
   },
@@ -7789,9 +7786,6 @@
   },
   "panels/network/RequestCookiesView.ts | showFilteredOutRequestCookies": {
     "message": "show filtered out request cookies"
-  },
-  "panels/network/RequestCookiesView.ts | siteHasCookieInOtherPartition": {
-    "message": "This site has cookies in another partition, that were not sent with this request. {PH1}"
   },
   "panels/network/RequestCookiesView.ts | thisRequestHasNoCookies": {
     "message": "This request has no cookies."
@@ -9977,8 +9971,8 @@
   "panels/sources/components/BreakpointsView.ts | pauseOnCaughtExceptions": {
     "message": "Pause on caught exceptions"
   },
-  "panels/sources/components/BreakpointsView.ts | pauseOnExceptions": {
-    "message": "Pause on exceptions"
+  "panels/sources/components/BreakpointsView.ts | pauseOnUncaughtExceptions": {
+    "message": "Pause on uncaught exceptions"
   },
   "panels/sources/components/BreakpointsView.ts | removeAllBreakpoints": {
     "message": "Remove all breakpoints"

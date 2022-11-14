@@ -262,7 +262,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #blockedRequestCookiesInternal: BlockedCookieWithReason[];
   #includedRequestCookiesInternal: Cookie[];
   #blockedResponseCookiesInternal: BlockedSetCookieWithReason[];
-  #siteHasCookieInOtherPartition: boolean;
   localizedFailDescription: string|null;
   #urlInternal!: Platform.DevToolsPath.UrlString;
   #responseReceivedTimeInternal!: number;
@@ -372,7 +371,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#blockedRequestCookiesInternal = [];
     this.#includedRequestCookiesInternal = [];
     this.#blockedResponseCookiesInternal = [];
-    this.#siteHasCookieInOtherPartition = false;
 
     this.localizedFailDescription = null;
     this.#isSameSiteInternal = null;
@@ -1395,7 +1393,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.setRequestHeadersText('');  // Mark request headers as non-provisional
     this.#clientSecurityStateInternal = extraRequestInfo.clientSecurityState;
     this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
-    this.#siteHasCookieInOtherPartition = extraRequestInfo.siteHasCookieInOtherPartition ?? false;
   }
 
   hasExtraRequestInfo(): boolean {
@@ -1412,10 +1409,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   hasRequestCookies(): boolean {
     return this.#includedRequestCookiesInternal.length > 0 || this.#blockedRequestCookiesInternal.length > 0;
-  }
-
-  siteHasCookieInOtherPartition(): boolean {
-    return this.#siteHasCookieInOtherPartition;
   }
 
   // Parse the status text from the first line of the response headers text.
@@ -1756,7 +1749,6 @@ export interface ExtraRequestInfo {
   includedRequestCookies: Cookie[];
   clientSecurityState?: Protocol.Network.ClientSecurityState;
   connectTiming: Protocol.Network.ConnectTiming;
-  siteHasCookieInOtherPartition?: boolean;
 }
 
 export interface ExtraResponseInfo {
