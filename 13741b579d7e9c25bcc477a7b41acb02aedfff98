@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b1656a4_fee8ad42",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-14T13:44:02Z",
+      "side": 1,
+      "message": "Hihiiim you\u0027re right about the timeouts. One thing I\u0027m not very sure with is we\u0027re testing a hidden behavior in the E2E test for shorthands -- having styles ordered.\n\nSo, I think it might be better to test that explicitly. Though having an E2E test for this behavior feels heavy.\n\nSince we\u0027re using this IdleCallbackManager utility in the code, I was thinking we can get around of writing an E2E test for the Styles pane but a unit test for this utility. (Then, when I think about it, if we had a unit test for the styles pane for this purpose, it would have sufficed to prove that the styles will be ordered when they are calling `idleCallbackManager.schedule` in order.)\n\nFor the timeout issue, you\u0027re totally right! :) I don\u0027t think `requestIdleCallback` should take a lot of time by itself, so WDYT of mocking it to be called with a small constant timeout? (like 1ms or so 😅) I\u0027d expect that test to be sufficiently fast.",
+      "parentUuid": "6b98ea55_7df240c8",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a7502e6_db1016ad",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 6
