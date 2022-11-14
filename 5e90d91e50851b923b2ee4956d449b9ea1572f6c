@@ -50,6 +50,24 @@
       "message": "Why can\u0027t we repurpose the \u0027pauseOnExceptionEnabled\u0027 setting to represent pause on uncaught exceptions?",
       "revId": "5e90d91e50851b923b2ee4956d449b9ea1572f6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c79385_bd992a7c",
+        "filename": "front_end/core/sdk/sdk-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-14T13:19:44Z",
+      "side": 1,
+      "message": "We could if you feel strongly about this, but I feel that \u0027pauseOnExceptionsEnabled\u0027 is misleading/not very clear when it comes to the new sidebar pane. Let me know what you think!",
+      "parentUuid": "6614c944_d84745f0",
+      "revId": "5e90d91e50851b923b2ee4956d449b9ea1572f6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

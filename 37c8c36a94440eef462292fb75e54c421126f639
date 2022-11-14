@@ -52,6 +52,24 @@
       "parentUuid": "18c0a626_d46238db",
       "revId": "37c8c36a94440eef462292fb75e54c421126f639",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6915dc43_77d0a58d",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-14T13:19:44Z",
+      "side": 1,
+      "message": "I\u0027ve added two small unit tests. I initially tried to actually start a Node target (node_app.js), and check the result of this method properly. However, creating/attaching targets will lead to a lot of unrelated things being done (e.g. a new DebuggerModel is created), with promises being started that are not properly awaited. In the end I reverted to the simple, small test. Let me know if you want me to change anything.",
+      "parentUuid": "2547d067_97061ff3",
+      "revId": "37c8c36a94440eef462292fb75e54c421126f639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
