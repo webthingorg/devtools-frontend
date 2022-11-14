@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab18f7a_7d5fe2aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-14T08:04:07Z",
+      "side": 1,
+      "message": "Hey Jaro, here\u0027s the actual work that\u0027s necessary now on our end to properly support .vue files (the lang\u003d\"ts\" flag on \u003cscript\u003e needs more upstream work still and is thus the major piece missing for proper support). Please take a look. Thanks!",
+      "revId": "dfb8a89d7863734621cfc3ce195063be73ebf60d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
