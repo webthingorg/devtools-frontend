@@ -34,7 +34,7 @@ UI.ViewManager.registerViewExtension({
   order: 90,
   async loadView() {
     const Lighthouse = await loadLighthouseModule();
-    return Lighthouse.LighthousePanel.LighthousePanel.instance();
+    return new Lighthouse.LighthousePanel.LighthousePanel();
   },
   tags: [
     i18n.i18n.lockedLazyString('lighthouse'),

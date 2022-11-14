@@ -16,7 +16,6 @@ describeWithMockConnection('LighthousePanel', async () => {
   const tests = (targetFactory: () => SDK.Target.Target) => {
     let target: SDK.Target.Target;
     let resourceTreeModelNavigate: sinon.SinonStub;
-    let protocolService: Lighthouse.LighthouseProtocolService.ProtocolService;
     let controller: Lighthouse.LighthouseController.LighthouseController;
 
     const URL = 'http://example.com';
@@ -57,7 +56,7 @@ describeWithMockConnection('LighthousePanel', async () => {
           .callsArgWithAsync(1, {resourceTreeModel, loadTime: 0})
           .returns({} as Common.EventTarget.EventDescriptor);
 
-      protocolService = new LighthouseModule.LighthouseProtocolService.ProtocolService();
+      const protocolService = new LighthouseModule.LighthouseProtocolService.ProtocolService();
       sinon.stub(protocolService, 'attach').resolves();
       sinon.stub(protocolService, 'detach').resolves();
       sinon.stub(protocolService, 'collectLighthouseResults').resolves(LH_REPORT);
@@ -66,10 +65,11 @@ describeWithMockConnection('LighthousePanel', async () => {
 
       Root.Runtime.experiments.register('dualScreenSupport', 'Emulation: Support dual screen mode', undefined, '');
       stubNoopSettings();
+
+      new LighthouseModule.LighthousePanel.LighthousePanel(protocolService, controller);
     });
 
     it('restores the original URL when done', async () => {
-      LighthouseModule.LighthousePanel.LighthousePanel.instance({forceNew: true, protocolService, controller});
       controller.dispatchEventToListeners(LighthouseModule.LighthouseController.Events.RequestLighthouseStart, true);
 
       await new Promise<void>(resolve => resourceTreeModelNavigate.withArgs(URL).callsFake(() => {
@@ -79,7 +79,6 @@ describeWithMockConnection('LighthousePanel', async () => {
     });
 
     it('waits for main taget to load before linkifying', async () => {
-      LighthouseModule.LighthousePanel.LighthousePanel.instance({forceNew: true, protocolService, controller});
       controller.dispatchEventToListeners(LighthouseModule.LighthouseController.Events.RequestLighthouseStart, true);
 
       await new Promise<void>(

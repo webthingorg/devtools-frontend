@@ -62,7 +62,6 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthousePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-let lighthousePanelInstace: LighthousePanel;
 type Nullable<T> = T|null;
 
 export class LighthousePanel extends UI.Panel.Panel {
@@ -97,9 +96,9 @@ export class LighthousePanel extends UI.Panel.Panel {
   private isLHAttached?: boolean;
   private currentLighthouseRun?: LighthouseRun;
 
-  private constructor(
-      protocolService: ProtocolService,
-      controller: LighthouseController,
+  constructor(
+      protocolService: ProtocolService = new ProtocolService(),
+      controller: LighthouseController = new LighthouseController(protocolService),
   ) {
     super('lighthouse');
 
@@ -130,18 +129,6 @@ export class LighthousePanel extends UI.Panel.Panel {
     this.renderStartView();
 
     this.controller.recomputePageAuditability();
-  }
-
-  static instance(opts?: {forceNew: boolean, protocolService: ProtocolService, controller: LighthouseController}):
-      LighthousePanel {
-    if (!lighthousePanelInstace || opts?.forceNew) {
-      const protocolService = opts?.protocolService ?? new ProtocolService();
-      const controller = opts?.controller ?? new LighthouseController(protocolService);
-
-      lighthousePanelInstace = new LighthousePanel(protocolService, controller);
-    }
-
-    return lighthousePanelInstace;
   }
 
   static getEvents(): typeof Events {
