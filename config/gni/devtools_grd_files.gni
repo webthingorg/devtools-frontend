@@ -1633,6 +1633,7 @@ grd_files_debug_sources = [
   "front_end/ui/legacy/components/data_grid/SortableDataGrid.js",
   "front_end/ui/legacy/components/data_grid/ViewportDataGrid.js",
   "front_end/ui/legacy/components/data_grid/dataGrid.css.js",
+  "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.js",
   "front_end/ui/legacy/components/inline_editor/BezierEditor.js",
   "front_end/ui/legacy/components/inline_editor/BezierUI.js",
   "front_end/ui/legacy/components/inline_editor/CSSAngle.js",
