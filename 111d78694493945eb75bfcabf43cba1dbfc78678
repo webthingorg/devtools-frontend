@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "959221ab_e62a8fbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-14T14:10:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "594d61a9_85a6a85c",
+      "revId": "111d78694493945eb75bfcabf43cba1dbfc78678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c2ec332_e338df0e",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-13T14:48:24Z",
       "side": 1,
       "message": "Can we move waiting for `transitionend` logic to a helper to remove the logic from the test code so that test code is more understandable?\n\nIt might be something like `setupWaitForTransitionPromise(element: Element): Promise` or `setupWaitForTransition(element: Element): () \u003d\u003e Promise;`\n\nand usage would be:\n`const waitForTransition \u003d setupWaitForTransition(overlay)`\n`...`\n`await waitForTransition()`\n\nWDYT?",
+      "revId": "111d78694493945eb75bfcabf43cba1dbfc78678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fd7972_1ced2bd9",
+        "filename": "test/e2e/elements/color-picker_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-14T14:10:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c2ec332_e338df0e",
       "revId": "111d78694493945eb75bfcabf43cba1dbfc78678",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
