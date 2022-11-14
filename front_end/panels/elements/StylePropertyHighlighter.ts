@@ -36,6 +36,16 @@ export class StylePropertyHighlighter {
     }
   }
 
+  findAndHighlightLayer(layerName: string): void {
+    const block = this.styleSidebarPane.getSectionBlockByName(layerName);
+    if (!block || block.sections.length === 0) {
+      return;
+    }
+    const [section] = block.sections;
+    section.showAllItems();
+    this.scrollAndHighlightElement(block.titleElement() as Element);
+  }
+
   /**
    * Find the first non-overridden property that matches the provided name, scroll to it and highlight it.
    */
@@ -88,8 +98,12 @@ export class StylePropertyHighlighter {
   }
 
   private scrollAndHighlightTreeElement(treeElement: StylePropertyTreeElement): void {
-    treeElement.listItemElement.scrollIntoViewIfNeeded();
-    treeElement.listItemElement.animate(
+    this.scrollAndHighlightElement(treeElement.listItemElement);
+  }
+
+  private scrollAndHighlightElement(element: Element): void {
+    element.scrollIntoViewIfNeeded();
+    element.animate(
         [
           {offset: 0, backgroundColor: 'rgba(255, 255, 0, 0.2)'},
           {offset: 0.1, backgroundColor: 'rgba(255, 255, 0, 0.7)'},

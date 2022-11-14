@@ -262,6 +262,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return swatch;
   }
 
+  private processAnimationName(animationName: string): Node {
+    const swatch = new InlineEditor.AnimationNameSwatch.AnimationNameSwatch();
+    UI.UIUtils.createTextChild(swatch, animationName);
+    const isDefined = Boolean(this.matchedStylesInternal.keyframes().find(kf => kf.name().text === animationName));
+    swatch.data = {animationName, isDefined, onLinkActivate: this.handleAnimationNameDefinitionActivate.bind(this)};
+
+    return swatch;
+  }
+
   private processVar(text: string): Node {
     const computedSingleValue = this.matchedStylesInternal.computeSingleVariableValue(this.style, text);
     if (!computedSingleValue) {
@@ -279,6 +288,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     return this.processColor(computedValue, varSwatch);
+  }
+
+  private handleAnimationNameDefinitionActivate(animationName: string): void {
+    this.parentPaneInternal.jumpToLayer(`@keyframes ${animationName}`);
   }
 
   private handleVarDefinitionActivate(variableName: string): void {
@@ -656,6 +669,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value);
     if (this.property.parsedOk) {
       propertyRenderer.setVarHandler(this.processVar.bind(this));
+      propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
       propertyRenderer.setColorHandler(this.processColor.bind(this));
       propertyRenderer.setBezierHandler(this.processBezier.bind(this));
       propertyRenderer.setFontHandler(this.processFont.bind(this));
