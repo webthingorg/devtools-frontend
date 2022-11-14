@@ -94,6 +94,30 @@
       },
       "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddef6c98_5e6d9258",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-14T18:56:03Z",
+      "side": 1,
+      "message": "Removed, and ensured that `jsonView` wouldn\u0027t be null by using `JSONView.createViewSync()` instead.",
+      "parentUuid": "1e64bf5c_1c7fc3c6",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "f5caed1eaaa14d6007828784cb6ad97ebfd62328",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

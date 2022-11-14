@@ -16,6 +16,23 @@
       "message": "dsv@, PTAL. Thank you!",
       "revId": "5b9a45fdf4060418b009a49fe07e1d2480805b36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a7cabe_45b382a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-14T18:56:03Z",
+      "side": 1,
+      "message": "Thank you, please take another look.\n\nAlso, please note that the tests take inspiration from test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+      "revId": "5b9a45fdf4060418b009a49fe07e1d2480805b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
