@@ -16,6 +16,23 @@
       "message": "Jaro, could you please look at this update (changes can be seen from the Ref:-link, which is quite a minimal fix in the end)? Thanks!",
       "revId": "8fde48a5ed4d2e30cd8b10cb321e6d517e01c8b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7a6c48b_7fc68ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-14T08:30:37Z",
+      "side": 1,
+      "message": "Rubber-stamp lgtm.",
+      "revId": "8fde48a5ed4d2e30cd8b10cb321e6d517e01c8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
