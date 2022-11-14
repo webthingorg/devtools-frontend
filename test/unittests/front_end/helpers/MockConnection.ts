@@ -17,6 +17,7 @@ export type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.C
 export type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['returnType'];
 export type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
     Omit<ProtocolResponse<C>, 'getError'>;
+export type VoidProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) => void;
 export type MessageCallback = (result: string|Object) => void;
 type Message = {
   id: number,
@@ -29,7 +30,7 @@ type Message = {
 // that we don't know which ProtocolCommand will be stored.
 const responseMap = new Map<ProtocolCommand, Function>();
 export function setMockConnectionResponseHandler<C extends ProtocolCommand>(
-    command: C, handler: ProtocolCommandHandler<C>) {
+    command: C, handler: ProtocolCommandHandler<C>|VoidProtocolCommandHandler<C>) {
   if (responseMap.get(command)) {
     throw new Error(`Response handler already set for ${command}`);
   }
@@ -93,12 +94,12 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
         return;
       }
 
-      const result = await handler.call(undefined, outgoingMessage.params);
+      const result = await handler?.call(undefined, outgoingMessage.params) || null;
 
       // Since we allow the test author to omit the getError call, we
       // need to add it in here on their behalf so that the calling code
       // will succeed.
-      if (!('getError' in result)) {
+      if (result && !('getError' in result)) {
         result.getError = () => undefined;
       }
       this.messageCallback?.call(
