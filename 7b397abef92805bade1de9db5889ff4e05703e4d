@@ -87,6 +87,30 @@
       },
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f6b8be_80c07a03",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T16:06:25Z",
+      "side": 1,
+      "message": "Thank you.  Apparently it\u0027s not quite as straightforward as that... it looks like I would have to implement `getError` according to the compiler:\n```\nArgument of type \u0027{}\u0027 is not assignable to parameter of type \u0027ProtocolResponseWithError\u0027.\n  Property \u0027getError\u0027 is missing in type \u0027{}\u0027 but required in type \u0027ProtocolResponseWithError\u0027.\n  ```",
+      "parentUuid": "6bafa6b9_a850c779",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
