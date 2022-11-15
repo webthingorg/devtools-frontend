@@ -43,6 +43,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {BackForwardCacheTreeElement, ServiceWorkerCacheTreeElement} from './ApplicationPanelCacheSection.js';
+import {PretechTreeElement} from './ApplicationPanelPretechSection.js';
 import {ApplicationPanelTreeElement, ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import {AppManifestView} from './AppManifestView.js';
 import {BackgroundServiceModel} from './BackgroundServiceModel.js';
@@ -107,6 +108,10 @@ const UIStrings = {
   *@description Text in Application Panel Sidebar of the Application panel
   */
   backgroundServices: 'Background Services',
+  /**
+  *@description Text in Application Panel Sidebar of the Application panel
+  */
+  preloadingAndPrerendering: 'Preloading & Prerendering',
   /**
   *@description Text for rendering frames
   */
@@ -225,6 +230,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   periodicBackgroundSyncTreeElement: BackgroundServiceTreeElement|undefined;
   pushMessagingTreeElement: BackgroundServiceTreeElement|undefined;
   reportingApiTreeElement: ReportingApiTreeElement|undefined;
+  pretechTreeElement: PretechTreeElement|undefined;
   private readonly resourcesSection: ResourcesSection;
   private readonly databaseTableViews: Map<DatabaseModelDatabase, {
     [x: string]: DatabaseTableView,
@@ -356,6 +362,15 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       this.reportingApiTreeElement = new ReportingApiTreeElement(panel);
       backgroundServiceTreeElement.appendChild(this.reportingApiTreeElement);
     }
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
+      const pretechSectionTitle = i18nString(UIStrings.preloadingAndPrerendering);
+      const pretechSectionTreeElement = this.addSidebarSection(pretechSectionTitle);
+
+      this.pretechTreeElement = new PretechTreeElement(panel);
+      pretechSectionTreeElement.appendChild(this.pretechTreeElement);
+    }
+
     const resourcesSectionTitle = i18nString(UIStrings.frames);
     const resourcesTreeElement = this.addSidebarSection(resourcesSectionTitle);
     this.resourcesSection = new ResourcesSection(panel, resourcesTreeElement);
@@ -408,9 +423,22 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   }
 
   targetAdded(target: SDK.Target.Target): void {
+    // A target with type === 'tab' has no capability to create a model of
+    // SDK.ResourceTreeModel.ResourceTreeModel. So, if we don't return here,
+    // resourceTreeModel will be never created and this.initialize will be
+    // never called.
+    //
+    // Note that this logic depends on the order of adding targets: e.g.
+    // targets corresponding prerendered pages follows the one for main
+    // page.
+    if (target.type() !== SDK.Target.Type.Frame) {
+      return;
+    }
+
     if (this.target) {
       return;
     }
+
     this.target = target;
     this.databaseModel = target.model(DatabaseModel);
     if (this.databaseModel) {
@@ -502,6 +530,13 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       if (Root.Runtime.experiments.isEnabled('backgroundServicesPushMessaging') && this.pushMessagingTreeElement) {
         this.pushMessagingTreeElement.initialize(backgroundServiceModel);
       }
+    }
+
+    // The condition is equivalent to
+    // `Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)`.
+    if (this.pretechTreeElement) {
+      const prerenderingModel = this.target && this.target.model(SDK.PrerenderingModel.PrerenderingModel) || null;
+      prerenderingModel && this.pretechTreeElement.initialize(prerenderingModel);
     }
   }
 
