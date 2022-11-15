@@ -14,6 +14,7 @@ ts_library("sources") {
     "OutlineQuickOpen_test.ts",
     "ScriptSnippetFileSystem_test.ts",
     "SourceFrame_test.ts",
+    "SourcesNavigator_test.ts",
     "SourcesView_test.ts",
   ]
 
