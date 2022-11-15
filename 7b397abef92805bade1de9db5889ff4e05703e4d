@@ -63,6 +63,30 @@
       },
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bafa6b9_a850c779",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T15:10:36Z",
+      "side": 1,
+      "message": "If all you want is to make these method return and make sure they were called, you can say \n\n    const getEntriesSpy \u003d sinon.stub(sharedStorageModel.storageAgent, \u0027invoke_getSharedStorageEntries\u0027).resolves({});\n    \n and remove calls to setMockConnectionResponseHandler",
+      "parentUuid": "046040a0_b324fb30",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
