@@ -1,0 +1,294 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+/*
+ * This file is automatically loaded and run by Karma because it automatically
+ * loads and injects all *.js files it finds.
+ */
+import type * as Common from '../../../../front_end/core/common/common.js';
+import * as ThemeSupport from '../../../../front_end/ui/legacy/theme_support/theme_support.js';
+import * as Coordinator from  '../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import {assertNotNullOrUndefined} from '../../../../front_end/core/platform/platform.js';
+import {resetTestDOM} from '../helpers/DOMHelpers.js';
+import {markStaticTestsLoaded} from '../helpers/RealConnection.js';
+
+beforeEach(resetTestDOM);
+
+type Stack = {top: string, parentActivity: PendingAsyncActivity | null};
+type PendingAsyncActivity = {cancelDelayed?: {(): void}, id?: number, runImmediate?: {(): void}, stack: Stack, promise?: Promise<any>, pending: boolean};
+const pendingAsyncActivity: PendingAsyncActivity[] = [];
+const asyncActivityStack: PendingAsyncActivity[] = [];
+
+function getStack(): Stack {
+  return {
+    top: ((new Error()).stack ?? 'No stack').split('\n').slice(0).join('\n'),
+    parentActivity: asyncActivityStack.slice(-1)[0]
+  };
+}
+
+function printStack(stack: Stack): string {
+  if (!stack.parentActivity) return stack.top;
+  return [stack.top].concat(printStack(stack.parentActivity.stack)).join('\n--- async ---\n');
+}
+
+// class TrackingPromise<T> extends Promise<T> {
+//   constructor(arg: any) {
+//     super(arg)
+//     const promise = this;
+//     pendingAsyncActivity.push({promise, stack: getStack(), pending: true});
+//   }
+// };
+
+before(async function() {
+  /* Larger than normal timeout because we've seen some slowness on the bots */
+  this.timeout(10000);
+  // @ts-ignore
+  markStaticTestsLoaded({hasOnly: this.test.parent.hasOnly()});
+});
+
+type Stub<TKey extends keyof typeof window, T extends(typeof window)[TKey]> = {
+  name: keyof typeof window,
+  original: T,
+  stubWith: T
+};
+const stubs: Stub<any, any>[] = [];
+
+
+// const __Promise = Promise;
+// // @ts-ignore
+// Promise = function(arg) {
+//   const stack = (new Error()).stack;
+//   if (stubs.length === 0 && !stack?.includes('initializeGlobalLocaleVars')) {
+//     console.error(stack);
+//   }
+//   // @ts-ignore
+//   return new __Promise(arg);
+// };
+// for (const name of ['all', 'allSettled', 'any', 'race', 'reject', 'resolve']) {
+//   // @ts-ignore
+//   Promise[name] = __Promise[name];
+// }
+//
+// const __setTimeout = setTimeout;
+// // @ts-ignore
+// setTimeout = function(arg, time, ...params) {
+//   const stack = (new Error()).stack;
+//   if (stubs.length === 0 && !stack?.includes('initializeGlobalLocaleVars')) {
+//     console.error(stack);
+//   }
+//   return __setTimeout(arg, time, ...params);
+// }
+//
+// const  __requestAnimationFrame = requestAnimationFrame;
+// // @ts-ignore
+// requestAnimationFrame = function(arg) {
+//   const stack = (new Error()).stack;
+//   if (stubs.length === 0 && !stack?.includes('initializeGlobalLocaleVars')) {
+//     console.error(stack);
+//   }
+//   return __requestAnimationFrame(arg);
+// }
+function stub<T extends keyof typeof window>(name: T, stubWith:(typeof window)[T]) {
+  const original = window[name];
+  window[name] = stubWith;
+  stubs.push({name, original, stubWith});
+}
+
+
+function original<T>(stubWith:T):T {
+  // return stubWith;
+  return stubs.find(s => s.stubWith === stubWith)?.original;
+}
+
+function restoreAll() {
+  for (const {name, original} of stubs) {
+    // @ts-ignore
+    window[name] = original;
+  }
+  stubs.length = 0;
+}
+
+// const originalPromise = Promise;
+// const originalSetTimeout = setTimeout;
+// const originalClearTimeout = clearTimeout;
+// const originalRequestAnimationFrame = requestAnimationFrame;
+// const originalCancelAnimationFrame = cancelAnimationFrame;
+afterEach(async () => {
+  Coordinator.RenderCoordinator.RenderCoordinator.done();
+  let wait = 10;
+  let retries = 10;
+  for (;;) {
+    let pendingCount = pendingAsyncActivity.filter(a => a.pending).length;
+    let totalCount = pendingAsyncActivity.length;
+    try {
+      await original(Promise).all(pendingAsyncActivity.filter(a => a.pending).map(a => original(Promise).race([
+        a.promise,
+        new (original(Promise))(
+            (_, reject) => original(setTimeout)(
+                /*async*/ () => {
+                  if (!a.pending) return;
+                  if (a.cancelDelayed && a.runImmediate) {
+                    a.cancelDelayed();
+                    /*await*/ a.runImmediate();
+                  } else {
+                    const error = new Error(
+                        'The test has completed, but there is still a pending promise, created at: \n' + printStack(a.stack));
+                    reject(error);
+                  }
+                },
+                wait))
+      ])));
+
+      const stillPending = pendingAsyncActivity.find(a => a.pending);
+      if (!stillPending) {
+        break;
+      } else if (--retries === 0) {
+        throw new Error(
+            'The test has completed, but there is still a pending promise, created at: \n' +
+            printStack(stillPending.stack));
+      }
+    } catch (e) {
+      let newPendingCount = pendingAsyncActivity.filter(a => a.pending).length;
+      let newTotalCount = pendingAsyncActivity.length;
+      // console.error(`newTotalCount: ${newTotalCount}, totalCount: ${totalCount}, newPendingCount: ${newPendingCount}, pendingCount: ${pendingCount}, wait: ${wait}`);
+      if (newTotalCount == totalCount && newPendingCount == pendingCount) {
+        throw e;
+      }
+    } finally {
+      wait *= 2;
+      if (wait > 1000) {
+        debugger;
+      }
+    }
+  }
+  pendingAsyncActivity.length = 0;
+  asyncActivityStack.length = 0;
+  // Clear out any Sinon stubs or spies between individual tests.
+  sinon.restore();
+  restoreAll();
+});
+
+beforeEach(() => {
+  // Some unit tests exercise code that assumes a ThemeSupport instance is available.
+  // Run this in a beforeEach in case an individual test overrides it.
+  const setting = {
+    get() {
+      return 'default';
+    },
+  } as Common.Settings.Setting<string>;
+  ThemeSupport.ThemeSupport.instance({forceNew: true, setting});
+
+  // sinon.stub(window, 'requestAnimationFrame').callsFake((fn: FrameRequestCallback) => {
+  stub('requestAnimationFrame', (fn: FrameRequestCallback) => {
+    const activity: PendingAsyncActivity = {stack: getStack(), pending: true};
+    let id = 0;
+    activity.promise = new (original(Promise))(resolve => {
+      activity.runImmediate = /*async*/ () => {
+        if (stubs.length === 0) debugger;
+        asyncActivityStack.push(activity);
+        /*await*/ fn(performance.now());
+        asyncActivityStack.pop();
+        activity.pending = false;
+        resolve(null);
+      };
+      id = original(requestAnimationFrame)(activity.runImmediate);
+      activity.id = id;
+      activity.cancelDelayed = () => {
+        original(cancelAnimationFrame)(id);
+        activity.pending = false;
+        resolve(null);
+      }
+    });
+    pendingAsyncActivity.push(activity);
+    return id;
+  });
+
+  // sinon.stub(window, 'setTimeout').callsFake((arg, time, ...params) => {
+  stub('setTimeout', (arg, time, ...params) => {
+    const activity: PendingAsyncActivity = {
+      stack: getStack(),
+      pending: true,
+    };
+    let id = 0;
+    activity.promise = new (original(Promise))(resolve => {
+      activity.runImmediate = /*async*/ () => {
+        if (stubs.length === 0) debugger;
+        asyncActivityStack.push(activity);
+        if (typeof (arg) === 'function') {
+          /*await*/ arg(...params);
+        } else {
+          eval(arg);
+        }
+        asyncActivityStack.pop();
+        activity.pending = false;
+        resolve(null);
+      };
+      id = original(setTimeout)(activity.runImmediate, time);
+      activity.id = id;
+      activity.cancelDelayed = () => {
+        original(clearTimeout)(id);
+        activity.pending = false;
+        resolve(null);
+      };
+    });
+    pendingAsyncActivity.push(activity);
+    return id;
+  });
+
+  const cancel = (id?:number) => {
+    const activity = pendingAsyncActivity.find(a => a.id === id);
+    if (activity?.cancelDelayed) {
+      activity.cancelDelayed();
+    }
+  };
+  // sinon.stub(window, 'cancelAnimationFrame').callsFake(cancel);
+  // sinon.stub(window, 'clearTimeout').callsFake(cancel);
+  stub('cancelAnimationFrame', (id)=>cancel(id));
+  stub('clearTimeout', (id)=>cancel(id));
+  // sinon.stub(window, 'setInterval').callsFake((fn, timeout) => {
+  stub('setInterval', (fn, timeout) => {
+    assert.fail();
+  });
+  // sinon.stub(window, 'Promise').callsFake((arg:any) => {
+  // @ts-ignore
+  const TrackingPromise:PromiseConstructor = function<T>(arg: (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void): Promise<T> {
+        if (stubs.length === 0) debugger;
+    const promise = new (original(Promise))(arg);
+    const activity: PendingAsyncActivity = {
+      promise: promise.then(() => activity.pending = false, () => activity.pending = false),
+      stack: getStack(),
+      pending: false
+    };
+    // @ts-ignore
+    promise.then = function(onFullfilled, onRejected) {
+      activity.pending = true;
+      // return __Promise.prototype.then.apply(this, [async (result)=>{
+      return original(Promise).prototype.then.apply(this, //[onFullfilled, onRejected]);
+                                                    [(result)=>{
+        if (!onFullfilled) return;
+        // asyncActivityStack.push(activity);
+        activity.pending = false;
+        /*await*/ return onFullfilled(result);
+        // asyncActivityStack.pop();
+      }, (result)=>{
+        if (!onRejected) return;
+        // asyncActivityStack.push(activity);
+        activity.pending = false;
+        /*await*/ return onRejected(result);
+        // asyncActivityStack.pop();
+      }]);
+    };
+
+    // if (activity.stack.includes('#enqueueHandler')) {
+    pendingAsyncActivity.push(activity);
+    // }
+    return promise;
+  };
+  for (const name of ['all', 'allSettled', 'any', 'race', 'reject', 'resolve']) {
+    // @ts-ignore
+    TrackingPromise[name] = Promise[name];
+  }
+  stub('Promise', TrackingPromise);
+  // // sinon.replace(window, 'Promise', TrackingPromise);
+});
