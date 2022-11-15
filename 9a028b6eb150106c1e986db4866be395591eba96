@@ -22,6 +22,30 @@
       },
       "revId": "9a028b6eb150106c1e986db4866be395591eba96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86662359_c887a96c",
+        "filename": "front_end/panels/application/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-15T08:36:31Z",
+      "side": 1,
+      "message": "Thanks! That was my misunderstanding. I thought \u003cstyle\u003e is injected, but actually the effect is done by \"constructed stylesheet\"",
+      "parentUuid": "6c9f0636_a2a39235",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 50
+      },
+      "revId": "9a028b6eb150106c1e986db4866be395591eba96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
