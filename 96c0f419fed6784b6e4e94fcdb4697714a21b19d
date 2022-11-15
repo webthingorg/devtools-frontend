@@ -22,6 +22,30 @@
       },
       "revId": "96c0f419fed6784b6e4e94fcdb4697714a21b19d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde1d62c_0954b717",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-15T14:13:12Z",
+      "side": 1,
+      "message": "I don\u0027t know precise details...\n\nMy original patch is similar to the above code and Prerendering Status Panel should work with it. But is it OK for other components?",
+      "parentUuid": "2689977e_f0fa1ae5",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 74
+      },
+      "revId": "96c0f419fed6784b6e4e94fcdb4697714a21b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
