@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6326559_03589102",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T08:28:14Z",
+      "side": 1,
+      "message": "\"Names must be descriptive and clear to a new reader. Do not use abbreviations that are ambiguous or unfamiliar to readers\"\n\nSee https://google.github.io/styleguide/tsguide.html#descriptive-names",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b1483d_d9a78da1",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T08:28:14Z",
+      "side": 1,
+      "message": "if (this.#events.some(t \u003d\u003e eventEquals(t, event))) {\n      return;\n    }",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 69
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ddc6f94_8572a2bb",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageEventsView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T08:28:14Z",
+      "side": 1,
+      "message": "\"Prefer for (... of someArr) to iterate over arrays\"\nhttps://google.github.io/styleguide/tsguide.html#iterating-containers",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e823442e_adb23a7c",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageEventsView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T08:28:14Z",
+      "side": 1,
+      "message": "Hm... it seems strange that you need to spy on the method of the class you are testing. Generally we should test behavior that is visible outside of the unit being tested. \n\nWhy do you need this spy?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
