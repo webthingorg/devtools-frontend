@@ -15,6 +15,7 @@ generate_css("css_files") {
     "frameDetailsReportView.css",
     "indexedDBViews.css",
     "interestGroupStorageView.css",
+    "pretech/pretechView.css",
     "reportingApiReportsView.css",
     "resourcesPanel.css",
     "resourcesSidebar.css",
@@ -29,6 +30,7 @@ devtools_module("application") {
   sources = [
     "AppManifestView.ts",
     "ApplicationPanelCacheSection.ts",
+    "ApplicationPanelPretechSection.ts",
     "ApplicationPanelSidebar.ts",
     "ApplicationPanelTreeElement.ts",
     "BackgroundServiceModel.ts",
@@ -55,6 +57,7 @@ devtools_module("application") {
     "StorageItemsView.ts",
     "StorageView.ts",
     "TrustTokensTreeElement.ts",
+    "pretech/PretechView.ts",
   ]
 
   deps = [
@@ -85,6 +88,7 @@ devtools_module("application") {
     "../../ui/legacy/components/source_frame:bundle",
     "../../ui/legacy/components/utils:bundle",
     "./components:bundle",
+    "./pretech/components:bundle",
   ]
 }
 

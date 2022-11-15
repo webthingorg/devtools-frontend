@@ -2249,6 +2249,9 @@
   "panels/application/ApplicationPanelCacheSection.ts | refreshCaches": {
     "message": "Refresh Caches"
   },
+  "panels/application/ApplicationPanelPretechSection.ts | preloadingAndPrerendering": {
+    "message": "Preloading & Prerendering"
+  },
   "panels/application/ApplicationPanelSidebar.ts | application": {
     "message": "Application"
   },
@@ -2302,6 +2305,9 @@
   },
   "panels/application/ApplicationPanelSidebar.ts | openedWindows": {
     "message": "Opened Windows"
+  },
+  "panels/application/ApplicationPanelSidebar.ts | preloadingAndPrerendering": {
+    "message": "Preloading & Prerendering"
   },
   "panels/application/ApplicationPanelSidebar.ts | refreshIndexeddb": {
     "message": "Refresh IndexedDB"
@@ -3670,6 +3676,54 @@
   },
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Select an element for more details"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | startedAt": {
+    "message": "Started at"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | status": {
+    "message": "Status"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | trigger": {
+    "message": "Trigger"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | type": {
+    "message": "Type"
+  },
+  "panels/application/pretech/PretechView.ts | addSpecRulesButton": {
+    "message": "Add new SpeculationRules"
+  },
+  "panels/application/pretech/PretechView.ts | addSpecRulesPlaceholder": {
+    "message": "Add new SpeculationRules"
+  },
+  "panels/application/pretech/PretechView.ts | clearNotOngoing": {
+    "message": "Clear not ongoing"
+  },
+  "panels/application/pretech/PretechView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/pretech/PretechView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/pretech/PretechView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/pretech/PretechView.ts | statusPrerendering": {
+    "message": "Prerendering"
   },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Click on any report to display its body"
