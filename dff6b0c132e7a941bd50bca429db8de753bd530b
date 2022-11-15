@@ -33,6 +33,98 @@
       "message": "ergunsh@: Elements panel changes are for you 😊\n\ndsb@: Would love your feedback on the tests! Unsure about the Highlighter test in particular, as its veering dangerously close to testing implementation details instead of the behavior.",
       "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d14b3c_22971903",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T11:44:32Z",
+      "side": 1,
+      "message": "You probably want to test this handler too",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 93
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d42ced_cabd131e",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T11:44:32Z",
+      "side": 1,
+      "message": "No full stops in test names please",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32763de9_77fda887",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T11:44:32Z",
+      "side": 1,
+      "message": "I think this is fine, but I\u0027d prefer to test the effects of this call if possible. The reason is that these classes seem closely related and I imagine we could redistribute the responsibility in the future which would render this test useless.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "963a5c7a_6c4f1cc9",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T11:44:32Z",
+      "side": 1,
+      "message": "The name of this test would be \"StylesSidebarPane StylesSidebarPropertyRenderer parses animation-name correctly\".\n\nSince you are not testing StylesSidebarPane, I\u0027d suggest to have another top level `describe*(\u0027StylesSidebarPropertyRenderer\u0027, ...` and have the test as \n`it(\u0027parses ...`",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 77
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
