@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6548481a_a512a91c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2022-11-15T01:58:43Z",
+      "side": 1,
+      "message": "Please help review accessibility bug for Voice Command.",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
