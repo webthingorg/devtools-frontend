@@ -3881,6 +3881,33 @@
   "panels/application/SharedStorageEventsView.ts | clickToDisplayBody": {
     "message": "Ĉĺîćk̂ ón̂ án̂ý ŝh́âŕêd́ ŝt́ôŕâǵê év̂én̂t́ t̂ó d̂íŝṕl̂áŷ t́ĥé êv́êńt̂ ṕâŕâḿêt́êŕŝ."
   },
+  "panels/application/SharedStorageItemsView.ts | key": {
+    "message": "K̂éŷ"
+  },
+  "panels/application/SharedStorageItemsView.ts | selectAValueToPreview": {
+    "message": "Ŝél̂éĉt́ â v́âĺûé t̂ó p̂ŕêv́îéŵ"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorage": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageFilteredItemsCleared": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê f́îĺt̂ér̂éd̂ ít̂ém̂ś ĉĺêár̂éd̂"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemDeleted": {
+    "message": "T̂h́ê śt̂ór̂áĝé ît́êḿ ŵáŝ d́êĺêt́êd́."
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItems": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê Ít̂ém̂ś"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemsCleared": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê ít̂ém̂ś ĉĺêár̂éd̂"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageNumberEntries": {
+    "message": "N̂úm̂b́êŕ ôf́ êńt̂ŕîéŝ śĥóŵń îń t̂áb̂ĺê: {PH1}"
+  },
+  "panels/application/SharedStorageItemsView.ts | value": {
+    "message": "V̂ál̂úê"
+  },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Ĉĺêár̂ Ál̂ĺ"
   },
