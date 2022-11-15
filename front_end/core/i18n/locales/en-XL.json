@@ -3908,6 +3908,9 @@
   "panels/application/SharedStorageItemsView.ts | value": {
     "message": "V̂ál̂úê"
   },
+  "panels/application/SharedStorageListTreeElement.ts | sharedStorage": {
+    "message": "Ŝh́âŕêd́ Ŝt́ôŕâǵê"
+  },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Ĉĺêár̂ Ál̂ĺ"
   },
