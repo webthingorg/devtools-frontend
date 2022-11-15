@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceef67ab_c2c6235e",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T15:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6326559_03589102",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0b1483d_d9a78da1",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-15T08:28:14Z",
       "side": 1,
       "message": "if (this.#events.some(t \u003d\u003e eventEquals(t, event))) {\n      return;\n    }",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 69
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15195758_c20059d4",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T15:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b1483d_d9a78da1",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01c9437_ab61593f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageEventsView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T15:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ddc6f94_8572a2bb",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e823442e_adb23a7c",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-15T08:28:14Z",
       "side": 1,
       "message": "Hm... it seems strange that you need to spy on the method of the class you are testing. Generally we should test behavior that is visible outside of the unit being tested. \n\nWhy do you need this spy?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "489cf401f3192fa05ba8ee601dee939901984503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b20667_ce993cab",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageEventsView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T15:34:27Z",
+      "side": 1,
+      "message": "I am basing it on the example of InterestGroupStorageView_test.ts, and it seems an effective way to assert whether or not the preview pane has been updated.  I just added a comment to clarify.",
+      "parentUuid": "e823442e_adb23a7c",
       "range": {
         "startLine": 106,
         "startChar": 0,
