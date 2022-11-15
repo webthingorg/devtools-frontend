@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e632875_ade17e3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-15T09:44:15Z",
+      "side": 1,
+      "message": "I think unittesting buildPropertyCompletions is a great idea. The method also looks like you can mock out the treeElement to make a CSSPropertyPrompt object.\n\nAnother good thing to cover is whether processColor (or processVar) return the right swatch.",
+      "parentUuid": "4eb53b25_6e90f334",
+      "revId": "db5ce5b2a366a2d69e982e00812eb0f73be5835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7761f137_1e06ba29",
