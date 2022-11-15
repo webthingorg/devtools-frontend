@@ -235,7 +235,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   private domains: {
     [x: string]: boolean,
   };
+  private flagDevToolsTabTarget = false;
   private target?: SDK.Target.Target;
+  private frameTarget?: SDK.Target.Target;
   private databaseModel?: DatabaseModel|null;
   private previousHoveredElement?: FrameTreeElement;
 
@@ -408,40 +410,103 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   }
 
   targetAdded(target: SDK.Target.Target): void {
-    if (this.target) {
-      return;
-    }
-    this.target = target;
-    this.databaseModel = target.model(DatabaseModel);
-    if (this.databaseModel) {
-      this.databaseModel.addEventListener(DatabaseModelEvents.DatabaseAdded, this.databaseAdded, this);
-      this.databaseModel.addEventListener(DatabaseModelEvents.DatabasesRemoved, this.resetWebSQL, this);
-    }
+    // A target with type === 'tab' has no capability to create a model of
+    // SDK.ResourceTreeModel.ResourceTreeModel. So, we need to
+    // distinguish targets and store this.frameTarget. Otherwise,
+    // resourceTreeModel will be never created and this.initialize will
+    // be never called.
+    //
+    // Note that this logic depends on the order of adding targets: e.g.
+    // targets corresponding to prerendered pages must follow one for
+    // main page.
+    switch (target.type()) {
+      case SDK.Target.Type.Tab: {
+        this.flagDevToolsTabTarget = true;
 
-    const interestGroupModel = target.model(InterestGroupStorageModel);
-    if (interestGroupModel) {
-      interestGroupModel.addEventListener(InterestGroupModelEvents.InterestGroupAccess, this.interestGroupAccess, this);
-    }
+        if (this.target) {
+          return;
+        }
 
-    const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    if (!resourceTreeModel) {
-      return;
-    }
+        this.target = target;
 
-    if (resourceTreeModel.cachedResourcesLoaded()) {
-      this.initialize();
-    }
+        this.databaseModel = target.model(DatabaseModel);
+        if (this.databaseModel) {
+          this.databaseModel.addEventListener(DatabaseModelEvents.DatabaseAdded, this.databaseAdded, this);
+          this.databaseModel.addEventListener(DatabaseModelEvents.DatabasesRemoved, this.resetWebSQL, this);
+        }
 
-    resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.CachedResourcesLoaded, this.initialize, this);
-    resourceTreeModel.addEventListener(
-        SDK.ResourceTreeModel.Events.WillLoadCachedResources, this.resetWithFrames, this);
+        const interestGroupModel = target.model(InterestGroupStorageModel);
+        if (interestGroupModel) {
+          interestGroupModel.addEventListener(
+              InterestGroupModelEvents.InterestGroupAccess, this.interestGroupAccess, this);
+        }
+
+        break;
+      }
+      case SDK.Target.Type.Frame: {
+        // If we get an target with Type.Frame before one with
+        // Type.Frame, we regard `DevToolsTabTarget` false and use the
+        // target as this.target.
+        if (!this.flagDevToolsTabTarget) {
+          const that = this;
+          ((): void => {
+            if (that.target) {
+              return;
+            }
+
+            that.target = target;
+
+            that.databaseModel = target.model(DatabaseModel);
+            if (that.databaseModel) {
+              that.databaseModel.addEventListener(DatabaseModelEvents.DatabaseAdded, that.databaseAdded, that);
+              that.databaseModel.addEventListener(DatabaseModelEvents.DatabasesRemoved, that.resetWebSQL, that);
+            }
+
+            const interestGroupModel = target.model(InterestGroupStorageModel);
+            if (interestGroupModel) {
+              interestGroupModel.addEventListener(
+                  InterestGroupModelEvents.InterestGroupAccess, that.interestGroupAccess, that);
+            }
+          })();
+        }
+
+        if (this.frameTarget) {
+          return;
+        }
+
+        this.frameTarget = target;
+
+        const resourceTreeModel = this.frameTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+        if (!resourceTreeModel) {
+          return;
+        }
+
+        if (resourceTreeModel.cachedResourcesLoaded()) {
+          this.initialize();
+        }
+
+        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.CachedResourcesLoaded, this.initialize, this);
+        resourceTreeModel.addEventListener(
+            SDK.ResourceTreeModel.Events.WillLoadCachedResources, this.resetWithFrames, this);
+
+        break;
+      }
+    }
   }
 
   targetRemoved(target: SDK.Target.Target): void {
-    if (target !== this.target) {
+    // We assume that tab target is never removed.
+    if (target.type() === SDK.Target.Type.Tab) {
       return;
     }
-    delete this.target;
+
+    if (target !== this.frameTarget) {
+      return;
+    }
+    delete this.frameTarget;
+    if (this.flagDevToolsTabTarget) {
+      delete this.target;
+    }
 
     const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     if (resourceTreeModel) {
@@ -449,16 +514,22 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       resourceTreeModel.removeEventListener(
           SDK.ResourceTreeModel.Events.WillLoadCachedResources, this.resetWithFrames, this);
     }
-    if (this.databaseModel) {
-      this.databaseModel.removeEventListener(DatabaseModelEvents.DatabaseAdded, this.databaseAdded, this);
-      this.databaseModel.removeEventListener(DatabaseModelEvents.DatabasesRemoved, this.resetWebSQL, this);
-      this.databaseModel = null;
-    }
 
-    const interestGroupModel = target.model(InterestGroupStorageModel);
-    if (interestGroupModel) {
-      interestGroupModel.removeEventListener(
-          InterestGroupModelEvents.InterestGroupAccess, this.interestGroupAccess, this);
+    // If DevToolsTabTarget enabled, this.databaseModel and
+    // interestGroupModel is created with the target with Type.Tab.
+    // In such case, we don't need to remove event listeners.
+    if (!this.flagDevToolsTabTarget) {
+      if (this.databaseModel) {
+        this.databaseModel.removeEventListener(DatabaseModelEvents.DatabaseAdded, this.databaseAdded, this);
+        this.databaseModel.removeEventListener(DatabaseModelEvents.DatabasesRemoved, this.resetWebSQL, this);
+        this.databaseModel = null;
+      }
+
+      const interestGroupModel = target.model(InterestGroupStorageModel);
+      if (interestGroupModel) {
+        interestGroupModel.removeEventListener(
+            InterestGroupModelEvents.InterestGroupAccess, this.interestGroupAccess, this);
+      }
     }
 
     this.resetWithFrames();
