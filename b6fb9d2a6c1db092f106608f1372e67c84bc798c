@@ -16,6 +16,24 @@
       "message": "(last bits of nits 😂): Since `IdleCallbackManager` is a pretty isolated utility, why do we need a real connection here?\n\nIf it is because we need to import `Elements` panel without any error, instead of exporting `IdleCallbackManager` on the `Elements.StylesSidebarPane.IdleCallbackManager` can we put it in a new module like `ColorSwatchPopoverIcon` and export it from the `elements.ts`?\n\nThank you! Sorry for all the hassle, since you seem willing to do the \"right thing\" I\u0027m suggesting the ideal in my mind 😂",
       "revId": "b6fb9d2a6c1db092f106608f1372e67c84bc798c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "543e9ef5_ecc1a26a",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-15T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd4bd280_d769e808",
+      "revId": "b6fb9d2a6c1db092f106608f1372e67c84bc798c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
