@@ -135,6 +135,30 @@
       },
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbd3f6ba_8bd334a9",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T16:10:48Z",
+      "side": 1,
+      "message": "Ok, replace `{}` with `{getError:()\u003d\u003enull}`\n\nIf you feel strongly about keeping `setMockConnectionResponseHandler` you can do that, and track invocations in it instead of spies. \n\nI just don\u0027t want us to mock the same thing twice in a slightly different way.",
+      "parentUuid": "0470d5ef_c6b90d2b",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
