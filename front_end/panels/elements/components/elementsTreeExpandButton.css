@@ -1,0 +1,46 @@
+/*
+ * Copyright 2022 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+:host(.hidden) {
+  display: none;
+}
+
+.button-content {
+  position: relative;
+  top: -1px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 16px;
+  background: var(--color-background-elevation-1);
+  border-radius: 8px;
+  margin: 0 2px;
+}
+
+.button-content:hover {
+  background: var(--color-background-elevation-2);
+}
+
+.button-content:active {
+  background: var(--color-background-highlight);
+}
+
+.dot {
+  height: 4px;
+  width: 4px;
+  background: var(--color-text-disabled);
+  border-radius: 50%;
+}
+
+.dot + .dot {
+  margin-left: 2px;
+}
