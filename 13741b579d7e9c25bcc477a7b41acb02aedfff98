@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ee65ed_45060bd9",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-15T10:18:22Z",
+      "side": 1,
+      "message": "Added the test!",
+      "parentUuid": "55fb0241_032c8e82",
+      "revId": "13741b579d7e9c25bcc477a7b41acb02aedfff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a7502e6_db1016ad",
