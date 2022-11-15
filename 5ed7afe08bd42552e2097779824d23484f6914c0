@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa3bdd11_0460cb29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-15T13:44:37Z",
+      "side": 1,
+      "message": "This CL doesn\u0027t pass presubmit yet and waiting https://crrev.com/c/4028165 landed. But could you have a look?",
+      "revId": "5ed7afe08bd42552e2097779824d23484f6914c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
