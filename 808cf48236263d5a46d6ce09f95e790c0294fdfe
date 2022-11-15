@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba2c15e_f3313f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-15T15:49:33Z",
+      "side": 1,
+      "message": "LGTM % question/nit",
+      "revId": "808cf48236263d5a46d6ce09f95e790c0294fdfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75362594_8ed1df12",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-15T15:49:33Z",
+      "side": 1,
+      "message": "The tests name says this should headers without value, could you maybe separate these and test the one with value in a different test? That is in case having a header with value isn\u0027t a prerequisite for it to work, of course",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 46
+      },
+      "revId": "808cf48236263d5a46d6ce09f95e790c0294fdfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
