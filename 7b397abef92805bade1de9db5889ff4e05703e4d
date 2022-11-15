@@ -39,6 +39,30 @@
       },
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046040a0_b324fb30",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T15:07:31Z",
+      "side": 1,
+      "message": "They all have both spies and mock handlers (so I thought that I was being consistent).  They need the mock handlers for the test to work with the mock connection.  Do you want me to remove the spies?",
+      "parentUuid": "63281d8c_330fdf08",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
