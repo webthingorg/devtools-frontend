@@ -20,6 +20,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/application/ApplicationPanelPre
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class PretechTreeElement extends ExpandableApplicationPanelTreeElement {
+  private model?: SDK.PrerenderingModel.PrerenderingModel;
   private view?: PretechView;
 
   constructor(resourcesPanel: ResourcesPanel) {
@@ -31,11 +32,19 @@ export class PretechTreeElement extends ExpandableApplicationPanelTreeElement {
     // TODO(https://crbug.com/1384419): Set link
   }
 
+  initialize(model: SDK.PrerenderingModel.PrerenderingModel): void {
+    this.model = model;
+  }
+
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
 
+    if (!this.model) {
+      return false;
+    }
+
     if (!this.view) {
-      this.view = new PretechView();
+      this.view = new PretechView(this.model);
     }
 
     this.showView(this.view);
