@@ -16,6 +16,29 @@
       "message": "Thank you, please take another look!",
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63281d8c_330fdf08",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T08:18:28Z",
+      "side": 1,
+      "message": "Why would you use spy for these commands and mock handlers for those above?\nI\u0027d fine with either way, but let\u0027s be consistent.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
