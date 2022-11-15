@@ -3749,6 +3749,21 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
   },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Select an element for more details"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
   "panels/application/pretech/components/PretechGrid.ts | startedAt": {
     "message": "Started at"
   },
