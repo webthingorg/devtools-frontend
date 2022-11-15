@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e418b2_afd1ea0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-15T10:24:40Z",
+      "side": 1,
+      "message": "svelte templates use the same approach, do we already support .svelte components?",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "e6161b0f998eab2d44adf70b62d954ccff86cfa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d4250e64_04267666",
