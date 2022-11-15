@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2689977e_f0fa1ae5",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T13:55:52Z",
+      "side": 1,
+      "message": "I\u0027m sorry for all that. \n\nCan\u0027t we simply check here if the target is mainFrameTarget. i.e.\n\n    if (target !\u003d\u003d SDK.TargetManager.TargetManager.instance().mainFrameTarget()) {\n      return;\n    }\n    this.target \u003d target;",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 74
+      },
+      "revId": "96c0f419fed6784b6e4e94fcdb4697714a21b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
