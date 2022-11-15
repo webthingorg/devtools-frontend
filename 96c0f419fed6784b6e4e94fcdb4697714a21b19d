@@ -46,6 +46,30 @@
       },
       "revId": "96c0f419fed6784b6e4e94fcdb4697714a21b19d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f21b66ac_2fe96d1d",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-15T14:14:50Z",
+      "side": 1,
+      "message": "It should be.",
+      "parentUuid": "dde1d62c_0954b717",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 74
+      },
+      "revId": "96c0f419fed6784b6e4e94fcdb4697714a21b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
