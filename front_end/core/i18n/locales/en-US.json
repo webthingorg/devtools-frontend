@@ -3911,6 +3911,9 @@
   "panels/application/SharedStorageItemsView.ts | value": {
     "message": "Value"
   },
+  "panels/application/SharedStorageListTreeElement.ts | sharedStorage": {
+    "message": "Shared Storage"
+  },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Clear All"
   },
