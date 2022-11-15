@@ -465,7 +465,7 @@ function createElementDescription(elementInfo: ElementInfo, colorFormat: string)
 
   const color = style['color'];
   if (color && color !== '#00000000') {
-    addColorRow('Color', color, colorFormat);
+    addColorRow('Color', style['color-css-text'] ?? color, colorFormat);
   }
 
   const fontFamily = style['font-family'];
@@ -476,7 +476,7 @@ function createElementDescription(elementInfo: ElementInfo, colorFormat: string)
 
   const bgcolor = style['background-color'];
   if (bgcolor && bgcolor !== '#00000000') {
-    addColorRow('Background', bgcolor, colorFormat);
+    addColorRow('Background', style['background-color-css-text'] ?? bgcolor, colorFormat);
   }
 
   const margin = style['margin'];
