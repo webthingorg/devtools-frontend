@@ -159,6 +159,30 @@
       },
       "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0fb8b5f_0c467f2f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-15T16:25:40Z",
+      "side": 1,
+      "message": "Compiler didn\u0027t quite like `getError:()\u003d\u003enull`, but it works with `getError:()\u003d\u003eundefined`.  Changed, mock handlers removed.",
+      "parentUuid": "cbd3f6ba_8bd334a9",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 105
+      },
+      "revId": "7b397abef92805bade1de9db5889ff4e05703e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
