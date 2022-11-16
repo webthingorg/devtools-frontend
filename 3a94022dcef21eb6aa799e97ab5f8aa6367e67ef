@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "878b66bf_7dea0d67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-16T08:04:59Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nlast cherry-pick: independent pause on exception toggles, ptal!",
+      "revId": "3a94022dcef21eb6aa799e97ab5f8aa6367e67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
