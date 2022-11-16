@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2099ab7_f4fdf191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-16T07:58:06Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\ncherry-pick number 2: removing the enabled/disabled counters, ptal!",
+      "revId": "6b042b997c4764ee5e85111093965bc7d7445826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
