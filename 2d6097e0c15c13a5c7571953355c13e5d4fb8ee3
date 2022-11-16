@@ -16,6 +16,24 @@
       "message": "Why not have this check in the callback? Just from the API, I would assume it\u0027s the colors responsibility to figure out if they care about wide gamut or not.",
       "revId": "2d6097e0c15c13a5c7571953355c13e5d4fb8ee3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8663957c_d451b37d",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-16T10:53:01Z",
+      "side": 1,
+      "message": "You\u0027re right actually, I thought not to change this parsing logic here but what you said makes more sense, let me change it :)",
+      "parentUuid": "9f34293b_d41729c7",
+      "revId": "2d6097e0c15c13a5c7571953355c13e5d4fb8ee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
