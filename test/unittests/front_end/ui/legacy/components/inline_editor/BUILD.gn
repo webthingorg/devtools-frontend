@@ -7,6 +7,7 @@ import("../../../../../../../third_party/typescript/typescript.gni")
 ts_library("inline_editor") {
   testonly = true
   sources = [
+    "AnimationNameSwatch_test.ts",
     "BezierUI_test.ts",
     "CSSAngle_test.ts",
     "CSSLength_test.ts",
