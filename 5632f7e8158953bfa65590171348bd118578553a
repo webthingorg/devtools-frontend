@@ -33,6 +33,24 @@
       "message": "Would it make sense to have a WideColor class? or make color understand a wide gamut?",
       "revId": "5632f7e8158953bfa65590171348bd118578553a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c384d1_70612102",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-16T12:35:15Z",
+      "side": 1,
+      "message": "Totally!\n\nThough what I was thinking first to not introduce anything and put specific checks for wide gamut colors (current state)\n\nThen, after having `Color` class understand new syntax -- `parse` works for all colors, removing all of these. I think this requires more work \u0026 systemic thinking. So, I\u0027ve wanted to move forward first and then add support to the `Color` class.\n\nI didn\u0027t want to make a wide gamut color an instance of `Color` with some properties etc. because that won\u0027t have the same features `Color` class\u0027 API provides currently.\n\nWDYT?",
+      "parentUuid": "f4c6c307_b3d55892",
+      "revId": "5632f7e8158953bfa65590171348bd118578553a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
