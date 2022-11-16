@@ -104,6 +104,35 @@ describeWithRealConnection('StylesSidebarPane', async () => {
   });
 });
 
+describe('StylesSidebarPropertyRenderer', () => {
+  let Elements: typeof ElementsModule;
+  before(async () => {
+    Elements = await import('../../../../../front_end/panels/elements/elements.js');
+  });
+
+  it('parses animation-name correctly', () => {
+    const throwingHandler = () => {
+      throw new Error('Invalid handler called');
+    };
+    const renderer =
+        new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'animation-name', 'foobar');
+    renderer.setColorHandler(throwingHandler);
+    renderer.setBezierHandler(throwingHandler);
+    renderer.setFontHandler(throwingHandler);
+    renderer.setShadowHandler(throwingHandler);
+    renderer.setGridHandler(throwingHandler);
+    renderer.setVarHandler(throwingHandler);
+    renderer.setAngleHandler(throwingHandler);
+    renderer.setLengthHandler(throwingHandler);
+
+    const nodeContents = `NAME: ${name}`;
+    renderer.setAnimationNameHandler(() => document.createTextNode(nodeContents));
+
+    const node = renderer.renderValue();
+    assert.deepEqual(node.textContent, nodeContents);
+  });
+});
+
 describe('IdleCallbackManager', () => {
   let Elements: typeof ElementsModule;
   before(async () => {
