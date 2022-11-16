@@ -34,6 +34,24 @@
       "parentUuid": "9f34293b_d41729c7",
       "revId": "2d6097e0c15c13a5c7571953355c13e5d4fb8ee3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2e1909_ffd94e91",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-16T11:01:57Z",
+      "side": 1,
+      "message": "Done, updated it! :)",
+      "parentUuid": "8663957c_d451b37d",
+      "revId": "2d6097e0c15c13a5c7571953355c13e5d4fb8ee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
