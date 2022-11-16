@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4fda395_5118c859",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-16T18:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14d14b3c_22971903",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 93
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77d42ced_cabd131e",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-11-15T11:44:32Z",
       "side": 1,
       "message": "No full stops in test names please",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "677c7d19_4fb5a04e",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-16T18:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77d42ced_cabd131e",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7579d1be_b18d3b9e",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-16T18:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32763de9_77fda887",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "963a5c7a_6c4f1cc9",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-11-15T11:44:32Z",
       "side": 1,
       "message": "The name of this test would be \"StylesSidebarPane StylesSidebarPropertyRenderer parses animation-name correctly\".\n\nSince you are not testing StylesSidebarPane, I\u0027d suggest to have another top level `describe*(\u0027StylesSidebarPropertyRenderer\u0027, ...` and have the test as \n`it(\u0027parses ...`",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 77
+      },
+      "revId": "dff6b0c132e7a941bd50bca429db8de753bd530b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbaaabdd_1ec77a57",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-16T18:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "963a5c7a_6c4f1cc9",
       "range": {
         "startLine": 106,
         "startChar": 0,
