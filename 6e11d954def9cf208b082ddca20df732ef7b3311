@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8eee98_46cd3678",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-16T11:18:23Z",
+      "side": 1,
+      "message": "Could you have a look?",
+      "revId": "6e11d954def9cf208b082ddca20df732ef7b3311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ccb2a4_48381df2",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-16T11:18:23Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/chromium/src/+/4028165\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4013861\n\nNumbering conflicted.\nIs this fix OK?\n\ncc: @nancyly@chromium.org",
+      "revId": "6e11d954def9cf208b082ddca20df732ef7b3311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
