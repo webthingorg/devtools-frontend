@@ -3749,6 +3749,21 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Ŷéŝ"
   },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Ŝél̂éĉt́ âń êĺêḿêńt̂ f́ôŕ m̂ór̂é d̂ét̂áîĺŝ"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusActivated": {
+    "message": "Âćt̂ív̂át̂éd̂"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusCancelled": {
+    "message": "Ĉán̂ćêĺl̂éd̂"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusDiscarded": {
+    "message": "D̂íŝćâŕd̂éd̂"
+  },
+  "panels/application/pretech/components/PretechDetailsReportView.ts | statusPrerendering": {
+    "message": "P̂ŕêŕêńd̂ér̂ín̂ǵ"
+  },
   "panels/application/pretech/components/PretechGrid.ts | startedAt": {
     "message": "Ŝt́âŕt̂éd̂ át̂"
   },
