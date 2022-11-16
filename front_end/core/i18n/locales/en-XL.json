@@ -2633,6 +2633,9 @@
   "panels/application/BackgroundServiceView.ts | selectAnEntryToViewMetadata": {
     "message": "Ŝél̂éĉt́ âń êńt̂ŕŷ t́ô v́îéŵ ḿêt́âd́ât́â"
   },
+  "panels/application/BackgroundServiceView.ts | showEventsForOtherStorageKeys": {
+    "message": "Ŝh́ôẃ êv́êńt̂ś t̂h́ât́ b̂él̂ón̂ǵ t̂ó ôt́ĥér̂ śt̂ór̂áĝé k̂éŷś"
+  },
   "panels/application/BackgroundServiceView.ts | showEventsFromOtherDomains": {
     "message": "Ŝh́ôẃ êv́êńt̂ś f̂ŕôḿ ôt́ĥér̂ d́ôḿâín̂ś"
   },
@@ -2641,6 +2644,9 @@
   },
   "panels/application/BackgroundServiceView.ts | stopRecordingEvents": {
     "message": "Ŝt́ôṕ r̂éĉór̂d́îńĝ év̂én̂t́ŝ"
+  },
+  "panels/application/BackgroundServiceView.ts | storageKey": {
+    "message": "Ŝt́ôŕâǵê Ḱêý"
   },
   "panels/application/BackgroundServiceView.ts | swScope": {
     "message": "Ŝér̂v́îćê Ẃôŕk̂ér̂ Śĉóp̂é"
