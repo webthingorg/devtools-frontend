@@ -3749,6 +3749,18 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
   },
+  "panels/application/pretech/components/PretechGrid.ts | startedAt": {
+    "message": "Started at"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | status": {
+    "message": "Status"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | trigger": {
+    "message": "Trigger"
+  },
+  "panels/application/pretech/components/PretechGrid.ts | type": {
+    "message": "Type"
+  },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Click on any report to display its body"
   },
