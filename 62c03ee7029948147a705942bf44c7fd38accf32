@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21376543_a3ca2013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-16T10:52:23Z",
+      "side": 1,
+      "message": "PTAL, I don\u0027t know why the formatter decided to format the BUILD.gn changes from the previous CL.",
+      "revId": "62c03ee7029948147a705942bf44c7fd38accf32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
