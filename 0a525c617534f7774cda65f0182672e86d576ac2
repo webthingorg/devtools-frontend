@@ -16,6 +16,24 @@
       "message": "I am not sure we have test coverage for this but let\u0027s add a basic test into into test/unittests/inspector_overlay ?",
       "revId": "0a525c617534f7774cda65f0182672e86d576ac2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcaae9bf_ca28397e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-16T12:16:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "427079e7_2f83ad8f",
+      "revId": "0a525c617534f7774cda65f0182672e86d576ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
