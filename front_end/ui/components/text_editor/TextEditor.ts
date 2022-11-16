@@ -105,6 +105,9 @@ export class TextEditor extends HTMLElement {
 
   set state(state: CodeMirror.EditorState) {
     if (this.#activeEditor) {
+      if (this.#activeEditor.state === state) {
+        return;
+      }
       this.#activeEditor.setState(state);
     } else {
       this.#pendingState = state;
