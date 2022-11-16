@@ -167,6 +167,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ca5201_68732c01",
+        "filename": "test/e2e/console/console-truncate-long-messages_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-16T13:34:29Z",
+      "side": 1,
+      "message": "I don\u0027t have an opinion here:)",
+      "parentUuid": "a5c3d744_ed03669c",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 38
+      },
+      "revId": "47bb1cbf6a191d2044e56c898e3d0f988a8a7a3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44039e6d_79d0a590",
