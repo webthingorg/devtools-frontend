@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da766c5_7e67dc32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2022-11-16T23:44:44Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nHere is a fix for an accessibility bug that manifests mostly on high contrast. Full details on the associated bug. Please take a look.",
+      "revId": "771057f87e72a0aa71faafcf4b58b82aacb18173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
