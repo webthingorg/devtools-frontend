@@ -3776,6 +3776,21 @@
   "panels/application/pretech/components/PretechGrid.ts | type": {
     "message": "Type"
   },
+  "panels/application/pretech/PretechView.ts | clearNotOngoing": {
+    "message": "Clear not ongoing"
+  },
+  "panels/application/pretech/PretechView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/pretech/PretechView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/pretech/PretechView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/pretech/PretechView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Click on any report to display its body"
   },
