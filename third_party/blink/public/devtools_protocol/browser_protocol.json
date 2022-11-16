@@ -992,7 +992,8 @@
                         "ExcludeSameSiteStrict",
                         "ExcludeInvalidSameParty",
                         "ExcludeSamePartyCrossPartyContext",
-                        "ExcludeDomainNonASCII"
+                        "ExcludeDomainNonASCII",
+                        "ExcludeThirdPartyCookieBlockedInFirstPartySet"
                     ]
                 },
                 {
@@ -1996,6 +1997,11 @@
                             "items": {
                                 "$ref": "EventMetadata"
                             }
+                        },
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key this event belongs to.",
+                            "type": "string"
                         }
                     ]
                 }
@@ -4370,6 +4376,11 @@
                         {
                             "name": "securityOrigin",
                             "description": "Security origin of the cache.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key of the cache.",
                             "type": "string"
                         },
                         {
@@ -11810,6 +11821,7 @@
                         "SameSiteUnspecifiedTreatedAsLax",
                         "SameSiteNoneInsecure",
                         "UserPreferences",
+                        "ThirdPartyBlockedInFirstPartySet",
                         "SyntaxError",
                         "SchemeNotSupported",
                         "OverwriteSecure",
@@ -11838,6 +11850,7 @@
                         "SameSiteUnspecifiedTreatedAsLax",
                         "SameSiteNoneInsecure",
                         "UserPreferences",
+                        "ThirdPartyBlockedInFirstPartySet",
                         "UnknownError",
                         "SchemefulSameSiteStrict",
                         "SchemefulSameSiteLax",
