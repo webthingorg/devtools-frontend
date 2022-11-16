@@ -447,7 +447,8 @@ export enum PanelCodes {
   'indexed_db' = 61,
   'web_sql' = 62,
   'performance_insights' = 63,
-  MaxValue = 64,
+  'preloading' = 64,
+  MaxValue = 65,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
@@ -658,9 +659,10 @@ export enum DevtoolsExperiments {
   'importantDOMProperties' = 64,
   'justMyCode' = 65,
   'breakpointView' = 66,
-  'timelineAsConsoleProfileResultPanel' = 67,
+  'preloadingStatusPanel' = 67,
+  'timelineAsConsoleProfileResultPanel' = 68,
   // Increment this when new experiments are added.
-  'MaxValue' = 68,
+  'MaxValue' = 69,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
