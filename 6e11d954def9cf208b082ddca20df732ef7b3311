@@ -51,6 +51,24 @@
       "parentUuid": "21ccb2a4_48381df2",
       "revId": "6e11d954def9cf208b082ddca20df732ef7b3311",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2de7b67_7c21caaa",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-16T12:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4557500e_e7145fd7",
+      "revId": "6e11d954def9cf208b082ddca20df732ef7b3311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
