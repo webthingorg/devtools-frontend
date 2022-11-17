@@ -4,119 +4,11 @@
 
 import * as Protocol from '../../generated/protocol.js';
 
-import * as ChildTargetManager from './ChildTargetManager.js';
-import * as ResourceTreeModel from './ResourceTreeModel.js';
-import * as SDKModel from './SDKModel.js';
-import * as Target from './Target.js';
-import * as TargetManager from './TargetManager.js';
-
-// Holds prerendering information of given target.
-//
-// Note: In first implementation of Preloading Status Panel, we utilize
-// TargetInfo to detect beginning of prerendering. See the discussion in
-// https://chromium-review.googlesource.com/c/chromium/src/+/3875947/comment/595dd0d3_bb2cb92f/
-// TODO(kenoss): Add a relevant CDP event for prerendering.
-export class PrerenderingModel extends SDKModel.SDKModel<EventTypes> implements
-    TargetManager.SDKModelObserver<ResourceTreeModel.ResourceTreeModel> {
-  private registry: PreRegistry = new PreRegistry();
-
-  constructor(target: Target.Target) {
-    super(target);
-
-    TargetManager.TargetManager.instance().addModelListener(
-        ChildTargetManager.ChildTargetManager, ChildTargetManager.Events.TargetInfoChanged,
-        event => this.onTargetInfoChanged(event.data), this);
-    TargetManager.TargetManager.instance().observeModels(ResourceTreeModel.ResourceTreeModel, this);
-  }
-
-  getRegistry(): PreRegistry {
-    return this.registry;
-  }
-
-  // Returns reference. Don't save returned values.
-  getById(id: PreId): PrerenderingAttempt|null {
-    return this.registry.getById(id);
-  }
-
-  // Returns array of pairs of id and reference. Don't save returned references.
-  getAll(): [PreId, PrerenderingAttempt][] {
-    return this.registry.getAll();
-  }
-
-  clearNotOngoing(): void {
-    this.registry.clearNotOngoing();
-    this.dispatchPrerenderingAttemptsRemoved();
-  }
-
-  private dispatchPrerenderingAttemptStarted(): void {
-    this.dispatchEventToListeners(Events.PrerenderingAttemptStarted);
-  }
-
-  private dispatchPrerenderingAttemptUpdated(): void {
-    this.dispatchEventToListeners(Events.PrerenderingAttemptUpdated);
-  }
-
-  private dispatchPrerenderingAttemptsRemoved(): void {
-    this.dispatchEventToListeners(Events.PrerenderingAttemptsRemoved);
-  }
-
-  private onTargetInfoChanged(targetInfo: Protocol.Target.TargetInfo): void {
-    if (targetInfo.subtype !== 'prerender') {
-      return;
-    }
-
-    // Ad-hoc filtering. Ignore the active page.
-    if (targetInfo.url === '') {
-      return;
-    }
-
-    // Non trivial assumption
-    //
-    // We assume that targetId is the same to frameId for targetInfo
-    // with subtype === 'prerender'.
-    const frameId = (targetInfo.targetId as string) as Protocol.Page.FrameId;
-
-    this.registry.maybeAddOpaquePrerendering(frameId, targetInfo.url);
-
-    this.dispatchPrerenderingAttemptStarted();
-  }
-
-  // implements TargetManager.SDKModelObserver<ResourceTreeModel.ResourceTreeModel>
-  modelAdded(model: ResourceTreeModel.ResourceTreeModel): void {
-    model.addEventListener(
-        ResourceTreeModel.Events.PrerenderAttemptCompleted, event => this.onPrerenderAttemptCompleted(event.data),
-        this);
-  }
-
-  // implements TargetManager.SDKModelObserver<ResourceTreeModel.ResourceTreeModel>
-  modelRemoved(_: ResourceTreeModel.ResourceTreeModel): void {
-  }
-
-  private onPrerenderAttemptCompleted(event: Protocol.Page.PrerenderAttemptCompletedEvent): void {
-    this.registry.updateOpaquePrerenderingAttempt(event);
-
-    this.dispatchPrerenderingAttemptUpdated();
-  }
-}
-
-SDKModel.SDKModel.register(PrerenderingModel, {capabilities: Target.Capability.Target, autostart: false});
-
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Events {
-  PrerenderingAttemptStarted = 'PrerenderingAttemptStarted',
-  PrerenderingAttemptUpdated = 'PrerenderingAttemptUpdated',
-  PrerenderingAttemptsRemoved = 'PrerenderingAttemtsRemoved',
-}
-
-export type EventTypes = {
-  [Events.PrerenderingAttemptStarted]: void,
-  [Events.PrerenderingAttemptUpdated]: void,
-  [Events.PrerenderingAttemptsRemoved]: void,
-};
+// PrerenderingRegistry is aimed to be used in PrerenderingModel.
+// TODO(https://crbug.com/1384419): Add PrerenderingModel.
 
 // Id for preloading events and prerendering attempt.
-export type PreId = string;
+export type PreloadingId = string;
 
 export type PrerenderingAttemptId = string;
 
@@ -165,34 +57,39 @@ export interface PrerenderingAttemptEventUpdate {
 }
 
 // export only for testing.
-export class PreRegistry {
-  private entities: Map<PreId, PrerenderingAttempt> = new Map<PreId, PrerenderingAttempt>();
-  // HACK: See the comments in onFrameRemoved.
-  // TODO(kenoss): Add a relevant CDP events and remove this.
-  private opaqueUrlToPreId: Map<string, PreId> = new Map<string, PreId>();
+export class PrerenderingRegistry {
+  private entities: Map<PreloadingId, PrerenderingAttempt> = new Map<PreloadingId, PrerenderingAttempt>();
+  // Hack:
+  // Curretly, PrerenderAttemptCompleted event doesn't have information
+  // to identify corresponding attempt. To mitigate this, we utilize the
+  // fact that attempts are activated/cancelled if navigated out. So,
+  // in many cases, we can identify an ongoing attempt by URL.
+  // TODO(https://crbug.com/1384419): Consider to add a relevant CDP
+  // event for prerendering.
+  private opaqueUrlToPreId: Map<string, PreloadingId> = new Map<string, PreloadingId>();
 
   // Returns reference. Don't save returned values.
-  getById(id: PreId): PrerenderingAttempt|null {
+  getById(id: PreloadingId): PrerenderingAttempt|null {
     return this.entities.get(id) || null;
   }
 
   // Returns array of pairs of id and reference. Don't save returned references.
-  getAll(): [PreId, PrerenderingAttempt][] {
+  getAll(): [PreloadingId, PrerenderingAttempt][] {
     return Array.from(this.entities.entries());
   }
 
-  private preId(x: PrerenderingAttempt): PreId {
+  private preId(x: PrerenderingAttempt): PreloadingId {
     if (x.trigger.kind === 'PrerenderingTriggerOpaque') {
-      return `PrerenderingAttempt-opaque:${x.prerenderingAttemptId}` as PreId;
+      return `PrerenderingAttempt-opaque:${x.prerenderingAttemptId}` as PreloadingId;
     }
-    return `${x.kind}:${x.prerenderingAttemptId}` as PreId;
+    return `${x.kind}:${x.prerenderingAttemptId}` as PreloadingId;
   }
 
-  private makePreIdOfPrerendering(frameId: Protocol.Page.FrameId): PreId {
-    return `PrerenderingAttempt-opaque:${frameId}` as PreId;
+  private makePreIdOfPrerendering(frameId: Protocol.Page.FrameId): PreloadingId {
+    return `PrerenderingAttempt-opaque:${frameId}` as PreloadingId;
   }
 
-  // TODO(kenoss): Make this private.
+  // TODO(https://crbug.com/1384419): Make this private.
   applyEvent(event: PrerenderingAttemptEvent): void {
     switch (event.kind) {
       case 'PrerenderingAttemptEventAdd': {
