@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8941e8d0_cddd17b1",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Platform.DevToolsPath.UrlString",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f7f9b4_e7b58f29",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Platform.DevToolsPath.UrlString",
+      "range": {
+        "startLine": 69,
+        "startChar": 32,
+        "endLine": 69,
+        "endChar": 38
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475ab479_50638fe3",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Why not save them?",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 50
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d87c146d_c1677185",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "What is the expected usage of this?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 51
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6940c13f_4ebbd04e",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Just \n\n    url,",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 15
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7afb3597_9a34fa8c",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Why not defined the attempt inline?",
+      "range": {
+        "startLine": 149,
+        "startChar": 15,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00bb125a_75b49bde",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "What is the benefit of having this lambdas?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 109
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba19ef85_3f31de8e",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-17T14:05:26Z",
+      "side": 1,
+      "message": "Please use `assertNotNullOrUndefined` instead.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
