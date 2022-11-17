@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52b8f5d5_948f4a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-17T09:53:51Z",
+      "side": 1,
+      "message": "There are two things I\u0027ve seen that we might want to improve:\n\n* After this change, users are not able to edit by clicking on the CSS value anymore. We might need to think of another design. Sooo, input from Peter might be needed here.\n\n* I wonder if we can also do this for shorthand `animation` property as its usage is higher than using `animation-name` as a separate property. See here: https://chromestatus.com/metrics/css/popularity\n\nWDYT?",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
