@@ -3749,6 +3749,21 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
   },
+  "panels/application/preloading/components/PreloadingDetailsReportView.ts | selectAnElementForMoreDetails": {
+    "message": "Select an element for more details"
+  },
+  "panels/application/preloading/components/PreloadingDetailsReportView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/preloading/components/PreloadingDetailsReportView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/preloading/components/PreloadingDetailsReportView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/preloading/components/PreloadingDetailsReportView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
   "panels/application/preloading/components/PreloadingGrid.ts | startedAt": {
     "message": "Started at"
   },
