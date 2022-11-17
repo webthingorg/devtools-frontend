@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a9c735_0cb5872c",
+        "filename": "front_end/ui/components/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-11-17T18:07:33Z",
+      "side": 1,
+      "message": "The ascending and descending selectors can be combined so that the properties only need to be written once:\n\n[aria-sort\u003d\"ascending\"]::after, [aria-sort\u003d\"descending\"]::after {\n  ...\n}",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 1
+      },
+      "revId": "b61ca9c2a73b30179afce215678013aabe278135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
