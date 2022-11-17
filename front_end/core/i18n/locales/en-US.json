@@ -3776,6 +3776,21 @@
   "panels/application/preloading/components/PreloadingGrid.ts | type": {
     "message": "Type"
   },
+  "panels/application/preloading/PreloadingView.ts | clearNotOngoing": {
+    "message": "Clear not ongoing"
+  },
+  "panels/application/preloading/PreloadingView.ts | statusActivated": {
+    "message": "Activated"
+  },
+  "panels/application/preloading/PreloadingView.ts | statusCancelled": {
+    "message": "Cancelled"
+  },
+  "panels/application/preloading/PreloadingView.ts | statusDiscarded": {
+    "message": "Discarded"
+  },
+  "panels/application/preloading/PreloadingView.ts | statusPrerendering": {
+    "message": "Prerendering"
+  },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Click on any report to display its body"
   },
