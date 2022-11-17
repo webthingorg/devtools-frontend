@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b58697_7991cb8d",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e33c0755_ea165428",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1eb653b2_e06cb4fe",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-11-17T10:14:13Z",
       "side": 1,
       "message": "(nit): We can also rename this `jumpToLayer` function to `jumpToSectionTitle` for the same reason above. WDYT?",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26f3d72_1813c41c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb653b2_e06cb4fe",
       "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91f0f71d_9ba36dc3",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "563f7599_5f0734c7",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d553a86_6ab959b1",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8732f0d0_066b4f81",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d553a86_6ab959b1",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e6fdb7f_84ab2989",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-11-17T10:14:13Z",
       "side": 1,
       "message": "Even though the structure and the class names are same, I think it would be better to create a separate `animationNameSwatch.css` and use it here. So that we remove the implicit dependency between these components.\n\nOtherwise if someone changes something in the CssVarSwatch, they can affect this component unknowingly. (i.e. renaming a class name etc.)\n\nWDYT?",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e77b417c_739f0e7d",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "I did this on purpose, my reasoning was that the two components have identical behavior, so I wanted them to also be identical in look and feel.\n\nInstead of copying the cssvar swatch styles, I could also rename that to clarify it covers both.",
+      "parentUuid": "5e6fdb7f_84ab2989",
       "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -133,6 +223,24 @@
       "writtenOn": "2022-11-17T10:14:13Z",
       "side": 1,
       "message": "I know that this comes from the CSS Var Swatch directly but the behavior seems a bit weird to me: we\u0027re handling the event on mousedown, not on click. So, even if the user decides not to click after `mousedown`, they will be navigated to the keyframe.\n\nMaybe we can update the event handling logic here a bit. (Use `@click` event and understand the behavior regarding keydown, I didn\u0027t completely understand what it does 😅) WDYT?",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "132dfc16_89f5a4d8",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-17T13:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4692a6ff_b0a57322",
       "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
