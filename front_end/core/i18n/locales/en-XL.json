@@ -3749,6 +3749,18 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Ŷéŝ"
   },
+  "panels/application/preloading/components/PreloadingGrid.ts | startedAt": {
+    "message": "Ŝt́âŕt̂éd̂ át̂"
+  },
+  "panels/application/preloading/components/PreloadingGrid.ts | status": {
+    "message": "Ŝt́ât́ûś"
+  },
+  "panels/application/preloading/components/PreloadingGrid.ts | trigger": {
+    "message": "T̂ŕîǵĝér̂"
+  },
+  "panels/application/preloading/components/PreloadingGrid.ts | type": {
+    "message": "T̂ýp̂é"
+  },
   "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
     "message": "Ĉĺîćk̂ ón̂ án̂ý r̂ép̂ór̂t́ t̂ó d̂íŝṕl̂áŷ ít̂ś b̂ód̂ý"
   },
