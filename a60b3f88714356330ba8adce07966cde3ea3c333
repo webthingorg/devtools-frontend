@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b50b63be_2d6f2fba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-17T13:59:48Z",
+      "side": 1,
+      "message": "I guess this should be correctly rebased on [1] but it looks mrege conflict... :thinking_face:\nAnyway, CI passed. could you have a looK? I\u0027ll rebase again once [1] landed.\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4034226",
+      "revId": "a60b3f88714356330ba8adce07966cde3ea3c333",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
