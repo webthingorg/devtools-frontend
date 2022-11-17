@@ -805,7 +805,7 @@ declare type FacetConfig<Input, Output> = {
     state at all, these extensions won't be added in that
     situation.)
     */
-    enables?: Extension | ((self: Facet<Input, Output>) => Extension);
+    enables?: Extension$1 | ((self: Facet<Input, Output>) => Extension$1);
 };
 /**
 A facet is a labeled value that is associated with an editor
@@ -827,7 +827,7 @@ declare class Facet<Input, Output = readonly Input[]> {
     /**
     Returns an extension that adds the given value to this facet.
     */
-    of(value: Input): Extension;
+    of(value: Input): Extension$1;
     /**
     Create an extension that computes a value for the facet from a
     state. You must take care to declare the parts of the state that
@@ -837,20 +837,20 @@ declare class Facet<Input, Output = readonly Input[]> {
     In cases where your value depends only on a single field, you'll
     want to use the [`from`](https://codemirror.net/6/docs/ref/#state.Facet.from) method instead.
     */
-    compute(deps: readonly Slot<any>[], get: (state: EditorState) => Input): Extension;
+    compute(deps: readonly Slot<any>[], get: (state: EditorState) => Input): Extension$1;
     /**
     Create an extension that computes zero or more values for this
     facet from a state.
     */
-    computeN(deps: readonly Slot<any>[], get: (state: EditorState) => readonly Input[]): Extension;
+    computeN(deps: readonly Slot<any>[], get: (state: EditorState) => readonly Input[]): Extension$1;
     /**
     Shorthand method for registering a facet source with a state
     field as input. If the field's type corresponds to this facet's
     input type, the getter function can be omitted. If given, it
     will be used to retrieve the input from the field value.
     */
-    from<T extends Input>(field: StateField<T>): Extension;
-    from<T>(field: StateField<T>, get: (value: T) => Input): Extension;
+    from<T extends Input>(field: StateField<T>): Extension$1;
+    from<T>(field: StateField<T>, get: (value: T) => Input): Extension$1;
 }
 declare type Slot<T> = Facet<any, T> | StateField<T> | "doc" | "selection";
 declare type StateFieldSpec<Value> = {
@@ -878,7 +878,7 @@ declare type StateFieldSpec<Value> = {
     extensions that should be enabled when the field is present in a
     configuration.
     */
-    provide?: (field: StateField<Value>) => Extension;
+    provide?: (field: StateField<Value>) => Extension$1;
     /**
     A function used to serialize this field's content to JSON. Only
     necessary when this field is included in the argument to
@@ -910,13 +910,13 @@ declare class StateField<Value> {
     way it is initialized. Can be useful when you need to provide a
     non-default starting value for the field.
     */
-    init(create: (state: EditorState) => Value): Extension;
+    init(create: (state: EditorState) => Value): Extension$1;
     /**
     State field instances can be used as
     [`Extension`](https://codemirror.net/6/docs/ref/#state.Extension) values to enable the field in a
     given state.
     */
-    get extension(): Extension;
+    get extension(): Extension$1;
 }
 /**
 Extension values can be
@@ -928,9 +928,9 @@ providers](https://codemirror.net/6/docs/ref/#state.Facet.of), or objects with a
 `extension` property. Extensions can be nested in arrays
 arbitrarily deep—they will be flattened when processed.
 */
-declare type Extension = {
-    extension: Extension;
-} | readonly Extension[];
+declare type Extension$1 = {
+    extension: Extension$1;
+} | readonly Extension$1[];
 /**
 By default extensions are registered in the order they are found
 in the flattened form of nested array that was provided.
@@ -946,26 +946,26 @@ declare const Prec: {
     The highest precedence level, for extensions that should end up
     near the start of the precedence ordering.
     */
-    highest: (ext: Extension) => Extension;
+    highest: (ext: Extension$1) => Extension$1;
     /**
     A higher-than-default precedence, for extensions that should
     come before those with default precedence.
     */
-    high: (ext: Extension) => Extension;
+    high: (ext: Extension$1) => Extension$1;
     /**
     The default precedence, which is also used for extensions
     without an explicit precedence.
     */
-    default: (ext: Extension) => Extension;
+    default: (ext: Extension$1) => Extension$1;
     /**
     A lower-than-default precedence.
     */
-    low: (ext: Extension) => Extension;
+    low: (ext: Extension$1) => Extension$1;
     /**
     The lowest precedence level. Meant for things that should end up
     near the end of the extension order.
     */
-    lowest: (ext: Extension) => Extension;
+    lowest: (ext: Extension$1) => Extension$1;
 };
 /**
 Extension compartments can be used to make a configuration
@@ -979,17 +979,17 @@ declare class Compartment {
     Create an instance of this compartment to add to your [state
     configuration](https://codemirror.net/6/docs/ref/#state.EditorStateConfig.extensions).
     */
-    of(ext: Extension): Extension;
+    of(ext: Extension$1): Extension$1;
     /**
     Create an [effect](https://codemirror.net/6/docs/ref/#state.TransactionSpec.effects) that
     reconfigures this compartment.
     */
-    reconfigure(content: Extension): StateEffect<unknown>;
+    reconfigure(content: Extension$1): StateEffect<unknown>;
     /**
     Get the current content of the compartment in the state, or
     `undefined` if it isn't present.
     */
-    get(state: EditorState): Extension | undefined;
+    get(state: EditorState): Extension$1 | undefined;
 }
 
 /**
@@ -1087,11 +1087,11 @@ declare class StateEffect<Value> {
     the content of [reconfigured](https://codemirror.net/6/docs/ref/#state.Compartment.reconfigure)
     compartments.
     */
-    static reconfigure: StateEffectType<Extension>;
+    static reconfigure: StateEffectType<Extension$1>;
     /**
     Append extensions to the top-level configuration of the editor.
     */
-    static appendConfig: StateEffectType<Extension>;
+    static appendConfig: StateEffectType<Extension$1>;
 }
 /**
 Describes a [transaction](https://codemirror.net/6/docs/ref/#state.Transaction) when calling the
@@ -1320,7 +1320,7 @@ interface EditorStateConfig {
     /**
     [Extension(s)](https://codemirror.net/6/docs/ref/#state.Extension) to associate with this state.
     */
-    extensions?: Extension;
+    extensions?: Extension$1;
 }
 /**
 The editor state class is a persistent (immutable) data structure.
@@ -2218,7 +2218,7 @@ interface PluginSpec<V extends PluginValue> {
     Specify that the plugin provides additional extensions when
     added to an editor configuration.
     */
-    provide?: (plugin: ViewPlugin<V>) => Extension;
+    provide?: (plugin: ViewPlugin<V>) => Extension$1;
     /**
     Allow the plugin to provide decorations. When given, this should
     be a function that take the plugin value and return a
@@ -2237,7 +2237,7 @@ declare class ViewPlugin<V extends PluginValue> {
     /**
     Instances of this class act as extensions.
     */
-    extension: Extension;
+    extension: Extension$1;
     private constructor();
     /**
     Define a plugin from a constructor function that creates the
@@ -2863,7 +2863,7 @@ declare class EditorView {
     editor's [scroll element](https://codemirror.net/6/docs/ref/#view.EditorView.scrollDOM) or one of
     its parent nodes is scrolled.
     */
-    static domEventHandlers(handlers: DOMEventHandlers<any>): Extension;
+    static domEventHandlers(handlers: DOMEventHandlers<any>): Extension$1;
     /**
     An input handler can override the way changes to the editable
     DOM content are handled. Handlers are passed the document
@@ -2976,7 +2976,7 @@ declare class EditorView {
         [selector: string]: StyleSpec;
     }, options?: {
         dark?: boolean;
-    }): Extension;
+    }): Extension$1;
     /**
     This facet records whether a dark theme is active. The extension
     returned by [`theme`](https://codemirror.net/6/docs/ref/#view.EditorView^theme) automatically
@@ -2993,7 +2993,7 @@ declare class EditorView {
     */
     static baseTheme(spec: {
         [selector: string]: StyleSpec;
-    }): Extension;
+    }): Extension$1;
     /**
     Facet that provides additional DOM attributes for the editor's
     editable DOM element.
@@ -3008,7 +3008,7 @@ declare class EditorView {
     An extension that enables line wrapping in the editor (by
     setting CSS `white-space` to `pre-wrap` in the content).
     */
-    static lineWrapping: Extension;
+    static lineWrapping: Extension$1;
     /**
     State effect used to include screen reader announcements in a
     transaction. These will be added to the DOM in a visually hidden
@@ -3159,7 +3159,7 @@ layout cycle for many updates (the selection is drawn based on DOM
 layout information that's only available after laying out the
 content).
 */
-declare function drawSelection(config?: SelectionConfig): Extension;
+declare function drawSelection(config?: SelectionConfig): Extension$1;
 
 interface SpecialCharConfig {
     /**
@@ -3197,7 +3197,7 @@ declare function highlightSpecialChars(
 /**
 Configuration options.
 */
-config?: SpecialCharConfig): Extension;
+config?: SpecialCharConfig): Extension$1;
 
 /**
 Returns an extension that makes sure the content has a bottom
@@ -3208,13 +3208,13 @@ top of the editor.
 This is only meaningful when the editor is scrollable, and should
 not be enabled in editors that take the size of their content.
 */
-declare function scrollPastEnd(): Extension;
+declare function scrollPastEnd(): Extension$1;
 
 /**
 Extension that enables a placeholder—a piece of example content
 to show when the editor is empty.
 */
-declare function placeholder(content: string | HTMLElement): Extension;
+declare function placeholder(content: string | HTMLElement): Extension$1;
 
 /**
 Helper class used to make it easier to maintain decorations on
@@ -3322,7 +3322,7 @@ declare function tooltips(config?: {
         bottom: number;
         right: number;
     };
-}): Extension;
+}): Extension$1;
 /**
 Describes a tooltip. Values of this type, when provided through
 the [`showTooltip`](https://codemirror.net/6/docs/ref/#view.showTooltip) facet, control the
@@ -3530,7 +3530,7 @@ interface GutterConfig {
 Define an editor gutter. The order in which the gutters appear is
 determined by their extension priority.
 */
-declare function gutter(config: GutterConfig): Extension;
+declare function gutter(config: GutterConfig): Extension$1;
 /**
 The gutter-drawing plugin is automatically enabled when you add a
 gutter, but you can use this function to explicitly configure it.
@@ -3543,7 +3543,7 @@ sticky`](https://developer.mozilla.org/en-US/docs/Web/CSS/position#sticky)).
 */
 declare function gutters(config?: {
     fixed?: boolean;
-}): Extension;
+}): Extension$1;
 interface LineNumberConfig {
     /**
     How to display line numbers. Defaults to simply converting them
@@ -3562,7 +3562,7 @@ declare const lineNumberMarkers: Facet<RangeSet<GutterMarker>, readonly RangeSet
 /**
 Create a line number gutter extension.
 */
-declare function lineNumbers(config?: LineNumberConfig): Extension;
+declare function lineNumbers(config?: LineNumberConfig): Extension$1;
 
 declare class Tag {
     readonly set: Tag[];
@@ -3681,7 +3681,7 @@ declare class Language {
     /**
     The extension value to install this as the document language.
     */
-    readonly extension: Extension;
+    readonly extension: Extension$1;
     /**
     The parser object. Can be useful when using this as a [nested
     parser](https://lezer.codemirror.net/docs/ref#common.Parser).
@@ -3701,7 +3701,7 @@ declare class Language {
     */
     data: Facet<{
         [name: string]: any;
-    }>, parser: Parser, extraExtensions?: Extension[]);
+    }>, parser: Parser, extraExtensions?: Extension$1[]);
     /**
     Query whether this language is active at the given position.
     */
@@ -3785,13 +3785,13 @@ declare class LanguageSupport {
     to include the supporting extensions for its inner languages
     in its own set of support extensions.
     */
-    readonly support: Extension;
+    readonly support: Extension$1;
     /**
     An extension including both the language and its support
     extensions. (Allowing the object to be used as an extension
     value itself.)
     */
-    extension: Extension;
+    extension: Extension$1;
     /**
     Create a language support object.
     */
@@ -3806,7 +3806,7 @@ declare class LanguageSupport {
     to include the supporting extensions for its inner languages
     in its own set of support extensions.
     */
-    support?: Extension);
+    support?: Extension$1);
 }
 /**
 Language descriptions are used to store metadata about languages
@@ -3999,7 +3999,7 @@ regexp with `^` (usually followed by `\s*`), and end it with `$`.
 For example, `/^\s*\}$/` will reindent when a closing brace is
 added at the start of a line.
 */
-declare function indentOnInput(): Extension;
+declare function indentOnInput(): Extension$1;
 /**
 Default fold-related key bindings.
 
@@ -4030,7 +4030,7 @@ interface FoldConfig {
 /**
 Create an extension that configures code folding.
 */
-declare function codeFolding(config?: FoldConfig): Extension;
+declare function codeFolding(config?: FoldConfig): Extension$1;
 declare type Handlers = {
     [event: string]: (view: EditorView, line: BlockInfo, event: Event) => boolean;
 };
@@ -4066,7 +4066,7 @@ Create an extension that registers a fold gutter, which shows a
 fold status indicator before foldable lines (which can be clicked
 to fold or unfold the line).
 */
-declare function foldGutter(config?: FoldGutterConfig): Extension;
+declare function foldGutter(config?: FoldGutterConfig): Extension$1;
 
 /**
 A highlight style associates CSS styles with higlighting
@@ -4132,7 +4132,7 @@ declare function syntaxHighlighting(highlighter: Highlighter, options?: {
     only takes effect if no other highlighters are registered.
     */
     fallback: boolean;
-}): Extension;
+}): Extension$1;
 /**
 The type of object used in
 [`HighlightStyle.define`](https://codemirror.net/6/docs/ref/#language.HighlightStyle^define).
@@ -4194,7 +4194,7 @@ cursor is next to a bracket, that bracket and the one it matches
 are highlighted. Or, when no matching bracket is found, another
 highlighting style is used to indicate this.
 */
-declare function bracketMatching(config?: Config): Extension;
+declare function bracketMatching(config?: Config): Extension$1;
 /**
 The result returned from `matchBrackets`.
 */
@@ -4698,7 +4698,7 @@ after the cursor. When closing a bracket directly in front of a
 closing bracket inserted by the extension, the cursor moves over
 that bracket.
 */
-declare function closeBrackets(): Extension;
+declare function closeBrackets(): Extension$1;
 /**
 Close-brackets related key bindings. Binds Backspace to
 [`deleteBracketPair`](https://codemirror.net/6/docs/ref/#autocomplete.deleteBracketPair).
@@ -4708,7 +4708,7 @@ declare const closeBracketsKeymap: readonly KeyBinding[];
 /**
 Returns an extension that enables autocompletion.
 */
-declare function autocompletion(config?: CompletionConfig): Extension;
+declare function autocompletion(config?: CompletionConfig): Extension$1;
 /**
 Returns the available completions as an array.
 */
@@ -5231,7 +5231,7 @@ interface HistoryConfig {
 /**
 Create a history extension with the given configuration.
 */
-declare function history(config?: HistoryConfig): Extension;
+declare function history(config?: HistoryConfig): Extension$1;
 /**
 Undo a single group of history events. Returns false if no group
 was available.
@@ -5366,6 +5366,20 @@ declare namespace index_d$2 {
 }
 
 /**
+Extension values can be
+[provided](https://codemirror.net/6/docs/ref/#state.EditorStateConfig.extensions) when creating a
+state to attach various kinds of configuration and behavior
+information. They can either be built-in extension-providing
+objects, such as [state fields](https://codemirror.net/6/docs/ref/#state.StateField) or [facet
+providers](https://codemirror.net/6/docs/ref/#state.Facet.of), or objects with an extension in its
+`extension` property. Extensions can be nested in arrays
+arbitrarily deep—they will be flattened when processed.
+*/
+declare type Extension = {
+    extension: Extension;
+} | readonly Extension[];
+
+/**
 Type used to specify tags to complete.
 */
 interface TagSpec {
@@ -5421,6 +5435,7 @@ declare function html(config?: {
     document).
     */
     matchClosingTags?: boolean;
+    selfClosingTags?: boolean;
     /**
     Determines whether [`autoCloseTags`](https://codemirror.net/6/docs/ref/#lang-html.autoCloseTags)
     is included in the support extensions. Defaults to true.
@@ -5487,7 +5502,7 @@ declare function javascript(config?: {
 Extension that will automatically insert JSX close tags when a `>` or
 `/` is typed.
 */
-declare const autoCloseTags: Extension;
+declare const autoCloseTags: Extension$1;
 
 /**
 A collection of JavaScript-related
@@ -5567,7 +5582,7 @@ the `"cm-selectionMatch"` class for the highlighting. When
 `highlightWordAroundCursor` is enabled, the word at the cursor
 itself will be highlighted with `"cm-selectionMatch-main"`.
 */
-declare function highlightSelectionMatches(options?: HighlightOptions): Extension;
+declare function highlightSelectionMatches(options?: HighlightOptions): Extension$1;
 /**
 Select next occurrence of the current selection. Expand selection
 to the surrounding word when the selection is empty.
@@ -5587,4 +5602,4 @@ declare function cssStreamParser(): Promise<any>;
 declare function wast(): Promise<typeof _codemirror_lang_wast>;
 declare function xml(): Promise<typeof _codemirror_lang_xml>;
 
-export { Annotation, AnnotationType, ChangeDesc, ChangeSet, ChangeSpec, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MapMode, MatchDecorator, NodeProp, NodeSet, NodeType, Panel, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, StyleModule, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, closeCompletion, codeFolding, coffeescript, completeAnyWord, cpp, index_d$2 as css, cssStreamParser, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, drawSelection, ensureSyntaxTree, foldGutter, foldKeymap, gutter, gutters, highlightSelectionMatches, highlightSpecialChars, highlightTree, history, historyKeymap, index_d$1 as html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, insertNewlineAndIndent, java, index_d as javascript, json, keymap, lineNumberMarkers, lineNumbers, markdown, moveCompletionSelection, php, placeholder, python, redo, redoSelection, repositionTooltips, scrollPastEnd, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, selectedCompletion, shell, showPanel, showTooltip, standardKeymap, startCompletion, syntaxHighlighting, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, wast, xml };
+export { Annotation, AnnotationType, ChangeDesc, ChangeSet, ChangeSpec, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension$1 as Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MapMode, MatchDecorator, NodeProp, NodeSet, NodeType, Panel, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, StyleModule, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, closeCompletion, codeFolding, coffeescript, completeAnyWord, cpp, index_d$2 as css, cssStreamParser, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, drawSelection, ensureSyntaxTree, foldGutter, foldKeymap, gutter, gutters, highlightSelectionMatches, highlightSpecialChars, highlightTree, history, historyKeymap, index_d$1 as html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, insertNewlineAndIndent, java, index_d as javascript, json, keymap, lineNumberMarkers, lineNumbers, markdown, moveCompletionSelection, php, placeholder, python, redo, redoSelection, repositionTooltips, scrollPastEnd, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, selectedCompletion, shell, showPanel, showTooltip, standardKeymap, startCompletion, syntaxHighlighting, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, wast, xml };
