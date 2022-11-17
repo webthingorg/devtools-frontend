@@ -199,6 +199,11 @@ export class MainImpl {
     // Record the intended locale, regardless whether we are able to fetch it or not.
     Host.userMetrics.language(devToolsLocale.locale);
 
+    if (devToolsLocale.locale === i18n.i18n.defaultLocale()) {
+      // Use the in-code UIStrings. They are in the default locale.
+      return;
+    }
+
     try {
       await i18n.i18n.fetchAndRegisterLocaleData(devToolsLocale.locale);
     } catch (error) {
