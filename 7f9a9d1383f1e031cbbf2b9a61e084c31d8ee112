@@ -195,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cd26f88_76266a91",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-17T13:33:24Z",
+      "side": 1,
+      "message": "I think the CSS files shouldn\u0027t be a responsibility sharing mechanism (there can be exception: utility classes). The reason of this is, CSS is bound to the structure of the component and keeping the same component structure in different components feels like an implicit dependency.\n\nSo, I\u0027d prefer:\n* Either duplicating CSS code (and renaming the classes to be `animation-name` etc.)\n* Putting the responsibility we want to share in a one component and reusing it in both places (smt like LinkSwatchHelper)\n* Using the same component for both CSSVarSwatch and CSSAnimationNameSwatch.\n\nSince the styling responsibility seems very small (CSS file is small 😂) and conceptually these are not the same components (var handling is a bit different I think).\n\nI\u0027d prefer to duplicate the CSS code :)\n\nWDYT?",
+      "parentUuid": "e77b417c_739f0e7d",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d4ab108_e18334ff",
         "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
         "patchSetId": 5
