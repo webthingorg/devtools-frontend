@@ -78,7 +78,11 @@ devtools_pre_built("locales_js") {
 
 minify_json("i18n_locales") {
   sources = []
-  foreach(locale, remote_devtools_locales + bundled_devtools_locales) {
+
+  # The default locale is in code only. No need to ship a JSON file.
+  foreach(locale,
+          remote_devtools_locales + bundled_devtools_locales -
+              [ devtools_default_locale ]) {
     sources += [ "locales/$locale.json" ]
   }
 }
@@ -88,7 +92,8 @@ group("i18n_bundled_locales") {
 
   data = []
 
-  foreach(locale, bundled_devtools_locales) {
+  # The default locale is in code only. No need to ship a JSON file.
+  foreach(locale, bundled_devtools_locales - [ devtools_default_locale ]) {
     data += [ "$target_gen_dir/locales/$locale.json" ]
   }
 

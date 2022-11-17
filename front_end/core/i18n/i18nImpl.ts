@@ -37,6 +37,10 @@ export function getAllSupportedDevToolsLocales(): string[] {
   return [...i18nInstance.supportedLocales];
 }
 
+export function defaultLocale(): Intl.UnicodeBCP47LocaleIdentifier {
+  return i18nInstance.defaultLocale;
+}
+
 /**
  * Returns the Url from which a locale can be fetched. This depends on the
  * specific locale, as some are bundled with DevTools while others
