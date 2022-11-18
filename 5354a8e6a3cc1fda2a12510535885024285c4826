@@ -16,6 +16,75 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "5354a8e6a3cc1fda2a12510535885024285c4826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e407e2_bc5895f1",
+        "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-18T09:30:59Z",
+      "side": 1,
+      "message": "Do we really need the `fixupToken` function since it forwards all arguments 1:1 to `processToken`?",
+      "range": {
+        "startLine": 240,
+        "startChar": 44,
+        "endLine": 240,
+        "endChar": 54
+      },
+      "revId": "5354a8e6a3cc1fda2a12510535885024285c4826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5682d1_2cf53445",
+        "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-18T09:30:59Z",
+      "side": 1,
+      "message": "Can we leave a comment that mirrors the CL description here. Following the code otherwise is not that instructive.",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 25
+      },
+      "revId": "5354a8e6a3cc1fda2a12510535885024285c4826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "925bb893_c33bb78a",
+        "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-18T09:30:59Z",
+      "side": 1,
+      "message": "Why not `#pushToken` and call it like a normal method instead of using `.call` everywhere?\n\nSame for `proccessToken`/`fixupToken` or does `.bind` not work with private methods?",
+      "range": {
+        "startLine": 310,
+        "startChar": 4,
+        "endLine": 310,
+        "endChar": 73
+      },
+      "revId": "5354a8e6a3cc1fda2a12510535885024285c4826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
