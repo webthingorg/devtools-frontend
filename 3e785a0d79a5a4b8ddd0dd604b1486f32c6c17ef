@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39bb21c0_e089f1c1",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8941e8d0_cddd17b1",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17f7f9b4_e7b58f29",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-17T14:05:26Z",
       "side": 1,
       "message": "Platform.DevToolsPath.UrlString",
+      "range": {
+        "startLine": 69,
+        "startChar": 32,
+        "endLine": 69,
+        "endChar": 38
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a57e487_01757234",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17f7f9b4_e7b58f29",
       "range": {
         "startLine": 69,
         "startChar": 32,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a2275b_289d5c15",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Gerenally speaking, PrerenderingAttempt is used as ADT, but JavaScript lacks referential transparency.\nSuch references should be dropped soon, or we should use deep copy.\n\nPrerenderingRegistry is intended to be provide the screenshot at that time.\nUsers must call getters whenever UI updates, and allowed to use these returned values just after the call. In PreloadingView.onModelUpdate in [1], we convert this into other data type soon.\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4023636",
+      "parentUuid": "475ab479_50638fe3",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 50
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d87c146d_c1677185",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-17T14:05:26Z",
       "side": 1,
       "message": "What is the expected usage of this?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 51
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1c3864_d4171a0c",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Ditto. See PreloadingView.onModelUpdate in [1]. To show attempts in grid.",
+      "parentUuid": "d87c146d_c1677185",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac2f6036_d9e021b1",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6940c13f_4ebbd04e",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 15
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7afb3597_9a34fa8c",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-17T14:05:26Z",
       "side": 1,
       "message": "Why not defined the attempt inline?",
+      "range": {
+        "startLine": 149,
+        "startChar": 15,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe30709_b552370f",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afb3597_9a34fa8c",
       "range": {
         "startLine": 149,
         "startChar": 15,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be743a5f_371f5888",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "It\u0027s an pattern: IIFE to regard if/switch statement as if/switch expression [1].\n\nIt\u0027s just my personal preference and can be convinced. I follow the repository\u0027s policy.\n\n[1] https://stackoverflow.com/questions/37566864/is-this-iife-switch-statement-causing-unnecessary-overhead",
+      "parentUuid": "00bb125a_75b49bde",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 109
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba19ef85_3f31de8e",
         "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
         "patchSetId": 7
@@ -175,6 +343,30 @@
       "writtenOn": "2022-11-17T14:05:26Z",
       "side": 1,
       "message": "Please use `assertNotNullOrUndefined` instead.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35582945_e5a119a4",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-18T07:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba19ef85_3f31de8e",
       "range": {
         "startLine": 15,
         "startChar": 0,
