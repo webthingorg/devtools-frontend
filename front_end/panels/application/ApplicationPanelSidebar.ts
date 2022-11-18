@@ -121,6 +121,14 @@ const UIStrings = {
   */
   manifest: 'Manifest',
   /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  noManifestDetected: 'No manifest detected',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  appManifest: 'App Manifest',
+  /**
   *@description Text in Application Panel Sidebar of the Application panel
   */
   indexeddb: 'IndexedDB',
@@ -986,7 +994,9 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
     const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
-    this.view = new AppManifestView();
+    const emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
+    const reportView = new UI.ReportView.ReportView(i18nString(UIStrings.appManifest));
+    this.view = new AppManifestView(emptyView, reportView, new Common.Throttler.Throttler(1000));
     UI.ARIAUtils.setAccessibleName(this.listItemElement, i18nString(UIStrings.onInvokeManifestAlert));
     const handleExpansion = (evt: Event): void => {
       this.setExpandable((evt as CustomEvent).detail);
