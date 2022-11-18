@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d43befb7_e3152e71",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T14:18:38Z",
+      "side": 1,
+      "message": "Good point! Done.",
+      "parentUuid": "2b131f3a_63a68604",
+      "range": {
+        "startLine": 447,
+        "startChar": 4,
+        "endLine": 447,
+        "endChar": 98
+      },
+      "revId": "c10d75278bfbc31d313f74db39ece2824582c872",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "20b2d675_efd4fc48",
         "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-18T14:04:15Z",
       "side": 1,
       "message": "What does this do exactly, could you please explain briefly?",
+      "range": {
+        "startLine": 33,
+        "startChar": 63,
+        "endLine": 33,
+        "endChar": 100
+      },
+      "revId": "c10d75278bfbc31d313f74db39ece2824582c872",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c73e5b_3a045826",
+        "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T14:18:38Z",
+      "side": 1,
+      "message": "So the code under test is scheduling some work with a throttler. In production, the work would be executed at some later point.\n\nIn tests, we want it to be executed right away, so we stub the schedule method with a fake implementation. \n\nIn addition to that, the work itself might be async and the schedule method could be called asynchronously, so we make our fake implementation also resolve a promise, that we can await on. We do it indirectly by calling `onScheduled` to be able to resolve multiple promises.\n\nThe simpler version would be \n\n    await new Promise(resolve \u003d\u003e sinon.stub(throttler, \u0027schedule\u0027).callsFake(()\u003d\u003eresolve()));\n    \n but sinon would fail on the second call to `sinon.stub` for the same member, so we have to somehow stub it only once and yet have it resolve two different promises.\n \n Does it make sense?",
+      "parentUuid": "20b2d675_efd4fc48",
       "range": {
         "startLine": 33,
         "startChar": 63,
