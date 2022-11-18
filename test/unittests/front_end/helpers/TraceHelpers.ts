@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import type * as SDK from '../../../../front_end/core/sdk/sdk.js';
+import type * as TraceModel from '../../../../front_end/models/trace/trace.js';
 
 interface CompressionStream extends ReadableWritablePair<Uint8Array, Uint8Array> {}
 interface DecompressionStream extends ReadableWritablePair<Uint8Array, Uint8Array> {}
@@ -32,7 +33,9 @@ function decodeGzipBuffer(buffer: ArrayBuffer): Promise<ArrayBuffer> {
   return codec(buffer, new DecompressionStream('gzip'));
 }
 
-export async function loadTraceFile(name: string): Promise<Array<SDK.TracingManager.EventPayload>> {
+export async function
+loadTraceFile<EventType extends SDK.TracingManager.EventPayload|TraceModel.Types.TraceEvents.TraceEventData =
+                                    SDK.TracingManager.EventPayload>(name: string): Promise<Array<EventType>> {
   const url = `/fixtures/traces/${name}`;
   const response = await fetch(url);
   if (response.status !== 200) {
