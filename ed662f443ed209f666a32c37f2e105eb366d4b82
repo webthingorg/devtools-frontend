@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68aab421_3eb13554",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "What is the purpose of having a `kind` here? Not to confuse with other object. This seems unlikely.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456518c7_6c090a34",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "Could this be an enum?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 84
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447dbfa3_d1c168e1",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "I\u0027m not sure it is a hack, we might keep CDP events as they are and I see nothing hacky about it.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c3f103_b254e27c",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "Currently",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb65cbc_69f32fbf",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "Can we have a more descriptive name here?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 55
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161b8fef_16a1f0b4",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "processEvent?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 53
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38bda4d8_96a3e7ab",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "Given the repetitive pattern of these lambdas, can we make then a named function that we define once and then call with arguments?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5ba4c9a_24fcdd90",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "You don\u0027t need to specify the type explicitly here",
+      "range": {
+        "startLine": 25,
+        "startChar": 35,
+        "endLine": 25,
+        "endChar": 56
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41039da3_c03fa96a",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T08:55:47Z",
+      "side": 1,
+      "message": "Also inline here?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "ed662f443ed209f666a32c37f2e105eb366d4b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
