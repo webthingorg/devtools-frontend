@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28405230_6c8b804e",
+        "filename": "front_end/models/emulation/DeviceModeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T13:42:56Z",
+      "side": 1,
+      "message": "See the CL description.",
+      "parentUuid": "384ba846_60a7659b",
+      "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dc554fc_e83ad2ef",
         "filename": "test/unittests/front_end/models/emulation/DeviceModeModel_test.ts",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2022-11-18T13:36:27Z",
       "side": 1,
       "message": "Does it actually \u0027show\u0027 smth as in \u0027UI change\u0027? Suggestion: maybe rename to make clear it calls protocol method?",
+      "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15a313ba_4ec6d5f5",
+        "filename": "test/unittests/front_end/models/emulation/DeviceModeModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-18T13:42:56Z",
+      "side": 1,
+      "message": "The protocol method shows something in the UI. Do you it to say \"calls a protocol method to show\"? This sounds strange, we don\u0027t \"say calls JS function to show\".",
+      "parentUuid": "3dc554fc_e83ad2ef",
       "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
