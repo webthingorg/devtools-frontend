@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07b985c5_32f8c6cc",
+        "filename": "front_end/models/emulation/DeviceModeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-18T14:06:32Z",
+      "side": 1,
+      "message": "Got it!",
+      "parentUuid": "28405230_6c8b804e",
+      "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dc554fc_e83ad2ef",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "The protocol method shows something in the UI. Do you it to say \"calls a protocol method to show\"? This sounds strange, we don\u0027t \"say calls JS function to show\".",
       "parentUuid": "3dc554fc_e83ad2ef",
+      "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e95c73_3f799dd4",
+        "filename": "test/unittests/front_end/models/emulation/DeviceModeModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-18T14:06:32Z",
+      "side": 1,
+      "message": "The naming fits then, thanks for answering!",
+      "parentUuid": "15a313ba_4ec6d5f5",
       "revId": "b5fd4e2c167a23a37969cca0c7f019366db85cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
