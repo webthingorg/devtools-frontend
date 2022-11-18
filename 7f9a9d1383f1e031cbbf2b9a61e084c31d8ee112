@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14673ce1_bd4e5e1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-18T12:21:22Z",
+      "side": 1,
+      "message": "I circumvented the editablity issue by making the value start editing when clicking the semicolon. Is `animation` something we should do right now, or rather plan it as a followup? `animation` behaves sort of differently, in that it doesn\u0027t just show the name but also a dropdown that shows the animation details.",
+      "parentUuid": "52b8f5d5_948f4a58",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e33c0755_ea165428",
         "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
         "patchSetId": 5
@@ -211,6 +229,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "888e15ee_b07d0f3e",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-18T12:21:22Z",
+      "side": 1,
+      "message": "I went the common based class route!",
+      "parentUuid": "6cd26f88_76266a91",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d4ab108_e18334ff",
@@ -224,6 +260,24 @@
       "writtenOn": "2022-11-17T10:14:13Z",
       "side": 1,
       "message": "We can also reflect the classes to be different in our `cssAnimationNameSwatch.css`",
+      "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b23d0feb_3632e21d",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationNameSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-18T12:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d4ab108_e18334ff",
       "revId": "7f9a9d1383f1e031cbbf2b9a61e084c31d8ee112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
