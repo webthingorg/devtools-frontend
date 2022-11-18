@@ -234,9 +234,14 @@ export class HTMLModel {
     const tokenizer = createTokenizer('text/html');
     let lastOffset = 0;
     const lowerCaseText = text.toLowerCase();
+    let pendingToken: Token|null = null;
 
     while (true) {
-      tokenizer(text.substring(lastOffset), processToken.bind(this, lastOffset));
+      tokenizer(text.substring(lastOffset), fixupToken.bind(this, lastOffset));
+      if (pendingToken) {
+        pushToken.call(this, pendingToken);
+        pendingToken = null;
+      }
       if (lastOffset >= text.length) {
         break;
       }
@@ -269,6 +274,12 @@ export class HTMLModel {
       this.#popElement(new Tag(element.name, text.length, text.length, new Map(), false, false));
     }
 
+    function fixupToken(
+        this: HTMLModel, baseOffset: number, tokenValue: string, type: string|null, tokenStart: number,
+        tokenEnd: number): Object|undefined {
+      return processToken.call(this, baseOffset, tokenValue, type, tokenStart, tokenEnd);
+    }
+
     function processToken(
         this: HTMLModel, baseOffset: number, tokenValue: string, type: string|null, tokenStart: number,
         tokenEnd: number): Object|undefined {
@@ -278,6 +289,25 @@ export class HTMLModel {
 
       const tokenType = type ? new Set<string>(type.split(' ')) : new Set<string>();
       const token = new Token(tokenValue, tokenType, tokenStart, tokenEnd);
+
+      if (pendingToken) {
+        if (tokenValue === '/' && type === 'attribute') {
+          token.startOffset = pendingToken.startOffset;
+          token.value = `${pendingToken.value}${tokenValue}`;
+          token.type = new Set<string>(['string']);
+        } else if (pushToken.call(this, pendingToken) === AbortTokenization) {
+          return AbortTokenization;
+        }
+        pendingToken = null;
+      } else if (type === 'string') {
+        pendingToken = token;
+        return;
+      }
+
+      return pushToken.call(this, token);
+    }
+
+    function pushToken(this: HTMLModel, token: Token): Object|undefined {
       this.#tokens.push(token);
       this.#updateDOM(token);
 
