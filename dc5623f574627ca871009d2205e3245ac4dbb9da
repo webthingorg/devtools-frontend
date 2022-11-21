@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36dcc6aa_d1950be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T16:17:53Z",
+      "side": 1,
+      "message": "Agreed. If the experiment is on, the setting is reset to its default value (which is \u0027original\u0027).",
+      "parentUuid": "c535ed80_461acc67",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f83f8d4c_d25cd688",
