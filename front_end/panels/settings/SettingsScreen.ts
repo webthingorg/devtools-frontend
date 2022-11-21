@@ -542,6 +542,11 @@ export class Revealer implements Common.Revealer.Revealer {
   }
 
   reveal(object: Object): Promise<void> {
+    if (object instanceof Root.Runtime.Experiment) {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
+      void SettingsScreen.showSettingsScreen({name: 'experiments'});
+      return Promise.resolve();
+    }
     console.assert(object instanceof Common.Settings.Setting);
     const setting = object as Common.Settings.Setting<string>;
     let success = false;
