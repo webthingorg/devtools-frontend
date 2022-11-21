@@ -16,6 +16,23 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "3718e4844b4646f79ff0c1622874b2d58f743bd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a25db8a_b706257a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-11-21T13:18:18Z",
+      "side": 1,
+      "message": "These are some interesting values.\n\nLGTM!",
+      "revId": "3718e4844b4646f79ff0c1622874b2d58f743bd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
