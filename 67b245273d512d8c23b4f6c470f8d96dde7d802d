@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cef7e595_045ddcbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-21T16:07:14Z",
+      "side": 1,
+      "message": "That would be strange, as we seem to wait for request completion before sending the next one. I wouldn\u0027t have this complexity in tests unless absolutely needed.",
+      "parentUuid": "0822a9ed_b68cb37d",
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "068a9a9e_fd12e37d",
         "filename": "test/e2e/console/console-fetch-logging_test.ts",
         "patchSetId": 1
@@ -240,6 +258,30 @@
       "side": 1,
       "message": "I am not sure if it does, I copied it from the layout test as is. The fetch is logged successfully and I am not seeing errors caused by it in the console. Would you like to change it to something that is more compatible with node server?",
       "parentUuid": "ca498142_0534b1e0",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 42
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473f3982_f8973220",
+        "filename": "test/e2e/resources/console/post-target.cgi",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-21T16:07:14Z",
+      "side": 1,
+      "message": "Yes, please use a .rawresponse file, similar to third_party/devtools-frontend/src/test/e2e/resources/network/last-modified.rawresponse",
+      "parentUuid": "61c5d848_ace7a82f",
       "range": {
         "startLine": 3,
         "startChar": 0,
