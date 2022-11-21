@@ -3914,6 +3914,36 @@
   "panels/application/SharedStorageEventsView.ts | clickToDisplayBody": {
     "message": "Click on any shared storage event to display the event parameters."
   },
+  "panels/application/SharedStorageItemsView.ts | key": {
+    "message": "Key"
+  },
+  "panels/application/SharedStorageItemsView.ts | selectAValueToPreview": {
+    "message": "Select a value to preview"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorage": {
+    "message": "Shared Storage"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageFilteredItemsCleared": {
+    "message": "Shared Storage filtered items cleared"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemDeleted": {
+    "message": "The storage item was deleted."
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemEdited": {
+    "message": "The storage item was edited."
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItems": {
+    "message": "Shared Storage Items"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageItemsCleared": {
+    "message": "Shared Storage items cleared"
+  },
+  "panels/application/SharedStorageItemsView.ts | sharedStorageNumberEntries": {
+    "message": "Number of entries shown in table: {PH1}"
+  },
+  "panels/application/SharedStorageItemsView.ts | value": {
+    "message": "Value"
+  },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Clear All"
   },
