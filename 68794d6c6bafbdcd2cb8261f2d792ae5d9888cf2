@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6ec831d_527c8784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-21T13:04:14Z",
+      "side": 1,
+      "message": "PTAL.\n\nPatchset 1 \u003d TS upgrade\nPatchset 2 \u003d the changes to our source code to fix compiler errors. Probably the more useful diff to look at!",
+      "revId": "68794d6c6bafbdcd2cb8261f2d792ae5d9888cf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
