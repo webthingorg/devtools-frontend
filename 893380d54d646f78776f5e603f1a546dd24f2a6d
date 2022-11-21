@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "563c7fab_1aee66e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-21T10:58:04Z",
+      "side": 1,
+      "message": "One question",
+      "revId": "893380d54d646f78776f5e603f1a546dd24f2a6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1e47f9_768af388",
+        "filename": "test/unittests/front_end/panels/performance_monitor/PerformanceMonitor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-21T10:58:04Z",
+      "side": 1,
+      "message": "Is this really checking that smth got updated? Should it have been empty before?",
+      "range": {
+        "startLine": 42,
+        "startChar": 94,
+        "endLine": 42,
+        "endChar": 120
+      },
+      "revId": "893380d54d646f78776f5e603f1a546dd24f2a6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
