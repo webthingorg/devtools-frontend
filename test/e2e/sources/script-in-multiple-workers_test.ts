@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -200,6 +201,10 @@ describe('Multi-Workers', async function() {
     });
 
     describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
+      before(async () => {
+        await enableExperiment('instrumentationBreakpoints');
+      });
+
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
         await waitForSourceFiles(
