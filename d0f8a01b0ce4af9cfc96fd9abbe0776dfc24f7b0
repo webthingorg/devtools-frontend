@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d598fb80_d960c514",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-21T13:12:53Z",
+      "side": 0,
+      "message": "DBC: maybe worth checking in a follow-up if we are even using these. Or how TS was happy to check the return value of a `void` method.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 25
+      },
+      "revId": "d0f8a01b0ce4af9cfc96fd9abbe0776dfc24f7b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
