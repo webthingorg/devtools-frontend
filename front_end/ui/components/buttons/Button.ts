@@ -76,8 +76,8 @@ interface ButtonElementInternals extends ElementInternals {
   readonly validity: ValidityState;
   readonly willValidate: boolean;
   readonly validationMessage: string;
-  checkValidity(): void;
-  reportValidity(): void;
+  checkValidity(): boolean;
+  reportValidity(): boolean;
 }
 
 export class Button extends HTMLElement {
@@ -310,10 +310,10 @@ export class Button extends HTMLElement {
   get willValidate(): boolean {
     return this.#internals.willValidate;
   }
-  checkValidity(): void {
+  checkValidity(): boolean {
     return this.#internals.checkValidity();
   }
-  reportValidity(): void {
+  reportValidity(): boolean {
     return this.#internals.reportValidity();
   }
 }
