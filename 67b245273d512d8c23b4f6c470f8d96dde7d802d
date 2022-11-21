@@ -110,6 +110,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ff4a48_48a62d5f",
+        "filename": "test/e2e/console/console-fetch-logging_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-21T15:58:49Z",
+      "side": 1,
+      "message": "Done, though I am using equality because I want to check for order as well.",
+      "parentUuid": "2509b83f_57b4833a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 118
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db7f805f_b97b08db",
@@ -192,6 +216,30 @@
       "writtenOn": "2022-11-21T15:42:52Z",
       "side": 1,
       "message": "Does this work with our node server?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 42
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c5d848_ace7a82f",
+        "filename": "test/e2e/resources/console/post-target.cgi",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-21T15:58:49Z",
+      "side": 1,
+      "message": "I am not sure if it does, I copied it from the layout test as is. The fetch is logged successfully and I am not seeing errors caused by it in the console. Would you like to change it to something that is more compatible with node server?",
+      "parentUuid": "ca498142_0534b1e0",
       "range": {
         "startLine": 3,
         "startChar": 0,
