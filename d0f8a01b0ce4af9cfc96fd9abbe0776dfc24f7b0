@@ -22,6 +22,30 @@
       },
       "revId": "d0f8a01b0ce4af9cfc96fd9abbe0776dfc24f7b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "992ed0df_5ef8bc52",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-21T14:17:18Z",
+      "side": 0,
+      "message": "I checked - we need to define the methods but we don\u0027t have to define this custom interface, we can just use the regular ElementInternals interface. Thanks for the suggestion!",
+      "parentUuid": "d598fb80_d960c514",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 25
+      },
+      "revId": "d0f8a01b0ce4af9cfc96fd9abbe0776dfc24f7b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
