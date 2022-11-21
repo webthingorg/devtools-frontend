@@ -16,6 +16,69 @@
       "message": "PTAL!",
       "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50543c92_d1fc8175",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-21T15:39:57Z",
+      "side": 1,
+      "message": "Nice! LGTM % Qs",
+      "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50111a8e_ddae4668",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-21T15:39:57Z",
+      "side": 1,
+      "message": "There are multiple references to processors in plural but IIUC the current implementation there is a single processor instance used throughout parsing. Is this because in the future multiple processors are expected to be used at parsing?",
+      "range": {
+        "startLine": 33,
+        "startChar": 64,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d77b94f_152788c2",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-21T15:39:57Z",
+      "side": 1,
+      "message": "out of curiousity, what is the purpose of this assignment in the template param?",
+      "range": {
+        "startLine": 37,
+        "startChar": 108,
+        "endLine": 38,
+        "endChar": 67
+      },
+      "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

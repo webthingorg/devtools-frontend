@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "41e30fd8_511228c7",
+        "filename": "front_end/models/trace/TraceProcessor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-21T15:39:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16a33d82_da563e14",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 108
+      },
+      "revId": "4defca658bdc6d72212628f0f78344dcb4f02307",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a34b9260_b9cf79a9",
@@ -60,6 +84,30 @@
       "writtenOn": "2022-11-21T11:41:45Z",
       "side": 1,
       "message": "this is needed so we can use this function both to test OPP\u0027s engine and the new engine - although the actual data returned is the same, the two engines use different type-defs, so for now the generic allows the caller to dictate the return type.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 111
+      },
+      "revId": "4defca658bdc6d72212628f0f78344dcb4f02307",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f10084fb_dde8590e",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-21T15:39:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "206af1db_60652d6e",
       "range": {
         "startLine": 36,
         "startChar": 0,
