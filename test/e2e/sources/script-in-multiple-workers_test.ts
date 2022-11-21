@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -43,7 +44,7 @@ describe('Multi-Workers', async function() {
     this.timeout(10000);
   }
 
-  [false, true].forEach(sourceMaps => {
+  [true].forEach(sourceMaps => {
     const withOrWithout = sourceMaps ? 'with source maps' : 'without source maps';
     const targetPage = sourceMaps ? 'sources/multi-workers-sourcemap.html' : 'sources/multi-workers.html';
     const scriptFile = sourceMaps ? 'multi-workers.min.js' : 'multi-workers.js';
@@ -199,7 +200,11 @@ describe('Multi-Workers', async function() {
       });
     });
 
-    describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
+    describe.only(`hits breakpoints added to workers ${withOrWithout}`, () => {
+      before(async () => {
+        await enableExperiment('instrumentationBreakpoints');
+      });
+
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
         await waitForSourceFiles(
