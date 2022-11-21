@@ -411,6 +411,10 @@ export class MainImpl {
         Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Preloading Status Panel in Application panel',
         true);
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.DISABLE_COLOR_FORMAT_SETTING,
+        'Disable the deprecated `Color format` setting (requires reload)', false);
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'cssTypeComponentLength',
@@ -420,6 +424,7 @@ export class MainImpl {
       'groupAndHideIssuesByKind',
       Root.Runtime.ExperimentName.CSS_AUTHORING_HINTS,
       'sourcesPrettyPrint',
+      Root.Runtime.ExperimentName.DISABLE_COLOR_FORMAT_SETTING,
     ]);
 
     Root.Runtime.experiments.setNonConfigurableExperiments([
