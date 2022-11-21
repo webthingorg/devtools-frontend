@@ -37,6 +37,7 @@ export const CONSOLE_SELECTOR = '.console-user-command-result';
 export const CONSOLE_SETTINGS_SELECTOR = '[aria-label^="Console settings"]';
 export const AUTOCOMPLETE_FROM_HISTORY_SELECTOR = '[aria-label^="Autocomplete from history"]';
 export const SHOW_CORS_ERRORS_SELECTOR = '[aria-label^="Show CORS errors in console"]';
+export const LOG_XML_HTTP_REQUESTS_SELECTOR = 'input[aria-label="Log XMLHttpRequests"]';
 export const CONSOLE_CREATE_LIVE_EXPRESSION_SELECTOR = '[aria-label^="Create live expression"]';
 
 export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
@@ -206,6 +207,7 @@ export async function showVerboseMessages() {
 export async function typeIntoConsole(frontend: puppeteer.Page, message: string) {
   const asyncScope = new AsyncScope();
   const consoleElement = await waitFor(CONSOLE_PROMPT_SELECTOR, undefined, asyncScope);
+  await consoleElement.click();
   await consoleElement.type(message);
   // Wait for autocomplete text to catch up.
   const line = await waitFor('[aria-label="Console prompt"]', consoleElement, asyncScope);
@@ -296,6 +298,13 @@ export async function toggleShowCorsErrors() {
   await click(CONSOLE_SETTINGS_SELECTOR);
 }
 
+export async function toggleConsoleSetting(settingSelector: string) {
+  await click(CONSOLE_SETTINGS_SELECTOR);
+  await waitFor(settingSelector);
+  await click(settingSelector);
+  await click(CONSOLE_SETTINGS_SELECTOR);
+}
+
 async function getIssueButtonLabel(): Promise<string|null> {
   const infobarButton = await waitFor('#console-issues-counter');
   const iconButton = await waitFor('icon-button', infobarButton);
@@ -321,9 +330,9 @@ export async function clickOnContextMenu(selectorForNode: string, ctxMenuItemNam
 
 /**
  * Creates a function that runs a command and checks the nth output from the
- * bottom
+ * bottom (checks last message by default)
  */
-export function checkCommandResultFunction(offset: number) {
+export function checkCommandResultFunction(offset: number = 0) {
   return async function(command: string, expected: string, message?: string) {
     await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, command);
     assert.strictEqual(await getLastConsoleMessages(offset), expected, message);
