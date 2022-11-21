@@ -59,7 +59,7 @@ export class ScreencastApp implements Common.App.App,
   }
 
   modelAdded(screenCaptureModel: SDK.ScreenCaptureModel.ScreenCaptureModel): void {
-    if (this.screenCaptureModel) {
+    if (screenCaptureModel.target() !== SDK.TargetManager.TargetManager.instance().mainFrameTarget()) {
       return;
     }
     this.screenCaptureModel = screenCaptureModel;
