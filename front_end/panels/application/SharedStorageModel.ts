@@ -34,14 +34,21 @@ export class SharedStorageForOrigin extends Common.ObjectWrapper.ObjectWrapper<S
   async setEntry(key: string, value: string, ignoreIfPresent: boolean): Promise<void> {
     await this.#model.storageAgent.invoke_setSharedStorageEntry(
         {ownerOrigin: this.securityOrigin, key, value, ignoreIfPresent});
+    this.dispatchEventToListeners(
+        SharedStorageForOrigin.Events.SetEntryViaDevTools,
+        {key, value, ignoreIfPresent} as SharedStorageForOrigin.SetEntryViaDevToolsEvent);
   }
 
   async deleteEntry(key: string): Promise<void> {
     await this.#model.storageAgent.invoke_deleteSharedStorageEntry({ownerOrigin: this.securityOrigin, key});
+    this.dispatchEventToListeners(
+        SharedStorageForOrigin.Events.DeleteEntryViaDevTools,
+        {key} as SharedStorageForOrigin.DeleteEntryViaDevToolsEvent);
   }
 
   async clear(): Promise<void> {
     await this.#model.storageAgent.invoke_clearSharedStorageEntries({ownerOrigin: this.securityOrigin});
+    this.dispatchEventToListeners(SharedStorageForOrigin.Events.ClearEntriesViaDevTools);
   }
 }
 
@@ -50,6 +57,9 @@ export namespace SharedStorageForOrigin {
   // eslint-disable-next-line rulesdir/const_enum
   export enum Events {
     SharedStorageChanged = 'SharedStorageChanged',
+    SetEntryViaDevTools = 'SetEntryViaDevTools',
+    DeleteEntryViaDevTools = 'DeleteEntryViaDevTools',
+    ClearEntriesViaDevTools = 'ClearEntriesViaDevTools',
   }
 
   export interface SharedStorageChangedEvent {
@@ -59,8 +69,21 @@ export namespace SharedStorageForOrigin {
     params: Protocol.Storage.SharedStorageAccessParams;
   }
 
+  export interface SetEntryViaDevToolsEvent {
+    key: string;
+    value: string;
+    ignoreIfPresent: boolean;
+  }
+
+  export interface DeleteEntryViaDevToolsEvent {
+    key: string;
+  }
+
   export type EventTypes = {
     [Events.SharedStorageChanged]: SharedStorageChangedEvent,
+    [Events.SetEntryViaDevTools]: SetEntryViaDevToolsEvent,
+    [Events.DeleteEntryViaDevTools]: DeleteEntryViaDevToolsEvent,
+    [Events.ClearEntriesViaDevTools]: void,
   };
 }
 
