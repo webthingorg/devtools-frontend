@@ -2914,7 +2914,11 @@ export namespace CacheStorage {
     /**
      * Security origin of the cache.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key of the cache.
+     */
+    storageKey?: string;
     /**
      * The name of the cache.
      */
@@ -2956,9 +2960,14 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
+     * At least and at most one of securityOrigin, storageKey must be specified.
      * Security origin.
      */
-    securityOrigin: string;
+    securityOrigin?: string;
+    /**
+     * Storage key.
+     */
+    storageKey?: string;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -13233,6 +13242,13 @@ export namespace Storage {
     origin: string;
   }
 
+  export interface TrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+  }
+
   export interface TrackIndexedDBForOriginRequest {
     /**
      * Security origin.
@@ -13252,6 +13268,13 @@ export namespace Storage {
      * Security origin.
      */
     origin: string;
+  }
+
+  export interface UntrackCacheStorageForStorageKeyRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
   }
 
   export interface UntrackIndexedDBForOriginRequest {
@@ -13345,6 +13368,10 @@ export namespace Storage {
      */
     origin: string;
     /**
+     * Storage key to update.
+     */
+    storageKey: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13358,6 +13385,10 @@ export namespace Storage {
      * Origin to update.
      */
     origin: string;
+    /**
+     * Storage key to update.
+     */
+    storageKey: string;
   }
 
   /**

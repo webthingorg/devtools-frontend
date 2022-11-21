@@ -154,7 +154,7 @@ inspectorBackend.registerCommand("CSS.setLocalFontsEnabled", [{"name": "enabled"
 inspectorBackend.registerEnum("CacheStorage.CachedResponseType", {Basic: "basic", Cors: "cors", Default: "default", Error: "error", OpaqueResponse: "opaqueResponse", OpaqueRedirect: "opaqueRedirect"});
 inspectorBackend.registerCommand("CacheStorage.deleteCache", [{"name": "cacheId", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("CacheStorage.deleteEntry", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "request", "type": "string", "optional": false}], []);
-inspectorBackend.registerCommand("CacheStorage.requestCacheNames", [{"name": "securityOrigin", "type": "string", "optional": false}], ["caches"]);
+inspectorBackend.registerCommand("CacheStorage.requestCacheNames", [{"name": "securityOrigin", "type": "string", "optional": true}, {"name": "storageKey", "type": "string", "optional": true}], ["caches"]);
 inspectorBackend.registerCommand("CacheStorage.requestCachedResponse", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "requestURL", "type": "string", "optional": false}, {"name": "requestHeaders", "type": "object", "optional": false}], ["response"]);
 inspectorBackend.registerCommand("CacheStorage.requestEntries", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "skipCount", "type": "number", "optional": true}, {"name": "pageSize", "type": "number", "optional": true}, {"name": "pathFilter", "type": "string", "optional": true}], ["cacheDataEntries", "returnCount"]);
 
@@ -719,8 +719,8 @@ inspectorBackend.registerCommand("ServiceWorker.updateRegistration", [{"name": "
 inspectorBackend.registerEnum("Storage.StorageType", {Appcache: "appcache", Cookies: "cookies", File_systems: "file_systems", Indexeddb: "indexeddb", Local_storage: "local_storage", Shader_cache: "shader_cache", Websql: "websql", Service_workers: "service_workers", Cache_storage: "cache_storage", Interest_groups: "interest_groups", Shared_storage: "shared_storage", All: "all", Other: "other"});
 inspectorBackend.registerEnum("Storage.InterestGroupAccessType", {Join: "join", Leave: "leave", Update: "update", Bid: "bid", Win: "win"});
 inspectorBackend.registerEnum("Storage.SharedStorageAccessType", {DocumentAddModule: "documentAddModule", DocumentSelectURL: "documentSelectURL", DocumentRun: "documentRun", DocumentSet: "documentSet", DocumentAppend: "documentAppend", DocumentDelete: "documentDelete", DocumentClear: "documentClear", WorkletSet: "workletSet", WorkletAppend: "workletAppend", WorkletDelete: "workletDelete", WorkletClear: "workletClear", WorkletGet: "workletGet", WorkletKeys: "workletKeys", WorkletEntries: "workletEntries", WorkletLength: "workletLength", WorkletRemainingBudget: "workletRemainingBudget"});
-inspectorBackend.registerEvent("Storage.cacheStorageContentUpdated", ["origin", "cacheName"]);
-inspectorBackend.registerEvent("Storage.cacheStorageListUpdated", ["origin"]);
+inspectorBackend.registerEvent("Storage.cacheStorageContentUpdated", ["origin", "storageKey", "cacheName"]);
+inspectorBackend.registerEvent("Storage.cacheStorageListUpdated", ["origin", "storageKey"]);
 inspectorBackend.registerEvent("Storage.indexedDBContentUpdated", ["origin", "storageKey", "databaseName", "objectStoreName"]);
 inspectorBackend.registerEvent("Storage.indexedDBListUpdated", ["origin", "storageKey"]);
 inspectorBackend.registerEvent("Storage.interestGroupAccessed", ["accessTime", "type", "ownerOrigin", "name"]);
@@ -734,9 +734,11 @@ inspectorBackend.registerCommand("Storage.clearCookies", [{"name": "browserConte
 inspectorBackend.registerCommand("Storage.getUsageAndQuota", [{"name": "origin", "type": "string", "optional": false}], ["usage", "quota", "overrideActive", "usageBreakdown"]);
 inspectorBackend.registerCommand("Storage.overrideQuotaForOrigin", [{"name": "origin", "type": "string", "optional": false}, {"name": "quotaSize", "type": "number", "optional": true}], []);
 inspectorBackend.registerCommand("Storage.trackCacheStorageForOrigin", [{"name": "origin", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("Storage.trackCacheStorageForStorageKey", [{"name": "storageKey", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.trackIndexedDBForOrigin", [{"name": "origin", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.trackIndexedDBForStorageKey", [{"name": "storageKey", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.untrackCacheStorageForOrigin", [{"name": "origin", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("Storage.untrackCacheStorageForStorageKey", [{"name": "storageKey", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.untrackIndexedDBForOrigin", [{"name": "origin", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.untrackIndexedDBForStorageKey", [{"name": "storageKey", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.getTrustTokens", [], ["tokens"]);
