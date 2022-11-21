@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2be23978_d3782b20",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-21T14:27:23Z",
+      "side": 1,
+      "message": "Oh sounds good, thanks! Maybe we can add this difference as a comment for the next reader, WDYT?",
+      "parentUuid": "d2fc0bad_edd55e1b",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed59c28b_9d69b70e",
         "filename": "front_end/panels/settings/SettingsScreen.ts",
         "patchSetId": 2
@@ -125,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47e96c83_a9ae66b8",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-21T14:27:23Z",
+      "side": 1,
+      "message": "Oh I see, thanks for the explanation and I agree! I think it would be cool to add a comment to reveal the specific setting/experiment for the given object.\n\nAs an implementation idea, one might add the `experiment-id` to the DOM as `data-experiment-id` and query the related node from the DOM itself.",
+      "parentUuid": "4f985222_b6d043f9",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a7bd7b6_770cd766",
         "filename": "front_end/ui/legacy/SettingsUI.ts",
         "patchSetId": 2
@@ -154,6 +190,24 @@
       "side": 1,
       "message": "I decided against this. The setting is defined in the entrypoint which is not the right place to implement this. Also this bit is 95% about rendering, which to me means this file here is the right place. The alternative I considered was having some hookery on the settings registration or similar that the entrypoint could wire up, which calls back into here to delegate modifinying the presentation. I opted for locality and simplicity over the complexity of that, but I\u0027m open to reconsidering if you think it\u0027s worth it!",
       "parentUuid": "3a7bd7b6_770cd766",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "416cc535_c48cbe59",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-21T14:27:23Z",
+      "side": 1,
+      "message": "Since we\u0027re going to remove this code anyways, I think it\u0027s not worth to do complex stuff. Though just to show the temporary nature of this, maybe we can add a comment, WDYT?",
+      "parentUuid": "9905c5cd_ff8ab558",
       "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
