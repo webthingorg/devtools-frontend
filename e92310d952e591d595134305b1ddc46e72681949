@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "e92310d952e591d595134305b1ddc46e72681949",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73cde142_b1b6a60e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-21T17:58:12Z",
+      "side": 1,
+      "message": "I rebased to get rid of the unrelated change to LighthouseController in patch set 1, but now I\u0027m seen as uploader and cannot +2.",
+      "revId": "e92310d952e591d595134305b1ddc46e72681949",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
