@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "808c59bc_58a59161",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be23978_d3782b20",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed59c28b_9d69b70e",
@@ -161,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef8e88c6_0e7fba51",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:56:01Z",
+      "side": 1,
+      "message": "Actually added a simple implementation for experiments. Settings can probably do the same, but there are a lot of views that need to implement this which likely goes out of scope for this CL.",
+      "parentUuid": "47e96c83_a9ae66b8",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a7bd7b6_770cd766",
         "filename": "front_end/ui/legacy/SettingsUI.ts",
         "patchSetId": 2
@@ -208,6 +244,24 @@
       "side": 1,
       "message": "Since we\u0027re going to remove this code anyways, I think it\u0027s not worth to do complex stuff. Though just to show the temporary nature of this, maybe we can add a comment, WDYT?",
       "parentUuid": "9905c5cd_ff8ab558",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77fcb29f_33c8464c",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "416cc535_c48cbe59",
       "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
