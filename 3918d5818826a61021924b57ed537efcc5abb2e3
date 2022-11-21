@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "810d29c7_3e9c671f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-21T11:11:38Z",
+      "side": 1,
+      "message": "Hi Eric,\n\nI\u0027m re-enabling a disabled e2e test for the linear memory inspector. Before we were explicitly pausing the second worker, now we just resume and wait until we pause in the second one in order to check if it opens the same array buffers.\n\nPTAL!",
+      "revId": "3918d5818826a61021924b57ed537efcc5abb2e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
