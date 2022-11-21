@@ -2639,6 +2639,9 @@
   "panels/application/BackgroundServiceView.ts | selectAnEntryToViewMetadata": {
     "message": "Select an entry to view metadata"
   },
+  "panels/application/BackgroundServiceView.ts | showEventsForOtherStorageKeys": {
+    "message": "Show events from other storage partitions"
+  },
   "panels/application/BackgroundServiceView.ts | showEventsFromOtherDomains": {
     "message": "Show events from other domains"
   },
@@ -2647,6 +2650,9 @@
   },
   "panels/application/BackgroundServiceView.ts | stopRecordingEvents": {
     "message": "Stop recording events"
+  },
+  "panels/application/BackgroundServiceView.ts | storageKey": {
+    "message": "Storage Key"
   },
   "panels/application/BackgroundServiceView.ts | swScope": {
     "message": "Service Worker Scope"
