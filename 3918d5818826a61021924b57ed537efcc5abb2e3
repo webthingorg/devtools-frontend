@@ -39,6 +39,30 @@
       },
       "revId": "3918d5818826a61021924b57ed537efcc5abb2e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "309cc0cd_2133085c",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-21T12:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd78adf3_9b53f0c9",
+      "range": {
+        "startLine": 123,
+        "startChar": 16,
+        "endLine": 123,
+        "endChar": 38
+      },
+      "revId": "3918d5818826a61021924b57ed537efcc5abb2e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
