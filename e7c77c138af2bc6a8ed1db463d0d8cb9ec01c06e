@@ -33,6 +33,24 @@
       "message": "lgtm, can we add a test for this? We have good helpers for e2e that check certain metrics are recorded. Alternatively, if SourcesView is not too hard to instantiate in a unit test we can also mock the host bindings and check they were called.",
       "revId": "e7c77c138af2bc6a8ed1db463d0d8cb9ec01c06e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec13750_5a35be83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-21T12:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15e9344a_c5cfe3d7",
+      "revId": "e7c77c138af2bc6a8ed1db463d0d8cb9ec01c06e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
