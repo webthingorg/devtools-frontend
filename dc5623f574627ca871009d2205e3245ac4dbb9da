@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce38bda5_734f6fc0",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 13098,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f83f8d4c_d25cd688",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54e3ff71_d093511a",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-11-21T12:04:53Z",
       "side": 1,
       "message": "I think we don\u0027t need to add `requires reload` text here since most of the other experiments requires reload and don\u0027t contain this text. WDYT?",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2fc0bad_edd55e1b",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:16:28Z",
+      "side": 1,
+      "message": "I added it because for other experiments the user is reminded of the reload by a banner. For this one the banner appears too late, i.e., only when the settings ui is closed. They\u0027re not going to close the settings though because they were just about to set the color format. Seemed like a cheap solution.",
+      "parentUuid": "54e3ff71_d093511a",
       "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f985222_b6d043f9",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:16:28Z",
+      "side": 1,
+      "message": "That\u0027s true, but it\u0027s the same bevhavior for the general settings reveal too. Maybe that should be changed as well, but that\u0027ll be a bunch of work. In both cases it\u0027s very hard to do; all settings and experiments are just dumped into the widgets, nothing is keeping track of them, so finding a setting after the fact is ugly.\n\nPunt to a followup maybe?",
+      "parentUuid": "ed59c28b_9d69b70e",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a7bd7b6_770cd766",
         "filename": "front_end/ui/legacy/SettingsUI.ts",
         "patchSetId": 2
@@ -82,6 +136,24 @@
       "writtenOn": "2022-11-21T12:04:53Z",
       "side": 1,
       "message": "This seems a bit hacky to me since `createSettingSelect` takes a generic setting but does something special for a different case. I wonder if we can do this in different way, that is a more of a generic solution or in a place where it is closer to `colorFormat` setting definition/rendering.\n\nThough since this is temporary, we can also accept this for now but a comment for explaining this and its temporay nature would be cool. WDYT? :)",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9905c5cd_ff8ab558",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:16:28Z",
+      "side": 1,
+      "message": "I decided against this. The setting is defined in the entrypoint which is not the right place to implement this. Also this bit is 95% about rendering, which to me means this file here is the right place. The alternative I considered was having some hookery on the settings registration or similar that the entrypoint could wire up, which calls back into here to delegate modifinying the presentation. I opted for locality and simplicity over the complexity of that, but I\u0027m open to reconsidering if you think it\u0027s worth it!",
+      "parentUuid": "3a7bd7b6_770cd766",
       "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -99,6 +171,24 @@
       "writtenOn": "2022-11-21T12:04:53Z",
       "side": 1,
       "message": "I was thinking vertical alignment is a bit off but then couldn\u0027t find any other alternative too. So, just adding this comment for sharing the screenshot :)\n\nhttps://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d577923\u0026signed_aid\u003dFyVqDaGJcHm0gNflI-uTFQ\u003d\u003d\u0026inline\u003d1",
+      "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c409677_678371dd",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-21T14:16:28Z",
+      "side": 1,
+      "message": "I found the superscript look sort of nice, tbh. Has sort of a footnote feeling.",
+      "parentUuid": "84f52342_1a526b31",
       "revId": "dc5623f574627ca871009d2205e3245ac4dbb9da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
