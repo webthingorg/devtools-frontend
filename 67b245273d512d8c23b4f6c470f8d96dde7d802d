@@ -89,6 +89,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2509b83f_57b4833a",
+        "filename": "test/e2e/console/console-fetch-logging_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-21T15:42:52Z",
+      "side": 1,
+      "message": "You can use `testServerPort` and avoid testing against regular expressions.\nYou assertions would then be as simple as \n\n    assert.deepStrictEqual(await getCurrentConsoleMessages(), expectedResults);",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 118
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db7f805f_b97b08db",
         "filename": "test/e2e/console/console-fetch-logging_test.ts",
         "patchSetId": 1
@@ -151,6 +174,29 @@
         "startChar": 57,
         "endLine": 335,
         "endChar": 61
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca498142_0534b1e0",
+        "filename": "test/e2e/resources/console/post-target.cgi",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-21T15:42:52Z",
+      "side": 1,
+      "message": "Does this work with our node server?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 42
       },
       "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
