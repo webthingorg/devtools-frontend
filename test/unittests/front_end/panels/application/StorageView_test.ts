@@ -9,7 +9,11 @@ import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/p
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import * as Resources from '../../../../../front_end/panels/application/application.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
-import {describeWithMockConnection} from '../../helpers/MockConnection.js';
+import {
+  describeWithMockConnection,
+  setMockConnectionResponseHandler,
+  clearMockConnectionResponseHandler,
+} from '../../helpers/MockConnection.js';
 
 describeWithMockConnection('StorageView', () => {
   const tests = (targetFactory: () => SDK.Target.Target) => {
@@ -89,6 +93,36 @@ describeWithMockConnection('StorageView', () => {
 
       await databaseRemoved;
       assert.isEmpty(databaseModel.databases());
+    });
+
+    it('clears cache on clearByStorageKey', async () => {
+      const cacheStorageModel = target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
+      assertNotNullOrUndefined(cacheStorageModel);
+      setMockConnectionResponseHandler(
+          'CacheStorage.requestCacheNames', () => ({
+                                              caches: [
+                                                {cacheId: 'id1', storageKey: testKey, cacheName: 'test-cache-1'},
+                                                {cacheId: 'id2', storageKey: testKey, cacheName: 'test-cache-2'},
+                                              ],
+                                            }));
+      cacheStorageModel.enable();
+      const cacheAddedPromise = new Promise<void>(resolve => {
+        cacheStorageModel.addEventListener(SDK.ServiceWorkerCacheModel.Events.CacheAdded, () => {
+          resolve();
+        });
+      });
+      manager?.dispatchEventToListeners(SDK.StorageKeyManager.Events.StorageKeyAdded, testKey);
+      await cacheAddedPromise;
+
+      clearMockConnectionResponseHandler('CacheStorage.requestCacheNames');
+      setMockConnectionResponseHandler('CacheStorage.requestCacheNames', () => ({
+                                                                           caches: [],
+                                                                         }));
+
+      Resources.StorageView.StorageView.clearByStorageKey(
+          target, testKey, '', [Protocol.Storage.StorageType.Cache_storage], false);
+
+      assert.isEmpty(cacheStorageModel.caches());
     });
   };
 
