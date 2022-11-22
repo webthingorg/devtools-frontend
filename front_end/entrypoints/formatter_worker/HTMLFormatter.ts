@@ -7,12 +7,14 @@ import * as Platform from '../../core/platform/platform.js';
 import {CSSFormatter} from './CSSFormatter.js';
 import {type FormattedContentBuilder} from './FormattedContentBuilder.js';
 import {AbortTokenization, createTokenizer} from './FormatterWorker.js';
+import {JSONFormatter} from './JSONFormatter.js';
 import {JavaScriptFormatter} from './JavaScriptFormatter.js';
 
 export class HTMLFormatter {
   readonly #builder: FormattedContentBuilder;
   readonly #jsFormatter: JavaScriptFormatter;
   readonly #cssFormatter: CSSFormatter;
+  readonly #jsonFormatter: JSONFormatter;
   #text?: string;
   #lineEndings?: number[];
   #model?: HTMLModel;
@@ -21,6 +23,7 @@ export class HTMLFormatter {
     this.#builder = builder;
     this.#jsFormatter = new JavaScriptFormatter(builder);
     this.#cssFormatter = new CSSFormatter(builder);
+    this.#jsonFormatter = new JSONFormatter(builder);
   }
 
   format(text: string, lineEndings: number[]): void {
@@ -132,6 +135,8 @@ export class HTMLFormatter {
       this.#builder.increaseNestingLevel();
       if (this.#scriptTagIsJavaScript(element)) {
         this.#jsFormatter.format(this.#text || '', this.#lineEndings || [], token.startOffset, token.endOffset);
+      } else if (this.#scriptTagIsJSON(element)) {
+        this.#jsonFormatter.format(this.#text || '', this.#lineEndings || [], token.startOffset, token.endOffset);
       } else {
         this.#builder.addToken(token.value, token.startOffset);
         this.#builder.addNewLine();
@@ -169,6 +174,28 @@ export class HTMLFormatter {
     return HTMLFormatter.SupportedJavaScriptMimeTypes.has(type.trim());
   }
 
+  #scriptTagIsJSON(element: FormatterElement): boolean {
+    if (!element.openTag) {
+      return false;
+    }
+
+    if (!element.openTag.attributes.has('type')) {
+      return false;
+    }
+
+    let type = element.openTag.attributes.get('type');
+    if (!type) {
+      return false;
+    }
+
+    type = type.toLowerCase();
+    const isWrappedInQuotes = /^(["\'])(.*)\1$/.exec(type.trim());
+    if (isWrappedInQuotes) {
+      type = isWrappedInQuotes[2];
+    }
+    return HTMLFormatter.SupportedJSONMimeTypes.has(type.trim());
+  }
+
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/naming-convention
   static readonly SupportedJavaScriptMimeTypes = new Set([
@@ -188,6 +215,11 @@ export class HTMLFormatter {
     'text/livescript',
     'text/x-ecmascript',
     'text/x-javascript',
+  ]);
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  static readonly SupportedJSONMimeTypes = new Set([
+    'application/json',
   ]);
 }
 
