@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "831a5fa5_8417c726",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-22T15:37:16Z",
+      "side": 1,
+      "message": "\u003d\u003e ({id, attempt})",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 71
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16a3ce98_ba10615c",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-22T15:37:16Z",
+      "side": 1,
+      "message": "`originalAttempt`?",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 21
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6a3916_9dbe20e8",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-22T15:37:16Z",
+      "side": 1,
+      "message": "What purpose does this IIFE serve now?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
