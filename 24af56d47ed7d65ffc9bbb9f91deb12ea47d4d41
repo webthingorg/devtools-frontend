@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "546dd3bf_4e13101d",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-22T08:37:58Z",
+      "side": 1,
+      "message": "Yes - there could be multiple in the future. I will update the comments in here to make it clear that currently there is only one. Thanks!",
+      "parentUuid": "50111a8e_ddae4668",
+      "range": {
+        "startLine": 33,
+        "startChar": 64,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d77b94f_152788c2",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-11-21T15:39:57Z",
       "side": 1,
       "message": "out of curiousity, what is the purpose of this assignment in the template param?",
+      "range": {
+        "startLine": 37,
+        "startChar": 108,
+        "endLine": 38,
+        "endChar": 67
+      },
+      "revId": "24af56d47ed7d65ffc9bbb9f91deb12ea47d4d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f86f33_3147bd58",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-22T08:37:58Z",
+      "side": 1,
+      "message": "It was to set a default if the user didn\u0027t set one, but I\u0027ve actually decided that I don\u0027t want the default and will force the caller to explicitly set it. I think that\u0027s better for clarity.",
+      "parentUuid": "9d77b94f_152788c2",
       "range": {
         "startLine": 37,
         "startChar": 108,
