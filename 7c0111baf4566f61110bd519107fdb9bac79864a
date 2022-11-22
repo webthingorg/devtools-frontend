@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed96b740_89d6893c",
+        "filename": "test/unittests/front_end/panels/application/BackgroundServiceView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-22T10:55:12Z",
+      "side": 1,
+      "message": "Please use assertNotNullOrUndefined instead",
+      "range": {
+        "startLine": 42,
+        "startChar": 82,
+        "endLine": 42,
+        "endChar": 104
+      },
+      "revId": "7c0111baf4566f61110bd519107fdb9bac79864a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
