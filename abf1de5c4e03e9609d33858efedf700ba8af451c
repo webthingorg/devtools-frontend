@@ -16,6 +16,69 @@
       "message": "PTAL!",
       "revId": "abf1de5c4e03e9609d33858efedf700ba8af451c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc1d12a_d1f8a092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-22T13:19:49Z",
+      "side": 1,
+      "message": "LGTM with suggestion :)",
+      "revId": "abf1de5c4e03e9609d33858efedf700ba8af451c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ddb77d_f492c52b",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-22T13:19:49Z",
+      "side": 1,
+      "message": "nit: I think this sentence was originally left incomplete. Maybe let\u0027s remove it for now?",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "abf1de5c4e03e9609d33858efedf700ba8af451c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d02ec0_4c2b1b89",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-11-22T13:19:49Z",
+      "side": 1,
+      "message": "could we return \n```\nloadTraceFile(name) as SDK.TracingManager.EventPayload[];\n\n```\nto avoid duplication?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 81
+      },
+      "revId": "abf1de5c4e03e9609d33858efedf700ba8af451c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
