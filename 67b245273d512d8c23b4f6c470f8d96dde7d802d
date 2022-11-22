@@ -217,6 +217,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "760f938a_9b193d6c",
+        "filename": "test/e2e/console/console-fetch-logging_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-22T13:31:43Z",
+      "side": 1,
+      "message": "Ack, we check the order",
+      "parentUuid": "db7f805f_b97b08db",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5f65ef3_feed83c3",
