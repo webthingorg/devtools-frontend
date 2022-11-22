@@ -16,6 +16,23 @@
       "message": "PTAL, minus some tests (I need to think about what tests to write here).\n\nAlso, I feel like there are too many implementation details in our cascade computations. I\u0027d like to document some of them. Could you give some points so that I could have a list to start?",
       "revId": "69c0754fcb8ba7a0c22cbf0e6496f4ef7bc5b085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe4ae3a9_68f0076e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-22T10:40:50Z",
+      "side": 1,
+      "message": "I\u0027ve tested this and it seems like something is getting broken for editing longhand properties after this change. You can reproduce the error by:\n\n* Having a `padding: 20px` shorthand property\n* Trying to add `padding-left: 12px` property\n\nIn DevTools console, it shows an error that says style is not editable. From initial inspection, I wasn\u0027t able to find how it happens. Though it has something to do with `CSSPropertyPrompt` getting being assigned to wrong property: it gets assigned to one of the longhand expanded ones from the shorthand property.\n\nI was thinking if it can be because of name collision etc. but weirdly when I add a new property `padding-left: 12px` it sometimes tries to update a property with `padding-bottom`.\n\nAFAIU the failed test shows the same issue too :/",
+      "revId": "69c0754fcb8ba7a0c22cbf0e6496f4ef7bc5b085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
