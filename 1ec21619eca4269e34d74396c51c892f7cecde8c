@@ -16,6 +16,41 @@
       "message": "PTAL. Do you have an idea how the \u0027!important\u0027 could be avoided?",
       "revId": "1ec21619eca4269e34d74396c51c892f7cecde8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc13689_0eee6dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-11-22T13:04:08Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1ec21619eca4269e34d74396c51c892f7cecde8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be03234a_ec30d09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-11-22T13:04:08Z",
+      "side": 1,
+      "message": "\u003e PTAL. Do you have an idea how the \u0027!important\u0027 could be avoided?\n\nWe could instead increase the specificity of the selector.",
+      "parentUuid": "a4b0887c_91aa0d97",
+      "revId": "1ec21619eca4269e34d74396c51c892f7cecde8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
