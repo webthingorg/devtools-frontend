@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8368a7d7_ce5b9b8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-22T13:30:08Z",
+      "side": 1,
+      "message": "Done, I modified the selector and removed unnecessary logged messages to test it more simply.",
+      "parentUuid": "cef7e595_045ddcbb",
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "068a9a9e_fd12e37d",
@@ -95,6 +113,30 @@
       "writtenOn": "2022-11-21T15:35:24Z",
       "side": 1,
       "message": "nit: for some reason `\\d+` did not work here",
+      "range": {
+        "startLine": 26,
+        "startChar": 61,
+        "endLine": 26,
+        "endChar": 67
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9287d94_07d27cec",
+        "filename": "test/e2e/console/console-fetch-logging_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-22T13:30:08Z",
+      "side": 1,
+      "message": "Ack, not using regex anymore.",
+      "parentUuid": "c8aa3f3c_7031ebcb",
       "range": {
         "startLine": 26,
         "startChar": 61,
@@ -282,6 +324,30 @@
       "side": 1,
       "message": "Yes, please use a .rawresponse file, similar to third_party/devtools-frontend/src/test/e2e/resources/network/last-modified.rawresponse",
       "parentUuid": "61c5d848_ace7a82f",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 42
+      },
+      "revId": "67b245273d512d8c23b4f6c470f8d96dde7d802d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "670008e9_1f3847a1",
+        "filename": "test/e2e/resources/console/post-target.cgi",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-22T13:30:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "473f3982_f8973220",
       "range": {
         "startLine": 3,
         "startChar": 0,
