@@ -16,6 +16,23 @@
       "message": "Friendly ping:)",
       "revId": "452fb6dec85561d8c4465047a291144cba09c240",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bef828_57b1666d",
+        "filename": "front_end/panels/emulation/MediaQueryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:08:53Z",
+      "side": 1,
+      "message": "Nice DI!",
+      "revId": "452fb6dec85561d8c4465047a291144cba09c240",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
