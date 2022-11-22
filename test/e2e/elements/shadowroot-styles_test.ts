@@ -27,7 +27,7 @@ describe('The Elements Tab', async () => {
     await timeout(50);
 
     await frontend.keyboard.press('ArrowRight');
-    await waitForContentOfSelectedElementsNode('<div id=\u200B"host">\u200B…\u200B</div>\u200B');
+    await waitForContentOfSelectedElementsNode('<div id=\u200B"host">\u200B\u200B</div>\u200B');
 
     // Open the div (shows new nodes, but does not alter the selected node)
     await frontend.keyboard.press('ArrowRight');
