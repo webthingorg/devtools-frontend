@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "2521d9805070a81c8474c0868a46029487bbdc41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e263336a_fac10623",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-11-22T01:53:38Z",
+      "side": 1,
+      "message": "lgtm.\n\nThank you very much for rephrasing!\n\n\nhibarayoichiro871@gmail.com who was a summer intern is still working on this project after finishing the intern. And he is planing to add more detailed information.\n\nIt would be appreciated if you could review his CL when he will introduce more messages in DevTools after https://chromium-review.googlesource.com/c/chromium/src/+/3965873 . Thank you.",
+      "revId": "2521d9805070a81c8474c0868a46029487bbdc41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
