@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "693d66fb_32cb4501",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-22T10:47:18Z",
+      "side": 1,
+      "message": "FYI: Adding \"No-Tree-Check: true\" here allows you to land this CL while the tree remains closed.",
+      "revId": "9c81a2a6edb332ea857585c28edf929b0e6f509c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
