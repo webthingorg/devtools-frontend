@@ -86,6 +86,24 @@
       "parentUuid": "96b5a2b9_3ad290c5",
       "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c85b90d_a01906cf",
+        "filename": "front_end/panels/elements/elements-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-22T14:16:18Z",
+      "side": 1,
+      "message": "Done! Updated the tooltip too :)",
+      "parentUuid": "f03e0116_b1efa13d",
+      "revId": "7aa193af6e264fa47f9d18bf36d5612357d43e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
