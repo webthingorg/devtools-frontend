@@ -63,17 +63,26 @@ export class CSSStyleDeclaration {
     if (payload.cssText && this.range) {
       const cssText = new TextUtils.Text.Text(payload.cssText);
       let start = {line: this.range.startLine, column: this.range.startColumn};
+
+      const longhandTexts = new Set();
+      const longhands = [];
       for (const cssProperty of payload.cssProperties) {
         const range = cssProperty.range;
+        if (!range && longhandTexts.has(`${cssProperty.name}: ${cssProperty.value}`)) {
+          continue;
+        }
         if (range) {
           parseUnusedText.call(this, cssText, start.line, start.column, range.startLine, range.startColumn);
           start = {line: range.endLine, column: range.endColumn};
         }
-        // TODO(changhaohan): we should try not including longhand properties anymore, because
-        // they are already included in the longhandProperties field in a shorthand property.
-        this.#allPropertiesInternal.push(
-            CSSProperty.parsePayload(this, this.#allPropertiesInternal.length, cssProperty));
+        const parsedProperty = CSSProperty.parsePayload(this, this.#allPropertiesInternal.length, cssProperty);
+        this.#allPropertiesInternal.push(parsedProperty);
+        for (const longhand of parsedProperty.getLonghandProperties()) {
+          longhands.push(longhand);
+          longhandTexts.add(`${longhand.name}: ${longhand.value}`);
+        }
       }
+      this.#allPropertiesInternal.push(...longhands);
       parseUnusedText.call(this, cssText, start.line, start.column, this.range.endLine, this.range.endColumn);
     } else {
       for (const cssProperty of payload.cssProperties) {
