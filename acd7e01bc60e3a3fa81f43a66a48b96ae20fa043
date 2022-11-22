@@ -22,6 +22,30 @@
       },
       "revId": "acd7e01bc60e3a3fa81f43a66a48b96ae20fa043",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82f6ae6c_6676fa3e",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 26353,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-22T12:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96955e85_c738cfb9",
+      "range": {
+        "startLine": 26353,
+        "startChar": 0,
+        "endLine": 26353,
+        "endChar": 1
+      },
+      "revId": "acd7e01bc60e3a3fa81f43a66a48b96ae20fa043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
