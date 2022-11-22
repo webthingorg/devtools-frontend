@@ -20,6 +20,10 @@ const UIStrings = {
   */
   addScriptToIgnoreList: 'Add script to ignore list',
   /**
+  *@description Text for directories whose scripts should not be stepped into when debugging
+  */
+  addDirectoryToIgnoreList: 'Add directory to ignore list',
+  /**
   *@description A context menu item in the Call Stack Sidebar Pane of the Sources panel
   */
   removeAllContentScriptsFrom: 'Remove all content scripts from ignore list',
@@ -250,6 +254,10 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
     return Common.Settings.Settings.instance().moduleSetting('enableIgnoreListing').get();
   }
 
+  set enableIgnoreListing(value: boolean) {
+    Common.Settings.Settings.instance().moduleSetting('enableIgnoreListing').set(value);
+  }
+
   get skipContentScripts(): boolean {
     return this.enableIgnoreListing && Common.Settings.Settings.instance().moduleSetting('skipContentScripts').get();
   }
@@ -268,11 +276,16 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
   }
 
   private ignoreListURL(url: Platform.DevToolsPath.UrlString): void {
-    const regexPatterns = this.getSkipStackFramesPatternSetting().getAsArray();
     const regexValue = this.urlToRegExpString(url);
     if (!regexValue) {
       return;
     }
+    this.ignoreListRegex(regexValue);
+  }
+
+  private ignoreListRegex(regexValue: string): void {
+    const regexPatterns = this.getSkipStackFramesPatternSetting().getAsArray();
+
     let found = false;
     for (let i = 0; i < regexPatterns.length; ++i) {
       const item = regexPatterns[i];
@@ -284,6 +297,9 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
     }
     if (!found) {
       regexPatterns.push({pattern: regexValue, disabled: undefined});
+    }
+    if (!this.enableIgnoreListing) {
+      this.enableIgnoreListing = true;
     }
     this.getSkipStackFramesPatternSetting().setAsArray(regexPatterns);
   }
@@ -311,6 +327,21 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
       }
     }
     this.getSkipStackFramesPatternSetting().setAsArray(regexPatterns);
+  }
+
+  private unIgnoreListPattern(regexValue: string): void {
+    let regexPatterns = this.getSkipStackFramesPatternSetting().getAsArray();
+    regexPatterns = regexPatterns.filter(function(item) {
+      return item.pattern !== regexValue;
+    });
+    this.getSkipStackFramesPatternSetting().setAsArray(regexPatterns);
+  }
+
+  private ignoreListHasPattern(regexValue: string, enabledOnly: boolean): boolean {
+    const regexPatterns = this.getSkipStackFramesPatternSetting().getAsArray();
+    return regexPatterns.some(function(item) {
+      return !(enabledOnly && item.disabled) && item.pattern === regexValue;
+    });
   }
 
   private async patternChanged(): Promise<void> {
@@ -407,7 +438,28 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
     }
     return menuItems;
   }
+
+  getIgnoreListFolderContextMenuItems(url: Platform.DevToolsPath.UrlString):
+      Array<{text: string, callback: () => void}> {
+    const menuItems: Array<{text: string, callback: () => void}> = [];
+
+    const regexValue = '^' + Platform.StringUtilities.escapeForRegExp(url) + '/';
+    if (this.ignoreListHasPattern(regexValue, true)) {
+      menuItems.push({
+        text: i18nString(UIStrings.removeFromIgnoreList),
+        callback: this.unIgnoreListPattern.bind(this, regexValue),
+      });
+    } else {
+      menuItems.push({
+        text: i18nString(UIStrings.addDirectoryToIgnoreList),
+        callback: this.ignoreListRegex.bind(this, regexValue),
+      });
+    }
+
+    return menuItems;
+  }
 }
+
 export interface SourceRange {
   lineNumber: number;
   columnNumber: number;
