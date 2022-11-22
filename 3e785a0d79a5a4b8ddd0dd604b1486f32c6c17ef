@@ -213,6 +213,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc25b570_01b09116",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-22T14:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f50497_5db74be3",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 51
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6940c13f_4ebbd04e",
@@ -368,6 +392,30 @@
       "side": 1,
       "message": "Yeah, this seems to be a lot of overhead compared to what might have been\n\n    const status \u003d event.finalStatus \u003d\u003d\u003d \u0027Activated\u0027 ? \u0027activated\u0027: \u0027discarded\u0027;\n    const discardedReason \u003d event.finalStatus \u003d\u003d\u003d \u0027Destroyed\u0027 ? null : event.finalStatus;",
       "parentUuid": "be743a5f_371f5888",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 109
+      },
+      "revId": "3e785a0d79a5a4b8ddd0dd604b1486f32c6c17ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8504bedd_ad00a31c",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-11-22T14:39:28Z",
+      "side": 1,
+      "message": "I see. Refactored.",
+      "parentUuid": "726c942c_d255432b",
       "range": {
         "startLine": 174,
         "startChar": 0,
