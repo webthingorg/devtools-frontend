@@ -139,6 +139,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cc11790_235dd8fe",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:41:55Z",
+      "side": 1,
+      "message": "Do you know why these numbers are not pre-calculated as constants, and needed to be re-calculated every time? I understand that this comes from color_conversions.cc, but do we know why?",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81a77300_2423fb54",
         "filename": "front_end/core/common/ColorConverter.ts",
         "patchSetId": 1
