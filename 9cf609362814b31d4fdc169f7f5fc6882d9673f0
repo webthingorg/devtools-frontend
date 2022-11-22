@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02ba4305_47407de4",
+        "filename": "test/unittests/front_end/panels/sources/CSSPlugin_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-22T05:58:03Z",
+      "side": 1,
+      "message": "Let\u0027s keep the `describe(\u0027CSSPlugin\u0027, () \u003d\u003e {...})` here for the simple tests and add a separate `describeWithMockConnection(\u0027CSSPlugin\u0027, () \u003d\u003e {})` below for the tests that actually require the mock connection.",
+      "revId": "9cf609362814b31d4fdc169f7f5fc6882d9673f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
