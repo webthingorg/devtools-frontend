@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fbfd577_0c39fae6",
+        "filename": "front_end/core/i18n/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1176649
+      },
+      "writtenOn": "2022-11-22T12:59:18Z",
+      "side": 1,
+      "message": "Should this have included root_build_dir? I\u0027m looking in the context of crbug.com/1392690 (non-deterministic builds). I will try it out and send a patch if it improves things.",
+      "revId": "855d0d2613ed99fdd22db0821c64da3fcbf4ac8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
