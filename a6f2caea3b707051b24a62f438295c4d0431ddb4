@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e0142b_44949f6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "That\u0027s a lot of math to pull into our codebase, kudos!!",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20858393_179dbf54",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "I suppose that since we\u0027re not \"copying\" the code, we don\u0027t have to clear the licensing bits? Asking as a license noobie.",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0443ed_0134b02a",
@@ -37,6 +71,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4261fede_8f18806a",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "qq: why are these values enclosed in parentheses?",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee273bf5_509d1fff",
         "filename": "front_end/core/common/ColorConverter.ts",
         "patchSetId": 1
@@ -48,6 +99,57 @@
       "writtenOn": "2022-11-22T18:39:55Z",
       "side": 1,
       "message": "Why not take a vector instead of individual arguments? Could also put this as a member on Vector.",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9011572_6f671e8f",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "nit: let\u0027s be consistent and explicitly mention that this is the Inverse of the OKLAB_TO_LMS_MATRIX matric, as in L328.\n\nanother nit: I think comments should end with `.` 😊",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c6a137_abb5f2f5",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "Just curious, why are these two matrices not calculated into a constant Matrix3x3 directly?",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a77300_2423fb54",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T19:39:26Z",
+      "side": 1,
+      "message": "What\u0027s the difference here with `return xyzOutput.values` directly?",
       "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
