@@ -5066,6 +5066,9 @@
   "panels/elements/elements-meta.ts | stackTrace": {
     "message": "Stack Trace"
   },
+  "panels/elements/elements-meta.ts | toggleEyeDropper": {
+    "message": "Toggle eye dropper"
+  },
   "panels/elements/elements-meta.ts | undo": {
     "message": "Undo"
   },
@@ -12441,7 +12444,7 @@
     "message": "{PH1} in {PH2}"
   },
   "ui/legacy/components/color_picker/Spectrum.ts | toggleColorPicker": {
-    "message": "Toggle color picker"
+    "message": "Eye dropper [{PH1}]"
   },
   "ui/legacy/components/cookie_table/CookiesTable.ts | cookies": {
     "message": "Cookies"
