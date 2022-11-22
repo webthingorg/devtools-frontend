@@ -51,6 +51,42 @@
       "parentUuid": "1b92e7cf_96974f78",
       "revId": "69c0754fcb8ba7a0c22cbf0e6496f4ef7bc5b085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20bf0031_5d866ed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T15:07:47Z",
+      "side": 1,
+      "message": "OK I\u0027ll do that today and tomorrow to append anything I\u0027ve learned from this CL.",
+      "parentUuid": "5ac3ddc9_d1da944c",
+      "revId": "69c0754fcb8ba7a0c22cbf0e6496f4ef7bc5b085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca993637_8fcd554c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-22T15:07:47Z",
+      "side": 1,
+      "message": "I think I figured this out. We rely heavily on the index and the property orders being consistent throughout the edits. I\u0027ll document this in the doc as well.",
+      "parentUuid": "fe4ae3a9_68f0076e",
+      "revId": "69c0754fcb8ba7a0c22cbf0e6496f4ef7bc5b085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
