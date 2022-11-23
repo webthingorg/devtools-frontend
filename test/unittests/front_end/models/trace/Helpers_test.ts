@@ -28,4 +28,49 @@ describe('TraceModel helpers', async () => {
       assert.isNull(origin);
     });
   });
+
+  describe('addEventToProcessThread', () => {
+    function makeTraceEvent(pid: TraceModel.Types.TraceEvents.ProcessID, tid: TraceModel.Types.TraceEvents.ThreadID):
+        TraceModel.Types.TraceEvents.TraceEventData {
+      return {
+        name: 'process_name',
+        tid,
+        pid,
+        ts: TraceModel.Types.Timing.MicroSeconds(0),
+        cat: 'test',
+        ph: TraceModel.Types.TraceEvents.TraceEventPhase.METADATA,
+      };
+    }
+
+    function pid(x: number): TraceModel.Types.TraceEvents.ProcessID {
+      return TraceModel.Types.TraceEvents.ProcessID(x);
+    }
+    function tid(x: number): TraceModel.Types.TraceEvents.ThreadID {
+      return TraceModel.Types.TraceEvents.ThreadID(x);
+    }
+
+    const eventMap = new Map<
+        TraceModel.Types.TraceEvents.ProcessID,
+        Map<TraceModel.Types.TraceEvents.ThreadID, TraceModel.Types.TraceEvents.TraceEventData[]>>();
+
+    beforeEach(() => {
+      eventMap.clear();
+    });
+
+    it('will create a process and thread if it does not exist yet', async () => {
+      const event = makeTraceEvent(pid(1), tid(1));
+      TraceModel.Helpers.addEventToProcessThread(event, eventMap);
+      assert.strictEqual(eventMap.get(pid(1))?.size, 1);
+      const threadEvents = eventMap.get(pid(1))?.get(tid(1));
+      assert.strictEqual(threadEvents?.length, 1);
+    });
+
+    it('adds new events to existing threads correctly', async () => {
+      const event = makeTraceEvent(pid(1), tid(1));
+      TraceModel.Helpers.addEventToProcessThread(event, eventMap);
+      const newEvent = makeTraceEvent(pid(1), tid(1));
+      TraceModel.Helpers.addEventToProcessThread(newEvent, eventMap);
+      assert.deepEqual(eventMap.get(pid(1))?.get(tid(1)), [event, newEvent]);
+    });
+  });
 });

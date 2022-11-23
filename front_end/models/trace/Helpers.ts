@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 import type * as Handlers from './handlers/handlers.js';
 import * as Common from '../../core/common/common.js';
+import type * as Types from './types/types.js';
 
 export function extractOriginFromTrace(trace: Handlers.Types.TraceParseData): string|null {
   const firstNavigation = trace.Meta.mainFrameURL;
@@ -16,4 +17,27 @@ export function extractOriginFromTrace(trace: Handlers.Types.TraceParseData): st
     return url.host;
   }
   return null;
+}
+
+export type EventsInThread<T extends Types.TraceEvents.TraceEventData> = Map<Types.TraceEvents.ThreadID, T[]>;
+// Each thread contains events. Events indicate the thread and process IDs, which are
+// used to store the event in the correct process thread entry below.
+export function addEventToProcessThread<T extends Types.TraceEvents.TraceEventData>(
+    event: T,
+    eventsInProcessThread: Map<Types.TraceEvents.ProcessID, EventsInThread<T>>,
+    ): void {
+  const {tid, pid} = event;
+  let eventsInThread = eventsInProcessThread.get(pid);
+  if (!eventsInThread) {
+    eventsInThread = new Map<Types.TraceEvents.ThreadID, T[]>();
+  }
+
+  let events = eventsInThread.get(tid);
+  if (!events) {
+    events = [];
+  }
+
+  events.push(event);
+  eventsInThread.set(event.tid, events);
+  eventsInProcessThread.set(event.pid, eventsInThread);
 }
