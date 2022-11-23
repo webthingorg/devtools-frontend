@@ -269,6 +269,8 @@ export interface SettingRegistration {
    * property and in that case the behaviour of the setting's availability will be inverted.
    */
   condition?: Root.Runtime.ConditionName;
+
+  deprecation?: {disabled: boolean, warning: () => Platform.UIString.LocalizedString, experiment?: string};
 }
 interface LocalizedSettingExtensionOption {
   value: boolean|string;
