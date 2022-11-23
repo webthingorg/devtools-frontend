@@ -305,6 +305,22 @@ function removeSetting(setting: Setting<unknown>): void {
   setting.storage.remove(name);
 }
 
+export class Deprecation {
+  readonly disabled: boolean;
+  readonly warning: Platform.UIString.LocalizedString;
+  readonly experiment?: Root.Runtime.Experiment;
+
+  constructor({deprecation}: SettingRegistration) {
+    if (!deprecation) {
+      throw new Error('Cannot create deprecation info for a non-deprecated setting');
+    }
+    this.disabled = deprecation.disabled;
+    this.warning = deprecation.warning();
+    this.experiment =
+        Root.Runtime.experiments.allConfigurableExperiments().find(e => e.name === deprecation.experiment);
+  }
+}
+
 export class Setting<V> {
   #titleFunction?: () => Platform.UIString.LocalizedString;
   #titleInternal!: string;
@@ -315,6 +331,7 @@ export class Setting<V> {
   #serializer: Serializer<unknown, V> = JSON;
   #hadUserAction?: boolean;
   #disabled?: boolean;
+  #deprecation: Deprecation|null = null;
 
   constructor(
       readonly name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
@@ -425,6 +442,15 @@ export class Setting<V> {
 
   setRegistration(registration: SettingRegistration): void {
     this.#registration = registration;
+    const {deprecation} = registration;
+    if (deprecation?.disabled) {
+      const experiment =
+          Root.Runtime.experiments.allConfigurableExperiments().find(e => e.name === deprecation.experiment);
+      if ((!experiment || experiment.isEnabled())) {
+        this.set(this.defaultValue);
+        this.setDisabled(true);
+      }
+    }
   }
 
   type(): SettingType|null {
@@ -476,6 +502,16 @@ export class Setting<V> {
       return this.#registration.order || null;
     }
     return null;
+  }
+
+  get deprecation(): null|Deprecation {
+    if (!this.#registration || !this.#registration.deprecation) {
+      return null;
+    }
+    if (!this.#deprecation) {
+      this.#deprecation = new Deprecation(this.#registration);
+    }
+    return this.#deprecation;
   }
 
   private printSettingsSavingError(message: string, name: string, value: string): void {
