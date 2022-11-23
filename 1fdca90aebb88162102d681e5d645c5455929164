@@ -33,6 +33,23 @@
       "message": "This is the CL that removed the static formatStyle(): https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3395675",
       "revId": "1fdca90aebb88162102d681e5d645c5455929164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa0313d_ca2ac773",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-23T18:38:28Z",
+      "side": 1,
+      "message": "And this CL introduced it back: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3551896",
+      "revId": "1fdca90aebb88162102d681e5d645c5455929164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
