@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28fd8ad_685c9a7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-23T06:37:14Z",
+      "side": 1,
+      "message": "Thanks a lot for the patch, this is looking very good!\n\nCould you please file a feature request for this on [crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?template\u003dDevTools+issue), and link to that issue via `Bug: chromium:XXXXXXX` line?\n\nAlso it seems that this isn\u0027t just about pretty printing, but we\u0027d also benefit from syntax highlighting for the embedded JSON, which should be done as a separate CL, but tracked via the same issue.",
+      "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8deddba9_a5162a63",
+        "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-23T06:37:14Z",
+      "side": 1,
+      "message": "I think it\u0027d be worth adding `application/manifest+json` here for completeness.",
+      "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
