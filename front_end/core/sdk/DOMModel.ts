@@ -348,13 +348,13 @@ export class DOMNode {
     return this.#pseudoElements.get(DOMNode.PseudoElementNames.Backdrop)?.at(-1);
   }
 
-  pageTransitionPseudoElements(): DOMNode[] {
+  viewTransitionPseudoElements(): DOMNode[] {
     return [
-      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.PageTransition) || [],
-      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.PageTransitionContainer) || [],
-      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.PageTransitionImageWrapper) || [],
-      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.PageTransitionOutgoingImage) || [],
-      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.PageTransitionIncomingImage) || [],
+      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.ViewTransition) || [],
+      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.ViewTransitionGroup) || [],
+      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.ViewTransitionImagePair) || [],
+      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.ViewTransitionOld) || [],
+      ...this.#pseudoElements.get(DOMNode.PseudoElementNames.ViewTransitionNew) || [],
     ];
   }
 
@@ -981,11 +981,11 @@ export namespace DOMNode {
     Before = 'before',
     After = 'after',
     Marker = 'marker',
-    PageTransition = 'page-transition',
-    PageTransitionContainer = 'page-transition-container',
-    PageTransitionImageWrapper = 'page-transition-image-wrapper',
-    PageTransitionOutgoingImage = 'page-transition-outgoing-image',
-    PageTransitionIncomingImage = 'page-transition-incoming-image',
+    ViewTransition = 'view-transition',
+    ViewTransitionGroup = 'view-transition-group',
+    ViewTransitionImagePair = 'view-transition-image-pair',
+    ViewTransitionOld = 'view-transition-old',
+    ViewTransitionNew = 'view-transition-new',
     Backdrop = 'backdrop',
   }
 
@@ -1404,8 +1404,8 @@ export class DOMModel extends SDKModel<EventTypes> {
     const currentPseudoElements = parent.pseudoElements().get(pseudoType);
     if (currentPseudoElements) {
       Platform.DCHECK(
-          () => pseudoType.startsWith('page-transition'),
-          'DOMModel.pseudoElementAdded expects parent to not already have this pseudo type added; only page-transition* pseudo elements can coexist under the same parent.');
+          () => pseudoType.startsWith('view-transition'),
+          'DOMModel.pseudoElementAdded expects parent to not already have this pseudo type added; only view-transition* pseudo elements can coexist under the same parent.');
       currentPseudoElements.push(node);
     } else {
       parent.pseudoElements().set(pseudoType, [node]);
