@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c3bbb8_df09fdf1",
+        "filename": "node_modules/@types/semver/classes/comparator.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-23T17:51:50Z",
+      "side": 1,
+      "message": "This seems to be adding a new package, what\u0027s the process here? does this need security or 3p review?\n\n(also why are all these +x?)",
+      "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
