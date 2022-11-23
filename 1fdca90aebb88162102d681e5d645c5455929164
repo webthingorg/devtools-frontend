@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b9ca053_3953daed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-23T18:34:55Z",
+      "side": 1,
+      "message": "I know that this is used (maybe among other usages) as a style formatter to try to make a property valid, e.g. if it misses a semicolon or multiple properties are on the same line, etc. I remember Tim once tried to remove this altogether because honestly we don\u0027t need this; the backend, when receiving the styles from the frontend, will parse everything nicely for us.\n\nHowever, I remember that got sort-of reverted by Microsoft folks for reasons I don\u0027t remember. Let me see if I could dig that up. Meanwhile this CL is good to go.",
+      "revId": "1fdca90aebb88162102d681e5d645c5455929164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
