@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b6009f_8fe890f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-23T13:08:15Z",
+      "side": 1,
+      "message": "AFAIU with this change we can have the same `index` assigned to different properties. I was thinking this might cause issues but couldn\u0027t find a way to make it error. The reason it currently works for edit is, even though we\u0027re saying the `index` for longhand properties is not at the end, they are placed at the end of the `allPropertiesInternal` array.\n\nCan we continue putting these properties at the end of the array and mark their indexes correctly in the `allPropertiesInternal` array for consistency? (AFAIU it is what we were doing previously -- adding longhand properties to the end of the array with correct index.)\n\nThere might be other errors related to having non-unique index too.\n\n(I didn\u0027t take a look at the failing tests, do you have an idea why do they fail?)",
+      "revId": "3bdcda5a1822a6f1496562d0bde1f9dcd9434000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
