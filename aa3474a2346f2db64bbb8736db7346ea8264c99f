@@ -16,6 +16,144 @@
       "message": "PTAnotherL",
       "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4467ad1_cc077a1f",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "Please note that the full test name would be \"StorageView clearByOrigin clears cache storage\".\n\nI\u0027d suggest to rephrase this as \"clears cache storage on clearByOrigin\" similar to the test above.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 58
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f914ce96_29dd71e8",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "let caches \u003d [{cacheId: \u0027id1\u0027,...}, ...];\n    sinon.stub(target.cacheStorageAgent(), \u0027invoke_requestCacheNames\u0027)\n        .resolves({caches})\n    ...\n    caches \u003d [];",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f31e3cd9_d45aec3f",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "const cacheAddedPromise \u003d cacheStorageModel.once(\n        SDK.ServiceWorkerCacheModel.Events.CacheAdded)",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 62
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20ea737_97ee111a",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "I don\u0027t think I understand what this test is checking.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 85
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6aaccbe_d8f27b89",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "const databaseRemoved \u003d \n        databaseModel.once(Resources.DatabaseModel.Events.DatabasesRemoved);",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 54
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a86728_3264edac",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T10:56:38Z",
+      "side": 1,
+      "message": "Let\u0027s stub storageAgent for consistency with the other tests.\nAs an additional benefit, this let\u0027s you assert on which target the CDP method is called.",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 38
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
