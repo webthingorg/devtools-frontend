@@ -33,6 +33,24 @@
       "message": "This seems to be adding a new package, what\u0027s the process here? does this need security or 3p review?\n\n(also why are all these +x?)",
       "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65daacb8_ff412b03",
+        "filename": "node_modules/@types/semver/classes/comparator.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-24T08:26:37Z",
+      "side": 1,
+      "message": "I don\u0027t believe there\u0027s any need for review because these are all @types packages, and all .d.ts files, and therefore not shipped to users nor do they contain executable runtime code.\n\nRE the +x, I don\u0027t know :/ We could manually make them not executable. I don\u0027t see any reason for them to be.",
+      "parentUuid": "f6c3bbb8_df09fdf1",
+      "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
