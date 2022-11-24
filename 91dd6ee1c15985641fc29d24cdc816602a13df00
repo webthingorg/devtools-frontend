@@ -16,6 +16,24 @@
       "message": "In the last 20 commits we have seen increased flakiness of console e2e tests on the DevTools waterfall. This CL stands out as it changes a console-helper. Almothana, kindly take a look :)",
       "revId": "91dd6ee1c15985641fc29d24cdc816602a13df00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc94897_b027565d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-11-24T09:58:40Z",
+      "side": 1,
+      "message": "It seems changing the console messages selector was riskier than I thought, changing it back here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4055602.",
+      "parentUuid": "b5eec7f6_ad82b1ad",
+      "revId": "91dd6ee1c15985641fc29d24cdc816602a13df00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
