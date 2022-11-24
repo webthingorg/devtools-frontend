@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b9aa82_acb61af9",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "Done! I\u0027ve renamed it to `multiply` :)",
+      "parentUuid": "9a0443ed_0134b02a",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4261fede_8f18806a",
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae1db838_e217b0ca",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "No reason, removed it :)",
+      "parentUuid": "4261fede_8f18806a",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee273bf5_509d1fff",
@@ -99,6 +135,24 @@
       "writtenOn": "2022-11-22T18:39:55Z",
       "side": 1,
       "message": "Why not take a vector instead of individual arguments? Could also put this as a member on Vector.",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e288cd_96c56dd6",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "In some parts I didn\u0027t want to leave much gap between the gfx implementation and us. I think it is good for now, we can update the public API of the module depending on our use case :)",
+      "parentUuid": "ee273bf5_509d1fff",
       "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +176,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f99b6114_25c9e0f7",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "Updated the comment :)\n\nFor the other nit, I feel like if a comment is a full sentence, then it makes sense to end it with a dot but it is not directly a sentence, we can leave without dot, wdyt?",
+      "parentUuid": "a9011572_6f671e8f",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13c6a137_abb5f2f5",
         "filename": "front_end/core/common/ColorConverter.ts",
         "patchSetId": 1
@@ -133,6 +205,24 @@
       "writtenOn": "2022-11-22T19:39:26Z",
       "side": 1,
       "message": "Just curious, why are these two matrices not calculated into a constant Matrix3x3 directly?",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2cc7bfd_907a6f72",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "I\u0027ve wanted to keep the meaning of some matrices directly from the color_conversion.cc code but then decided not to. So I\u0027ve inlined all the constant matrices :)",
+      "parentUuid": "13c6a137_abb5f2f5",
       "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +244,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b832fd_b53726d3",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure where the exact number comes from but it might be that it is used this way to convey the information from the mathematical formula exists somewhere. So, I\u0027d prefer to leave it as it is :)",
+      "parentUuid": "8cc11790_235dd8fe",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81a77300_2423fb54",
@@ -167,6 +275,24 @@
       "writtenOn": "2022-11-22T19:39:26Z",
       "side": 1,
       "message": "What\u0027s the difference here with `return xyzOutput.values` directly?",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72df491_eddf7bc8",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T12:17:20Z",
+      "side": 1,
+      "message": "There is none, so I\u0027ve updated it :)",
+      "parentUuid": "81a77300_2423fb54",
       "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
