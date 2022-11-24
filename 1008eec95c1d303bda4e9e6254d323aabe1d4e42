@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d74dde63_3fa6cd7b",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "When could this be false?",
+      "range": {
+        "startLine": 185,
+        "startChar": 30,
+        "endLine": 185,
+        "endChar": 44
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085f03e8_a29f64c7",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "await entries \u003d this.#sharedStorage.getEntries();\n    if (entries) {\n      this.#showSharedStorageItems(entries));\n    }",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 109
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40ee3745_8167b633",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "Can we do it in parallel?\n\n    await Promise.all(this.#dataGrid.rootNode().children\n        .filter(node \u003d\u003e node.data.key)\n        .map(node \u003d\u003e this.#sharedStorage.deleteEntry(node.data.key)));",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 61
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e816ad_e19461ba",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "When does this not hold?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "073d2c56_5f60f554",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "const [selectedKey] \u003d rootNode.children\n        .filter(node \u003d\u003e node.selected).map(node \u003d\u003e node.data.key);",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92c88d1_943baa69",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "`entry?.data?.key`",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 54
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6c7f57_68482784",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "When can this not hold?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 44
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b932bfd6_e33050e4",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "Why don\u0027t we specify `Protocol.Storage.SharedStorageEntry` as a generic parameter instead of unknown?",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 81
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ddf16de_9428e90d",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T08:38:31Z",
+      "side": 1,
+      "message": "We could just make these fields public and  readonly",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 46
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
