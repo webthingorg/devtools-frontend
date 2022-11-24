@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "285322cd_76fbaf9a",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-24T12:36:18Z",
+      "side": 1,
+      "message": "Cleared with Ergün offline that this should be ok.",
+      "parentUuid": "20858393_179dbf54",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0443ed_0134b02a",
