@@ -63,3 +63,8 @@ convertCtcToLhLAndSave(outputDirectory, 'en-US', collectedStrings);
 if (yargsObject['include-en-xl']) {
   convertCtcToLhLAndSave(outputDirectory, 'en-XL', createPsuedoLocaleStrings(collectedStrings));
 }
+
+// Write an empty depfile, this causes Ninja to always execte this action and
+// check if it needs to re-run anything else. When en-US.json changes as a result,
+// we'll properly re-bundle DevTools.
+writeIfChanged(path.join(outputDirectory, 'collected-ui-strings.d'), '');
