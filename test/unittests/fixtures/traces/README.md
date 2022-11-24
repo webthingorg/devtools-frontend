@@ -76,4 +76,12 @@ This is a trace that includes multiple navigations:
 * Navigates to Google Images search (google.com/imghp)
 * Search for "dogs" (https://www.google.com/search?q=dogs&...)
 
+### lcp-web-font
+
+Generated from https://github.com/ChromeDevTools/performance-stories/tree/main/lcp-web-font
+
+### lcp-images
+
+Generated from https://github.com/ChromeDevTools/performance-stories/tree/main/lcp-large-image
+
 
