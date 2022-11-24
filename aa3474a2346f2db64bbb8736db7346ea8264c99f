@@ -208,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4497a6d_ad315cb1",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-24T13:35:09Z",
+      "side": 1,
+      "message": "As discussed, let\u0027s make it \"clears e.g. WebSQL StorageView\\\u0027s on clear site data\"",
+      "parentUuid": "14f35749_26ee3a75",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 85
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6aaccbe_d8f27b89",
         "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
         "patchSetId": 2
