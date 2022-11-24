@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9587f434_89d5c7e1",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4467ad1_cc077a1f",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 58
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f914ce96_29dd71e8",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c114844d_e7d3830a",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f914ce96_29dd71e8",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f31e3cd9_d45aec3f",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-11-24T10:56:38Z",
       "side": 1,
       "message": "const cacheAddedPromise \u003d cacheStorageModel.once(\n        SDK.ServiceWorkerCacheModel.Events.CacheAdded)",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 62
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eabb97c_b7816658",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f31e3cd9_d45aec3f",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14f35749_26ee3a75",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Since I changed the way we acquire target in `handleClear` (which is private), this way we can call it. And to check that clearing works I just picked one of the domains that can be cleared there and that does not refetch the target later on.",
+      "parentUuid": "b20ea737_97ee111a",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 85
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6aaccbe_d8f27b89",
         "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
         "patchSetId": 2
@@ -123,6 +219,30 @@
       "writtenOn": "2022-11-24T10:56:38Z",
       "side": 1,
       "message": "const databaseRemoved \u003d \n        databaseModel.once(Resources.DatabaseModel.Events.DatabasesRemoved);",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 54
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d0c923_c1104b62",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6aaccbe_d8f27b89",
       "range": {
         "startLine": 142,
         "startChar": 0,
@@ -146,6 +266,30 @@
       "writtenOn": "2022-11-24T10:56:38Z",
       "side": 1,
       "message": "Let\u0027s stub storageAgent for consistency with the other tests.\nAs an additional benefit, this let\u0027s you assert on which target the CDP method is called.",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 38
+      },
+      "revId": "aa3474a2346f2db64bbb8736db7346ea8264c99f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fba50cc_d3f1558d",
+        "filename": "test/unittests/front_end/panels/application/StorageView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-11-24T13:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01a86728_3264edac",
       "range": {
         "startLine": 150,
         "startChar": 6,
