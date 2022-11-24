@@ -210,6 +210,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f355af_bf55488c",
+        "filename": "front_end/core/common/ColorConverter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-24T12:39:02Z",
+      "side": 1,
+      "message": "I took a brief look at a few files in our codebase. Seems like for full sentences, we definitely end with `.`. For short phrases, it\u0027s mixed.. so I wouldn\u0027t mind here without a `.` now.",
+      "parentUuid": "f99b6114_25c9e0f7",
+      "revId": "a6f2caea3b707051b24a62f438295c4d0431ddb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13c6a137_abb5f2f5",
