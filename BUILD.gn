@@ -13,6 +13,7 @@ import("./third_party/blink/public/public_features.gni")
 
 devtools_frontend_resources_deps = [
   "front_end",
+  "front_end/core/i18n/locales:i18n_bundled_locales",
   "test",
 ]
 
@@ -104,7 +105,10 @@ generated_file("input_grd_files") {
   output_conversion = "json"
   rebase = target_gen_dir
 
-  deps = [ "front_end" ]
+  deps = [
+    "front_end",
+    "front_end/core/i18n/locales:i18n_bundled_locales",
+  ]
 }
 
 _compressable_grd_files = filter_include(_expected_grd_files,
