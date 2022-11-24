@@ -50,6 +50,24 @@
       "message": "And this CL introduced it back: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3551896",
       "revId": "1fdca90aebb88162102d681e5d645c5455929164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95c6ddaf_113ffed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-24T10:51:49Z",
+      "side": 1,
+      "message": "Oh, thanks a lot for sharing context! This would help if we decide on removing this logic or simplifying it :)",
+      "parentUuid": "2b9ca053_3953daed",
+      "revId": "1fdca90aebb88162102d681e5d645c5455929164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
