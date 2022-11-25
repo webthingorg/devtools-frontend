@@ -16,6 +16,193 @@
       "message": "I\u0027ll continue the review but wanted to write about this first :)\n\nIt seems like the command palate with deprecated badge looks weird without a padding, can we do something there?\n\nSee the screenshot: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d578490\u0026signed_aid\u003dlmdV8MOr2aqoOdeqCrp6SA\u003d\u003d\u0026inline\u003d1",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bc768c6_284d11f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Tests look very good and I loved this idea of defining deprecation at only one place.\n\nI think it might be a bit confusing to trace the cases i.e. what happens when the deprecation is given as `disabled: false` but there is an experiment etc. So, it would be good to have an extensive documentation there explaining the behavior:\n\n* What will change for the setting value and its appearance on settings\n* How does it relate to experiment etc.\n\nIn addition to that, AFAIU from the history, Simon made a lot of changes to settings before maybe it makes sense to ask for a review from him as well. WDYT? :)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58ec5a7_e2507691",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Can we add a comment displaying what this is, like the above comments and what the parameters mean and how they affect setting?\n\n(nit): I didn\u0027t understand what does the name \"deprecation\" means here. Can it be `deprecationNotice` etc. Though don\u0027t have a better suggestion either 😂",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22233a4c_11c24b1c",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "(nit): Can we make this clearer by first checking if `deprecation.experiment` exists and then looking inside the all configurable experiments.\n\nIt\u0027s highly unlikely but I wonder if an experiment\u0027s name is `undefined`, it can match to that experiment 😅",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c09d10_3507660c",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "(super nit): Can we do this as `Deprecation|null` to follow the (maybe unspoken) convention of putting the none value type to the end? 😅",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8313faee_5e5f6f6b",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Why should we remove this? Can we add a more descriptive comment, something like:\n\"Remove this when XXX happens\" or \"We\u0027ll remove this setting because it\u0027s already deprecated\"",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f0461f_02781613",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Question: what will be the behavior when it is deprecated but not disabled? will we show the deprecated badge/icon but still continue to use it?\n\n(I think that makes sense but it would be cool to document this in `deprecation` field in the definition of `SettingRegistration`)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c800904_a457bc3d",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "AFAIU we don\u0027t use `SettingsTab` never directly (never create an instance of `SettingsClass` but we extend it).\n\n\nSo, I think it would be better to define that class as abstract and define this function as abstract too. That way:\n\n* We won\u0027t have an empty highlightObject definition on this class in the compiled code\n* All the implementors of the `SettingsTab` will consider what to do with their `highlightObject` behavior.\n\nWDYT?",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d36973e_8950a70c",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "I wonder if this can cause a memory leak on the `DOM`: HTMLElements being removed from the DOM but they are retained because they have a reference in here.\n\nIt might be fine since number of settings is constant, we might be okay with retaining this much memory all the time. WDYT?\n\n(I\u0027ve missed this in the previous review... 😅)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f185d7_bc36ea28",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "(nit): \u0027experiment\u0027 param should be \u0027setting\u0027 I think :)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81dd7b38_455ff45e",
+        "filename": "front_end/ui/components/settings/SettingDeprecationWarning.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Usually we use `devtools` prefix for these tag names, can you update here for that as well? :)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f42dfa_50974ef7",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T14:34:50Z",
+      "side": 1,
+      "message": "Can we rename this to `deprecationMessage` or `deprecationWarning` to be more clear? I\u0027ve confused this with the other `deprecation` definition for the Setting :)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
