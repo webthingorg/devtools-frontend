@@ -106,7 +106,6 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private readonly lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>;
   private prettyInternal: boolean;
   private rawContent: string|CodeMirror.Text|null;
-  private formattedContentPromise: Promise<Formatter.ScriptFormatter.FormattedContent>|null;
   private formattedMap: Formatter.ScriptFormatter.FormatterSourceMapping|null;
   private readonly prettyToggle: UI.Toolbar.ToolbarToggle;
   private shouldAutoPrettyPrint: boolean;
@@ -190,6 +189,23 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
 
     this.wasmDisassemblyInternal = null;
     this.contentSet = false;
+
+    Common.Settings.Settings.instance()
+        .moduleSetting('textEditorIndent')
+        .addChangeListener(this.#textEditorIndentChanged, this);
+  }
+
+  disposeView(): void {
+    Common.Settings.Settings.instance()
+        .moduleSetting('textEditorIndent')
+        .removeChangeListener(this.#textEditorIndentChanged, this);
+  }
+
+  async #textEditorIndentChanged(): Promise<void> {
+    if (this.prettyInternal) {
+      await this.setPretty(false);
+      await this.setPretty(true);
+    }
   }
 
   private placeholderEditorState(content: string): CodeMirror.EditorState {
@@ -310,7 +326,9 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     const startPos = textEditor.toLineColumn(selection.from), endPos = textEditor.toLineColumn(selection.to);
     let newSelection;
     if (this.prettyInternal) {
-      const formatInfo = await this.requestFormattedContent();
+      const content =
+          this.rawContent instanceof CodeMirror.Text ? this.rawContent.sliceString(0) : this.rawContent || '';
+      const formatInfo = await Formatter.ScriptFormatter.formatScriptContent(this.contentType, content);
       this.formattedMap = formatInfo.formattedMapping;
       await this.setContent(formatInfo.formattedContent);
       this.prettyBaseDoc = textEditor.state.doc;
@@ -529,15 +547,6 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
       }
       this.contentSet = true;
     }
-  }
-
-  private requestFormattedContent(): Promise<Formatter.ScriptFormatter.FormattedContent> {
-    if (this.formattedContentPromise) {
-      return this.formattedContentPromise;
-    }
-    const content = this.rawContent instanceof CodeMirror.Text ? this.rawContent.sliceString(0) : this.rawContent || '';
-    this.formattedContentPromise = Formatter.ScriptFormatter.formatScriptContent(this.contentType, content);
-    return this.formattedContentPromise;
   }
 
   revealPosition(position: {lineNumber: number, columnNumber?: number}|number, shouldHighlight?: boolean): void {
