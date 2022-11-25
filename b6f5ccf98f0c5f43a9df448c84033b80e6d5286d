@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b84149d_f70962fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-11-25T10:13:43Z",
+      "side": 1,
+      "message": "@wolfi@chromium.org could you please review this?",
+      "revId": "b6f5ccf98f0c5f43a9df448c84033b80e6d5286d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbd23d8_ba3a51be",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-11-25T10:13:43Z",
+      "side": 1,
+      "message": "For some reason the backticks are not removed in the UI. It used to work but I recently changed something and it stopped working.",
+      "revId": "b6f5ccf98f0c5f43a9df448c84033b80e6d5286d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99860a75_1f432da9",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2420,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-11-25T10:13:43Z",
+      "side": 1,
+      "message": "Actually, it\u0027s even a bit more complicated because if you pass non-ASCII data to Requests it will encode it in Latin-1 and if it\u0027s outside Latin-1 (\u003e0xFF) then it will raise a UnicodeEncodeError. You can try it yourself by starting a server with `nc -l 8888` then:\n\n```py\nimport requests\nrequests.get(\u0027http://localhost:8888\u0027, data\u003d\u0027ÿ\u0027)  # 0xFF  -\u003e sent as Latin-1\nrequests.get(\u0027http://localhost:8888\u0027, data\u003d\u0027Ā\u0027)  # 0x101 -\u003e UnicodeEncodeError\n```\n\nIf I\u0027m not mistaken this means there\u0027s an encoding mismatch for 0x80-0xFF, which I think is fine but it\u0027s easy to fix if you disagree. Is it possible to get non- Latin-1 data from requestBody? generateCurlCommand()\u0027s escapeStringPosix() only deals with 0x00-0x9F so we should fix this there too if it\u0027s a problem.",
+      "revId": "b6f5ccf98f0c5f43a9df448c84033b80e6d5286d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbf3a02f_0d4b0551",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2562,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-11-25T10:13:43Z",
+      "side": 1,
+      "message": "Requests uppercases the method name when it\u0027s passed in as a string, but doing a case insensitive check here at least gives users the opportunity to notice that their original request capitalized the HTTP method incorrectly.",
+      "revId": "b6f5ccf98f0c5f43a9df448c84033b80e6d5286d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
