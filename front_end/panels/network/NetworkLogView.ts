@@ -263,6 +263,12 @@ const UIStrings = {
   */
   copyAsNodejsFetch: 'Copy as `Node.js` `fetch`',
   /**
+  * @description Text in Network Log View of the Network panel. An action that copies a command to
+  * the developer's clipboard. Python refers to the programming language the copied command will be
+  * in and is not translateable.
+  */
+  copyAsPython: 'Copy as `Python`',
+  /**
   *@description Text in Network Log View of the Network panel. An action that copies a command to
   *the clipboard. It will copy the command in the format compatible with cURL (a program, not
   *translatable).
@@ -290,6 +296,12 @@ const UIStrings = {
   *(fetch and Node.js should not be translated).
   */
   copyAllAsNodejsFetch: 'Copy all as `Node.js` `fetch`',
+  /**
+  * @description Text in Network Log View of the Network panel. An action that copies a command to
+  * the developer's clipboard. Python refers to the programming language the copied command will be
+  * in and is not translateable.
+  */
+  copyAllAsPython: 'Copy all as `Python`',
   /**
   *@description Text in Network Log View of the Network panel. An action that copies a command to
   *the clipboard. It will copy the command in the format compatible with cURL (a program, not
@@ -1560,6 +1572,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             i18nString(UIStrings.copyAsNodejsFetch), this.copyFetchCall.bind(this, request, FetchStyle.NodeJs),
             disableIfBlob);
         footerSection.appendItem(
+            i18nString(UIStrings.copyAsPython), this.copyPythonRequestsScript.bind(this, request), disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlCmd), this.copyCurlCommand.bind(this, request, 'win'), disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlBash), this.copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
@@ -1568,6 +1582,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             i18nString(UIStrings.copyAllAsFetch), this.copyAllFetchCall.bind(this, FetchStyle.Browser));
         footerSection.appendItem(
             i18nString(UIStrings.copyAllAsNodejsFetch), this.copyAllFetchCall.bind(this, FetchStyle.NodeJs));
+        footerSection.appendItem(i18nString(UIStrings.copyAllAsPython), this.copyAllPythonRequestsScript.bind(this));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlCmd), this.copyAllCurlCommand.bind(this, 'win'));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlBash), this.copyAllCurlCommand.bind(this, 'unix'));
       } else {
@@ -1580,12 +1595,15 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             i18nString(UIStrings.copyAsNodejsFetch), this.copyFetchCall.bind(this, request, FetchStyle.NodeJs),
             disableIfBlob);
         footerSection.appendItem(
+            i18nString(UIStrings.copyAsPython), this.copyPythonRequestsScript.bind(this, request), disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsCurl), this.copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
         footerSection.appendItem(i18nString(UIStrings.copyAllAsPowershell), this.copyAllPowerShellCommand.bind(this));
         footerSection.appendItem(
             i18nString(UIStrings.copyAllAsFetch), this.copyAllFetchCall.bind(this, FetchStyle.Browser));
         footerSection.appendItem(
             i18nString(UIStrings.copyAllAsNodejsFetch), this.copyAllFetchCall.bind(this, FetchStyle.NodeJs));
+        footerSection.appendItem(i18nString(UIStrings.copyAllAsPython), this.copyAllPythonRequestsScript.bind(this));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurl), this.copyAllCurlCommand.bind(this, 'unix'));
       }
     } else {
@@ -1680,6 +1698,16 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
   private async copyAllFetchCall(style: FetchStyle): Promise<void> {
     const commands = await this.generateAllFetchCall(Logs.NetworkLog.NetworkLog.instance().requests(), style);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
+  }
+
+  private async copyPythonRequestsScript(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
+    const command = await this.generatePythonRequestsScript(request);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(command);
+  }
+
+  private async copyAllPythonRequestsScript(): Promise<void> {
+    const commands = await this.generateAllPythonRequestsScript(Logs.NetworkLog.NetworkLog.instance().requests());
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -2314,6 +2342,343 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     const nonBlobRequests = this.filterOutBlobRequests(requests);
     const commands = await Promise.all(nonBlobRequests.map(request => this.generatePowerShellCommand(request)));
     return commands.join(';\r\n');
+  }
+
+  private async generatePythonRequestsCall(request: SDK.NetworkRequest.NetworkRequest): Promise<string> {
+    const ignoredHeaders = new Set<string>([
+      // Internal headers
+      'method',
+      'path',
+      'scheme',
+      'version',
+
+      'host',
+      'authority',
+      'content-length',
+    ]);
+    const commentedOutHeaders = new Set<string>([
+      'accept-encoding',  // Requests doesn't support Brotli by default
+      // Requests doesn't support TE: trailers
+      // https://github.com/psf/requests/issues/2281
+      'te',
+      'trailer',
+    ]);
+
+    // https://github.com/psf/requests/blob/1466ad713cf84738cd28f1224a7ab4a19e50e361/requests/__init__.py#L121
+    const requestsMethods = new Set<string>([
+      'GET',
+      'HEAD',
+      'POST',
+      'PATCH',
+      'PUT',
+      'DELETE',
+      'OPTIONS',
+    ]);
+
+    // https://peps.python.org/pep-3138/
+    // https://www.unicode.org/reports/tr44/#GC_Values_Table
+    // https://unicode.org/Public/UNIDATA/UnicodeData.txt
+    // https://en.wikipedia.org/wiki/Plane_(Unicode)#Overview
+    // https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
+    const regexSingleEscape = /'|\\|\p{C}|\p{Z}'/gu;
+    const regexDoubleEscape = /"|\\|\p{C}|\p{Z}'/gu;
+    function escapeString(str: string): string {
+      let quote = '\'';
+      if (str.includes('\'') && !str.includes('"')) {
+        quote = '"';
+      }
+      const regex = quote === '\'' ? regexSingleEscape : regexDoubleEscape;
+
+      return (quote + str.replace(regex, (c: string): string => {
+        switch (c) {
+          case ' ':
+            return ' ';
+          case '\x07':
+            return '\\a';
+          case '\b':
+            return '\\b';
+          case '\f':
+            return '\\f';
+          case '\n':
+            return '\\n';
+          case '\r':
+            return '\\r';
+          case '\t':
+            return '\\t';
+          case '\v':
+            return '\\v';
+          case '\\':
+            return '\\\\';
+          case '\'':
+          case '"':
+            return '\\' + c;
+        }
+        const hex = (c.codePointAt(0) as number).toString(16);
+        if (hex.length <= 2) {
+          return '\\x' + hex.padStart(2, '0');
+        }
+        // Note: sending a string with an unmatched surrogate will raise a UnicodeEncodeError
+        if (hex.length <= 4) {
+          return '\\u' + hex.padStart(4, '0');
+        }
+        return '\\U' + hex.padStart(8, '0');
+      }) + quote);
+    }
+
+    function objToPython(
+        obj: object|string|number|boolean|Array<object|string|number|boolean>, indent: number = 0): string {
+      let s = '';
+      switch (typeof obj) {
+        case 'string':
+          s += escapeString(obj);
+          break;
+        case 'number':
+          // If the input JSON contains a large number, JSON.parse with return Infinity
+          if (!isFinite(obj)) {
+            throw new Error('unexpected Infinity in JSON');
+          }
+          // Otherwise, Python's syntax for numbers is the same as JavaScript's for our purposes
+          // https://tc39.es/ecma262/#sec-numeric-types-number-tostring
+          // https://docs.python.org/3/reference/lexical_analysis.html#numeric-literals
+          s += obj;
+          break;
+        case 'boolean':
+          s += obj ? 'True' : 'False';
+          break;
+        case 'object':
+          if (obj === null) {
+            s += 'None';
+          } else if (Array.isArray(obj)) {
+            if (obj.length === 0) {
+              s += '[]';
+            } else {
+              s += '[\n';
+              for (const item of obj) {
+                s += ' '.repeat(indent + 4) + objToPython(item, indent + 4) + ',\n';
+              }
+              s += ' '.repeat(indent) + ']';
+            }
+          } else {
+            const len = Object.keys(obj).length;
+            if (len === 0) {
+              s += '{}';
+            } else {
+              s += '{\n';
+              for (const [k, v] of Object.entries(obj)) {
+                // JSON object keys must be strings.
+                s += ' '.repeat(indent + 4) + escapeString(k) + ': ' + objToPython(v, indent + 4) + ',\n';
+              }
+              s += ' '.repeat(indent) + '}';
+            }
+          }
+          break;
+        default:
+          throw new Error('unexpected object type: ' + typeof obj);
+      }
+      return s;
+    }
+
+    function entriesToPython(obj: [string, string][], unique?: boolean): string {
+      if (unique === undefined) {
+        const uniqueKeys = new Set(obj.map(p => p[0]));
+        unique = obj.length === uniqueKeys.size;
+      }
+
+      let s = unique ? '{' : '[';
+      if (obj.length) {
+        s += '\n';
+      }
+      for (const [key, value] of obj) {
+        if (unique) {
+          s += '    ' + escapeString(key) + ': ' + escapeString(value) + ',\n';
+        } else {
+          s += '    (' + escapeString(key) + ', ' + escapeString(value) + '),\n';
+        }
+      }
+      s += unique ? '}' : ']';
+      return s;
+    }
+
+    // Python's urllib.parse.quote_plus()
+    function percentEncodeChar(c: string): string {
+      return '%' + c.charCodeAt(0).toString(16).padStart(2, '0').toUpperCase();
+    }
+    function quotePlus(s: string): string {
+      return encodeURIComponent(s).replace(/[()*!']/g, percentEncodeChar).replace(/%20/g, '+');
+    }
+
+    function parseQuery(q: string): [string, string][]|null {
+      const params: [string, string][] = [];
+
+      for (const pair of q.split('&')) {
+        const [key, value] = pair.split(/=(.*)/s, 2);
+        if (value === undefined) {
+          return null;
+        }
+        try {
+          // Requests will percent-encode data passed in as a dictionary or list of tuples
+          // with urllib.parse.quote_plus().
+          // We percent-decode the input string and verify that quote_plus()'ing the result
+          // will produce exactly the input string, otherwise the querystring can't be
+          // represented as a dictionary or list of tuples.
+          const [decodedKey, decodedValue] = [decodeURIComponent(key), decodeURIComponent(value)];
+          const [reencodedKey, reencodedValue] = [quotePlus(decodedKey), quotePlus(decodedValue)];
+          if (reencodedKey !== key || reencodedValue !== value) {
+            return null;
+          }
+          params.push([decodedKey, decodedValue]);
+        } catch {
+          return null;
+        }
+      }
+
+      return params;
+    }
+
+    function parseCookies(cookieStr: string): [string, string][]|null {
+      const cookies: [string, string][] = [];
+      for (const pair of cookieStr.split(';')) {
+        const [key, value] = pair.replace(/^ /, '').split(/=(.*)/s, 2);
+        if (value === undefined) {
+          return null;
+        }
+        cookies.push([key, value]);
+      }
+
+      // Check that cookies are representable as a dictionary
+      const uniqueCookieKeys = new Set(cookies.map(p => p[0]));
+      const cookiesAreUnique = cookies.length === uniqueCookieKeys.size;
+      return cookiesAreUnique ? cookies : null;
+    }
+
+    let fn = 'requests.';
+    const args = [];
+
+    const method = request.requestMethod;
+    if (requestsMethods.has(method)) {
+      fn += method.toLowerCase();
+    } else {
+      fn += 'request';
+      args.push(escapeString(method));
+    }
+
+    const url = request.url();
+    const urlParts = url.split('?');
+    if (urlParts.length === 2) {
+      const [urlWithoutQuery, query] = urlParts;
+      const params = parseQuery(query);
+      if (params) {
+        args.push(escapeString(urlWithoutQuery));
+        args.push('params=' + entriesToPython(params));
+      } else {
+        args.push(escapeString(url));
+      }
+    } else {
+      args.push(escapeString(url));
+    }
+
+    const requestHeaders = request.requestHeaders();
+
+    const cookieHeader = requestHeaders.find(({name}) => name.toLowerCase() === 'cookie');
+    if (cookieHeader) {
+      const cookies = parseCookies(cookieHeader.value);
+      if (cookies) {
+        args.push('cookies=' + entriesToPython(cookies, true));
+
+        // Before Python 3.11, Requests sorts cookies alphabetically when
+        // they're passed in as a dictionary so we keep the original value
+        // but comment it out.
+        // https://github.com/python/cpython/issues/86232
+        commentedOutHeaders.add('cookie');
+      }
+    }
+
+    const headerLines = [];
+    for (const header of requestHeaders) {
+      const name = header.name.replace(/^:/, '');  // Translate h2 headers to HTTP headers.
+      if (ignoredHeaders.has(name.toLowerCase())) {
+        continue;
+      }
+      const comment = commentedOutHeaders.has(name.toLowerCase()) ? '# ' : '';
+      headerLines.push('    ' + comment + escapeString(name) + ': ' + escapeString(header.value) + ',');
+    }
+    if (headerLines.length) {
+      args.push(['headers={', ...headerLines, '}'].join('\n'));
+    }
+
+    const requestBody = await request.requestFormData();
+
+    let data = requestBody ? escapeString(requestBody) : null;
+    let jsonData = '';
+    let jsonRoundtrips = false;
+    if (requestBody) {
+      const contentTypeHeader = requestHeaders.find(({name}) => name.toLowerCase() === 'content-type');
+      const contentType = contentTypeHeader ? contentTypeHeader.value.split(';')[0].trim() : void 0;
+
+      if (contentType) {
+        try {
+          if (contentType === 'application/json') {
+            const requestBodyJson = JSON.parse(requestBody);
+            // Only convert JSON to Python when it's an object or a list
+            if (typeof requestBodyJson === 'object' && requestBodyJson !== null) {
+              // We want to verify that Python will serialize the parsed JSON exactly
+              // as it was serialized in the original request. Python uses json.dumps()
+              // which adds spaces after ':' and ',' characters, so this roundtrip
+              // check only ensures that information from malformed JSON, such as JSON
+              // with duplicate keys or numbers that don't fit in JavaScript's f64,
+              // is kept.
+              jsonRoundtrips = JSON.stringify(requestBodyJson) === requestBody;
+              jsonData = objToPython(requestBodyJson);
+            }
+          } else if (contentType === 'application/x-www-form-urlencoded') {
+            const queryEntries = parseQuery(requestBody);
+            if (queryEntries) {
+              data = entriesToPython(queryEntries);
+            }
+          }
+        } catch {
+        }
+      }
+
+      if (jsonData) {
+        args.push('json=' + jsonData);
+        if (!jsonRoundtrips) {
+          args.push('# data=' + data);
+        }
+      } else {
+        args.push('data=' + data);
+      }
+    }
+
+    if (request.securityState() === Protocol.Security.SecurityState.Insecure) {
+      args.push('verify=False');
+    }
+
+    const lines = [];
+    if (['h2', 'h3'].includes(request.protocol)) {
+      const version = request.protocol.substring(1);
+      lines.push(`# Note: this was an HTTP/${version} request but Requests only supports HTTP/1.1`);
+    }
+
+    if (args.length === 1) {
+      lines.push(fn + '(' + args[0] + ')');
+    } else {
+      lines.push(fn + '(');
+      lines.push('    ' + args.join(',\n').split('\n').join('\n    '));
+      lines.push(')');
+    }
+    return lines.join('\n');
+  }
+
+  private async generatePythonRequestsScript(request: SDK.NetworkRequest.NetworkRequest): Promise<string> {
+    const command = await this.generatePythonRequestsCall(request);
+    return 'import requests\n\n' + command;
+  }
+
+  private async generateAllPythonRequestsScript(requests: SDK.NetworkRequest.NetworkRequest[]): Promise<string> {
+    const nonBlobRequests = this.filterOutBlobRequests(requests);
+    const commands = await Promise.all(nonBlobRequests.map(request => this.generatePythonRequestsCall(request)));
+    return 'import requests\n\n' + commands.join('\n\n');
   }
 
   static getDCLEventColor(): string {
