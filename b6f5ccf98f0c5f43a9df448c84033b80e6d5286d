@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a755e2d8_13d043e5",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2420,
+      "author": {
+        "id": 1490302
+      },
+      "writtenOn": "2022-11-25T10:15:59Z",
+      "side": 1,
+      "message": "minory correction: Ā is codepoint `0x100` not `0x101`",
+      "parentUuid": "99860a75_1f432da9",
+      "revId": "b6f5ccf98f0c5f43a9df448c84033b80e6d5286d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbf3a02f_0d4b0551",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 17
