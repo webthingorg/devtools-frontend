@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f1be9b_5b9db63c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T13:50:29Z",
+      "side": 1,
+      "message": "I\u0027ll continue the review but wanted to write about this first :)\n\nIt seems like the command palate with deprecated badge looks weird without a padding, can we do something there?\n\nSee the screenshot: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d578490\u0026signed_aid\u003dlmdV8MOr2aqoOdeqCrp6SA\u003d\u003d\u0026inline\u003d1",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
