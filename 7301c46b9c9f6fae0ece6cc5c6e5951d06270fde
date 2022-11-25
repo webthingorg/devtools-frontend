@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e48334_f9447af0",
+        "filename": "test/unittests/front_end/core/common/Color_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T18:20:53Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer writing different tests for each of the test cases just to make sure that what is broken is easily understandable. Though I\u0027ve decided to follow the convention with above tests. WDYT?",
+      "revId": "7301c46b9c9f6fae0ece6cc5c6e5951d06270fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9009e47_eb983847",
+        "filename": "test/unittests/front_end/core/common/Color_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T18:20:53Z",
+      "side": 1,
+      "message": "There is a thing in the spec that needs to be clarified/fixed. So, I\u0027ve decided not to write tests before that, but we can write tests for the current behavior too. WDYT?",
+      "revId": "7301c46b9c9f6fae0ece6cc5c6e5951d06270fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
