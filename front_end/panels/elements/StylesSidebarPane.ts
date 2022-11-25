@@ -1652,6 +1652,7 @@ export function quoteFamilyName(familyName: string): string {
 export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
   private readonly isColorAware: boolean;
   private readonly cssCompletions: string[];
+  private readonly aliasesFor: Map<string, string>;
   private selectedNodeComputedStyles: Map<string, string>|null;
   private parentNodeComputedStyles: Map<string, string>|null;
   private treeElement: StylePropertyTreeElement;
@@ -1678,6 +1679,7 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         this.cssCompletions.unshift(...fontFamilies);
       }
     }
+    this.aliasesFor = cssMetadata.aliasesFor();
 
     /**
      * Computed styles cache populated for flexbox features.
@@ -1811,6 +1813,27 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     const anywhereResults: Array<CompletionResult> = [];
     if (!editingVariable) {
       this.cssCompletions.forEach(completion => filterCompletions.call(this, completion, false /* variable */));
+      if (this.isEditingName) {
+        this.aliasesFor.forEach((aliasFor, alias) => {
+          const index = alias.toLowerCase().indexOf(lowerQuery);
+          if (index !== 0) {
+            return;
+          }
+          const aliasForResult: CompletionResult = {
+            text: aliasFor,
+            priority: SDK.CSSMetadata.cssMetadata().propertyUsageWeight(aliasFor),
+            subtitle: `= ${alias}`,
+            isCSSVariableColor: false,
+          };
+          const aliasResult: CompletionResult = {
+            text: alias,
+            priority: SDK.CSSMetadata.cssMetadata().propertyUsageWeight(alias),
+            isCSSVariableColor: false,
+          };
+          prefixResults.push(aliasResult);
+          prefixResults.push(aliasForResult);
+        });
+      }
     }
     const node = this.treeElement.node();
     if (this.isEditingName && node) {
