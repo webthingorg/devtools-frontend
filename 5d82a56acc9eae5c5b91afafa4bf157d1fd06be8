@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155512c8_029959b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-25T15:01:26Z",
+      "side": 1,
+      "message": "Hi Peter! Would love your feedback on the Deprecated badge in the quick open menu, see Ergün\u0027s screenshot: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d578490\u0026signed_aid\u003dlmdV8MOr2aqoOdeqCrp6SA\u003d\u003d\u0026inline\u003d1\n\nHe suggested to add padding, which I agree with. What do you think about colors? The current looks good imo but it\u0027s problematic because the category badge can have the same color.",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e58ec5a7_e2507691",
