@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb91df97_6a454052",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "LGTM with all nits :)",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdae8045_3bcba1c3",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "(nit): I\u0027ve some troubles understanding which value is the alias and which value is the standard property name. Can we add a comment here explaining which is the key and which is the standard property name? 😅\n\nSomething like:\n```\n// A map that is keyed by \"alias\" of a standard property and standard property as the value\n// For example, it contains { \u0027word-wrap\u0027: \u0027overflow-wrap\u0027 } entry and it means that \u0027word-wrap\u0027 is an alias for the standard overflow-wrap property.\n```\n\nWDYT?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c11220_74ec0775",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "(nit): Since `cssMetadata` is a singleton through `SDK.CSSMetadata.cssMetadata()`, instead of creating an `aliasesFor` field for `CSSProperty`, can we use it directly in the place we access below as `SDK.CSSMetadata.cssMetadata().aliasesFor()`, WDYT?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b1b3a7a_8ed83faf",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "Maybe we can add a comment here too for the reason why we decided not to include value autocompletions from aliasesFor map. So that, later, people might not try to add it again. WDYT?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3415fdae_2b3d4b1c",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1817,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "The naming feels a bit confusing to me here too 😂. Is `aliasFor` the standard property name? If so, can we rename it to be `propertyName` :)",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9010c9_9c2c6d73",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1833,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "(nit): We can call `prefixResults.push(aliasResult, aliasForResult)` instead of calling `push` two times.\n\nIn addition to that, can we add a comment on the list order of these being important since other way around creates an unwanted behavior: suggests the `propertyName` when `alias` is being written which?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1238938_8cbbaf8b",
+        "filename": "test/unittests/front_end/panels/elements/CSSPropertyPrompt_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-25T15:14:50Z",
+      "side": 1,
+      "message": "I\u0027m very happy that we\u0027re able to test the behavior we want with this unit test, it\u0027s cool! 😊",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
