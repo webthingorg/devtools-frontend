@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9aee6a92_1226cab4",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "I don\u0027t see how it could be false myself, but the authors of `DOMStorageItemsView` seemed to think that the analogous member could be, which is why I had this check: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/DOMStorageItemsView.ts;l\u003d151;bpv\u003d0;bpt\u003d0.\n\nThey check this condition in multiple places.  I figured I was missing something because I am new to TypeScript and still pretty raw at JavaScript as well.  \n\nRemoved here and below; can put back in if you think they are actually needed after all, but maybe the checks in `DOMStorageItemsView` are just artifacts and should also be removed?",
+      "parentUuid": "d74dde63_3fa6cd7b",
+      "range": {
+        "startLine": 185,
+        "startChar": 30,
+        "endLine": 185,
+        "endChar": 44
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "085f03e8_a29f64c7",
         "filename": "front_end/panels/application/SharedStorageItemsView.ts",
         "patchSetId": 37
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-24T08:38:31Z",
       "side": 1,
       "message": "await entries \u003d this.#sharedStorage.getEntries();\n    if (entries) {\n      this.#showSharedStorageItems(entries));\n    }",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 109
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3716a46e_1a87403e",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "085f03e8_a29f64c7",
       "range": {
         "startLine": 188,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0424d43_630f32d0",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40ee3745_8167b633",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 61
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46e816ad_e19461ba",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-24T08:38:31Z",
       "side": 1,
       "message": "When does this not hold?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e871eb_90404ac6",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "46e816ad_e19461ba",
       "range": {
         "startLine": 237,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e931aac_c0855ea8",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "073d2c56_5f60f554",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 33
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d92c88d1_943baa69",
@@ -139,6 +259,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8982e256_c421fb06",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d92c88d1_943baa69",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 54
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec6c7f57_68482784",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-11-24T08:38:31Z",
       "side": 1,
       "message": "When can this not hold?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 44
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6583f11_1443522c",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Simplified condition and removed.",
+      "parentUuid": "ec6c7f57_68482784",
       "range": {
         "startLine": 300,
         "startChar": 0,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "447ac9ff_b7d7ba74",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "It seems to work if I simply do \n```\nresult.push(node.data as Protocol.Storage.SharedStorageEntry);\n```\n\nSo I changed it to that. If you really want me to make it a generic, I can, but it would only ever get called with type `Protocol.Storage.SharedStorageEntry`.",
+      "parentUuid": "b932bfd6_e33050e4",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 81
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ddf16de_9428e90d",
         "filename": "front_end/panels/application/SharedStorageItemsView.ts",
         "patchSetId": 37
@@ -198,6 +390,30 @@
       "writtenOn": "2022-11-24T08:38:31Z",
       "side": 1,
       "message": "We could just make these fields public and  readonly",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 46
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9729917b_e92ac574",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-25T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ddf16de_9428e90d",
       "range": {
         "startLine": 332,
         "startChar": 0,
