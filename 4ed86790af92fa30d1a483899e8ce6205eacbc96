@@ -229,6 +229,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd06c43_ee8bd1cb",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T10:43:08Z",
+      "side": 1,
+      "message": "SGTM!",
+      "parentUuid": "845103c4_9e4315cb",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1bf1a01_7630a670",
@@ -366,6 +384,24 @@
       "side": 1,
       "message": "This is a valid syntax: `color(xyz none none none)` or `color(display-p3 1 none 1)`. It can be that user defined the colors this way.\n\nSpec also mentions how this can be in some other ways as well but I\u0027m not able to give examples for them. See the spec: https://www.w3.org/TR/css-color-4/#missing\n\nWDYT?",
       "parentUuid": "b3bc0c0a_46312f13",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73495aa6_001f2d17",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T10:43:08Z",
+      "side": 1,
+      "message": "oh I didn\u0027t realize that. Then it\u0027s a valid if condition then.",
+      "parentUuid": "c2be7d06_524eb4a1",
       "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
