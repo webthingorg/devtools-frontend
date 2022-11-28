@@ -140,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2465b7b_327b810f",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1817,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T09:38:30Z",
+      "side": 1,
+      "message": "I\u0027ve named it to canonicalProperty so be more specific.",
+      "parentUuid": "3415fdae_2b3d4b1c",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b9010c9_9c2c6d73",
