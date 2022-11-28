@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6852e3c9_3dce9513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T12:17:08Z",
+      "side": 1,
+      "message": "We\u0027ve talked this issue offline and we\u0027ll tackle this issue while implementing color conversions UI :)",
+      "parentUuid": "8be6247e_08bd29ee",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb792aaf_b750bba2",
@@ -439,6 +457,24 @@
       "side": 1,
       "message": "That doesn\u0027t sound like a use case we need to support :)",
       "parentUuid": "5e7f70cf_4efabf85",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff2e8338_179b34e3",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T12:17:08Z",
+      "side": 1,
+      "message": "We\u0027ve talked about this offline and decided to handle this issue while handling color conversions which we\u0027ll tackle next :)",
+      "parentUuid": "545ff40b_6c0801e3",
       "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
