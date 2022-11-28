@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3971b2_e19acd04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T09:49:15Z",
+      "side": 1,
+      "message": "Some inline comments,  but two highlevel discussion point:\n\nAre we really sure normalizing all colors to rgb is fine? My main worry is numerical stability and that we have to remember to legalize values whenever we go to true sRGB.\n\nI\u0027m also wondering if it would be beneficial to have more structure after parsing. For example, keeping properly tokenized strings around we could show precise out-of-range errors or retain the distinction between `none` and 0 for printing (especially when colors don\u0027t have an original text).",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb792aaf_b750bba2",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T09:49:15Z",
+      "side": 1,
+      "message": "Could put it into parse(). \n\nDoes this need to be a helper at all? As is it\u0027s 1 letter shorter than the actual check, and it\u0027s longer if you write it as `\u003e -1` which is what the \"legacy\" cases do (if you keep it, the those cases should also call the helper).",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c66f7959_1fcd5ce9",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T09:49:15Z",
+      "side": 1,
+      "message": "Should this be on Color? It fulfills the same roll as parseAsNumberOrPercentage for example.",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c5e15b_fe65c612",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T09:49:15Z",
+      "side": 1,
+      "message": "Here and all other parsePercentOrNumber uses:\nI think range validation or fitting is required. Some parameters need to be clamped, some can be unbounded, some can be negative, some cannot be negative. The L in this instance here for example needs to be clamped to [0%, 100%].",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d98a9df_9de1a99e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T09:49:15Z",
+      "side": 1,
+      "message": "What not make it a const enum now?",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
