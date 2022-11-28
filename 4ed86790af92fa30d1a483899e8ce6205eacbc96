@@ -567,6 +567,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d6a6ee1_af7ee22d",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T12:18:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e30b7e7c_fc436cbf",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d9746b0_ac1cba0b",
