@@ -18,6 +18,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "796e94d8_02b9fc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "I\u0027ve added a lot of comments but they are mostly for continuation of the discussions in the comments :)",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435afc59_59316f22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "I think it is okay, since, AFAIU, the operations we do are reversible. i.e. going from one space to another space and back does not lose the value of the real color.\n\nI\u0027m not sure how the limits of `sRGB` is known but there is also `extended sRGB` which is essentially the same color space with `sRGB` with values can be greater than 1 or 0. So, essentially, internally we\u0027re holding values in `extended sRGB`.\n\n---\n\nFor the second question, I think I\u0027d prefer to wait for a use case to come for that issue and then do it. For now, I\u0027d prefer to only play well with how the `Color` works and what kind of contract it provides to its users.\n\nWDYT? (about both 😂)",
+      "parentUuid": "df3971b2_e19acd04",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb792aaf_b750bba2",
@@ -48,6 +83,24 @@
       "writtenOn": "2022-11-28T09:59:04Z",
       "side": 1,
       "message": "How about core/platform/array-utilities.ts?",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f70ebe_b852becb",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "Moved it inside of the `parse()` function :)\n\nThe reason we need this is, this specicial functions are called typeguards (return is defined as \"arr is number[]\"). In here, we make sure that given `arr` can contain `number` or `null` but we return true iff array does not contain `null`.\n\nThis helps TS compiler to make sure that after this point, `arr` is actually a `number[]` without an explicit type assertion. We\u0027re using this in checking whether `parameters` in `parse` contains null or not. Since we bail out from the case that they contain `null`. TS compiler directly understands that, after that point, `parameters` is typed as `number[]` so we won\u0027t need to do explicit type assertion while reaching out to specific indexes of the parameters array.\n\nOtherwise we\u0027ll need to do smt like `parameters[0] as number` at each step.\n\nHere is more documentation about type guards in TS: https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates\n\nWDYT? :)",
+      "parentUuid": "bb792aaf_b750bba2",
       "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c2f6d80_353a5c85",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "I\u0027m a bit reluctant to add more static methods to `Color` class since they don\u0027t have a distinction between `private` and `public` usages. I don\u0027t want this `parseAngle` utility to be used outside of this module, that\u0027s why I\u0027ve wanted to add it as a separate function.\n\nI\u0027m also thinking to update other functions/possibly the modules to provide a clear separation between what is internal to the module and what is in the module\u0027s public API.\n\nWDYT?",
+      "parentUuid": "c66f7959_1fcd5ce9",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1bf1a01_7630a670",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 5
@@ -122,6 +193,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ecb0d57_b8ffde66",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "I\u0027m currently trying to think whether we should do this or not. I\u0027ve conflicted ideas for both:\n\n* Chromium parses syntax with out of range values correctly (for example, `lch(900 250 500.1)` is parsed correctly and a color is shown) and handle them internally (don\u0027t know how). So, I\u0027m not sure if we should try to do something in here, then possibly get conflicts with the browser.\n\n* Maybe it would be cool to have some assertion that these numbers are always between 0 - 1 but I\u0027m not able to think of a use case for this or how the otherwise can be a problem.\n\n\nSo, I\u0027m a bit on the side of not clamping and trying to map to `[0 - 100]` range with possible out of range values. For example, `120%` is also handled correctly in the browser.\n\nWDYT?",
+      "parentUuid": "a1c5e15b_fe65c612",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3bc0c0a_46312f13",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 5
@@ -150,6 +239,24 @@
       "writtenOn": "2022-11-28T09:49:15Z",
       "side": 1,
       "message": "What not make it a const enum now?",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e30b7e7c_fc436cbf",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T10:19:15Z",
+      "side": 1,
+      "message": "We\u0027re not able to iterate on the values of the `const enums`, they don\u0027t allow `Object.values(ColorSpace)` for example.\n\nThough I\u0027ve want to do it... So, instead of finding a solution to that problem (that also exists for Format enum) I\u0027ve wanted to postpone it to a later TODO.\n\nWDYT?",
+      "parentUuid": "5d98a9df_9de1a99e",
       "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
