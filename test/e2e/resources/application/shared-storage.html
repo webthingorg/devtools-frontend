@@ -1,0 +1,24 @@
+<!--
+  Copyright 2022 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>before (debug)</div>
+    <script>
+      'use strict';
+      const doneDiv = document.createElement('div');
+      document.body.appendChild(doneDiv);
+      doneDiv.textElement = 'pending';
+      await document.sharedStorage.set('firstKey', 'firstValue');
+      await document.sharedStorage.set('secondKey', JSON.stringify({
+        field: 'complexValue',
+        primitive: 2,
+      }));
+      doneDiv.textElement = 'done';
+    </script>
+    <div>after (debug)</after>
+  </body>
+</html>
