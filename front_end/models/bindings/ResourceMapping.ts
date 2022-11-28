@@ -46,6 +46,15 @@ export class ResourceMapping implements SDK.TargetManager.SDKModelObserver<SDK.R
     return resourceTreeModel ? this.#modelToInfo.get(resourceTreeModel) || null : null;
   }
 
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    const info = this.infoForTarget(script.debuggerModel.target());
+    if (!info) {
+      return null;
+    }
+    const project = info.getProject();
+    return project.uiSourceCodeForURL(script.sourceURL);
+  }
+
   cssLocationToUILocation(cssLocation: SDK.CSSModel.CSSLocation): Workspace.UISourceCode.UILocation|null {
     const header = cssLocation.header();
     if (!header) {

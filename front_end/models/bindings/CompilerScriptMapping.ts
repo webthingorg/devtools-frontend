@@ -165,10 +165,13 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
     }
   }
 
-  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, isContentScript: boolean):
-      Workspace.UISourceCode.UISourceCode|null {
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, debuggerModel: SDK.DebuggerModel.DebuggerModel, isContentScript: boolean): Workspace.UISourceCode.UISourceCode|null {
     return isContentScript ? this.#contentScriptsProject.uiSourceCodeForURL(url) :
                              this.#regularProject.uiSourceCodeForURL(url);
+  }
+
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    return this.uiSourceCodeForURL(script.sourceURL, script.debuggerModel, script.isContentScript())
   }
 
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {

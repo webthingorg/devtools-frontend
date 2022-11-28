@@ -40,6 +40,7 @@ import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
 
 import {LiveLocationPool, type LiveLocation} from './LiveLocation.js';
 import {DefaultScriptMapping} from './DefaultScriptMapping.js';
+import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
@@ -132,24 +133,18 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     if (!script.sourceURL) {
       return;
     }
-
     const debuggerModel = script.debuggerModel;
-    const uiSourceCode = await this.getUISourceCodeWithUpdatedBreakpointInfo(script);
-    if (this.#hasBreakpointsForUrl(script.sourceURL)) {
-      await this.#restoreBreakpointsForUrl(uiSourceCode);
-    }
-
     // Handle source maps and the original sources.
     const sourceMap = await debuggerModel.sourceMapManager().sourceMapForClientPromise(script);
-    if (sourceMap) {
-      for (const sourceURL of sourceMap.sourceURLs()) {
-        if (this.#hasBreakpointsForUrl(sourceURL)) {
-          const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
-          await this.#restoreBreakpointsForUrl(uiSourceCode);
+      if (sourceMap) {
+        for (const sourceURL of sourceMap.sourceURLs()) {
+          if (this.#hasBreakpointsForUrl(sourceURL)) {
+            const uiSourceCode = await this.debuggerWorkspaceBinding.uiSourceCodeForSourceMappedPromise(debuggerModel, sourceURL, script.isContentScript());
+            await this.#restoreBreakpointsForUrl(uiSourceCode);
+          }
         }
       }
-    }
-
+    
     // Handle language plugins
     const {pluginManager} = this.debuggerWorkspaceBinding;
     if (pluginManager) {
@@ -158,38 +153,27 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
         for (const sourceURL of sourceUrls) {
           if (this.#hasBreakpointsForUrl(sourceURL)) {
             const uiSourceCode =
-                await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+                await this.debuggerWorkspaceBinding.uiSourceCodeForDebuggerLanguagePluginSourceURLPromise(debuggerModel, sourceURL);
+            assertNotNullOrUndefined(uiSourceCode);
             await this.#restoreBreakpointsForUrl(uiSourceCode);
           }
         }
       }
     }
+
+    const uiSourceCode = await this.getUISourceCodeWithUpdatedBreakpointInfo(script);
+    if (this.#hasBreakpointsForUrl(script.sourceURL)) {
+      await this.#restoreBreakpointsForUrl(uiSourceCode);
+    }
+
+
   }
 
   async getUISourceCodeWithUpdatedBreakpointInfo(script: SDK.Script.Script):
       Promise<Workspace.UISourceCode.UISourceCode> {
-    const isSnippet = script.sourceURL.startsWith('snippet://');
-    const projectType = isSnippet ? Workspace.Workspace.projectTypes.Network : undefined;
-
-    // Some temporary workarounds that will probably be replaced by live locations.
-    // 1. Handle inline scripts without sourceURL comment separately:
-    // The UISourceCode of inline scripts without sourceURLs will not be availabe
-    // until a later point. Use the v8 script for setting the breakpoint.
-    // 2. Handle resources that have scripts differently: nowadays they don't use the
-    // sourceURL directly anymore, but are resolved relatively to the parents document's
-    // base URL; so resolve it before awaiting its uiSourceCode.
-    const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-    const hasResourceScriptMapping = !script.isLiveEdit() && script.sourceURL && script.hasSourceURL;
-    let sourceURL = script.sourceURL;
-    if (isInlineScriptWithoutSourceURL) {
-      sourceURL = DefaultScriptMapping.createV8ScriptURL(script);
-    } else if (hasResourceScriptMapping) {
-      sourceURL = SDK.SourceMapManager.SourceMapManager.resolveRelativeSourceURL(
-          script.debuggerModel.target(), script.sourceURL);
-    }
-
-    const uiSourceCode =
-        await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL, projectType);
+    // TODO:
+    // const isSnippet = script.sourceURL.startsWith('snippet://');
+    const uiSourceCode = await this.debuggerWorkspaceBinding.uiSourceCodeForScriptPromise(script);
 
     if (this.#updateBindingsCallbacks.length > 0) {
       // It's possible to set breakpoints on files on the file system, and to have them
@@ -312,7 +296,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
         return uiLocations;
       }
     }
-    const startLocationsPromise = DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(
+    const startLocationsPromise = this.debuggerWorkspaceBinding.uiLocationToRawLocations(
         uiSourceCode, textRange.startLine, textRange.startColumn);
     const endLocationsPromise = DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(
         uiSourceCode, textRange.endLine, textRange.endColumn);
