@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8be6247e_08bd29ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:58:25Z",
+      "side": 1,
+      "message": "My question here was whether we want to normalize at all; I doubt the conversions are numerically stable (plenty of additions in matmul, plus spelled-out decimal constants), normalizing before any further conversions later will increase the error. I expect we see rounding errors if convert the color back into its original space, e.g. for a color picker. (We\u0027ll also see them in other conversions, but there they\u0027ll be more easily explained away)",
+      "parentUuid": "0eecb967_c883f1bf",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb792aaf_b750bba2",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 5
