@@ -19,6 +19,7 @@ devtools_module("workspace") {
     "../../core/i18n:bundle",
     "../../core/platform:bundle",
     "../../models/text_utils:bundle",
+    "../../core/sdk:bundle",
   ]
 }
 
