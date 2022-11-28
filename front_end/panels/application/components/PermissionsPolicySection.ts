@@ -79,7 +79,7 @@ export function renderIconLink(
         color: 'var(--color-primary)',
         width: '16px',
         height: '16px',
-      } as IconButton.Icon.IconData}>
+      } satisfies IconButton.Icon.IconData}>
       </${IconButton.Icon.Icon.litTagName}>
     </button>
   `;
@@ -177,7 +177,7 @@ export class PermissionsPolicySection extends HTMLElement {
         <div class="permissions-row">
           <div>
             <${IconButton.Icon.Icon.litTagName} class="allowed-icon"
-              .data=${{color: '', iconName: 'error_icon', width: '14px'} as IconButton.Icon.IconData}>
+              .data=${{color: '', iconName: 'error_icon', width: '14px'} satisfies IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
           <div class="feature-name text-ellipsis">

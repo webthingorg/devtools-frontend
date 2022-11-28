@@ -98,11 +98,11 @@ export class CSSOverviewStartView extends HTMLElement {
             feedbackUrl: FEEDBACK_LINK,
             quickStartUrl: DOC_LINK,
             quickStartLinkText: i18nString(UIStrings.quickStartWithCSSOverview),
-          } as PanelFeedback.PanelFeedback.PanelFeedbackData}>
+          } satisfies PanelFeedback.PanelFeedback.PanelFeedbackData}>
         </${PanelFeedback.PanelFeedback.PanelFeedback.litTagName}>
         <${PanelFeedback.FeedbackButton.FeedbackButton.litTagName} .data=${{
           feedbackUrl: FEEDBACK_LINK,
-          } as PanelFeedback.FeedbackButton.FeedbackButtonData}>
+          } satisfies PanelFeedback.FeedbackButton.FeedbackButtonData}>
         </${PanelFeedback.FeedbackButton.FeedbackButton.litTagName}>
       </div>
     `, this.#shadow, {

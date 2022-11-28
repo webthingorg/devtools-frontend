@@ -74,7 +74,7 @@ export class SyncSection extends HTMLElement {
         <legend>${Common.Settings.getLocalizedSettingsCategory(Common.Settings.SettingCategory.SYNC)}</legend>
         ${renderAccountInfoOrWarning(this.#syncInfo)}
         <${Settings.SettingCheckbox.SettingCheckbox.litTagName} .data=${
-            {setting: this.#syncSetting, disabled: checkboxDisabled} as Settings.SettingCheckbox.SettingCheckboxData}>
+            {setting: this.#syncSetting, disabled: checkboxDisabled} satisfies Settings.SettingCheckbox.SettingCheckboxData}>
         </${Settings.SettingCheckbox.SettingCheckbox.litTagName}>
       </fieldset>
     `, this.#shadow, {host: this});

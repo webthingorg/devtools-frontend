@@ -307,7 +307,7 @@ export class ElementsBreadcrumbs extends HTMLElement {
                     nodeTitle: crumb.title.main,
                     nodeId: crumb.title.extras.id,
                     nodeClasses: crumb.title.extras.classes,
-                  } as NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}></a>
+                  } satisfies NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}></a>
                 </li>`;
             })}
           </ul>

@@ -60,7 +60,7 @@ export class ReportsGridStatusHeader extends HTMLElement {
           color: 'var(--color-primary)',
           width: '16px',
           height: '16px',
-          } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>
+          } satisfies IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>
       </x-link>
     `, this.#shadow, {host: this});
     // clang-format on
@@ -154,7 +154,7 @@ export class ReportsGrid extends HTMLElement {
         <div class="reporting-header">${i18n.i18n.lockedString('Reports')}</div>
         ${this.#reports.length > 0 ? html`
           <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
-              reportsGridData as DataGrid.DataGridController.DataGridControllerData}>
+              reportsGridData satisfies DataGrid.DataGridController.DataGridControllerData}>
           </${DataGrid.DataGridController.DataGridController.litTagName}>
         ` : html`
           <div class="reporting-placeholder">

@@ -386,7 +386,7 @@ export class BreakpointsView extends HTMLElement {
         iconName: 'edit-icon',
         width: '14px',
         color: 'var(--color-text-secondary)',
-      } as IconButton.Icon.IconData}
+      } satisfies IconButton.Icon.IconData}
       }>
       </${IconButton.Icon.Icon.litTagName}>
     </button>
@@ -407,7 +407,7 @@ export class BreakpointsView extends HTMLElement {
         iconName: 'close-icon',
         width: '10px',
         color: 'var(--color-text-secondary)',
-      } as IconButton.Icon.IconData}
+      } satisfies IconButton.Icon.IconData}
       }>
       </${IconButton.Icon.Icon.litTagName}>
     </button>
@@ -501,9 +501,12 @@ export class BreakpointsView extends HTMLElement {
 
   #renderFileIcon(): LitHtml.TemplateResult {
     return LitHtml.html`
-      <${IconButton.Icon.Icon.litTagName} .data=${
-        {iconName: 'ic_file_script', color: 'var(--color-ic-file-script)', width: '16px', height: '16px'} as
-        IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
+      <${IconButton.Icon.Icon.litTagName} .data=${{
+      iconName: 'ic_file_script',
+      color: 'var(--color-ic-file-script)',
+      width: '16px',
+      height: '16px',
+    } satisfies IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
     `;
   }
 

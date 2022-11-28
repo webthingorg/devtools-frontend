@@ -165,7 +165,7 @@ export interface RequestHeadersComponentData {
 export class RequestHeadersComponent extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-request-headers`;
   readonly #shadow = this.attachShadow({mode: 'open'});
-  #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
+  #request?: SDK.NetworkRequest.NetworkRequest;
   #showResponseHeadersText = false;
   #showRequestHeadersText = false;
   #showResponseHeadersTextFull = false;
@@ -243,7 +243,7 @@ export class RequestHeadersComponent extends HTMLElement {
           checked: this.#request.responseHeadersText ? this.#showResponseHeadersText : undefined,
           additionalContent: this.#renderHeaderOverridesLink(),
           forceOpen: this.#toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.Response,
-        } as CategoryData}
+        } satisfies CategoryData}
         aria-label=${i18nString(UIStrings.responseHeaders)}
       >
         ${this.#showResponseHeadersText ?
@@ -251,7 +251,7 @@ export class RequestHeadersComponent extends HTMLElement {
           <${ResponseHeaderSection.litTagName} .data=${{
             request: this.#request,
             toReveal: this.#toReveal,
-          } as ResponseHeaderSectionData}></${ResponseHeaderSection.litTagName}>
+          } satisfies ResponseHeaderSectionData}></${ResponseHeaderSection.litTagName}>
         `}
       </${Category.litTagName}>
     `;
@@ -273,14 +273,14 @@ export class RequestHeadersComponent extends HTMLElement {
           iconName: 'file-sync_icon',
           width: '11px',
           height: '13px',
-        } as IconButton.Icon.IconData}>
+        } satisfies IconButton.Icon.IconData}>
       </${IconButton.Icon.Icon.litTagName}>` : html`
       <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
           iconName: 'file_icon',
           color: 'var(--color-text-primary)',
           width: '12px',
           height: '12px',
-        } as IconButton.Icon.IconData}>
+        } satisfies IconButton.Icon.IconData}>
       </${IconButton.Icon.Icon.litTagName}>`;
     // clang-format on
 
@@ -331,7 +331,7 @@ export class RequestHeadersComponent extends HTMLElement {
           headerCount: this.#request.requestHeaders().length,
           checked: requestHeadersText? this.#showRequestHeadersText : undefined,
           forceOpen: this.#toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.Request,
-        } as CategoryData}
+        } satisfies CategoryData}
         aria-label=${i18nString(UIStrings.requestHeaders)}
       >
         ${(this.#showRequestHeadersText && requestHeadersText) ?
@@ -339,7 +339,7 @@ export class RequestHeadersComponent extends HTMLElement {
           <${RequestHeaderSection.litTagName} .data=${{
             request: this.#request,
             toReveal: this.#toReveal,
-          } as RequestHeaderSectionData}></${RequestHeaderSection.litTagName}>
+          } satisfies RequestHeaderSectionData}></${RequestHeaderSection.litTagName}>
         `}
       </${Category.litTagName}>
     `;
@@ -351,7 +351,7 @@ export class RequestHeadersComponent extends HTMLElement {
     const showFull = forResponseHeaders ? this.#showResponseHeadersTextFull : this.#showRequestHeadersTextFull;
     const isShortened = !showFull && trimmed.length > RAW_HEADER_CUTOFF;
 
-    const showMore = ():void => {
+    const showMore = (): void => {
       if (forResponseHeaders) {
         this.#showResponseHeadersTextFull = true;
       } else {
@@ -370,22 +370,25 @@ export class RequestHeadersComponent extends HTMLElement {
       }
     };
 
-    const addContextMenuListener = (el: Element):void => {
+    const addContextMenuListener = (el: Element): void => {
       if (isShortened) {
         el.addEventListener('contextmenu', onContextMenuOpen);
       }
     };
 
     return html`
-      <div class="row raw-headers-row" on-render=${ComponentHelpers.Directives.nodeRenderedCallback(addContextMenuListener)}>
+      <div class="row raw-headers-row" on-render=${
+        ComponentHelpers.Directives.nodeRenderedCallback(addContextMenuListener)}>
         <div class="raw-headers">${isShortened ? trimmed.substring(0, RAW_HEADER_CUTOFF) : trimmed}</div>
-        ${isShortened ? html`
+        ${
+        isShortened ? html`
           <${Buttons.Button.Button.litTagName}
             .size=${Buttons.Button.Size.SMALL}
             .variant=${Buttons.Button.Variant.SECONDARY}
             @click=${showMore}
           >${i18nString(UIStrings.showMore)}</${Buttons.Button.Button.litTagName}>
-        ` : LitHtml.nothing}
+        ` :
+                      LitHtml.nothing}
       </div>
     `;
   }
@@ -433,7 +436,7 @@ export class RequestHeadersComponent extends HTMLElement {
           name: 'general',
           title: i18nString(UIStrings.general),
           forceOpen: this.#toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.General,
-        } as CategoryData}
+        } satisfies CategoryData}
         aria-label=${i18nString(UIStrings.general)}
       >
         ${this.#renderGeneralRow(i18nString(UIStrings.requestUrl), this.#request.url())}

@@ -112,7 +112,7 @@ export class SharedStorageMetadataReportView extends HTMLElement {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       LitHtml.render(LitHtml.html`
-        <${ReportView.ReportView.Report.litTagName} .data=${titleForReport as ReportView.ReportView.ReportData}>
+        <${ReportView.ReportView.Report.litTagName} .data=${titleForReport satisfies ReportView.ReportView.ReportData}>
           ${this.#renderMetadataSection()}
           ${this.#renderEntriesSection()}
         </${ReportView.ReportView.Report.litTagName}>

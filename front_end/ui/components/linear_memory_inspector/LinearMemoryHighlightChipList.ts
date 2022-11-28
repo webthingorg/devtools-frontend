@@ -112,7 +112,7 @@ export class LinearMemoryHighlightChipList extends HTMLElement {
               iconName: 'close-icon',
               color: 'var(--color-text-primary)',
               width: '7px',
-              } as IconButton.Icon.IconData}>
+              } satisfies IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
           </button>
         </div>

@@ -5,18 +5,19 @@
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
+
 import iconStyles from './icon.css.js';
 
 export interface IconWithPath {
   iconPath: string;
-  color: string;
+  color?: string;
   width?: string;
   height?: string;
 }
 
 export interface IconWithName {
   iconName: string;
-  color: string;
+  color?: string;
   width?: string;
   height?: string;
 }
@@ -43,7 +44,9 @@ export class Icon extends HTMLElement {
 
   set data(data: IconData) {
     const {width, height} = data;
-    this.#color = data.color;
+    if (isString(data.color)) {
+      this.#color = data.color;
+    }
     this.#width = isString(width) ? width : (isString(height) ? height : this.#width);
     this.#height = isString(height) ? height : (isString(width) ? width : this.#height);
     if ('iconPath' in data) {

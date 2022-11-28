@@ -226,7 +226,7 @@ export class CSSAngle extends HTMLElement {
             @dblclick=${this.consume}
             .data=${{
               angle: this.angle,
-            } as CSSAngleSwatchData}>
+            } satisfies CSSAngleSwatchData}>
           </${CSSAngleSwatch.litTagName}><slot></slot></div>
         ${this.popoverOpen ? this.renderPopover() : null}
       </div>
@@ -256,7 +256,7 @@ export class CSSAngle extends HTMLElement {
           this.updateAngle(angle);
         },
         background: contextualBackground,
-      } as CSSAngleEditorData}
+      } satisfies CSSAngleEditorData}
     ></${CSSAngleEditor.litTagName}>
     `;
     // clang-format on

@@ -105,11 +105,11 @@ function templateForToken(token: Marked.Marked.Token): LitHtml.TemplateResult|nu
     case 'space':
       return html``;
     case 'link':
-      return html`<${MarkdownLink.litTagName} .data=${{key: token.href, title: token.text} as MarkdownLinkData}></${
-          MarkdownLink.litTagName}>`;
+      return html`<${MarkdownLink.litTagName} .data=${
+          {key: token.href, title: token.text} satisfies MarkdownLinkData}></${MarkdownLink.litTagName}>`;
     case 'image':
-      return html`<${MarkdownImage.litTagName} .data=${{key: token.href, title: token.text} as MarkdownImageData}></${
-          MarkdownImage.litTagName}>`;
+      return html`<${MarkdownImage.litTagName} .data=${
+          {key: token.href, title: token.text} satisfies MarkdownImageData}></${MarkdownImage.litTagName}>`;
     default:
       return null;
   }

@@ -62,7 +62,7 @@ export class HideIssuesMenu extends HTMLElement {
       LitHtml.render(LitHtml.html`
         <button class="hide-issues-menu-btn" @click=${this.onMenuOpen.bind(this)} title=${i18nString(UIStrings.tooltipTitle)}>
         <${IconButton.Icon.Icon.litTagName}
-          .data=${{ color: '', iconName: 'three_dots_menu_icon', height: '14px', width: '4px' } as IconButton.Icon.IconData}
+          .data=${{ color: '', iconName: 'three_dots_menu_icon', height: '14px', width: '4px' } satisfies IconButton.Icon.IconData}
         >
         </${IconButton.Icon.Icon.litTagName}>
         </button>

@@ -40,7 +40,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/network/components/RequestHeade
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export interface RequestHeaderSectionData {
-  request: SDK.NetworkRequest.NetworkRequest;
+  request: Readonly<SDK.NetworkRequest.NetworkRequest>;
   toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string};
 }
 
@@ -84,7 +84,7 @@ export class RequestHeaderSection extends HTMLElement {
       ${this.#headers.map(header => html`
         <${HeaderSectionRow.litTagName} .data=${{
           header: header,
-        } as HeaderSectionRowData}></${HeaderSectionRow.litTagName}>
+        } satisfies HeaderSectionRowData}></${HeaderSectionRow.litTagName}>
       `)}
     `, this.#shadow, {host: this});
     // clang-format on
@@ -113,7 +113,7 @@ export class RequestHeaderSection extends HTMLElement {
                 iconName: 'clear-warning_icon',
                 width: '12px',
                 height: '12px',
-              } as IconButton.Icon.IconData}>
+              } satisfies IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
             ${cautionText} <x-link href="https://developer.chrome.com/docs/devtools/network/reference/#provisional-headers" class="link">${i18nString(UIStrings.learnMore)}</x-link>
           </div>

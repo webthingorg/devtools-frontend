@@ -33,7 +33,12 @@ function findIndexOfDataSetterUsageForNode(taggedTemplateExpression) {
   return indices;
 }
 
-function dataSetterUsesTypeCast(taggedTemplateExpression, indexOfDataSetter) {
+function dataSetterUsesSatisfies(taggedTemplateExpression, indexOfDataSetter) {
+  const expression = taggedTemplateExpression.quasi.expressions[indexOfDataSetter];
+  return (expression.type === 'TSSatisfiesExpression');
+}
+
+function dataSetterUsesAs(taggedTemplateExpression, indexOfDataSetter) {
   const expression = taggedTemplateExpression.quasi.expressions[indexOfDataSetter];
   return (expression.type === 'TSAsExpression');
 }
@@ -52,7 +57,12 @@ module.exports = {
       category: 'Possible Errors',
     },
     fixable: 'code',
-    schema: []  // no options
+    schema: [],  // no options
+    messages: {
+      noSatisfies: 'LitHtml .data=${} calls must be implemented using satisfies: (.data=${{...} satisfies X}).',
+      useInterface: 'LitHtml .data=${} calls must satisfy a type reference (e.g. `satisfies FooInterface`), not a literal.',
+
+    }
   },
   create: function(context) {
     return {
@@ -63,17 +73,27 @@ module.exports = {
         }
 
         for (const indexOfDataSetterCall of findIndexOfDataSetterUsageForNode(node)) {
-          const dataUsageHasTypeCast = dataSetterUsesTypeCast(node, indexOfDataSetterCall);
+          const dataUsageHasTypeCast = dataSetterUsesSatisfies(node, indexOfDataSetterCall);
           if (!dataUsageHasTypeCast) {
-            context.report({node: node, message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'});
+            context.report({node: node,
+              messageId: 'noSatisfies',
+              fix: function(fixer) {
+                if (dataSetterUsesAs(node, indexOfDataSetterCall)) {
+                  const asNode = node.quasi.expressions[indexOfDataSetterCall];
+                  // Need to find the right location to replace the text at.
+                  const rangeBeforeAs = asNode.expression.range[1];
+                  const rangeAfterAs = asNode.typeAnnotation.range[0];
+                  return fixer.replaceTextRange([rangeBeforeAs, rangeAfterAs], ' satisfies ');
+                }
+              }
+            });
             continue;
           }
 
           if (!dataSetterAsUsesInterface(node, indexOfDataSetterCall)) {
             context.report({
               node: node,
-              message:
-                  'LitHtml .data=${} calls must be typecast to a type reference (e.g. `as FooInterface`), not a literal.'
+              messageId: 'useInterface'
             });
           }
         }

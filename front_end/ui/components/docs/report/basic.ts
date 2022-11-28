@@ -28,7 +28,7 @@ LitHtml.render(
 
         <${ReportView.ReportView.Report.litTagName} .data=${{
       reportTitle: 'Optional Title',
-    } as ReportView.ReportView.ReportData}>
+    } satisfies ReportView.ReportView.ReportData}>
           <${ReportView.ReportView.ReportSectionHeader.litTagName}>Section 1</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
           <${ReportView.ReportView.ReportKey.litTagName}>Basic plain text field</${

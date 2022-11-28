@@ -12,15 +12,15 @@ const ruleTester = new (require('eslint').RuleTester)({
 ruleTester.run('lit_html_data_as_type', rule, {
   valid: [
     {
-      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} as FooData}>`',
+      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} satisfies FooData}>`',
       filename: 'front_end/components/test.ts',
     },
     {
-      code: 'html`<devtools-foo .data=${{name: "jack"} as FooData}>`',
+      code: 'html`<devtools-foo .data=${{name: "jack"} satisfies FooData}>`',
       filename: 'front_end/components/test.ts',
     },
     {
-      code: 'html`<p><span></span><devtools-foo .data=${{name: "jack"} as FooData}></devtools-foo></p>`',
+      code: 'html`<p><span></span><devtools-foo .data=${{name: "jack"} satisfies FooData}></devtools-foo></p>`',
       filename: 'front_end/components/test.ts',
     },
     {
@@ -33,49 +33,47 @@ ruleTester.run('lit_html_data_as_type', rule, {
     },
   ],
   invalid: [
+    // TODO: invalid case with as where it gets fixed to satifies
     {
       code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [{message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'}]
+      errors: [{messageId: 'noSatisfies'}]
     },
     {
-      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} as FooData} .data=${{name: "jack"}}>`',
+      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} satisfies FooData} .data=${{name: "jack"}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [{message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'}]
+      errors: [{messageId: 'noSatisfies'}]
+    },
+    {
+      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} as FooData}>`',
+      output: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} satisfies FooData}>`',
+      filename: 'front_end/components/test.ts',
+      errors: [{messageId: 'noSatisfies'}]
     },
     {
       code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"}} .data=${{name: "jack"}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [
-        {message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'},
-        {message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'}
-      ]
+      errors: [{messageId: 'noSatisfies'}, {messageId: 'noSatisfies'}]
     },
     {
       code: 'html`<p><span></span><devtools-foo .data=${{name: "jack"}}></devtools-foo></p>`',
       filename: 'front_end/components/test.ts',
-      errors: [{message: 'LitHtml .data=${} calls must be typecast (.data=${{...} as X}).'}]
+      errors: [{messageId: 'noSatisfies'}]
     },
     {
-      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} as {name: string}}>`',
+      code: 'LitHtml.html`<devtools-foo .data=${{name: "jack"} satisfies {name: string}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [{
-        message: 'LitHtml .data=${} calls must be typecast to a type reference (e.g. `as FooInterface`), not a literal.'
-      }]
+      errors: [{messageId: 'useInterface'}]
     },
     {
-      code: 'html`<devtools-foo .data=${{name: "jack"} as {name: string}}>`',
+      code: 'html`<devtools-foo .data=${{name: "jack"} satisfies {name: string}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [{
-        message: 'LitHtml .data=${} calls must be typecast to a type reference (e.g. `as FooInterface`), not a literal.'
-      }]
+      errors: [{messageId: 'useInterface'}]
     },
     {
-      code: 'html`<devtools-foo some-other-attribute-first .data=${{name: "jack"} as {name: string}}>`',
+      code: 'html`<devtools-foo some-other-attribute-first .data=${{name: "jack"} satisfies {name: string}}>`',
       filename: 'front_end/components/test.ts',
-      errors: [{
-        message: 'LitHtml .data=${} calls must be typecast to a type reference (e.g. `as FooInterface`), not a literal.'
-      }]
+      errors: [{messageId: 'useInterface'}]
     },
   ]
 });

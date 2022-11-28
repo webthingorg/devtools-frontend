@@ -78,7 +78,7 @@ export class CSPViolationsListView extends UI.Widget.VBox {
           value: location.url,
           renderer(): LitHtml.TemplateResult {
             return LitHtml.html`<${Linkifier.Linkifier.Linkifier.litTagName} .data=${
-                location as Linkifier.Linkifier.LinkifierData}></${Linkifier.Linkifier.Linkifier.litTagName}>`;
+                location satisfies Linkifier.Linkifier.LinkifierData}></${Linkifier.Linkifier.Linkifier.litTagName}>`;
           },
         },
         {columnId: 'violatedDirective', value: issue.details().violatedDirective},

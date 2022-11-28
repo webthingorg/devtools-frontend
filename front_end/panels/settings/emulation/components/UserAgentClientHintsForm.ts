@@ -483,9 +483,12 @@ export class UserAgentClientHintsForm extends HTMLElement {
       })}
           />
           <${IconButton.Icon.Icon.litTagName}
-            .data=${
-          {color: 'var(--client-hints-form-icon-color)', iconName: 'trash_bin_icon', width: '10px', height: '14px'} as
-          IconButton.Icon.IconData}
+            .data=${{
+        color: 'var(--client-hints-form-icon-color)',
+        iconName: 'trash_bin_icon',
+        width: '10px',
+        height: '14px',
+      } satisfies IconButton.Icon.IconData}
             title=${i18nString(UIStrings.deleteTooltip)}
             class="delete-icon"
             tabindex="0"
@@ -514,8 +517,11 @@ export class UserAgentClientHintsForm extends HTMLElement {
       >
         <${IconButton.Icon.Icon.litTagName}
           aria-hidden="true"
-          .data=${
-        {color: 'var(--client-hints-form-icon-color)', iconName: 'add-icon', width: '10px'} as IconButton.Icon.IconData}
+          .data=${{
+      color: 'var(--client-hints-form-icon-color)',
+      iconName: 'add-icon',
+      width: '10px',
+    } satisfies IconButton.Icon.IconData}
         >
         </${IconButton.Icon.Icon.litTagName}>
         ${i18nString(UIStrings.addBrand)}
@@ -559,9 +565,11 @@ export class UserAgentClientHintsForm extends HTMLElement {
         >
           <${IconButton.Icon.Icon.litTagName}
             class=${this.#isFormOpened ? '' : 'rotate-icon'}
-            .data=${
-        {color: 'var(--client-hints-form-icon-color)', iconName: 'chromeSelect', width: '20px'} as
-        IconButton.Icon.IconData}
+            .data=${{
+      color: 'var(--client-hints-form-icon-color)',
+      iconName: 'chromeSelect',
+      width: '20px',
+    } satisfies IconButton.Icon.IconData}
           >
           </${IconButton.Icon.Icon.litTagName}>
           ${i18nString(UIStrings.title)}
@@ -574,9 +582,11 @@ export class UserAgentClientHintsForm extends HTMLElement {
            aria-label=${i18nString(UIStrings.userAgentClientHintsInfo)}
           >
             <${IconButton.Icon.Icon.litTagName}
-              .data=${
-        {color: 'var(--client-hints-form-icon-color)', iconName: 'ic_info_black_18dp', width: '14px'} as
-        IconButton.Icon.IconData}
+              .data=${{
+      color: 'var(--client-hints-form-icon-color)',
+      iconName: 'ic_info_black_18dp',
+      width: '14px',
+    } satisfies IconButton.Icon.IconData}
             >
             </${IconButton.Icon.Icon.litTagName}>
           </x-link>

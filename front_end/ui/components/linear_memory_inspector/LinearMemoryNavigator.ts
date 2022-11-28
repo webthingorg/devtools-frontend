@@ -176,7 +176,7 @@ export class LinearMemoryNavigator extends HTMLElement {
         data-button=${data.event.type} title=${data.title}
         @click=${this.dispatchEvent.bind(this, data.event)}>
         <${IconButton.Icon.Icon.litTagName} .data=${
-        {iconName: data.icon, color: iconColor, width: '14px'} as IconButton.Icon.IconWithName}>
+        {iconName: data.icon, color: iconColor, width: '14px'} satisfies IconButton.Icon.IconWithName}>
         </${IconButton.Icon.Icon.litTagName}>
       </button>`;
   }

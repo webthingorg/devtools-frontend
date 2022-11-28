@@ -224,7 +224,7 @@ export class HeaderSectionRow extends HTMLElement {
             iconName: 'clear-warning_icon',
             width: '12px',
             height: '12px',
-          } as IconButton.Icon.IconData}>
+          } satisfies IconButton.Icon.IconData}>
         </${IconButton.Icon.Icon.litTagName}>
       `;
       // clang-format on
@@ -280,7 +280,7 @@ export class HeaderSectionRow extends HTMLElement {
             color: 'var(--issue-color-yellow)',
             width: '16px',
             height: '16px',
-          } as IconButton.Icon.IconData}>
+          } satisfies IconButton.Icon.IconData}>
           </${IconButton.Icon.Icon.litTagName}
           >${i18nString(UIStrings.learnMoreInTheIssuesTab)}
         </div>
@@ -297,7 +297,7 @@ export class HeaderSectionRow extends HTMLElement {
             color: 'var(--color-link)',
             width: '16px',
             height: '16px',
-          } as IconButton.Icon.IconData}>
+          } satisfies IconButton.Icon.IconData}>
           </${IconButton.Icon.Icon.litTagName}
           >${i18nString(UIStrings.learnMore)}
         </x-link>

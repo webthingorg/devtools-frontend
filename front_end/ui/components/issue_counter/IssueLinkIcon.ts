@@ -165,7 +165,7 @@ export class IssueLinkIcon extends HTMLElement {
       <span class=${LitHtml.Directives.classMap({'link': Boolean(this.#issue)})}
             tabindex="0"
             @click=${this.handleClick}>
-        <${IconButton.Icon.Icon.litTagName} .data=${this.iconData() as IconButton.Icon.IconData}
+        <${IconButton.Icon.Icon.litTagName} .data=${this.iconData() satisfies IconButton.Icon.IconData}
           title=${this.#getTooltip()}></${IconButton.Icon.Icon.litTagName}>
       </span>`;
     // clang-format on

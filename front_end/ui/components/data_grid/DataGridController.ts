@@ -229,7 +229,7 @@ export class DataGridController extends HTMLElement {
           contextMenus: this.#contextMenus,
           label: this.#label,
           paddingRowsCount: this.#paddingRowsCount,
-        } as DataGridData}
+        } satisfies DataGridData}
         @columnheaderclick=${this.#onColumnHeaderClick}
         @contextmenucolumnsortclick=${this.#onContextMenuColumnSortClick}
         @contextmenuheaderresetclick=${this.#onContextMenuHeaderResetClick}

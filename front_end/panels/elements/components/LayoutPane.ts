@@ -264,7 +264,7 @@ export class LayoutPane extends HTMLElement {
             nodeId: element.domId,
             nodeTitle: element.name,
             nodeClasses: element.domClasses,
-          } as NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}>
+          } satisfies NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}>
         </span>
       </label>
       <label @keyup=${onColorLabelKeyUp} @keydown=${onColorLabelKeyDown} tabindex="0" title=${i18nString(UIStrings.chooseElementOverlayColor)} aria-label=${i18nString(UIStrings.chooseElementOverlayColor)} class="color-picker-label" style="background: ${element.color};">

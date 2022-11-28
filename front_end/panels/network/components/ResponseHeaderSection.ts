@@ -502,7 +502,7 @@ export class ResponseHeaderSection extends HTMLElement {
       ${headerDescriptors.map((header, index) => html`
         <${HeaderSectionRow.litTagName} .data=${{
           header: header,
-        } as HeaderSectionRowData} @headeredited=${this.#onHeaderEdited} @headerremoved=${this.#onHeaderRemoved} @enableheaderediting=${this.#onEnableHeaderEditingClick} data-index=${index}></${HeaderSectionRow.litTagName}>
+        } satisfies HeaderSectionRowData} @headeredited=${this.#onHeaderEdited} @headerremoved=${this.#onHeaderRemoved} @enableheaderediting=${this.#onEnableHeaderEditingClick} data-index=${index}></${HeaderSectionRow.litTagName}>
       `)}
       ${this.#headersAreOverrideable ? html`
         <${Buttons.Button.Button.litTagName}

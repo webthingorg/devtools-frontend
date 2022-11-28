@@ -137,9 +137,12 @@ export class StylePropertyEditor extends HTMLElement {
     const title = selected ? i18nString(UIStrings.deselectButton, values) : i18nString(UIStrings.selectButton, values);
     return html`<button title=${title} class=${classes} @click=${
         (): void => this.#onButtonClick(propertyName, propertyValue, selected)}>
-       <${IconButton.Icon.Icon.litTagName} style=${transform} .data=${
-        {iconName: iconInfo.iconName, color: 'var(--icon-color)', width: '18px', height: '18px'} as
-        IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
+       <${IconButton.Icon.Icon.litTagName} style=${transform} .data=${{
+      iconName: iconInfo.iconName,
+      color: 'var(--icon-color)',
+      width: '18px',
+      height: '18px',
+    } satisfies IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
     </button>`;
   }
 
