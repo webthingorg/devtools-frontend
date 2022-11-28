@@ -51,6 +51,24 @@
       "parentUuid": "f6c3bbb8_df09fdf1",
       "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab0a601_0bd6ce55",
+        "filename": "node_modules/@types/semver/classes/comparator.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:37:59Z",
+      "side": 1,
+      "message": "I\u0027d rather not make manual changes here!",
+      "parentUuid": "65daacb8_ff412b03",
+      "revId": "d067af6f98335b04a18ca0998cca9d0d5e8f6afc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
