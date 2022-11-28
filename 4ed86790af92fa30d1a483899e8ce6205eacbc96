@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "660d38a1_777ed483",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:30:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65f70ebe_b852becb",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c66f7959_1fcd5ce9",
@@ -157,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "687317ff_8bad2a3c",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:30:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c2f6d80_353a5c85",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1bf1a01_7630a670",
@@ -205,6 +241,24 @@
       "side": 1,
       "message": "I\u0027m currently trying to think whether we should do this or not. I\u0027ve conflicted ideas for both:\n\n* Chromium parses syntax with out of range values correctly (for example, `lch(900 250 500.1)` is parsed correctly and a color is shown) and handle them internally (don\u0027t know how). So, I\u0027m not sure if we should try to do something in here, then possibly get conflicts with the browser.\n\n* Maybe it would be cool to have some assertion that these numbers are always between 0 - 1 but I\u0027m not able to think of a use case for this or how the otherwise can be a problem.\n\n\nSo, I\u0027m a bit on the side of not clamping and trying to map to `[0 - 100]` range with possible out of range values. For example, `120%` is also handled correctly in the browser.\n\nWDYT?",
       "parentUuid": "a1c5e15b_fe65c612",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b28b3ebd_2070abae",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:30:57Z",
+      "side": 1,
+      "message": "I expect chromium will clamp the values as spec\u0027ed, so if we don\u0027t do this we\u0027ll end up showing incorrect colors, won\u0027t we?",
+      "parentUuid": "1ecb0d57_b8ffde66",
       "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
