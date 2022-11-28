@@ -373,6 +373,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac0f6444_cb0b5a6c",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T10:49:04Z",
+      "side": 1,
+      "message": "The spec allows this, but lab(200 0 0) \u003d\u003d\u003d lab(100 0 0). See https://w3c.github.io/csswg-drafts/css-color/#funcdef-lab first paragraph.",
+      "parentUuid": "50f65f1b_e1109e31",
+      "revId": "4ed86790af92fa30d1a483899e8ce6205eacbc96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3bc0c0a_46312f13",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 5
