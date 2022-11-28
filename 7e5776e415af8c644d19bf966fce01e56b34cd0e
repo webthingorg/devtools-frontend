@@ -16,6 +16,75 @@
       "message": "dsv@, PTAL. Thanks!",
       "revId": "7e5776e415af8c644d19bf966fce01e56b34cd0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2301108_fabe1667",
+        "filename": "front_end/panels/application/SharedStorageListTreeElement.ts",
+        "patchSetId": 57
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-28T09:11:57Z",
+      "side": 1,
+      "message": "`expandedSettingDefault`?",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "7e5776e415af8c644d19bf966fce01e56b34cd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bde2d651_13b8ad28",
+        "filename": "front_end/panels/application/SharedStorageListTreeElement.ts",
+        "patchSetId": 57
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-28T09:11:57Z",
+      "side": 1,
+      "message": "We normally don\u0027t have spaces in setting keys.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 112
+      },
+      "revId": "7e5776e415af8c644d19bf966fce01e56b34cd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aad72e4_4d751577",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageListTreeElement_test.ts",
+        "patchSetId": 57
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-28T09:11:57Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 95
+      },
+      "revId": "7e5776e415af8c644d19bf966fce01e56b34cd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
