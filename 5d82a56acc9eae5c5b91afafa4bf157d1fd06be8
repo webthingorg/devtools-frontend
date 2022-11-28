@@ -317,6 +317,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d44329c3_c5d5f50f",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-28T08:50:32Z",
+      "side": 1,
+      "message": "WDYT of using DOM to query experiments/settings? We can:\n* Add `data-experiment-name` as a property\n* Then query the component from the DOM with `document.querySelector(\u0027[data-experiment-name\u003d\"\u003cexperiment-name\u003e\"]\u0027).\n\nThat way, we don\u0027t need to think about this issue :)",
+      "parentUuid": "6cac2ea9_112aac48",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58f185d7_bc36ea28",
         "filename": "front_end/panels/settings/SettingsScreen.ts",
         "patchSetId": 7
