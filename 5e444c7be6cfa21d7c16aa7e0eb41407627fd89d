@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d60704_b7c21763",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T09:37:43Z",
+      "side": 1,
+      "message": "I\u0027ve removed this code so this isn\u0027t needed.",
+      "parentUuid": "cdae8045_3bcba1c3",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c11220_74ec0775",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b265e5e_44f49780",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T09:37:43Z",
+      "side": 1,
+      "message": "Sounds good. I\u0027ve removed the internal field :)",
+      "parentUuid": "98c11220_74ec0775",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b1b3a7a_8ed83faf",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-11-25T15:14:50Z",
       "side": 1,
       "message": "Maybe we can add a comment here too for the reason why we decided not to include value autocompletions from aliasesFor map. So that, later, people might not try to add it again. WDYT?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b240fa2_5286de73",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T09:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b1b3a7a_8ed83faf",
       "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -99,6 +153,24 @@
       "writtenOn": "2022-11-25T15:14:50Z",
       "side": 1,
       "message": "(nit): We can call `prefixResults.push(aliasResult, aliasForResult)` instead of calling `push` two times.\n\nIn addition to that, can we add a comment on the list order of these being important since other way around creates an unwanted behavior: suggests the `propertyName` when `alias` is being written which?",
+      "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31c7eed7_30862c9b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1833,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-11-28T09:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b9010c9_9c2c6d73",
       "revId": "5e444c7be6cfa21d7c16aa7e0eb41407627fd89d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
