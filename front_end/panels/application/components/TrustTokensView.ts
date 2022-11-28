@@ -74,8 +74,7 @@ class TrustTokensDeleteButton extends HTMLElement {
           title=${i18nString(UIStrings.deleteTrustTokens, {PH1: this.#issuer as string})}
           @click=${(): void => this.#deleteClickHandler(this.#issuer as string)}>
           <${IconButton.Icon.Icon.litTagName} .data=${
-        {iconName: 'trash_bin_icon', color: 'var(--color-text-secondary)', width: '9px', height: '14px'} as
-        IconButton.Icon.IconWithName}>
+        {iconName: 'trash_bin_icon', color: 'var(--color-text-secondary)', width: '9px', height: '14px'} satisfies IconButton.Icon.IconWithName}>
           </${IconButton.Icon.Icon.litTagName}>
         </button>
       </span>`, this.#shadow, {host: this});
@@ -113,8 +112,7 @@ export class TrustTokensView extends HTMLElement {
         <${IconButton.Icon.Icon.litTagName} class="info-icon" title=${
             i18nString(UIStrings.allStoredTrustTokensAvailableIn)}
           .data=${
-            {iconName: 'ic_info_black_18dp', color: 'var(--color-link)', width: '14px'} as
-            IconButton.Icon.IconWithName}>
+            {iconName: 'ic_info_black_18dp', color: 'var(--color-link)', width: '14px'} satisfies IconButton.Icon.IconWithName}>
         </${IconButton.Icon.Icon.litTagName}>
         ${this.#renderGridOrNoDataMessage()}
       </div>
@@ -163,7 +161,7 @@ export class TrustTokensView extends HTMLElement {
 
     return LitHtml.html`
       <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
-        gridData as DataGrid.DataGridController.DataGridControllerData}></${
+        gridData satisfies DataGrid.DataGridController.DataGridControllerData}></${
         DataGrid.DataGridController.DataGridController.litTagName}>
     `;
   }
@@ -186,7 +184,7 @@ export class TrustTokensView extends HTMLElement {
   #deleteButtonRendererForDataGridCell(issuer: DataGrid.DataGridUtils.CellValue): LitHtml.TemplateResult {
     // clang-format off
     return LitHtml.html`<${TrustTokensDeleteButton.litTagName}
-     .data=${{issuer, deleteClickHandler: this.#deleteClickHandler} as TrustTokensDeleteButtonData}
+     .data=${{issuer, deleteClickHandler: this.#deleteClickHandler} satisfies TrustTokensDeleteButtonData}
     ></${TrustTokensDeleteButton.litTagName}>`;
     // clang-format on
   }

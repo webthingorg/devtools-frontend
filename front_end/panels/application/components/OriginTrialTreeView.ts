@@ -122,7 +122,7 @@ function constructOriginTrialTree(originTrial: Protocol.Page.OriginTrial): TreeN
         <${Badge.litTagName} .data=${{
         badgeContent: i18nString(UIStrings.tokens, {PH1: trial.tokensWithStatus.length}),
         style: 'secondary',
-      } as BadgeData}></${Badge.litTagName}>
+      } satisfies BadgeData}></${Badge.litTagName}>
       `;
 
       return LitHtml.html`
@@ -130,7 +130,7 @@ function constructOriginTrialTree(originTrial: Protocol.Page.OriginTrial): TreeN
         <${Badge.litTagName} .data=${{
         badgeContent: trial.status,
         style: trial.status === Protocol.Page.OriginTrialStatus.Enabled ? 'success' : 'error',
-      } as BadgeData}></${Badge.litTagName}>
+      } satisfies BadgeData}></${Badge.litTagName}>
         ${trial.tokensWithStatus.length > 1 ? tokenCountBadge : LitHtml.nothing}
       `;
     },
@@ -148,7 +148,7 @@ function constructTokenNode(token: Protocol.Page.OriginTrialTokenWithStatus): Tr
         <${Badge.litTagName} .data=${{
         badgeContent: tokenStatus,
         style: tokenStatus === Protocol.Page.OriginTrialTokenStatus.Success ? 'success' : 'error',
-      } as BadgeData}></${Badge.litTagName}>
+      } satisfies BadgeData}></${Badge.litTagName}>
       `;
       // Only display token status for convenience when the node is not expanded.
       return LitHtml.html`${i18nString(UIStrings.token)} ${state.isExpanded ? LitHtml.nothing : statusBadge}`;
@@ -163,7 +163,7 @@ interface TokenField {
 
 function renderTokenDetails(node: TreeNode<OriginTrialTreeNodeData>): LitHtml.TemplateResult {
   return LitHtml.html`
-    <${OriginTrialTokenRows.litTagName} .data=${{node: node} as OriginTrialTokenRowsData}>
+    <${OriginTrialTokenRows.litTagName} .data=${{node: node} satisfies OriginTrialTokenRowsData}>
     </${OriginTrialTokenRows.litTagName}>
     `;
 }
@@ -286,7 +286,7 @@ export class OriginTrialTokenRows extends HTMLElement {
           <${Badge.litTagName} .data=${{
           badgeContent: this.#tokenWithStatus.status,
           style: this.#tokenWithStatus.status === Protocol.Page.OriginTrialTokenStatus.Success ? 'success' : 'error',
-        } as BadgeData}></${Badge.litTagName}>`,
+        } satisfies BadgeData}></${Badge.litTagName}>`,
       },
       ...this.#parsedTokenDetails,
     ];
@@ -332,7 +332,7 @@ export class OriginTrialTreeView extends HTMLElement {
       <${TreeOutline.TreeOutline.TreeOutline.litTagName} .data=${{
           tree: trials.map(constructOriginTrialTree),
           defaultRenderer,
-        } as TreeOutline.TreeOutline.TreeOutlineData<OriginTrialTreeNodeData>}>
+        } satisfies TreeOutline.TreeOutline.TreeOutlineData<OriginTrialTreeNodeData>}>
       </${TreeOutline.TreeOutline.TreeOutline.litTagName}>
     `,
         this.#shadow, {host: this});

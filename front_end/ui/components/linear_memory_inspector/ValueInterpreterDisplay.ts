@@ -162,7 +162,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
               <button class="jump-to-button" data-jump="true" title=${buttonTitle} ?disabled=${jumpDisabled}
                 @click=${this.#onJumpToAddressClicked.bind(this, Number(address))}>
                 <${IconButton.Icon.Icon.litTagName} .data=${
-                  {iconName: 'link_icon', color: iconColor, width: '14px'} as IconButton.Icon.IconWithName}>
+                  {iconName: 'link_icon', color: iconColor, width: '14px'} satisfies IconButton.Icon.IconWithName}>
                 </${IconButton.Icon.Icon.litTagName}>
               </button>`}
         </div>

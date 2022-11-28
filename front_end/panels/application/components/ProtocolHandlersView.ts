@@ -116,7 +116,8 @@ export class ProtocolHandlersView extends HTMLElement {
     };
     return LitHtml.html`
     <div class="protocol-handlers-row status">
-            <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${iconData as IconButton.Icon.IconData}>
+            <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${
+        iconData satisfies IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
             ${i18n.i18n.getFormatLocalizedString(str_, statusString, {
       PH1: manifestInTextLink,

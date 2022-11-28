@@ -67,7 +67,7 @@ export class WebBundleInfoElement extends HTMLElement {
               return html`
                 <div style="display: flex;">
                   <${IconButton.Icon.Icon.litTagName} class="icon"
-                    .data=${{color: '', iconName, width: '18px'} as IconButton.Icon.IconData}>
+                    .data=${{color: '', iconName, width: '18px'} satisfies IconButton.Icon.IconData}>
                   </${IconButton.Icon.Icon.litTagName}>
                   <span>${url}</span>
                 </div>`;
@@ -80,14 +80,16 @@ export class WebBundleInfoElement extends HTMLElement {
         html`
       <div class="header">
         <${IconButton.Icon.Icon.litTagName} class="icon"
-          .data=${{color: '', iconName: 'resourceWebBundle', width: '16px'} as IconButton.Icon.IconData}>
+          .data=${{color: '', iconName: 'resourceWebBundle', width: '16px'} satisfies IconButton.Icon.IconData}>
         </${IconButton.Icon.Icon.litTagName}>
         <span>${this.#webBundleName}</span>
         <x-link href="https://web.dev/web-bundles/#explaining-web-bundles">
           <${IconButton.Icon.Icon.litTagName} class="icon"
-            .data=${
-            {color: 'var(--color-text-secondary)', iconName: 'help_outline', width: '16px'} as
-            IconButton.Icon.IconData}>
+            .data=${{
+          color: 'var(--color-text-secondary)',
+          iconName: 'help_outline',
+          width: '16px',
+        } satisfies IconButton.Icon.IconData}>
           </${IconButton.Icon.Icon.litTagName}>
         </x-link>
       </div>
@@ -103,9 +105,9 @@ export class WebBundleInfoElement extends HTMLElement {
               hideable: false,
             },
           ],
-          rows: rows,
+          rows: rows || [],
           activeSort: null,
-        } as DataGrid.DataGrid.DataGridData}>
+        } satisfies DataGrid.DataGrid.DataGridData}>
         </${DataGrid.DataGrid.DataGrid.litTagName}>
       </div>`,
         this.#shadow, {host: this});

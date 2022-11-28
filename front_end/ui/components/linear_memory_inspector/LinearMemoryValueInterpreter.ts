@@ -96,7 +96,7 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
           ${this.#renderEndiannessSetting()}
           <button data-settings="true" class="settings-toolbar-button ${this.#showSettings ? 'active' : ''}" title=${i18nString(UIStrings.toggleValueTypeSettings)} @click=${this.#onSettingsToggle}>
             <${IconButton.Icon.Icon.litTagName}
-              .data=${{ iconName: 'settings_14x14_icon', color: 'var(--color-text-secondary)', width: '14px' } as IconButton.Icon.IconWithName}>
+              .data=${{ iconName: 'settings_14x14_icon', color: 'var(--color-text-secondary)', width: '14px' } satisfies IconButton.Icon.IconWithName}>
             </${IconButton.Icon.Icon.litTagName}>
           </button>
         </div>
@@ -105,7 +105,7 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
           ${this.#showSettings ?
             html`
               <${ValueInterpreterSettings.litTagName}
-                .data=${{ valueTypes: this.#valueTypes } as ValueInterpreterSettingsData}
+                .data=${{ valueTypes: this.#valueTypes } satisfies ValueInterpreterSettingsData}
                 @typetoggle=${this.#onTypeToggle}>
               </${ValueInterpreterSettings.litTagName}>` :
             html`
@@ -116,7 +116,7 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
                   endianness: this.#endianness,
                   valueTypeModes: this.#valueTypeModeConfig,
                   memoryLength: this.#memoryLength,
-                } as ValueDisplayData}>
+                } satisfies ValueDisplayData}>
               </${ValueInterpreterDisplay.litTagName}>`}
         </div>
       </div>

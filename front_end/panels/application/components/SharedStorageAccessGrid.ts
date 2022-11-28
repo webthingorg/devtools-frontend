@@ -80,8 +80,7 @@ export class SharedStorageAccessGrid extends HTMLElement {
             i18nString(UIStrings.allSharedStorageEvents)}
           .data=${
             {iconName: 'ic_info_black_18dp',
-              color: 'var(--color-link)', width: '14px'} as
-            IconButton.Icon.IconWithName}>
+              color: 'var(--color-link)', width: '14px'} satisfies IconButton.Icon.IconWithName}>
         </${IconButton.Icon.Icon.litTagName}>
         ${this.#renderGridOrNoDataMessage()}
       </div>
@@ -147,7 +146,7 @@ export class SharedStorageAccessGrid extends HTMLElement {
 
     return LitHtml.html`
       <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
-        gridData as DataGrid.DataGridController.DataGridControllerData}></${
+        gridData satisfies DataGrid.DataGridController.DataGridControllerData}></${
         DataGrid.DataGridController.DataGridController.litTagName}>
     `;
   }

@@ -95,7 +95,7 @@ export class QueryContainer extends HTMLElement {
         nodeTitle,
         nodeId: idToDisplay,
         nodeClasses: classesToDisplay,
-      } as NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}></a>
+      } satisfies NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}></a>
       ${this.#isContainerLinkHovered ? this.#renderQueriedSizeDetails() : LitHtml.nothing}
     `, this.#shadow, {
       host: this,
@@ -124,7 +124,7 @@ export class QueryContainer extends HTMLElement {
           class=${axisIconClasses} .data=${{
             iconName: 'ic_dimension_single',
             color: 'var(--color-text-primary)',
-          } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>)
+          } satisfies IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>)
         ${areBothAxesQueried && this.#queriedSizeDetails.width ? 'width:' : LitHtml.nothing}
         ${this.#queriedSizeDetails.width || LitHtml.nothing}
         ${areBothAxesQueried && this.#queriedSizeDetails.height ? 'height:' : LitHtml.nothing}

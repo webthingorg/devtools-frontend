@@ -78,7 +78,7 @@ export class EndpointsGrid extends HTMLElement {
         <div class="reporting-header">${i18n.i18n.lockedString('Endpoints')}</div>
         ${this.#endpoints.size > 0 ? html`
           <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
-              endpointsGridData as DataGrid.DataGridController.DataGridControllerData}>
+              endpointsGridData satisfies DataGrid.DataGridController.DataGridControllerData}>
           </${DataGrid.DataGridController.DataGridController.litTagName}>
         ` : html`
           <div class="reporting-placeholder">

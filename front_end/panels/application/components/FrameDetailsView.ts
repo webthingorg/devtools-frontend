@@ -346,7 +346,7 @@ export class FrameDetailsReportView extends HTMLElement {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       LitHtml.render(LitHtml.html`
-        <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} as ReportView.ReportView.ReportData}>
+        <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} satisfies ReportView.ReportView.ReportData}>
           ${this.#renderDocumentSection()}
           ${this.#renderIsolationSection()}
           ${this.#renderApiAvailabilitySection()}
@@ -355,7 +355,7 @@ export class FrameDetailsReportView extends HTMLElement {
             this.#permissionsPolicySectionData.policies = policies || [];
             return LitHtml.html`
               <${PermissionsPolicySection.litTagName}
-                .data=${this.#permissionsPolicySectionData as PermissionsPolicySectionData}
+                .data=${this.#permissionsPolicySectionData satisfies PermissionsPolicySectionData}
               >
               </${PermissionsPolicySection.litTagName}>
             `;
@@ -395,7 +395,7 @@ export class FrameDetailsReportView extends HTMLElement {
           iconColor: 'var(--color-text-primary)',
         } as IconButton.IconButton.IconWithTextData,
       ],
-    } as IconButton.IconButton.IconButtonData}>
+    } satisfies IconButton.IconButton.IconButtonData}>
       </${IconButton.IconButton.IconButton.litTagName}>
     </${ReportView.ReportView.ReportSectionHeader.litTagName}>
     ${this.#originTrialTreeView}
@@ -546,7 +546,7 @@ export class FrameDetailsReportView extends HTMLElement {
                 color: 'var(--color-primary)',
                 width: '16px',
                 height: '16px',
-              } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>
+              } satisfies IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>
               &lt;${linkTargetDOMNode.nodeName().toLocaleLowerCase()}&gt;
             </button>
           </${ReportView.ReportView.ReportValue.litTagName}>
@@ -558,6 +558,9 @@ export class FrameDetailsReportView extends HTMLElement {
   }
 
   #maybeRenderCreationStacktrace(): LitHtml.LitTemplate {
+    if (!this.#frame) {
+      return LitHtml.nothing;
+    }
     const creationStackTraceData = this.#frame?.getCreationStackTraceData();
     if (creationStackTraceData && creationStackTraceData.creationStackTrace) {
       // Disabled until https://crbug.com/1079231 is fixed.
@@ -569,7 +572,7 @@ export class FrameDetailsReportView extends HTMLElement {
           <${StackTrace.litTagName} .data=${{
             frame: this.#frame,
             buildStackTraceRows: Components.JSPresentationUtils.buildStackTraceRows,
-          } as StackTraceData}>
+          } satisfies StackTraceData}>
           </${StackTrace.litTagName}>
         </${ReportView.ReportView.ReportValue.litTagName}>
       `;
@@ -625,7 +628,7 @@ export class FrameDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
-          {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
+          {rows} satisfies ExpandableList.ExpandableList.ExpandableListData}></${
         ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
       ${this.#target ? LitHtml.html`
         <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.creatorAdScript)}</${

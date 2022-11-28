@@ -261,7 +261,7 @@ export class Button extends HTMLElement {
               color: 'var(--color-background)',
               width: this.#props.iconWidth || undefined,
               height: this.#props.iconHeight || undefined,
-            } as IconButton.Icon.IconData}
+            } satisfies IconButton.Icon.IconData}
           >
           </${IconButton.Icon.Icon.litTagName}>` : ''}
           ${this.#props.spinner ? LitHtml.html`<span class=${LitHtml.Directives.classMap(spinnerClasses)}></span>` : ''}

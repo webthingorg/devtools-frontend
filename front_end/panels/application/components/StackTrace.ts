@@ -160,7 +160,7 @@ export class StackTrace extends HTMLElement {
           expandableRows.push(LitHtml.html`
           <${StackTraceRow.litTagName} data-stack-trace-row .data=${{
             stackTraceRowItem: item,
-          } as StackTraceRowData}></${StackTraceRow.litTagName}>`);
+          } satisfies StackTraceRowData}></${StackTraceRow.litTagName}>`);
         }
         if ('asyncDescription' in item) {
           expandableRows.push(LitHtml.html`
@@ -176,7 +176,7 @@ export class StackTrace extends HTMLElement {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       expandableRows.push(LitHtml.html`
-      <${StackTraceLinkButton.litTagName} data-stack-trace-row .data=${{onShowAllClick: this.#onShowAllClick.bind(this), hiddenCallFramesCount: hiddenCallFramesCount} as StackTraceLinkButtonData}></${StackTraceLinkButton.litTagName}>
+      <${StackTraceLinkButton.litTagName} data-stack-trace-row .data=${{onShowAllClick: this.#onShowAllClick.bind(this), hiddenCallFramesCount: hiddenCallFramesCount} satisfies StackTraceLinkButtonData}></${StackTraceLinkButton.litTagName}>
       `);
       // clang-format on
     }
@@ -200,7 +200,7 @@ export class StackTrace extends HTMLElement {
       LitHtml.html`
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${{
           rows: expandableRows,
-        } as ExpandableList.ExpandableList.ExpandableListData}>
+        } satisfies ExpandableList.ExpandableList.ExpandableListData}>
         </${ExpandableList.ExpandableList.ExpandableList.litTagName}>
       `,
       this.#shadow, {host: this});

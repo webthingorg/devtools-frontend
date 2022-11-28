@@ -149,13 +149,14 @@ export class CSSVarSwatch extends HTMLElement {
     }
 
     const isDefined = Boolean(computedValue) && !fromFallback;
-    const title = isDefined ? computedValue : i18nString(UIStrings.sIsNotDefined, {PH1: this.variableName(text)});
+    const title =
+        isDefined ? computedValue as string : i18nString(UIStrings.sIsNotDefined, {PH1: this.variableName(text)});
     const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
 
     render(
         html`<span title=${data.computedValue || ''}>${functionParts.pre}<${LinkSwatch.litTagName} .data=${
-            {title, text: functionParts.variableName, isDefined, onLinkActivate} as
-            LinkSwatchRenderData}></${LinkSwatch.litTagName}>${fallbackIncludeComma}${functionParts.post}</span>`,
+            {title, text: functionParts.variableName, isDefined, onLinkActivate} satisfies LinkSwatchRenderData}></${
+            LinkSwatch.litTagName}>${fallbackIncludeComma}${functionParts.post}</span>`,
         this.shadow, {host: this});
   }
 }
@@ -183,7 +184,7 @@ export class AnimationNameSwatch extends HTMLElement {
           isDefined,
           title,
           onLinkActivate,
-        } as LinkSwatchRenderData}></${LinkSwatch.litTagName}></span>`,
+        } satisfies LinkSwatchRenderData}></${LinkSwatch.litTagName}></span>`,
         this.shadow, {host: this});
   }
 }

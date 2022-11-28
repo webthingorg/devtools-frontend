@@ -79,7 +79,7 @@ export class PreviewToggle extends HTMLElement {
             width: '16px',
             height: '16px',
             color: 'var(--color-text-secondary)',
-          } as IconButton.Icon.IconData}>
+          } satisfies IconButton.Icon.IconData}>
           </${IconButton.Icon.Icon.litTagName}>${this.#name}
         </label>
         <div class="spacer"></div>

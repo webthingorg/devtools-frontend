@@ -209,13 +209,13 @@ export class LinearMemoryInspector extends HTMLElement {
     render(html`
       <div class="view">
         <${LinearMemoryNavigator.litTagName}
-          .data=${{address: navigatorAddressToShow, valid: navigatorAddressIsValid, mode: this.#currentNavigatorMode, error: errorMsg, canGoBackInHistory, canGoForwardInHistory} as LinearMemoryNavigatorData}
+          .data=${{address: navigatorAddressToShow, valid: navigatorAddressIsValid, mode: this.#currentNavigatorMode, error: errorMsg, canGoBackInHistory, canGoForwardInHistory} satisfies LinearMemoryNavigatorData}
           @refreshrequested=${this.#onRefreshRequest}
           @addressinputchanged=${this.#onAddressChange}
           @pagenavigation=${this.#navigatePage}
           @historynavigation=${this.#navigateHistory}></${LinearMemoryNavigator.litTagName}>
           <${LinearMemoryHighlightChipList.litTagName}
-          .data=${{highlightInfos: highlightedMemoryAreas, focusedMemoryHighlight: focusedMemoryHighlight } as LinearMemoryHighlightChipListData}
+          .data=${{highlightInfos: highlightedMemoryAreas, focusedMemoryHighlight: focusedMemoryHighlight } satisfies LinearMemoryHighlightChipListData}
           @jumptohighlightedmemory=${this.#onJumpToAddress}>
           </${LinearMemoryHighlightChipList.litTagName}>
         <${LinearMemoryViewer.litTagName}
@@ -225,7 +225,7 @@ export class LinearMemoryInspector extends HTMLElement {
             address: this.#address, memoryOffset: start,
             focus: this.#currentNavigatorMode === Mode.Submitted,
             highlightInfo: this.#highlightInfo,
-            focusedMemoryHighlight: focusedMemoryHighlight } as LinearMemoryViewerData}
+            focusedMemoryHighlight: focusedMemoryHighlight } satisfies LinearMemoryViewerData}
           @byteselected=${this.#onByteSelected}
           @resize=${this.#resize}>
         </${LinearMemoryViewer.litTagName}>
@@ -237,7 +237,7 @@ export class LinearMemoryInspector extends HTMLElement {
             valueTypes: this.#valueTypes,
             valueTypeModes: this.#valueTypeModes,
             endianness: this.#endianness,
-            memoryLength: this.#outerMemoryLength } as LinearMemoryValueInterpreterData}
+            memoryLength: this.#outerMemoryLength } satisfies LinearMemoryValueInterpreterData}
           @valuetypetoggled=${this.#onValueTypeToggled}
           @valuetypemodechanged=${this.#onValueTypeModeChanged}
           @endiannesschanged=${this.#onEndiannessChanged}

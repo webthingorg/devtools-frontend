@@ -74,7 +74,7 @@ export class PanelFeedback extends HTMLElement {
             width: '24px',
             height: '24px',
             color: 'var(--color-primary)',
-          } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}> ${i18nString(UIStrings.previewFeature)}
+          } satisfies IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}> ${i18nString(UIStrings.previewFeature)}
         </h2>
         <p>${i18nString(UIStrings.previewText)} <x-link href=${this.#props.feedbackUrl}>${i18nString(UIStrings.previewTextFeedbackLink)}</x-link></p>
         <div class="video">

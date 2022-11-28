@@ -81,9 +81,7 @@ export class IconButton extends HTMLElement {
       <button class=${buttonClasses} @click=${this.#onClickHandler} aria-label=${LitHtml.Directives.ifDefined(this.#accessibleName)}>
       ${(!this.#compact && this.#leadingText) ? LitHtml.html`<span class="icon-button-title">${this.#leadingText}</span>` : LitHtml.nothing}
       ${filteredGroups.map(counter =>
-      LitHtml.html`
-      <${Icon.litTagName} class="status-icon"
-      .data=${{iconName: counter.iconName, color: counter.iconColor, width: counter.iconWidth || '1.5ex', height: counter.iconHeight || '1.5ex'} as IconData}>
+      LitHtml.html`<${Icon.litTagName} class="status-icon" .data=${{iconName: counter.iconName, color: counter.iconColor, width: counter.iconWidth || '1.5ex', height: counter.iconHeight || '1.5ex'} satisfies IconData}>
       </${Icon.litTagName}>
       ${this.#compact ? LitHtml.html`<!-- Force line-height for this element --><span>&#8203;</span>` : LitHtml.nothing}
       <span class="icon-button-title">${counter.text}</span>

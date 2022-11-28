@@ -53,8 +53,8 @@ export interface DataGridContextMenusConfiguration {
 }
 
 export interface DataGridData {
-  columns: Column[];
-  rows: Row[];
+  columns: readonly Column[];
+  rows: readonly Row[];
   activeSort: SortState|null;
   contextMenus?: DataGridContextMenusConfiguration;
   label?: string;

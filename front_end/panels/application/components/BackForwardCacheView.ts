@@ -201,7 +201,7 @@ export class BackForwardCacheView extends HTMLElement {
       // clang-format off
       LitHtml.render(LitHtml.html`
         <${ReportView.ReportView.Report.litTagName} .data=${
-            {reportTitle: i18nString(UIStrings.backForwardCacheTitle)} as ReportView.ReportView.ReportData
+            {reportTitle: i18nString(UIStrings.backForwardCacheTitle)} satisfies ReportView.ReportView.ReportData
         }>
           ${this.#renderMainFrameInformation()}
         </${ReportView.ReportView.Report.litTagName}>
@@ -342,7 +342,7 @@ export class BackForwardCacheView extends HTMLElement {
               color: 'var(--color-text-secondary)',
               width: '16px',
               height: '16px',
-            } as IconButton.Icon.IconData}>
+            } satisfies IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
           ` : LitHtml.nothing}
           ${node.treeNodeData.text}
@@ -381,7 +381,7 @@ export class BackForwardCacheView extends HTMLElement {
             tree: [root],
             defaultRenderer: treeNodeRenderer,
             compact: true,
-          } as TreeOutline.TreeOutline.TreeOutlineData<FrameTreeNodeData>}>
+          } satisfies TreeOutline.TreeOutline.TreeOutlineData<FrameTreeNodeData>}>
           </${TreeOutline.TreeOutline.TreeOutline.litTagName}>
         </div>
       </div>
@@ -453,7 +453,7 @@ export class BackForwardCacheView extends HTMLElement {
                 color: 'green',
                 width: '16px',
                 height: '16px',
-                } as IconButton.Icon.IconData}>
+                } satisfies IconButton.Icon.IconData}>
               </${IconButton.Icon.Icon.litTagName}>
             </div>
             ${i18nString(UIStrings.restoredFromBFCache)}
@@ -470,7 +470,7 @@ export class BackForwardCacheView extends HTMLElement {
                   color: 'var(--color-text-secondary)',
                   width: '16px',
                   height: '16px',
-                  } as IconButton.Icon.IconData}>
+                  } satisfies IconButton.Icon.IconData}>
               </${IconButton.Icon.Icon.litTagName}>
             </div>
             ${i18nString(UIStrings.normalNavigation)}
@@ -554,7 +554,7 @@ export class BackForwardCacheView extends HTMLElement {
               color: 'var(--color-text-secondary)',
               width: '16px',
               height: '16px',
-              } as IconButton.Icon.IconData} title=${explainerText}>
+              } satisfies IconButton.Icon.IconData} title=${explainerText}>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
         </${ReportView.ReportView.ReportSectionHeader.litTagName}>
@@ -586,8 +586,8 @@ export class BackForwardCacheView extends HTMLElement {
     return LitHtml.html`
       <div class="explanation-frames">
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
-        {rows} as
-        ExpandableList.ExpandableList.ExpandableListData}></${ExpandableList.ExpandableList.ExpandableList.litTagName}>
+        {rows} satisfies ExpandableList.ExpandableList.ExpandableListData}></${
+        ExpandableList.ExpandableList.ExpandableList.litTagName}>
       </div>
     `;
   }
@@ -616,7 +616,7 @@ export class BackForwardCacheView extends HTMLElement {
                 color: 'orange',
                 width: '16px',
                 height: '16px',
-              } as IconButton.Icon.IconData}>
+              } satisfies IconButton.Icon.IconData}>
               </${IconButton.Icon.Icon.litTagName}>
             </div>
             <div>

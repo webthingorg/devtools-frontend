@@ -109,8 +109,6 @@ export async function sdkNodeToAXTreeNodes(sdkNode: SDK.AccessibilityModel.Acces
   }];
 }
 
-type Data = ElementsComponents.AccessibilityTreeNode.AccessibilityTreeNodeData;
-
 export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateResult {
   const tag = ElementsComponents.AccessibilityTreeNode.AccessibilityTreeNode.litTagName;
   const sdkNode = node.treeNodeData;
@@ -118,7 +116,12 @@ export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateRes
   const role = sdkNode.role()?.value || '';
   const properties = sdkNode.properties() || [];
   const ignored = sdkNode.ignored();
-  return LitHtml.html`<${tag} .data=${{name, role, ignored, properties} as Data}></${tag}>`;
+  return LitHtml.html`<${tag} .data=${{
+    name,
+    role,
+    ignored,
+    properties,
+  } satisfies ElementsComponents.AccessibilityTreeNode.AccessibilityTreeNodeData}></${tag}>`;
 }
 
 export function getNodeId(node: SDK.AccessibilityModel.AccessibilityNode): string {

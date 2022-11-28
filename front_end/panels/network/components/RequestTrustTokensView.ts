@@ -215,7 +215,7 @@ export class RequestTrustTokensReport extends HTMLElement {
       <${ReportView.ReportView.ReportValue.litTagName}>
         <span>
           <${IconButton.Icon.Icon.litTagName} class="status-icon"
-            .data=${getIconForStatusCode(this.#trustTokenData.result.status) as IconButton.Icon.IconData}>
+            .data=${getIconForStatusCode(this.#trustTokenData.result.status) satisfies IconButton.Icon.IconData}>
           </${IconButton.Icon.Icon.litTagName}>
           <strong>${getSimplifiedStatusTextForStatusCode(this.#trustTokenData.result.status)}</strong>
           ${getDetailedTextForStatusCode(this.#trustTokenData.result.status)}
