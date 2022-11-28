@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b76a424_6171964f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Explained this in the comment: if `disabled: false` the setting can still be configured in the settings UI and from quickopen, but we show the deprecation tag in the quickopen menu and the info icon in the settings UI.",
+      "parentUuid": "1bc768c6_284d11f5",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e58ec5a7_e2507691",
         "filename": "front_end/core/common/SettingRegistration.ts",
         "patchSetId": 7
@@ -65,6 +83,24 @@
       "writtenOn": "2022-11-25T14:34:50Z",
       "side": 1,
       "message": "Can we add a comment displaying what this is, like the above comments and what the parameters mean and how they affect setting?\n\n(nit): I didn\u0027t understand what does the name \"deprecation\" means here. Can it be `deprecationNotice` etc. Though don\u0027t have a better suggestion either 😂",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11ca109_ea0c989c",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e58ec5a7_e2507691",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6612fe3e_692756a9",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22233a4c_11c24b1c",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36c09d10_3507660c",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fc77eb_3a6758ae",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36c09d10_3507660c",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8313faee_5e5f6f6b",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-11-25T14:34:50Z",
       "side": 1,
       "message": "Why should we remove this? Can we add a more descriptive comment, something like:\n\"Remove this when XXX happens\" or \"We\u0027ll remove this setting because it\u0027s already deprecated\"",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a953b38_9a254249",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8313faee_5e5f6f6b",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +229,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9471af1b_5e4d85fd",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Yes, we would show the deprecation tag in the quickopen menu and the little info icon in the settings UI.",
+      "parentUuid": "77f0461f_02781613",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c800904_a457bc3d",
         "filename": "front_end/panels/settings/SettingsScreen.ts",
         "patchSetId": 7
@@ -150,6 +258,24 @@
       "writtenOn": "2022-11-25T14:34:50Z",
       "side": 1,
       "message": "AFAIU we don\u0027t use `SettingsTab` never directly (never create an instance of `SettingsClass` but we extend it).\n\n\nSo, I think it would be better to define that class as abstract and define this function as abstract too. That way:\n\n* We won\u0027t have an empty highlightObject definition on this class in the compiled code\n* All the implementors of the `SettingsTab` will consider what to do with their `highlightObject` behavior.\n\nWDYT?",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de132ec_2e5418af",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c800904_a457bc3d",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -167,6 +293,24 @@
       "writtenOn": "2022-11-25T14:34:50Z",
       "side": 1,
       "message": "I wonder if this can cause a memory leak on the `DOM`: HTMLElements being removed from the DOM but they are retained because they have a reference in here.\n\nIt might be fine since number of settings is constant, we might be okay with retaining this much memory all the time. WDYT?\n\n(I\u0027ve missed this in the previous review... 😅)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cac2ea9_112aac48",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "SettingsTab owns the container that holds the elements and afaict no elements are ever removed. We need to worry about leaking if we ever add removal though!\n\nFor experiments the story is different and sad. Elements are added and removed whenever the filter is used, so we need to update the map for that. I can shoehorn that into this CL 😊",
+      "parentUuid": "3d36973e_8950a70c",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -205,6 +349,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ed4636_aa0e971d",
+        "filename": "front_end/ui/components/settings/SettingDeprecationWarning.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81dd7b38_455ff45e",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52f42dfa_50974ef7",
@@ -218,6 +380,24 @@
       "writtenOn": "2022-11-25T14:34:50Z",
       "side": 1,
       "message": "Can we rename this to `deprecationMessage` or `deprecationWarning` to be more clear? I\u0027ve confused this with the other `deprecation` definition for the Setting :)",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f758639_293e819e",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-11-28T08:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52f42dfa_50974ef7",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
