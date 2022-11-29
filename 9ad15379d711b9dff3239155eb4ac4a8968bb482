@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a27361_34f8db4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-29T12:39:55Z",
+      "side": 1,
+      "message": "Let\u0027s use https://crrev.com/c/4041405 here, so it\u0027s clickable 😊",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "9ad15379d711b9dff3239155eb4ac4a8968bb482",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b8b1ac_5e2ab6f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-29T12:39:55Z",
+      "side": 1,
+      "message": "Please also add a `Bug: chromium:1379758` line here to record the relationship to the previous fix.",
+      "revId": "9ad15379d711b9dff3239155eb4ac4a8968bb482",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba4394a_059075c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-29T12:39:55Z",
+      "side": 1,
+      "message": "Thanks! LGTM modulo commit message.",
+      "revId": "9ad15379d711b9dff3239155eb4ac4a8968bb482",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
