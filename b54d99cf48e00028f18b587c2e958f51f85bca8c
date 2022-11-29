@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7402448d_df909f8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-11-29T05:06:51Z",
+      "side": 1,
+      "message": "I\u0027ll lgtm this test for now. But ideally this would be a unit test of the console panel. e2e tests are for user stories, so one single case of these would be enough, and the unit tests cover the rest.",
+      "revId": "b54d99cf48e00028f18b587c2e958f51f85bca8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
