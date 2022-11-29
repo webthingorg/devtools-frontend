@@ -369,6 +369,8 @@ export enum EnumeratedHistogram {
   LinearMemoryInspectorRevealedFrom = 'DevTools.LinearMemoryInspector.RevealedFrom',
   LinearMemoryInspectorTarget = 'DevTools.LinearMemoryInspector.Target',
   Language = 'DevTools.Language',
+<<<<<<< PATCH SET (fe853b Revert "Record changes to the "Show CORS errors" setting in )
+=======
   ConsoleShowsCorsErrors = 'DevTools.ConsoleShowsCorsErrors',
   SyncSetting = 'DevTools.SyncSetting',
   RecordingEdited = 'DevTools.RecordingEdited',
@@ -383,4 +385,5 @@ export enum EnumeratedHistogram {
   ManifestSectionSelected = 'DevTools.ManifestSectionSelected',
   CSSHintShown = 'DevTools.CSSHintShown',
   LighthouseModeRun = 'DevTools.LighthouseModeRun',
+>>>>>>> BASE      (9c4078 [CacheStorage] Support storage key in the frontend)
 }

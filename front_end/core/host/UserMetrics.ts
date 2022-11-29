@@ -244,6 +244,8 @@ export class UserMetrics {
     InspectorFrontendHostInstance.recordEnumeratedHistogram(
         EnumeratedHistogram.Language, languageCode, Language.MaxValue);
   }
+<<<<<<< PATCH SET (fe853b Revert "Record changes to the "Show CORS errors" setting in )
+=======
 
   showCorsErrorsSettingChanged(show: boolean): void {
     const consoleShowsCorsErrors = ConsoleShowsCorsErrors[String(show) as keyof typeof ConsoleShowsCorsErrors];
@@ -317,6 +319,7 @@ export class UserMetrics {
     InspectorFrontendHostInstance.recordEnumeratedHistogram(
         EnumeratedHistogram.LighthouseModeRun, type, LighthouseModeRun.MaxValue);
   }
+>>>>>>> BASE      (9c4078 [CacheStorage] Support storage key in the frontend)
 }
 
 /**

@@ -389,7 +389,7 @@
    * Enum for recordPerformanceHistogram
    * Warning: There is another definition of this enum in the DevTools code
    * base, keep them in sync:
-   * front_end/core/host/InspectorFrontendHostAPI.ts
+   * front_end/host/InspectorFrontendHostAPI.js
    * @readonly
    * @enum {string}
    */
@@ -413,6 +413,9 @@
     Language: 'DevTools.Language',
     LinearMemoryInspectorRevealedFrom: 'DevTools.LinearMemoryInspector.RevealedFrom',
     LinearMemoryInspectorTarget: 'DevTools.LinearMemoryInspector.Target',
+<<<<<<< PATCH SET (fe853b Revert "Record changes to the "Show CORS errors" setting in )
+    Language: 'DevTools.Language',
+=======
     ManifestSectionSelected: 'DevTools.ManifestSectionSelected',
     PanelClosed: 'DevTools.PanelClosed',
     PanelShown: 'DevTools.PanelShown',
@@ -427,6 +430,7 @@
     NetworkPanelResponsePreviewOpened: 'DevTools.NetworkPanelResponsePreviewOpened',
     StyleTextCopied: 'DevTools.StyleTextCopied',
     SyncSetting: 'DevTools.SyncSetting',
+>>>>>>> BASE      (9c4078 [CacheStorage] Support storage key in the frontend)
   };
 
   /**

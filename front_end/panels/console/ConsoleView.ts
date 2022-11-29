@@ -394,10 +394,16 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this.groupSimilarSetting.addChangeListener(() => this.updateMessageList());
 
     this.showCorsErrorsSetting = Common.Settings.Settings.instance().moduleSetting('consoleShowsCorsErrors');
+<<<<<<< PATCH SET (fe853b Revert "Record changes to the "Show CORS errors" setting in )
+    this.showCorsErrorsSetting.addChangeListener(() => this.updateMessageList());
+    const showCorsErrorsToggle = new UI.Toolbar.ToolbarSettingCheckbox(
+        this.showCorsErrorsSetting, i18nString(UIStrings.showCorsErrorsInConsole));
+=======
     this.showCorsErrorsSetting.addChangeListener(() => {
       Host.userMetrics.showCorsErrorsSettingChanged(this.showCorsErrorsSetting.get());
       this.updateMessageList();
     });
+>>>>>>> BASE      (9c4078 [CacheStorage] Support storage key in the frontend)
 
     const toolbar = new UI.Toolbar.Toolbar('console-main-toolbar', this.consoleToolbarContainer);
     toolbar.makeWrappable(true);
