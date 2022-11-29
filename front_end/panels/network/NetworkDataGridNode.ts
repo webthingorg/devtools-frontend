@@ -1069,6 +1069,7 @@ export class NetworkRequestNode extends NetworkNode {
       iconElement.classList.add('icon');
 
       cell.appendChild(iconElement);
+      cell.tabIndex = -1;
     }
 
     if (columnId === 'name') {
