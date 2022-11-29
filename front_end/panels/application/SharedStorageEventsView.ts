@@ -64,8 +64,8 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
   }
 
   #getMainResourceTreeModel(): SDK.ResourceTreeModel.ResourceTreeModel|null {
-    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
-    return mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel) || null;
+    const mainFrameTarget = SDK.TargetManager.TargetManager.instance().mainFrameTarget();
+    return mainFrameTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel) || null;
   }
 
   #getMainFrame(): SDK.ResourceTreeModel.ResourceTreeFrame|null {
@@ -85,8 +85,8 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
   }
 
   addEvent(event: Protocol.Storage.SharedStorageAccessedEvent): void {
-    // Only add event if main frame id matches.
-    if (event.mainFrameId !== this.id) {
+    // If `this.id` is nonempty, only add event if main frame id matches.
+    if (this.id !== '' && event.mainFrameId !== this.id) {
       return;
     }
 
