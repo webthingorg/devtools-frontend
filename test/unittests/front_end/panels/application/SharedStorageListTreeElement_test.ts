@@ -107,6 +107,8 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
       });
 
       const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+      assert.isTrue(setTrackingSpy.calledOnce);
+
       panel.markAsRoot();
       panel.show(document.body);
 
@@ -132,9 +134,6 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
       // Events are cleared on main frame navigation.
       resourceTreeModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.MainFrameNavigated, MOCK_MAIN_FRAME);
       assert.deepEqual(view.getEventsForTesting(), []);
-
-      // TODO(cammie): Change this to `calledOnce` in https://crrev.com/c/devtools/devtools-frontend/+/4060449.
-      assert.isTrue(setTrackingSpy.notCalled);
 
       panel.detach();
     });
