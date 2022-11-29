@@ -130,4 +130,20 @@ export class StorageItemsView extends UI.Widget.VBox {
 
   refreshItems(): void {
   }
+
+  getFilterItemForTesting(): UI.Toolbar.ToolbarInput {
+    return this.filterItem;
+  }
+
+  getRefreshButtonForTesting(): UI.Toolbar.ToolbarButton {
+    return this.refreshButton;
+  }
+
+  getDeleteAllButtonForTesting(): UI.Toolbar.ToolbarButton {
+    return this.deleteAllButton;
+  }
+
+  getDeleteSelectedButtonForTesting(): UI.Toolbar.ToolbarButton {
+    return this.deleteSelectedButton;
+  }
 }
