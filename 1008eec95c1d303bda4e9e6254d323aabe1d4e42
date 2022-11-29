@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4834283f_173e5ddd",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T04:05:07Z",
+      "side": 1,
+      "message": "OK to mark as resolved?",
+      "parentUuid": "9aee6a92_1226cab4",
+      "range": {
+        "startLine": 185,
+        "startChar": 30,
+        "endLine": 185,
+        "endChar": 44
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "085f03e8_a29f64c7",
         "filename": "front_end/panels/application/SharedStorageItemsView.ts",
         "patchSetId": 37
@@ -391,6 +415,30 @@
       "side": 1,
       "message": "What I meant was using `Protocol.Storage.SharedStorageEntry` instead of `unknown` when specifying datagrid, i.e.\n\n      readonly dataGrid: DataGrid.DataGrid.DataGridImpl\u003c\n          Protocol.Storage.SharedStorageEntry\u003e;",
       "parentUuid": "447ac9ff_b7d7ba74",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 81
+      },
+      "revId": "1008eec95c1d303bda4e9e6254d323aabe1d4e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7491dd27_87925e8c",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 37
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T04:05:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e49a465_95d6e8fc",
       "range": {
         "startLine": 324,
         "startChar": 0,
