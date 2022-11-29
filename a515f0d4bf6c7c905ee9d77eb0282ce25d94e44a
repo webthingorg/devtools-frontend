@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef61002a_d04d37a2",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "I don\u0027t think so. Removed.",
+      "parentUuid": "54dec849_19b77c98",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 40
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "504b01a6_077fec3c",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "Do you still need this casting (`as Protocol.Storage.SharedStorageEntry`)?",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 73
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cdc69e1_ab266ff3",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Yes.  Otherwise the compiler gives the error:\n```\n../../front_end/panels/application/SharedStorageItemsView.ts(305,5): error TS2322: Type \u0027DataGridData[]\u0027 is not assignable to type \u0027SharedStorageEntry[]\u0027.\n  Type \u0027DataGridData\u0027 is missing the following properties from type \u0027SharedStorageEntry\u0027: key, value\n\n```",
+      "parentUuid": "504b01a6_077fec3c",
       "range": {
         "startLine": 307,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e21491_313a18a4",
+        "filename": "front_end/panels/application/StorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0827cca_62d06ac4",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8d08b5a_83a7ba5d",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "Should this be true? Also below?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354d7e18_1cb2ad9a",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "I needed to be able to reset the value to false, at least in the case of `#refreshed`, because in a couple tests I make multiple calls to `waitForItemsRefreshed()`.  \n\nBut I realize now that there might be a race condition, so in addition to making the code more readable, I have changed these to true and then added a manual `resetRefreshed()` to reset `#refreshed` to false manually each time I am about to create a 2nd or 3rd promise from `waitForItemsRefreshed()`.",
+      "parentUuid": "c8d08b5a_83a7ba5d",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a893cdb1_8b339197",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "433e99af_5d9d7c15",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 86
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a262add_d38bc538",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "sharedStorageModel \u003d target.model(Resources.SharedStorageModel.SharedStorageModel);\n    assertNotNullOrUndefined(sharedStorageModel)",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 56
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ee0459d_18ed7495",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Apparently I either still have to cast it so as to not get:\n```\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(274,5): error TS2322: Type \u0027SharedStorageModel | null\u0027 is not assignable to type \u0027SharedStorageModel\u0027.\n  Type \u0027null\u0027 is not assignable to type \u0027SharedStorageModel\u0027.\n\n```\nor else I have to make `sharedStorageModel` of type `Resources.SharedStorageModel.SharedStorageModel|null` and then call `assertNotNullOrUndefined(sharedStorageModel)` in every individual test (not enough to do it in `beforeEach()`), as evidenced by:\n```\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(281,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(285,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(336,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(340,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(369,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(373,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(404,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(408,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(449,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(462,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(471,33): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(511,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(532,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(549,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(619,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(632,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(641,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(686,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(699,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(708,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(711,36): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(768,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(781,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(790,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(793,36): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(850,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(863,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(872,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(875,36): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(932,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(945,38): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(954,39): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n../../test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts(957,36): error TS18047: \u0027sharedStorageModel\u0027 is possibly \u0027null\u0027.\n\n```\n\nI will do the latter.",
+      "parentUuid": "0a262add_d38bc538",
       "range": {
         "startLine": 271,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae1cea99_502f6934",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4660dce7_53126d40",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 84
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965fcd5e_1adeff60",
@@ -192,6 +360,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 83
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0e3607_c6237808",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "965fcd5e_1adeff60",
       "range": {
         "startLine": 300,
         "startChar": 0,
@@ -225,6 +417,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c69252_b80dc048",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Apparently it\u0027s not needed, thanks.",
+      "parentUuid": "b4a124eb_1c79239f",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 62
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11315a19_97d86656",
@@ -238,6 +454,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "assert.notInstanceOf(view.outerSplitWidget.sidebarWidget(), UI.SearchableView.SearchableView);",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 99
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea06a32c_78f976ab",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11315a19_97d86656",
       "range": {
         "startLine": 357,
         "startChar": 0,
@@ -271,6 +511,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f6199d9_8397b7e5",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Thanks. That doesn\u0027t quite work because `view.outerSplitWidget.sidebarWidget()?.contentElement` is the element that has \"placeholder\" in the class list, rather than the latter being a descendant.\n\nBut the following works, so I will use that:\n```\nassert.exists(view.contentElement.querySelector(\u0027.placeholder\u0027));\n```",
+      "parentUuid": "c67fc27e_0e38695b",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 120
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab7f475d_bd6e406f",
@@ -284,6 +548,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 116
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a1a492_6703811f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab7f475d_bd6e406f",
       "range": {
         "startLine": 365,
         "startChar": 0,
@@ -317,6 +605,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe5c9c36_c33df1d3",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c556a6f6_a9ac6dc3",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 96
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cdd7e6d_898d20d8",
@@ -330,6 +642,30 @@
       "writtenOn": "2022-11-29T07:56:09Z",
       "side": 1,
       "message": "This looks very comprehensive, thank you!",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1003,
+        "endChar": 18
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e583ef01_43dff1bd",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T10:25:41Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "1cdd7e6d_898d20d8",
       "range": {
         "startLine": 1003,
         "startChar": 0,
