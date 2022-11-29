@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a9a103_99959c5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1333018
+      },
+      "writtenOn": "2022-11-29T07:48:40Z",
+      "side": 1,
+      "message": "Follow up on https://crrev.com/c/4061355",
+      "revId": "961419ee0594d3b0b1c29b61fe730e0c48b41ea2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
