@@ -288,7 +288,7 @@ export class SharedStorageItemsView extends StorageItemsView {
   async #previewEntry(entry: DataGrid.DataGrid.DataGridNode<Protocol.Storage.SharedStorageEntry>|null): Promise<void> {
     const key = entry?.data?.key;
     const value = entry?.data?.value;
-    const wrappedEntry = key && value && {key: key as string, value: value as string} as WrappedEntry;
+    const wrappedEntry = key && {key: key as string, value: value as string || ''} as WrappedEntry;
     if (wrappedEntry) {
       const preview = SourceFrame.JSONView.JSONView.createViewSync(wrappedEntry);
 
