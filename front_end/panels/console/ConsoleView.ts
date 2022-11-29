@@ -372,10 +372,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     const groupSimilarToggle = new UI.Toolbar.ToolbarSettingCheckbox(
         this.groupSimilarSetting, i18nString(UIStrings.groupSimilarMessagesInConsole));
     this.showCorsErrorsSetting = Common.Settings.Settings.instance().moduleSetting('consoleShowsCorsErrors');
-    this.showCorsErrorsSetting.addChangeListener(() => {
-      Host.userMetrics.showCorsErrorsSettingChanged(this.showCorsErrorsSetting.get());
-      this.updateMessageList();
-    });
+    this.showCorsErrorsSetting.addChangeListener(() => this.updateMessageList());
     const showCorsErrorsToggle = new UI.Toolbar.ToolbarSettingCheckbox(
         this.showCorsErrorsSetting, i18nString(UIStrings.showCorsErrorsInConsole));
 

@@ -370,7 +370,7 @@
    * Enum for recordPerformanceHistogram
    * Warning: There is another definition of this enum in the DevTools code
    * base, keep them in sync:
-   * front_end/core/host/InspectorFrontendHostAPI.ts
+   * front_end/host/InspectorFrontendHostAPI.js
    * @readonly
    * @enum {string}
    */
@@ -395,7 +395,6 @@
     LinearMemoryInspectorRevealedFrom: 'DevTools.LinearMemoryInspector.RevealedFrom',
     LinearMemoryInspectorTarget: 'DevTools.LinearMemoryInspector.Target',
     Language: 'DevTools.Language',
-    ConsoleShowsCorsErrors: 'DevTools.ConsoleShowsCorsErrors',
   };
 
   /**
