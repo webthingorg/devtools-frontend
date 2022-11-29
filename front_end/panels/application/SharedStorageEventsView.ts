@@ -64,8 +64,8 @@ export class SharedStorageEventsView extends UI.SplitWidget.SplitWidget {
   }
 
   #getMainResourceTreeModel(): SDK.ResourceTreeModel.ResourceTreeModel|null {
-    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
-    return mainTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel) || null;
+    const mainFrameTarget = SDK.TargetManager.TargetManager.instance().mainFrameTarget();
+    return mainFrameTarget?.model(SDK.ResourceTreeModel.ResourceTreeModel) || null;
   }
 
   #getMainFrame(): SDK.ResourceTreeModel.ResourceTreeFrame|null {
