@@ -46,7 +46,6 @@ describeWithEnvironment('OverlayColorGenerator', () => {
     highlighter.highlightFlexInOverlay(nodeId);
     assert(highlighter.isFlexHighlighted(nodeId));
     assert(!highlighter.isGridHighlighted(nodeId));
-    assert(highlighter.colorOfFlex(nodeId) instanceof Common.Color.Color);
     highlighter.hideFlexInOverlay(nodeId);
     assert(!highlighter.isFlexHighlighted(nodeId));
   });
@@ -56,7 +55,6 @@ describeWithEnvironment('OverlayColorGenerator', () => {
     highlighter.highlightGridInOverlay(nodeId);
     assert(highlighter.isGridHighlighted(nodeId));
     assert(!highlighter.isFlexHighlighted(nodeId));
-    assert(highlighter.colorOfGrid(nodeId) instanceof Common.Color.Color);
     highlighter.hideGridInOverlay(nodeId);
     assert(!highlighter.isGridHighlighted(nodeId));
   });
