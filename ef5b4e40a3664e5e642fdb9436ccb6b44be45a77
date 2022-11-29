@@ -16,6 +16,23 @@
       "message": "Thanks for the fix. This now works for me locally.",
       "revId": "ef5b4e40a3664e5e642fdb9436ccb6b44be45a77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bd5338_cfcb2ad9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-11-29T15:46:27Z",
+      "side": 1,
+      "message": "PTAL - updated to avoid issues that led to the first CL being reverted.",
+      "revId": "ef5b4e40a3664e5e642fdb9436ccb6b44be45a77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
