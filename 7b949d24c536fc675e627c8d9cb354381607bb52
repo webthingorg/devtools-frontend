@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b412d3b_85f39f5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-29T06:31:53Z",
+      "side": 1,
+      "message": "The syntax support for that is provided by CodeMirror6. Ideally this would be added upstream to https://github.com/codemirror/lang-html/blob/fda7c05729e8081ecc39640a89cfeca8b869a867/src/html.ts#L17-L37\n\nBut if Marijn doesn\u0027t want to support `application/json` upstream inside `lang-html`, we can also do that inside `CodeHighlighter.ts` on our end.",
+      "parentUuid": "def766a4_65a65b54",
+      "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8deddba9_a5162a63",
         "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
         "patchSetId": 2
