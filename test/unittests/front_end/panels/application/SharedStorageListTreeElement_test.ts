@@ -88,6 +88,8 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
       });
 
       const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+      assert.isTrue(setTrackingSpy.calledOnce);
+
       panel.markAsRoot();
       panel.show(document.body);
 
@@ -109,9 +111,6 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
       }
 
       assert.deepEqual(view.getEventsForTesting(), EVENTS);
-
-      // TODO(cammie): Change this to `calledOnce` in https://crrev.com/c/devtools/devtools-frontend/+/4060449.
-      assert.isTrue(setTrackingSpy.notCalled);
 
       panel.detach();
     });
