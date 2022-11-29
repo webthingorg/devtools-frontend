@@ -1007,6 +1007,8 @@ describeWithMockConnection('SharedStorageItemsView', function() {
       {columnIdentifier: 'key', oldText: '', newText: 'key4'} as View.SharedStorageItemsDispatcher.ItemEditedEvent,
     ]);
 
+    assert.instanceOf(view.outerSplitWidget.sidebarWidget(), UI.SearchableView.SearchableView);
+
     view.detach();
   });
 });
