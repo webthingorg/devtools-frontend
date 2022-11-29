@@ -16,6 +16,328 @@
       "message": "Can you please take another look? Thanks",
       "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54dec849_19b77c98",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Do you need `as string` here?\nCan it be null?",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 40
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "504b01a6_077fec3c",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Do you still need this casting (`as Protocol.Storage.SharedStorageEntry`)?",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 73
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0827cca_62d06ac4",
+        "filename": "front_end/panels/application/StorageItemsView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Just make these public readonly",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d08b5a_83a7ba5d",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Should this be true? Also below?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "433e99af_5d9d7c15",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "`if (node.?data.?key \u003d\u003d\u003d key) {`",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 86
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a262add_d38bc538",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "sharedStorageModel \u003d target.model(Resources.SharedStorageModel.SharedStorageModel);\n    assertNotNullOrUndefined(sharedStorageModel)",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 56
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4660dce7_53126d40",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "The fact that is called seems to be a secondary concern here.\n\nI\u0027d suggest to replace the line above with\n\n    sinon.stub(sharedStorageModel.storageAgent, \u0027invoke_getSharedStorageEntries\u0027)\n        .withArgs({ownerOrigin: TEST_ORIGIN})\n        .resolves({entries: ENTRIES, getError: () \u003d\u003e {}});\n        \nand remove this assertion.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 84
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "965fcd5e_1adeff60",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 83
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a124eb_1c79239f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "Is this true?",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 62
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11315a19_97d86656",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "assert.notInstanceOf(view.outerSplitWidget.sidebarWidget(), UI.SearchableView.SearchableView);",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 99
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67fc27e_0e38695b",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "We don\u0027t want to encode the exact DOM structure if possible. Can we just do\n\n    assert.exists(view.outerSplitWidget.sidebarWidget()?.contentElement\n        .querySelector(\u0027.placeholder\u0027))",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 120
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7f475d_bd6e406f",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 116
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c556a6f6_a9ac6dc3",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 96
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cdd7e6d_898d20d8",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T07:56:09Z",
+      "side": 1,
+      "message": "This looks very comprehensive, thank you!",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1003,
+        "endChar": 18
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
