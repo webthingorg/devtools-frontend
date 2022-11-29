@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4240f56_9f8fdb16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-11-29T06:45:13Z",
+      "side": 1,
+      "message": "Could you rubber-stamp this CM6 update please? Thanks!",
+      "revId": "d2e9ebbdeec1f1fe2b7823789e79206743203e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
