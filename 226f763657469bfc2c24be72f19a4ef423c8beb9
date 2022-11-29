@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9413a1ac_bd8432c1",
+        "filename": "front_end/panels/application/SharedStorageEventsView.ts",
+        "patchSetId": 60
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T19:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44c5a4be_9b189367",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 73
+      },
+      "revId": "226f763657469bfc2c24be72f19a4ef423c8beb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b8523d5_7d448abb",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-29T08:47:17Z",
       "side": 1,
       "message": "No need to to cast if you have assertNotNullOrUndefined below",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 60
+      },
+      "revId": "226f763657469bfc2c24be72f19a4ef423c8beb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d27040e_9bb67538",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageListTreeElement_test.ts",
+        "patchSetId": 60
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T19:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b8523d5_7d448abb",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8defdf7_bb2bbe61",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageListTreeElement_test.ts",
+        "patchSetId": 60
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T19:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46be655d_e13d5317",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 107
+      },
+      "revId": "226f763657469bfc2c24be72f19a4ef423c8beb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ca8204f_697c6994",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-29T08:47:17Z",
       "side": 1,
       "message": "any chance to split this in 3 tests?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 108
+      },
+      "revId": "226f763657469bfc2c24be72f19a4ef423c8beb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44b646f9_77b9df53",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageListTreeElement_test.ts",
+        "patchSetId": 60
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-29T19:05:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ca8204f_697c6994",
       "range": {
         "startLine": 104,
         "startChar": 0,
