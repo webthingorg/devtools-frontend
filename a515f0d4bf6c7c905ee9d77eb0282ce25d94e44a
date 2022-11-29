@@ -535,6 +535,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "349ed9c6_8b072ce8",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-11-29T10:38:09Z",
+      "side": 1,
+      "message": "Event better!",
+      "parentUuid": "0f6199d9_8397b7e5",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 120
+      },
+      "revId": "a515f0d4bf6c7c905ee9d77eb0282ce25d94e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab7f475d_bd6e406f",
