@@ -101,6 +101,7 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
       sinon.stub(sharedStorageModel.storageAgent, 'invoke_setSharedStorageTracking').resolves();
 
       const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+
       panel.markAsRoot();
       panel.show(document.body);
 
