@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "565affc9_f444e55c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-29T13:48:52Z",
+      "side": 1,
+      "message": "Could you take a look, please? To be honest, I am not happy with how this is handled here (especially the line-column coordinate transformations), any suggestions to improve understandability are welcome.",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
