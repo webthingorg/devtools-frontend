@@ -39,6 +39,30 @@
       },
       "revId": "978bdce8778e1ae2ab29e73f59945b36632dc86f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad815820_94aa33a7",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T19:55:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a88f42_60b4f15a",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 80
+      },
+      "revId": "978bdce8778e1ae2ab29e73f59945b36632dc86f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
