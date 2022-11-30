@@ -33,6 +33,23 @@
       "message": "PTAL - updated to avoid issues that led to the first CL being reverted.",
       "revId": "ef5b4e40a3664e5e642fdb9436ccb6b44be45a77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb1b5d2f_fb341371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-11-30T09:47:28Z",
+      "side": 1,
+      "message": "Thanks, LGTM (mostly rubber-stamping).",
+      "revId": "ef5b4e40a3664e5e642fdb9436ccb6b44be45a77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
