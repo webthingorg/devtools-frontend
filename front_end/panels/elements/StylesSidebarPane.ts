@@ -2030,6 +2030,7 @@ export class StylesSidebarPropertyRenderer {
   private propertyName: string;
   private propertyValue: string;
   private colorHandler: ((arg0: string) => Node)|null;
+  private colorMixHandler: ((arg0: string) => Node)|null;
   private bezierHandler: ((arg0: string) => Node)|null;
   private fontHandler: ((arg0: string) => Node)|null;
   private shadowHandler: ((arg0: string, arg1: string) => Node)|null;
@@ -2045,6 +2046,7 @@ export class StylesSidebarPropertyRenderer {
     this.propertyName = name;
     this.propertyValue = value;
     this.colorHandler = null;
+    this.colorMixHandler = null;
     this.bezierHandler = null;
     this.fontHandler = null;
     this.shadowHandler = null;
@@ -2057,6 +2059,10 @@ export class StylesSidebarPropertyRenderer {
 
   setColorHandler(handler: (arg0: string) => Node): void {
     this.colorHandler = handler;
+  }
+
+  setColorMixHandler(handler: (arg0: string) => Node): void {
+    this.colorMixHandler = handler;
   }
 
   setBezierHandler(handler: (arg0: string) => Node): void {
@@ -2132,6 +2138,10 @@ export class StylesSidebarPropertyRenderer {
     if (this.bezierHandler && metadata.isBezierAwareProperty(this.propertyName)) {
       regexes.push(UI.Geometry.CubicBezier.Regex);
       processors.push(this.bezierHandler);
+    }
+    if (this.colorMixHandler && metadata.isColorAwareProperty(this.propertyName)) {
+      regexes.push(Common.Color.ColorMixRegex);
+      processors.push(this.colorMixHandler);
     }
     if (this.colorHandler && metadata.isColorAwareProperty(this.propertyName)) {
       regexes.push(Common.Color.Regex);

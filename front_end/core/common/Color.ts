@@ -757,6 +757,7 @@ export class Color {
 export const Regex: RegExp =
     /((?:rgba?|hsla?|hwba?|lab|lch|oklab|oklch|color)\([^)]+\)|#[0-9a-fA-F]{8}|#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3,4}|\b[a-zA-Z]+\b(?!-))/g;
 
+export const ColorMixRegex: RegExp = /(?:color-mix)\([^)]+\)/g;
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
 export enum Format {

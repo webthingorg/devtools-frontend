@@ -5,6 +5,7 @@
 import * as BezierEditor from './BezierEditor.js';
 import * as BezierUI from './BezierUI.js';
 import * as CircularColorSwatch from './CircularColorSwatch.js';
+import * as ColorMixSwatch from './ColorMixSwatch.js';
 import * as ColorSwatch from './ColorSwatch.js';
 import * as CSSAngle from './CSSAngle.js';
 import * as CSSAngleUtils from './CSSAngleUtils.js';
@@ -24,6 +25,7 @@ export {
   BezierEditor,
   BezierUI,
   CircularColorSwatch,
+  ColorMixSwatch,
   ColorSwatch,
   CSSAngle,
   CSSAngleUtils,
