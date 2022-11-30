@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6896e41_078851ce",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-30T16:28:38Z",
+      "side": 1,
+      "message": "Done (but not sure if it is a change for the better).",
+      "parentUuid": "bbd20ba4_124c17b6",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9adc53f9_361c8f27",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-11-30T10:34:19Z",
       "side": 1,
       "message": "Same question here regarding using the `DefaultScriptMapping` for that",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7f9088_e4f1b665",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-30T16:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9adc53f9_361c8f27",
       "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74691e2_5fcaf596",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-30T16:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6481604f_4a3b7638",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a910162_1d2d8488",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83fa32fc_9011ca6c",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-30T16:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a910162_1d2d8488",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9423466_847d1b77",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-11-30T10:34:19Z",
       "side": 1,
       "message": "nit: `and for the update the breakpoint` -\u003e `and for the breakpoint update`",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88fb28e7_ecfa6dc7",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-11-30T16:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9423466_847d1b77",
       "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
