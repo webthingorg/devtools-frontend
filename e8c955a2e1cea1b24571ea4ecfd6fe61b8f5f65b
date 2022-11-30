@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6969e17_2756e333",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-30T11:34:58Z",
+      "side": 1,
+      "message": "(nit): Can we also put `export`ed functions at the end of the file so that the public API of the module is more clearly visible?\n\nAt the bottom, there are also some const definitions that are not exported, maybe we can move them up for definition and add an `export { }` statement at the end.",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0be87a0e_4c891329",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 4
