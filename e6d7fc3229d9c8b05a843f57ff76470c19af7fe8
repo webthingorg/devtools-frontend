@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35786694_3ff40bb4",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a636f9a_246d7bb9",
+      "range": {
+        "startLine": 754,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 65
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a356e1c_0e8c4319",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-30T07:53:33Z",
       "side": 1,
       "message": "Can this ever fail?",
+      "range": {
+        "startLine": 759,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 58
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd80b03a_0c618334",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a356e1c_0e8c4319",
       "range": {
         "startLine": 759,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5643a44_e10b8f51",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb31dc83_6b473533",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 765,
+        "endChar": 144
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00d246d6_62e51228",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-30T07:53:33Z",
       "side": 1,
       "message": "Is this case needed?",
+      "range": {
+        "startLine": 774,
+        "startChar": 0,
+        "endLine": 774,
+        "endChar": 83
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c44117d_be5df048",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00d246d6_62e51228",
       "range": {
         "startLine": 774,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92021327_2fca4d66",
+        "filename": "test/e2e/application/shared-storage_test.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d9445b3_ea892d18",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 60
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "079519cf_e9426655",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-30T07:53:33Z",
       "side": 1,
       "message": "Why 5? Do we need to check this?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 54
+      },
+      "revId": "e6d7fc3229d9c8b05a843f57ff76470c19af7fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c0814f_3727c8dd",
+        "filename": "test/unittests/front_end/panels/application/ApplicationPanelSidebar_test.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-11-30T22:38:37Z",
+      "side": 1,
+      "message": "No, removing.",
+      "parentUuid": "079519cf_e9426655",
       "range": {
         "startLine": 185,
         "startChar": 0,
