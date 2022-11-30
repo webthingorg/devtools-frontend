@@ -36,14 +36,22 @@ import * as Platform from '../platform/platform.js';
 import {
   adobeRGBToXyzd50,
   displayP3ToXyzd50,
+  labToLch,
   labToXyzd50,
   lchToLab,
   oklabToXyzd65,
   proPhotoToXyzd50,
   rec2020ToXyzd50,
   srgbLinearToXyzd50,
+  xyzd50ToAdobeRGB,
+  xyzd50ToD65,
+  xyzd50ToDisplayP3,
+  xyzd50ToProPhoto,
+  xyzd50ToRec2020,
   xyzd50ToSrgb,
+  xyzd50TosRGBLinear,
   xyzd65ToD50,
+  xyzd65ToOklab,
 } from './ColorConverter.js';
 import {
   blendColors,
@@ -137,7 +145,7 @@ function parseColorFunction(originalText: string, parametersText: string): Color
 
   // `color(<color-space>)` is a valid syntax
   if (remainingParams.length === 0) {
-    return new Predefined(colorSpace, [0, 0, 0, undefined], originalText);
+    return new Predefined(colorSpace, [0, 0, 0, undefined]);
   }
 
   // Check if it contains `/ <alpha>` part, if so, it should be at the end
@@ -194,7 +202,7 @@ function parseColorFunction(originalText: string, parametersText: string): Color
     alphaValue,
   ];
 
-  return new Predefined(colorSpace, rgbOrXyz, originalText);
+  return new Predefined(colorSpace, rgbOrXyz);
 }
 
 function canFormatBeWideGamut(format: Format): boolean {
@@ -265,19 +273,19 @@ export function parse(text: string): Color|null {
     }
 
     if (isLchMatch) {
-      return LCH.fromSpec(spec, text);
+      return LCH.fromSpec(spec);
     }
 
     if (isOklchMatch) {
-      return Oklch.fromSpec(spec, text);
+      return Oklch.fromSpec(spec);
     }
 
     if (isLabMatch) {
-      return Lab.fromSpec(spec, text);
+      return Lab.fromSpec(spec);
     }
 
     if (isOklabMatch) {
-      return Oklab.fromSpec(spec, text);
+      return Oklab.fromSpec(spec);
     }
   }
 
@@ -322,9 +330,12 @@ function splitColorFunctionParameters(
   return values;
 }
 
+function clamp(value: number, {min, max}: {min?: number, max?: number}): number;
+function clamp(value: null, {min, max}: {min?: number, max?: number}): null;
+function clamp(value: number|null, {min, max}: {min?: number, max?: number}): number|null;
 function clamp(value: number|null, {min, max}: {min?: number, max?: number}): number|null {
   if (value === null) {
-    return null;
+    return value;
   }
   if (min) {
     value = Math.max(value, min);
@@ -647,45 +658,136 @@ export function findFgColorForContrastAPCA(fgColor: Legacy, bgColor: Legacy, req
 
 type ColorParameterSpec = [string, string, string, string | undefined];
 
+interface ColorConverter {
+  [Format.HEX](): Legacy;
+  [Format.ShortHEX](): Legacy;
+  [Format.HEXA](): Legacy;
+  [Format.ShortHEXA](): Legacy;
+  [Format.RGB](): Legacy;
+  [Format.RGBA](): Legacy;
+  [Format.HSL](): Legacy;
+  [Format.HSLA](): Legacy;
+  [Format.HWB](): Legacy;
+  [Format.HWBA](): Legacy;
+  [Format.LCH](): LCH;
+  [Format.OKLCH](): Oklch;
+  [Format.LAB](): Lab;
+  [Format.OKLAB](): Oklab;
+
+  [ColorSpace.SRGB](): Predefined;
+  [ColorSpace.SRGB_LINEAR](): Predefined;
+  [ColorSpace.DISPLAY_P3](): Predefined;
+  [ColorSpace.A98_RGB](): Predefined;
+  [ColorSpace.PROPHOTO_RGB](): Predefined;
+  [ColorSpace.REC_2020](): Predefined;
+  [ColorSpace.XYZ](): Predefined;
+  [ColorSpace.XYZ_D50](): Predefined;
+  [ColorSpace.XYZ_D65](): Predefined;
+}
+
 export interface Color {
   equal(color: Color): boolean;
-  asString(format?: string): string|null;
+  asString(format?: keyof ColorConverter): string|null;
   setAlpha(alpha: number): Color;
   format(): Format;
   asLegacyColor(): Legacy;
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]>;
 }
 
 export class Lab implements Color {
-  #l: number;
-  #a: number;
-  #b: number;
-  #alpha: number;
-  #text: string;
-  constructor(l: number, a: number, b: number, alpha: number, text: string) {
+  readonly #l: number;
+  readonly #a: number;
+  readonly #b: number;
+  readonly #alpha: number|null;
+  readonly #origin?: Color;
+
+  readonly #conversions: ColorConverter = {
+    [Format.HEX]: () => new Legacy(this.#getParamsArray(false), Format.HEX, undefined, this),
+    [Format.ShortHEX]: () => new Legacy(this.#getParamsArray(false), Format.ShortHEX, undefined, this),
+    [Format.HEXA]: () => new Legacy(this.#getParamsArray(true), Format.HEXA, undefined, this),
+    [Format.ShortHEXA]: () => new Legacy(this.#getParamsArray(true), Format.HEXA, undefined, this),
+    [Format.RGB]: () => new Legacy(this.#getParamsArray(false), Format.RGB, undefined, this),
+    [Format.RGBA]: () => new Legacy(this.#getParamsArray(true), Format.RGBA, undefined, this),
+    [Format.HSL]: () => new Legacy(this.#getParamsArray(false), Format.HSL, undefined, this),
+    [Format.HSLA]: () => new Legacy(this.#getParamsArray(true), Format.HSLA, undefined, this),
+    [Format.HWB]: () => new Legacy(this.#getParamsArray(false), Format.HWB, undefined, this),
+    [Format.HWBA]: () => new Legacy(this.#getParamsArray(true), Format.HWBA, undefined, this),
+    [Format.LCH]: () => new LCH(...labToLch(this.#l, this.#a, this.#b), this.#alpha, this),
+    [Format.OKLCH]:
+        () => {
+          throw new Error('oklch currently not supported');
+        },
+    [Format.LAB]: () => this,
+    [Format.OKLAB]: () => new Oklab(...xyzd65ToOklab(...xyzd50ToD65(...this.#toXyzd50())), this.#alpha, this),
+
+    [ColorSpace.SRGB]: () =>
+        new Predefined(ColorSpace.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.SRGB_LINEAR]: () => new Predefined(
+        ColorSpace.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.DISPLAY_P3]: () => new Predefined(
+        ColorSpace.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.A98_RGB]: () =>
+        new Predefined(ColorSpace.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.PROPHOTO_RGB]: () => new Predefined(
+        ColorSpace.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.REC_2020]: () =>
+        new Predefined(ColorSpace.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.XYZ]: () =>
+        new Predefined(ColorSpace.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+    [ColorSpace.XYZ_D50]: () =>
+        new Predefined(ColorSpace.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], this),
+    [ColorSpace.XYZ_D65]: () =>
+        new Predefined(ColorSpace.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], this),
+  };
+
+  #toXyzd50(): [number, number, number] {
+    return labToXyzd50(this.#l, this.#a, this.#b);
+  }
+
+  #getParamsArray(withAlpha: boolean = true): number[] {
+    const params = [...xyzd50ToSrgb(...this.#toXyzd50())];
+    if (this.#alpha !== null && withAlpha) {
+      params.push(this.#alpha);
+    }
+    return params;
+  }
+
+  constructor(l: number, a: number, b: number, alpha: number|null, origin?: Color) {
     this.#l = l;
     this.#a = a;
     this.#b = b;
     this.#alpha = alpha;
-    this.#text = text;
+    this.#origin = origin;
+  }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
   }
   asLegacyColor(): Legacy {
     const srgb = FORMAT_TO_SRGB_CONVERTER[Format.LAB](this.#l, this.#a, this.#b);
-    return new Legacy([...srgb, this.#alpha], Format.LAB, this.#text);
+    return new Legacy([...srgb, this.#alpha ?? 1], Format.LAB);
   }
-  equal(_color: Color): boolean {
-    throw new Error('Method not implemented.');
+  equal(color: Color): boolean {
+    const lab = color.as(Format.LAB);
+    return lab.#l === this.#l && lab.#a === this.#a && lab.#b === this.#b && lab.#alpha === this.#alpha;
   }
   format(): Format {
     return Format.LAB;
   }
-  setAlpha(_alpha: number): Color {
-    throw new Error('Method not implemented.');
+  setAlpha(alpha: number): Color {
+    return new Lab(this.#l, this.#a, this.#b, alpha);
   }
-  asString(_format: string): string {
-    return this.#text;
+  asString(format?: keyof ColorConverter): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const alpha = this.#alpha === null ? '' : ` / ${this.#alpha}`;
+    return `lab(${this.#l} ${this.#a} ${this.#b}${alpha})`;
   }
 
-  static fromSpec(spec: ColorParameterSpec, text: string): Lab|null {
+  static fromSpec(spec: ColorParameterSpec): Lab|null {
     const L = clamp(parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]), {min: 0, max: 100});
     if (L === null) {
       return null;
@@ -698,46 +800,54 @@ export class Lab implements Color {
     if (b === null) {
       return null;
     }
-    const alpha = parseAlpha(spec[3]) ?? 1;
+    const alpha = parseAlpha(spec[3]);
 
-    return new Lab(L, a, b, alpha, text);
+    return new Lab(L, a, b, alpha);
   }
 }
 
 export class LCH implements Color {
-  #l: number;
-  #c: number;
-  #h: number;
-  #alpha: number;
-  #text: string;
-  constructor(l: number, c: number, h: number, alpha: number, text: string) {
+  readonly #l: number;
+  readonly #c: number;
+  readonly #h: number;
+  readonly #alpha: number|null;
+  readonly #origin?: Color;
+  constructor(l: number, c: number, h: number, alpha: number|null, origin?: Color) {
     this.#l = l;
     this.#c = c;
     this.#h = h;
     this.#alpha = alpha;
-    this.#text = text;
+    this.#origin = origin;
+  }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
   }
   asLegacyColor(): Legacy {
     const srgb = FORMAT_TO_SRGB_CONVERTER[Format.LCH](this.#l, this.#c, this.#h);
-    return new Legacy([...srgb, this.#alpha], Format.LCH, this.#text);
+    return new Legacy([...srgb, this.#alpha], Format.LCH);
   }
-  equal(_color: Color): boolean {
-    throw new Error('Method not implemented.');
+  equal(color: Color): boolean {
+    const lch = color.as(Format.LCH);
+    return lch.#l === this.#l && lch.#c === this.#c && lch.#h === this.#h && lch.#alpha === this.#alpha;
   }
   format(): Format {
     return Format.LCH;
   }
-  hsla(): number[] {
-    throw new Error('Method not implemented.');
+  setAlpha(alpha: number): Color {
+    return new LCH(this.#l, this.#c, this.#h, clamp(alpha, {min: 0, max: 1}));
   }
-  setAlpha(_alpha: number): Color {
-    throw new Error('Method not implemented.');
-  }
-  asString(_format: string): string {
-    return this.#text;
+  asString(format?: keyof ColorConverter): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const alpha = this.#alpha === 1 ? '' : ` / ${this.#alpha}`;
+    return `lch(${this.#l} ${this.#c} ${this.#h}${alpha})`;
   }
 
-  static fromSpec(spec: ColorParameterSpec, text: string): LCH|null {
+  static fromSpec(spec: ColorParameterSpec): LCH|null {
     const L = clamp(parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]), {min: 0, max: 100});
     if (L === null) {
       return null;
@@ -750,43 +860,54 @@ export class LCH implements Color {
     if (h === null) {
       return null;
     }
-    const alpha = parseAlpha(spec[3]) ?? 1;
+    const alpha = parseAlpha(spec[3]);
 
-    return new LCH(L, c, h, alpha, text);
+    return new LCH(L, c, h, alpha);
   }
 }
 
 export class Oklab implements Color {
-  #l: number;
-  #a: number;
-  #b: number;
-  #alpha: number;
-  #text: string;
-  constructor(l: number, a: number, b: number, alpha: number, text: string) {
+  readonly #l: number;
+  readonly #a: number;
+  readonly #b: number;
+  readonly #alpha: number|null;
+  readonly #origin?: Color;
+  constructor(l: number, a: number, b: number, alpha: number|null, origin?: Color) {
     this.#l = l;
     this.#a = a;
     this.#b = b;
     this.#alpha = alpha;
-    this.#text = text;
+    this.#origin = origin;
+  }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
   }
   asLegacyColor(): Legacy {
     const srgb = FORMAT_TO_SRGB_CONVERTER[Format.OKLAB](this.#l, this.#a, this.#b);
-    return new Legacy([...srgb, this.#alpha], Format.OKLAB, this.#text);
+    return new Legacy([...srgb, this.#alpha], Format.OKLAB);
   }
-  equal(_color: Color): boolean {
-    throw new Error('Method not implemented.');
+  equal(color: Color): boolean {
+    const oklab = color.as(Format.OKLAB);
+    return oklab.#l === this.#l && oklab.#a === this.#a && oklab.#b === this.#b && oklab.#alpha === this.#alpha;
   }
   format(): Format {
     return Format.OKLAB;
   }
-  setAlpha(_alpha: number): Color {
-    throw new Error('Method not implemented.');
+  setAlpha(alpha: number): Color {
+    return new Oklab(this.#l, this.#a, this.#b, clamp(alpha, {min: 0, max: 1}));
   }
-  asString(_format: string): string {
-    return this.#text;
+  asString(format?: keyof ColorConverter): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const alpha = this.#alpha === 1 ? '' : ` / ${this.#alpha}`;
+    return `oklab(${this.#l} ${this.#a} ${this.#b}${alpha})`;
   }
 
-  static fromSpec(spec: ColorParameterSpec, text: string): Oklab|null {
+  static fromSpec(spec: ColorParameterSpec): Oklab|null {
     const L = clamp(parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]), {min: 0, max: 1});
     if (L === null) {
       return null;
@@ -799,43 +920,54 @@ export class Oklab implements Color {
     if (b === null) {
       return null;
     }
-    const alpha = parseAlpha(spec[3]) ?? 1;
+    const alpha = parseAlpha(spec[3]);
 
-    return new Oklab(L, a, b, alpha, text);
+    return new Oklab(L, a, b, alpha);
   }
 }
 
 export class Oklch implements Color {
-  #l: number;
-  #c: number;
-  #h: number;
-  #alpha: number;
-  #text: string;
-  constructor(l: number, c: number, h: number, alpha: number, text: string) {
+  readonly #l: number;
+  readonly #c: number;
+  readonly #h: number;
+  readonly #alpha: number|null;
+  readonly #origin?: Color;
+  constructor(l: number, c: number, h: number, alpha: number|null, origin?: Color) {
     this.#l = l;
     this.#c = c;
     this.#h = h;
     this.#alpha = alpha;
-    this.#text = text;
+    this.#origin = origin;
+  }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
   }
   asLegacyColor(): Legacy {
     const srgb = FORMAT_TO_SRGB_CONVERTER[Format.OKLCH](this.#l, this.#c, this.#h);
-    return new Legacy([...srgb, this.#alpha], Format.OKLCH, this.#text);
+    return new Legacy([...srgb, this.#alpha], Format.OKLCH);
   }
-  equal(_color: Color): boolean {
-    throw new Error('Method not implemented.');
+  equal(color: Color): boolean {
+    const oklch = color.as(Format.OKLCH);
+    return oklch.#l === this.#l && oklch.#c === this.#c && oklch.#h === this.#h && oklch.#alpha === this.#alpha;
   }
   format(): Format {
     return Format.OKLCH;
   }
-  setAlpha(_alpha: number): Color {
-    throw new Error('Method not implemented.');
+  setAlpha(alpha: number): Color {
+    return new Oklch(this.#l, this.#c, this.#h, clamp(alpha, {min: 0, max: 1}));
   }
-  asString(_format: string): string {
-    return this.#text;
+  asString(format?: keyof ColorConverter): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const alpha = this.#alpha === 1 ? '' : ` / ${this.#alpha}`;
+    return `oklch(${this.#l} ${this.#c} ${this.#h}${alpha})`;
   }
 
-  static fromSpec(spec: ColorParameterSpec, text: string): Oklch|null {
+  static fromSpec(spec: ColorParameterSpec): Oklch|null {
     const L = clamp(parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]), {min: 0, max: 1});
     if (L === null) {
       return null;
@@ -848,46 +980,49 @@ export class Oklch implements Color {
     if (h === null) {
       return null;
     }
-    const alpha = parseAlpha(spec[3]) ?? 1;
+    const alpha = parseAlpha(spec[3]);
 
-    return new Oklch(L, c, h, alpha, text);
+    return new Oklch(L, c, h, alpha);
   }
 }
 
 export class Predefined implements Color {
-  #spec: [number, number, number, number|undefined];
-  #colorSpace: ColorSpace;
-  #text: string;
-  constructor(colorSpace: ColorSpace, rgbOrXyz: [number, number, number, number|undefined], text: string) {
+  readonly #spec: [number, number, number, number|undefined];
+  readonly #colorSpace: ColorSpace;
+  readonly #origin?: Color;
+  constructor(colorSpace: ColorSpace, rgbOrXyz: [number, number, number, number|undefined], origin?: Color) {
     this.#colorSpace = colorSpace;
     this.#spec = rgbOrXyz;
-    this.#text = text;
+    this.#origin = origin;
+  }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
   }
   asLegacyColor(): Legacy {
     const [xr, yg, zb, alpha] = this.#spec;
     const srgb = COLOR_SPACE_TO_SRGB_CONVERTER[this.#colorSpace](xr, yg, zb);
-    return new Legacy([...srgb, alpha ?? 1], Format.COLOR, this.#text);
+    return new Legacy([...srgb, alpha ?? 1], Format.COLOR);
   }
-  equal(_color: Color): boolean {
-    throw new Error('Method not implemented.');
+  equal(color: Color): boolean {
+    const space = color.as(this.#colorSpace);
+    return space.#spec[0] === this.#spec[0] && space.#spec[1] === this.#spec[1] && space.#spec[2] === this.#spec[2] &&
+        space.#spec[3] === this.#spec[3];
   }
   format(): Format {
     return Format.COLOR;
   }
-  hsla(): number[] {
-    throw new Error('Method not implemented.');
+  setAlpha(alpha: number): Color {
+    return new Predefined(this.#colorSpace, [this.#spec[0], this.#spec[1], this.#spec[2], alpha]);
   }
-  blendWith(_fgColor: Color): Color {
-    throw new Error('Method not implemented.');
-  }
-  toProtocolRGBA(): {r: number, g: number, b: number, a: number|undefined} {
-    throw new Error('Method not implemented.');
-  }
-  setAlpha(_alpha: number): Color {
-    throw new Error('Method not implemented.');
-  }
-  asString(_format: string): string {
-    return this.#text;
+  asString(format?: keyof ColorConverter): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const alpha = this.#spec[3] === undefined ? '' : ` / ${this.#spec[3]}`;
+    return `color(${this.#colorSpace} ${this.#spec[0]} ${this.#spec[1]} ${this.#spec[2]}${alpha})`;
   }
 }
 
@@ -898,14 +1033,16 @@ export class Legacy implements Color {
   #originalText: string|null;
   readonly #originalTextIsValid: boolean;
   #formatInternal: Format;
+  readonly #origin?: Color;
 
-  constructor(rgba: number[], format: Format, originalText?: string) {
+  constructor(rgba: number[], format: Format, originalText?: string, origin?: Color) {
     this.#hslaInternal = undefined;
     this.#hwbaInternal = undefined;
     this.#rgbaInternal = rgba;
     this.#originalText = originalText || null;
     this.#originalTextIsValid = Boolean(this.#originalText);
     this.#formatInternal = format;
+    this.#origin = origin;
 
     if (typeof this.#rgbaInternal[3] === 'undefined') {
       this.#rgbaInternal[3] = 1;
@@ -1014,6 +1151,12 @@ export class Legacy implements Color {
     hsva2rgba(hsva, rgba);
     return new Legacy(rgba, Format.HSLA);
   }
+  as<Format extends keyof ColorConverter>(format: Format): ReturnType<ColorConverter[Format]> {
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    return this.#conversions[format]() as ReturnType<ColorConverter[Format]>;
+  }
 
   asLegacyColor(): Legacy {
     return this;
@@ -1092,14 +1235,8 @@ export class Legacy implements Color {
   }
 
   asString(format?: string): string|null {
-    // For now, we'll return always in `originalText` for wide gamut colors.
-    // TODO(ergunsh): Handle conversions to different representations later.
-    if (this.canBeWideGamut()) {
-      return this.#originalText;
-    }
-
     if (format === this.#formatInternal && this.#originalTextIsValid) {
-      return this.#originalText;
+      return this.#originalText as string;
     }
 
     if (!format) {
