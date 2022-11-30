@@ -608,11 +608,10 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
   }
 
-  startEditingNextEditableColumnOfDataGridNode(node: DataGridNode<T>, columnIdentifier: string, inclusive?: boolean):
-      void {
+  startEditingNextEditableColumnOfDataGridNode(node: DataGridNode<T>, columnIdentifier: string): void {
     const column = this.columns[columnIdentifier];
     const cellIndex = this.visibleColumnsArray.indexOf(column);
-    const nextEditableColumn = this.nextEditableColumn(cellIndex, false, inclusive);
+    const nextEditableColumn = this.nextEditableColumn(cellIndex);
     if (nextEditableColumn !== -1) {
       this.startEditingColumnOfDataGridNode(node, nextEditableColumn);
     }
@@ -754,11 +753,10 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.editingNode = null;
   }
 
-  private nextEditableColumn(cellIndex: number, moveBackward?: boolean, inclusive?: boolean): number {
+  private nextEditableColumn(cellIndex: number, moveBackward?: boolean): number {
     const increment = moveBackward ? -1 : 1;
-    const start = inclusive ? cellIndex : cellIndex + increment;
     const columns = this.visibleColumnsArray;
-    for (let i = start; (i >= 0) && (i < columns.length); i += increment) {
+    for (let i = cellIndex + increment; (i >= 0) && (i < columns.length); i += increment) {
       if (columns[i].editable) {
         return i;
       }
