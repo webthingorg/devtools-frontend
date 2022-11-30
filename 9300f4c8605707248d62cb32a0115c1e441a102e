@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fc835d1_cd00414e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-30T11:17:18Z",
+      "side": 1,
+      "message": "(very nit): `rgbaOrXyza` now 😂",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a70ffe1_5ec11ecb",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-30T11:17:18Z",
+      "side": 1,
+      "message": "WDYT of also introducing `Legacy.parse` or `RGBA.parse` for the cases where we\u0027re not trying to parse something as a `Color` but a `Legacy` color, for the purposes of using the color in the code?\n\nIt might help us separate between the uses for parsing the code from user\u0027s stylesheet and parsing the code for our own purposes.\n\nand also, maybe we can add `RGBA.fromSpec` or `RGBA.fromText` too and use it in those places where we need to define RGBA colors from RGBA. That way, we might remove some `Color.parse().asLegacyColor()` calls, WDYT?",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2bed94_257ee484",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-30T11:17:18Z",
+      "side": 1,
+      "message": "Maybe we can move these to `ContrastUtils` since they are not directly related to the color, WDYT?\n\n(or maybe we can make them as part of `LegacyColor` so that it is known that these only work for Legacy colors)",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7af177_eedbe2f1",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-11-30T11:17:18Z",
+      "side": 1,
+      "message": "I\u0027m not exactly sure... but wdyt about calling this `ColorFunction` to represent that it is holding colors defined with `color()` function.\n\nAFAIU, we\u0027re not creating subclasses per space but subclasses per syntax, which makes a lot of sense to me.",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
