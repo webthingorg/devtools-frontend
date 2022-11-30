@@ -16,6 +16,108 @@
       "message": "Could you take a look, please? To be honest, I am not happy with how this is handled here (especially the line-column coordinate transformations), any suggestions to improve understandability are welcome.",
       "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11875f39_d8139f45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "Generally LGTM, a few comments! Not entirely sure how to make it cleaner, I\u0027m fine with landing this now, and we can think about it later whether we can clean it up further.",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbd20ba4_124c17b6",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "To some extent this kind of calculation is already used in the `DefaultScriptMapping`, when calculating the the raw location from uiLocation/other way round. Would it make sense to move this entirely to the `DefaultScriptMapping` and create a helper for that?",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9adc53f9_361c8f27",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "Same question here regarding using the `DefaultScriptMapping` for that",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6481604f_4a3b7638",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "nit: `positionInScript` doesn\u0027t intuitively return a boolean for me - wdyt about naming this `isValidPositionInScript` or something similar?",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a910162_1d2d8488",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "WDYT about adding a comment here to help understanding why not having a script returns true (given that the method is called `positionInScript`, it may seem unintuitive to be valid if there\u0027s no script).",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9423466_847d1b77",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-11-30T10:34:19Z",
+      "side": 1,
+      "message": "nit: `and for the update the breakpoint` -\u003e `and for the breakpoint update`",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
