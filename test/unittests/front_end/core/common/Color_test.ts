@@ -26,24 +26,24 @@ const colorSpaceConversionTolerance = 0.001;
 
 describe('Color', () => {
   it('can be instantiated without issues', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     assert.deepEqual(color.rgba(), [0.5, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
     assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
-    assert.strictEqual(color.format(), Color.Format.Original, 'format was not set correctly');
+    assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
   it('defaults RGBA value to 0 if the RGBA initializing value given was negative', () => {
-    const color = new Color.Legacy([-0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([-0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     assert.deepEqual(color.rgba(), [0, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
     assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
-    assert.strictEqual(color.format(), Color.Format.Original, 'format was not set correctly');
+    assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
   it('defaults RGBA value to 1 if the RGBA initializing value given was above one', () => {
-    const color = new Color.Legacy([1.1, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1.1, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     assert.deepEqual(color.rgba(), [1, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
     assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
-    assert.strictEqual(color.format(), Color.Format.Original, 'format was not set correctly');
+    assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
   it('is able to create a color class from an HSVA value', () => {
@@ -54,7 +54,7 @@ describe('Color', () => {
   });
 
   it('is able to return the HSVA value of a color', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const hsva = color.hsva();
     assert.deepEqual(hsva, [0, 0, 0.5, 0.5], 'HSVA was not calculated correctly');
   });
@@ -75,13 +75,13 @@ describe('Color', () => {
   });
 
   it('is able to return canonical HSLA for a color', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.canonicalHSLA();
     assert.deepEqual(result, [0, 0, 50, 0.5], 'canonical HSLA was not calculated correctly');
   });
 
   it('is able to return canonical HWBA for a color', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColorGray');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColorGray');
     const result = color.canonicalHWBA();
     deepCloseTo(result, [0, 50, 50, 0.5], tolerance, 'canonical HWBA was not calculated correctly');
   });
@@ -314,67 +314,67 @@ describe('Color', () => {
   });
 
   it('is able to return whether or not the color has an alpha value', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     assert.isTrue(color.hasAlpha(), 'the color should be considered to have an alpha value');
   });
 
   it('is able to detect the HEX format of a color with an alpha value', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.detectHEXFormat();
     assert.strictEqual(result, 'hexa', 'format was not detected correctly');
   });
 
   it('is able to detect the HEX format of a color without an alpha value', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 1], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 1], Color.Format.RGBA, 'testColor');
     const result = color.detectHEXFormat();
     assert.strictEqual(result, 'hex', 'format was not detected correctly');
   });
 
   it('is able to return the canonical RGBA of a color', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.canonicalRGBA();
     assert.deepEqual(result, [128, 128, 128, 0.5], 'canonical RGBA was not returned correctly');
   });
 
   it('is able to return the nickname of a color', () => {
-    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.RGBA, 'testColor');
     const result = color.nickname();
     assert.strictEqual(result, 'red', 'nickname was not returned correctly');
   });
 
   it('returns null as a nickname if the color was not recognized', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.nickname();
     assert.isNull(result, 'nickname should be returned as Null');
   });
 
   it('is able to convert the color to a protocol RGBA', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.toProtocolRGBA();
     assert.deepEqual(result, {r: 128, g: 128, b: 128, a: 0.5}, 'conversion to protocol RGBA was not correct');
   });
 
   it('is able to invert a color', () => {
-    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.RGBA, 'testColor');
     const result = color.invert().rgba();
     assert.deepEqual(result, [0, 1, 1, 1], 'inversion was not successful');
   });
 
   it('is able to set the alpha value of a color', () => {
-    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.RGBA, 'testColor');
     const result = color.setAlpha(0.5).rgba();
     assert.deepEqual(result, [1, 0, 0, 0.5], 'alpha value was not set correctly');
   });
 
   it('can blend with another color', () => {
-    const color = new Color.Legacy([1, 0, 0, 0.5], Color.Format.Original, 'testColor');
-    const otherColor = new Color.Legacy([0, 0, 1, 0.5], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1, 0, 0, 0.5], Color.Format.RGBA, 'testColor');
+    const otherColor = new Color.Legacy([0, 0, 1, 0.5], Color.Format.RGBA, 'testColor');
     const result = color.blendWith(otherColor).rgba();
     assert.deepEqual(result, [0.5, 0, 0.5, 0.75], 'color was not blended correctly');
   });
 
   it('returns the original text when turned into a string if its format was "original"', () => {
-    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.Original, 'testColor');
+    const color = new Color.Legacy([1, 0, 0, 1], Color.Format.RGBA, 'testColor');
     const result = color.asString();
     assert.strictEqual(result, 'testColor', 'color was not converted to a string correctly');
   });
