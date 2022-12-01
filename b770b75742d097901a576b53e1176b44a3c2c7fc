@@ -39,6 +39,30 @@
       },
       "revId": "b770b75742d097901a576b53e1176b44a3c2c7fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e454455a_c72096ab",
+        "filename": "test/unittests/front_end/core/sdk/ChildTargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-01T15:09:26Z",
+      "side": 1,
+      "message": "As discussed, this is what the test is doing, i.e. verifying that the next two targets would get names \"#1\" and \"#2\" and not \"#4\" and \"#5\". \n\nOverall this logic is underspecified and I am struggling to write more clear test and I have a feeling that parts of this work by accident (e.g. in theory we would show target CDP ID as a name of frame targets, but this doesn\u0027t seem to happen in practice as this happens only for data: and about URLs and the only traget that could have such URL is a main target, which we special case and call \"Main\")",
+      "parentUuid": "72408967_3f2113f5",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 76
+      },
+      "revId": "b770b75742d097901a576b53e1176b44a3c2c7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
