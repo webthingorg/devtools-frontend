@@ -4,21 +4,19 @@
 
 /* eslint-disable no-console */
 
-// use require here due to
-// https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
-import puppeteer = require('puppeteer');
+import {type PuppeteerLifeCycleEvent, type Browser, type Page} from 'puppeteer-core';
 
 import {installPageErrorHandlers} from './events.js';
 import {getTestRunnerConfigSetting} from './test_runner_config.js';
 
 // When loading DevTools with target.goto, we wait for it to be fully loaded using these events.
-const DEVTOOLS_WAITUNTIL_EVENTS: puppeteer.PuppeteerLifeCycleEvent[] = ['networkidle2', 'domcontentloaded'];
+const DEVTOOLS_WAITUNTIL_EVENTS: PuppeteerLifeCycleEvent[] = ['networkidle2', 'domcontentloaded'];
 // When loading an empty page (including within the devtools window), we wait for it to be loaded using these events.
-const EMPTY_PAGE_WAITUNTIL_EVENTS: puppeteer.PuppeteerLifeCycleEvent[] = ['domcontentloaded'];
+const EMPTY_PAGE_WAITUNTIL_EVENTS: PuppeteerLifeCycleEvent[] = ['domcontentloaded'];
 const EMPTY_PAGE = 'data:text/html,<!DOCTYPE html>';
 
 export interface DevToolsFrontendCreationOptions {
-  browser: puppeteer.Browser;
+  browser: Browser;
   testServerPort: number;
   targetId: string;
 }
@@ -30,7 +28,7 @@ export interface DevToolsFrontendReloadOptions {
 }
 
 /**
- * Wrapper class around `puppeteer.Page` that helps with setting up and
+ * Wrapper class around `Page` that helps with setting up and
  * managing a DevTools frontend tab.
  */
 export class DevToolsFrontendTab {
@@ -43,7 +41,7 @@ export class DevToolsFrontendTab {
   // We use the counter to give each tab a unique origin.
   private static tabCounter = 0;
 
-  private constructor(readonly page: puppeteer.Page, frontendUrl: string) {
+  private constructor(readonly page: Page, frontendUrl: string) {
     this.#frontendUrl = frontendUrl;
   }
 
@@ -118,11 +116,11 @@ export class DevToolsFrontendTab {
   }
 }
 
-export async function loadEmptyPageAndWaitForContent(target: puppeteer.Page) {
+export async function loadEmptyPageAndWaitForContent(target: Page) {
   await target.goto(EMPTY_PAGE, {waitUntil: EMPTY_PAGE_WAITUNTIL_EVENTS});
 }
 
-function getDebugPort(browser: puppeteer.Browser) {
+function getDebugPort(browser: Browser) {
   const websocketUrl = browser.wsEndpoint();
   const url = new URL(websocketUrl);
   if (url.port) {

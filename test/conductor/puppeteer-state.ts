@@ -2,22 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as puppeteer from 'puppeteer';
+import {type Page, type Browser} from 'puppeteer-core';
 
-import {querySelectorShadowTextAll, querySelectorShadowTextOne} from './custom-query-handlers.js';
-
-let target: puppeteer.Page|null;
-let frontend: puppeteer.Page|null;
-let browser: puppeteer.Browser|null;
+let target: Page|null;
+let frontend: Page|null;
+let browser: Browser|null;
 
 // Set when we launch the server. It will be different for each
 // sub-process runner when running in parallel.
 let testServerPort: number|null;
 
 export interface BrowserAndPages {
-  target: puppeteer.Page;
-  frontend: puppeteer.Page;
-  browser: puppeteer.Browser;
+  target: Page;
+  frontend: Page;
+  browser: Browser;
 }
 
 export const clearPuppeteerState = () => {
@@ -70,16 +68,4 @@ export const getTestServerPort = () => {
         'at runtime when the port is available.');
   }
   return testServerPort;
-};
-
-let handlerRegistered = false;
-export const registerHandlers = () => {
-  if (handlerRegistered) {
-    return;
-  }
-  puppeteer.registerCustomQueryHandler('pierceShadowText', {
-    queryOne: querySelectorShadowTextOne,
-    queryAll: querySelectorShadowTextAll,
-  });
-  handlerRegistered = true;
 };

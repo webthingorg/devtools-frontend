@@ -4,7 +4,7 @@
 
 import {assert, AssertionError} from 'chai';
 import * as os from 'os';
-import * as puppeteer from 'puppeteer';
+import * as puppeteer from 'puppeteer-core';
 
 import {type DevToolsFrontendReloadOptions} from '../conductor/frontend_tab.js';
 import {getDevToolsFrontendHostname, reloadDevTools} from '../conductor/hooks.js';
@@ -194,7 +194,7 @@ export const $ =
     async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root as puppeteer.ElementHandle : frontend;
-  const element = await rootElement.$<ElementType>(`${handler}/${selector}`);
+  const element = await rootElement.$(`${handler}/${selector}`) as puppeteer.HandleFor<ElementType>;
   return element;
 };
 
@@ -203,7 +203,7 @@ export const $$ =
     async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root.asElement() || frontend : frontend;
-  const elements = await rootElement.$$<ElementType>(`${handler}/${selector}`);
+  const elements = await rootElement.$$(`${handler}/${selector}`) as puppeteer.HandleFor<ElementType>[];
   return elements;
 };
 
@@ -214,7 +214,7 @@ export const $$ =
  * @param root The root of the search.
  */
 export const $textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
-  return $(textContent, root, 'pierceShadowText');
+  return $(textContent, root, 'pierce');
 };
 
 /**
@@ -224,7 +224,7 @@ export const $textContent = async (textContent: string, root?: puppeteer.JSHandl
  * @param root The root of the search.
  */
 export const $$textContent = async (textContent: string, root?: puppeteer.JSHandle) => {
-  return $$(textContent, root, 'pierceShadowText');
+  return $$(textContent, root, 'pierce');
 };
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
@@ -271,7 +271,7 @@ export const waitForAriaNone = (selector: string, root?: puppeteer.JSHandle, asy
 
 export const waitForElementWithTextContent =
     (textContent: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
-      return waitFor(textContent, root, asyncScope, 'pierceShadowText');
+      return waitFor(textContent, root, asyncScope, 'pierce');
     };
 
 export const waitForElementsWithTextContent =
@@ -465,7 +465,7 @@ export const activeElement = async(): Promise<puppeteer.ElementHandle> => {
       activeElement = activeElement.shadowRoot.activeElement;
     }
 
-    return activeElement;
+    return activeElement as Element;
   });
 };
 
@@ -506,7 +506,7 @@ export const tabBackward = async (page?: puppeteer.Page) => {
 };
 
 export const selectTextFromNodeToNode = async (
-    from: puppeteer.JSHandle|Promise<puppeteer.JSHandle>, to: puppeteer.JSHandle|Promise<puppeteer.JSHandle>,
+    from: puppeteer.Awaitable<puppeteer.ElementHandle<Node>>, to: puppeteer.Awaitable<puppeteer.ElementHandle<Node>>,
     direction: 'up'|'down') => {
   const {target} = getBrowserAndPages();
 
@@ -514,7 +514,6 @@ export const selectTextFromNodeToNode = async (
   await target.bringToFront();
 
   return target.evaluate(async (from, to, direction) => {
-    const selection = from.getRootNode().getSelection();
     const range = document.createRange();
     if (direction === 'down') {
       range.setStartBefore(from);
@@ -524,6 +523,8 @@ export const selectTextFromNodeToNode = async (
       range.setEndAfter(from);
     }
 
+    const rootNode = from instanceof Document ? from : from.ownerDocument as Document;
+    const selection = rootNode.getSelection() as Selection;
     selection.removeAllRanges();
     selection.addRange(range);
 

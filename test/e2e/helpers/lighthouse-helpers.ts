@@ -15,7 +15,7 @@ import {
 
 import {waitForQuotaUsage} from './application-helpers.js';
 
-import {type ElementHandle} from 'puppeteer';
+import {type ElementHandle} from 'puppeteer-core';
 import {assert} from 'chai';
 
 export async function navigateToLighthouseTab(path?: string): Promise<ElementHandle<Element>> {

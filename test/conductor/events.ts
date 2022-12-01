@@ -9,9 +9,7 @@
 
 /* eslint-disable no-console */
 
-// use require here due to
-// https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
-import puppeteer = require('puppeteer');
+import {type ConsoleMessageLocation, type JSHandle, type ConsoleMessage, type Page, type Browser} from 'puppeteer-core';
 
 const ALLOWED_ASSERTION_FAILURES = [
   // Failure during shutdown. crbug.com/1145969
@@ -47,7 +45,7 @@ const logLevels = {
 let stdout = '', stderr = '';
 let unhandledRejectionSet = false;
 
-export function setupBrowserProcessIO(browser: puppeteer.Browser): void {
+export function setupBrowserProcessIO(browser: Browser): void {
   const browserProcess = browser.process();
   if (!browserProcess) {
     throw new Error('browserProcess is unexpectedly not defined.');
@@ -75,7 +73,7 @@ export function setupBrowserProcessIO(browser: puppeteer.Browser): void {
   }
 }
 
-export function installPageErrorHandlers(page: puppeteer.Page): void {
+export function installPageErrorHandlers(page: Page): void {
   page.on('error', error => {
     console.log('STDOUT:');
     console.log(stdout);
@@ -96,7 +94,7 @@ export function installPageErrorHandlers(page: puppeteer.Page): void {
       if (logLevel === 'E') {
         let message = `${logLevel}> `;
         if (msg.text() === 'JSHandle@error') {
-          const errorHandle: puppeteer.JSHandle<Error> = msg.args()[0];
+          const errorHandle = msg.args()[0] as JSHandle<Error>;
           message += await errorHandle.evaluate(error => {
             return error.stack;
           });
@@ -121,7 +119,7 @@ export function installPageErrorHandlers(page: puppeteer.Page): void {
   });
 }
 
-function isExpectedError(consoleMessage: puppeteer.ConsoleMessage) {
+function isExpectedError(consoleMessage: ConsoleMessage) {
   if (ALLOWED_ASSERTION_FAILURES.includes(consoleMessage.text())) {
     return true;
   }
@@ -135,7 +133,7 @@ function isExpectedError(consoleMessage: puppeteer.ConsoleMessage) {
 }
 
 export class ErrorExpectation {
-  #caught: puppeteer.ConsoleMessage|undefined;
+  #caught: ConsoleMessage|undefined;
   readonly #msg: string|RegExp;
   constructor(msg: string|RegExp) {
     this.#msg = msg;
@@ -151,7 +149,7 @@ export class ErrorExpectation {
     return this.#caught;
   }
 
-  check(consoleMessage: puppeteer.ConsoleMessage) {
+  check(consoleMessage: ConsoleMessage) {
     const text = consoleMessage.text();
     const match = (this.#msg instanceof RegExp) ? Boolean(text.match(this.#msg)) : text.includes(this.#msg);
     if (match) {
@@ -165,7 +163,7 @@ export function expectError(msg: string|RegExp) {
   return new ErrorExpectation(msg);
 }
 
-function formatStackFrame(stackFrame: puppeteer.ConsoleMessageLocation): string {
+function formatStackFrame(stackFrame: ConsoleMessageLocation): string {
   if (!stackFrame || !stackFrame.url) {
     return '<unknown>';
   }

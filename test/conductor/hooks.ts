@@ -4,16 +4,13 @@
 
 /* eslint-disable no-console */
 
-// use require here due to
-// https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
-import puppeteer = require('puppeteer');
+import {launch, type Page, type PuppeteerLaunchOptions, type Browser} from 'puppeteer-core';
 
 import {type CoverageMapData} from 'istanbul-lib-coverage';
 
 import {
   clearPuppeteerState,
   getBrowserAndPages,
-  registerHandlers,
   setBrowserAndPages,
   setTestServerPort,
 } from './puppeteer-state.js';
@@ -25,14 +22,6 @@ import {
 } from './frontend_tab.js';
 import {dumpCollectedErrors, installPageErrorHandlers, setupBrowserProcessIO} from './events.js';
 import {TargetTab} from './target_tab.js';
-
-// Workaround for mismatching versions of puppeteer types and puppeteer library.
-declare module 'puppeteer' {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ConsoleMessage {
-    stackTrace(): ConsoleMessageLocation[];
-  }
-}
 
 const viewportWidth = 1280;
 const viewportHeight = 720;
@@ -50,7 +39,7 @@ const envThrottleRate = process.env['STRESS'] ? 3 : 1;
 
 const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 'hosted-mode');
 
-let browser: puppeteer.Browser;
+let browser: Browser;
 let frontendTab: DevToolsFrontendTab;
 let targetTab: TargetTab;
 
@@ -69,7 +58,7 @@ function launchChrome() {
     '--host-resolver-rules=MAP *.test 127.0.0.1', '--disable-gpu',
     '--enable-blink-features=CSSContainerQueries,HighlightInheritance',  // TODO(crbug.com/1218390) Remove globally enabled flags and conditionally enable them
   ];
-  const opts: puppeteer.LaunchOptions&puppeteer.BrowserLaunchArgumentOptions&puppeteer.BrowserConnectOptions = {
+  const opts: PuppeteerLaunchOptions = {
     headless,
     executablePath: envChromeBinary,
     dumpio: !headless,
@@ -90,7 +79,7 @@ function launchChrome() {
   launchArgs.push(`--enable-features=${enabledFeatures.join(',')}`);
 
   opts.args = launchArgs;
-  return puppeteer.launch(opts);
+  return launch(opts);
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
@@ -102,7 +91,7 @@ async function loadTargetPageAndFrontend(testServerPort: number) {
 
   // Create the frontend - the page that will be under test. This will be either
   // DevTools Frontend in hosted mode, or the component docs in docs test mode.
-  let frontend: puppeteer.Page;
+  let frontend: Page;
 
   if (TEST_SERVER_TYPE === 'hosted-mode') {
     /**
@@ -158,7 +147,6 @@ export async function reloadDevTools(options?: DevToolsFrontendReloadOptions) {
 // Can be run multiple times in the same process.
 export async function preFileSetup(serverPort: number) {
   setTestServerPort(serverPort);
-  registerHandlers();
   await loadTargetPageAndFrontend(serverPort);
 }
 
@@ -175,10 +163,9 @@ export async function postFileTeardown() {
   dumpCollectedErrors();
 }
 
-export function collectCoverageFromPage(): Promise<CoverageMapData|undefined> {
+export async function collectCoverageFromPage(): Promise<CoverageMapData|undefined> {
   const {frontend} = getBrowserAndPages();
-
-  return frontend.evaluate('window.__coverage__');
+  return (await frontend.evaluate('window.__coverage__')) as CoverageMapData | undefined;
 }
 
 export function getDevToolsFrontendHostname(): string {
