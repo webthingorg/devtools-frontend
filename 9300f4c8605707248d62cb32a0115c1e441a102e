@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a444dc99_02bc95a5",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T09:59:23Z",
+      "side": 1,
+      "message": "With conversions in place this will behave identically to parse().as(Format.RGBA) without performance overhead as the conversion is noop.",
+      "parentUuid": "0a70ffe1_5ec11ecb",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca2bed94_257ee484",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 3
