@@ -577,6 +577,19 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
     return this.object.getOwnProperties(generatePreview);
   }
 
+  static undoMapping(reverseMapping: Map<string, string>, id: string): void {
+    let originalName = reverseMapping.get(id);
+    while (originalName) {
+      if (originalName === id) {
+        return;
+      }
+      reverseMapping.set(id, id);
+      id = originalName;
+      originalName = reverseMapping.get(id);
+    }
+    reverseMapping.set(id, id);
+  }
+
   async getAllProperties(accessorPropertiesOnly: boolean, generatePreview: boolean):
       Promise<SDK.RemoteObject.GetPropertiesResult> {
     const allProperties = await this.object.getAllProperties(accessorPropertiesOnly, generatePreview);
@@ -586,11 +599,33 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
     const internalProperties = allProperties.internalProperties;
     const newProperties = [];
     if (properties) {
-      for (let i = 0; i < properties.length; ++i) {
-        const property = properties[i];
-        const name = variableMapping.get(property.name) || properties[i].name;
+      // We compute reverse mapping first and prune all mappings that lead to clashes.
+      // This is to prevent variables with the same name appearing in the same scope.
+      const reverseMapping = new Map();
+      for (const property of properties) {
         if (!property.value) {
           continue;
+        }
+        const mappedName = variableMapping.get(property.name) || property.name;
+        if (reverseMapping.has(mappedName)) {
+          // If there is a conflict, then remove the conflicting name and also
+          // make sure the unmapped name is not mapped.
+          RemoteObject.undoMapping(reverseMapping, mappedName);
+          RemoteObject.undoMapping(reverseMapping, property.name);
+          reverseMapping.set(property.name, property.name);
+        } else {
+          reverseMapping.set(mappedName, property.name);
+        }
+      }
+      for (const property of properties) {
+        if (!property.value) {
+          continue;
+        }
+        let name = variableMapping.get(property.name) || property.name;
+        // Only accept the mapped name candidate if it is consistent with the
+        // computed clash-free reverse map.
+        if (reverseMapping.get(name) !== property.name) {
+          name = property.name;
         }
         newProperties.push(new SDK.RemoteObject.RemoteObjectProperty(
             name, property.value, property.enumerable, property.writable, property.isOwn, property.wasThrown,

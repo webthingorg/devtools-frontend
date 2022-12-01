@@ -12,6 +12,7 @@ import type * as Platform from '../../../../../front_end/core/platform/platform.
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {MockProtocolBackend} from '../../helpers/MockScopeChain.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
+import {encodeSourceMap} from '../../helpers/SourceMapEncoder.js';
 
 describeWithMockConnection('NameResolver', () => {
   const URL = 'file:///tmp/example.js' as Platform.DevToolsPath.UrlString;
@@ -299,6 +300,46 @@ describeWithMockConnection('NameResolver', () => {
 
     assert.sameDeepMembers(namesAndValues, [{name: 'par1', value: 42}]);
   });
+
+  it('ignores clashing maps', async () => {
+    const sourceMapUrl = 'file:///tmp/example.js.min.map';
+    const sourceMapContent = JSON.stringify(encodeSourceMap([
+      // clang-format off
+      '0:0 => example.js:0:0',
+      '1:0 => example.js:1:0',
+      '2:0 => example.js:2:0@original',
+      '3:0 => example.js:3:0@other',
+      '4:0 => example.js:4:0',
+      '5:0',
+      // clang-format on
+    ]));
+    const source: string[] = [];
+    const scopes: string[] = [];
+
+    source[0] = 'function f() {';
+    scopes[0] = '          {';
+    source[1] = '  let a, b;';
+    scopes[1] = '';
+    source[2] = '  a = b + 1;';
+    scopes[2] = '';
+    source[3] = '  let c = 3;';
+    scopes[3] = '';
+    source[4] = '}';
+    scopes[4] = '}';
+
+    const scopeObject =
+        backend.createSimpleRemoteObject([{name: 'a', value: 1}, {name: 'b', value: 2}, {name: 'c', value: 42}]);
+    const callFrame = await backend.createCallFrame(
+        target, {url: URL, content: source.join('\n')}, scopes.join('\n'),
+        {url: sourceMapUrl, content: sourceMapContent}, [scopeObject]);
+
+    const resolvedScopeObject = await SourceMapScopes.NamesResolver.resolveScopeInObject(callFrame.scopeChain()[0]);
+    const properties = await resolvedScopeObject.getAllProperties(false, false);
+    const namesAndValues = properties.properties?.map(p => ({name: p.name, value: p.value?.value})) ?? [];
+
+    assert.sameDeepMembers(namesAndValues, [{name: 'a', value: 1}, {name: 'b', value: 2}, {name: 'other', value: 42}]);
+  });
+
   describe('Function name resolving', () => {
     let callFrame: SDK.DebuggerModel.CallFrame;
 
