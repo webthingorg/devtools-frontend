@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65c7e289_b9c84b24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Actually I\u0027ve come to think we may also want to use the new color classes in devtools to define colors dynamically. For example they could help improve random/round robin color assignment as is done here https://crsrc.org/c/third_party/devtools-frontend/src/front_end/ui/legacy/components/quick_open/CommandMenu.ts;drc\u003d093fbeb7e801da07a2b50371d8b97f65b97bbf9d;l\u003d297. For these type of thing we could use lch for instance, since rotating the hue generates new colors but preserves contrast, as Peter explained to me!",
+      "parentUuid": "fcf66ae6_7ee018f0",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6969e17_2756e333",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-30T11:34:58Z",
       "side": 1,
       "message": "(nit): Can we also put `export`ed functions at the end of the file so that the public API of the module is more clearly visible?\n\nAt the bottom, there are also some const definitions that are not exported, maybe we can move them up for definition and add an `export { }` statement at the end.",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c14c1fa_1877ee7d",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Do we generally do this? I wasn\u0027t aware of this pattern. Is there a lint rule for it?",
+      "parentUuid": "c6969e17_2756e333",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60e0cbc5_91e550f1",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "The a/b axes are unbounded, the space is infinite. (also cf. https://www.w3.org/TR/css-color-4/#funcdef-lab)",
+      "parentUuid": "0be87a0e_4c891329",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e120a300_831f1db9",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 4
@@ -65,6 +119,24 @@
       "writtenOn": "2022-11-30T11:17:18Z",
       "side": 1,
       "message": "Since these methods are not implemented for new syntaxes as well. WDYT of removing this from the `Color` interface but only having them in legacy color so that we\u0027re sure that we\u0027re only using legacy colors for these functions?\n\nAFAIU they are not completely needed right now, as we currently only need to:\n* Parse the color\n* Get the CSS text\n\nfor the new color syntaxes.\n\nIf we feel the need later (for example, while implementing `Spectrum` changes for new colors), we can add these that time. WDYT?",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e59ead1e_8f237b49",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e120a300_831f1db9",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -82,6 +154,24 @@
       "writtenOn": "2022-11-30T11:17:18Z",
       "side": 1,
       "message": "These are not part of the interface anymore I think, so we can remove these :)",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea3ee2a_5cc160a8",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e752dcef_82a8d200",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "319d59d8_738d5f8a",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "The class also handles hsl and hwb, and nameing it RGB would clash a bit with color(srgb), would it not? But I agree that some polish of the names is in order!",
+      "parentUuid": "ac6d457d_fe9a46f7",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93d4b663_b0b4b005",
         "filename": "front_end/panels/animation/AnimationUI.ts",
         "patchSetId": 4
@@ -116,6 +224,24 @@
       "writtenOn": "2022-11-30T11:17:18Z",
       "side": 1,
       "message": "I think these can be `Common.Color.Legacy` WDYT?",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bd4713_0bb51bff",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Only the Color interface API is used on these objects, so it doesn\u0027t actually matter here. I think I\u0027d slightly prefer keeping the most general type as long as it\u0027s reasonable.",
+      "parentUuid": "93d4b663_b0b4b005",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +265,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cef17b7_9fee541f",
+        "filename": "front_end/panels/media/TickingFlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "I like that this CL is introducing `asLegacyColor` since that gives us a very easy marker to find all the places where we need to rethink whether what we\u0027re doing with the color is actually sensible.\n\nThis place here, for example, looks at the lightness of the color to determine which font color has the best contrast. Is converting to hsla and looking at the `l` really the best way to do that?",
+      "parentUuid": "5b8509b8_ed240819",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4530ecb1_5894e2c4",
         "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
         "patchSetId": 4
@@ -150,6 +294,24 @@
       "writtenOn": "2022-11-30T11:17:18Z",
       "side": 1,
       "message": "I actually have a question here... could it be that suggested color is out of gamut for the given color space?\n\nWe might:\n* Either need to do gamut mapping or\n* Return the `Common.Color.Color` in the correct space.\n\n\nWDYT? (I can also tackle this as part of contrast thingies after conversions 😊)",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db6c0c30_796ff717",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "I don\u0027t think so, approachColorValue does a range check on x and returns null if out of range. This is for the current algorithm though which works on hsva; as part of your wokr on contrasts we should ensure the gamut bounds are respected.",
+      "parentUuid": "4530ecb1_5894e2c4",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

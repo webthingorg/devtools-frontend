@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0621b5d7_c44b4398",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fc835d1_cd00414e",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a70ffe1_5ec11ecb",
@@ -83,6 +101,24 @@
       "writtenOn": "2022-11-30T11:17:18Z",
       "side": 1,
       "message": "I\u0027m not exactly sure... but wdyt about calling this `ColorFunction` to represent that it is holding colors defined with `color()` function.\n\nAFAIU, we\u0027re not creating subclasses per space but subclasses per syntax, which makes a lot of sense to me.",
+      "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7464ece9_14c3dda8",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e7af177_eedbe2f1",
       "revId": "9300f4c8605707248d62cb32a0115c1e441a102e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
