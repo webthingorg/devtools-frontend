@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77ff4a3e_e37edcd2",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-01T05:48:23Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion here. Generally I think that it\u0027s nice to have it in one place. If you prefer to keep it as it was previously, please feel free to change back!",
+      "parentUuid": "f6896e41_078851ce",
+      "revId": "a93e7f259e32b2d341b1c37a09508292cf63f1c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9adc53f9_361c8f27",
