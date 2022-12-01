@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -33,6 +34,7 @@ async function validateSourceTabs() {
       const sources = await getOpenSources();
       return sources.length ? sources : undefined;
     });
+    console.log(openSources);
     assert.deepEqual(openSources, ['multi-workers.js']);
   });
 }
@@ -53,7 +55,7 @@ describe('Multi-Workers', async function() {
 
     async function validateNavigationTree() {
       await step('Ensure 10 workers exist', async () => {
-        await waitFor(workerFileSelectors(10).rootSelector);
+        await waitFor(workerFileSelectors(1).rootSelector);
       });
     }
 
@@ -201,6 +203,9 @@ describe('Multi-Workers', async function() {
 
     describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
+        await enableExperiment('instrumentationBreakpoints');
+        // await enableExperiment('protocolMonitor');
+
         const {frontend} = getBrowserAndPages();
         await waitForSourceFiles(
             SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
@@ -214,7 +219,7 @@ describe('Multi-Workers', async function() {
               await validateNavigationTree();
 
               await step('Open second worker file', async () => {
-                await openNestedWorkerFile(workerFileSelectors(2));
+                await openNestedWorkerFile(workerFileSelectors(1));
               });
             });
 
@@ -238,8 +243,7 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky on mac
-      it.skipOnPlatforms(['mac'], '[crbug.com/1368493] for newly created workers', async () => {
+      it('for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
