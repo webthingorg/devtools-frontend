@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a8d0cc_d2ece8a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-01T10:26:28Z",
+      "side": 1,
+      "message": "PTAL. I\u0027ve left the DOM Service work for a follow-up CL so you can more clearly review those changes independently of the migration work. Thanks!",
+      "revId": "8c1ff14bd41b27d456ef1c8e322e93bc01ebc4ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
