@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "277669d2_c94d61bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-12-01T15:03:36Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "b770b75742d097901a576b53e1176b44a3c2c7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72408967_3f2113f5",
+        "filename": "test/unittests/front_end/core/sdk/ChildTargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-12-01T15:03:36Z",
+      "side": 1,
+      "message": "Would you want to add a test for this as well?",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 76
+      },
+      "revId": "b770b75742d097901a576b53e1176b44a3c2c7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
