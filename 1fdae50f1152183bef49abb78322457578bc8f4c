@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07ea442_2f150ca5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-01T11:54:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1fdae50f1152183bef49abb78322457578bc8f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c0f0f4_ae3133f6",
+        "filename": "test/unittests/front_end/models/trace/handlers/PageLoadMetricsHandler_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-01T11:54:43Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 84
+      },
+      "revId": "1fdae50f1152183bef49abb78322457578bc8f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
