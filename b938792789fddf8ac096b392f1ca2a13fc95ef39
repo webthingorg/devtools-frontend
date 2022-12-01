@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55be598f_fe6d2813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-01T14:59:56Z",
+      "side": 1,
+      "message": "PTAL. This is on the larger side. It could be split into a CL for adding the new component (without using it), and another one for replacing the existing implementation with the new component. But I think it makes sense to keep it all in 1 CL because that makes it clearer that what is being removed, is equivalent to what is being added elsewhere.",
+      "revId": "b938792789fddf8ac096b392f1ca2a13fc95ef39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
