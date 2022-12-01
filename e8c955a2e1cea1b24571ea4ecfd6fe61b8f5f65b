@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71468c8b_c1c5327f",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T14:50:03Z",
+      "side": 1,
+      "message": "These methods are called though, I can\u0027t remove them. I could call through asLegacyColor() in them, probably, to make sure we don\u0027t crash until the followup change fills them in?",
+      "parentUuid": "c83fd786_62115725",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e752dcef_82a8d200",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 4
@@ -338,6 +356,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42f804ed_5344b3ae",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T14:50:03Z",
+      "side": 1,
+      "message": "I\u0027m against adding a separate class, but what about a second parse function that throws on null?",
+      "parentUuid": "05612179_b8471dde",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b8509b8_ed240819",
         "filename": "front_end/panels/media/TickingFlameChart.ts",
         "patchSetId": 4
@@ -385,6 +421,24 @@
       "side": 1,
       "message": "This is very true, we can look at `asLegacyColor` uses and evaluate whether we\u0027re doing a sensible thing. However... still... this opens up the possibility to do non sensible things.\n\nI was hoping that if we use specific color classes for the colors we own, we can get rid of the possibility of doing a wrong thing and remove the need for thinking every time we use `asLegacyColor`.\n\ni.e. if we say that these colors are really `RGB` in their definition, then from the start, we\u0027ll know that it\u0027s very valid to check their `l` value for evaluating the lightness.\n\nIt\u0027s also not only about us thinking every time we use `asLegacyColor` but other people reading the code will ask the same question: is this a sensible thing to do? Then they will need to understand where these colors can come from. (or as the writer, we\u0027ll need to write a comment to explain why calling `asLegacyColor` and doing operations on the returned color here is fine) It feels like using non-null or type assertions in TS (like `Common.Color.parse(backgroundColor)!`)\n\nWe also know that `backgroundColor` should definitely be parsed correctly since they come from the colors we own and if it is not parsed correctly, it actually is an error. Having the need for putting a `null` check doesn\u0027t feel good to me here too. We can get rid of those if we know that we own these colors.\n\nThough if you don\u0027t agree, we can also skip this discussion for now and discuss later since it is not a very important piece of the puzzle for our purposes 😂",
       "parentUuid": "3cef17b7_9fee541f",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264aadd3_486948e4",
+        "filename": "front_end/panels/media/TickingFlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T14:50:03Z",
+      "side": 1,
+      "message": "We can also always add assertions on the color format if we want to enforce specific color types are passed as string.",
+      "parentUuid": "993c870b_2c9b5d9c",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
