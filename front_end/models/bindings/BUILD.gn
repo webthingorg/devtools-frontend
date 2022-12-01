@@ -38,7 +38,7 @@ devtools_module("bindings") {
     "../../core/sdk:bundle",
     "../../generated:protocol",
     "../../models/text_utils:bundle",
-    "../../models/workspace:bundle",
+    "../../models/workspace:bundle"
   ]
 }
 
