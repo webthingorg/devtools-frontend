@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as SDK from "../../../../../front_end/core/sdk/sdk.js";
 import * as Common from '../../../../../front_end/core/common/common.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import type * as SDKModule from '../../../../../front_end/core/sdk/sdk.js';
@@ -10,6 +11,7 @@ import * as Bindings from '../../../../../front_end/models/bindings/bindings.js'
 import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
+import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 
 const {assert} = chai;
 
@@ -190,5 +192,16 @@ describeWithMockConnection('ResourceMapping', () => {
             new Workspace.UISourceCode.UILocation(uiSourceCode, startLine, column));
       }
     });
+  });
+
+  it('maps inline scripts to its html resource', () => {
+    const scripts = debuggerModel.scripts();
+    const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+
+    for (const script of scripts) {      
+      const expectedUISourceCode = script.isInlineScript() && script.hasSourceURL ? null : workspace.uiSourceCodeForURL(script.sourceURL);
+      const actualUISourceCode = resourceMapping.uiSourceCodeForScript(script);
+      assert.deepEqual(actualUISourceCode, expectedUISourceCode);
+    }
   });
 });

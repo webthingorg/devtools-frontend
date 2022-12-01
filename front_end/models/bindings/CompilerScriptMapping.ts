@@ -165,10 +165,13 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
     }
   }
 
-  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, isContentScript: boolean):
-      Workspace.UISourceCode.UISourceCode|null {
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, isContentScript: boolean): Workspace.UISourceCode.UISourceCode|null {
     return isContentScript ? this.#contentScriptsProject.uiSourceCodeForURL(url) :
                              this.#regularProject.uiSourceCodeForURL(url);
+  }
+
+  uiSourceCodeForScript(_: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    throw new Error('Use `uiSourceCodeForURL` for CompilerScriptMapping instead: one script may have multiple UISourceCodes.')    
   }
 
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
@@ -193,6 +196,7 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return null;
     }
     const entry = sourceMap.findEntry(lineNumber, columnNumber);
+
     if (!entry || !entry.sourceURL) {
       return null;
     }
