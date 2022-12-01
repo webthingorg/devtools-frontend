@@ -39,6 +39,30 @@
       },
       "revId": "febe396672ee32cddce6c9974448250484926adf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f48422c_3e2ae399",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-12-01T16:36:35Z",
+      "side": 1,
+      "message": "Now sending error message to console.",
+      "parentUuid": "8ade6077_5aeb3098",
+      "range": {
+        "startLine": 452,
+        "startChar": 100,
+        "endLine": 452,
+        "endChar": 115
+      },
+      "revId": "febe396672ee32cddce6c9974448250484926adf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
