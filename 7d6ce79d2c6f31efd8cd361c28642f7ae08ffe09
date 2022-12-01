@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "590b6dd1_7c41c80d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "I have one comment that we need to address I think (removing non-used methods from the interface):\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4061713/comment/e120a300_831f1db9/\n\nOther ones are discussion topics that we don\u0027t need to resolve in this CL and we can discuss in person sometime too :)",
+      "revId": "7d6ce79d2c6f31efd8cd361c28642f7ae08ffe09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

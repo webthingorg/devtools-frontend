@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac5ee7d_c395f38e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a rule we\u0027re enforcing right now and I don\u0027t know whether a discussion is happened on source code organization. Maybe this might be a good time to discuss :)\n\nFrom the perspective of understanding what a module does and why it is used, being able to tell its public API in one glance is very helpful. Exports sprinkled all over the file make it harder to understand what the expected use of this module. That\u0027s why I\u0027d prefer to keep exports at the end\n\nThough I understand that commenting on some style preference that is not in the style guide is pretty counter productive. Soooo, sorry about that and we can skip this for now 😅",
+      "parentUuid": "1c14c1fa_1877ee7d",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0be87a0e_4c891329",
@@ -106,6 +124,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb61b145_87530f37",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "Oh understood, thank you! :)",
+      "parentUuid": "60e0cbc5_91e550f1",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e120a300_831f1db9",
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e120a300_831f1db9",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c83fd786_62115725",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "It seems like they are still there 😂\n\nMy proposal is to remove \"Method not implemented\" methods from the `Color` interface and add them when needed :)",
+      "parentUuid": "e59ead1e_8f237b49",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -211,6 +265,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabb6351_b7c9ddc8",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right actually and I couldn\u0027t think of a better name... We can skip this for now too 😅",
+      "parentUuid": "319d59d8_738d5f8a",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93d4b663_b0b4b005",
@@ -248,6 +320,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05612179_b8471dde",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "I think having a distinction between two use cases would be helpful:\n* Defining colors for us.\n* Parsing colors from the user.\n\nfor example, while we\u0027re defining colors for us, instead of `parse` returning `null` we can throw an error for parsing and in the places we use such colors, we can assume that color is not null since we 100% expect such colors to be parsed correctly. That can get rid of non-meaningful error checks. One specific example for such thing is the one on the `colorForAnimation` file \n\nI was thinking that using a specific color class for defining a color to use in the code can be a good distinction. WDYT? or why would you prefer keeping the most general type as long as it\u0027s reasonable?",
+      "parentUuid": "b1bd4713_0bb51bff",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b8509b8_ed240819",
         "filename": "front_end/panels/media/TickingFlameChart.ts",
         "patchSetId": 4
@@ -277,6 +367,24 @@
       "side": 1,
       "message": "I like that this CL is introducing `asLegacyColor` since that gives us a very easy marker to find all the places where we need to rethink whether what we\u0027re doing with the color is actually sensible.\n\nThis place here, for example, looks at the lightness of the color to determine which font color has the best contrast. Is converting to hsla and looking at the `l` really the best way to do that?",
       "parentUuid": "5b8509b8_ed240819",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993c870b_2c9b5d9c",
+        "filename": "front_end/panels/media/TickingFlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-01T14:23:02Z",
+      "side": 1,
+      "message": "This is very true, we can look at `asLegacyColor` uses and evaluate whether we\u0027re doing a sensible thing. However... still... this opens up the possibility to do non sensible things.\n\nI was hoping that if we use specific color classes for the colors we own, we can get rid of the possibility of doing a wrong thing and remove the need for thinking every time we use `asLegacyColor`.\n\ni.e. if we say that these colors are really `RGB` in their definition, then from the start, we\u0027ll know that it\u0027s very valid to check their `l` value for evaluating the lightness.\n\nIt\u0027s also not only about us thinking every time we use `asLegacyColor` but other people reading the code will ask the same question: is this a sensible thing to do? Then they will need to understand where these colors can come from. (or as the writer, we\u0027ll need to write a comment to explain why calling `asLegacyColor` and doing operations on the returned color here is fine) It feels like using non-null or type assertions in TS (like `Common.Color.parse(backgroundColor)!`)\n\nWe also know that `backgroundColor` should definitely be parsed correctly since they come from the colors we own and if it is not parsed correctly, it actually is an error. Having the need for putting a `null` check doesn\u0027t feel good to me here too. We can get rid of those if we know that we own these colors.\n\nThough if you don\u0027t agree, we can also skip this discussion for now and discuss later since it is not a very important piece of the puzzle for our purposes 😂",
+      "parentUuid": "3cef17b7_9fee541f",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
