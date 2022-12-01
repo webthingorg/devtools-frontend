@@ -6,7 +6,8 @@ import type * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import type * as Workspace from '../workspace/workspace.js';
+import * as Workspace from '../workspace/workspace.js';
+import { NetworkProject } from './NetworkProject.js';
 
 import {CompilerScriptMapping} from './CompilerScriptMapping.js';
 import {DebuggerLanguagePluginManager} from './DebuggerLanguagePlugins.js';
@@ -260,6 +261,57 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     return modelData.compilerMapping.uiSourceCodeForURL(url, isContentScript);
   }
 
+  uiSourceCodeForDebuggerLanguagePluginSourceURLPromise(debuggerModel: SDK.DebuggerModel.DebuggerModel, url: Platform.DevToolsPath.UrlString) {
+    if (this.pluginManager) {
+      const uiSourceCode = this.pluginManager.uiSourceCodeForURL(debuggerModel, url)
+      if (uiSourceCode) {
+        return uiSourceCode;
+      }
+      return this.#waitForUISourceCodeAdded(url, debuggerModel);
+    }
+    return null;
+  }
+
+  uiSourceCodeForScript(script: SDK.Script.Script) {
+    for (const sourceMapping of this.#sourceMappings) {
+      const uiLocation = sourceMapping.uiSourceCodeForScript(script);
+      if (uiLocation) {
+        return uiLocation;
+      }
+    }
+
+    const modelData = this.#debuggerModelToData.get(script.debuggerModel);    
+    if (!modelData) {
+      return null;
+    }
+    return modelData.uiSourceCodeForScript(script);
+  }
+
+  async uiSourceCodeForSourceMappedPromise(
+    debuggerModel: SDK.DebuggerModel.DebuggerModel, url: Platform.DevToolsPath.UrlString,
+    isContentScript: boolean): Promise<Workspace.UISourceCode.UISourceCode> {
+    const uiSourceCode = this.uiSourceCodeForSourceMapSourceURL(debuggerModel, url, isContentScript);
+    return uiSourceCode || this.#waitForUISourceCodeAdded(url, debuggerModel);
+  }
+
+  async uiSourceCodeForScriptPromise(script: SDK.Script.Script): Promise<Workspace.UISourceCode.UISourceCode> {
+    const uiSourceCode = this.uiSourceCodeForScript(script);
+    return uiSourceCode || this.#waitForUISourceCodeAdded(script.sourceURL, script.debuggerModel);
+  }
+
+  #waitForUISourceCodeAdded(url: Platform.DevToolsPath.UrlString, debuggerModel: SDK.DebuggerModel.DebuggerModel): Promise<Workspace.UISourceCode.UISourceCode> {
+    return new Promise(resolve => {
+      const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+      const descriptor = workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, event => {
+        const uiSourceCode = event.data;
+        if (uiSourceCode.url() === url && NetworkProject.targetForUISourceCode(uiSourceCode) === debuggerModel.target()) {
+          workspace.removeEventListener(Workspace.Workspace.Events.UISourceCodeAdded, descriptor.listener);
+          resolve(uiSourceCode);
+        }
+      });
+    });
+  }
+
   async uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber?: number): Promise<SDK.DebuggerModel.Location[]> {
@@ -445,6 +497,13 @@ class ModelData {
     return uiLocation;
   }
 
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    let uiSourceCode = this.#resourceScriptMapping.uiSourceCodeForScript(script);
+    uiSourceCode = uiSourceCode || this.#resourceMapping.uiSourceCodeForScript(script);
+    uiSourceCode = uiSourceCode || this.#defaultMapping.uiSourceCodeForScript(script);
+    return uiSourceCode;
+  }
+
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber: number|undefined = 0): SDK.DebuggerModel.Location[] {
@@ -475,6 +534,10 @@ class ModelData {
 
   getResourceScriptMapping(): ResourceScriptMapping {
     return this.#resourceScriptMapping;
+  }
+
+  getResourceMapping(): ResourceMapping {
+    return this.#resourceMapping;
   }
 }
 
@@ -591,4 +654,6 @@ export interface DebuggerSourceMapping {
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber?: number): SDK.DebuggerModel.Location[];
+
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null;
 }
