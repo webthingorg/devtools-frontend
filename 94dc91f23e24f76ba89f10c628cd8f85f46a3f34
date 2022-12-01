@@ -16,6 +16,29 @@
       "message": "Please take another look, thanks!",
       "revId": "94dc91f23e24f76ba89f10c628cd8f85f46a3f34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e47d6a9_7f3fc5ea",
+        "filename": "front_end/panels/application/SharedStorageTreeElement.ts",
+        "patchSetId": 73
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-01T07:38:42Z",
+      "side": 1,
+      "message": "Just make the member var public.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "94dc91f23e24f76ba89f10c628cd8f85f46a3f34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
