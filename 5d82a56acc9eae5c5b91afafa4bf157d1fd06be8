@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e5dad06_16688bdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-01T13:05:29Z",
+      "side": 1,
+      "message": "Reworked the UI with Peter, now with padding and without the box!",
+      "parentUuid": "44f1be9b_5b9db63c",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e58ec5a7_e2507691",
         "filename": "front_end/core/common/SettingRegistration.ts",
         "patchSetId": 7
