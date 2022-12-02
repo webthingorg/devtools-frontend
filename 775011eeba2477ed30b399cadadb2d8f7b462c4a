@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51ffd4e_59ce8cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:39:15Z",
+      "side": 1,
+      "message": "LGTM with calling `asLegacyColor()` first and then calling \"Method not implemented\" methods.",
+      "revId": "775011eeba2477ed30b399cadadb2d8f7b462c4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

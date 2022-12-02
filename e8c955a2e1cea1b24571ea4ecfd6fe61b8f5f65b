@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "892ac578_524320da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:39:15Z",
+      "side": 1,
+      "message": "Totally! :)",
+      "parentUuid": "65c7e289_b9c84b24",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6969e17_2756e333",
@@ -215,6 +233,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ebd0647_c314c4e6",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:39:15Z",
+      "side": 1,
+      "message": "Yep! I think calling through `asLegacyColor().setAlpha` would be better to make sure. Thanks!",
+      "parentUuid": "71468c8b_c1c5327f",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e752dcef_82a8d200",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 4
@@ -372,6 +408,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf4a15b_9f871c39",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:39:15Z",
+      "side": 1,
+      "message": "That also sounds good. Though let\u0027s skip this for now and continue discussion in a later time :)",
+      "parentUuid": "42f804ed_5344b3ae",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b8509b8_ed240819",
@@ -439,6 +493,24 @@
       "side": 1,
       "message": "We can also always add assertions on the color format if we want to enforce specific color types are passed as string.",
       "parentUuid": "993c870b_2c9b5d9c",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "005aa6e1_3e6661f9",
+        "filename": "front_end/panels/media/TickingFlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:39:15Z",
+      "side": 1,
+      "message": "It\u0027s not an important piece I guess to not continue with discussion now. We can discuss this later if we feel like it :)",
+      "parentUuid": "264aadd3_486948e4",
       "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
