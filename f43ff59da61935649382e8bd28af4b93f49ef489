@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46424e5_b6dcea36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-02T14:43:05Z",
+      "side": 1,
+      "message": "useful addition!",
+      "revId": "f43ff59da61935649382e8bd28af4b93f49ef489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac05818_5d474b3f",
+        "filename": "scripts/eslint_rules/lib/commented_out_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-02T14:43:05Z",
+      "side": 1,
+      "message": "import* :)",
+      "range": {
+        "startLine": 10,
+        "startChar": 44,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "f43ff59da61935649382e8bd28af4b93f49ef489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
