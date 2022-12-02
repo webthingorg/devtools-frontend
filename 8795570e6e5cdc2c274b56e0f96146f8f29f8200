@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?",
       "revId": "8795570e6e5cdc2c274b56e0f96146f8f29f8200",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c9af8de_4a205a0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-02T08:45:56Z",
+      "side": 1,
+      "message": "Ignore this CL, there are apparently cases where clashing variable names are (somwehat) desirable. In particular, when let-\u003evar conversion in transpilers removes scopes.",
+      "revId": "8795570e6e5cdc2c274b56e0f96146f8f29f8200",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
