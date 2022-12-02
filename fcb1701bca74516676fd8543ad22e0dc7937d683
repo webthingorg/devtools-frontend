@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80990e84_5388b684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-02T15:23:01Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "fcb1701bca74516676fd8543ad22e0dc7937d683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d66660_460571cf",
+        "filename": "test/unittests/front_end/entrypoints/inspector_main/InspectorMain_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-02T15:23:01Z",
+      "side": 1,
+      "message": "Does not awaiting the `run()` call introduce a race here?",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 75
+      },
+      "revId": "fcb1701bca74516676fd8543ad22e0dc7937d683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
