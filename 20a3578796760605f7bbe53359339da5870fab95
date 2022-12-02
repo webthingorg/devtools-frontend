@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ed30a4_8826062a",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-02T18:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "831a5fa5_8417c726",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 71
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16a3ce98_ba10615c",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0c2eb3_b9b16efa",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-02T18:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16a3ce98_ba10615c",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 21
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd6a3916_9dbe20e8",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-11-22T15:37:16Z",
       "side": 1,
       "message": "What purpose does this IIFE serve now?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "20a3578796760605f7bbe53359339da5870fab95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a23d5de6_7aa31639",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-02T18:27:24Z",
+      "side": 1,
+      "message": "To avoid conflict of variable names. I found that it\u0027s redundant now. Removed.",
+      "parentUuid": "fd6a3916_9dbe20e8",
       "range": {
         "startLine": 164,
         "startChar": 0,
