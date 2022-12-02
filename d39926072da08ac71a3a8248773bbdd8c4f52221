@@ -16,6 +16,24 @@
       "message": "Is there any code that (re)set `this.listItemElement.tabIndex` to values other than `-1`? If not, maybe we don\u0027t have to do this?",
       "revId": "d39926072da08ac71a3a8248773bbdd8c4f52221",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63464e09_b531d2bc",
+        "filename": "front_end/panels/application/ApplicationPanelTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-12-02T19:39:50Z",
+      "side": 1,
+      "message": "We set it to 0 or -1 on treeElements upon selection in here. https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/front_end/ui/legacy/Treeoutline.ts#191. Voice access only higlights the selected item in the panel since it\u0027s tabIndex is set to 0. The rest of the tabs don\u0027t get highlighted although they\u0027re selectable.",
+      "parentUuid": "afbe59b0_8d167f71",
+      "revId": "d39926072da08ac71a3a8248773bbdd8c4f52221",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
