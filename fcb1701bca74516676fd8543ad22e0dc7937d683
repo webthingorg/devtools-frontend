@@ -39,6 +39,30 @@
       },
       "revId": "fcb1701bca74516676fd8543ad22e0dc7937d683",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eed5d9f_9e9a50fc",
+        "filename": "test/unittests/front_end/entrypoints/inspector_main/InspectorMain_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-02T15:26:27Z",
+      "side": 1,
+      "message": "I don\u0027t think it introduces a race but it might be over-reliance on the current implementation that creates target before the first await. Removed this assert.",
+      "parentUuid": "06d66660_460571cf",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 75
+      },
+      "revId": "fcb1701bca74516676fd8543ad22e0dc7937d683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
