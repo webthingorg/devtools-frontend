@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afbe59b0_8d167f71",
+        "filename": "front_end/panels/application/ApplicationPanelTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-12-02T09:19:18Z",
+      "side": 1,
+      "message": "Is there any code that (re)set `this.listItemElement.tabIndex` to values other than `-1`? If not, maybe we don\u0027t have to do this?",
+      "revId": "d39926072da08ac71a3a8248773bbdd8c4f52221",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
