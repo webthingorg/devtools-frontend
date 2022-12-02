@@ -63,16 +63,24 @@ export class CSSStyleDeclaration {
     if (payload.cssText && this.range) {
       const cssText = new TextUtils.Text.Text(payload.cssText);
       let start = {line: this.range.startLine, column: this.range.startColumn};
+
+      const longhands = [];
       for (const cssProperty of payload.cssProperties) {
         const range = cssProperty.range;
-        if (range) {
-          parseUnusedText.call(this, cssText, start.line, start.column, range.startLine, range.startColumn);
-          start = {line: range.endLine, column: range.endColumn};
+        if (!range) {
+          continue;
         }
-        // TODO(changhaohan): we should try not including longhand properties anymore, because
-        // they are already included in the longhandProperties field in a shorthand property.
-        this.#allPropertiesInternal.push(
-            CSSProperty.parsePayload(this, this.#allPropertiesInternal.length, cssProperty));
+        parseUnusedText.call(this, cssText, start.line, start.column, range.startLine, range.startColumn);
+        start = {line: range.endLine, column: range.endColumn};
+        const parsedProperty = CSSProperty.parsePayload(this, this.#allPropertiesInternal.length, cssProperty);
+        this.#allPropertiesInternal.push(parsedProperty);
+        for (const longhand of parsedProperty.getLonghandProperties()) {
+          longhands.push(longhand);
+        }
+      }
+      for (const longhand of longhands) {
+        longhand.index = this.#allPropertiesInternal.length;
+        this.#allPropertiesInternal.push(longhand);
       }
       parseUnusedText.call(this, cssText, start.line, start.column, this.range.endLine, this.range.endColumn);
     } else {
@@ -241,8 +249,7 @@ export class CSSStyleDeclaration {
 
   private computeInactiveProperties(): void {
     const activeProperties = new Map<string, CSSProperty>();
-    for (let i = 0; i < this.#allPropertiesInternal.length; ++i) {
-      const property = this.#allPropertiesInternal[i];
+    for (const property of this.#allPropertiesInternal) {
       if (property.disabled || !property.parsedOk) {
         property.setActive(false);
         continue;
