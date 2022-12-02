@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c25c8b27_917249d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-12-02T17:45:02Z",
+      "side": 1,
+      "message": "I think currently the problem is during active property computation, we use longhands that are inserted later in the list to override regular properties inserted earlier, even though the place of insertion doesn\u0027t necessarily mean higher specificity.\n\nAt this point I\u0027m also wondering why we need to compute active properties in CSSStyleDeclaration (the rule level) first, then compute active properties across all the rules (at the NodeCascade level). I will experiment with directly computing at the NodeCascade level.",
+      "parentUuid": "3e06e33e_5c509330",
+      "revId": "2c86336cd801114187382f10db1a5a6cc0b410df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44fda219_817d1403",
         "filename": "front_end/core/sdk/CSSProperty.ts",
         "patchSetId": 7
