@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4df5ed9_bc582e9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:54:21Z",
+      "side": 1,
+      "message": "I\u0027m going to think of adding tests but in the meantime, this is ready for review.\n\nThere is some kind of a workaround (or \"hack\") for being able to react to spectrum changes but I didn\u0027t want to do a drive by refactor to fix it, I\u0027ll follow up on that in a later CL.\n\naaaand, it would be great if you can suggest some ideas on what tests to write as well :)",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
