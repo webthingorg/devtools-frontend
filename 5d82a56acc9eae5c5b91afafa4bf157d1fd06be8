@@ -88,6 +88,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e48ed7f9_21b7b2b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:35:48Z",
+      "side": 1,
+      "message": "Understood, thanks for the explanation! :)",
+      "parentUuid": "6b76a424_6171964f",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6376c0a_0cb3f774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:35:48Z",
+      "side": 1,
+      "message": "Looks very good! :)",
+      "parentUuid": "5e5dad06_16688bdd",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e58ec5a7_e2507691",
@@ -263,6 +299,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde2c807_2b58c73a",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:35:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9471af1b_5e4d85fd",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c800904_a457bc3d",
@@ -365,6 +419,24 @@
       "side": 1,
       "message": "TBH I\u0027d rather have the ownership layering here.",
       "parentUuid": "d44329c3_c5d5f50f",
+      "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29d50a4_45db2c4c",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T08:35:48Z",
+      "side": 1,
+      "message": "Sounds good :)",
+      "parentUuid": "62b1fb75_9d00c17e",
       "revId": "5d82a56acc9eae5c5b91afafa4bf157d1fd06be8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
