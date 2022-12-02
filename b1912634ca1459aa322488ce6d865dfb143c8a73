@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3a2894f_f3aa7a3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:11:10Z",
+      "side": 1,
+      "message": "Ups, clicked on resolved previously, it is not :)",
+      "parentUuid": "f229570f_e3b4062a",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc5fbbf1_e6f2c3b4",
         "filename": "front_end/core/common/Color.ts",
         "patchSetId": 2
