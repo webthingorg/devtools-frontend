@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f229570f_e3b4062a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "I think we need to have `originalTexts` saved and displayed when it is possible to make sure that we\u0027re showing the color that the user authored rather than we interpreted. For example, when you author a code in percentage, it is automatically converted to numbers and this is probably an unintended side effect.\n\nIn addition to that, while stringfying `lch` we\u0027re adding a ` / null` part when there isn\u0027t an alpha, which we shouldn\u0027t do.\n\nCan you take a look at these too please?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5fbbf1_e6f2c3b4",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "Question: why did we remove passing `originalText` here? AFAIU it might still be different for different colors as the users might have provided percentage instead of number.",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ebb8186_f4146ebb",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "Same question regarding not passing `text` here, why did we decide not to pass `originalText` here?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7705b4be_e765b5b5",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "After merging `Format` and `ColorSpace`, do we still need `ColorType` type?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd7d0dc_e5254437",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "I also didn\u0027t see a styleguide comment regarding this but I see that for the boolean only parameters we usually use `/* paramName */ true` in the call sites to show what this means.\n\nStill it goes to some kind of style discussion but I think it is a good practice to say what a `true` means in call site. So, we can either:\n* Call `this.getRGBArray(/* withAlpha */ true)`\n* Update `getRGBArray` to have a bag of parameters with `{ withAlpha: boolean; }`\n\nWDYT?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead2a18d_71b05b9f",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "Instead of leaving this check to runtime, we can also specific which color spaces are valid through types by defining `colorSpace` as\n```\nFormat.SRGB | Format.SRGB_LINEAR | Format.DISPLAY_P3 | Format.A98_RGB | Format.PROPHOTO_RGB | Format.REC_2020 | Format.XYZ | Format.XYZ_D50 | Format.XYZ_D65\n```\n\nthen we can get rid of the `default` case here.\n\nIn addition to that, if we want to make sure that all the cases are handled here, we can use a TS trick to give compile error when a switch statement is missing from the types we\u0027ve defined by definining a `never` accepting function. Here is an example: https://stackoverflow.com/questions/39419170/how-do-i-check-that-a-switch-block-is-exhaustive-in-typescript\n\nWDYT?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b321c883_c96b0692",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "If we restrict the `colorSpace` to be the formats that can be in `color()` function, we won\u0027t need this assertion too :)",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b506fbc_e7c8b73f",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-02T10:05:42Z",
+      "side": 1,
+      "message": "I think we can add `this.#originalText` to the `if` statement too so that we won\u0027t need the assertion here.",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
