@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e6e1f4_376aa812",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-02T23:39:59Z",
+      "side": 1,
+      "message": "Rebased to ToT. Could you have a look? Thanks!",
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
