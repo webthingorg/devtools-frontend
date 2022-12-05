@@ -124,6 +124,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12002856_0c3a0f02",
+        "filename": "front_end/panels/elements/components/ElementsTreeExpandButton.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T15:38:59Z",
+      "side": 1,
+      "message": "Cool, thanks for adding this :)",
+      "parentUuid": "fe02f406_a9a88f76",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7aafa54a_64d93a48",
