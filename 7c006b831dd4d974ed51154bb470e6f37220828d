@@ -16,6 +16,98 @@
       "message": "Rebased to ToT. Could you have a look? Thanks!",
       "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "167bd957_a493d4e1",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-05T11:28:37Z",
+      "side": 1,
+      "message": "You would need to remove model lister as well. How about the following here:\n\n    TargetManager.TargetManager.instance().addModelListener(\n        ChildTargetManager.ChildTargetManager, \n        ChildTargetManager.Events.TargetInfoChanged,\n        this.onTargetInfoChanged, this);\n        \n\nand then also\n\n    dispose(): void {\n      super.dispose();\n      TargetManager.TargetManager.instance().removeModelListener(\n          ChildTargetManager.ChildTargetManager, \n          ChildTargetManager.Events.TargetInfoChanged,\n          this.onTargetInfoChanged, this);\n    }",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7806ed_14173e23",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-05T11:28:37Z",
+      "side": 1,
+      "message": "Just make the member public and readonly?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5332bc13_7bc70d8b",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-05T11:28:37Z",
+      "side": 1,
+      "message": "remove event listener here?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 62
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa0c9a6_63ef529c",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-05T11:28:37Z",
+      "side": 1,
+      "message": "Let\u0027s do this before submitting.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 62
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
