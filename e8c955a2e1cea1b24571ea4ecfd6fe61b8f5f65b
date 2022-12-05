@@ -249,6 +249,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d67807_f091a14f",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T13:04:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ebd0647_c314c4e6",
+      "revId": "e8c955a2e1cea1b24571ea4ecfd6fe61b8f5f65b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e752dcef_82a8d200",
