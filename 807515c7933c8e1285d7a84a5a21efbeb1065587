@@ -16,6 +16,40 @@
       "message": "Could you take a look, please?",
       "revId": "807515c7933c8e1285d7a84a5a21efbeb1065587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5728ab_f2d0db61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-05T06:21:19Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "807515c7933c8e1285d7a84a5a21efbeb1065587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ad55a1_2e272498",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-05T06:21:19Z",
+      "side": 1,
+      "message": "nit: breakpoint",
+      "revId": "807515c7933c8e1285d7a84a5a21efbeb1065587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
