@@ -375,6 +375,41 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assert.isFalse(component.shadowRoot.querySelector('.row')?.classList.contains('header-overridden'));
   });
 
+  it('shows error-icon when header name contains disallowed characters', async () => {
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: Platform.StringUtilities.toLowerCaseString('some-header-name'),
+      value: 'someHeaderValue',
+      originalValue: 'someHeaderValue',
+      nameEditable: true,
+      valueEditable: true,
+    };
+
+    const {component, nameEditable} = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+    assertElement(nameEditable, HTMLElement);
+    const row = component.shadowRoot.querySelector('.row');
+    assertElement(row, HTMLDivElement);
+    assert.strictEqual(row.querySelector('devtools-icon.disallowed-characters'), null);
+
+    nameEditable.focus();
+    nameEditable.innerText = '*';
+    dispatchInputEvent(nameEditable, {inputType: 'insertText', data: '*', bubbles: true, composed: true});
+    await coordinator.done();
+    assertElement(row.querySelector('devtools-icon.disallowed-characters'), HTMLElement);
+
+    dispatchKeyDownEvent(nameEditable, {key: 'Escape', bubbles: true, composed: true});
+    await coordinator.done();
+    assert.strictEqual(row.querySelector('devtools-icon.disallowed-characters'), null);
+  });
+
+  it('recoginzes only alphanumeric characters, dashes, and underscores as valid in header names', () => {
+    assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('AlphaNumeric123'), true);
+    assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('Alpha Numeric'), false);
+    assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('AlphaNumeric123!'), false);
+    assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('With-dashes_and_underscores'), true);
+    assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('no*'), false);
+  });
+
   it('allows removing a header override', async () => {
     const headerName = Platform.StringUtilities.toLowerCaseString('some-header-name');
     const headerValue = 'someHeaderValue';
