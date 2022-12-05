@@ -16,6 +16,108 @@
       "message": "I\u0027m going to think of adding tests but in the meantime, this is ready for review.\n\nThere is some kind of a workaround (or \"hack\") for being able to react to spectrum changes but I didn\u0027t want to do a drive by refactor to fix it, I\u0027ll follow up on that in a later CL.\n\naaaand, it would be great if you can suggest some ideas on what tests to write as well :)",
       "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809ac47e_11804def",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "Looks great! Two questions inline.\n\nAs for testing, I\u0027d say:\nCover the component (with successful and unsuccessful parameter matches),\nCover the processColorMix handler if possible,\nCover the event -\u003e dispatch event hack if it\u0027s possible to test the behavior here (and not the fact that events are dispatched). This is to make sure the hack doesn\u0027t stop working and that the future fix retains behavior.",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad9a2d4_e60e1460",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "It returns null for legacy colors that were not created from authored text (i.e., where originalText is empty, e.g. when created by fromHSVA.)",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46846614_ac00e3bc",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "Does this work if the user switches the colorFormat setting back on?",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cbbdae6_1a888b80",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "This feels weird to me too. Plan below sounds good! Do want to put a crbug on this right away maybe?",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64474cae_9a924a53",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "Does this imply there can be more than one color-mix rule?",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52fa951_d896d48b",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-05T11:34:17Z",
+      "side": 1,
+      "message": "2022",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
