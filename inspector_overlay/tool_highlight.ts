@@ -48,7 +48,7 @@ import {
   type ResetData,
 } from './common.js';
 
-import {drawPath, emptyBounds, formatColor, formatRgba, parseHexa, type PathBounds} from './highlight_common.js';
+import {drawPath, emptyBounds, formatColor, formatRgba, type PathBounds} from './highlight_common.js';
 
 import {
   drawLayoutFlexContainerHighlight,
@@ -64,6 +64,10 @@ import {drawContainerQueryHighlight, type ContainerQueryHighlight} from './highl
 import {type IsolatedElementHighlight} from './highlight_isolated_element.js';
 import {PersistentOverlay} from './tool_persistent.js';
 
+function parseRgb(rgbString: string): number[] {
+  return rgbString.split(',').map(channel => Number.parseFloat(channel));
+}
+
 interface Path {
   path: PathCommands;
   outlineColor: string;
@@ -73,6 +77,8 @@ interface Path {
 
 interface ContrastInfo {
   backgroundColor: string;
+  backgroundColorRgb: string;
+  backgroundColorCssText: string;
   fontSize: string;
   fontWeight: string;
   contrastAlgorithm: 'apca'|'aa'|'aaa';
@@ -503,8 +509,8 @@ export function createElementDescription(elementInfo: ElementInfo, colorFormat: 
   if (elementInfo.showAccessibilityInfo) {
     addSection('Accessibility');
 
-    if (hasContrastInfo && style['color'] && elementInfo.contrast) {
-      addContrastRow(style['color'], elementInfo.contrast);
+    if (hasContrastInfo && style['color-rgb'] && elementInfo.contrast) {
+      addContrastRow(style['color-rgb'], elementInfo.contrast);
     }
 
     addTextRow('Name', elementInfo.accessibleName);
@@ -557,14 +563,14 @@ export function createElementDescription(elementInfo: ElementInfo, colorFormat: 
   }
 
   function addContrastRow(fgColor: string, contrast: ContrastInfo) {
-    const parsedFgColor = parseHexa(fgColor);
-    const parsedBgColor = parseHexa(contrast.backgroundColor);
+    const parsedFgColor = parseRgb(fgColor);
+    const parsedBgColor = parseRgb(contrast.backgroundColorRgb);
     // Merge text opacity into the alpha channel of the color.
     parsedFgColor[3] *= contrast.textOpacity;
     const valueElement = addRow('Contrast', '', 'element-info-value-contrast');
     const sampleText = createChild(valueElement, 'div', 'contrast-text');
     sampleText.style.color = formatRgba(parsedFgColor, 'rgb');
-    sampleText.style.backgroundColor = contrast.backgroundColor;
+    sampleText.style.backgroundColor = contrast.backgroundColorCssText;
     sampleText.textContent = 'Aa';
     const valueSpan = createChild(valueElement, 'span');
     if (contrast.contrastAlgorithm === 'apca') {
