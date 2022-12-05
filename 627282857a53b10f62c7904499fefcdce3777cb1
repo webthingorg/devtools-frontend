@@ -193,6 +193,24 @@
       "parentUuid": "64f14c9d_8f215403",
       "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77bdb08a_e1760092",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-12-05T15:39:22Z",
+      "side": 1,
+      "message": "You are right. It works!",
+      "parentUuid": "932427f6_7a60320a",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
