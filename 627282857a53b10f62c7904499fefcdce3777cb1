@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe432b8b_b0b6d597",
+        "filename": "front_end/panels/elements/components/ElementsTreeExpandButton.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-12-05T14:51:38Z",
+      "side": 1,
+      "message": "I may need to modify this comment, from `textContent` to `innerText`.",
+      "parentUuid": "128f593c_0073a764",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7aafa54a_64d93a48",
         "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
         "patchSetId": 12
