@@ -39,6 +39,30 @@
       },
       "revId": "f43ff59da61935649382e8bd28af4b93f49ef489",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca08dbd5_cb817165",
+        "filename": "scripts/eslint_rules/lib/commented_out_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-05T11:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ac05818_5d474b3f",
+      "range": {
+        "startLine": 10,
+        "startChar": 44,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "f43ff59da61935649382e8bd28af4b93f49ef489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
