@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../bindings/bindings.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -153,9 +154,17 @@ export class SourceFormatter {
   }
 }
 
-class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceMapping {
+export class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceMapping {
   constructor() {
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(this);
+  }
+
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    const formatData = SourceFormatData.for(script);
+    if (!formatData || !script) {
+      return null;
+    }
+    return formatData.formattedSourceCode;
   }
 
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
@@ -169,7 +178,7 @@ class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceM
     return formatData.formattedSourceCode.uiLocation(lineNumber, columnNumber);
   }
 
-  uiLocationToRawLocations(uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number):
+  uiLocationToRawLocations(uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber?: number):
       SDK.DebuggerModel.Location[] {
     const formatData = SourceFormatData.for(uiSourceCode);
     if (!formatData) {

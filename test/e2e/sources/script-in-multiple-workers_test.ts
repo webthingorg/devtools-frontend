@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -37,13 +38,17 @@ async function validateSourceTabs() {
   });
 }
 
-describe('Multi-Workers', async function() {
+describe.only('Multi-Workers', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
   if (this.timeout() !== 0) {
     this.timeout(10000);
   }
 
-  [false, true].forEach(sourceMaps => {
+  before(async () => {
+    await enableExperiment('instrumentationBreakpoints');
+  });
+
+  [false].forEach(sourceMaps => {
     const withOrWithout = sourceMaps ? 'with source maps' : 'without source maps';
     const targetPage = sourceMaps ? 'sources/multi-workers-sourcemap.html' : 'sources/multi-workers.html';
     const scriptFile = sourceMaps ? 'multi-workers.min.js' : 'multi-workers.js';
@@ -202,7 +207,7 @@ describe('Multi-Workers', async function() {
     describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
-        await waitForSourceFiles(
+        await waitForSourceFiles(  
             SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
               // Have the target load the page.
               await goToResource(targetPage);
@@ -238,8 +243,7 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky on mac
-      it.skipOnPlatforms(['mac'], '[crbug.com/1368493] for newly created workers', async () => {
+      it('for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);

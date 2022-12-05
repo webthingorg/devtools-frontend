@@ -6,6 +6,7 @@ import type * as Host from '../../../../../front_end/core/host/host.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 
@@ -56,10 +57,7 @@ describeWithMockConnection('SourceMapManager', () => {
     });
 
     const debuggerModel = workerTarget.model(SDK.DebuggerModel.DebuggerModel);
-    assert.isNotNull(debuggerModel);
-    if (debuggerModel === null) {
-      return;
-    }
+    assertNotNullOrUndefined(debuggerModel);
 
     const sourceMapManager = debuggerModel.sourceMapManager();
 
@@ -80,14 +78,6 @@ describeWithMockConnection('SourceMapManager', () => {
     SDK.PageResourceLoader.PageResourceLoader.instance(
         {forceNew: true, loadOverride: loadSourceMap, maxConcurrentLoads: 1, loadTimeout: 2000});
 
-    const sourceMapContent = JSON.stringify({
-      'version': 3,
-      'file': '/script.js',
-      'mappings': '',
-      'sources': [
-        '/original-script.js',
-      ],
-    });
     const sourceUrl = 'script.js' as Platform.DevToolsPath.UrlString;
     const sourceMapUrl = `data:test/html;base64,${btoa(sourceMapContent)}` as Platform.DevToolsPath.UrlString;
     const frameSource =
@@ -100,10 +90,7 @@ describeWithMockConnection('SourceMapManager', () => {
     mainTarget.setInspectedURL(frameUrl);
 
     const debuggerModel = mainTarget.model(SDK.DebuggerModel.DebuggerModel);
-    assert.isNotNull(debuggerModel);
-    if (debuggerModel === null) {
-      return;
-    }
+    assertNotNullOrUndefined(debuggerModel);
 
     const sourceMapManager = debuggerModel.sourceMapManager();
 

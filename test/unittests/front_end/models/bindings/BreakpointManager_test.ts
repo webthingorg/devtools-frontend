@@ -78,6 +78,7 @@ describeWithRealConnection('BreakpointManager', () => {
       uiLocationToRawLocations:
           (_uiSourceCode: Workspace.UISourceCode.UISourceCode, _lineNumber: number,
            _columnNumber?: number) => [sdkLocation],
+      uiSourceCodeForScript: (_: SDK.Script.Script) => uiSourceCode
     };
     return mapping;
   }
@@ -86,16 +87,23 @@ describeWithRealConnection('BreakpointManager', () => {
     uiSourceCode: Workspace.UISourceCode.UISourceCode,
     project: Persistence.FileSystemWorkspaceBinding.FileSystem,
   }) {
-    const debuggerModel = new TestDebuggerModel(target);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
     const breakpoint = await breakpointManager.setBreakpoint(
         fileSystem.uiSourceCode, 0, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
 
     const content = await fileSystem.project.requestFileContent(fileSystem.uiSourceCode);
     const metadata = await fileSystem.project.requestMetadata(fileSystem.uiSourceCode);
+
     assertNotNullOrUndefined(metadata);
     assertNotNullOrUndefined(content.content);
 
+    // UISourceCodes that are a script are usually part of a project governed the ResourceScriptMapping.
+    // Here, we work around it and make it part of the sourcemapping, such that we can predeterimine the
+    // content and metadata of the UISourceCode. 
+    // TODO(kimanh): Change test to use the describeWithMockConnection to make this test cleaner.
     const networkURL = 'http://www.google.com/example.js' as Platform.DevToolsPath.UrlString;
+    const networkScriptId = 'network_id' as Protocol.Runtime.ScriptId;
     const network = createContentProviderUISourceCode({
       url: networkURL,
       content: content.content,
@@ -105,8 +113,11 @@ describeWithRealConnection('BreakpointManager', () => {
     });
 
     const script = new SDK.Script.Script(
-        debuggerModel, SCRIPT_ID, networkURL, 0, 0, 43, 0, 0, '0', true, false, undefined, false, 10, null, null, null,
-        null, null, null);
+      debuggerModel, networkScriptId, networkURL, 0, 0, 43, 0, 0, '0', false, false, undefined, false, 10, null, null, null,
+      null, null, null);
+    
+    const mapping = createFakeScriptMapping(debuggerModel, network.uiSourceCode, networkScriptId);
+    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
 
     // Check that only the filesystem project UISourceCode has a breakpoint.
     assert.lengthOf(breakpointManager.breakpointLocationsForUISourceCode(fileSystem.uiSourceCode), 1);
@@ -115,7 +126,7 @@ describeWithRealConnection('BreakpointManager', () => {
     // Get the UISourceCode and await binding updates. This call should make sure to update all breakpoints.
     await breakpointManager.getUISourceCodeWithUpdatedBreakpointInfo(script);
 
-    // Check that the network project UISourceCode has a breakpoint now.
+    // Check that the network project UISourceCode has a breakpoint now.  
     const uiLocations = breakpointManager.breakpointLocationsForUISourceCode(network.uiSourceCode);
     assert.lengthOf(uiLocations, 1);
 
@@ -125,6 +136,10 @@ describeWithRealConnection('BreakpointManager', () => {
 
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(network.project);
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(fileSystem.project);
+    network.project.removeProject();
+    network.project.remove();
+    fileSystem.project.removeProject();
+    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
   }
 
   beforeEach(() => {
@@ -357,7 +372,7 @@ describeWithRealConnection('BreakpointManager', () => {
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
 
     const breakpoint = await breakpointManager.setBreakpoint(
-        uiSourceCode, 42, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+        uiSourceCode, 42, undefined, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
     breakpoint.modelAdded(debuggerModel);
 
     // Make sure that the location could be resolved, and that we could set a breakpoint.
@@ -373,7 +388,7 @@ describeWithRealConnection('BreakpointManager', () => {
     assert.isTrue(removeSpy.calledOnce);
 
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
-    Workspace.Workspace.WorkspaceImpl.instance().removeProject(project);
+    project.removeProject();
   });
 
   it('can wait for file system breakpoints to be mapped to network ui source code', async () => {
@@ -382,7 +397,7 @@ describeWithRealConnection('BreakpointManager', () => {
     const metadata = new Workspace.UISourceCode.UISourceCodeMetadata(new Date(), content.length);
 
     const fileSystem =
-        createFileSystemUISourceCode({url, content, mimeType: JS_MIME_TYPE, metadata, autoMapping: true});
+        createFileSystemUISourceCode({url, content, fileSystemPath: '', mimeType: JS_MIME_TYPE, metadata, autoMapping: true});
 
     await runBreakpointMovedTest(fileSystem);
   });
