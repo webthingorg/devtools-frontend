@@ -16,6 +16,57 @@
       "message": "Hi Ergün, could you also PTAL at this to see if you have other suggestions?",
       "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c93786_9de2a6d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T14:36:44Z",
+      "side": 1,
+      "message": "Thank you! It LGTM with two comments :)",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db61c5f_e28d3880",
+        "filename": "front_end/panels/elements/components/ElementsTreeExpandButton.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T14:36:44Z",
+      "side": 1,
+      "message": "I didn\u0027t understand this comment exactly, what does it mean?\n\nlike, how the `textContent` is tested and why it can\u0027t have any other characters? 😅",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aafa54a_64d93a48",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T14:36:44Z",
+      "side": 1,
+      "message": "(nit): since this is an inline element, I think it\u0027d be better to use `vertical-align: middle\u0027` instead of `translateY(-3px)`",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
