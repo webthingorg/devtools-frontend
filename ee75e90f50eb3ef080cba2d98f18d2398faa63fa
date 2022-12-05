@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "357dffed_29ff4cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T22:20:40Z",
+      "side": 1,
+      "message": "After this CL, I\u0027m gonna remove HEX related stuff (or rename them rgb) from both places :)\n\nFor the truthness of the contrast calculation, I\u0027m fairly sure that we\u0027re doing correct thing. The idea is, we\u0027re calculating the relative luminance of the color from sRGB and relative luminance actually corresponds to the \"Y\" component in the XYZd65 color space.\n\nSo, what we\u0027re essentially doing is, we\u0027re getting the sRGB value, partially converting it to XYZd65 and take its Y component.",
+      "revId": "ee75e90f50eb3ef080cba2d98f18d2398faa63fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
