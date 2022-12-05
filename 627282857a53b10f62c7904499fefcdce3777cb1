@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14d1fd0e_b3b63cf9",
+        "filename": "front_end/panels/elements/components/ElementsTreeExpandButton.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T14:56:16Z",
+      "side": 1,
+      "message": "Cool! It would be cool to add the exact test as the comment here too so that in the future we can do something about it :)",
+      "parentUuid": "fe432b8b_b0b6d597",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7aafa54a_64d93a48",
         "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
         "patchSetId": 12
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "I\u0027ve tried it before. It doesn\u0027t work here.",
       "parentUuid": "7aafa54a_64d93a48",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932427f6_7a60320a",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-05T14:56:16Z",
+      "side": 1,
+      "message": "Oh I\u0027ve tried it now and it is working 🤔\n\nCan it be that you\u0027ve added `vertical-align: middle` to rule with `.expand-button` selector instead of adding it to rule with `:host` selector?",
+      "parentUuid": "64f14c9d_8f215403",
       "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
