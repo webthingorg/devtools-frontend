@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?\n\nThis is really just a port of the https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/sources/debugger/debugger-scope-resolve-identifiers.js;drc\u003d047c7dc4ee1ce908d7fea38ca063fa2f80f92c77 layout test to a DevTools unit test.",
       "revId": "3653b1f827f0ebca478bf86617e0a6192498d016",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ee5d90_149446cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-05T10:02:36Z",
+      "side": 1,
+      "message": "Nice! LGTM",
+      "revId": "3653b1f827f0ebca478bf86617e0a6192498d016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
