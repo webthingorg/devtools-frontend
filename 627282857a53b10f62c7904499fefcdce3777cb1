@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe02f406_a9a88f76",
+        "filename": "front_end/panels/elements/components/ElementsTreeExpandButton.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-12-05T15:15:28Z",
+      "side": 1,
+      "message": "There is also an e2e test case for this expand operation, refer to patchset 8\u0027s check result.\nI added a new unit case for this.",
+      "parentUuid": "fe432b8b_b0b6d597",
+      "revId": "627282857a53b10f62c7904499fefcdce3777cb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7aafa54a_64d93a48",
         "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
         "patchSetId": 12
