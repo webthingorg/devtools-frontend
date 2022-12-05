@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aeb35c5c_c6ae83c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-12-05T12:40:49Z",
+      "side": 1,
+      "message": "Now the second case should be fixed, and I added unit test to cover that as well.\n\nI couldn\u0027t reproduce editing style failures. Could you remember any reproducing steps to make that happen?",
+      "parentUuid": "c25c8b27_917249d8",
+      "revId": "2c86336cd801114187382f10db1a5a6cc0b410df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44fda219_817d1403",
         "filename": "front_end/core/sdk/CSSProperty.ts",
         "patchSetId": 7
