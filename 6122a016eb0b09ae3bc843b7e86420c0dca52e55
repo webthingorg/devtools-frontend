@@ -16,6 +16,24 @@
       "message": "LGTM too, thanks for addressing my nits! :)",
       "revId": "6122a016eb0b09ae3bc843b7e86420c0dca52e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d17c55a_21676c13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2022-12-05T15:45:39Z",
+      "side": 1,
+      "message": "Thanks for your suggestions! 😊",
+      "parentUuid": "bda715a8_6013a634",
+      "revId": "6122a016eb0b09ae3bc843b7e86420c0dca52e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
