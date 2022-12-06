@@ -8,6 +8,8 @@ import * as Coordinator from '../../../../../../front_end/ui/components/render_c
 import {
   assertElement,
   assertShadowRoot,
+  dispatchFocusOutEvent,
+  dispatchInputEvent,
   dispatchKeyDownEvent,
   renderElementIntoDOM,
 } from '../../../helpers/DOMHelpers.js';
@@ -247,6 +249,40 @@ describe('HeadersView', async () => {
     for (const editable of editables) {
       assert.isFalse(editable.hasSelection());
     }
+  });
+
+  it('sets empty \'ApplyTo\' to \'*\'', async () => {
+    const editor = await renderEditor();
+    assertShadowRoot(editor.shadowRoot);
+    const editables = editor.shadowRoot?.querySelectorAll('.editable');
+    assert.strictEqual(editables.length, 8);
+
+    const applyTo = editables[5] as HTMLSpanElement;
+    assert.strictEqual(applyTo.innerHTML, '*.jpg');
+
+    applyTo.innerText = '';
+    dispatchInputEvent(applyTo, {inputType: 'deleteContentBackward', data: null, bubbles: true});
+    assert.strictEqual(applyTo.innerHTML, '');
+
+    dispatchFocusOutEvent(applyTo, {bubbles: true});
+    assert.strictEqual(applyTo.innerHTML, '*');
+  });
+
+  it('sets empty header name to auto-generated header name', async () => {
+    const editor = await renderEditor();
+    assertShadowRoot(editor.shadowRoot);
+    const editables = editor.shadowRoot?.querySelectorAll('.editable');
+    assert.strictEqual(editables.length, 8);
+
+    const headerName = editables[1] as HTMLSpanElement;
+    assert.strictEqual(headerName.innerHTML, 'server');
+
+    headerName.innerText = '';
+    dispatchInputEvent(headerName, {inputType: 'deleteContentBackward', data: null, bubbles: true});
+    assert.strictEqual(headerName.innerHTML, '');
+
+    dispatchFocusOutEvent(headerName, {bubbles: true});
+    assert.strictEqual(headerName.innerHTML, 'header-name-1');
   });
 
   it('allows adding headers', async () => {
