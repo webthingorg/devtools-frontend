@@ -51,6 +51,24 @@
       "parentUuid": "6fd00a91_1212d7cf",
       "revId": "ee75e90f50eb3ef080cba2d98f18d2398faa63fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55291f3b_718b914b",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-06T10:58:12Z",
+      "side": 1,
+      "message": "That\u0027s fair, aa{,a} only use 4 digits of precision, so that works out!",
+      "parentUuid": "2a989e6c_424fd407",
+      "revId": "ee75e90f50eb3ef080cba2d98f18d2398faa63fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
