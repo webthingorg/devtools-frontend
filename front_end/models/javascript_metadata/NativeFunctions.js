@@ -151,6 +151,11 @@ export const NativeFunctions = [
   },
   {
     name: 'set',
+    signatures: [['featureValueName','values']],
+    receivers: ['CSSFontFeatureValuesMap']
+  },
+  {
+    name: 'set',
     signatures: [['property','...values']],
     receivers: ['StylePropertyMap']
   },
@@ -7920,6 +7925,10 @@ export const NativeFunctions = [
   {
     name: 'multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL',
     signatures: [['mode','countsList','countsOffset','type','offsetsList','offsetsOffset','instanceCountsList','instanceCountsOffset','baseVerticesList','baseVerticesOffset','baseInstancesList','baseInstancesOffset','drawcount']]
+  },
+  {
+    name: 'provokingVertexWEBGL',
+    signatures: [['provokeMode']]
   },
   {
     name: 'drawingBufferStorage',
