@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44e53bb7_1e7a4296",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T13:24:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baeae13b_c3f38a68",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 22
+      },
+      "revId": "54152f5ed9381e0a9f802d3e3ea7d24ba6d4d8dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39548a34_0b760d16",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-06T09:36:04Z",
       "side": 1,
       "message": "`assertNotNullOrUndefined(model)`",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 25
+      },
+      "revId": "54152f5ed9381e0a9f802d3e3ea7d24ba6d4d8dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3276d020_465ee169",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T13:24:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39548a34_0b760d16",
       "range": {
         "startLine": 211,
         "startChar": 0,
