@@ -120,9 +120,6 @@ Sources.ScopeChainSidebarPane.OpenLinearMemoryInspector = SourcesModule.ScopeCha
 /** @constructor */
 Sources.ScriptFormatterEditorAction = SourcesModule.ScriptFormatterEditorAction.ScriptFormatterEditorAction;
 
-/** @constructor */
-Sources.ScriptOriginPlugin = SourcesModule.ScriptOriginPlugin.ScriptOriginPlugin;
-
 Sources.ScriptOriginPlugin._linkifier = SourcesModule.ScriptOriginPlugin.linkifier;
 
 /** @constructor */
