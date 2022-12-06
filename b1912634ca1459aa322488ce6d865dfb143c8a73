@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a9b97a_e90cd631",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T13:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7705b4be_e765b5b5",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd7d0dc_e5254437",
@@ -154,6 +172,24 @@
       "writtenOn": "2022-12-02T10:05:42Z",
       "side": 1,
       "message": "I also didn\u0027t see a styleguide comment regarding this but I see that for the boolean only parameters we usually use `/* paramName */ true` in the call sites to show what this means.\n\nStill it goes to some kind of style discussion but I think it is a good practice to say what a `true` means in call site. So, we can either:\n* Call `this.getRGBArray(/* withAlpha */ true)`\n* Update `getRGBArray` to have a bag of parameters with `{ withAlpha: boolean; }`\n\nWDYT?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce693f6_316f85dc",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T13:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd7d0dc_e5254437",
       "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -175,6 +211,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fa7d49b_b2454fce",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T13:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead2a18d_71b05b9f",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b321c883_c96b0692",
@@ -188,6 +242,24 @@
       "writtenOn": "2022-12-02T10:05:42Z",
       "side": 1,
       "message": "If we restrict the `colorSpace` to be the formats that can be in `color()` function, we won\u0027t need this assertion too :)",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65793dbd_249e8a5b",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T13:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b321c883_c96b0692",
       "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
