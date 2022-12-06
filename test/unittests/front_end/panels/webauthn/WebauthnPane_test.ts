@@ -20,6 +20,10 @@ describeWithMockConnection('WebAuthn pane', () => {
     Webauthn = await import('../../../../../front_end/panels/webauthn/webauthn.js');
   });
 
+  afterEach(async () => {
+    await new Promise(r => setTimeout(r, 0));
+  });
+
   it('disables the large blob checkbox if resident key is disabled', () => {
     const panel = Webauthn.WebauthnPane.WebauthnPaneImpl.instance();
     const largeBlob = panel.largeBlobCheckbox;
