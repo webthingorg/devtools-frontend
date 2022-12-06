@@ -33,6 +33,24 @@
       "message": "Compared to ColorConverter, the luminance computation is only accurate to 4 digits of precision. Do we need to be worried about that?",
       "revId": "ee75e90f50eb3ef080cba2d98f18d2398faa63fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a989e6c_424fd407",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T10:46:20Z",
+      "side": 1,
+      "message": "I think we don\u0027t need to worry about that yet, since the APCA contrast calculation is behind an experiment and not enabled by default.\n\nWCAG 2.1 contrast calculation is finding luminance more closely to the converter AFAIU.\n\nWe can think what to do with it while we\u0027re thinking about the future of the experiment :)",
+      "parentUuid": "6fd00a91_1212d7cf",
+      "revId": "ee75e90f50eb3ef080cba2d98f18d2398faa63fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
