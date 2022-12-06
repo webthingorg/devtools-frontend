@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "243f4a70_6d86a835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-06T15:25:34Z",
+      "side": 1,
+      "message": "PTAL. Is there a better way to ensure the CDP response is received before starting the teardown?",
+      "revId": "c1eae5b4f1cbf31dbe8cd9362ee3c9ef87c531e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
