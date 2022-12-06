@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a027c1a3_3364b540",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-06T13:35:58Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027ve added a test for CompilerScriptMapping as I\u0027m going to reuse the functionality that I\u0027m testing. PTAL!",
+      "revId": "f07c938516e58c81b3b2a7005834d6b12bea2aa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
