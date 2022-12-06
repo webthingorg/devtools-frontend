@@ -16,6 +16,24 @@
       "message": "PTAL. Is there a better way to ensure the CDP response is received before starting the teardown?",
       "revId": "c1eae5b4f1cbf31dbe8cd9362ee3c9ef87c531e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b048cb2_58704853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-06T15:30:32Z",
+      "side": 1,
+      "message": "Yeah, I think we need to find another way.\n1) Does this only happen for the first test that doesn\u0027t set up a mock handler? Otherwise we have a bug in the mock handler implementation.\n2) Where does the response come? This seems to indicate some kind of a race condition that we should rather not sweep under the carpet.",
+      "parentUuid": "243f4a70_6d86a835",
+      "revId": "c1eae5b4f1cbf31dbe8cd9362ee3c9ef87c531e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
