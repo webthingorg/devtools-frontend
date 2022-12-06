@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81591b60_7e9db6d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T12:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3a2894f_f3aa7a3f",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc5fbbf1_e6f2c3b4",
@@ -53,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8cdc4c0_f92d5b96",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T12:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5fbbf1_e6f2c3b4",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ebb8186_f4146ebb",
@@ -66,6 +102,24 @@
       "writtenOn": "2022-12-02T10:05:42Z",
       "side": 1,
       "message": "Same question regarding not passing `text` here, why did we decide not to pass `originalText` here?",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6724d00_72809edc",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-06T12:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ebb8186_f4146ebb",
       "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
