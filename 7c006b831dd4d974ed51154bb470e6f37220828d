@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f481dd_99c7657b",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T06:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "167bd957_a493d4e1",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a7806ed_14173e23",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-05T11:28:37Z",
       "side": 1,
       "message": "Just make the member public and readonly?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d58d9462_99c34674",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T06:50:00Z",
+      "side": 1,
+      "message": "Thanks. I found that it\u0027s already redundant because I added `getAll()`.",
+      "parentUuid": "9a7806ed_14173e23",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e45d4dd6_a24b7ec4",
+        "filename": "front_end/core/sdk/PrerenderingModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T06:50:00Z",
+      "side": 1,
+      "message": "This is required to implement SDKModelObserver. It\u0027s an interface.",
+      "parentUuid": "5332bc13_7bc70d8b",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 62
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6aa0c9a6_63ef529c",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-05T11:28:37Z",
       "side": 1,
       "message": "Let\u0027s do this before submitting.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 62
+      },
+      "revId": "7c006b831dd4d974ed51154bb470e6f37220828d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58f2571_fc9f87fd",
+        "filename": "test/unittests/front_end/core/sdk/PrerenderingModel_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-06T06:50:00Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "6aa0c9a6_63ef529c",
       "range": {
         "startLine": 288,
         "startChar": 0,
