@@ -22,6 +22,30 @@
       },
       "revId": "980fee04184e7d6a0598b4c6121250d3815bdafc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d089c44_3d586141",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-07T12:43:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6ad7a52_ba4fd19b",
+      "range": {
+        "startLine": 949,
+        "startChar": 61,
+        "endLine": 950,
+        "endChar": 56
+      },
+      "revId": "980fee04184e7d6a0598b4c6121250d3815bdafc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
