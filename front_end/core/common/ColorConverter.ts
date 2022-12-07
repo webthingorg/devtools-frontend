@@ -397,6 +397,18 @@ function xyzd50ToSrgb(x: number, y: number, z: number): [number, number, number]
       NAMED_TRANSFER_FN.sRGB_INVERSE, rgbOutput.values[0], rgbOutput.values[1], rgbOutput.values[2]);
 }
 
+function xyzd50ToOklch(x: number, y: number, z: number): [number, number, number] {
+  const [x65, y65, z65] = xyzd50ToD65(x, y, z);
+  const [l, a, b] = xyzd65ToOklab(x65, y65, z65);
+  return labToLch(l, a, b);
+}
+
+function oklchToXyzd50(lInput: number, c: number, h: number): [number, number, number] {
+  const [l, a, b] = lchToLab(lInput, c, h);
+  const [x65, y65, z65] = oklabToXyzd65(l, a, b);
+  return xyzd65ToD50(x65, y65, z65);
+}
+
 export {
   labToXyzd50,
   xyzd50ToLab,
@@ -419,4 +431,6 @@ export {
   srgbLinearToXyzd50,
   srgbToXyzd50,
   xyzd50ToSrgb,
+  oklchToXyzd50,
+  xyzd50ToOklch,
 };

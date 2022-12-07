@@ -494,4 +494,32 @@ describe('ColorConverter', async () => {
       assertAlmostEqual(Common.ColorConverter.xyzd50ToSrgb(input[0], input[1], input[2]), expected);
     }
   });
+
+  it('xyzd50ToOklch', () => {
+    const colorCases = [
+      [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],                                                      // black
+      [[86.73558615881383, 0.2943827914193604, 142.46721129661893], [0.387, 0.719, 0.098]],    // lime
+      [[42.07236956831411, 0.19379111721542183, -31.581090643953534], [0.125, 0.061, 0.157]],  // purple
+      [[48.01470749600788, 0.15014832987216517, 25.62722827644009], [0.171, 0.102, 0.027]],    // brown
+      [[51.99709382011207, 0.17740395353498845, 142.60633091326085], [0.083, 0.155, 0.021]],
+    ];  // green
+
+    for (const [expected, input] of colorCases) {
+      assertAlmostEqual(Common.ColorConverter.xyzd50ToOklch(input[0], input[1], input[2]), expected);
+    }
+  });
+
+  it('oklchToXyzd50', () => {
+    const colorCases = [
+      [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],                                                     // black
+      [[86.64396115356694, 0.2948272403370167, 142.49533888780996], [0.387, 0.719, 0.098]],   // lime
+      [[42.09136612058102, 0.19345291484554133, 328.36341792345144], [0.125, 0.061, 0.157]],  // purple
+      [[48.06125447400232, 0.1596570181206647, 25.562112067668068], [0.171, 0.102, 0.027]],   // brown
+      [[51.97518277948419, 0.17685825418032036, 142.4953388878099], [0.083, 0.155, 0.021]],
+    ];  // green
+
+    for (const [input, expected] of colorCases) {
+      assertAlmostEqual(Common.ColorConverter.oklchToXyzd50(input[0], input[1], input[2]), expected);
+    }
+  });
 });
