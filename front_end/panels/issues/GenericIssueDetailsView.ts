@@ -44,13 +44,18 @@ export class GenericIssueDetailsView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  #appendDetail(genericIssue: IssuesManager.GenericIssue.GenericIssue): void {
+  async #appendDetail(genericIssue: IssuesManager.GenericIssue.GenericIssue): Promise<void> {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-directive');
 
     const details = genericIssue.details();
     if (details.frameId) {
       element.appendChild(this.createFrameCell(details.frameId, genericIssue.getCategory()));
+    }
+    if (details.violatingNodeId) {
+      const target = genericIssue.model()?.target() || null;
+      element.appendChild(await this.createElementCell(
+          {backendNodeId: details.violatingNodeId, nodeName: 'Label element', target}, genericIssue.getCategory()));
     }
 
     this.affectedResources.appendChild(element);
