@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95998d4_2cbd15c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2022-12-07T00:13:00Z",
+      "side": 1,
+      "message": "Hi Alex, please take a look this CL to limit the soft context menu change to non-mouse event.",
+      "revId": "27da3178225d3be971a5c66f1d7ef0caa8d08eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
