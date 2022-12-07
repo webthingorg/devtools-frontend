@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c50f71a_d74e1cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-07T06:08:54Z",
+      "side": 1,
+      "message": "Thanks, done! Also renamed to `getCompilerScriptMappingForTest` as discussed offline.",
+      "revId": "f200edd8b4f22a20a61be0cab293899ba7c93342",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
