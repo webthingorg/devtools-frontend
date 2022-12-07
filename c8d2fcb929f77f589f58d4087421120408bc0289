@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff16d400_72e0181f",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-07T12:53:07Z",
+      "side": 1,
+      "message": "Can we make this TargetManager.instance().mainFrameTarget().model(SDK.CPUProfilerModel.CPUProfilerModel).\n\nThere\u0027s a chance you get a random model if you rely on ordering.",
+      "range": {
+        "startLine": 954,
+        "startChar": 0,
+        "endLine": 954,
+        "endChar": 117
+      },
+      "revId": "c8d2fcb929f77f589f58d4087421120408bc0289",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
