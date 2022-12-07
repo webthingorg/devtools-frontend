@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ad7a52_ba4fd19b",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-07T10:19:43Z",
+      "side": 1,
+      "message": "I think we could rewrite this sentence to:\n\n\u003e If we profile all targets, this causes issues such as function timings being calculated wrong.\n\nAnd then also could you add an explainer as to why? e.g. why does multiple targets cause these bugs? Thanks! I\u0027ll +1, so feel free to land after this is done.",
+      "range": {
+        "startLine": 949,
+        "startChar": 61,
+        "endLine": 950,
+        "endChar": 56
+      },
+      "revId": "980fee04184e7d6a0598b4c6121250d3815bdafc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
