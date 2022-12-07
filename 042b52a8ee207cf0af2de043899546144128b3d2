@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "def818ba_22b88737",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-07T10:13:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d52c46_a20f12f9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 75
+      },
+      "revId": "042b52a8ee207cf0af2de043899546144128b3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8155ace4_a5fad652",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-07T08:50:09Z",
       "side": 1,
       "message": "I think we should add a comment to the code explaining why we only target the first one (that looks similar to your commit message)",
+      "range": {
+        "startLine": 949,
+        "startChar": 0,
+        "endLine": 949,
+        "endChar": 117
+      },
+      "revId": "042b52a8ee207cf0af2de043899546144128b3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a79c17d_f76c03a7",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-07T10:13:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8155ace4_a5fad652",
       "range": {
         "startLine": 949,
         "startChar": 0,
