@@ -279,6 +279,24 @@
       "message": "I think we can add `this.#originalText` to the `if` statement too so that we won\u0027t need the assertion here.",
       "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b273710d_d8e52159",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-07T10:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b506fbc_e7c8b73f",
+      "revId": "b1912634ca1459aa322488ce6d865dfb143c8a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
