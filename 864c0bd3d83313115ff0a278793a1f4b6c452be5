@@ -51,6 +51,24 @@
       "parentUuid": "2fd57021_2f317e43",
       "revId": "864c0bd3d83313115ff0a278793a1f4b6c452be5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92098d60_9ecd3f3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-07T12:06:17Z",
+      "side": 1,
+      "message": "I understand, however this is what we do when editing CSS properties in the Elements panel or storage keys in the Application panel. \n\n+petermueller wdyt?",
+      "parentUuid": "78b5586b_30e3ce2b",
+      "revId": "864c0bd3d83313115ff0a278793a1f4b6c452be5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
