@@ -268,6 +268,23 @@ describe('HeadersView', async () => {
     assert.strictEqual(applyTo.innerHTML, '*');
   });
 
+  it('sets empty header name to auto-generated header name', async () => {
+    const editor = await renderEditor();
+    assertShadowRoot(editor.shadowRoot);
+    const editables = editor.shadowRoot?.querySelectorAll('.editable');
+    assert.strictEqual(editables.length, 8);
+
+    const headerName = editables[1] as HTMLSpanElement;
+    assert.strictEqual(headerName.innerHTML, 'server');
+
+    headerName.innerText = '';
+    dispatchInputEvent(headerName, {inputType: 'deleteContentBackward', data: null, bubbles: true});
+    assert.strictEqual(headerName.innerHTML, '');
+
+    dispatchFocusOutEvent(headerName, {bubbles: true});
+    assert.strictEqual(headerName.innerHTML, 'header-name-1');
+  });
+
   it('allows adding headers', async () => {
     const editor = await renderEditorWithinWrapper();
     await coordinator.done();
