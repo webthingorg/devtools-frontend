@@ -33,6 +33,23 @@
       "message": "Friendly ping.",
       "revId": "e7e3d3bc312ddbcf44eb02d7060a695652480094",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d70fe7_f163c116",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-07T09:46:04Z",
+      "side": 1,
+      "message": "Normally we show icons before the text they are referring to. Is there a specific reason to do it differently here?",
+      "revId": "e7e3d3bc312ddbcf44eb02d7060a695652480094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
