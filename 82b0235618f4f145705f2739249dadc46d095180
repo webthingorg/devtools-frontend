@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f14147_4221239d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:01:14Z",
+      "side": 1,
+      "message": "Looking good! Just have a couple of questions to make sure that I\u0027m understanding everything correctly. Thank you!",
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f709337_a8620fad",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:01:14Z",
+      "side": 1,
+      "message": "nit: I think I would call this `#shouldSaveToFile` to be clear that we\u0027re storing a boolean for if we do save it to a file or not.",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd2665e1_a4d0ac73",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:01:14Z",
+      "side": 1,
+      "message": "this bit took me a bit of thinking to understand, because on first glance I find it weird that we are saying `saveToFile\u003dfalse` but then writing data to the storage directly.\n\nTo check my understanding, am I right that the `saveToFile` flag effectively disables the trace model\u0027s built in behaviour to write the file, such that for CPU Profilers we can manage it ourselves by simply writing the CPU Profile directly to the file?\n\nIf so, I think perhaps a comment here would be helpful explaining what\u0027s going on.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 66
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dcfaafe_a8d3890d",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:01:14Z",
+      "side": 1,
+      "message": "why do we need to setTimeout this?",
+      "range": {
+        "startLine": 99,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2093ff2_43c95f8c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:01:14Z",
+      "side": 1,
+      "message": "does this method need to be public, or could it be private?",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 483,
+        "endChar": 20
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
