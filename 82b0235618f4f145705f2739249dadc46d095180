@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dccb433_63fad5f2",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-08T14:32:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f709337_a8620fad",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd2665e1_a4d0ac73",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-08T14:01:14Z",
       "side": 1,
       "message": "this bit took me a bit of thinking to understand, because on first glance I find it weird that we are saying `saveToFile\u003dfalse` but then writing data to the storage directly.\n\nTo check my understanding, am I right that the `saveToFile` flag effectively disables the trace model\u0027s built in behaviour to write the file, such that for CPU Profilers we can manage it ourselves by simply writing the CPU Profile directly to the file?\n\nIf so, I think perhaps a comment here would be helpful explaining what\u0027s going on.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 66
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac0dbd58_a129e7b1",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-08T14:32:49Z",
+      "side": 1,
+      "message": "I originally think that is the flag in TracingModel so it means skip the saving in TracingModel. And just used the same name here. I think I should change the parameter name here to be `shouldSaveTraceEventsToFile`",
+      "parentUuid": "dd2665e1_a4d0ac73",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b35e3ba_2e980138",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-08T14:32:49Z",
+      "side": 1,
+      "message": "I did copy over the one from the `loadFromEvents`\n\nAnd my understanding why `loadFromEvents` use setTimeout is `addEvents` will slice the the traceEvents into small chunks and then add the chunk to TracingModel, and `setTimeout` added a timeout between adding two chunks.\nSo the `setTimeout` here want to keep the add those chunks in order.\n\nAlso the `void` might be able to change to async (which also helps with the multiple targets case), but I need some time to verify it, so I kept it for now so it won\u0027t break.",
+      "parentUuid": "8dcfaafe_a8d3890d",
+      "range": {
+        "startLine": 99,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2093ff2_43c95f8c",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-08T14:01:14Z",
       "side": 1,
       "message": "does this method need to be public, or could it be private?",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 483,
+        "endChar": 20
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef87065c_5ae64998",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-08T14:32:49Z",
+      "side": 1,
+      "message": "Done. Yes forget this",
+      "parentUuid": "c2093ff2_43c95f8c",
       "range": {
         "startLine": 483,
         "startChar": 2,
