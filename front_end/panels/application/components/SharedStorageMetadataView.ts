@@ -29,15 +29,19 @@ const UIStrings = {
   /**
   *@description The time when the origin most recently created its shared storage database
   */
-  creationTime: 'Creation',
+  creationTime: 'Creation Time',
+  /**
+  *@description The placeholder text if there is no creation time because the origin is not yet using shared storage.
+  */
+  notYetCreated: 'Not yet created',
   /**
   *@description The number of entries currently in the origin's database
   */
-  length: 'Length',
+  length: 'Number of Entries',
   /**
   *@description The number of bits remaining in the origin's shared storage privacy budget
   */
-  remainingBudget: 'Budget',
+  remainingBudget: 'Entropy Budget for Fenced Frames',
   /**
   *@description Section header above Entries
   */
@@ -148,7 +152,7 @@ export class SharedStorageMetadataReportView extends HTMLElement {
 
   #renderDateForCreationTime(): LitHtml.LitTemplate {
     if (!this.#creationTime) {
-      return LitHtml.nothing;
+      return LitHtml.html`${i18nString(UIStrings.notYetCreated)}`;
     }
     const date = new Date(1e3 * (this.#creationTime as number));
     return LitHtml.html`${date.toLocaleString()}`;
