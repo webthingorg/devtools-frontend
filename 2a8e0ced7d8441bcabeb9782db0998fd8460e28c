@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e73e0b2_99ddda5c",
+        "filename": "front_end/models/trace/sdk_services/DOMNodeLookup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T14:38:23Z",
+      "side": 1,
+      "message": "makes sense, thank you!",
+      "parentUuid": "926df3ab_8c17e663",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0cf00e5_f2735f59",
