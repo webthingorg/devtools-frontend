@@ -313,9 +313,9 @@ describeWithMockConnection('SharedStorageItemsView', function() {
     const keys = getCleanTextContentFromElements(metadataView.shadowRoot, 'devtools-report-key');
     assert.deepEqual(keys, [
       'Origin',
-      'Creation',
-      'Budget',
-      'Length',
+      'Creation Time',
+      'Entropy Budget for Fenced Frames',
+      'Number of Entries',
     ]);
 
     const values = getCleanTextContentFromElements(metadataView.shadowRoot, 'devtools-report-value');
