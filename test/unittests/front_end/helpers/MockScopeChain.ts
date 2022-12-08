@@ -25,6 +25,11 @@ interface ScriptDescription {
   startColumn?: number;
 }
 
+const DEFAULT_EMPTY_CONNECTION_RESPONSE = {
+  getError() {
+    return undefined;
+  },
+};
 export class MockProtocolBackend {
   #scriptSources = new Map<string, string>();
   #sourceMapContents = new Map<string, string>();
@@ -42,12 +47,43 @@ export class MockProtocolBackend {
     setMockConnectionResponseHandler('Debugger.setBreakpointByUrl', this.#setBreakpointByUrlHandler.bind(this));
     setMockConnectionResponseHandler('Page.getResourceTree', this.#getResourceTreeHandler.bind(this));
     setMockConnectionResponseHandler('Storage.getStorageKeyForFrame', () => ({storageKey: 'test-key'}));
+    setMockConnectionResponseHandler('Debugger.removeBreakpoint', () => (DEFAULT_EMPTY_CONNECTION_RESPONSE));
+    setMockConnectionResponseHandler('Debugger.resume', () => (DEFAULT_EMPTY_CONNECTION_RESPONSE));
+
     SDK.PageResourceLoader.PageResourceLoader.instance({
       forceNew: true,
       loadOverride: async (url: string) => this.#loadSourceMap(url),
       maxConcurrentLoads: 1,
       loadTimeout: 2000,
     });
+  }
+
+  dispatchDebuggerPause(
+      script: SDK.Script.Script, reason: Protocol.Debugger.PausedEventReason, functionName: string = '',
+      scopeChain: Protocol.Debugger.Scope[] = []) {
+    const target = script.debuggerModel.target();
+    const callFrames: Protocol.Debugger.CallFrame[] = [
+      {
+        callFrameId: '1' as Protocol.Debugger.CallFrameId,
+        functionName,
+        url: script.sourceURL,
+        scopeChain,
+        location: {
+          scriptId: script.scriptId,
+          lineNumber: 0,
+        },
+        this: {type: 'object'} as Protocol.Runtime.RemoteObject,
+      },
+
+    ];
+    dispatchEvent(
+        target,
+        'Debugger.paused',
+        {
+          callFrames,
+          reason,
+        },
+    );
   }
 
   async addScript(target: SDK.Target.Target, scriptDescription: ScriptDescription, sourceMap: {
