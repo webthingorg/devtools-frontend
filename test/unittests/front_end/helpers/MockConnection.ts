@@ -28,6 +28,7 @@ type Message = {
 // Note that we can't set the Function to the correct handler on the basis
 // that we don't know which ProtocolCommand will be stored.
 const responseMap = new Map<ProtocolCommand, Function>();
+const outgoingMessageListenerMap = new Map<ProtocolCommand, Function>();
 export function setMockConnectionResponseHandler<C extends ProtocolCommand>(
     command: C, handler: ProtocolCommandHandler<C>) {
   if (responseMap.get(command)) {
@@ -47,6 +48,16 @@ export function clearMockConnectionResponseHandler(method: ProtocolCommand) {
 
 export function clearAllMockConnectionResponseHandlers() {
   responseMap.clear();
+}
+
+export function registerListenerOnOutgoingMessage(method: ProtocolCommand) {
+  if (outgoingMessageListenerMap.has(method)) {
+    return outgoingMessageListenerMap.get(method);
+  }
+  const waitForOutgoingMessagePromise = new Promise(resolve => {
+    outgoingMessageListenerMap.set(method, resolve);
+  });
+  return waitForOutgoingMessagePromise;
 }
 
 export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
@@ -88,6 +99,12 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
   sendRawMessage(message: string) {
     void (async () => {
       const outgoingMessage = JSON.parse(message) as Message;
+
+      const listenerCallback = outgoingMessageListenerMap.get(outgoingMessage.method);
+      if (listenerCallback) {
+        listenerCallback();
+        outgoingMessageListenerMap.delete(outgoingMessage.method);
+      }
       const handler = responseMap.get(outgoingMessage.method);
       if (!handler) {
         return;
@@ -112,6 +129,9 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
 }
 
 async function disable() {
+  if (outgoingMessageListenerMap.size > 0) {
+    throw new Error('MockConnection still has pending listeners. All promises should be awaited.');
+  }
   await deinitializeGlobalVars();
   // @ts-ignore Setting back to undefined as a hard reset.
   ProtocolClient.InspectorBackend.Connection.setFactory(undefined);
