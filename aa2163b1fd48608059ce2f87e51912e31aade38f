@@ -50,6 +50,24 @@
       "message": "I\u0027m not sure this is what we want. When I add a tab, I suppose it should by default be able to be tab-focused? Or maybe I\u0027m missing something here?",
       "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301ac98b_322cb699",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2022-12-08T01:00:35Z",
+      "side": 1,
+      "message": "I see what you are saying. However, currently by default Chrome does not assign a tabindex except for the focused tab which is assigned a \"tabindex\u003d0\" (so other tabbed elements are not focusable via tab).\n\nThis PR follows the current Chrome behavior but allows the other tabs to be focused by voice command by assigning a \"tabindex\u003d-1\". \n\nIn my opinion I would keep the current behavior unless the current behavior is a bug?",
+      "parentUuid": "9fc674d3_7c3f711c",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
