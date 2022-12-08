@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f99f3ef5_0078c2cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T12:11:38Z",
+      "side": 1,
+      "message": "@andoli@chromium.org PTAL! This is the change to move the SDK code out of the handlers. I\u0027ve only applied this to the LayoutShifts handler - once you\u0027re happy with this approach (please say if you have any suggestions on changes) then I\u0027ll land this and apply similar changes to any other handlers that mention SDK. Thanks!",
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca233f04_92e15b97",
+        "filename": "test/unittests/front_end/models/trace/handlers/LayoutShiftsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T12:11:38Z",
+      "side": 1,
+      "message": "I\u0027m really happy that now we can test the handlers with no mock connections. IMO that\u0027s a sign that this is a positive re-structuring.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
