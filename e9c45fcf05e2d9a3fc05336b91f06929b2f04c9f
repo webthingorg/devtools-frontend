@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f05611_96783132",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-08T09:22:17Z",
+      "side": 1,
+      "message": "Do we really want these locked?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 59
+      },
+      "revId": "e9c45fcf05e2d9a3fc05336b91f06929b2f04c9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d6b7ca_735b7d35",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-08T09:22:17Z",
+      "side": 1,
+      "message": "Why are these locked?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 117
+      },
+      "revId": "e9c45fcf05e2d9a3fc05336b91f06929b2f04c9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "318391d6_288d3758",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingDetailsReportView_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-08T09:22:17Z",
+      "side": 1,
+      "message": "Let\u0027s not be so specific in CSS selectors, so that we will have more freedom to change the HTML structure. I\u0027d suggest to have just `\u0027.preloading-noselected\u0027`\n here and use `assert.include` on the next line.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 94
+      },
+      "revId": "e9c45fcf05e2d9a3fc05336b91f06929b2f04c9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e26695f_965c6f99",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingDetailsReportView_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-08T09:22:17Z",
+      "side": 1,
+      "message": "It would be easier to follow the logic if you remove this, add \n\n\n    const date \u003d Date.parse(\u00272006-01-02T15:04:05Z\u0027);\n    \nabove and have \n\n\n    [\u0027Started at\u0027, date.toLocaleString()]\n  \nbelow.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 58
+      },
+      "revId": "e9c45fcf05e2d9a3fc05336b91f06929b2f04c9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
