@@ -33,6 +33,23 @@
       "message": "Hi Changhao, can you help review?",
       "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc674d3_7c3f711c",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-12-08T00:21:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is what we want. When I add a tab, I suppose it should by default be able to be tab-focused? Or maybe I\u0027m missing something here?",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
