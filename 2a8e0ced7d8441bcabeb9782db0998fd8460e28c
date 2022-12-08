@@ -18,6 +18,92 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edfbe0f_7bdec2cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T13:24:47Z",
+      "side": 1,
+      "message": "This makes me feel less anxious about this handler! Overall LGTM with some suggestions and questions. Thanks :)",
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b63a576f_1f20ced1",
+        "filename": "front_end/models/trace/sdk_services/DOMNodeLookup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T13:24:47Z",
+      "side": 1,
+      "message": "can we depend on SDK directly in this service, or am I missing something?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0cf00e5_f2735f59",
+        "filename": "front_end/models/trace/sdk_services/DOMNodeLookup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T13:24:47Z",
+      "side": 1,
+      "message": "since this method receives a batch of nodeIds, what do you think if we include a `forNodeIdBatch` or something so that we don\u0027t have to make this CDP call  repeatedly when resolving multiple nodes. Could be a follow up if you think it\u0027s a good idea.",
+      "range": {
+        "startLine": 31,
+        "startChar": 36,
+        "endLine": 31,
+        "endChar": 88
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e48d5f3_01d47800",
+        "filename": "front_end/models/trace/sdk_services/LayoutShifts.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T13:24:47Z",
+      "side": 1,
+      "message": "per the prev comment, we could save some cost by calling the hypothetical `forNodeIdBatch` once with all nodes first",
+      "range": {
+        "startLine": 37,
+        "startChar": 26,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca233f04_92e15b97",
@@ -31,6 +117,30 @@
       "writtenOn": "2022-12-08T12:11:38Z",
       "side": 1,
       "message": "I\u0027m really happy that now we can test the handlers with no mock connections. IMO that\u0027s a sign that this is a positive re-structuring.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185a07b1_fa697438",
+        "filename": "test/unittests/front_end/models/trace/handlers/LayoutShiftsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-08T13:24:47Z",
+      "side": 1,
+      "message": "Agreed, this already feels way cleaner!",
+      "parentUuid": "ca233f04_92e15b97",
       "range": {
         "startLine": 30,
         "startChar": 0,
