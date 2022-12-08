@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "926df3ab_8c17e663",
+        "filename": "front_end/models/trace/sdk_services/DOMNodeLookup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:35:33Z",
+      "side": 1,
+      "message": "Ah good catch! This was written before I landed the change that makes InspectorFrontendHost safe to execute in a worker. So yes, I think we can do this directly.\n\nThe reason I couldn\u0027t is because previously if any file that did `import * as SDK ...` ended up in a worker, it would error, so I wanted to defer that import. But now you can import SDK directly without error, we can import the SDK. I will update. Thanks!",
+      "parentUuid": "b63a576f_1f20ced1",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0cf00e5_f2735f59",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a7f435_65e2d1c9",
+        "filename": "front_end/models/trace/sdk_services/DOMNodeLookup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:35:33Z",
+      "side": 1,
+      "message": "Yeah like it! I\u0027ll do that as part of this CL. Thanks!",
+      "parentUuid": "d0cf00e5_f2735f59",
+      "range": {
+        "startLine": 31,
+        "startChar": 36,
+        "endLine": 31,
+        "endChar": 88
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e48d5f3_01d47800",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-12-08T13:24:47Z",
       "side": 1,
       "message": "per the prev comment, we could save some cost by calling the hypothetical `forNodeIdBatch` once with all nodes first",
+      "range": {
+        "startLine": 37,
+        "startChar": 26,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05e83c0_fe6fab7d",
+        "filename": "front_end/models/trace/sdk_services/LayoutShifts.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e48d5f3_01d47800",
       "range": {
         "startLine": 37,
         "startChar": 26,
@@ -141,6 +213,30 @@
       "side": 1,
       "message": "Agreed, this already feels way cleaner!",
       "parentUuid": "ca233f04_92e15b97",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "2a8e0ced7d8441bcabeb9782db0998fd8460e28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e5f42d_933d52a4",
+        "filename": "test/unittests/front_end/models/trace/handlers/LayoutShiftsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-08T14:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185a07b1_fa697438",
       "range": {
         "startLine": 30,
         "startChar": 0,
