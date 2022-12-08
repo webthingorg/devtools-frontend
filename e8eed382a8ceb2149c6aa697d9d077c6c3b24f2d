@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf29820_12fd46e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-08T08:13:26Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\na small refactoring: I\u0027m pulling out source map helpers into their own class. PTAL!",
+      "revId": "e8eed382a8ceb2149c6aa697d9d077c6c3b24f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
