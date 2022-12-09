@@ -16,6 +16,29 @@
       "message": "Can you rubber-stamp please? Thanks!",
       "revId": "37c3a168af68c640bb8e446a9f5ecee0decacb9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a464f306_69786e35",
+        "filename": "front_end/third_party/codemirror.next/package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-12-09T08:53:59Z",
+      "side": 1,
+      "message": "Is there a bug or TODO somewhere to remind us to fix this back to upstream once the PR is merged?",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 98
+      },
+      "revId": "37c3a168af68c640bb8e446a9f5ecee0decacb9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
