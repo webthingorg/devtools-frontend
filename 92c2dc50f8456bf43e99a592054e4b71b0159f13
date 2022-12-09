@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7c3697_36c82eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-09T10:16:49Z",
+      "side": 1,
+      "message": "ptal\n\nnot running these tests on CQ yet - don\u0027t think it\u0027s worth it - but can easily add in follow-up",
+      "revId": "92c2dc50f8456bf43e99a592054e4b71b0159f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
