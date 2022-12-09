@@ -16,6 +16,57 @@
       "message": "I\u0027ll test more about this in general. No need to rush a +1.",
       "revId": "fded85275bebf06c447c3a0cef671cd6d62adc03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7949624_11e780ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-09T09:43:32Z",
+      "side": 1,
+      "message": "LGTM with two comments. Even though we\u0027ve tested this quite extensively now, I still think this might introduce some subtle bugs. So, it would be great to think of some edge cases and try them in the styles pane. (i.e. aliases of properties etc.)\n\nOther than that, the change makes sense to me :)",
+      "revId": "fded85275bebf06c447c3a0cef671cd6d62adc03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2795c363_a0d68316",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-09T09:43:32Z",
+      "side": 1,
+      "message": "Now that we\u0027re re-assigning the index of the property in the place we generate the style declaration, does this comment apply anymore?",
+      "revId": "fded85275bebf06c447c3a0cef671cd6d62adc03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b32ef279_1ae05ce5",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-09T09:43:32Z",
+      "side": 1,
+      "message": "AFAIU, now all the properties in `activeProperties` are properties with range except the longhand properties from a shorthand.\n\nI wonder how it affects the behavior described below in the comment \"For some -webkit- properties, the backend returns also the canonical...\". WDYT?",
+      "revId": "fded85275bebf06c447c3a0cef671cd6d62adc03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
