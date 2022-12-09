@@ -22,6 +22,30 @@
       },
       "revId": "57fc1c3f66f02559df3ca7191b68d6224b69a13b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4110a8_e4eac15c",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-09T11:52:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8722661a_416596c4",
+      "range": {
+        "startLine": 235,
+        "startChar": 6,
+        "endLine": 235,
+        "endChar": 41
+      },
+      "revId": "57fc1c3f66f02559df3ca7191b68d6224b69a13b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
