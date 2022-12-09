@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4a01ab_cf297378",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-09T12:13:05Z",
+      "side": 0,
+      "message": "I will remove the clean-css node_module in a follow-up",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 38
+      },
+      "revId": "a5fd0a412d3cab36b4bc99ab1aedf17228d1c879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
