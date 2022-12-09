@@ -22,6 +22,30 @@
       },
       "revId": "4da93104226132953a320cb4fce98b27371680f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfc91a5_17cd75f7",
+        "filename": "test/unittests/front_end/panels/application/SharedStorageModel_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-12-09T20:15:32Z",
+      "side": 0,
+      "message": "Good call. I just added such a test in test/unittests/front_end/panels/application/SharedStorageItemsView_test.ts (where it is testable).  Thanks!",
+      "parentUuid": "5eb5df42_7853b0c6",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 116
+      },
+      "revId": "4da93104226132953a320cb4fce98b27371680f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
