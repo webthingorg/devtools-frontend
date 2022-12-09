@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "233116a5_1a6aa001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-09T06:14:22Z",
+      "side": 1,
+      "message": "Can you rubber-stamp this back-merge please? Thanks!",
+      "revId": "516d5dac36119af854b3690ae0922924e16d4515",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
