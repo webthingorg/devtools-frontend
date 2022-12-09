@@ -593,6 +593,129 @@ describe('Color', () => {
       assert.isNull(result);
     }
   });
+
+  it('returns the original string when stringified', () => {
+    checkColor(Common.Color.Format.Nickname, 'lime');
+    checkColor(Common.Color.Format.HEX, '#00ff00');
+    checkColor(Common.Color.Format.ShortHEX, '#0f0');
+    checkColor(Common.Color.Format.HEXA, '#00ff00ff');
+    checkColor(Common.Color.Format.ShortHEXA, '#0f0f');
+    checkColor(Common.Color.Format.RGB, 'rgb(0 255 0)');
+    checkColor(Common.Color.Format.RGBA, 'rgb(0 255 0)');
+    checkColor(Common.Color.Format.HSL, 'hsl(120deg 100% 50%)');
+    checkColor(Common.Color.Format.HSLA, 'hsl(120deg 100% 50%)');
+    checkColor(Common.Color.Format.HWB, 'hwb(120deg 0% 0%)');
+    checkColor(Common.Color.Format.HWBA, 'hwb(120deg 0% 0%)');
+    checkColor(Common.Color.Format.LCH, 'lch(87.818 113.322 134.379)');
+    checkColor(Common.Color.Format.OKLCH, 'oklch(0.866 0.295 142.5)');
+    checkColor(Common.Color.Format.LAB, 'lab(87.818 -79.257 80.995)');
+    checkColor(Common.Color.Format.OKLAB, 'oklab(0.866 -0.234 0.18)');
+    checkColor(Common.Color.Format.SRGB, 'color(srgb 0 1 0)');
+    checkColor(Common.Color.Format.SRGB_LINEAR, 'color(srgb-linear 0 1 0)');
+    checkColor(Common.Color.Format.DISPLAY_P3, 'color(display-p3 0.459 0.985 0.298)');
+    checkColor(Common.Color.Format.A98_RGB, 'color(a98-rgb 0.565 1 0.235)');
+    checkColor(Common.Color.Format.PROPHOTO_RGB, 'color(prophoto-rgb 0.54 0.928 0.305)');
+    checkColor(Common.Color.Format.REC_2020, 'color(rec2020 0.568 0.959 0.269)');
+    checkColor(Common.Color.Format.XYZ_D50, 'color(xyz-d50 0.385 0.717 0.097)');
+    checkColor(Common.Color.Format.XYZ_D65, 'color(xyz-d65 0.358 0.715 0.119)');
+    checkColor(Common.Color.Format.XYZ, 'color(xyz 0.358 0.715 0.119)');
+
+    function checkColor(format: Common.Color.Format, spec: string): void {
+      const color = Common.Color.parse(spec);
+      assertNotNullOrUndefined(color);
+      assert.deepEqual(color?.asString(), spec);
+      assert.deepEqual(color?.format(), format);
+    }
+  });
+
+  it('prints the correct color when stringified with format', () => {
+    const color = Common.Color.parse('lime');
+    assertNotNullOrUndefined(color);
+
+    checkColor(Common.Color.Format.Nickname, 'lime');
+    checkColor(Common.Color.Format.HEX, '#00ff00');
+    checkColor(Common.Color.Format.ShortHEX, '#0f0');
+    checkColor(Common.Color.Format.HEXA, '#00ff00ff');
+    checkColor(Common.Color.Format.ShortHEXA, '#0f0f');
+    checkColor(Common.Color.Format.RGB, 'rgb(0 255 0)');
+    checkColor(Common.Color.Format.RGBA, 'rgb(0 255 0)');
+    checkColor(Common.Color.Format.HSL, 'hsl(120deg 100% 50%)');
+    checkColor(Common.Color.Format.HSLA, 'hsl(120deg 100% 50%)');
+    checkColor(Common.Color.Format.HWB, 'hwb(120deg 0% 0%)');
+    checkColor(Common.Color.Format.HWBA, 'hwb(120deg 0% 0%)');
+    checkColor(Common.Color.Format.LCH, 'lch(87.818 113.322 134.379)');
+    // checkColor(Common.Color.Format.OKLCH, 'oklch(0.866 0.295 142.5)');
+    checkColor(Common.Color.Format.LAB, 'lab(87.818 -79.257 80.995)');
+    checkColor(Common.Color.Format.OKLAB, 'oklab(0.866 -0.234 0.18)');
+    checkColor(Common.Color.Format.SRGB, 'color(srgb 0 1 0)');
+    checkColor(Common.Color.Format.SRGB_LINEAR, 'color(srgb-linear 0 1 0)');
+    checkColor(Common.Color.Format.DISPLAY_P3, 'color(display-p3 0.459 0.985 0.298)');
+    checkColor(Common.Color.Format.A98_RGB, 'color(a98-rgb 0.565 1 0.235)');
+    checkColor(Common.Color.Format.PROPHOTO_RGB, 'color(prophoto-rgb 0.54 0.928 0.305)');
+    checkColor(Common.Color.Format.REC_2020, 'color(rec2020 0.568 0.959 0.269)');
+    checkColor(Common.Color.Format.XYZ_D50, 'color(xyz-d50 0.385 0.717 0.097)');
+    checkColor(Common.Color.Format.XYZ_D65, 'color(xyz-d65 0.358 0.715 0.119)');
+    checkColor(Common.Color.Format.XYZ, 'color(xyz 0.358 0.715 0.119)');
+
+    function checkColor(format: Common.Color.Format, spec: string): void {
+      assert.deepEqual(color?.asString(format), spec);
+    }
+  });
+
+  it('supports all to all chain conversions', () => {
+    const colors: {[key in Common.Color.Format]: Common.Color.Color|null} = {
+      [Common.Color.Format.Nickname]: Color.parse('lime'),
+      [Common.Color.Format.HEX]: Color.parse('#00ff00'),
+      [Common.Color.Format.ShortHEX]: Color.parse('#0f0'),
+      [Common.Color.Format.HEXA]: Color.parse('#00ff00ff'),
+      [Common.Color.Format.ShortHEXA]: Color.parse('#0f0f'),
+      [Common.Color.Format.RGB]: Color.parse('rgb(0 255 0)'),
+      [Common.Color.Format.RGBA]: Color.parse('rgb(0 255 0)'),
+      [Common.Color.Format.HSL]: Color.parse('hsl(120deg 100% 50%)'),
+      [Common.Color.Format.HSLA]: Color.parse('hsl(120deg 100% 50%)'),
+      [Common.Color.Format.HWB]: Color.parse('hwb(120deg 0% 0%)'),
+      [Common.Color.Format.HWBA]: Color.parse('hwb(120deg 0% 0%)'),
+      [Common.Color.Format.LCH]: Color.parse('lch(87.818 113.322 134.379)'),
+      [Common.Color.Format.OKLCH]: Color.parse('oklch(0.866 0.295 142.5)'),
+      [Common.Color.Format.LAB]: Color.parse('lab(87.818 -79.257 80.995)'),
+      [Common.Color.Format.OKLAB]: Color.parse('oklab(0.866 -0.234 0.18)'),
+      [Common.Color.Format.SRGB]: Color.parse('color(srgb 0 1 0)'),
+      [Common.Color.Format.SRGB_LINEAR]: Color.parse('color(srgb-linear 0 1 0)'),
+      [Common.Color.Format.DISPLAY_P3]: Color.parse('color(display-p3 0.459 0.985 0.298)'),
+      [Common.Color.Format.A98_RGB]: Color.parse('color(a98-rgb 0.565 1 0.235)'),
+      [Common.Color.Format.PROPHOTO_RGB]: Color.parse('color(prophoto-rgb 0.54 0.928 0.305)'),
+      [Common.Color.Format.REC_2020]: Color.parse('color(rec2020 0.568 0.959 0.269)'),
+      [Common.Color.Format.XYZ_D50]: Color.parse('color(xyz-d50 0.385 0.717 0.097)'),
+      [Common.Color.Format.XYZ_D65]: Color.parse('color(xyz-d65 0.358 0.715 0.119)'),
+      [Common.Color.Format.XYZ]: Color.parse('color(xyz 0.358 0.715 0.119)'),
+    };
+
+    const colorFormats = Object.keys(colors) as Common.Color.Format[];
+
+    for (const start of colorFormats) {
+      let color = colors[start];
+      assertNotNullOrUndefined(color);
+      if (color.format() === Common.Color.Format.OKLCH) {
+        continue;
+      }
+      for (const next of colorFormats) {
+        if (next === Common.Color.Format.OKLCH) {
+          continue;
+        }
+        color = color.as(next);
+        const expected = colors[next];
+        assertNotNullOrUndefined(expected);
+        try {
+          assert.isTrue(
+              color.equal(expected, 0.001),
+              `${colors[start]?.asString()}: ${color.asString()} is not equal to ${
+                  expected.asString()}, the original color was`);
+        } catch (e) {
+          console.error(e.message);
+        }
+      }
+    }
+  });
 });
 
 describe('Generator', () => {

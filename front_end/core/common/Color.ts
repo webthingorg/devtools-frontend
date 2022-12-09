@@ -203,7 +203,7 @@ function parseColorFunction(originalText: string, parametersText: string): Color
 
   // `color(<color-space>)` is a valid syntax
   if (remainingParams.length === 0) {
-    return new ColorFunction(colorSpace, [0, 0, 0, undefined], originalText);
+    return new ColorFunction(colorSpace, [0, 0, 0, null], originalText);
   }
 
   // Check if it contains `/ <alpha>` part, if so, it should be at the end
@@ -738,16 +738,21 @@ interface ColorConversions {
 }
 
 export interface Color {
-  equal(color: Color): boolean;
+  equal(color: Color, delta?: number): boolean;
   asString(format?: Format): string|null;
   setAlpha(alpha: number): Color;
   format(): Format;
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]>;
   asLegacyColor(): Legacy;
+  isInGamut(): boolean;
 }
 
 function oklchConversionError(): never {
   throw new Error('oklch conversion currently not supported');
+}
+
+function stringifyWithPrecision(s: number, precision = 3): string {
+  return s.toFixed(precision).replace(/\.?0*$/, '');
 }
 
 export class Lab implements Color {
@@ -757,6 +762,7 @@ export class Lab implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -776,24 +782,23 @@ export class Lab implements Color {
     [Format.OKLAB]: () =>
         new Oklab(...xyzd65ToOklab(...xyzd50ToD65(...this.#toXyzd50())), this.#alpha, undefined, this),
 
-    [Format.SRGB]: () => new ColorFunction(
-        Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+    [Format.SRGB]: () =>
+        new ColorFunction(Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.SRGB_LINEAR]: () => new ColorFunction(
-        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.DISPLAY_P3]: () => new ColorFunction(
-        Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.A98_RGB]: () => new ColorFunction(
-        Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.DISPLAY_P3]: () =>
+        new ColorFunction(Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.A98_RGB]: () =>
+        new ColorFunction(Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.PROPHOTO_RGB]: () => new ColorFunction(
-        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.REC_2020]: () => new ColorFunction(
-        Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.REC_2020]: () =>
+        new ColorFunction(Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.XYZ]: () =>
-        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D50]: () =>
-        new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D65]: () => new ColorFunction(
-        Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha], undefined, this),
+    [Format.XYZ_D65]: () =>
+        new ColorFunction(Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
   };
 
   #toXyzd50(): [number, number, number] {
@@ -809,12 +814,15 @@ export class Lab implements Color {
   }
 
   constructor(l: number, a: number, b: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
-    this.#l = l;
+    this.#l = clamp(l, {min: 0, max: 100});
     this.#a = a;
     this.#b = b;
-    this.#alpha = alpha;
+    this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l) {
+      this.#outOfGamutParams = [l, a, b, alpha];
+    }
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
     if (this.#origin) {
@@ -822,12 +830,17 @@ export class Lab implements Color {
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
   }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
+  }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
   }
-  equal(color: Color): boolean {
+  equal(color: Color, delta?: number): boolean {
     const lab = color.as(Format.LAB);
-    return lab.#l === this.#l && lab.#a === this.#a && lab.#b === this.#b && lab.#alpha === this.#alpha;
+    delta ??= 0;
+    return Math.abs(lab.#l - this.#l) <= delta && Math.abs(lab.#a - this.#a) <= delta &&
+        Math.abs(lab.#b - this.#b) <= delta && Math.abs((lab.#alpha ?? 1) - (this.#alpha ?? 1)) <= delta;
   }
   format(): Format {
     return Format.LAB;
@@ -842,12 +855,13 @@ export class Lab implements Color {
     if (this.#originalText) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null ? '' : ` / ${this.#alpha}`;
-    return `lab(${this.#l} ${this.#a} ${this.#b}${alpha})`;
+    const alpha = this.#alpha === null ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    return `lab(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#a)} ${
+        stringifyWithPrecision(this.#b)}${alpha})`;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Lab|null {
-    const L = clamp(parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]), {min: 0, max: 100});
+    const L = parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]);
     if (L === null) {
       return null;
     }
@@ -872,6 +886,7 @@ export class LCH implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -891,24 +906,23 @@ export class LCH implements Color {
     [Format.OKLAB]: () =>
         new Oklab(...xyzd65ToOklab(...xyzd50ToD65(...this.#toXyzd50())), this.#alpha, undefined, this),
 
-    [Format.SRGB]: () => new ColorFunction(
-        Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+    [Format.SRGB]: () =>
+        new ColorFunction(Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.SRGB_LINEAR]: () => new ColorFunction(
-        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.DISPLAY_P3]: () => new ColorFunction(
-        Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.A98_RGB]: () => new ColorFunction(
-        Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.DISPLAY_P3]: () =>
+        new ColorFunction(Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.A98_RGB]: () =>
+        new ColorFunction(Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.PROPHOTO_RGB]: () => new ColorFunction(
-        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.REC_2020]: () => new ColorFunction(
-        Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.REC_2020]: () =>
+        new ColorFunction(Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.XYZ]: () =>
-        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D50]: () =>
-        new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D65]: () => new ColorFunction(
-        Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha], undefined, this),
+    [Format.XYZ_D65]: () =>
+        new ColorFunction(Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
   };
 
   #toXyzd50(): [number, number, number] {
@@ -924,12 +938,18 @@ export class LCH implements Color {
   }
 
   constructor(l: number, c: number, h: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
-    this.#l = l;
-    this.#c = c;
+    this.#l = clamp(l, {min: 0, max: 100});
+    this.#c = clamp(c, {min: 0});
     this.#h = h;
-    this.#alpha = alpha;
+    this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l || c !== this.#c) {
+      this.#outOfGamutParams = [l, c, h, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -940,15 +960,17 @@ export class LCH implements Color {
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
   }
-  equal(color: Color): boolean {
+  equal(color: Color, delta?: number): boolean {
     const lch = color.as(Format.LCH);
-    return lch.#l === this.#l && lch.#c === this.#c && lch.#h === this.#h && lch.#alpha === this.#alpha;
+    delta ??= 0;
+    return Math.abs(lch.#l - this.#l) <= delta && Math.abs(lch.#c - this.#c) <= delta &&
+        Math.abs(lch.#h - this.#h) <= delta && Math.abs((lch.#alpha ?? 1) - (this.#alpha ?? 1)) <= delta;
   }
   format(): Format {
     return Format.LCH;
   }
   setAlpha(alpha: number): Color {
-    return new LCH(this.#l, this.#c, this.#h, clamp(alpha, {min: 0, max: 1}), undefined);
+    return new LCH(this.#l, this.#c, this.#h, alpha, undefined);
   }
   asString(format?: Format): string|null {
     if (format) {
@@ -957,16 +979,17 @@ export class LCH implements Color {
     if (this.#originalText) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null ? '' : ` / ${this.#alpha}`;
-    return `lch(${this.#l} ${this.#c} ${this.#h}${alpha})`;
+    const alpha = this.#alpha === null ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    return `lch(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#c)} ${
+        stringifyWithPrecision(this.#h)}${alpha})`;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): LCH|null {
-    const L = clamp(parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]), {min: 0, max: 100});
+    const L = parsePercentage(spec[0], [0, 100]) ?? parseNumber(spec[0]);
     if (L === null) {
       return null;
     }
-    const c = clamp(parsePercentage(spec[1], [0, 150]) ?? parseNumber(spec[1]), {min: 0});
+    const c = parsePercentage(spec[1], [0, 150]) ?? parseNumber(spec[1]);
     if (c === null) {
       return null;
     }
@@ -987,6 +1010,7 @@ export class Oklab implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1005,24 +1029,23 @@ export class Oklab implements Color {
     [Format.LAB]: () => new Lab(...xyzd50ToLab(...this.#toXyzd50()), this.#alpha, undefined, this),
     [Format.OKLAB]: () => this,
 
-    [Format.SRGB]: () => new ColorFunction(
-        Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+    [Format.SRGB]: () =>
+        new ColorFunction(Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.SRGB_LINEAR]: () => new ColorFunction(
-        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.DISPLAY_P3]: () => new ColorFunction(
-        Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.A98_RGB]: () => new ColorFunction(
-        Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.DISPLAY_P3]: () =>
+        new ColorFunction(Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.A98_RGB]: () =>
+        new ColorFunction(Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.PROPHOTO_RGB]: () => new ColorFunction(
-        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.REC_2020]: () => new ColorFunction(
-        Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.REC_2020]: () =>
+        new ColorFunction(Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.XYZ]: () =>
-        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D50]: () =>
-        new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D65]: () => new ColorFunction(
-        Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha], undefined, this),
+    [Format.XYZ_D65]: () =>
+        new ColorFunction(Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
   };
 
   #toXyzd50(): [number, number, number] {
@@ -1038,12 +1061,18 @@ export class Oklab implements Color {
   }
 
   constructor(l: number, a: number, b: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
-    this.#l = l;
+    this.#l = clamp(l, {min: 0, max: 1});
     this.#a = a;
     this.#b = b;
-    this.#alpha = alpha;
+    this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l) {
+      this.#outOfGamutParams = [l, a, b, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1054,15 +1083,17 @@ export class Oklab implements Color {
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
   }
-  equal(color: Color): boolean {
+  equal(color: Color, delta?: number): boolean {
     const oklab = color.as(Format.OKLAB);
-    return oklab.#l === this.#l && oklab.#a === this.#a && oklab.#b === this.#b && oklab.#alpha === this.#alpha;
+    delta ??= 1;
+    return Math.abs(oklab.#l - this.#l) <= delta && Math.abs(oklab.#a - this.#a) <= delta &&
+        Math.abs(oklab.#b - this.#b) <= delta && Math.abs((oklab.#alpha ?? 1) - (this.#alpha ?? 1)) <= delta;
   }
   format(): Format {
     return Format.OKLAB;
   }
   setAlpha(alpha: number): Color {
-    return new Oklab(this.#l, this.#a, this.#b, clamp(alpha, {min: 0, max: 1}), undefined);
+    return new Oklab(this.#l, this.#a, this.#b, alpha, undefined);
   }
   asString(format?: Format): string|null {
     if (format) {
@@ -1071,12 +1102,13 @@ export class Oklab implements Color {
     if (this.#originalText) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null ? '' : ` / ${this.#alpha}`;
-    return `oklab(${this.#l} ${this.#a} ${this.#b}${alpha})`;
+    const alpha = this.#alpha === null ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    return `oklab(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#a)} ${
+        stringifyWithPrecision(this.#b)}${alpha})`;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Oklab|null {
-    const L = clamp(parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]), {min: 0, max: 1});
+    const L = parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]);
     if (L === null) {
       return null;
     }
@@ -1084,7 +1116,7 @@ export class Oklab implements Color {
     if (a === null) {
       return null;
     }
-    const b = parsePercentage(spec[1], [0, 0.4]) ?? parseNumber(spec[1]);
+    const b = parsePercentage(spec[2], [0, 0.4]) ?? parseNumber(spec[2]);
     if (b === null) {
       return null;
     }
@@ -1101,6 +1133,7 @@ export class Oklch implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: oklchConversionError,
@@ -1132,12 +1165,18 @@ export class Oklch implements Color {
   };
 
   constructor(l: number, c: number, h: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
-    this.#l = l;
-    this.#c = c;
+    this.#l = clamp(l, {min: 0, max: 1});
+    this.#c = clamp(c, {min: 0});
     this.#h = h;
-    this.#alpha = alpha;
+    this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l || c !== this.#c) {
+      this.#outOfGamutParams = [l, c, h, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1148,15 +1187,17 @@ export class Oklch implements Color {
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
   }
-  equal(color: Color): boolean {
+  equal(color: Color, delta?: number): boolean {
     const oklch = color.as(Format.OKLCH);
-    return oklch.#l === this.#l && oklch.#c === this.#c && oklch.#h === this.#h && oklch.#alpha === this.#alpha;
+    delta ??= 0;
+    return Math.abs(oklch.#l - this.#l) <= delta && Math.abs(oklch.#c - this.#c) <= delta &&
+        Math.abs(oklch.#h - this.#h) <= delta && Math.abs((oklch.#alpha ?? 1) - (this.#alpha ?? 1)) <= delta;
   }
   format(): Format {
     return Format.OKLCH;
   }
   setAlpha(alpha: number): Color {
-    return new Oklch(this.#l, this.#c, this.#h, clamp(alpha, {min: 0, max: 1}), undefined);
+    return new Oklch(this.#l, this.#c, this.#h, alpha, undefined);
   }
   asString(format?: Format): string|null {
     if (format) {
@@ -1165,16 +1206,17 @@ export class Oklch implements Color {
     if (this.#originalText) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null ? '' : ` / ${this.#alpha}`;
-    return ` oklch(${this.#l} ${this.#c} ${this.#h} ${alpha}) `;
+    const alpha = this.#alpha === null ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    return `oklch(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#c)} ${
+        stringifyWithPrecision(this.#h)} ${alpha})`;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Oklch|null {
-    const L = clamp(parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]), {min: 0, max: 1});
+    const L = parsePercentage(spec[0], [0, 1]) ?? parseNumber(spec[0]);
     if (L === null) {
       return null;
     }
-    const c = clamp(parsePercentage(spec[1], [0, 0.4]) ?? parseNumber(spec[1]), {min: 0});
+    const c = parsePercentage(spec[1], [0, 0.4]) ?? parseNumber(spec[1]);
     if (c === null) {
       return null;
     }
@@ -1189,10 +1231,11 @@ export class Oklch implements Color {
 }
 
 export class ColorFunction implements Color {
-  readonly #spec: [number, number, number, number|undefined];
+  readonly #spec: [number, number, number, number|null];
   readonly #colorSpace: ColorSpace;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1212,24 +1255,23 @@ export class ColorFunction implements Color {
     [Format.OKLAB]: () =>
         new Oklab(...xyzd65ToOklab(...xyzd50ToD65(...this.#toXyzd50())), this.#alpha, undefined, this),
 
-    [Format.SRGB]: () => new ColorFunction(
-        Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+    [Format.SRGB]: () =>
+        new ColorFunction(Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.SRGB_LINEAR]: () => new ColorFunction(
-        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.DISPLAY_P3]: () => new ColorFunction(
-        Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.A98_RGB]: () => new ColorFunction(
-        Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.DISPLAY_P3]: () =>
+        new ColorFunction(Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.A98_RGB]: () =>
+        new ColorFunction(Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.PROPHOTO_RGB]: () => new ColorFunction(
-        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.REC_2020]: () => new ColorFunction(
-        Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.REC_2020]: () =>
+        new ColorFunction(Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.XYZ]: () =>
-        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D50]: () =>
-        new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D65]: () => new ColorFunction(
-        Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha], undefined, this),
+    [Format.XYZ_D65]: () =>
+        new ColorFunction(Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
   };
 
   get #alpha(): number|null {
@@ -1270,12 +1312,28 @@ export class ColorFunction implements Color {
   }
 
   constructor(
-      colorSpace: ColorSpace, rgbOrXyz: [number, number, number, number|undefined], originalText: string|undefined,
+      colorSpace: ColorSpace, rgbOrXyz: [number, number, number, number|null], originalText: string|undefined,
       origin?: Color) {
     this.#colorSpace = colorSpace;
-    this.#spec = rgbOrXyz;
     this.#origin = origin;
     this.#originalText = originalText;
+
+    if (colorSpace === Format.XYZ || colorSpace === Format.XYZ_D50 || colorSpace === Format.XYZ_D65) {
+      this.#spec = [rgbOrXyz[0], rgbOrXyz[1], rgbOrXyz[2], clamp(rgbOrXyz[3], {min: 0, max: 1})];
+    } else {
+      this.#spec = [
+        clamp(rgbOrXyz[0], {min: 0, max: 1}),
+        clamp(rgbOrXyz[1], {min: 0, max: 1}),
+        clamp(rgbOrXyz[2], {min: 0, max: 1}),
+        clamp(rgbOrXyz[3], {min: 0, max: 1}),
+      ];
+    }
+    if (this.#spec[0] !== rgbOrXyz[0] || this.#spec[1] !== rgbOrXyz[1] || this.#spec[2] !== rgbOrXyz[2]) {
+      this.#outOfGamutParams = [...rgbOrXyz];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1289,10 +1347,12 @@ export class ColorFunction implements Color {
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
   }
-  equal(color: Color): boolean {
+  equal(color: Color, delta?: number): boolean {
     const space = color.as(this.#colorSpace);
-    return space.#spec[0] === this.#spec[0] && space.#spec[1] === this.#spec[1] && space.#spec[2] === this.#spec[2] &&
-        space.#spec[3] === this.#spec[3];
+    delta ??= 0;
+    return Math.abs(space.#spec[0] - this.#spec[0]) <= delta && Math.abs(space.#spec[1] - this.#spec[1]) <= delta &&
+        Math.abs(space.#spec[2] - this.#spec[2]) <= delta &&
+        Math.abs((space.#spec[3] ?? 1) - (this.#spec[3] ?? 1)) <= delta;
   }
   format(): Format {
     return this.#colorSpace;
@@ -1307,26 +1367,30 @@ export class ColorFunction implements Color {
     if (this.#originalText) {
       return this.#originalText;
     }
-    const alpha = this.#spec[3] === undefined ? '' : ` / ${this.#spec[3]}`;
-    return ` color(${this.#colorSpace} ${this.#spec[0]} ${this.#spec[1]} ${this.#spec[2]} ${alpha}) `;
+    const alpha = this.#spec[3] === null ? '' : ` / ${stringifyWithPrecision(this.#spec[3])}`;
+    return `color(${this.#colorSpace} ${stringifyWithPrecision(this.#spec[0])} ${
+        stringifyWithPrecision(this.#spec[1])} ${stringifyWithPrecision(this.#spec[2])}${alpha})`;
   }
 }
 
+type LegacyColor = Format.Nickname|Format.HEX|Format.ShortHEX|Format.HEXA|Format.ShortHEXA|Format.RGB|Format.RGBA|
+                   Format.HSL|Format.HSLA|Format.HWB|Format.HWBA;
 export class Legacy implements Color {
   #hslaInternal: number[]|undefined;
   #hwbaInternal: number[]|undefined;
   #rgbaInternal: number[];
   #originalText: string|null;
   readonly #originalTextIsValid: boolean;
-  #formatInternal: Format;
+  #formatInternal: LegacyColor;
   readonly #origin?: Color;
+  readonly #outOfGamutParams?: number[];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#rgbaInternal, Format.Nickname, undefined, this),
     [Format.HEX]: () => new Legacy(this.#rgbaInternal, Format.HEX, undefined, this),
     [Format.ShortHEX]: () => new Legacy(this.#rgbaInternal, Format.ShortHEX, undefined, this),
     [Format.HEXA]: () => new Legacy(this.#rgbaInternal, Format.HEXA, undefined, this),
-    [Format.ShortHEXA]: () => new Legacy(this.#rgbaInternal, Format.HEXA, undefined, this),
+    [Format.ShortHEXA]: () => new Legacy(this.#rgbaInternal, Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#rgbaInternal, Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#rgbaInternal, Format.RGBA, undefined, this),
     [Format.HSL]: () => new Legacy(this.#rgbaInternal, Format.HSL, undefined, this),
@@ -1339,24 +1403,23 @@ export class Legacy implements Color {
     [Format.OKLAB]: () =>
         new Oklab(...xyzd65ToOklab(...xyzd50ToD65(...this.#toXyzd50())), this.#alpha, undefined, this),
 
-    [Format.SRGB]: () => new ColorFunction(
-        Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+    [Format.SRGB]: () =>
+        new ColorFunction(Format.SRGB, [...xyzd50ToSrgb(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.SRGB_LINEAR]: () => new ColorFunction(
-        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.DISPLAY_P3]: () => new ColorFunction(
-        Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.A98_RGB]: () => new ColorFunction(
-        Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.SRGB_LINEAR, [...xyzd50TosRGBLinear(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.DISPLAY_P3]: () =>
+        new ColorFunction(Format.DISPLAY_P3, [...xyzd50ToDisplayP3(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.A98_RGB]: () =>
+        new ColorFunction(Format.A98_RGB, [...xyzd50ToAdobeRGB(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.PROPHOTO_RGB]: () => new ColorFunction(
-        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.REC_2020]: () => new ColorFunction(
-        Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        Format.PROPHOTO_RGB, [...xyzd50ToProPhoto(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.REC_2020]: () =>
+        new ColorFunction(Format.REC_2020, [...xyzd50ToRec2020(...this.#toXyzd50()), this.#alpha], undefined, this),
     [Format.XYZ]: () =>
-        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D50]: () =>
-        new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha ?? undefined], undefined, this),
-    [Format.XYZ_D65]: () => new ColorFunction(
-        Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha ?? undefined], undefined, this),
+        new ColorFunction(Format.XYZ, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, [...this.#toXyzd50(), this.#alpha], undefined, this),
+    [Format.XYZ_D65]: () =>
+        new ColorFunction(Format.XYZ_D65, [...xyzd50ToD65(...this.#toXyzd50()), this.#alpha], undefined, this),
   };
 
   #toXyzd50(): [number, number, number] {
@@ -1377,39 +1440,38 @@ export class Legacy implements Color {
     }
   }
 
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
+  }
   asLegacyColor(): Legacy {
     return this;
   }
 
-  constructor(rgba: number[], format: Format, originalText?: string, origin?: Color) {
+  constructor(rgba: number[], format: LegacyColor, originalText?: string, origin?: Color) {
     this.#hslaInternal = undefined;
     this.#hwbaInternal = undefined;
-    this.#rgbaInternal = rgba;
     this.#originalText = originalText || null;
     this.#originalTextIsValid = Boolean(this.#originalText);
     this.#formatInternal = format;
     this.#origin = origin;
 
-    if (typeof this.#rgbaInternal[3] === 'undefined') {
-      this.#rgbaInternal[3] = 1;
-    }
+    this.#rgbaInternal = [
+      clamp(rgba[0], {min: 0, max: 1}),
+      clamp(rgba[1], {min: 0, max: 1}),
+      clamp(rgba[2], {min: 0, max: 1}),
+      clamp(rgba[3] ?? 1, {min: 0, max: 1}),
+    ];
 
-    for (let i = 0; i < 4; ++i) {
-      // Do not clamp formats that can result in wide-gamut colors
-      if (this.#rgbaInternal[i] < 0) {
-        this.#rgbaInternal[i] = 0;
-        this.#originalTextIsValid = false;
-      }
-      if (this.#rgbaInternal[i] > 1) {
-        this.#rgbaInternal[i] = 1;
-        this.#originalTextIsValid = false;
-      }
+    if (this.#rgbaInternal[0] !== rgba[0] || this.#rgbaInternal[1] !== rgba[1] || this.#rgbaInternal[2] !== rgba[2] ||
+        this.#rgbaInternal[3] !== (rgba[3] ?? 1)) {
+      this.#originalTextIsValid = false;
+      this.#outOfGamutParams = [...rgba];
     }
   }
 
   static fromHex(hex: string, text: string): Legacy {
     hex = hex.toLowerCase();
-    let format;
+    let format: LegacyColor;
     if (hex.length === 3) {
       format = Format.ShortHEX;
       hex = hex.charAt(0) + hex.charAt(0) + hex.charAt(1) + hex.charAt(1) + hex.charAt(2) + hex.charAt(2);
@@ -1579,12 +1641,13 @@ export class Legacy implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (format === this.#formatInternal && this.#originalTextIsValid && this.#originalText) {
-      return this.#originalText;
-    }
 
     if (!format) {
       format = this.#formatInternal;
+    }
+
+    if (format === this.#formatInternal && this.#originalTextIsValid && this.#originalText) {
+      return this.#originalText;
     }
 
     function toRgbValue(value: number): number {
@@ -1744,13 +1807,13 @@ export class Legacy implements Color {
     return new Legacy(rgba, Format.RGBA);
   }
 
-  setFormat(format: Format): void {
+  setFormat(format: LegacyColor): void {
     this.#formatInternal = format;
   }
 
-  equal(other: Legacy): boolean {
-    return this.#rgbaInternal.every((v, i) => v === other.#rgbaInternal[i]) &&
-        this.#formatInternal === other.#formatInternal;
+  equal(other: Color, delta?: number): boolean {
+    const legacy = other.as(this.#formatInternal);
+    return this.#rgbaInternal.every((v, i) => Math.abs(v - legacy.#rgbaInternal[i]) <= (delta ?? 0));
   }
 }
 
