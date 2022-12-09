@@ -159,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ce02f8c_bdb93860",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-12-09T00:04:00Z",
+      "side": 1,
+      "message": "I was going to say it allows the UI update from \"importing trace\" to \"processing\" (or whatever the strings are). But..... that doesn\u0027t look accurate. This is before any tracingModel tasks.\n\nIt\u0027s originally my fault: https://chromium-review.googlesource.com/c/chromium/src/+/974178/  :) I can still justify the chunk-wise timeout, but.. this outer one seems weird. \n(Maybe it was to ensure the Perf Panel is visible before the loading starts?) Ah well. Apologies!",
+      "parentUuid": "3b35e3ba_2e980138",
+      "range": {
+        "startLine": 99,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "82b0235618f4f145705f2739249dadc46d095180",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2093ff2_43c95f8c",
