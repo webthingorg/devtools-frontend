@@ -95,6 +95,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b54abbd2_accbb7d4",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-12T09:31:33Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "51c3a7f7_238ae630",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d51ef46_158d2fb9",
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f851741d_f3f5f061",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 110
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a926e5_1457d91a",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-12T09:31:33Z",
+      "side": 1,
+      "message": "Do you need explicit types now?",
+      "parentUuid": "a6d592e8_1a413bed",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -283,6 +331,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f17041_d47a6945",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-12T09:31:33Z",
+      "side": 1,
+      "message": "If we don\u0027t need to throttle rendering, we shouldn\u0027t do it.",
+      "parentUuid": "7c8dc57c_e8600a4b",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 72
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63214d20_c6a03b9b",
@@ -320,6 +392,30 @@
       "side": 1,
       "message": "This is just a copy. There are other three but they are all the same.\nI\u0027ll leave it to the next CL. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4095399",
       "parentUuid": "63214d20_c6a03b9b",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 115
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69ca9c74_7f661943",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-12T09:31:33Z",
+      "side": 1,
+      "message": "Copy of what? What I mean is it looks like we are handling two cases here: one when `cell.textContent()` is not empty or whitespace and one when it is and we read `.devtools-resources-reports-grid-status-header`. I find it strange that we want to hide this difference from the test code. But maybe that\u0027s ok, depending on why it might be one or the other.",
+      "parentUuid": "6229d1a6_b9a41f8a",
       "range": {
         "startLine": 29,
         "startChar": 0,
