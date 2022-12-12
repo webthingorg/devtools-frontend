@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1309bd2_c33331a4",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-12T08:35:13Z",
+      "side": 1,
+      "message": "I\u0027ve added the return type now and fixed the map to contain both the promise and the resolve callback. Thanks for catching this! Regarding the linter error: I\u0027ve mentioned it in the tooling chat, it seems as if we apply different rules as there are different eslintrc.js files. I kicked off a thread suggesting to sync them.",
+      "parentUuid": "104a9204_8e1db1fd",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 50
+      },
+      "revId": "9e96d4a8d798de2bf9befea3bec7bd95d343b080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9d3c0d4_40897f73",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f1c83e_f7f9cb7c",
+        "filename": "test/unittests/front_end/helpers/MockScopeChain.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-12T08:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9d3c0d4_40897f73",
+      "range": {
+        "startLine": 44,
+        "startChar": 73,
+        "endLine": 44,
+        "endChar": 106
+      },
+      "revId": "9e96d4a8d798de2bf9befea3bec7bd95d343b080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a863259_2f9f2e0a",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-12-08T15:45:50Z",
       "side": 1,
       "message": "As discussed offline, this could be perhaps simplified to \n```\nbackend.responderToBreakpointByUrlRequest(URL, 0).then(r \u003d\u003e r({\n        breakpointId: \u0027BREAK_ID\u0027 as Protocol.Debugger.BreakpointId,\n        locations: [\n          {\n            scriptId: script.scriptId,\n            lineNumber: 0,\n            columnNumber: 9,\n          },\n        ],\n});\n```\n\n(and replace the `Promise.all(..)` with `await breakpoint.refreshInDebugger()`)",
+      "range": {
+        "startLine": 694,
+        "startChar": 4,
+        "endLine": 694,
+        "endChar": 82
+      },
+      "revId": "9e96d4a8d798de2bf9befea3bec7bd95d343b080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "746640ff_b83792b1",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-12T08:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a863259_2f9f2e0a",
       "range": {
         "startLine": 694,
         "startChar": 4,
