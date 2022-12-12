@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a51793a_a04edb5d",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "I followed the above code but it\u0027s simpler, indeed.",
+      "parentUuid": "1fddf0dc_45fef9c8",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 114
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "919eb6c6_a7b23428",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-09T08:36:50Z",
       "side": 1,
       "message": "It looks like we need the same strings in multiple files. Pull them out into shared constants? Or maybe we can share the whole function?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c3a7f7_238ae630",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "I\u0027d like to let it go as is because 1. `front_end/panels/application/preloading/PreloadingView.ts` and `front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts`, 2. components cannot depend on `front_end/panels/application`, 3. this data and function are not components. WDYT?",
+      "parentUuid": "919eb6c6_a7b23428",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3fd45b6_e373631d",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d51ef46_158d2fb9",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 104
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f851741d_f3f5f061",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-09T08:36:50Z",
       "side": 1,
       "message": "Why not inline this lamda?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 110
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d592e8_1a413bed",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f851741d_f3f5f061",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "690ab673_1ba52b5b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "I prefer to make this private as is. We need this only for test.\n\nhttps://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md#tests-and-test_only-code",
+      "parentUuid": "54f9db81_33f8b919",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 21
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3832429a_22c03b09",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-12-09T08:36:50Z",
       "side": 1,
       "message": "Why is it throttled?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 72
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8dc57c_e8600a4b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "This comes from FrameDetailsView. But presumably we can remove it as ReportingApiView doesn\u0027t use it.",
+      "parentUuid": "3832429a_22c03b09",
       "range": {
         "startLine": 185,
         "startChar": 0,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6229d1a6_b9a41f8a",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "This is just a copy. There are other three but they are all the same.\nI\u0027ll leave it to the next CL. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4095399",
+      "parentUuid": "63214d20_c6a03b9b",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 115
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be98f4dc_47a4009d",
         "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
         "patchSetId": 17
@@ -175,6 +343,30 @@
       "writtenOn": "2022-12-09T08:36:50Z",
       "side": 1,
       "message": "No need to specify an explicit target id if you are not using it in tests",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 78
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b6bd40e_948fcace",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be98f4dc_47a4009d",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -198,6 +390,30 @@
       "writtenOn": "2022-12-09T08:36:50Z",
       "side": 1,
       "message": "Let\u0027s stub `Date.now` instead to verify that it is being used: \n\n    const TIMESTAMP \u003d 42;\n    sinon.stub(Date, \u0027now\u0027).returns(TIMESTAMP);\n    \n    ...\n    \n    assert.deepEqual([header, ...rows], [\n      [\u0027Started at\u0027, \u0027Type\u0027, \u0027Trigger\u0027, \u0027URL\u0027, \u0027Status\u0027],\n      [new Date(TIMESTAMP).toLocaleString(), ...],\n    ]);",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96e84dd_272f5b42",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T05:26:57Z",
+      "side": 1,
+      "message": "Thanks! Done",
+      "parentUuid": "61d4ad6a_a93ac215",
       "range": {
         "startLine": 84,
         "startChar": 0,
