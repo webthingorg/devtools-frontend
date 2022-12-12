@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "026b490b_7a0d05a9",
+        "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-12T09:50:04Z",
+      "side": 0,
+      "message": "Good catch, thanks!",
+      "parentUuid": "9313bfb9_44c0aa9c",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 19
+      },
+      "revId": "a9da17b4115a849c63900a127d1ecca4f034d2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a9d29b3_43b44940",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-09T17:52:09Z",
       "side": 0,
       "message": "I wonder if this should live in the services land. We don\u0027t need it now, and might or might not need it in the future. But in case it\u0027s useful in the future might be nice if it was besides the other code. On the other hand, it\u0027s more code to maintain which we don\u0027t know if will be of any use. Just thinking out loud, up to you to decide 😊",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 31
+      },
+      "revId": "a9da17b4115a849c63900a127d1ecca4f034d2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4656dfdc_ba573a75",
+        "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-12T09:50:04Z",
+      "side": 0,
+      "message": "Yeah I thought about this - I decided that given we won\u0027t be using it immediately, we should just remove it, but we have the code in our history so as and when we want to bring it back, we can find it using git, or go looking up in our other repository for it.",
+      "parentUuid": "7a9d29b3_43b44940",
       "range": {
         "startLine": 197,
         "startChar": 9,
