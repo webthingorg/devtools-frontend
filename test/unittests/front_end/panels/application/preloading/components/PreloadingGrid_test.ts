@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {assertNotNullOrUndefined} from '../../../../../../../front_end/core/platform/platform.js';
 import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
 import * as DataGrid from '../../../../../../../front_end/ui/components/data_grid/data_grid.js';
 import * as Coordinator from '../../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
@@ -30,9 +31,11 @@ const renderPreloadingGrid =
   return datagrid;
 };
 
-const getHeaderText = (cell: HTMLTableCellElement): string|null => {
-  return cell.textContent?.trim() ||
-      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim() || null;
+const getHeaderText = (cell: HTMLTableCellElement): string => {
+  const ret = cell.textContent?.trim() ||
+      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim();
+  assertNotNullOrUndefined(ret);
+  return ret;
 };
 
 describeWithEnvironment('PreloadingGrid', async () => {

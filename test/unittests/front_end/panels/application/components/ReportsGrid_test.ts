@@ -36,9 +36,11 @@ const renderReportsGrid =
   return datagrid;
 };
 
-const getHeaderText = (cell: HTMLTableCellElement): string|null => {
-  return cell.textContent?.trim() ||
-      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim() || null;
+const getHeaderText = (cell: HTMLTableCellElement): string => {
+  const ret = cell.textContent?.trim() ||
+      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim();
+  assertNotNullOrUndefined(ret);
+  return ret;
 };
 
 describeWithEnvironment('ReportsGrid', async () => {

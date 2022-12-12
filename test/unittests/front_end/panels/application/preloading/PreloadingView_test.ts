@@ -24,9 +24,11 @@ const {assert} = chai;
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
-const getHeaderText = (cell: HTMLTableCellElement): string|null => {
-  return cell.textContent?.trim() ||
-      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim() || null;
+const getHeaderText = (cell: HTMLTableCellElement): string => {
+  const ret = cell.textContent?.trim() ||
+      cell.querySelector('devtools-resources-reports-grid-status-header')?.shadowRoot?.textContent?.trim();
+  assertNotNullOrUndefined(ret);
+  return ret;
 };
 
 describeWithMockConnection('PreloadingView', async () => {
