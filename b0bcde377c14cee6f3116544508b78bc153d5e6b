@@ -237,6 +237,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5c5e38f_b628ce06",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T10:21:11Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "47a926e5_1457d91a",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 110
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54f9db81_33f8b919",
@@ -416,6 +440,30 @@
       "side": 1,
       "message": "Copy of what? What I mean is it looks like we are handling two cases here: one when `cell.textContent()` is not empty or whitespace and one when it is and we read `.devtools-resources-reports-grid-status-header`. I find it strange that we want to hide this difference from the test code. But maybe that\u0027s ok, depending on why it might be one or the other.",
       "parentUuid": "6229d1a6_b9a41f8a",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 115
+      },
+      "revId": "b0bcde377c14cee6f3116544508b78bc153d5e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9962a1db_c16817b0",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T10:21:11Z",
+      "side": 1,
+      "message": "Ah, I see. Refactored.",
+      "parentUuid": "69ca9c74_7f661943",
       "range": {
         "startLine": 29,
         "startChar": 0,
