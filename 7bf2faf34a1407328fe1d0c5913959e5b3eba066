@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7dcb88b_2d7ba6e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2022-12-12T12:20:30Z",
+      "side": 1,
+      "message": "I\u0027ll submit it since the last patch is a proposed and minor change. Let me know if you have comments.",
+      "revId": "7bf2faf34a1407328fe1d0c5913959e5b3eba066",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
