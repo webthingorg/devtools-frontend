@@ -87,6 +87,24 @@
       "parentUuid": "92098d60_9ecd3f3c",
       "revId": "864c0bd3d83313115ff0a278793a1f4b6c452be5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7fc542f_51f6a4e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-13T14:45:30Z",
+      "side": 1,
+      "message": "Alright, I implemented the ESC behaviour in a separate CL at https://crrev.com/c/4100606 and changed this one so that a header is removed when its name is deleted.",
+      "parentUuid": "464a693d_9be6f58f",
+      "revId": "864c0bd3d83313115ff0a278793a1f4b6c452be5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
