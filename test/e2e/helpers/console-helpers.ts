@@ -24,6 +24,7 @@ import {AsyncScope} from '../../shared/async-scope.js';
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
 export const CONSOLE_MESSAGES_TEXT_SELECTOR = '.source-code .console-message-text';
+export const CONSOLE_MESSAGES_EXPAND_BUTTON_SELECTOR = '.console-message-expand-icon';
 export const CONSOLE_ALL_MESSAGES_SELECTOR = `${CONSOLE_MESSAGES_SELECTOR} ${CONSOLE_MESSAGES_TEXT_SELECTOR}`;
 export const CONSOLE_INFO_MESSAGES_SELECTOR =
     `${CONSOLE_MESSAGES_SELECTOR} .console-info-level ${CONSOLE_MESSAGES_TEXT_SELECTOR}`;
@@ -347,5 +348,43 @@ export function checkCommandResultFunction(offset: number = 0) {
   return async function(command: string, expected: string, message?: string) {
     await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, command);
     assert.strictEqual(await getLastConsoleMessages(offset), expected, message);
+  };
+}
+
+export async function expandLastConsoleMessage() {
+  const messagesExpandButtons = await $$(CONSOLE_MESSAGES_EXPAND_BUTTON_SELECTOR);
+  await messagesExpandButtons.at(-1)?.click();
+}
+
+export async function getCurrentConsoleStacktraces() {
+  await expandLastConsoleMessage();
+  const stacktraces: (string|undefined)[][] = [];
+  const stacktraceWrappers = await $$(STACK_PREVIEW_CONTAINER);
+  for (let i = 0; i < stacktraceWrappers.length; i++) {
+    const lines = await stacktraceWrappers[i].$$('tr');
+    const messages: (string|undefined)[] = [];
+    for (let j = 0; j < lines.length; j++) {
+      const message = await lines[j].evaluate(e => {
+        return e.textContent?.trim();
+      });
+      if (message?.startsWith('(anonymous) @ VM')) {
+        continue;
+      }
+      messages.push(message);
+    }
+    stacktraces.push(messages);
+  }
+
+  return stacktraces;
+}
+
+export async function getLastConsoleStacktrace(offset: number = 0) {
+  return (await getCurrentConsoleStacktraces()).at(-1 - offset);
+}
+
+export function checkCommandStacktraceFunction(offset: number = 0) {
+  return async function(command: string, expected: (string|undefined)[], message?: string) {
+    await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, command);
+    assert.deepEqual(await getLastConsoleStacktrace(offset), expected, message);
   };
 }
