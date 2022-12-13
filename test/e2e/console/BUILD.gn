@@ -29,6 +29,7 @@ node_ts_library("console") {
     "console-truncate-long-messages_test.ts",
     "console-trusted-types_test.ts",
     "issues-toolbar_test.ts",
+    "oopif-presentation-console-messages_test.ts",
   ]
 
   deps = [
