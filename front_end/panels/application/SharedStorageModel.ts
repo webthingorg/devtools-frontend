@@ -43,6 +43,12 @@ export class SharedStorageForOrigin extends Common.ObjectWrapper.ObjectWrapper<S
   async clear(): Promise<void> {
     await this.#model.storageAgent.invoke_clearSharedStorageEntries({ownerOrigin: this.securityOrigin});
   }
+
+  async resetBudget(): Promise<void> {
+    // await this.#model.storageAgent.invoke_resetSharedStorageBudget({ownerOrigin: this.securityOrigin});
+    await this.#model.storageAgent.invoke_clearSharedStorageEntries({ownerOrigin: this.securityOrigin});
+    console.error('reset budget');  // debug
+  }
 }
 
 export namespace SharedStorageForOrigin {
