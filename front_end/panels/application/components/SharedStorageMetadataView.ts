@@ -48,6 +48,10 @@ const UIStrings = {
   */
   budgetExplanation: 'Remaining data leakage allowed within a 24-hour period for this origin in bits of entropy',
   /**
+  *@description Label for a button which when clicked causes the budget to be refreshed/updated.
+  */
+  refresh: 'Refresh',
+  /**
   *@description Section header above Entries
   */
   entries: 'Entries',
@@ -57,6 +61,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 interface SharedStorageMetadataGetter {
   getMetadata: () => Promise<Protocol.Storage.SharedStorageMetadata|null>;
+  resetBudget: () => Promise<void>;
 }
 
 export class SharedStorageMetadataView extends UI.Widget.VBox {
@@ -69,6 +74,7 @@ export class SharedStorageMetadataView extends UI.Widget.VBox {
     this.contentElement.classList.add('overflow-auto');
     this.contentElement.appendChild(this.#reportView);
     this.#reportView.origin = owner;
+    this.#reportView.resetBudgetHandler = this.resetBudget;
     void this.doUpdate();
   }
 
@@ -78,6 +84,11 @@ export class SharedStorageMetadataView extends UI.Widget.VBox {
     const length = metadata?.length ?? 0;
     const remainingBudget = metadata?.remainingBudget ?? 0;
     this.#reportView.data = {creationTime, length, remainingBudget};
+  }
+
+  async resetBudget(): Promise<void> {
+    await this.#sharedStorageMetadataGetter.resetBudget();
+    await this.doUpdate();
   }
 }
 
@@ -96,6 +107,11 @@ export class SharedStorageMetadataReportView extends HTMLElement {
   #creationTime: Protocol.Network.TimeSinceEpoch|null = null;
   #length: number = 0;
   #remainingBudget: number = 0;
+  resetBudgetHandler: () => Promise<void> = () => {
+    return new Promise<void>(resolve => {
+      resolve();
+    });
+  };
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [sharedStorageMetadataViewStyles];
@@ -151,8 +167,18 @@ export class SharedStorageMetadataReportView extends HTMLElement {
           .data=${
         {iconName: 'ic_info_black_18dp', color: 'var(--color-link)', width: '14px'} as IconButton.Icon.IconWithName}>
         </${IconButton.Icon.Icon.litTagName}></${ReportView.ReportView.ReportKey.litTagName}><${
-        ReportView.ReportView.ReportValue.litTagName}>${this.#remainingBudget}</${
-        ReportView.ReportView.ReportValue.litTagName}>
+        ReportView.ReportView.ReportValue.litTagName}>${this.#remainingBudget}<${
+        IconButton.IconButton.IconButton.litTagName} class="inline-button" .data=${{
+      clickHandler: this.resetBudgetHandler,
+      groups: [
+        {
+          iconName: 'refresh_12x12_icon',
+          text: i18nString(UIStrings.refresh),
+          iconColor: 'var(--color-text-primary)',
+        } as IconButton.IconButton.IconWithTextData,
+      ],
+    } as IconButton.IconButton.IconButtonData}>
+      </${IconButton.IconButton.IconButton.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
