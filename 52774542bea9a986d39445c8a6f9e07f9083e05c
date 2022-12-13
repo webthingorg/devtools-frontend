@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e9ce1aa_fcb0d2a7",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-13T14:05:53Z",
+      "side": 1,
+      "message": "Can this be a part of `getStructuredConsoleMessages`?",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 6
+      },
+      "revId": "52774542bea9a986d39445c8a6f9e07f9083e05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97ed05b6_8771f177",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 1
@@ -14,6 +37,30 @@
       "writtenOn": "2022-12-13T13:31:55Z",
       "side": 1,
       "message": "this was filtered because it is not deterministic, do you want us to check it with a regex?",
+      "range": {
+        "startLine": 370,
+        "startChar": 6,
+        "endLine": 372,
+        "endChar": 7
+      },
+      "revId": "52774542bea9a986d39445c8a6f9e07f9083e05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270be6ad_12d9d6bc",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-13T14:05:53Z",
+      "side": 1,
+      "message": "Can we use `unifyLogVM` from above?",
+      "parentUuid": "97ed05b6_8771f177",
       "range": {
         "startLine": 370,
         "startChar": 6,
