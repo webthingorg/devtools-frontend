@@ -26,6 +26,12 @@ export function startTrackingAsyncActivity() {
   stub('Promise', TrackingPromise);
 }
 
+export function startTrackingUnhandledRejections() {
+  window.addEventListener('unhandledrejection', e => {
+    console.error('Unhandled rejection:', e.reason);
+  });
+}
+
 export async function checkForPendingActivity() {
   let stillPending: AsyncActivity[] = [];
   const wait = 5;

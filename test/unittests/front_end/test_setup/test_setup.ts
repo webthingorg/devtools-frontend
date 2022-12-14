@@ -14,6 +14,7 @@ import {
   startTrackingAsyncActivity,
   stopTrackingAsyncActivity,
   checkForPendingActivity,
+  startTrackingUnhandledRejections,
 } from '../helpers/TrackAsyncOperations.js';
 
 beforeEach(resetTestDOM);
@@ -23,6 +24,7 @@ before(async function() {
   this.timeout(10000);
   // @ts-ignore
   markStaticTestsLoaded({hasOnly: this.test.parent.hasOnly()});
+  startTrackingUnhandledRejections();
 });
 
 afterEach(async () => {

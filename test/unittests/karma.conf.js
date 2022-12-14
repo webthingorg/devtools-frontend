@@ -132,6 +132,8 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
     capturedLog.push({log, type});
   };
 
+  let loggingTests = 0;
+
   const specComplete = (browser, result) => {
     const {suite, description, log, startTime, endTime, success, skipped} = result;
     const testId = [...suite, description].join('/');
@@ -141,6 +143,9 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
 
     const consoleLog = capturedLog.map(({type, log}) => `${type.toUpperCase()}: ${log}`);
     capturedLog.splice(0, capturedLog.length);
+    if (success && consoleLog.length > 0) {
+      loggingTests++;
+    }
 
     let summaryHtml = undefined;
     if (!expected || consoleLog.length > 0) {
@@ -165,9 +170,12 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
   this.onRunComplete = (browsers, results) => {
     if (browsers.length >= 1 && !results.disconnected && !results.error) {
       if (!results.failed) {
-        this.write('SUCCESS: %d passed (%d skipped)\n', results.success, results.skipped);
+        this.write(
+            'SUCCESS: %d passed (%d skipped, %d logged errors)\n', results.success, results.skipped, loggingTests);
       } else {
-        this.write('FAILED: %d failed, %d passed (%d skipped)\n', results.failed, results.success, results.skipped);
+        this.write(
+            'FAILED: %d failed, %d passed (%d skipped, %d logged errors)\n', results.failed, results.success,
+            results.skipped, loggingTests);
       }
     }
     ResultsDb.sendCollectedTestResultsIfSinkIsAvailable();
