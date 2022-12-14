@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?\n\nThis should fix the problem mentioned in crbug.com/1304058#c6, but I doubt it has anything to do with extensions not loading.",
       "revId": "93adcf326c956af0cc080460b446a32dc316139f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57ada77_11545dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-14T19:18:05Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "93adcf326c956af0cc080460b446a32dc316139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
