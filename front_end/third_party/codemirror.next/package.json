@@ -4,7 +4,7 @@
   "version": "0.19.0",
   "private": true,
   "dependencies": {
-    "@codemirror/autocomplete": "^6.3.4",
+    "@codemirror/autocomplete": "codemirror/autocomplete#bb542b371e45ac27aab39ce8eab6334933791851",
     "@codemirror/commands": "^6.1.2",
     "@codemirror/lang-cpp": "^6.0.2",
     "@codemirror/lang-css": "^6.0.1",

@@ -4496,6 +4496,11 @@ interface CompletionConfig {
     */
     aboveCursor?: boolean;
     /**
+    When given, this may return an additional CSS class to add to
+    the completion dialog element.
+    */
+    tooltipClass?: (state: EditorState) => string;
+    /**
     This can be used to add additional CSS classes to completion
     options.
     */
@@ -4667,7 +4672,7 @@ may return its [result](https://codemirror.net/6/docs/ref/#autocomplete.Completi
 synchronously or as a promise. Returning null indicates no
 completions are available.
 */
-declare type CompletionSource = (context: CompletionContext) => CompletionResult | null | Promise<CompletionResult | null>;
+type CompletionSource = (context: CompletionContext) => CompletionResult | null | Promise<CompletionResult | null>;
 /**
 Interface for objects returned by completion sources.
 */
