@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "003b5ff5_42fe4862",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-12-14T01:02:31Z",
+      "side": 1,
+      "message": "There maybe instances where the click event doesn\u0027t happen on a row itself but into blank space within the network datagrid (e.g. beneath the rows), and in which case the dataGrid element gets the focus",
+      "parentUuid": "abb5fce4_187da400",
+      "range": {
+        "startLine": 372,
+        "startChar": 9,
+        "endLine": 372,
+        "endChar": 60
+      },
+      "revId": "3b31dbc564f0fe998f0e20defe120443b846eba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f3e2c61_b9f1d844",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-14T00:26:21Z",
       "side": 1,
       "message": "I still don\u0027t understand why this is needed. The call above to selectRequestByName should have moved the focus to the request, right? Is this a hack?",
+      "range": {
+        "startLine": 407,
+        "startChar": 10,
+        "endLine": 407,
+        "endChar": 30
+      },
+      "revId": "3b31dbc564f0fe998f0e20defe120443b846eba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "391f88fa_5cfb943f",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2022-12-14T01:02:31Z",
+      "side": 1,
+      "message": "The call to selectRequestByName fires a click event on the selected row which focuses the request momentarily until the request preview is opened. Now with the tabIndex set on the primary column cell within the datagrid, the focus goes away from the datagrid after the preview is opened whereas before the datagrid will still have focus after the preview is open. \n\nWithout focusing the selected request, the keydown event listener isn\u0027t triggered and so causes the test failure. This ensures the selected request is focused before the key event happens",
+      "parentUuid": "7f3e2c61_b9f1d844",
       "range": {
         "startLine": 407,
         "startChar": 10,
