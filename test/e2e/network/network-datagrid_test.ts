@@ -17,6 +17,7 @@ import {
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
+  focusSelectedRequest,
   getAllRequestNames,
   navigateToNetworkTab,
   selectRequestByName,
@@ -403,6 +404,7 @@ describe('The Network Tab', async function() {
 
     await selectRequestByName('image.svg');
     await waitForSelectedRequestChange(null);
+    await focusSelectedRequest();
     await pressKey('r');
     await waitForSomeRequestsToAppear(3);
 

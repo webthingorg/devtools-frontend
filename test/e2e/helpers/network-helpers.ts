@@ -80,6 +80,14 @@ export async function selectRequestByName(name: string, clickOptions?: puppeteer
   }
 }
 
+export async function focusSelectedRequest() {
+  const request = await $(REQUEST_LIST_SELECTOR + ' tr.selected .name-column');
+  if (!request) {
+    return null;
+  }
+  return await request.focus();
+}
+
 export async function waitForSelectedRequestChange(initialRequestName: string|null) {
   await waitForFunction(async () => {
     const name = await getSelectedRequestName();
