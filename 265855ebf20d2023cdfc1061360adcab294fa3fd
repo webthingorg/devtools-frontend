@@ -51,6 +51,24 @@
       "parentUuid": "96abf4a4_d6c07cfe",
       "revId": "265855ebf20d2023cdfc1061360adcab294fa3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ef5577_b532d8a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2022-12-14T19:02:11Z",
+      "side": 1,
+      "message": "Issue resolved with changes in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4083491",
+      "parentUuid": "d1676ee6_6a956f36",
+      "revId": "265855ebf20d2023cdfc1061360adcab294fa3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
