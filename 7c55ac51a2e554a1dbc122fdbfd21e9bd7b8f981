@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2b1257e_c361267f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2022-12-14T18:39:00Z",
+      "side": 1,
+      "message": "Hi Alex, in this CL I added an additional check for pointerType.button value to differentiate the mouse right click and \"shift + f10\" keyboard press events. Please take a look when you get a chance.\n\nThanks,\nGavin",
+      "revId": "7c55ac51a2e554a1dbc122fdbfd21e9bd7b8f981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
