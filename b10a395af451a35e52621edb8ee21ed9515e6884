@@ -16,6 +16,23 @@
       "message": "LGTM, let\u0027s wait for Danil\u0027s opinion. \n\nAs discussed offline, this will spam the test output a lot. We should fix up the tests as soon as possible so that we can fail the tests if they leave unhandled rejections behind. (I am volunteering once I am done with a couple of urgent things.)\n\nThank you!",
       "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9daa8fe2_5cfd68b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-14T15:48:31Z",
+      "side": 1,
+      "message": "I don\u0027t object, but I wonder what problem are we trying to solve here?",
+      "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
