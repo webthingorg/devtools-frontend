@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "475217e3_4257ceea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-14T14:52:10Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nThis should fix the problem mentioned in crbug.com/1304058#c6, but I doubt it has anything to do with extensions not loading.",
+      "revId": "93adcf326c956af0cc080460b446a32dc316139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
