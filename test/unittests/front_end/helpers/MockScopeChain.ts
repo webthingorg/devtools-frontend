@@ -17,6 +17,7 @@ interface ScriptDescription {
   hasSourceURL?: boolean;
   startLine?: number;
   startColumn?: number;
+  embedderName?: string;
 }
 
 export class MockProtocolBackend {
@@ -100,6 +101,7 @@ export class MockProtocolBackend {
       hash: '',
       hasSourceURL: Boolean(scriptDescription.hasSourceURL),
       sourceMapURL: sourceMap?.url ?? '',
+      embedderName: scriptDescription.embedderName,
     });
 
     const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel) as SDK.DebuggerModel.DebuggerModel;
