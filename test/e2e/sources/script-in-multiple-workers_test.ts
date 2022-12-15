@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -42,6 +43,10 @@ describe('Multi-Workers', async function() {
   if (this.timeout() !== 0) {
     this.timeout(10000);
   }
+
+  before(async () => {
+    await enableExperiment('instrumentationBreakpoints');
+  });
 
   [false, true].forEach(sourceMaps => {
     const withOrWithout = sourceMaps ? 'with source maps' : 'without source maps';
@@ -238,8 +243,7 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky on mac
-      it.skipOnPlatforms(['mac'], '[crbug.com/1368493] for newly created workers', async () => {
+      it('for newly created workers', async () => {
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
