@@ -16,6 +16,23 @@
       "message": "Hi! crrev.com/c/4027566 finally landed. Now it\u0027s time for the front-end. PTAL :)",
       "revId": "f9f5f6ceaeb36be363766e8219809aec557cf8ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b99d9a6_763ce3fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-15T15:53:08Z",
+      "side": 1,
+      "message": "I didn\u0027t know about \u0027roll_depts.py\u0027, I use \u0027npm run generate-protocol-resources\u0027. But the output seems to be the same.\n\nI believe you need to add something like \u0027DISABLE_THIRD_PARTY_CHECK\u003droll protocol\u0027 to the CL description to make the bots happy.",
+      "revId": "f9f5f6ceaeb36be363766e8219809aec557cf8ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
