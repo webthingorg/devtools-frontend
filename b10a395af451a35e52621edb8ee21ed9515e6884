@@ -69,6 +69,24 @@
       "parentUuid": "f3fa0017_aa6e9c5b",
       "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49e3da7_34e440ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-15T17:45:29Z",
+      "side": 1,
+      "message": "This change would make it a soft failure and only log the error but not fail the test. At the very least we\u0027d need to fix all the occurences before turning this into a real error (~350 tests right now).",
+      "parentUuid": "f7f2aaa2_bab0ca86",
+      "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
