@@ -153,9 +153,17 @@ export class SourceFormatter {
   }
 }
 
-class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceMapping {
+export class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceMapping {
   constructor() {
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(this);
+  }
+
+  uiSourceCodesForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode[] {
+    const formatData = SourceFormatData.for(script);
+    if (!formatData || !script) {
+      return [];
+    }
+    return [formatData.formattedSourceCode];
   }
 
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
@@ -169,8 +177,9 @@ class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceM
     return formatData.formattedSourceCode.uiLocation(lineNumber, columnNumber);
   }
 
-  uiLocationToRawLocations(uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number):
-      SDK.DebuggerModel.Location[] {
+  uiLocationToRawLocations(
+      uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
+      columnNumber?: number): SDK.DebuggerModel.Location[] {
     const formatData = SourceFormatData.for(uiSourceCode);
     if (!formatData) {
       return [];

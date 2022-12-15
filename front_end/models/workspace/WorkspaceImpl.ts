@@ -30,6 +30,7 @@
 
 import * as Common from '../../core/common/common.js';
 import type * as Platform from '../../core/platform/platform.js';
+import type * as SDK from '../../core/sdk/sdk.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 
 import {UISourceCode, type UISourceCodeMetadata} from './UISourceCode.js';
@@ -260,8 +261,9 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
 
   // This method explicitly awaits the UISourceCode if not yet
   // available.
-  uiSourceCodeForURLPromise(url: Platform.DevToolsPath.UrlString, type?: projectTypes): Promise<UISourceCode> {
-    const uiSourceCode = this.uiSourceCodeForURL(url, type);
+  uiSourceCodeForURLPromise(url: Platform.DevToolsPath.UrlString, target: SDK.Target.Target, type?: projectTypes):
+      Promise<UISourceCode> {
+    const uiSourceCode = this.uiSourceCodeForURL(url, target, type);
     if (uiSourceCode) {
       return Promise.resolve(uiSourceCode);
     }
@@ -278,14 +280,15 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     });
   }
 
-  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, type?: projectTypes): UISourceCode|null {
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString, target?: SDK.Target.Target, type?: projectTypes):
+      UISourceCode|null {
     for (const project of this.projectsInternal.values()) {
       // For snippets, we may get two different UISourceCodes for the same url (one belonging to
       // the file system project, one belonging to the network project). Allow selecting the UISourceCode
       // for a specific project type.
       if (!type || project.type() === type) {
         const uiSourceCode = project.uiSourceCodeForURL(url);
-        if (uiSourceCode) {
+        if (uiSourceCode && (!target)) {
           return uiSourceCode;
         }
       }

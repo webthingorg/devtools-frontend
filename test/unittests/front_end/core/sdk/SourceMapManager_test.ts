@@ -5,6 +5,7 @@
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelpers.js';
@@ -40,10 +41,7 @@ describeWithMockConnection('SourceMapManager', () => {
     });
 
     const debuggerModel = workerTarget.model(SDK.DebuggerModel.DebuggerModel);
-    assert.isNotNull(debuggerModel);
-    if (debuggerModel === null) {
-      return;
-    }
+    assertNotNullOrUndefined(debuggerModel);
 
     const sourceMapManager = debuggerModel.sourceMapManager();
 
@@ -82,10 +80,7 @@ describeWithMockConnection('SourceMapManager', () => {
     mainTarget.setInspectedURL(frameUrl);
 
     const debuggerModel = mainTarget.model(SDK.DebuggerModel.DebuggerModel);
-    assert.isNotNull(debuggerModel);
-    if (debuggerModel === null) {
-      return;
-    }
+    assertNotNullOrUndefined(debuggerModel);
 
     const sourceMapManager = debuggerModel.sourceMapManager();
 

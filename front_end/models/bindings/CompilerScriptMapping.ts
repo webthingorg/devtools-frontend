@@ -171,6 +171,27 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
                              this.#regularProject.uiSourceCodeForURL(url);
   }
 
+  uiSourceCodesForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode[] {
+    const stubUISourceCode = this.#stubUISourceCodes.get(script);
+    if (stubUISourceCode) {
+      return [stubUISourceCode];
+    }
+
+    const sourceMap = this.#sourceMapManager.sourceMapForClient(script);
+    if (!sourceMap) {
+      return [];
+    }
+
+    const scripts = [];
+    for (const sourceURL of sourceMap.sourceURLs()) {
+      const uiSourceCode = this.uiSourceCodeForURL(sourceURL, script.isContentScript());
+      if (uiSourceCode) {
+        scripts.push(uiSourceCode);
+      }
+    }
+    return scripts;
+  }
+
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
     const script = rawLocation.script();
     if (!script) {
@@ -193,6 +214,7 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return null;
     }
     const entry = sourceMap.findEntry(lineNumber, columnNumber);
+
     if (!entry || !entry.sourceURL) {
       return null;
     }

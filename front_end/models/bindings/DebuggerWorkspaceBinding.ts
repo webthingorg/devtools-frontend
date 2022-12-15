@@ -7,7 +7,6 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
-
 import {CompilerScriptMapping} from './CompilerScriptMapping.js';
 import {DebuggerLanguagePluginManager} from './DebuggerLanguagePlugins.js';
 import {DefaultScriptMapping} from './DefaultScriptMapping.js';
@@ -286,6 +285,31 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     return null;
   }
 
+  uiSourceCodesForScript(script: SDK.Script.Script, includeCompilerScriptMapping: boolean = true):
+      Workspace.UISourceCode.UISourceCode[] {
+    for (const sourceMapping of this.#sourceMappings) {
+      const uiSourceCodes = sourceMapping.uiSourceCodesForScript(script);
+      if (uiSourceCodes.length > 0) {
+        return uiSourceCodes;
+      }
+    }
+
+    const modelData = this.#debuggerModelToData.get(script.debuggerModel);
+    if (!modelData) {
+      return [];
+    }
+    return modelData.uiSourceCodesForScript(script, includeCompilerScriptMapping);
+  }
+
+  // For source mapped scripts, use `uiSourceCodeForSourceMappedSourceURLPromise` instead.
+  async uiSourceCodeForScriptPromise(script: SDK.Script.Script): Promise<Workspace.UISourceCode.UISourceCode> {
+    const uiSourceCode = this.uiSourceCodesForScript(script, false /* includeCompilerScriptMapping */);
+    console.assert(
+        uiSourceCode.length <= 1, 'All mappings (except CompilerScriptMapping) should return a single uiSourceCode');
+    return uiSourceCode.length ? uiSourceCode[0] :
+                                 this.waitForUISourceCodeAdded(script.sourceURL, script.debuggerModel.target());
+  }
+
   waitForUISourceCodeAdded(url: Platform.DevToolsPath.UrlString, target: SDK.Target.Target):
       Promise<Workspace.UISourceCode.UISourceCode> {
     return new Promise(resolve => {
@@ -485,6 +509,18 @@ class ModelData {
     return uiLocation;
   }
 
+  uiSourceCodesForScript(script: SDK.Script.Script, includeCompilerScriptMapping: boolean):
+      Workspace.UISourceCode.UISourceCode[] {
+    let uiSourceCodes: Workspace.UISourceCode.UISourceCode[] = [];
+    if (includeCompilerScriptMapping) {
+      uiSourceCodes = this.compilerMapping.uiSourceCodesForScript(script);
+    }
+    uiSourceCodes = uiSourceCodes.length ? uiSourceCodes : this.#resourceScriptMapping.uiSourceCodesForScript(script);
+    uiSourceCodes = uiSourceCodes.length ? uiSourceCodes : this.#resourceMapping.uiSourceCodesForScript(script);
+    uiSourceCodes = uiSourceCodes.length ? uiSourceCodes : this.#defaultMapping.uiSourceCodesForScript(script);
+    return uiSourceCodes;
+  }
+
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber: number|undefined = 0): SDK.DebuggerModel.Location[] {
@@ -515,6 +551,10 @@ class ModelData {
 
   getResourceScriptMapping(): ResourceScriptMapping {
     return this.#resourceScriptMapping;
+  }
+
+  getResourceMapping(): ResourceMapping {
+    return this.#resourceMapping;
   }
 }
 
@@ -631,4 +671,6 @@ export interface DebuggerSourceMapping {
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber?: number): SDK.DebuggerModel.Location[];
+
+  uiSourceCodesForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode[];
 }

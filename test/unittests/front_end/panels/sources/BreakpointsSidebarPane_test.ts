@@ -614,6 +614,7 @@ describeWithRealConnection('BreakpointsSidebarController', () => {
       uiLocationToRawLocations:
           (_uiSourceCode: Workspace.UISourceCode.UISourceCode, _lineNumber: number,
            _columnNumber?: number) => [sdkLocation],
+      uiSourceCodesForScript: (_: SDK.Script.Script) => [uiSourceCode],
     };
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
 

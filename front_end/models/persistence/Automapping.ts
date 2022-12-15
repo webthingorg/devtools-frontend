@@ -368,7 +368,8 @@ export class Automapping {
 
   private async pullMetadatas(uiSourceCodes: Workspace.UISourceCode.UISourceCode[]): Promise<void> {
     await Promise.all(uiSourceCodes.map(async file => {
-      this.sourceCodeToMetadataMap.set(file, await file.requestMetadata());
+      const metadata = await file.requestMetadata();
+      this.sourceCodeToMetadataMap.set(file, metadata);
     }));
   }
 
