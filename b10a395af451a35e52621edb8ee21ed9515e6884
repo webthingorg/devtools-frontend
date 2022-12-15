@@ -51,6 +51,24 @@
       "parentUuid": "9daa8fe2_5cfd68b8",
       "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f2aaa2_bab0ca86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-15T09:36:01Z",
+      "side": 1,
+      "message": "Right, and it is not obvious to me that this should be considered a failure. As I said, I don\u0027t mind, but I wonder how much effort are we willing to put into it?",
+      "parentUuid": "f3fa0017_aa6e9c5b",
+      "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
