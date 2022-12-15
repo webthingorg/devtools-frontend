@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2144064_9ebcaf4c",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-15T15:25:34Z",
+      "side": 1,
+      "message": "Why is this necessary? The constant seems unused.\nShould I add something similar for the new issue type?",
+      "revId": "e64f034581dae43539d87563515da3d0893c0ab7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

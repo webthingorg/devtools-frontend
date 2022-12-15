@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89155f28_d7bbb492",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-15T15:25:34Z",
+      "side": 1,
+      "message": "For the FormLabelForNameError issue, \"Label\" should be more direct. However, since this is the GenericIssue, I suppose \"Violating node\" is more fitting?",
+      "range": {
+        "startLine": 58,
+        "startChar": 62,
+        "endLine": 58,
+        "endChar": 76
+      },
+      "revId": "17a3f834548cab3423fa98f54a33fc74d05d5ba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
