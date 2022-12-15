@@ -16,6 +16,24 @@
       "message": "LGTM, is an E2E test for the feature appropriate/feasible?",
       "revId": "bce035b0a9ed79441fc2e7aecfa5ab08fd2bb431",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd9225a_06be09c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-15T10:41:28Z",
+      "side": 1,
+      "message": "Ack. Will add them in the follow-up CL",
+      "parentUuid": "fdfdc1ee_6cfd593a",
+      "revId": "bce035b0a9ed79441fc2e7aecfa5ab08fd2bb431",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
