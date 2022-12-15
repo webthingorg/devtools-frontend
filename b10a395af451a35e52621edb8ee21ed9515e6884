@@ -33,6 +33,24 @@
       "message": "I don\u0027t object, but I wonder what problem are we trying to solve here?",
       "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3fa0017_aa6e9c5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-15T07:05:11Z",
+      "side": 1,
+      "message": "Currently, rejected promises will not fail the test suite.\n\nFor example, `(async () \u003d\u003e { throw new Error(); })()` will happily succeed.\n\nThis patch aims to surface such failures in the test output and once we fix the fallout, we should make the unhandled rejections fail tests.\n\nPhilip, could you create a tracking bug for this work?",
+      "parentUuid": "9daa8fe2_5cfd68b8",
+      "revId": "b10a395af451a35e52621edb8ee21ed9515e6884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
