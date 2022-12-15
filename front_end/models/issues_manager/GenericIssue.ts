@@ -19,6 +19,10 @@ const UIStrings = {
   *@description Title for cross-origin portal post message error
   */
   crossOriginPortalPostMessage: 'Portals - Same-origin communication channels',
+  /**
+  *@description whatever
+  */
+  formLabelForNameMessage: 'HTML standard',
 };
 const str_ = i18n.i18n.registerUIStrings('models/issues_manager/GenericIssue.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -80,6 +84,14 @@ export const genericCrossOriginPortalPostMessageError = {
   }],
 };
 
+export const genericFormLabelForNameError = {
+  file: 'genericFormLabelForNameError.md',
+  links: [{
+    link: 'https://html.spec.whatwg.org/multipage/forms.html#attr-label-for',
+    linkTitle: i18nLazyString(UIStrings.formLabelForNameMessage),
+  }],
+};
+
 export const genericCrossOriginPortalPostMessageCode = [
   Protocol.Audits.InspectorIssueCode.GenericIssue,
   Protocol.Audits.GenericIssueErrorType.CrossOriginPortalPostMessageError,
@@ -87,4 +99,5 @@ export const genericCrossOriginPortalPostMessageCode = [
 
 const issueDescriptions: Map<Protocol.Audits.GenericIssueErrorType, LazyMarkdownIssueDescription> = new Map([
   [Protocol.Audits.GenericIssueErrorType.CrossOriginPortalPostMessageError, genericCrossOriginPortalPostMessageError],
+  [Protocol.Audits.GenericIssueErrorType.FormLabelForNameError, genericFormLabelForNameError],
 ]);
