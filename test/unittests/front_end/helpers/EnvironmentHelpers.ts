@@ -9,11 +9,15 @@ import * as Root from '../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../front_end/models/bindings/bindings.js';
+import * as IssuesManager from '../../../../front_end/models/issues_manager/issues_manager.js';
 import * as Persistence from '../../../../front_end/models/persistence/persistence.js';
 import * as Workspace from '../../../../front_end/models/workspace/workspace.js';
-import * as IssuesManager from '../../../../front_end/models/issues_manager/issues_manager.js';
+import * as Coordinator from '../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import * as LitHtml from '../../../../front_end/ui/lit-html/lit-html.js';
 
 import type * as UIModule from '../../../../front_end/ui/legacy/legacy.js';
+
+import {renderElementIntoDOM} from './DOMHelpers.js';
 
 // Don't import UI at this stage because it will fail without
 // the environment. Instead we do the import at the end of the
@@ -30,7 +34,13 @@ function initializeTargetManagerIfNecessary(): SDK.TargetManager.TargetManager {
 
 let uniqueTargetId = 0;
 
-export function createTarget({id, name = 'test', type = SDK.Target.Type.Frame, parentTarget, subtype}: {
+export function createTarget({
+  id,
+  name = 'test',
+  type = SDK.Target.Type.Frame,
+  parentTarget,
+  subtype,
+}: {
   id?: Protocol.Target.TargetID,
   name?: string,
   type?: SDK.Target.Type,
@@ -46,7 +56,8 @@ export function createTarget({id, name = 'test', type = SDK.Target.Type.Frame, p
   }
   const targetManager = initializeTargetManagerIfNecessary();
   return targetManager.createTarget(
-      id, name, type, parentTarget ? parentTarget : null, /* sessionId=*/ parentTarget ? id : undefined,
+      id, name, type, parentTarget ? parentTarget : null,
+      /* sessionId=*/ parentTarget ? id : undefined,
       /* suspended=*/ false,
       /* connection=*/ undefined, {subtype} as Protocol.Target.TargetInfo);
 }
@@ -226,8 +237,12 @@ export async function initializeGlobalVars({reset = true} = {}) {
 
   // Instantiate the storage.
   const storage = new Common.Settings.SettingsStorage({}, Common.Settings.NOOP_STORAGE, 'test');
-  Common.Settings.Settings.instance(
-      {forceNew: reset, syncedStorage: storage, globalStorage: storage, localStorage: storage});
+  Common.Settings.Settings.instance({
+    forceNew: reset,
+    syncedStorage: storage,
+    globalStorage: storage,
+    localStorage: storage,
+  });
 
   for (const experimentName of REGISTERED_EXPERIMENTS) {
     Root.Runtime.experiments.register(experimentName, '');
@@ -235,8 +250,11 @@ export async function initializeGlobalVars({reset = true} = {}) {
 
   // Dynamically import UI after the rest of the environment is set up, otherwise it will fail.
   UI = await import('../../../../front_end/ui/legacy/legacy.js');
-  UI.ZoomManager.ZoomManager.instance(
-      {forceNew: true, win: window, frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance});
+  UI.ZoomManager.ZoomManager.instance({
+    forceNew: true,
+    win: window,
+    frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+  });
 
   // Initialize theme support and context menus.
   Common.Settings.Settings.instance().createSetting('uiTheme', 'systemPreferred');
@@ -247,8 +265,11 @@ export async function initializeGlobalVars({reset = true} = {}) {
 
 export async function deinitializeGlobalVars() {
   // Remove the global SDK.
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const globalObject = (globalThis as unknown as {SDK?: {}, ls?: {}});
+  const globalObject = globalThis as unknown as {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    SDK?: {},
+    ls?: {},
+  };
   delete globalObject.SDK;
   delete globalObject.ls;
 
@@ -353,3 +374,85 @@ export function createFakeSetting<T>(name: string, defaultValue: T): Common.Sett
 export function enableFeatureForTest(feature: string): void {
   Root.Runtime.experiments.enableForTest(feature);
 }
+
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
+
+const getComponentNameFromClass = (componentClass: CustomElementConstructor) => {
+  return `devtools-${componentClass.name.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}`;
+};
+
+/**
+ * This class enables controlled access of a given value by preventing automatic
+ * destructuring.
+ */
+export class Reference<T> {
+  #value?: T;
+
+  /**
+   * @returns - The value of this reference.
+   */
+  get = (): T => {
+    if (!this.#value) {
+      throw new Error('Invalid reference to value');
+    }
+    return this.#value;
+  };
+
+  /**
+   * @internal
+   */
+  set = (value: T): void => {
+    this.#value = value;
+  };
+}
+
+function describeWithFixture<T extends HTMLElement>(
+    fixtureComponent: new (...args: unknown[]) => T, fn: (this: Mocha.Suite, ref: Reference<T>) => void) {
+  const name = getComponentNameFromClass(fixtureComponent);
+  if (!customElements.get(name)) {
+    customElements.define(name, fixtureComponent);
+  }
+
+  return describe(`fixture-${name}`, function() {
+    const reference = new Reference<T>();
+
+    beforeEach(async () => {
+      const fixture = new fixtureComponent();
+      renderElementIntoDOM(fixture);
+      if (fixture instanceof LitHtml.LitElement) {
+        await fixture.updateComplete;
+      }
+      reference.set(fixture);
+      await coordinator.done();
+    });
+
+    fn.bind(this, reference)();
+  });
+}
+
+describeWithFixture.only = function only<T extends HTMLElement>(
+    fixtureComponent: new (...args: unknown[]) => T, fn: (this: Mocha.Suite, ref: Reference<T>) => void) {
+  const name = getComponentNameFromClass(fixtureComponent);
+  if (!customElements.get(name)) {
+    customElements.define(name, fixtureComponent);
+  }
+
+  // eslint-disable-next-line rulesdir/no_only
+  return describe.only(`fixture-${name}`, function() {
+    const reference = new Reference<T>();
+
+    beforeEach(async () => {
+      const fixture = new fixtureComponent();
+      renderElementIntoDOM(fixture);
+      if (fixture instanceof LitHtml.LitElement) {
+        await fixture.updateComplete;
+      }
+      reference.set(fixture);
+      await coordinator.done();
+    });
+
+    fn.bind(this, reference)();
+  });
+};
+
+export {describeWithFixture};
