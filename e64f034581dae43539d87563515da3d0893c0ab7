@@ -34,6 +34,24 @@
       "parentUuid": "f2144064_9ebcaf4c",
       "revId": "e64f034581dae43539d87563515da3d0893c0ab7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74d5fb6_c5a1dba8",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-16T11:15:32Z",
+      "side": 1,
+      "message": "Thanks for the context. For generic issues specifically, the first part of the code will always be `Protocol.Audits.InspectorIssueCode.GenericIssue`. So wouldn\u0027t it be simpler to remove the codes and check the `GenericIssueDetails::errorType` instead?\n\nThe current patchset implements this approach. Please let me know if this is undesirable for a different reason. I obviously don\u0027t know much about DevTools.",
+      "parentUuid": "ed871594_a9e56143",
+      "revId": "e64f034581dae43539d87563515da3d0893c0ab7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

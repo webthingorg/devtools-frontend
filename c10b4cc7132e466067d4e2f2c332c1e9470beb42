@@ -34,6 +34,24 @@
       "parentUuid": "67abca64_1c97abcf",
       "revId": "c10b4cc7132e466067d4e2f2c332c1e9470beb42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b3c904_a62eebf4",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-16T11:15:32Z",
+      "side": 1,
+      "message": "Great, thanks!\n\n(just curious) I am surprised that only the label of the link gets translated, but not the remaining description. Since the link points to an English website, this is probably not very helpful. Are there plans to translate the descriptions int the future?",
+      "parentUuid": "e37bc26d_941ce82a",
+      "revId": "c10b4cc7132e466067d4e2f2c332c1e9470beb42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
