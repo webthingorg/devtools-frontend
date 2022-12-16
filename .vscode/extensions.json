@@ -1,7 +1,4 @@
 {
   "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "bierner.lit-html",
-      "npclaudiu.vscode-gn"
   ]
 }
