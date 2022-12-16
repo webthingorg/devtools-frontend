@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "363c255e_29187b86",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T09:29:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a506b445_27f2c6ef",
+      "range": {
+        "startLine": 28,
+        "startChar": 37,
+        "endLine": 28,
+        "endChar": 74
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56a73f0a_3b3bd331",
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "Good idea. afaict the icon is threaded all the way through to the img src. Restricting this sounds good! Besides data urls, should we also permit urls to extension resources?",
       "parentUuid": "706dad2d_2125ed96",
+      "range": {
+        "startLine": 87,
+        "startChar": 35,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0805e08c_a717ec8d",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T09:29:10Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep it simple and stick to data URLs only. We have been burnt by trying to be smart about URLs in the past.",
+      "parentUuid": "1e2647f2_eaaa9154",
       "range": {
         "startLine": 87,
         "startChar": 35,
