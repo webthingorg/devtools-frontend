@@ -1121,20 +1121,20 @@ export class Legacy implements Color {
       case Format.HSL:
       case Format.HSLA: {
         const hsla = this.hsla();
-        const start = Platform.StringUtilities.sprintf(
-            'hsl(%ddeg %d% %d%', Math.round(hsla[0] * 360), Math.round(hsla[1] * 100), Math.round(hsla[2] * 100));
+        const start =
+            Platform.StringUtilities.sprintf('hsl(%ddeg %d% %d%', hsla[0] * 360, hsla[1] * 100, hsla[2] * 100);
         if (this.hasAlpha()) {
-          return start + Platform.StringUtilities.sprintf(' / %d%)', Math.round(hsla[3] * 100));
+          return start + Platform.StringUtilities.sprintf(' / %d%)', hsla[3] * 100);
         }
         return start + ')';
       }
       case Format.HWB:
       case Format.HWBA: {
         const hwba = this.hwba();
-        const start = Platform.StringUtilities.sprintf(
-            'hwb(%ddeg %d% %d%', Math.round(hwba[0] * 360), Math.round(hwba[1] * 100), Math.round(hwba[2] * 100));
+        const start =
+            Platform.StringUtilities.sprintf('hwb(%ddeg %d% %d%', hwba[0] * 360, hwba[1] * 100, hwba[2] * 100);
         if (this.hasAlpha()) {
-          return start + Platform.StringUtilities.sprintf(' / %d%)', Math.round(hwba[3] * 100));
+          return start + Platform.StringUtilities.sprintf(' / %d%)', hwba[3] * 100);
         }
         return start + ')';
       }
