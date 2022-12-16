@@ -93,6 +93,30 @@
       },
       "revId": "3b31dbc564f0fe998f0e20defe120443b846eba3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cef3e04b_4a0ccbb0",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1355985
+      },
+      "writtenOn": "2022-12-16T21:56:09Z",
+      "side": 1,
+      "message": "Resolving comment since your latest patchset removed this hack and fixed the root cause.",
+      "parentUuid": "391f88fa_5cfb943f",
+      "range": {
+        "startLine": 407,
+        "startChar": 10,
+        "endLine": 407,
+        "endChar": 30
+      },
+      "revId": "3b31dbc564f0fe998f0e20defe120443b846eba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
