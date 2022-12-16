@@ -70,6 +70,30 @@
       },
       "revId": "cc2971ece5cabf2f6de9f81068b1781cc4f87aa0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fbf85db_e23e286e",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-16T10:17:22Z",
+      "side": 1,
+      "message": "specComplete is called for every test so the list needs to be cleared between invocations.\n\nI did not know .length could be set like this, I like it!",
+      "parentUuid": "9fad7430_dbe4eb53",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 46
+      },
+      "revId": "cc2971ece5cabf2f6de9f81068b1781cc4f87aa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
