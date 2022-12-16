@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0690bd5e_2197447c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2022-12-16T07:37:07Z",
+      "side": 1,
+      "message": "Hi, PTAL at this screen reader fix for bug 1379450. It does not have any UI changes, which was the reason why the original fix was reverted. Thanks!",
+      "revId": "d417847f9fda2287c05877e3bcd9d0ef82175011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
