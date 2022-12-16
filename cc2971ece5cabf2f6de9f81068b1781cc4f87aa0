@@ -46,6 +46,30 @@
       },
       "revId": "cc2971ece5cabf2f6de9f81068b1781cc4f87aa0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fad7430_dbe4eb53",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-16T10:13:04Z",
+      "side": 1,
+      "message": "I think I\u0027m struggling to follow why this is required - as after this line I don\u0027t think we refer to `capturedLog` again, so does it need to be cleared? Sorry if I\u0027m missing something obvious 😄\n\nIf we do need it, I think I\u0027d prefer `capturedLog.length \u003d 0` as a clearer way to empty the array.",
+      "parentUuid": "af507b4e_263ed06d",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 46
+      },
+      "revId": "cc2971ece5cabf2f6de9f81068b1781cc4f87aa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
