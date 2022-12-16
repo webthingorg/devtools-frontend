@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c692a8a_9d5387aa",
+        "filename": "front_end/ui/legacy/components/data_grid/DataGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1355985
+      },
+      "writtenOn": "2022-12-16T21:54:45Z",
+      "side": 1,
+      "message": "nit: comments need to finish with a period, per upstream\u0027s style guidelines.",
+      "range": {
+        "startLine": 1732,
+        "startChar": 4,
+        "endLine": 1732,
+        "endChar": 68
+      },
+      "revId": "4761dff4e66e417a5ec88168cecdc2f7b3718e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c1dcf8_79dd9cf6",
+        "filename": "front_end/ui/legacy/components/data_grid/DataGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1355985
+      },
+      "writtenOn": "2022-12-16T21:54:45Z",
+      "side": 1,
+      "message": "This line is too long, it won\u0027t pass the formatter. What about you run `git cl format` and upload your changes again?\n\nAlso, missing period here too.",
+      "range": {
+        "startLine": 1751,
+        "startChar": 6,
+        "endLine": 1751,
+        "endChar": 113
+      },
+      "revId": "4761dff4e66e417a5ec88168cecdc2f7b3718e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
