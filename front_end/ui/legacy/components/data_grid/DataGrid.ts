@@ -1729,6 +1729,11 @@ export class DataGridNode<T> {
   }
 
   protected createCells(element: Element): void {
+    let focusedCellClassName: string|undefined;
+    if (element.contains(document.activeElement)) {
+      focusedCellClassName = document.activeElement?.className;
+    }
+
     element.removeChildren();
     if (!this.dataGrid || !this.parent) {
       return;
@@ -1742,6 +1747,9 @@ export class DataGridNode<T> {
     for (let i = 0; i < columnsArray.length; ++i) {
       const column = columnsArray[i];
       const cell = element.appendChild(this.createCell(column.id));
+      if (cell.className === focusedCellClassName) {
+        cell.focus();
+      }
       // Add each visibile cell to the node's accessible text by gathering 'Column Title: content'
 
       if (column.dataType === DataType.Boolean && this.data[column.id] === true) {
