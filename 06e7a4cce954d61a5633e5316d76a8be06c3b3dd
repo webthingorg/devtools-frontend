@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6108c04b_ae3e1be0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1355985
+      },
+      "writtenOn": "2022-12-16T22:23:43Z",
+      "side": 1,
+      "message": "LGTM. Thanks for all your hard work.",
+      "revId": "06e7a4cce954d61a5633e5316d76a8be06c3b3dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
