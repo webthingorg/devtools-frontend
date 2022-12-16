@@ -16,6 +16,23 @@
       "message": "I finally got to do this plumbing.\n\nThis is my first CL in this repo, so I don\u0027t know what kind of tests I should write.\n\nI have tested manually with a Chromium build that the devtools now show the correct container for both size and style containers.",
       "revId": "070407b0dae89b5edeb5ac90377ba6200d036c4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec07947c_2909f1b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-12-16T16:36:18Z",
+      "side": 1,
+      "message": "I have not worked in this area of the frontend for a while but I guess since it affects how a container is found, perhaps adorner tests can be extended https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/elements/adornment_test.ts;l\u003d48;drc\u003dfb1d72973b4dbf60d66ec4b0877ef9398374d123\n\nIn general, it looks like we just sending data we received from the protocol back to the backend so perhaps no new tests are needed.",
+      "revId": "070407b0dae89b5edeb5ac90377ba6200d036c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
