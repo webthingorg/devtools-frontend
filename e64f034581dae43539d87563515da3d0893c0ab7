@@ -16,6 +16,24 @@
       "message": "Why is this necessary? The constant seems unused.\nShould I add something similar for the new issue type?",
       "revId": "e64f034581dae43539d87563515da3d0893c0ab7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed871594_a9e56143",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-16T10:19:59Z",
+      "side": 1,
+      "message": "It\u0027s unused as of now. But I think it would be nice if you added the equivalent for the new generic issue. Then you could switch in the GenericIssueDetailsView similar to https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/issues/AffectedDirectivesView.ts;l\u003d175 or https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/issues/AffectedTrustedWebActivityIssueDetailsView.ts;l\u003d45.",
+      "parentUuid": "f2144064_9ebcaf4c",
+      "revId": "e64f034581dae43539d87563515da3d0893c0ab7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
