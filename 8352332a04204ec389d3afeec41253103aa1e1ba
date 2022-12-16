@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af844742_f79a6c0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-12-16T12:05:28Z",
+      "side": 1,
+      "message": "I am gonna land it first to avoid the breakage (but only after the upstream CL is approved).",
+      "revId": "8352332a04204ec389d3afeec41253103aa1e1ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
