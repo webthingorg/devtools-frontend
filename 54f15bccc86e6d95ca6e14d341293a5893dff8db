@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ca2baf_7ad28be4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "LGTM modulo some small suggestions.",
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d5c2bd_6830fe41",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "Remove \u0027that\u0027? (Or the other \u0027that\u0027 in this sentence.)",
+      "range": {
+        "startLine": 6,
+        "startChar": 11,
+        "endLine": 6,
+        "endChar": 15
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e9ab5e_a4ddaaf0",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "Since you talked about source maps, are they also supported here?\n\nIf not, is it then really possible to implement sourcemap support?",
+      "range": {
+        "startLine": 28,
+        "startChar": 37,
+        "endLine": 28,
+        "endChar": 74
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a73f0a_3b3bd331",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "Perhaps get rid of the passive? Something like \", DevTools will call the plugin\u0027s \u0027addRawModule\u0027 function\"...",
+      "range": {
+        "startLine": 30,
+        "startChar": 73,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3515ee1_69ef2108",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "No matching opening paren.",
+      "range": {
+        "startLine": 49,
+        "startChar": 52,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "706dad2d_2125ed96",
+        "filename": "docs/language_extension_api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-12-16T08:26:37Z",
+      "side": 1,
+      "message": "Off-topic: do we allow arbitrary URLs here? (Ideally, we would restrict this to data URLs so that we avoid requesting file systems, private networks, etc.)",
+      "range": {
+        "startLine": 87,
+        "startChar": 35,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "54f15bccc86e6d95ca6e14d341293a5893dff8db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
