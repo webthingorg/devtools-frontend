@@ -5,6 +5,7 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as Protocol from '../../generated/protocol.js';
 
 import {AffectedResourcesView} from './AffectedResourcesView.js';
 
@@ -39,12 +40,12 @@ export class GenericIssueDetailsView extends AffectedResourcesView {
     let count = 0;
     for (const genericIssue of genericIssues) {
       count++;
-      this.#appendDetail(genericIssue);
+      void this.#appendDetail(genericIssue);
     }
     this.updateAffectedResourceCount(count);
   }
 
-  #appendDetail(genericIssue: IssuesManager.GenericIssue.GenericIssue): void {
+  async #appendDetail(genericIssue: IssuesManager.GenericIssue.GenericIssue): Promise<void> {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-directive');
 
@@ -52,8 +53,23 @@ export class GenericIssueDetailsView extends AffectedResourcesView {
     if (details.frameId) {
       element.appendChild(this.createFrameCell(details.frameId, genericIssue.getCategory()));
     }
+    if (details.violatingNodeId) {
+      const target = genericIssue.model()?.target() || null;
+      element.appendChild(await this.createElementCell(
+          {backendNodeId: details.violatingNodeId, nodeName: this.violatingNodeIdName(details.errorType), target},
+          genericIssue.getCategory()));
+    }
 
     this.affectedResources.appendChild(element);
+  }
+
+  private violatingNodeIdName(errorType: Protocol.Audits.GenericIssueErrorType): string {
+    switch (errorType) {
+      case Protocol.Audits.GenericIssueErrorType.FormLabelForNameError:
+        return 'Label';
+      default:
+        return 'Violating node';
+    }
   }
 
   update(): void {
