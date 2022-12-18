@@ -561,12 +561,10 @@ export function argumentsList(input: string): string[] {
     }
     return parameters;
   }
-  function tryParseAsExpression(expression: string): string[]|null {
-    const input = `(${expression})`;
-    const cursor = CodeMirror.javascript.javascriptLanguage.parser.parse(input).cursor();
-    if (cursor.name !== 'Script' || !cursor.firstChild() || cursor.name as string !== 'ExpressionStatement' ||
-        !cursor.firstChild() || cursor.name as string !== 'ParenthesizedExpression' || !cursor.firstChild() ||
-        cursor.name as string !== '(' || !cursor.nextSibling()) {
+  const {parser} = CodeMirror.javascript.javascriptLanguage.configure({top: 'SingleExpression'});
+  function tryParseAsExpression(input: string): string[]|null {
+    const cursor = parser.parse(input).cursor();
+    if (cursor.name !== 'SingleExpression' || !cursor.firstChild()) {
       return null;
     }
     if ((cursor.name as string === 'ArrowFunction' || cursor.name as string === 'FunctionExpression') &&
@@ -592,11 +590,9 @@ export function argumentsList(input: string): string[] {
     return null;
   }
   function tryParseAsMethod(method: string): string[]|null {
-    const input = `({${method}})`;
-    const cursor = CodeMirror.javascript.javascriptLanguage.parser.parse(input).cursor();
-    if (cursor.name !== 'Script' || !cursor.firstChild() || cursor.name as string !== 'ExpressionStatement' ||
-        !cursor.firstChild() || cursor.name as string !== 'ParenthesizedExpression' || !cursor.firstChild() ||
-        cursor.name as string !== '(' || !cursor.nextSibling()) {
+    const input = `{${method}}`;
+    const cursor = parser.parse(input).cursor();
+    if (cursor.name !== 'SingleExpression' || !cursor.firstChild()) {
       return null;
     }
     if (cursor.name as string === 'ObjectExpression' && cursor.firstChild() && cursor.name as string === '{' &&
