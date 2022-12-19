@@ -158,6 +158,14 @@ class ScriptMapping implements Bindings.DebuggerWorkspaceBinding.DebuggerSourceM
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(this);
   }
 
+  uiSourceCodesForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode[] {
+    const formatData = SourceFormatData.for(script);
+    if (!formatData || !script) {
+      return [];
+    }
+    return [formatData.formattedSourceCode];
+  }
+
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
     const script = rawLocation.script();
     const formatData = script && SourceFormatData.for(script);
