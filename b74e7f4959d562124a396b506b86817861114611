@@ -22,6 +22,30 @@
       },
       "revId": "b74e7f4959d562124a396b506b86817861114611",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abbdbdd9_16fd6f8d",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-19T15:07:12Z",
+      "side": 1,
+      "message": "Good point. Added \u0027Violating node\u0027 to UIStrings. I think \"Label\" shouldn\u0027t be translated, since the issue description mentions the \u003clabel\u003e tag and since this will link to a \u003clabel\u003e tag as well.",
+      "parentUuid": "b98c07fe_aad91bf8",
+      "range": {
+        "startLine": 71,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "b74e7f4959d562124a396b506b86817861114611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
