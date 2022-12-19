@@ -533,7 +533,7 @@ async function getArgumentsForExpression(
 }
 
 export function argumentsList(input: string): string[] {
-  function parseParamList(input: string, cursor: CodeMirror.TreeCursor): string[] {
+  function parseParamList(cursor: CodeMirror.TreeCursor): string[] {
     while (cursor.name !== 'ParamList' && cursor.nextSibling()) {
     }
     const parameters = [];
@@ -561,53 +561,61 @@ export function argumentsList(input: string): string[] {
     }
     return parameters;
   }
-  function tryParseAsExpression(expression: string): string[]|null {
-    const input = `(${expression})`;
-    const cursor = CodeMirror.javascript.javascriptLanguage.parser.parse(input).cursor();
-    if (cursor.name !== 'Script' || !cursor.firstChild() || cursor.name as string !== 'ExpressionStatement' ||
-        !cursor.firstChild() || cursor.name as string !== 'ParenthesizedExpression' || !cursor.firstChild() ||
-        cursor.name as string !== '(' || !cursor.nextSibling()) {
-      return null;
+  function tryParseAsExpression(input: string): string[] {
+    const {parser} = CodeMirror.javascript.javascriptLanguage.configure({strict: true, top: 'SingleExpression'});
+    const cursor = parser.parse(input).cursor();
+    if (!cursor.firstChild()) {
+      throw new Error('SingleExpression rule is expected to have children');
     }
-    if ((cursor.name as string === 'ArrowFunction' || cursor.name as string === 'FunctionExpression') &&
-        cursor.firstChild()) {
-      return parseParamList(input, cursor);
-    }
-    if (cursor.name as string === 'ClassExpression' && cursor.firstChild()) {
-      while (cursor.nextSibling() && cursor.name as string !== 'ClassBody') {
+    switch (cursor.name) {
+      case 'ArrowFunction':
+      case 'FunctionExpression': {
+        if (!cursor.firstChild()) {
+          throw new Error(`${cursor.name} rule is expected to have children`);
+        }
+        return parseParamList(cursor);
       }
-      if (cursor.name as string === 'ClassBody' && cursor.firstChild()) {
-        do {
-          if (cursor.name as string === 'MethodDeclaration' && cursor.firstChild()) {
-            if (cursor.name as string === 'PropertyDefinition' &&
-                input.slice(cursor.from, cursor.to) === 'constructor') {
-              return parseParamList(input, cursor);
+      case 'ClassExpression': {
+        if (!cursor.firstChild()) {
+          throw new Error(`${cursor.name} rule is expected to have children`);
+        }
+        while (cursor.nextSibling() && cursor.name as string !== 'ClassBody') {
+        }
+        if (cursor.name as string === 'ClassBody' && cursor.firstChild()) {
+          do {
+            if (cursor.name as string === 'MethodDeclaration' && cursor.firstChild()) {
+              if (cursor.name as string === 'PropertyDefinition' &&
+                  input.slice(cursor.from, cursor.to) === 'constructor') {
+                return parseParamList(cursor);
+              }
+              cursor.parent();
             }
-            cursor.parent();
-          }
-        } while (cursor.nextSibling());
+          } while (cursor.nextSibling());
+        }
+        return [];
       }
-      return [];
     }
-    return null;
+    throw new Error('Unexpected expression');
   }
-  function tryParseAsMethod(method: string): string[]|null {
-    const input = `({${method}})`;
-    const cursor = CodeMirror.javascript.javascriptLanguage.parser.parse(input).cursor();
-    if (cursor.name !== 'Script' || !cursor.firstChild() || cursor.name as string !== 'ExpressionStatement' ||
-        !cursor.firstChild() || cursor.name as string !== 'ParenthesizedExpression' || !cursor.firstChild() ||
-        cursor.name as string !== '(' || !cursor.nextSibling()) {
-      return null;
+  function tryParseAsMethod(input: string): string[] {
+    const {parser} = CodeMirror.javascript.javascriptLanguage.configure({strict: true, top: 'SingleMethodDefinition'});
+    const cursor = parser.parse(input).cursor();
+    if (cursor.firstChild()) {
+      return parseParamList(cursor);
     }
-    if (cursor.name as string === 'ObjectExpression' && cursor.firstChild() && cursor.name as string === '{' &&
-        cursor.nextSibling() && cursor.name as string === 'Property' && cursor.firstChild()) {
-      return parseParamList(input, cursor);
-    }
-    return null;
+    throw new Error('SingleMethodDefinition rule is expected to have children');
   }
   // First if the |input| can be parsed as a method (by embedding it into an object literal),
   // otherwise fall back to parsing as an expression (by putting parens around it).
-  return tryParseAsMethod(input) || tryParseAsExpression(input) || [];
+  try {
+    return tryParseAsMethod(input);
+  } catch {
+    try {
+      return tryParseAsExpression(input);
+    } catch (cause) {
+      throw new Error(`Failed to parse for arguments list: ${input}`, {cause});
+    }
+  }
 }
 
 async function getArgumentsForFunctionValue(
