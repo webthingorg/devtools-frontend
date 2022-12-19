@@ -16,6 +16,57 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc85b492_71413b78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-19T08:27:20Z",
+      "side": 1,
+      "message": "LGTM, just a question",
+      "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa47487_3d8fc05c",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-19T08:27:20Z",
+      "side": 1,
+      "message": "nit: `First check`",
+      "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ae4418_7b2d2829",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-19T08:27:20Z",
+      "side": 1,
+      "message": "Out of curiosity: Why do we throw an error here, if we directly handle it in the next line (instead of an if/else case based on `cursor.firstChild()`? I.e. we won\u0027t see the error in the console right?)",
+      "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
