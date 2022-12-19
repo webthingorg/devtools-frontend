@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaaf41bf_19e7fe77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-19T10:44:25Z",
+      "side": 1,
+      "message": "Hi Jaro!\n\nHere\u0027s the last CL for retrieving the target-dependent uiSourceCode. PTAL!",
+      "revId": "0342cc3b94bab436830e939b16f775c79bf530d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98904297_65da3f33",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-12-19T10:44:25Z",
+      "side": 1,
+      "message": "Working on this TODO right now. Will be a follow up.",
+      "revId": "0342cc3b94bab436830e939b16f775c79bf530d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
