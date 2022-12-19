@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "86c336f1_bfc771c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-19T15:19:46Z",
+      "side": 1,
+      "message": "Added tests for:\n* Component itself\n* processColorMix (in StylePropertyTreeElement, added a test for updateTitle which covers this)\n* StylePropertyTreeRenderer calling `colorMixHandler` if the property is a color mix property\n\nI wasn\u0027t able to add a test for the hack with testing the behavior though :( Since we\u0027re thinking of updating the stuff there, maybe we can skip it for now, wdyt?\n\nI can also try to add a test that doesn\u0027t depend on the current implementation details but don\u0027t know if it is possible. WDYT?",
+      "parentUuid": "809ac47e_11804def",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8ad9a2d4_e60e1460",
