@@ -52,6 +52,24 @@
       "parentUuid": "e37bc26d_941ce82a",
       "revId": "c10b4cc7132e466067d4e2f2c332c1e9470beb42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac54322_71659896",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-19T14:37:50Z",
+      "side": 1,
+      "message": "I believe that markdown files don\u0027t work with our translation pipeline (yet), not sure about a timeline of when this will be addressed.\n\nI think in this concrete case here, \u0027HTML standard\u0027 does not need to be translated since it points to a document of that name. You can use lockedString for that (https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/l10n.md#phrases-that-are-fully-locked)",
+      "parentUuid": "06b3c904_a62eebf4",
+      "revId": "c10b4cc7132e466067d4e2f2c332c1e9470beb42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
