@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe6d0f1_ff4fefa0",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-19T08:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa47487_3d8fc05c",
+      "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87ae4418_7b2d2829",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-12-19T08:27:20Z",
       "side": 1,
       "message": "Out of curiosity: Why do we throw an error here, if we directly handle it in the next line (instead of an if/else case based on `cursor.firstChild()`? I.e. we won\u0027t see the error in the console right?)",
+      "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27c1bff_bd25303a",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-19T08:47:36Z",
+      "side": 1,
+      "message": "The call to `parse` above throws for everything that\u0027s not a method definition, so we need the nested `try`-blocks here.",
+      "parentUuid": "87ae4418_7b2d2829",
       "revId": "b70e0e8a10829c20528dda6414a6dbe364969abb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
