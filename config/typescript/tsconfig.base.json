@@ -13,6 +13,9 @@
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": false,
 
+    // Only use decorators for the Lit experiment.
+    "experimentalDecorators": true,
+
     "composite": true,
     "declaration": true,
 
