@@ -1,13 +1,3 @@
-/// <reference types="trusted-types" />
-/**
- * @license
- * Copyright 2019 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-/**
- * Whether the current browser supports `adoptedStyleSheets`.
- */
-declare const supportsAdoptingStyleSheets: boolean;
 /**
  * A CSSResult or native CSSStyleSheet.
  *
@@ -37,34 +27,6 @@ declare class CSSResult {
     get styleSheet(): CSSStyleSheet | undefined;
     toString(): string;
 }
-/**
- * Wrap a value for interpolation in a {@linkcode css} tagged template literal.
- *
- * This is unsafe because untrusted CSS text can be used to phone home
- * or exfiltrate data to an attacker controlled site. Take care to only use
- * this with trusted input.
- */
-declare const unsafeCSS: (value: unknown) => CSSResult;
-/**
- * A template literal tag which can be used with LitElement's
- * {@linkcode LitElement.styles} property to set element styles.
- *
- * For security reasons, only literal string values and number may be used in
- * embedded expressions. To incorporate non-literal values {@linkcode unsafeCSS}
- * may be used inside an expression.
- */
-declare const css: (strings: TemplateStringsArray, ...values: (CSSResultGroup | number)[]) => CSSResult;
-/**
- * Applies the given styles to a `shadowRoot`. When Shadow DOM is
- * available but `adoptedStyleSheets` is not, styles are appended to the
- * `shadowRoot` to [mimic spec behavior](https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets).
- * Note, when shimming is used, any styles that are subsequently placed into
- * the shadowRoot should be placed *before* any shimmed adopted styles. This
- * will match spec behavior that gives adopted sheets precedence over styles in
- * shadowRoot.
- */
-declare const adoptStyles: (renderRoot: ShadowRoot, styles: Array<CSSResultOrNative>) => void;
-declare const getCompatibleStyle: (s: CSSResultOrNative) => CSSResultOrNative;
 
 /**
  * @license
@@ -149,29 +111,6 @@ interface ReactiveController {
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-/**
- * Contains types that are part of the unstable debug API.
- *
- * Everything in this API is not stable and may change or be removed in the future,
- * even on patch releases.
- */
-declare namespace ReactiveUnstable {
-    /**
-     * When Lit is running in dev mode and `window.emitLitDebugLogEvents` is true,
-     * we will emit 'lit-debug' events to window, with live details about the update and render
-     * lifecycle. These can be useful for writing debug tooling and visualizations.
-     *
-     * Please be aware that running with window.emitLitDebugLogEvents has performance overhead,
-     * making certain operations that are normally very cheap (like a no-op render) much slower,
-     * because we must copy data and dispatch events.
-     */
-    namespace DebugLog {
-        type Entry = Update;
-        interface Update {
-            kind: 'update';
-        }
-    }
-}
 /**
  * Converts property values to and from attribute values.
  */
@@ -284,15 +223,6 @@ interface PropertyValueMap<T> extends Map<PropertyKey, unknown> {
     has<K extends keyof T>(k: K): boolean;
     delete<K extends keyof T>(k: K): boolean;
 }
-declare const defaultConverter: ComplexAttributeConverter;
-interface HasChanged {
-    (value: unknown, old: unknown): boolean;
-}
-/**
- * Change function that returns true if `value` is different from `oldValue`.
- * This method is used as the default for a property's `hasChanged` function.
- */
-declare const notEqual: HasChanged;
 /**
  * The Closure JS Compiler doesn't currently have good support for static
  * property semantics where "this" is dynamic (e.g.
@@ -868,44 +798,22 @@ declare abstract class ReactiveElement extends HTMLElement implements ReactiveCo
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-declare const PartType: {
-    readonly ATTRIBUTE: 1;
-    readonly CHILD: 2;
-    readonly PROPERTY: 3;
-    readonly BOOLEAN_ATTRIBUTE: 4;
-    readonly EVENT: 5;
-    readonly ELEMENT: 6;
+declare type Constructor<T> = {
+    new (...args: any[]): T;
 };
-declare type PartType = typeof PartType[keyof typeof PartType];
-interface ChildPartInfo {
-    readonly type: typeof PartType.CHILD;
+interface ClassDescriptor {
+    kind: 'class';
+    elements: ClassElement[];
+    finisher?: <T>(clazz: Constructor<T>) => void | Constructor<T>;
 }
-interface AttributePartInfo {
-    readonly type: typeof PartType.ATTRIBUTE | typeof PartType.PROPERTY | typeof PartType.BOOLEAN_ATTRIBUTE | typeof PartType.EVENT;
-    readonly strings?: ReadonlyArray<string>;
-    readonly name: string;
-    readonly tagName: string;
-}
-interface ElementPartInfo {
-    readonly type: typeof PartType.ELEMENT;
-}
-/**
- * Information about the part a directive is bound to.
- *
- * This is useful for checking that a directive is attached to a valid part,
- * such as with directive that can only be used on attribute bindings.
- */
-declare type PartInfo = ChildPartInfo | AttributePartInfo | ElementPartInfo;
-/**
- * Base class for creating custom directives. Users should extend this class,
- * implement `render` and/or `update`, and then pass their subclass to
- * `directive`.
- */
-declare abstract class Directive implements Disconnectable {
-    constructor(_partInfo: PartInfo);
-    get _$isConnected(): boolean;
-    abstract render(...props: Array<unknown>): unknown;
-    update(_part: Part, props: Array<unknown>): unknown;
+interface ClassElement {
+    kind: 'field' | 'method';
+    key: PropertyKey;
+    placement: 'static' | 'prototype' | 'own';
+    initializer?: Function;
+    extras?: ClassElement[];
+    finisher?: <T>(clazz: Constructor<T>) => void | Constructor<T>;
+    descriptor?: PropertyDescriptor;
 }
 
 /**
@@ -915,533 +823,24 @@ declare abstract class Directive implements Disconnectable {
  */
 
 /**
- * Contains types that are part of the unstable debug API.
- *
- * Everything in this API is not stable and may change or be removed in the future,
- * even on patch releases.
+ * Allow for custom element classes with private constructors
  */
-declare namespace LitUnstable {
-    /**
-     * When Lit is running in dev mode and `window.emitLitDebugLogEvents` is true,
-     * we will emit 'lit-debug' events to window, with live details about the update and render
-     * lifecycle. These can be useful for writing debug tooling and visualizations.
-     *
-     * Please be aware that running with window.emitLitDebugLogEvents has performance overhead,
-     * making certain operations that are normally very cheap (like a no-op render) much slower,
-     * because we must copy data and dispatch events.
-     */
-    namespace DebugLog {
-        type Entry = TemplatePrep | TemplateInstantiated | TemplateInstantiatedAndUpdated | TemplateUpdating | BeginRender | EndRender | CommitPartEntry | SetPartValue;
-        interface TemplatePrep {
-            kind: 'template prep';
-            template: Template;
-            strings: TemplateStringsArray;
-            clonableTemplate: HTMLTemplateElement;
-            parts: TemplatePart[];
-        }
-        interface BeginRender {
-            kind: 'begin render';
-            id: number;
-            value: unknown;
-            container: HTMLElement | DocumentFragment;
-            options: RenderOptions | undefined;
-            part: ChildPart | undefined;
-        }
-        interface EndRender {
-            kind: 'end render';
-            id: number;
-            value: unknown;
-            container: HTMLElement | DocumentFragment;
-            options: RenderOptions | undefined;
-            part: ChildPart;
-        }
-        interface TemplateInstantiated {
-            kind: 'template instantiated';
-            template: Template | CompiledTemplate;
-            instance: TemplateInstance;
-            options: RenderOptions | undefined;
-            fragment: Node;
-            parts: Array<Part | undefined>;
-            values: unknown[];
-        }
-        interface TemplateInstantiatedAndUpdated {
-            kind: 'template instantiated and updated';
-            template: Template | CompiledTemplate;
-            instance: TemplateInstance;
-            options: RenderOptions | undefined;
-            fragment: Node;
-            parts: Array<Part | undefined>;
-            values: unknown[];
-        }
-        interface TemplateUpdating {
-            kind: 'template updating';
-            template: Template | CompiledTemplate;
-            instance: TemplateInstance;
-            options: RenderOptions | undefined;
-            parts: Array<Part | undefined>;
-            values: unknown[];
-        }
-        interface SetPartValue {
-            kind: 'set part';
-            part: Part;
-            value: unknown;
-            valueIndex: number;
-            values: unknown[];
-            templateInstance: TemplateInstance;
-        }
-        type CommitPartEntry = CommitNothingToChildEntry | CommitText | CommitNode | CommitAttribute | CommitProperty | CommitBooleanAttribute | CommitEventListener | CommitToElementBinding;
-        interface CommitNothingToChildEntry {
-            kind: 'commit nothing to child';
-            start: ChildNode;
-            end: ChildNode | null;
-            parent: Disconnectable | undefined;
-            options: RenderOptions | undefined;
-        }
-        interface CommitText {
-            kind: 'commit text';
-            node: Text;
-            value: unknown;
-            options: RenderOptions | undefined;
-        }
-        interface CommitNode {
-            kind: 'commit node';
-            start: Node;
-            parent: Disconnectable | undefined;
-            value: Node;
-            options: RenderOptions | undefined;
-        }
-        interface CommitAttribute {
-            kind: 'commit attribute';
-            element: Element;
-            name: string;
-            value: unknown;
-            options: RenderOptions | undefined;
-        }
-        interface CommitProperty {
-            kind: 'commit property';
-            element: Element;
-            name: string;
-            value: unknown;
-            options: RenderOptions | undefined;
-        }
-        interface CommitBooleanAttribute {
-            kind: 'commit boolean attribute';
-            element: Element;
-            name: string;
-            value: boolean;
-            options: RenderOptions | undefined;
-        }
-        interface CommitEventListener {
-            kind: 'commit event listener';
-            element: Element;
-            name: string;
-            value: unknown;
-            oldListener: unknown;
-            options: RenderOptions | undefined;
-            removeListener: boolean;
-            addListener: boolean;
-        }
-        interface CommitToElementBinding {
-            kind: 'commit to element binding';
-            element: Element;
-            value: unknown;
-            options: RenderOptions | undefined;
-        }
-    }
-}
+declare type CustomElementClass = Omit<typeof HTMLElement, 'new'>;
 /**
- * Used to sanitize any value before it is written into the DOM. This can be
- * used to implement a security policy of allowed and disallowed values in
- * order to prevent XSS attacks.
- *
- * One way of using this callback would be to check attributes and properties
- * against a list of high risk fields, and require that values written to such
- * fields be instances of a class which is safe by construction. Closure's Safe
- * HTML Types is one implementation of this technique (
- * https://github.com/google/safe-html-types/blob/master/doc/safehtml-types.md).
- * The TrustedTypes polyfill in API-only mode could also be used as a basis
- * for this technique (https://github.com/WICG/trusted-types).
- *
- * @param node The HTML node (usually either a #text node or an Element) that
- *     is being written to. Note that this is just an exemplar node, the write
- *     may take place against another instance of the same class of node.
- * @param name The name of an attribute or property (for example, 'href').
- * @param type Indicates whether the write that's about to be performed will
- *     be to a property or a node.
- * @return A function that will sanitize this class of writes.
- */
-declare type SanitizerFactory = (node: Node, name: string, type: 'property' | 'attribute') => ValueSanitizer;
-/**
- * A function which can sanitize values that will be written to a specific kind
- * of DOM sink.
- *
- * See SanitizerFactory.
- *
- * @param value The value to sanitize. Will be the actual value passed into
- *     the lit-html template literal, so this could be of any type.
- * @return The value to write to the DOM. Usually the same as the input value,
- *     unless sanitization is needed.
- */
-declare type ValueSanitizer = (value: unknown) => unknown;
-/** TemplateResult types */
-declare const HTML_RESULT = 1;
-declare const SVG_RESULT = 2;
-declare type ResultType = typeof HTML_RESULT | typeof SVG_RESULT;
-declare const ATTRIBUTE_PART = 1;
-declare const CHILD_PART = 2;
-declare const ELEMENT_PART = 6;
-declare const COMMENT_PART = 7;
-/**
- * The return type of the template tag functions, {@linkcode html} and
- * {@linkcode svg}.
- *
- * A `TemplateResult` object holds all the information about a template
- * expression required to render it: the template strings, expression values,
- * and type of template (html or svg).
- *
- * `TemplateResult` objects do not create any DOM on their own. To create or
- * update DOM you need to render the `TemplateResult`. See
- * [Rendering](https://lit.dev/docs/components/rendering) for more information.
- *
- */
-declare type TemplateResult<T extends ResultType = ResultType> = {
-    ['_$litType$']: T;
-    strings: TemplateStringsArray;
-    values: unknown[];
-};
-declare type HTMLTemplateResult = TemplateResult<typeof HTML_RESULT>;
-declare type SVGTemplateResult = TemplateResult<typeof SVG_RESULT>;
-interface CompiledTemplateResult {
-    ['_$litType$']: CompiledTemplate;
-    values: unknown[];
-}
-interface CompiledTemplate extends Omit<Template, 'el'> {
-    el?: HTMLTemplateElement;
-    h: TrustedHTML;
-}
-/**
- * Interprets a template literal as an HTML template that can efficiently
- * render to and update a container.
- *
- * ```ts
- * const header = (title: string) => html`<h1>${title}</h1>`;
- * ```
- *
- * The `html` tag returns a description of the DOM to render as a value. It is
- * lazy, meaning no work is done until the template is rendered. When rendering,
- * if a template comes from the same expression as a previously rendered result,
- * it's efficiently updated instead of replaced.
- */
-declare const html: (strings: TemplateStringsArray, ...values: unknown[]) => TemplateResult<1>;
-/**
- * Interprets a template literal as an SVG fragment that can efficiently
- * render to and update a container.
- *
- * ```ts
- * const rect = svg`<rect width="10" height="10"></rect>`;
- *
- * const myImage = html`
- *   <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
- *     ${rect}
- *   </svg>`;
- * ```
- *
- * The `svg` *tag function* should only be used for SVG fragments, or elements
- * that would be contained **inside** an `<svg>` HTML element. A common error is
- * placing an `<svg>` *element* in a template tagged with the `svg` tag
- * function. The `<svg>` element is an HTML element and should be used within a
- * template tagged with the {@linkcode html} tag function.
- *
- * In LitElement usage, it's invalid to return an SVG fragment from the
- * `render()` method, as the SVG fragment will be contained within the element's
- * shadow root and thus cannot be used within an `<svg>` HTML element.
- */
-declare const svg: (strings: TemplateStringsArray, ...values: unknown[]) => TemplateResult<2>;
-/**
- * A sentinel value that signals that a value was handled by a directive and
- * should not be written to the DOM.
- */
-declare const noChange: unique symbol;
-/**
- * A sentinel value that signals a ChildPart to fully clear its content.
- *
- * ```ts
- * const button = html`${
- *  user.isAdmin
- *    ? html`<button>DELETE</button>`
- *    : nothing
- * }`;
- * ```
- *
- * Prefer using `nothing` over other falsy values as it provides a consistent
- * behavior between various expression binding contexts.
- *
- * In child expressions, `undefined`, `null`, `''`, and `nothing` all behave the
- * same and render no nodes. In attribute expressions, `nothing` _removes_ the
- * attribute, while `undefined` and `null` will render an empty string. In
- * property expressions `nothing` becomes `undefined`.
- */
-declare const nothing: unique symbol;
-/**
- * Object specifying options for controlling lit-html rendering. Note that
- * while `render` may be called multiple times on the same `container` (and
- * `renderBefore` reference node) to efficiently update the rendered content,
- * only the options passed in during the first render are respected during
- * the lifetime of renders to that unique `container` + `renderBefore`
- * combination.
- */
-interface RenderOptions {
-    /**
-     * An object to use as the `this` value for event listeners. It's often
-     * useful to set this to the host component rendering a template.
-     */
-    host?: object;
-    /**
-     * A DOM node before which to render content in the container.
-     */
-    renderBefore?: ChildNode | null;
-    /**
-     * Node used for cloning the template (`importNode` will be called on this
-     * node). This controls the `ownerDocument` of the rendered DOM, along with
-     * any inherited context. Defaults to the global `document`.
-     */
-    creationScope?: {
-        importNode(node: Node, deep?: boolean): Node;
-    };
-    /**
-     * The initial connected state for the top-level part being rendered. If no
-     * `isConnected` option is set, `AsyncDirective`s will be connected by
-     * default. Set to `false` if the initial render occurs in a disconnected tree
-     * and `AsyncDirective`s should see `isConnected === false` for their initial
-     * render. The `part.setConnected()` method must be used subsequent to initial
-     * render to change the connected state of the part.
-     */
-    isConnected?: boolean;
-}
-interface DirectiveParent {
-    _$parent?: DirectiveParent;
-    _$isConnected: boolean;
-    __directive?: Directive;
-    __directives?: Array<Directive | undefined>;
-}
-declare class Template {
-    constructor({ strings, ['_$litType$']: type }: TemplateResult, options?: RenderOptions);
-    /** @nocollapse */
-    static createElement(html: TrustedHTML, _options?: RenderOptions): HTMLTemplateElement;
-}
-interface Disconnectable {
-    _$parent?: Disconnectable;
-    _$disconnectableChildren?: Set<Disconnectable>;
-    _$isConnected: boolean;
-}
-declare function resolveDirective(part: ChildPart | AttributePart | ElementPart, value: unknown, parent?: DirectiveParent, attributeIndex?: number): unknown;
-/**
- * An updateable instance of a Template. Holds references to the Parts used to
- * update the template instance.
- */
-declare class TemplateInstance implements Disconnectable {
-    constructor(template: Template, parent: ChildPart);
-    get parentNode(): Node;
-    get _$isConnected(): boolean;
-    _clone(options: RenderOptions | undefined): Node;
-    _update(values: Array<unknown>): void;
-}
-declare type AttributeTemplatePart = {
-    readonly type: typeof ATTRIBUTE_PART;
-    readonly index: number;
-    readonly name: string;
-};
-declare type NodeTemplatePart = {
-    readonly type: typeof CHILD_PART;
-    readonly index: number;
-};
-declare type ElementTemplatePart = {
-    readonly type: typeof ELEMENT_PART;
-    readonly index: number;
-};
-declare type CommentTemplatePart = {
-    readonly type: typeof COMMENT_PART;
-    readonly index: number;
-};
-/**
- * A TemplatePart represents a dynamic part in a template, before the template
- * is instantiated. When a template is instantiated Parts are created from
- * TemplateParts.
- */
-declare type TemplatePart = NodeTemplatePart | AttributeTemplatePart | ElementTemplatePart | CommentTemplatePart;
-declare type Part = ChildPart | AttributePart | PropertyPart | BooleanAttributePart | ElementPart | EventPart;
-
-declare class ChildPart implements Disconnectable {
-    readonly type = 2;
-    readonly options: RenderOptions | undefined;
-    _$committedValue: unknown;
-    private _textSanitizer;
-    get _$isConnected(): boolean;
-    constructor(startNode: ChildNode, endNode: ChildNode | null, parent: TemplateInstance | ChildPart | undefined, options: RenderOptions | undefined);
-    /**
-     * The parent node into which the part renders its content.
-     *
-     * A ChildPart's content consists of a range of adjacent child nodes of
-     * `.parentNode`, possibly bordered by 'marker nodes' (`.startNode` and
-     * `.endNode`).
-     *
-     * - If both `.startNode` and `.endNode` are non-null, then the part's content
-     * consists of all siblings between `.startNode` and `.endNode`, exclusively.
-     *
-     * - If `.startNode` is non-null but `.endNode` is null, then the part's
-     * content consists of all siblings following `.startNode`, up to and
-     * including the last child of `.parentNode`. If `.endNode` is non-null, then
-     * `.startNode` will always be non-null.
-     *
-     * - If both `.endNode` and `.startNode` are null, then the part's content
-     * consists of all child nodes of `.parentNode`.
-     */
-    get parentNode(): Node;
-    /**
-     * The part's leading marker node, if any. See `.parentNode` for more
-     * information.
-     */
-    get startNode(): Node | null;
-    /**
-     * The part's trailing marker node, if any. See `.parentNode` for more
-     * information.
-     */
-    get endNode(): Node | null;
-    _$setValue(value: unknown, directiveParent?: DirectiveParent): void;
-    private _insert;
-    private _commitNode;
-    private _commitText;
-    private _commitTemplateResult;
-    private _commitIterable;
-}
-/**
- * A top-level `ChildPart` returned from `render` that manages the connected
- * state of `AsyncDirective`s created throughout the tree below it.
- */
-interface RootPart extends ChildPart {
-    /**
-     * Sets the connection state for `AsyncDirective`s contained within this root
-     * ChildPart.
-     *
-     * lit-html does not automatically monitor the connectedness of DOM rendered;
-     * as such, it is the responsibility of the caller to `render` to ensure that
-     * `part.setConnected(false)` is called before the part object is potentially
-     * discarded, to ensure that `AsyncDirective`s have a chance to dispose of
-     * any resources being held. If a `RootPart` that was prevously
-     * disconnected is subsequently re-connected (and its `AsyncDirective`s should
-     * re-connect), `setConnected(true)` should be called.
-     *
-     * @param isConnected Whether directives within this tree should be connected
-     * or not
-     */
-    setConnected(isConnected: boolean): void;
-}
-
-declare class AttributePart implements Disconnectable {
-    readonly type: 1 | 3 | 4 | 5;
-    readonly element: HTMLElement;
-    readonly name: string;
-    readonly options: RenderOptions | undefined;
-    /**
-     * If this attribute part represents an interpolation, this contains the
-     * static strings of the interpolation. For single-value, complete bindings,
-     * this is undefined.
-     */
-    readonly strings?: ReadonlyArray<string>;
-    protected _sanitizer: ValueSanitizer | undefined;
-    get tagName(): string;
-    get _$isConnected(): boolean;
-    constructor(element: HTMLElement, name: string, strings: ReadonlyArray<string>, parent: Disconnectable, options: RenderOptions | undefined);
-}
-
-declare class PropertyPart extends AttributePart {
-    readonly type = 3;
-}
-
-declare class BooleanAttributePart extends AttributePart {
-    readonly type = 4;
-}
-
-declare class EventPart extends AttributePart {
-    readonly type = 5;
-    constructor(element: HTMLElement, name: string, strings: ReadonlyArray<string>, parent: Disconnectable, options: RenderOptions | undefined);
-    handleEvent(event: Event): void;
-}
-
-declare class ElementPart implements Disconnectable {
-    element: Element;
-    readonly type = 6;
-    _$committedValue: undefined;
-    options: RenderOptions | undefined;
-    constructor(element: Element, parent: Disconnectable, options: RenderOptions | undefined);
-    get _$isConnected(): boolean;
-    _$setValue(value: unknown): void;
-}
-/**
- * END USERS SHOULD NOT RELY ON THIS OBJECT.
- *
- * Private exports for use by other Lit packages, not intended for use by
- * external users.
- *
- * We currently do not make a mangled rollup build of the lit-ssr code. In order
- * to keep a number of (otherwise private) top-level exports  mangled in the
- * client side code, we export a _$LH object containing those members (or
- * helper methods for accessing private fields of those members), and then
- * re-export them for use in lit-ssr. This keeps lit-ssr agnostic to whether the
- * client-side code is being used in `dev` mode or `prod` mode.
- *
- * This has a unique name, to disambiguate it from private exports in
- * lit-element, which re-exports all of lit-html.
- *
- * @private
- */
-declare const _$LH: {
-    _boundAttributeSuffix: string;
-    _marker: string;
-    _markerMatch: string;
-    _HTML_RESULT: number;
-    _getTemplateHtml: (strings: TemplateStringsArray, type: ResultType) => [TrustedHTML, Array<string | undefined>];
-    _TemplateInstance: typeof TemplateInstance;
-    _isIterable: (value: unknown) => value is Iterable<unknown>;
-    _resolveDirective: typeof resolveDirective;
-    _ChildPart: typeof ChildPart;
-    _AttributePart: typeof AttributePart;
-    _BooleanAttributePart: typeof BooleanAttributePart;
-    _EventPart: typeof EventPart;
-    _PropertyPart: typeof PropertyPart;
-    _ElementPart: typeof ElementPart;
-};
-/**
- * Renders a value, usually a lit-html TemplateResult, to the container.
- *
- * This example renders the text "Hello, Zoe!" inside a paragraph tag, appending
- * it to the container `document.body`.
+ * Class decorator factory that defines the decorated class as a custom element.
  *
  * ```js
- * import {html, render} from 'lit';
- *
- * const name = "Zoe";
- * render(html`<p>Hello, ${name}!</p>`, document.body);
+ * @customElement('my-element')
+ * class MyElement extends LitElement {
+ *   render() {
+ *     return html``;
+ *   }
+ * }
  * ```
- *
- * @param value Any [renderable
- *   value](https://lit.dev/docs/templates/expressions/#child-expressions),
- *   typically a {@linkcode TemplateResult} created by evaluating a template tag
- *   like {@linkcode html} or {@linkcode svg}.
- * @param container A DOM container to render to. The first render will append
- *   the rendered value to the container, and subsequent renders will
- *   efficiently update the rendered value if the same result type was
- *   previously rendered there.
- * @param options See {@linkcode RenderOptions} for options documentation.
- * @see
- * {@link https://lit.dev/docs/libraries/standalone-templates/#rendering-lit-html-templates| Rendering Lit HTML Templates}
+ * @category Decorator
+ * @param tagName The tag name of the custom element to define.
  */
-declare const render: {
-    (value: unknown, container: HTMLElement | DocumentFragment, options?: RenderOptions): RootPart;
-    setSanitizer: (newSanitizer: SanitizerFactory) => void;
-    createSanitizer: SanitizerFactory;
-    _testOnlyClearSanitizerFactoryDoNotCallOrElse: () => void;
-};
+declare const customElement: (tagName: string) => (classOrDescriptor: CustomElementClass | ClassDescriptor) => any;
 
 /**
  * @license
@@ -1450,148 +849,303 @@ declare const render: {
  */
 
 /**
- * Contains types that are part of the unstable debug API.
+ * A property decorator which creates a reactive property that reflects a
+ * corresponding attribute value. When a decorated property is set
+ * the element will update and render. A {@linkcode PropertyDeclaration} may
+ * optionally be supplied to configure property features.
  *
- * Everything in this API is not stable and may change or be removed in the future,
- * even on patch releases.
+ * This decorator should only be used for public fields. As public fields,
+ * properties should be considered as primarily settable by element users,
+ * either via attribute or the property itself.
+ *
+ * Generally, properties that are changed by the element should be private or
+ * protected fields and should use the {@linkcode state} decorator.
+ *
+ * However, sometimes element code does need to set a public property. This
+ * should typically only be done in response to user interaction, and an event
+ * should be fired informing the user; for example, a checkbox sets its
+ * `checked` property when clicked and fires a `changed` event. Mutating public
+ * properties should typically not be done for non-primitive (object or array)
+ * properties. In other cases when an element needs to manage state, a private
+ * property decorated via the {@linkcode state} decorator should be used. When
+ * needed, state properties can be initialized via public properties to
+ * facilitate complex interactions.
+ *
+ * ```ts
+ * class MyElement {
+ *   @property({ type: Boolean })
+ *   clicked = false;
+ * }
+ * ```
+ * @category Decorator
+ * @ExportDecoratedItems
  */
-declare namespace Unstable {
-    /**
-     * When Lit is running in dev mode and `window.emitLitDebugLogEvents` is true,
-     * we will emit 'lit-debug' events to window, with live details about the update and render
-     * lifecycle. These can be useful for writing debug tooling and visualizations.
-     *
-     * Please be aware that running with window.emitLitDebugLogEvents has performance overhead,
-     * making certain operations that are normally very cheap (like a no-op render) much slower,
-     * because we must copy data and dispatch events.
-     */
-    namespace DebugLog {
-        type Entry = LitUnstable.DebugLog.Entry | ReactiveUnstable.DebugLog.Entry;
-    }
-}
-declare const UpdatingElement: typeof ReactiveElement;
-/**
- * Base element class that manages element properties and attributes, and
- * renders a lit-html template.
- *
- * To define a component, subclass `LitElement` and implement a
- * `render` method to provide the component's template. Define properties
- * using the {@linkcode LitElement.properties properties} property or the
- * {@linkcode property} decorator.
- */
-declare class LitElement extends ReactiveElement {
-    /**
-     * Ensure this class is marked as `finalized` as an optimization ensuring
-     * it will not needlessly try to `finalize`.
-     *
-     * Note this property name is a string to prevent breaking Closure JS Compiler
-     * optimizations. See @lit/reactive-element for more information.
-     */
-    protected static ['finalized']: boolean;
-    static ['_$litElement$']: boolean;
-    /**
-     * @category rendering
-     */
-    readonly renderOptions: RenderOptions;
-    private __childPart;
-    /**
-     * @category rendering
-     */
-    protected createRenderRoot(): Element | ShadowRoot;
-    /**
-     * Updates the element. This method reflects property values to attributes
-     * and calls `render` to render DOM via lit-html. Setting properties inside
-     * this method will *not* trigger another update.
-     * @param changedProperties Map of changed properties with old values
-     * @category updates
-     */
-    protected update(changedProperties: PropertyValues): void;
-    /**
-     * Invoked when the component is added to the document's DOM.
-     *
-     * In `connectedCallback()` you should setup tasks that should only occur when
-     * the element is connected to the document. The most common of these is
-     * adding event listeners to nodes external to the element, like a keydown
-     * event handler added to the window.
-     *
-     * ```ts
-     * connectedCallback() {
-     *   super.connectedCallback();
-     *   addEventListener('keydown', this._handleKeydown);
-     * }
-     * ```
-     *
-     * Typically, anything done in `connectedCallback()` should be undone when the
-     * element is disconnected, in `disconnectedCallback()`.
-     *
-     * @category lifecycle
-     */
-    connectedCallback(): void;
-    /**
-     * Invoked when the component is removed from the document's DOM.
-     *
-     * This callback is the main signal to the element that it may no longer be
-     * used. `disconnectedCallback()` should ensure that nothing is holding a
-     * reference to the element (such as event listeners added to nodes external
-     * to the element), so that it is free to be garbage collected.
-     *
-     * ```ts
-     * disconnectedCallback() {
-     *   super.disconnectedCallback();
-     *   window.removeEventListener('keydown', this._handleKeydown);
-     * }
-     * ```
-     *
-     * An element may be re-connected after being disconnected.
-     *
-     * @category lifecycle
-     */
-    disconnectedCallback(): void;
-    /**
-     * Invoked on each update to perform rendering tasks. This method may return
-     * any value renderable by lit-html's `ChildPart` - typically a
-     * `TemplateResult`. Setting properties inside this method will *not* trigger
-     * the element to update.
-     * @category rendering
-     */
-    protected render(): unknown;
-}
-/**
- * END USERS SHOULD NOT RELY ON THIS OBJECT.
- *
- * Private exports for use by other Lit packages, not intended for use by
- * external users.
- *
- * We currently do not make a mangled rollup build of the lit-ssr code. In order
- * to keep a number of (otherwise private) top-level exports  mangled in the
- * client side code, we export a _$LE object containing those members (or
- * helper methods for accessing private fields of those members), and then
- * re-export them for use in lit-ssr. This keeps lit-ssr agnostic to whether the
- * client-side code is being used in `dev` mode or `prod` mode.
- *
- * This has a unique name, to disambiguate it from private exports in
- * lit-html, since this module re-exports all of lit-html.
- *
- * @private
- */
-declare const _$LE: {
-    _$attributeToProperty: (el: LitElement, name: string, value: string | null) => void;
-    _$changedProperties: (el: LitElement) => any;
-};
+declare function property(options?: PropertyDeclaration): (protoOrDescriptor: Object | ClassElement, name?: PropertyKey) => any;
 
 /**
  * @license
- * Copyright 2022 Google LLC
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+interface InternalPropertyDeclaration<Type = unknown> {
+    /**
+     * A function that indicates if a property should be considered changed when
+     * it is set. The function should take the `newValue` and `oldValue` and
+     * return `true` if an update should be requested.
+     */
+    hasChanged?(value: Type, oldValue: Type): boolean;
+}
+/**
+ * Declares a private or protected reactive property that still triggers
+ * updates to the element when it changes. It does not reflect from the
+ * corresponding attribute.
+ *
+ * Properties declared this way must not be used from HTML or HTML templating
+ * systems, they're solely for properties internal to the element. These
+ * properties may be renamed by optimization tools like closure compiler.
+ * @category Decorator
+ */
+declare function state(options?: InternalPropertyDeclaration): (protoOrDescriptor: Object | ClassElement, name?: PropertyKey | undefined) => any;
+
+/**
+ * Adds event listener options to a method used as an event listener in a
+ * lit-html template.
+ *
+ * @param options An object that specifies event listener options as accepted by
+ * `EventTarget#addEventListener` and `EventTarget#removeEventListener`.
+ *
+ * Current browsers support the `capture`, `passive`, and `once` options. See:
+ * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters
+ *
+ * ```ts
+ * class MyElement {
+ *   clicked = false;
+ *
+ *   render() {
+ *     return html`
+ *       <div @click=${this._onClick}>
+ *         <button></button>
+ *       </div>
+ *     `;
+ *   }
+ *
+ *   @eventOptions({capture: true})
+ *   _onClick(e) {
+ *     this.clicked = true;
+ *   }
+ * }
+ * ```
+ * @category Decorator
+ */
+declare function eventOptions(options: AddEventListenerOptions): (protoOrDescriptor: ReactiveElement | ClassElement, name?: PropertyKey | undefined) => any;
+
+/**
+ * A property decorator that converts a class property into a getter that
+ * executes a querySelector on the element's renderRoot.
+ *
+ * @param selector A DOMString containing one or more selectors to match.
+ * @param cache An optional boolean which when true performs the DOM query only
+ *     once and caches the result.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+ *
+ * ```ts
+ * class MyElement {
+ *   @query('#first')
+ *   first: HTMLDivElement;
+ *
+ *   render() {
+ *     return html`
+ *       <div id="first"></div>
+ *       <div id="second"></div>
+ *     `;
+ *   }
+ * }
+ * ```
+ * @category Decorator
+ */
+declare function query(selector: string, cache?: boolean): (protoOrDescriptor: ReactiveElement | ClassElement, name?: PropertyKey | undefined) => any;
+
+/**
+ * A property decorator that converts a class property into a getter
+ * that executes a querySelectorAll on the element's renderRoot.
+ *
+ * @param selector A DOMString containing one or more selectors to match.
+ *
+ * See:
+ * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+ *
+ * ```ts
+ * class MyElement {
+ *   @queryAll('div')
+ *   divs: NodeListOf<HTMLDivElement>;
+ *
+ *   render() {
+ *     return html`
+ *       <div id="first"></div>
+ *       <div id="second"></div>
+ *     `;
+ *   }
+ * }
+ * ```
+ * @category Decorator
+ */
+declare function queryAll(selector: string): (protoOrDescriptor: ReactiveElement | ClassElement, name?: PropertyKey | undefined) => any;
+
+/**
+ * A property decorator that converts a class property into a getter that
+ * returns a promise that resolves to the result of a querySelector on the
+ * element's renderRoot done after the element's `updateComplete` promise
+ * resolves. When the queried property may change with element state, this
+ * decorator can be used instead of requiring users to await the
+ * `updateComplete` before accessing the property.
+ *
+ * @param selector A DOMString containing one or more selectors to match.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+ *
+ * ```ts
+ * class MyElement {
+ *   @queryAsync('#first')
+ *   first: Promise<HTMLDivElement>;
+ *
+ *   render() {
+ *     return html`
+ *       <div id="first"></div>
+ *       <div id="second"></div>
+ *     `;
+ *   }
+ * }
+ *
+ * // external usage
+ * async doSomethingWithFirst() {
+ *  (await aMyElement.first).doSomething();
+ * }
+ * ```
+ * @category Decorator
+ */
+declare function queryAsync(selector: string): (protoOrDescriptor: ReactiveElement | ClassElement, name?: PropertyKey | undefined) => any;
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /**
- * A boolean that will be `true` in server environments like Node, and `false`
- * in browser environments. Note that your server environment or toolchain must
- * support the `"node"` export condition for this to be `true`.
- *
- * This can be used when authoring components to change behavior based on
- * whether or not the component is executing in an SSR context.
+ * Options for the {@linkcode queryAssignedNodes} decorator. Extends the options
+ * that can be passed into [HTMLSlotElement.assignedNodes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement/assignedNodes).
  */
-declare const isServer = false;
+interface QueryAssignedNodesOptions extends AssignedNodesOptions {
+    /**
+     * Name of the slot to query. Leave empty for the default slot.
+     */
+    slot?: string;
+}
+declare type TSDecoratorReturnType = void | any;
+/**
+ * A property decorator that converts a class property into a getter that
+ * returns the `assignedNodes` of the given `slot`.
+ *
+ * Can be passed an optional {@linkcode QueryAssignedNodesOptions} object.
+ *
+ * Example usage:
+ * ```ts
+ * class MyElement {
+ *   @queryAssignedNodes({slot: 'list', flatten: true})
+ *   listItems!: Array<Node>;
+ *
+ *   render() {
+ *     return html`
+ *       <slot name="list"></slot>
+ *     `;
+ *   }
+ * }
+ * ```
+ *
+ * Note the type of this property should be annotated as `Array<Node>`.
+ *
+ * @category Decorator
+ */
+declare function queryAssignedNodes(options?: QueryAssignedNodesOptions): TSDecoratorReturnType;
+/**
+ * A property decorator that converts a class property into a getter that
+ * returns the `assignedNodes` of the given named `slot`.
+ *
+ * Example usage:
+ * ```ts
+ * class MyElement {
+ *   @queryAssignedNodes('list', true, '.item')
+ *   listItems!: Array<HTMLElement>;
+ *
+ *   render() {
+ *     return html`
+ *       <slot name="list"></slot>
+ *     `;
+ *   }
+ * }
+ * ```
+ *
+ * Note the type of this property should be annotated as `Array<Node>` if used
+ * without a `selector` or `Array<HTMLElement>` if a selector is provided.
+ * Use {@linkcode queryAssignedElements @queryAssignedElements} to list only
+ * elements, and optionally filter the element list using a CSS selector.
+ *
+ * @param slotName A string name of the slot.
+ * @param flatten A boolean which when true flattens the assigned nodes,
+ *     meaning any assigned nodes that are slot elements are replaced with their
+ *     assigned nodes.
+ * @param selector A CSS selector used to filter the elements returned.
+ *
+ * @category Decorator
+ * @deprecated Prefer passing in a single options object, i.e. `{slot: 'list'}`.
+ * If using `selector` please use `@queryAssignedElements`.
+ * `@queryAssignedNodes('', false, '.item')` is functionally identical to
+ * `@queryAssignedElements({slot: '', flatten: false, selector: '.item'})` or
+ * `@queryAssignedElements({selector: '.item'})`.
+ */
+declare function queryAssignedNodes(slotName?: string, flatten?: boolean, selector?: string): TSDecoratorReturnType;
 
-export { AttributePart, BooleanAttributePart, CSSResult, CSSResultArray, CSSResultGroup, CSSResultOrNative, ChildPart, CompiledTemplate, CompiledTemplateResult, ComplexAttributeConverter, DirectiveParent, Disconnectable, ElementPart, EventPart, HTMLTemplateResult, HasChanged, Initializer, LitElement, LitUnstable, Part, PropertyDeclaration, PropertyDeclarations, PropertyPart, PropertyValueMap, PropertyValues, ReactiveController, ReactiveControllerHost, ReactiveElement, ReactiveUnstable, RenderOptions, RootPart, SVGTemplateResult, SanitizerFactory, TemplateResult, Unstable, UpdatingElement, ValueSanitizer, WarningKind, _$LE, _$LH, adoptStyles, css, defaultConverter, getCompatibleStyle, html, isServer, noChange, notEqual, nothing, render, supportsAdoptingStyleSheets, svg, unsafeCSS };
+/**
+ * Options for the {@linkcode queryAssignedElements} decorator. Extends the
+ * options that can be passed into
+ * [HTMLSlotElement.assignedElements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement/assignedElements).
+ */
+interface QueryAssignedElementsOptions extends QueryAssignedNodesOptions {
+    /**
+     * CSS selector used to filter the elements returned. For example, a selector
+     * of `".item"` will only include elements with the `item` class.
+     */
+    selector?: string;
+}
+/**
+ * A property decorator that converts a class property into a getter that
+ * returns the `assignedElements` of the given `slot`. Provides a declarative
+ * way to use
+ * [`HTMLSlotElement.assignedElements`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement/assignedElements).
+ *
+ * Can be passed an optional {@linkcode QueryAssignedElementsOptions} object.
+ *
+ * Example usage:
+ * ```ts
+ * class MyElement {
+ *   @queryAssignedElements({ slot: 'list' })
+ *   listItems!: Array<HTMLElement>;
+ *   @queryAssignedElements()
+ *   unnamedSlotEls!: Array<HTMLElement>;
+ *
+ *   render() {
+ *     return html`
+ *       <slot name="list"></slot>
+ *       <slot></slot>
+ *     `;
+ *   }
+ * }
+ * ```
+ *
+ * Note, the type of this property should be annotated as `Array<HTMLElement>`.
+ *
+ * @category Decorator
+ */
+declare function queryAssignedElements(options?: QueryAssignedElementsOptions): (protoOrDescriptor: ReactiveElement | ClassElement, name?: PropertyKey | undefined) => any;
+
+export { InternalPropertyDeclaration, QueryAssignedElementsOptions, QueryAssignedNodesOptions, customElement, eventOptions, property, query, queryAll, queryAssignedElements, queryAssignedNodes, queryAsync, state };

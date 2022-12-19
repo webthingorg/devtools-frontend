@@ -8,7 +8,7 @@ import * as Static from './static.js';
 
 export {Directive, type TemplateResult} from '../../third_party/lit/lit.js';
 
-const {render, svg, nothing, noChange, LitElement, Directives} = Lit;
+const {render, svg, nothing, noChange, LitElement, Directives, Decorators} = Lit;
 const {html, literal, flattenTemplate} = Static;
 
 type LitTemplate = Lit.TemplateResult|typeof nothing;
@@ -19,6 +19,7 @@ export {
   noChange,
   LitElement,
   Directives,
+  Decorators,
   svg,
   html,
   literal,
