@@ -282,6 +282,7 @@ function getDetailedTextForStatusCode(status: Protocol.Network.TrustTokenOperati
     case Protocol.Network.TrustTokenOperationDoneEventStatus.UnknownError:
       return i18nString(UIStrings.theOperationFailedForAnUnknown);
   }
+  return null;
 }
 
 function renderSimpleRowIfValuePresent<T>(key: string, value: T|undefined): LitHtml.LitTemplate {
