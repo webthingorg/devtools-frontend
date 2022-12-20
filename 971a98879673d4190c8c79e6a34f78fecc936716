@@ -63,6 +63,30 @@
       },
       "revId": "971a98879673d4190c8c79e6a34f78fecc936716",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52725dbd_bbba18fa",
+        "filename": "front_end/panels/network/components/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-20T15:06:20Z",
+      "side": 1,
+      "message": "Well, this is probably because you have unhandled case in the switch statement above. This is the only way you can get past the switch statement. \nI believe the right thing to do is handle the new value (\"Unauthorized\") instead of retuning null.",
+      "parentUuid": "0e285932_d1cc34fb",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 14
+      },
+      "revId": "971a98879673d4190c8c79e6a34f78fecc936716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
