@@ -11,7 +11,7 @@ const {assert} = chai;
 import {describeWithDummyExtension} from './helpers.js';
 
 describeWithDummyExtension('Extensions', context => {
-  it('can register a recorder extension', async () => {
+  it('can register a recorder extension for export', async () => {
     class RecorderPlugin {
       async stringify(recording: object) {
         return JSON.stringify(recording);
@@ -20,8 +20,8 @@ describeWithDummyExtension('Extensions', context => {
         return JSON.stringify(step);
       }
     }
-    await context.chrome.devtools?.recorder.registerRecorderExtensionPlugin(
-        new RecorderPlugin(), 'Test', 'text/javascript');
+    const extensionPlugin = new RecorderPlugin();
+    await context.chrome.devtools?.recorder.registerRecorderExtensionPlugin(extensionPlugin, 'Test', 'text/javascript');
 
     const manager = Extensions.RecorderPluginManager.RecorderPluginManager.instance();
     assert.strictEqual(manager.plugins().length, 1);
@@ -39,8 +39,37 @@ describeWithDummyExtension('Extensions', context => {
     assert.strictEqual(manager.plugins().length, 1);
     assert.strictEqual(manager.plugins()[0].getMediaType(), 'text/javascript');
     assert.strictEqual(manager.plugins()[0].getName(), 'Test');
+    assert.deepStrictEqual(manager.plugins()[0].getCapabilities(), ['export']);
     assert.deepStrictEqual(result, '{"name":"test","steps":[]}');
     assert.deepStrictEqual(stepResult, '{"type":"scroll"}');
+
+    await context.chrome.devtools?.recorder.unregisterRecorderExtensionPlugin(extensionPlugin);
+  });
+
+  it('can register a recorder extension for replay', async () => {
+    class RecorderPlugin {
+      async replay(_recording: object) {
+        return;
+      }
+    }
+    const extensionPlugin = new RecorderPlugin();
+    await context.chrome.devtools?.recorder.registerRecorderExtensionPlugin(extensionPlugin, 'Replay');
+
+    const manager = Extensions.RecorderPluginManager.RecorderPluginManager.instance();
+    assert.strictEqual(manager.plugins().length, 1);
+    const plugin = manager.plugins()[0];
+
+    await plugin.replay({
+      name: 'test',
+      steps: [],
+    });
+
+    assert.strictEqual(manager.plugins().length, 1);
+    assert.deepStrictEqual(manager.plugins()[0].getCapabilities(), ['replay']);
+    assert.strictEqual(manager.plugins()[0].getMediaType(), 'text/javascript');
+    assert.strictEqual(manager.plugins()[0].getName(), 'Replay');
+
+    await context.chrome.devtools?.recorder.unregisterRecorderExtensionPlugin(extensionPlugin);
   });
 });
 

@@ -171,9 +171,15 @@ export namespace Chrome {
       payload: unknown;
     }
 
-    export interface RecorderExtensionPlugin {
+    export type RecorderExtensionPlugin = RecorderExtensionExportPlugin|RecorderExtensionReplayPlugin|
+        (RecorderExtensionExportPlugin&RecorderExtensionReplayPlugin);
+
+    export interface RecorderExtensionExportPlugin {
       stringify(recording: Record<string, any>): Promise<string>;
       stringifyStep(step: Record<string, any>): Promise<string>;
+    }
+    export interface RecorderExtensionReplayPlugin {
+      replay(recording: Record<string, any>): Promise<void>;
     }
 
     export type RemoteObjectId = string;
@@ -330,8 +336,9 @@ export namespace Chrome {
       getWasmOp(op: number, stopId: unknown): Promise<WasmValue>;
     }
 
+
     export interface RecorderExtensions {
-      registerRecorderExtensionPlugin(plugin: RecorderExtensionPlugin, pluginName: string, mediaType: string):
+      registerRecorderExtensionPlugin(plugin: RecorderExtensionPlugin, pluginName: string, mediaType?: string):
           Promise<void>;
       unregisterRecorderExtensionPlugin(plugin: RecorderExtensionPlugin): Promise<void>;
     }

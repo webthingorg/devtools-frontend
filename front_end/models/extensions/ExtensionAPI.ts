@@ -119,6 +119,7 @@ export namespace PrivateAPI {
   export const enum RecorderExtensionPluginCommands {
     Stringify = 'stringify',
     StringifyStep = 'stringifyStep',
+    Replay = 'replay',
   }
 
   export const enum RecorderExtensionPluginEvents {
@@ -137,11 +138,11 @@ export namespace PrivateAPI {
     port: MessagePort,
     supportedScriptTypes: PublicAPI.Chrome.DevTools.SupportedScriptTypes,
   };
+  export type RecordingExtensionPluginCapability = 'export'|'replay';
   type RegisterRecorderExtensionPluginRequest = {
     command: Commands.RegisterRecorderExtensionPlugin,
     pluginName: string,
-    mediaType: string,
-    port: MessagePort,
+    mediaType?: string, capabilities: RecordingExtensionPluginCapability[], port: MessagePort,
   };
   type SubscribeRequest = {command: Commands.Subscribe, type: string};
   type UnsubscribeRequest = {command: Commands.Unsubscribe, type: string};
@@ -321,7 +322,12 @@ export namespace PrivateAPI {
     parameters: {step: Record<string, unknown>},
   };
 
-  export type RecorderExtensionRequests = StringifyRequest|StringifyStepRequest;
+  type ReplayRequest = {
+    method: RecorderExtensionPluginCommands.Replay,
+    parameters: {recording: Record<string, unknown>},
+  };
+
+  export type RecorderExtensionRequests = StringifyRequest|StringifyStepRequest|ReplayRequest;
 }
 
 declare global {
@@ -750,48 +756,65 @@ self.injectedExtensionAPI = function(
     this._plugins = new Map();
   }
 
+  async function registerRecorderExtensionPluginImpl(
+      this: APIImpl.RecorderExtensions, plugin: PublicAPI.Chrome.DevTools.RecorderExtensionPlugin, pluginName: string,
+      mediaType?: string): Promise<void> {
+    if (this._plugins.has(plugin)) {
+      throw new Error(`Tried to register plugin '${pluginName}' twice`);
+    }
+    const channel = new MessageChannel();
+    const port = channel.port1;
+    this._plugins.set(plugin, port);
+    port.onmessage = ({data}: MessageEvent<{requestId: number}&PrivateAPI.RecorderExtensionRequests>): void => {
+      const {requestId} = data;
+      dispatchMethodCall(data)
+          .then(result => port.postMessage({requestId, result}))
+          .catch(error => port.postMessage({requestId, error: {message: error.message}}));
+    };
+
+    async function dispatchMethodCall(request: PrivateAPI.RecorderExtensionRequests): Promise<unknown> {
+      switch (request.method) {
+        case PrivateAPI.RecorderExtensionPluginCommands.Stringify:
+          return (plugin as PublicAPI.Chrome.DevTools.RecorderExtensionExportPlugin)
+              .stringify(request.parameters.recording);
+        case PrivateAPI.RecorderExtensionPluginCommands.StringifyStep:
+          return (plugin as PublicAPI.Chrome.DevTools.RecorderExtensionExportPlugin)
+              .stringifyStep(request.parameters.step);
+        case PrivateAPI.RecorderExtensionPluginCommands.Replay:
+          return (plugin as PublicAPI.Chrome.DevTools.RecorderExtensionReplayPlugin)
+              .replay(request.parameters.recording);
+        default:
+          // @ts-expect-error
+          throw new Error(`'${request.method}' is not recognized`);
+      }
+    }
+
+    const capabilities: PrivateAPI.RecordingExtensionPluginCapability[] = [];
+
+    if ('stringify' in plugin && 'stringifyStep' in plugin) {
+      capabilities.push('export');
+    }
+
+    if ('replay' in plugin) {
+      capabilities.push('replay');
+    }
+
+    await new Promise<void>(resolve => {
+      extensionServer.sendRequest(
+          {
+            command: PrivateAPI.Commands.RegisterRecorderExtensionPlugin,
+            pluginName,
+            mediaType,
+            capabilities,
+            port: channel.port2,
+          },
+          () => resolve(), [channel.port2]);
+    });
+  }
+
   (RecorderServicesAPIImpl.prototype as
    Pick<APIImpl.RecorderExtensions, 'registerRecorderExtensionPlugin'|'unregisterRecorderExtensionPlugin'>) = {
-    registerRecorderExtensionPlugin: async function(
-        this: APIImpl.RecorderExtensions, plugin: PublicAPI.Chrome.DevTools.RecorderExtensionPlugin, pluginName: string,
-        mediaType: string): Promise<void> {
-      if (this._plugins.has(plugin)) {
-        throw new Error(`Tried to register plugin '${pluginName}' twice`);
-      }
-      const channel = new MessageChannel();
-      const port = channel.port1;
-      this._plugins.set(plugin, port);
-      port.onmessage = ({data}: MessageEvent<{requestId: number}&PrivateAPI.RecorderExtensionRequests>): void => {
-        const {requestId} = data;
-        dispatchMethodCall(data)
-            .then(result => port.postMessage({requestId, result}))
-            .catch(error => port.postMessage({requestId, error: {message: error.message}}));
-      };
-
-      async function dispatchMethodCall(request: PrivateAPI.RecorderExtensionRequests): Promise<unknown> {
-        switch (request.method) {
-          case PrivateAPI.RecorderExtensionPluginCommands.Stringify:
-            return plugin.stringify(request.parameters.recording);
-          case PrivateAPI.RecorderExtensionPluginCommands.StringifyStep:
-            return plugin.stringifyStep(request.parameters.step);
-          default:
-            // @ts-expect-error
-            throw new Error(`'${request.method}' is not recognized`);
-        }
-      }
-
-      await new Promise<void>(resolve => {
-        extensionServer.sendRequest(
-            {
-              command: PrivateAPI.Commands.RegisterRecorderExtensionPlugin,
-              pluginName,
-              mediaType,
-              port: channel.port2,
-            },
-            () => resolve(), [channel.port2]);
-      });
-    },
-
+    registerRecorderExtensionPlugin: registerRecorderExtensionPluginImpl,
     unregisterRecorderExtensionPlugin: async function(
         this: APIImpl.RecorderExtensions, plugin: PublicAPI.Chrome.DevTools.RecorderExtensionPlugin): Promise<void> {
       const port = this._plugins.get(plugin);

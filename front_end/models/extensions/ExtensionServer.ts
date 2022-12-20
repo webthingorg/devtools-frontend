@@ -303,8 +303,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (message.command !== PrivateAPI.Commands.RegisterRecorderExtensionPlugin) {
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.RegisterRecorderExtensionPlugin}`);
     }
-    const {pluginName, mediaType, port} = message;
-    RecorderPluginManager.instance().addPlugin(new RecorderExtensionEndpoint(pluginName, mediaType, port));
+    const {pluginName, mediaType, port, capabilities} = message;
+    RecorderPluginManager.instance().addPlugin(
+        new RecorderExtensionEndpoint(pluginName, port, capabilities, mediaType));
     return this.status.OK();
   }
 
