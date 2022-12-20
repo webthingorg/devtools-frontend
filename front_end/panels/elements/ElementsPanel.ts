@@ -377,6 +377,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         element.classList.add('elements-tree-header');
         this.treeOutlineHeaders.set(treeOutline, element);
         this.targetNameChanged(domModel.target());
+       && this}
+      if (this.treeOutlines.size == 1 && this.isShowing()) {
+        treeOutline.focus();
       }
     }
     treeOutline.wireToDOMModel(domModel);
