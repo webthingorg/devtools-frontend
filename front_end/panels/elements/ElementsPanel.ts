@@ -386,6 +386,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     // Perform attach if necessary.
     if (this.isShowing()) {
       this.wasShown();
+      if (this.treeOutlines.size() === 1) {
+        treeOutline.focus();
+      }
     }
   }
 

@@ -4,6 +4,8 @@
 
 import {$$, click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 
+import {takeScreenshots} from '../../shared/mocha-extensions.js';
+
 import {
   waitForContentOfSelectedElementsNode,
   waitForElementsStyleSection,
@@ -13,17 +15,24 @@ import {
 export const loadEventListenersAndSelectButtonNode = async () => {
   const {frontend} = getBrowserAndPages();
   await goToResource('elements/sidebar-event-listeners.html');
+  console.error('goToResource');
   await waitForElementsStyleSection();
+  console.error('waitForElementsStyleSection');
 
   // Check to make sure we have the correct node selected after opening a file
   await waitForContentOfSelectedElementsNode('<body class=\u200B"test-js-loaded">\u200B');
+  console.error('waitForContentOfSelectedElementsNode 1');
 
   // Wait for element to be expanded
   await waitForSelectedNodeToBeExpanded();
+  console.error('waitForSelectedNodeToBeExpanded');
+  await takeScreenshots('foo');
 
   // Select the button that has the events and make sure it's selected
   await frontend.keyboard.press('ArrowRight');
+  console.error('press right');
   await waitForContentOfSelectedElementsNode('<button id=\u200B"test-button">\u200Bhello world\u200B</button>\u200B');
+  console.error('waitForContentOfSelectedElementsNode 2');
 };
 
 const EVENT_LISTENERS_PANEL_LINK = '[aria-label="Event Listeners"]';

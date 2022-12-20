@@ -292,6 +292,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
   }
 
   private treeKeyDown(event: KeyboardEvent): void {
+    console.error('treeKeyDown');
     if (event.shiftKey || event.metaKey || event.ctrlKey || isEditing()) {
       return;
     }
@@ -310,12 +311,12 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     } else if (event.key === 'ArrowLeft') {
       handled = this.selectedTreeElement.collapseOrAscend(event.altKey);
     } else if (event.key === 'ArrowRight') {
-      if (!this.selectedTreeElement.revealed()) {
-        this.selectedTreeElement.reveal();
-        handled = true;
-      } else {
-        handled = this.selectedTreeElement.descendOrExpand(event.altKey);
-      }
+      // if (!this.selectedTreeElement.revealed()) {
+      //   this.selectedTreeElement.reveal();
+      //   handled = true;
+      // } else {
+      handled = this.selectedTreeElement.descendOrExpand(event.altKey);
+      // }
     } else if (event.keyCode === 8 /* Backspace */ || event.keyCode === 46 /* Delete */) {
       handled = this.selectedTreeElement.ondelete();
     } else if (event.key === 'Enter') {
@@ -1101,27 +1102,37 @@ export class TreeElement {
   }
 
   descendOrExpand(altKey: boolean): boolean {
+    console.error('descendOrExpand 0');
     if (!this.expandable) {
+    console.error('descendOrExpand 1');
       return false;
     }
 
+    console.error('descendOrExpand 2');
     if (!this.expanded) {
+    console.error('descendOrExpand 3');
       if (altKey) {
+    console.error('descendOrExpand 4');
         void this.expandRecursively();
       } else {
+    console.error('descendOrExpand 5');
         this.expand();
       }
       return true;
     }
 
+    console.error('descendOrExpand 6');
     let nextSelectedElement = this.firstChild();
     while (nextSelectedElement && !nextSelectedElement.selectable) {
+    console.error('descendOrExpand 7');
       nextSelectedElement = nextSelectedElement.nextSibling;
     }
 
     if (!nextSelectedElement) {
+    console.error('descendOrExpand 8');
       return false;
     }
+    console.error('descendOrExpand 9');
     nextSelectedElement.select(false, true);
     return true;
   }
