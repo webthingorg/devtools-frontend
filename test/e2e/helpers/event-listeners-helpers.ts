@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {$$, click, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {takeScreenshots} from '../../shared/mocha-extensions.js';
 
 import {
   waitForContentOfSelectedElementsNode,
@@ -20,6 +21,7 @@ export const loadEventListenersAndSelectButtonNode = async () => {
 
   // Wait for element to be expanded
   await waitForSelectedNodeToBeExpanded();
+  await takeScreenshots('foo');
 
   // Select the button that has the events and make sure it's selected
   await frontend.keyboard.press('ArrowRight');
