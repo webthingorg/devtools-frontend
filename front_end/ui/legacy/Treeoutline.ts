@@ -310,12 +310,12 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     } else if (event.key === 'ArrowLeft') {
       handled = this.selectedTreeElement.collapseOrAscend(event.altKey);
     } else if (event.key === 'ArrowRight') {
-      if (!this.selectedTreeElement.revealed()) {
-        this.selectedTreeElement.reveal();
-        handled = true;
-      } else {
-        handled = this.selectedTreeElement.descendOrExpand(event.altKey);
-      }
+      // if (!this.selectedTreeElement.revealed()) {
+      //   this.selectedTreeElement.reveal();
+      //   handled = true;
+      // } else {
+      handled = this.selectedTreeElement.descendOrExpand(event.altKey);
+      // }
     } else if (event.keyCode === 8 /* Backspace */ || event.keyCode === 46 /* Delete */) {
       handled = this.selectedTreeElement.ondelete();
     } else if (event.key === 'Enter') {
