@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b54ef668_931bdd4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-20T11:04:28Z",
+      "side": 1,
+      "message": "\u003e I just realised that Sofia is OOO. Let\u0027s not block this on her review, the strings could easily be updated later if necessary.\n\nAck, thanks. Moving her to cc.",
+      "parentUuid": "e578fa5d_e63e5085",
+      "revId": "347710f2552d845bb5b15d3c804ed238df2c8ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be5b04aa_5e7674db",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f1b9c82_1a538c07",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-20T11:04:28Z",
+      "side": 1,
+      "message": "Upps. Done.",
+      "parentUuid": "be5b04aa_5e7674db",
+      "range": {
+        "startLine": 87,
+        "startChar": 53,
+        "endLine": 87,
+        "endChar": 58
+      },
+      "revId": "347710f2552d845bb5b15d3c804ed238df2c8ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06216519_6a804a53",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-12-20T10:44:16Z",
       "side": 1,
       "message": "nit: you could make this return a `Common.UIString.LocalizedString` and use `i18n.i18n.lockedString(\u0027Label\u0027)`.",
+      "range": {
+        "startLine": 70,
+        "startChar": 81,
+        "endLine": 70,
+        "endChar": 87
+      },
+      "revId": "347710f2552d845bb5b15d3c804ed238df2c8ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d49d9e_512d493f",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2022-12-20T11:04:28Z",
+      "side": 1,
+      "message": "Done. Using `Platform.UIString.LocalizedString` instead ([which is the same thing](https://source.chromium.org/chromium/chromium/src/+/main:out/Debug/gen/third_party/devtools-frontend/src/front_end/core/common/common.js;l\u003d33;drc\u003dca948a8b074baa297fd4702a43af9ef7b0f85faa)), since it matches the the [existing pattern](https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/issues/GenericIssueDetailsView.ts;l\u003d26;drc\u003d965289a90b6d7e080a09665c08480f74ef941654).",
+      "parentUuid": "06216519_6a804a53",
       "range": {
         "startLine": 70,
         "startChar": 81,
