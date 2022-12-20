@@ -7,7 +7,9 @@ import * as ApplicationComponents from '../../../../../../front_end/panels/appli
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../../../front_end/ui/components/report_view/report_view.js';
 import {
+  assertElement,
   assertShadowRoot,
+  dispatchClickEvent,
   getCleanTextContentFromElements,
   getElementWithinComponent,
   renderElementIntoDOM,
@@ -72,6 +74,32 @@ describeWithLocale('SharedStorageMetadataView', () => {
       '4',
       '8.3',
     ]);
+  });
+
+  it('renders reset budget button', async () => {
+    const component = new ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataReportView();
+    renderElementIntoDOM(component);
+    component.origin = 'a.test';
+    component.data = {
+      creationTime: 10 as Protocol.Network.TimeSinceEpoch,
+      length: 4,
+      remainingBudget: 8.3,
+    };
+    const resetBudgetHandlerSpy = sinon.spy();
+    component.resetBudgetHandler = resetBudgetHandlerSpy;
+
+    assertShadowRoot(component.shadowRoot);
+    await coordinator.done();
+    await coordinator.done();  // 2nd call awaits async render
+
+    const resetButtonComponent = component.shadowRoot.querySelector('devtools-shared-storage-reset-budget-button');
+    assertElement(resetButtonComponent, HTMLElement);
+    assertShadowRoot(resetButtonComponent.shadowRoot);
+    const resetButton = resetButtonComponent.shadowRoot.querySelector('button');
+    assertElement(resetButton, HTMLButtonElement);
+
+    dispatchClickEvent(resetButton);
+    assert.isTrue(resetBudgetHandlerSpy.calledOnce);
   });
 
   it('renders default view when data is empty', async () => {
