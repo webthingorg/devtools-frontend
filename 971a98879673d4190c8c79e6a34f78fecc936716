@@ -39,6 +39,30 @@
       },
       "revId": "971a98879673d4190c8c79e6a34f78fecc936716",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e285932_d1cc34fb",
+        "filename": "front_end/panels/network/components/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2022-12-20T15:01:19Z",
+      "side": 1,
+      "message": "How so?\n\nI get this compile error otherwise:\n```\nTypeScript compilation failed. Used tsconfig gen/front_end/panels/network/components/components-tsconfig.json\n\n../../front_end/panels/network/components/RequestTrustTokensView.ts(265,101): error TS2366: Function lacks ending return statement and return type does not include \u0027undefined\u0027.\n\n```",
+      "parentUuid": "53cd74d0_c134e178",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 14
+      },
+      "revId": "971a98879673d4190c8c79e6a34f78fecc936716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
