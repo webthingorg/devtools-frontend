@@ -372,12 +372,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       treeOutline.addEventListener(ElementsTreeOutline.Events.ElementsTreeUpdated, this.updateBreadcrumbIfNeeded, this);
       new ElementsTreeElementHighlighter(treeOutline);
       this.treeOutlines.add(treeOutline);
-      if (domModel.target().parentTarget()) {
-        const element = document.createElement('div');
-        element.classList.add('elements-tree-header');
-        this.treeOutlineHeaders.set(treeOutline, element);
-        this.targetNameChanged(domModel.target());
-      }
+      // if (domModel.target().parentTarget()) {
+      //   const element = document.createElement('div');
+      //   element.classList.add('elements-tree-header');
+      //   this.treeOutlineHeaders.set(treeOutline, element);
+      //   this.targetNameChanged(domModel.target());
+      // }
     }
     treeOutline.wireToDOMModel(domModel);
 
@@ -444,7 +444,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   focus(): void {
+    console.error('focus 1');
     if (this.treeOutlines.size) {
+    console.error('focus 2');
       this.treeOutlines.values().next().value.focus();
     }
   }
