@@ -168,6 +168,19 @@ async function invokeLH(action: string, args: any): Promise<unknown> {
       return;
     }
 
+    // Lighthouse implements its own dialog handler like this, however its lifecycle ends when
+    // the internal Lighthouse session is disposed.
+    //
+    // If the page is reloaded near the end of the run (e.g. bfcache testing), the Lighthouse
+    // internal session can be disposed before a dialog message appears. This allows the dialog
+    // to block important Lighthouse teardown operations in LighthouseProtocolService.
+    //
+    // To ensure the teardown operations can proceed, we need a dialog handler which lasts until
+    // this Lighthouse worker is disposed.
+    page?.on('dialog', dialog => {
+      void dialog.dismiss();
+    });
+
     // TODO: Remove `configContext` once Lighthouse roll removes it
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
     return await self.runLighthouseNavigation(url, {config, page, configContext, flags});
