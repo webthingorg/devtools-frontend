@@ -372,12 +372,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       treeOutline.addEventListener(ElementsTreeOutline.Events.ElementsTreeUpdated, this.updateBreadcrumbIfNeeded, this);
       new ElementsTreeElementHighlighter(treeOutline);
       this.treeOutlines.add(treeOutline);
-      if (domModel.target().parentTarget()) {
-        const element = document.createElement('div');
-        element.classList.add('elements-tree-header');
-        this.treeOutlineHeaders.set(treeOutline, element);
-        this.targetNameChanged(domModel.target());
-      }
+      // if (domModel.target().parentTarget()) {
+      //   const element = document.createElement('div');
+      //   element.classList.add('elements-tree-header');
+      //   this.treeOutlineHeaders.set(treeOutline, element);
+      //   this.targetNameChanged(domModel.target());
+      // }
     }
     treeOutline.wireToDOMModel(domModel);
 
