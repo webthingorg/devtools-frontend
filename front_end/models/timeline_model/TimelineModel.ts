@@ -1632,6 +1632,7 @@ export enum RecordType {
   Rasterize = 'Rasterize',
   RasterTask = 'RasterTask',
   ScrollLayer = 'ScrollLayer',
+  Commit = 'Commit',
   CompositeLayers = 'CompositeLayers',
   ComputeIntersections = 'IntersectionObserverController::computeIntersections',
   InteractiveTime = 'InteractiveTime',
