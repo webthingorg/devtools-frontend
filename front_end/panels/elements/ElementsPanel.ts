@@ -253,6 +253,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     this.mainContainer.id = 'main-content';
     this.domTreeContainer.id = 'elements-content';
+    this.domTreeContainer.tabIndex = -1;
     // FIXME: crbug.com/425984
     if (Common.Settings.Settings.instance().moduleSetting('domWordWrap').get()) {
       this.domTreeContainer.classList.add('elements-wrap');
@@ -378,6 +379,16 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         this.treeOutlineHeaders.set(treeOutline, element);
         this.targetNameChanged(domModel.target());
       }
+      // console.error('modelAdded 1');
+      // if (this.treeOutlines.size == 1 && this.isShowing()) {
+      // console.error('modelAdded 2');
+      //   treeOutline.focus();
+      // }
+      // const originalFocus = HTMLElement.prototype.focus;
+      // HTMLElement.prototype.focus = function(options) {
+      //   console.error((new Error()).stack);
+      //   originalFocus.apply(this, [options]);
+      // };
     }
     treeOutline.wireToDOMModel(domModel);
 
@@ -386,6 +397,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     // Perform attach if necessary.
     if (this.isShowing()) {
       this.wasShown();
+    }
+    if (this.domTreeContainer.hasFocus()) {
+      treeOutline.focus();
     }
   }
 
@@ -444,8 +458,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   focus(): void {
+    console.error('focus 1');
     if (this.treeOutlines.size) {
+    console.error('focus 2');
       this.treeOutlines.values().next().value.focus();
+    } else {
+      this.domTreeContainer.focus();
     }
   }
 
@@ -575,6 +593,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private documentUpdated(domModel: SDK.DOMModel.DOMModel): void {
+    console.error('documentUpdated');
     this.searchableViewInternal.resetSearch();
 
     if (!domModel.existingDocument()) {
@@ -595,6 +614,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     async function restoreNode(
         this: ElementsPanel, domModel: SDK.DOMModel.DOMModel, staleNode: SDK.DOMModel.DOMNode|null): Promise<void> {
+    console.error('restoreNode');
       const nodePath = staleNode ? staleNode.path() : null;
       const restoredNodeId = nodePath ? await domModel.pushNodeByPathToFrontend(nodePath) : null;
 
@@ -621,6 +641,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private setDefaultSelectedNode(node: SDK.DOMModel.DOMNode|null): void {
+    console.error('setDefaultSelectedNode');
     if (!node || this.hasNonDefaultSelectedNode || this.pendingNodeReveal) {
       return;
     }
@@ -802,6 +823,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   selectDOMNode(node: SDK.DOMModel.DOMNode, focus?: boolean): void {
+    console.error('selectDOMNode');
     for (const treeOutline of this.treeOutlines) {
       const outline = ElementsTreeOutline.forDOMModel(node.domModel());
       if (outline === treeOutline) {

@@ -292,6 +292,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
   }
 
   private treeKeyDown(event: KeyboardEvent): void {
+    console.error('treeKeyDown');
     if (event.shiftKey || event.metaKey || event.ctrlKey || isEditing()) {
       return;
     }
@@ -1101,27 +1102,37 @@ export class TreeElement {
   }
 
   descendOrExpand(altKey: boolean): boolean {
+    console.error('descendOrExpand 0');
     if (!this.expandable) {
+    console.error('descendOrExpand 1');
       return false;
     }
 
+    console.error('descendOrExpand 2');
     if (!this.expanded) {
+    console.error('descendOrExpand 3');
       if (altKey) {
+    console.error('descendOrExpand 4');
         void this.expandRecursively();
       } else {
+    console.error('descendOrExpand 5');
         this.expand();
       }
       return true;
     }
 
+    console.error('descendOrExpand 6');
     let nextSelectedElement = this.firstChild();
     while (nextSelectedElement && !nextSelectedElement.selectable) {
+    console.error('descendOrExpand 7');
       nextSelectedElement = nextSelectedElement.nextSibling;
     }
 
     if (!nextSelectedElement) {
+    console.error('descendOrExpand 8');
       return false;
     }
+    console.error('descendOrExpand 9');
     nextSelectedElement.select(false, true);
     return true;
   }
@@ -1167,9 +1178,12 @@ export class TreeElement {
   }
 
   select(omitFocus?: boolean, selectedByUser?: boolean): boolean {
+    console.error('TreeOutline.select');
     omitFocus = omitFocus || this.disableSelectFocus;
     if (!this.treeOutline || !this.selectable || this.selected) {
+    console.error('TreeOutline.select1');
       if (!omitFocus) {
+    console.error('>focus1');
         this.listItemElement.focus();
       }
       return false;
@@ -1183,8 +1197,10 @@ export class TreeElement {
         lastSelected.deselect();
       }
       if (!omitFocus) {
+    console.error('>focus2');
         this.listItemElement.focus();
       }
+    console.error('TreeOutline.select2');
       return false;
     }
 
@@ -1192,9 +1208,13 @@ export class TreeElement {
 
     this.treeOutline.selectedTreeElement = this;
     this.treeOutline.updateFocusable();
+    console.error('TreeOutline.select3');
+    console.error('omitFocus: ' + omitFocus + 'hasFocus: ' + this.treeOutline.contentElement.hasFocus());
     if (!omitFocus || this.treeOutline.contentElement.hasFocus()) {
+    console.error('>focus3');
       this.listItemElement.focus();
     }
+    console.error('TreeOutline.select4');
 
     this.listItemNode.classList.add('selected');
     ARIAUtils.setSelected(this.listItemNode, true);
@@ -1236,6 +1256,7 @@ export class TreeElement {
   }
 
   revealAndSelect(omitFocus?: boolean): void {
+    console.error('revealAndSelect');
     this.reveal(true);
     this.select(omitFocus);
   }
