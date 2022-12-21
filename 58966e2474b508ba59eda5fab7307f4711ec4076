@@ -39,6 +39,30 @@
       },
       "revId": "58966e2474b508ba59eda5fab7307f4711ec4076",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c673cb9b_4ea0c7fd",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-21T10:07:00Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "c352d448_fd45274a",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 74
+      },
+      "revId": "58966e2474b508ba59eda5fab7307f4711ec4076",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
