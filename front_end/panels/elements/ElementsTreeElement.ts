@@ -523,6 +523,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   select(omitFocus?: boolean, selectedByUser?: boolean): boolean {
+    console.error('ElementsTreeElement.select');
     if (this.editing) {
       return false;
     }

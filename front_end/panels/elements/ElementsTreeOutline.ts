@@ -405,6 +405,7 @@ export class ElementsTreeOutline extends
   }
 
   selectDOMNode(node: SDK.DOMModel.DOMNode|null, focus?: boolean): void {
+    console.error('ElementsTreeOutline.selectedDOMNode');
     if (this.selectedDOMNodeInternal === node) {
       this.revealAndSelectNode(node, !focus);
       return;
@@ -532,6 +533,7 @@ export class ElementsTreeOutline extends
   }
 
   private revealAndSelectNode(node: SDK.DOMModel.DOMNode|null, omitFocus: boolean): void {
+    console.error('ElementsTreeOutline.revealAndSelectNode');
     if (this.suppressRevealAndSelect) {
       return;
     }

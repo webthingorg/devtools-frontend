@@ -19,7 +19,7 @@ describe('Event listeners in the elements sidebar', async () => {
     await loadEventListenersAndSelectButtonNode();
   });
 
-  it('lists the active event listeners on the page', async () => {
+  it.only('lists the active event listeners on the page', async () => {
     await openEventListenersPaneAndWaitForListeners();
 
     const eventListenerNames = await getDisplayedEventListenerNames();
