@@ -378,6 +378,14 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         this.treeOutlineHeaders.set(treeOutline, element);
         this.targetNameChanged(domModel.target());
       }
+      console.error('modelAdded 1');
+      if (this.treeOutlines.size == 1 && this.isShowing()) {
+      console.error('modelAdded 2');
+        treeOutline.focus();
+        HTMLElement.prototype.focus = () => {
+          console.error((new Error()).stack);
+        };
+      }
     }
     treeOutline.wireToDOMModel(domModel);
 
@@ -444,7 +452,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   focus(): void {
+    console.error('focus 1');
     if (this.treeOutlines.size) {
+    console.error('focus 2');
       this.treeOutlines.values().next().value.focus();
     }
   }
