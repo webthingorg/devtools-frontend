@@ -133,14 +133,16 @@ describeWithMockConnection('IndexedDBModel', () => {
     }));
   });
 
-  it('calls protocol method on getMetadata', () => {
+  it('calls protocol method on getMetadata', async () => {
+    setMockConnectionResponseHandler('IndexedDB.getMetadata', () => ({}));
     const getMetadataSpy = sinon.spy(indexedDBAgent, 'invoke_getMetadata');
     indexedDBModel.enable();
 
-    void indexedDBModel.getMetadata(testDBId, new Resources.IndexedDBModel.ObjectStore('test-store', null, false));
+    await indexedDBModel.getMetadata(testDBId, new Resources.IndexedDBModel.ObjectStore('test-store', null, false));
 
     assert.isTrue(getMetadataSpy.calledOnceWithExactly(
         {storageKey: testKey, databaseName: 'test-database', objectStoreName: 'test-store'}));
+    clearMockConnectionResponseHandler('IndexedDB.getMetadata');
   });
 
   it('dispatches event on indexedDBContentUpdated', () => {
