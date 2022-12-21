@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "3a79e28718c79d20a17124b96a1ce979e25e5dcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395f56f7_a15631e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-21T09:35:10Z",
+      "side": 1,
+      "message": "Please provide some details in CL description on how this change addresses the issue.",
+      "revId": "3a79e28718c79d20a17124b96a1ce979e25e5dcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
