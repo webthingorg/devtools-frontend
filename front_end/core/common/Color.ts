@@ -723,11 +723,16 @@ export interface Color {
   format(): Format;
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]>;
   asLegacyColor(): Legacy;
+  isInGamut(): boolean;
 }
 
 function stringifyWithPrecision(s: number, precision = 2): string {
   const string = s.toFixed(precision).replace(/\.?0*$/, '');
   return string === '-0' ? '0' : string;
+}
+
+function stringifyWithPrecision(s: number, precision = 3): string {
+  return s.toFixed(precision).replace(/\.?0*$/, '');
 }
 
 export class Lab implements Color {
@@ -737,6 +742,7 @@ export class Lab implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -795,12 +801,18 @@ export class Lab implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l) {
+      this.#outOfGamutParams = [l, a, b, alpha];
+    }
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
     if (this.#origin) {
       return this.#origin.as(format);
     }
     return this.#conversions[format]() as ReturnType<ColorConversions[T]>;
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -853,6 +865,7 @@ export class LCH implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -911,6 +924,12 @@ export class LCH implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l || c !== this.#c) {
+      this.#outOfGamutParams = [l, c, h, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -969,6 +988,7 @@ export class Oklab implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1026,6 +1046,12 @@ export class Oklab implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l) {
+      this.#outOfGamutParams = [l, a, b, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1084,6 +1110,7 @@ export class Oklch implements Color {
   readonly #alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1144,6 +1171,12 @@ export class Oklch implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    if (l !== this.#l || c !== this.#c) {
+      this.#outOfGamutParams = [l, c, h, alpha];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1200,6 +1233,7 @@ export class ColorFunction implements Color {
   readonly #colorSpace: ColorSpace;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #outOfGamutParams?: [number, number, number, number|null];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1295,6 +1329,12 @@ export class ColorFunction implements Color {
         clamp(rgbOrXyz[3], {min: 0, max: 1}),
       ];
     }
+    if (this.#spec[0] !== rgbOrXyz[0] || this.#spec[1] !== rgbOrXyz[1] || this.#spec[2] !== rgbOrXyz[2]) {
+      this.#outOfGamutParams = [...rgbOrXyz];
+    }
+  }
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1342,6 +1382,7 @@ export class Legacy implements Color {
   readonly #originalTextIsValid: boolean;
   #formatInternal: LegacyColor;
   readonly #origin?: Color;
+  readonly #outOfGamutParams?: number[];
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#rgbaInternal, Format.Nickname, undefined, this),
@@ -1400,6 +1441,9 @@ export class Legacy implements Color {
     }
   }
 
+  isInGamut(): boolean {
+    return !this.#outOfGamutParams;
+  }
   asLegacyColor(): Legacy {
     return this;
   }
@@ -1419,9 +1463,18 @@ export class Legacy implements Color {
       clamp(rgba[3] ?? 1, {min: 0, max: 1}),
     ];
 
-    if (this.#rgbaInternal[0] !== rgba[0] || this.#rgbaInternal[1] !== rgba[1] || this.#rgbaInternal[2] !== rgba[2] ||
-        this.#rgbaInternal[3] !== (rgba[3] ?? 1)) {
-      this.#originalTextIsValid = false;
+    for (let i = 0; i < 4; ++i) {
+      // Do not clamp formats that can result in wide-gamut colors
+      if (this.#rgbaInternal[i] < 0) {
+        this.#rgbaInternal[i] = 0;
+        this.#originalTextIsValid = false;
+        this.#outOfGamutParams = [...rgba];
+      }
+      if (this.#rgbaInternal[i] > 1) {
+        this.#rgbaInternal[i] = 1;
+        this.#originalTextIsValid = false;
+        this.#outOfGamutParams = [...rgba];
+      }
     }
   }
 
@@ -1767,9 +1820,9 @@ export class Legacy implements Color {
     this.#formatInternal = format;
   }
 
-  equal(other: Legacy): boolean {
-    return this.#rgbaInternal.every((v, i) => v === other.#rgbaInternal[i]) &&
-        this.#formatInternal === other.#formatInternal;
+  equal(other: Color): boolean {
+    const legacy = other.as(this.#formatInternal);
+    return this.#rgbaInternal.every((v, i) => v === legacy.#rgbaInternal[i]);
   }
 }
 
