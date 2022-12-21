@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e62e9b75_97ed1362",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-12-21T10:46:47Z",
+      "side": 1,
+      "message": "My plan here was to have a Color object always represent a valid color as an invariant. That\u0027s why I moved the clamping to the constructor so that colors are valid both when they\u0027re coming from parsing as well as from conversion. It seems useful however for a Color object to _know_ when it came from an invalid source, which is what I was adding in the dependend CL (needs a proper rebase currently). That will also be important when we add a conversion UI, where we\u0027ll want to disable or at least point out invalid conersions.\n\nI considered adding gamut mapping, too, but I\u0027ve used clamping here so that parsing and converting behave the same. Clamping during parsing is the spec\u0027ed behavior, but we can certainly rethink what to do for conversion. One question is if we ever show out-of-gamut converted colors to the user (if this conversion is disabled, they can\u0027t actually get there).\n\nThe colors in your example are both white for me, am I holding it wrong? A nice thing about the conversions as they\u0027re implemented here is that we aren\u0027t discarding information. Even if clamping happens, we retain the original color also. Additional conversions will not work on lost information, it\u0027s just the asString that returns the clamped result.",
+      "parentUuid": "259743df_26cdf4ef",
+      "revId": "fecc4069cd4eb22c2ebad2bb881aafde61266bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49ff784_2df87bae",
         "filename": "test/unittests/front_end/core/common/Color_test.ts",
         "patchSetId": 14
