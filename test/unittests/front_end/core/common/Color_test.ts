@@ -34,7 +34,7 @@ describe('Color', () => {
 
   it('defaults RGBA value to 0 if the RGBA initializing value given was negative', () => {
     const color = new Color.Legacy([-0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
-    assert.deepEqual(color.rgba(), [-0.5, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
+    assert.deepEqual(color.rgba(), [0, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
     assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
     assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
