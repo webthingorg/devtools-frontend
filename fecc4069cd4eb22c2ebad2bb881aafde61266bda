@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259743df_26cdf4ef",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-12-21T09:25:45Z",
+      "side": 1,
+      "message": "I have two comments regarding clamping:\n* Should we do clamping at all?\n* Should it be in the constructor or in the parsing side?\n\nI\u0027m slowly getting into the idea that we shouldn\u0027t do clamping at all. The conversion functions can work in an unbounded space (citation needed 😅) and a color that is out of gamut of one color space can be in gamut of another color space.\n\nFor example, `color(xyz-d50 74 63 27)` is a valid color. However, when you convert this to `lch` it becomes `lch(100 206.58 49.08)` which is the lightness value clamped version of the same color. Even though the first color is shown as white in the `xyz-d50` color space by the browser, it is shown as red when that is converted to `lch` which is wrong because we expect the colors to not change only with color space conversions.\n\nEven if we want colors to change, then we\u0027ll probably need to do proper gamut mapping to the corresponding space.\n\nIn my opinion, we shouldn\u0027t do any clamping.\n\n---\nIf we want to do clamping, the question is where we should do it? For that, I think we\u0027d need to think about why we need clamping. Why should we have clamping?\n\n---\nFor the sake of this CL, I think we can move forward like this (and not intersect the changes with your vacation 😂) and in the meantime, before the M111 branch point, we can update clamping related things. WDYT?",
+      "revId": "fecc4069cd4eb22c2ebad2bb881aafde61266bda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
