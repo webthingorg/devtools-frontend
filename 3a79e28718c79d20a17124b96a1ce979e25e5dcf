@@ -33,6 +33,24 @@
       "message": "Please provide some details in CL description on how this change addresses the issue.",
       "revId": "3a79e28718c79d20a17124b96a1ce979e25e5dcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842eba3c_db6c7686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-12-21T09:51:22Z",
+      "side": 1,
+      "message": "I can\u0027t seem to be able to edit the commit message anymore, so adding it here:\n\nThe tests in in `SourceMaps_test.js` cause console messages by using the `TracingModel`. These have an effect on `ConsoleView` which starts an asynchronous task. By awaiting the completion of the task we avoid error messages emitted during the test teardown.",
+      "parentUuid": "395f56f7_a15631e8",
+      "revId": "3a79e28718c79d20a17124b96a1ce979e25e5dcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
