@@ -95,4 +95,81 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assert.strictEqual(placeholder?.textContent, 'Select an element for more details');
   });
+
+  it('shows no warnings if holdback flags are disabled', async () => {
+    const featureFlags = {
+      preloadingHoldback: false,
+      prerender2Holdback: false,
+    };
+    sinon.stub(Resources.PreloadingView.PreloadingView.prototype, 'getFeatureFlags')
+        .returns(Promise.resolve(featureFlags));
+
+    const target = createTarget();
+    const model = target.model(SDK.PrerenderingModel.PrerenderingModel);
+    assertNotNullOrUndefined(model);
+    const view = new Resources.PreloadingView.PreloadingView(model);
+    const container = new UI.Widget.VBox();
+    view.show(container.element);
+
+    await coordinator.done();
+
+    const infobarContainer = view.getInfobarContainerForTest();
+    assert.strictEqual(infobarContainer.children.length, 0);
+  });
+
+  it('shows an warning if PreloadingHoldback enabled', async () => {
+    const featureFlags = {
+      preloadingHoldback: true,
+      prerender2Holdback: false,
+    };
+    sinon.stub(Resources.PreloadingView.PreloadingView.prototype, 'getFeatureFlags')
+        .returns(Promise.resolve(featureFlags));
+
+    const target = createTarget();
+    const model = target.model(SDK.PrerenderingModel.PrerenderingModel);
+    assertNotNullOrUndefined(model);
+    const view = new Resources.PreloadingView.PreloadingView(model);
+    const container = new UI.Widget.VBox();
+    view.show(container.element);
+
+    await coordinator.done();
+
+    const infobarContainer = view.getInfobarContainerForTest();
+    const infoTexts = Array.from(infobarContainer.children).map(infobarElement => {
+      assertShadowRoot(infobarElement.shadowRoot);
+      const infoText = infobarElement.shadowRoot.querySelector('.infobar-info-text');
+      assertNotNullOrUndefined(infoText);
+      return infoText.textContent;
+    });
+    assert.deepEqual(infoTexts, ['Preloading was disabled, but is force-enabled now']);
+  });
+
+  it('shows two warnings if PreloadingHoldback and Prerender2Holdback enabled', async () => {
+    const featureFlags = {
+      preloadingHoldback: true,
+      prerender2Holdback: true,
+    };
+    sinon.stub(Resources.PreloadingView.PreloadingView.prototype, 'getFeatureFlags')
+        .returns(Promise.resolve(featureFlags));
+
+    const target = createTarget();
+    const model = target.model(SDK.PrerenderingModel.PrerenderingModel);
+    assertNotNullOrUndefined(model);
+    const view = new Resources.PreloadingView.PreloadingView(model);
+    const container = new UI.Widget.VBox();
+    view.show(container.element);
+
+    await coordinator.done();
+
+    const infobarContainer = view.getInfobarContainerForTest();
+    const infoTexts = Array.from(infobarContainer.children).map(infobarElement => {
+      assertShadowRoot(infobarElement.shadowRoot);
+      const infoText = infobarElement.shadowRoot.querySelector('.infobar-info-text');
+      assertNotNullOrUndefined(infoText);
+      return infoText.textContent;
+    });
+    assert.deepEqual(
+        infoTexts,
+        ['Preloading was disabled, but is force-enabled now', 'Prerendering was disabled, but is force-enabled now']);
+  });
 });
