@@ -1149,7 +1149,7 @@ export class TabbedPaneTab {
       if (this.tabbedPane.allowTabReorder) {
         installDragHandle(
             tabElement, this.startTabDragging.bind(this), this.tabDragging.bind(this), this.endTabDragging.bind(this),
-            null, null, 200);
+            'grab', 'pointer', 200);
       }
     }
 
