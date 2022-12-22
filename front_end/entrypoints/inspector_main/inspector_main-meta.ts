@@ -93,6 +93,7 @@ const UIStrings = {
   */
   doNotAutoOpen: 'Do not auto-open DevTools for popups',
   /**
+<<<<<<< HEAD   (96897d [console] Fix 'Store function as global variable' for bound )
   * @description A command available in the command menu to perform searches, for example in the
   * elements panel, as user types, rather than only when they press Enter.
    */
@@ -113,6 +114,13 @@ const UIStrings = {
   * overlay is a pause/unpause button and some text, which appears on top of the paused page. This
   * setting turns off this overlay.
   */
+=======
+   * @description Title of a setting under the Appearance category in Settings. When the webpage is
+   * paused by devtools, an overlay is shown on top of the page to indicate that it is paused. The
+   * overlay is a pause/unpause button and some text, which appears on top of the paused page. This
+   * setting turns off this overlay.
+   */
+>>>>>>> CHANGE (b58ccf [settings] Put 'searchAsYouType' setting into the correct sp)
   disablePaused: 'Disable paused state overlay',
   /**
   * @description Title of an action that toggle
@@ -256,26 +264,6 @@ Common.Settings.registerSettingExtension({
     {
       value: false,
       title: i18nLazyString(UIStrings.doNotAutoOpen),
-    },
-  ],
-});
-
-Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.GLOBAL,
-  storageType: Common.Settings.SettingStorageType.Local,
-  title: i18nLazyString(UIStrings.searchAsYouTypeSetting),
-  settingName: 'searchAsYouType',
-  settingType: Common.Settings.SettingType.BOOLEAN,
-  order: 3,
-  defaultValue: true,
-  options: [
-    {
-      value: true,
-      title: i18nLazyString(UIStrings.searchAsYouTypeCommand),
-    },
-    {
-      value: false,
-      title: i18nLazyString(UIStrings.searchOnEnterCommand),
     },
   ],
 });
