@@ -39,6 +39,30 @@
       },
       "revId": "ea1c1aae464456fba45649df0bdc04a789c0fafc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37820846_3c17833a",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2022-12-22T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c1f8ec3_9208134b",
+      "range": {
+        "startLine": 233,
+        "startChar": 5,
+        "endLine": 234,
+        "endChar": 45
+      },
+      "revId": "ea1c1aae464456fba45649df0bdc04a789c0fafc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
