@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae47e4f_70e6f1b5",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-22T14:37:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "748d3c6d_4a0ec2f9",
+      "range": {
+        "startLine": 40,
+        "startChar": 23,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4e7ceeb_7f30245e",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-12-22T13:06:07Z",
       "side": 1,
       "message": "nit: `currentLine`",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 73
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd457eac_2cdc6f46",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-22T14:37:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4e7ceeb_7f30245e",
       "range": {
         "startLine": 54,
         "startChar": 16,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dd63644_12e9e337",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-22T14:37:01Z",
+      "side": 1,
+      "message": "Ah nice catch! The code previously relied on finding sources \u0026 deps and then finishing the section, but we need to wait until we find a closing `}` and do it then. That will also ensure `i` points to the closing brace, and it\u0027s fine to be incremented on the next iteration.",
+      "parentUuid": "d917818f_d57d06bf",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 7
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5057d7a0_98693a98",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-12-22T13:06:07Z",
       "side": 1,
       "message": "Could we ignore entrypoints completely when parsing the GN file? That way we could omit these bits.",
+      "range": {
+        "startLine": 254,
+        "startChar": 40,
+        "endLine": 254,
+        "endChar": 50
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adfaa9b5_b9e1f03b",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-22T14:37:01Z",
+      "side": 1,
+      "message": "I want to include them, because if an entrypoint includes something like:\n\n```\nimport Foo from \u0027./foo/foo.js\u0027\n\nexport {Foo}\n```\n\nThen we need to ensure that the BUILD.gn DEPS for the `devtools_module` includes `foo`. But we only find these imports to check by looking at the entrypoint\u0027s source code.",
+      "parentUuid": "5057d7a0_98693a98",
       "range": {
         "startLine": 254,
         "startChar": 40,
