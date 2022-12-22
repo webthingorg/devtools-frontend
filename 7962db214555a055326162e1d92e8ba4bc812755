@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89cc5af8_55e7fc15",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-12-22T15:22:24Z",
+      "side": 1,
+      "message": "this appears to be crucial for Puppeteer to work with tab target.",
+      "revId": "7962db214555a055326162e1d92e8ba4bc812755",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
