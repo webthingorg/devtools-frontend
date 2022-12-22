@@ -16,6 +16,115 @@
       "message": "PTAL!",
       "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26cdea3a_51780186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-22T13:06:07Z",
+      "side": 1,
+      "message": "LGTM wih some q\u0027s and nits.",
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748d3c6d_4a0ec2f9",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-22T13:06:07Z",
+      "side": 1,
+      "message": "typo: \u003cstring\u003e",
+      "range": {
+        "startLine": 40,
+        "startChar": 23,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e7ceeb_7f30245e",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-22T13:06:07Z",
+      "side": 1,
+      "message": "nit: `currentLine`",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 73
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d917818f_d57d06bf",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-22T13:06:07Z",
+      "side": 1,
+      "message": "Right after this is assigned, it\u0027s incremented again in the next loop iteration. I wonder if this is problematic if, for example, two GN sections are declared one after another w/o an empty line in between and one line wold be skipped by accident",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 7
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5057d7a0_98693a98",
+        "filename": "scripts/deps/sync-build-gn-imports.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2022-12-22T13:06:07Z",
+      "side": 1,
+      "message": "Could we ignore entrypoints completely when parsing the GN file? That way we could omit these bits.",
+      "range": {
+        "startLine": 254,
+        "startChar": 40,
+        "endLine": 254,
+        "endChar": 50
+      },
+      "revId": "003023398b68937b64b6fbb0118036ca3ceb7bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
