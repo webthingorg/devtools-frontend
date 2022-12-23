@@ -16,6 +16,24 @@
       "message": "+petermueller on the icon button and general layout",
       "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d474e3_c687395f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-12-23T13:52:46Z",
+      "side": 1,
+      "message": "For the reset button we ideally re-use the icon pattern from Wolfgang (used in header overrides, grey circular background on hover etc). If this is too much work, we should correct the sizing (the width and height from `.reset-budget-button` doesn\u0027t translate to the actual size). Right now it\u0027s at 9px size, 12px matches the the rest of the UI:\n\n```\n.icon-basic {\n  width: 12px;\n  height: 14px;\n}\n```\n\nI personally like the icon, however it\u0027s used for \"refresh\" and already in use on this panel at the top left for the reload action. In the performance panel settings we use another icon for refresh (see screenshot). For the sake of consistency we should also use it here.\n\nhttps://i.imgur.com/JuQXjXb.png\n\nFor the info icon, we should add vertical alignment `text-bottom` (similar to other places in the application panel) and give it 2px of margin left, so there is some spacing between the text label and the icon:\n\n```\n.info-icon {\n  vertical-align: text-bottom;\n  margin-left: 2px;\n}\n```",
+      "parentUuid": "403246d3_7181d052",
+      "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
