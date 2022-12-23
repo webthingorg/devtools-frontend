@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0009f136_30ee931c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-23T09:53:16Z",
+      "side": 1,
+      "message": "Normally I\u0027d attach tracefiles to bug reports as the best way to share them.\n\nThis LGTM, tbh I\u0027m confused by the browser behaviour here but it\u0027s clearly a perf win so let\u0027s land it.",
+      "revId": "7debdbc84e0803b2a92a589ea13fb0e28a9f1b92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
