@@ -16,6 +16,92 @@
       "message": "This should wait [1], but could you have a look?\n\n[1] https://chromium-review.googlesource.com/c/chromium/src/+/4105462",
       "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3cffb4_487fe9d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-23T08:29:56Z",
+      "side": 1,
+      "message": "Could you please attach a screenshot of how these look?",
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "000bc3ca_b54799c8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-23T08:29:56Z",
+      "side": 1,
+      "message": "You can issue these calls in parallel for better performance. Also it is arguably more readable.\n\n    return Promise.all([\n      this.model.target().systemInfo().invoke_getFeatureState({\n        featureState: \u0027PreloadingHoldback}),\n      this.model.target().systemInfo().invoke_getFeatureState({\n        featureState: \u0027PrerenderHoldback})\n    ]).then(r \u003d\u003e r.map(f \u003d\u003e f.featureEnabled ?? null));",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 95
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e14cbdb_aca2de8e",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-23T08:29:56Z",
+      "side": 1,
+      "message": "I\u0027d rather stub `target.systemInfo().invoke_getFeatureState` then rely on a semi-public contract here.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 84
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b01419bf_44ac8d96",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-23T08:29:56Z",
+      "side": 1,
+      "message": "`.resolves(featureFlags)`",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 48
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
