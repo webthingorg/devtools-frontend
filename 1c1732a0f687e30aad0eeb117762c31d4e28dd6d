@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b906c66b_74f8af26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-23T15:20:02Z",
+      "side": 1,
+      "message": "lgtm with a request for a quick comment in the code. Thanks!",
+      "revId": "1c1732a0f687e30aad0eeb117762c31d4e28dd6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e8e646_a2e7169f",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-12-23T15:20:02Z",
+      "side": 1,
+      "message": "Could we add a comment to the code here explaining that Commit has (or will) replaced CompositeLayers, but we need to check both to ensure backwards compat with any trace files users may import? \n\nOtherwise I can see future-me getting confused at 1) why we check for either type and 2) why the method is called `handleCommit`. Thanks!",
+      "range": {
+        "startLine": 350,
+        "startChar": 4,
+        "endLine": 353,
+        "endChar": 26
+      },
+      "revId": "1c1732a0f687e30aad0eeb117762c31d4e28dd6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
