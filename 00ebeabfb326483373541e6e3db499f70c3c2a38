@@ -34,6 +34,24 @@
       "parentUuid": "403246d3_7181d052",
       "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "306e98e7_1d4d6256",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2022-12-23T13:58:10Z",
+      "side": 1,
+      "message": "For the layout in general, I noticed that this page has three horizontal dividers (top part, table, table details). Other storage panels in the application panel try to avoid a triple division and instead split the information in sub panels, like IndexedDB:\n\nTop panel with geneal information: https://i.imgur.com/jiI3YwD.png\nSub panel with database table: https://i.imgur.com/ODfucSV.png\n\nShould it get too crowded or hard to navigate, this layout might be worth a shot.",
+      "parentUuid": "43d474e3_c687395f",
+      "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
