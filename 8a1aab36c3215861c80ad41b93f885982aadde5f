@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba3297b_13962ad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-27T08:46:42Z",
+      "side": 1,
+      "message": "Hey Danil, can you rubber-stamp this update please? Thanks!",
+      "revId": "8a1aab36c3215861c80ad41b93f885982aadde5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
