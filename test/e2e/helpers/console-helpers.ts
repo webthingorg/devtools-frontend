@@ -24,6 +24,7 @@ import {AsyncScope} from '../../shared/async-scope.js';
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
 export const CONSOLE_MESSAGES_TEXT_SELECTOR = '.source-code .console-message-text';
+export const CONSOLE_MESSAGES_EXPAND_BUTTON_SELECTOR = '.console-message-expand-icon';
 export const CONSOLE_ALL_MESSAGES_SELECTOR = `${CONSOLE_MESSAGES_SELECTOR} ${CONSOLE_MESSAGES_TEXT_SELECTOR}`;
 export const CONSOLE_INFO_MESSAGES_SELECTOR =
     `${CONSOLE_MESSAGES_SELECTOR} .console-info-level ${CONSOLE_MESSAGES_TEXT_SELECTOR}`;
@@ -184,19 +185,19 @@ export async function getStructuredConsoleMessages() {
 
   return frontend.evaluate((CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER) => {
     return Array.from(document.querySelectorAll(CONSOLE_MESSAGE_WRAPPER_SELECTOR)).map(wrapper => {
-      const message = wrapper.querySelector('.console-message-text').textContent;
-      const source = wrapper.querySelector('.devtools-link').textContent;
+      const message = wrapper.querySelector('.console-message-text')?.textContent;
+      const source = wrapper.querySelector('.devtools-link')?.textContent;
       const consoleMessage = wrapper.querySelector('.console-message');
       const repeatCount = wrapper.querySelector('.console-message-repeat-count');
       const stackPreviewRoot = wrapper.querySelector('.hidden > span');
       const stackPreview = stackPreviewRoot ? stackPreviewRoot.shadowRoot.querySelector(STACK_PREVIEW_CONTAINER) : null;
       return {
         message,
-        messageClasses: consoleMessage.className,
-        repeatCount: repeatCount ? repeatCount.textContent : null,
+        messageClasses: consoleMessage?.className,
+        repeatCount: repeatCount ? repeatCount?.textContent : null,
         source,
-        stackPreview: stackPreview ? stackPreview.textContent : null,
-        wrapperClasses: wrapper.className,
+        stackPreview: stackPreview ? stackPreview?.textContent : null,
+        wrapperClasses: wrapper?.className,
       };
     });
   }, CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER);
@@ -251,8 +252,8 @@ export async function typeIntoConsoleAndWaitForResult(frontend: puppeteer.Page, 
 }
 
 export async function unifyLogVM(actualLog: string, expectedLog: string) {
-  const actualLogArray = actualLog.split('\n');
-  const expectedLogArray = expectedLog.split('\n');
+  const actualLogArray = actualLog.trim().split('\n').map(s => s.trim());
+  const expectedLogArray = expectedLog.trim().split('\n').map(s => s.trim());
 
   if (actualLogArray.length !== expectedLogArray.length) {
     throw 'logs are not the same length';
@@ -347,5 +348,21 @@ export function checkCommandResultFunction(offset: number = 0) {
   return async function(command: string, expected: string, message?: string) {
     await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, command);
     assert.strictEqual(await getLastConsoleMessages(offset), expected, message);
+  };
+}
+
+export async function expandLastConsoleMessage() {
+  const messagesExpandButtons = await $$(CONSOLE_MESSAGES_EXPAND_BUTTON_SELECTOR);
+  await messagesExpandButtons.at(-1)?.click();
+}
+
+export async function getLastConsoleStacktrace(offset: number = 0) {
+  return (await getStructuredConsoleMessages()).at(-1 - offset)?.stackPreview;
+}
+
+export function checkCommandStacktraceFunction(offset: number = 0) {
+  return async function(command: string, expected: string) {
+    await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, command);
+    await unifyLogVM(await getLastConsoleStacktrace(offset), expected);
   };
 }
