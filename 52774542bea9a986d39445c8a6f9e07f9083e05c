@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a2dadb9_1d9624b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-28T13:10:34Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "52774542bea9a986d39445c8a6f9e07f9083e05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e9ce1aa_fcb0d2a7",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-12-13T14:05:53Z",
       "side": 1,
       "message": "Can this be a part of `getStructuredConsoleMessages`?",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 6
+      },
+      "revId": "52774542bea9a986d39445c8a6f9e07f9083e05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "834361a6_c6619a56",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-28T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e9ce1aa_fcb0d2a7",
       "range": {
         "startLine": 359,
         "startChar": 0,
@@ -61,6 +102,30 @@
       "side": 1,
       "message": "Can we use `unifyLogVM` from above?",
       "parentUuid": "97ed05b6_8771f177",
+      "range": {
+        "startLine": 370,
+        "startChar": 6,
+        "endLine": 372,
+        "endChar": 7
+      },
+      "revId": "52774542bea9a986d39445c8a6f9e07f9083e05c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c519d94_174984b5",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-28T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "270be6ad_12d9d6bc",
       "range": {
         "startLine": 370,
         "startChar": 6,
