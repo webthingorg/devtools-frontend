@@ -199,6 +199,7 @@ export enum SettingType {
 export interface RegExpSettingItem {
   pattern: string;
   disabled?: boolean;
+  changedForUrl?: Platform.DevToolsPath.UrlString;
 }
 
 export interface SettingRegistration {

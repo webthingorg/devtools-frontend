@@ -205,6 +205,7 @@ export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox implements
       const disabled = !checkbox.checkboxElement.checked;
       if (item.disabled !== disabled) {
         item.disabled = disabled;
+        item.changedForUrl = undefined;
         // Send changed event
         listSetting.setAsArray(listSetting.getAsArray());
       }
