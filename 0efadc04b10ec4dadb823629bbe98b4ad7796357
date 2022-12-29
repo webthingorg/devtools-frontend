@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56ea82b2_556d5462",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-29T08:08:45Z",
+      "side": 1,
+      "message": "Why do we need this outer function? Can we just move the offset parameter to the inner function and make it a top level function?",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 68
+      },
+      "revId": "0efadc04b10ec4dadb823629bbe98b4ad7796357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
