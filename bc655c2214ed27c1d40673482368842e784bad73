@@ -22,6 +22,30 @@
       },
       "revId": "bc655c2214ed27c1d40673482368842e784bad73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b2bb5b_9d6225c7",
+        "filename": "front_end/models/bindings/ResourceMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-29T09:10:35Z",
+      "side": 1,
+      "message": "We have several E2E tests covering this already (the ones that Sigurd unflaked originally), except that it was done in the wrong spot. This CL is basically moving furniture. 😊",
+      "parentUuid": "dec3c114_ad4700ce",
+      "range": {
+        "startLine": 327,
+        "startChar": 80,
+        "endLine": 327,
+        "endChar": 95
+      },
+      "revId": "bc655c2214ed27c1d40673482368842e784bad73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
