@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a603b1f7_637d3b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-29T09:31:03Z",
+      "side": 1,
+      "message": "Hey Andres. This fixes the mismatch in type between what the spec says and what we assume internally. Could you please take a look? Thanks!",
+      "revId": "87485e28bdfa17138f5f1e91e060c9fc557bdd59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
