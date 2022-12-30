@@ -33,6 +33,24 @@
       "message": "funky!",
       "revId": "10bc9191ceb0b9aee3d79c7c701ca52d60446ec1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96d2a6c2_746c3452",
+        "filename": "test/unittests/front_end/helpers/SourceMapEncoder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-12-30T12:27:45Z",
+      "side": 1,
+      "message": "Too funky if you ask me:)",
+      "parentUuid": "a39ec7c9_987d2ef4",
+      "revId": "10bc9191ceb0b9aee3d79c7c701ca52d60446ec1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
