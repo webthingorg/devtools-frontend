@@ -234,7 +234,7 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   private projectsInternal: Map<string, Project>;
   private hasResourceContentTrackingExtensionsInternal: boolean;
 
-  private constructor() {
+  constructor() {
     super();
     this.projectsInternal = new Map();
     this.hasResourceContentTrackingExtensionsInternal = false;

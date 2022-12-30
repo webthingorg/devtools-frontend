@@ -53,7 +53,7 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
   readonly #uiSourceCodeToData: WeakMap<Workspace.UISourceCode.UISourceCode, UISourceCodeData>;
   constructor(
       workspace: Workspace.Workspace.WorkspaceImpl, id: string, type: Workspace.Workspace.projectTypes,
-      displayName: string, isServiceProject: boolean) {
+      displayName: string = '', isServiceProject: boolean = false) {
     super(workspace, id, type, displayName);
     this.#contentProviders = new Map();
     this.#isServiceProjectInternal = isServiceProject;
