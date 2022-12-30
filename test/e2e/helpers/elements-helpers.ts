@@ -8,6 +8,7 @@ import type * as puppeteer from 'puppeteer';
 import {
   $,
   $$,
+  $textContent,
   click,
   getBrowserAndPages,
   getTextContent,
@@ -48,6 +49,8 @@ export const ACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Disable grid mode"]';
 const ELEMENT_CHECKBOX_IN_LAYOUT_PANE_SELECTOR = '.elements input[type=checkbox]';
 const ELEMENT_STYLE_SECTION_SELECTOR = '[aria-label="element.style, css selector"]';
 const STYLE_QUERY_RULE_TEXT_SELECTOR = '.query-text';
+const STYLE_PROPERTIES_SELECTOR = 'div.tree-outline-disclosure li[role="treeitem"]';
+const STYLES_PANE_SELECTOR = '.widget.vbox.styles-pane';
 const CSS_AUTHORING_HINTS_ICON_SELECTOR = '.hint';
 const SEARCH_BOX_SELECTOR = '.search-bar';
 const SEARCH_RESULTS_MATCHES = '.search-results-matches';
@@ -739,6 +742,27 @@ export const toggleClassesPaneCheckbox = async (checkboxLabel: string) => {
   await waitForSelectedNodeChange(initialValue);
 };
 
+export const uncheckStylesPaneCheckbox = async (checkboxLabel: string) => {
+  const initialValue = await getContentOfSelectedNode();
+
+  const stylesPane = await waitFor(STYLES_PANE_SELECTOR);
+  let checkboxElement = await waitFor(`input[aria-label="${checkboxLabel}"]`, stylesPane);
+  while (await (await checkboxElement.getProperty('checked')).jsonValue()) {
+    try {
+      await checkboxElement.click();
+    } catch (error) {
+      if (['Node is detached from document', 'Node is either not clickable or not an HTMLElement'].includes(
+              error.message)) {
+        checkboxElement = await waitFor(`input[aria-label="${checkboxLabel}"]`, stylesPane);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  await waitForSelectedNodeChange(initialValue, 10000);
+};
+
 export const assertSelectedNodeClasses = async (expectedClasses: string[]) => {
   const nodeText = await getContentOfSelectedNode();
   const match = nodeText.match(/class=\u200B"([^"]*)/);
@@ -810,4 +834,21 @@ export const goToResourceAndWaitForStyleSection = async (path: string) => {
 
   // Check to make sure we have the correct node selected after opening a file.
   await waitForPartialContentOfSelectedElementsNode('<body>\u200B');
+};
+
+export const checkStyleAttributes = async (expectedStyles: string[]) => {
+  await waitForFunction(async () => {
+    const actual: (string|undefined)[] = [];
+    const result = await $$(STYLE_PROPERTIES_SELECTOR, undefined, 'pierce');
+    for (let i = 0; i < result.length; i++) {
+      const e = result[i];
+      actual.push((await e.evaluate(e => e.textContent))?.trim());
+    }
+    return actual.sort().join(' ') === expectedStyles.sort().join(' ');
+  });
+};
+
+export const clickElement = async (elementContent: string) => {
+  const element = await $textContent(elementContent);
+  await element?.click();
 };
