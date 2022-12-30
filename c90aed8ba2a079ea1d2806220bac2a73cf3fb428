@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59c36f1_6c4028d7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-30T17:51:25Z",
+      "side": 1,
+      "message": "the reason for the try-catch block here is that the click function automatically scrolls to the element which sometimes spawns a new one and detaches the one we already grabbed, so the click function gives an error.",
+      "range": {
+        "startLine": 751,
+        "startChar": 4,
+        "endLine": 751,
+        "endChar": 7
+      },
+      "revId": "c90aed8ba2a079ea1d2806220bac2a73cf3fb428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f5fb01_f3b7b418",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-30T17:51:25Z",
+      "side": 1,
+      "message": "advise on how long to wait?",
+      "range": {
+        "startLine": 763,
+        "startChar": 48,
+        "endLine": 763,
+        "endChar": 53
+      },
+      "revId": "c90aed8ba2a079ea1d2806220bac2a73cf3fb428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d12d225_545b74cd",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-30T17:51:25Z",
+      "side": 1,
+      "message": "the reason we are checking for the properties in this way is because we cannot grab the specific property because it has no unique identifier and there was no visual indication of its appearance (AFAIK). We can maybe add an event that indicates its appearance but I found this way easier. Please let me know if you have any suggestions on this.",
+      "range": {
+        "startLine": 839,
+        "startChar": 13,
+        "endLine": 839,
+        "endChar": 33
+      },
+      "revId": "c90aed8ba2a079ea1d2806220bac2a73cf3fb428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b8a9a7_dc3320d0",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2022-12-30T17:51:25Z",
+      "side": 1,
+      "message": "we can make this function search for partial content if you want (please let me know if you do)",
+      "range": {
+        "startLine": 851,
+        "startChar": 13,
+        "endLine": 851,
+        "endChar": 25
+      },
+      "revId": "c90aed8ba2a079ea1d2806220bac2a73cf3fb428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
