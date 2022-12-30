@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8794560_c485bba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-12-30T12:57:05Z",
+      "side": 1,
+      "message": "Here\u0027s a refactoring of the `CompilerScriptMapping` to properly support the case where newly loaded scripts override (parts of) previous mappings. Please take a look. Thanks!",
+      "revId": "c8c64f9e0b91aea79b7568ca7d33372011e5c85f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
