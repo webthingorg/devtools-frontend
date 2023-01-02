@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb47e35_4af0bbff",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0cad0e2_cd4f1295",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 50
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f42b4842_e229daef",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-02T08:24:30Z",
       "side": 1,
       "message": "How about making this a setter for `automaticallyIgnoreListKnownThirdPartyScripts` so that it is consistent with how `enableIgnoreListing` is implemented?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 3
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8bc0f61_ad1cbe58",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "I made it consistent with ignoreLisContentScripts because it needs to be usable as a context menu callback.",
+      "parentUuid": "f42b4842_e229daef",
       "range": {
         "startLine": 287,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9544095d_72d61a0c",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b41c1e4c_4a58bccd",
+      "range": {
+        "startLine": 313,
+        "startChar": 8,
+        "endLine": 313,
+        "endChar": 17
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff803516_a8a34f3f",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-02T08:24:30Z",
       "side": 1,
       "message": "Out of curiosity, what is the difference between false and undefined? Could not we just set it to false here?",
+      "range": {
+        "startLine": 317,
+        "startChar": 47,
+        "endLine": 317,
+        "endChar": 66
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ffe9394_ddd4a2c9",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure why it was done this way. There should be no difference other than how the setting is stored.\n\nDone.",
+      "parentUuid": "ff803516_a8a34f3f",
       "range": {
         "startLine": 317,
         "startChar": 47,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc31d8e5_c65f30a8",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Vaatika and I discussed changing the behavior to only ever disable, never delete, patterns. I\u0027m not sure it is necessary to change this behavior, though. Deleted.",
+      "parentUuid": "f282940c_4b6ba2da",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 35
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd5f64a6_bf0ce939",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-02T08:24:30Z",
       "side": 1,
       "message": "unIgnoreListPattern -\u003e removeIgnoreListPattern",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 29
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76eef9b3_ca080458",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd5f64a6_bf0ce939",
       "range": {
         "startLine": 353,
         "startChar": 10,
@@ -162,6 +306,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f64693d_1b968527",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25a40fe1_88c456b5",
+      "range": {
+        "startLine": 363,
+        "startChar": 30,
+        "endLine": 365,
+        "endChar": 5
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb95ff17_007f6110",
@@ -179,6 +347,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54b3b12a_4e4c1d8c",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done. Forgot to delete original code.",
+      "parentUuid": "bb95ff17_007f6110",
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19348acc_05311c33",
@@ -192,6 +378,30 @@
       "writtenOn": "2023-01-02T08:24:30Z",
       "side": 1,
       "message": "This code needs some cleanup?\n\nCan\u0027t you use debuggerWorkspaceBinding.waitForUISourceCodeAdded here?",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 5
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e6280bf_3225f957",
+        "filename": "test/unittests/front_end/models/bindings/IgnoreListManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-02T12:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19348acc_05311c33",
       "range": {
         "startLine": 126,
         "startChar": 4,
