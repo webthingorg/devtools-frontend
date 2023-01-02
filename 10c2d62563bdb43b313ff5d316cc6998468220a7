@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cdc75c21_317c1de8",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T13:02:43Z",
+      "side": 1,
+      "message": "Right, I saw that. You can still pass `() \u003d\u003e this.automaticallyIgnoreListKnownThirdPartyScripts \u003d true` as a callback. I do not have a strong preference here.",
+      "parentUuid": "a8bc0f61_ad1cbe58",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 3
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b41c1e4c_4a58bccd",
         "filename": "front_end/models/bindings/IgnoreListManager.ts",
         "patchSetId": 2
