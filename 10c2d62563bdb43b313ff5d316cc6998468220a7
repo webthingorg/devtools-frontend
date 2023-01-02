@@ -3,6 +3,167 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0cad0e2_cd4f1295",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "Please explain (in a comment) what this field means.\n\nPerhaps `disabledForUrl` would be a more descriptive name?\n\nAnother idea: is the `disabled` field needed at all? As far as I can see, the item is disabled if and only if `changedForUrl` is set. Or do you need the `disabled` field for backwards compatibility with existing settings?",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 50
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42b4842_e229daef",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "How about making this a setter for `automaticallyIgnoreListKnownThirdPartyScripts` so that it is consistent with how `enableIgnoreListing` is implemented?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 3
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b41c1e4c_4a58bccd",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "Remove, please. Or replace with `if (!changedForUrl) break;`.",
+      "range": {
+        "startLine": 313,
+        "startChar": 8,
+        "endLine": 313,
+        "endChar": 17
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff803516_a8a34f3f",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "Out of curiosity, what is the difference between false and undefined? Could not we just set it to false here?",
+      "range": {
+        "startLine": 317,
+        "startChar": 47,
+        "endLine": 317,
+        "endChar": 66
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f282940c_4b6ba2da",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "Not sure what this is asking about. Could you elaborate? Or remove the comment?",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 35
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5f64a6_bf0ce939",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "unIgnoreListPattern -\u003e removeIgnoreListPattern",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 29
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a40fe1_88c456b5",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "Nit:\nWould not `item \u003d\u003e (!(enabledOnly \u0026\u0026 item.disabled) \u0026\u0026 item.pattern \u003d\u003d\u003d regexValue)` work here?",
+      "range": {
+        "startLine": 363,
+        "startChar": 30,
+        "endLine": 365,
+        "endChar": 5
+      },
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb95ff17_007f6110",
         "filename": "front_end/models/bindings/IgnoreListManager.ts",
         "patchSetId": 2
@@ -14,6 +175,29 @@
       "writtenOn": "2022-12-30T11:23:57Z",
       "side": 1,
       "message": "What about these comments?",
+      "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19348acc_05311c33",
+        "filename": "test/unittests/front_end/models/bindings/IgnoreListManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-02T08:24:30Z",
+      "side": 1,
+      "message": "This code needs some cleanup?\n\nCan\u0027t you use debuggerWorkspaceBinding.waitForUISourceCodeAdded here?",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 5
+      },
       "revId": "10c2d62563bdb43b313ff5d316cc6998468220a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
