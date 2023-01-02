@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b560dc_e16d511b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-01-02T10:07:01Z",
+      "side": 1,
+      "message": "+1 % question",
+      "revId": "ed61f2fbab087328c27b54bcc46a7b8712464f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c3d9c6_5df6de6b",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-01-02T10:07:01Z",
+      "side": 1,
+      "message": "Leaving only storage key logic in clear for all domains means we are completely removing origin support and should have CLs similar to this for all domains. Is this what we are doing now? If yes, maybe we should remove domains from clear one by one in separate CLs?",
+      "revId": "ed61f2fbab087328c27b54bcc46a7b8712464f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
