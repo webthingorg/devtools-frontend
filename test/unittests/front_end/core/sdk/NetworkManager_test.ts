@@ -462,6 +462,20 @@ describeWithMockConnection('InterceptedRequest', () => {
           ]`,
           },
           {name: 'helloWorld.html', path: 'www.example.com/', content: 'Hello World!'},
+          {
+            name: '.headers',
+            path: 'file:/usr/local/example/',
+            content: `[
+            {
+              "applyTo": "*",
+              "headers": [{
+                "name": "test-file-urls",
+                "value": "file url value"
+              }]
+            }
+          ]`,
+          },
+          {name: 'index.html', path: 'file:/usr/local/example/', content: 'Overridden file content'},
         ]);
     sinon.stub(target.fetchAgent(), 'invoke_enable');
     await networkPersistenceManager.updateInterceptionPatternsForTests();
@@ -609,6 +623,32 @@ describeWithMockConnection('InterceptedRequest', () => {
           responseCode: 200,
           body: btoa('Hello World!'),
           responseHeaders: [
+            {name: 'age', value: 'overridden'},
+            {name: 'content-type', value: 'text/html; charset=utf-8'},
+          ],
+        });
+  });
+
+  it('can override headers and content for a request with a \'file:/\'-URL', async () => {
+    const responseCode = 200;
+    const requestId = 'request_id_7' as Protocol.Fetch.RequestId;
+    const responseBody = 'interceptedRequest content';
+    await checkRequestOverride(
+        target, {
+          method: 'GET',
+          url: 'file:///usr/local/example/index.html',
+        } as Protocol.Network.Request,
+        requestId, responseCode,
+        [
+          {name: 'content-type', value: 'text/html; charset=utf-8'},
+          {name: 'age', value: 'original'},
+        ],
+        responseBody, {
+          requestId,
+          responseCode,
+          body: btoa('Overridden file content'),
+          responseHeaders: [
+            {name: 'test-file-urls', value: 'file url value'},
             {name: 'age', value: 'overridden'},
             {name: 'content-type', value: 'text/html; charset=utf-8'},
           ],
