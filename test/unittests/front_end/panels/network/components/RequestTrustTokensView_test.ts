@@ -27,14 +27,14 @@ describeWithLocale('RequestTrustTokensView', () => {
     const component = renderRequestTrustTokensView();
     component.data = {
       params: {
-        type: Protocol.Network.TrustTokenOperationType.Redemption,
+        operation: Protocol.Network.TrustTokenOperationType.Redemption,
         refreshPolicy: Protocol.Network.TrustTokenParamsRefreshPolicy.UseCached,
       },
     } as NetworkComponents.RequestTrustTokensView.RequestTrustTokensReportData;
 
-    const [typeSpan, refreshPolicySpan] =
+    const [operationSpan, refreshPolicySpan] =
         getElementsWithinComponent(component, 'devtools-report-value.code', HTMLElement);
-    assert.strictEqual(typeSpan.textContent, 'Redemption');
+    assert.strictEqual(operationSpan.textContent, 'Redemption');
     assert.strictEqual(refreshPolicySpan.textContent, 'UseCached');
   });
 
@@ -43,7 +43,7 @@ describeWithLocale('RequestTrustTokensView', () => {
     const expectedIssuers = ['example.org', 'foo.dev', 'bar.com'];
     component.data = {
       params: {
-        type: Protocol.Network.TrustTokenOperationType.Signing,
+        operation: Protocol.Network.TrustTokenOperationType.Signing,
         issuers: expectedIssuers,
       },
     } as NetworkComponents.RequestTrustTokensView.RequestTrustTokensReportData;
@@ -59,7 +59,7 @@ describeWithLocale('RequestTrustTokensView', () => {
     component.data = {
       result: {
         status: Protocol.Network.TrustTokenOperationDoneEventStatus.Ok,
-        type: Protocol.Network.TrustTokenOperationType.Issuance,
+        operation: Protocol.Network.TrustTokenOperationType.Issuance,
         requestId: mockId,
       },
     };
@@ -74,7 +74,7 @@ describeWithLocale('RequestTrustTokensView', () => {
     component.data = {
       result: {
         status: Protocol.Network.TrustTokenOperationDoneEventStatus.BadResponse,
-        type: Protocol.Network.TrustTokenOperationType.Issuance,
+        operation: Protocol.Network.TrustTokenOperationType.Issuance,
         requestId: mockId,
       },
     };

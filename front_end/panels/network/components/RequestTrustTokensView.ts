@@ -20,7 +20,7 @@ const UIStrings = {
   /**
    *@description Text that refers to some types
    */
-  type: 'Type',
+  operation: 'Operation',
   /**
    *@description Label for a Trust Token parameter
    */
@@ -158,7 +158,7 @@ export class RequestTrustTokensReport extends HTMLElement {
     return LitHtml.html`
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.parameters)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
-      ${renderRowWithCodeValue(i18nString(UIStrings.type), this.#trustTokenData.params.type.toString())}
+      ${renderRowWithCodeValue(i18nString(UIStrings.operation), this.#trustTokenData.params.operation.toString())}
       ${this.#renderRefreshPolicy(this.#trustTokenData.params)}
       ${this.#renderIssuers(this.#trustTokenData.params)}
       ${this.#renderIssuerAndTopLevelOriginFromResult()}
