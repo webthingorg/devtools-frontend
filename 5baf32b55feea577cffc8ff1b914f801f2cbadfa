@@ -16,6 +16,57 @@
       "message": "ptal!",
       "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf39b1fe_e6582048",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-03T13:44:02Z",
+      "side": 1,
+      "message": "Could we have a link of reference, maybe from Lit\u0027s official documentation, in case people want to learn more about this behavior?",
+      "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2cd12f1_e621c1ba",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-03T13:44:02Z",
+      "side": 1,
+      "message": "Very well written example! Thanks!",
+      "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba517ed7_30ec6c2d",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-03T13:44:02Z",
+      "side": 1,
+      "message": "\"we will re-render that component\" -- I suppose this would _possibly_ be a partial re-render, e.g. in the first example in this doc, where only an HTML attribute is changed?",
+      "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
