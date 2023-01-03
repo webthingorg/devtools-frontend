@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3817a37e_cdb410ae",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-03T11:38:38Z",
+      "side": 1,
+      "message": "It seems like we\u0027re always using `renderPropertyName` and `renderPropertyValue` in pairs. Would it be possible to merge them into one single function, e.g. `renderPropertyContent` or something, return a `{ name, value }`, so that we could reduce some duplicate code?",
+      "revId": "190aa5d8e5b2104038171a23e5b1421def96a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a693519e_745d5548",
+        "filename": "front_end/panels/elements/components/ComputedStyleProperty.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-03T11:38:38Z",
+      "side": 1,
+      "message": "hmm what\u0027s this new line :P? Gerrit bug?",
+      "revId": "190aa5d8e5b2104038171a23e5b1421def96a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
