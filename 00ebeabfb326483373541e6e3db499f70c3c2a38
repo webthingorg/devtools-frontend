@@ -52,6 +52,24 @@
       "parentUuid": "43d474e3_c687395f",
       "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b221bd52_046e0490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1324251
+      },
+      "writtenOn": "2023-01-03T18:56:09Z",
+      "side": 1,
+      "message": "I have now changed the icon.  I couldn\u0027t easily use \u0027largeicon-undo\u0027, as it\u0027s a legacy icon from https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/Icon.ts;l\u003d252, whereas this class uses the non-legacy `IconButton` class.  But I chose the similar non-legacy \u0027ic_undo_16x16_icon\u0027 to use.  If you have a better suggestion, let me know.\n\nI have also modified the styling for the icons per your suggestion.\n\nI didn\u0027t change the overall layout, but did take note of your suggestion for future reference.  As it is, we will likely soon be removing the Creation Time row from the Metadata section, so that will make that smaller.\n\nCan you please take another look?  Thank you.",
+      "parentUuid": "306e98e7_1d4d6256",
+      "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
