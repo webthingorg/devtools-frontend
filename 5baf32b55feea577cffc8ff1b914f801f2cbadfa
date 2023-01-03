@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "067218f2_3b2f3dda",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T14:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf39b1fe_e6582048",
+      "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c2cd12f1_e621c1ba",
         "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2023-01-03T13:44:02Z",
       "side": 1,
       "message": "\"we will re-render that component\" -- I suppose this would _possibly_ be a partial re-render, e.g. in the first example in this doc, where only an HTML attribute is changed?",
+      "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ece0700_a7f21eae",
+        "filename": "front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T14:12:41Z",
+      "side": 1,
+      "message": "I\u0027ve rephrased this - the reason it triggers a re-render is because of our convention of writing:\n\n```\nset x(x: number) {\n   this.x \u003d x;\n   this.#render(); // (could also be a scheduled render)\n}\n```",
+      "parentUuid": "ba517ed7_30ec6c2d",
       "revId": "5baf32b55feea577cffc8ff1b914f801f2cbadfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
