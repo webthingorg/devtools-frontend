@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f7e195_048a552a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T09:25:55Z",
+      "side": 1,
+      "message": "LGTM with some nits - I think also you have a copy/paste typo 😊\n\nSame question as usual - can we add any tests for this behaviour? I think it would be worth doing even if it means we move a little slower.",
+      "revId": "80e86edac04ed0c20ebce0c0b26e73e24bcf4be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d5a2f0_7e603757",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T09:25:55Z",
+      "side": 1,
+      "message": "does this work correctly if `prevCallFrames` is undefined? \n\nActually, looking at the code, I don\u0027t think it can be, so I think we can lose the `?` here",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "80e86edac04ed0c20ebce0c0b26e73e24bcf4be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa78209_64811389",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T09:25:55Z",
+      "side": 1,
+      "message": "why do we assign `callFrames` twice here? It looks like the last line is the right one?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 81
+      },
+      "revId": "80e86edac04ed0c20ebce0c0b26e73e24bcf4be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0727712_17062d87",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T09:25:55Z",
+      "side": 1,
+      "message": "it\u0027s quite hard to follow the if...else nesting in this function - can we do anything to tidy that up? Or at least leave comments with what each branch relates to?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "80e86edac04ed0c20ebce0c0b26e73e24bcf4be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24616ad7_b293800d",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-03T09:25:55Z",
+      "side": 1,
+      "message": "can we lose the `()` around this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 81
+      },
+      "revId": "80e86edac04ed0c20ebce0c0b26e73e24bcf4be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
