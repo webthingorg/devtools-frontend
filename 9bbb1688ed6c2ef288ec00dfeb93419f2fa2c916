@@ -16,6 +16,46 @@
       "message": "lgtm",
       "revId": "9bbb1688ed6c2ef288ec00dfeb93419f2fa2c916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21b7ff30_22e52ab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-03T07:29:53Z",
+      "side": 1,
+      "message": "lgtm % missing testId sanitization.",
+      "revId": "9bbb1688ed6c2ef288ec00dfeb93419f2fa2c916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c312d6_5e1f2e49",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-03T07:29:53Z",
+      "side": 1,
+      "message": "This should use the `sanitzedTestId` function from `resultsdb.js`. I\u0027m suprprised this actually passes the type check, given that this code passes a raw string currently for testId.\n\nAlternatively we could move the sanitization into `recordTestResult` so callers can\u0027t hold it wrong.",
+      "range": {
+        "startLine": 137,
+        "startChar": 19,
+        "endLine": 137,
+        "endChar": 53
+      },
+      "revId": "9bbb1688ed6c2ef288ec00dfeb93419f2fa2c916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
