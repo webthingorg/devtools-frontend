@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333332"
+   version="1.1"
+   id="svg652"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="medium_8.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview654"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="7.5329791"
+     inkscape:cx="18.053946"
+     inkscape:cy="10.08897"
+     inkscape:window-width="1792"
+     inkscape:window-height="1120"
+     inkscape:window-x="0"
+     inkscape:window-y="166"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g222" />
+  <defs
+     id="defs649" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="fill:#000000"
+       id="g222"
+       transform="matrix(0.26458333,0,0,0.26458333,0.11557237,0.27805135)">
+      <g
+         transform="matrix(0.32,0,0,0.32,-0.43680886,-1.0509027)"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+         id="BackgroundSyncIcon">
+        <g
+           id="Sync-Icon">
+          <rect
+             id="Mask"
+             x="0"
+             y="0"
+             width="50"
+             height="50" />
+          <g
+             style="fill:#000000;fill-rule:nonzero"
+             id="Group"
+             transform="translate(8,2)">
+            <path
+               inkscape:connector-curvature="0"
+               d="m 21.939098,33.353403 4.42699,4.044699 C 23.680429,39.200531 20.460997,40.25 17,40.25 7.6111592,40.25 0,32.526912 0,23 c 0,-2.865443 0.68854129,-5.567703 1.9068985,-7.945722 3.722e-4,-7.26e-4 7.445e-4,-0.0015 0.00112,-0.0022 L 6.335865,19.097583 C 5.9027264,20.316125 5.6666667,21.63009 5.6666667,23 c 0,6.351275 5.0741063,11.5 11.3333333,11.5 1.770533,0 3.446239,-0.411971 4.939098,-1.146597 z m 5.704636,-6.394068 C 28.08984,25.724919 28.333333,24.391313 28.333333,23 28.333333,16.648725 23.259227,11.5 17,11.5 c -1.791763,0 -3.486411,0.42191 -4.992721,1.173162 L 7.5863091,8.6339629 C 10.281491,6.811921 13.518531,5.75 17,5.75 c 9.388841,0 17,7.723088 17,17.25 0,2.886982 -0.698932,5.60832 -1.934464,7.999293 z"
+               id="Combined-Shape" />
+            <polygon
+               id="Shape"
+               transform="rotate(180,21.722222,37.375)"
+               points="26.444444,28.75 17,37.375 26.444444,46 " />
+            <polygon
+               id="polygon4215"
+               points="17,0 7.5555556,8.625 17,17.25 " />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

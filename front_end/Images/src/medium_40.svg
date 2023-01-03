@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333332"
+   version="1.1"
+   id="svg652"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="medium_40.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview654"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="7.5329791"
+     inkscape:cx="18.053946"
+     inkscape:cy="10.08897"
+     inkscape:window-width="1792"
+     inkscape:window-height="1120"
+     inkscape:window-x="0"
+     inkscape:window-y="166"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g222" />
+  <defs
+     id="defs649">
+    <mask
+       id="path4229-9-path4231-2-mask">
+      <rect
+         y="0"
+         x="0"
+         id="rect9010"
+         style="fill:#ffffff"
+         height="10"
+         width="10" />
+      <path
+         style="stroke:#000000"
+         inkscape:connector-curvature="0"
+         id="path4229-9"
+         d="m 23,3 4,4"
+         transform="translate(-20)" />
+      <path
+         style="stroke:#000000"
+         inkscape:connector-curvature="0"
+         id="path4231-2"
+         d="M 27,3 23,7"
+         transform="translate(-20)" />
+    </mask>
+    <linearGradient
+       id="sprite6_b-6">
+      <stop
+         stop-color="#d7687d"
+         offset="0"
+         id="stop4236-2" />
+      <stop
+         stop-color="#b21402"
+         offset="1"
+         id="stop4238-6" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#sprite6_b-6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,-0.41667,-0.41667,0,25,10)"
+       x2="24"
+       id="linearGradient3263" />
+    <linearGradient
+       xlink:href="#sprite6_b-6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,-0.58333,-0.58333,0,118,110)"
+       x2="24"
+       id="sprite12_a" />
+    <linearGradient
+       xlink:href="#sprite6_b-6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,-0.58333,-0.58333,0,118,110)"
+       x2="24"
+       id="linearGradient2851" />
+    <mask
+       id="path4287-3-mask">
+      <rect
+         y="0"
+         x="0"
+         id="rect8997"
+         style="fill:#ffffff"
+         height="10"
+         width="10" />
+      <path
+         style="fill:#000000"
+         inkscape:connector-curvature="0"
+         id="path4287-3"
+         d="m 83.93,2.14 c -0.03,-0.53 0.55,-0.97 1.06,-0.83 0.5,0.12 0.79,0.73 0.56,1.18 -0.2,0.44 -0.79,0.61 -1.2,0.36 C 84.09,2.71 83.93,2.43 83.93,2.14 Z m 1.7,5.46 H 86.3 V 8.13 H 83.41 V 7.6 h 0.66 V 3.99 H 83.41 V 3.46 h 2.22 z"
+         transform="translate(-80)" />
+    </mask>
+    <linearGradient
+       id="sprite9_d-9">
+      <stop
+         stop-color="#606eda"
+         offset="0"
+         id="stop4292-1" />
+      <stop
+         stop-color="#021db2"
+         offset="1"
+         id="stop4294-2" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#sprite13_r"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="rotate(90,112,95)"
+       y2="104"
+       y1="104"
+       x2="127"
+       x1="113"
+       id="sprite13_a" />
+    <linearGradient
+       id="sprite13_r">
+      <stop
+         id="stop4903"
+         offset="0"
+         stop-color="#c0544f" />
+      <stop
+         id="stop4905"
+         offset="1"
+         stop-color="#d08481" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#sprite13_q"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="rotate(90,103,103)"
+       y2="103"
+       y1="103"
+       x2="109.5"
+       x1="96.5"
+       id="sprite13_b" />
+    <linearGradient
+       id="sprite13_q">
+      <stop
+         id="stop4897"
+         offset="0"
+         stop-color="#e59290" />
+      <stop
+         id="stop4899"
+         offset="1"
+         stop-color="#e99890" />
+    </linearGradient>
+    <mask
+       id="path4453-6-mask">
+      <rect
+         y="0"
+         x="0"
+         id="rect8990"
+         style="fill:#ffffff"
+         height="10"
+         width="10" />
+      <path
+         style="fill:#000000"
+         inkscape:connector-curvature="0"
+         id="path4453-6"
+         d="m 64,3 h 2 V 5.25 L 65.5,7 h -1 L 64,5.25 V 3 m 0,5 h 2 v 1 h -2"
+         transform="translate(-60)" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="fill:#000000"
+       id="g222"
+       transform="matrix(0.26458333,0,0,0.26458333,0.11557237,0.27805135)">
+      <g
+         mask="url(#path4453-6-mask)"
+         transform="matrix(1.3997356,0,0,1.3934295,0.56451314,-0.01813624)"
+         id="g4443-7">
+        <path
+           style="stroke:#c19600;stroke-width:2;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           id="path4447-5"
+           d="m 61,9 4,-8 4,8 z"
+           transform="translate(-60)" />
+        <path
+           style="fill:#f4bd00;stroke:#f5bd00;stroke-width:1.5;stroke-linejoin:round"
+           inkscape:connector-curvature="0"
+           id="path4449-3"
+           d="m 61,9 4,-8 4,8 z"
+           transform="translate(-60)" />
+        <path
+           style="fill:#ad8601"
+           inkscape:connector-curvature="0"
+           id="path4451-5"
+           d="m 63.75,2.75 h 2.5 v 2.5 L 65.75,7 h -1.5 l -0.5,-1.75 v -2.5 m 0,5.25 h 2.5 v 1.25 h -2.5"
+           transform="translate(-60)" />
+        <mask
+           id="mask3680">
+          <rect
+             y="0"
+             x="0"
+             id="rect3676"
+             style="fill:#ffffff"
+             height="10"
+             width="10" />
+          <path
+             style="fill:#000000"
+             inkscape:connector-curvature="0"
+             id="path3678"
+             d="m 64,3 h 2 V 5.25 L 65.5,7 h -1 L 64,5.25 V 3 m 0,5 h 2 v 1 h -2"
+             transform="translate(-60)" />
+        </mask>
+      </g>
+    </g>
+  </g>
+</svg>
