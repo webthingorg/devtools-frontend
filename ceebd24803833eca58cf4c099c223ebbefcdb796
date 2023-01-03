@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d85f0e36_ba3727b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-03T10:37:07Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI had a look at this test that you added some time ago for live edit and it seems as if this is fixed. Bug 1216904 is still dependent on instrumentation breakpoints, but I\u0027ll close it as a duplicate after enabling this test. I\u0027ve also run the stressor bots. PTAL!",
+      "revId": "ceebd24803833eca58cf4c099c223ebbefcdb796",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
