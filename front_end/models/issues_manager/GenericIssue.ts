@@ -58,6 +58,10 @@ export class GenericIssue extends Issue {
   }
 
   getKind(): IssueKind {
+    // Some autofill errors are of PageError type.
+    if (this.#issueDetails.errorType === Protocol.Audits.GenericIssueErrorType.FormLabelForNameError) {
+      return IssueKind.PageError;
+    }
     return IssueKind.Improvement;
   }
 
