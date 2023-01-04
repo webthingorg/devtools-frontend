@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20deeba_2195990d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1528162
+      },
+      "writtenOn": "2023-01-04T19:12:16Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI would like to make some changes in fetch API for Private State Tokens (formerly known as Trust Tokens) and this requires changes in devtools front end as well. \n\nI have CL crrev.com/c/4120513 for the chromium side of things. I have this CL for the devtools front end. \n\nI have not contributed to the devtools front end before and learning about the workflow. I have read the front end contribution workflow docs. As far as I understand, I need to get this CL in first. Can you help me with this?",
+      "revId": "6284184f0067db63f2b2102dde9ed5447828aa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
