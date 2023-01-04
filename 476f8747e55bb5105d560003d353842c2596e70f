@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f121d98_94bbca4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2023-01-04T23:23:19Z",
+      "side": 1,
+      "message": "PTAL Philip at this small change to correct the test helper usage in can-create-panel_test.ts.",
+      "revId": "476f8747e55bb5105d560003d353842c2596e70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
