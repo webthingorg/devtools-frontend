@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a34103_92f110d7",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2023-01-04T12:00:42Z",
+      "side": 1,
+      "message": "Perhaps we should use a switch and explicitly define the kind for every issue type (there\u0027s only 2 so far).",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 5
+      },
+      "revId": "8df930191194595712cda9a255de484018d911dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

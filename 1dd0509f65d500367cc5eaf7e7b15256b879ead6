@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a7768c1_ea75556c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2023-01-04T12:00:42Z",
+      "side": 1,
+      "message": "Nice, thanks!\n\nAdding wolfi@ as a reviewer, who as ownership and reviewed my CLs.",
+      "revId": "1dd0509f65d500367cc5eaf7e7b15256b879ead6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
