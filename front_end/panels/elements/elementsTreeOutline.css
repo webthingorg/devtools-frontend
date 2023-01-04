@@ -44,11 +44,13 @@
   width: 100%;
   display: inline-block;
   line-height: normal;
+
+  --content-padding: 16px;
 }
 
 .elements-disclosure li {
-  /** Keep margin-left & padding-left in sync with ElementsTreeElements.updateDecorations **/
-  padding: 1px 0 0 14px;
+  padding-left: calc(var(--content-padding, 0px) + var(--indentation, 0px));
+  padding-top: 1px;
   margin-left: -2px;
   word-break: normal;
   position: relative;
@@ -57,13 +59,14 @@
   min-width: 200px;
 }
 
-.elements-disclosure li.parent {
-  display: flex;
+.elements-disclosure li.elements-tree-shortcut-element {
+  /** elements-tree-shortcut-element can't find indentation of their own, so it relies on it's
+    parent 'li' --indentation and adds 24px(2*12 since it's a non-expandable 'li') to it **/
+  padding-left: calc(var(--content-padding, 0px) + var(--indentation, 0px) + 24px);
 }
 
-.elements-disclosure li.parent:not(.always-parent) {
-  /** Keep it in sync with ElementsTreeElements.updateDecorations **/
-  margin-left: -12px;
+.elements-disclosure li.parent {
+  display: flex;
 }
 
 .elements-disclosure li .selected-hint::before {
@@ -100,6 +103,7 @@
 .elements-disclosure li .selection {
   display: none;
   z-index: -1;
+  margin-left: 2px;
 }
 
 .elements-disclosure li.selected .selection {
@@ -140,8 +144,7 @@
 
 .elements-disclosure ol {
   list-style-type: none;
-  /** Keep it in sync with ElementsTreeElements.updateDecorations **/
-  padding-inline-start: 12px;
+  padding-inline-start: 0;
   margin: 0;
 }
 
@@ -288,7 +291,7 @@ select {
 .elements-disclosure .gutter-container {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 2px;
   width: 15px;
   height: 15px;
 }
@@ -315,8 +318,10 @@ select {
 li.hovered:not(.always-parent) + ol.children,
 .elements-tree-outline ol.shadow-root,
 li.selected:not(.always-parent) + ol.children {
+  --inset: 2.5px;
+
   background: linear-gradient(to right, var(--override-indentation-level-border-color), var(--override-indentation-level-border-color) 0.5px, transparent 0);
-  background-position-x: 5px;
+  background-position-x: calc(var(--content-padding, 0px) + var(--indentation, 0px) + var(--inset, 0px));
 }
 
 li.selected:not(.always-parent) + ol.children {

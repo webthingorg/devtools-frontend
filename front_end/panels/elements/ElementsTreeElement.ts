@@ -243,6 +243,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
   private contentElement: HTMLElement;
+  private computedLeftIndent?: number;
 
   readonly tagTypeContext: TagTypeContext;
 
@@ -455,7 +456,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (!this.selectionElement) {
       this.selectionElement = document.createElement('div');
       this.selectionElement.className = 'selection fill';
-      this.selectionElement.style.setProperty('margin-left', (-this.computeLeftIndent()) + 'px');
       contentElement.prepend(this.selectionElement);
     }
   }
@@ -1343,6 +1343,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private computeLeftIndent(): number {
+    if (this.computedLeftIndent) {
+      return this.computedLeftIndent;
+    }
     let treeElement: (UI.TreeOutline.TreeElement|null) = this.parent;
     let depth = 0;
     while (treeElement !== null) {
@@ -1351,11 +1354,18 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     /** Keep it in sync with elementsTreeOutline.css **/
-    return 12 * (depth - 2) + (this.isExpandable() && this.isCollapsible() ? 1 : 12);
+    this.computedLeftIndent = 12 * (depth - 2) + (this.isExpandable() && this.isCollapsible() ? 1 : 12);
+    return this.computedLeftIndent;
+  }
+
+  invalidateComputedLeftIndent(): void {
+    delete this.computedLeftIndent;
   }
 
   updateDecorations(): void {
-    this.gutterContainer.style.left = (-this.computeLeftIndent()) + 'px';
+    const indentation = this.computeLeftIndent();
+    this.listItemNode.style.setProperty('--indentation', indentation + 'px');
+    this.childrenListNode.style.setProperty('--indentation', indentation + 'px');
 
     if (this.isClosingTag()) {
       return;

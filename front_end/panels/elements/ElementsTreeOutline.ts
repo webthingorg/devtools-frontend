@@ -1153,6 +1153,7 @@ export class ElementsTreeOutline extends
     const parentTreeElement = this.findTreeElement(node);
     if (parentTreeElement) {
       parentTreeElement.setExpandable(this.hasVisibleChildren(node));
+      parentTreeElement.invalidateComputedLeftIndent();
       parentTreeElement.updateTitle(this.updateRecordForHighlight(node));
       if (populatedTreeElements.has(parentTreeElement)) {
         this.updateChildren(parentTreeElement);
@@ -1615,6 +1616,7 @@ export class ShortcutTreeElement extends UI.TreeOutline.TreeElement {
   private hoveredInternal?: boolean;
   constructor(nodeShortcut: SDK.DOMModel.DOMNodeShortcut) {
     super('');
+    this.listItemElement.classList.add('elements-tree-shortcut-element');
     this.listItemElement.createChild('div', 'selection fill');
     const title = this.listItemElement.createChild('span', 'elements-tree-shortcut-title');
     let text = nodeShortcut.nodeName.toLowerCase();
