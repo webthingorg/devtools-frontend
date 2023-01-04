@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c34328_94bab3be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-04T09:24:45Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis is a CSS fix where I didn\u0027t specify the dark mode color of a breakpoint item, if it was highlighted when hit. PTAL!",
+      "revId": "2b3afefdce4aba7a44098548abc5ac5f51e5067c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
