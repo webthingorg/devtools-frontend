@@ -160,12 +160,7 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return null;
     }
 
-    const lineNumber = rawLocation.lineNumber - script.lineOffset;
-    let columnNumber = rawLocation.columnNumber;
-    if (!lineNumber) {
-      columnNumber -= script.columnOffset;
-    }
-
+    const {lineNumber, columnNumber} = script.rawLocationToRelativeLocation(rawLocation);
     const stubUISourceCode = this.#stubUISourceCodes.get(script);
     if (stubUISourceCode) {
       return new Workspace.UISourceCode.UILocation(stubUISourceCode, lineNumber, columnNumber);
@@ -201,11 +196,11 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
         continue;
       }
       const script = this.#sourceMapManager.clientForSourceMap(sourceMap);
-      if (script) {
-        locations.push(this.#debuggerModel.createRawLocation(
-            script, entry.lineNumber + script.lineOffset,
-            !entry.lineNumber ? entry.columnNumber + script.columnOffset : entry.columnNumber));
+      if (!script) {
+        continue;
       }
+      const location = script.relativeLocationToRawLocation(entry);
+      locations.push(this.#debuggerModel.createRawLocation(script, location.lineNumber, location.columnNumber));
     }
     return locations;
   }
