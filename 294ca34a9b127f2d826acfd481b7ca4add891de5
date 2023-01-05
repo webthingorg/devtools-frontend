@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a7138b_c5b7fa7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-01-05T06:38:32Z",
+      "side": 1,
+      "message": "Thanks for the proposed change! As explained in crbug.com/1404874#c4, I am not sure we want to restore the old behavior.",
+      "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
