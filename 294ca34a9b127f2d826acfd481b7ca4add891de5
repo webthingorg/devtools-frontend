@@ -33,6 +33,23 @@
       "message": "Changhao, could you take a look please?",
       "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "096c43de_75ad174b",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-05T12:31:13Z",
+      "side": 1,
+      "message": "There seems to be a lot of calculation depending on these variables being set from JS. Have you tried using some CSS solutions, e.g. setting a pseudo element to expand the hit region?",
+      "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
