@@ -4,12 +4,12 @@
 
 import * as Helpers from '../helpers/helpers.js';
 
+import {data as metaHandlerData} from './MetaHandler.js';
 import {type TraceEventHandlerName, HandlerState} from './types.js';
 
 import {ScoreClassification} from './PageLoadMetricsHandler.js';
-
-import {data as metaHandlerData} from './MetaHandler.js';
 import {data as screenshotsHandlerData} from './ScreenshotsHandler.js';
+
 import * as Platform from '../../../core/platform/platform.js';
 
 import * as Types from '../types/types.js';

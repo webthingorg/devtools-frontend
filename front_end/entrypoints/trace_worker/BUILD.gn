@@ -1,0 +1,55 @@
+# Copyright 2022 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../scripts/build/ninja/devtools_module.gni")
+import("../visibility.gni")
+
+# devtools_module("trace_worker") {
+#   sources = [
+#   ]
+
+#   deps = [
+#     ":formatter_actions",
+#     "../../core/platform:bundle",
+#     "../../core/root:bundle",
+#     "../../models/text_utils:bundle",
+#     "../../third_party/acorn:bundle",
+#     "../../third_party/codemirror",
+#   ]
+# }
+
+devtools_entrypoint("bundle") {
+  entrypoint = "trace_worker.ts"
+
+  deps = [
+    "../../models/trace:bundle"
+  ]
+
+  visibility = [
+    ":*",
+    # "../../../test/unittests/front_end/entrypoints/formatter_worker/*",
+  ]
+
+  visibility += devtools_entrypoints_visibility
+}
+
+devtools_entrypoint("worker_entrypoint") {
+  entrypoint = "trace_worker-entrypoint.ts"
+
+  is_web_worker = true
+
+  deps = [
+    ":bundle",
+    # "../../core/platform:bundle",
+  ]
+
+  visibility = [
+    "../../../front_end",
+    "../../models/trace/*",
+    "../../panels/timeline/*",
+  ]
+
+  visibility += devtools_entrypoints_visibility
+}

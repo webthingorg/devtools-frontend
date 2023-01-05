@@ -331,6 +331,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private cpuThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private fileSelectorElement?: HTMLInputElement;
   private selection?: TimelineSelection|null;
+  #traceEngineWorker: Common.Worker.WorkerWrapper;
   constructor() {
     super('timeline');
     this.element.addEventListener('contextmenu', this.contextMenu.bind(this), false);
@@ -439,6 +440,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           SDK.CPUProfilerModel.CPUProfilerModel, SDK.CPUProfilerModel.Events.ConsoleProfileFinished,
           event => this.consoleProfileFinished(event.data), this);
     }
+
+    this.#traceEngineWorker = Common.Worker.WorkerWrapper.fromURL(
+        new URL('../../entrypoints/trace_worker/trace_worker-entrypoint.js', import.meta.url));
   }
 
   static instance(opts: {
@@ -1295,6 +1299,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (!this.performanceModel.hasEventListeners(Events.NamesResolved)) {
       this.performanceModel.addEventListener(Events.NamesResolved, this.updateModelAndFlameChart, this);
     }
+
+    this.#traceEngineWorker.postMessage({eventName: 'TRACE_LOADED', data: tracingModel.allRawEvents()});
 
     this.historyManager.addRecording(this.performanceModel);
 

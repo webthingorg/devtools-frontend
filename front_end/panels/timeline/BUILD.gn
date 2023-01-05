@@ -71,6 +71,7 @@ devtools_entrypoint("bundle") {
   deps = [
     ":css_files",
     ":timeline",
+    "../../entrypoints/trace_worker:worker_entrypoint"
   ]
 
   visibility = [

@@ -89,10 +89,12 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
         event.stopPropagation();
       }
     }
-
-    document.addEventListener('keydown', event => {
-      stopEventPropagation.call(this, (event as KeyboardEvent));
-    }, true);
+    if (typeof document !== 'undefined') {
+      document.addEventListener('keydown', event => {
+        stopEventPropagation.call(this, (event as KeyboardEvent));
+      }, true);
+    }
+    this.#urlsBeingSaved = new Map();
   }
 
   platform(): string {

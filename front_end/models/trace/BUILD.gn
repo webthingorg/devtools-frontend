@@ -13,7 +13,6 @@ devtools_module("trace") {
   ]
 
   deps = [
-    "../../core/common:bundle",
     "../../core/platform:bundle",
     "handlers:bundle",
     "helpers:bundle",
@@ -32,6 +31,7 @@ devtools_entrypoint("bundle") {
     "../../../test/unittests/front_end/helpers/*",
     "../../../test/unittests/front_end/models/trace/*",
     "../../panels/timeline/*",
+    "../../entrypoints/trace_worker/*",
   ]
 
   visibility += devtools_models_visibility
