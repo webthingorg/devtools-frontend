@@ -410,6 +410,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return '';
     }
     if (relativePathParts[1] === 'longurls' && relativePathParts.length !== 2) {
+      if (relativePathParts[0] === 'file:') {
+        return 'file:///*';
+      }
       return 'http?://' + relativePathParts[0] + '/*';
     }
     // 'relativePath' returns an encoded string of the local file name which itself is already encoded.
@@ -459,6 +462,38 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  private async generateHeaderPatternsForLongUrl(
+      headerOverrides: HeaderOverride[], relativePathParts: Platform.DevToolsPath.EncodedPathString[]): Promise<{
+    headerPatterns: Set<string>,
+    path: Platform.DevToolsPath.EncodedPathString,
+    overridesWithRegex: HeaderOverrideWithRegex[],
+  }> {
+    const headerPatterns = new Set<string>();
+    const singlyDecodedPath =
+        this.decodeLocalPathToUrlPath(relativePathParts.join('/')).slice(0, -HEADERS_FILENAME.length) as
+        Platform.DevToolsPath.EncodedPathString;
+    let decodedPath = this.decodeLocalPathToUrlPath(singlyDecodedPath) as Platform.DevToolsPath.RawPathString;
+    const isFileUrl = decodedPath.startsWith('file:/');
+
+    const singlyDecodedPattern = this.decodeLocalPathToUrlPath(relativePathParts[0] + '/*');
+    let decodedPattern = this.decodeLocalPathToUrlPath(singlyDecodedPattern) as Platform.DevToolsPath.RawPathString;
+
+    if (isFileUrl) {
+      decodedPath = Common.ParsedURL.ParsedURL.substring(decodedPath, 6);
+      decodedPattern = Common.ParsedURL.ParsedURL.substring(decodedPattern, 6);
+    }
+    headerPatterns.add((isFileUrl ? 'file:///' : 'http?://') + decodedPattern);
+
+    const overridesWithRegex: HeaderOverrideWithRegex[] = [];
+    for (const headerOverride of headerOverrides) {
+      overridesWithRegex.push({
+        applyToRegex: new RegExp(`^${isFileUrl ? 'file:\/' : ''}${escapeRegex(decodedPath + headerOverride.applyTo)}$`),
+        headers: headerOverride.headers,
+      });
+    }
+    return {headerPatterns, path: singlyDecodedPath, overridesWithRegex};
+  }
+
   async generateHeaderPatterns(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<{
     headerPatterns: Set<string>,
     path: Platform.DevToolsPath.EncodedPathString,
@@ -476,7 +511,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       console.error('Failed to parse', uiSourceCode.url(), 'for locally overriding headers.');
       return {headerPatterns, path: Platform.DevToolsPath.EmptyEncodedPathString, overridesWithRegex: []};
     }
-    const relativePath = FileSystemWorkspaceBinding.relativePath(uiSourceCode).join('/');
+    const relativePathParts = FileSystemWorkspaceBinding.relativePath(uiSourceCode);
+    if (relativePathParts.length > 2 && relativePathParts[1] === 'longurls') {
+      return this.generateHeaderPatternsForLongUrl(headerOverrides, relativePathParts);
+    }
+    const relativePath = relativePathParts.join('/');
+
     // 'relativePath' returns an encoded string of the local file name which itself is already encoded.
     // e.g. relativePath: 'www.example.com%253A443/path/.headers '
     // singlyDecodedPath: 'www.example.com%3A443/path/'
@@ -508,24 +548,21 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       if (!isFileUrl && tail) {
         headerPatterns.add('http?://' + decodedPath + head);
 
-        const pattern = escapeRegex(decodedPath + head) + '(' + escapeRegex(tail) + ')?';
-        const regex = new RegExp('^https?:\/\/' + pattern + '$');
         overridesWithRegex.push({
-          applyToRegex: regex,
+          applyToRegex: new RegExp(`^${escapeRegex(decodedPath + head)}(${escapeRegex(tail)})?$`),
           headers: headerOverride.headers,
         });
       } else {
-        const regexHead = isFileUrl ? '^file:\/\/\/' : '^https?:\/\/';
-        const regex = new RegExp(regexHead + escapeRegex(decodedPath + headerOverride.applyTo) + '$');
         overridesWithRegex.push({
-          applyToRegex: regex,
+          applyToRegex:
+              new RegExp(`^${isFileUrl ? 'file:\/' : ''}${escapeRegex(decodedPath + headerOverride.applyTo)}$`),
           headers: headerOverride.headers,
         });
       }
       // Make 'global' overrides apply to file URLs as well.
       if (decodedPath === '') {
         overridesWithRegex.push({
-          applyToRegex: new RegExp('^file:\/\/\/' + escapeRegex(decodedPath + headerOverride.applyTo) + '$'),
+          applyToRegex: new RegExp(`^file:\/${escapeRegex(decodedPath + headerOverride.applyTo)}$`),
           headers: headerOverride.headers,
         });
       }
@@ -681,7 +718,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       headers: Protocol.Fetch.HeaderEntry[]): Protocol.Fetch.HeaderEntry[] {
     const headerOverrides = this.#headerOverridesMap.get(path) || [];
     for (const headerOverride of headerOverrides) {
-      if (headerOverride.applyToRegex.test(requestUrl)) {
+      if (headerOverride.applyToRegex.test(this.rawPathFromUrl(requestUrl))) {
         headers = this.mergeHeaders(headers, headerOverride.headers);
       }
     }
