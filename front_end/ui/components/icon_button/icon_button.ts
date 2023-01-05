@@ -3,8 +3,10 @@
 // found in the LICENSE file.
 import * as Icon from './Icon.js';
 import * as IconButton from './IconButton.js';
+import * as IconElement from './IconElement.js';
 
 export {
   Icon,
   IconButton,
+  IconElement,
 };
