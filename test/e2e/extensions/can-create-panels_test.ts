@@ -14,7 +14,7 @@ import {
 } from '../../shared/helper.js';
 import {loadExtension} from '../helpers/extension-helpers.js';
 
-describe('The Extension API', async () => {
+describe('The Extension API', () => {
   it('can create panels with callbacks', async () => {
     const extension = await loadExtension('TestExtension');
 
