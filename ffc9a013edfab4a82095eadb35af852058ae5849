@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af19590_7a6c9bca",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-05T09:10:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75d2b4f5_b1a522b8",
+      "range": {
+        "startLine": 150,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "ffc9a013edfab4a82095eadb35af852058ae5849",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0306f8ab_49b39f8f",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-01-05T08:16:19Z",
       "side": 1,
       "message": "nit: Could we insert empty lines between the \"given\", \"when\", \"then\" blocks? (here and below).\n\nI assume the `setEnabled` or `detachSourceMap` call constitutes the \"when\" action whose behavior we want to check. The tests might be easier to read that way.",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 75
+      },
+      "revId": "ffc9a013edfab4a82095eadb35af852058ae5849",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b49f57_730adbc7",
+        "filename": "test/unittests/front_end/core/sdk/SourceMapManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-05T09:10:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0306f8ab_49b39f8f",
       "range": {
         "startLine": 246,
         "startChar": 4,
