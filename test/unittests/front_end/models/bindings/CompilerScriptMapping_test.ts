@@ -302,9 +302,17 @@ describeWithMockConnection('CompilerScriptMapping', () => {
       }
     });
 
-    // Currently the CompilerScriptMapping does not properly update mappings to support
-    // webpack's hot module replacement machinery.
-    it.skip('[crbug.com/1403432]: supports webpack hot module replacement', async () => {
+    it('supports webpack hot module replacement', async () => {
+      // This simulates the webpack HMR machinery, where originally a `bundle.js` is served,
+      // which includes embedded authored code for `lib.js` and `app.js`, both of which map
+      // to `bundle.js`. Later an update script is sent that replaces `app.js` with a newer
+      // version, while sending the same authored code for `lib.js` (presumably because the
+      // devserver figured the file might have changed). Now the initial `app.js` should be
+      // removed and `bundle.js` will have un-mapped locations for the `app.js` part. The
+      // new `app.js` will point to the update script. `lib.js` remains unchanged.
+      //
+      // This is a generalization of https://crbug.com/1403362 and http://crbug.com/1403432,
+      // which both present special cases of the general stale mapping problem.
       const target = createTarget();
       const sourceRoot = 'webpack:///src';
 
