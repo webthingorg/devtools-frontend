@@ -414,7 +414,11 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
     // 'relativePath' returns an encoded string of the local file name which itself is already encoded.
     // We therefore need to decode twice to get the raw path.
-    return 'http?://' + this.decodeLocalPathToUrlPath(this.decodeLocalPathToUrlPath(relativePathParts.join('/')));
+    const path = this.decodeLocalPathToUrlPath(this.decodeLocalPathToUrlPath(relativePathParts.join('/')));
+    if (path.startsWith('file:/')) {
+      return 'file:///' + path.substring(6);
+    }
+    return 'http?://' + path;
   }
 
   private async onUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -809,7 +813,7 @@ export function extractDirectoryIndex(pattern: string): {head: string, tail?: st
   const tail = lastSlash >= 0 ? pattern.slice(lastSlash + 1) : pattern;
   const head = lastSlash >= 0 ? pattern.slice(0, lastSlash + 1) : '';
   const regex = new RegExp('^' + escapeRegex(tail) + '$');
-  if (regex.test('index.html') || regex.test('index.htm') || regex.test('index.php')) {
+  if (tail !== '*' && (regex.test('index.html') || regex.test('index.htm') || regex.test('index.php'))) {
     return {head, tail};
   }
   return {head: pattern};
