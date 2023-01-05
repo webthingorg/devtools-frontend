@@ -8,6 +8,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import {cssMetadata} from './CSSMetadata.js';
 import {type CSSModel, type Edit} from './CSSModel.js';
 import {CSSProperty} from './CSSProperty.js';
+import {stripComments} from './CSSPropertyParser.js';
 import {type CSSRule} from './CSSRule.js';
 import {type Target} from './Target.js';
 
@@ -117,14 +118,15 @@ export class CSSStyleDeclaration {
 
       // Try to fit the malformed css into properties.
       const lines = missingText.split('\n');
-      let lineNumber = 0;
-      let inComment = false;
-      for (const line of lines) {
+      for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+        const line = stripComments(lines[lineNumber]);
+        if (/[{|}]/.test(line)) {
+          continue;
+        }
+
         let column = 0;
         for (const property of line.split(';')) {
-          const strippedProperty = stripComments(property, inComment);
-          const trimmedProperty = strippedProperty.text.trim();
-          inComment = strippedProperty.inComment;
+          const trimmedProperty = property.trim();
 
           if (trimmedProperty) {
             let name;
@@ -144,27 +146,7 @@ export class CSSStyleDeclaration {
           }
           column += property.length + 1;
         }
-        lineNumber++;
       }
-    }
-
-    function stripComments(text: string, inComment: boolean): {
-      text: string,
-      inComment: boolean,
-    } {
-      let output = '';
-      for (let i = 0; i < text.length; i++) {
-        if (!inComment && text.substring(i, i + 2) === '/*') {
-          inComment = true;
-          i++;
-        } else if (inComment && text.substring(i, i + 2) === '*/') {
-          inComment = false;
-          i++;
-        } else if (!inComment) {
-          output += text[i];
-        }
-      }
-      return {text: output, inComment};
     }
   }
 
