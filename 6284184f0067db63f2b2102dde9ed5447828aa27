@@ -16,6 +16,24 @@
       "message": "Hi Simon,\n\nI would like to make some changes in fetch API for Private State Tokens (formerly known as Trust Tokens) and this requires changes in devtools front end as well. \n\nI have CL crrev.com/c/4120513 for the chromium side of things. I have this CL for the devtools front end. \n\nI have not contributed to the devtools front end before and learning about the workflow. I have read the front end contribution workflow docs. As far as I understand, I need to get this CL in first. Can you help me with this?",
       "revId": "6284184f0067db63f2b2102dde9ed5447828aa27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d0c2b76_1138ec58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-05T06:27:44Z",
+      "side": 1,
+      "message": "Hi,\n\nthe CLs need to be the other way around: First the chromium change, then the DevTools change.\n\nPlease note that \"browser_protocol.pdl\" is a public facing interface and used by third parties such as puppeteer. The proposed change is not backwards compatible but since its marked as experimental, it\u0027s probably fine.\n\nThe general workflow for protocol changes is as follows:\n  1) Make the change upstream in chromium\n  2) Create a manual roll CL for the DevTools repository using the `scripts/deps/roll_deps.py`.\n  3) As part of the roll CL also run `npm run generate-protocol-resources`, since we need to create TS/JS files from the \"browser_protocol.pdl\".\n  4) Land a separate follow up CL in the DevTools frontend that uses the updated protocol. This CL may or may not be merged with the roll CL if the roll CL introduces some type incompatabilities and can\u0027t be landed standalone.\n  \nLet me know if you have any more questions!",
+      "parentUuid": "f20deeba_2195990d",
+      "revId": "6284184f0067db63f2b2102dde9ed5447828aa27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
