@@ -48,6 +48,7 @@
 
 .elements-disclosure li {
   /** Keep margin-left & padding-left in sync with ElementsTreeElements.updateDecorations **/
+  display: flex;
   padding: 1px 0 0 14px;
   margin-left: -2px;
   word-break: normal;
@@ -55,6 +56,25 @@
   min-height: 15px;
   line-height: 1.36;
   min-width: 200px;
+}
+
+.elements-disclosure li::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: calc(var(--indentation) * -1);
+  width: var(--indentation);
+}
+
+.elements-disclosure li.elements-tree-shortcut-element::after {
+  /* `ShortcutElement` (eg. <slot>'s child) doesn't have a utility function
+    similar to `ElementsTreeElement.computeLeftIndent()` to find it's indentLevel,
+    however, we can use inherited `--indentation` from parent element.
+    We need to account for an extra level of indent, so we will add/sub 24px
+    to width/left property
+  */
+  width: calc(24px + var(--indentation));
+  left: calc(-24px + (var(--indentation) * -1));
 }
 
 .elements-disclosure li.parent {
@@ -291,6 +311,7 @@ select {
   left: 0;
   width: 15px;
   height: 15px;
+  z-index: 1;
 }
 
 .elements-hide-gutter .gutter-container {
