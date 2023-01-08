@@ -50,6 +50,24 @@
       "message": "There seems to be a lot of calculation depending on these variables being set from JS. Have you tried using some CSS solutions, e.g. setting a pseudo element to expand the hit region?",
       "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d01bedd_378c5604",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1566882
+      },
+      "writtenOn": "2023-01-08T08:47:25Z",
+      "side": 1,
+      "message": "Thanks for the suggestion to use pseudo elements.\nI was able to make a cleaner CL by using li\u0027s `::after` pseudo element. I also tried to find a general CSS solution that would work without using JS but seems like there\u0027s no clean way to expand the hit region without knowing the level of indent.\n\nThe current implementation makes use of `ElementsTreeElement.computeLeftIndent` to find the level of indent and apply it as CSS var (`--indentation`) to be used inside the stylesheet. This is also true for other components (eg. `.gutter-container` and `.selection`) which already use computeLeftIndent to get the indentation applied. (see L458, L1089 and L1358)",
+      "parentUuid": "096c43de_75ad174b",
+      "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
