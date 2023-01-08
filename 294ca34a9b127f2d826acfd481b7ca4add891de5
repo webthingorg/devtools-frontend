@@ -68,6 +68,24 @@
       "parentUuid": "096c43de_75ad174b",
       "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ba72aa_faee42ed",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1566882
+      },
+      "writtenOn": "2023-01-08T11:23:07Z",
+      "side": 1,
+      "message": "L458, L1089 and L1358 of ElementsTreeElement.ts",
+      "parentUuid": "1d01bedd_378c5604",
+      "revId": "294ca34a9b127f2d826acfd481b7ca4add891de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
