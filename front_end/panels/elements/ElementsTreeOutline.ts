@@ -1615,6 +1615,7 @@ export class ShortcutTreeElement extends UI.TreeOutline.TreeElement {
   private hoveredInternal?: boolean;
   constructor(nodeShortcut: SDK.DOMModel.DOMNodeShortcut) {
     super('');
+    this.listItemElement.classList.add('elements-tree-shortcut-element');
     this.listItemElement.createChild('div', 'selection fill');
     const title = this.listItemElement.createChild('span', 'elements-tree-shortcut-title');
     let text = nodeShortcut.nodeName.toLowerCase();
