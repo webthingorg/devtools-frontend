@@ -1355,7 +1355,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   updateDecorations(): void {
-    this.gutterContainer.style.left = (-this.computeLeftIndent()) + 'px';
+    const indentation = this.computeLeftIndent();
+    this.gutterContainer.style.left = (-indentation) + 'px';
+    this.listItemElement.style.setProperty('--indentation', indentation + 'px');
+    this.childrenListElement.style.setProperty('--indentation', indentation + 'px');
 
     if (this.isClosingTag()) {
       return;
