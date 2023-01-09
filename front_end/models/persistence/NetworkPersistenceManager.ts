@@ -483,11 +483,20 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     // decodedPath: 'www.example.com:443/path'
     const singlyDecodedPath = this.decodeLocalPathToUrlPath(relativePath).slice(0, -HEADERS_FILENAME.length) as
         Platform.DevToolsPath.EncodedPathString;
-    const decodedPath = this.decodeLocalPathToUrlPath(singlyDecodedPath) as Platform.DevToolsPath.RawPathString;
+    let decodedPath = this.decodeLocalPathToUrlPath(singlyDecodedPath) as Platform.DevToolsPath.RawPathString;
+    const isFileUrl = decodedPath.startsWith('file:/');
+    if (isFileUrl) {
+      decodedPath = Common.ParsedURL.ParsedURL.substring(decodedPath, 6);
+    }
 
     const overridesWithRegex: HeaderOverrideWithRegex[] = [];
     for (const headerOverride of headerOverrides) {
-      headerPatterns.add('http?://' + decodedPath + headerOverride.applyTo);
+      headerPatterns.add((isFileUrl ? 'file:///' : 'http?://') + decodedPath + headerOverride.applyTo);
+
+      // Make 'global' overrides apply to file URLs as well.
+      if (decodedPath === '') {
+        headerPatterns.add('file:///' + headerOverride.applyTo);
+      }
 
       // Most servers have the concept of a "directory index", which is a
       // default resource name for a request targeting a "directory", e. g.
@@ -496,7 +505,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       // generate an additional pattern without "index.html" as the longer
       // pattern would not match against a shorter request.
       const {head, tail} = extractDirectoryIndex(headerOverride.applyTo);
-      if (tail) {
+      if (!isFileUrl && tail) {
         headerPatterns.add('http?://' + decodedPath + head);
 
         const pattern = escapeRegex(decodedPath + head) + '(' + escapeRegex(tail) + ')?';
@@ -506,9 +515,17 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
           headers: headerOverride.headers,
         });
       } else {
-        const regex = new RegExp('^https?:\/\/' + escapeRegex(decodedPath + headerOverride.applyTo) + '$');
+        const regexHead = isFileUrl ? '^file:\/\/\/' : '^https?:\/\/';
+        const regex = new RegExp(regexHead + escapeRegex(decodedPath + headerOverride.applyTo) + '$');
         overridesWithRegex.push({
           applyToRegex: regex,
+          headers: headerOverride.headers,
+        });
+      }
+      // Make 'global' overrides apply to file URLs as well.
+      if (decodedPath === '') {
+        overridesWithRegex.push({
+          applyToRegex: new RegExp('^file:\/\/\/' + escapeRegex(decodedPath + headerOverride.applyTo) + '$'),
           headers: headerOverride.headers,
         });
       }
