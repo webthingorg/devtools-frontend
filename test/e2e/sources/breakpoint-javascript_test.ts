@@ -18,8 +18,10 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {getMenuItemAtPosition, getMenuItemTitleAtPosition, openFileQuickOpen} from '../helpers/quick_open-helpers.js';
 import {
   addBreakpointForLine,
+  getSelectedSource,
   isEqualOrAbbreviation,
   openSourceCodeEditorForFile,
+  openSourcesPanel,
   PAUSE_INDICATOR_SELECTOR,
   refreshDevToolsAndRemoveBackendState,
   RESUME_BUTTON,
@@ -210,4 +212,36 @@ describe('The Sources Tab', async function() {
          await click(RESUME_BUTTON);
        });
      });
+
+  it('correctly hits breakpoint in inline script set while loading the document', async () => {
+    const {frontend, target} = getBrowserAndPages();
+
+    await openSourcesPanel();
+    const loadingPromise = goToResource('sources/breakpoint-inline-scripts.html');
+
+    await waitFor(PAUSE_INDICATOR_SELECTOR);
+    await assertScriptLocation('breakpoint-inline-scripts.html:9');
+
+    const selectedSource = await getSelectedSource();
+    assert.strictEqual(selectedSource, 'breakpoint-inline-scripts.html');
+
+    await step('add a breakpoint in function foo()', async () => {
+      await addBreakpointForLine(frontend, 5);
+    });
+
+    await Promise.all([
+      click(RESUME_BUTTON),
+      loadingPromise,
+    ]);
+
+    const evaluationPromise = target.evaluate('foo()');
+
+    await waitFor(PAUSE_INDICATOR_SELECTOR);
+    await assertScriptLocation('breakpoint-inline-scripts.html:5');
+
+    await Promise.all([
+      click(RESUME_BUTTON),
+      evaluationPromise,
+    ]);
+  });
 });

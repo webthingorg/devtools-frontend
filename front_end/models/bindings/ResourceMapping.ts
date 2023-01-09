@@ -18,6 +18,55 @@ const styleSheetOffsetMap = new WeakMap<SDK.CSSStyleSheetHeader.CSSStyleSheetHea
 const scriptOffsetMap = new WeakMap<SDK.Script.Script, TextUtils.TextRange.TextRange>();
 const boundUISourceCodes = new WeakSet<Workspace.UISourceCode.UISourceCode>();
 
+/**
+ * Provides the contents of a set of inline scripts at the positions where these
+ * scripts are found within the surrounding document. This is used as a placeholder
+ * when breaking in an inline script while the surrounding document is being loaded.
+ */
+class InlineScriptsContentProvider extends TextUtils.ContentProvider.ContentProvider {
+  constructor(readonly scripts: SDK.Script.Script[]) {
+    super();
+  }
+
+  contentType(): Common.ResourceType.ResourceType {
+    return Common.ResourceType.resourceTypes.Document;
+  }
+
+  contentURL(): Platform.DevToolsPath.UrlString {
+    return this.scripts[0].embedderName() as Platform.DevToolsPath.UrlString;
+  }
+
+  async requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
+    let content = '', offset = 0;
+    for (const script of this.scripts) {
+      const scriptContent = await script.requestContent();
+      if (scriptContent.content === null) {
+        return scriptContent;
+      }
+      content += '\n'.repeat(script.lineOffset - offset);
+      content += ' '.repeat(script.columnOffset);
+      content += scriptContent.content;
+      offset = script.endLine;
+    }
+    return {content, isEncoded: false};
+  }
+
+  async searchInContent(query: string, caseSensitive: boolean, isRegex: boolean):
+      Promise<TextUtils.ContentProvider.SearchMatch[]> {
+    const results = [];
+    for (const script of this.scripts) {
+      for (const result of await script.searchInContent(query, caseSensitive, isRegex)) {
+        if (result.lineNumber === 0 && result.columnNumber !== undefined) {
+          result.columnNumber += script.columnOffset;
+        }
+        result.lineNumber += script.lineOffset;
+        results.push(result);
+      }
+    }
+    return results;
+  }
+}
+
 export class ResourceMapping implements SDK.TargetManager.SDKModelObserver<SDK.ResourceTreeModel.ResourceTreeModel> {
   readonly workspace: Workspace.Workspace.WorkspaceImpl;
   readonly #modelToInfo: Map<SDK.ResourceTreeModel.ResourceTreeModel, ModelInfo>;
@@ -184,6 +233,8 @@ class ModelInfo {
 
     this.#bindings = new Map();
 
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel) as SDK.DebuggerModel.DebuggerModel;
+
     const cssModel = target.model(SDK.CSSModel.CSSModel);
     console.assert(Boolean(cssModel));
     this.#cssModel = (cssModel as SDK.CSSModel.CSSModel);
@@ -197,7 +248,33 @@ class ModelInfo {
             void this.styleSheetChanged(event);
           },
           this),
+      debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this.parsedScript, this),
     ];
+  }
+
+  private parsedScript(event: Common.EventTarget.EventTargetEvent<SDK.Script.Script>): void {
+    const script = event.data;
+    const url = script.embedderName();
+    if (!script.isInlineScript() || !url) {
+      return;
+    }
+    if (this.#bindings.has(url)) {
+      return;
+    }
+    let uiSourceCode = this.project.uiSourceCodeForURL(url);
+    if (uiSourceCode !== null) {
+      this.project.removeFile(url);
+    }
+    const scripts = script.debuggerModel.scripts().filter(script => script.embedderName() === url);
+    const provider = new InlineScriptsContentProvider(scripts);
+    uiSourceCode = this.project.createUISourceCode(provider.contentURL(), provider.contentType());
+    NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
+    for (const {frameId} of scripts) {
+      NetworkProject.addFrameAttribution(uiSourceCode, frameId);
+    }
+    boundUISourceCodes.add(uiSourceCode);
+    this.project.addUISourceCodeWithProvider(uiSourceCode, provider, null, 'text/javascript');
+    void Promise.all(scripts.map(script => DebuggerWorkspaceBinding.instance().updateLocations(script)));
   }
 
   private async styleSheetChanged(event: Common.EventTarget.EventTargetEvent<SDK.CSSModel.StyleSheetChangedEvent>):
@@ -248,6 +325,10 @@ class ModelInfo {
 
     let binding = this.#bindings.get(resource.url);
     if (!binding) {
+      const uiSourceCode = this.project.uiSourceCodeForURL(resource.url);
+      if (uiSourceCode !== null) {
+        this.project.removeFile(resource.url);
+      }
       binding = new Binding(this.project, resource);
       this.#bindings.set(resource.url, binding);
     } else {
