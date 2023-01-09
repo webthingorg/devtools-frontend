@@ -70,6 +70,24 @@
       "parentUuid": "306e98e7_1d4d6256",
       "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3befde68_c286f9a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-01-09T11:16:19Z",
+      "side": 1,
+      "message": "[Back from vacation] Nice, I really like the new icon! If you could give `.reset-budget-button` a `vertical-align: middle;` we\u0027re good to go.",
+      "parentUuid": "b221bd52_046e0490",
+      "revId": "00ebeabfb326483373541e6e3db499f70c3c2a38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
