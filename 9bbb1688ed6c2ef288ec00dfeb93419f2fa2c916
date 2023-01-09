@@ -56,6 +56,30 @@
       },
       "revId": "9bbb1688ed6c2ef288ec00dfeb93419f2fa2c916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c42005e_1590f483",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-09T11:43:49Z",
+      "side": 1,
+      "message": "Done. Sadly the karma config isn\u0027t typechecked. I wondered if I should implement the karma plugin in resultsdb.ts instead, but without karma typings that\u0027s its own can of worms.",
+      "parentUuid": "b8c312d6_5e1f2e49",
+      "range": {
+        "startLine": 137,
+        "startChar": 19,
+        "endLine": 137,
+        "endChar": 53
+      },
+      "revId": "9bbb1688ed6c2ef288ec00dfeb93419f2fa2c916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
