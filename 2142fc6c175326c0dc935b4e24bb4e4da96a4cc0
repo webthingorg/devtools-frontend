@@ -63,6 +63,30 @@
       },
       "revId": "2142fc6c175326c0dc935b4e24bb4e4da96a4cc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf87af5b_0d359d8e",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T14:26:24Z",
+      "side": 1,
+      "message": "Nah, this is clear from the code. Why does it start with `file:/` is what is interesting. Also it is not immediately obvious what 6 stands for, so maybe make it `\u0027file:/\u0027.length` or some other way to make it explicit what\u0027s going on.",
+      "parentUuid": "57971b04_7203569b",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 44
+      },
+      "revId": "2142fc6c175326c0dc935b4e24bb4e4da96a4cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
