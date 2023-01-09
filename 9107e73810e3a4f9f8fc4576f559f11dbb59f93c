@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "9107e73810e3a4f9f8fc4576f559f11dbb59f93c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1c5170_aab489f4",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T14:11:23Z",
+      "side": 1,
+      "message": "With so much branching, it feels like this would be easier to read and better reflect intentions, if it had a completely separate handling of file URLs, e.g.\n\n    if (isFileUrl) {\n      generateHeaderPatternsForFileUrl(decodedPath, headerOverrides);\n    } else {\n      generateHeaderPatternsForHttpUrl(decodedPath, headerOverrides);\n    }",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 103
+      },
+      "revId": "9107e73810e3a4f9f8fc4576f559f11dbb59f93c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1aa9bc_59eee715",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T14:11:23Z",
+      "side": 1,
+      "message": "Can this be together with the line 498? Wouldn\u0027t it be a better as a named function as opposed to a code with a comment?",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 33
+      },
+      "revId": "9107e73810e3a4f9f8fc4576f559f11dbb59f93c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
