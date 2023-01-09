@@ -414,7 +414,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
     // 'relativePath' returns an encoded string of the local file name which itself is already encoded.
     // We therefore need to decode twice to get the raw path.
-    return 'http?://' + this.decodeLocalPathToUrlPath(this.decodeLocalPathToUrlPath(relativePathParts.join('/')));
+    const path = this.decodeLocalPathToUrlPath(this.decodeLocalPathToUrlPath(relativePathParts.join('/')));
+    if (path.startsWith('file:/')) {
+      // Make the file path start with 'file:///' instead of 'file:/'.
+      return 'file:///' + path.substring(6);
+    }
+    return 'http?://' + path;
   }
 
   private async onUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
