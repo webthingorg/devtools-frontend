@@ -132,6 +132,12 @@ button:hover devtools-icon {
   --icon-color: var(--color-text-primary);
 }
 
+devtools-icon-element.breakpoints-file-script {
+  color: var(--color-ic-file-script);
+  width: 16px;
+  height: 16px;
+}
+
 .type-indicator {
   --override-color-conditional-breakpoint: #f29900;
   --override-color-logpoint: #f439a0;
