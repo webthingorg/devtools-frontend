@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e408e6_f4e716f3",
+        "filename": "test/e2e/elements/styles-disable-inherited_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "I\u0027m a bit nervous about this being to broad. Maybe use the second parameter to specify the root? Also below.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 65
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f7efa2_750e615f",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "Tag names seem superfluous here, just `.tree-outline-discloure [role\u003d\"treeitem\"]` should be just as specific without making unnecessary assumptions about the DOM structure.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c710f08_8ed3f88c",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "Do you need `.widget.vbox` to distinguish the element from something else? If not, let\u0027s drop them, these are generic class name and half of the UI has them.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 56
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a9873a_97e8107d",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "Use `waitForAria` instead?",
+      "range": {
+        "startLine": 749,
+        "startChar": 30,
+        "endLine": 749,
+        "endChar": 37
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c203a56b_431605b6",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "It is weird that you need that. Judging by your code, it looks like the UI might be still updating when you try to interact with it. Maybe we can identify what is causing it by running in a debug mode as described at https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/README.md#debugging-tests and using DOM breakpoints in DevTools on DevTools? Once we know what is causing the UI to change, we can wait for it to finish before trying to click.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 76
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac7d13ad_ff9b496c",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "const actual \u003d await Promise.all(\n      result.map(e \u003d\u003e e.evaluate(e \u003d\u003e e.textContent?.trim()))",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 45
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b6bcce_c08a30b4",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-09T12:30:04Z",
+      "side": 1,
+      "message": "Is this used?",
+      "range": {
+        "startLine": 851,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 63
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
