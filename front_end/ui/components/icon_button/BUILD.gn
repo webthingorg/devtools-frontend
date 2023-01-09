@@ -18,6 +18,7 @@ devtools_module("icon_button") {
   sources = [
     "Icon.ts",
     "IconButton.ts",
+    "IconElement.ts",
   ]
   deps = [
     "../../../ui/components/helpers:bundle",
