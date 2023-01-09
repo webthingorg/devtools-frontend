@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d04b78_0cbebf25",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-09T16:42:50Z",
+      "side": 1,
+      "message": "Thanks, extracting a separate function makes it look better.",
+      "parentUuid": "cc1c5170_aab489f4",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 103
+      },
+      "revId": "9107e73810e3a4f9f8fc4576f559f11dbb59f93c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c1aa9bc_59eee715",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-09T14:11:23Z",
       "side": 1,
       "message": "Can this be together with the line 498? Wouldn\u0027t it be a better as a named function as opposed to a code with a comment?",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 33
+      },
+      "revId": "9107e73810e3a4f9f8fc4576f559f11dbb59f93c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4620afac_8c749c86",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-09T16:42:50Z",
+      "side": 1,
+      "message": "Yes, moved the 2 parts together into a single block. With the other refactor I don\u0027t think an additional named function is necessary anymore, WDYT?",
+      "parentUuid": "8c1aa9bc_59eee715",
       "range": {
         "startLine": 527,
         "startChar": 0,
