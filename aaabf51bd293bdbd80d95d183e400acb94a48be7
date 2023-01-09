@@ -39,6 +39,30 @@
       },
       "revId": "aaabf51bd293bdbd80d95d183e400acb94a48be7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8187d60a_20260339",
+        "filename": "front_end/models/bindings/CompilerScriptMapping.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-09T06:46:35Z",
+      "side": 1,
+      "message": "We keep them around until `sourceMapDetached` is called.",
+      "parentUuid": "d4c0eb38_27437170",
+      "range": {
+        "startLine": 361,
+        "startChar": 12,
+        "endLine": 361,
+        "endChar": 67
+      },
+      "revId": "aaabf51bd293bdbd80d95d183e400acb94a48be7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
