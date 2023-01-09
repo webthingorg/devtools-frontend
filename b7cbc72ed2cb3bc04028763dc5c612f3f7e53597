@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "155a1264_7c389a1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-09T10:04:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "86c336f1_bfc771c2",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8ad9a2d4_e60e1460",
         "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
         "patchSetId": 3
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "This event won\u0027t be fired when the colorFormat setting is changed. The handling of the change in that setting is registered in [here - 1] for ComputedStyleWidget and [here - 2] for Styles sidebar pane.\n\nWhich actually re-renders the respective panels when the setting is changed so a new swatch will be created for that case.\n\n[here - 1]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ComputedStyleWidget.ts;l\u003d255?q\u003dComputedStyleWidget.ts\n[here - 2]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/StylesSidebarPane.ts;l\u003d249?q\u003dcolorFormat%27%5C).addChangeListener%20-file:gen\n\nWDYT?",
       "parentUuid": "46846614_ac00e3bc",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "053712dd_5ca54d6a",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-09T10:04:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f9d64c9e_3c8138a3",
       "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +207,24 @@
       "side": 1,
       "message": "Oh no. This is for adding color swatch for the colors inside `color-mix` swatch. Added a comment to make this clearer. WDYT?",
       "parentUuid": "64474cae_9a924a53",
+      "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03afebd2_f88caca9",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-09T10:04:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7cb971a0_fe74c34f",
       "revId": "b7cbc72ed2cb3bc04028763dc5c612f3f7e53597",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
