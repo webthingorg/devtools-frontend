@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca4931ff_d3d2f372",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-10T14:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048013ba_d8d3538c",
+      "range": {
+        "startLine": 471,
+        "startChar": 3,
+        "endLine": 485,
+        "endChar": 5
+      },
+      "revId": "012c289a32addb98a43e6064f1cae405ea881351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0ca5714_0ded3faf",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-10T07:55:16Z",
       "side": 1,
       "message": "This might be another function",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 112
+      },
+      "revId": "012c289a32addb98a43e6064f1cae405ea881351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9a6767_4a026d30",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-10T14:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0ca5714_0ded3faf",
       "range": {
         "startLine": 489,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7480734f_6b19ae7a",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-10T14:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b500045_7144bfa8",
+      "range": {
+        "startLine": 497,
+        "startChar": 66,
+        "endLine": 497,
+        "endChar": 74
+      },
+      "revId": "012c289a32addb98a43e6064f1cae405ea881351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f8abf88_aa1263a2",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-01-10T07:55:16Z",
       "side": 1,
       "message": "Where does this happen? Could you add this to the comment?",
+      "range": {
+        "startLine": 579,
+        "startChar": 11,
+        "endLine": 579,
+        "endChar": 73
+      },
+      "revId": "012c289a32addb98a43e6064f1cae405ea881351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452afd9e_87de8809",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-10T14:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8abf88_aa1263a2",
       "range": {
         "startLine": 579,
         "startChar": 11,
