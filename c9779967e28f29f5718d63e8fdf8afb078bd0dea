@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33377498_18904444",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-10T22:57:23Z",
+      "side": 1,
+      "message": "nit: we usually treat comments as full sentences. Please add a `.` at the end of the sentence 😊",
+      "revId": "c9779967e28f29f5718d63e8fdf8afb078bd0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "944362c0_93025f0f",
         "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
         "patchSetId": 7
