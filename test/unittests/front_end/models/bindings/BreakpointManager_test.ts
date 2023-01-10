@@ -15,6 +15,7 @@ import * as Persistence from '../../../../../front_end/models/persistence/persis
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {MockProtocolBackend} from '../../helpers/MockScopeChain.js';
 import {
+  dispatchEvent,
   describeWithMockConnection,
   registerListenerOnOutgoingMessage,
 } from '../../helpers/MockConnection.js';
@@ -76,16 +77,22 @@ describeWithRealConnection('BreakpointManager', () => {
     uiSourceCode: Workspace.UISourceCode.UISourceCode,
     project: Persistence.FileSystemWorkspaceBinding.FileSystem,
   }) {
-    const debuggerModel = new TestDebuggerModel(target);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
     const breakpoint = await breakpointManager.setBreakpoint(
         fileSystem.uiSourceCode, 0, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
-
     const content = await fileSystem.project.requestFileContent(fileSystem.uiSourceCode);
     const metadata = await fileSystem.project.requestMetadata(fileSystem.uiSourceCode);
+
     assertNotNullOrUndefined(metadata);
     assertNotNullOrUndefined(content.content);
 
+    // UISourceCodes that are a script are usually part of a project governed the ResourceScriptMapping.
+    // Here, we work around it and make it part of the sourcemapping, such that we can predetermine the
+    // content and metadata of the UISourceCode.
+    // TODO(kimanh): Change test to use the describeWithMockConnection to make this test cleaner.
     const networkURL = 'http://www.google.com/example.js' as Platform.DevToolsPath.UrlString;
+    const networkScriptId = 'network_id' as Protocol.Runtime.ScriptId;
     const network = createContentProviderUISourceCode({
       url: networkURL,
       content: content.content,
@@ -95,8 +102,11 @@ describeWithRealConnection('BreakpointManager', () => {
     });
 
     const script = new SDK.Script.Script(
-        debuggerModel, SCRIPT_ID, networkURL, 0, 0, 43, 0, 0, '0', true, false, undefined, false, 10, null, null, null,
-        null, null, null);
+        debuggerModel, networkScriptId, networkURL, 0, 0, 43, 0, 0, '0', false, false, undefined, false, 10, null, null,
+        null, null, null, null);
+
+    const mapping = createFakeScriptMapping(debuggerModel, network.uiSourceCode, 42, networkScriptId);
+    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
 
     // Check that only the filesystem project UISourceCode has a breakpoint.
     assert.lengthOf(breakpointManager.breakpointLocationsForUISourceCode(fileSystem.uiSourceCode), 1);
@@ -115,6 +125,10 @@ describeWithRealConnection('BreakpointManager', () => {
 
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(network.project);
     Workspace.Workspace.WorkspaceImpl.instance().removeProject(fileSystem.project);
+    network.project.removeProject();
+    network.project.remove();
+    fileSystem.project.removeProject();
+    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
   }
 
   beforeEach(() => {
@@ -125,50 +139,6 @@ describeWithRealConnection('BreakpointManager', () => {
     const mainTarget = targetManager.mainTarget();
     assertNotNullOrUndefined(mainTarget);
     target = mainTarget;
-  });
-
-  it('allows awaiting the restoration of breakpoints', async () => {
-    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
-
-    const {uiSourceCode, project} = createContentProviderUISourceCode({url: URL, mimeType: JS_MIME_TYPE});
-    const breakpoint = await breakpointManager.setBreakpoint(
-        uiSourceCode, 0, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
-
-    // Create a new DebuggerModel and notify the breakpoint engine about it.
-    const debuggerModel = new TestDebuggerModel(target);
-    breakpoint.modelAdded(debuggerModel);
-
-    // Make sure that we await all updates that are triggered by adding the model.
-    await breakpoint.updateBreakpoint();
-
-    // Retrieve the ModelBreakpoint that is linked to our DebuggerModel.
-    const modelBreakpoint = breakpoint.modelBreakpoint(debuggerModel);
-    assertNotNullOrUndefined(modelBreakpoint);
-
-    // Make sure that we do not have a linked script yet.
-    assert.isNull(modelBreakpoint.currentState);
-
-    // Create a fake mapping that can be used to set a breakpoint.
-    const mapping = createFakeScriptMapping(debuggerModel, uiSourceCode, 42, SCRIPT_ID);
-    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
-
-    // Now await restoring the breakpoint.
-    // A successful restore should update the ModelBreakpoint of the DebuggerModel
-    // to reflect a state, in which we have successfully set a breakpoint (i.e. a script id
-    // is available).
-    const script = debuggerModel.scriptForId(SCRIPT_ID);
-    assertNotNullOrUndefined(script);
-    await breakpointManager.restoreBreakpointsForScript(script);
-    assertNotNullOrUndefined(modelBreakpoint.currentState);
-    assert.lengthOf(modelBreakpoint.currentState.positions, 1);
-    assert.strictEqual(modelBreakpoint.currentState.positions[0].url, URL);
-
-    // Clean up.
-    await breakpoint.remove(false);
-    breakpointManager.modelRemoved(debuggerModel);
-    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
-    Workspace.Workspace.WorkspaceImpl.instance().removeProject(project);
-    Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
   });
 
   it('allows awaiting on scheduled update in debugger', async () => {
@@ -214,7 +184,7 @@ describeWithRealConnection('BreakpointManager', () => {
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().addSourceMapping(mapping);
 
     const breakpoint = await breakpointManager.setBreakpoint(
-        uiSourceCode, 42, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+        uiSourceCode, 42, undefined, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
     breakpoint.modelAdded(debuggerModel);
 
     // Make sure that the location could be resolved, and that we could set a breakpoint.
@@ -230,7 +200,7 @@ describeWithRealConnection('BreakpointManager', () => {
     assert.isTrue(removeSpy.calledOnce);
 
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
-    Workspace.Workspace.WorkspaceImpl.instance().removeProject(project);
+    project.removeProject();
   });
 
   it('can wait for file system breakpoints to be mapped to network ui source code', async () => {
@@ -238,8 +208,8 @@ describeWithRealConnection('BreakpointManager', () => {
     const content = 'console.log(3)';
     const metadata = new Workspace.UISourceCode.UISourceCodeMetadata(new Date(), content.length);
 
-    const fileSystem =
-        createFileSystemUISourceCode({url, content, mimeType: JS_MIME_TYPE, metadata, autoMapping: true});
+    const fileSystem = createFileSystemUISourceCode(
+        {url, content, fileSystemPath: '', mimeType: JS_MIME_TYPE, metadata, autoMapping: true});
 
     await runBreakpointMovedTest(fileSystem);
   });
@@ -323,6 +293,7 @@ describeWithMockConnection('BreakpointManager (mock backend)', () => {
     startLine: INLINE_SCRIPT_START,
     startColumn: 0,
     hasSourceURL: false,
+    embedderName: URL_HTML,
   };
 
   const URL = 'http://site/script.js' as Platform.DevToolsPath.UrlString;
@@ -549,6 +520,301 @@ describeWithMockConnection('BreakpointManager (mock backend)', () => {
     assert.strictEqual(1, boundLocations.length);
     assert.strictEqual(1, boundLocations[0].uiLocation.lineNumber);
     assert.strictEqual(5, boundLocations[0].uiLocation.columnNumber);
+  });
+
+  it('can restore breakpoints in scripts', async () => {
+    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
+
+    const breakpointLine = 0;
+    const resolvedBreakpointLine = 3;
+
+    // Add script.
+    const scriptInfo = {url: URL, content: 'console.log(\'hello\')'};
+    const script = await backend.addScript(target, scriptInfo, null);
+
+    // Get the uiSourceCode for the source.
+    const uiSourceCode = await debuggerWorkspaceBinding.uiSourceCodeForScript(script);
+    assertNotNullOrUndefined(uiSourceCode);
+
+    // Set the breakpoint on the front-end/model side.
+    const breakpoint = await breakpointManager.setBreakpoint(
+        uiSourceCode, breakpointLine, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+
+    // Set the breakpoint response for our upcoming request.
+    void backend.responderToBreakpointByUrlRequest(URL, breakpointLine)({
+      breakpointId: 'BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: script.scriptId,
+          lineNumber: resolvedBreakpointLine,
+          columnNumber: 0,
+        },
+      ],
+    });
+    await breakpoint.refreshInDebugger();
+    assert.deepEqual(Array.from(breakpoint.getUiSourceCodes()), [uiSourceCode]);
+
+    // Verify the restored position.
+    const boundLocations = breakpointManager.breakpointLocationsForUISourceCode(uiSourceCode);
+    assert.strictEqual(1, boundLocations.length);
+    assert.strictEqual(resolvedBreakpointLine, boundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, boundLocations[0].uiLocation.columnNumber);
+
+    // Disconnect from the target. This will also unload the script.
+    breakpointManager.targetManager.removeTarget(target);
+
+    // Make sure the source code for the script was removed from the breakpoint.
+    assert.strictEqual(breakpoint.getUiSourceCodes().size, 0);
+
+    // Remove the breakpoint.
+    await breakpoint.remove(true /* keepInStorage */);
+
+    // Create a new target.
+    target = createTarget();
+
+    const reloadedDebuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(reloadedDebuggerModel);
+
+    // Add the same script under a different scriptId.
+    const reloadedScript = await backend.addScript(target, scriptInfo, null);
+
+    // Get the uiSourceCode for the original source.
+    const reloadedUiSourceCode = debuggerWorkspaceBinding.uiSourceCodeForScript(reloadedScript);
+    assertNotNullOrUndefined(reloadedUiSourceCode);
+
+    // Set the breakpoint response for our upcoming request.
+    void backend.responderToBreakpointByUrlRequest(URL, breakpointLine)({
+      breakpointId: 'RELOADED_BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: reloadedScript.scriptId,
+          lineNumber: resolvedBreakpointLine,
+          columnNumber: 0,
+        },
+      ],
+    });
+
+    // Register our interest in an outgoing 'resume', which should be sent as soon as
+    // we have set up all breakpoints during the instrumentation pause.
+    const resumeSentPromise = registerListenerOnOutgoingMessage('Debugger.resume');
+
+    // Inform the front-end about an instrumentation break.
+    backend.dispatchDebuggerPause(reloadedScript, Protocol.Debugger.PausedEventReason.Instrumentation);
+
+    // Wait for the breakpoints to be set, and the resume to be sent.
+    await resumeSentPromise;
+
+    // Verify the restored position.
+    const reloadedBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(reloadedUiSourceCode);
+    assert.strictEqual(1, reloadedBoundLocations.length);
+    assert.strictEqual(resolvedBreakpointLine, reloadedBoundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
+    Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
+  });
+
+  it('can restore breakpoints in a default-mapped inline scripts without sourceURL comment', async () => {
+    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
+
+    // Add script.
+    const script = await backend.addScript(target, inlineScriptDescription, null);
+
+    // Get the uiSourceCode for the source. This is the uiSourceCode in the DefaultScriptMapping,
+    // as we haven't registered the uiSourceCode for the html file.
+    const uiSourceCode = await debuggerWorkspaceBinding.uiSourceCodeForScript(script);
+    assertNotNullOrUndefined(uiSourceCode);
+    assert.strictEqual(uiSourceCode.project().type(), Workspace.Workspace.projectTypes.Debugger);
+
+    // Set the breakpoint on the front-end/model side. The line number is relative to the v8 script.
+    const breakpoint = await breakpointManager.setBreakpoint(
+        uiSourceCode, BREAKPOINT_SCRIPT_LINE, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+
+    // Set the breakpoint response for our upcoming request.
+    void backend.responderToBreakpointByUrlRequest(URL_HTML, INLINE_BREAKPOINT_RAW_LINE)({
+      breakpointId: 'BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: script.scriptId,
+          lineNumber: INLINE_BREAKPOINT_RAW_LINE,
+          columnNumber: 0,
+        },
+      ],
+    });
+    await breakpoint.refreshInDebugger();
+    assert.deepEqual(Array.from(breakpoint.getUiSourceCodes()), [uiSourceCode]);
+
+    // Verify the position.
+    const boundLocations = breakpointManager.breakpointLocationsForUISourceCode(uiSourceCode);
+    assert.strictEqual(1, boundLocations.length);
+    assert.strictEqual(BREAKPOINT_SCRIPT_LINE, boundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, boundLocations[0].uiLocation.columnNumber);
+
+    // Disconnect from the target. This will also unload the script.
+    breakpointManager.targetManager.removeTarget(target);
+
+    // Make sure the source code for the script was removed from the breakpoint.
+    assert.strictEqual(breakpoint.getUiSourceCodes().size, 0);
+
+    // Remove the breakpoint.
+    await breakpoint.remove(true /* keepInStorage */);
+
+    // Create a new target.
+    target = createTarget();
+
+    const reloadedDebuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(reloadedDebuggerModel);
+
+    // Add the same script under a different scriptId.
+    const reloadedScript = await backend.addScript(target, inlineScriptDescription, null);
+
+    // Get the uiSourceCode for the source. This is the uiSourceCode in the DefaultScriptMapping,
+    // as we haven't registered the uiSourceCode for the html file.
+    const reloadedUiSourceCode = debuggerWorkspaceBinding.uiSourceCodeForScript(reloadedScript);
+    assertNotNullOrUndefined(reloadedUiSourceCode);
+    assert.strictEqual(reloadedUiSourceCode.project().type(), Workspace.Workspace.projectTypes.Debugger);
+
+    // Set the breakpoint response for our upcoming request.
+    void backend.responderToBreakpointByUrlRequest(URL_HTML, INLINE_BREAKPOINT_RAW_LINE)({
+      breakpointId: 'RELOADED_BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: reloadedScript.scriptId,
+          lineNumber: INLINE_BREAKPOINT_RAW_LINE,
+          columnNumber: 0,
+        },
+      ],
+    });
+
+    // Register our interest in an outgoing 'resume', which should be sent as soon as
+    // we have set up all breakpoints during the instrumentation pause.
+    const resumeSentPromise = registerListenerOnOutgoingMessage('Debugger.resume');
+
+    // Inform the front-end about an instrumentation break.
+    backend.dispatchDebuggerPause(reloadedScript, Protocol.Debugger.PausedEventReason.Instrumentation);
+
+    // Wait for the breakpoints to be set, and the resume to be sent.
+    await resumeSentPromise;
+
+    // Verify the restored position.
+    const reloadedBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(reloadedUiSourceCode);
+    assert.strictEqual(1, reloadedBoundLocations.length);
+    assert.deepEqual(reloadedBoundLocations[0].uiLocation.uiSourceCode, reloadedUiSourceCode);
+    assert.strictEqual(BREAKPOINT_SCRIPT_LINE, reloadedBoundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
+    Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
+  });
+
+  it('can restore breakpoints in an inline script without sourceURL comment', async () => {
+    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
+
+    function dispatchDocumentOpened() {
+      dispatchEvent(target, 'Page.documentOpened', {
+        frame: {
+          id: 'main',
+          loaderId: 'foo',
+          url: URL_HTML,
+          domainAndRegistry: 'example.com',
+          securityOrigin: 'https://example.com/',
+          mimeType: 'text/html',
+          secureContextType: Protocol.Page.SecureContextType.Secure,
+          crossOriginIsolatedContextType: Protocol.Page.CrossOriginIsolatedContextType.Isolated,
+          gatedAPIFeatures: [],
+        },
+      });
+    }
+    dispatchDocumentOpened();
+
+    // Add script.
+    const script = await backend.addScript(target, inlineScriptDescription, null);
+
+    // Get the uiSourceCode for the source: this should be the uiSourceCode of the actual html script.
+    const uiSourceCode = await debuggerWorkspaceBinding.uiSourceCodeForScript(script);
+    assertNotNullOrUndefined(uiSourceCode);
+    assert.strictEqual(uiSourceCode.project().type(), Workspace.Workspace.projectTypes.Network);
+
+    // Set the breakpoint on the front-end/model side of the html uiSourceCode.
+    const breakpoint = await breakpointManager.setBreakpoint(
+        uiSourceCode, INLINE_BREAKPOINT_RAW_LINE, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+
+    // Set the breakpoint response for our upcoming request to set a breakpoint on the raw location.
+    void backend.responderToBreakpointByUrlRequest(URL_HTML, INLINE_BREAKPOINT_RAW_LINE)({
+      breakpointId: 'BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: script.scriptId,
+          lineNumber: INLINE_BREAKPOINT_RAW_LINE,
+          columnNumber: 0,
+        },
+      ],
+    });
+    await breakpoint.refreshInDebugger();
+    assert.deepEqual(Array.from(breakpoint.getUiSourceCodes()), [uiSourceCode]);
+
+    // Verify the position.
+    const boundLocations = breakpointManager.breakpointLocationsForUISourceCode(uiSourceCode);
+    assert.strictEqual(1, boundLocations.length);
+    assert.strictEqual(INLINE_BREAKPOINT_RAW_LINE, boundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, boundLocations[0].uiLocation.columnNumber);
+
+    // Disconnect from the target. This will also unload the script.
+    breakpointManager.targetManager.removeTarget(target);
+
+    // Make sure the source code for the script was removed from the breakpoint.
+    assert.strictEqual(breakpoint.getUiSourceCodes().size, 0);
+
+    // Remove the breakpoint.
+    await breakpoint.remove(true /* keepInStorage */);
+
+    // Create a new target.
+    target = createTarget();
+
+    const reloadedDebuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(reloadedDebuggerModel);
+
+    dispatchDocumentOpened();
+
+    // Add the same script under a different scriptId.
+    const reloadedScript = await backend.addScript(target, inlineScriptDescription, null);
+
+    // Get the uiSourceCode for the source: this should be the uiSourceCode of the actual html script.
+    const reloadedUiSourceCode = debuggerWorkspaceBinding.uiSourceCodeForScript(reloadedScript);
+    assertNotNullOrUndefined(reloadedUiSourceCode);
+    assert.strictEqual(reloadedUiSourceCode.project().type(), Workspace.Workspace.projectTypes.Network);
+
+    // Set the breakpoint response for our upcoming request.
+    void backend.responderToBreakpointByUrlRequest(URL_HTML, INLINE_BREAKPOINT_RAW_LINE)({
+      breakpointId: 'RELOADED_BREAK_ID' as Protocol.Debugger.BreakpointId,
+      locations: [
+        {
+          scriptId: reloadedScript.scriptId,
+          lineNumber: INLINE_BREAKPOINT_RAW_LINE,
+          columnNumber: 0,
+        },
+      ],
+    });
+
+    // Register our interest in an outgoing 'resume', which should be sent as soon as
+    // we have set up all breakpoints during the instrumentation pause.
+    const resumeSentPromise = registerListenerOnOutgoingMessage('Debugger.resume');
+
+    // Inform the front-end about an instrumentation break.
+    backend.dispatchDebuggerPause(reloadedScript, Protocol.Debugger.PausedEventReason.Instrumentation);
+
+    // Wait for the breakpoints to be set, and the resume to be sent.
+    await resumeSentPromise;
+
+    // Verify the restored position.
+    const reloadedBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(reloadedUiSourceCode);
+    assert.strictEqual(1, reloadedBoundLocations.length);
+    assert.deepEqual(reloadedBoundLocations[0].uiLocation.uiSourceCode, reloadedUiSourceCode);
+    assert.strictEqual(INLINE_BREAKPOINT_RAW_LINE, reloadedBoundLocations[0].uiLocation.lineNumber);
+    assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
+    Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.INSTRUMENTATION_BREAKPOINTS);
   });
 
   it('can restore breakpoints in source mapped scripts', async () => {
@@ -864,6 +1130,9 @@ function createFakeScriptMapping(
     uiLocationToRawLocations:
         (_uiSourceCode: Workspace.UISourceCode.UISourceCode, _lineNumber: number,
          _columnNumber?: number) => [sdkLocation],
+    uiSourceCodeForScript(_) {
+      return uiSourceCode;
+    },
   };
   return mapping;
 }
