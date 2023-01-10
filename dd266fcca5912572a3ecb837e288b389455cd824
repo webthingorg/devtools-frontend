@@ -16,6 +16,23 @@
       "message": "Hi, this change is ready for review. Could you PTAL, thanks!",
       "revId": "dd266fcca5912572a3ecb837e288b389455cd824",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fd762a9_a95ae331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-10T17:52:55Z",
+      "side": 1,
+      "message": "lgtm thanks!",
+      "revId": "dd266fcca5912572a3ecb837e288b389455cd824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
