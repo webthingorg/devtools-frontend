@@ -16,6 +16,23 @@
       "message": "Having `setLeftIndentOverlay` on ShortcutTreeElement eliminates the need for applying `--indent` on \u0027\u003col\u003e\u0027.\n\nNow we only have one --indent applied to each li which makes the style panel be cleaner without polluting it with many inherited \u0027--indent\u0027 like it was earlier.",
       "revId": "ca24a4219cce75f68848286eac5dcbf210ceae1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7276c2_a5426e24",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-10T11:58:11Z",
+      "side": 1,
+      "message": "Why do we need the \u003cli\u003e to be a flex container?",
+      "revId": "ca24a4219cce75f68848286eac5dcbf210ceae1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

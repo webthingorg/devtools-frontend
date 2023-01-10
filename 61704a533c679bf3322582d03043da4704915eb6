@@ -16,6 +16,24 @@
       "message": "This will keep `.gutter-container` above the `li::after` since by default .gutter-container gets overlayed by it.",
       "revId": "61704a533c679bf3322582d03043da4704915eb6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e63ce796_ffb7d872",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-10T11:58:11Z",
+      "side": 1,
+      "message": "Got you, thanks for the explanation :)",
+      "parentUuid": "4e59bfda_8c0bb553",
+      "revId": "61704a533c679bf3322582d03043da4704915eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
