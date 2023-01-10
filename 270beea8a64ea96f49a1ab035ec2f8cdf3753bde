@@ -16,6 +16,23 @@
       "message": "Hey hey, this piece was missing from crrev.com/c/4120433.",
       "revId": "270beea8a64ea96f49a1ab035ec2f8cdf3753bde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aebac84_a408f914",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-10T14:13:27Z",
+      "side": 1,
+      "message": "nit: I would suggest rename this and the method immediately above to be `onXXX`, e.g. `onSearchCanceled`, and `onSearchClosed`.",
+      "revId": "270beea8a64ea96f49a1ab035ec2f8cdf3753bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
