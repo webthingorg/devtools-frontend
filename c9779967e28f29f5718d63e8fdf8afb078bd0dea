@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944362c0_93025f0f",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-10T22:56:46Z",
+      "side": 1,
+      "message": "nit: could we be safe here add `|| 0` after `parseFloat(...)`, in case some element along the ancestor chain doesn\u0027t have its `--indent` set?",
+      "revId": "c9779967e28f29f5718d63e8fdf8afb078bd0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
