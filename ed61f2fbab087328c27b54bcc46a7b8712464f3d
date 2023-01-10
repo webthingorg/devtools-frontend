@@ -51,6 +51,24 @@
       "parentUuid": "e3c3d9c6_5df6de6b",
       "revId": "ed61f2fbab087328c27b54bcc46a7b8712464f3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a357b4d4_c503b707",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-01-10T10:34:21Z",
+      "side": 1,
+      "message": "There is still support for security origin in CacheStorage.\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/ServiceWorkerCacheModel.ts;l\u003d32",
+      "parentUuid": "b89c7135_5578f4db",
+      "revId": "ed61f2fbab087328c27b54bcc46a7b8712464f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
