@@ -286,6 +286,21 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     return null;
   }
 
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    for (const sourceMapping of this.#sourceMappings) {
+      const uiSourceCode = sourceMapping.uiSourceCodeForScript(script);
+      if (uiSourceCode) {
+        return uiSourceCode;
+      }
+    }
+
+    const modelData = this.#debuggerModelToData.get(script.debuggerModel);
+    if (!modelData) {
+      return null;
+    }
+    return modelData.uiSourceCodeForScript(script);
+  }
+
   waitForUISourceCodeAdded(url: Platform.DevToolsPath.UrlString, target: SDK.Target.Target):
       Promise<Workspace.UISourceCode.UISourceCode> {
     return new Promise(resolve => {
@@ -477,6 +492,14 @@ class ModelData {
     return uiLocation;
   }
 
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    let uiSourceCode: Workspace.UISourceCode.UISourceCode|null = null;
+    uiSourceCode = uiSourceCode || this.#resourceScriptMapping.uiSourceCodeForScript(script);
+    uiSourceCode = uiSourceCode || this.#resourceMapping.uiSourceCodeForScript(script);
+    uiSourceCode = uiSourceCode || this.#defaultMapping.uiSourceCodeForScript(script);
+    return uiSourceCode;
+  }
+
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber: number|undefined = 0): SDK.DebuggerModel.Location[] {
@@ -623,4 +646,6 @@ export interface DebuggerSourceMapping {
   uiLocationToRawLocations(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber?: number): SDK.DebuggerModel.Location[];
+
+  uiSourceCodeForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null;
 }

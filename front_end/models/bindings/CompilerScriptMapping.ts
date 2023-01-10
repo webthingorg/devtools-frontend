@@ -187,6 +187,10 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
     return null;
   }
 
+  uiSourceCodeForScript(_: SDK.Script.Script): Workspace.UISourceCode.UISourceCode|null {
+    throw new Error('Use uiSourceCodeForURL for source maps.');
+  }
+
   /**
    * Resolves the source-mapped entity mapped from the given `rawLocation` if any. If the `rawLocation`
    * does not point into a script with a source map, `null` is returned from here, while if the source
