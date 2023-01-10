@@ -16,6 +16,24 @@
       "message": "hiya.. can we revert this or move it behind an experiment?\n\nscreenshot of what i\u0027m looking at in this trace: https://imgur.com/poFfr3I\n\n1) Marking idle time as \"Scripting\" makes the overview pane full of yellow \n2) The pie chart within Summary is also incorrect now as the \u0027idle\u0027 category there is wrong.\n3) the idle chunks are marked with the cross-hatching after 50ms to indicate they\u0027re long tasks.. (but that makes no sense)\n4) The (program) chunks generally overlap with any non-JS trace events, but it just means non-JS things are counted as scripting. (and the (program) items don\u0027t add any information). https://imgur.com/tz1k37a\n\nI\u0027m really excited about reconciling the sampling data correctly and resolving some of those bugs. I definitely agree that having these items visible will likely help us in that effort. But I don\u0027t see how its valuable for our users. So maybe its behind a new experiment that only we use?",
       "revId": "d5f31e03599577e2ad58c5d0c25fedf09a30bc66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebec1665_10952650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-10T15:33:44Z",
+      "side": 1,
+      "message": "Hey Paul, thanks for the ping and I agree we should make this not the default behaviour. Sorry that we didn\u0027t think of this ahead of merging.\n\n@nancyly@chromium.org if we can easily add an experiment, let\u0027s do that, otherwise let\u0027s first revert this and then land it in a follow up. The next branch point is Jan 26 so we have time to do this before the feature makes it into stable.",
+      "parentUuid": "d145a750_49183f8d",
+      "revId": "d5f31e03599577e2ad58c5d0c25fedf09a30bc66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
