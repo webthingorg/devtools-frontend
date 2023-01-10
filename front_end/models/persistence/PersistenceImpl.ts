@@ -80,7 +80,8 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   }
 
   #setupBindings(networkUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    if (networkUISourceCode.project().type() !== Workspace.Workspace.projectTypes.Network) {
+    if (networkUISourceCode.project().type() !== Workspace.Workspace.projectTypes.Network &&
+        networkUISourceCode.project().type() !== Workspace.Workspace.projectTypes.Debugger) {
       return Promise.resolve();
     }
     return this.mapping.computeNetworkStatus(networkUISourceCode);
@@ -208,13 +209,15 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.syncContent(uiSourceCode, newContent, Boolean(event.data.encoded));
   }
 
-  syncContent(uiSourceCode: Workspace.UISourceCode.UISourceCode, newContent: string, encoded: boolean): void {
+  async syncContent(uiSourceCode: Workspace.UISourceCode.UISourceCode, newContent: string, encoded: boolean):
+      Promise<void> {
     const binding = bindings.get(uiSourceCode);
     if (!binding || mutedCommits.has(binding)) {
       return;
     }
     const other = binding.network === uiSourceCode ? binding.fileSystem : binding.network;
     const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(binding.network);
+
     if (target && target.type() === SDK.Target.Type.Node) {
       void other.requestContent().then(currentContent => {
         const nodeJSContent = PersistenceImpl.rewrapNodeJSContent(other, currentContent.content || '', newContent);

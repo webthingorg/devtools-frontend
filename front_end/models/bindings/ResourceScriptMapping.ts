@@ -105,6 +105,11 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     return project;
   }
 
+  uiSourceCodesForScript(script: SDK.Script.Script): Workspace.UISourceCode.UISourceCode[] {
+    const uiSourceCode = this.#scriptToUISourceCode.get(script);
+    return uiSourceCode ? [uiSourceCode] : [];
+  }
+
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
     const script = rawLocation.script();
     if (!script) {
@@ -331,13 +336,14 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper<Resou
                             .breakpointLocationsForUISourceCode(this.#uiSourceCodeInternal)
                             .map(breakpointLocation => breakpointLocation.breakpoint);
     const source = this.#uiSourceCodeInternal.workingCopy();
-    void this.scriptInternal.editSource(source).then(({status, exceptionDetails}) => {
-      void this.scriptSourceWasSet(source, breakpoints, status, exceptionDetails);
+    void this.scriptInternal.editSource(source).then(({changed, status, exceptionDetails}) => {
+      void this.scriptSourceWasSet(source, breakpoints, changed, status, exceptionDetails);
     });
   }
 
   async scriptSourceWasSet(
-      source: string, breakpoints: Breakpoint[], status: Protocol.Debugger.SetScriptSourceResponseStatus,
+      source: string, breakpoints: Breakpoint[], changed: boolean,
+      status: Protocol.Debugger.SetScriptSourceResponseStatus,
       exceptionDetails?: Protocol.Runtime.ExceptionDetails): Promise<void> {
     if (status === Protocol.Debugger.SetScriptSourceResponseStatus.Ok) {
       this.#scriptSource = source;
@@ -345,9 +351,11 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper<Resou
     await this.update();
 
     if (status === Protocol.Debugger.SetScriptSourceResponseStatus.Ok) {
-      // Live edit can cause #breakpoints to be in the wrong position, or to be lost altogether.
-      // If any #breakpoints were in the pre-live edit script, they need to be re-added.
-      await Promise.all(breakpoints.map(breakpoint => breakpoint.refreshInDebugger()));
+      if (changed) {
+        // Live edit can cause #breakpoints to be in the wrong position, or to be lost altogether.
+        // If any #breakpoints were in the pre-live edit script, they need to be re-added.
+        await Promise.all(breakpoints.map(breakpoint => breakpoint.refreshInDebugger()));
+      }
       return;
     }
     if (!exceptionDetails) {

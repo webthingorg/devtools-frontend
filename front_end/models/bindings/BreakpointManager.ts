@@ -142,8 +142,12 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
       return;
     }
 
-    const uiSourceCode = await this.getUISourceCodeWithUpdatedBreakpointInfo(script);
-    if (this.#hasBreakpointsForUrl(script.sourceURL)) {
+    let uiSourceCode = await this.getUISourceCodeWithUpdatedBreakpointInfo(script);
+    const formattedUrl = Common.ParsedURL.ParsedURL.concatenate(script.sourceURL, ':formatted');
+    if (this.#hasBreakpointsForUrl(formattedUrl) && uiSourceCode.url() !== formattedUrl) {
+      uiSourceCode = await this.debuggerWorkspaceBinding.waitForUISourceCodeAdded(formattedUrl, script.target());
+      await this.#restoreBreakpointsForUrl(uiSourceCode);
+    } else if (this.#hasBreakpointsForUrl(script.sourceURL)) {
       await this.#restoreBreakpointsForUrl(uiSourceCode);
     }
 
@@ -180,29 +184,12 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
 
   async getUISourceCodeWithUpdatedBreakpointInfo(script: SDK.Script.Script):
       Promise<Workspace.UISourceCode.UISourceCode> {
-    const isSnippet = script.sourceURL.startsWith('snippet://');
-    const projectType = isSnippet ? Workspace.Workspace.projectTypes.Network : undefined;
+    const uiSourceCode = await this.debuggerWorkspaceBinding.uiSourceCodeForScriptPromise(script);
+    await this.#updateBindings(uiSourceCode);
+    return uiSourceCode;
+  }
 
-    // Some temporary workarounds that will probably be replaced by live locations.
-    // 1. Handle inline scripts without sourceURL comment separately:
-    // The UISourceCode of inline scripts without sourceURLs will not be availabe
-    // until a later point. Use the v8 script for setting the breakpoint.
-    // 2. Handle resources that have scripts differently: nowadays they don't use the
-    // sourceURL directly anymore, but are resolved relatively to the parents document's
-    // base URL; so resolve it before awaiting its uiSourceCode.
-    const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-    const hasResourceScriptMapping = !script.isLiveEdit() && script.sourceURL && script.hasSourceURL;
-    let sourceURL = script.sourceURL;
-    if (isInlineScriptWithoutSourceURL) {
-      sourceURL = DefaultScriptMapping.createV8ScriptURL(script);
-    } else if (hasResourceScriptMapping) {
-      sourceURL = SDK.SourceMapManager.SourceMapManager.resolveRelativeSourceURL(
-          script.debuggerModel.target(), script.sourceURL);
-    }
-
-    const uiSourceCode =
-        await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL, projectType);
-
+  async #updateBindings(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     if (this.#updateBindingsCallbacks.length > 0) {
       // It's possible to set breakpoints on files on the file system, and to have them
       // hit whenever we navigate to a page that serves that file.
@@ -215,7 +202,6 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
       }
       await Promise.all(promises);
     }
-    return uiSourceCode;
   }
 
   async #restoreBreakpointsForUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -231,20 +217,12 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     return breakpointItems.length > 0;
   }
 
-  static getScriptForInlineUiSourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): SDK.Script.Script|null {
-    const script = DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
-    if (script && script.isInlineScript() && !script.hasSourceURL) {
-      return script;
-    }
-    return null;
-  }
-
   // For inline scripts, this function translates the line-column coordinates into the coordinates
   // of the ebedding document. For other scripts, it just returns unchanged line-column.
   static breakpointLocationFromUiLocation(uiLocation: Workspace.UISourceCode.UILocation):
       {lineNumber: number, columnNumber: number|undefined} {
     const uiSourceCode = uiLocation.uiSourceCode;
-    const script = BreakpointManager.getScriptForInlineUiSourceCode(uiSourceCode);
+    const script = DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
     const {lineNumber, columnNumber} = script ?
         DefaultScriptMapping.scriptLineColumnToRawLineColumn(script, uiLocation.lineNumber, uiLocation.columnNumber) :
         uiLocation;
@@ -257,7 +235,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   static uiLocationFromBreakpointLocation(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number,
       columnNumber: number|undefined): Workspace.UISourceCode.UILocation {
-    const script = BreakpointManager.getScriptForInlineUiSourceCode(uiSourceCode);
+    const script = DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
     if (script) {
       ({lineNumber, columnNumber} =
            DefaultScriptMapping.rawLineColumnToScriptLineColumn(script, lineNumber, columnNumber));
@@ -285,7 +263,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   private restoreBreakpoints(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
-    const script = BreakpointManager.getScriptForInlineUiSourceCode(uiSourceCode);
+    const script = DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
     const url = script?.sourceURL ?? uiSourceCode.url();
     if (!url) {
       return;
@@ -346,7 +324,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   private innerSetBreakpoint(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number|undefined,
       condition: string, enabled: boolean, origin: BreakpointOrigin): Breakpoint {
-    const url = BreakpointManager.getScriptForInlineUiSourceCode(uiSourceCode)?.sourceURL ?? uiSourceCode.url();
+    const url = DefaultScriptMapping.scriptForUISourceCode(uiSourceCode)?.sourceURL ?? uiSourceCode.url();
     const itemId = BreakpointManager.breakpointStorageId(url, lineNumber, columnNumber);
     let breakpoint = this.#breakpointByStorageId.get(itemId);
     if (breakpoint) {

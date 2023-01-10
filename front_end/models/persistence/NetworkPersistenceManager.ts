@@ -369,8 +369,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     await PersistenceImpl.instance().addBinding(binding);
     const uiSourceCodeOfTruth =
         this.savingForOverrides.has(networkUISourceCode) ? networkUISourceCode : fileSystemUISourceCode;
-    const {content, isEncoded} = await uiSourceCodeOfTruth.requestContent();
-    PersistenceImpl.instance().syncContent(uiSourceCodeOfTruth, content || '', isEncoded);
+    const {content: updatedContent, isEncoded} = await uiSourceCodeOfTruth.requestContent();
+    await PersistenceImpl.instance().syncContent(uiSourceCodeOfTruth, updatedContent || '', isEncoded);
   }
 
   private onUISourceCodeWorkingCopyCommitted(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
@@ -427,11 +427,14 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   private async networkUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    if (uiSourceCode.project().type() !== Workspace.Workspace.projectTypes.Network ||
+    if ((uiSourceCode.project().type() !== Workspace.Workspace.projectTypes.Network &&
+         uiSourceCode.project().type() !== Workspace.Workspace.projectTypes.Debugger) ||
         !this.canHandleNetworkUISourceCode(uiSourceCode)) {
       return;
     }
-    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url()) as Platform.DevToolsPath.UrlString;
+    const script = Bindings.DefaultScriptMapping.DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
+    const sourceURL = script ? script.sourceURL : uiSourceCode.url();
+    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(sourceURL) as Platform.DevToolsPath.UrlString;
     this.networkUISourceCodeForEncodedPath.set(this.encodedPathFromUrl(url), uiSourceCode);
 
     const project = this.projectInternal as FileSystem;
