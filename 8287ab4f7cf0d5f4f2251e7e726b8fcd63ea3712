@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84717a1e_0e67c865",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-10T16:02:10Z",
+      "side": 1,
+      "message": "lgtm with one thought. Thanks!",
+      "revId": "8287ab4f7cf0d5f4f2251e7e726b8fcd63ea3712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c669ec3d_a2340bfa",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-10T16:02:10Z",
+      "side": 1,
+      "message": "do you think it is worth a comment here explaining why we have this experiment? Or at least linking to the bug?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 89
+      },
+      "revId": "8287ab4f7cf0d5f4f2251e7e726b8fcd63ea3712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
