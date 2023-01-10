@@ -731,6 +731,10 @@ function stringifyWithPrecision(s: number, precision = 2): string {
   return string === '-0' ? '0' : string;
 }
 
+function equals(a: number, b: number, accuracy = 0.001): boolean {
+  return Math.abs(a - b) <= accuracy;
+}
+
 export class Lab implements Color {
   readonly #l: number;
   readonly #a: number;
@@ -797,7 +801,7 @@ export class Lab implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
-    if (l !== this.#l) {
+    if (!equals(l, this.#l)) {
       this.#outOfGamutParams = [l, a, b, alpha];
     }
   }
@@ -830,7 +834,7 @@ export class Lab implements Color {
     if (this.#originalText && this.isInGamut()) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null || this.#alpha === 1 ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    const alpha = this.#alpha === null || equals(this.#alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
     return `lab(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#a)} ${
         stringifyWithPrecision(this.#b)}${alpha})`;
   }
@@ -920,7 +924,7 @@ export class LCH implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
-    if (l !== this.#l || c !== this.#c) {
+    if (!equals(l, this.#l) || !equals(c, this.#c)) {
       this.#outOfGamutParams = [l, c, h, alpha];
     }
   }
@@ -953,7 +957,7 @@ export class LCH implements Color {
     if (this.#originalText && this.isInGamut()) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null || this.#alpha === 1 ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    const alpha = this.#alpha === null || equals(this.#alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
     return `lch(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#c)} ${
         stringifyWithPrecision(this.#h)}${alpha})`;
   }
@@ -1042,7 +1046,7 @@ export class Oklab implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
-    if (l !== this.#l) {
+    if (!equals(l, this.#l)) {
       this.#outOfGamutParams = [l, a, b, alpha];
     }
   }
@@ -1075,7 +1079,7 @@ export class Oklab implements Color {
     if (this.#originalText && this.isInGamut()) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null || this.#alpha === 1 ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    const alpha = this.#alpha === null || equals(this.#alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
     return `oklab(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#a)} ${
         stringifyWithPrecision(this.#b)}${alpha})`;
   }
@@ -1167,7 +1171,7 @@ export class Oklch implements Color {
     this.#alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
-    if (l !== this.#l || c !== this.#c) {
+    if (!equals(l, this.#l) || !equals(c, this.#c)) {
       this.#outOfGamutParams = [l, c, h, alpha];
     }
   }
@@ -1200,7 +1204,7 @@ export class Oklch implements Color {
     if (this.#originalText && this.isInGamut()) {
       return this.#originalText;
     }
-    const alpha = this.#alpha === null || this.#alpha === 1 ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
+    const alpha = this.#alpha === null || equals(this.#alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.#alpha)}`;
     return `oklch(${stringifyWithPrecision(this.#l)} ${stringifyWithPrecision(this.#c)} ${
         stringifyWithPrecision(this.#h)}${alpha})`;
   }
@@ -1325,7 +1329,8 @@ export class ColorFunction implements Color {
         clamp(rgbOrXyz[3], {min: 0, max: 1}),
       ];
     }
-    if (this.#spec[0] !== rgbOrXyz[0] || this.#spec[1] !== rgbOrXyz[1] || this.#spec[2] !== rgbOrXyz[2]) {
+    if (!equals(this.#spec[0], rgbOrXyz[0]) || !equals(this.#spec[1], rgbOrXyz[1]) ||
+        !equals(this.#spec[2], rgbOrXyz[2])) {
       this.#outOfGamutParams = [...rgbOrXyz];
     }
   }
@@ -1362,7 +1367,8 @@ export class ColorFunction implements Color {
     if (this.#originalText && this.isInGamut()) {
       return this.#originalText;
     }
-    const alpha = this.#spec[3] === null || this.#spec[3] === 1 ? '' : ` / ${stringifyWithPrecision(this.#spec[3])}`;
+    const alpha =
+        this.#spec[3] === null || equals(this.#spec[3], 1) ? '' : ` / ${stringifyWithPrecision(this.#spec[3])}`;
     return `color(${this.#colorSpace} ${stringifyWithPrecision(this.#spec[0])} ${
         stringifyWithPrecision(this.#spec[1])} ${stringifyWithPrecision(this.#spec[2])}${alpha})`;
   }
@@ -1458,7 +1464,7 @@ export class Legacy implements Color {
     ];
 
     for (let i = 0; i < 4; ++i) {
-      if (this.#rgbaInternal[i] !== rgba[i]) {
+      if (!equals(this.#rgbaInternal[i], rgba[i])) {
         this.#outOfGamutParams = [...rgba];
         break;
       }
