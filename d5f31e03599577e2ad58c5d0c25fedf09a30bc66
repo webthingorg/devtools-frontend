@@ -34,6 +34,24 @@
       "parentUuid": "d145a750_49183f8d",
       "revId": "d5f31e03599577e2ad58c5d0c25fedf09a30bc66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd40b733_ea188430",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-01-10T15:49:43Z",
+      "side": 1,
+      "message": "Hey Paul, I just made a CL to guard it with an experiment for now.\n\nThe main reason is in the RFC, users want to see these system nodes.\nAnd in fact the original algorithm has a few mistakes when displaying the nodes and calculating their time. So I think eventually we should change it to the correct behavior.\nMy idea is to change those system nodes to a different category later so the Overview and Summary will be correct",
+      "parentUuid": "d145a750_49183f8d",
+      "revId": "d5f31e03599577e2ad58c5d0c25fedf09a30bc66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
