@@ -21,11 +21,13 @@ import {
 import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 import {
   createContentProviderUISourceCode,
+  createFileSystemUISourceCode,
 } from '../../helpers/UISourceCodeHelpers.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import {TestPlugin} from '../../helpers/LanguagePluginHelpers.js';
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
 import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelpers.js';
+import * as Persistence from '../../../../../front_end/models/persistence/persistence.js';
 
 describeWithRealConnection('BreakpointManager', () => {
   const URL = 'file:///tmp/example.html' as Platform.DevToolsPath.UrlString;
@@ -979,6 +981,172 @@ describeWithMockConnection('BreakpointManager (mock backend)', () => {
       assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
 
       Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.WASM_DWARF_DEBUGGING);
+    });
+
+    it('can move breakpoints to network files that are set in matching file system files', async () => {
+      const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+      Persistence.Persistence.PersistenceImpl.instance({forceNew: true, workspace, breakpointManager});
+
+      const breakpointLine = 0;
+      const resolvedBreakpointLine = 1;
+
+      const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+      assertNotNullOrUndefined(debuggerModel);
+
+      const scriptInfo = {url: URL, content: 'console.log(\'hello\')\nconsole.log(\'there\')'};
+      const mimeType = 'text/javascript';
+      const mainFrameId = 'main' as Protocol.Page.FrameId;
+
+      // Create resource that is required for binding the file system uiSourceCode and the
+      // network uiSourceCode.
+      const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel);
+
+      const resource = new SDK.Resource.Resource(
+          resourceTreeModel, null, scriptInfo.url, scriptInfo.url, mainFrameId, null,
+          Common.ResourceType.ResourceType.fromMimeType('text/javascript'), mimeType, null, scriptInfo.content.length);
+      const frame = resourceTreeModel.frameForId(mainFrameId);
+      assertNotNullOrUndefined(frame);
+
+      frame.addResource(resource);
+
+      // Create the file system uiSourceCode with the same metadata as the script's resource file.
+      const metadata = new Workspace.UISourceCode.UISourceCodeMetadata(resource.lastModified(), resource.contentSize());
+      const fileSystem = createFileSystemUISourceCode({
+        url: 'script.js' as Platform.DevToolsPath.UrlString,
+        content: scriptInfo.content,
+        fileSystemPath: 'path/to/filesystem',
+        mimeType,
+        metadata,
+        autoMapping: true,
+      });
+
+      // Set the breakpoint on the file system uiSourceCode.
+      await breakpointManager.setBreakpoint(
+          fileSystem.uiSourceCode, breakpointLine, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+
+      // Add the script.
+      const script = await backend.addScript(target, scriptInfo, null);
+      const uiSourceCode = debuggerWorkspaceBinding.uiSourceCodeForScript(script);
+      assertNotNullOrUndefined(uiSourceCode);
+      assert.strictEqual(uiSourceCode.project().type(), Workspace.Workspace.projectTypes.Network);
+
+      // Set the breakpoint response for our upcoming request.
+      void backend.responderToBreakpointByUrlRequest(URL, breakpointLine)({
+        breakpointId: 'BREAK_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: script.scriptId,
+            lineNumber: resolvedBreakpointLine,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      // Register our interest in an outgoing 'resume', which should be sent as soon as
+      // we have set up all breakpoints during the instrumentation pause.
+      const resumeSentPromise = registerListenerOnOutgoingMessage('Debugger.resume');
+
+      // Inform the front-end about an instrumentation break.
+      backend.dispatchDebuggerPause(script, Protocol.Debugger.PausedEventReason.Instrumentation);
+
+      // Wait for the breakpoints to be set, and the resume to be sent.
+      await resumeSentPromise;
+
+      // Verify that the network uiSourceCode has the breakpoint that we originally set
+      // on the file system uiSourceCode.
+      const reloadedBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(uiSourceCode);
+      assert.strictEqual(1, reloadedBoundLocations.length);
+      assert.strictEqual(resolvedBreakpointLine, reloadedBoundLocations[0].uiLocation.lineNumber);
+      assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
+
+      fileSystem.project.dispose();
+    });
+
+    it('can move breakpoints to network files that are set in override files', async () => {
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.HEADER_OVERRIDES, '', true);
+
+      const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+      SDK.NetworkManager.MultitargetNetworkManager.instance({forceNew: true});
+      Persistence.Persistence.PersistenceImpl.instance({forceNew: true, workspace, breakpointManager});
+      Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance(
+          {forceNew: true, workspace: Workspace.Workspace.WorkspaceImpl.instance()});
+
+      const breakpointLine = 0;
+      const resolvedBreakpointLine = 1;
+
+      const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+      assertNotNullOrUndefined(debuggerModel);
+
+      const scriptInfo = {url: URL, content: 'console.log(\'hello\')\nconsole.log(\'there\')'};
+      const mimeType = 'text/javascript';
+      const mainFrameId = 'main' as Protocol.Page.FrameId;
+
+      // Create resource that is required for binding the file system uiSourceCode and the
+      // network uiSourceCode.
+      const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(resourceTreeModel);
+
+      const resource = new SDK.Resource.Resource(
+          resourceTreeModel, null, scriptInfo.url, scriptInfo.url, mainFrameId, null,
+          Common.ResourceType.ResourceType.fromMimeType('text/javascript'), mimeType, null, scriptInfo.content.length);
+      const frame = resourceTreeModel.frameForId(mainFrameId);
+      assertNotNullOrUndefined(frame);
+
+      frame.addResource(resource);
+
+      // Create the file system uiSourceCode with the same metadata as the script's resource file.
+      const metadata = new Workspace.UISourceCode.UISourceCodeMetadata(resource.lastModified(), resource.contentSize());
+      const url = 'file://path/to/overrides/site/script.js' as Platform.DevToolsPath.UrlString;
+      const fileSystem = createFileSystemUISourceCode({
+        url,
+        metadata,
+        mimeType: resource.mimeType,
+        autoMapping: true,
+        type: 'overrides',
+        fileSystemPath: 'file://path/to/overrides',
+      });
+
+      // Set the breakpoint on the file system uiSourceCode.
+      await breakpointManager.setBreakpoint(
+          fileSystem.uiSourceCode, breakpointLine, 0, '', true, Bindings.BreakpointManager.BreakpointOrigin.OTHER);
+
+      // Add the script.
+      const script = await backend.addScript(target, scriptInfo, null);
+      const uiSourceCode = debuggerWorkspaceBinding.uiSourceCodeForScript(script);
+      assertNotNullOrUndefined(uiSourceCode);
+      assert.strictEqual(uiSourceCode.project().type(), Workspace.Workspace.projectTypes.Network);
+
+      // Set the breakpoint response for our upcoming request.
+      void backend.responderToBreakpointByUrlRequest(URL, breakpointLine)({
+        breakpointId: 'BREAK_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: script.scriptId,
+            lineNumber: resolvedBreakpointLine,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      // Register our interest in an outgoing 'resume', which should be sent as soon as
+      // we have set up all breakpoints during the instrumentation pause.
+      const resumeSentPromise = registerListenerOnOutgoingMessage('Debugger.resume');
+
+      // Inform the front-end about an instrumentation break.
+      backend.dispatchDebuggerPause(script, Protocol.Debugger.PausedEventReason.Instrumentation);
+
+      // Wait for the breakpoints to be set, and the resume to be sent.
+      await resumeSentPromise;
+
+      // Verify that the network uiSourceCode has the breakpoint that we originally set
+      // on the file system uiSourceCode.
+      const reloadedBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(uiSourceCode);
+      assert.strictEqual(1, reloadedBoundLocations.length);
+      assert.strictEqual(resolvedBreakpointLine, reloadedBoundLocations[0].uiLocation.lineNumber);
+      assert.strictEqual(0, reloadedBoundLocations[0].uiLocation.columnNumber);
+
+      fileSystem.project.dispose();
     });
   });
 
