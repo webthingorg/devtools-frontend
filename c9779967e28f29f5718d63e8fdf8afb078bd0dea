@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4008cb25_c98f69d7",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1566882
+      },
+      "writtenOn": "2023-01-11T05:55:45Z",
+      "side": 1,
+      "message": "done, added 👍.",
+      "parentUuid": "33377498_18904444",
+      "revId": "c9779967e28f29f5718d63e8fdf8afb078bd0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "944362c0_93025f0f",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-10T22:56:46Z",
       "side": 1,
       "message": "nit: could we be safe here add `|| 0` after `parseFloat(...)`, in case some element along the ancestor chain doesn\u0027t have its `--indent` set?",
+      "revId": "c9779967e28f29f5718d63e8fdf8afb078bd0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "131d42b8_7560ad58",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1566882
+      },
+      "writtenOn": "2023-01-11T05:55:45Z",
+      "side": 1,
+      "message": "Done. It should now return 0 instead of NaN incase we don\u0027t find any `--indent`.",
+      "parentUuid": "944362c0_93025f0f",
       "revId": "c9779967e28f29f5718d63e8fdf8afb078bd0dea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
