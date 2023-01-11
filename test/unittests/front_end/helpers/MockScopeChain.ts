@@ -24,9 +24,10 @@ export class MockProtocolBackend {
   #scriptSources = new Map<string, string>();
   #sourceMapContents = new Map<string, string>();
   #objectProperties = new Map<string, {name: string, value: number}[]>();
-  #breakpointResponses = new Map<
+  #setBreakpointByUrlResponses = new Map<
       string,
       {response: Promise<Omit<Protocol.Debugger.SetBreakpointByUrlResponse, 'getError'>>, callback: () => void}>();
+  #removeBreakpointCallbacks = new Map<Protocol.Debugger.BreakpointId, () => void>();
   #nextObjectIndex = 0;
   #nextScriptIndex = 0;
 
@@ -37,7 +38,7 @@ export class MockProtocolBackend {
     setMockConnectionResponseHandler('Debugger.setBreakpointByUrl', this.#setBreakpointByUrlHandler.bind(this));
     setMockConnectionResponseHandler('Page.getResourceTree', this.#getResourceTreeHandler.bind(this));
     setMockConnectionResponseHandler('Storage.getStorageKeyForFrame', () => ({storageKey: 'test-key'}));
-    setMockConnectionResponseHandler('Debugger.removeBreakpoint', () => ({}));
+    setMockConnectionResponseHandler('Debugger.removeBreakpoint', this.#removeBreakpointHandler.bind(this));
     setMockConnectionResponseHandler('Debugger.resume', () => ({}));
 
     SDK.PageResourceLoader.PageResourceLoader.instance({
@@ -208,11 +209,15 @@ export class MockProtocolBackend {
       requestCallback = resolve;
     });
     const key = this.#getBreakpointKey(url, lineNumber);
-    this.#breakpointResponses.set(key, {response: responsePromise, callback: requestCallback});
+    this.#setBreakpointByUrlResponses.set(key, {response: responsePromise, callback: requestCallback});
     return async (response: Omit<Protocol.Debugger.SetBreakpointByUrlResponse, 'getError'>) => {
       responseCallback(response);
       await requestPromise;
     };
+  }
+
+  breakpointRemovedPromise(breakpointId: Protocol.Debugger.BreakpointId): Promise<void> {
+    return new Promise<void>(resolve => this.#removeBreakpointCallbacks.set(breakpointId, resolve));
   }
 
   #getScriptSourceHandler(request: Protocol.Debugger.GetScriptSourceRequest):
@@ -237,9 +242,9 @@ export class MockProtocolBackend {
   #setBreakpointByUrlHandler(request: Protocol.Debugger.SetBreakpointByUrlRequest):
       Promise<Omit<Protocol.Debugger.SetBreakpointByUrlResponse, 'getError'>> {
     const key = this.#getBreakpointKey(request.url ?? '', request.lineNumber);
-    const responseCallback = this.#breakpointResponses.get(key);
+    const responseCallback = this.#setBreakpointByUrlResponses.get(key);
     if (responseCallback) {
-      this.#breakpointResponses.delete(key);
+      this.#setBreakpointByUrlResponses.delete(key);
       // Announce to the client that the breakpoint request arrived.
       responseCallback.callback();
       // Return the response promise.
@@ -254,6 +259,14 @@ export class MockProtocolBackend {
       },
     };
     return Promise.resolve(response);
+  }
+
+  #removeBreakpointHandler(request: Protocol.Debugger.RemoveBreakpointRequest): {} {
+    const callback = this.#removeBreakpointCallbacks.get(request.breakpointId);
+    if (callback) {
+      callback();
+    }
+    return {};
   }
 
   #getPropertiesHandler(request: Protocol.Runtime.GetPropertiesRequest): Protocol.Runtime.GetPropertiesResponse {
