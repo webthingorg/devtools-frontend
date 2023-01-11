@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "429e69c1_22473399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-01-11T10:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc3cffb4_487fe9d0",
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "000bc3ca_b54799c8",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-12-23T08:29:56Z",
       "side": 1,
       "message": "You can issue these calls in parallel for better performance. Also it is arguably more readable.\n\n    return Promise.all([\n      this.model.target().systemInfo().invoke_getFeatureState({\n        featureState: \u0027PreloadingHoldback}),\n      this.model.target().systemInfo().invoke_getFeatureState({\n        featureState: \u0027PrerenderHoldback})\n    ]).then(r \u003d\u003e r.map(f \u003d\u003e f.featureEnabled ?? null));",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 95
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b5dfbc_18a8ba34",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-01-11T10:59:35Z",
+      "side": 1,
+      "message": "Thanks. Refactored.\n\nI think \"generate all promises and await all\" is enough and ergonomic in async fn.",
+      "parentUuid": "000bc3ca_b54799c8",
       "range": {
         "startLine": 198,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb351e6_a8c588f2",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-01-11T10:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e14cbdb_aca2de8e",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 84
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b01419bf_44ac8d96",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-12-23T08:29:56Z",
       "side": 1,
       "message": "`.resolves(featureFlags)`",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 48
+      },
+      "revId": "3be48879bd8d2fac1c80f01df47e0794321cb8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3794d4a_0f3b16d3",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-01-11T10:59:35Z",
+      "side": 1,
+      "message": "Now I need branching by parameters and used `callsFake`.",
+      "parentUuid": "b01419bf_44ac8d96",
       "range": {
         "startLine": 105,
         "startChar": 0,
