@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51bf508e_f0da5dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-11T15:54:06Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027ve made the changes that we discussed on this CL:\n\nI\u0027ve removed the sourceMappings. Since they are no longer needed:\n1. ..I\u0027ve removed the definition of `uiSourceCodesForScript` in the `DebuggerSourceMapping` interface\n2. ..`CompilerScriptMapping` no longer needs to implement that method\n3. ..the original tests for persistency that were using them for creating a mapping no longer work. So I\u0027m removing both here, and have follow up CLs (https://crrev.com/c/4154500, https://crrev.com/c/4154498) that convert them\n\nPlease take another look!",
+      "revId": "aa1d5dd2353bf6d75cc6ef3cf5bf51ae1fb2b34b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

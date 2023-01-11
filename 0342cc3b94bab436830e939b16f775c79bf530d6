@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd5f63b_867bd880",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-11T15:54:06Z",
+      "side": 1,
+      "message": "Since the persistence tests fail with the change to remove the sourcemappings, I\u0027m completely removing the tests here and have a dependent CL that adds the two persistence tests in the new format.",
+      "parentUuid": "98904297_65da3f33",
+      "revId": "0342cc3b94bab436830e939b16f775c79bf530d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54e01d0f_593b4f9b",
@@ -65,6 +83,30 @@
       "writtenOn": "2023-01-02T11:54:26Z",
       "side": 1,
       "message": "Missing word...",
+      "range": {
+        "startLine": 811,
+        "startChar": 39,
+        "endLine": 811,
+        "endChar": 44
+      },
+      "revId": "0342cc3b94bab436830e939b16f775c79bf530d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e689c1c4_4195687e",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-11T15:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54e01d0f_593b4f9b",
       "range": {
         "startLine": 811,
         "startChar": 39,

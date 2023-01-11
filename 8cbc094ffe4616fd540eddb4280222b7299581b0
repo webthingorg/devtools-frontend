@@ -16,6 +16,24 @@
       "message": "This test was replaced, see: \u0027can restore breakpoints in scripts\u0027.",
       "revId": "8cbc094ffe4616fd540eddb4280222b7299581b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8233125_7e8acaf1",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-11T15:54:06Z",
+      "side": 0,
+      "message": "I noticed that your recent CL is also replacing this one, but I think it\u0027s good to have both your and my test (yours is testing the details, while mine is testing the overall outcome after we resume the instrumentation breakpoint). Let me know if you agree!",
+      "parentUuid": "7e7812c9_d224cfbf",
+      "revId": "8cbc094ffe4616fd540eddb4280222b7299581b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
