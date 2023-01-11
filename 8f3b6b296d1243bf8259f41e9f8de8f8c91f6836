@@ -39,6 +39,48 @@
       "message": "Could we use `(property.range || property.name)` to make this shorter?",
       "revId": "8f3b6b296d1243bf8259f41e9f8de8f8c91f6836",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e5c29f_5c0a7811",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-01-11T16:58:16Z",
+      "side": 1,
+      "message": "Yeah - this happens whenever we call the \"new class CSSProperty(\" and do not define a range.  The class defines the range as type \"TextUtils.TextRange.TextRange|null\" so it looks like by design the variable is allowed to be null...",
+      "parentUuid": "30a70607_f2ba49dd",
+      "range": {
+        "startLine": 454,
+        "startChar": 57,
+        "endLine": 454,
+        "endChar": 76
+      },
+      "revId": "8f3b6b296d1243bf8259f41e9f8de8f8c91f6836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0b29fd_6aa0319a",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-01-11T16:58:16Z",
+      "side": 1,
+      "message": "Yeah - that works. thanks - updated.",
+      "parentUuid": "0a0b25fe_fd083bf6",
+      "revId": "8f3b6b296d1243bf8259f41e9f8de8f8c91f6836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
