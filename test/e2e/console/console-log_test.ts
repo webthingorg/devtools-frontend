@@ -322,14 +322,14 @@ describe('The Console Tab', async () => {
 
   describe('Console log message formatters', () => {
     async function getConsoleMessageTextChunksWithStyle(
-        frontend: puppeteer.Page, styles: string[] = []): Promise<string[][][]> {
-      return await frontend.evaluate((selector, styles: string[]) => {
+        frontend: puppeteer.Page, styles: (keyof CSSStyleDeclaration)[] = []): Promise<string[][][]> {
+      return await frontend.evaluate((selector, styles) => {
         return [...document.querySelectorAll(selector)].map(message => [...message.childNodes].map(node => {
           // For all nodes, extract text.
-          const result = [node.textContent];
+          const result = [node.textContent as string];
           // For element nodes, get the requested styles.
           for (const style of styles) {
-            result.push(node.style?.[style] ?? '');
+            result.push((node as HTMLElement).style?.[style] as string);
           }
           return result;
         }));
@@ -381,7 +381,7 @@ describe('The Console Tab', async () => {
       await waitForConsoleMessages(1);
 
       // Check that the 'BG' text has the background image set.
-      const textsAndStyles = await getConsoleMessageTextChunksWithStyle(frontend, ['background-image']);
+      const textsAndStyles = await getConsoleMessageTextChunksWithStyle(frontend, ['backgroundImage']);
       assert.strictEqual(textsAndStyles.length, 1);
       const message = textsAndStyles[0];
       assert.strictEqual(message.length, 2);
@@ -398,7 +398,7 @@ describe('The Console Tab', async () => {
       await waitForConsoleMessages(1);
 
       // Check that the 'BG' text has no bakcground image.
-      const textsAndStyles = await getConsoleMessageTextChunksWithStyle(frontend, ['background-image']);
+      const textsAndStyles = await getConsoleMessageTextChunksWithStyle(frontend, ['backgroundImage']);
       assert.deepEqual(textsAndStyles, [[['PRE', ''], ['BG', '']]]);
     });
   });
