@@ -419,6 +419,8 @@
     RecordingReplaySpeed: 'DevTools.RecordingReplaySpeed',
     RecordingReplayStarted: 'DevTools.RecordingReplayStarted',
     RecordingToggled: 'DevTools.RecordingToggled',
+    RecordingCodeToggled: 'DevTools.RecordingCodeToggled',
+    RecordingCopiedToClipboard: 'DevTools.RecordingCopiedToClipboard',
     SyncSetting: 'DevTools.SyncSetting',
     StyleTextCopied: 'DevTools.StyleTextCopied',
     ManifestSectionSelected: 'DevTools.ManifestSectionSelected',
