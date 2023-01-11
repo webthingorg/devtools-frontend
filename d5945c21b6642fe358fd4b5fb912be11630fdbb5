@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43e0090b_5983abc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-11T15:55:40Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nthis groups the existing instrumentation breakpoint tests that require the instrumentation breakpoint experiment under one `describe` block. The new parts are the `beforeEach` and the `afterEach` (although the diffing tool here doesn\u0027t make that clear).\n\nPTAL!",
+      "revId": "d5945c21b6642fe358fd4b5fb912be11630fdbb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
