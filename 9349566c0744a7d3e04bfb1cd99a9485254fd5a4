@@ -16,6 +16,46 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "9349566c0744a7d3e04bfb1cd99a9485254fd5a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdcf1189_b7d65662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-11T08:04:14Z",
+      "side": 1,
+      "message": "lgtm % nit\n\nAlso it looks like we still have usage of the old method in the BindingsTestRunner.",
+      "revId": "9349566c0744a7d3e04bfb1cd99a9485254fd5a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b013acab_5d4a4ddc",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-11T08:04:14Z",
+      "side": 1,
+      "message": "style-nit: Prefer `interface` over `type` as per go/tsstyle.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "9349566c0744a7d3e04bfb1cd99a9485254fd5a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
