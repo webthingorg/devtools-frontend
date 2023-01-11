@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6cd1f0_662c5416",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-11T09:48:37Z",
+      "side": 1,
+      "message": "Very nice cleanup indeed! Some web tests still assume an array so a 3-way change is needed :(",
+      "revId": "d446f27591a90627fee2de95da3d71277d515225",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2bd2649_0a4f03b5",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-11T09:48:37Z",
+      "side": 1,
+      "message": "I love this cleanup!",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "d446f27591a90627fee2de95da3d71277d515225",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
