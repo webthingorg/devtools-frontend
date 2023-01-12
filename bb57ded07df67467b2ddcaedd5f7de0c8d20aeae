@@ -439,6 +439,24 @@
       "parentUuid": "a8a25331_846bb778",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9ea4ba8_5a1e4ccd",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T13:55:47Z",
+      "side": 1,
+      "message": "Ended up using the chrome.devtools?.inspectedWindow.eval call to make sure no message is dispatched.",
+      "parentUuid": "7ff74b9e_538b6352",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
