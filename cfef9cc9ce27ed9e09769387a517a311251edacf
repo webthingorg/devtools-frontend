@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf84194a_079b4301",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-12T08:26:47Z",
+      "side": 1,
+      "message": "If we don\u0027t make the function `async`, we need to wrap the values for two `return`s above inside `Promise.resolve()`, which is somewhat ugly. So I thought sticking with an `async` function is better here.",
+      "parentUuid": "1ca100da_dffcf5dd",
+      "range": {
+        "startLine": 361,
+        "startChar": 11,
+        "endLine": 361,
+        "endChar": 16
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a98a01_4931fa04",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ac5233_9e6fc117",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-12T08:26:47Z",
+      "side": 1,
+      "message": "Yes, `null` indicates that we don\u0027t know. Either don\u0027t know locally (not responsible for this `UISourceCode`) or don\u0027t know at all (`UISourceCode` with automapping).",
+      "parentUuid": "c0a98a01_4931fa04",
+      "range": {
+        "startLine": 1647,
+        "startChar": 8,
+        "endLine": 1647,
+        "endChar": 19
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fe42954_133d20ee",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-01-12T07:59:23Z",
       "side": 1,
       "message": "needs to be sorted or the expectation adjusted.",
+      "range": {
+        "startLine": 331,
+        "startChar": 25,
+        "endLine": 331,
+        "endChar": 36
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d365cbe_0fd51894",
+        "filename": "test/unittests/front_end/models/bindings/CompilerScriptMapping_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-12T08:26:47Z",
+      "side": 1,
+      "message": "Changed to `sameMembers`.",
+      "parentUuid": "3fe42954_133d20ee",
       "range": {
         "startLine": 331,
         "startChar": 25,
