@@ -33,6 +33,23 @@
       "message": "lgtm",
       "revId": "5e70a09b9fb42bf7571869cbd08c4f2d5875b7a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50da41ad_38fdc31c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-01-12T18:56:51Z",
+      "side": 1,
+      "message": "🤔 The reason why the test seems to be failing is because the usage of i18n requires the framework to be initialized first by calling \"i18n.DevtoolsLocale.DevtoolsLocale.instance(...)\" you can find an example in\"test\\unittests\\front_end\\helpers\\EnvironmentHelpers.ts\", you need to do a similar fix in DataGridController_test.ts\n\nThat being said here are my 2c:\n- My mental model regarding localization for UI components is that they should be \"transparent\" or \"mindless\" meaning they should render whatever is passed, in this case we could pass the localized messages through DataGridControllerData in a similar way to the \u0027label\u0027 property in the same object (I\u0027m thinking on a wrapper object like UIStrings but with the strings already localized) and remove the i18n import from here.\n\nIn this case is tricky as it could lead to some code repetition on the caller, but I believe is ok as it gives the calling function full control on what should be localized and what should not.",
+      "revId": "5e70a09b9fb42bf7571869cbd08c4f2d5875b7a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
