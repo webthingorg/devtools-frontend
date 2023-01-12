@@ -47,8 +47,10 @@ describe('PrerenderingRegistry', () => {
 
     const startedAt = Date.now();
 
-    registry.processEvent(makePrerenderingAttemptEventAddSpecRules(
-        '0' as PrerenderingAttemptId, 'https://example.com/0' as Platform.DevToolsPath.UrlString, startedAt));
+    const event1 = makePrerenderingAttemptEventAddSpecRules(
+        '0' as PrerenderingAttemptId, 'https://example.com/0' as Platform.DevToolsPath.UrlString, startedAt);
+    // @ts-ignore
+    registry.processEvent(event1);
 
     assert.deepEqual(registry.getAll(), [
       {
@@ -68,8 +70,10 @@ describe('PrerenderingRegistry', () => {
       },
     ]);
 
-    registry.processEvent(makePrerenderingAttemptEventAddSpecRules(
-        '1' as PrerenderingAttemptId, 'https://example.com/1' as Platform.DevToolsPath.UrlString, startedAt));
+    const event2 = makePrerenderingAttemptEventAddSpecRules(
+        '1' as PrerenderingAttemptId, 'https://example.com/1' as Platform.DevToolsPath.UrlString, startedAt);
+    // @ts-ignore
+    registry.processEvent(event2);
 
     assert.deepEqual(
         registry.getAll(),
@@ -117,6 +121,7 @@ describe('PrerenderingRegistry', () => {
       kind: 'PrerenderingAttemptEventUpdate',
       update: attempt,
     };
+    // @ts-ignore
     registry.processEvent(event);
 
     assert.deepEqual(registry.getAll(), [
@@ -160,10 +165,14 @@ describe('PrerenderingRegistry', () => {
 
     const startedAt = Date.now();
 
-    registry.processEvent(makePrerenderingAttemptEventAddSpecRules(
-        '0' as PrerenderingAttemptId, 'https://example.com/0' as Platform.DevToolsPath.UrlString, startedAt));
-    registry.processEvent(makePrerenderingAttemptEventAddSpecRules(
-        '1' as PrerenderingAttemptId, 'https://example.com/1' as Platform.DevToolsPath.UrlString, startedAt));
+    const event1 = makePrerenderingAttemptEventAddSpecRules(
+        '0' as PrerenderingAttemptId, 'https://example.com/0' as Platform.DevToolsPath.UrlString, startedAt);
+    // @ts-ignore
+    registry.processEvent(event1);
+    const event2 = makePrerenderingAttemptEventAddSpecRules(
+        '1' as PrerenderingAttemptId, 'https://example.com/1' as Platform.DevToolsPath.UrlString, startedAt);
+    // @ts-ignore
+    registry.processEvent(event2);
 
     const originalAttempt = registry.getById('PrerenderingAttempt:0');
     assertNotNullOrUndefined(originalAttempt);
@@ -171,11 +180,12 @@ describe('PrerenderingRegistry', () => {
       ...originalAttempt,
       status: SDK.PrerenderingModel.PrerenderingStatus.Activated,
     };
-    const event: PrerenderingAttemptEventUpdate = {
+    const event3: PrerenderingAttemptEventUpdate = {
       kind: 'PrerenderingAttemptEventUpdate',
       update: attempt,
     };
-    registry.processEvent(event);
+    // @ts-ignore
+    registry.processEvent(event3);
 
     registry.clearNotOngoing();
 
