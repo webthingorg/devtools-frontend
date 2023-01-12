@@ -238,6 +238,11 @@ const UIStrings = {
   notificationPermissionRequestedIframe:
       'Permission for the Notification API may no longer be requested from a cross-origin iframe. You should consider requesting permission from a top-level frame or opening a new window instead.',
   /**
+   * @description Warning displayed to developers when CreateImageBitmap is used with the newly deprecated option imageOrientation: 'none'.
+   */
+  obsoleteCreateImageBitmapNone:
+       'Option `imageOrientation: "none"` in CreateImageBitmap is deprecated. Please use imageOrientation: "from-image" instead, they are synonyms.',
+  /**
    * @description This warning occurs when the WebRTC protocol attempts to
    *    negotiate a connection using an obsolete cipher and risks connection
    *    security.
@@ -527,6 +532,10 @@ export class DeprecationIssue extends Issue {
       case Protocol.Audits.DeprecationIssueType.ObsoleteWebRtcCipherSuite:
         messageFunction = i18nLazyString(UIStrings.obsoleteWebRtcCipherSuite);
         milestone = 81;
+        break;
+      case Protocol.Audits.DeprecationIssueType.ObsoleteCreateImageBitmapNone:
+        messageFunction = i18nLazyString(UIStrings.obsoleteCreateImageBitmapNone);
+        feature = 11111111111111111;
         break;
       case Protocol.Audits.DeprecationIssueType.OpenWebDatabaseInsecureContext:
         messageFunction = i18nLazyString(UIStrings.openWebDatabaseInsecureContext);
