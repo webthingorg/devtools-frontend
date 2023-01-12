@@ -175,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3be0a95_31e6b4da",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T12:18:50Z",
+      "side": 1,
+      "message": "We do not, but I think it would be good to have the check in depth too, if it\u0027s possible to test there. We can look at that in a followup though!",
+      "parentUuid": "c78928b0_78e68369",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e89ca823_5535bcf8",
@@ -247,6 +265,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f44e208_a8b7fab9",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T12:18:50Z",
+      "side": 1,
+      "message": "Wouldn\u0027t the endpoint set it to text/javascript in that case?",
+      "parentUuid": "93b61858_7cd37fe6",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "421ad6be_77a21d3e",
         "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
         "patchSetId": 5
@@ -282,6 +318,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef63c9ee_2fdd9842",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T12:18:50Z",
+      "side": 1,
+      "message": "Setting userAction allows the extension to also pop open its own panel, as I understood it that was intentional. If I got that wrong then we shouldn\u0027t be setting userAction.",
+      "parentUuid": "3917a58d_283d204b",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c8bb216_4d3d6eb8",
         "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
         "patchSetId": 5
@@ -311,6 +365,24 @@
       "side": 1,
       "message": "I am not sure I got the idea with sending any other command after the show? I think we have no other commands on the view here.",
       "parentUuid": "2c8bb216_4d3d6eb8",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a25331_846bb778",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T12:18:50Z",
+      "side": 1,
+      "message": "Doesn\u0027t have to be on the view, sending and awaiting any other command flushes the postMessage queue and lets us be sure the event won\u0027t arrive.",
+      "parentUuid": "c085bb3a_463f4d6b",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
