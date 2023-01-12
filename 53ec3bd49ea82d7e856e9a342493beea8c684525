@@ -16,6 +16,23 @@
       "message": "The code looks good, but please added tests. Ideally we\u0027d have unit tests at third_party/devtools-frontend/src/test/unittests/front_end/panels/settings/emulation/components/UserAgentClientHintsForm_test.ts but I realize there\u0027s no good example to follow in this file. You may find other tests like https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/network/components/HeaderSectionRow_test.ts;bpv\u003d0;l\u003d372 more helpful.\n\nIf that\u0027s too much trouble I understand.\n\nBut at very least let\u0027s have an e2e test coverage at third_party/devtools-frontend/src/test/e2e/network/network-conditions_test.ts",
       "revId": "53ec3bd49ea82d7e856e9a342493beea8c684525",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f53b3c3f_39e8cfda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1563797
+      },
+      "writtenOn": "2023-01-12T14:41:37Z",
+      "side": 1,
+      "message": "At least one test _does_ cover this, and is failing, but I will try to add some more.\n\nThis will be a bit lower-priority for me, so no immediate action is expected.",
+      "revId": "53ec3bd49ea82d7e856e9a342493beea8c684525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
