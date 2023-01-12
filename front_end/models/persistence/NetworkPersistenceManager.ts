@@ -36,6 +36,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
   #headerOverridesMap: Map<Platform.DevToolsPath.EncodedPathString, HeaderOverrideWithRegex[]> = new Map();
   readonly #sourceCodeToBindProcessMutex = new WeakMap<Workspace.UISourceCode.UISourceCode, Common.Mutex.Mutex>();
+  readonly #eventDispatchThrottler: Common.Throttler.Throttler;
+  #headersFileUiSourceCodesForEventDispatch: Set<Workspace.UISourceCode.UISourceCode>;
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -52,6 +54,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.networkUISourceCodeForEncodedPath = new Map();
     this.interceptionHandlerBound = this.interceptionHandler.bind(this);
     this.updateInterceptionThrottler = new Common.Throttler.Throttler(50);
+    this.#eventDispatchThrottler = new Common.Throttler.Throttler(50);
+    this.#headersFileUiSourceCodesForEventDispatch = new Set();
 
     this.projectInternal = null;
     this.activeProject = null;
@@ -74,6 +78,19 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     void this.enabledChanged();
 
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
+  }
+
+  hasMatchingRequestForHeaderOverrideFile(headersFile: Workspace.UISourceCode.UISourceCode): boolean {
+    const relativePathParts = FileSystemWorkspaceBinding.relativePath(headersFile);
+    const relativePath = Common.ParsedURL.ParsedURL.slice(
+        Common.ParsedURL.ParsedURL.join(relativePathParts, '/'), 0, -HEADERS_FILENAME.length);
+
+    for (const encodedNetworkPath of this.networkUISourceCodeForEncodedPath.keys()) {
+      if (encodedNetworkPath.startsWith(relativePath)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   targetAdded(): void {
@@ -447,6 +464,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (fileSystemUISourceCode) {
       await this.#bind(uiSourceCode, fileSystemUISourceCode);
     }
+    this.#maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode);
   }
 
   private async filesystemUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -663,6 +681,37 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       this.#sourceCodeToBindProcessMutex.delete(uiSourceCode);
       this.networkUISourceCodeForEncodedPath.delete(this.encodedPathFromUrl(uiSourceCode.url()));
     }
+    this.#maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode);
+  }
+
+  #maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
+    if (!this.projectInternal) {
+      return;
+    }
+    const project = this.projectInternal as FileSystem;
+    // TODO: needed?
+    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url()) as Platform.DevToolsPath.UrlString;
+    const fileUrl = this.fileUrlFromNetworkUrl(url);
+
+    for (let i = project.fileSystemPath().length; i < fileUrl.length; i++) {
+      if (fileUrl[i] === '/') {
+        const headersFilePath =
+            Common.ParsedURL.ParsedURL.concatenate(Common.ParsedURL.ParsedURL.substring(fileUrl, 0, i + 1), '.headers');
+        const headersFileUiSourceCode = project.uiSourceCodeForURL(headersFilePath);
+        if (headersFileUiSourceCode) {
+          this.#headersFileUiSourceCodesForEventDispatch.add(headersFileUiSourceCode);
+          void this.#eventDispatchThrottler.schedule(this.#dispatchStuff.bind(this));
+        }
+      }
+    }
+  }
+
+  #dispatchStuff(): Promise<void> {
+    for (const headersFileUiSourceCode of this.#headersFileUiSourceCodesForEventDispatch) {
+      this.dispatchEventToListeners(Events.NetworkUiSourceCodeChanged, headersFileUiSourceCode);
+    }
+    this.#headersFileUiSourceCodesForEventDispatch.clear();
+    return Promise.resolve();
   }
 
   private async filesystemUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -871,10 +920,12 @@ export const HEADERS_FILENAME = '.headers';
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   ProjectChanged = 'ProjectChanged',
+  NetworkUiSourceCodeChanged = 'NetworkUiSourceCodeChanged',
 }
 
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
+  [Events.NetworkUiSourceCodeChanged]: Workspace.UISourceCode.UISourceCode,
 };
 
 export interface HeaderOverride {

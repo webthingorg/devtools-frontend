@@ -10,7 +10,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {FileSystemWorkspaceBinding} from './FileSystemWorkspaceBinding.js';
-import {NetworkPersistenceManager} from './NetworkPersistenceManager.js';
+import {HEADERS_FILENAME, NetworkPersistenceManager} from './NetworkPersistenceManager.js';
 
 import {Events, PersistenceImpl, type PersistenceBinding} from './PersistenceImpl.js';
 
@@ -60,6 +60,14 @@ export class PersistenceUtils {
     if (uiSourceCode.project().type() !== Workspace.Workspace.projectTypes.FileSystem ||
         !uiSourceCode.url().startsWith('file://')) {
       return null;
+    }
+
+    if (uiSourceCode.url().endsWith(HEADERS_FILENAME)) {
+      if (NetworkPersistenceManager.instance().hasMatchingRequestForHeaderOverrideFile(uiSourceCode)) {
+        const icon = UI.Icon.Icon.create('mediumicon-file-sync');
+        icon.classList.add('purple-dot');
+        return icon;
+      }
     }
 
     const icon = UI.Icon.Icon.create('mediumicon-file');
