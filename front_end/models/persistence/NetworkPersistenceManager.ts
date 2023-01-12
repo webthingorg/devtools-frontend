@@ -76,6 +76,26 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
   }
 
+  hasMatchingRequestForHeaderOverrideFile(headersFile: Workspace.UISourceCode.UISourceCode): boolean {
+    console.log('looking for', headersFile.url());
+    const relativePathParts = FileSystemWorkspaceBinding.relativePath(headersFile);
+    const relativePath = Common.ParsedURL.ParsedURL.slice(
+        Common.ParsedURL.ParsedURL.join(relativePathParts, '/'), 0, -HEADERS_FILENAME.length);
+    const {singlyDecodedPath, decodedPath} = this.#doubleDecodeEncodedPathString(relativePath);
+    console.log('rel path parts', relativePathParts);
+    console.log('rel path', relativePath);
+    console.log('singly decoded', singlyDecodedPath);
+    console.log('decoded', decodedPath);
+
+    for (const foo of this.networkUISourceCodeForEncodedPath.keys()) {
+      console.log('comparing with', foo);
+      if (foo.startsWith(relativePath)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   targetAdded(): void {
     void this.updateActiveProject();
   }
@@ -440,6 +460,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return;
     }
     const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url()) as Platform.DevToolsPath.UrlString;
+    console.log('networkUiSourceCodeAdded', url);
     this.networkUISourceCodeForEncodedPath.set(this.encodedPathFromUrl(url), uiSourceCode);
 
     const project = this.projectInternal as FileSystem;
@@ -447,6 +468,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (fileSystemUISourceCode) {
       await this.#bind(uiSourceCode, fileSystemUISourceCode);
     }
+    this.#maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode);
   }
 
   private async filesystemUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -658,10 +680,38 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   private async networkUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    console.log('networkUISourceCodeRemoved', uiSourceCode.url());
     if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network) {
       await this.#unbind(uiSourceCode);
       this.#sourceCodeToBindProcessMutex.delete(uiSourceCode);
       this.networkUISourceCodeForEncodedPath.delete(this.encodedPathFromUrl(uiSourceCode.url()));
+    }
+    this.#maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode);
+  }
+
+  #maybeDispatchNetworkUiSourceCodeChanged(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
+    const project = this.projectInternal as FileSystem;
+    console.log('base url', project.fileSystemBaseURL, project.fileSystemPath());
+    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url()) as Platform.DevToolsPath.UrlString;
+    console.log('url without hash', url);
+    const rawPath = this.rawPathFromUrl(url);
+    console.log('raw path', this.rawPathFromUrl(url));
+    const encPath = this.encodedPathFromUrl(url);
+    console.log('enc path', this.encodedPathFromUrl(url));
+    const fileUrl = this.fileUrlFromNetworkUrl(url);
+    console.log('fileUrl', fileUrl);
+
+    for (let i = project.fileSystemPath().length; i < fileUrl.length; i++) {
+      if (fileUrl[i] === '/') {
+        const filePath = Common.ParsedURL.ParsedURL.substring(fileUrl, 0, i + 1) + '.headers';
+        console.log('filePath', filePath);
+        // const constructed = project.fileSystemBaseURL + filePath + '.headers' as Platform.DevToolsPath.UrlString;
+        // console.log('constructed', constructed);
+        const headersFileUiSourceCode = project.uiSourceCodeForURL(filePath as Platform.DevToolsPath.UrlString);
+        if (headersFileUiSourceCode) {
+          this.dispatchEventToListeners(Events.NetworkUiSourceCodeAdded, headersFileUiSourceCode);
+        }
+      }
     }
   }
 
@@ -871,10 +921,12 @@ export const HEADERS_FILENAME = '.headers';
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   ProjectChanged = 'ProjectChanged',
+  NetworkUiSourceCodeAdded = 'NetworkUiSourceCodeAdded',
 }
 
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
+  [Events.NetworkUiSourceCodeAdded]: Workspace.UISourceCode.UISourceCode,
 };
 
 export interface HeaderOverride {

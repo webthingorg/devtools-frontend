@@ -45,6 +45,7 @@ export class PersistenceUtils {
   }
 
   static iconForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): UI.Icon.Icon|null {
+    console.log('iconForUISourceCode', uiSourceCode.url());
     const binding = PersistenceImpl.instance().binding(uiSourceCode);
     if (binding) {
       if (!binding.fileSystem.url().startsWith('file://')) {
@@ -60,6 +61,15 @@ export class PersistenceUtils {
     if (uiSourceCode.project().type() !== Workspace.Workspace.projectTypes.FileSystem ||
         !uiSourceCode.url().startsWith('file://')) {
       return null;
+    }
+
+    if (uiSourceCode.url().endsWith('.headers')) {
+      if (NetworkPersistenceManager.instance().hasMatchingRequestForHeaderOverrideFile(uiSourceCode)) {
+        console.log('inner found');
+        const icon = UI.Icon.Icon.create('mediumicon-file-sync');
+        icon.classList.add('purple-dot');
+        return icon;
+      }
     }
 
     const icon = UI.Icon.Icon.create('mediumicon-file');

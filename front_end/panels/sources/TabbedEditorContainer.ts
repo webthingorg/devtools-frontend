@@ -98,6 +98,8 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
         Persistence.Persistence.Events.BindingCreated, this.onBindingCreated, this);
     Persistence.Persistence.PersistenceImpl.instance().addEventListener(
         Persistence.Persistence.Events.BindingRemoved, this.onBindingRemoved, this);
+    Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().addEventListener(
+      Persistence.NetworkPersistenceManager.Events.NetworkUiSourceCodeAdded, this.#onNetworkUiSourceCodeAdded, this);
 
     this.tabIds = new Map();
     this.files = new Map();
@@ -144,6 +146,12 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     }
 
     this.updateHistory();
+  }
+
+  #onNetworkUiSourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>):void {
+    console.log('onNetworkUiSourceCodeAdded', event);
+    const foo = event.data;
+    this.updateFileTitle(foo);
   }
 
   private onBindingRemoved(event: Common.EventTarget.EventTargetEvent<Persistence.Persistence.PersistenceBinding>):
@@ -574,6 +582,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
   }
 
   private updateFileTitle(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
+    console.log('updateFileTitle', uiSourceCode.url());
     const tabId = this.tabIds.get(uiSourceCode);
     if (tabId) {
       const title = this.titleForFile(uiSourceCode);
