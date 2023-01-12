@@ -26,23 +26,23 @@ const colorSpaceConversionTolerance = 0.001;
 
 describe('Color', () => {
   it('can be instantiated without issues', () => {
-    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
+    const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor').clipToGamut();
     assert.deepEqual(color.rgba(), [0.5, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
     assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
     assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
   it('defaults RGBA value to 0 if the RGBA initializing value given was negative', () => {
-    const color = new Color.Legacy([-0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
-    assert.deepEqual(color.rgba(), [-0.5, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
-    assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
+    const color = new Color.Legacy([-0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor').clipToGamut();
+    assert.deepEqual(color.rgba(), [0, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
+    assert.strictEqual(color.asString(), 'rgb(0 128 128 / 50%)', 'original text was not ignored as expected');
     assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
   it('defaults RGBA value to 1 if the RGBA initializing value given was above one', () => {
-    const color = new Color.Legacy([1.1, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor');
+    const color = new Color.Legacy([1.1, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor').clipToGamut();
     assert.deepEqual(color.rgba(), [1, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
-    assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
+    assert.strictEqual(color.asString(), 'rgb(255 128 128 / 50%)', 'original text was not ignored as expected');
     assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
@@ -278,10 +278,10 @@ describe('Color', () => {
     // Parses correctly from syntax list
     const colorCases = [
       ['color(display-p3 34% 58% 73%)', [0.246, 0.587, 0.745, 1]],
-      ['color(display-p3 1 0.71 0.73)', [1, 0.694, 0.725, 1]],
-      ['color(display-p3 34% / 50%)', [0.3748, -0.0505, -0.0239, 0.5]],
-      ['color(rec2020 34% 58% 73%)', [-0.169, 0.641, 0.774, 1]],
-      ['color(rec2020 .34 .58 .73 / .5)', [-0.169, 0.641, 0.774, 0.5]],
+      ['color(display-p3 1 0.71 0.73)', [1, 0.695, 0.725, 1]],
+      ['color(display-p3 34% / 50%)', [0.3748, 0, 0, 0.5]],
+      ['color(rec2020 34% 58% 73%)', [0, 0.641, 0.774, 1]],
+      ['color(rec2020 .34 .58 .73 / .5)', [0, 0.641, 0.774, 0.5]],
       ['color(a98-rgb 34% 58% 73% / 50%)', [0.1, 0.585, 0.741, 0.5]],
       ['color(a98-rgb none none none)', [0, 0, 0, 1]],
       ['color(a98-rgb 0)', [0, 0, 0, 1]],
@@ -294,7 +294,7 @@ describe('Color', () => {
       const color = parseAndAssertNotNull(syntax as string);
       deepCloseTo(
           color.rgba(), expectedRgba as number[], colorSpaceConversionTolerance,
-          'color() parsing from syntax list is not correct');
+          `color() parsing from syntax list is not correct for ${syntax}`);
     }
   });
 
