@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "95a66c1d_d4f6f39f",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58090018_aec9543a",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5b80dc97_e598f162",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 5
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8c9643_eb346a97",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c18afe3_05435c6b",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "056fef30_8ddb87e1",
@@ -105,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c78928b0_78e68369",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "Do we have anything for the userAction?",
+      "parentUuid": "056fef30_8ddb87e1",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e89ca823_5535bcf8",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 5
@@ -116,6 +170,24 @@
       "writtenOn": "2023-01-12T09:43:59Z",
       "side": 1,
       "message": "Is the extra variable necessary here, or could you also move the sendRequest into the promise?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34cd9d90_8757b7f6",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89ca823_5535bcf8",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +211,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93b61858_7cd37fe6",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "If the plugin only supports replay. This CL makes mediaType optional for that purpose.",
+      "parentUuid": "6c8719ea_5c81c018",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "421ad6be_77a21d3e",
         "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
         "patchSetId": 5
@@ -156,6 +246,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3917a58d_283d204b",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "Which panel do you mean? there is only a view for the recorder.",
+      "parentUuid": "421ad6be_77a21d3e",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c8bb216_4d3d6eb8",
         "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
         "patchSetId": 5
@@ -167,6 +275,24 @@
       "writtenOn": "2023-01-12T09:43:59Z",
       "side": 1,
       "message": "I don\u0027t think this is enough. show() involves a postmessage hop so the event handler wouldn\u0027t fire immediately. How about sending any other command after the show, so that we can be sure we haven\u0027t gotten the show event once the second command arrives?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c085bb3a_463f4d6b",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T11:43:02Z",
+      "side": 1,
+      "message": "I am not sure I got the idea with sending any other command after the show? I think we have no other commands on the view here.",
+      "parentUuid": "2c8bb216_4d3d6eb8",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
