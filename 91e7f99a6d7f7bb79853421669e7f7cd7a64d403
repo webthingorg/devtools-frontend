@@ -16,6 +16,24 @@
       "message": "let\u0027s include formats here like in RecordingExported?",
       "revId": "91e7f99a6d7f7bb79853421669e7f7cd7a64d403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae5801ab_5d53aed0",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2023-01-12T10:46:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaee83f6_76fa5e68",
+      "revId": "91e7f99a6d7f7bb79853421669e7f7cd7a64d403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
