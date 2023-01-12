@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2336c154_72538df1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-12T10:19:41Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nhere\u0027s a small clean up that removes the old way of waiting for uiSourceCodes that is no longer used. PTAL!",
+      "revId": "24d53ba3ef32200a633d139e8e86fcf181c93f1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
