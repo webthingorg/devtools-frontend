@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d659b5f_666d8d48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1531762
+      },
+      "writtenOn": "2023-01-12T15:29:51Z",
+      "side": 1,
+      "message": "also, where are `recordingCodeToggled()` and `recordingCopiedToClipboard()` called? will that be done in a follow up CL?",
+      "revId": "931e046b6bf7c33a1f0f1f932e4b0fb264aa3681",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5850b357_29b8d2e6",
         "filename": "front_end/core/host/UserMetrics.ts",
         "patchSetId": 5
