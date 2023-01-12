@@ -406,12 +406,8 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
 
     if (this.target) {
       const includeThirdPartyCookies = this.includeThirdPartyCookiesSetting.get();
-      if (this.storageKey) {
-        StorageView.clearByStorageKey(
-            this.target, this.storageKey, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
-      } else if (this.securityOrigin) {
-        StorageView.clear(this.target, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
-      }
+      StorageView.clear(
+          this.target, this.storageKey, this.securityOrigin, selectedStorageTypes, includeThirdPartyCookies);
     }
 
     this.clearButton.disabled = true;
@@ -425,19 +421,13 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   static clear(
-      target: SDK.Target.Target, securityOrigin: string, selectedStorageTypes: string[],
+      target: SDK.Target.Target, storageKey: string|null, originForCookies: string|null, selectedStorageTypes: string[],
       includeThirdPartyCookies: boolean): void {
-    void target.storageAgent().invoke_clearDataForOrigin(
-        {origin: securityOrigin, storageTypes: selectedStorageTypes.join(',')});
-
-    const set = new Set(selectedStorageTypes);
-    const hasAll = set.has(Protocol.Storage.StorageType.All);
-    if (set.has(Protocol.Storage.StorageType.Cookies) || hasAll) {
-      const cookieModel = target.model(SDK.CookieModel.CookieModel);
-      if (cookieModel) {
-        void cookieModel.clear(undefined, includeThirdPartyCookies ? undefined : securityOrigin);
-      }
+    console.assert(Boolean(storageKey));
+    if (!storageKey) {
+      return;
     }
+<<<<<<< HEAD   (308119 Fix the value in Network's preload tab overlapping with the )
 
     if (set.has(Protocol.Storage.StorageType.Local_storage) || hasAll) {
       const storageModel = target.model(DOMStorageModel);
@@ -466,6 +456,8 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
   static clearByStorageKey(
       target: SDK.Target.Target, storageKey: string, originForCookies: string|undefined, selectedStorageTypes: string[],
       includeThirdPartyCookies: boolean): void {
+=======
+>>>>>>> CHANGE (d635e1 Remove security origin support from DOM Storage code as it w)
     void target.storageAgent().invoke_clearDataForStorageKey(
         {storageKey, storageTypes: selectedStorageTypes.join(',')});
 
@@ -644,6 +636,7 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
       return false;
     }
     const securityOrigin = resourceTreeModel.getMainSecurityOrigin();
+<<<<<<< HEAD   (308119 Fix the value in Network's preload tab overlapping with the )
     const storageKey = void resourceTreeModel.getMainStorageKey();
     if (storageKey) {
       StorageView.clearByStorageKey(
@@ -651,6 +644,11 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
     } else if (securityOrigin) {
       StorageView.clear(target, securityOrigin, AllStorageTypes, includeThirdPartyCookies);
     }
+=======
+    resourceTreeModel.getMainStorageKey().then(storageKey => {
+      StorageView.clear(target, storageKey, securityOrigin, AllStorageTypes, includeThirdPartyCookies);
+    }, _ => {});
+>>>>>>> CHANGE (d635e1 Remove security origin support from DOM Storage code as it w)
     return true;
   }
 }
