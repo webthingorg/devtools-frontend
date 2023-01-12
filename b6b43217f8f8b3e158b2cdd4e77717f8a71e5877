@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f2ea50_986f16e9",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-12T06:28:50Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "f95e2d02_c813e261",
+      "revId": "b6b43217f8f8b3e158b2cdd4e77717f8a71e5877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4273255_cc03abf9",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-11T15:54:06Z",
       "side": 0,
       "message": "This is replaced in https://crrev.com/c/4154498",
+      "revId": "b6b43217f8f8b3e158b2cdd4e77717f8a71e5877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb15d23_aea6f3c8",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-12T06:28:50Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "f4273255_cc03abf9",
       "revId": "b6b43217f8f8b3e158b2cdd4e77717f8a71e5877",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

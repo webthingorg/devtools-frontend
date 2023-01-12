@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nI\u0027ve made the changes that we discussed on this CL:\n\nI\u0027ve removed the sourceMappings. Since they are no longer needed:\n1. ..I\u0027ve removed the definition of `uiSourceCodesForScript` in the `DebuggerSourceMapping` interface\n2. ..`CompilerScriptMapping` no longer needs to implement that method\n3. ..the original tests for persistency that were using them for creating a mapping no longer work. So I\u0027m removing both here, and have follow up CLs (https://crrev.com/c/4154500, https://crrev.com/c/4154498) that convert them\n\nPlease take another look!",
       "revId": "aa1d5dd2353bf6d75cc6ef3cf5bf51ae1fb2b34b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a0ede6_6fe70e81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-12T06:28:50Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "aa1d5dd2353bf6d75cc6ef3cf5bf51ae1fb2b34b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
