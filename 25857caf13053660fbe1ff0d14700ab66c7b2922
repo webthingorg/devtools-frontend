@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ff64d5_f1eaf825",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-12T10:09:19Z",
+      "side": 1,
+      "message": "I think it would be cool to write tests for:\n* isInGamut() especially for the places we haave just a little bit difference\n* clipToGamut() to cover it\n\nAlso, it seems like the conversion logic changed to return clipped colors. So, it would be cool to add a test for this case too.\n\ni.e. from display-p3 color to RGB and assert that returned RGB is in gamut.\n\n-----\n\nIn addition to that, we need to do powerless component checks after conversions though we can also do that in a separate CL too.",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5a52f3_0406b16d",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-12T10:09:19Z",
+      "side": 1,
+      "message": "I wonder if we should do the equality check on the parameters with the `equals` function, wdyt?",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e666e4_25589155",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-12T10:09:19Z",
+      "side": 1,
+      "message": "I remember there were some issues with exact comparison where our color is stringified as `1 1 1` but it was showing out - of gamut because the actual value was something like `1.000005`.\n\nShould we use `equals` utility above here too, WDYT?",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
