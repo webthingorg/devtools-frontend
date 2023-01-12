@@ -6,6 +6,7 @@ import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/p
 import * as DataGrid from '../../../../../front_end/ui/components/data_grid/data_grid.js';
 import * as Coordinator from '../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertShadowRoot, dispatchClickEvent, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
+import {describeWithLocale} from '../../helpers/EnvironmentHelpers.js';
 import {TEXT_NODE, withMutations} from '../../helpers/MutationHelpers.js';
 
 import {getAllRows, getHeaderCellForColumnId, getValuesForColumn, getValuesOfAllBodyRows} from './DataGridHelpers.js';
@@ -23,8 +24,8 @@ const getInternalDataGridShadowRoot = (component: DataGrid.DataGridController.Da
   return internalShadow;
 };
 
-describe('DataGridController', () => {
-  describe('sorting the columns', () => {
+describeWithLocale('DataGridController', () => {
+  describeWithLocale('sorting the columns', () => {
     const columns = [
       {id: 'key', title: 'Key', sortable: true, widthWeighting: 1, visible: true, hideable: false},
     ];
