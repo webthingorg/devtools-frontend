@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f084cbd9_b309188a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-12T10:18:55Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nhere\u0027s the CL that adds the last missing test for checking if breakpoints move for file system files. PTAL!",
+      "revId": "8f3a117106b46f7375c74ec637e0b83b5db972fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
