@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ebed8a_5a60da09",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-12T08:29:09Z",
+      "side": 1,
+      "message": "oops, missed the early returns :) The await is still technically not needed.",
+      "parentUuid": "cf84194a_079b4301",
+      "range": {
+        "startLine": 361,
+        "startChar": 11,
+        "endLine": 361,
+        "endChar": 16
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a98a01_4931fa04",
