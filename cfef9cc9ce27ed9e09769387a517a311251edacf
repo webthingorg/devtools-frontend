@@ -16,6 +16,75 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca100da_dffcf5dd",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-12T07:59:23Z",
+      "side": 1,
+      "message": "nit: superfluous `await`? Then this function doesn\u0027t need to be async.",
+      "range": {
+        "startLine": 361,
+        "startChar": 11,
+        "endLine": 361,
+        "endChar": 16
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a98a01_4931fa04",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-12T07:59:23Z",
+      "side": 1,
+      "message": "Looking at this CL, I\u0027m wondering, do we need the signal for `null` vs empty Set of mapped lines anywhere? It\u0027s making some of these methods hard to read, e.g. the one in `DebuggerLanguagePlugin`.",
+      "range": {
+        "startLine": 1647,
+        "startChar": 8,
+        "endLine": 1647,
+        "endChar": 19
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe42954_133d20ee",
+        "filename": "test/unittests/front_end/models/bindings/CompilerScriptMapping_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-12T07:59:23Z",
+      "side": 1,
+      "message": "needs to be sorted or the expectation adjusted.",
+      "range": {
+        "startLine": 331,
+        "startChar": 25,
+        "endLine": 331,
+        "endChar": 36
+      },
+      "revId": "cfef9cc9ce27ed9e09769387a517a311251edacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
