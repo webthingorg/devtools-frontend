@@ -281,6 +281,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef69819_30d39d54",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T13:18:56Z",
+      "side": 1,
+      "message": "ah, right, forgot to remove defaults after making it optional.",
+      "parentUuid": "5f44e208_a8b7fab9",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "421ad6be_77a21d3e",
@@ -336,6 +354,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c46eb9c_41dd31ec",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T13:18:56Z",
+      "side": 1,
+      "message": "I see what you mean. We could try but it looks like we need to fix the panels API, first? show is not marked as public API for normal panels?",
+      "parentUuid": "ef63c9ee_2fdd9842",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c8bb216_4d3d6eb8",
         "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
         "patchSetId": 5
@@ -383,6 +419,24 @@
       "side": 1,
       "message": "Doesn\u0027t have to be on the view, sending and awaiting any other command flushes the postMessage queue and lets us be sure the event won\u0027t arrive.",
       "parentUuid": "c085bb3a_463f4d6b",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff74b9e_538b6352",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-12T13:18:56Z",
+      "side": 1,
+      "message": "That would work with messages in the other direction? like `stringify` calls?",
+      "parentUuid": "a8a25331_846bb778",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
