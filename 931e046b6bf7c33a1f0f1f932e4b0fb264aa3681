@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98490949_caf19f52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2023-01-12T15:36:59Z",
+      "side": 1,
+      "message": "They will be called from the devtools-internal repo. That will be done in a follow up CL.",
+      "parentUuid": "2d659b5f_666d8d48",
+      "revId": "931e046b6bf7c33a1f0f1f932e4b0fb264aa3681",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5850b357_29b8d2e6",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89945983_4dd64df3",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2023-01-12T15:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5850b357_29b8d2e6",
+      "range": {
+        "startLine": 295,
+        "startChar": 57,
+        "endLine": 295,
+        "endChar": 74
+      },
+      "revId": "931e046b6bf7c33a1f0f1f932e4b0fb264aa3681",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "189f0598_931f03b7",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-01-12T15:27:13Z",
       "side": 1,
       "message": "i think this should be `RecordingCopiedToClipboard.MaxValue`?",
+      "range": {
+        "startLine": 300,
+        "startChar": 63,
+        "endLine": 300,
+        "endChar": 80
+      },
+      "revId": "931e046b6bf7c33a1f0f1f932e4b0fb264aa3681",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd45b8db_b1a1417e",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2023-01-12T15:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "189f0598_931f03b7",
       "range": {
         "startLine": 300,
         "startChar": 63,
