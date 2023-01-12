@@ -16,6 +16,159 @@
       "message": "Ready for preliminary review!",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440c8a21_508abbc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "Looks great overall! Couple of inline comments.",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58090018_aec9543a",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "The union should already imply the sum.",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b80dc97_e598f162",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong feeling either way, but have you considered making this an object {export?: boolean, replay?: boolean}?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c18afe3_05435c6b",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "You don\u0027t need to repeat the public interface here, you should be able to just use that directly.",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056fef30_8ddb87e1",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "I wonder if we\u0027d also want some enforcement of this on the serverside, also for the panels.",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e89ca823_5535bcf8",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "Is the extra variable necessary here, or could you also move the sendRequest into the promise?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8719ea_5c81c018",
+        "filename": "front_end/models/extensions/RecorderExtensionEndpoint.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "How can the mediaType become undefined?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421ad6be_77a21d3e",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "How about also checking whether we can show a panel instead of a view?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c8bb216_4d3d6eb8",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T09:43:59Z",
+      "side": 1,
+      "message": "I don\u0027t think this is enough. show() involves a postmessage hop so the event handler wouldn\u0027t fire immediately. How about sending any other command after the show, so that we can be sure we haven\u0027t gotten the show event once the second command arrives?",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
