@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24b42a7_d42a4182",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T14:34:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "201d6ff6_1c1e91a3",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c18afe3_05435c6b",
@@ -366,6 +384,24 @@
       "side": 1,
       "message": "I see what you mean. We could try but it looks like we need to fix the panels API, first? show is not marked as public API for normal panels?",
       "parentUuid": "ef63c9ee_2fdd9842",
+      "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bddd1a0_c7b2d320",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-12T14:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c46eb9c_41dd31ec",
       "revId": "bb57ded07df67467b2ddcaedd5f7de0c8d20aeae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
