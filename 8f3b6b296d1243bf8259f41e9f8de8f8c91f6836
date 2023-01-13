@@ -81,6 +81,30 @@
       "parentUuid": "0a0b25fe_fd083bf6",
       "revId": "8f3b6b296d1243bf8259f41e9f8de8f8c91f6836",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64f75d5_366328f3",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-13T10:18:19Z",
+      "side": 1,
+      "message": "I see, thanks!",
+      "parentUuid": "60e5c29f_5c0a7811",
+      "range": {
+        "startLine": 454,
+        "startChar": 57,
+        "endLine": 454,
+        "endChar": 76
+      },
+      "revId": "8f3b6b296d1243bf8259f41e9f8de8f8c91f6836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
