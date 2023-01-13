@@ -59,7 +59,7 @@ describe('Scope View', async () => {
       const lmiTabbedPane = await waitFor(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_SELECTOR);
       const titleElement = await waitFor(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
       assert.isNotNull(titleElement);
-      const title = await frontend.evaluate(x => x.innerText, titleElement);
+      const title = await frontend.evaluate(x => (x as HTMLElement).innerText, titleElement);
 
       assert.strictEqual(title, 'Memory(100)');
     });
@@ -89,7 +89,7 @@ describe('Scope View', async () => {
     await step('check that opened linear memory inspector has correct title', async () => {
       const titleElement = await waitFor(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
       assert.isNotNull(titleElement);
-      const title = await frontend.evaluate(x => x.innerText, titleElement);
+      const title = await frontend.evaluate(x => (x as HTMLElement).innerText, titleElement);
 
       assert.strictEqual(title, 'SharedArrayBuffer(16)');
     });
