@@ -44,14 +44,15 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
     this.swCacheTreeElements = new Set();
   }
 
-  initialize(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null): void {
+  initialize(): void {
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, {
+      modelAdded: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+          this.serviceWorkerCacheModelAdded(model),
+      modelRemoved: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+          this.serviceWorkerCacheModelRemoved(model),
+    });
+
     this.swCacheTreeElements.clear();
-    this.swCacheModel = model;
-    if (model) {
-      for (const cache of model.caches()) {
-        this.addCache(model, cache);
-      }
-    }
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, SDK.ServiceWorkerCacheModel.Events.CacheAdded,
         this.cacheAdded, this);
@@ -60,21 +61,21 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
         this.cacheRemoved, this);
   }
 
-  onattach(): void {
-    super.onattach();
-    this.listItemElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), true);
-  }
-
-  private handleContextMenuEvent(event: MouseEvent): void {
-    const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    contextMenu.defaultSection().appendItem(i18nString(UIStrings.refreshCaches), this.refreshCaches.bind(this));
-    void contextMenu.show();
-  }
-
-  private refreshCaches(): void {
-    if (this.swCacheModel) {
-      this.swCacheModel.refreshCacheNames();
+  private serviceWorkerCacheModelAdded(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void {
+    model.enable();
+    for (const cache of model.caches()) {
+      this.addCache(model, cache);
     }
+    model.addEventListener(SDK.ServiceWorkerCacheModel.Events.CacheAdded, this.cacheAdded, this);
+    model.addEventListener(SDK.ServiceWorkerCacheModel.Events.CacheRemoved, this.cacheRemoved, this);
+  }
+
+  private serviceWorkerCacheModelRemoved(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void {
+    for (const cache of model.caches()) {
+      this.removeCache(model, cache);
+    }
+    model.removeEventListener(SDK.ServiceWorkerCacheModel.Events.CacheAdded, this.cacheAdded, this);
+    model.removeEventListener(SDK.ServiceWorkerCacheModel.Events.CacheRemoved, this.cacheRemoved, this);
   }
 
   private cacheAdded(event: Common.EventTarget.EventTargetEvent<SDK.ServiceWorkerCacheModel.CacheEvent>): void {
@@ -91,6 +92,11 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
 
   private cacheRemoved(event: Common.EventTarget.EventTargetEvent<SDK.ServiceWorkerCacheModel.CacheEvent>): void {
     const {model, cache} = event.data;
+    this.removeCache(model, cache);
+  }
+
+  private removeCache(
+      model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache): void {
     const swCacheTreeElement = this.cacheTreeElement(model, cache);
     if (!swCacheTreeElement) {
       return;
@@ -110,6 +116,23 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
       }
     }
     return null;
+  }
+
+  onattach(): void {
+    super.onattach();
+    this.listItemElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), true);
+  }
+
+  private handleContextMenuEvent(event: MouseEvent): void {
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.defaultSection().appendItem(i18nString(UIStrings.refreshCaches), this.refreshCaches.bind(this));
+    void contextMenu.show();
+  }
+
+  private refreshCaches(): void {
+    if (this.swCacheModel) {
+      this.swCacheModel.refreshCacheNames();
+    }
   }
 }
 
