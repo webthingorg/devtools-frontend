@@ -11,6 +11,7 @@ import {ApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import * as ApplicationComponents from './components/components.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
 import * as Host from '../../core/host/host.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 
 const UIStrings = {
   /**
@@ -29,7 +30,9 @@ export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
 
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.trustTokens), false);
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const icon = new IconButton.IconElement.IconElement();
+    icon.name = 'database';
+    icon.classList.add('application-sidebar-icon');
     this.setLeadingIcons([icon]);
   }
 
