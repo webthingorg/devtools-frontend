@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cfbef1f_e21989ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-13T10:09:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13ff64d5_f1eaf825",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe5a52f3_0406b16d",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb3c95b_09c4da48",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-13T10:09:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe5a52f3_0406b16d",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3e666e4_25589155",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-01-12T10:09:19Z",
       "side": 1,
       "message": "I remember there were some issues with exact comparison where our color is stringified as `1 1 1` but it was showing out - of gamut because the actual value was something like `1.000005`.\n\nShould we use `equals` utility above here too, WDYT?",
+      "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a779493_c9dc235e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-13T10:09:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3e666e4_25589155",
       "revId": "25857caf13053660fbe1ff0d14700ab66c7b2922",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
