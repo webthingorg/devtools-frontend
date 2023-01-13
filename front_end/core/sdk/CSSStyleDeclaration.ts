@@ -117,15 +117,20 @@ export class CSSStyleDeclaration {
 
       // Try to fit the malformed css into properties.
       const lines = missingText.split('\n');
-      let lineNumber = 0;
-      let inComment = false;
-      for (const line of lines) {
-        let column = 0;
-        for (const property of line.split(';')) {
-          const strippedProperty = stripComments(property, inComment);
-          const trimmedProperty = strippedProperty.text.trim();
-          inComment = strippedProperty.inComment;
+      const context: SkipBlockContext = {
+        inComment: false,
+        nestedBlocks: 0,
+        validContent: '',
+      };
+      for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+        skipBlocks(lines[lineNumber], context);
+        if (context.inComment || context.nestedBlocks > 0 || !context.validContent) {
+          continue;
+        }
 
+        let column = 0;
+        for (const property of context.validContent.split(';')) {
+          const trimmedProperty = property.trim();
           if (trimmedProperty) {
             let name;
             let value;
@@ -144,27 +149,26 @@ export class CSSStyleDeclaration {
           }
           column += property.length + 1;
         }
-        lineNumber++;
       }
     }
 
-    function stripComments(text: string, inComment: boolean): {
-      text: string,
-      inComment: boolean,
-    } {
-      let output = '';
+    function skipBlocks(text: string, context: SkipBlockContext): void {
+      context.validContent = '';
       for (let i = 0; i < text.length; i++) {
-        if (!inComment && text.substring(i, i + 2) === '/*') {
-          inComment = true;
+        if (text[i] === '{') {
+          context.nestedBlocks++;
+        } else if (text[i] === '}') {
+          context.nestedBlocks--;
+        } else if (text.substring(i, i + 2) === '/*') {
+          context.inComment = true;
           i++;
-        } else if (inComment && text.substring(i, i + 2) === '*/') {
-          inComment = false;
+        } else if (context.inComment && text.substring(i, i + 2) === '*/') {
+          context.inComment = false;
           i++;
-        } else if (!inComment) {
-          output += text[i];
+        } else if (context.nestedBlocks === 0 && !context.inComment) {
+          context.validContent += text[i];
         }
       }
-      return {text: output, inComment};
     }
   }
 
@@ -361,3 +365,9 @@ export enum Type {
   Inline = 'Inline',
   Attributes = 'Attributes',
 }
+
+type SkipBlockContext = {
+  inComment: boolean,
+  nestedBlocks: number,
+  validContent: string,
+};
