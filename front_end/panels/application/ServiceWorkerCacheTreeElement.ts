@@ -7,7 +7,6 @@ import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as ApplicationComponents from './components/components.js';
 import * as Host from '../../core/host/host.js';
 
 import {ApplicationPanelTreeElement, ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
@@ -20,10 +19,6 @@ const UIStrings = {
    */
   cacheStorage: 'Cache Storage',
   /**
-   *@description Text in Application Panel Sidebar of the Application panel
-   */
-  backForwardCache: 'Back/forward cache',
-  /**
    *@description A context menu item in the Application Panel Sidebar of the Application panel
    */
   refreshCaches: 'Refresh Caches',
@@ -32,7 +27,7 @@ const UIStrings = {
    */
   delete: 'Delete',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/application/ApplicationPanelCacheSection.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/application/ServiceWorkerCacheTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTreeElement {
   private swCacheModel: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null;
@@ -49,14 +44,15 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
     this.swCacheTreeElements = new Set();
   }
 
-  initialize(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null): void {
+  initialize(): void {
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, {
+      modelAdded: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+          this.serviceWorkerCacheModelAdded(model),
+      modelRemoved: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+          this.serviceWorkerCacheModelRemoved(model),
+    });
+
     this.swCacheTreeElements.clear();
-    this.swCacheModel = model;
-    if (model) {
-      for (const cache of model.caches()) {
-        this.addCache(model, cache);
-      }
-    }
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, SDK.ServiceWorkerCacheModel.Events.CacheAdded,
         this.cacheAdded, this);
@@ -65,21 +61,21 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
         this.cacheRemoved, this);
   }
 
-  onattach(): void {
-    super.onattach();
-    this.listItemElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), true);
-  }
-
-  private handleContextMenuEvent(event: MouseEvent): void {
-    const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    contextMenu.defaultSection().appendItem(i18nString(UIStrings.refreshCaches), this.refreshCaches.bind(this));
-    void contextMenu.show();
-  }
-
-  private refreshCaches(): void {
-    if (this.swCacheModel) {
-      this.swCacheModel.refreshCacheNames();
+  private serviceWorkerCacheModelAdded(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void {
+    model.enable();
+    for (const cache of model.caches()) {
+      this.addCache(model, cache);
     }
+    model.addEventListener(SDK.ServiceWorkerCacheModel.Events.CacheAdded, this.cacheAdded, this);
+    model.addEventListener(SDK.ServiceWorkerCacheModel.Events.CacheRemoved, this.cacheRemoved, this);
+  }
+
+  private serviceWorkerCacheModelRemoved(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void {
+    for (const cache of model.caches()) {
+      this.removeCache(model, cache);
+    }
+    model.removeEventListener(SDK.ServiceWorkerCacheModel.Events.CacheAdded, this.cacheAdded, this);
+    model.removeEventListener(SDK.ServiceWorkerCacheModel.Events.CacheRemoved, this.cacheRemoved, this);
   }
 
   private cacheAdded(event: Common.EventTarget.EventTargetEvent<SDK.ServiceWorkerCacheModel.CacheEvent>): void {
@@ -96,6 +92,11 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
 
   private cacheRemoved(event: Common.EventTarget.EventTargetEvent<SDK.ServiceWorkerCacheModel.CacheEvent>): void {
     const {model, cache} = event.data;
+    this.removeCache(model, cache);
+  }
+
+  private removeCache(
+      model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache): void {
     const swCacheTreeElement = this.cacheTreeElement(model, cache);
     if (!swCacheTreeElement) {
       return;
@@ -115,6 +116,23 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
       }
     }
     return null;
+  }
+
+  onattach(): void {
+    super.onattach();
+    this.listItemElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), true);
+  }
+
+  private handleContextMenuEvent(event: MouseEvent): void {
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.defaultSection().appendItem(i18nString(UIStrings.refreshCaches), this.refreshCaches.bind(this));
+    void contextMenu.show();
+  }
+
+  private refreshCaches(): void {
+    if (this.swCacheModel) {
+      this.swCacheModel.refreshCacheNames();
+    }
   }
 }
 
@@ -175,30 +193,5 @@ export class SWCacheTreeElement extends ApplicationPanelTreeElement {
   hasModelAndCache(
       model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache): boolean {
     return this.cache.equals(cache) && this.model === model;
-  }
-}
-
-export class BackForwardCacheTreeElement extends ApplicationPanelTreeElement {
-  private view?: ApplicationComponents.BackForwardCacheView.BackForwardCacheViewWrapper;
-
-  constructor(resourcesPanel: ResourcesPanel) {
-    super(resourcesPanel, i18nString(UIStrings.backForwardCache), false);
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
-    this.setLeadingIcons([icon]);
-  }
-
-  get itemURL(): Platform.DevToolsPath.UrlString {
-    return 'bfcache://' as Platform.DevToolsPath.UrlString;
-  }
-
-  onselect(selectedByUser?: boolean): boolean {
-    super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new ApplicationComponents.BackForwardCacheView.BackForwardCacheViewWrapper(
-          new ApplicationComponents.BackForwardCacheView.BackForwardCacheView());
-    }
-    this.showView(this.view);
-    Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.back_forward_cache]);
-    return false;
   }
 }
