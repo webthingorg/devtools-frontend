@@ -544,13 +544,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       interestGroupModel.enable();
     }
 
-    const cacheStorageModel = this.target && this.target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
-    if (cacheStorageModel) {
-      cacheStorageModel.enable();
-    }
-    const serviceWorkerCacheModel =
-        this.target && this.target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel) || null;
-    this.cacheStorageListTreeElement.initialize(serviceWorkerCacheModel);
+    this.cacheStorageListTreeElement.initialize();
     const backgroundServiceModel = this.target && this.target.model(BackgroundServiceModel) || null;
     if (Root.Runtime.experiments.isEnabled('backgroundServices')) {
       this.backgroundFetchTreeElement && this.backgroundFetchTreeElement.initialize(backgroundServiceModel);
