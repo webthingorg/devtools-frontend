@@ -8,8 +8,10 @@ import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import {createTarget, describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import {describeWithMockConnection, setMockConnectionResponseHandler} from '../../helpers/MockConnection.js';
 import {encodeSourceMap} from '../../helpers/SourceMapEncoder.js';
+import * as Common from '../../../../../front_end/core/common/common.js';
 
 const fakeInitiator = {
   target: null,
@@ -935,4 +937,49 @@ describe('TextSourceMap', () => {
       }
     });
   });
+});
+
+describeWithMockConnection('TextSourceMap.load', () => {
+  const frameId = 'FRAME_ID' as Protocol.Page.FrameId;
+  const initiatorUrl = 'htp://example.com' as Platform.DevToolsPath.UrlString;
+  const url = 'test.js' as Platform.DevToolsPath.UrlString;
+  const sourceMapUrl = 'test.js.map' as Platform.DevToolsPath.UrlString;
+
+  function setupLoadingSourceMapsAsNetworkResource(): Promise<Protocol.Network.LoadNetworkResourceRequest> {
+    let content: string|null =
+        JSON.stringify({mappings: 'AAAA;', sourceRoot: 'root', sources: ['test.ts'], version: 3});
+    setMockConnectionResponseHandler('IO.read', () => {
+      const data = content;
+      content = null;
+      return {data};
+    });
+    setMockConnectionResponseHandler('IO.close', () => ({}));
+    return new Promise(resolve => {
+      setMockConnectionResponseHandler('Network.loadNetworkResource', request => {
+        resolve(request);
+        return {
+          resource: {
+            success: true,
+            stream: 'STREAM_ID',
+            statusCode: 200,
+          },
+        };
+      });
+    });
+  }
+
+  for (const {disableCache, text} of [{disableCache: false, text: 'enabled'}, {disableCache: true, text: 'disabled'}]) {
+    it(`loads with ${text} cache based on the setting`, async () => {
+      Common.Settings.Settings.instance().moduleSetting('cacheDisabled').set(disableCache);
+      const target = createTarget();
+      const pageResourceLoadInitiator = {target, frameId, initiatorUrl};
+      const requestPromise = setupLoadingSourceMapsAsNetworkResource();
+      const sourceMap = await SDK.SourceMap.TextSourceMap.load(sourceMapUrl, url, pageResourceLoadInitiator);
+
+      // Check that we loaded the resources with enabled caching.
+      assert.strictEqual((await requestPromise).options.disableCache, disableCache);
+      // Sanity check on the source map.
+      assert.deepEqual(sourceMap.sourceURLs(), ['root/test.ts']);
+    });
+  }
 });
