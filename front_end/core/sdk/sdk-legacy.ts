@@ -209,7 +209,7 @@ SDK.ServiceWorkerManager = SDKModule.ServiceWorkerManager.ServiceWorkerManager;
 SDK.SourceMap = SDKModule.SourceMap.SourceMap;
 
 /** @constructor */
-SDK.TextSourceMap = SDKModule.SourceMap.TextSourceMap;
+SDK.TextSourceMap = SDKModule.SourceMap.SourceMap;
 
 /** @constructor */
 SDK.SourceMapManager = SDKModule.SourceMapManager.SourceMapManager;
