@@ -196,6 +196,7 @@
   /* New color tokens for icons */
   --icon-default: rgb(110 110 110);
   --icon-force-white: rgb(250 250 250);
+  --color-code-blocks: rgb(240 179 0);
 }
 
 .-theme-with-dark-background {
@@ -347,4 +348,5 @@
   /* New color tokens for icons */
   --icon-default: rgb(145 145 145);
   --icon-force-white: rgb(250 250 250);
+  --color-code-blocks: rgb(234 134 0);
 }

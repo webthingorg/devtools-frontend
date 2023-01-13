@@ -501,9 +501,8 @@ export class BreakpointsView extends HTMLElement {
 
   #renderFileIcon(): LitHtml.TemplateResult {
     return LitHtml.html`
-      <${IconButton.Icon.Icon.litTagName} .data=${
-        {iconName: 'ic_file_script', color: 'var(--color-ic-file-script)', width: '16px', height: '16px'} as
-        IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
+      <${IconButton.IconElement.IconElement.litTagName} class='breakpoints-file-script' name='code-blocks'></${
+        IconButton.IconElement.IconElement.litTagName}>
     `;
   }
 
