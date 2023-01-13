@@ -33,6 +33,24 @@
       "message": "I don\u0027t think we should have unit tests relying on private methods. What we\u0027d like \nto test in unit test in a public contract of some code unit, see e.g. http://go/unit-testing-practices#public-apis",
       "revId": "1019c7b3111c2e93e3a712cfbd17e2d118fd82ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92173244_2345b2b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-01-13T11:45:32Z",
+      "side": 1,
+      "message": "Public visible alternative: https://jesseduffield.com/Testing-Private-Methods/\n\n\u003e Viewpoint 5: Extract Private Methods Into A Separate Class\n\nI found that already I did this. PrerenderingRegistry is a private auxiliary class and we can call PrerenderingRegistry.processEvent a public boundary of this class.",
+      "parentUuid": "3c86e7ea_fe1783a1",
+      "revId": "1019c7b3111c2e93e3a712cfbd17e2d118fd82ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
