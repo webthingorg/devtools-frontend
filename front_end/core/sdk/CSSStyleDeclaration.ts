@@ -70,7 +70,7 @@ export class CSSStyleDeclaration {
         if (!range) {
           continue;
         }
-        parseUnusedText.call(this, cssText, start.line, start.column, range.startLine, range.startColumn);
+        this.parseUnusedText(cssText, start.line, start.column, range.startLine, range.startColumn);
         start = {line: range.endLine, column: range.endColumn};
         const parsedProperty = CSSProperty.parsePayload(this, this.#allPropertiesInternal.length, cssProperty);
         this.#allPropertiesInternal.push(parsedProperty);
@@ -82,7 +82,7 @@ export class CSSStyleDeclaration {
         longhand.index = this.#allPropertiesInternal.length;
         this.#allPropertiesInternal.push(longhand);
       }
-      parseUnusedText.call(this, cssText, start.line, start.column, this.range.endLine, this.range.endColumn);
+      this.parseUnusedText(cssText, start.line, start.column, this.range.endLine, this.range.endColumn);
     } else {
       for (const cssProperty of payload.cssProperties) {
         this.#allPropertiesInternal.push(
@@ -105,66 +105,70 @@ export class CSSStyleDeclaration {
 
     this.cssText = payload.cssText;
     this.#leadingPropertiesInternal = null;
+  }
 
-    function parseUnusedText(
-        this: CSSStyleDeclaration, cssText: TextUtils.Text.Text, startLine: number, startColumn: number,
-        endLine: number, endColumn: number): void {
-      const tr = new TextUtils.TextRange.TextRange(startLine, startColumn, endLine, endColumn);
-      if (!this.range) {
-        return;
+  private parseUnusedText(
+      cssText: TextUtils.Text.Text, startLine: number, startColumn: number, endLine: number, endColumn: number): void {
+    const tr = new TextUtils.TextRange.TextRange(startLine, startColumn, endLine, endColumn);
+    if (!this.range) {
+      return;
+    }
+    const missingText = cssText.extract(tr.relativeTo(this.range.startLine, this.range.startColumn));
+
+    // Try to fit the malformed css into properties.
+    const lines = missingText.split('\n');
+    const context: SkipBlockContext = {
+      inComment: false,
+      nestedBlocks: 0,
+      validContent: '',
+    };
+    for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
+      skipBlocks(lines[lineNumber], context);
+      if (context.nestedBlocks > 0 || !context.validContent) {
+        // We skip the whole line if we have entered a nested block.
+        continue;
       }
-      const missingText = cssText.extract(tr.relativeTo(this.range.startLine, this.range.startColumn));
 
-      // Try to fit the malformed css into properties.
-      const lines = missingText.split('\n');
-      let lineNumber = 0;
-      let inComment = false;
-      for (const line of lines) {
-        let column = 0;
-        for (const property of line.split(';')) {
-          const strippedProperty = stripComments(property, inComment);
-          const trimmedProperty = strippedProperty.text.trim();
-          inComment = strippedProperty.inComment;
-
-          if (trimmedProperty) {
-            let name;
-            let value;
-            const colonIndex = trimmedProperty.indexOf(':');
-            if (colonIndex === -1) {
-              name = trimmedProperty;
-              value = '';
-            } else {
-              name = trimmedProperty.substring(0, colonIndex).trim();
-              value = trimmedProperty.substring(colonIndex + 1).trim();
-            }
-            const range = new TextUtils.TextRange.TextRange(lineNumber, column, lineNumber, column + property.length);
-            this.#allPropertiesInternal.push(new CSSProperty(
-                this, this.#allPropertiesInternal.length, name, value, false, false, false, false, property,
-                range.relativeFrom(startLine, startColumn)));
+      let column = 0;
+      for (const property of context.validContent.split(';')) {
+        const trimmedProperty = property.trim();
+        if (trimmedProperty) {
+          let name;
+          let value;
+          const colonIndex = trimmedProperty.indexOf(':');
+          if (colonIndex === -1) {
+            name = trimmedProperty;
+            value = '';
+          } else {
+            name = trimmedProperty.substring(0, colonIndex).trim();
+            value = trimmedProperty.substring(colonIndex + 1).trim();
           }
-          column += property.length + 1;
+          const range = new TextUtils.TextRange.TextRange(lineNumber, column, lineNumber, column + property.length);
+          this.#allPropertiesInternal.push(new CSSProperty(
+              this, this.#allPropertiesInternal.length, name, value, false, false, false, false, property,
+              range.relativeFrom(startLine, startColumn)));
         }
-        lineNumber++;
+        column += property.length + 1;
       }
     }
 
-    function stripComments(text: string, inComment: boolean): {
-      text: string,
-      inComment: boolean,
-    } {
-      let output = '';
+    function skipBlocks(text: string, context: SkipBlockContext): void {
+      context.validContent = '';
       for (let i = 0; i < text.length; i++) {
-        if (!inComment && text.substring(i, i + 2) === '/*') {
-          inComment = true;
+        if (text[i] === '{') {
+          context.nestedBlocks++;
+        } else if (text[i] === '}') {
+          context.nestedBlocks--;
+        } else if (text.substring(i, i + 2) === '/*') {
+          context.inComment = true;
           i++;
-        } else if (inComment && text.substring(i, i + 2) === '*/') {
-          inComment = false;
+        } else if (context.inComment && text.substring(i, i + 2) === '*/') {
+          context.inComment = false;
           i++;
-        } else if (!inComment) {
-          output += text[i];
+        } else if (context.nestedBlocks === 0 && !context.inComment) {
+          context.validContent += text[i];
         }
       }
-      return {text: output, inComment};
     }
   }
 
@@ -361,3 +365,9 @@ export enum Type {
   Inline = 'Inline',
   Attributes = 'Attributes',
 }
+
+type SkipBlockContext = {
+  inComment: boolean,
+  nestedBlocks: number,
+  validContent: string,
+};

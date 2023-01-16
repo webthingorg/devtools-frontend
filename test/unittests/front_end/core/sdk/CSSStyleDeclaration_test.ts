@@ -212,4 +212,62 @@ describeWithMockConnection('CSSStyleDeclaration', () => {
     ]);
     assert.strictEqual(style.getPropertyValue('-webkit-background-clip'), 'border-box');
   });
+
+  it('should parse invalid property texts while skipping comment and nested blocks', () => {
+    const target = createTarget();
+    const cssModel = new SDK.CSSModel.CSSModel(target);
+    const stubCSSStyle = {
+      styleSheetId: 'STYLE_SHEET_ID' as Protocol.CSS.StyleSheetId,
+      cssProperties: [
+        {
+          name: 'margin-top',
+          value: '12px',
+          disabled: false,
+          implicit: false,
+          longhandProperties: [],
+          range: {startLine: 12, startColumn: 4, endLine: 12, endColumn: 21},
+          text: 'margin: 12px;',
+        },
+        {
+          name: 'display',
+          value: 'grid',
+          disabled: false,
+          implicit: false,
+          longhandProperties: [],
+          range: {startLine: 19, startColumn: 4, endLine: 19, endColumn: 18},
+          text: 'display: grid;',
+        },
+      ],
+      shorthandEntries: [],
+      cssText:
+          '\n    margin-top: 12px;\n    /* left.haha10px; */\n    background.color: 10px; /* here is a\n    multiline comment */\n    .item {\n      color: red;\n    }\n    display: grid;\n  ',
+      range: {startLine: 11, startColumn: 11, endLine: 20, endColumn: 2},
+    } as Protocol.CSS.CSSStyle;
+
+    const style = new SDK.CSSStyleDeclaration.CSSStyleDeclaration(
+        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.Regular);
+    assertPropertValues(style.allProperties()[0], [
+      ['name', 'margin-top'],
+      ['value', '12px'],
+      ['implicit', false],
+      ['index', 0],
+    ]);
+    assert.strictEqual(style.allProperties()[0].activeInStyle(), true);
+
+    assertPropertValues(style.allProperties()[1], [
+      ['name', 'background.color'],
+      ['value', '10px'],
+      ['parsedOk', false],
+      ['index', 1],
+    ]);
+    assert.strictEqual(style.allProperties()[1].activeInStyle(), false);
+
+    assertPropertValues(style.allProperties()[2], [
+      ['name', 'display'],
+      ['value', 'grid'],
+      ['implicit', false],
+      ['index', 2],
+    ]);
+    assert.strictEqual(style.allProperties()[2].activeInStyle(), true);
+  });
 });
