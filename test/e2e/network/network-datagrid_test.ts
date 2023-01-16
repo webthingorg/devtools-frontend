@@ -39,6 +39,8 @@ async function getRequestRowInfo(frontend: BrowserAndPages['frontend'], name: st
   const nameColumn = await frontend.evaluate(() => {
     return Array.from(document.querySelectorAll('.name-column')).map(node => node.textContent);
   });
+  // eslint-disable-next-line
+  console.log(nameColumn);
   const index = nameColumn.findIndex(x => x === name);
   return {status: statusColumn[index], time: timeColumn[index], type: typeColumn[index]};
 }
@@ -423,17 +425,20 @@ describe('The Network Tab', async function() {
   });
 
   it('shows the main service worker request as complete', async () => {
-    await navigateToNetworkTab('service-worker.html');
     const {target, frontend} = getBrowserAndPages();
+    const promises = [
+      waitForFunction(async () => {
+        const {status, type} = await getRequestRowInfo(frontend, 'service-worker.html/test/e2e/resources/network');
+        return status === '200OK' && type === 'document';
+      }),
+      waitForFunction(async () => {
+        const {status, type} =
+            await getRequestRowInfo(frontend, '⚙ service-worker.jslocalhost/test/e2e/resources/network');
+        return status === 'Finished' && type === 'script';
+      }),
+    ];
+    await navigateToNetworkTab('service-worker.html');
     await target.waitForXPath('//div[@id="content" and text()="pong"]');
-    await waitForFunction(async () => {
-      const {status, type} = await getRequestRowInfo(frontend, 'service-worker.html/test/e2e/resources/network');
-      return status === '200OK' && type === 'document';
-    });
-    await waitForFunction(async () => {
-      const {status, type} =
-          await getRequestRowInfo(frontend, '⚙ service-worker.jslocalhost/test/e2e/resources/network');
-      return status === '200OK' && type === 'script';
-    });
+    await Promise.all(promises);
   });
 });
