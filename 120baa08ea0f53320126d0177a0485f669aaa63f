@@ -16,6 +16,74 @@
       "message": "PTAL, thanks!",
       "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbff0f0_7235abbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T15:13:57Z",
+      "side": 1,
+      "message": "I\u0027ve found a case and wanted to ask if we can do something about it :)",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b4df2c4_32e71049",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T15:13:57Z",
+      "side": 1,
+      "message": "I guess the case for `\u0026 p { color: red; }` fails because we\u0027re going line by line and after skipping blocks for this line we have `context.nestedBlocks \u003d 0` since we first see it start and finish.\n\nIt only shows as `\u0026 p` AFAIU because `validContent `only contains the first part since that is the only part that has nestedBlocks \u003d\u003d\u003d 0.\n\nSince we\u0027re going line by line and parse a line if all of its contents are valid (citation needed :grimacing:), maybe we can add a check on the `validContent` length to be the same as the line length for that case. (Though I\u0027m not sure)",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ed38ff_97f0e810",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T15:13:57Z",
+      "side": 1,
+      "message": "Don\u0027t know if it is important or if it can change behavior but wanted to ask, why did we remove `!context.inComment` check here?",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6f06a7_43c6b98e",
+        "filename": "test/unittests/front_end/core/sdk/CSSStyleDeclaration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T15:13:57Z",
+      "side": 1,
+      "message": "I have tried with this case and something is shown in the panel:\n```\nbody {\n    \u0026 p { color: red; }\n    background-color: blue;\n}\n```\nis it intended or should we cover this too?",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
