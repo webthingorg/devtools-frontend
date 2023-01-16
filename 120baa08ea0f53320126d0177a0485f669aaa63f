@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "949fe45b_ceced40b",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T17:32:49Z",
+      "side": 1,
+      "message": "Good catch! The general logic here is that we skip the whole line whenever we encounter the starting of a nested block. However the current code doesn\u0027t take into account whether the nested block is closed or not. I think there are more than this case that needs to be covered:\n\n1. `\u0026 p { color: red; }\\n`: we need to skip this whole line;\n2. `\u0026 p { color: red; } something-wrong: red; ...` we need to skip the block but *maybe* we continue parsing the rest.\n\nI think a solution that works for both cases is to invalidate what\u0027s currently pushed onto the `validContent` when we encounter a starting `{`. This would ensure that we:\n1. invalidate `\u0026 p ` when we see the first `{`;\n2. still keep `something-wrong; red` after the block is closed.\n\nHowever, this won\u0027t work for the case where we have another block after `something-wrong: red`, but I\u0027d rather over-kill at this point because we don\u0027t want to get into this parsing game too deeply. After all this is just a best-effort.\n\nAnother option, which I\u0027d like to explore later, is to use CodeMirror\u0027s parser to parse this. I\u0027ve not used CodeMirror before, so I don\u0027t want to invest too much into that direction right now.",
+      "parentUuid": "7b4df2c4_32e71049",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78ed38ff_97f0e810",
         "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
         "patchSetId": 3
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6faedb2e_c05fed80",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T17:32:49Z",
+      "side": 1,
+      "message": "I think it doesn\u0027t matter. The original code only goes into that conditional branch when it\u0027s NOT already in a comment block AND next token is `/*`. Removing the first condition would in theory relax the condition, which has two consequences:\n1. now regardless of if we\u0027re in a comment block or not, when we see `/*`, we turn the comment flag to true. I think this is still correct, since comment blocks cannot nest.\n2. we now skip other/later conditional branches that would have been checked previously when we are already in a comment block. This also doesn\u0027t matter because if we\u0027re already in a comment block, we won\u0027t go into the last branch, and we won\u0027t go into the second branch either because the next token is not `*/`.\n\nOverall I think the new code simplifies the logic a little bit and short-circuits some unnecessary thinking for the later branches, which is why I modified the code.",
+      "parentUuid": "78ed38ff_97f0e810",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c6f06a7_43c6b98e",
         "filename": "test/unittests/front_end/core/sdk/CSSStyleDeclaration_test.ts",
         "patchSetId": 3
@@ -82,6 +118,24 @@
       "writtenOn": "2023-01-16T15:13:57Z",
       "side": 1,
       "message": "I have tried with this case and something is shown in the panel:\n```\nbody {\n    \u0026 p { color: red; }\n    background-color: blue;\n}\n```\nis it intended or should we cover this too?",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5945ea1_63dab985",
+        "filename": "test/unittests/front_end/core/sdk/CSSStyleDeclaration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T17:32:49Z",
+      "side": 1,
+      "message": "It\u0027s not intended to show `\u0026 p`. I explained what I\u0027ll do in the first comment, and I\u0027ll also update the test case here to cover this.",
+      "parentUuid": "2c6f06a7_43c6b98e",
       "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
