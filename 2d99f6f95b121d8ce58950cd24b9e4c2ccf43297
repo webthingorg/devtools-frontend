@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "019ce601_1261b83b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T09:56:17Z",
+      "side": 1,
+      "message": "Undo resolved... 😅",
+      "parentUuid": "7f14a416_361259cd",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b839e54a_7df6a00f",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
         "patchSetId": 5
