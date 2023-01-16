@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f23f873_988b97f5",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-01-16T12:12:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a99fd127_c8e416e8",
+      "range": {
+        "startLine": 360,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 42
+      },
+      "revId": "2f505905c14279cca035df7d97e552bbacc81445",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a54403ef_242b4da2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-13T11:36:34Z",
       "side": 1,
       "message": "same situation with these files: they all existed but are now used by the main bundle so must be included.",
+      "range": {
+        "startLine": 821,
+        "startChar": 0,
+        "endLine": 842,
+        "endChar": 48
+      },
+      "revId": "2f505905c14279cca035df7d97e552bbacc81445",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86a0ecc_2ec5ec89",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-01-16T12:12:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a54403ef_242b4da2",
       "range": {
         "startLine": 821,
         "startChar": 0,
