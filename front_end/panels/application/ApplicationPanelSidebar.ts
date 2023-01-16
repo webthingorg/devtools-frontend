@@ -368,6 +368,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.backForwardCacheListTreeElement = new BackForwardCacheTreeElement(panel);
     backgroundServiceTreeElement.appendChild(this.backForwardCacheListTreeElement);
+
     this.backgroundFetchTreeElement =
         new BackgroundServiceTreeElement(panel, Protocol.BackgroundService.ServiceName.BackgroundFetch);
     backgroundServiceTreeElement.appendChild(this.backgroundFetchTreeElement);
@@ -535,13 +536,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       interestGroupModel.enable();
     }
 
-    const cacheStorageModel = this.target && this.target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
-    if (cacheStorageModel) {
-      cacheStorageModel.enable();
-    }
-    const serviceWorkerCacheModel =
-        this.target && this.target.model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel) || null;
-    this.cacheStorageListTreeElement.initialize(serviceWorkerCacheModel);
+    this.cacheStorageListTreeElement.initialize();
     const backgroundServiceModel = this.target && this.target.model(BackgroundServiceModel) || null;
     this.backgroundFetchTreeElement && this.backgroundFetchTreeElement.initialize(backgroundServiceModel);
     this.backgroundSyncTreeElement && this.backgroundSyncTreeElement.initialize(backgroundServiceModel);
