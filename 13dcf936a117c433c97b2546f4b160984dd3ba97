@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af062c29_4f31d8b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T14:46:44Z",
+      "side": 1,
+      "message": "Looks good to me with two more comments! :)",
+      "revId": "13dcf936a117c433c97b2546f4b160984dd3ba97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29aec10b_b3c60099",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T14:46:44Z",
+      "side": 1,
+      "message": "I think equality should now include `#from` too for this ColorSwatchWidget to be recreated after user changed the location of the text. Otherwise, AFAIU, when you change the position of the widget (i.e. by removing a whitespace in front of it) and updating the color with the context menu, it behaves wrongly.\n\nExample:\n* Say you have `--a: red;`\n* You\u0027ve made it `--a: #f00;`\n* Removed a whitespace: `--a:#f00;`\n* You\u0027ve updated it to return to red with the context menu\n\nExpected:\n* `--a:red;`\n\nActual:\n* `--a:#red;`",
+      "revId": "13dcf936a117c433c97b2546f4b160984dd3ba97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

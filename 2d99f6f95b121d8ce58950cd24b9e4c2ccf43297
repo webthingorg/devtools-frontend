@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3bbbad1_111fc283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T14:46:44Z",
+      "side": 1,
+      "message": "What do you think of updating the stylesheet when the color is changed in the Styles pane?\n\nBefore, we weren\u0027t updating the stylesheet on format changes but now we might want to do it since it might result in a clipped color which might be visually different from the actual color. (I have a hunch that if we do this, the undo behavior will be fixed too)",
+      "parentUuid": "9a893082_f52a4196",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b839e54a_7df6a00f",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
         "patchSetId": 5
