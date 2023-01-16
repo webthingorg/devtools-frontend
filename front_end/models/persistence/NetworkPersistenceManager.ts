@@ -36,6 +36,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
   #headerOverridesMap: Map<Platform.DevToolsPath.EncodedPathString, HeaderOverrideWithRegex[]> = new Map();
   readonly #sourceCodeToBindProcessMutex = new WeakMap<Workspace.UISourceCode.UISourceCode, Common.Mutex.Mutex>();
+  readonly #eventDispatchThrottler: Common.Throttler.Throttler;
+  #headerOverridesFileUiSourceCodesForEventDispatch: Set<Workspace.UISourceCode.UISourceCode>;
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -52,6 +54,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.networkUISourceCodeForEncodedPath = new Map();
     this.interceptionHandlerBound = this.interceptionHandler.bind(this);
     this.updateInterceptionThrottler = new Common.Throttler.Throttler(50);
+    this.#eventDispatchThrottler = new Common.Throttler.Throttler(50);
+    this.#headerOverridesFileUiSourceCodesForEventDispatch = new Set();
 
     this.projectInternal = null;
     this.activeProject = null;
@@ -447,6 +451,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (fileSystemUISourceCode) {
       await this.#bind(uiSourceCode, fileSystemUISourceCode);
     }
+    this.#maybeDispatchNetworkUiSourceCodeForHeaderOverridesFileChanged(uiSourceCode);
   }
 
   private async filesystemUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -663,6 +668,59 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       this.#sourceCodeToBindProcessMutex.delete(uiSourceCode);
       this.networkUISourceCodeForEncodedPath.delete(this.encodedPathFromUrl(uiSourceCode.url()));
     }
+    this.#maybeDispatchNetworkUiSourceCodeForHeaderOverridesFileChanged(uiSourceCode);
+  }
+
+  // We want the editors (in the Sources panel) for 'active' header overrides to be
+  // have an emphasized icon. For regular overrides we use bindings to determine which
+  // editors should be active. For header overrides we do not have a 1:1 matching between
+  // the file defining the header overrides and the request matching the override
+  // definition, because a single '.headers' file can contain header overrides for
+  // multiple requests.
+  // For each request, we therefore look whether a matching header overrides file exits,
+  // and if it does, we emit an event which causes potential matching editors to update
+  // their icon.
+  #maybeDispatchNetworkUiSourceCodeForHeaderOverridesFileChanged(uiSourceCode: Workspace.UISourceCode.UISourceCode):
+      void {
+    if (!this.projectInternal) {
+      return;
+    }
+    const project = this.projectInternal as FileSystem;
+    const fileUrl = this.fileUrlFromNetworkUrl(uiSourceCode.url());
+
+    for (let i = project.fileSystemPath().length; i < fileUrl.length; i++) {
+      if (fileUrl[i] === '/') {
+        const headersFilePath =
+            Common.ParsedURL.ParsedURL.concatenate(Common.ParsedURL.ParsedURL.substring(fileUrl, 0, i + 1), '.headers');
+        const headersFileUiSourceCode = project.uiSourceCodeForURL(headersFilePath);
+        if (headersFileUiSourceCode) {
+          this.#headerOverridesFileUiSourceCodesForEventDispatch.add(headersFileUiSourceCode);
+          void this.#eventDispatchThrottler.schedule(
+              this.#dispatchNetworkUiSourceCodeForHeaderOverridesFileChanged.bind(this));
+        }
+      }
+    }
+  }
+
+  #dispatchNetworkUiSourceCodeForHeaderOverridesFileChanged(): Promise<void> {
+    for (const headersFileUiSourceCode of this.#headerOverridesFileUiSourceCodesForEventDispatch) {
+      this.dispatchEventToListeners(Events.NetworkUiSourceCodeForHeaderOverridesFileChanged, headersFileUiSourceCode);
+    }
+    this.#headerOverridesFileUiSourceCodesForEventDispatch.clear();
+    return Promise.resolve();
+  }
+
+  hasMatchingNetworkUISourceCodeForHeaderOverridesFile(headersFile: Workspace.UISourceCode.UISourceCode): boolean {
+    const relativePathParts = FileSystemWorkspaceBinding.relativePath(headersFile);
+    const relativePath = Common.ParsedURL.ParsedURL.slice(
+        Common.ParsedURL.ParsedURL.join(relativePathParts, '/'), 0, -HEADERS_FILENAME.length);
+
+    for (const encodedNetworkPath of this.networkUISourceCodeForEncodedPath.keys()) {
+      if (encodedNetworkPath.startsWith(relativePath)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private async filesystemUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -871,10 +929,12 @@ export const HEADERS_FILENAME = '.headers';
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   ProjectChanged = 'ProjectChanged',
+  NetworkUiSourceCodeForHeaderOverridesFileChanged = 'NetworkUiSourceCodeForHeaderOverridesFileChanged',
 }
 
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
+  [Events.NetworkUiSourceCodeForHeaderOverridesFileChanged]: Workspace.UISourceCode.UISourceCode,
 };
 
 export interface HeaderOverride {
