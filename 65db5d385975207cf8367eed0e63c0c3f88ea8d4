@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43a263a_72e20641",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T18:51:20Z",
+      "side": 1,
+      "message": "Is it possible to use CodeMirror to replace these regexes and remove the need of this strict regex parsing order?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63de0b4f_42c06d9d",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T18:51:20Z",
+      "side": 1,
+      "message": "nit: 2023 I suppose?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f8b57c_0c8a43c1",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T18:51:20Z",
+      "side": 1,
+      "message": "nit: would it be better to inline `moveUntil` and make this something like\n```\nwhile (cursor.name !\u003d\u003d \u0027ArgList\u0027 \u0026\u0026 cursor.next(true)) {\n}\nif (cursor.name !\u003d\u003d \u0027ArgList\u0027) {\n  return null;\n}\n```?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "639c87d1_6873fc16",
+        "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/ColorMixModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T18:51:20Z",
+      "side": 1,
+      "message": "nit: same here, 2020 -\u003e 2023?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
