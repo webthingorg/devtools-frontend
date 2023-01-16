@@ -50,6 +50,24 @@
       "message": "I\u0027m trying to see the test that failed in CI fail locally.  The fix is pretty straightforward, but I\u0027d like to learn how to run the tests :)\n\nI\u0027m running, from a Chromium `src/` directory, using an integrated checkout:\n```\n⸩ third_party/blink/tools/run_web_tests.py -t Default http/tests/devtools/a11y-axe-core/network/network-condition-a11y-test.js\nUsing port \u0027linux-trusty\u0027\nTest configuration: \u003ctrusty, x86_64, debug\u003e\nView the test results at file:///usr/local/google/home/djmitche/p/chromium/src/out/Default/layout-test-results/results.html\nUsing random order with seed: 1673646337\nBaseline search path: linux -\u003e win -\u003e generic\nUsing Debug build\nRegular timeout: 30000, slow test timeout: 150000\nCommand line: /usr/local/google/home/djmitche/p/chromium/src/out/Default/content_shell --run-web-tests --ignore-certificate-errors-spki-list\u003dNxvaj3+bY3oVrTc+Jp7m3E3sB1n3lXtnMDCyBsqEXiY\u003d,55qC1nKu2A88ESbFmk5sTPQS/ScG+8DD7P+2bgFA9iM\u003d,0Rt4mT6SJXojEMHTnKnlJ/hBKMBcI4kteBlhR1eTTdk\u003d --origin-to-force-quic-on\u003dweb-platform.test:11000 --user-data-dir --enable-crash-reporter --crash-dumps-dir\u003d/usr/local/google/home/djmitche/p/chromium/src/out/Default/crash-dumps -\n\nFound 1 test; running 1, skipping 0.\nServer running on http://localhost:8000                                                         \nServer running on http://localhost:8080\nServer running on https://localhost:8443\nRunning 1 content_shell.\n\n[1/1] http/tests/devtools/a11y-axe-core/network/network-condition-a11y-test.js failed unexpectedly (text diff) 18.7195s\nFinally stop servers and clean up\n                              \n0 tests ran as expected, 1 didn\u0027t:\n    http/tests/devtools/a11y-axe-core/network/network-condition-a11y-test.js\n```\n\nbut even loading up that `results.html` in a browser and viewing it via remote desktop, I can\u0027t actually see the error.  I see a similar thing running `third_party/node/linux/node-linux-x64/bin/node scripts/npm_test.js --layout-tests-directory\u003dtest/webtests/ --target\u003dDefault http/tests/devtools/npm run test-local http/tests/devtools/a11y-axe-core/network/network-condition-a11y-test.js` within the devtools checkout (which makes sense, it seems like one of those is calling the other).\n\nHow can I see the actual test failures?",
       "revId": "53ec3bd49ea82d7e856e9a342493beea8c684525",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad6bd1e_7f33c92d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-16T08:19:41Z",
+      "side": 1,
+      "message": "You should see the diff at `out/Default/layout-test-results/http/tests/devtools/a11y-axe-core/network/network-condition-a11y-test-diff.txt`\n\nAlso make sure to build `content_shell` before running tests so that it runs against the current code.",
+      "parentUuid": "1b85babf_ae8a4800",
+      "revId": "53ec3bd49ea82d7e856e9a342493beea8c684525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
