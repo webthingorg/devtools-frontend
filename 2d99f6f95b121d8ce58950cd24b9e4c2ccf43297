@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a893082_f52a4196",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-16T12:38:15Z",
+      "side": 1,
+      "message": "Fixing undo is probably out of scope for this change. Fixed the sources panel swatch!",
+      "parentUuid": "019ce601_1261b83b",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b839e54a_7df6a00f",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
         "patchSetId": 5
@@ -49,6 +67,24 @@
       "writtenOn": "2023-01-16T09:55:47Z",
       "side": 1,
       "message": "Currently we don\u0027t want to emit a `ClickEvent` from CircularColorSwatch to not open color picker for such colors. So, we need to handle this case specifically (i.e. if it is a Legacy Color, we shouldn\u0027t emit ClickEvent).",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5c64dd_035eacf7",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-16T12:38:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b839e54a_7df6a00f",
       "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
