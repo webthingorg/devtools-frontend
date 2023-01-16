@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f14a416_361259cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T09:55:47Z",
+      "side": 1,
+      "message": "There are two weird behaviors I\u0027ve realized that probably has the same reason: what we do with the ColorChangedEvent (or not do.. 😄)\n\n* In the Sources panel, when you shift + click on a color swatch now the menu is open but clicking on the menu item does nothing.\n* In the Styles panel, when you shift + click on a color swatch and change the color to some other format. Then, click on editing the color with new format and press `ESC` -- It returns back to its old representation. (i.e. red -\u003e #ff0000 -\u003e Try to edit \u0026 press ESC -\u003e red)\n\nThere is also a some weird behavior with Undo/Redo:\n* Add a new color related property in Styles panel (i.e. background-color: red;)\n* Change the format of `red` color to `#ff0000`\n* When you undo the change (with Cmd + Z), the property is removed\n\nIt seems like these are all related to us not changing the Stylesheet when the color\u0027s format is changed (maybe assuming that it won\u0027t change anything on the page) however now format changes might also mean color changes on the page (clipping) so we need to update the stylesheet when the color format. WDYT?",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b839e54a_7df6a00f",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-16T09:55:47Z",
+      "side": 1,
+      "message": "Currently we don\u0027t want to emit a `ClickEvent` from CircularColorSwatch to not open color picker for such colors. So, we need to handle this case specifically (i.e. if it is a Legacy Color, we shouldn\u0027t emit ClickEvent).",
+      "revId": "2d99f6f95b121d8ce58950cd24b9e4c2ccf43297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
