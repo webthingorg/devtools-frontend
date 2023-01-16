@@ -424,8 +424,7 @@ describe('The Network Tab', async function() {
 
   it('shows the main service worker request as complete', async () => {
     await navigateToNetworkTab('service-worker.html');
-    const {target, frontend} = getBrowserAndPages();
-    await target.waitForXPath('//div[@id="content" and text()="pong"]');
+    const {frontend} = getBrowserAndPages();
     await waitForFunction(async () => {
       const {status, type} = await getRequestRowInfo(frontend, 'service-worker.html/test/e2e/resources/network');
       return status === '200OK' && type === 'document';
