@@ -56,6 +56,30 @@
       },
       "revId": "aa408fa141f062e815c2d165449925082a0521d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "214c8c0c_135157b9",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-16T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b54ac8e_251d97ee",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 721,
+        "endChar": 80
+      },
+      "revId": "aa408fa141f062e815c2d165449925082a0521d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
