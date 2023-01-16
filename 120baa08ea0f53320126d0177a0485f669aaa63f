@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9478b7ec_e06105d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-16T22:03:01Z",
+      "side": 1,
+      "message": "I\u0027m now having second thoughts about doing things this way. I feel like there would still be some corner cases that we haven\u0027t thought of, and generaly I\u0027m not quite aligned with this feature anyways. Trying to scoop out parser-rejected invalid properties sounds hacky to me. Even without the nesting support, there\u0027re ways to break it, e.g.\n```\n  .content-box {\n    box-sizing: content-box;\n    background-color: red;\n    wrong property: value; /* some comment */ another property: value;\n  }\n```\nbecause our range calculation is also not robust.\n\nI am now thinking about disallowing invalid characters from being entered in property name and values, and NOT parsing unused texts. The reason we parse unused texts is mainly because of this issue: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d813435, and this issue can be fixed by disallowing invalid characters (actually entering space will automatically bring you from property name to property value input).\n\nLet\u0027s discuss this more tomorrow. Nevertheless I\u0027ve uploaded another patch to fix the case you found.",
+      "parentUuid": "1cbff0f0_7235abbb",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b4df2c4_32e71049",
         "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
         "patchSetId": 3
