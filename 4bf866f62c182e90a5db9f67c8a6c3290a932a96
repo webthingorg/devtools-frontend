@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "197f2a70_2849f386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-16T10:03:35Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis Cl will throw an error if the legacy test runner\u0027s functions to dump/await the breakpoint sidebar pane are used with the redesigned sidebar. There\u0027s also a CL that will make sure to enable the old sidebar pane for those layout tests that are currently using it (http://go/cl-c/4166067). PTAL!",
+      "revId": "4bf866f62c182e90a5db9f67c8a6c3290a932a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
