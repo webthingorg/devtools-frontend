@@ -9,6 +9,7 @@ import {
   click,
   getBrowserAndPages,
   goToResource,
+  isEnabledExperiment,
   step,
   timeout,
   waitFor,
@@ -35,6 +36,11 @@ async function validateSourceTabs() {
     });
     assert.deepEqual(openSources, ['multi-workers.js']);
   });
+}
+
+async function getBreakpointItemSelector() {
+  const redesignEnabled = await isEnabledExperiment('breakpointView');
+  return redesignEnabled ? '.breakpoint-item' : '.breakpoint-entry';
 }
 
 describe('Multi-Workers', async function() {
@@ -121,8 +127,9 @@ describe('Multi-Workers', async function() {
       // Set a breakpoint
       await addBreakpointForLine(frontend, 6);
 
-      await waitFor('.breakpoint-entry');
-      const breakpoints = (await $$('.breakpoint-entry')).length;
+      const breakpointItemSelector = await getBreakpointItemSelector();
+      await waitFor(breakpointItemSelector);
+      const breakpoints = (await $$(breakpointItemSelector)).length;
       assert.strictEqual(breakpoints, 1);
     });
 
@@ -148,7 +155,8 @@ describe('Multi-Workers', async function() {
         });
 
         await step('Disable first breakpoint', async () => {
-          const bpEntry = await waitFor('.breakpoint-entry');
+          const breakpointItemSelector = await getBreakpointItemSelector();
+          const bpEntry = await waitFor(breakpointItemSelector);
           const bpCheckbox = await waitFor('input', bpEntry);
           await bpCheckbox.evaluate(n => (n as HTMLElement).click());
           await waitFor('.cm-breakpoint-disabled');
