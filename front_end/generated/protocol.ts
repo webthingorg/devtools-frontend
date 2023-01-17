@@ -1070,6 +1070,7 @@ export namespace Audits {
     PrefixedVideoExitFullscreen = 'PrefixedVideoExitFullscreen',
     PrefixedVideoExitFullScreen = 'PrefixedVideoExitFullScreen',
     PrefixedVideoSupportsFullscreen = 'PrefixedVideoSupportsFullscreen',
+    PrivacySandboxExtensionsAPI = 'PrivacySandboxExtensionsAPI',
     RangeExpand = 'RangeExpand',
     RequestedSubresourceWithEmbeddedCredentials = 'RequestedSubresourceWithEmbeddedCredentials',
     RTCConstraintEnableDtlsSrtpFalse = 'RTCConstraintEnableDtlsSrtpFalse',
