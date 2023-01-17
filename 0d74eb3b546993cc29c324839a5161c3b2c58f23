@@ -16,6 +16,121 @@
       "message": "PTAL",
       "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d3b8cb_a1408b47",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-17T16:27:59Z",
+      "side": 1,
+      "message": "That\u0027s too long of a name to make sense of it. `headerOverridesForEventDispatch`?",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 58
+      },
+      "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea949e1b_106d5484",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-17T16:27:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 454,
+        "startChar": 10,
+        "endLine": 454,
+        "endChar": 71
+      },
+      "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2697802e_1e900668",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-17T16:27:59Z",
+      "side": 1,
+      "message": "one of the words doesn\u0027t seem to belong here",
+      "range": {
+        "startLine": 674,
+        "startChar": 78,
+        "endLine": 675,
+        "endChar": 9
+      },
+      "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720f28f4_175e6dde",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-17T16:27:59Z",
+      "side": 1,
+      "message": "what does it mean for an editor to be active?",
+      "range": {
+        "startLine": 676,
+        "startChar": 5,
+        "endLine": 676,
+        "endChar": 29
+      },
+      "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0bd1e76_9db56b85",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-17T16:27:59Z",
+      "side": 1,
+      "message": "if (fileUrl[i] !\u003d\u003d \u0027/\u0027) continue;\n    const headersFilePath \u003d ...;\n    const headersFileUiSourceCode \u003d ...;\n    if (!headersFileUiSourceCode) continue;\n    this.#headerOverridesFileUiSourceCodesForEventDispatch(...);\n    ...;",
+      "range": {
+        "startLine": 692,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 31
+      },
+      "revId": "0d74eb3b546993cc29c324839a5161c3b2c58f23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
