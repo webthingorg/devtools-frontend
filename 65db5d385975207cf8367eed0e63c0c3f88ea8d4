@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d7996ab_b7d60272",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T09:44:38Z",
+      "side": 1,
+      "message": "I think it should be possible where we essentially need to map each `value`[1] in a property declaration to a processor though didn\u0027t look into further yet. WDYT?\n\n[1]: https://github.com/lezer-parser/css/blob/main/src/css.grammar#L96",
+      "parentUuid": "d43a263a_72e20641",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63de0b4f_42c06d9d",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-16T18:51:20Z",
       "side": 1,
       "message": "nit: 2023 I suppose?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67aa6f3_1a6ddc37",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T09:44:38Z",
+      "side": 1,
+      "message": "Oh noooo, I wasn\u0027t ready to let the world about my time travel machine! 😂\n\n(Thanks for the catch, updated it 😬)",
+      "parentUuid": "63de0b4f_42c06d9d",
       "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79fcf78e_7cf7efea",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T09:44:38Z",
+      "side": 1,
+      "message": "I agree, it looks better that way. Thanks!",
+      "parentUuid": "30f8b57c_0c8a43c1",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "639c87d1_6873fc16",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-01-16T18:51:20Z",
       "side": 1,
       "message": "nit: same here, 2020 -\u003e 2023?",
+      "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df522657_09bef560",
+        "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/ColorMixModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T09:44:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "639c87d1_6873fc16",
       "revId": "65db5d385975207cf8367eed0e63c0c3f88ea8d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
