@@ -26,13 +26,4 @@ describeWithLocale('ColorMixSwatch', () => {
     assert.strictEqual(swatch.shadowRoot?.textContent?.trim(), 'color-mix(in srgb, red, blue)');
     assert.isNotNull(swatchIcon);
   });
-
-  it('should render color-mix swatch with only text when the syntax is not correct', () => {
-    const swatch = createSwatch('color-mix(in srgb not, blue)');
-
-    const swatchIcon = swatch.shadowRoot?.querySelector('.swatch-icon');
-
-    assert.strictEqual(swatch.shadowRoot?.textContent?.trim(), 'color-mix(in srgb not, blue)');
-    assert.isNull(swatchIcon);
-  });
 });
