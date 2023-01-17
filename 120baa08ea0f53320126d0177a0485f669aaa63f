@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "187fde82_38853aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T19:58:42Z",
+      "side": 1,
+      "message": "It seems like range calculation is indeed not correct, i.e. I\u0027m adding below as an inline stylesheet in an HTML:\n```\n  body {\n    color: red;\n    \u0026 p { color: blue; }\n    backgr.ound-color: blue;\n  }\n```\nand correctly seeing `color: red;` and `backgr.ound-color: blue` in the Styles pane for `body` element. However, when I edit the `backgr.ound-color` to be `background-color` the style text becomes:\n```\n  body {\n    color: red;\n    \u0026\n    p { color: blue; }\n;\n    background-color: blue;\n  }\n```\n\nThough this is higly likely that it is not related to this CL so the improved version for nesting LGTM and we can think what to do here in the future :)",
+      "parentUuid": "9478b7ec_e06105d4",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b4df2c4_32e71049",
         "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
         "patchSetId": 3
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Good catch! The general logic here is that we skip the whole line whenever we encounter the starting of a nested block. However the current code doesn\u0027t take into account whether the nested block is closed or not. I think there are more than this case that needs to be covered:\n\n1. `\u0026 p { color: red; }\\n`: we need to skip this whole line;\n2. `\u0026 p { color: red; } something-wrong: red; ...` we need to skip the block but *maybe* we continue parsing the rest.\n\nI think a solution that works for both cases is to invalidate what\u0027s currently pushed onto the `validContent` when we encounter a starting `{`. This would ensure that we:\n1. invalidate `\u0026 p ` when we see the first `{`;\n2. still keep `something-wrong; red` after the block is closed.\n\nHowever, this won\u0027t work for the case where we have another block after `something-wrong: red`, but I\u0027d rather over-kill at this point because we don\u0027t want to get into this parsing game too deeply. After all this is just a best-effort.\n\nAnother option, which I\u0027d like to explore later, is to use CodeMirror\u0027s parser to parse this. I\u0027ve not used CodeMirror before, so I don\u0027t want to invest too much into that direction right now.",
       "parentUuid": "7b4df2c4_32e71049",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9ca538_95b0f7df",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T19:58:42Z",
+      "side": 1,
+      "message": "Sounds and looks good to me! :)",
+      "parentUuid": "949fe45b_ceced40b",
       "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -123,6 +159,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc022af2_4e504ee4",
+        "filename": "front_end/core/sdk/CSSStyleDeclaration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T19:58:42Z",
+      "side": 1,
+      "message": "Thanks for the explanation! :)",
+      "parentUuid": "6faedb2e_c05fed80",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c6f06a7_43c6b98e",
@@ -154,6 +208,24 @@
       "side": 1,
       "message": "It\u0027s not intended to show `\u0026 p`. I explained what I\u0027ll do in the first comment, and I\u0027ll also update the test case here to cover this.",
       "parentUuid": "2c6f06a7_43c6b98e",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "148c2374_0bacf4f5",
+        "filename": "test/unittests/front_end/core/sdk/CSSStyleDeclaration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T19:58:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f5945ea1_63dab985",
       "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
