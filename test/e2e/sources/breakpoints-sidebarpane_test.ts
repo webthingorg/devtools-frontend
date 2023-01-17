@@ -5,9 +5,12 @@
 import {assert} from 'chai';
 
 import {
+  addBreakpointForLine,
   getLineNumberElement,
   isBreakpointSet,
+  isEqualOrAbbreviation,
   openSourceCodeEditorForFile,
+  retrieveCodeMirrorEditorContent,
 } from '../helpers/sources-helpers.js';
 
 import {
@@ -19,17 +22,98 @@ import {
   waitFor,
   activeElementTextContent,
   type puppeteer,
+  getBrowserAndPages,
+  waitForMany,
 } from '../../shared/helper.js';
 
 const BREAKPOINT_VIEW_COMPONENT = 'devtools-breakpoint-view';
 const FIRST_BREAKPOINT_ITEM_SELECTOR = '[data-first-breakpoint]';
+const BREAKPOINT_ITEM_SELECTOR = '.breakpoint-item';
 const LOCATION_SELECTOR = '.location';
+const GROUP_HEADER_TITLE_SELECTOR = '.group-header-title';
+const CODE_SNIPPET_SELECTOR = '.code-snippet';
 
 async function extractTextContentIfConnected(element: puppeteer.ElementHandle): Promise<string|null> {
   return element.evaluate(element => element.isConnected ? element.textContent : null);
 }
 
 describe('The Breakpoints Sidebar', () => {
+  beforeEach(async () => {
+    await enableExperiment('breakpointView');
+  });
+
+  describe('for source mapped files', () => {
+    it('correctly shows the breakpoint location on reload', async () => {
+      const testBreakpointContent = async (expectedFileName: string, expectedLineNumber: number) => {
+        const actualFileName = await extractFileGroupName();
+        assert.isTrue(isEqualOrAbbreviation(actualFileName, expectedFileName));
+        const actualLineNumber = await extractLineNumber(await waitFor(BREAKPOINT_ITEM_SELECTOR));
+        assert.strictEqual(actualLineNumber, expectedLineNumber);
+      };
+
+      const {target} = getBrowserAndPages();
+      const setBreakpointLine = 14;
+      const expectedResolvedLineNumber = 17;
+      const originalSource = 'reload-breakpoints-with-source-maps-source1.js';
+
+      await openSourceCodeEditorForFile(originalSource, 'reload-breakpoints-with-source-maps.html');
+
+      // Set a breakpoint on the original source.
+      const breakpointLineHandle = await getLineNumberElement(setBreakpointLine);
+      assertNotNullOrUndefined(breakpointLineHandle);
+      await click(breakpointLineHandle);
+      await waitForFunction(async () => await isBreakpointSet(expectedResolvedLineNumber));
+
+      // Check if the breakpoint sidebar correctly shows the original source breakpoint.
+      await testBreakpointContent(originalSource, expectedResolvedLineNumber);
+
+      // Check if the breakpoint is correctly restored after reloading.
+      await target.reload();
+      await testBreakpointContent(originalSource, expectedResolvedLineNumber);
+    });
+  });
+
+  describe('for JS files', () => {
+    const expectedLocations = [3, 4, 9];
+    const fileName = 'click-breakpoint.js';
+    let breakpointItems: puppeteer.ElementHandle<Element>[] = [];
+
+    beforeEach(async () => {
+      const {frontend} = getBrowserAndPages();
+      await openSourceCodeEditorForFile(fileName, 'click-breakpoint.html');
+
+      for (const location of expectedLocations) {
+        await addBreakpointForLine(frontend, location);
+      }
+
+      breakpointItems = await waitForMany(BREAKPOINT_ITEM_SELECTOR, 3);
+    });
+
+    it('shows the correct location', async () => {
+      const actualLocations = await Promise.all(breakpointItems.map(breakpoint => extractLineNumber(breakpoint)));
+      assert.deepStrictEqual(actualLocations, expectedLocations);
+    });
+
+    it('shows the correct file name', async () => {
+      const actualTitle = await extractFileGroupName();
+      assert.deepStrictEqual(actualTitle, fileName);
+    });
+
+    it('shows the correct code snippets', async () => {
+      const actualCodeSnippets = await Promise.all(breakpointItems.map(async breakpoint => {
+        const codeSnippetHandle = await waitFor(CODE_SNIPPET_SELECTOR, breakpoint);
+        const content = await extractTextContentIfConnected(codeSnippetHandle);
+        assertNotNullOrUndefined(content);
+        return content;
+      }));
+
+      const sourceContent = await retrieveCodeMirrorEditorContent();
+      const expectedCodeSnippets = expectedLocations.map(line => sourceContent[line - 1]);
+
+      assert.deepStrictEqual(actualCodeSnippets, expectedCodeSnippets);
+    });
+  });
+
   it('will keep the focus on breakpoint items whose location has changed after disabling', async () => {
     await enableExperiment('breakpointView');
     await openSourceCodeEditorForFile('breakpoint-on-comment.js', 'breakpoint-on-comment.html');
@@ -70,3 +154,17 @@ describe('The Breakpoints Sidebar', () => {
     assert.strictEqual(focusedTextContent, breakpointItemTextContent);
   });
 });
+
+async function extractFileGroupName() {
+  const titleHandle = await waitFor(GROUP_HEADER_TITLE_SELECTOR);
+  const actualTitle = await extractTextContentIfConnected(titleHandle);
+  assertNotNullOrUndefined(actualTitle);
+  return actualTitle;
+}
+
+async function extractLineNumber(breakpoint: puppeteer.ElementHandle<Element>) {
+  const locationHandle = await waitFor(LOCATION_SELECTOR, breakpoint);
+  const content = await extractTextContentIfConnected(locationHandle);
+  assertNotNullOrUndefined(content);
+  return parseInt(content, 10);
+}
