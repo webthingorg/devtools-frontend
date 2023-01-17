@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a99256_ec03ca06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "I really like the parsing with codemirror! Couple inline comments. I haven\u0027t looked at the tests yet will do that once we\u0027re through this first round.",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec35bbfd_1a2812b0",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "Can we be more precise than Function here? (also below)",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a207c1ea_5ddb2668",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "This will accept \"50% red\" or \"red red red red\" too, is that okay? I.e., did we verify or legalize the syntax anywhere else?",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087c0f59_460cc8b4",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "should we validate the token sequence?",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca74c9f6_eff2543b",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "What\u0027s the advantage of using a flat tagged array over a structured object or individual members?",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37c366b_6fa36db5",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-17T14:50:09Z",
+      "side": 1,
+      "message": "This will do the wrong thing if this.secondColorText \u003d\u003d\u003d this.firstColorText",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
