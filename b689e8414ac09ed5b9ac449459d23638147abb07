@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "198c27d8_fb715cec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-17T13:22:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b689e8414ac09ed5b9ac449459d23638147abb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b152b94_111c52ab",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-01-17T13:17:01Z",
       "side": 1,
       "message": "Not a big fan of this, is there some protocol-defined data structure that is supposed to be used for the data?",
+      "range": {
+        "startLine": 1554,
+        "startChar": 0,
+        "endLine": 1556,
+        "endChar": 1
+      },
+      "revId": "b689e8414ac09ed5b9ac449459d23638147abb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f9e82a_e0a6d731",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-17T13:22:05Z",
+      "side": 1,
+      "message": "I don\u0027t think there is, since the aux data can be anything.",
+      "parentUuid": "7b152b94_111c52ab",
       "range": {
         "startLine": 1554,
         "startChar": 0,
