@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc9628b_18e5a30f",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T16:17:02Z",
+      "side": 1,
+      "message": "Oh yes, great catch! This was on my mind to change before creating the CL and somehow forgot it... :D",
+      "parentUuid": "ec35bbfd_1a2812b0",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a207c1ea_5ddb2668",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-17T14:50:09Z",
       "side": 1,
       "message": "This will accept \"50% red\" or \"red red red red\" too, is that okay? I.e., did we verify or legalize the syntax anywhere else?",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bb3868_6700cefa",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T16:17:02Z",
+      "side": 1,
+      "message": "Yep, this is okay because we\u0027re only parsing here when the actual syntax is correctly parsed by the Blink. So, we don\u0027t need to be so careful in here. WDYT?",
+      "parentUuid": "a207c1ea_5ddb2668",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e497e79_1f2f3d0d",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T16:17:02Z",
+      "side": 1,
+      "message": "I didn\u0027t understand this exactly, do you mean should we validate `colorInterpolationMethod` tokens start with `in` and are in correct order?\n\nSince we only parse a parseable syntax, I didn\u0027t handle that case too; though open to suggestions! WDYT?",
+      "parentUuid": "087c0f59_460cc8b4",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca74c9f6_eff2543b",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3b05bf8_8a1452f8",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T16:17:02Z",
+      "side": 1,
+      "message": "Great question! I\u0027ve thought about doing it so that the model has `interpolationMethod`, `firstParam` and `secondParam` fields.\n\nThen, in the specific param fields, we need to hold `value`, `percentage` and their order; so essentially holding it in a tagged array made more sense. I thought that since we\u0027re holding the `Percentage` and `Value` in a flat tagged array, then for consistency we can hold everything in such structure.\n\nWDYT do you have any suggestions?",
+      "parentUuid": "ca74c9f6_eff2543b",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a37c366b_6fa36db5",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
         "patchSetId": 3
@@ -99,6 +171,24 @@
       "writtenOn": "2023-01-17T14:50:09Z",
       "side": 1,
       "message": "This will do the wrong thing if this.secondColorText \u003d\u003d\u003d this.firstColorText",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c8185a_555d0c47",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T16:17:02Z",
+      "side": 1,
+      "message": "Oh, thanks for the catch! I now handled it by replacing the last occurrance for the second color. WDYT? :)",
+      "parentUuid": "a37c366b_6fa36db5",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
