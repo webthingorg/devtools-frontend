@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7d00d4_37159166",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-17T13:17:01Z",
+      "side": 1,
+      "message": "Could you take a look, please?",
+      "revId": "b689e8414ac09ed5b9ac449459d23638147abb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b152b94_111c52ab",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-17T13:17:01Z",
+      "side": 1,
+      "message": "Not a big fan of this, is there some protocol-defined data structure that is supposed to be used for the data?",
+      "range": {
+        "startLine": 1554,
+        "startChar": 0,
+        "endLine": 1556,
+        "endChar": 1
+      },
+      "revId": "b689e8414ac09ed5b9ac449459d23638147abb07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
