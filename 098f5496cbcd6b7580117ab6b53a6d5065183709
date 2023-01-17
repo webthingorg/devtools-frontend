@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c696e53d_504b1c43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-17T11:49:48Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis is a CL to adapt the e2e tests such that they work with both sidebar panes. I have opened a bug (https://crbug.com/1408030) to remove the code that is required to support both as soon as we decide to remove the old breakpoint pane. PTAL!",
+      "revId": "098f5496cbcd6b7580117ab6b53a6d5065183709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
