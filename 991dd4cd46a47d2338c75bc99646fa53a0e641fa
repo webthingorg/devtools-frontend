@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0812f9_331f9760",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T20:16:34Z",
+      "side": 1,
+      "message": "I added one not-very-important question; soooooo ship it!! 🚀🚀🚀 (I wholeheartedly love this feature 😂)",
+      "revId": "991dd4cd46a47d2338c75bc99646fa53a0e641fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3744e38_71df9016",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-17T20:16:34Z",
+      "side": 1,
+      "message": "I\u0027m curious actually why do we need this and what is the difference between this one and `sinon.stub(stylePropertyTreeElement, \u0027applyStyleText\u0027).resolves()`?",
+      "revId": "991dd4cd46a47d2338c75bc99646fa53a0e641fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
