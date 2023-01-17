@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9b020c_5d159d41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-17T14:04:52Z",
+      "side": 1,
+      "message": "As discussed offline, we are still going with this fix, since invalid properties may be the key to some UI problems developers are having, and surfacing them would be helpful.",
+      "revId": "db7f381c3873e2a1ff2d8069c6ea8b6278b6bb73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
