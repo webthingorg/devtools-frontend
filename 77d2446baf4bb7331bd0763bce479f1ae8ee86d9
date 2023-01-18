@@ -180,6 +180,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7a6856e_22f1bbef",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:51:32Z",
+      "side": 1,
+      "message": "Soooo, is the current situation good? 😄",
+      "parentUuid": "34965bfc_1381af9d",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
