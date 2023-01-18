@@ -121,3 +121,53 @@ export function rangeOfWord(
 
   return result;
 }
+
+/**
+ * Returns an element's nearest ancestor that establishes a fixed
+ * positioning containing block according to
+ * https://drafts.csswg.org/css-position-3/#fixed-cb
+ * Note this uses a non-exhaustive list of CSS properties and the values
+ * to determine if a new containing block is established in the ancestor
+ * chain.
+ * If no Element is found, returns null.
+ */
+export function getContainingBlockForFixedElement(node: Node): Element|null {
+  let parent: Node|null = node.parentNode;
+  if (parent === null) {
+    return null;
+  }
+
+  // An ancestor on which any of these properties is set to a value other than 'none'
+  // establishes a fixed positioning contaning block.
+  const propsForContainingBlock: Set<keyof CSSStyleDeclaration> =
+      new Set(['transform', 'perspective', 'filter', 'backdropFilter']);
+
+  // Setting the `contain` CSS property to any values establishes a fixed positioning
+  // containing block.
+  const containPropNewBlockValues = new Set(['layout', 'paint', 'strict', 'content']);
+  while (parent && parent.nodeName !== '#document') {
+    if (parent instanceof ShadowRoot) {
+      parent = parent.host;
+    }
+    if (!(parent instanceof Element)) {
+      return null;
+    }
+    const computedStyle = getComputedStyle(parent);
+    for (const property of propsForContainingBlock) {
+      if (computedStyle[property] !== 'none') {
+        return parent;
+      }
+    }
+    if (computedStyle.willChange === 'transform' || computedStyle.willChange === 'perspective') {
+      return parent;
+    }
+    if (computedStyle.containerType === 'size') {
+      return parent;
+    }
+    if (containPropNewBlockValues.has(computedStyle.contain)) {
+      return parent;
+    }
+    parent = parent.parentNode;
+  }
+  return null;
+}
