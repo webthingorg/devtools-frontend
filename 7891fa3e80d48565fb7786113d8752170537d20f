@@ -16,6 +16,24 @@
       "message": "Can you please follow the format from this example please for your commit description?\n\nMore specifically, title should be: Reland \"\u003ctitle of your original CL\u003e?",
       "revId": "7891fa3e80d48565fb7786113d8752170537d20f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af0fb7e2_b5d65224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-01-18T18:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43d90510_fff598d2",
+      "revId": "7891fa3e80d48565fb7786113d8752170537d20f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
