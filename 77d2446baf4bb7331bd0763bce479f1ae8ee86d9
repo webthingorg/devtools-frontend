@@ -302,6 +302,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5abe953f_66aff543",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T16:49:09Z",
+      "side": 1,
+      "message": "Not according to the spec, maybe it\u0027s the same problem as above with blink getting the parsing wrong.",
+      "parentUuid": "820f2781_3058971c",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a37c366b_6fa36db5",
