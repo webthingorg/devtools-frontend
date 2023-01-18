@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c1f4587_a0f36823",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-01-18T09:25:04Z",
+      "side": 1,
+      "message": "I have a feeling that range calculation is off. I\u0027ll investigate together with adding ranges to nested items in the next CL.",
+      "parentUuid": "187fde82_38853aa7",
+      "revId": "120baa08ea0f53320126d0177a0485f669aaa63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b4df2c4_32e71049",
