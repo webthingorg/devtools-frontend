@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7a55b2c_ddb0c2c9",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T16:42:14Z",
+      "side": 1,
+      "message": "That sounds like a bug in blink that should be fixed. Either way our parser pretty much needs to accept the same input as blink, so we should at least implement the same grammar as them if they\u0027re intentionally more lenient than the spec.",
+      "parentUuid": "3895abc7_8cdca14f",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
@@ -333,6 +351,24 @@
       "side": 1,
       "message": "I think I\u0027d prefer to keep the replace logic for now. Joining the text felt a bit more cumbersome since I\u0027d need to account for whether percentage exists, color values of the variables etc. Does it make sense?",
       "parentUuid": "21c4bc56_be8c0044",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b35a16_d0970ee6",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T16:42:14Z",
+      "side": 1,
+      "message": "Feels a bit dirty to do find and replace, but I don\u0027t have an extremely strong opinion here, so leaving it up to you!",
+      "parentUuid": "38e17cad_7e2070bd",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
