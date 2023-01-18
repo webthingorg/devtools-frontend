@@ -132,6 +132,10 @@ button:hover devtools-icon {
   --icon-color: var(--color-text-primary);
 }
 
+new-devtools-icon.breakpoints-file-script { /* stylelint-disable-line selector-type-no-unknown */
+  color: var(--color-code-blocks);
+}
+
 .type-indicator {
   --override-color-conditional-breakpoint: #f29900;
   --override-color-logpoint: #f439a0;
