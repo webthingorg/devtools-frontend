@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3895abc7_8cdca14f",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:14:24Z",
+      "side": 1,
+      "message": "I\u0027ve checked the Blink behavior and it seems like it is forgiving in some cases, i.e. it allows `color-mix(in srgb, red 20%, white white white)` so I have added checks for:\n* Interpolation method starting with `in`\n* Multiple values in one part\n* Multiple percentages in one part\n\nThe percentage order is not important in this syntax so I have kept the code the same. WDYT?",
+      "parentUuid": "8230d461_bfab4dc3",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "Yes, that\u0027s what I meant, if the input is validated then this is fine! (but see above)",
       "parentUuid": "2e497e79_1f2f3d0d",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "873ce72e_164c541c",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:14:24Z",
+      "side": 1,
+      "message": "It seems like Blink is more forgiving here, added some checks. (Let\u0027s continue discussion above if you have any more comments in this topic 😊)",
+      "parentUuid": "9d37d3ad_03978150",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -212,6 +248,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "820f2781_3058971c",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:14:24Z",
+      "side": 1,
+      "message": "It can be reordered, this is valid syntax: `color-mix(in srgb, 20% red, blue)` 😅",
+      "parentUuid": "ed5cee18_59ebed99",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a37c366b_6fa36db5",
@@ -261,6 +315,24 @@
       "side": 1,
       "message": "Alternatively you could also put  together the color-mix string only on render().",
       "parentUuid": "d6c8185a_555d0c47",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38e17cad_7e2070bd",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:14:24Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to keep the replace logic for now. Joining the text felt a bit more cumbersome since I\u0027d need to account for whether percentage exists, color values of the variables etc. Does it make sense?",
+      "parentUuid": "21c4bc56_be8c0044",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
