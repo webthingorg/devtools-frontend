@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21081dd0_b6d8b373",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:48:26Z",
+      "side": 1,
+      "message": "I think we can be safer here and implement what the spec says to make sure that in the worst case, instead of showing a wrong thing, we won\u0027t be showing a swatch but we\u0027ll only show text. WDYT?",
+      "parentUuid": "d7a55b2c_ddb0c2c9",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
