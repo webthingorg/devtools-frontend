@@ -51,12 +51,14 @@ export class ColorSwatch extends HTMLElement {
   private text: string|null = null;
   private color: Common.Color.Color|null = null;
   private format: Common.Color.Format|null = null;
+  #showAsAuthored: boolean;
 
-  constructor() {
+  constructor(showAsAuthored: boolean = true) {
     super();
     this.shadow.adoptedStyleSheets = [
       colorSwatchStyles,
     ];
+    this.#showAsAuthored = showAsAuthored;
   }
 
   static isColorSwatch(element: Element): element is ColorSwatch {
@@ -106,7 +108,11 @@ export class ColorSwatch extends HTMLElement {
       this.format = this.color.format();
     }
 
-    this.text = this.color.asString(this.format ?? undefined);
+    if (this.#showAsAuthored) {
+      this.text = this.color.getAuthoredText() ?? this.color.asString(this.format ?? undefined);
+    } else {
+      this.text = this.color.asString(this.format ?? undefined);
+    }
 
     if (tooltip) {
       this.tooltip = tooltip;
