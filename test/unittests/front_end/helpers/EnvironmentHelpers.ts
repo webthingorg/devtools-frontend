@@ -287,7 +287,7 @@ export async function deinitializeGlobalVars() {
 export function describeWithEnvironment(title: string, fn: (this: Mocha.Suite) => void, opts: {reset: boolean} = {
   reset: true,
 }) {
-  return describe(`env-${title}`, () => {
+  return describe(title, () => {
     before(async () => await initializeGlobalVars(opts));
     after(async () => await deinitializeGlobalVars());
     describe(title, fn);
@@ -298,7 +298,7 @@ describeWithEnvironment.only = function(title: string, fn: (this: Mocha.Suite) =
   reset: true,
 }) {
   // eslint-disable-next-line rulesdir/no_only
-  return describe.only(`env-${title}`, () => {
+  return describe.only(title, () => {
     before(async () => await initializeGlobalVars(opts));
     after(async () => await deinitializeGlobalVars());
     describe(title, fn);
@@ -332,7 +332,7 @@ export function deinitializeGlobalLocaleVars() {
 }
 
 export function describeWithLocale(title: string, fn: (this: Mocha.Suite) => void) {
-  return describe(`locale-${title}`, () => {
+  return describe(title, () => {
     before(async () => await initializeGlobalLocaleVars());
     after(deinitializeGlobalLocaleVars);
     describe(title, fn);
@@ -340,7 +340,7 @@ export function describeWithLocale(title: string, fn: (this: Mocha.Suite) => voi
 }
 describeWithLocale.only = function(title: string, fn: (this: Mocha.Suite) => void) {
   // eslint-disable-next-line rulesdir/no_only
-  return describe.only(`locale-${title}`, () => {
+  return describe.only(title, () => {
     before(async () => await initializeGlobalLocaleVars());
     after(deinitializeGlobalLocaleVars);
     describe(title, fn);

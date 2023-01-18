@@ -97,7 +97,7 @@ export function describeWithRealConnection(title: string, fn: (this: Mocha.Suite
         if (hasOnly || event.hasOnly) {
           return;
         }
-        describe(`real-${title}`, () => {
+        describe(title, () => {
           describeBody(title, fn);
         });
       })
@@ -109,7 +109,7 @@ export function describeWithRealConnection(title: string, fn: (this: Mocha.Suite
 describeWithRealConnection.only = function(title: string, fn: (this: Mocha.Suite) => void) {
   hasOnly = true;
   // eslint-disable-next-line rulesdir/no_only
-  describe.only(`real-${title}`, () => {
+  describe.only(title, () => {
     describeBody(title, fn);
   });
 };

@@ -148,7 +148,7 @@ async function disable() {
 export function describeWithMockConnection(title: string, fn: (this: Mocha.Suite) => void, opts: {reset: boolean} = {
   reset: true,
 }) {
-  return describe(`mock-${title}`, () => {
+  return describe(title, () => {
     beforeEach(async () => await enable(opts));
     afterEach(disable);
     describe(title, fn);
@@ -159,7 +159,7 @@ describeWithMockConnection.only = function(title: string, fn: (this: Mocha.Suite
   reset: true,
 }) {
   // eslint-disable-next-line rulesdir/no_only
-  return describe.only(`mock-${title}`, () => {
+  return describe.only(title, () => {
     beforeEach(async () => await enable(opts));
     afterEach(disable);
     describe(title, fn);
