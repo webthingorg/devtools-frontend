@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab8c2f10_54bdc0b8",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-18T09:51:56Z",
+      "side": 1,
+      "message": "You can obtain a containing block\u0027s absolute position (relative to the viewport) using `getBoundingClientRect()`. This way, when in need to position an element relative to the viewport you may substract its containing block total offset from the desired absolute position. This means that there\u0027s no need to account for the offset of other fixed positioning containing blocks in the ancestor chain, for this purpose.",
+      "parentUuid": "3e5c9862_01f8bf89",
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94a3a65_ca0cf087",
         "filename": "front_end/core/platform/dom-utilities.ts",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2023-01-18T09:19:38Z",
       "side": 1,
       "message": "I think it depends on the values of these properties if the establish a containing block or not. `e.g., contain: size` does not as far as I can tell but `contain: size layout` does.",
+      "range": {
+        "startLine": 140,
+        "startChar": 54,
+        "endLine": 140,
+        "endChar": 61
+      },
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87da47a7_4ce4be9d",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-18T09:51:56Z",
+      "side": 1,
+      "message": "according to https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block if `contain` is set to `paint` a new containing block is created. I\u0027ve updated the code to this.",
+      "parentUuid": "e94a3a65_ca0cf087",
       "range": {
         "startLine": 140,
         "startChar": 54,
