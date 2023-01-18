@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f56af2a_cf6140e8",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-18T09:55:25Z",
+      "side": 1,
+      "message": "What if the parent has another parent with a different containing block?",
+      "parentUuid": "ab8c2f10_54bdc0b8",
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94a3a65_ca0cf087",
         "filename": "front_end/core/platform/dom-utilities.ts",
         "patchSetId": 1
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "according to https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block if `contain` is set to `paint` a new containing block is created. I\u0027ve updated the code to this.",
       "parentUuid": "e94a3a65_ca0cf087",
+      "range": {
+        "startLine": 140,
+        "startChar": 54,
+        "endLine": 140,
+        "endChar": 61
+      },
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c03b5216_d2dbc572",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-18T09:55:25Z",
+      "side": 1,
+      "message": "I am not sure we can rely on MDN here. I chatted with Anders and `contain:size layout style;` would also contain the context. `container: name / inline-size` would not and `container: name /size` would, I think.",
+      "parentUuid": "87da47a7_4ce4be9d",
       "range": {
         "startLine": 140,
         "startChar": 54,
