@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e5c9862_01f8bf89",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-18T09:20:48Z",
+      "side": 1,
+      "message": "how would we use it? if there are multiple fixed containing blocks in the chain? do you plan to apply bounding boxes from each of them?",
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94a3a65_ca0cf087",
         "filename": "front_end/core/platform/dom-utilities.ts",
         "patchSetId": 1
