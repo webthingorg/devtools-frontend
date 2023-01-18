@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d3a497d_20ba9bd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1158744
+      },
+      "writtenOn": "2023-01-18T17:57:20Z",
+      "side": 1,
+      "message": "Sorry, i had trouble to add deprecation-devtool-issues@chromium.org as a reviewer. Could you please review this change? it\u0027s a result of running the auto generated script.",
+      "revId": "86b08297ee34d5ce479770dd1b4d50524e4f8e4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
