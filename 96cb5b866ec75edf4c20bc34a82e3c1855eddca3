@@ -33,6 +33,24 @@
       "message": "There are, indeed, more E2E tests failing.  Any idea why the dry-run didn\u0027t catch those?",
       "revId": "96cb5b866ec75edf4c20bc34a82e3c1855eddca3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9851eba8_058c9bfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-18T07:17:34Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like the test was flaky before https://ci.chromium.org/ui/test/devtools-frontend/e2e%2Femulation%2Fcustom-devices_test.ts%3A%20Custom%20devices%2Fcan%20add%20and%20then%20edit%20a%20custom%20device%20with%20UA-CH%20emulation\n\n...but maybe it gets flaky with your change?\n\nYou could run \n\n    $ git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env\u003d\u0027{\"TEST_PATTERNS\":\"emulation/custom-devices_test.ts\",\"ITERATIONS\":20}\u0027\n    \nto check.",
+      "parentUuid": "3cb89520_0263912a",
+      "revId": "96cb5b866ec75edf4c20bc34a82e3c1855eddca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
