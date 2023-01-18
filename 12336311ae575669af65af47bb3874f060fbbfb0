@@ -16,6 +16,24 @@
       "message": "Please mention in the commit description how you fixed the issue that led to the revert.",
       "revId": "12336311ae575669af65af47bb3874f060fbbfb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e119e6_8a9676ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-01-18T18:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48b66ee1_342d2c46",
+      "revId": "12336311ae575669af65af47bb3874f060fbbfb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
