@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17fe8b8_3c6681cb",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-18T11:25:08Z",
+      "side": 1,
+      "message": "Got it!",
+      "parentUuid": "82f9b1ab_3e1f2d6a",
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94a3a65_ca0cf087",
@@ -174,6 +192,30 @@
       "side": 1,
       "message": "ah good point. I haven\u0027t been able to find a exhaustive list for the contain and container porperties. But apparently per [1], setting `contain` as \u0027layout\u0027, \u0027paint\u0027, \u0027strict\u0027 or \u0027content\u0027 establishes a containing block. For `container-type` we know at least `size` would also introduce a containing block. I updated the code to update to reflect this and added a comment warning about the helper not using a exhaustive list of CSS properties.\n\n[1] https://developer.mozilla.org/en-US/docs/Web/CSS/contain",
       "parentUuid": "c03b5216_d2dbc572",
+      "range": {
+        "startLine": 140,
+        "startChar": 54,
+        "endLine": 140,
+        "endChar": 61
+      },
+      "revId": "4fff1073b2c18bb8816de76a52d082c17d78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e35ffad_0bc47830",
+        "filename": "front_end/core/platform/dom-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-18T11:25:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "58dec51d_7683eb00",
       "range": {
         "startLine": 140,
         "startChar": 54,
