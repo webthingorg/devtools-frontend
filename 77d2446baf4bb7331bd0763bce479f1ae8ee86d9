@@ -338,6 +338,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85add525_4576982b",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-18T16:51:07Z",
+      "side": 1,
+      "message": "I think spec says that we can re-order as far as I understood the description of the spec specification 😄\n\nhttps://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax#:~:text\u003dbold%20%5B-,thin%20%26%26%20%3Clength%3E%20%5D,-Copy%20to%20Clipboard",
+      "parentUuid": "5abe953f_66aff543",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a37c366b_6fa36db5",
