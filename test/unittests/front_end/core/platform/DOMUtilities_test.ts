@@ -63,4 +63,25 @@ describe('DOMUtilities', () => {
       assert.strictEqual(Platform.DOMUtilities.getEnclosingShadowRootForNode(div), component.shadowRoot);
     });
   });
+  describe('containingBlockForFixedElement', () => {
+    it('returns null if no containing block is found', () => {
+      const parent = document.createElement('div');
+      const child = document.createElement('div');
+      parent.appendChild(child);
+      renderElementIntoDOM(parent);
+      assert.isNull(Platform.DOMUtilities.getContainingBlockForFixedElement(child));
+    });
+    it('returns the first ancestor that establishes a fixed positioning contaning block', () => {
+      const greatParent = document.createElement('div');
+      greatParent.style.transform = 'translate(0, 0)';
+      const parent = document.createElement('div');
+      parent.style.transform = 'translate(0, 0)';
+      const child = document.createElement('div');
+      greatParent.appendChild(parent);
+      parent.appendChild(child);
+      renderElementIntoDOM(greatParent);
+      assert.strictEqual(Platform.DOMUtilities.getContainingBlockForFixedElement(child), parent);
+    });
+  });
+
 });
