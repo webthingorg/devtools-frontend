@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8230d461_bfab4dc3",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T09:15:04Z",
+      "side": 1,
+      "message": "Is this the case also when the user enters the color-mix in the styles pane? Also, do we need to return null if the input has been checked?\n\nIf so, I still think it might simpler to just write:\n\ncursor.nextSibling()\nparts.push({\n   name: PartName.Value,\n   value: referenceText.substring(cursor.from, cursor.to),\n})\ncursor.nextSibling()\nconst numberText \u003d referenceText.substring(cursor.from, cursor.to);\nparts.push({\n   name: PartName.Percentage,\n   value: numberText,\n});",
+      "parentUuid": "a0bb3868_6700cefa",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "I didn\u0027t understand this exactly, do you mean should we validate `colorInterpolationMethod` tokens start with `in` and are in correct order?\n\nSince we only parse a parseable syntax, I didn\u0027t handle that case too; though open to suggestions! WDYT?",
       "parentUuid": "087c0f59_460cc8b4",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d37d3ad_03978150",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T09:15:04Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what I meant, if the input is validated then this is fine! (but see above)",
+      "parentUuid": "2e497e79_1f2f3d0d",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -160,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed5cee18_59ebed99",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T09:15:04Z",
+      "side": 1,
+      "message": "value and percentage can\u0027t be reordered though, can they (if the input is verified)? If so we don\u0027t need it to be a flat array.",
+      "parentUuid": "a3b05bf8_8a1452f8",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a37c366b_6fa36db5",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
         "patchSetId": 3
@@ -189,6 +243,24 @@
       "side": 1,
       "message": "Oh, thanks for the catch! I now handled it by replacing the last occurrance for the second color. WDYT? :)",
       "parentUuid": "a37c366b_6fa36db5",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21c4bc56_be8c0044",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-18T09:15:04Z",
+      "side": 1,
+      "message": "Alternatively you could also put  together the color-mix string only on render().",
+      "parentUuid": "d6c8185a_555d0c47",
       "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
