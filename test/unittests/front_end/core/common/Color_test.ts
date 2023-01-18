@@ -17,7 +17,7 @@ const parseAndAssertNotNull = (value: string) => {
 
 const deepCloseTo = (actual: number[], expected: number[], delta: number, message?: string) => {
   for (let i = 0; i <= 3; ++i) {
-    assert.closeTo(actual[i], expected[i], delta, message);
+    assert.closeTo(actual[i], expected[i], delta, `in component ${i}${message ? `: ${message}` : ''}`);
   }
 };
 
@@ -28,7 +28,8 @@ describe('Color', () => {
   it('can be instantiated without issues', () => {
     const color = new Color.Legacy([0.5, 0.5, 0.5, 0.5], Color.Format.RGBA, 'testColor').clipToGamut();
     assert.deepEqual(color.rgba(), [0.5, 0.5, 0.5, 0.5], 'RGBA array was not set correctly');
-    assert.strictEqual(color.asString(), 'testColor', 'original text was not set correctly');
+    assert.strictEqual(color.getAuthoredText(), 'testColor', 'original text was not set correctly');
+    assert.strictEqual(color.asString(), 'rgb(128 128 128 / 50%)');
     assert.strictEqual(color.format(), Color.Format.RGBA, 'format was not set correctly');
   });
 
@@ -159,19 +160,19 @@ describe('Color', () => {
 
   it('parses lch values', () => {
     // White in sRGB
-    const colorOne = parseAndAssertNotNull('lch(100 0.09 312)');
+    const colorOne = parseAndAssertNotNull('lch(99 0.09 312)');
     assertNotNullOrUndefined(colorOne);
-    deepCloseTo(colorOne.rgba(), [1, 1, 1, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorOne.rgba(), [0.989, 0.989, 0.989, 1], colorSpaceConversionTolerance);
 
     // Parses out of sRGB gamut values too
-    const colorTwo = parseAndAssertNotNull('lch(100 112 312)');
+    const colorTwo = parseAndAssertNotNull('lch(99 112 312)');
     assertNotNullOrUndefined(colorTwo);
-    deepCloseTo(colorTwo.rgba(), [1, 0.7735, 1, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorTwo.rgba(), [1, 0.762, 1, 1], colorSpaceConversionTolerance);
 
     // Parses none values too
-    const colorThree = parseAndAssertNotNull('lch(100 112 none)');
+    const colorThree = parseAndAssertNotNull('lch(99 112 none)');
     assertNotNullOrUndefined(colorThree);
-    deepCloseTo(colorThree.rgba(), [1, 0.4992, 1, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorThree.rgba(), [1, 0.484, 1, 1], colorSpaceConversionTolerance);
 
     // Parses syntax from Color Syntax mega list https://cdpn.io/pen/debug/RwyOyeq
     const colorCases = [
@@ -200,19 +201,19 @@ describe('Color', () => {
   // TODO(ergunsh): Add tests for `oklch` after clearing situation
   it('parses lab values', () => {
     // White in sRGB
-    const colorOne = parseAndAssertNotNull('lab(100 0 0)');
+    const colorOne = parseAndAssertNotNull('lab(99 0 0)');
     assertNotNullOrUndefined(colorOne);
-    deepCloseTo(colorOne.rgba(), [1, 1, 1, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorOne.rgba(), [0.989, 0.989, 0.989, 1], colorSpaceConversionTolerance);
 
     // Parses out of sRGB gamut values too
-    const colorTwo = parseAndAssertNotNull('lab(100 58 64)');
+    const colorTwo = parseAndAssertNotNull('lab(99 58 64)');
     assertNotNullOrUndefined(colorTwo);
-    deepCloseTo(colorTwo.rgba(), [1, 0.805, 0.519, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorTwo.rgba(), [1, 0.794, 0.508, 1], colorSpaceConversionTolerance);
 
     // Parses none values too
-    const colorThree = parseAndAssertNotNull('lch(100 none none)');
+    const colorThree = parseAndAssertNotNull('lch(99 none none)');
     assertNotNullOrUndefined(colorThree);
-    deepCloseTo(colorThree.rgba(), [1, 1, 1, 1], colorSpaceConversionTolerance);
+    deepCloseTo(colorThree.rgba(), [0.989, 0.989, 0.989, 1], colorSpaceConversionTolerance);
 
     // Parses syntax from Color Syntax mega list https://cdpn.io/pen/debug/RwyOyeq
     const colorCases = [
@@ -376,7 +377,7 @@ describe('Color', () => {
   it('returns the original text when turned into a string if its format was "original"', () => {
     const color = new Color.Legacy([1, 0, 0, 1], Color.Format.RGBA, 'testColor');
     const result = color.asString();
-    assert.strictEqual(result, 'testColor', 'color was not converted to a string correctly');
+    assert.strictEqual(result, 'rgb(255 0 0)', 'color was not converted to a string correctly');
   });
 
   it('returns the nickname when turned into a string if its format was "nickname"', () => {
@@ -626,7 +627,7 @@ describe('Color', () => {
       const spec = lime[format as Common.Color.Format];
       const color = Common.Color.parse(spec);
       assertNotNullOrUndefined(color);
-      assert.deepEqual(color?.asString(), spec);
+      assert.deepEqual(color?.getAuthoredText(), spec);
       assert.deepEqual(color?.format(), format);
     }
   });
@@ -793,23 +794,23 @@ describe('Color', () => {
   });
 
   it('correctly clips results on conversion', () => {
-    const nonSRGBColor = Color.parse('lab(100 50 50)');
+    const nonSRGBColor = Color.parse('lab(99 50 50)');
     assertNotNullOrUndefined(nonSRGBColor);
 
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HEX), '#ffd6a0');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HEXA), '#ffd6a0ff');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.RGB), 'rgb(255 214 160)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.RGBA), 'rgb(255 214 160)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HSL), 'hsl(34deg 100% 81.42%)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HSLA), 'hsl(34deg 100% 81.42%)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HWB), 'hwb(34deg 62.84% 0%)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HWBA), 'hwb(34deg 62.84% 0%)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.SRGB), 'color(srgb 1 0.84 0.63)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.SRGB_LINEAR), 'color(srgb-linear 1 0.67 0.35)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.DISPLAY_P3), 'color(display-p3 1 0.87 0.67)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.A98_RGB), 'color(a98-rgb 1 0.83 0.63)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.PROPHOTO_RGB), 'color(prophoto-rgb 1 0.89 0.62)');
-    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.REC_2020), 'color(rec2020 1 0.88 0.64)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HEX), '#ffd39e');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HEXA), '#ffd39eff');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.RGB), 'rgb(255 211 158)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.RGBA), 'rgb(255 211 158)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HSL), 'hsl(32.94deg 100% 80.89%)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HSLA), 'hsl(32.94deg 100% 80.89%)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HWB), 'hwb(32.94deg 61.78% 0%)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.HWBA), 'hwb(32.94deg 61.78% 0%)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.SRGB), 'color(srgb 1 0.83 0.62)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.SRGB_LINEAR), 'color(srgb-linear 1 0.65 0.34)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.DISPLAY_P3), 'color(display-p3 1 0.86 0.66)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.A98_RGB), 'color(a98-rgb 1 0.82 0.62)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.PROPHOTO_RGB), 'color(prophoto-rgb 1 0.88 0.61)');
+    assert.deepEqual(nonSRGBColor.asString(Common.Color.Format.REC_2020), 'color(rec2020 1 0.87 0.63)');
   });
 
   it('correctly detects and clips out-of-gamut colors', () => {
@@ -819,21 +820,21 @@ describe('Color', () => {
     assert.deepEqual(new Color.Legacy([-1, 0, 1.1, 1], Color.Format.RGBA).clipToGamut().asString(), 'rgb(0 0 255)');
 
     assert.isTrue(Color.parse('hsl(-120deg 130% 50%)')?.isInGamut());
-    assert.deepEqual(Color.parse('hsl(-120deg 130% 50%)')?.asString(), 'hsl(-120deg 130% 50%)');
+    assert.deepEqual(Color.parse('hsl(-120deg 130% 50%)')?.asString(), 'hsl(240deg 100% 50%)');
     assert.isTrue(Color.parse('hwb(-120deg 130% 50%)')?.isInGamut());
-    assert.deepEqual(Color.parse('hwb(-120deg 130% 50%)')?.asString(), 'hwb(-120deg 130% 50%)');
+    assert.deepEqual(Color.parse('hwb(-120deg -130% 50%)')?.asString(), 'hwb(240deg 0% 50%)');
 
-    assert.isTrue(Color.parse('lch(-100 -70 -70)')?.isInGamut());
-    assert.deepEqual(Color.parse('lch(-100 -70 -70)')?.asString(), 'lch(-100 -70 -70)');
+    assert.isTrue(Color.parse('lch(10 -70 -70)')?.isInGamut());
+    assert.deepEqual(Color.parse('lch(10 70 -70)')?.asString(), 'lch(10 70 -70)');
 
-    assert.isTrue(Color.parse('oklch(-100 -70 -70)')?.isInGamut());
-    assert.deepEqual(Color.parse('oklch(-100 -70 -70)')?.asString(), 'oklch(-100 -70 -70)');
+    assert.isTrue(Color.parse('oklch(0.5 -70 -70)')?.isInGamut());
+    assert.deepEqual(Color.parse('oklch(0.5 70 -70)')?.asString(), 'oklch(0.5 70 -70)');
 
-    assert.isTrue(Color.parse('lab(-100 -70 -70)')?.isInGamut());
-    assert.deepEqual(Color.parse('lab(-100 -70 -70)')?.asString(), 'lab(-100 -70 -70)');
+    assert.isTrue(Color.parse('lab(10 -70 -70)')?.isInGamut());
+    assert.deepEqual(Color.parse('lab(10 -70 -70)')?.asString(), 'lab(10 -70 -70)');
 
-    assert.isTrue(Color.parse('oklab(-100 -70 -70)')?.isInGamut());
-    assert.deepEqual(Color.parse('oklab(-100 -70 -70)')?.asString(), 'oklab(-100 -70 -70)');
+    assert.isTrue(Color.parse('oklab(0.5 -70 -70)')?.isInGamut());
+    assert.deepEqual(Color.parse('oklab(0.5 -70 -70)')?.asString(), 'oklab(0.5 -70 -70)');
 
     assert.isFalse(Color.parse('color(srgb-linear -1 1 1.5)')?.isInGamut());
     assert.deepEqual(Color.parse('color(srgb-linear -1 1 1.5)')?.asString(), 'color(srgb-linear -1 1 1.5)');
@@ -869,6 +870,24 @@ describe('Color', () => {
     assert.isTrue(Color.parse('color(a98-rgb 1.0001 1.0001 1.0001)')?.isInGamut());
     assert.isTrue(Color.parse('color(prophoto-rgb 1.0001 1.0001 1.0001)')?.isInGamut());
     assert.isTrue(Color.parse('color(rec2020 1.0001 1.0001 1.0001)')?.isInGamut());
+  });
+
+  it('correctly represents powerless components', () => {
+    assert.deepEqual(Color.parse('lab(0 15 15)')?.asString(), 'lab(0 0 0)');
+    assert.deepEqual(Color.parse('lab(100 15 15)')?.asString(), 'lab(100 0 0)');
+    assert.deepEqual(Color.parse('lch(0 15 15)')?.asString(), 'lch(0 0 0)');
+    assert.deepEqual(Color.parse('lch(100 15 15)')?.asString(), 'lch(100 0 0)');
+    assert.deepEqual(Color.parse('lch(0.3 0 15)')?.asString(), 'lch(0.3 0 0)');
+    assert.deepEqual(Color.parse('oklab(0 15 15)')?.asString(), 'oklab(0 0 0)');
+    assert.deepEqual(Color.parse('oklab(1 15 15)')?.asString(), 'oklab(1 0 0)');
+    assert.deepEqual(Color.parse('oklch(0 15 15)')?.asString(), 'oklch(0 0 0)');
+    assert.deepEqual(Color.parse('oklch(1 15 15)')?.asString(), 'oklch(1 0 0)');
+    assert.deepEqual(Color.parse('oklch(0.3 0 15)')?.asString(), 'oklch(0.3 0 0)');
+    assert.deepEqual(Color.parse('hsl(120deg 10% 0%)')?.asString(), 'hsl(0deg 0% 0%)');
+    assert.deepEqual(Color.parse('hsl(120deg 10% 100%)')?.asString(), 'hsl(0deg 0% 100%)');
+    assert.deepEqual(Color.parse('hsl(120deg 0% 50%)')?.asString(), 'hsl(0deg 0% 50%)');
+    assert.deepEqual(Color.parse('hwb(120deg 50% 50%)')?.asString(), 'hwb(0deg 50% 50%)');
+    assert.deepEqual(Color.parse('hwb(120deg 80% 40%)')?.asString(), 'hwb(0deg 66.67% 33.33%)');
   });
 });
 
