@@ -16,6 +16,7 @@ import {
   renderElementIntoDOM,
   stripLitHtmlCommentNodes,
 } from '../../helpers/DOMHelpers.js';
+import {describeWithLocale} from '../../helpers/EnvironmentHelpers.js';
 import {withMutations} from '../../helpers/MutationHelpers.js';
 
 import {
@@ -350,7 +351,7 @@ describe('DataGrid', () => {
     });
   });
 
-  describe('navigating with the keyboard', () => {
+  describeWithLocale('navigating with the keyboard', () => {
     it('makes the first body cell focusable by default when no columns are sortable', async () => {
       const component = renderDataGrid({rows, columns: columnsWithNoneSortable});
       assertShadowRoot(component.shadowRoot);
