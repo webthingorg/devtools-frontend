@@ -191,6 +191,24 @@
       "parentUuid": "1abd9ed9_eb41868d",
       "revId": "cc00b71a833c734b6ee421694cfd7e3edb744787",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a033b1_c01fbd8c",
+        "filename": "test/unittests/front_end/core/common/Color_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T16:07:40Z",
+      "side": 1,
+      "message": "I think there is a tradeoff in both situations and probably needs more discussion to decide on one structure.\n\nI usually prefer different tests for each case to be able to see the failed tests clearly but AFAIU we\u0027ve used this one test testing everything approach too so I\u0027m okay with it too :)",
+      "parentUuid": "2520721f_c15ed690",
+      "revId": "cc00b71a833c734b6ee421694cfd7e3edb744787",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

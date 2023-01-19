@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a6d1d4_aeac9cf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T16:07:40Z",
+      "side": 1,
+      "message": "LGTM with one comment :)",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8eaba1_c49f996b",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T16:07:40Z",
+      "side": 1,
+      "message": "I think this slightly changes the behavior:\n* Previously, AFAIU, we were returning originalText if `this.colorFormat \u003d\u003d\u003d color.format`[1]\n* Now, we return the generated string if the `colorFormat` exists in the Spectrum.\n\nSo, if we want to preserve the old behavior, we need to check\n`if (this.colorFormat \u003d\u003d\u003d color.format)` and return the original text.\n\nThough changing the old behavior might also be a reason, so was it intended? :)\n\n[1]: in `Color.ts`, it is `color.as(format)` and `colorConversions[format] \u003d () \u003d\u003e this` which comes back to the same color. If the original text exists there and the authored color was in gamut, we return the origianl text",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
