@@ -217,6 +217,11 @@ export class ColorSwatch extends HTMLElement {
         continue;
       }
       const newColor = this.color.as(format);
+      // Legacy.alpha returns null if the format has an alpha channel, whereas hasAlpha checks whether the alpha value
+      // is not 100%
+      if (newColor instanceof Common.Color.Legacy && (newColor.alpha !== null) === !newColor.hasAlpha()) {
+        continue;
+      }
       const label = newColor.asString();
       if (!label) {
         continue;
