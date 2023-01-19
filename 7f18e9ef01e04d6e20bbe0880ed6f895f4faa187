@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c78b6fb_cff142b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T16:13:29Z",
+      "side": 1,
+      "message": "now that I realized, powerless components changed the behavior of the ColorPicker too: for example, when I author `hwb(341deg 100% 0%)`, in color picker it is shown as `0 100% 0` and changing the hue does not have any effect. I think we need to think about this",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8eaba1_c49f996b",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 6
