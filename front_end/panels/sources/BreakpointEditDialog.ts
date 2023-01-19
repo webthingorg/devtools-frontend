@@ -66,7 +66,6 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
       editorLineNumber: number, oldCondition: string, preferLogpoint: boolean,
       onFinish: (result: BreakpointEditDialogResult) => void) {
     super(true);
-
     const editorConfig = [
       CodeMirror.javascript.javascriptLanguage,
       TextEditor.Config.baseConfiguration(oldCondition || ''),
@@ -219,6 +218,10 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([breakpointEditDialogStyles]);
+  }
+
+  get editorForTest(): TextEditor.TextEditor.TextEditor {
+    return this.editor;
   }
 }
 
