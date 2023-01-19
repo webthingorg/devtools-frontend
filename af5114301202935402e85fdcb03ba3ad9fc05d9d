@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b1729c_a7a6a022",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-19T10:21:29Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis CL enables the redesigned sidebar by default. It also migrates two layout tests to the e2e test suite in the front-end. PTAL!",
+      "revId": "af5114301202935402e85fdcb03ba3ad9fc05d9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072b97a7_72c13936",
+        "filename": "test/e2e/sources/breakpoints-sidebarpane_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-19T10:21:29Z",
+      "side": 1,
+      "message": "This test is translated directly from the layout test: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/sources/debugger-breakpoints/debugger-reload-breakpoints-with-source-maps.js;l\u003d14?q\u003ddebugger-reload-\u0026sq\u003d\u0026ss\u003dchromium\n\n(including all resources)",
+      "revId": "af5114301202935402e85fdcb03ba3ad9fc05d9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e4dbd0_f2fea51c",
+        "filename": "test/e2e/sources/breakpoints-sidebarpane_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-19T10:21:29Z",
+      "side": 1,
+      "message": "This is the counterpart test for https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/sources/debugger-breakpoints/breakpoints-sidebar-pane.js\n\nSince this is a very simple test, I didn\u0027t migrate the resources and took a similar resource that we already have in DevTools front-end.",
+      "revId": "af5114301202935402e85fdcb03ba3ad9fc05d9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
