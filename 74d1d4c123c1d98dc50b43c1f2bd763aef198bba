@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee191e9_371311aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-19T12:41:24Z",
+      "side": 1,
+      "message": "PTAL. Not entirely sure why these were disabled, but it seems stable to me locally, and the bug associated with the TODO is marked as complete. Thanks!",
+      "revId": "74d1d4c123c1d98dc50b43c1f2bd763aef198bba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
