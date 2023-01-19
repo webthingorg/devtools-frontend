@@ -22,6 +22,30 @@
       },
       "revId": "60c81bd1c86f27e7db13d33189a25facc92cb830",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "455646a5_807ea704",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-19T10:31:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a13cd52_613caaef",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 118
+      },
+      "revId": "60c81bd1c86f27e7db13d33189a25facc92cb830",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
