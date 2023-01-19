@@ -643,6 +643,7 @@ export interface Color {
   isInGamut(): boolean;
   clipToGamut(): Color;
   getUnclippedColor(): Color;
+  getAuthoredText(): string|null;
 }
 
 function stringifyWithPrecision(s: number, precision = 2): string {
@@ -721,6 +722,9 @@ export class Lab implements Color {
 
   constructor(l: number, a: number, b: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
     this.l = clamp(l, {min: 0, max: 100});
+    if (equals(this.l, 0) || equals(this.l, 100)) {
+      a = b = 0;
+    }
     this.a = a;
     this.b = b;
     this.alpha = clamp(alpha, {min: 0, max: 1});
@@ -751,12 +755,12 @@ export class Lab implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `lab(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.a)} ${stringifyWithPrecision(this.b)}${
         alpha})`;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   isInGamut(): boolean {
@@ -848,7 +852,13 @@ export class LCH implements Color {
 
   constructor(l: number, c: number, h: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
     this.l = clamp(l, {min: 0, max: 100});
+    if (equals(this.l, 0) || equals(this.l, 100)) {
+      c = 0;
+    }
     this.c = clamp(c, {min: 0});
+    if (equals(this.c, 0)) {
+      h = 0;
+    }
     this.h = h;
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
@@ -878,12 +888,12 @@ export class LCH implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `lch(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.c)} ${stringifyWithPrecision(this.h)}${
         alpha})`;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   isInGamut(): boolean {
@@ -974,6 +984,9 @@ export class Oklab implements Color {
 
   constructor(l: number, a: number, b: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
     this.l = clamp(l, {min: 0, max: 1});
+    if (equals(this.l, 0) || equals(this.l, 1)) {
+      a = b = 0;
+    }
     this.a = a;
     this.b = b;
     this.alpha = clamp(alpha, {min: 0, max: 1});
@@ -1005,12 +1018,12 @@ export class Oklab implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `oklab(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.a)} ${
         stringifyWithPrecision(this.b)}${alpha})`;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   isInGamut(): boolean {
@@ -1104,7 +1117,13 @@ export class Oklch implements Color {
 
   constructor(l: number, c: number, h: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
     this.l = clamp(l, {min: 0, max: 1});
+    if (equals(this.l, 0) || equals(this.l, 1)) {
+      c = h = 0;
+    }
     this.c = clamp(c, {min: 0});
+    if (equals(this.c, 0)) {
+      h = 0;
+    }
     this.h = h;
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
@@ -1135,12 +1154,12 @@ export class Oklch implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `oklch(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.c)} ${
         stringifyWithPrecision(this.h)}${alpha})`;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   isInGamut(): boolean {
@@ -1292,12 +1311,12 @@ export class ColorFunction implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `color(${this.colorSpace} ${stringifyWithPrecision(this.p0)} ${stringifyWithPrecision(this.p1)} ${
         stringifyWithPrecision(this.p2)}${alpha})`;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   isInGamut(): boolean {
@@ -1565,10 +1584,16 @@ export class Legacy implements Color {
   static fromHSLA(h: string, s: string, l: string, alpha: string|undefined, text: string): Legacy|null {
     const parameters = [
       parseHueNumeric(h),
-      parseSatLightNumeric(s),
-      parseSatLightNumeric(l),
+      clamp(parseSatLightNumeric(s), {min: 0, max: 1}),
+      clamp(parseSatLightNumeric(l), {min: 0, max: 1}),
       alpha ? parseAlphaNumeric(alpha) : 1,
     ];
+    if (equals(parameters[2], 0) || equals(parameters[2], 1)) {
+      parameters[0] = parameters[1] = 0;
+    }
+    if (equals(parameters[1], 0)) {
+      parameters[0] = 0;
+    }
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
       return null;
     }
@@ -1580,12 +1605,21 @@ export class Legacy implements Color {
   static fromHWB(h: string, w: string, b: string, alpha: string|undefined, text: string): Legacy|null {
     const parameters = [
       parseHueNumeric(h),
-      parseSatLightNumeric(w),
-      parseSatLightNumeric(b),
+      clamp(parseSatLightNumeric(w), {min: 0, max: 1}),
+      clamp(parseSatLightNumeric(b), {min: 0, max: 1}),
       alpha ? parseAlphaNumeric(alpha) : 1,
     ];
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
       return null;
+    }
+    if (equals(parameters[1] + parameters[2], 1)) {
+      parameters[0] = 0;
+    } else if (lessOrEquals(1, parameters[1] + parameters[2])) {
+      // normalize to a sum of 100% respecting the ratio, see https://www.w3.org/TR/css-color-4/#the-hwb-notation
+      const ratio = parameters[1] / parameters[2];
+      parameters[2] = 1 / (1 + ratio);
+      parameters[1] = 1 - parameters[2];
+      parameters[0] = 0;
     }
     const rgba: number[] = [];
     hwb2rgb(parameters, rgba);
@@ -1689,10 +1723,6 @@ export class Legacy implements Color {
       format = this.#formatInternal;
     }
 
-    if (format === this.#formatInternal && this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
-
     function toRgbValue(value: number): number {
       return Math.round(value * 255);
     }
@@ -1785,7 +1815,10 @@ export class Legacy implements Color {
       }
     }
 
-    return this.#originalText;
+    return null;  // Shouldn't get here.
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   rgba(): number[] {
