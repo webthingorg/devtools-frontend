@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb36fc3f_3f521a84",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T09:20:25Z",
+      "side": 1,
+      "message": "With my compiler engineer hat on I would still prefer a proper parse tree over the flat array, my intuition says that the implementation of the processColorMix function would be simplified.\n\nBut I don\u0027t really want to block you on this. One thing left to point out, though, is that if there\u0027s extra whitespace somewhere in the color-mix function, the current implementation will remove them. Are we okay with that? We could cover this in a test, too, to document that that\u0027s expected.",
+      "parentUuid": "f7a6856e_22f1bbef",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "087c0f59_460cc8b4",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
         "patchSetId": 3
