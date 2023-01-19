@@ -50,6 +50,24 @@
       "message": "nit: I think we decided not to use these `steps` anymore",
       "revId": "126ea3c66ad2e0380f31ab3736e3538cf7c7117f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "349a3066_290379c2",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-19T16:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e4a7f01_31c4c0fe",
+      "revId": "126ea3c66ad2e0380f31ab3736e3538cf7c7117f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
