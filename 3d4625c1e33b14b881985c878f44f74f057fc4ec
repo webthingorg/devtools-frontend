@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "275088da_d878ac60",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T16:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5068d2f0_3435d701",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b29cf59f_e8b83737",
@@ -70,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20cefbf1_1c82b8fc",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T16:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "756f0615_14b6e920",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1da54b9c_780ce824",
@@ -83,6 +119,24 @@
       "writtenOn": "2023-01-19T15:50:43Z",
       "side": 1,
       "message": "I wonder if this can cause flakines since we don\u0027t wait for menu to be shown at this point. Maybe we can continue after the `show` call is resolved. WDYT?",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "949de325_aa6fca23",
+        "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T16:10:50Z",
+      "side": 1,
+      "message": "we\u0027re stubbing away the `show` function making it only return a resovled promise, i.e., we never show the menu.",
+      "parentUuid": "1da54b9c_780ce824",
       "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
