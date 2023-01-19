@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "6ba5343c7c77c15c3875b9b55b2ea321ead2b4b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b021618f_a9680278",
+        "filename": "front_end/ui/components/helpers/scheduled-render.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T14:35:46Z",
+      "side": 1,
+      "message": "Do you really want to swallow the error here, or rethrow it?",
+      "revId": "6ba5343c7c77c15c3875b9b55b2ea321ead2b4b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
