@@ -33,6 +33,24 @@
       "message": "I\u0027m curious actually why do we need this and what is the difference between this one and `sinon.stub(stylePropertyTreeElement, \u0027applyStyleText\u0027).resolves()`?",
       "revId": "991dd4cd46a47d2338c75bc99646fa53a0e641fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b48a26_dc522b3c",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T12:16:31Z",
+      "side": 1,
+      "message": "This is necessary because the tree element forks off the applyStyleText async function without awaiting it, which will be caught by the promise tracking in our unittests if it\u0027s not awaited.",
+      "parentUuid": "e3744e38_71df9016",
+      "revId": "991dd4cd46a47d2338c75bc99646fa53a0e641fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
