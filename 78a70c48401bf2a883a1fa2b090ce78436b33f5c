@@ -16,6 +16,41 @@
       "message": "Could you take a look already please? I\u0027m still not sure whether a unit test or E2E test would be better, but would love to hear your thoughts on the CL already.",
       "revId": "78a70c48401bf2a883a1fa2b090ce78436b33f5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b4313d_289c0885",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-19T13:25:01Z",
+      "side": 1,
+      "message": "Generally LGTM on the CL, but one question regarding inline scripts.",
+      "parentUuid": "99be615a_1ba7d639",
+      "revId": "78a70c48401bf2a883a1fa2b090ce78436b33f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a03ef281_07b78f2f",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-19T13:25:01Z",
+      "side": 1,
+      "message": "Might this be a problem with the current use of instrumentation breakpoints and inline scripts?\n\nIf the user sets a breakpoint on an inline script, the uiSourceCode has a type of `document`. When restoring the breakpoint we use the DefaultScriptMapping\u0027s script to set the breakpoint. The type will be `script` in that case. I.e. when restoring breakpoints for inline scripts (for instrumentation breakpoints), we won\u0027t find any entries, I think.\n\nHowever, I guess this should be solved after your CL that uses the temporary uiSourceCode within the ResourceMapping.",
+      "revId": "78a70c48401bf2a883a1fa2b090ce78436b33f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
