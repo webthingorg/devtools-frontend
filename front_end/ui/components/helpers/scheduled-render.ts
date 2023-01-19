@@ -33,6 +33,9 @@ export async function scheduleRender(component: HTMLElement, callback: () => voi
       activeRenders.add(component);
       try {
         await callback.call(component);
+      } catch (error: unknown) {
+        console.error(`ScheduledRender: rendering ${component.nodeName.toLowerCase()}:`);
+        console.error(error);
       } finally {
         activeRenders.delete(component);
       }
