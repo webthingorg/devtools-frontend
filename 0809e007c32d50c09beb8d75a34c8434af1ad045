@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714b4671_78c2a761",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T15:31:34Z",
+      "side": 1,
+      "message": "Hey hey, can you take a look at this? I\u0027ve removed `Spectrum_test.ts`, thought that it is not very useful at that state.\n\nI\u0027m also a bit unwilling to add tests for the Spectrum for now...",
+      "revId": "0809e007c32d50c09beb8d75a34c8434af1ad045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
