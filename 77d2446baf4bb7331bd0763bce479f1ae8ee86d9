@@ -214,6 +214,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c4b779_2fdc6719",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T09:32:28Z",
+      "side": 1,
+      "message": "For the parse tree vs flat array argument, I don\u0027t have strong preferences but I slightly prefer this version because of the need for retaining the places of the percentage \u0026 value :)\n\nIMO if we were to not have that, then I totally agree that parse tree would make more sense!\n\nFor the implementation details, I fully agree too and this can be improved but I don\u0027t want to spend more time on this part 😅\n\nAlsoooo, I think it is fine to strip whitespace while presenting it and I\u0027ve added a test case for it :)",
+      "parentUuid": "eb36fc3f_3f521a84",
+      "revId": "77d2446baf4bb7331bd0763bce479f1ae8ee86d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "087c0f59_460cc8b4",
