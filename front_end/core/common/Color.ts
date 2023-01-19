@@ -644,6 +644,7 @@ export interface Color {
   clipToGamut(): Color;
   getUnclippedColor(): Color;
   getAuthoredText(): string|null;
+  authoredTextIsInvalid(): boolean;
 }
 
 function stringifyWithPrecision(s: number, precision = 2): string {
@@ -669,6 +670,7 @@ export class Lab implements Color {
   readonly alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -730,6 +732,8 @@ export class Lab implements Color {
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    this.#originalTextIsValid = Boolean(originalText) && l === this.l && a === this.a && b === this.b &&
+        alpha === this.alpha && this.getUnclippedColor() === this;
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
     if (this.#origin) {
@@ -761,6 +765,9 @@ export class Lab implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   isInGamut(): boolean {
@@ -799,6 +806,7 @@ export class LCH implements Color {
   readonly alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -863,6 +871,8 @@ export class LCH implements Color {
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    this.#originalTextIsValid = Boolean(originalText) && l === this.l && c === this.c && h === this.h &&
+        alpha === this.alpha && this.getUnclippedColor() === this;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -894,6 +904,9 @@ export class LCH implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   isInGamut(): boolean {
@@ -932,6 +945,7 @@ export class Oklab implements Color {
   readonly alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -992,6 +1006,8 @@ export class Oklab implements Color {
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    this.#originalTextIsValid = Boolean(originalText) && l === this.l && a === this.a && b === this.b &&
+        alpha === this.alpha && this.getUnclippedColor() === this;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1024,6 +1040,9 @@ export class Oklab implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   isInGamut(): boolean {
@@ -1062,6 +1081,7 @@ export class Oklch implements Color {
   readonly alpha: number|null;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1128,6 +1148,8 @@ export class Oklch implements Color {
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#origin = origin;
     this.#originalText = originalText;
+    this.#originalTextIsValid = Boolean(originalText) && l === this.l && c === this.c && h === this.h &&
+        alpha === this.alpha && this.getUnclippedColor() === this;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1160,6 +1182,9 @@ export class Oklch implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   isInGamut(): boolean {
@@ -1199,6 +1224,7 @@ export class ColorFunction implements Color {
   readonly colorSpace: ColorSpace;
   readonly #origin?: Color;
   readonly #originalText?: string;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
@@ -1282,6 +1308,8 @@ export class ColorFunction implements Color {
     this.p1 = p1;
     this.p2 = p2;
     this.alpha = clamp(alpha, {min: 0, max: 1});
+    this.#originalTextIsValid = Boolean(originalText) && p0 === this.p0 && p1 === this.p1 && p2 === this.p2 &&
+        alpha === this.alpha && this.getUnclippedColor() === this;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -1317,6 +1345,9 @@ export class ColorFunction implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   isInGamut(): boolean {
@@ -1431,6 +1462,7 @@ export class Legacy implements Color {
   #originalText: string|null;
   #formatInternal: LegacyColor;
   readonly #origin?: Color;
+  readonly #originalTextIsValid: boolean;
 
   readonly #conversions: ColorConversions = {
     [Format.Nickname]: () => new Legacy(this.#rgbaInternal, Format.Nickname, undefined, this),
@@ -1528,6 +1560,9 @@ export class Legacy implements Color {
       rgba[2],
       clamp(rgba[3] ?? 1, {min: 0, max: 1}),
     ];
+    this.#originalTextIsValid = Boolean(originalText) && rgba[0] === this.#rgbaInternal[0] &&
+        rgba[1] === this.#rgbaInternal[1] && rgba[2] === this.#rgbaInternal[2] &&
+        (rgba[3] ?? 1) === this.#rgbaInternal[3] && this.getUnclippedColor() === this;
   }
 
   static fromHex(hex: string, text: string): Legacy {
@@ -1819,6 +1854,9 @@ export class Legacy implements Color {
   }
   getAuthoredText(): string|null {
     return this.#originalText ?? null;
+  }
+  authoredTextIsInvalid(): boolean {
+    return Boolean(this.#originalText) && !this.#originalTextIsValid;
   }
 
   rgba(): number[] {
