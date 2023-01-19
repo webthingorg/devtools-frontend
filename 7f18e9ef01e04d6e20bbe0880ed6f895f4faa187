@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87bba2b7_a34a9ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-19T16:19:07Z",
+      "side": 1,
+      "message": "I still think the color picker should work in either an unbounded or the largest color space and convert to the selected format from there. We can show a warning again if that conversion was lossy. would that make sense?",
+      "parentUuid": "9c78b6fb_cff142b7",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8eaba1_c49f996b",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 6
