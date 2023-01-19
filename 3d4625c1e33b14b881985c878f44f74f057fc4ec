@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "756f0615_14b6e920",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T15:54:13Z",
+      "side": 1,
+      "message": "or `colorIsTransparent` might be more understandable.",
+      "parentUuid": "b29cf59f_e8b83737",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1da54b9c_780ce824",
         "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/ColorSwatch_test.ts",
         "patchSetId": 2
