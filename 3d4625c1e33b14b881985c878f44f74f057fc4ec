@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5068d2f0_3435d701",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T15:50:43Z",
+      "side": 1,
+      "message": "I think it\u0027ll be `if the format does not have an alpha channel` right?",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b29cf59f_e8b83737",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T15:50:43Z",
+      "side": 1,
+      "message": "It took a bit of time to understand this boolean equality 😂\n\nI know that it will be more writing here but can we make this clearer by using variables and using boolean operators? Something like this:\n```\nconst formatHasAlphaChannel \u003d newColor.alpha !\u003d\u003d null;\nconst colorIsOpaque \u003d !newColor.hasAlpha();\n\nconst shouldHideFormat \u003d (formatHasAlphaChannel \u0026\u0026 colorIsOpaque) || (!formatHasAlphaChannel \u0026\u0026 !colorIsOpaque);\n```\n\nThat way, we\u0027ll also get rid of the need for the comment by the variable names. WDYT?",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da54b9c_780ce824",
+        "filename": "test/unittests/front_end/ui/legacy/components/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T15:50:43Z",
+      "side": 1,
+      "message": "I wonder if this can cause flakines since we don\u0027t wait for menu to be shown at this point. Maybe we can continue after the `show` call is resolved. WDYT?",
+      "revId": "3d4625c1e33b14b881985c878f44f74f057fc4ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
