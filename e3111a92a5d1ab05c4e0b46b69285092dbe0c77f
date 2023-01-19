@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6b76a3_49d69ef6",
+        "filename": "front_end/ui/components/docs/performance_panel/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-19T13:13:22Z",
+      "side": 1,
+      "message": "Ah sorry what a dreadful comment that was! I meant that I wanted to load the file by passing the URL to the panel, but if we do that it errors as it doesn\u0027t know how to deal with a gzip file, so instead I used its `loadFromFile` API which does understand how to un gzip.",
+      "parentUuid": "cf96f9f0_b6a4456c",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "e3111a92a5d1ab05c4e0b46b69285092dbe0c77f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce765442_39177d63",
@@ -95,6 +119,30 @@
       "writtenOn": "2023-01-19T10:31:12Z",
       "side": 1,
       "message": "out of curiosity, are the changes in this file preventing any failures with this CL, or it\u0027s just we\u0027ll need them for upcoming work?",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 39
+      },
+      "revId": "e3111a92a5d1ab05c4e0b46b69285092dbe0c77f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd043baf_8d4b60e1",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-19T13:13:22Z",
+      "side": 1,
+      "message": "These are all experiments that need to be registered for the panel to load up in the browser without immediately erroring.",
+      "parentUuid": "ce765442_39177d63",
       "range": {
         "startLine": 98,
         "startChar": 3,
