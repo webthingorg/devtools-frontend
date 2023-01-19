@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c55ba2_a7e75a35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-19T07:24:34Z",
+      "side": 1,
+      "message": "Leaving the review to Changhao",
+      "revId": "4e5b3324621e4f2ef517e2a9f98fc70e9dc7a0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
