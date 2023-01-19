@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99be615a_1ba7d639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-19T08:58:30Z",
+      "side": 1,
+      "message": "Could you take a look already please? I\u0027m still not sure whether a unit test or E2E test would be better, but would love to hear your thoughts on the CL already.",
+      "revId": "78a70c48401bf2a883a1fa2b090ce78436b33f5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
