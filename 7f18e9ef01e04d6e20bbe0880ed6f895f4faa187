@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c715016c_c6e8d219",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T17:16:26Z",
+      "side": 1,
+      "message": "[Only for powerless components I mean for holding the values as how the user authored, I\u0027m fine with clipping now 😊]",
+      "parentUuid": "fbf5951c_70293f27",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8eaba1_c49f996b",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 6
