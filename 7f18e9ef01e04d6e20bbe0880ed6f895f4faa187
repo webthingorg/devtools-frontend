@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbf5951c_70293f27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-19T17:15:14Z",
+      "side": 1,
+      "message": "I think so too but I didn\u0027t understand its implications in here.\n\nThe issue is, color cicker is getting initial color values from a `Color`. Since we assign a value as `0` when they are powerless, the initial value we get in color picker is also `0`. Though the user is not defined this as `0`.[1]\n\nFor example, for `hue` the color `hwb(341deg 100% 0%)` says it is `0`. Then, when the color picker is opened, its `hue` slider sits at `0` and the input value shows as `0`. Since we show the authored text in the Styles pane, there is a conflict here: Styles pane says it is `341deg` but Color Picker says it is `0deg`.\n\nWDYT if we were to hold the values as how the user authored, do the conversions based on them and only when stringifying showing them `0`?\n\nI have a hunch that my suggestion might cause precision problems, i.e. after conversion `lch` hue is reported as `0.000002` instead of `0` and we\u0027ll need to handle that separately.\n\n[1]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/color_picker/Spectrum.ts;l\u003d922?q\u003dfile:Spectrum.ts",
+      "parentUuid": "87bba2b7_a34a9ba6",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8eaba1_c49f996b",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 6
