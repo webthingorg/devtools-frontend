@@ -33,6 +33,24 @@
       "message": "Could you add a screenshot in the description field to confirm that the regression has been fixed please?",
       "revId": "4e5b3324621e4f2ef517e2a9f98fc70e9dc7a0ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56a6ddfd_f2a177f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-01-20T17:54:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f363dfb_cadf1690",
+      "revId": "4e5b3324621e4f2ef517e2a9f98fc70e9dc7a0ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
