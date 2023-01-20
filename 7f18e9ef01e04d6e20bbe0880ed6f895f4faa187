@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a14969_91d89035",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-20T14:28:21Z",
+      "side": 1,
+      "message": "Updated the API as per offline discussion, PTAL!",
+      "parentUuid": "c715016c_c6e8d219",
+      "revId": "7f18e9ef01e04d6e20bbe0880ed6f895f4faa187",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a8eaba1_c49f996b",
