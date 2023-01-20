@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "b27b6d825d04f03466a80af11b3f1ee0b11f704b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82209c41_8584d241",
+        "filename": "front_end/ui/components/markdown_view/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-20T06:24:43Z",
+      "side": 1,
+      "message": "What about:\n\n```\nconst depth \u003d heading.depth \u003e 5 ? 6 : heading.depth;\nconst tag \u003d `h${depth}`;\nreturn html`\u003c${tag}\u003e${renderText(heading)}\u003c/${tag}\u003e`;\n```",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "b27b6d825d04f03466a80af11b3f1ee0b11f704b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b7be03_826d8b6c",
+        "filename": "front_end/ui/components/markdown_view/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-20T06:24:43Z",
+      "side": 1,
+      "message": "Can we have 1 unit test each just to make sure we hit these code paths correctly?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 49
+      },
+      "revId": "b27b6d825d04f03466a80af11b3f1ee0b11f704b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
