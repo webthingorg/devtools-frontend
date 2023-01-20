@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5efba0_197ace17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-20T06:20:57Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
+      "revId": "ac334e192e4e6753f11e309b64cd277ca5a4145f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1beda4ec_3fef4c6a",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-20T06:20:57Z",
+      "side": 1,
+      "message": "I think we should freeze this part as well. Maybe `CreateImageBitmap` also?",
+      "range": {
+        "startLine": 244,
+        "startChar": 89,
+        "endLine": 244,
+        "endChar": 119
+      },
+      "revId": "ac334e192e4e6753f11e309b64cd277ca5a4145f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
