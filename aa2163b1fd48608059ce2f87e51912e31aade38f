@@ -68,6 +68,24 @@
       "parentUuid": "9fc674d3_7c3f711c",
       "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d04617_dbbb298a",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-01-20T20:47:20Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nSorry wondering if you had any thoughts on this? Just to recap - this PR allows the tabs to be clicked via Voice while maintaining the current chrome behavior where only the focused tab can be focusable via keyboard. Example below:\n\nhttps://i.imgur.com/tTikA5q.gifv\n\nLet me know if you want me to update the PR so that we all other tabs to be focusable via keyboard.",
+      "parentUuid": "301ac98b_322cb699",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
