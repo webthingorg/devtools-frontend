@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55910e1a_2153f78d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-20T09:45:02Z",
+      "side": 1,
+      "message": "Still working on tests, but I wanted to have a round of discussion first whether this makes sense in general!",
+      "revId": "08d2fcb69fd2b3435a7fa35c934113bde4973bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
