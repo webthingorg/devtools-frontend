@@ -26,7 +26,7 @@ import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {type StylePropertiesSection} from './StylePropertiesSection.js';
 import {CSSPropertyPrompt, StylesSidebarPane, StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';
 import {getCssDeclarationAsJavascriptProperty} from './StylePropertyUtils.js';
-import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
+import {cssRuleValidatorsMap, Hint} from './CSSRuleValidator.js';
 
 const FlexboxEditor = ElementsComponents.StylePropertyEditor.FlexboxEditor;
 const GridEditor = ElementsComponents.StylePropertyEditor.GridEditor;
@@ -105,6 +105,13 @@ const UIStrings = {
    *@description A context menu item in Styles panel to copy all declarations of CSS rule as JavaScript properties.
    */
   copyAllCssDeclarationsAsJs: 'Copy all declarations as JS',
+  /**
+   * @description A warning shown when a color in a CSS rule is specified outside of a legal value range.
+   * @example {rgb(512 512 512)} ORIGINAL_COLOR
+   * @example {rgb(255 255 255)} CLIPPED_COLOR
+   */
+  colorOutOfLegalRange:
+      'The color {ORIGINAL_COLOR} is outside of its color space\'s legal value range and will be clipped to {CLIPPED_COLOR} upon rendering or conversion into other color spaces or formats.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/StylePropertyTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -132,6 +139,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private parentsComputedStyles: Map<string, string>|null = null;
   private contextForTest!: Context|undefined;
   #propertyTextFromSource: string;
+  #authoringHints: Hint[] = [];
 
   constructor(
       stylesPane: StylesSidebarPane, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
@@ -245,11 +253,22 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     const swatch = new InlineEditor.ColorSwatch.ColorSwatch();
     swatch.renderColor(text, useUserSettingFormat, tooltip);
 
+    const color = swatch.getColor();
+    const unclippedColor = color?.getUnclippedColor();
+    if (color && unclippedColor && unclippedColor !== color && Boolean(unclippedColor?.getAuthoredText())) {
+      this.#authoringHints.push(new Hint(
+          i18nString(UIStrings.colorOutOfLegalRange, {
+            ORIGINAL_COLOR: unclippedColor.getAuthoredText() as string,
+            CLIPPED_COLOR: color.asString() as string,
+          }),
+          null));
+    }
+
     if (!valueChild) {
       valueChild = swatch.createChild('span');
-      const color = swatch.getColor();
-      valueChild.textContent =
-          color ? (color.getAuthoredText() ?? color.asString(swatch.getFormat() ?? undefined)) : text;
+      valueChild.textContent = color ?
+          (color.getUnclippedColor().getAuthoredText() ?? color.asString(swatch.getFormat() ?? undefined)) :
+          text;
     }
     swatch.appendChild(valueChild);
 
@@ -712,6 +731,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private innerUpdateTitle(): void {
+    this.#authoringHints = [];
     this.updateState();
     if (this.isExpandable()) {
       this.expandElement = UI.Icon.Icon.create('smallicon-triangle-right', 'expand-icon');
@@ -844,24 +864,29 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       existingElement.parentElement?.removeChild(existingElement);
     }
     const propertyName = this.property.name;
-
-    if (!cssRuleValidatorsMap.has(propertyName)) {
-      return;
-    }
-
     const localName = this.node()?.localName();
-    for (const validator of cssRuleValidatorsMap.get(propertyName) || []) {
-      const hint = validator.getHint(
-          propertyName, this.computedStyles || undefined, this.parentsComputedStyles || undefined,
-          localName?.toLowerCase());
-      if (hint) {
-        Host.userMetrics.cssHintShown(validator.getMetricType());
-        const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
-        activeHints.set(hintIcon, hint);
-        this.listItemElement.append(hintIcon);
-        this.listItemElement.classList.add('inactive-property');
-        break;
+
+    const firstHint = (): Hint|null => {
+      if (this.#authoringHints.length > 0) {
+        return this.#authoringHints[0];
       }
+      for (const validator of cssRuleValidatorsMap.get(propertyName) ?? []) {
+        const hint = validator.getHint(
+            propertyName, this.computedStyles || undefined, this.parentsComputedStyles || undefined,
+            localName?.toLowerCase());
+        if (hint) {
+          Host.userMetrics.cssHintShown(validator.getMetricType());
+          return hint;
+        }
+      }
+      return null;
+    };
+    const hint = firstHint();
+    if (hint) {
+      const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'hint');
+      activeHints.set(hintIcon, hint);
+      this.listItemElement.append(hintIcon);
+      this.listItemElement.classList.add('inactive-property');
     }
   }
 

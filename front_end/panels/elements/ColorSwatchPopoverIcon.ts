@@ -223,8 +223,9 @@ export class ColorSwatchPopoverIcon extends Common.ObjectWrapper.ObjectWrapper<C
     }
 
     const colorName = this.spectrum ? this.spectrum.colorName() : undefined;
-    const text =
-        colorName && colorName.startsWith('--') ? `var(${colorName})` : (color.getAuthoredText() ?? color.asString());
+    const text = colorName && colorName.startsWith('--') ?
+        `var(${colorName})` :
+        (color.getUnclippedColor().getAuthoredText() ?? color.asString());
 
     this.swatch.renderColor(color);
     const value = this.swatch.firstElementChild;

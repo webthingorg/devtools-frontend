@@ -210,7 +210,7 @@ export class CSSShadowModel {
       } else if (part === Part.SpreadRadius) {
         parts.push(this.spreadRadiusInternal.asCSSText());
       } else if (part === Part.Color) {
-        parts.push(this.colorInternal.getAuthoredText() ?? this.colorInternal.asString());
+        parts.push(this.colorInternal.getUnclippedColor().getAuthoredText() ?? this.colorInternal.asString());
       } else if (part === Part.Important && this.important) {
         parts.push('!important');
       }
