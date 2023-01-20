@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f5bf2c3_20689cda",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-20T08:10:31Z",
+      "side": 0,
+      "message": "I looked into various ways to introduce explicit interfaces for an option bag here. I tried with all of the arguments and only a subset.\n\nIn the end it didn\u0027t improve readability a lot, since every place uses a different subset of the arguments so there is a lot of spreading + re-assembling the options bag.",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 325,
+        "endChar": 67
+      },
+      "revId": "eaf9d4ccf0b242b73016a9f9c226a86ccbbfc137",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
