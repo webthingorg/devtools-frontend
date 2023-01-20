@@ -16,6 +16,23 @@
       "message": "Hey Jack, could you please take a look at this small change to the data grid? Thank you!",
       "revId": "515c534d7be3443488b7548e64dd31fa4a7cdad1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70e0b0ad_eeedf2a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-20T10:56:15Z",
+      "side": 1,
+      "message": "lgtm, thank you!",
+      "revId": "515c534d7be3443488b7548e64dd31fa4a7cdad1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
