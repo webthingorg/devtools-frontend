@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a757a23c_5b72569f",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-20T14:34:02Z",
+      "side": 1,
+      "message": "Perhaps add `/* isLogpoint */` here and below? (And `/* enabled */` for the previous arg...)",
+      "range": {
+        "startLine": 467,
+        "startChar": 101,
+        "endLine": 467,
+        "endChar": 106
+      },
+      "revId": "863532d0f5c5b93f97deac3c1e3ef71ea8dc4104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01dcf8c_e5f1eebb",
+        "filename": "test/unittests/front_end/panels/sources/BreakpointsSidebarPane_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-20T14:34:02Z",
+      "side": 1,
+      "message": "Ha, nicely done!",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 531,
+        "endChar": 60
+      },
+      "revId": "863532d0f5c5b93f97deac3c1e3ef71ea8dc4104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
