@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "786a1f90_a2e8d929",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-20T11:20:16Z",
+      "side": 1,
+      "message": "forgot the initial call to sync targets in my previous CL",
+      "revId": "2af936df0fbd4b91b6f58dc0862a6b99753a4174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
