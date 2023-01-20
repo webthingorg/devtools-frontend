@@ -106,7 +106,7 @@ export class ColorSwatch extends HTMLElement {
       this.format = this.color.format();
     }
 
-    this.text = this.color.asString(this.format ?? undefined);
+    this.text = this.color.getAuthoredText() ?? this.color.asString(this.format ?? undefined);
 
     if (tooltip) {
       this.tooltip = tooltip;
@@ -222,8 +222,8 @@ export class ColorSwatch extends HTMLElement {
         continue;
       }
 
-      const unclippedColor = newColor.getUnclippedColor();
-      const icon = unclippedColor.isInGamut() ? undefined : new IconButton.Icon.Icon();
+      const unclippedColor = newColor.getDecanonicalized().canonicalize({zeroPowerlessComponents: true});
+      const icon = unclippedColor.isCanonical() ? undefined : new IconButton.Icon.Icon();
       if (icon) {
         icon.data = {iconName: 'ic_warning_black_18dp', color: 'black', width: '14px', height: '14px'};
       }
