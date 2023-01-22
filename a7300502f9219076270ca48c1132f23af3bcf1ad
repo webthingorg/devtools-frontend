@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edaf77c_554f5e45",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-01-22T09:04:52Z",
+      "side": 1,
+      "message": "As discussed at https://crbug.com/1401107#c3, we need to think about what to do with this file (e.g. similar to locales, load it on-demand instead of bundle it).\n\nThis is originally a https://unpkg.com/browse/@vscode/web-custom-data/data/browsers.css-data.json file from https://www.npmjs.com/package/@vscode/web-custom-data npm package.\n\nI have failed to import the JSON file even after adding the `\"resolveJsonModule\": true` to the `/config/typescript/tsconfig.base.json` file. So I just wrapped the contents of the file into `export const cssData \u003d { ... };` and changed the file extension from *.json to *.js. And temporarily placed it here.\n\nAnd this works. :)",
+      "revId": "a7300502f9219076270ca48c1132f23af3bcf1ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
