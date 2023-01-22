@@ -70,6 +70,7 @@ import {
 
 import * as LayersWidget from './LayersWidget.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
+import {cssData} from './browsers.css-data.js';
 
 const UIStrings = {
   /**
@@ -304,32 +305,89 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.activeCSSAngle = null;
 
     this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
-      const icon = event.composedPath()[0] as Element;
+      const hoveredNode = event.composedPath()[0] as Element;
 
-      if (!icon) {
+      if (!hoveredNode) {
         return null;
       }
 
-      if (!icon.matches('.hint')) {
-        return null;
+      if (hoveredNode.matches('.hint')) {
+        const hint = activeHints.get(hoveredNode);
+
+        if (hint) {
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      const hint = activeHints.get(icon);
+      if (hoveredNode.matches('.webkit-css-property')) {
+        const cssPropertyName = hoveredNode.textContent;
+        const cssProperty = cssData.properties.find(property => property.name === cssPropertyName);
 
-      if (!hint) {
-        return null;
+        if (cssProperty) {
+          const description = cssProperty?.description;
+          const syntax = cssProperty?.syntax;
+          const url = cssProperty?.references?.[0].url;
+
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = document.createElement('div');
+              popupElement.style.maxWidth = '350px';
+              popupElement.style.padding = '6px';
+              popupElement.style.fontSize = '12px';
+              popupElement.style.lineHeight = '1.4';
+
+              if (description) {
+                const descriptionDiv = document.createElement('div');
+                const descriptionText = document.createTextNode(description);
+                descriptionDiv.appendChild(descriptionText);
+                popupElement.appendChild(descriptionDiv);
+              }
+
+              if (syntax) {
+                const syntaxDiv = document.createElement('div');
+                syntaxDiv.style.margin = '8px 0px 0px';
+                const syntaxText = document.createTextNode('Syntax: ');
+                const syntaxSpan = document.createElement('span');
+                syntaxSpan.style.fontFamily = 'monospace';
+                const syntaxValue = document.createTextNode(syntax);
+                syntaxSpan.appendChild(syntaxValue);
+                syntaxDiv.appendChild(syntaxText);
+                syntaxDiv.appendChild(syntaxSpan);
+                popupElement.appendChild(syntaxDiv);
+              }
+
+              if (url) {
+                const learnMoreDiv = document.createElement('div');
+                learnMoreDiv.style.margin = '8px 0px 0px';
+                const learnMoreA = document.createElement('a');
+                const learnMoreText = document.createTextNode('Learn more');
+                learnMoreA.appendChild(learnMoreText);
+                learnMoreA.setAttribute('href', url);
+                learnMoreA.setAttribute('target', '_blank');
+                learnMoreDiv.appendChild(learnMoreA);
+                popupElement.appendChild(learnMoreDiv);
+              }
+
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      return {
-        box: icon.boxInWindow(),
-        show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
-          const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
-          popover.contentElement.appendChild(popupElement);
-          return true;
-        },
-      };
+      return null;
     });
-    this.#hintPopoverHelper.setTimeout(200);
+
+    this.#hintPopoverHelper.setDisableOnClick(true);
+    this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
   }
 
