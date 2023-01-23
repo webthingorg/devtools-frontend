@@ -206,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91f64f7_1b0fc397",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-23T14:19:38Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "44377f2f_1406e98c",
+      "range": {
+        "startLine": 749,
+        "startChar": 30,
+        "endLine": 749,
+        "endChar": 37
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c203a56b_431605b6",
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "I think the DOM is changing because of the clicking event, this issue was mentioned in this postmortem: https://docs.google.com/document/d/158mGIdBAAJcnpuIUaDWHwQrb3u8Y5cU9AG1E0SeJi7A/edit?resourcekey\u003d0-cPh7ejjz_9RQDdwij54e2w. I did however change the catch slightly to reflect the change that was mentioned in the postmortem doc (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3834665). Please note that using the click function did not solve this issue, it was still flaky in some of the runs, so I kept my change while checking for `isConnected`. Do you want me to change the click function as well?",
       "parentUuid": "c203a56b_431605b6",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 76
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81fab5b2_e33e9f6c",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-23T14:19:38Z",
+      "side": 1,
+      "message": "Seems related indeed. And this postmortem speaks about how this is fixed in the `click` helper. So instead of this entire function you can simply have something like\n\n    await click(`.enabled-button[aria-label\u003d\"font-weight bold\"]`);\n    \nin the test body.",
+      "parentUuid": "ad987486_f67a0c70",
       "range": {
         "startLine": 750,
         "startChar": 0,
