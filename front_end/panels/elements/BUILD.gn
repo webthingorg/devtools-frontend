@@ -93,6 +93,7 @@ devtools_module("elements") {
     "../../ui/legacy/components/object_ui:bundle",
     "../../ui/legacy/components/utils:bundle",
     "../../ui/lit-html:bundle",
+    "../../third_party/vscode.web-custom-data:web_custom_data",
     "./components:bundle",
   ]
 
