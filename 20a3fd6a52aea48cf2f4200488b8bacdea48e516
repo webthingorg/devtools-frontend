@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58288cdb_d7002ade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T11:05:08Z",
+      "side": 1,
+      "message": "LGTM with two suggestions!",
+      "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c375dea_91ffd39a",
+        "filename": "front_end/ui/legacy/components/color_picker/ColorFormatSpec.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T11:05:08Z",
+      "side": 1,
+      "message": "this function also exists in Color.ts",
+      "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a913f2_3db08776",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T11:05:08Z",
+      "side": 1,
+      "message": "This should probably be inside the callback. ContextMenu.show does not wait for the menu to be closed again.",
+      "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
