@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76146de1_fc79550f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-01-23T06:45:02Z",
+      "side": 1,
+      "message": "I\u0027ll work on 4. ;) Thanks for your help with 1-3!",
+      "parentUuid": "f72f06fb_d830198c",
+      "revId": "a7300502f9219076270ca48c1132f23af3bcf1ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1edaf77c_554f5e45",
