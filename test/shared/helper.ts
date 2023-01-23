@@ -56,15 +56,13 @@ const globalThis: any = global;
  */
 export const getElementPosition =
     async (selector: string|puppeteer.ElementHandle, root?: puppeteer.JSHandle, maxPixelsFromLeft?: number) => {
-  const rectData = await waitForFunction(async () => {
     let element: puppeteer.ElementHandle;
     if (typeof selector === 'string') {
       element = await waitFor(selector, root);
     } else {
       element = selector;
     }
-
-    return element.evaluate((element: Element) => {
+  const rectData = await waitForFunction(() => element.evaluate((element: Element) => {
       if (!element) {
         return {};
       }
@@ -75,8 +73,7 @@ export const getElementPosition =
 
       const {left, top, width, height} = element.getBoundingClientRect();
       return {left, top, width, height};
-    });
-  });
+    }));
 
   if (rectData.left === undefined) {
     throw new Error(`Unable to find element with selector "${selector}"`);

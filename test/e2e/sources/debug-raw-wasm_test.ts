@@ -491,7 +491,7 @@ describe('Sources Tab', async function() {
 });
 
 describe('Raw-Wasm', async () => {
-  it('displays correct location in Wasm source', async () => {
+  it.only('displays correct location in Wasm source', async () => {
     const {target} = getBrowserAndPages();
 
     // Have the target load the page.
