@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e99f8f_0fe59686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-23T14:21:33Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nThis CL is adding a checkbox that can be used to disable/enable all breakpoints\nwithin a group. PTAL!",
+      "revId": "a5817bbb5818258ffeeb39f0b999206e3fc933be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
