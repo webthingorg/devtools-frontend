@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0be81777_bdfc1535",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T12:42:03Z",
+      "side": 1,
+      "message": "can we use waitForFunction here? Then we\u0027ll get a nice stacktrace if we happen to time out in this function.",
+      "revId": "206328fd12436916b58809de0ad1f7fab35d12a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
