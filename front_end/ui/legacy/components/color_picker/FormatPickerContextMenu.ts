@@ -18,14 +18,19 @@ const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/color_picker/Form
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 type OnSelectFn = (format: Common.Color.Format) => void;
+type Options = {
+  discardOriginal: boolean,
+};
 
 export class FormatPickerContextMenu {
   #color: Common.Color.Color;
   #format: Common.Color.Format;
+  #options: Options;
 
-  constructor(color: Common.Color.Color, format: Common.Color.Format) {
+  constructor(color: Common.Color.Color, format: Common.Color.Format, options: Options) {
     this.#color = color;
     this.#format = format;
+    this.#options = options;
   }
 
   async show(e: Event, onSelect: OnSelectFn): Promise<void> {
@@ -52,7 +57,7 @@ export class FormatPickerContextMenu {
       if (format === this.#format) {
         continue;
       }
-      const newColor = this.#color.as(format);
+      const newColor = this.#color.as(format, {discardOriginal: this.#options.discardOriginal});
       if (newColor instanceof Common.Color.Legacy) {
         // The legacy alpha formats (HEXA, ShortHEXA, RGBA, HSLA, HWBA) will only be stringified differently when alpha
         // isn't opaque (i.e., 100%).

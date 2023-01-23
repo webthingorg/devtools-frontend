@@ -478,6 +478,16 @@ export function hsva2rgba(hsva: number[], out_rgba: number[]): void {
   hsl2rgb(tmpHSLA, out_rgba);
 }
 
+export function rgba2hsva(rgba: number[]): number[] {
+  const hsla = rgbaToHsla(rgba);
+  const h = hsla[0];
+  let s = hsla[1];
+  const l = hsla[2];
+
+  s *= l < 0.5 ? l : 1 - l;
+  return [h, s !== 0 ? 2 * s / (l + s) : 0, (l + s), hsla[3]];
+}
+
 /**
  * Compute a desired luminance given a given luminance and a desired contrast
  * ratio.
@@ -633,12 +643,15 @@ interface ColorConversions {
   [Format.XYZ_D65](): ColorFunction;
 }
 
+type AsOptions = {
+  discardOriginal?: boolean,
+};
 export interface Color {
   equal(color: Color): boolean;
   asString(format?: Format): string|null;
   setAlpha(alpha: number): Color;
   format(): Format;
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]>;
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]>;
   asLegacyColor(): Legacy;
   isInGamut(): boolean;
   clipToGamut(): Color;
@@ -722,8 +735,8 @@ export class Lab implements Color {
     this.#origin = origin;
     this.#originalText = originalText;
   }
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
-    if (this.#origin) {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -855,8 +868,8 @@ export class LCH implements Color {
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
   }
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
-    if (this.#origin) {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -984,8 +997,8 @@ export class Oklab implements Color {
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
   }
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
-    if (this.#origin) {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -1117,8 +1130,8 @@ export class Oklch implements Color {
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
   }
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
-    if (this.#origin) {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -1274,11 +1287,11 @@ export class ColorFunction implements Color {
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
   }
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
     if (this.colorSpace === format) {
       return this as ReturnType<ColorConversions[T]>;
     }
-    if (this.#origin) {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -1612,11 +1625,11 @@ export class Legacy implements Color {
     return new Legacy(rgba, Format.HSLA).clipToGamut();
   }
 
-  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+  as<T extends Format>(format: T, options?: AsOptions): ReturnType<ColorConversions[T]> {
     if (format === this.format()) {
       return this as ReturnType<ColorConversions[T]>;
     }
-    if (this.#origin) {
+    if (this.#origin && !options?.discardOriginal) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
@@ -1645,13 +1658,7 @@ export class Legacy implements Color {
   /** HSVA with components within [0..1]
    */
   hsva(): number[] {
-    const hsla = this.hsla();
-    const h = hsla[0];
-    let s = hsla[1];
-    const l = hsla[2];
-
-    s *= l < 0.5 ? l : 1 - l;
-    return [h, s !== 0 ? 2 * s / (l + s) : 0, (l + s), hsla[3]];
+    return rgba2hsva(this.#rgbaInternal);
   }
 
   /** HWBA with components within [0..1]
