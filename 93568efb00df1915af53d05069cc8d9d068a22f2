@@ -373,6 +373,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "106716d0_1e466dc4",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-23T16:16:46Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "89f0efb6_1127426b",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 76
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac7d13ad_ff9b496c",
