@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3ecf53_7ff0e491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-23T09:33:23Z",
+      "side": 1,
+      "message": "Actually, we could \"minify\" the JSON. We do that for locale files by removing all the white space.",
+      "revId": "3d9fc7dcf3a0350a3bde7b21dc249014f2c1e052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
