@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c567cc_329b9429",
+        "filename": "front_end/legacy_test_runner/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-23T06:09:35Z",
+      "side": 1,
+      "message": "This is required to be able to wait for authored vs. deployed scripts in the layout tests.",
+      "revId": "cc3e47884c25b499c86622103994f8a17f4977c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
