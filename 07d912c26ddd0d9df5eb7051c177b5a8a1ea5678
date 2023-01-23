@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb442b8_c4daffe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T17:43:12Z",
+      "side": 1,
+      "message": "Still LGTM! One more suggestion.",
+      "revId": "07d912c26ddd0d9df5eb7051c177b5a8a1ea5678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e432d5de_f7b147ff",
+        "filename": "front_end/ui/legacy/components/color_picker/FormatPickerContextMenu.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T17:43:12Z",
+      "side": 1,
+      "message": "how about also awaiting this one? One less dangling promise!",
+      "revId": "07d912c26ddd0d9df5eb7051c177b5a8a1ea5678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
