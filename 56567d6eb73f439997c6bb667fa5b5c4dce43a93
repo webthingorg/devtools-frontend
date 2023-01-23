@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c40eb45_77d9af38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-23T09:19:26Z",
+      "side": 1,
+      "message": "LGTM with one question/suggestion: WDYT about also adding a test where variables contain garbage?",
+      "revId": "56567d6eb73f439997c6bb667fa5b5c4dce43a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
