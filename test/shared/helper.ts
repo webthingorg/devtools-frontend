@@ -749,20 +749,6 @@ export const assertMatchArray = assertOk(matchStringArray);
 export const matchStringTable = (actual: string[][], expected: (string|RegExp)[][]) =>
     matchTable(actual, expected, matchString);
 
-export async function renderCoordinatorQueueEmpty(): Promise<void> {
-  const {frontend} = getBrowserAndPages();
-  await frontend.evaluate(() => {
-    return new Promise<void>(resolve => {
-      const pendingFrames = globalThis.__getRenderCoordinatorPendingFrames();
-      if (pendingFrames < 1) {
-        resolve();
-        return;
-      }
-      globalThis.addEventListener('renderqueueempty', resolve, {once: true});
-    });
-  });
-}
-
 export async function setCheckBox(selector: string, wantChecked: boolean): Promise<void> {
   const checkbox = await waitFor(selector);
   const checked = await checkbox.evaluate(box => (box as HTMLInputElement).checked);
@@ -775,3 +761,16 @@ export async function setCheckBox(selector: string, wantChecked: boolean): Promi
 export const summonSearchBox = async () => {
   await pressKey('f', {control: true});
 };
+
+export async function waitForNoMoreMutations(element: puppeteer.ElementHandle<Element>): Promise<void> {
+  while (await element.evaluate(element => Promise.race([
+    new Promise(resolve => setTimeout(resolve, 100)), new Promise(resolve => {
+      const observer = new MutationObserver(() => {
+        observer.disconnect();
+        resolve(false /*true*/);
+      });
+      observer.observe(element, {attributes: true, childList: true, subtree: true});
+    })
+  ])))
+    ;
+}
