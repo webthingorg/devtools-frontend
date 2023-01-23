@@ -80,6 +80,12 @@ details[open] > summary::before {
   overflow: hidden;
 }
 
+.group-icon-or-disable {
+  justify-content: center;
+  display: flex;
+  width: 15px;
+}
+
 .group-header-title {
   margin-left: 4px;
   font-weight: 500;
@@ -191,6 +197,18 @@ button:hover devtools-icon {
 .checkbox-label > input {
   margin-left: 16px;
   margin-right: 6px;
+}
+
+summary:hover .file-icon {
+  display: none;
+}
+
+.group-checkbox {
+  display: none;
+}
+
+summary:hover .group-checkbox {
+  display: flex;
 }
 
 .location {
