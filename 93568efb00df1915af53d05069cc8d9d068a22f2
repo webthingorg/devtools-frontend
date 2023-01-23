@@ -303,6 +303,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aabb1798_1e06f0c9",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-01-23T15:04:34Z",
+      "side": 1,
+      "message": "As I mentioned in the comment, using the click function, while better, was still flaky. I think the reason was that `getElementPosition` checks that the element is connected before returning it, but it is possible that it gets disconnected after that or that the clicking itself is causing it to disconnect. My solution was if the clicking fails, we check if the element is connected and if it is not we try to find it and click it again, and that approach did not flake. Should I modify the click function to use that approach? and do you want it to be in this CL or a separate one?",
+      "parentUuid": "81fab5b2_e33e9f6c",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 76
+      },
+      "revId": "93568efb00df1915af53d05069cc8d9d068a22f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac7d13ad_ff9b496c",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 3
