@@ -16,6 +16,24 @@
       "message": "What about `wget $(npm view @vscode/web-custom-data dist.tarball)` or just `npm pack @vscode/web-custom-data` to download the latest version instead of 0.4.4?",
       "revId": "8f6a58ee7172d931f10bababb48dc2e6d62460eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda60ca8_d02946ef",
+        "filename": "front_end/third_party/vscode.web-custom-data/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-23T11:26:40Z",
+      "side": 1,
+      "message": "I re-used the convention of most of the other front_end/third_party packages. This also has the advantage that one does not need \"npm\".",
+      "parentUuid": "504a8cf8_a1a2c8e2",
+      "revId": "8f6a58ee7172d931f10bababb48dc2e6d62460eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
