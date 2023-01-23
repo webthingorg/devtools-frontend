@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96cd4013_f5a07c7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-01-23T04:43:39Z",
+      "side": 1,
+      "message": "A follow up for my last data grid a11y change. I found an edge case that I should fix 😊 and also make the message more screen reader friendly. PTAL, thank you!",
+      "revId": "0a390feb2ad271e887f4230f4af6bd28395dc076",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
