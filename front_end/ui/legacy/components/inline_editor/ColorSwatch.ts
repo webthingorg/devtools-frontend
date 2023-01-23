@@ -164,7 +164,8 @@ export class ColorSwatch extends HTMLElement {
       return;
     }
 
-    const contextMenu = new ColorPicker.FormatPickerContextMenu.FormatPickerContextMenu(this.color, this.format);
+    const contextMenu = new ColorPicker.FormatPickerContextMenu.FormatPickerContextMenu(
+        this.color, this.format);
     void contextMenu.show(e, format => this.setFormat(format));
   }
 }
