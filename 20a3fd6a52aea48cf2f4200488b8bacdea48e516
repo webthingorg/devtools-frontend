@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "478782bf_e3cb4b7d",
+        "filename": "front_end/ui/legacy/components/color_picker/ColorFormatSpec.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-23T16:29:38Z",
+      "side": 1,
+      "message": "Moved `stringifyWithPrecision` to StringUtilities and used it in both places :)",
+      "parentUuid": "4c375dea_91ffd39a",
+      "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6a913f2_3db08776",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-23T11:05:08Z",
       "side": 1,
       "message": "This should probably be inside the callback. ContextMenu.show does not wait for the menu to be closed again.",
+      "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5655ee_e15419bf",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-23T16:29:38Z",
+      "side": 1,
+      "message": "Oh you\u0027re right, thanks for the catch! I tried a few times and got a consistently correct behavior. Apparantely I was just lucky with the task loop :)\n\nI have added the behavior I intended that FormatPickerContextMenu.show to have: it now waits until the context menu is closed. WDYT?",
+      "parentUuid": "e6a913f2_3db08776",
       "revId": "20a3fd6a52aea48cf2f4200488b8bacdea48e516",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
