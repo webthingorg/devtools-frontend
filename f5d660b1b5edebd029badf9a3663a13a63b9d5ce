@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58adfcc_f5201793",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-24T11:34:51Z",
+      "side": 1,
+      "message": "Given that we only show the link once the \"Edit\" dialog is open, should we link directly to the section of logpoints or conditional breakpoints depending on the combobox selection?\n\nBasically a \"Learn more: Logpoints\" and \"Learn more: Conditional breakpoints\".",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "f5d660b1b5edebd029badf9a3663a13a63b9d5ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c929f95f_d687e2ad",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-01-24T11:30:11Z",
       "side": 1,
       "message": "Hi Simon,\n\nI\u0027m changing the Breakpoint Edit Dialog to include a link to learn more about breakpoin types. The documentation is not ready yet, so I\u0027ll land it as soon as the documentation is updated.\n\nPTAL!",
+      "revId": "f5d660b1b5edebd029badf9a3663a13a63b9d5ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f5129f_2979ee2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-24T11:34:51Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
       "revId": "f5d660b1b5edebd029badf9a3663a13a63b9d5ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
