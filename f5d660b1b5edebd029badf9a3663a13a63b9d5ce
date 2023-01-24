@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9bf314_783f90dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-24T11:45:21Z",
+      "side": 1,
+      "message": "Oh, hm yeah that would work too. Currently I\u0027m slightly leaning towards showing the overview: this is mostly for people who open up the edit dialog for the first time and have no clue what they look at (they might not be aware at that moment that they can change the type either, which would be required to see the other links - although you can scroll of course to see). I can bring this up with UX, but since M111 is soon and since they\u0027re out we might want to change that as a follow up?",
+      "parentUuid": "a58adfcc_f5201793",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "f5d660b1b5edebd029badf9a3663a13a63b9d5ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c929f95f_d687e2ad",
