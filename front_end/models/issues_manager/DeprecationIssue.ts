@@ -280,11 +280,6 @@ const UIStrings = {
    */
   vendorSpecificApi: '{PH1} is vendor-specific. Please use the standard {PH2} instead.',
   /**
-   * @description Warning displayed to developers when `window.webkitStorageInfo` is used to notify that the API is deprecated.
-   */
-  prefixedStorageInfo:
-      '`window.webkitStorageInfo` is deprecated. Please use standardized `navigator.storage` instead.',
-  /**
    * @description Standard message when one web API is deprecated in favor of another. Both
    * placeholders are always web API functions.
    * @example {HTMLVideoElement.webkitDisplayingFullscreen} PH1
@@ -565,9 +560,6 @@ export class DeprecationIssue extends Issue {
       case Protocol.Audits.DeprecationIssueType.PrefixedRequestAnimationFrame:
         messageFunction = i18nLazyString(
             UIStrings.vendorSpecificApi, {PH1: 'webkitRequestAnimationFrame', PH2: 'requestAnimationFrame'});
-        break;
-      case Protocol.Audits.DeprecationIssueType.PrefixedStorageInfo:
-        messageFunction = i18nLazyString(UIStrings.prefixedStorageInfo);
         break;
       case Protocol.Audits.DeprecationIssueType.PrefixedVideoDisplayingFullscreen:
         messageFunction = i18nLazyString(
