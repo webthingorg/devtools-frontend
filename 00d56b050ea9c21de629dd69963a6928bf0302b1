@@ -16,6 +16,40 @@
       "message": "Hey hey, this CL adds support for display-p3 color space in the Color Picker rectangle. I\u0027ll add some tests tomorrow but wanted to send it to review for a look without tests :)",
       "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6eeaf52_87316ddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-24T09:37:01Z",
+      "side": 1,
+      "message": "Nice! One question about performance below. Are you planning to include tests?",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48ac476_43f3b6ee",
+        "filename": "front_end/ui/legacy/components/color_picker/GamutOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-24T09:37:01Z",
+      "side": 1,
+      "message": "This will be lots of points. Do we have a measure of how expensive this element is going to be?",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
