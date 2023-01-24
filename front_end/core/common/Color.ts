@@ -34,14 +34,18 @@
 import * as Platform from '../platform/platform.js';
 
 import {ColorConverter} from './ColorConverter.js';
+
 import {
   blendColors,
   contrastRatioAPCA,
   desiredLuminanceAPCA,
   luminance,
   luminanceAPCA,
-  rgbaToHsla,
-  rgbaToHwba,
+  rgbToHsl,
+  rgbToHwb,
+  type Color3D,
+  type Color4D,
+  type Color4DOr3D,
 } from './ColorUtils.js';
 
 // Parses angle in the form of
@@ -215,11 +219,11 @@ export function parse(text: string): Color|null {
     }
 
     if (isHslaMatch) {
-      return Legacy.fromHSLA(values[0], values[1], values[2], values[3], text);
+      return HSL.fromSpec(spec, text);
     }
 
     if (isHwbaMatch) {
-      return Legacy.fromHWB(values[0], values[1], values[2], values[3], text);
+      return HWB.fromSpec(spec, text);
     }
 
     if (isLchMatch) {
@@ -388,7 +392,7 @@ function parseAlphaNumeric(value: string): number|null {
 
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
 // eslint-disable-next-line @typescript-eslint/naming-convention
-function hsva2hsla(hsva: number[], out_hsla: number[]): void {
+function hsva2hsla(hsva: Color4D, out_hsla: Color4D): void {
   const h = hsva[0];
   let s: 0|number = hsva[1];
   const v = hsva[2];
@@ -407,7 +411,7 @@ function hsva2hsla(hsva: number[], out_hsla: number[]): void {
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export function hsl2rgb(hsl: number[], out_rgb: number[]): void {
+export function hsl2rgb(hsl: Color4D, out_rgb: Color4D): void {
   const h = hsl[0];
   let s: 0|number = hsl[1];
   const l = hsl[2];
@@ -455,7 +459,7 @@ export function hsl2rgb(hsl: number[], out_rgb: number[]): void {
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-function hwb2rgb(hwb: number[], out_rgb: number[]): void {
+function hwb2rgb(hwb: Color4D, out_rgb: Color4D): void {
   const h = hwb[0];
   const w = hwb[1];
   const b = hwb[2];
@@ -472,8 +476,8 @@ function hwb2rgb(hwb: number[], out_rgb: number[]): void {
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export function hsva2rgba(hsva: number[], out_rgba: number[]): void {
-  const tmpHSLA = [0, 0, 0, 0];
+export function hsva2rgba(hsva: Color4D, out_rgba: Color4D): void {
+  const tmpHSLA: Color4D = [0, 0, 0, 0];
   hsva2hsla(hsva, tmpHSLA);
   hsl2rgb(tmpHSLA, out_rgba);
 }
@@ -502,8 +506,8 @@ export function desiredLuminance(luminance: number, contrast: number, lighter: b
  * calculated luminance of `candidateHSVA` approximates `desiredLuminance`.
  */
 export function approachColorValue(
-    candidateHSVA: number[], bgRGBA: number[], index: number, desiredLuminance: number,
-    candidateLuminance: (arg0: Array<number>) => number): number|null {
+    candidateHSVA: Color4D, bgRGBA: Color4D, index: number, desiredLuminance: number,
+    candidateLuminance: (arg0: Color4D) => number): number|null {
   const epsilon = 0.0002;
 
   let x = candidateHSVA[index];
@@ -541,10 +545,10 @@ export function approachColorValue(
 }
 
 export function findFgColorForContrast(fgColor: Legacy, bgColor: Legacy, requiredContrast: number): Legacy|null {
-  const candidateHSVA = fgColor.hsva();
+  const candidateHSVA = fgColor.as(Format.HSL).hsva();
   const bgRGBA = bgColor.rgba();
 
-  const candidateLuminance = (candidateHSVA: number[]): number => {
+  const candidateLuminance = (candidateHSVA: Color4D): number => {
     return luminance(blendColors(Legacy.fromHSVA(candidateHSVA).rgba(), bgRGBA));
   };
 
@@ -570,10 +574,10 @@ export function findFgColorForContrast(fgColor: Legacy, bgColor: Legacy, require
 }
 
 export function findFgColorForContrastAPCA(fgColor: Legacy, bgColor: Legacy, requiredContrast: number): Legacy|null {
-  const candidateHSVA = fgColor.hsva();
+  const candidateHSVA = fgColor.as(Format.HSL).hsva();
   const bgRGBA = bgColor.rgba();
 
-  const candidateLuminance = (candidateHSVA: number[]): number => {
+  const candidateLuminance = (candidateHSVA: Color4D): number => {
     return luminanceAPCA(Legacy.fromHSVA(candidateHSVA).rgba());
   };
 
@@ -613,10 +617,10 @@ interface ColorConversions {
   [Format.ShortHEXA](): Legacy;
   [Format.RGB](): Legacy;
   [Format.RGBA](): Legacy;
-  [Format.HSL](): Legacy;
-  [Format.HSLA](): Legacy;
-  [Format.HWB](): Legacy;
-  [Format.HWBA](): Legacy;
+  [Format.HSL](): HSL;
+  [Format.HSLA](): HSL;
+  [Format.HWB](): HWB;
+  [Format.HWBA](): HWB;
   [Format.LCH](): LCH;
   [Format.OKLCH](): Oklch;
   [Format.LAB](): Lab;
@@ -678,10 +682,10 @@ export class Lab implements Color {
     [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HWBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
     [Format.LCH]: () => new LCH(...ColorConverter.labToLch(this.l, this.a, this.b), this.alpha, undefined, this),
     [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
     [Format.LAB]: () => this,
@@ -708,14 +712,16 @@ export class Lab implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #toXyzd50(): Color3D {
     return ColorConverter.labToXyzd50(this.l, this.a, this.b);
   }
 
-  #getRGBArray(withAlpha: boolean = true): number[] {
-    const params = [...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50())];
-    if (this.alpha !== null && withAlpha) {
-      params.push(this.alpha);
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color3D|Color4DOr3D {
+    const params = ColorConverter.xyzd50ToSrgb(...this.#toXyzd50());
+    if (withAlpha) {
+      return [...params, this.alpha ?? undefined];
     }
     return params;
   }
@@ -812,10 +818,10 @@ export class LCH implements Color {
     [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HWBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
     [Format.LCH]: () => this,
     [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
     [Format.LAB]: () => new Lab(...ColorConverter.lchToLab(this.l, this.c, this.h), this.alpha, undefined, this),
@@ -842,14 +848,16 @@ export class LCH implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #toXyzd50(): Color3D {
     return ColorConverter.labToXyzd50(...ColorConverter.lchToLab(this.l, this.c, this.h));
   }
 
-  #getRGBArray(withAlpha: boolean = true): number[] {
-    const params = [...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50())];
-    if (this.alpha !== null && withAlpha) {
-      params.push(this.alpha);
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const params = ColorConverter.xyzd50ToSrgb(...this.#toXyzd50());
+    if (withAlpha) {
+      return [...params, this.alpha ?? undefined];
     }
     return params;
   }
@@ -951,10 +959,10 @@ export class Oklab implements Color {
     [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HWBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
     [Format.LCH]: () => new LCH(
         ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
     [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
@@ -980,14 +988,16 @@ export class Oklab implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #toXyzd50(): Color3D {
     return ColorConverter.xyzd65ToD50(...ColorConverter.oklabToXyzd65(this.l, this.a, this.b));
   }
 
-  #getRGBArray(withAlpha: boolean = true): number[] {
-    const params = [...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50())];
-    if (this.alpha !== null && withAlpha) {
-      params.push(this.alpha);
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const params = ColorConverter.xyzd50ToSrgb(...this.#toXyzd50());
+    if (withAlpha) {
+      return [...params, this.alpha ?? undefined];
     }
     return params;
   }
@@ -1085,10 +1095,10 @@ export class Oklch implements Color {
     [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HWBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
 
     [Format.LCH]: () => new LCH(
         ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
@@ -1117,14 +1127,16 @@ export class Oklch implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #toXyzd50(): Color3D {
     return ColorConverter.oklchToXyzd50(this.l, this.c, this.h);
   }
 
-  #getRGBArray(withAlpha: boolean = true): number[] {
-    const params = [...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50())];
-    if (this.alpha !== null && withAlpha) {
-      params.push(this.alpha);
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const params = ColorConverter.xyzd50ToSrgb(...this.#toXyzd50());
+    if (withAlpha) {
+      return [...params, this.alpha ?? undefined];
     }
     return params;
   }
@@ -1228,10 +1240,10 @@ export class ColorFunction implements Color {
     [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
     [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
     [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HWBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
     [Format.LCH]: () => new LCH(
         ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
     [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
@@ -1259,7 +1271,7 @@ export class ColorFunction implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #toXyzd50(): Color3D {
     switch (this.colorSpace) {
       case Format.SRGB:
         return ColorConverter.srgbToXyzd50(this.p0, this.p1, this.p2);
@@ -1282,11 +1294,13 @@ export class ColorFunction implements Color {
     throw new Error('Invalid color space');
   }
 
-  #getRGBArray(withAlpha: boolean = true): number[] {
-    const params = this.colorSpace === Format.SRGB ? [this.p0, this.p1, this.p2] :
-                                                     [...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50())];
-    if (this.alpha !== null && withAlpha) {
-      params.push(this.alpha);
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const params: Color3D = this.colorSpace === Format.SRGB ? [this.p0, this.p1, this.p2] :
+                                                              ColorConverter.xyzd50ToSrgb(...this.#toXyzd50());
+    if (withAlpha) {
+      return [...params, this.alpha ?? undefined];
     }
     return params;
   }
@@ -1435,7 +1449,7 @@ export class ColorFunction implements Color {
     // Depending on the color space
     // this either reflects `rgb` parameters in that color space
     // or `xyz` parameters in the given `xyz` space.
-    const rgbOrXyza: [number, number, number, number] = [
+    const rgbOrXyza: Color4D = [
       values[0] ?? 0,
       values[1] ?? 0,
       values[2] ?? 0,
@@ -1446,28 +1460,26 @@ export class ColorFunction implements Color {
   }
 }
 
-type LegacyColor = Format.Nickname|Format.HEX|Format.ShortHEX|Format.HEXA|Format.ShortHEXA|Format.RGB|Format.RGBA|
-                   Format.HSL|Format.HSLA|Format.HWB|Format.HWBA;
-export class Legacy implements Color {
-  #hslaInternal: number[]|undefined;
-  #hwbaInternal: number[]|undefined;
-  #rgbaInternal: number[];
-  #originalText: string|null;
-  #formatInternal: LegacyColor;
-  readonly #origin?: Color;
+export class HSL implements Color {
+  readonly h: number;
+  readonly s: number;
+  readonly l: number;
+  readonly alpha: number|null;
+  #origin: Color|undefined;
+  #originalText: string|undefined;
 
   readonly #conversions: ColorConversions = {
-    [Format.Nickname]: () => new Legacy(this.#rgbaInternal, Format.Nickname, undefined, this),
-    [Format.HEX]: () => new Legacy(this.#rgbaInternal, Format.HEX, undefined, this),
-    [Format.ShortHEX]: () => new Legacy(this.#rgbaInternal, Format.ShortHEX, undefined, this),
-    [Format.HEXA]: () => new Legacy(this.#rgbaInternal, Format.HEXA, undefined, this),
-    [Format.ShortHEXA]: () => new Legacy(this.#rgbaInternal, Format.ShortHEXA, undefined, this),
-    [Format.RGB]: () => new Legacy(this.#rgbaInternal, Format.RGB, undefined, this),
-    [Format.RGBA]: () => new Legacy(this.#rgbaInternal, Format.RGBA, undefined, this),
-    [Format.HSL]: () => new Legacy(this.#rgbaInternal, Format.HSL, undefined, this),
-    [Format.HSLA]: () => new Legacy(this.#rgbaInternal, Format.HSLA, undefined, this),
-    [Format.HWB]: () => new Legacy(this.#rgbaInternal, Format.HWB, undefined, this),
-    [Format.HWBA]: () => new Legacy(this.#rgbaInternal, Format.HWBA, undefined, this),
+    [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
+    [Format.HEX]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HEX, undefined, this),
+    [Format.ShortHEX]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.ShortHEX, undefined, this),
+    [Format.HEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HEXA, undefined, this),
+    [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
+    [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
+    [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
+    [Format.HSL]: () => this,
+    [Format.HSLA]: () => this,
+    [Format.HWB]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWBA]: () => new HWB(...rgbToHwb(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
     [Format.LCH]: () => new LCH(
         ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
     [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
@@ -1495,7 +1507,324 @@ export class Legacy implements Color {
         Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
   };
 
-  #toXyzd50(): [number, number, number] {
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const rgb: Color4D = [0, 0, 0, 0];
+    hsl2rgb([this.h, this.s, this.l, 0], rgb);
+    if (withAlpha) {
+      return [rgb[0], rgb[1], rgb[2], this.alpha ?? undefined];
+    }
+    return [rgb[0], rgb[1], rgb[2]];
+  }
+
+  #toXyzd50(): Color3D {
+    const rgb = this.#getRGBArray(false);
+    return ColorConverter.srgbToXyzd50(rgb[0], rgb[1], rgb[2]);
+  }
+
+  constructor(
+      h: number, s: number, l: number, alpha: number|null|undefined, originalText: string|undefined, origin?: Color) {
+    this.h = h;
+    this.s = clamp(s, {min: 0, max: 1});
+    this.l = clamp(l, {min: 0, max: 1});
+    this.alpha = clamp(alpha ?? null, {min: 0, max: 1});
+    this.#origin = origin;
+    this.#originalText = originalText;
+  }
+
+  equal(color: Color): boolean {
+    const hsl = color.as(Format.HSL);
+    return equals(this.h, hsl.h) && equals(this.s, hsl.s) && equals(this.l, hsl.l) && equals(this.alpha, hsl.alpha);
+  }
+  asString(format?: Format|undefined): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const start = Platform.StringUtilities.sprintf(
+        'hsl(%sdeg %s% %s%', stringifyWithPrecision(this.h * 360), stringifyWithPrecision(this.s * 100),
+        stringifyWithPrecision(this.l * 100));
+    if (this.alpha !== null && this.alpha !== 1) {
+      return start + Platform.StringUtilities.sprintf(' / %s%)', stringifyWithPrecision(this.alpha * 100));
+    }
+    return start + ')';
+  }
+  setAlpha(alpha: number): HSL {
+    return new HSL(this.h, this.s, this.l, alpha, undefined);
+  }
+  format(): Format {
+    return this.alpha === null || this.alpha === 1 ? Format.HSL : Format.HSLA;
+  }
+  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (format === this.format()) {
+      return this as ReturnType<ColorConversions[T]>;
+    }
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
+  }
+  asLegacyColor(): Legacy {
+    return this.as(Format.RGBA);
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
+
+  isCanonical(): boolean {
+    if ((equals(this.l, 0) || equals(this.l, 1)) && !equals(this.s, 0)) {
+      return false;
+    }
+    return !equals(this.s, 0) || equals(this.h, 0);
+  }
+  canonicalize({zeroPowerlessComponents}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): HSL {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    const s = equals(this.l, 0) || equals(this.l, 1) ? 0 : this.s;
+    const h = equals(s, 0) ? 0 : this.h;
+    return new HSL(h, s, this.l, this.alpha, undefined, this);
+  }
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
+  }
+
+  static fromSpec(spec: ColorParameterSpec, text: string): HSL|null {
+    const h = parseHueNumeric(spec[0]);
+    if (h === null) {
+      return null;
+    }
+    const s = parseSatLightNumeric(spec[1]);
+    if (s === null) {
+      return null;
+    }
+    const l = parseSatLightNumeric(spec[2]);
+    if (l === null) {
+      return null;
+    }
+    const alpha = parseAlpha(spec[3]);
+
+    return new HSL(h, s, l, alpha, text).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
+  }
+
+  hsva(): Color4D {
+    const s = this.s * (this.l < 0.5 ? this.l : 1 - this.l);
+    return [this.h, s !== 0 ? 2 * s / (this.l + s) : 0, (this.l + s), this.alpha ?? 1];
+  }
+  canonicalHSLA(): number[] {
+    return [Math.round(this.h * 360), Math.round(this.s * 100), Math.round(this.l * 100), this.alpha ?? 1];
+  }
+}
+export class HWB implements Color {
+  readonly h: number;
+  readonly w: number;
+  readonly b: number;
+  readonly alpha: number|null;
+  #originalText: string|undefined;
+  #origin: Color|undefined;
+
+  readonly #conversions: ColorConversions = {
+    [Format.Nickname]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.Nickname, undefined, this),
+    [Format.HEX]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.HEX, undefined, this),
+    [Format.ShortHEX]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.ShortHEX, undefined, this),
+    [Format.HEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.HEXA, undefined, this),
+    [Format.ShortHEXA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.ShortHEXA, undefined, this),
+    [Format.RGB]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ false), Format.RGB, undefined, this),
+    [Format.RGBA]: () => new Legacy(this.#getRGBArray(/* withAlpha= */ true), Format.RGBA, undefined, this),
+    [Format.HSL]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HSLA]: () => new HSL(...rgbToHsl(this.#getRGBArray(/* withAlpha= */ false)), this.alpha, undefined, this),
+    [Format.HWB]: () => this,
+    [Format.HWBA]: () => this,
+    [Format.LCH]: () => new LCH(
+        ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
+    [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.LAB]: () => new Lab(...ColorConverter.xyzd50ToLab(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.OKLAB]: () => new Oklab(
+        ...ColorConverter.xyzd65ToOklab(...ColorConverter.xyzd50ToD65(...this.#toXyzd50())), this.alpha, undefined,
+        this),
+
+    [Format.SRGB]: () => new ColorFunction(
+        Format.SRGB, ...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.SRGB_LINEAR]: () => new ColorFunction(
+        Format.SRGB_LINEAR, ...ColorConverter.xyzd50TosRGBLinear(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.DISPLAY_P3]: () => new ColorFunction(
+        Format.DISPLAY_P3, ...ColorConverter.xyzd50ToDisplayP3(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.A98_RGB]: () => new ColorFunction(
+        Format.A98_RGB, ...ColorConverter.xyzd50ToAdobeRGB(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.PROPHOTO_RGB]: () => new ColorFunction(
+        Format.PROPHOTO_RGB, ...ColorConverter.xyzd50ToProPhoto(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.REC_2020]: () => new ColorFunction(
+        Format.REC_2020, ...ColorConverter.xyzd50ToRec2020(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.XYZ]: () =>
+        new ColorFunction(Format.XYZ, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, ...this.#toXyzd50(), this.alpha, undefined, this),
+    [Format.XYZ_D65]: () => new ColorFunction(
+        Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
+  };
+
+  #getRGBArray(withAlpha: true): Color4DOr3D;
+  #getRGBArray(withAlpha: false): Color3D;
+  #getRGBArray(withAlpha: boolean = true): Color4DOr3D|Color3D {
+    const rgb: Color4D = [0, 0, 0, 0];
+    hwb2rgb([this.h, this.w, this.b, 0], rgb);
+    if (withAlpha) {
+      return [rgb[0], rgb[1], rgb[2], this.alpha ?? undefined];
+    }
+    return [rgb[0], rgb[1], rgb[2]];
+  }
+
+  #toXyzd50(): Color3D {
+    const rgb = this.#getRGBArray(false);
+    return ColorConverter.srgbToXyzd50(rgb[0], rgb[1], rgb[2]);
+  }
+  constructor(h: number, w: number, b: number, alpha: number|null, originalText: string|undefined, origin?: Color) {
+    this.h = h;
+    this.w = clamp(w, {min: 0, max: 1});
+    this.b = clamp(b, {min: 0, max: 1});
+    this.alpha = clamp(alpha, {min: 0, max: 1});
+    if (lessOrEquals(1, this.w + this.b)) {
+      // normalize to a sum of 100% respecting the ratio, see https://www.w3.org/TR/css-color-4/#the-hwb-notation
+      const ratio = this.w / this.b;
+      this.b = 1 / (1 + ratio);
+      this.w = 1 - this.b;
+    }
+    this.#originalText = originalText;
+    this.#origin = origin;
+  }
+  equal(color: Color): boolean {
+    const hwb = color.as(Format.HWB);
+    return equals(this.h, hwb.h) && equals(this.w, hwb.w) && equals(this.b, hwb.b) && equals(this.alpha, hwb.alpha);
+  }
+  asString(format?: Format|undefined): string|null {
+    if (format) {
+      return this.as(format).asString();
+    }
+    const start = Platform.StringUtilities.sprintf(
+        'hwb(%sdeg %s% %s%', stringifyWithPrecision(this.h * 360), stringifyWithPrecision(this.w * 100),
+        stringifyWithPrecision(this.b * 100));
+    if (this.alpha !== null && this.alpha !== 1) {
+      return start + Platform.StringUtilities.sprintf(' / %s%)', stringifyWithPrecision(this.alpha * 100));
+    }
+    return start + ')';
+  }
+  setAlpha(alpha: number): HWB {
+    return new HWB(this.h, this.w, this.b, alpha, this.#originalText, this.#origin);
+  }
+  format(): Format {
+    return this.alpha !== null && !equals(this.alpha, 1) ? Format.HWBA : Format.HWB;
+  }
+  as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (format === this.format()) {
+      return this as ReturnType<ColorConversions[T]>;
+    }
+    if (this.#origin) {
+      return this.#origin.as(format);
+    }
+    const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
+  }
+  asLegacyColor(): Legacy {
+    return this.as(Format.RGBA);
+  }
+  isCanonical(): boolean {
+    return !lessOrEquals(1, this.w + this.b) || equals(this.h, 0);
+  }
+  canonicalize({zeroPowerlessComponents}:
+                   {clipToGamut?: boolean|undefined, zeroPowerlessComponents?: boolean|undefined}): HWB {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    const h = lessOrEquals(1, this.w + this.b) ? 0 : this.h;
+    return new HWB(h, this.w, this.b, this.alpha, undefined, this);
+  }
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
+
+  canonicalHWBA(): number[] {
+    return [Math.round(this.h * 360), Math.round(this.w * 100), Math.round(this.b * 100), this.alpha ?? 1];
+  }
+
+  static fromSpec(spec: ColorParameterSpec, text: string): HWB|null {
+    const h = parseHueNumeric(spec[0]);
+    if (h === null) {
+      return null;
+    }
+    const w = parseSatLightNumeric(spec[1]);  // , {min: 0, max: 1}),
+    if (w === null) {
+      return null;
+    }
+    const b = parseSatLightNumeric(spec[2]);  // , {min: 0, max: 1}),
+    if (b === null) {
+      return null;
+    }
+    const alpha = parseAlpha(spec[3]);
+    return new HWB(h, w, b, alpha, text).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
+  }
+}
+
+type LegacyColor = Format.Nickname|Format.HEX|Format.ShortHEX|Format.HEXA|Format.ShortHEXA|Format.RGB|Format.RGBA;
+
+export class Legacy implements Color {
+  #rgbaInternal: Color4D;
+  #originalText: string|null;
+  #formatInternal: LegacyColor;
+  readonly #origin?: Color;
+
+  readonly #conversions: ColorConversions = {
+    [Format.Nickname]: () => new Legacy(this.#rgbaInternal, Format.Nickname, undefined, this),
+    [Format.HEX]: () => new Legacy(this.#rgbaInternal, Format.HEX, undefined, this),
+    [Format.ShortHEX]: () => new Legacy(this.#rgbaInternal, Format.ShortHEX, undefined, this),
+    [Format.HEXA]: () => new Legacy(this.#rgbaInternal, Format.HEXA, undefined, this),
+    [Format.ShortHEXA]: () => new Legacy(this.#rgbaInternal, Format.ShortHEXA, undefined, this),
+    [Format.RGB]: () => new Legacy(this.#rgbaInternal, Format.RGB, undefined, this),
+    [Format.RGBA]: () => new Legacy(this.#rgbaInternal, Format.RGBA, undefined, this),
+    [Format.HSL]: () => new HSL(
+        ...rgbToHsl([this.#rgbaInternal[0], this.#rgbaInternal[1], this.#rgbaInternal[2]]), this.alpha, undefined,
+        this),
+    [Format.HSLA]: () => new HSL(
+        ...rgbToHsl([this.#rgbaInternal[0], this.#rgbaInternal[1], this.#rgbaInternal[2]]), this.alpha, undefined,
+        this),
+    [Format.HWB]: () => new HWB(
+        ...rgbToHwb([this.#rgbaInternal[0], this.#rgbaInternal[1], this.#rgbaInternal[2]]), this.alpha, undefined,
+        this),
+    [Format.HWBA]: () => new HWB(
+        ...rgbToHwb([this.#rgbaInternal[0], this.#rgbaInternal[1], this.#rgbaInternal[2]]), this.alpha, undefined,
+        this),
+    [Format.LCH]: () => new LCH(
+        ...ColorConverter.labToLch(...ColorConverter.xyzd50ToLab(...this.#toXyzd50())), this.alpha, undefined, this),
+    [Format.OKLCH]: () => new Oklch(...ColorConverter.xyzd50ToOklch(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.LAB]: () => new Lab(...ColorConverter.xyzd50ToLab(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.OKLAB]: () => new Oklab(
+        ...ColorConverter.xyzd65ToOklab(...ColorConverter.xyzd50ToD65(...this.#toXyzd50())), this.alpha, undefined,
+        this),
+
+    [Format.SRGB]: () => new ColorFunction(
+        Format.SRGB, ...ColorConverter.xyzd50ToSrgb(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.SRGB_LINEAR]: () => new ColorFunction(
+        Format.SRGB_LINEAR, ...ColorConverter.xyzd50TosRGBLinear(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.DISPLAY_P3]: () => new ColorFunction(
+        Format.DISPLAY_P3, ...ColorConverter.xyzd50ToDisplayP3(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.A98_RGB]: () => new ColorFunction(
+        Format.A98_RGB, ...ColorConverter.xyzd50ToAdobeRGB(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.PROPHOTO_RGB]: () => new ColorFunction(
+        Format.PROPHOTO_RGB, ...ColorConverter.xyzd50ToProPhoto(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.REC_2020]: () => new ColorFunction(
+        Format.REC_2020, ...ColorConverter.xyzd50ToRec2020(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.XYZ]: () =>
+        new ColorFunction(Format.XYZ, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
+    [Format.XYZ_D50]: () => new ColorFunction(Format.XYZ_D50, ...this.#toXyzd50(), this.alpha, undefined, this),
+    [Format.XYZ_D65]: () => new ColorFunction(
+        Format.XYZ_D65, ...ColorConverter.xyzd50ToD65(...this.#toXyzd50()), this.alpha, undefined, this),
+  };
+
+  #toXyzd50(): Color3D {
     const [r, g, b] = this.#rgbaInternal;
     return ColorConverter.srgbToXyzd50(r, g, b);
   }
@@ -1505,8 +1834,6 @@ export class Legacy implements Color {
       case Format.HEXA:
       case Format.ShortHEXA:
       case Format.RGBA:
-      case Format.HSLA:
-      case Format.HWBA:
         return this.#rgbaInternal[3];
       default:
         return null;
@@ -1539,9 +1866,7 @@ export class Legacy implements Color {
     return this;
   }
 
-  constructor(rgba: number[], format: LegacyColor, originalText?: string, origin?: Color) {
-    this.#hslaInternal = undefined;
-    this.#hwbaInternal = undefined;
+  constructor(rgba: Color3D|Color4DOr3D, format: LegacyColor, originalText?: string, origin?: Color) {
     this.#originalText = originalText || null;
     this.#formatInternal = format;
     this.#origin = origin;
@@ -1601,54 +1926,7 @@ export class Legacy implements Color {
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(rgba)) {
       return null;
     }
-    return new Legacy(rgba, alpha ? Format.RGBA : Format.RGB, text)
-        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
-  }
-
-  static fromHSLA(h: string, s: string, l: string, alpha: string|undefined, text: string): Legacy|null {
-    const parameters = [
-      parseHueNumeric(h),
-      clamp(parseSatLightNumeric(s), {min: 0, max: 1}),
-      clamp(parseSatLightNumeric(l), {min: 0, max: 1}),
-      alpha ? parseAlphaNumeric(alpha) : 1,
-    ];
-    if (equals(parameters[2], 0) || equals(parameters[2], 1)) {
-      parameters[0] = parameters[1] = 0;
-    }
-    if (equals(parameters[1], 0)) {
-      parameters[0] = 0;
-    }
-    if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
-      return null;
-    }
-    const rgba: number[] = [];
-    hsl2rgb(parameters, rgba);
-    return new Legacy(rgba, alpha ? Format.HSLA : Format.HSL, text)
-        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
-  }
-
-  static fromHWB(h: string, w: string, b: string, alpha: string|undefined, text: string): Legacy|null {
-    const parameters = [
-      parseHueNumeric(h),
-      clamp(parseSatLightNumeric(w), {min: 0, max: 1}),
-      clamp(parseSatLightNumeric(b), {min: 0, max: 1}),
-      alpha ? parseAlphaNumeric(alpha) : 1,
-    ];
-    if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
-      return null;
-    }
-    if (equals(parameters[1] + parameters[2], 1)) {
-      parameters[0] = 0;
-    } else if (lessOrEquals(1, parameters[1] + parameters[2])) {
-      // normalize to a sum of 100% respecting the ratio, see https://www.w3.org/TR/css-color-4/#the-hwb-notation
-      const ratio = parameters[1] / parameters[2];
-      parameters[2] = 1 / (1 + ratio);
-      parameters[1] = 1 - parameters[2];
-      parameters[0] = 0;
-    }
-    const rgba: number[] = [];
-    hwb2rgb(parameters, rgba);
-    return new Legacy(rgba, alpha ? Format.HWBA : Format.HWB, text)
+    return new Legacy(rgba as Color4D, alpha ? Format.RGBA : Format.RGB, text)
         .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
@@ -1657,10 +1935,10 @@ export class Legacy implements Color {
         .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
-  static fromHSVA(hsva: number[]): Legacy {
-    const rgba: number[] = [];
+  static fromHSVA(hsva: Color4D): Legacy {
+    const rgba: Color4D = [0, 0, 0, 0];
     hsva2rgba(hsva, rgba);
-    return new Legacy(rgba, Format.HSLA).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
+    return new Legacy(rgba, Format.RGBA).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
@@ -1680,48 +1958,6 @@ export class Legacy implements Color {
 
   format(): LegacyColor {
     return this.#formatInternal;
-  }
-
-  /** HSLA with components within [0..1]
-   */
-  hsla(): number[] {
-    if (this.#hslaInternal) {
-      return this.#hslaInternal;
-    }
-    this.#hslaInternal = rgbaToHsla(this.#rgbaInternal);
-    return this.#hslaInternal;
-  }
-
-  canonicalHSLA(): number[] {
-    const hsla = this.hsla();
-    return [Math.round(hsla[0] * 360), Math.round(hsla[1] * 100), Math.round(hsla[2] * 100), hsla[3]];
-  }
-
-  /** HSVA with components within [0..1]
-   */
-  hsva(): number[] {
-    const hsla = this.hsla();
-    const h = hsla[0];
-    let s = hsla[1];
-    const l = hsla[2];
-
-    s *= l < 0.5 ? l : 1 - l;
-    return [h, s !== 0 ? 2 * s / (l + s) : 0, (l + s), hsla[3]];
-  }
-
-  /** HWBA with components within [0..1]
-   */
-  hwba(): number[] {
-    if (this.#hwbaInternal) {
-      return this.#hwbaInternal;
-    }
-    this.#hwbaInternal = rgbaToHwba(this.#rgbaInternal);
-    return this.#hwbaInternal;
-  }
-
-  canonicalHWBA(): number[] {
-    const hwba = this.hwba();
-    return [Math.round(hwba[0] * 360), Math.round(hwba[1] * 100), Math.round(hwba[2] * 100), hwba[3]];
   }
 
   hasAlpha(): boolean {
@@ -1778,28 +2014,6 @@ export class Legacy implements Color {
         }
         return start + ')';
       }
-      case Format.HSL:
-      case Format.HSLA: {
-        const hsla = this.hsla();
-        const start = Platform.StringUtilities.sprintf(
-            'hsl(%sdeg %s% %s%', stringifyWithPrecision(hsla[0] * 360), stringifyWithPrecision(hsla[1] * 100),
-            stringifyWithPrecision(hsla[2] * 100));
-        if (this.hasAlpha()) {
-          return start + Platform.StringUtilities.sprintf(' / %s%)', stringifyWithPrecision(hsla[3] * 100));
-        }
-        return start + ')';
-      }
-      case Format.HWB:
-      case Format.HWBA: {
-        const hwba = this.hwba();
-        const start = Platform.StringUtilities.sprintf(
-            'hwb(%sdeg %s% %s%', stringifyWithPrecision(hwba[0] * 360), stringifyWithPrecision(hwba[1] * 100),
-            stringifyWithPrecision(hwba[2] * 100));
-        if (this.hasAlpha()) {
-          return start + Platform.StringUtilities.sprintf(' / %s%)', stringifyWithPrecision(hwba[3] * 100));
-        }
-        return start + ')';
-      }
       case Format.HEXA: {
         return Platform.StringUtilities
             .sprintf(
@@ -1852,17 +2066,17 @@ export class Legacy implements Color {
     return this.#originalText ?? null;
   }
 
-  rgba(): number[] {
-    return this.#rgbaInternal.slice();
+  rgba(): Color4D {
+    return [...this.#rgbaInternal];
   }
 
-  canonicalRGBA(): number[] {
+  canonicalRGBA(): Color4D {
     const rgba = new Array(4);
     for (let i = 0; i < 3; ++i) {
       rgba[i] = Math.round(this.#rgbaInternal[i] * 255);
     }
     rgba[3] = this.#rgbaInternal[3];
-    return rgba;
+    return rgba as Color4D;
   }
 
   /** nickname
@@ -1891,7 +2105,7 @@ export class Legacy implements Color {
   }
 
   invert(): Legacy {
-    const rgba = [];
+    const rgba: Color4D = [0, 0, 0, 0];
     rgba[0] = 1 - this.#rgbaInternal[0];
     rgba[1] = 1 - this.#rgbaInternal[1];
     rgba[2] = 1 - this.#rgbaInternal[2];
@@ -1900,18 +2114,18 @@ export class Legacy implements Color {
   }
 
   setAlpha(alpha: number): Legacy {
-    const rgba = this.#rgbaInternal.slice();
+    const rgba: Color4D = [...this.#rgbaInternal];
     rgba[3] = alpha;
     return new Legacy(rgba, Format.RGBA);
   }
 
   blendWith(fgColor: Legacy): Legacy {
-    const rgba: number[] = blendColors(fgColor.#rgbaInternal, this.#rgbaInternal);
+    const rgba: Color4D = blendColors(fgColor.#rgbaInternal, this.#rgbaInternal);
     return new Legacy(rgba, Format.RGBA);
   }
 
   blendWithAlpha(alpha: number): Legacy {
-    const rgba = this.#rgbaInternal.slice();
+    const rgba: Color4D = [...this.#rgbaInternal];
     rgba[3] *= alpha;
     return new Legacy(rgba, Format.RGBA);
   }
