@@ -640,9 +640,10 @@ export interface Color {
   format(): Format;
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]>;
   asLegacyColor(): Legacy;
-  isInGamut(): boolean;
-  clipToGamut(): Color;
-  getUnclippedColor(): Color;
+  isCanonical(): boolean;
+  canonicalize(options: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): Color;
+  getDecanonicalized(): Color;
+  getAuthoredText(): string|null;
 }
 
 function stringifyWithPrecision(s: number, precision = 2): string {
@@ -728,11 +729,15 @@ export class Lab implements Color {
     this.#originalText = originalText;
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (this.#origin) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
   asLegacyColor(): Legacy {
     return this.as(Format.RGBA);
@@ -751,22 +756,25 @@ export class Lab implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `lab(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.a)} ${stringifyWithPrecision(this.b)}${
         alpha})`;
   }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
 
-  isInGamut(): boolean {
-    return true;
+  isCanonical(): boolean {
+    return !(equals(this.l, 0) || equals(this.l, 100)) || (equals(this.a, 0) && equals(this.b, 0));
   }
-  clipToGamut(): Lab {
-    return this;
+  canonicalize({zeroPowerlessComponents}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): Lab {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    return new Lab(this.l, 0, 0, this.alpha, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Lab|null {
@@ -858,11 +866,15 @@ export class LCH implements Color {
     return this.as(Format.RGBA);
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (this.#origin) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
   equal(color: Color): boolean {
     const lch = color.as(Format.LCH);
@@ -878,22 +890,30 @@ export class LCH implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `lch(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.c)} ${stringifyWithPrecision(this.h)}${
         alpha})`;
   }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
 
-  isInGamut(): boolean {
-    return true;
+  isCanonical(): boolean {
+    if ((equals(this.l, 0) || equals(this.l, 100)) && !equals(this.c, 0)) {
+      return false;
+    }
+    return !equals(this.c, 0) || equals(this.h, 0);
   }
-  clipToGamut(): LCH {
-    return this;
+  canonicalize({zeroPowerlessComponents}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): LCH {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    const c = equals(this.l, 0) || equals(this.l, 100) ? 0 : this.c;
+    const h = equals(c, 0) ? 0 : this.h;
+    return new LCH(this.l, c, h, this.alpha, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): LCH|null {
@@ -911,7 +931,7 @@ export class LCH implements Color {
     }
     const alpha = parseAlpha(spec[3]);
 
-    return new LCH(L, c, h, alpha, text).clipToGamut();
+    return new LCH(L, c, h, alpha, text).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 }
 
@@ -984,11 +1004,15 @@ export class Oklab implements Color {
     return this.as(Format.RGBA);
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (this.#origin) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
   equal(color: Color): boolean {
     const oklab = color.as(Format.OKLAB);
@@ -1005,22 +1029,25 @@ export class Oklab implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `oklab(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.a)} ${
         stringifyWithPrecision(this.b)}${alpha})`;
   }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
 
-  isInGamut(): boolean {
-    return true;
+  isCanonical(): boolean {
+    return !(equals(this.l, 0) || equals(this.l, 1)) || (equals(this.a, 0) && equals(this.b, 0));
   }
-  clipToGamut(): Oklab {
-    return this;
+  canonicalize({zeroPowerlessComponents}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): Oklab {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    return new Oklab(this.l, 0, 0, this.alpha, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Oklab|null {
@@ -1038,7 +1065,7 @@ export class Oklab implements Color {
     }
     const alpha = parseAlpha(spec[3]);
 
-    return new Oklab(L, a, b, alpha, text).clipToGamut();
+    return new Oklab(L, a, b, alpha, text).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 }
 
@@ -1114,11 +1141,15 @@ export class Oklch implements Color {
     return this.as(Format.RGBA);
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (this.#origin) {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
   equal(color: Color): boolean {
     const oklch = color.as(Format.OKLCH);
@@ -1135,22 +1166,30 @@ export class Oklch implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `oklch(${stringifyWithPrecision(this.l)} ${stringifyWithPrecision(this.c)} ${
         stringifyWithPrecision(this.h)}${alpha})`;
   }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
 
-  isInGamut(): boolean {
-    return true;
+  isCanonical(): boolean {
+    if ((equals(this.l, 0) || equals(this.l, 1)) && !equals(this.c, 0)) {
+      return false;
+    }
+    return !equals(this.c, 0) || equals(this.h, 0);
   }
-  clipToGamut(): Oklch {
-    return this;
+  canonicalize({zeroPowerlessComponents}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): Oklch {
+    if (this.isCanonical() || !zeroPowerlessComponents) {
+      return this;
+    }
+    const c = equals(this.l, 0) || equals(this.l, 1) ? 0 : this.c;
+    const h = equals(c, 0) ? 0 : this.h;
+    return new Oklch(this.l, c, h, this.alpha, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
 
   static fromSpec(spec: ColorParameterSpec, text: string): Oklch|null {
@@ -1268,6 +1307,9 @@ export class ColorFunction implements Color {
     return this.as(Format.RGBA);
   }
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (this.colorSpace === format) {
       return this as ReturnType<ColorConversions[T]>;
     }
@@ -1275,7 +1317,8 @@ export class ColorFunction implements Color {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
   equal(color: Color): boolean {
     const space = color.as(this.colorSpace);
@@ -1292,31 +1335,31 @@ export class ColorFunction implements Color {
     if (format) {
       return this.as(format).asString();
     }
-    if (this.#originalText && this.isInGamut()) {
-      return this.#originalText;
-    }
     const alpha = this.alpha === null || equals(this.alpha, 1) ? '' : ` / ${stringifyWithPrecision(this.alpha)}`;
     return `color(${this.colorSpace} ${stringifyWithPrecision(this.p0)} ${stringifyWithPrecision(this.p1)} ${
         stringifyWithPrecision(this.p2)}${alpha})`;
   }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
+  }
 
-  isInGamut(): boolean {
+  isCanonical(): boolean {
     if (this.colorSpace === Format.XYZ_D50 || this.colorSpace === Format.XYZ_D65 || this.colorSpace === Format.XYZ) {
       return true;
     }
     return lessOrEquals(0, this.p0) && lessOrEquals(this.p0, 1) && lessOrEquals(0, this.p1) &&
         lessOrEquals(this.p1, 1) && lessOrEquals(0, this.p2) && lessOrEquals(this.p2, 1);
   }
-  clipToGamut(): ColorFunction {
-    if (this.isInGamut()) {
+  canonicalize({clipToGamut}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): ColorFunction {
+    if (this.isCanonical() || !clipToGamut) {
       return this;
     }
     return new ColorFunction(
         this.colorSpace, clamp(this.p0, {min: 0, max: 1}), clamp(this.p1, {min: 0, max: 1}),
         clamp(this.p2, {min: 0, max: 1}), this.alpha, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this.#origin?.format() === this.format() && !this.#origin?.isInGamut() ? this.#origin : this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
 
   /**
@@ -1470,14 +1513,14 @@ export class Legacy implements Color {
     }
   }
 
-  isInGamut(): boolean {
+  isCanonical(): boolean {
     return lessOrEquals(0, this.#rgbaInternal[0]) && lessOrEquals(this.#rgbaInternal[0], 1) &&
         lessOrEquals(0, this.#rgbaInternal[1]) && lessOrEquals(this.#rgbaInternal[1], 1) &&
         lessOrEquals(0, this.#rgbaInternal[2]) && lessOrEquals(this.#rgbaInternal[2], 1);
   }
 
-  clipToGamut(): Legacy {
-    if (this.isInGamut()) {
+  canonicalize({clipToGamut}: {clipToGamut?: boolean, zeroPowerlessComponents?: boolean}): Legacy {
+    if (this.isCanonical() || !clipToGamut) {
       return this;
     }
     return new Legacy(
@@ -1489,8 +1532,8 @@ export class Legacy implements Color {
         ],
         this.#formatInternal, undefined, this);
   }
-  getUnclippedColor(): Color {
-    return this.#origin?.format() === this.format() && !this.#origin?.isInGamut() ? this.#origin : this;
+  getDecanonicalized(): Color {
+    return this.#origin?.format() === this.format() && !this.#origin?.isCanonical() ? this.#origin : this;
   }
   asLegacyColor(): Legacy {
     return this;
@@ -1559,50 +1602,72 @@ export class Legacy implements Color {
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(rgba)) {
       return null;
     }
-    return new Legacy(rgba, alpha ? Format.RGBA : Format.RGB, text).clipToGamut();
+    return new Legacy(rgba, alpha ? Format.RGBA : Format.RGB, text)
+        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   static fromHSLA(h: string, s: string, l: string, alpha: string|undefined, text: string): Legacy|null {
     const parameters = [
       parseHueNumeric(h),
-      parseSatLightNumeric(s),
-      parseSatLightNumeric(l),
+      clamp(parseSatLightNumeric(s), {min: 0, max: 1}),
+      clamp(parseSatLightNumeric(l), {min: 0, max: 1}),
       alpha ? parseAlphaNumeric(alpha) : 1,
     ];
+    if (equals(parameters[2], 0) || equals(parameters[2], 1)) {
+      parameters[0] = parameters[1] = 0;
+    }
+    if (equals(parameters[1], 0)) {
+      parameters[0] = 0;
+    }
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
       return null;
     }
     const rgba: number[] = [];
     hsl2rgb(parameters, rgba);
-    return new Legacy(rgba, alpha ? Format.HSLA : Format.HSL, text).clipToGamut();
+    return new Legacy(rgba, alpha ? Format.HSLA : Format.HSL, text)
+        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   static fromHWB(h: string, w: string, b: string, alpha: string|undefined, text: string): Legacy|null {
     const parameters = [
       parseHueNumeric(h),
-      parseSatLightNumeric(w),
-      parseSatLightNumeric(b),
+      clamp(parseSatLightNumeric(w), {min: 0, max: 1}),
+      clamp(parseSatLightNumeric(b), {min: 0, max: 1}),
       alpha ? parseAlphaNumeric(alpha) : 1,
     ];
     if (!Platform.ArrayUtilities.arrayDoesNotContainNullOrUndefined(parameters)) {
       return null;
     }
+    if (equals(parameters[1] + parameters[2], 1)) {
+      parameters[0] = 0;
+    } else if (lessOrEquals(1, parameters[1] + parameters[2])) {
+      // normalize to a sum of 100% respecting the ratio, see https://www.w3.org/TR/css-color-4/#the-hwb-notation
+      const ratio = parameters[1] / parameters[2];
+      parameters[2] = 1 / (1 + ratio);
+      parameters[1] = 1 - parameters[2];
+      parameters[0] = 0;
+    }
     const rgba: number[] = [];
     hwb2rgb(parameters, rgba);
-    return new Legacy(rgba, alpha ? Format.HWBA : Format.HWB, text).clipToGamut();
+    return new Legacy(rgba, alpha ? Format.HWBA : Format.HWB, text)
+        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   static fromRGBA(rgba: number[]): Legacy {
-    return new Legacy([rgba[0] / 255, rgba[1] / 255, rgba[2] / 255, rgba[3]], Format.RGBA).clipToGamut();
+    return new Legacy([rgba[0] / 255, rgba[1] / 255, rgba[2] / 255, rgba[3]], Format.RGBA)
+        .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   static fromHSVA(hsva: number[]): Legacy {
     const rgba: number[] = [];
     hsva2rgba(hsva, rgba);
-    return new Legacy(rgba, Format.HSLA).clipToGamut();
+    return new Legacy(rgba, Format.HSLA).canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
   as<T extends Format>(format: T): ReturnType<ColorConversions[T]> {
+    if (!this.isCanonical()) {
+      throw new Error('Can only convert colors in canonical form');
+    }
     if (format === this.format()) {
       return this as ReturnType<ColorConversions[T]>;
     }
@@ -1610,7 +1675,8 @@ export class Legacy implements Color {
       return this.#origin.as(format);
     }
     const converted = this.#conversions[format]() as ReturnType<ColorConversions[T]>;
-    return converted.clipToGamut() as ReturnType<ColorConversions[T]>;
+    return converted.canonicalize({clipToGamut: true, zeroPowerlessComponents: true}) as
+        ReturnType<ColorConversions[T]>;
   }
 
   format(): LegacyColor {
@@ -1687,10 +1753,6 @@ export class Legacy implements Color {
 
     if (!format) {
       format = this.#formatInternal;
-    }
-
-    if (format === this.#formatInternal && this.#originalText && this.isInGamut()) {
-      return this.#originalText;
     }
 
     function toRgbValue(value: number): number {
@@ -1785,7 +1847,10 @@ export class Legacy implements Color {
       }
     }
 
-    return this.#originalText;
+    return null;  // Shouldn't get here.
+  }
+  getAuthoredText(): string|null {
+    return this.#originalText ?? null;
   }
 
   rgba(): number[] {
