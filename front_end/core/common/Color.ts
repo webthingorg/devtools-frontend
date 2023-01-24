@@ -1583,9 +1583,8 @@ export class Legacy implements Color {
     const nickname = name.toLowerCase();
     const rgba = Nicknames.get(nickname);
     if (rgba !== undefined) {
-      const color = Legacy.fromRGBA(rgba);
+      const color = Legacy.fromRGBA(rgba, text);
       color.#formatInternal = Format.Nickname;
-      color.#originalText = text;
       return color;
     }
     return null;
@@ -1653,8 +1652,8 @@ export class Legacy implements Color {
         .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 
-  static fromRGBA(rgba: number[]): Legacy {
-    return new Legacy([rgba[0] / 255, rgba[1] / 255, rgba[2] / 255, rgba[3]], Format.RGBA)
+  static fromRGBA(rgba: number[], originalText?: string): Legacy {
+    return new Legacy([rgba[0] / 255, rgba[1] / 255, rgba[2] / 255, rgba[3]], Format.RGBA, originalText)
         .canonicalize({clipToGamut: true, zeroPowerlessComponents: true});
   }
 

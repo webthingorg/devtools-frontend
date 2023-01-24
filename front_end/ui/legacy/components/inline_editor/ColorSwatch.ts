@@ -106,7 +106,7 @@ export class ColorSwatch extends HTMLElement {
       this.format = this.color.format();
     }
 
-    this.text = this.color.getAuthoredText() ?? this.color.asString(this.format ?? undefined);
+    this.text = this.color.getDecanonicalized().getAuthoredText() ?? this.color.asString(this.format ?? undefined);
 
     if (tooltip) {
       this.tooltip = tooltip;

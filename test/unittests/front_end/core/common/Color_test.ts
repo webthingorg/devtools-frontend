@@ -624,7 +624,7 @@ describe('Color', () => {
       const spec = lime[format as Common.Color.Format];
       const color = Common.Color.parse(spec);
       assertNotNullOrUndefined(color);
-      assert.deepEqual(color?.getAuthoredText(), spec);
+      assert.deepEqual(color?.getDecanonicalized().getAuthoredText(), spec);
       assert.deepEqual(color?.format(), format);
     }
   });
