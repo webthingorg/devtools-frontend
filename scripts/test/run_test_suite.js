@@ -96,7 +96,7 @@ const yargsObject =
         .option('jobs', {
           type: 'number',
           desc: 'Number of parallel runners to use (if supported). Defaults to 1.',
-          default: 1,
+          default: 2,
         })
         .option('cwd', {
           type: 'string',
