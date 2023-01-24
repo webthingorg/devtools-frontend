@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c929f95f_d687e2ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-24T11:30:11Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m changing the Breakpoint Edit Dialog to include a link to learn more about breakpoin types. The documentation is not ready yet, so I\u0027ll land it as soon as the documentation is updated.\n\nPTAL!",
+      "revId": "f5d660b1b5edebd029badf9a3663a13a63b9d5ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
