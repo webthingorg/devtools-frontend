@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abe5785_b765f888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-24T13:11:04Z",
+      "side": 1,
+      "message": "* Yes, we can land your code once a DevTools owner (such as myself) approves it. You can start a separate CL or iterate on this CL.\n\n* The fetch is like any other URL load. Standard HTTP caching applies. I\u0027ll talk to an Elements panel owner this week whether we want to load the file always when DevTools opens, always when the Elements panel opens or on demand the first time the hover documentation is requested.\n\n* Historycally lit-html and lit-element were separate and we only used lit-html at the time. Nowadays it\u0027s one libarary but we never properly adopted LitElement. We are currently experimenting with some new components to use LitElement but there is nothing around yet. Feel free to give it a shot though (Lit is already available in DevTools), but it might not be as smooth as an experience as riffing off existing lit-html components.",
+      "parentUuid": "8130550c_b91bfc03",
+      "revId": "a7300502f9219076270ca48c1132f23af3bcf1ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1edaf77c_554f5e45",
