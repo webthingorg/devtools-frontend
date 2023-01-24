@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b9a743_915655e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-24T10:37:10Z",
+      "side": 1,
+      "message": "Note that this is kinda tricky to test as it\u0027s a private method that creates a detached breakpoint dialog.",
+      "revId": "d42ff8cc3ec77116f6c3e2ea301fd044910757fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
