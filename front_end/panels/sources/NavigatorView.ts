@@ -182,6 +182,9 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private groupByFolder?: any;
+
+  #throttler: Throttle;
+
   constructor(enableAuthoredGrouping?: boolean) {
     super(true);
 
@@ -200,6 +203,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     this.rootNode.populate();
 
     this.frameNodes = new Map();
+
+    this.#throttler = makeThrottler(1000, pending => pending.length >= 250 || this.uiSourceCodeNodes.size < 10);
 
     this.contentElement.addEventListener('contextmenu', this.handleContextMenu.bind(this), false);
     UI.ShortcutRegistry.ShortcutRegistry.instance().addShortcutListener(
@@ -495,7 +500,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(uiSourceCode);
     const folderNode =
         this.folderNode(uiSourceCode, project, target, frame, uiSourceCode.origin(), path, isFromSourceMap);
-    const uiSourceCodeNode = new NavigatorUISourceCodeTreeNode(this, uiSourceCode, frame);
+    const uiSourceCodeNode = new NavigatorUISourceCodeTreeNode(this, uiSourceCode, frame, this.#throttler);
     const existingNode = folderNode.child(uiSourceCodeNode.id);
     if (existingNode && existingNode instanceof NavigatorUISourceCodeTreeNode) {
       this.uiSourceCodeNodes.set(uiSourceCode, existingNode);
@@ -1232,19 +1237,29 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
 
   constructor(
       navigatorView: NavigatorView, uiSourceCode: Workspace.UISourceCode.UISourceCode, title: string,
-      node: NavigatorUISourceCodeTreeNode) {
+      node: NavigatorUISourceCodeTreeNode, throttle: Throttle) {
     super('', false);
     this.nodeType = Types.File;
     this.node = node;
     this.title = title;
     this.listItemElement.classList.add(
         'navigator-' + uiSourceCode.contentType().name() + '-tree-item', 'navigator-file-tree-item');
+    this.#setPendingDisplay();
+    throttle(() => this.#unsetPendingDisplay());
     this.tooltip = uiSourceCode.url();
     UI.ARIAUtils.setAccessibleName(this.listItemElement, `${uiSourceCode.name()}, ${this.nodeType}`);
     Common.EventTarget.fireEvent('source-tree-file-added', uiSourceCode.fullDisplayName());
     this.navigatorView = navigatorView;
     this.uiSourceCodeInternal = uiSourceCode;
     this.updateIcon();
+  }
+
+  #setPendingDisplay(): void {
+    this.listItemElement.classList.add('pending-display');
+  }
+
+  #unsetPendingDisplay(): void {
+    this.listItemElement.classList.remove('pending-display');
   }
 
   updateIcon(): void {
@@ -1496,9 +1511,10 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
   treeElement: NavigatorSourceTreeElement|null;
   private eventListeners: Common.EventTarget.EventDescriptor[];
   private readonly frameInternal: SDK.ResourceTreeModel.ResourceTreeFrame|null;
+
   constructor(
       navigatorView: NavigatorView, uiSourceCode: Workspace.UISourceCode.UISourceCode,
-      frame: SDK.ResourceTreeModel.ResourceTreeFrame|null) {
+      frame: SDK.ResourceTreeModel.ResourceTreeFrame|null, private throttler: Throttle) {
     super(navigatorView, 'UISourceCode:' + uiSourceCode.canononicalScriptId(), Types.File);
     this.uiSourceCodeInternal = uiSourceCode;
     this.treeElement = null;
@@ -1519,7 +1535,8 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
       return this.treeElement;
     }
 
-    this.treeElement = new NavigatorSourceTreeElement(this.navigatorView, this.uiSourceCodeInternal, '', this);
+    this.treeElement =
+        new NavigatorSourceTreeElement(this.navigatorView, this.uiSourceCodeInternal, '', this, this.throttler);
     this.updateTitle();
 
     const updateTitleBound = this.updateTitle.bind(this, undefined);
@@ -1853,4 +1870,28 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
       this.treeElement.title = this.title;
     }
   }
+}
+
+type ThrottleTask = () => void;
+type Throttle = (task: ThrottleTask) => void;
+
+function makeThrottler(duration: number, condition: (pending: ThrottleTask[]) => boolean): Throttle {
+  const tasks: ThrottleTask[] = [];
+  let timeout: number|undefined = undefined;
+
+  function flush(): void {
+    tasks.forEach(task => task());
+    tasks.length = 0;
+    clearTimeout(timeout);
+    timeout = undefined;
+  }
+
+  return (task: ThrottleTask) => {
+    tasks.push(task);
+    if (condition(tasks)) {
+      flush();
+    } else if (timeout === undefined) {
+      timeout = window.setTimeout(flush, duration);
+    }
+  };
 }
