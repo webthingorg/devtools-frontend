@@ -104,6 +104,24 @@
       "parentUuid": "386ecc96_efbc41dc",
       "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b29a170_f4f718d1",
+        "filename": "front_end/ui/legacy/components/color_picker/GamutOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-24T14:40:49Z",
+      "side": 1,
+      "message": "Just checked, 135 points. That\u0027s fairly reasonable!",
+      "parentUuid": "33a01c3d_8a6a4994",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
