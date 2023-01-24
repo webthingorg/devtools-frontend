@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8130550c_b91bfc03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-01-24T12:47:46Z",
+      "side": 1,
+      "message": "I have a few questions.\n\n\u003e I\u0027ll work on 1-3\n\nHow do we merge the results of our work? Are you allowed to push the code to this CL created by me?\n\n\u003e I think a good way to do this is trigger the fetch in the background when DevTools starts up and start showing the doc overlay once it\u0027s ready.\n\nWill the file be downloaded every time DevTools is opened or will it be cached?\n\n\u003e extract the rendering into a tiny Lit component\n\nI\u0027ve noticed that DevTools doesn\u0027t use the whole Lit library (LitElement), but only lit-html. Why? Can I use LitElement?",
+      "parentUuid": "76146de1_fc79550f",
+      "revId": "a7300502f9219076270ca48c1132f23af3bcf1ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1edaf77c_554f5e45",
