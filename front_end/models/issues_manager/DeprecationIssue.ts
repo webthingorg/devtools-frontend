@@ -250,11 +250,6 @@ const UIStrings = {
   obsoleteWebRtcCipherSuite:
       'Your partner is negotiating an obsolete (D)TLS version. Please check with your partner to have this fixed.',
   /**
-   * @description Warning displayed to developers when `window.openDatabase` is used in non-secure contexts to notify that the API is deprecated and will be removed.
-   */
-  openWebDatabaseInsecureContext:
-      'WebSQL in non-secure contexts is deprecated and will be removed soon. Please use Web Storage or Indexed Database.',
-  /**
    * @description Warning displayed to developers when they use the PaymentInstruments API to let them know this API is deprecated.
    */
   paymentInstruments: '`paymentManager.instruments` is deprecated. Please use just-in-time install for payment handlers instead.',
@@ -536,11 +531,6 @@ export class DeprecationIssue extends Issue {
       case Protocol.Audits.DeprecationIssueType.ObsoleteCreateImageBitmAPImageOrientationNone:
         messageFunction = i18nLazyString(UIStrings.obsoleteCreateImageBitmAPImageOrientationNone);
         milestone = 111;
-        break;
-      case Protocol.Audits.DeprecationIssueType.OpenWebDatabaseInsecureContext:
-        messageFunction = i18nLazyString(UIStrings.openWebDatabaseInsecureContext);
-        feature = 5175124599767040;
-        milestone = 105;
         break;
       case Protocol.Audits.DeprecationIssueType.PaymentInstruments:
         messageFunction = i18nLazyString(UIStrings.paymentInstruments);
