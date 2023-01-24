@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2ac07f_bf1860c1",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-24T09:33:01Z",
+      "side": 1,
+      "message": "Note that this was a rebase mistake. Benedikt landed a CL with a settings migration and on the rebase I forgot to increment the version number.\n\nThis means we might have broken logpoints for a Canary release or two. Beta/Stable will be fine given that we roll out all the logpoint changes at once for them (including the correct migrations).",
+      "range": {
+        "startLine": 588,
+        "startChar": 11,
+        "endLine": 588,
+        "endChar": 13
+      },
+      "revId": "0bebb195e22a1761b61ea5fb211a2c719f06ad5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
