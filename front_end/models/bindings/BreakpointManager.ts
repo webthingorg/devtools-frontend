@@ -709,14 +709,19 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
     this.updateState({...this.#storageState, enabled});
   }
 
+  /**
+   * The breakpoint condition as entered by the user.
+   */
   condition(): string {
     return this.#storageState.condition;
   }
 
+  /**
+   * The breakpoint condition as it is sent to V8.
+   */
   backendCondition(): SDK.DebuggerModel.BackendCondition {
-    // TODO(crbug.com/1027458): Add sourceUrl comment and do the logpoint
-    //                          wrapping here.
-    return this.#storageState.condition as SDK.DebuggerModel.BackendCondition;
+    // TODO(crbug.com/1027458): Add sourceUrl comment.
+    return `${LOGPOINT_PREFIX}${this.#storageState.condition}${LOGPOINT_SUFFIX}` as SDK.DebuggerModel.BackendCondition;
   }
 
   setCondition(condition: string): void {
@@ -1239,3 +1244,6 @@ export class BreakpointLocation {
     this.uiLocation = uiLocation;
   }
 }
+
+const LOGPOINT_PREFIX = '/** DEVTOOLS_LOGPOINT */ console.log(';
+const LOGPOINT_SUFFIX = ')';
