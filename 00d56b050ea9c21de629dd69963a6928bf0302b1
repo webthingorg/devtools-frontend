@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d11d3b01_f88617fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-24T12:26:18Z",
+      "side": 1,
+      "message": "What would you say... if we were to add tests in a separate CL? :)",
+      "parentUuid": "a6eeaf52_87316ddc",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e48ac476_43f3b6ee",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-24T09:37:01Z",
       "side": 1,
       "message": "This will be lots of points. Do we have a measure of how expensive this element is going to be?",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386ecc96_efbc41dc",
+        "filename": "front_end/ui/legacy/components/color_picker/GamutOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-24T12:26:18Z",
+      "side": 1,
+      "message": "I have measured this in my own machine and with 6x throttled CPU it works with a bit of a lag. However, the reason for the lag was not about the polyline but rather there were 2 things:\n* `getLinePoints` doing some computations and `isColorInSrgbGamut` was taking long\n* Style recalculations\n\nThe first part, I\u0027ve updated the function to use color converter directly for checking whether the values are in gamut or not and this made things faster. (I don\u0027t know why but `as`... chain was taking a long time previously)\n\nAlso, for the first part, I\u0027ve implemented a binary search algorithm for finding the boundary at each horizontal line but this didn\u0027t improve runtime that much. I\u0027ve discarded this for simplicity.\n\nFor the second part, style recalculations are not caused by the newly added SVG but because of the inherent style reads/writes from the Color Picker which existed before this CL. In addition to that, style recalculations took the most of the time compared with the first point.\n\nSo, I think there are some stuff to improve in Color Picker regarding performance and it is not related to the changes in this CL.\n\nThanks for reminding this! I had taken a look before and with 6x throttling there was some lag but thought that it would be acceptable. After this comment, I\u0027ve found a hanging fruit for some improvement :)\n\nWDYT?",
+      "parentUuid": "e48ac476_43f3b6ee",
       "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
