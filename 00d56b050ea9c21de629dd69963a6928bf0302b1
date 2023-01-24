@@ -86,6 +86,24 @@
       "parentUuid": "e48ac476_43f3b6ee",
       "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a01c3d_8a6a4994",
+        "filename": "front_end/ui/legacy/components/color_picker/GamutOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-24T14:28:46Z",
+      "side": 1,
+      "message": "Lots of surprises here! Just out of curiosity, how many points are there, roughly? FWIW I didn\u0027t expect `getLinePoints` to get any cheaper given that it\u0027s linear time already. Do you have a profile of the `as` chain? this should have been exactly the same code.",
+      "parentUuid": "386ecc96_efbc41dc",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
