@@ -8,7 +8,10 @@ import("../../../../../scripts/build/ninja/generate_css.gni")
 import("../../visibility.gni")
 
 generate_css("css_files") {
-  sources = [ "spectrum.css" ]
+  sources = [
+    "gamutOverlay.css",
+    "spectrum.css",
+  ]
 }
 
 devtools_module("color_picker") {
@@ -18,6 +21,7 @@ devtools_module("color_picker") {
     "ContrastInfo.ts",
     "ContrastOverlay.ts",
     "FormatPickerContextMenu.ts",
+    "GamutOverlay.ts",
     "Spectrum.ts",
   ]
 
