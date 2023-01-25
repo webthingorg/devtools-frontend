@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ad8d69_a7d099e7",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T11:35:22Z",
+      "side": 1,
+      "message": "hihiiiim I wonder why we needed this `getDecanonicalized` here for getting the authored text?",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "697616d4_cf9cb95d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T11:35:22Z",
+      "side": 1,
+      "message": "(nit): I think we can remove the `legal` keyword -- since `color space\u0027s value range` seems to be okay to describe the reason.\n\nWe can also discuss what to write here with the UXW folks. WDYT?",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff51d71_d13182c2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T11:35:22Z",
+      "side": 1,
+      "message": "Also, what about the powerless components? I think we shouldn\u0027t show an authoring hint for them as they are not essentially \"invalid\" and it is fine for authors to author them.",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae5de218_6ec82b58",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T11:35:22Z",
+      "side": 1,
+      "message": "I wonder why we needed to use this and not use the already implemented authoring hint logic?",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
