@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6d7082_6058c207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-25T06:13:41Z",
+      "side": 1,
+      "message": "I\u0027m wholly unfamiliar with screenshot tests, so I\u0027m also including Jack.\n\nOut of curiosity, did we capture our experience with screenshot tests in the internal repo in a doc somewhere? Any learnings or pitfalls we might want to avoid?\n\nlgtm otherwise",
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c8eed0_79feadf0",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-25T06:13:41Z",
+      "side": 1,
+      "message": "According to the bot the win32 binaries are missing. I didn\u0027t see them in the CL either so I assume we don\u0027t have image_diff binaries for win yet?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cb6754_6a3fd0a0",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-25T06:13:41Z",
+      "side": 1,
+      "message": "Let\u0027s either remove this `if` altogether or leave a TODO when/how the throw can be re-enabled.",
+      "range": {
+        "startLine": 99,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 71
+      },
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
