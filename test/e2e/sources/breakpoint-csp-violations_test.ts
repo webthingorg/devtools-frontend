@@ -4,14 +4,19 @@
 
 import {assert} from 'chai';
 
-import {click, goToResource} from '../../shared/helper.js';
+import {$, click, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getPausedMessages, openSourcesPanel, PAUSE_ON_UNCAUGHT_EXCEPTION_SELECTOR} from '../helpers/sources-helpers.js';
 
 // Fails flakily on Mac
-describe.skipOnPlatforms(['mac'], '[crbug.com/1409768] Breakpoints on CSP Violation', async () => {
+describe('Breakpoints on CSP Violation', async () => {
   it('CSP Violations should come up before break on exceptions', async () => {
     await openSourcesPanel();
+    const elementToExpand = await $('[aria-label="CSP Violation Breakpoints"]');
+    const bb = await elementToExpand?.boundingBox();
+    if (!bb) {
+      throw new Error('did not have a bounding box');
+    }
     await click('[aria-label="CSP Violation Breakpoints"]');
     await click('[aria-label="Trusted Type Violations"]');
     await click(PAUSE_ON_UNCAUGHT_EXCEPTION_SELECTOR);
@@ -34,6 +39,11 @@ describe.skipOnPlatforms(['mac'], '[crbug.com/1409768] Breakpoints on CSP Violat
   });
   it('CSP Violations should show in report-only mode', async () => {
     await openSourcesPanel();
+    const elementToExpand = await $('[aria-label="CSP Violation Breakpoints"]');
+    const bb = await elementToExpand?.boundingBox();
+    if (!bb) {
+      throw new Error('did not have a bounding box');
+    }
     await click('[aria-label="CSP Violation Breakpoints"]');
     await click('[aria-label="Trusted Type Violations"]');
 
