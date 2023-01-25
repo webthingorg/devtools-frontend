@@ -7,11 +7,11 @@ import {assert} from 'chai';
 import {
   $$,
   assertNotNullOrUndefined,
-  click,
   getBrowserAndPages,
   goToResource,
   step,
   waitFor,
+  clickElement,
   waitForElementsWithTextContent,
   waitForElementWithTextContent,
   waitForFunction,
@@ -139,7 +139,7 @@ describe('The Memory Panel', async function() {
     });
     const [pendingActiviesRow] = await pendingActivitiesSpan.$x('ancestor-or-self::tr');
     await waitForFunction(async () => {
-      await click(pendingActivitiesSpan);
+      await clickElement(pendingActivitiesSpan);
       const res = await pendingActiviesRow.evaluate(x => x.classList.toString());
       return res.includes('selected');
     });
@@ -151,7 +151,7 @@ describe('The Memory Panel', async function() {
     });
     const [internalNodeRow] = await internalNodeSpan.$x('ancestor-or-self::tr');
     await waitForFunction(async () => {
-      await click(internalNodeSpan);
+      await clickElement(internalNodeSpan);
       const res = await internalNodeRow.evaluate(x => x.classList.toString());
       return res.includes('selected');
     });
@@ -230,7 +230,7 @@ describe('The Memory Panel', async function() {
 
     // Have to click it not in the middle as the middle can hold the link to the
     // file in the sources pane and we want to avoid clicking that.
-    await click(sharedInLeakingElementRow, {maxPixelsFromLeft: 10});
+    await clickElement(sharedInLeakingElementRow /* TODO: {maxPixelsFromLeft: 10} */);
     const {frontend} = getBrowserAndPages();
     // Expand the data-grid for the shared list
     await frontend.keyboard.press('ArrowRight');

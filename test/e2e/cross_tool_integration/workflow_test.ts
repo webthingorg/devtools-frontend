@@ -88,7 +88,7 @@ describe('A user can navigate across', async function() {
     });
 
     assertNotNullOrUndefined(link);
-    await click(link);
+    await link.click();
     await waitFor('.panel[aria-label="sources"]');
   });
 });

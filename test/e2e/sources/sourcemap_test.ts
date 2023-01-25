@@ -6,6 +6,7 @@ import {assert} from 'chai';
 
 import {
   click,
+  clickElement,
   enableExperiment,
   getBrowserAndPages,
   goToResource,
@@ -553,7 +554,7 @@ describe('The Elements Tab', async () => {
       await clickNthChildOfSelectedElementNode(1);
     });
     const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickElement(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -566,7 +567,7 @@ describe('The Elements Tab', async () => {
       await clickNthChildOfSelectedElementNode(1);
     });
     const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickElement(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -579,7 +580,7 @@ describe('The Elements Tab', async () => {
       await clickNthChildOfSelectedElementNode(1);
     });
     const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickElement(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -592,7 +593,7 @@ describe('The Elements Tab', async () => {
       await clickNthChildOfSelectedElementNode(1);
     });
     const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickElement(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 });

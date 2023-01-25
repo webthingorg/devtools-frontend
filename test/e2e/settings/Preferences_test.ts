@@ -5,9 +5,9 @@
 import {assert} from 'chai';
 
 import {
-  click,
   waitFor,
   waitForAria,
+  clickElement,
   waitForElementWithTextContent,
   type puppeteer,
 } from '../../shared/helper.js';
@@ -27,7 +27,7 @@ describe('Preferences settings tab', () => {
     const icon = await waitFor('devtools-icon', label);
     assert.include(await icon.evaluate(icon => icon.getAttribute('title')), 'This setting is deprecated');
 
-    await click(icon);
+    await clickElement(icon);
     await waitFor('.tabbed-pane-header-tab[aria-label="Experiments"][aria-selected="true"]');
   });
 });
