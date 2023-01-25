@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e834874_a16a14b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-25T14:48:59Z",
+      "side": 1,
+      "message": "Jack consolidated the learnings in https://docs.google.com/document/d/1fr7zrmc3sLHySxhVg6HgTJVnHCdNgfwQiO2zXuSP9Tg/edit?resourcekey\u003d0-nCN-QP-s9FUvKeNkbN3_9Q# . We should probably include it somewhere in the team\u0027s g3doc",
+      "parentUuid": "7c6d7082_6058c207",
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07c8eed0_79feadf0",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c56f95_8d4274d7",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-25T14:48:59Z",
+      "side": 1,
+      "message": "They were indeed missing in this CL. I have included them in a new patch",
+      "parentUuid": "07c8eed0_79feadf0",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7cb6754_6a3fd0a0",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-01-25T06:13:41Z",
       "side": 1,
       "message": "Let\u0027s either remove this `if` altogether or leave a TODO when/how the throw can be re-enabled.",
+      "range": {
+        "startLine": 99,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 71
+      },
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "413f9866_911fbdaf",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-25T14:48:59Z",
+      "side": 1,
+      "message": "good catch! This shouldn\u0027t have been commented out",
+      "parentUuid": "f7cb6754_6a3fd0a0",
       "range": {
         "startLine": 99,
         "startChar": 6,
