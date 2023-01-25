@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb9427a_0d723832",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T12:09:18Z",
+      "side": 1,
+      "message": "We\u0027ll need to update `FormatPickerContextMenu` to separate HSL/HWB to non-wide section and investigate parts with `instanceof Common.Color.Legacy` to handle HSL/HWB separately if needed.\n\nIn addition to that, now I don\u0027t see error warning icon in conversion menu for HSL and HWB colors.",
+      "revId": "2821082b6f90d33e2ba448e6cd8cc7fd6e7afe88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
