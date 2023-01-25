@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9f9bfb_3ea783df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T18:21:43Z",
+      "side": 1,
+      "message": "I\u0027m triggering auto-submit too and we can fix the typo later :)",
+      "revId": "0bfa488e39f636b3d72986ab4b9d5ff5baed9833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d6d205_e09f76b0",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T18:21:43Z",
+      "side": 1,
+      "message": "There is a little typo here `auhtoredText` :)",
+      "revId": "0bfa488e39f636b3d72986ab4b9d5ff5baed9833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
