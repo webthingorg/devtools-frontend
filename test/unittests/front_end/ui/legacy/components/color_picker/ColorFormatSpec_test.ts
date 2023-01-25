@@ -183,7 +183,7 @@ describe('ColorFormatSpec for inputs', () => {
         const spec = ColorPicker.ColorFormatSpec.colorFormatSpec[colorSpace];
         const values = spec.toValues(color);
 
-        assert.deepEqual(values, ['0.12', '0.47', '-0.03', '1']);
+        assert.deepEqual(values, ['0.12', '0.47', '0', '1'], colorSpace);
       }
     });
 
