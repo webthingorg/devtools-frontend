@@ -19,6 +19,7 @@ import {
   typeText,
   waitFor,
   waitForAria,
+  clickElement,
   waitForFunction,
 } from '../../shared/helper.js';
 
@@ -212,7 +213,7 @@ const elementWithPartialText = async (text: string) => {
 export const clickTreeElementWithPartialText = async (text: string) => {
   const handle = await elementWithPartialText(text);
   if (handle) {
-    await click(handle);
+    await clickElement(handle);
     return true;
   }
 
@@ -305,8 +306,7 @@ export const expandSelectedNodeRecursively = async () => {
   const EXPAND_RECURSIVELY = '[aria-label="Expand recursively"]';
 
   // Find the selected node, right click.
-  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
-  await click(selectedNode, {clickOptions: {button: 'right'}});
+  await click(SELECTED_TREE_ELEMENT_SELECTOR, {clickOptions: {button: 'right'}});
 
   // Wait for the 'expand recursively' option, and click it.
   await waitFor(EXPAND_RECURSIVELY);
@@ -351,8 +351,9 @@ export const filterComputedProperties = async (filterString: string) => {
   const initialContent = await getContentOfComputedPane();
 
   const computedPanel = await waitFor(COMPUTED_STYLES_PANEL_SELECTOR);
-  const filterInput = await waitFor('[aria-label="Filter Computed Styles"]', computedPanel);
-  await click(filterInput);
+  await click('[aria-label="Filter Computed Styles"]', {
+    root: computedPanel,
+  });
   await typeText(filterString);
   await waitForComputedPaneChange(initialContent);
 };
@@ -361,8 +362,7 @@ export const toggleShowAllComputedProperties = async () => {
   const initialContent = await getContentOfComputedPane();
 
   const computedPanel = await waitFor(COMPUTED_STYLES_PANEL_SELECTOR);
-  const showAllButton = await waitFor(COMPUTED_STYLES_SHOW_ALL_SELECTOR, computedPanel);
-  await click(showAllButton);
+  await click(COMPUTED_STYLES_SHOW_ALL_SELECTOR, {root: computedPanel});
   await waitForComputedPaneChange(initialContent);
 };
 
@@ -372,7 +372,9 @@ export const toggleGroupComputedProperties = async () => {
 
   const wasChecked = await groupCheckbox.evaluate(checkbox => (checkbox as HTMLInputElement).checked);
 
-  await click(groupCheckbox);
+  await click(COMPUTED_STYLES_GROUP_SELECTOR, {
+    root: computedPanel,
+  });
 
   if (wasChecked) {
     await waitFor('[role="tree"].alphabetical-list', computedPanel);
@@ -525,7 +527,7 @@ export const shiftClickColorSwatch = async (ruleSection: puppeteer.ElementHandle
   const swatch = await getColorSwatch(ruleSection, index);
   const {frontend} = getBrowserAndPages();
   await frontend.keyboard.down('Shift');
-  await click(swatch);
+  await clickElement(swatch);
   await frontend.keyboard.up('Shift');
 };
 
@@ -768,15 +770,14 @@ export const toggleAccessibilityPane = async () => {
   if (!a11yPane) {
     const elementsPanel = await waitForAria('Elements panel');
     const moreTabs = await waitForAria('More tabs', elementsPanel);
-    await click(moreTabs);
+    await clickElement(moreTabs);
     a11yPane = await waitForAria('Accessibility');
   }
-  await click(a11yPane);
+  await clickElement(a11yPane);
 };
 
 export const toggleAccessibilityTree = async () => {
-  const treeToggleButton = await waitForAria('Switch to Accessibility Tree view');
-  await click(treeToggleButton);
+  await click('aria/Switch to Accessibility Tree view');
 };
 
 export const getPropertiesWithHints = async () => {
