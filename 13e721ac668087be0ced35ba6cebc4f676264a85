@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c129ea97_2315a3cf",
+        "filename": "test/e2e/elements/switch-panels-while-editing-as-html_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-01-25T16:02:17Z",
+      "side": 1,
+      "message": "I am not sure if this is the best assertion, the original test was not very clear on what it was checking for (it seemed to only check for this and raised errors). Let me know if you can think of a better one.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 63
+      },
+      "revId": "13e721ac668087be0ced35ba6cebc4f676264a85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
