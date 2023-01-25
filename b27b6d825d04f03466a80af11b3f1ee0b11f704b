@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c099e5_ca0bda7c",
+        "filename": "front_end/ui/components/markdown_view/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-25T05:54:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca119da5_0af19eb6",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "b27b6d825d04f03466a80af11b3f1ee0b11f704b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62b7be03_826d8b6c",
