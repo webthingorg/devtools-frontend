@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0e286bd_6beea22d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-25T10:18:54Z",
+      "side": 1,
+      "message": "I have added a simple test for Spectrum for sRGB overlay and I think it is enough for now since the complexity of writing the tests increases while trying to test other behaviors and I don\u0027t want to invest much time on it now.\n\nMoving ahead with submitting :)",
+      "parentUuid": "d11d3b01_f88617fe",
+      "revId": "00d56b050ea9c21de629dd69963a6928bf0302b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e48ac476_43f3b6ee",
         "filename": "front_end/ui/legacy/components/color_picker/GamutOverlay.ts",
         "patchSetId": 3
