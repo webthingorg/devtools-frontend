@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ddde384_f468bcf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "https://crbug.com/1409768",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5779aa38_843bb079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Nice! LGTM with a couple nits!",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab821d12_dfe45a71",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Should this be clickElement too?",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bec59ec_281613b7",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Let\u0027s add a crbug or at least an owner to the TODO",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad7f22b_02240854",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Same as above",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "434851a1_d7dfbd5d",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Same as above",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10703003_76b3a30b",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-25T13:05:45Z",
+      "side": 1,
+      "message": "Can we drop the warning? We already know we\u0027re going to hit this, so logging is mostly noise.",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
