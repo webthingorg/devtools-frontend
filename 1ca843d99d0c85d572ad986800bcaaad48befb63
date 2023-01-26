@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bfc48cd_a14d0190",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-26T11:35:08Z",
+      "side": 1,
+      "message": "The script IDs are strings 😂",
+      "parentUuid": "95a3356c_cfb4a3f5",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 66
+      },
+      "revId": "1ca843d99d0c85d572ad986800bcaaad48befb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b260030_6a654675",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-01-26T09:49:49Z",
       "side": 1,
       "message": "nit: This is an assertion, so `assertIsMaximallyMerged`.",
+      "range": {
+        "startLine": 229,
+        "startChar": 13,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "1ca843d99d0c85d572ad986800bcaaad48befb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb282c0_50971ded",
+        "filename": "test/unittests/front_end/core/sdk/DebuggerModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-26T11:35:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b260030_6a654675",
       "range": {
         "startLine": 229,
         "startChar": 13,
