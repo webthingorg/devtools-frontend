@@ -317,6 +317,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd8cb6a3_7450109a",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T20:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a645880a_e43fa52a",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8a142d5_c8d6486e",
