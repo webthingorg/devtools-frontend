@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0246892b_f42c6968",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ad8d69_a7d099e7",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "697616d4_cf9cb95d",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-25T11:35:22Z",
       "side": 1,
       "message": "(nit): I think we can remove the `legal` keyword -- since `color space\u0027s value range` seems to be okay to describe the reason.\n\nWe can also discuss what to write here with the UXW folks. WDYT?",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5271bac2_0dff9714",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "697616d4_cf9cb95d",
       "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df6a0e6a_34c10951",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eff51d71_d13182c2",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae5de218_6ec82b58",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-01-25T11:35:22Z",
       "side": 1,
       "message": "I wonder why we needed to use this and not use the already implemented authoring hint logic?",
+      "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86600e6_4884a682",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:45:51Z",
+      "side": 1,
+      "message": "The validators work on the raw rules, which to my understanding means we\u0027d need to do all the parsing again.",
+      "parentUuid": "ae5de218_6ec82b58",
       "revId": "12eb231ed733488b359f5256dd4719a6f92ea0d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
