@@ -57,17 +57,15 @@ describe('Scope View', async () => {
 
     await step('check that opened linear memory inspector has correct title', async () => {
       const lmiTabbedPane = await waitFor(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_SELECTOR);
-      const titleElement = await waitFor(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
+      const titleElement = await waitFor<HTMLElement>(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
       assert.isNotNull(titleElement);
-      const title = await frontend.evaluate(x => x.innerText, titleElement);
+      const title = await titleElement.evaluate(x => x.innerText);
 
       assert.strictEqual(title, 'Memory(100)');
     });
   });
 
   it('opens one linear memory inspector per ArrayBuffer', async () => {
-    const {frontend} = getBrowserAndPages();
-
     await step('navigate to a page', async () => {
       await goToResource('sources/memory-workers.rawresponse');
     });
@@ -87,9 +85,9 @@ describe('Scope View', async () => {
 
     const lmiTabbedPane = await waitFor(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_SELECTOR);
     await step('check that opened linear memory inspector has correct title', async () => {
-      const titleElement = await waitFor(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
+      const titleElement = await waitFor<HTMLElement>(LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR, lmiTabbedPane);
       assert.isNotNull(titleElement);
-      const title = await frontend.evaluate(x => x.innerText, titleElement);
+      const title = await titleElement.evaluate(x => x.innerText);
 
       assert.strictEqual(title, 'SharedArrayBuffer(16)');
     });
