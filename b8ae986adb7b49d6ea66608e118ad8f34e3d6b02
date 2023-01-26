@@ -142,6 +142,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e4f2013_7c32b354",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-01-26T06:42:44Z",
+      "side": 1,
+      "message": "Let\u0027s extend an interface such as\n\n```\nexport interface WaitForSelectorOptions\u003cSelectorType\u003e {\n  root?: puppeteer.Page|puppeteer.ElementHandle;\n  type?: SelectorType;\n  scope?: AsyncScope;\n}\n```\n\nand implement the click options.",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "434851a1_d7dfbd5d",
         "filename": "test/shared/helper.ts",
         "patchSetId": 4
@@ -206,6 +223,46 @@
       "side": 1,
       "message": "+1 about the retry warning. I actually assert that retrying is not fixing anything; if the warning does pop up, this would prove me wrong but also point to a potential point of flakiness. We may be able to do better if we find where the click retries (e.g. by waiting for the render coordinator)!",
       "parentUuid": "1bef1680_1697f733",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a142d5_c8d6486e",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-01-26T06:42:44Z",
+      "side": 1,
+      "message": "I think it makes sense to get rid of this and just have a \u0027keyDownModifier` and `keyUpModifier` utility.\n\nThe workflow would be\n```ts\nawait keyDownModifier();\nawait click(...);\nawait keyUpModifier();\n```\n\nThis makes perfect sense since the modifier doesn\u0027t affect activation of the click.",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 17
+      },
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec8fccf_86e2e474",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-01-26T06:42:44Z",
+      "side": 1,
+      "message": "Do we need this? Can we just migrate everything to `click`?",
       "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
