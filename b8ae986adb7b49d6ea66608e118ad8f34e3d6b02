@@ -190,6 +190,24 @@
       "parentUuid": "10703003_76b3a30b",
       "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b979fbbf_c48f514c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2023-01-26T00:58:13Z",
+      "side": 1,
+      "message": "+1 about the retry warning. I actually assert that retrying is not fixing anything; if the warning does pop up, this would prove me wrong but also point to a potential point of flakiness. We may be able to do better if we find where the click retries (e.g. by waiting for the render coordinator)!",
+      "parentUuid": "1bef1680_1697f733",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
