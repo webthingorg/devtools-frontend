@@ -461,6 +461,7 @@ export class ElementsTreeOutline extends
   }
 
   selectedNodeChanged(focus: boolean): void {
+    console.error((new Error()).stack);
     this.dispatchEventToListeners(
         ElementsTreeOutline.Events.SelectedNodeChanged, {node: this.selectedDOMNodeInternal, focus: focus});
   }

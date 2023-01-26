@@ -221,10 +221,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   private stylesViewToReveal?: UI.View.SimpleView;
 
   private cssStyleTrackerByCSSModel: Map<SDK.CSSModel.CSSModel, SDK.CSSModel.CSSPropertyTracker>;
+  private outermostTarget: SDK.Target.Target|null;
 
   constructor() {
     super('elements');
 
+    this.outermostTarget = UI.Context.Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null;
     this.splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
     this.splitWidget.addEventListener(
         UI.SplitWidget.Events.SidebarSizeChanged, this.updateTreeOutlineVisibleWidth.bind(this));
@@ -301,6 +303,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         Common.Settings.Settings.instance().moduleSetting('adornerSettings'));
     this.adornerSettingsPane = null;
     this.adornersByName = new Map();
+
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, this.update, this);
   }
 
   private initializeFullAccessibilityTreeView(): void {
@@ -362,7 +366,30 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.stylesWidget.showToolbarPane(widget, toggle);
   }
 
+  private update() {
+    const oldOutermostTarget = this.outermostTarget;
+    const newOutermostTarget = UI.Context.Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null;
+    for (const domModel of SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel)) {
+      if (domModel.target().outermostTarget() === this.outermostTarget) {
+        this.modelRemoved(domModel);
+      }
+    }
+    this.outermostTarget = newOutermostTarget;
+    for (const domModel of SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel)) {
+      if (domModel.target().outermostTarget() === newOutermostTarget) {
+        this.modelAdded(domModel);
+      }
+    }
+    const domModel = newOutermostTarget?.model(SDK.DOMModel.DOMModel);
+    if (domModel) {
+      this.documentUpdated(domModel);
+    }
+  }
+
   modelAdded(domModel: SDK.DOMModel.DOMModel): void {
+    if (domModel.target().outermostTarget() !== UI.Context.Context.instance().flavor(SDK.Target.Target)) {
+      return;
+    }
     const parentModel = domModel.parentModel();
 
     let treeOutline: ElementsTreeOutline|null = parentModel ? ElementsTreeOutline.forDOMModel(parentModel) : null;
@@ -575,6 +602,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   private documentUpdatedEvent(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMModel>): void {
     const domModel = event.data;
+    if (domModel.target().outermostTarget() !== UI.Context.Context.instance().flavor(SDK.Target.Target)) {
+      return;
+    }
     this.documentUpdated(domModel);
     this.removeStyleTracking(domModel.cssModel());
     this.setupStyleTracking(domModel.cssModel());

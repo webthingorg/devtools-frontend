@@ -54,6 +54,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {ExecutionContextSelector} from './ExecutionContextSelector.js';
+import {TopLevelTargetSelector} from './TopLevelTargetSelector.js';
 
 const UIStrings = {
   /**
