@@ -65,7 +65,9 @@ export class Hint {
   readonly #possibleFixMessage: string|null;
   readonly #learnMoreLink: string|undefined;
 
-  constructor(hintMessage: string, possibleFixMessage: string|null, learnMoreLink?: string) {
+  constructor(
+      hintMessage: string, possibleFixMessage: string|null, learnMoreLink?: string,
+      readonly impliesInactiveRule = true) {
     this.#hintMessage = hintMessage;
     this.#possibleFixMessage = possibleFixMessage;
     this.#learnMoreLink = learnMoreLink;
