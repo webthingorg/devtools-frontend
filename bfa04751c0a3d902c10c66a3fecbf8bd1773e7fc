@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18524e2e_dbf7f08c",
+        "filename": "front_end/ui/legacy/components/color_picker/FormatPickerContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-26T09:20:13Z",
+      "side": 1,
+      "message": "I\u0027m not exactly sure if the behavior change is related to this CL but in the conversion menu, when we select a transparent color (say 50% alpha), it shows both the `RGB` and `RGBA` formats.",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9282e89a_90530d71",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-26T09:20:13Z",
+      "side": 1,
+      "message": "I think we shouldn\u0027t do this here but do below as `const colorValues \u003d color.as(Common.Color.Format.HSL).canonicalHSLA()` since we don\u0027t want this color to be clipped to sRGB boundaries. Applies to below too.\n\nFor example, with this change, changing the `hue` of a display-p3 color causes that to jump to sRGB boundary.",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850b3624_21fb0697",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-01-26T09:20:13Z",
+      "side": 1,
+      "message": "Why did we needed to convert this to HSL here? 🤔",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
