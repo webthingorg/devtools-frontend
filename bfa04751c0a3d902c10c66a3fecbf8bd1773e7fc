@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ad06ba2_98927cee",
+        "filename": "front_end/ui/legacy/components/color_picker/FormatPickerContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T09:40:15Z",
+      "side": 1,
+      "message": "This behavior was present before for non-Legacy colors. This change just makes it occur also for HSL and HWB.",
+      "parentUuid": "18524e2e_dbf7f08c",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9282e89a_90530d71",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "652b2414_7e9303b5",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T09:40:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9282e89a_90530d71",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "850b3624_21fb0697",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-01-26T09:20:13Z",
       "side": 1,
       "message": "Why did we needed to convert this to HSL here? 🤔",
+      "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41d53ac_b5c8fc9e",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T09:40:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850b3624_21fb0697",
       "revId": "bfa04751c0a3d902c10c66a3fecbf8bd1773e7fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
