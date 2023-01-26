@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01382da8_0d379881",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-26T05:16:02Z",
+      "side": 1,
+      "message": "Thanks for the link! I forgot to actually add Jack xD, but CL still LGTM.",
+      "parentUuid": "7e834874_a16a14b9",
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07c8eed0_79feadf0",
@@ -137,6 +155,30 @@
       "side": 1,
       "message": "good catch! This shouldn\u0027t have been commented out",
       "parentUuid": "f7cb6754_6a3fd0a0",
+      "range": {
+        "startLine": 99,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 71
+      },
+      "revId": "1acab095a49bad12a581f995b1fb9813c215969c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d425fd_c1162376",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-26T05:16:02Z",
+      "side": 1,
+      "message": "It\u0027s still commented out on PS5.",
+      "parentUuid": "413f9866_911fbdaf",
       "range": {
         "startLine": 99,
         "startChar": 6,
