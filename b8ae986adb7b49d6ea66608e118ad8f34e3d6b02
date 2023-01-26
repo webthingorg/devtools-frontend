@@ -157,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4886c35b_f2b3554c",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T08:56:07Z",
+      "side": 1,
+      "message": "I don\u0027t think we need an asyncScope here because we use waitForFunction inside. Also, SelectorType will be redundant.",
+      "parentUuid": "6e4f2013_7c32b354",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "434851a1_d7dfbd5d",
@@ -250,6 +268,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd2a0f5_51c1bde2",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T08:56:07Z",
+      "side": 1,
+      "message": "I think it\u0027s more convenient if we include id: the modifiers to affect the click event modifiers that are emitted.",
+      "parentUuid": "c8a142d5_c8d6486e",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 17
+      },
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ec8fccf_86e2e474",
@@ -263,6 +305,24 @@
       "writtenOn": "2023-01-26T06:42:44Z",
       "side": 1,
       "message": "Do we need this? Can we just migrate everything to `click`?",
+      "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "917f3a6a_db934aa8",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T08:56:07Z",
+      "side": 1,
+      "message": "Some cases are not trivial to migrate right away. Once all of them use selectors, this method can be removed. That\u0027s why it\u0027s marked as deprecated.",
+      "parentUuid": "1ec8fccf_86e2e474",
       "revId": "b8ae986adb7b49d6ea66608e118ad8f34e3d6b02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
