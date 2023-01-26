@@ -44,6 +44,19 @@ import {
   rgbaToHwba,
 } from './ColorUtils.js';
 
+// <hue> is defined as a <number> or <angle>
+// and we hold this in degrees. However, after
+// the conversions, these degrees can result in
+// negative values. That's why we normalize the hue to be
+// between [0 - 360].
+function normalizeHue(hue: number): number {
+  // Even though it is highly unlikely, hue can be
+  // very negative like -400. The initial modulo
+  // operation makes sure that the if the number is
+  // negative, it is between [-360, 0].
+  return ((hue % 360) + 360) % 360;
+}
+
 // Parses angle in the form of
 // `<angle>deg`, `<angle>turn`, `<angle>grad and `<angle>rad`
 // and returns the canonicalized `degree`.
@@ -908,7 +921,7 @@ export class LCH implements Color {
     c = equals(this.l, 0) || equals(this.l, 100) ? 0 : c;
     this.c = clamp(c, {min: 0});
     h = equals(c, 0) ? 0 : h;
-    this.h = h;
+    this.h = normalizeHue(h);
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#auhtoredText = authoredText;
   }
@@ -1178,7 +1191,7 @@ export class Oklch implements Color {
     c = equals(this.l, 0) || equals(this.l, 1) ? 0 : c;
     this.c = clamp(c, {min: 0});
     h = equals(c, 0) ? 0 : h;
-    this.h = h;
+    this.h = normalizeHue(h);
     this.alpha = clamp(alpha, {min: 0, max: 1});
     this.#auhtoredText = authoredText;
   }

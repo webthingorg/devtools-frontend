@@ -831,10 +831,10 @@ describe('Color', () => {
     assert.deepEqual(Color.parse('oklab(1.5 -70 -70)')?.asString(), 'oklab(1 0 0)');
 
     assert.isFalse(Color.parse('lch(10 70 -70)')?.isGamutClipped());
-    assert.deepEqual(Color.parse('lch(10 70 -70)')?.asString(), 'lch(10 70 -70)');
+    assert.deepEqual(Color.parse('lch(10 70 -70)')?.asString(), 'lch(10 70 290)');
 
     assert.isFalse(Color.parse('oklch(0.5 70 -70)')?.isGamutClipped());
-    assert.deepEqual(Color.parse('oklch(0.5 70 -70)')?.asString(), 'oklch(0.5 70 -70)');
+    assert.deepEqual(Color.parse('oklch(0.5 70 -70)')?.asString(), 'oklch(0.5 70 290)');
 
     assert.isFalse(Color.parse('lab(10 -70 -70)')?.isGamutClipped());
     assert.deepEqual(Color.parse('lab(10 -70 -70)')?.asString(), 'lab(10 -70 -70)');
