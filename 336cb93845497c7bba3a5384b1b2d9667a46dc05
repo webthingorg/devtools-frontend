@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3840aead_c35e0c0a",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T15:30:05Z",
+      "side": 1,
+      "message": "There\u0027s a bit of a layering problem there. Validators work on raw css text, whereas we detect this warning only after parsing.",
+      "parentUuid": "8b47fd4d_da5cf2f5",
+      "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25c5f77f_6e3fa316",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 4
