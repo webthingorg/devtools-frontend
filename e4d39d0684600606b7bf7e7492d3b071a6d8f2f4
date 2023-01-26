@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d0bc24d_4926a592",
+        "filename": "test/unittests/front_end/core/common/Color_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:17:16Z",
+      "side": 1,
+      "message": "what about hsl and hwb, should they be included too?",
+      "revId": "e4d39d0684600606b7bf7e7492d3b071a6d8f2f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
