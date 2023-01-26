@@ -34,6 +34,24 @@
       "parentUuid": "4d0bc24d_4926a592",
       "revId": "e4d39d0684600606b7bf7e7492d3b071a6d8f2f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582e4ffd_03856b59",
+        "filename": "test/unittests/front_end/core/common/Color_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-26T10:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1902fafe_f33ce6c7",
+      "revId": "e4d39d0684600606b7bf7e7492d3b071a6d8f2f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
