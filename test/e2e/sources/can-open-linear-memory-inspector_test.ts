@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {$, $$, click, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
+import {$, $$, click, getBrowserAndPages, goToResource, step, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {checkIfTabExistsInDrawer, DRAWER_PANEL_SELECTOR} from '../helpers/cross-tool-helper.js';
 import {
@@ -116,8 +116,10 @@ describe('Scope View', async () => {
       // Shared buffer should be selected again
       await waitFor('[aria-selected="true"]', sharedBufferTab);
       // There should only be two tabs
-      const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
-      assert.strictEqual(tabs.length, 2);
+      await waitForFunction(async () => {
+        const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
+        return tabs.length === 2;
+      });
     });
 
     await step('resume and pause in other worker (hitting a debugger statement)', async () => {
@@ -135,8 +137,10 @@ describe('Scope View', async () => {
       // Shared buffer tab no longer active
       await waitFor('[aria-selected="false"]', sharedBufferTab);
       // Now there are three tabs
-      const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
-      assert.strictEqual(tabs.length, 3);
+      await waitForFunction(async () => {
+        const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
+        return tabs.length === 3;
+      });
     });
 
     await step('open shared buffer in other worker', async () => {
@@ -144,8 +148,10 @@ describe('Scope View', async () => {
       // Shared buffer tab active again
       await waitFor('[aria-selected="true"]', sharedBufferTab);
       // Still three tabs
-      const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
-      assert.strictEqual(tabs.length, 3);
+      await waitForFunction(async () => {
+        const tabs = await $$(LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR, lmiTabbedPane);
+        return tabs.length === 3;
+      });
     });
   });
 });
