@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad19d9f_4edb5b11",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3185,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-26T11:48:44Z",
+      "side": 0,
+      "message": "This bit was introduced with your CL here: https://crrev.com/c/2595386\n\nDid I read the comment correctly or does the whole `if` need to go?",
+      "range": {
+        "startLine": 3181,
+        "startChar": 0,
+        "endLine": 3185,
+        "endChar": 11
+      },
+      "revId": "77c04d83f0ef213f077e692c40faa0adaae0ad2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
