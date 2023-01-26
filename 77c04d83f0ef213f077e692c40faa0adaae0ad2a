@@ -22,6 +22,30 @@
       },
       "revId": "77c04d83f0ef213f077e692c40faa0adaae0ad2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6ea41aa_65a3d503",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-26T11:55:53Z",
+      "side": 0,
+      "message": "Yeah you read it correctly, the if should still be there. Thanks!",
+      "parentUuid": "aad19d9f_4edb5b11",
+      "range": {
+        "startLine": 3181,
+        "startChar": 0,
+        "endLine": 3185,
+        "endChar": 11
+      },
+      "revId": "77c04d83f0ef213f077e692c40faa0adaae0ad2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
