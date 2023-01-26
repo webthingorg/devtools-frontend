@@ -50,6 +50,74 @@
       "message": "Alex: Can you take a look as well?",
       "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b8be155_b54bbfb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T13:18:53Z",
+      "side": 1,
+      "message": "What about a test or two?",
+      "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b47fd4d_da5cf2f5",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T13:18:53Z",
+      "side": 1,
+      "message": "is it possible to move ti the validator class?",
+      "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c5f77f_6e3fa316",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T13:18:53Z",
+      "side": 1,
+      "message": "can we access swatch when we get the hints instead of storing the hints on the instance?",
+      "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf882218_8e54dfe9",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-26T13:18:53Z",
+      "side": 1,
+      "message": "let\u0027s extract a method here?",
+      "revId": "336cb93845497c7bba3a5384b1b2d9667a46dc05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
