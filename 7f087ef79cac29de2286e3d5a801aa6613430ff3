@@ -16,6 +16,41 @@
       "message": "I think renaming and everything could be separated into another PR. I think showing that the utility works on a few important test cases would be better for review. Once we submit the utility, we could do the rename refactor.\n\nAnother thing is, perhaps it\u0027s better if we implement `waitForSelector` as done in my CL before we move toward this. Even after the bug for `waitFor` is fixed in Puppeteer, `waitForSelector` performs far better than `waitFor`.",
       "revId": "7f087ef79cac29de2286e3d5a801aa6613430ff3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac5d701_699d6ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2023-01-26T06:22:27Z",
+      "side": 1,
+      "message": "Unresolved",
+      "parentUuid": "b53d1e71_1a589c10",
+      "revId": "7f087ef79cac29de2286e3d5a801aa6613430ff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3557b0e_d647f49b",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2023-01-26T06:22:27Z",
+      "side": 1,
+      "message": "This utility is unnecessary. An element is already checked if it\u0027s connected by the `#scrollIntoViewIfNeeded` (https://github.com/puppeteer/puppeteer/blob/main/packages/puppeteer-core/src/common/ElementHandle.ts#L464)",
+      "revId": "7f087ef79cac29de2286e3d5a801aa6613430ff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
