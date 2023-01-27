@@ -16,6 +16,74 @@
       "message": "Hey, so this is basically landable now: a few tests needed fixes in order to use Puppeteer\u0027s click helpers. PTAL. I suggest that we delay landing this after the Puppeteer roll.",
       "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc11e7c0_cd2c89b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-27T07:59:04Z",
+      "side": 1,
+      "message": "Some nits, but still LGTM!",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a3789b_cf2e6305",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-27T07:59:04Z",
+      "side": 1,
+      "message": "can we add a comment here?",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a76e6884_63c015f8",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-27T07:59:04Z",
+      "side": 1,
+      "message": "Can we put a bug on this?",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c98213f8_acc82711",
+        "filename": "test/e2e/issues/issue-view-caching_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-01-27T07:59:04Z",
+      "side": 1,
+      "message": "might be nicer to return {issueElement, section} here to not having to duplicate the query, but up to you!",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
