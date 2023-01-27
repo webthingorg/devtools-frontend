@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26604fa_a5891766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-27T13:02:04Z",
+      "side": 1,
+      "message": "This test fails consistently on the Mac bot so far:\n\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/9357/overview\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/9358/overview\n\nKindly take a look. If it\u0027s failing more over the weekend I\u0027ll disable the test on mac on Monday.",
+      "revId": "839b02d036e4bee786fd1f9f043b5fce6fc0da6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
