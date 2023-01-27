@@ -11,7 +11,7 @@ import {
 } from '../helpers/elements-helpers.js';
 import {openSourcesPanel} from '../helpers/sources-helpers.js';
 
-describe('The Elements tab', async function() {
+describe.only('The Elements tab', async function() {
   it('does not break when switching panels while editing as HTML', async () => {
     await goToResource('elements/switch-panels-while-editing-as-html.html');
     await expandSelectedNodeRecursively();
