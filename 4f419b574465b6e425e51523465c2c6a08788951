@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e3a4086_14afc844",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-27T11:34:21Z",
+      "side": 1,
+      "message": "Gotta say I only followed 80% of what `reverseMapTextRanges` is doing, so I\u0027m relying on the test coverage here a lot 😊\n\nlgtm",
+      "revId": "4f419b574465b6e425e51523465c2c6a08788951",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
