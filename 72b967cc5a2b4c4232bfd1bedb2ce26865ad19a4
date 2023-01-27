@@ -22,6 +22,29 @@
       },
       "revId": "72b967cc5a2b4c4232bfd1bedb2ce26865ad19a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b610fa27_0d645d18",
+        "filename": "test/e2e/helpers/context-menu-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-27T16:52:00Z",
+      "side": 1,
+      "message": "Let\u0027s not hard code labels here. Instead let\u0027s add a parameter here and in the `findSubMenuEntryItem` to specify if item has a submenu.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "72b967cc5a2b4c4232bfd1bedb2ce26865ad19a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
