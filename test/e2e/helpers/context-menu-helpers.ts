@@ -11,7 +11,13 @@ export function platformSpecificTextForSubMenuEntryItem(text: string): string {
    * context menu, but on Linux/Windows it uses an image. So if we're running on
    * Mac, we append the search text with the icon, else we do not.
    */
-  return platform === 'mac' ? `${text}▶` : text;
+  const excludedItems = ['Edit as HTML'];
+
+  if (platform === 'mac' && !excludedItems.includes(text)) {
+    return `${text}▶`;
+  }
+
+  return text;
 }
 
 export function waitForSoftContextMenu(): Promise<puppeteer.ElementHandle<Element>> {
@@ -36,7 +42,7 @@ export async function findSubMenuEntryItem(text: string): Promise<puppeteer.Elem
   if (!matchingElement) {
     const allItems = await $$('.soft-context-menu > .soft-context-menu-item');
     const allItemsText = await Promise.all(allItems.map(item => item.evaluate(div => div.textContent)));
-    assert.fail(`Could not find "${text}" option on context menu. Found items: ${allItemsText.join(' | ')}`);
+    assert.fail(`Could not find "${textToSearchFor}" option on context menu. Found items: ${allItemsText.join(' | ')}`);
   }
   return matchingElement;
 }
