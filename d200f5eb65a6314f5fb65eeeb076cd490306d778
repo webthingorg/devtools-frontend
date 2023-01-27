@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "d200f5eb65a6314f5fb65eeeb076cd490306d778",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30679143_bca02c62",
+        "filename": "test/e2e/helpers/context-menu-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-27T17:02:50Z",
+      "side": 1,
+      "message": "Let\u0027s not add a default value. There\u0027s exactly one other call to this, we can just update it.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 90
+      },
+      "revId": "d200f5eb65a6314f5fb65eeeb076cd490306d778",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
