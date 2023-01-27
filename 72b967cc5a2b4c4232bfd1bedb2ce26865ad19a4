@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6545a3bc_d7d947a9",
+        "filename": "test/e2e/helpers/context-menu-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-01-27T16:49:07Z",
+      "side": 1,
+      "message": "there might be a better way to do this but this is a workaround for now. Mayve in a separate CL we can improve the `findSubMenuEntryItem` function.",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "72b967cc5a2b4c4232bfd1bedb2ce26865ad19a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
