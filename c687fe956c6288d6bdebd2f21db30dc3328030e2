@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b439d8_e7e0bcb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-27T06:08:34Z",
+      "side": 1,
+      "message": "Hey, so this is basically landable now: a few tests needed fixes in order to use Puppeteer\u0027s click helpers. PTAL. I suggest that we delay landing this after the Puppeteer roll.",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
