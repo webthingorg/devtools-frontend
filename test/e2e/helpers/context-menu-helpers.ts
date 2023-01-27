@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 import {assert} from 'chai';
 
-import {$, $$, $textContent, platform, waitFor, waitForFunction, type puppeteer} from '../../shared/helper.js';
+import {$, $$, platform, waitFor, waitForFunction, type puppeteer} from '../../shared/helper.js';
 
 export function platformSpecificTextForSubMenuEntryItem(text: string): string {
   /**
@@ -30,8 +30,7 @@ export async function assertTopLevelContextMenuItemsText(expectedOptions: string
   assert.deepEqual(allItemsText, expectedOptions);
 }
 export async function findSubMenuEntryItem(text: string): Promise<puppeteer.ElementHandle<Element>> {
-  const textToSearchFor = platformSpecificTextForSubMenuEntryItem(text);
-  const matchingElement = await $textContent(textToSearchFor);
+  const matchingElement = await $(`.soft-context-menu > .soft-context-menu-item[aria-label="${text}"]`);
 
   if (!matchingElement) {
     const allItems = await $$('.soft-context-menu > .soft-context-menu-item');
