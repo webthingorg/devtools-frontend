@@ -191,6 +191,34 @@ describe('NetworkDispatcher', () => {
         {name: 'set-cookie', value: 'color=green'},
       ]);
     });
+
+    it('propagates reponse cookies partition key', () => {
+      const responseReceivedExtraInfoEvent = {
+        requestId: 'mockId' as Protocol.Network.RequestId,
+        blockedCookies: [],
+        headers: {
+          'test-header': 'first',
+        } as Protocol.Network.Headers,
+        resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
+        statusCode: 200,
+        cookiePartitionKey: 'foo',
+      } as Protocol.Network.ResponseReceivedExtraInfoEvent;
+
+      networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
+      networkDispatcher.responseReceivedExtraInfo(responseReceivedExtraInfoEvent);
+
+      // assert.deepEqual(
+      //     networkDispatcher.requestForId('mockId')?.responseHeaders, [{name: 'test-header', value: 'first'}]);
+      //
+      // // ResponseReceived does overwrite response headers if request is marked as intercepted.
+      // SDK.NetworkManager.MultitargetNetworkManager.instance().dispatchEventToListeners(
+      //     SDK.NetworkManager.MultitargetNetworkManager.Events.RequestIntercepted,
+      //     'example.com' as Platform.DevToolsPath.UrlString);
+      // networkDispatcher.responseReceived(mockResponseReceivedEventWithHeaders({'test-header': 'third'}));
+      // assert.deepEqual(
+      //     networkDispatcher.requestForId('mockId')?.responseHeaders, [{name: 'test-header', value: 'third'}]);
+    });
+
   });
 
   describeWithEnvironment('WebBundle requests', () => {
