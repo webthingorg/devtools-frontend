@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7af9a8_800eca65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568837
+      },
+      "writtenOn": "2023-01-29T03:42:30Z",
+      "side": 1,
+      "message": "Currently there is a slight mistake in the value of navigator.userAgent when choosing Surface Pro 7 in the device emulator",
+      "revId": "87277924670832293018ebbf066d9a1a9ab62938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
