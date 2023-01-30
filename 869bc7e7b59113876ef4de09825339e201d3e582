@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "505fd2fe_91114db9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-01-30T08:20:36Z",
+      "side": 1,
+      "message": "Changhao, could you PTAL? I need an extra review \u0026 CQ+2 since I had to edit the commit message and now Gerrit thinks I’m the uploader of this CL.",
+      "revId": "869bc7e7b59113876ef4de09825339e201d3e582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
