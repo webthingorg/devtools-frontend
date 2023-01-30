@@ -272,7 +272,7 @@ describe('HeadersView', async () => {
   it('handles pressing \'Enter\' key by removing focus and moving it to the next field if possible', async () => {
     const editor = await renderEditor();
     assertShadowRoot(editor.shadowRoot);
-    const editables = editor.shadowRoot.querySelectorAll('.editable');
+    const editables = editor.shadowRoot?.querySelectorAll('.editable');
     assert.strictEqual(editables.length, 8);
 
     const lastHeaderName = editables[6] as HTMLSpanElement;
