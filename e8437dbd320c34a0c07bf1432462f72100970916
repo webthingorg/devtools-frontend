@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98cd23d9_93e5d15c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-30T09:24:35Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "e8437dbd320c34a0c07bf1432462f72100970916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927ca7d0_4aeb48bc",
+        "filename": "front_end/panels/sources/components/BreakpointsViewUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-01-30T09:24:35Z",
+      "side": 1,
+      "message": "Nit: This is not a very efficient way to do this. How about \n```\nconst lastSegment \u003d \n    differentiatorPath.substring(differentiatorPath.lastIndexOf(\u0027/\u0027) + 1)\n```?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 56
+      },
+      "revId": "e8437dbd320c34a0c07bf1432462f72100970916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
