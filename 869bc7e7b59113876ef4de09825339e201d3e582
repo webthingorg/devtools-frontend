@@ -86,6 +86,23 @@
       "parentUuid": "ab12ff98_be484a0c",
       "revId": "869bc7e7b59113876ef4de09825339e201d3e582",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ac109f_dda6c0b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568837
+      },
+      "writtenOn": "2023-01-30T16:29:33Z",
+      "side": 1,
+      "message": "Sorry I can\u0027t seem to push the change here, I always got this error message:\n\n! [remote rejected]     HEAD -\u003e refs/changes/98/4190098 (prohibited by Gerrit: not permitted: create)\n\nShould I open as a new patch like this? :\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4197029\n\nor is there something that I miss? thanks for your assistance.",
+      "revId": "869bc7e7b59113876ef4de09825339e201d3e582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
