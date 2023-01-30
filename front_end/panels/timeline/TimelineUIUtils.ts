@@ -1158,6 +1158,7 @@ export class TimelineUIUtils {
     const eventStyles: EventStylesMap = {};
     eventStyles[type.Task] = new TimelineRecordStyle(i18nString(UIStrings.task), other);
     eventStyles[type.Program] = new TimelineRecordStyle(i18nString(UIStrings.other), other);
+    eventStyles[type.StartProfiling] = new TimelineRecordStyle('Profiler Overhead', other);
     eventStyles[type.Animation] = new TimelineRecordStyle(i18nString(UIStrings.animation), rendering);
     eventStyles[type.EventDispatch] = new TimelineRecordStyle(i18nString(UIStrings.event), scripting);
     eventStyles[type.RequestMainThreadFrame] =
