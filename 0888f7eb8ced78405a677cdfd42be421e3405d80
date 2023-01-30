@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a66b6f_9b2845c4",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T11:35:39Z",
+      "side": 1,
+      "message": "I put this into the revealer for now. But putting it in `DebuggerPlugin#editBreakpointLocation` could also make sense. Wdyt?",
+      "range": {
+        "startLine": 1623,
+        "startChar": 23,
+        "endLine": 1623,
+        "endChar": 47
+      },
+      "revId": "0888f7eb8ced78405a677cdfd42be421e3405d80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
