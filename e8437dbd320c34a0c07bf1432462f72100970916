@@ -39,6 +39,30 @@
       },
       "revId": "e8437dbd320c34a0c07bf1432462f72100970916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4972514_982fcf00",
+        "filename": "front_end/panels/sources/components/BreakpointsViewUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-30T13:00:40Z",
+      "side": 1,
+      "message": "Makes sense, thanks!",
+      "parentUuid": "927ca7d0_4aeb48bc",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 56
+      },
+      "revId": "e8437dbd320c34a0c07bf1432462f72100970916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
