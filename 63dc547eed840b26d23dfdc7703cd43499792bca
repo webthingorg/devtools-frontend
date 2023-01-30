@@ -16,6 +16,69 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "63dc547eed840b26d23dfdc7703cd43499792bca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3f1b33_82405f43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:04:08Z",
+      "side": 1,
+      "message": "For the future kindly consider go/small-cls. As-is, this CL is very hard to review as one has to juggle all the different mapping implementations in ones head.\n\nIdeally this would have been split up into various CLs:\n  * One for the `containsLocation` change (if possible to be standalone)\n  * One for the `intersection` change\n  * One each for the `SourceFormatter`, `ResourceScriptMapping`, `ResourceMapping`, `DefaultScriptMapping`, `DebuggerLanguagePlugin` and `CompilerScriptMapping` including the unit test for that mapping\n  * One that ties them together in the `DebuggerWorkspaceBinding`\n  * One that calls it from BreakpointManager\n\nSplitting it up after the fact will be annoying, but I need some more time to do a detailed review of the various mapping impls.",
+      "revId": "63dc547eed840b26d23dfdc7703cd43499792bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fce9e4_819d290d",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:04:08Z",
+      "side": 1,
+      "message": "So much better!",
+      "range": {
+        "startLine": 370,
+        "startChar": 8,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "63dc547eed840b26d23dfdc7703cd43499792bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5cdd2db_00f80208",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:04:08Z",
+      "side": 1,
+      "message": "nit: superfluous",
+      "range": {
+        "startLine": 343,
+        "startChar": 87,
+        "endLine": 343,
+        "endChar": 88
+      },
+      "revId": "63dc547eed840b26d23dfdc7703cd43499792bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
