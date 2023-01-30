@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41735022_0a33c8e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-30T13:42:45Z",
+      "side": 1,
+      "message": "Makes sense to only open the edit dialog if the breakpoint is still there. So, if the user clicks on the anchor, it will only jump to the source location, I assume. Would it make sense to still somehow show what the logpoint condition was?",
+      "revId": "0888f7eb8ced78405a677cdfd42be421e3405d80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92a66b6f_9b2845c4",
         "filename": "front_end/panels/sources/DebuggerPlugin.ts",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2023-01-30T11:35:39Z",
       "side": 1,
       "message": "I put this into the revealer for now. But putting it in `DebuggerPlugin#editBreakpointLocation` could also make sense. Wdyt?",
+      "range": {
+        "startLine": 1623,
+        "startChar": 23,
+        "endLine": 1623,
+        "endChar": 47
+      },
+      "revId": "0888f7eb8ced78405a677cdfd42be421e3405d80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0cd692_d7db3370",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-30T13:42:45Z",
+      "side": 1,
+      "message": "What do you think about moving it even further down, into `DebuggerPlugin#editBreakpointCondition`? In this case the dialog would always behave the same (even if we only know of one use case right now).",
+      "parentUuid": "92a66b6f_9b2845c4",
       "range": {
         "startLine": 1623,
         "startChar": 23,
