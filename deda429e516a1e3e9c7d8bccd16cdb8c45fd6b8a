@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc86411_7aaa4001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-01-30T09:18:55Z",
+      "side": 1,
+      "message": "Looks good, one nit",
+      "revId": "deda429e516a1e3e9c7d8bccd16cdb8c45fd6b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e659bcc1_f37fb4e6",
+        "filename": "test/unittests/front_end/core/sdk/NetworkRequest_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-01-30T09:18:55Z",
+      "side": 1,
+      "message": "Duplicate line",
+      "revId": "deda429e516a1e3e9c7d8bccd16cdb8c45fd6b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
