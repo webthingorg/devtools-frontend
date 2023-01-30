@@ -263,6 +263,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #includedRequestCookiesInternal: Cookie[];
   #blockedResponseCookiesInternal: BlockedSetCookieWithReason[];
   #siteHasCookieInOtherPartition: boolean;
+  #cookiePartitionKeyInternal: string;
   localizedFailDescription: string|null;
   #urlInternal!: Platform.DevToolsPath.UrlString;
   #responseReceivedTimeInternal!: number;
@@ -373,6 +374,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#includedRequestCookiesInternal = [];
     this.#blockedResponseCookiesInternal = [];
     this.#siteHasCookieInOtherPartition = false;
+
+    this.#cookiePartitionKeyInternal = '';
 
     this.localizedFailDescription = null;
     this.#isSameSiteInternal = null;
@@ -1010,8 +1013,20 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     if (!this.#responseCookiesInternal) {
       this.#responseCookiesInternal =
           CookieParser.parseSetCookie(this.responseHeaderValue('Set-Cookie'), this.domain) || [];
+      if (this.#hasExtraResponseInfoInternal) {
+        this.setResponseCookiePartitionKeysInternal();
+      }
     }
     return this.#responseCookiesInternal;
+  }
+
+  private setResponseCookiePartitionKeysInternal(): void {
+    const responseCookies = this.#responseCookiesInternal as Cookie[];
+    for (const cookie of responseCookies) {
+      if (cookie.partitioned() && !cookie.partitionKey()) {
+        cookie.addAttribute(Attributes.PartitionKey, this.#cookiePartitionKeyInternal);
+      }
+    }
   }
 
   responseLastModified(): string|undefined {
@@ -1458,6 +1473,13 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       this.statusCode = extraResponseInfo.statusCode;
     }
 
+    if (extraResponseInfo.cookiePartitionKey) {
+      this.#cookiePartitionKeyInternal = extraResponseInfo.cookiePartitionKey;
+    }
+    if (this.#responseCookiesInternal) {
+      this.setResponseCookiePartitionKeysInternal();
+    }
+
     this.#hasExtraResponseInfoInternal = true;
 
     // TODO(crbug.com/1252463) Explore replacing this with a DevTools Issue.
@@ -1766,7 +1788,8 @@ export interface ExtraResponseInfo {
   responseHeaders: NameValue[];
   responseHeadersText?: string;
   resourceIPAddressSpace: Protocol.Network.IPAddressSpace;
-  statusCode: number|undefined;
+  statusCode?: number;
+  cookiePartitionKey?: string;
 }
 
 export interface WebBundleInfo {

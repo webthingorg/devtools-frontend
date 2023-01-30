@@ -5,7 +5,7 @@
 import type * as Platform from '../platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 
-const OPAQUE_PARITION_KEY = '<opaque>';
+export const OPAQUE_PARITION_KEY = '<opaque>';
 
 export class Cookie {
   readonly #nameInternal: string;
@@ -87,6 +87,11 @@ export class Cookie {
     // TODO(allada) This should not rely on #attributes and instead store them individually.
     // when #attributes get added via addAttribute() they are lowercased, hence the lowercasing of samesite here
     return this.#attributes['samesite'] as Protocol.Network.CookieSameSite;
+  }
+
+  // Partitioned boolean indicates the presence of the Partitioned attribute in the cookie line.
+  partitioned(): boolean {
+    return 'partitioned' in this.#attributes;
   }
 
   partitionKey(): string {
@@ -256,4 +261,5 @@ export enum Attributes {
   SourcePort = 'sourcePort',
   Priority = 'priority',
   PartitionKey = 'partitionKey',
+  Partitioned = 'partitioned',
 }

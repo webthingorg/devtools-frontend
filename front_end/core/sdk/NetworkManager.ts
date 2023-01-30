@@ -40,7 +40,7 @@ import * as Platform from '../platform/platform.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import * as Protocol from '../../generated/protocol.js';
 
-import {Cookie} from './Cookie.js';
+import {Cookie, OPAQUE_PARITION_KEY} from './Cookie.js';
 
 import {
   Events as NetworkRequestEvents,
@@ -866,8 +866,16 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     this.getExtraInfoBuilder(requestId).addRequestExtraInfo(extraRequestInfo);
   }
 
-  responseReceivedExtraInfo({requestId, blockedCookies, headers, headersText, resourceIPAddressSpace, statusCode}:
-                                Protocol.Network.ResponseReceivedExtraInfoEvent): void {
+  responseReceivedExtraInfo({
+    requestId,
+    blockedCookies,
+    headers,
+    headersText,
+    resourceIPAddressSpace,
+    statusCode,
+    cookiePartitionKey,
+    cookiePartitionKeyOpaque,
+  }: Protocol.Network.ResponseReceivedExtraInfoEvent): void {
     const extraResponseInfo: ExtraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
         return {
@@ -880,6 +888,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       responseHeadersText: headersText,
       resourceIPAddressSpace,
       statusCode,
+      cookiePartitionKey: cookiePartitionKeyOpaque ? OPAQUE_PARITION_KEY : cookiePartitionKey,
     };
     this.getExtraInfoBuilder(requestId).addResponseExtraInfo(extraResponseInfo);
   }

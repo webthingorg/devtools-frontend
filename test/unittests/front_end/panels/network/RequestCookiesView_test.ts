@@ -47,4 +47,26 @@ describeWithMockConnection('RequestCookiesView', () => {
     assert.isFalse(message.classList.contains('hidden'));
     component.detach();
   });
+
+  it('shows partition key for a Set-Cookie header with Partitioned', () => {
+    const request = SDK.NetworkRequest.NetworkRequest.create(
+        'requestId' as Protocol.Network.RequestId,
+        'https://www.example.com/foo.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
+        null, null, null);
+    const component = renderCookiesView(request);
+    const [, message] = component.element.querySelectorAll('.cookie-table');
+    assertNotNullOrUndefined(message);
+    assert.isTrue(message.classList.contains('hidden'));
+    request.addExtraResponseInfo({
+      blockedResponseCookies: [],
+      responseHeaders: [{name: 'Set-Cookie', value: '__Host-foo=bar; Secure; Path=/; Partitioned'}],
+      resourceIPAddressSpace: 'Public' as Protocol.Network.IPAddressSpace,
+      cookiePartitionKey: 'https://toplevelsite.com',
+    });
+    component.willHide();
+    component.wasShown();
+    assert.isFalse(message.classList.contains('hidden'));
+    const partitionKeyNode = component.element.querySelectorAll('td')[21];
+    assert.strictEqual(partitionKeyNode.textContent, 'https://toplevelsite.com');
+  });
 });
