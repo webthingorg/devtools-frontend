@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$, platform, waitForElementWithTextContent} from '../../shared/helper.js';
+import {platform, clickElement, waitForElementWithTextContent} from '../../shared/helper.js';
 import {$$, click, getBrowserAndPages, pasteText, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
 
 const NEW_HEAP_SNAPSHOT_BUTTON = 'button[aria-label="Take heap snapshot"]';
@@ -20,9 +20,9 @@ export async function navigateToMemoryTab() {
   await waitFor(PROFILE_TREE_SIDEBAR);
 }
 
-export async function takeAllocationProfile() {
-  const radioButton = await $('//label[text()="Allocation sampling"]', undefined, 'xpath');
-  await click(radioButton);
+export async function takeAllocationProfile(frontend: puppeteer.Page) {
+  const [radioButton] = await frontend.$x('//label[text()="Allocation sampling"]');
+  await clickElement(radioButton as puppeteer.ElementHandle<Element>);
   await click('button[aria-label="Start heap profiling"]');
   await new Promise(r => setTimeout(r, 200));
   await click('button[aria-label="Stop heap profiling"]');
@@ -30,11 +30,12 @@ export async function takeAllocationProfile() {
   await waitFor('.heap-snapshot-sidebar-tree-item.selected');
 }
 
-export async function takeAllocationTimelineProfile({recordStacks}: {recordStacks: boolean} = {
-  recordStacks: false,
-}) {
-  const radioButton = await $('//label[text()="Allocation instrumentation on timeline"]', undefined, 'xpath');
-  await click(radioButton);
+export async function takeAllocationTimelineProfile(
+    frontend: puppeteer.Page, {recordStacks}: {recordStacks: boolean} = {
+      recordStacks: false,
+    }) {
+  const [radioButton] = await frontend.$x('//label[text()="Allocation instrumentation on timeline"]');
+  await clickElement(radioButton as puppeteer.ElementHandle<Element>);
   if (recordStacks) {
     await click('input[aria-label="Record stack traces of allocations (extra performance overhead)"]');
   }

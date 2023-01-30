@@ -6,6 +6,7 @@ import {assert} from 'chai';
 
 import {
   click,
+  clickElement,
   enableExperiment,
   getBrowserAndPages,
   goToResource,
@@ -544,6 +545,12 @@ describe('The Sources Tab', async function() {
 });
 
 describe('The Elements Tab', async () => {
+  async function clickStyleValueWithModifiers(selector: string, name: string, value: string, location: string) {
+    const element = await waitForCSSPropertyValue(selector, name, value, location);
+    // Click with offset to skip swatches.
+    await clickElement(element, {clickOptions: {modifier: 'ControlOrMeta', offset: {x: 20, y: 5}}});
+  }
+
   it('links to the right SASS source for inline CSS with relative sourcemap (crbug.com/787792)', async () => {
     await goToResource('sources/sourcemap-css-inline-relative.html');
     await step('Prepare elements tab', async () => {
@@ -552,8 +559,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickStyleValueWithModifiers('body .text', 'color', 'green', 'app.scss:6');
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -565,8 +571,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickStyleValueWithModifiers('body .text', 'color', 'green', 'app.scss:6');
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -578,8 +583,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickStyleValueWithModifiers('body .text', 'color', 'green', 'app.scss:6');
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 
@@ -591,8 +595,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
-    await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
+    await clickStyleValueWithModifiers('body .text', 'color', 'green', 'app.scss:6');
     await waitForElementWithTextContent('Line 12, Column 9');
   });
 });
