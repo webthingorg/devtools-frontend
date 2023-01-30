@@ -16,6 +16,24 @@
       "message": "Could you also add a test that adds a script with a source map referring to a file with a query parameter? You could then check that the URL contains the query parameter, but the name does not. I believe we already have the necessary machinery, the tests in CompilerScriptMapping_test.ts could be a good template for this.\n\nOtherwise, this looks good.",
       "revId": "c3e6e4ed20ca607833c81316d5f038b3d32054bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6954922_66fc6752",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-01-30T17:21:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad857898_20ce737e",
+      "revId": "c3e6e4ed20ca607833c81316d5f038b3d32054bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
