@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac477eb_421baebe",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-30T08:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a3789b_cf2e6305",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a76e6884_63c015f8",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-01-27T07:59:04Z",
       "side": 1,
       "message": "Can we put a bug on this?",
+      "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c94548b_254af2c5",
+        "filename": "test/e2e/helpers/emulation-helpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-30T08:38:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a76e6884_63c015f8",
       "revId": "c687fe956c6288d6bdebd2f21db30dc3328030e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
