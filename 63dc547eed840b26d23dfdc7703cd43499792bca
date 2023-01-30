@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a5314f83_c6adfdf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-01-30T09:30:44Z",
+      "side": 1,
+      "message": "Makes sense. I split this into 4 CLs now, still keeping the meat of `uiLocationRangeToRawLocationRanges()` within a single CL.",
+      "parentUuid": "3e3f1b33_82405f43",
+      "revId": "63dc547eed840b26d23dfdc7703cd43499792bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2fce9e4_819d290d",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 2
