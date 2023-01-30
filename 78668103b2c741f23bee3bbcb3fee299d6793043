@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72427df6_be781732",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:54:33Z",
+      "side": 1,
+      "message": "lgtm % questions",
+      "revId": "78668103b2c741f23bee3bbcb3fee299d6793043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "207524a6_44dca638",
+        "filename": "front_end/models/bindings/CompilerScriptMapping.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:54:33Z",
+      "side": 1,
+      "message": "q: Are the test cases for this method mostly covered by tests for `reverseMapTextRanges`?",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 36
+      },
+      "revId": "78668103b2c741f23bee3bbcb3fee299d6793043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3927ce2_c2c2047e",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:54:33Z",
+      "side": 1,
+      "message": "Drive-by-comment: Bugs me a bit that we don\u0027t have unit tests by now for `DebuggerLanguagePlugin`.",
+      "range": {
+        "startLine": 1224,
+        "startChar": 8,
+        "endLine": 1224,
+        "endChar": 42
+      },
+      "revId": "78668103b2c741f23bee3bbcb3fee299d6793043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca0af46_069c8eeb",
+        "filename": "front_end/models/bindings/ResourceMapping.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T09:54:33Z",
+      "side": 1,
+      "message": "nit: This precursor is used by 3 methods by now: `uiLocationToJSLocations`, `uiLocationRagneToJSLocationRanges` and `getMappedLines`. I suggest the following:\n\n  * Add a helper `#scriptsForBoundUISourceCode` that does the `script.embedderName() \u003d\u003d\u003d uiSourceCode.url()` filtering.\n  * Add a helper `getOrComputeScriptRange`.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 7
+      },
+      "revId": "78668103b2c741f23bee3bbcb3fee299d6793043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
