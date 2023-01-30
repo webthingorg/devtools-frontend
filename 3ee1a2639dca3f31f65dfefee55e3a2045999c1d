@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "099ed95a_fa11b9f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-30T14:09:54Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\na change to include devtools\u0027 input styles for the sidebar PTAL!",
+      "revId": "3ee1a2639dca3f31f65dfefee55e3a2045999c1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
