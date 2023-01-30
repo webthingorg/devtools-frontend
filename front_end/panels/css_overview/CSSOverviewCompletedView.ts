@@ -313,6 +313,8 @@ export class CSSOverviewCompletedView extends UI.Panel.PanelWithSidebar {
     }
 
     section.scrollIntoView();
+    const focusableElement: HTMLElement|null = section.querySelector('button, [tabindex="0"]');
+    focusableElement?.focus();
   }
 
   #sideBarReset(): void {
