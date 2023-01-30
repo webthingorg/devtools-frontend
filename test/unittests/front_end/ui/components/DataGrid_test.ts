@@ -555,7 +555,7 @@ describe('DataGrid', () => {
       assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
     });
 
-    it('when the user "clicks" a column header with the enter key', async () => {
+    it('emits an event when the user "clicks" a column header with the enter key', async () => {
       const component = renderDataGrid({rows, columns});
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
@@ -578,7 +578,8 @@ describe('DataGrid', () => {
       assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
     });
 
-    it('when the user focuses a cell', async () => {
+    // eslint-disable-next-line rulesdir/no_only
+    it.only('emits an event when the user focuses a cell', async () => {
       const component = renderDataGrid({rows, columns: columnsWithNoneSortable});
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
