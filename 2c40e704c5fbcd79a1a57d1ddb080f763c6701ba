@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a6e790c_a1dbc935",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-30T10:48:35Z",
+      "side": 1,
+      "message": "It\u0027s still a bit off that `inlineFrameIndex` is the only member of `LinkifyOptions` thats required to be there ...",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 22
+      },
+      "revId": "2c40e704c5fbcd79a1a57d1ddb080f763c6701ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
