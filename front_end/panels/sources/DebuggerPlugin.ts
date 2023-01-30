@@ -1617,10 +1617,10 @@ export class BreakpointLocationRevealer implements Common.Revealer.Revealer {
     if (!(breakpointLocation instanceof Bindings.BreakpointManager.BreakpointLocation)) {
       throw new Error('Internal error: not a breakpoint location');
     }
-    const {uiLocation} = breakpointLocation;
+    const {breakpoint, uiLocation} = breakpointLocation;
     SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
     const debuggerPlugin = debuggerPluginForUISourceCode.get(uiLocation.uiSourceCode);
-    if (debuggerPlugin) {
+    if (debuggerPlugin && !breakpoint.isRemoved) {
       debuggerPlugin.editBreakpointLocation(breakpointLocation);
     }
   }
