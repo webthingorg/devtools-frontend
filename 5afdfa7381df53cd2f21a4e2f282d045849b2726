@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d9e9c2_6751a26c",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-01-30T20:42:10Z",
+      "side": 1,
+      "message": "Driveby fix to support {traceEvents:[], metadata:{}} files.",
+      "revId": "5afdfa7381df53cd2f21a4e2f282d045849b2726",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
