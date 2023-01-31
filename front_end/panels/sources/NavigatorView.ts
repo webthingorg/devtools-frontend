@@ -127,6 +127,11 @@ const UIStrings = {
    *@example {compile.html} PH1
    */
   sFromSourceMap: '{PH1} (from source map)',
+  /**
+   *@description Name of an item that is on the ignore list
+   *@example {compile.html} PH1
+   */
+  sIgnoreListed: '{PH1} (ignore listed)',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/NavigatorView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1062,6 +1067,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   private ignoreListChanged(): void {
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.JUST_MY_CODE)) {
       this.groupingChanged();
+    } else {
+      this.rootNode.updateTitleRecursive();
     }
   }
 
@@ -1132,6 +1139,7 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
   private hoverCallback: ((arg0: boolean) => void)|undefined;
   node!: NavigatorTreeNode;
   private hovered?: boolean;
+  private isIgnoreListed?: boolean;
 
   constructor(navigatorView: NavigatorView, type: string, title: string, hoverCallback?: ((arg0: boolean) => void)) {
     super('', true);
@@ -1182,21 +1190,37 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
     this.listItemElement.addEventListener('mouseleave', this.mouseLeave.bind(this), false);
   }
 
+  setIgnoreListed(isIgnoreListed: boolean): void {
+    if (this.isIgnoreListed !== isIgnoreListed) {
+      this.isIgnoreListed = isIgnoreListed;
+      this.listItemElement.classList.toggle('is-ignore-listed', isIgnoreListed);
+      this.updateTooltip();
+    }
+  }
+
   setNode(node: NavigatorTreeNode): void {
     this.node = node;
-    if (node.tooltip) {
-      this.tooltip = node.tooltip;
+    this.updateTooltip();
+    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${this.title}, ${this.nodeType}`);
+  }
+
+  private updateTooltip(): void {
+    if (this.node.tooltip) {
+      this.tooltip = this.node.tooltip;
     } else {
       const paths = [];
-      let currentNode: NavigatorTreeNode|null = node;
-      while (currentNode && !currentNode.isRoot() && currentNode.type === node.type) {
+      let currentNode: NavigatorTreeNode|null = this.node;
+      while (currentNode && !currentNode.isRoot() && currentNode.type === this.node.type) {
         paths.push(currentNode.title);
         currentNode = currentNode.parent;
       }
       paths.reverse();
-      this.tooltip = paths.join('/');
+      let tooltip = paths.join('/');
+      if (this.isIgnoreListed) {
+        tooltip = i18nString(UIStrings.sIgnoreListed, {PH1: tooltip});
+      }
+      this.tooltip = tooltip;
     }
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${this.title}, ${this.nodeType}`);
   }
 
   private handleContextMenuEvent(event: Event): void {
@@ -1398,6 +1422,13 @@ export class NavigatorTreeNode {
   updateTitle(): void {
   }
 
+  updateTitleRecursive(): void {
+    this.updateTitle();
+    for (const child of this.children()) {
+      child.updateTitleRecursive();
+    }
+  }
+
   isRoot(): boolean {
     return false;
   }
@@ -1544,10 +1575,19 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
     this.treeElement.title = titleText;
     this.treeElement.updateIcon();
 
+    const isIgnoreListed =
+        Bindings.IgnoreListManager.IgnoreListManager.instance().isUserOrSourceMapIgnoreListedUISourceCode(
+            this.uiSourceCodeInternal);
+    this.treeElement.listItemElement.classList.toggle('is-ignore-listed', isIgnoreListed);
+
     let tooltip: string = this.uiSourceCodeInternal.url();
     if (this.uiSourceCodeInternal.contentType().isFromSourceMap()) {
       tooltip = i18nString(UIStrings.sFromSourceMap, {PH1: this.uiSourceCodeInternal.displayName()});
     }
+    if (isIgnoreListed) {
+      tooltip = i18nString(UIStrings.sIgnoreListed, {PH1: tooltip});
+    }
+
     this.treeElement.tooltip = tooltip;
     this.treeElement.updateAccessibleName();
 
@@ -1664,9 +1704,18 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
   }
 
   updateTitle(): void {
-    if (!this.treeElement || !this.project || this.project.type() !== Workspace.Workspace.projectTypes.FileSystem) {
+    if (!this.treeElement) {
       return;
     }
+
+    const url = Common.ParsedURL.ParsedURL.concatenate(this.origin, '/', this.folderPath, '/');
+    const isIgnoreListed = Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(url);
+    this.treeElement.setIgnoreListed(isIgnoreListed);
+
+    if (!this.project || this.project.type() !== Workspace.Workspace.projectTypes.FileSystem) {
+      return;
+    }
+
     const absoluteFileSystemPath = Common.ParsedURL.ParsedURL.concatenate(
         Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.fileSystemPath(
             this.project.id() as Platform.DevToolsPath.UrlString),
@@ -1677,12 +1726,6 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
   }
 
   private createTreeElement(title: string, node: NavigatorTreeNode): NavigatorFolderTreeElement {
-    if (this.project && this.project.type() !== Workspace.Workspace.projectTypes.FileSystem) {
-      try {
-        title = decodeURI(title);
-      } catch (e) {
-      }
-    }
     const treeElement = new NavigatorFolderTreeElement(this.navigatorView, this.type, title);
     treeElement.setNode(node);
     return treeElement;
@@ -1722,6 +1765,7 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
       node.isMerged = true;
       this.treeElement.title = this.treeElement.title + '/' + node.title;
       (node as NavigatorFolderTreeNode).treeElement = this.treeElement;
+      node.updateTitle();
       this.treeElement.setNode(node);
       return;
     }
@@ -1759,12 +1803,14 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
           (nodes[i] as NavigatorFolderTreeNode).treeElement = null;
           nodes[i].isMerged = false;
         }
+        this.updateTitle();
         return;
       }
       const oldTreeElement = this.treeElement;
       const treeElement = this.createTreeElement(titleText, this);
       for (let i = 0; i < mergedToNodes.length; ++i) {
         (mergedToNodes[i] as NavigatorFolderTreeNode).treeElement = treeElement;
+        mergedToNodes[i].updateTitle();
       }
       if (oldTreeElement.parent) {
         this.navigatorView.appendChild(oldTreeElement.parent, treeElement);
@@ -1779,6 +1825,7 @@ export class NavigatorFolderTreeNode extends NavigatorTreeNode {
       if (oldTreeElement.expanded) {
         treeElement.expand();
       }
+      this.updateTitle();
     }
     if (this.isPopulated()) {
       this.navigatorView.appendChild(this.treeElement, node.treeNode());
