@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7baf533_631b13ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534027
+      },
+      "writtenOn": "2023-01-31T13:36:29Z",
+      "side": 1,
+      "message": "I don\u0027t think I\u0027m the right person to review DevTools code. Happy to look over the strings, but I don\u0027t think I can provide much input here. Moving myself to CC.",
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
