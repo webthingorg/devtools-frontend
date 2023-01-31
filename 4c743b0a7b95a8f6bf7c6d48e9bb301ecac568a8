@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb10fef_8c7ba36c",
+        "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T14:49:36Z",
+      "side": 1,
+      "message": "New code is super clear, nice improvement. THank you!",
+      "parentUuid": "a69f0996_9f392ea8",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 100
+      },
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c89dea3e_fff8dc85",
