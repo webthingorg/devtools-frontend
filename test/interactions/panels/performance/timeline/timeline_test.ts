@@ -8,8 +8,7 @@ import {assertElementScreenshotUnchanged, itScreenshot} from '../../../../shared
 import {loadComponentDocExample} from '../../../helpers/shared.js';
 
 describe('Performance panel', () => {
-  // Disabled until screenshot tests infrastructure is available in DevTools bots.
-  itScreenshot.skip('[crbug.com/1407638] renders the timeline correctly', async () => {
+  itScreenshot('renders the timeline correctly', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=animation');
     await waitFor('#timeline-overview-panel');
     const panel = await waitFor('body');
