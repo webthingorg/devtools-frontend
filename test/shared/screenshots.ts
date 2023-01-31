@@ -36,6 +36,8 @@ const GOLDENS_FOLDER = path.join(testRunnerCWD, testSuiteSourceDir, 'goldens', p
  * It's assumed that the image_diff binaries are in CWD/third_party/image_diff/{platform}/image_diff
  */
 const exeSuffix = platform.startsWith('win') ? '.exe' : '';
+// eslint-disable-next-line no-console
+console.log('Current running platform is:', platform);
 const IMAGE_DIFF_BINARY = path.join(testRunnerCWD, 'third_party', 'image_diff', platform, 'image_diff' + exeSuffix);
 if (!fs.existsSync(IMAGE_DIFF_BINARY)) {
   throw new Error(`path to image_diff (${IMAGE_DIFF_BINARY}) did not exist.`);
