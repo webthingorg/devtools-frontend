@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df7d2edd_4468ad29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T08:59:09Z",
+      "side": 1,
+      "message": "lgtm with a comment, thanks",
+      "revId": "5afdfa7381df53cd2f21a4e2f282d045849b2726",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a9d9e9c2_6751a26c",
         "filename": "front_end/panels/timeline/TimelineLoader.ts",
         "patchSetId": 2
@@ -14,6 +31,29 @@
       "writtenOn": "2023-01-30T20:42:10Z",
       "side": 1,
       "message": "Driveby fix to support {traceEvents:[], metadata:{}} files.",
+      "revId": "5afdfa7381df53cd2f21a4e2f282d045849b2726",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05e1303_a40f4287",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T08:59:09Z",
+      "side": 1,
+      "message": "I think we likely should put this into UIStrings as with the other text.",
+      "range": {
+        "startLine": 1161,
+        "startChar": 61,
+        "endLine": 1161,
+        "endChar": 82
+      },
       "revId": "5afdfa7381df53cd2f21a4e2f282d045849b2726",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
