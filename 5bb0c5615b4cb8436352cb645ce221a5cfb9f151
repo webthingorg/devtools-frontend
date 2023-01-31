@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a4b99b_aa3f8d23",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2023-01-31T13:49:15Z",
+      "side": 1,
+      "message": "Nice idea!",
+      "revId": "5bb0c5615b4cb8436352cb645ce221a5cfb9f151",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
