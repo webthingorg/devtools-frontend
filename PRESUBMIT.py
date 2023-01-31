@@ -543,6 +543,31 @@ def _CheckForTooLargeFiles(input_api, output_api):
         return []
 
 
+def _CheckObsoleteScreenshotGoldens(input_api, output_api):
+    results = [
+        output_api.PresubmitNotifyResult('Obsolete screenshot images check')
+    ]
+
+    interaction_test_files = [
+        input_api.os_path.join(input_api.PresubmitLocalPath(), 'test',
+                               'interactions')
+    ]
+
+    interaction_test_files_changed = _getAffectedFiles(input_api,
+                                                       interaction_test_files,
+                                                       [], [])
+
+    if len(interaction_test_files_changed) > 0:
+        script_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                             'scripts', 'test',
+                                             'check_obsolete_goldens.js')
+        errors_from_script = _checkWithNodeScript(input_api, output_api,
+                                                  script_path)
+        results.extend(errors_from_script)
+
+    return results
+
+
 def _RunCannedChecks(input_api, output_api):
     results = []
     results.extend(
@@ -580,6 +605,7 @@ def _CommonChecks(input_api, output_api):
     results.extend(_CheckFormat(input_api, output_api))
     results.extend(_CheckESBuildVersion(input_api, output_api))
     results.extend(_CheckChangesAreExclusiveToDirectory(input_api, output_api))
+    results.extend(_CheckObsoleteScreenshotGoldens(input_api, output_api))
     # Run the canned checks from `depot_tools` after the custom DevTools checks.
     # The canned checks for example check that lines have line endings. The
     # DevTools presubmit checks automatically fix these issues. If we would run
