@@ -68,6 +68,24 @@
       "parentUuid": "7f596a8a_0f20ac99",
       "revId": "64854e4909c3ebb80f48616eeebeec1585bc6c13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91a2674a_39982bba",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-01-31T09:08:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28708b8e_d8e2e006",
+      "revId": "64854e4909c3ebb80f48616eeebeec1585bc6c13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
