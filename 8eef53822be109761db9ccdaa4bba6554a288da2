@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc63c1a6_25a1bd7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1395755
+      },
+      "writtenOn": "2023-01-31T17:51:16Z",
+      "side": 1,
+      "message": "Danil, looks like we need your CR+1 when you have a chance, thanks!",
+      "revId": "8eef53822be109761db9ccdaa4bba6554a288da2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
