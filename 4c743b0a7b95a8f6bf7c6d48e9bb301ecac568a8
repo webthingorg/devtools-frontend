@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "519a089c_71a6e784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T14:02:47Z",
+      "side": 1,
+      "message": "lgtm with one question and a nit",
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aaebd74_af8182f1",
+        "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T14:02:47Z",
+      "side": 1,
+      "message": "why do we need the check for skip here? we want to lint tests regardless of if they are skipped or not, I think?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 100
+      },
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c89dea3e_fff8dc85",
+        "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T14:02:47Z",
+      "side": 1,
+      "message": "nit: don\u0027t need this return",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
