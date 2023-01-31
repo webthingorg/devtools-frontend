@@ -90,12 +90,41 @@ export const genericFormLabelForNameError = {
   }],
 };
 
+export const genericFormInputWithNoLabelError = {
+  file: 'genericFormInputWithNoLabelError.md',
+  links: [],
+};
+
+export const genericFormAutocompleteAttributeEmptyError = {
+  file: 'genericFormAutocompleteAttributeEmptyError.md',
+  links: [],
+};
+
+export const genericFormDuplicateIdForInputError = {
+  file: 'genericFormDuplicateIdForInputError.md',
+  links: [{
+    link: 'https://web.dev/learn/forms/autofill/#how-does-autofill-work',
+    // Since the link points to a page with the same title, the 'HTML Standard'
+    // string doesn't need to be translated.
+    linkTitle: i18n.i18n.lockedLazyString('HTML Standard'),
+  }],
+};
+
 const issueDescriptions: Map<Protocol.Audits.GenericIssueErrorType, LazyMarkdownIssueDescription> = new Map([
   [Protocol.Audits.GenericIssueErrorType.CrossOriginPortalPostMessageError, genericCrossOriginPortalPostMessageError],
   [Protocol.Audits.GenericIssueErrorType.FormLabelForNameError, genericFormLabelForNameError],
+  [Protocol.Audits.GenericIssueErrorType.FormInputWithNoLabelError, genericFormInputWithNoLabelError],
+  [
+    Protocol.Audits.GenericIssueErrorType.FormAutocompleteAttributeEmptyError,
+    genericFormAutocompleteAttributeEmptyError,
+  ],
+  [Protocol.Audits.GenericIssueErrorType.FormDuplicateIdForInputError, genericFormDuplicateIdForInputError],
 ]);
 
 const issueTypes: Map<Protocol.Audits.GenericIssueErrorType, IssueKind> = new Map([
   [Protocol.Audits.GenericIssueErrorType.CrossOriginPortalPostMessageError, IssueKind.Improvement],
   [Protocol.Audits.GenericIssueErrorType.FormLabelForNameError, IssueKind.PageError],
+  [Protocol.Audits.GenericIssueErrorType.FormInputWithNoLabelError, IssueKind.Improvement],
+  [Protocol.Audits.GenericIssueErrorType.FormAutocompleteAttributeEmptyError, IssueKind.PageError],
+  [Protocol.Audits.GenericIssueErrorType.FormDuplicateIdForInputError, IssueKind.PageError],
 ]);
