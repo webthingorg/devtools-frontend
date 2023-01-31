@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a69f0996_9f392ea8",
+        "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-31T14:19:48Z",
+      "side": 1,
+      "message": "that\u0027s right. The expression `(node.property?.name \u003d\u003d\u003d \u0027skip\u0027 \u0026\u0026 node.object?.name \u003d\u003d\u003d \u0027itScreenshot\u0027 )` captures `itScreenshot.skip` statements because the CallExpression selector alone doesn\u0027t. I\u0027ve added a couple of auxiliary variables to make this fact more explicit.",
+      "parentUuid": "7aaebd74_af8182f1",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 100
+      },
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c89dea3e_fff8dc85",
         "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-31T14:02:47Z",
       "side": 1,
       "message": "nit: don\u0027t need this return",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "4c743b0a7b95a8f6bf7c6d48e9bb301ecac568a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77122f62_ec664b98",
+        "filename": "scripts/eslint_rules/lib/ban_screenshot_test_outside_perf_panel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-01-31T14:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c89dea3e_fff8dc85",
       "range": {
         "startLine": 38,
         "startChar": 10,
