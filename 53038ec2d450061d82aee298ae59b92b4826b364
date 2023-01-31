@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3a6185d_e4d1ec55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-31T08:03:01Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis is a CL to migrate a layout test that was using the old breakpoint sidebar. PTAL!",
+      "revId": "53038ec2d450061d82aee298ae59b92b4826b364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00c438d_babdd6bf",
+        "filename": "test/unittests/front_end/models/persistence/PersistenceImpl_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-01-31T08:03:01Z",
+      "side": 1,
+      "message": "I was surprised to see that this is necessary, but I\u0027m capturing what is happening here. I assume this happens in order to update the storage, although the file system is removed.",
+      "revId": "53038ec2d450061d82aee298ae59b92b4826b364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
