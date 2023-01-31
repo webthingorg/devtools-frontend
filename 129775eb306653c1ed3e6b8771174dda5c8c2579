@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "129775eb306653c1ed3e6b8771174dda5c8c2579",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e555df7_4b45dfd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-01-31T12:48:05Z",
+      "side": 1,
+      "message": "are these direct copies of the rules from internal? If so, we should update internal to use these and remove the duplication (in follow-ups, obviously). These LGTM, thanks!",
+      "revId": "129775eb306653c1ed3e6b8771174dda5c8c2579",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
