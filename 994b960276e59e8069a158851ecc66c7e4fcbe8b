@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f20c02c_f2c63e2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-01-31T11:04:17Z",
+      "side": 1,
+      "message": "Hi folks, I will be adding more strings in the follow up cls",
+      "revId": "994b960276e59e8069a158851ecc66c7e4fcbe8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
