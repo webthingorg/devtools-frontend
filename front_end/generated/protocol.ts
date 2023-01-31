@@ -1037,6 +1037,7 @@ export namespace Audits {
     ChromeLoadTimesConnectionInfo = 'ChromeLoadTimesConnectionInfo',
     ChromeLoadTimesFirstPaintAfterLoadTime = 'ChromeLoadTimesFirstPaintAfterLoadTime',
     ChromeLoadTimesWasAlternateProtocolAvailable = 'ChromeLoadTimesWasAlternateProtocolAvailable',
+    ClientHintsUAFullVersion = 'ClientHintsUAFullVersion',
     CookieWithTruncatingChar = 'CookieWithTruncatingChar',
     CrossOriginAccessBasedOnDocumentDomain = 'CrossOriginAccessBasedOnDocumentDomain',
     CrossOriginWindowAlert = 'CrossOriginWindowAlert',

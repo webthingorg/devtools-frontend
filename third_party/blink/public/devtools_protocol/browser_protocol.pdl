@@ -764,6 +764,7 @@ experimental domain Audits
       ChromeLoadTimesConnectionInfo
       ChromeLoadTimesFirstPaintAfterLoadTime
       ChromeLoadTimesWasAlternateProtocolAvailable
+      ClientHintsUAFullVersion
       CookieWithTruncatingChar
       CrossOriginAccessBasedOnDocumentDomain
       CrossOriginWindowAlert
