@@ -16,6 +16,121 @@
       "message": "I don\u0027t think I\u0027m the right person to review DevTools code. Happy to look over the strings, but I don\u0027t think I can provide much input here. Moving myself to CC.",
       "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f28212_31a69780",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T13:56:37Z",
+      "side": 1,
+      "message": "The link title should probably be a UIString containing \u0027How does Autofill work?\u0027",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5654c78c_823ed4de",
+        "filename": "front_end/models/issues_manager/descriptions/genericFormAutocompleteAttributeEmptyError.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T13:56:37Z",
+      "side": 1,
+      "message": "If you put backticks around `autocomplete`, it\u0027ll be styled as code. This does not work for the header though, so I suggest using \u0027autocomplete\u0027 there.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 54
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "432cd6d7_47b557fc",
+        "filename": "front_end/models/issues_manager/descriptions/genericFormDuplicateIdForInputError.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T13:56:37Z",
+      "side": 1,
+      "message": "Mismatch between heading and content?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 123
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfbd12c1_b75a77fa",
+        "filename": "front_end/models/issues_manager/descriptions/genericFormInputWithNoLabelError.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T13:56:37Z",
+      "side": 1,
+      "message": "\u0027aria-labelledby\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 27,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56159285_aafc5fdf",
+        "filename": "front_end/models/issues_manager/descriptions/genericFormInputWithNoLabelError.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T13:56:37Z",
+      "side": 1,
+      "message": "backticks",
+      "range": {
+        "startLine": 3,
+        "startChar": 33,
+        "endLine": 3,
+        "endChar": 48
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
