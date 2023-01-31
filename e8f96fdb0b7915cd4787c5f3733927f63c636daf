@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ecf3fce_f8df5665",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-01-31T15:58:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb9f9a4_be07555a",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "e8f96fdb0b7915cd4787c5f3733927f63c636daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5654c78c_823ed4de",
