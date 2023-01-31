@@ -33,6 +33,24 @@
       "message": "Duplicate line",
       "revId": "deda429e516a1e3e9c7d8bccd16cdb8c45fd6b8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60a9636_94a5a30b",
+        "filename": "test/unittests/front_end/core/sdk/NetworkRequest_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-01-31T06:56:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e659bcc1_f37fb4e6",
+      "revId": "deda429e516a1e3e9c7d8bccd16cdb8c45fd6b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
