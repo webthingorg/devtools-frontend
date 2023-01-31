@@ -526,30 +526,30 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     return this.sourcesViewInternal.visibleView();
   }
 
-  showUISourceCode(
+  async showUISourceCode(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber?: number, columnNumber?: number,
-      omitFocus?: boolean): void {
+      omitFocus?: boolean): Promise<void> {
     if (omitFocus) {
       const wrapperShowing = WrapperView.isShowing();
       if (!this.isShowing() && !wrapperShowing) {
         return;
       }
     } else {
-      this.showEditor();
+      await this.showEditor();
     }
     this.sourcesViewInternal.showSourceLocation(
         uiSourceCode, lineNumber === undefined ? undefined : {lineNumber, columnNumber}, omitFocus);
   }
 
-  private showEditor(): void {
+  private async showEditor(): Promise<void> {
     if (WrapperView.isShowing()) {
       return;
     }
-    void this.setAsCurrentPanel();
+    await this.setAsCurrentPanel();
   }
 
-  showUILocation(uiLocation: Workspace.UISourceCode.UILocation, omitFocus?: boolean): void {
-    this.showUISourceCode(uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber, omitFocus);
+  async showUILocation(uiLocation: Workspace.UISourceCode.UILocation, omitFocus?: boolean): Promise<void> {
+    await this.showUISourceCode(uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber, omitFocus);
   }
 
   revealInNavigator(uiSourceCode: Workspace.UISourceCode.UISourceCode, skipReveal?: boolean): void {
@@ -1082,7 +1082,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
         await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(
             response.location);
     if (uiLocation) {
-      this.showUILocation(uiLocation);
+      void this.showUILocation(uiLocation);
     }
   }
 
@@ -1243,7 +1243,7 @@ export class UILocationRevealer implements Common.Revealer.Revealer {
     if (!(uiLocation instanceof Workspace.UISourceCode.UILocation)) {
       throw new Error('Internal error: not a ui location');
     }
-    SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
+    await SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
   }
 }
 
@@ -1269,7 +1269,7 @@ export class DebuggerLocationRevealer implements Common.Revealer.Revealer {
         await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(
             rawLocation);
     if (uiLocation) {
-      SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
+      await SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
     }
   }
 }
@@ -1292,7 +1292,7 @@ export class UISourceCodeRevealer implements Common.Revealer.Revealer {
     if (!(uiSourceCode instanceof Workspace.UISourceCode.UISourceCode)) {
       throw new Error('Internal error: not a ui source code');
     }
-    SourcesPanel.instance().showUISourceCode(uiSourceCode, undefined, undefined, omitFocus);
+    await SourcesPanel.instance().showUISourceCode(uiSourceCode, undefined, undefined, omitFocus);
   }
 }
 

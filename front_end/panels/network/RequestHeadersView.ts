@@ -574,7 +574,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     if (!uiSourceCode) {
       return;
     }
-    Sources.SourcesPanel.SourcesPanel.instance().showUISourceCode(uiSourceCode);
+    void Sources.SourcesPanel.SourcesPanel.instance().showUISourceCode(uiSourceCode);
   }
 
   #uiSourceCodeAddedOrRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
