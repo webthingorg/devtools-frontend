@@ -8,11 +8,20 @@ import {assertElementScreenshotUnchanged, itScreenshot} from '../../../../shared
 import {loadComponentDocExample} from '../../../helpers/shared.js';
 
 describe('Performance panel', () => {
-  // Disabled until screenshot tests infrastructure is available in DevTools bots.
-  itScreenshot.skip('[crbug.com/1407638] renders the timeline correctly', async () => {
+  itScreenshot('renders the timeline correctly', async () => {
+    // eslint-disable-next-line no-console
+    console.log('aaaa');
     await loadComponentDocExample('performance_panel/basic.html?trace=animation');
+    // eslint-disable-next-line no-console
+    console.log('bbbbb');
     await waitFor('#timeline-overview-panel');
+    // eslint-disable-next-line no-console
+    console.log('cccccc');
     const panel = await waitFor('body');
+    // eslint-disable-next-line no-console
+    console.log('dddddd');
     await assertElementScreenshotUnchanged(panel, 'performance/timeline.png');
+    // eslint-disable-next-line no-console
+    console.log('eeeeee');
   });
 });
