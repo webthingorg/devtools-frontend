@@ -16,6 +16,24 @@
       "message": "nit: originate",
       "revId": "227c9193fcc1a12051c73e7b539ffbe535d8b539",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a74d4ec_28ed99e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-01-31T12:38:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "734169d0_52d92589",
+      "revId": "227c9193fcc1a12051c73e7b539ffbe535d8b539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
