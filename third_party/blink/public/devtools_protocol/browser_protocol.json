@@ -1573,6 +1573,7 @@
                         "ChromeLoadTimesConnectionInfo",
                         "ChromeLoadTimesFirstPaintAfterLoadTime",
                         "ChromeLoadTimesWasAlternateProtocolAvailable",
+                        "ClientHintsUAFullVersion",
                         "CookieWithTruncatingChar",
                         "CrossOriginAccessBasedOnDocumentDomain",
                         "CrossOriginWindowAlert",
