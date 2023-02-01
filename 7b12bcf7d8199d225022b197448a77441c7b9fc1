@@ -153,6 +153,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47fbcfe_bccc8ce0",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:48:01Z",
+      "side": 1,
+      "message": "Ok, I can see your point, thanks for the explanation!",
+      "parentUuid": "7ed7055e_7233bbee",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29cc6fbf_3878eca4",
