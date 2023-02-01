@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1fc5cc_c5fd1178",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T13:51:44Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nthis is a minor CL to reuse the new PersistenceHelpers in the BreakpointManager tests. PTAL!",
+      "revId": "ec557a6cab6d7b2669ec41f80f0e07ed79797b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
