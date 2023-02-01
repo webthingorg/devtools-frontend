@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ba16cb_60bda443",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T07:15:06Z",
+      "side": 1,
+      "message": "PTAL, I\u0027m not sure about the tests.",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29cc6fbf_3878eca4",
+        "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T07:15:06Z",
+      "side": 1,
+      "message": "Using a real linkifier means we need to setup:\n1) A real script + debugger workspace binding\n2) Set a real breakpoint so the linkifier can find it\n\nThis logic is already checked in the Linkifier_test so I opted to just check that we call the correct linkifier method with the right arguments.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
