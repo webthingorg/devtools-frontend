@@ -16,6 +16,24 @@
       "message": "I guess you mean `LinkDisplayOptions.revealBreakpoint`?",
       "revId": "3495ee008ba120471a72263cb991a8f45718f114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b6f5299_ecd1e55b",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T10:01:40Z",
+      "side": 1,
+      "message": "Yes! Thanks for spotting. Apparently VSCode doesn\u0027t do renames in JSDoc comments well :)",
+      "parentUuid": "e1102970_f50453d4",
+      "revId": "3495ee008ba120471a72263cb991a8f45718f114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
