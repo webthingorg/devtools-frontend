@@ -16,6 +16,69 @@
       "message": "Hey Simon, I vaguely remember chatting about this in a lunch. So I have added \"elapsed time\" information to protocol monitor, it\u0027ll also be helpful for me to track timings of getMatchedStylesForNode when we eventually update it.",
       "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "540b380d_17307c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T09:57:44Z",
+      "side": 1,
+      "message": "lgtm % comments",
+      "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029a81b0_b2f3a4cc",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T09:57:44Z",
+      "side": 1,
+      "message": "Please be a bit more verbose. I.e. it\u0027s a label for table column and describes the time between sending a request and receiving a response.",
+      "range": {
+        "startLine": 45,
+        "startChar": 17,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e66dc14_fa24df8a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T09:57:44Z",
+      "side": 1,
+      "message": "Just double checking that this is intended. The renderer is called \"timestampRenderer\" but here we want to render a duration.",
+      "range": {
+        "startLine": 441,
+        "startChar": 26,
+        "endLine": 441,
+        "endChar": 43
+      },
+      "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
