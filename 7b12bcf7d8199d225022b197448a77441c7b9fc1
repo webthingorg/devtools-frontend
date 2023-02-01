@@ -119,6 +119,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39854d81_935cf7bc",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:34:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s true. I was thinking about logpoints with more context, i.e. with additional text (`Breakpoint setting: ${x}`), at least that\u0027s what I log if I have more than one logpoint set. But maybe this case is so rare (that we have multiple on the stack) that it doesn\u0027t even matter (and doesn\u0027t pay off). Just thinking out loud.",
+      "parentUuid": "cf91e02e_47b44e44",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29cc6fbf_3878eca4",
         "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
         "patchSetId": 1
