@@ -217,6 +217,9 @@ function executeTestSuite({
       log(`extra mocha flag: --${mochaKey}=${mochaValue}`);
     }
   }
+  argumentsForNode.push('--jobs=8');
+  argumentsForNode.push('--parallel');
+  console.log(argumentsForNode);
   const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {
