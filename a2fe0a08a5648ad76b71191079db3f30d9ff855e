@@ -16,6 +16,46 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "a2fe0a08a5648ad76b71191079db3f30d9ff855e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf54304_872db941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T14:44:24Z",
+      "side": 1,
+      "message": "Could you also add a breakpoint manager test for this (via the mock backend machinery)?",
+      "revId": "a2fe0a08a5648ad76b71191079db3f30d9ff855e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668c8e88_0a2b92cf",
+        "filename": "front_end/models/bindings/CompilerScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T14:44:24Z",
+      "side": 1,
+      "message": "I think this should explain in a comment what happens with the breakpoints throughout all this.",
+      "range": {
+        "startLine": 423,
+        "startChar": 10,
+        "endLine": 423,
+        "endChar": 42
+      },
+      "revId": "a2fe0a08a5648ad76b71191079db3f30d9ff855e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
