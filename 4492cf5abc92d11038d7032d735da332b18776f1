@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd23c65_e8471d9b",
+        "filename": "test/unittests/front_end/helpers/PersistenceHelpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T13:44:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ded15344_50fa28d4",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 124
+      },
+      "revId": "4492cf5abc92d11038d7032d735da332b18776f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbe3d2d5_1a26f8b2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-01T13:29:22Z",
       "side": 1,
       "message": "I think the breakpoint is moved, rather than copied, no?\n\nIs it also removed from the backend or that is assumed to happen automatically when the project gets disposed?",
+      "range": {
+        "startLine": 131,
+        "startChar": 33,
+        "endLine": 131,
+        "endChar": 39
+      },
+      "revId": "4492cf5abc92d11038d7032d735da332b18776f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6348e9aa_17dff258",
+        "filename": "test/unittests/front_end/models/persistence/PersistenceImpl_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T13:44:03Z",
+      "side": 1,
+      "message": "It\u0027s actually copied in this direction. If you see in line 142, we have two breakpoints set (one on the network uiSourceCode and one on the file system uiSourceCode), the breakpoint on the network uiSourceCode is not removed. The \u0027move\u0027 part only happens if a breakpoint from a file system uiSourceCode is actually moved to the network uiSourceCode.\n\nGood question! I just tried out what happens if I remove the file system folder, and the front-end (on copying the breakpoints) sends a `setBreakpointByUrl` request to the back-end (with the url being the file system one). That breakpoint doesn\u0027t seem to be removed afterwards..",
+      "parentUuid": "dbe3d2d5_1a26f8b2",
       "range": {
         "startLine": 131,
         "startChar": 33,
