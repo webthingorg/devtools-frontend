@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63cc5a93_d4e3a45b",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-01T10:12:37Z",
+      "side": 1,
+      "message": "Updated it! :)",
+      "parentUuid": "029a81b0_b2f3a4cc",
+      "range": {
+        "startLine": 45,
+        "startChar": 17,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e66dc14_fa24df8a",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-02-01T09:57:44Z",
       "side": 1,
       "message": "Just double checking that this is intended. The renderer is called \"timestampRenderer\" but here we want to render a duration.",
+      "range": {
+        "startLine": 441,
+        "startChar": 26,
+        "endLine": 441,
+        "endChar": 43
+      },
+      "revId": "63f31e43bfb1c3a81606593c23affedb52d599a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb1792d_e8857db5",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-01T10:12:37Z",
+      "side": 1,
+      "message": "Yep, it is intended. Renamed the function from `timestampRenderer` to `timeRenderer` to point that it is not only intended to be used for `timestamp` field.",
+      "parentUuid": "2e66dc14_fa24df8a",
       "range": {
         "startLine": 441,
         "startChar": 26,
