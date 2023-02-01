@@ -16,6 +16,23 @@
       "message": "Tests now pass, PTAL!",
       "revId": "3a58e58909e0137d4a3cad1eab198fef133c570a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2306598e_a593acda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T13:41:07Z",
+      "side": 1,
+      "message": "Looks great, thank you!",
+      "revId": "3a58e58909e0137d4a3cad1eab198fef133c570a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
