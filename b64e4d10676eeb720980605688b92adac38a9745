@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb91d36_c9ef8799",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-01T16:25:41Z",
+      "side": 1,
+      "message": "This is the only real change in this CL",
+      "revId": "b64e4d10676eeb720980605688b92adac38a9745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd583419_cb8afaf0",
+        "filename": "third_party/blink/renderer/core/frame/deprecation/deprecation.json5",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-01T16:25:41Z",
+      "side": 1,
+      "message": "I\u0027ll need to re-run the roll once https://chromium-review.googlesource.com/c/chromium/src/+/4213411 goes in before committing",
+      "revId": "b64e4d10676eeb720980605688b92adac38a9745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
