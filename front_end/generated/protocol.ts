@@ -1017,6 +1017,9 @@ export namespace Audits {
     FormInputWithNoLabelError = 'FormInputWithNoLabelError',
     FormAutocompleteAttributeEmptyError = 'FormAutocompleteAttributeEmptyError',
     FormEmptyIdAndNameAttributesForInputError = 'FormEmptyIdAndNameAttributesForInputError',
+    FormAriaLabelledByToNonExistingId = 'FormAriaLabelledByToNonExistingId',
+    FormInputAssignedAutocompleteValueToIdOrNameAttributeError = 'FormInputAssignedAutocompleteValueToIdOrNameAttributeError',
+    FormLabelHasNeitherForNorNestedInput = 'FormLabelHasNeitherForNorNestedInput',
   }
 
   /**
@@ -11279,6 +11282,7 @@ export namespace Page {
     ActivationFramePolicyNotCompatible = 'ActivationFramePolicyNotCompatible',
     PreloadingDisabled = 'PreloadingDisabled',
     BatterySaverEnabled = 'BatterySaverEnabled',
+    ActivatedDuringMainFrameNavigation = 'ActivatedDuringMainFrameNavigation',
   }
 
   export interface AddScriptToEvaluateOnLoadRequest {

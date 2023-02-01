@@ -1539,7 +1539,10 @@
                         "FormDuplicateIdForInputError",
                         "FormInputWithNoLabelError",
                         "FormAutocompleteAttributeEmptyError",
-                        "FormEmptyIdAndNameAttributesForInputError"
+                        "FormEmptyIdAndNameAttributesForInputError",
+                        "FormAriaLabelledByToNonExistingId",
+                        "FormInputAssignedAutocompleteValueToIdOrNameAttributeError",
+                        "FormLabelHasNeitherForNorNestedInput"
                     ]
                 },
                 {
@@ -16477,7 +16480,8 @@
                         "PrimaryMainFrameRendererProcessKilled",
                         "ActivationFramePolicyNotCompatible",
                         "PreloadingDisabled",
-                        "BatterySaverEnabled"
+                        "BatterySaverEnabled",
+                        "ActivatedDuringMainFrameNavigation"
                     ]
                 }
             ],

@@ -6175,10 +6175,6 @@ export const NativeFunctions = [
     signatures: [['type','?eventInitDict']]
   },
   {
-    name: 'PopoverToggleEvent',
-    signatures: [['type','?eventInitDict']]
-  },
-  {
     name: 'ProgressEvent',
     signatures: [['type','?eventInitDict']]
   },
@@ -6193,6 +6189,10 @@ export const NativeFunctions = [
   {
     name: 'initTextEvent',
     signatures: [['?type','?bubbles','?cancelable','?view','?data']]
+  },
+  {
+    name: 'ToggleEvent',
+    signatures: [['type','?eventInitDict']]
   },
   {
     name: 'TouchEvent',
@@ -6364,6 +6364,10 @@ export const NativeFunctions = [
   },
   {
     name: 'reportEvent',
+    signatures: [['event']]
+  },
+  {
+    name: 'setReportEventDataForAutomaticBeacons',
     signatures: [['event']]
   },
   {
