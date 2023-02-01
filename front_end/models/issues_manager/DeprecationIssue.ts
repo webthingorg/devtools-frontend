@@ -63,6 +63,14 @@ const UIStrings = {
    */
   chromeLoadTimesWasAlternateProtocolAvailable:
       '`chrome.loadTimes()` is deprecated, instead use standardized API: `nextHopProtocol` in Navigation Timing 2.',
+
+  /**
+   * @description This warning occurs when the website attempts to use the
+   *    deprecated User-Agent client hint Sec-CH-UA-Full-Version in the HTTP
+   *    Accept-CH header.
+   */
+  clientHintsUaFullVersion: 'We are deprecating UA full version client hint: `Sec-CH-UA-Full-Version`. Instead, please use `Sec-CH-UA-Full-Version-List`. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Full-Version-List.',
+
   /**
    * @description This warning occurs when the browser attempts to store a
    *    cookie containing a banned character. Rather than the cookie string
@@ -458,6 +466,10 @@ export class DeprecationIssue extends Issue {
       case Protocol.Audits.DeprecationIssueType.ChromeLoadTimesWasAlternateProtocolAvailable:
         messageFunction = i18nLazyString(UIStrings.chromeLoadTimesWasAlternateProtocolAvailable);
         feature = 5637885046816768;
+        break;
+      case Protocol.Audits.DeprecationIssueType.ClientHintsUAFullVersion:
+        messageFunction = i18nLazyString(UIStrings.clientHintsUaFullVersion);
+        milestone = 115;
         break;
       case Protocol.Audits.DeprecationIssueType.CookieWithTruncatingChar:
         messageFunction = i18nLazyString(UIStrings.cookieWithTruncatingChar);
