@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "545c686d_34cf749e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T14:22:08Z",
+      "side": 1,
+      "message": "Nit: it\u0027s -\u003e its",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "2881a337a74cfe15d09bb40a8e8a2e3c59deaf8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6178d11_627dbfd2",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T14:22:08Z",
+      "side": 1,
+      "message": "Nit: Do we really have to reverse the stack? Can\u0027t you use stackTrace.callFrames.findLastIndex?",
+      "range": {
+        "startLine": 588,
+        "startChar": 10,
+        "endLine": 588,
+        "endChar": 68
+      },
+      "revId": "2881a337a74cfe15d09bb40a8e8a2e3c59deaf8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
