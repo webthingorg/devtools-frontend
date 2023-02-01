@@ -2068,7 +2068,7 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
       return;
     }
 
-    const resourceType = resource.resourceType();
+    const resourceType = Common.ResourceType.ResourceType.fromMimeType(resource.mimeType);
     const categoryName = resourceType.name();
     let categoryElement =
         resourceType === Common.ResourceType.resourceTypes.Document ? this : this.categoryElements.get(categoryName);
