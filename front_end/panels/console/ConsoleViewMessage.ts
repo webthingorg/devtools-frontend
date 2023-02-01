@@ -560,7 +560,42 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (!runtimeModel) {
       return null;
     }
+    console.assert(stackTrace.callFrames.length > 0);
+
+    const maybeLogpointParentFrame = this.#stackFrameWithBreakpoint(stackTrace);
+    if (maybeLogpointParentFrame) {
+      return this.linkifier.maybeLinkifyConsoleCallFrame(runtimeModel.target(), maybeLogpointParentFrame, {
+        inlineFrameIndex: 0,
+        revealBreakpoint: true,
+      });
+    }
     return this.linkifier.linkifyStackTraceTopFrame(runtimeModel.target(), stackTrace);
+  }
+
+  /**
+   * Returns the parent frame of the `console.log` call of logpoints
+   * or conditional breakpoints if they called `console.*` explicitly.
+   * The parent frame is where V8 paused and consequently where the logpoint
+   * was set.
+   */
+  #stackFrameWithBreakpoint(stackTrace: Protocol.Runtime.StackTrace): Protocol.Runtime.CallFrame|undefined {
+    // Note that breakpoint condition code could in theory call into user JS and back into
+    // "condition-defined" functions. This means that the top-most
+    // stack frame is not necessarily the `console.log` call, but there could be other things
+    // on top. We want the LAST marker frame in the stack.
+    // We search FROM THE BOTTOM for the first marked stack frame and
+    // return it's parent (predecessor).
+    const reverseStackFrames = [...stackTrace.callFrames].reverse();
+    const markerSourceUrls =
+        [Bindings.BreakpointManager.COND_BREAKPOINT_SOURCE_URL, Bindings.BreakpointManager.LOGPOINT_SOURCE_URL];
+    const lastBreakpointFrameIndex = reverseStackFrames.findIndex(({url}) => markerSourceUrls.includes(url));
+    if (lastBreakpointFrameIndex < 1) {
+      // We either didn't find any breakpoint or we didn't capture enough stack
+      // frames and the breakpoint condition is the bottom-most frame.
+      return undefined;
+    }
+
+    return reverseStackFrames[lastBreakpointFrameIndex - 1];
   }
 
   private linkifyScriptId(
