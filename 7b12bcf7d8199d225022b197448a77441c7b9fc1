@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e15b3119_54bfddfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:23:15Z",
+      "side": 1,
+      "message": "nit: originate",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a5ba16cb_60bda443",
@@ -43,6 +60,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ab7c194_6a4098b1",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:23:15Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "23bc025e_91b122bd",
+      "range": {
+        "startLine": 558,
+        "startChar": 10,
+        "endLine": 558,
+        "endChar": 35
+      },
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc14255_57e25396",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:23:15Z",
+      "side": 1,
+      "message": "Since it\u0027s a heuristic, would it make sense to include comparing the logged message with the condition that is set on the breakpoint at this ui location to increase the confidence?",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29cc6fbf_3878eca4",
         "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
         "patchSetId": 1
@@ -54,6 +112,30 @@
       "writtenOn": "2023-02-01T07:15:06Z",
       "side": 1,
       "message": "Using a real linkifier means we need to setup:\n1) A real script + debugger workspace binding\n2) Set a real breakpoint so the linkifier can find it\n\nThis logic is already checked in the Linkifier_test so I opted to just check that we call the correct linkifier method with the right arguments.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90b2d3de_a212b957",
+        "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-01T10:23:15Z",
+      "side": 1,
+      "message": "Fine with me!",
+      "parentUuid": "29cc6fbf_3878eca4",
       "range": {
         "startLine": 68,
         "startChar": 6,
