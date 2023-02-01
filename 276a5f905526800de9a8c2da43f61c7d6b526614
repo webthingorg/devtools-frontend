@@ -33,6 +33,23 @@
       "message": "Deferring review to Changhao as I\u0027m not sure getting the button via selector is the best approach here.",
       "revId": "276a5f905526800de9a8c2da43f61c7d6b526614",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02826f58_6b4243b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2023-02-01T17:20:55Z",
+      "side": 1,
+      "message": "Hi, this is a fix for focus in CSS Overview Sidebar Panel, PTAL, thanks!",
+      "revId": "276a5f905526800de9a8c2da43f61c7d6b526614",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
