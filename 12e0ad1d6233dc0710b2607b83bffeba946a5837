@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7879806_027764b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2023-02-01T23:06:25Z",
+      "side": 1,
+      "message": "Hi, this is a fix for CSS Overview Sidebar Panel focus issue, PTAL, thanks!",
+      "revId": "12e0ad1d6233dc0710b2607b83bffeba946a5837",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
