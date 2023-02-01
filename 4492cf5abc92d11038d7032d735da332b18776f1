@@ -93,6 +93,30 @@
       },
       "revId": "4492cf5abc92d11038d7032d735da332b18776f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba14056_4fbfb911",
+        "filename": "test/unittests/front_end/models/persistence/PersistenceImpl_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T13:46:04Z",
+      "side": 1,
+      "message": "You are right, I was confused. (This is the opposite direction from the one in the test name.)",
+      "parentUuid": "6348e9aa_17dff258",
+      "range": {
+        "startLine": 131,
+        "startChar": 33,
+        "endLine": 131,
+        "endChar": 39
+      },
+      "revId": "4492cf5abc92d11038d7032d735da332b18776f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
