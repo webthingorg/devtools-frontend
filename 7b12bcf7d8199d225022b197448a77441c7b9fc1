@@ -137,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ed7055e_7233bbee",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T10:41:09Z",
+      "side": 1,
+      "message": "If you have more than one logpoint they still wouldn\u0027t show up in the same stack unless you intentionally leak a closure from the logpoint and call that from another logpoint.\n\nIt\u0027s not enough to just call another function with a logpoint from a logpoint itself, as we don\u0027t do nested pauses in V8 (and so the nested logpoint wouldn\u0027t actually be executed).\n\nBut back to the suggestion: Even if we have the signal whether parts of the message match the condition, what to do with it? If it\u0027s true, we are reasonably sure that we found the right stack frame, but not 100%. If it\u0027s false we also can\u0027t say as the user might not have included any string literal.",
+      "parentUuid": "39854d81_935cf7bc",
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29cc6fbf_3878eca4",
         "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
         "patchSetId": 1
