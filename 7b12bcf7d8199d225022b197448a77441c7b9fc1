@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23bc025e_91b122bd",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-01T07:22:57Z",
+      "side": 1,
+      "message": "Maybe we should rename this to `linkifyStackTrace`, since we now no longer linkify the top-most frame in all cases.",
+      "range": {
+        "startLine": 558,
+        "startChar": 10,
+        "endLine": 558,
+        "endChar": 35
+      },
+      "revId": "7b12bcf7d8199d225022b197448a77441c7b9fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29cc6fbf_3878eca4",
         "filename": "test/unittests/front_end/panels/console/ConsoleViewMessage_test.ts",
         "patchSetId": 1
