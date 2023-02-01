@@ -33,6 +33,24 @@
       "message": "I was surprised to see that this is necessary, but I\u0027m capturing what is happening here. I assume this happens in order to update the storage, although the file system is removed.",
       "revId": "53038ec2d450061d82aee298ae59b92b4826b364",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d35cfb_60d6b202",
+        "filename": "test/unittests/front_end/models/persistence/PersistenceImpl_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-01T13:29:22Z",
+      "side": 1,
+      "message": "Right, I think you can even get your breakpoint duplicated that way :-/.",
+      "parentUuid": "f00c438d_babdd6bf",
+      "revId": "53038ec2d450061d82aee298ae59b92b4826b364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
