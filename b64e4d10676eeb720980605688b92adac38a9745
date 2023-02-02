@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1578777e_62d5f4e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-02T05:51:54Z",
+      "side": 1,
+      "message": "Thanks for adding the roll_deps.py bits :)",
+      "revId": "b64e4d10676eeb720980605688b92adac38a9745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1cb91d36_c9ef8799",
         "filename": "scripts/deps/roll_deps.py",
         "patchSetId": 3
