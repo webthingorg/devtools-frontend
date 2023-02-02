@@ -16,6 +16,24 @@
       "message": "height is 823 now",
       "revId": "18ef3f58c82a091741f9163c33dd9011dd57107d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f6ea64_95d60dac",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1763,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-02-02T01:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01330ea1_c0b4dde1",
+      "revId": "18ef3f58c82a091741f9163c33dd9011dd57107d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
