@@ -3,20 +3,19 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 import argparse
-import collections
-import errno
 import json
 import logging
 import os
-import shutil
 import subprocess
 import sys
 
 from os import path
 _CURRENT_DIR = path.join(path.dirname(__file__))
+
 ROOT_DIRECTORY_OF_REPOSITORY = path.join(_CURRENT_DIR, '..', '..')
-TSC_LOCATION = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules',
-                         'typescript', 'bin', 'tsc')
+NODE_MODULES_DIRECTORY = path.join(ROOT_DIRECTORY_OF_REPOSITORY,
+                                   'node_modules')
+TSC_LOCATION = path.join(NODE_MODULES_DIRECTORY, 'typescript', 'bin', 'tsc')
 
 try:
     old_sys_path = sys.path[:]
@@ -29,7 +28,7 @@ ESBUILD_LOCATION = devtools_paths.esbuild_path()
 
 BASE_TS_CONFIG_LOCATION = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'config',
                                     'typescript', 'tsconfig.base.json')
-TYPES_NODE_MODULES_DIRECTORY = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules', '@types')
+TYPES_NODE_MODULES_DIRECTORY = path.join(NODE_MODULES_DIRECTORY, '@types')
 RESOURCES_INSPECTOR_PATH = path.join(os.getcwd(), 'resources', 'inspector')
 
 GLOBAL_TYPESCRIPT_DEFINITION_FILES = [
@@ -43,8 +42,7 @@ GLOBAL_TYPESCRIPT_DEFINITION_FILES = [
     path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'front_end', 'global_typings',
               'request_idle_callback.d.ts'),
     # Types for W3C FileSystem API
-    path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules', '@types',
-              'filesystem', 'index.d.ts'),
+    path.join(NODE_MODULES_DIRECTORY, '@types', 'filesystem', 'index.d.ts'),
 ]
 
 
@@ -70,8 +68,7 @@ def runTscRemote(tsconfig_location, all_ts_files, rewrapper_binary,
         path.relpath(x, rewrapper_exec_root) for x in all_ts_files
     ]
 
-    tsc_lib_directory = path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules',
-                                  'typescript', 'lib')
+    tsc_lib_directory = path.join(NODE_MODULES_DIRECTORY, 'typescript', 'lib')
     all_d_ts_files = [
         path.relpath(path.join(tsc_lib_directory, f), rewrapper_exec_root)
         for f in os.listdir(tsc_lib_directory) if f.endswith('.d.ts')
@@ -89,8 +86,7 @@ def runTscRemote(tsconfig_location, all_ts_files, rewrapper_binary,
     relative_tsc_location = path.relpath(TSC_LOCATION, os.getcwd())
     relative_tsconfig_location = path.relpath(tsconfig_location, os.getcwd())
     relative_tsc_directory = path.relpath(
-        path.join(ROOT_DIRECTORY_OF_REPOSITORY, 'node_modules', 'typescript'),
-        rewrapper_exec_root)
+        path.join(NODE_MODULES_DIRECTORY, 'typescript'), rewrapper_exec_root)
 
     inputs = ','.join([
         relative_node_location,
@@ -270,11 +266,14 @@ def main():
     if (not opts.verify_lib_check):
         tsconfig['compilerOptions']['skipLibCheck'] = True
     tsconfig['compilerOptions']['rootDir'] = get_relative_path_from_output_directory(opts.front_end_directory)
-    tsconfig['compilerOptions']['typeRoots'] = (
-        opts.test_only or runs_in_node_environment
-    ) and [
-        get_relative_path_from_output_directory(TYPES_NODE_MODULES_DIRECTORY)
-    ] or []
+    tsconfig['compilerOptions']['typeRoots'] = []
+    if opts.test_only or runs_in_node_environment:
+        tsconfig['compilerOptions'][
+            'baseUrl'] = get_relative_path_from_output_directory(
+                NODE_MODULES_DIRECTORY)
+        tsconfig['compilerOptions'][
+            'typeRoots'] += get_relative_path_from_output_directory(
+                TYPES_NODE_MODULES_DIRECTORY)
     if opts.test_only:
         tsconfig['compilerOptions']['types'] = [
             "mocha", "chai", "sinon", "karma-chai-sinon"
