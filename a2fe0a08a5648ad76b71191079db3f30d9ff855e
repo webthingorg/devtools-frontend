@@ -56,6 +56,30 @@
       },
       "revId": "a2fe0a08a5648ad76b71191079db3f30d9ff855e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14740ff_4a22fb7f",
+        "filename": "front_end/models/bindings/CompilerScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-02T06:56:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "668c8e88_0a2b92cf",
+      "range": {
+        "startLine": 423,
+        "startChar": 10,
+        "endLine": 423,
+        "endChar": 42
+      },
+      "revId": "a2fe0a08a5648ad76b71191079db3f30d9ff855e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
