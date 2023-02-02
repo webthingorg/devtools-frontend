@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b40573_98d30e05",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-02T15:39:30Z",
+      "side": 1,
+      "message": "IIUC then we use node resolution for any ts_library that has set `test_only \u003d True`. This is not what we want e.g. for unit test helpers.\n\nWhy isn\u0027t it enough to add the `baseUrl` in the `if runs_in_node_environment` case only?\n\nI mean the following:\n```\nif runs_in_node_environment:\n    tsconfig[\u0027compilerOptions\u0027][\u0027moduleResolution\u0027] \u003d \u0027node\u0027\n    tsconfig[\u0027compilerOptions\u0027][\u0027baseUrl\u0027] \u003d ...\n```",
+      "range": {
+        "startLine": 270,
+        "startChar": 7,
+        "endLine": 270,
+        "endChar": 21
+      },
+      "revId": "6ab0dfdbe03b7747f46fe740e4cd2af9e6a34210",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
