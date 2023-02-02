@@ -34,6 +34,24 @@
       "parentUuid": "ecd267d0_e9e1e69c",
       "revId": "70ab518eb1705e9cd4ea36749ddcd32b472f9f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b189a67_6b83b528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130574
+      },
+      "writtenOn": "2023-02-02T18:34:22Z",
+      "side": 1,
+      "message": "Does this mean we can abandon this revert?\n\nLooks like Android continuous M110 builds are passing now - https://ci.chromium.org/ui/p/chrome-m111/g/official.android.continuous/builders after above fix?",
+      "parentUuid": "86d2a5ff_e0ad62b6",
+      "revId": "70ab518eb1705e9cd4ea36749ddcd32b472f9f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
