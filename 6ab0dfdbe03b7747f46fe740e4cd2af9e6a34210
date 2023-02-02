@@ -70,6 +70,30 @@
       },
       "revId": "6ab0dfdbe03b7747f46fe740e4cd2af9e6a34210",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7947bc28_ae5f0830",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-02T16:10:48Z",
+      "side": 1,
+      "message": "Yea, I gotcha. Thanks! The conditions are now fixed.",
+      "parentUuid": "4d8b3e68_4fcba48d",
+      "range": {
+        "startLine": 270,
+        "startChar": 7,
+        "endLine": 270,
+        "endChar": 21
+      },
+      "revId": "6ab0dfdbe03b7747f46fe740e4cd2af9e6a34210",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
