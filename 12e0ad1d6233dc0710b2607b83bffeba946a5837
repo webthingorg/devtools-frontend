@@ -16,6 +16,23 @@
       "message": "Hi, this is a fix for CSS Overview Sidebar Panel focus issue, PTAL, thanks!",
       "revId": "12e0ad1d6233dc0710b2607b83bffeba946a5837",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "813c5094_d3113ba5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2023-02-02T18:50:18Z",
+      "side": 1,
+      "message": "Hi, this is a fix for keyboard navigation in CSS Overview sidebar panel, PTAL, thanks!",
+      "revId": "12e0ad1d6233dc0710b2607b83bffeba946a5837",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
