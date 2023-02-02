@@ -39,6 +39,30 @@
       },
       "revId": "c1590a4f4c83ea6e63de1b1bb9b840407b59a9b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c8cff1b_edf9ed7d",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-02T16:16:47Z",
+      "side": 1,
+      "message": "I tested this locally and it broke. I\u0027m just going to keep the original condition...lol",
+      "parentUuid": "dfa7b858_88e2f96d",
+      "range": {
+        "startLine": 270,
+        "startChar": 8,
+        "endLine": 270,
+        "endChar": 21
+      },
+      "revId": "c1590a4f4c83ea6e63de1b1bb9b840407b59a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
