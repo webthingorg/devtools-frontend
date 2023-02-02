@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01330ea1_c0b4dde1",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1763,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2023-02-02T01:22:47Z",
+      "side": 1,
+      "message": "height is 823 now",
+      "revId": "18ef3f58c82a091741f9163c33dd9011dd57107d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
