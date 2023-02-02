@@ -46,6 +46,30 @@
       },
       "revId": "6ab0dfdbe03b7747f46fe740e4cd2af9e6a34210",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8b3e68_4fcba48d",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-02T16:08:50Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/helpers/BUILD.gn;l\u003d7;drc\u003d8e3c4eb08c3039dc0767aa06bd28d48b5f891e71\n\nUnit tests are running via karma in the browser itself. So it\u0027s not a node runtime per-se.\n\nThis is different to e.g. the e2e hooks and conductor. Those very much run in Node.js.",
+      "parentUuid": "9e150b96_5c6b7321",
+      "range": {
+        "startLine": 270,
+        "startChar": 7,
+        "endLine": 270,
+        "endChar": 21
+      },
+      "revId": "6ab0dfdbe03b7747f46fe740e4cd2af9e6a34210",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
