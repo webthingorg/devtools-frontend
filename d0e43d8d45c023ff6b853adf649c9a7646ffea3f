@@ -16,6 +16,24 @@
       "message": "So for the rollout of this part in the DevTools repo, I think that I need to submit the upstream Chrome change first. \n\nDo I need to create a \"roll CL\" (scripts/deps/roll_deps.py), or kick off (npm run generate-protocol-resources) to re-generate files from browser_protocol.pdl?",
       "revId": "d0e43d8d45c023ff6b853adf649c9a7646ffea3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62f69bd_c7205b2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-03T16:15:57Z",
+      "side": 1,
+      "message": "That\u0027s right.",
+      "parentUuid": "41aa4950_59ca127e",
+      "revId": "d0e43d8d45c023ff6b853adf649c9a7646ffea3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
