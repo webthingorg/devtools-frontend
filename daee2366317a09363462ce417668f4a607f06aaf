@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf10fe1_2e7e6212",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d084a72e_cf1b14a9",
+      "range": {
+        "startLine": 41,
+        "startChar": 36,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "daee2366317a09363462ce417668f4a607f06aaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b928782e_f80ae752",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-03T09:30:06Z",
       "side": 1,
       "message": "This is a bit missleading. IIUC we calculate the snapshot file name from the test title and give each snapshot assertion a number.\n\nPlease extend the JSDoc comment here to explain this behavior. It\u0027s not clear unless one reads the actual implementation.\n\nNote that this means shuffling around multiple assertion requires rebaselining even though none of the assertions has actually changed. I guess this is fine given that we\u0027ll mostly use a single assertion per test.",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "daee2366317a09363462ce417668f4a607f06aaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f000cad8_92f072a6",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:01:47Z",
+      "side": 1,
+      "message": "Good point about the shuffling. I\u0027ve added naming capabilities, so this should fix that.",
+      "parentUuid": "b928782e_f80ae752",
       "range": {
         "startLine": 98,
         "startChar": 3,

@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c35b5edb_fe34da7a",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:01:47Z",
+      "side": 1,
+      "message": "I like to keep it generally close if they are related, but sure.",
+      "parentUuid": "2e3a1eba_82995ea4",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c7d60cb_79e56244",
@@ -98,6 +122,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65aac236_601d9867",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c7d60cb_79e56244",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d59cc2b_154cc993",
@@ -111,6 +159,30 @@
       "writtenOn": "2023-02-03T09:30:06Z",
       "side": 1,
       "message": "IMO it would be fine to read+write the snapshot file on each assertion.\nThis would greatly simplify the code in this file as we wouldn\u0027t have to carry global state and this function would become:\n\n1) Read file\n2) Update snapshot `name` if necessary and write back file.\n3) Return snapshot `name`.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29567e4d_5f3d2362",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:01:47Z",
+      "side": 1,
+      "message": "We\u0027d still have to carry global state because of `currentTest`. In any case, I\u0027d prefer less I.O.. There could be more than 20 tests and our RAM can take the hit 😄",
+      "parentUuid": "9d59cc2b_154cc993",
       "range": {
         "startLine": 73,
         "startChar": 6,
