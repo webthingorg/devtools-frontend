@@ -191,6 +191,30 @@
       },
       "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01b7cda8_5887bc87",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-03T10:06:10Z",
+      "side": 1,
+      "message": "Ack. But just to clarify, the IO from the snapshot reading/writing is negligible. Each e2e test case loads the whole DevTools frontend from the webserver and we only recently enabled HTTP caching for it 😄",
+      "parentUuid": "29567e4d_5f3d2362",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
