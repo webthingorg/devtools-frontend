@@ -33,6 +33,46 @@
       "message": "@bmeurer@chromium.org I\u0027ve CCed you in case you want to see the output we will be generating instead since you had thoughts on it.",
       "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a8d9df_b786096a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-03T09:30:06Z",
+      "side": 1,
+      "message": "Danil, also PTAL",
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d59cc2b_154cc993",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-03T09:30:06Z",
+      "side": 1,
+      "message": "IMO it would be fine to read+write the snapshot file on each assertion.\nThis would greatly simplify the code in this file as we wouldn\u0027t have to carry global state and this function would become:\n\n1) Read file\n2) Update snapshot `name` if necessary and write back file.\n3) Return snapshot `name`.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

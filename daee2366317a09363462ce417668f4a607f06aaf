@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d084a72e_cf1b14a9",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-03T09:30:06Z",
+      "side": 1,
+      "message": "nit: snapshot",
+      "range": {
+        "startLine": 41,
+        "startChar": 36,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "daee2366317a09363462ce417668f4a607f06aaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b928782e_f80ae752",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-03T09:30:06Z",
+      "side": 1,
+      "message": "This is a bit missleading. IIUC we calculate the snapshot file name from the test title and give each snapshot assertion a number.\n\nPlease extend the JSDoc comment here to explain this behavior. It\u0027s not clear unless one reads the actual implementation.\n\nNote that this means shuffling around multiple assertion requires rebaselining even though none of the assertions has actually changed. I guess this is fine given that we\u0027ll mostly use a single assertion per test.",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "daee2366317a09363462ce417668f4a607f06aaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
