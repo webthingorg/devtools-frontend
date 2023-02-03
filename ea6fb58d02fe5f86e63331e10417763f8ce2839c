@@ -54,6 +54,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e3a1eba_82995ea4",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-03T09:33:30Z",
+      "side": 1,
+      "message": "nit: Add a blank line above?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c7d60cb_79e56244",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-03T09:33:30Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "ea6fb58d02fe5f86e63331e10417763f8ce2839c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d59cc2b_154cc993",
         "filename": "test/shared/snapshots.ts",
         "patchSetId": 8
