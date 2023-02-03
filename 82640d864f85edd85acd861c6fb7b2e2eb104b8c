@@ -39,6 +39,30 @@
       },
       "revId": "82640d864f85edd85acd861c6fb7b2e2eb104b8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "816d6032_3d46be7b",
+        "filename": "test/shared/snapshots.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-02-03T10:13:47Z",
+      "side": 1,
+      "message": "😂",
+      "parentUuid": "8eb47687_cd1f2d8c",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "82640d864f85edd85acd861c6fb7b2e2eb104b8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
