@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d039000_dfdcdcfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-03T07:00:12Z",
+      "side": 1,
+      "message": "Here\u0027s the test case for the code-splitting in the BreakpointManager. Please take a look, thanks!",
+      "revId": "61c9c872907ba6e969220a131e799d6c979e95e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
