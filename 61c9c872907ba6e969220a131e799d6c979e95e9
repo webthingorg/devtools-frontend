@@ -39,6 +39,30 @@
       },
       "revId": "61c9c872907ba6e969220a131e799d6c979e95e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c430fc47_a910df6c",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-03T10:41:36Z",
+      "side": 1,
+      "message": "You mean listening for the `Debugger.removeBreakpoint` protocol message here as well?",
+      "parentUuid": "62b1f871_5d9ecfca",
+      "range": {
+        "startLine": 1263,
+        "startChar": 8,
+        "endLine": 1263,
+        "endChar": 39
+      },
+      "revId": "61c9c872907ba6e969220a131e799d6c979e95e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
