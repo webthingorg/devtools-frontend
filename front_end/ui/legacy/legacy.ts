@@ -6,6 +6,7 @@ import * as ActionRegistration from './ActionRegistration.js';
 import * as ActionRegistry from './ActionRegistry.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import * as Context from './Context.js';
+// import * as ContextAwareTargetObserver from './ContextAwareTargetObserver.js';
 import * as ContextFlavorListener from './ContextFlavorListener.js';
 import * as ContextMenu from './ContextMenu.js';
 import * as Dialog from './Dialog.js';
@@ -63,6 +64,7 @@ export {
   ActionRegistry,
   ARIAUtils,
   Context,
+  // ContextAwareTargetObserver,
   ContextFlavorListener,
   ContextMenu,
   Dialog,

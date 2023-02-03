@@ -44,6 +44,7 @@ import * as Extensions from '../../models/extensions/extensions.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as Persistence from '../../models/persistence/persistence.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as Snippets from '../../panels/snippets/snippets.js';
 import * as Timeline from '../../panels/timeline/timeline.js';
@@ -54,6 +55,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {ExecutionContextSelector} from './ExecutionContextSelector.js';
+import {TopLevelTargetSelector} from './TopLevelTargetSelector.js';
 
 const UIStrings = {
   /**
@@ -546,6 +548,16 @@ export class MainImpl {
       forceNew: true,
       resourceMapping,
       targetManager: SDK.TargetManager.TargetManager.instance(),
+    });
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, ({data}) => {
+      const outermostTarget = data?.outermostTarget();
+      Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().setOutermostTarget(outermostTarget);
+      for (const observer of ScopedTargetObserver.ScopedTargetObserver.instances()) {
+        observer.setOutermostTarget(outermostTarget);
+      }
+    });
+    ScopedTargetObserver.ScopedTargetObserver.observeInstances(observer => {
+      observer.setOutermostTarget(UI.Context.Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null);
     });
     // @ts-ignore layout test global
     self.Bindings.breakpointManager = Bindings.BreakpointManager.BreakpointManager.instance({

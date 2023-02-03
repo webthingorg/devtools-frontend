@@ -36,6 +36,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
@@ -1324,6 +1325,9 @@ export class DebuggerPlugin extends Plugin {
 
   private updateScriptFiles(): void {
     for (const debuggerModel of SDK.TargetManager.TargetManager.instance().models(SDK.DebuggerModel.DebuggerModel)) {
+      if (ScopedTargetObserver.shouldIgnore(debuggerModel)) {
+        continue;
+      }
       const scriptFile = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().scriptFile(
           this.uiSourceCode, debuggerModel);
       if (scriptFile) {

@@ -7,6 +7,7 @@ import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 
 const UIStrings = {
   /**
@@ -24,6 +25,7 @@ export class ThreadsSidebarPane extends UI.Widget.VBox implements
   private readonly items: UI.ListModel.ListModel<SDK.DebuggerModel.DebuggerModel>;
   private readonly list: UI.ListControl.ListControl<SDK.DebuggerModel.DebuggerModel>;
   private selectedModel: SDK.DebuggerModel.DebuggerModel|null;
+  private targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   private constructor() {
     super(true);
@@ -35,7 +37,8 @@ export class ThreadsSidebarPane extends UI.Widget.VBox implements
     this.contentElement.appendChild(this.list.element);
 
     UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, this.targetFlavorChanged, this);
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.DebuggerModel.DebuggerModel, this);
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.DebuggerModel.DebuggerModel, this.targetObserver);
   }
 
   static instance(): ThreadsSidebarPane {
@@ -46,7 +49,10 @@ export class ThreadsSidebarPane extends UI.Widget.VBox implements
   }
 
   static shouldBeShown(): boolean {
-    return SDK.TargetManager.TargetManager.instance().models(SDK.DebuggerModel.DebuggerModel).length >= 2;
+    return SDK.TargetManager.TargetManager.instance()
+               .models(SDK.DebuggerModel.DebuggerModel)
+               .filter(ScopedTargetObserver.shouldIgnore)
+               .length >= 2;
   }
 
   createElementForItem(debuggerModel: SDK.DebuggerModel.DebuggerModel): Element {

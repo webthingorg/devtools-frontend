@@ -39,6 +39,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -279,6 +280,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   private previousHoveredElement?: FrameTreeElement;
   readonly sharedStorageTreeElementDispatcher:
       Common.ObjectWrapper.ObjectWrapper<SharedStorageTreeElementDispatcher.EventTypes>;
+  private readonly targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor(panel: ResourcesPanel) {
     super();
@@ -412,34 +414,39 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.sidebarTree.contentElement.addEventListener('mousemove', this.onmousemove.bind(this), false);
     this.sidebarTree.contentElement.addEventListener('mouseleave', this.onmouseleave.bind(this), false);
 
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
+    SDK.TargetManager.TargetManager.instance().observeTargets(this.targetObserver);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this.frameNavigated,
-        this);
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
+        this.targetObserver.modelEventListener(this.frameNavigated, this));
 
     const selection = this.panel.lastSelectedItemPath();
     if (!selection.length) {
       manifestTreeElement.select();
     }
 
-    SDK.TargetManager.TargetManager.instance().observeModels(DOMStorageModel, {
-      modelAdded: (model: DOMStorageModel): void => this.domStorageModelAdded(model),
-      modelRemoved: (model: DOMStorageModel): void => this.domStorageModelRemoved(model),
-    });
-    SDK.TargetManager.TargetManager.instance().observeModels(IndexedDBModel, {
-      modelAdded: (model: IndexedDBModel): void => model.enable(),
-      modelRemoved: (model: IndexedDBModel): void => this.indexedDBListTreeElement.removeIndexedDBForModel(model),
-    });
-    SDK.TargetManager.TargetManager.instance().observeModels(InterestGroupStorageModel, {
-      modelAdded: (model: InterestGroupStorageModel): void => this.interestGroupModelAdded(model),
-      modelRemoved: (model: InterestGroupStorageModel): void => this.interestGroupModelRemoved(model),
-    });
-    SDK.TargetManager.TargetManager.instance().observeModels(SharedStorageModel, {
-      modelAdded: (model: SharedStorageModel): Promise<void> => this.sharedStorageModelAdded(model).catch(err => {
-        console.error(err);
-      }),
-      modelRemoved: (model: SharedStorageModel): void => this.sharedStorageModelRemoved(model),
-    });
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        DOMStorageModel, new ScopedTargetObserver.ScopedTargetObserver({
+          modelAdded: (model: DOMStorageModel): void => this.domStorageModelAdded(model),
+          modelRemoved: (model: DOMStorageModel): void => this.domStorageModelRemoved(model),
+        }));
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        IndexedDBModel, new ScopedTargetObserver.ScopedTargetObserver({
+          modelAdded: (model: IndexedDBModel): void => model.enable(),
+          modelRemoved: (model: IndexedDBModel): void => this.indexedDBListTreeElement.removeIndexedDBForModel(model),
+        }));
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        InterestGroupStorageModel, new ScopedTargetObserver.ScopedTargetObserver({
+          modelAdded: (model: InterestGroupStorageModel): void => this.interestGroupModelAdded(model),
+          modelRemoved: (model: InterestGroupStorageModel): void => this.interestGroupModelRemoved(model),
+        }));
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        SharedStorageModel, new ScopedTargetObserver.ScopedTargetObserver({
+          modelAdded: (model: SharedStorageModel): Promise<void> => this.sharedStorageModelAdded(model).catch(err => {
+            console.error(err);
+          }),
+          modelRemoved: (model: SharedStorageModel): void => this.sharedStorageModelRemoved(model),
+        }));
 
     this.sharedStorageTreeElementDispatcher =
         new Common.ObjectWrapper.ObjectWrapper<SharedStorageTreeElementDispatcher.EventTypes>();
@@ -461,7 +468,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   }
 
   targetAdded(target: SDK.Target.Target): void {
-    if (target !== SDK.TargetManager.TargetManager.instance().mainFrameTarget()) {
+    if (target !== target.outermostTarget()) {
       return;
     }
 
@@ -1192,28 +1199,35 @@ export class ClearStorageTreeElement extends ApplicationPanelTreeElement {
 
 export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement {
   private idbDatabaseTreeElements: IDBDatabaseTreeElement[];
+  private readonly targetObserver: ScopedTargetObserver.ScopedTargetObserver;
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.indexeddb), 'IndexedDB');
     const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.idbDatabaseTreeElements = [];
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
     this.initialize();
   }
 
   private initialize(): void {
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        IndexedDBModel, IndexedDBModelEvents.DatabaseAdded, this.indexedDBAdded, this);
+        IndexedDBModel, IndexedDBModelEvents.DatabaseAdded, this.indexedDBAdded, this.targetObserver);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        IndexedDBModel, IndexedDBModelEvents.DatabaseRemoved, this.indexedDBRemoved, this);
+        IndexedDBModel, IndexedDBModelEvents.DatabaseRemoved, this.indexedDBRemoved, this.targetObserver);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        IndexedDBModel, IndexedDBModelEvents.DatabaseLoaded, this.indexedDBLoaded, this);
+        IndexedDBModel, IndexedDBModelEvents.DatabaseLoaded, this.indexedDBLoaded, this.targetObserver);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        IndexedDBModel, IndexedDBModelEvents.IndexedDBContentUpdated, this.indexedDBContentUpdated, this);
+        IndexedDBModel, IndexedDBModelEvents.IndexedDBContentUpdated, this.indexedDBContentUpdated,
+        this.targetObserver);
     // TODO(szuend): Replace with a Set once two web tests no longer directly access this private
     //               variable (indexeddb/live-update-indexeddb-content.js, indexeddb/delete-entry.js).
     this.idbDatabaseTreeElements = [];
 
     for (const indexedDBModel of SDK.TargetManager.TargetManager.instance().models(IndexedDBModel)) {
+      console.error(4);
+      if (this.targetObserver.shouldIgnore(indexedDBModel)) {
+        continue;
+      }
       const databases = indexedDBModel.databases();
       for (let j = 0; j < databases.length; ++j) {
         this.addIndexedDB(indexedDBModel, databases[j]);
@@ -1241,6 +1255,10 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
 
   refreshIndexedDB(): void {
     for (const indexedDBModel of SDK.TargetManager.TargetManager.instance().models(IndexedDBModel)) {
+      console.error(5);
+      if (this.targetObserver.shouldIgnore(indexedDBModel)) {
+        continue;
+      }
       void indexedDBModel.refreshDatabaseNames();
     }
   }
@@ -1743,8 +1761,10 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   private readonly treeElement: UI.TreeOutline.TreeElement;
   private treeElementForFrameId: Map<string, FrameTreeElement>;
   private treeElementForTargetId: Map<string, FrameTreeElement>;
+  private readonly targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor(storagePanel: ResourcesPanel, treeElement: UI.TreeOutline.TreeElement) {
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
     this.panel = storagePanel;
     this.treeElement = treeElement;
     UI.ARIAUtils.setAccessibleName(this.treeElement.listItemNode, 'Resources Section');
@@ -1762,17 +1782,21 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
         SDK.FrameManager.Events.ResourceAdded, event => this.resourceAdded(event.data.resource), this);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetCreated, this.windowOpened,
-        this);
+        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetCreated,
+        this.targetObserver.modelEventListener(this.windowOpened, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetInfoChanged, this.windowChanged,
-        this);
+        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetInfoChanged,
+        this.targetObserver.modelEventListener(this.windowChanged, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetDestroyed, this.windowDestroyed,
-        this);
+        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetDestroyed,
+        this.targetObserver.modelEventListener(this.windowDestroyed, this));
 
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    SDK.TargetManager.TargetManager.instance().observeTargets(this.targetObserver);
+    this.initialize();
+  }
 
+  private initialize(): void {
+    const frameManager = SDK.FrameManager.FrameManager.instance();
     for (const frame of frameManager.getAllFrames()) {
       if (!this.treeElementForFrameId.get(frame.id)) {
         this.addFrameAndParents(frame);
@@ -1789,6 +1813,9 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   targetAdded(target: SDK.Target.Target): void {
     if (target.type() === SDK.Target.Type.Worker || target.type() === SDK.Target.Type.ServiceWorker) {
       void this.workerAdded(target);
+    }
+    if (target.type() === SDK.Target.Type.Frame && target === target.outermostTarget()) {
+      this.initialize();
     }
   }
 
@@ -1851,6 +1878,10 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   }
 
   private frameAdded(frame: SDK.ResourceTreeModel.ResourceTreeFrame): void {
+    console.error(1);
+    if (this.targetObserver.shouldIgnore(frame)) {
+      return;
+    }
     const parentFrame = frame.parentFrame();
     const parentTreeElement = parentFrame ? this.treeElementForFrameId.get(parentFrame.id) : this.treeElement;
     if (!parentTreeElement) {
@@ -1891,6 +1922,10 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   }
 
   private frameNavigated(frame: SDK.ResourceTreeModel.ResourceTreeFrame): void {
+    console.error(2);
+    if (this.targetObserver.shouldIgnore(frame)) {
+      return;
+    }
     const frameTreeElement = this.treeElementForFrameId.get(frame.id);
     if (frameTreeElement) {
       void frameTreeElement.frameNavigated(frame);
@@ -2016,6 +2051,10 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (frame.isTopFrame()) {
       const targets = SDK.TargetManager.TargetManager.instance().targets();
       for (const target of targets) {
+        console.error(3);
+        if (ScopedTargetObserver.shouldIgnore(target)) {
+          continue;
+        }
         if (target.type() === SDK.Target.Type.ServiceWorker) {
           const targetId = target.id();
           assertNotMainTarget(targetId);

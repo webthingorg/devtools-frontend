@@ -36,6 +36,7 @@ devtools_module("accessibility") {
     "../../core/sdk:bundle",
     "../../generated",
     "../../generated:protocol",
+    "../../models/scoped_target_observer:bundle",
     "../../ui/components/panel_feedback:bundle",
     "../../ui/legacy:bundle",
   ]

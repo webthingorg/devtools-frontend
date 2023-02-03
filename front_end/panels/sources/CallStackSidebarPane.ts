@@ -34,7 +34,9 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
+
 import type * as Workspace from '../../models/workspace/workspace.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -150,7 +152,8 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     this.scheduledForUpdateItems = new Set();
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebugInfoAttached, this.debugInfoAttached, this);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebugInfoAttached,
+        ScopedTargetObserver.modelEventListener(this.debugInfoAttached, this));
   }
 
   static instance(opts: {

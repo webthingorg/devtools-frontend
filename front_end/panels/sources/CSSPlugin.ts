@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type * as Workspace from '../../models/workspace/workspace.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
@@ -417,10 +418,12 @@ export function cssBindings(): CodeMirror.Extension {
 
 export class CSSPlugin extends Plugin implements SDK.TargetManager.SDKModelObserver<SDK.CSSModel.CSSModel> {
   #cssModel?: SDK.CSSModel.CSSModel;
+  #targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode, _transformer?: SourceFrame.SourceFrame.Transformer) {
     super(uiSourceCode, _transformer);
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.CSSModel.CSSModel, this);
+    this.#targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.CSSModel.CSSModel, this.#targetObserver);
   }
 
   static accepts(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {

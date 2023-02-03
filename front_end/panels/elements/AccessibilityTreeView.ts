@@ -6,6 +6,7 @@ import type * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as AccessibilityTreeUtils from './AccessibilityTreeUtils.js';
 import accessibilityTreeViewStyles from './accessibilityTreeView.css.js';
 import {ElementsPanel} from './ElementsPanel.js';
@@ -16,6 +17,7 @@ export class AccessibilityTreeView extends UI.Widget.VBox implements
   private readonly toggleButton: HTMLElement;
   private inspectedDOMNode: SDK.DOMModel.DOMNode|null = null;
   private root: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private readonly targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor(toggleButton: HTMLElement) {
     super();
@@ -29,7 +31,10 @@ export class AccessibilityTreeView extends UI.Widget.VBox implements
     container.appendChild(this.toggleButton);
     container.appendChild(this.accessibilityTreeComponent);
 
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.AccessibilityModel.AccessibilityModel, this);
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
+
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        SDK.AccessibilityModel.AccessibilityModel, this.targetObserver);
 
     // The DOM tree and accessibility are kept in sync as much as possible, so
     // on node selection, update the currently inspected node and reveal in the

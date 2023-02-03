@@ -36,6 +36,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -182,6 +183,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private groupByFolder?: any;
+  private targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   #throttler: Throttle;
 
@@ -236,7 +238,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.NameChanged, this.targetNameChanged, this);
 
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
+    SDK.TargetManager.TargetManager.instance().observeTargets(this.targetObserver);
     this.resetWorkspace(Workspace.Workspace.WorkspaceImpl.instance());
     this.workspaceInternal.uiSourceCodes().forEach(this.addUISourceCode.bind(this));
     Bindings.NetworkProject.NetworkProjectManager.instance().addEventListener(

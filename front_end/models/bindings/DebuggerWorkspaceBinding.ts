@@ -29,6 +29,7 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
   readonly #liveLocationPromises: Set<Promise<void|Location|StackTraceTopFrameLocation|null>>;
   pluginManager: DebuggerLanguagePluginManager|null;
   #targetManager: SDK.TargetManager.TargetManager;
+  #outermostTarget: SDK.Target.Target|null;
 
   private constructor(resourceMapping: ResourceMapping, targetManager: SDK.TargetManager.TargetManager) {
     this.resourceMapping = resourceMapping;
@@ -36,10 +37,6 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     this.#sourceMappings = [];
 
     this.#debuggerModelToData = new Map();
-    targetManager.addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.GlobalObjectCleared, this.globalObjectCleared, this);
-    targetManager.addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this);
     targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
     this.#targetManager = targetManager;
 
@@ -48,6 +45,8 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     this.pluginManager = Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') ?
         new DebuggerLanguagePluginManager(targetManager, resourceMapping.workspace, this) :
         null;
+
+    this.#outermostTarget = null;
   }
 
   initPluginManagerForTest(): DebuggerLanguagePluginManager|null {
@@ -156,18 +155,39 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     return ranges;
   }
 
+  setOutermostTarget(target: SDK.Target.Target|null): void {
+    const models = this.#targetManager.models(SDK.DebuggerModel.DebuggerModel);
+    for (const model of models) {
+      this.modelRemoved(model);
+    }
+    this.#outermostTarget = target;
+    for (const model of models) {
+      this.modelAdded(model);
+    }
+  }
+
   modelAdded(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    if (debuggerModel.target().outermostTarget() != this.#outermostTarget) {
+      return;
+    }
+    debuggerModel.addEventListener(SDK.DebuggerModel.Events.GlobalObjectCleared, this.globalObjectCleared, this);
+    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this);
     this.#debuggerModelToData.set(debuggerModel, new ModelData(debuggerModel, this));
     debuggerModel.setComputeAutoStepRangesCallback(this.computeAutoStepRanges.bind(this));
   }
 
   modelRemoved(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    if (debuggerModel.target().outermostTarget() != this.#outermostTarget) {
+      return;
+    }
     debuggerModel.setComputeAutoStepRangesCallback(null);
     const modelData = this.#debuggerModelToData.get(debuggerModel);
     if (modelData) {
       modelData.dispose();
       this.#debuggerModelToData.delete(debuggerModel);
     }
+    debuggerModel.removeEventListener(SDK.DebuggerModel.Events.GlobalObjectCleared, this.globalObjectCleared, this);
+    debuggerModel.removeEventListener(SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this);
   }
 
   /**

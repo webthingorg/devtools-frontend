@@ -7,6 +7,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {AnimationGroupPreviewUI} from './AnimationGroupPreviewUI.js';
@@ -124,6 +125,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
   #gridOffsetLeft?: number;
   #originalScrubberTime?: number|null;
   #originalMousePosition?: number;
+  readonly #targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   private constructor() {
     super(true);
@@ -148,9 +150,11 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     this.#groupBuffer = [];
     this.#previewMap = new Map();
     this.#animationsMap = new Map();
+    this.#targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.NodeRemoved, this.nodeRemoved, this);
-    SDK.TargetManager.TargetManager.instance().observeModels(AnimationModel, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.NodeRemoved,
+        this.#targetObserver.modelEventListener(this.nodeRemoved, this));
+    SDK.TargetManager.TargetManager.instance().observeModels(AnimationModel, this.#targetObserver);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.nodeChanged, this);
   }
 
@@ -175,6 +179,9 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
 
   wasShown(): void {
     for (const animationModel of SDK.TargetManager.TargetManager.instance().models(AnimationModel)) {
+      if (this.#targetObserver.shouldIgnore(animationModel)) {
+        continue;
+      }
       this.addEventListeners(animationModel);
     }
     this.registerCSSFiles([animationTimelineStyles]);
@@ -182,6 +189,9 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
 
   willHide(): void {
     for (const animationModel of SDK.TargetManager.TargetManager.instance().models(AnimationModel)) {
+      if (this.#targetObserver.shouldIgnore(animationModel)) {
+        continue;
+      }
       this.removeEventListeners(animationModel);
     }
 
@@ -381,6 +391,9 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
   private setPlaybackRate(playbackRate: number): void {
     this.#playbackRate = playbackRate;
     for (const animationModel of SDK.TargetManager.TargetManager.instance().models(AnimationModel)) {
+      if (this.#targetObserver.shouldIgnore(animationModel)) {
+        continue;
+      }
       animationModel.setPlaybackRate(this.#allPaused ? 0 : this.#playbackRate);
     }
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.AnimationsPlaybackRateChanged);

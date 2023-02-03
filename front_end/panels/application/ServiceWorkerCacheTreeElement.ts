@@ -8,6 +8,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Host from '../../core/host/host.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 
 import {ApplicationPanelTreeElement, ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
@@ -47,12 +48,13 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
   initialize(): void {
     this.swCacheModels.clear();
     this.swCacheTreeElements.clear();
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, {
-      modelAdded: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
-          this.serviceWorkerCacheModelAdded(model),
-      modelRemoved: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
-          this.serviceWorkerCacheModelRemoved(model),
-    });
+    SDK.TargetManager.TargetManager.instance().observeModels(
+        SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, new ScopedTargetObserver.ScopedTargetObserver({
+          modelAdded: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+              this.serviceWorkerCacheModelAdded(model),
+          modelRemoved: (model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel): void =>
+              this.serviceWorkerCacheModelRemoved(model),
+        }));
   }
 
   onattach(): void {

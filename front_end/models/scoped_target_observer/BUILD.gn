@@ -1,0 +1,40 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../scripts/build/ninja/devtools_module.gni")
+import("../visibility.gni")
+
+devtools_module("scoped_target_observer") {
+  sources = [ "ScopedTargetObserver.ts" ]
+
+  deps = [
+    "../../core/common:bundle",
+    "../../core/host:bundle",
+    "../../core/i18n:bundle",
+    "../../core/platform:bundle",
+    "../../core/root:bundle",
+    "../../core/sdk:bundle",
+    "../../generated:protocol",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "scoped_target_observer.ts"
+
+  deps = [ ":scoped_target_observer" ]
+
+  visibility = [
+    ":*",
+
+    # "../../../test/unittests/front_end/entrypoints/missing_entrypoints/*",
+    # "../../../test/unittests/front_end/models/emulation/*",
+    # "../../panels/emulation/*",
+    "../../panels/accessibility/*",
+    "../../panels/animation/*",
+    "../bindings/*",
+  ]
+
+  visibility += devtools_models_visibility
+}

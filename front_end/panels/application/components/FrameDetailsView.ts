@@ -10,6 +10,7 @@ import {
   type PermissionsPolicySectionData,
 } from './PermissionsPolicySection.js';
 import * as Bindings from '../../../models/bindings/bindings.js';
+import * as ScopedTargetObserver from '../../../models/scoped_target_observer/scoped_target_observer.js';
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
@@ -273,8 +274,8 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     this.update();
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetInfoChanged, this.targetChanged,
-        this);
+        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetInfoChanged,
+        ScopedTargetObserver.modelEventListener(this.targetChanged, this));
     frame.resourceTreeModel().addEventListener(
         SDK.ResourceTreeModel.Events.PrerenderingStatusUpdated, this.update, this);
   }

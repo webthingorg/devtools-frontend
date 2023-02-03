@@ -32,6 +32,7 @@ import * as Common from '../../core/common/common.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {ElementsPanel} from './ElementsPanel.js';
@@ -42,17 +43,19 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
   private readonly toggleSearchAction: UI.ActionRegistration.Action|null;
   private mode: Protocol.Overlay.InspectMode;
   private readonly showDetailedInspectTooltipSetting: Common.Settings.Setting<boolean>;
+  private readonly taretObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor() {
     this.toggleSearchAction = UI.ActionRegistry.ActionRegistry.instance().action('elements.toggle-element-search');
     this.mode = Protocol.Overlay.InspectMode.None;
+    this.taretObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.SuspendStateChanged, this.suspendStateChanged, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.ExitedInspectMode,
-        () => this.setMode(Protocol.Overlay.InspectMode.None));
+        this.taretObserver.modelEventListener(() => this.setMode(Protocol.Overlay.InspectMode.None)));
     SDK.OverlayModel.OverlayModel.setInspectNodeHandler(this.inspectNode.bind(this));
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.OverlayModel.OverlayModel, this);
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.OverlayModel.OverlayModel, this.taretObserver);
 
     this.showDetailedInspectTooltipSetting =
         Common.Settings.Settings.instance().moduleSetting('showDetailedInspectTooltip');
@@ -118,6 +121,9 @@ export class InspectElementModeController implements SDK.TargetManager.SDKModelO
     }
     this.mode = mode;
     for (const overlayModel of SDK.TargetManager.TargetManager.instance().models(SDK.OverlayModel.OverlayModel)) {
+      if (this.taretObserver.shouldIgnore(overlayModel)) {
+        continue;
+      }
       void overlayModel.setInspectMode(mode, this.showDetailedInspectTooltipSetting.get());
     }
     if (this.toggleSearchAction) {

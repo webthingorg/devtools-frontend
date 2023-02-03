@@ -4,9 +4,10 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as ElementsComponents from './components/components.js';
 
+import * as ElementsComponents from './components/components.js';
 import {ElementsPanel} from './ElementsPanel.js';
 
 const nodeToLayoutElement = (node: SDK.DOMModel.DOMNode): ElementsComponents.LayoutPane.LayoutElement => {
@@ -93,6 +94,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly boundOnSettingChanged: (event: any) => void;
   private domModels: SDK.DOMModel.DOMModel[];
+  private targetObserver: ScopedTargetObserver.ScopedTargetObserver;
 
   constructor() {
     super(true /* isWebComponent */);
@@ -102,6 +104,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this.uaShadowDOMSetting = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM');
     this.boundOnSettingChanged = this.onSettingChanged.bind(this);
     this.domModels = [];
+    this.targetObserver = new ScopedTargetObserver.ScopedTargetObserver(this);
   }
 
   static instance(opts: {
@@ -229,7 +232,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
       this.modelRemoved(domModel);
     }
     this.domModels = [];
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this.targetObserver);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
     this.uaShadowDOMSetting.addChangeListener(this.update, this);
     this.update();
@@ -240,7 +243,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
       Common.Settings.Settings.instance().moduleSetting(setting).removeChangeListener(this.update, this);
     }
     this.layoutPane.removeEventListener('settingchanged', this.boundOnSettingChanged);
-    SDK.TargetManager.TargetManager.instance().unobserveModels(SDK.DOMModel.DOMModel, this);
+    SDK.TargetManager.TargetManager.instance().unobserveModels(SDK.DOMModel.DOMModel, this.targetObserver);
     UI.Context.Context.instance().removeFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
     this.uaShadowDOMSetting.removeChangeListener(this.update, this);
   }

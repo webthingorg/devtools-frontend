@@ -1,0 +1,111 @@
+/**
+ * @fileoverview A description of this module.  What would someone
+ * new to your team want to know about the code in this file?
+ * (DO NOT SUBMIT as is; replace this comment.)
+ */
+
+import * as Common from '../../core/common/common.js';
+import * as SDK from '../../core/sdk/sdk.js';
+import {Context}  from './Context.js';
+
+export class ContextAwareTargetObserver implements SDK.TargetManager.Observer, SDK.TargetManager.SDKModelObserver<any> {
+  #owner: any;
+  #outermostTarget: SDK.Target.Target|null;
+  #modelClass: (new (arg1: SDK.Target.Target) => SDK.SDKModel.SDKModel<any>) | null;
+  constructor(owner: any) {
+    this.#owner = owner;
+    this.#outermostTarget = Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null;
+    this.#modelClass = null;
+    Context.instance().addFlavorChangeListener(SDK.Target.Target, this.update, this);
+  }
+
+  shouldIgnore(arg: SDK.SDKModel.SDKModel|SDK.Target.Target): boolean {
+    return !isInTargetSubtree(arg, this.#outermostTarget);
+  }
+
+  modelAdded(model: SDK.SDKModel.SDKModel): void {
+    this.#modelClass = model.constructor as new (arg1: SDK.Target.Target) => SDK.SDKModel.SDKModel<any>;
+    if (this.shouldIgnore(model)) {
+      return;
+    }
+    if ('modelAdded' in this.#owner) {
+      this.#owner.modelAdded(model);
+    }
+  }
+
+  modelRemoved(model: SDK.SDKModel.SDKModel): void {
+    if (this.shouldIgnore(model)) {
+      return;
+    }
+    if ('modelRemoved' in this.#owner) {
+      this.#owner.modelRemoved(model);
+    }
+  }
+
+  targetAdded(target: SDK.Target.Target): void {
+    if (this.shouldIgnore(target)) {
+      return;
+    }
+    if ('targetAdded' in this.#owner) {
+      this.#owner.targetAdded(target);
+    }
+  }
+
+  targetRemoved(target: SDK.Target.Target): void {
+    if (this.shouldIgnore(target)) {
+      return;
+    }
+    if ('targetRemoved' in this.#owner) {
+      this.#owner.targetRemoved(target);
+    }
+  }
+
+  modelEventListener<Events, T extends keyof Events>(
+      listener: Common.EventTarget.EventListener<Events, T>,
+      thisObject?: Object): Common.EventTarget.EventListener<Events, T> {
+    return modelEventListener(listener, thisObject);
+  }
+
+  private update() {
+    const targets = SDK.TargetManager.TargetManager.instance().targets();
+    const models = this.#modelClass ? SDK.TargetManager.TargetManager.instance().models(this.#modelClass) : [];
+    for (const target of targets) {
+      this.targetRemoved(target);
+    }
+    for (const model of models) {
+      this.modelRemoved(model);
+    }
+    this.#outermostTarget = Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null;
+    for (const target of targets) {
+      this.targetAdded(target);
+    }
+    for (const model of models) {
+      this.modelAdded(model);
+    }
+  }
+}
+
+export function shouldIgnore(arg: SDK.SDKModel.SDKModel|SDK.Target.Target): boolean {
+  return !isInTargetSubtree(arg, Context.instance().flavor(SDK.Target.Target)?.outermostTarget() || null);
+}
+
+export function modelEventListener<Events, T extends keyof Events>(
+    listener: Common.EventTarget.EventListener<Events, T>,
+    thisObject?: Object): Common.EventTarget.EventListener<Events, T> {
+  return (event: Common.EventTarget.EventTargetEvent<Events[T]>) => {
+    const model = event.source as SDK.SDKModel.SDKModel;
+    if (model.target().outermostTarget() !== Context.instance().flavor(SDK.Target.Target)?.outermostTarget()) {
+      return;
+    }
+    listener.call(thisObject, event);
+  };
+}
+
+
+function isInTargetSubtree(arg: SDK.SDKModel.SDKModel|SDK.Target.Target, subtreeRoot: SDK.Target.Target|null) {
+  if (arg instanceof SDK.SDKModel.SDKModel) {
+    arg = arg.target();
+  }
+
+  return arg.outermostTarget() === subtreeRoot;
+}

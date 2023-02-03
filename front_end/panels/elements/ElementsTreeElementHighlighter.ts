@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {ElementsTreeElement} from './ElementsTreeElement.js';
@@ -23,9 +24,11 @@ export class ElementsTreeElementHighlighter {
     this.treeOutline.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.clearState, this);
     this.treeOutline.addEventListener(ElementsTreeOutline.Events.SelectedNodeChanged, this.clearState, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.HighlightNodeRequested, this.highlightNode, this);
+        SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.HighlightNodeRequested,
+        ScopedTargetObserver.modelEventListener(this.highlightNode, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.InspectModeWillBeToggled, this.clearState, this);
+        SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.InspectModeWillBeToggled,
+        ScopedTargetObserver.modelEventListener(this.clearState, this));
 
     this.currentHighlightedElement = null;
     this.alreadyExpandedParentElement = null;

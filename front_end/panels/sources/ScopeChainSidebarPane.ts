@@ -33,6 +33,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 import * as LinearMemoryInspector from '../../ui/components/linear_memory_inspector/linear_memory_inspector.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
@@ -100,7 +101,8 @@ export class ScopeChainSidebarPane extends UI.Widget.VBox implements UI.ContextF
     this.infoElement.className = 'gray-info-message';
     this.infoElement.tabIndex = -1;
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebugInfoAttached, this.debugInfoAttached, this);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebugInfoAttached,
+        ScopedTargetObserver.modelEventListener(this.debugInfoAttached, this));
     void this.update();
   }
 

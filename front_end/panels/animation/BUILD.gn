@@ -30,6 +30,7 @@ devtools_module("animation") {
     "../../core/platform:bundle",
     "../../core/sdk:bundle",
     "../../generated:protocol",
+    "../../models/scoped_target_observer:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/inline_editor:bundle",
   ]

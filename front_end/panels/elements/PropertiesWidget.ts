@@ -35,6 +35,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ScopedTargetObserver from '../../models/scoped_target_observer/scoped_target_observer.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -92,13 +93,17 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     this.showAllPropertiesSetting.addChangeListener(this.filterList.bind(this));
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.AttrModified, this.onNodeChange, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.AttrModified,
+        ScopedTargetObserver.modelEventListener(this.onNodeChange, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.AttrRemoved, this.onNodeChange, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.AttrRemoved,
+        ScopedTargetObserver.modelEventListener(this.onNodeChange, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.CharacterDataModified, this.onNodeChange, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.CharacterDataModified,
+        ScopedTargetObserver.modelEventListener(this.onNodeChange, this));
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.ChildNodeCountUpdated, this.onNodeChange, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.ChildNodeCountUpdated,
+        ScopedTargetObserver.modelEventListener(this.onNodeChange, this));
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.setNode, this);
     this.node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
 
