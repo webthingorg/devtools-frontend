@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d81e487f_fd469fcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-02-03T21:57:33Z",
+      "side": 1,
+      "message": "Hi Alex, \n\nPlease take a look this A11y bug fix in the CSS Overview panel when you get a chance.\n\nThanks,\nGavin",
+      "revId": "2bb8e4c19304c97af4e384ea261d6f822fbb0c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
