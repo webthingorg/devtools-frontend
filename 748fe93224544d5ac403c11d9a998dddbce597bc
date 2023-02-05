@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a089e46_f302ed8a",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-05T12:23:14Z",
+      "side": 1,
+      "message": "Simon, I\u0027ve refactored the hover contents into a Lit component and removed the `front_end/panels/elements/browsers.css-data.js` file. I left the `cssData` const so that you could:\n\n1. check that the component works (using the `display` CSS property)\n\n2. merge this CL now and start a separate CL after (nothing is going to break)\n\nOr alternatively, feel free to iterate on this CL and push your code to it. Thanks in advance!",
+      "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
