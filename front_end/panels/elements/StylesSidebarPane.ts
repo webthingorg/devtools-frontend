@@ -304,32 +304,66 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.activeCSSAngle = null;
 
     this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
-      const icon = event.composedPath()[0] as Element;
+      const hoveredNode = event.composedPath()[0] as Element;
 
-      if (!icon) {
+      if (!hoveredNode) {
         return null;
       }
 
-      if (!icon.matches('.hint')) {
-        return null;
+      if (hoveredNode.matches('.hint')) {
+        const hint = activeHints.get(hoveredNode);
+
+        if (hint) {
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      const hint = activeHints.get(icon);
+      if (hoveredNode.matches('.webkit-css-property')) {
+        const cssPropertyName = hoveredNode.textContent;
+        // TODO(szuend): Replace by fetching `browsers.css-data.json` from a remote server.
+        const cssData = {
+          'properties': [
+            {
+              'name': 'display',
+              'syntax':
+                  '[ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>',
+              'references': [
+                {
+                  'name': 'MDN Reference',
+                  'url': 'https://developer.mozilla.org/docs/Web/CSS/display',
+                },
+              ],
+              'description':
+                  'In combination with \'float\' and \'position\', determines the type of box or boxes that are generated for an element.',
+            },
+          ],
+        };
+        const cssProperty = cssData.properties.find(property => property.name === cssPropertyName);
 
-      if (!hint) {
-        return null;
+        if (cssProperty) {
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSPropertyDocsView.CSSPropertyDocsView(cssProperty);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      return {
-        box: icon.boxInWindow(),
-        show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
-          const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
-          popover.contentElement.appendChild(popupElement);
-          return true;
-        },
-      };
+      return null;
     });
-    this.#hintPopoverHelper.setTimeout(200);
+
+    this.#hintPopoverHelper.setDisableOnClick(true);
+    this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
   }
 
