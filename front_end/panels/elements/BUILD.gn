@@ -64,6 +64,7 @@ devtools_module("elements") {
     "StylePropertyUtils.ts",
     "StylesSidebarPane.ts",
     "TopLayerContainer.ts",
+    "browsers.css-data.js",
   ]
 
   deps = [
