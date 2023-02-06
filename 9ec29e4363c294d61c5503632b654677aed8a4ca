@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "72a9ae8c_6a1efa90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-06T07:56:18Z",
+      "side": 1,
+      "message": "Pro-Tip: Just append `.png` to these links to have them open the images directly (and avoiding the popups from imgur).",
+      "revId": "9ec29e4363c294d61c5503632b654677aed8a4ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9f9ec2b5_166ade7e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
