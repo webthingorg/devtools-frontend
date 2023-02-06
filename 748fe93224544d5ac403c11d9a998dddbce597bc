@@ -16,6 +16,24 @@
       "message": "Simon, I\u0027ve refactored the hover contents into a Lit component and removed the `front_end/panels/elements/browsers.css-data.js` file. I left the `cssData` const so that you could:\n\n1. check that the component works (using the `display` CSS property)\n\n2. merge this CL now and start a separate CL after (nothing is going to break)\n\nOr alternatively, feel free to iterate on this CL and push your code to it. Thanks in advance!",
       "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b1da30_9a7ae699",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-06T06:10:43Z",
+      "side": 1,
+      "message": "Very nice, thanks! I\u0027ll try and get the loading done this week. We\u0027ll probably land the loading before this CL so we can directly wire it up correctly.\n\nIf you want, you can also give it a shot and add a basic unit test for the component. Otherwise I\u0027ll patch that into this CL probably :)",
+      "parentUuid": "5a089e46_f302ed8a",
+      "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
