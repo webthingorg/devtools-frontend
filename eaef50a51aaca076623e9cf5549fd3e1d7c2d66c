@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79bb606_e753ff31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-06T10:58:17Z",
+      "side": 1,
+      "message": "I realized that this also requires a backend change. devtools://devtools/remote + --custom-devtools-frontend still tries to resolve via `gen/`. Which seems off.",
+      "revId": "eaef50a51aaca076623e9cf5549fd3e1d7c2d66c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
