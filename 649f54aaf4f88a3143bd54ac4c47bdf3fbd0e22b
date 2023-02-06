@@ -16,6 +16,23 @@
       "message": "ergunsh@ could PTAL?",
       "revId": "649f54aaf4f88a3143bd54ac4c47bdf3fbd0e22b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ada32f4_e216ac29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-06T08:59:27Z",
+      "side": 1,
+      "message": "Cool fix, thanks!\n\nAs far as I see from the screenshot, we can use `forced-colors-adjust: none` in the color elements too since we\u0027d like to see their actual colors (currently they are all shown with white background whereas we\u0027d have wanted to see the actual color). \n\nif you feel like it, feel free to go ahead and fix that too, otherwise I can also do that! :)",
+      "revId": "649f54aaf4f88a3143bd54ac4c47bdf3fbd0e22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
