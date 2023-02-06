@@ -1851,6 +1851,12 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   }
 
   private frameAdded(frame: SDK.ResourceTreeModel.ResourceTreeFrame): void {
+    const target = frame.resourceTreeModel().target();
+    // TODO: maybe existence of subtype is enough; handle other subtypes
+    if (target.targetInfo()?.subtype === 'prerender') {
+      return;
+    }
+
     const parentFrame = frame.parentFrame();
     const parentTreeElement = parentFrame ? this.treeElementForFrameId.get(parentFrame.id) : this.treeElement;
     if (!parentTreeElement) {
@@ -1931,8 +1937,17 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
     }
   }
 
-  private windowChanged(event: Common.EventTarget.EventTargetEvent<Protocol.Target.TargetInfo>): void {
-    const targetInfo = event.data;
+  private windowChanged(
+      event: Common.EventTarget.EventTargetEvent<{targetInfo: Protocol.Target.TargetInfo, activation: boolean}>): void {
+    const targetInfo = event.data.targetInfo;
+    if (event.data.activation) {
+      const frameManager = SDK.FrameManager.FrameManager.instance();
+      for (const frame of frameManager.getAllFrames()) {
+        if (!this.treeElementForFrameId.get(frame.id)) {
+          this.addFrameAndParents(frame);
+        }
+      }
+    }
     // Events for DevTools windows are ignored because they do not have an openerId
     if (targetInfo.openerId && targetInfo.type === 'page') {
       const frameTreeElement = this.treeElementForFrameId.get(targetInfo.openerId);
@@ -2068,7 +2083,7 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
       return;
     }
 
-    const resourceType = resource.resourceType();
+    const resourceType = Common.ResourceType.ResourceType.fromMimeType(resource.mimeType);
     const categoryName = resourceType.name();
     let categoryElement =
         resourceType === Common.ResourceType.resourceTypes.Document ? this : this.categoryElements.get(categoryName);

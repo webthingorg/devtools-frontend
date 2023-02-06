@@ -67,8 +67,9 @@ export class PrerenderingModel extends SDKModel.SDKModel<EventTypes> implements
     this.dispatchEventToListeners(Events.PrerenderingAttemptsRemoved);
   }
 
-  private onTargetInfoChanged(event: Common.EventTarget.EventTargetEvent<Protocol.Target.TargetInfo>): void {
-    const targetInfo = event.data;
+  private onTargetInfoChanged(
+      event: Common.EventTarget.EventTargetEvent<{targetInfo: Protocol.Target.TargetInfo, activation: boolean}>): void {
+    const targetInfo = event.data.targetInfo;
 
     if (targetInfo.subtype !== 'prerender') {
       return;
