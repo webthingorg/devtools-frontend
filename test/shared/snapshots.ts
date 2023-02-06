@@ -29,9 +29,11 @@ let snapshotIndex = 0;
 beforeEach(function() {
   if (this.currentTest) {
     // The test file path is always the coloned beginning part of a test's full title.
-    [currentTestPath, currentTestTitle] = this.currentTest.fullTitle().split(':', 2);
-    currentTestTitle = currentTestTitle?.trim();
-    currentTestPath = currentTestPath && normalize(currentTestPath.trim());
+    const [testPath, ...testTitleParts] = this.currentTest.fullTitle().split(':');
+    // The last part is always the `it` test name. Other parts are describe statements.
+    currentTestTitle =
+        testTitleParts?.slice(0, -1).map(trimDescribeTitle).join('') + testTitleParts[testTitleParts.length - 1];
+    currentTestPath = testPath && normalize(testPath.trim());
     snapshotIndex = 0;
   }
 });
@@ -41,6 +43,11 @@ after(() => {
     saveSnapshotsIfTaken();
   }
 });
+
+// The first part of a describe statement is always the test path.
+const trimDescribeTitle = (value: string) => {
+  return value.split(':').slice(1).join(':');
+};
 
 let currentSnapshotPath: string|undefined;
 let currentSnapshot: Record<string, unknown> = {};
