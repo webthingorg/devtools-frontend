@@ -16,6 +16,24 @@
       "message": "Hi Alex,\n\nI\u0027m changing the popover test to use the click helper (one of the test was flaky on waterfall). PTAL!",
       "revId": "2c4784ce12624984fbc9577ccbe2f269f259eda0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110c3f07_2c1dd1ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-06T13:34:57Z",
+      "side": 1,
+      "message": "I meant the hover helper, not click helper 😊",
+      "parentUuid": "cbb50c07_df845dfa",
+      "revId": "2c4784ce12624984fbc9577ccbe2f269f259eda0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
