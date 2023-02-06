@@ -50,6 +50,7 @@ import {SDKModel} from './SDKModel.js';
 import {TargetManager} from './TargetManager.js';
 import {SecurityOriginManager} from './SecurityOriginManager.js';
 import {StorageKeyManager} from './StorageKeyManager.js';
+import {FrameManager} from './FrameManager.js';
 
 export class ResourceTreeModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.PageApi;
@@ -253,6 +254,16 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
     this.updateSecurityOrigins();
     void this.updateStorageKeys();
+
+    if (frame.backForwardCacheDetails.restoredFromCache) {
+      // Reset FrameManager
+      FrameManager.instance().modelRemoved(this);
+      FrameManager.instance().modelAdded(this);
+      // Rebuild resource tree
+      void this.agent.invoke_getResourceTree().then(event => {
+        this.processCachedResources(event.getError() ? null : event.frameTree);
+      });
+    }
   }
 
   documentOpened(framePayload: Protocol.Page.Frame): void {

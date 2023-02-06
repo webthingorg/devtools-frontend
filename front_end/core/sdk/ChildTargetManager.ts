@@ -81,11 +81,15 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
   targetInfoChanged({targetInfo}: Protocol.Target.TargetInfoChangedEvent): void {
     this.#targetInfosInternal.set(targetInfo.targetId, targetInfo);
     const target = this.#childTargetsById.get(targetInfo.targetId);
+    let activation = false;
     if (target) {
+      if (target.targetInfo()?.subtype === 'prerender' && targetInfo.subtype !== 'prerender') {
+        activation = true;
+      }
       target.updateTargetInfo(targetInfo);
     }
     this.fireAvailableTargetsChanged();
-    this.dispatchEventToListeners(Events.TargetInfoChanged, targetInfo);
+    this.dispatchEventToListeners(Events.TargetInfoChanged, {targetInfo, activation});
   }
 
   targetDestroyed({targetId}: Protocol.Target.TargetDestroyedEvent): void {
@@ -223,5 +227,5 @@ export enum Events {
 export type EventTypes = {
   [Events.TargetCreated]: Protocol.Target.TargetInfo,
   [Events.TargetDestroyed]: Protocol.Target.TargetID,
-  [Events.TargetInfoChanged]: Protocol.Target.TargetInfo,
+  [Events.TargetInfoChanged]: {targetInfo: Protocol.Target.TargetInfo, activation: boolean},
 };
