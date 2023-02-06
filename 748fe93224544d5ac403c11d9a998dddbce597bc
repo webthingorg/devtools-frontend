@@ -34,6 +34,24 @@
       "parentUuid": "5a089e46_f302ed8a",
       "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076cabd2_ab9458ff",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-06T12:15:33Z",
+      "side": 1,
+      "message": "Thanks for the https://crrev.com/c/4224091! I\u0027ll try to use it and add a basic unit test for the component today or tomorrow. ;)",
+      "parentUuid": "c0b1da30_9a7ae699",
+      "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
