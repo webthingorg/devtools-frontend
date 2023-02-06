@@ -144,13 +144,25 @@ export abstract class ProjectStore implements Project {
     return true;
   }
 
-  removeUISourceCode(url: Platform.DevToolsPath.UrlString): void {
-    const uiSourceCode = this.#uiSourceCodes.get(url);
-    if (uiSourceCode === undefined) {
-      return;
+  removeUISourceCodes(urls: Platform.DevToolsPath.UrlString[]): void {
+    const removedUiSourceCodes: UISourceCode[] = [];
+    for (const url of urls) {
+      const uiSourceCode = this.#uiSourceCodes.get(url);
+      if (uiSourceCode === undefined) {
+        continue;
+      }
+      this.#uiSourceCodes.delete(url);
+      removedUiSourceCodes.push(uiSourceCode);
     }
-    this.#uiSourceCodes.delete(url);
-    this.workspaceInternal.dispatchEventToListeners(Events.UISourceCodeRemoved, uiSourceCode);
+    // this.workspaceInternal.dispatchEventToListeners(Events.UISourceCodesRemoved, removedUiSourceCodes);
+
+    for (const sc of removedUiSourceCodes) {
+      this.workspaceInternal.dispatchEventToListeners(Events.UISourceCodesRemoved, [sc]);
+    }
+  }
+
+  removeUISourceCode(url: Platform.DevToolsPath.UrlString): void {
+    this.removeUISourceCodes([url]);
   }
 
   removeProject(): void {
@@ -309,7 +321,7 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   UISourceCodeAdded = 'UISourceCodeAdded',
-  UISourceCodeRemoved = 'UISourceCodeRemoved',
+  UISourceCodesRemoved = 'UISourceCodesRemoved',
   UISourceCodeRenamed = 'UISourceCodeRenamed',
   WorkingCopyChanged = 'WorkingCopyChanged',
   WorkingCopyCommitted = 'WorkingCopyCommitted',
@@ -335,7 +347,7 @@ export interface WorkingCopyCommitedEvent {
 
 export type EventTypes = {
   [Events.UISourceCodeAdded]: UISourceCode,
-  [Events.UISourceCodeRemoved]: UISourceCode,
+  [Events.UISourceCodesRemoved]: UISourceCode[],
   [Events.UISourceCodeRenamed]: UISourceCodeRenamedEvent,
   [Events.WorkingCopyChanged]: WorkingCopyChangedEvent,
   [Events.WorkingCopyCommitted]: WorkingCopyCommitedEvent,
