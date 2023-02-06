@@ -56,8 +56,8 @@ export class SourceFormatter {
     this.scriptMapping = new ScriptMapping();
     this.styleMapping = new StyleMapping();
     Workspace.Workspace.WorkspaceImpl.instance().addEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, event => {
-          void this.onUISourceCodeRemoved(event);
+        Workspace.Workspace.Events.UISourceCodesRemoved, event => {
+          void this.onUISourceCodesRemoved(event);
         }, this);
   }
 
@@ -68,14 +68,15 @@ export class SourceFormatter {
     return sourceFormatterInstance;
   }
 
-  private async onUISourceCodeRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>):
-      Promise<void> {
-    const uiSourceCode = event.data;
-    const cacheEntry = this.formattedSourceCodes.get(uiSourceCode);
-    if (cacheEntry && cacheEntry.formatData) {
-      await this.discardFormatData(cacheEntry.formatData);
+  private async onUISourceCodesRemoved(
+      event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>): Promise<void> {
+    for (const uiSourceCode of event.data) {
+      const cacheEntry = this.formattedSourceCodes.get(uiSourceCode);
+      if (cacheEntry && cacheEntry.formatData) {
+        await this.discardFormatData(cacheEntry.formatData);
+      }
+      this.formattedSourceCodes.delete(uiSourceCode);
     }
-    this.formattedSourceCodes.delete(uiSourceCode);
   }
 
   async discardFormattedUISourceCode(formattedUISourceCode: Workspace.UISourceCode.UISourceCode):
