@@ -147,9 +147,9 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
       err.cause = new Error(msg);
     }
   }
-  if (err && !getEnvVar('DEBUG_TEST')) {
-    await takeScreenshots(this.fullTitle());
-  }
+  // if (err && !getEnvVar('DEBUG_TEST')) {
+  //    await takeScreenshots(this.fullTitle());
+  // }
   if (done) {
     // This workaround is needed to allow timeoutHook to be async.
     this.timedOut = false;
@@ -240,9 +240,9 @@ function wrapMochaCall(
 
     if (callback.length === 0) {
       async function onError(this: unknown, err?: unknown) {
-        if (err && !getEnvVar('DEBUG_TEST')) {
-          await takeScreenshots(name);
-        }
+        // if (err && !getEnvVar('DEBUG_TEST')) {
+        //   await takeScreenshots(name);
+        // }
         done.call(this, err);
       }
       (callback as Mocha.AsyncFunc).bind(this)().then(onError, onError);
