@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f9ec2b5_166ade7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-06T07:49:49Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nThis is a cherry-pick to back-merge a change in the new breakpoint sidebar. PTAL!",
+      "revId": "9ec29e4363c294d61c5503632b654677aed8a4ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
