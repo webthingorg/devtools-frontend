@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c9d68e_f94546eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-02-06T17:31:44Z",
+      "side": 1,
+      "message": "Thanks Alex and Ergun for reviewing this CL. I have added additional changes to show colors section with original colors in high contrast theme as suggested. Please take another look when you get a chance. Besides, could you please suggest a code owner for the 2 CSS files? Looks like we missed code owners this CL.\n\nThanks,\nGavin",
+      "revId": "c24ad808a02335355216658b55896e10d74c5a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
