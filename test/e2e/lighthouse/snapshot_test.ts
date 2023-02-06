@@ -22,8 +22,8 @@ import {
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
 describe('Snapshot', async function() {
-  // The tests in this suite are particularly slow
-  this.timeout(60_000);
+  // The tests in this suite are particularly slow especially in parallel
+  this.timeout(120_000);
 
   beforeEach(() => {
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1357791
