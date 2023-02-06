@@ -30,7 +30,7 @@ beforeEach(function() {
   if (this.currentTest) {
     // The test file path is always the coloned beginning part of a test's full title.
     const [testPath, ...testTitleParts] = this.currentTest.fullTitle().split(':');
-    currentTestTitle = testTitleParts?.join(':').trim();
+    currentTestTitle = testTitleParts?.join(':').trim().replaceAll(`${testPath}: `, '');
     currentTestPath = testPath && normalize(testPath.trim());
     snapshotIndex = 0;
   }
