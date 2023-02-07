@@ -188,7 +188,9 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
   }
 
   static eventNameForSorting(event: SDK.TracingModel.Event): string {
-    if (event.name === TimelineModel.TimelineModel.RecordType.JSFrame) {
+    if (event.name === TimelineModel.TimelineModel.RecordType.JSFrame ||
+        event.name === TimelineModel.TimelineModel.RecordType.JSIdleFrame ||
+        event.name === TimelineModel.TimelineModel.RecordType.JSSystemFrame) {
       const data = event.args['data'];
       return data['functionName'] + '@' + (data['scriptId'] || data['url'] || '');
     }
@@ -794,12 +796,17 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
         if (!node.event) {
           throw new Error('Unable to find event for group by operation');
         }
-        const name = node.event.name === TimelineModel.TimelineModel.RecordType.JSFrame ?
+        const name = (node.event.name === TimelineModel.TimelineModel.RecordType.JSFrame ||
+                      node.event.name === TimelineModel.TimelineModel.RecordType.JSIdleFrame ||
+                      node.event.name === TimelineModel.TimelineModel.RecordType.JSSystemFrame) ?
             i18nString(UIStrings.javascript) :
             TimelineUIUtils.eventTitle(node.event);
         return {
           name: name,
-          color: node.event.name === TimelineModel.TimelineModel.RecordType.JSFrame ?
+          color: node.event.name ===
+                  (TimelineModel.TimelineModel.RecordType.JSFrame ||
+                   node.event.name === TimelineModel.TimelineModel.RecordType.JSIdleFrame ||
+                   node.event.name === TimelineModel.TimelineModel.RecordType.JSSystemFrame) ?
               TimelineUIUtils.eventStyle(node.event).category.color :
               color,
           icon: undefined,

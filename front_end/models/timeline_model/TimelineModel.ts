@@ -851,7 +851,10 @@ export class TimelineModelImpl {
     if (jsSamples && jsSamples.length) {
       events = Platform.ArrayUtilities.mergeOrdered(events, jsSamples, SDK.TracingModel.Event.orderedCompareStartTime);
     }
-    if (jsSamples || events.some(e => e.name === RecordType.JSSample)) {
+    if (jsSamples ||
+        events.some(
+            e => e.name === RecordType.JSSample || e.name === RecordType.JSSystemSample ||
+                e.name === RecordType.JSIdleSample)) {
       const jsFrameEvents = TimelineJSProfileProcessor.generateJSFrameEvents(events, {
         showAllEvents: Root.Runtime.experiments.isEnabled('timelineShowAllEvents'),
         showRuntimeCallStats: Root.Runtime.experiments.isEnabled('timelineV8RuntimeCallStats'),
@@ -1071,7 +1074,8 @@ export class TimelineModelImpl {
         // `callFrameOrProfileNode` can also be a `SDK.ProfileTreeModel.ProfileNode` for JSSample; that class
         // has accessors to mimic a `CallFrame`, but apparently we don't adjust stack traces in that case. Whether
         // we should is unclear.
-        if (event.name !== RecordType.JSSample) {
+        if (event.name !== RecordType.JSSample && event.name !== RecordType.JSSystemSample &&
+            event.name !== RecordType.JSIdleSample) {
           // We need to copy the data so we can safely modify it below.
           const frame = {...callFrameOrProfileNode};
           // TraceEvents come with 1-based line & column numbers. The frontend code
@@ -1694,7 +1698,12 @@ export enum RecordType {
   MajorGC = 'MajorGC',
   MinorGC = 'MinorGC',
   JSFrame = 'JSFrame',
+  JSIdleFrame = 'JSIdleFrame',
+  JSSystemFrame = 'JSSystemFrame',
   JSSample = 'JSSample',
+  JSIdleSample = 'JSIdleSample',
+  JSSystemSample = 'JSSystemSample',
+  JSRoot = 'JSRoot',
   // V8Sample events are coming from tracing and contain raw stacks with function addresses.
   // After being processed with help of JitCodeAdded and JitCodeMoved events they
   // get translated into function infos and stored as stacks in JSSample events.
