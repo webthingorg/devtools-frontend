@@ -51,6 +51,24 @@
       "parentUuid": "52011aa5_782aa321",
       "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b966c9_db2413a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-07T14:28:46Z",
+      "side": 1,
+      "message": "Looks like this broke the e2e tests like e2e/issues/deprecation-issues_test.ts\n\nI assume that\u0027s related",
+      "parentUuid": "ccb41f2b_7990b83d",
+      "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
