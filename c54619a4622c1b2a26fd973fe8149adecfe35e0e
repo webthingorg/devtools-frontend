@@ -16,6 +16,23 @@
       "message": "PTAL\n\nNote that this means we\u0027ll use deprecation message translations in Canary/dev for a bit until we have cycled the messages through translation console again. I expect only the messages that have actually changed will get re-translated, the rest just have their key renamed, akin to moving UIStrings from one file to another.",
       "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52011aa5_782aa321",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-07T12:48:47Z",
+      "side": 1,
+      "message": "shouldn\u0027t this have modified the generated translation filed?",
+      "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
