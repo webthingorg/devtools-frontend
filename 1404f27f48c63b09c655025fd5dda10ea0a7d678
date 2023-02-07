@@ -16,6 +16,23 @@
       "message": "Hi Danil,\n\nI\u0027m changing one of the storage_test.ts to continuously click on the clear storage button until the quota actually reaches zero to avoid flakiness. PTAL!\n\nNote: I\u0027ve run the stressor bots which succeed for the changed test, but fails for the other test in weird ways (but it seems to have to do something with repeating the other test). Since this CL is focusing on the canceling button test, I\u0027m not touching the other test for now.",
       "revId": "1404f27f48c63b09c655025fd5dda10ea0a7d678",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faccc1c8_40cba2d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-07T12:58:13Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nI\u0027m changing one of the storage_test.ts to continuously click on the clear storage button until the quota actually reaches zero to avoid flakiness. From what I\u0027ve seen, it could happen that we click on the button and the quota would be non zero, but less than 20000 (since it was cleared). PTAL!\n\nNote: I\u0027ve run the stressor bots which succeed for the changed test, but fails for the other test in weird ways (but it seems to have to do something with repeating the other test). Since this CL is focusing on the canceling button test, I\u0027m not touching the other test for now.",
+      "revId": "1404f27f48c63b09c655025fd5dda10ea0a7d678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
