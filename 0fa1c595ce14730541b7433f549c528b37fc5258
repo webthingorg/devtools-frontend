@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd920f9_2bd9f2b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-07T12:53:42Z",
+      "side": 1,
+      "message": "Hi @changhaohan@google.com please take an initial look.\n\nThis is still WIP and I would like to know if this approach is acceptable. Please feel free to add other reviewers if you want.\n\nPlease note that we still need to add another level of granularity when it comes to the \"wavy line\". \nRight now this CL only handles underlining the whole element, however...depending on the issue type (duplicated id for example), we will want to highlight a specific attribute. \nI decided not to add in this initial upload because from the moment an ElementsTreeElement has information about an issue, updating it to add specific styles should be relatively straightforward.\n\nThanks.",
+      "revId": "0fa1c595ce14730541b7433f549c528b37fc5258",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
