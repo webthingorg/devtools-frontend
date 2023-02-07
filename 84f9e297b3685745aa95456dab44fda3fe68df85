@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2ce490_0943f7d4",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-07T20:21:16Z",
+      "side": 1,
+      "message": "It seems can be replaced by `import {CSSProperty} from \u0027../WebCustomData.js\u0027;`, but in this case I get the following error:\n\n```\nTypeScript compilation failed. Used tsconfig gen/front_end/panels/elements/components/components-tsconfig.json\n\n../../front_end/panels/elements/components/CSSPropertyDocsView.ts(13,27): error TS6059: File \u0027/devtools-frontend/front_end/panels/elements/WebCustomData.ts\u0027 is not under \u0027rootDir\u0027 \u0027/devtools-frontend/front_end/panels/elements/components\u0027. \u0027rootDir\u0027 is expected to contain all source files.\n../../front_end/panels/elements/components/CSSPropertyDocsView.ts(13,27): error TS6307: File \u0027/devtools-frontend/front_end/panels/elements/WebCustomData.ts\u0027 is not listed within the file list of project \u0027/devtools-frontend/out/Default/gen/front_end/panels/elements/components/components-tsconfig.json\u0027. Projects must list all files or use an \u0027include\u0027 pattern.\n```",
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
