@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffcb0cf1_fbb3844c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T12:43:07Z",
+      "side": 1,
+      "message": "Just to correct something here for later reference:\n`And the root event itself won\u0027t be displayed because it has no child.`\nshould be\n`The root event itself won\u0027t be displayed because it is not registered as shown in front_end/panels/timeline/TimelineUIUtils.ts`",
+      "revId": "d0239d569eee62118367b219edeecf18bc248374",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
