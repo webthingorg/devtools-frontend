@@ -70,6 +70,24 @@
       "parentUuid": "076cabd2_ab9458ff",
       "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca96b57f_e3bf06bc",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-07T20:15:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f04672ec_2c8fb42f",
+      "revId": "748fe93224544d5ac403c11d9a998dddbce597bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
