@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f757741_84482548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "Left some thoughts but mostly looks good, thanks! I would like to suggest again that we prioritise looking at how we could begin to improve testing in this area; it makes me nervous that these CLs currently don\u0027t have unit tests. Given the situation I am happy for that to be done in a follow-up but I think we should consider it important.",
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cddc7f65_e0c2ae22",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "remove this line",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 28
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa444f9_1dfe4d34",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "nit: I think it might be cleaner to assign this by default e.g:\n\nlet jsFrameType \u003d RecordType.JSSystemFrame;\n\nand then have a twice with the different cases and no default case. wdyt?",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 280,
+        "endChar": 18
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e5a4cd_4950cc08",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "do you think a comment here explaining how and why we distinguish between all these different samples and what each one represents?",
+      "range": {
+        "startLine": 1703,
+        "startChar": 0,
+        "endLine": 1705,
+        "endChar": 35
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44efad85_3d8c5d55",
+        "filename": "front_end/models/timeline_model/TimelineProfileTree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "these three types (sample, idle sample, system sample) and also (frame, idle frame, system frame) keep occurring in a group.\n\nIs it worth defining a function like `eventIsSystemFrame` or something (you can likely think of better names!) to remove some of this duplication? Then in that function we can also document more about what these events are and why they are batched together.",
+      "range": {
+        "startLine": 517,
+        "startChar": 3,
+        "endLine": 518,
+        "endChar": 46
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6cb1876_c7c7d074",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:08:35Z",
+      "side": 1,
+      "message": "I think all the strings here need to be done via i18nString as per the others. Also for JSIDLE what do you think to \"(Idle JS)\" instead?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 45,
+        "endLine": 1254,
+        "endChar": 0
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
