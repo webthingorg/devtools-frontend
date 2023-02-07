@@ -33,6 +33,24 @@
       "message": "shouldn\u0027t this have modified the generated translation filed?",
       "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccb41f2b_7990b83d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-07T12:50:15Z",
+      "side": 1,
+      "message": "like https://source.chromium.org/chromium/chromium/src/+/main:out/chromeos-Debug/gen/third_party/devtools-frontend/src/front_end/core/i18n/locales/generated/en-XL.json;l\u003d1385?q\u003d%22chrome.loadtimes%22\u0026ss\u003dchromium%2Fchromium%2Fsrc",
+      "parentUuid": "52011aa5_782aa321",
+      "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
