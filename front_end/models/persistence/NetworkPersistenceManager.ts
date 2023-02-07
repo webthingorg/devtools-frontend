@@ -137,9 +137,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
               void this.uiSourceCodeAdded(event);
             }),
         Workspace.Workspace.WorkspaceImpl.instance().addEventListener(
-            Workspace.Workspace.Events.UISourceCodeRemoved,
+            Workspace.Workspace.Events.UISourceCodesRemoved,
             event => {
-              void this.uiSourceCodeRemovedListener(event);
+              void this.uiSourceCodesRemovedListener(event);
             }),
         Workspace.Workspace.WorkspaceImpl.instance().addEventListener(
             Workspace.Workspace.Events.WorkingCopyCommitted,
@@ -155,13 +155,13 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private async uiSourceCodeRenamedListener(
       event: Common.EventTarget.EventTargetEvent<Workspace.Workspace.UISourceCodeRenamedEvent>): Promise<void> {
     const uiSourceCode = event.data.uiSourceCode;
-    await this.onUISourceCodeRemoved(uiSourceCode);
+    await this.onUISourceCodesRemoved([uiSourceCode]);
     await this.onUISourceCodeAdded(uiSourceCode);
   }
 
-  private async uiSourceCodeRemovedListener(
-      event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): Promise<void> {
-    await this.onUISourceCodeRemoved(event.data);
+  private async uiSourceCodesRemovedListener(
+      event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>): Promise<void> {
+    await this.onUISourceCodesRemoved(event.data);
   }
 
   private async uiSourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>):
@@ -657,9 +657,11 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         this.interceptionHandlerBound);
   }
 
-  private async onUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    await this.networkUISourceCodeRemoved(uiSourceCode);
-    await this.filesystemUISourceCodeRemoved(uiSourceCode);
+  private async onUISourceCodesRemoved(uiSourceCodes: Workspace.UISourceCode.UISourceCode[]): Promise<void> {
+    for (const uiSourceCode of uiSourceCodes) {
+      await this.networkUISourceCodeRemoved(uiSourceCode);
+      await this.filesystemUISourceCodeRemoved(uiSourceCode);
+    }
   }
 
   private async networkUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {

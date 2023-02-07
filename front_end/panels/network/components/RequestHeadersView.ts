@@ -181,28 +181,33 @@ export class RequestHeadersComponent extends HTMLElement {
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [requestHeadersViewStyles];
-    this.#workspace.addEventListener(
-        Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAddedOrRemoved, this);
-    this.#workspace.addEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
+    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAdded, this);
+    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, this.#uiSourceCodesRemoved, this);
     Common.Settings.Settings.instance()
         .moduleSetting('persistenceNetworkOverridesEnabled')
         .addChangeListener(this.#render, this);
   }
 
   disconnectedCallback(): void {
+    this.#workspace.removeEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAdded, this);
     this.#workspace.removeEventListener(
-        Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAddedOrRemoved, this);
-    this.#workspace.removeEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
+        Workspace.Workspace.Events.UISourceCodesRemoved, this.#uiSourceCodesRemoved, this);
     Common.Settings.Settings.instance()
         .moduleSetting('persistenceNetworkOverridesEnabled')
         .removeChangeListener(this.#render, this);
   }
 
-  #uiSourceCodeAddedOrRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+  #uiSourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
     if (this.#getHeaderOverridesFileUrl() === event.data.url()) {
       this.#render();
+    }
+  }
+
+  #uiSourceCodesRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>): void {
+    for (const uiSourceCode of event.data) {
+      if (this.#getHeaderOverridesFileUrl() === uiSourceCode.url()) {
+        this.#render();
+      }
     }
   }
 

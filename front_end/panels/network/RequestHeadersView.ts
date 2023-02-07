@@ -263,10 +263,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.refreshRequestHeaders, this);
     this.request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.refreshResponseHeaders, this);
     this.request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.refreshHTTPInformation, this);
-    this.#workspace.addEventListener(
-        Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAddedOrRemoved, this);
-    this.#workspace.addEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
+    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAdded, this);
+    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, this.#uiSourceCodesRemoved, this);
 
     this.refreshURL();
     this.refreshRequestHeaders();
@@ -283,10 +281,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.request.removeEventListener(
         SDK.NetworkRequest.Events.ResponseHeadersChanged, this.refreshResponseHeaders, this);
     this.request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this.refreshHTTPInformation, this);
+    this.#workspace.removeEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAdded, this);
     this.#workspace.removeEventListener(
-        Workspace.Workspace.Events.UISourceCodeAdded, this.#uiSourceCodeAddedOrRemoved, this);
-    this.#workspace.removeEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
+        Workspace.Workspace.Events.UISourceCodesRemoved, this.#uiSourceCodesRemoved, this);
   }
 
   private addEntryContextMenuHandler(treeElement: UI.TreeOutline.TreeElement, value: string): void {
@@ -577,7 +574,15 @@ export class RequestHeadersView extends UI.Widget.VBox {
     Sources.SourcesPanel.SourcesPanel.instance().showUISourceCode(uiSourceCode);
   }
 
-  #uiSourceCodeAddedOrRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+  #uiSourceCodesRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>): void {
+    for (const uiSourceCode of event.data) {
+      if (this.#getHeaderOverridesFileUrl() === uiSourceCode.url()) {
+        this.refreshResponseHeaders();
+      }
+    }
+  }
+
+  #uiSourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
     if (this.#getHeaderOverridesFileUrl() === event.data.url()) {
       this.refreshResponseHeaders();
     }

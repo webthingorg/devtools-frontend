@@ -53,7 +53,7 @@ export class Automapping {
     this.workspace.addEventListener(
         Workspace.Workspace.Events.UISourceCodeAdded, event => this.onUISourceCodeAdded(event.data));
     this.workspace.addEventListener(
-        Workspace.Workspace.Events.UISourceCodeRemoved, event => this.onUISourceCodeRemoved(event.data));
+        Workspace.Workspace.Events.UISourceCodesRemoved, event => this.onUISourceCodesRemoved(event.data));
     this.workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRenamed, this.onUISourceCodeRenamed, this);
     this.workspace.addEventListener(
         Workspace.Workspace.Events.ProjectAdded, event => this.onProjectAdded(event.data), this);
@@ -99,9 +99,7 @@ export class Automapping {
   }
 
   private onProjectRemoved(project: Workspace.Workspace.Project): void {
-    for (const uiSourceCode of project.uiSourceCodes()) {
-      this.onUISourceCodeRemoved(uiSourceCode);
-    }
+    this.onUISourceCodesRemoved(project.uiSourceCodes());
     if (project.type() !== Workspace.Workspace.projectTypes.FileSystem) {
       return;
     }
@@ -142,16 +140,18 @@ export class Automapping {
     }
   }
 
-  private onUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
-    if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.FileSystem) {
-      this.filesIndex.removePath(uiSourceCode.url());
-      this.fileSystemUISourceCodes.delete(uiSourceCode.url());
-      const status = this.sourceCodeToAutoMappingStatusMap.get(uiSourceCode);
-      if (status) {
-        this.clearNetworkStatus(status.network);
+  private onUISourceCodesRemoved(uiSourceCodes: Iterable<Workspace.UISourceCode.UISourceCode>): void {
+    for (const uiSourceCode of uiSourceCodes) {
+      if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.FileSystem) {
+        this.filesIndex.removePath(uiSourceCode.url());
+        this.fileSystemUISourceCodes.delete(uiSourceCode.url());
+        const status = this.sourceCodeToAutoMappingStatusMap.get(uiSourceCode);
+        if (status) {
+          this.clearNetworkStatus(status.network);
+        }
+      } else if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network) {
+        this.clearNetworkStatus(uiSourceCode);
       }
-    } else if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network) {
-      this.clearNetworkStatus(uiSourceCode);
     }
   }
 
