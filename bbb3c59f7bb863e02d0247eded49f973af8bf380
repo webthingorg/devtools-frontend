@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9cf4675_bcdee829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T09:56:39Z",
+      "side": 1,
+      "message": "Could we add some unit test for CSSOverviewSidebarPanel?",
+      "revId": "bbb3c59f7bb863e02d0247eded49f973af8bf380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a7d26a_d89f44b9",
+        "filename": "front_end/panels/css_overview/CSSOverviewSidebarPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T09:56:39Z",
+      "side": 1,
+      "message": "We could shorten this a bit by using the shorthand property name as `{id, isMouseEvent: true}`.",
+      "revId": "bbb3c59f7bb863e02d0247eded49f973af8bf380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b32ca9c_eb8c9abb",
+        "filename": "front_end/panels/css_overview/CSSOverviewSidebarPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T09:56:39Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "bbb3c59f7bb863e02d0247eded49f973af8bf380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

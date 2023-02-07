@@ -50,6 +50,23 @@
       "message": "Changhao, could you please take a look? Thanks.",
       "revId": "12e0ad1d6233dc0710b2607b83bffeba946a5837",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e83e10a9_8ce2f79c",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T09:56:39Z",
+      "side": 1,
+      "message": "nit: we treat comments as full sentences. This could be changed to `Set focus ..... event.`",
+      "revId": "12e0ad1d6233dc0710b2607b83bffeba946a5837",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
