@@ -34,7 +34,7 @@ export class WorkspaceDiffImpl extends Common.ObjectWrapper.ObjectWrapper<EventT
     workspace.addEventListener(Workspace.Workspace.Events.WorkingCopyChanged, this.uiSourceCodeChanged, this);
     workspace.addEventListener(Workspace.Workspace.Events.WorkingCopyCommitted, this.uiSourceCodeChanged, this);
     workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
-    workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
+    workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, this.uiSourceCodesRemoved, this);
     workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
     workspace.uiSourceCodes().forEach(this.updateModifiedState.bind(this));
   }
@@ -82,9 +82,10 @@ export class WorkspaceDiffImpl extends Common.ObjectWrapper.ObjectWrapper<EventT
     void this.updateModifiedState(uiSourceCode);
   }
 
-  private uiSourceCodeRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
-    const uiSourceCode = event.data;
-    this.removeUISourceCode(uiSourceCode);
+  private uiSourceCodesRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>):
+      void {
+    const uiSourceCodes = event.data;
+    uiSourceCodes.forEach(this.removeUISourceCode.bind(this));
   }
 
   private projectRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.Workspace.Project>): void {

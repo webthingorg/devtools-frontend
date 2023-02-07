@@ -104,7 +104,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     UI.UIUtils.endBatchUpdate();
 
     workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
-    workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
+    workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, this.uiSourceCodesRemoved, this);
     workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved.bind(this), this);
 
     function handleBeforeUnload(event: Event): void {
@@ -324,9 +324,11 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     this.editorContainer.addUISourceCode(uiSourceCode);
   }
 
-  private uiSourceCodeRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
-    const uiSourceCode = event.data;
-    this.removeUISourceCodes([uiSourceCode]);
+  private uiSourceCodesRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>):
+      void {
+    for (const uiSourceCode of event.data) {
+      this.removeUISourceCodes([uiSourceCode]);
+    }
   }
 
   private removeUISourceCodes(uiSourceCodes: Workspace.UISourceCode.UISourceCode[]): void {
