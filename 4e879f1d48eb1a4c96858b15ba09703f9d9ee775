@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9689e8a6_1c5adbfe",
+        "filename": "front_end/panels/issues/AffectedResourcesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T21:45:17Z",
+      "side": 0,
+      "message": "I think we probably need this for linting purposes.",
+      "revId": "4e879f1d48eb1a4c96858b15ba09703f9d9ee775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

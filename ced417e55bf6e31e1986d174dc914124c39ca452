@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec59796_bdf532b2",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T21:45:17Z",
+      "side": 1,
+      "message": "It seems like the only diff between this class and `DeferredDOMNode` is the constructor, where this new class takes the domModel directly. Could we instead get the target from the domModel and pass in the target, e.g.\n```\nconst target \u003d domModel.target();\nconst deferredDOMNode \u003d new DeferredDOMNode(target, ...);\n```",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f2dd27_dbe65150",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T21:45:17Z",
+      "side": 1,
+      "message": "Do we ever need to unset the `violating-element` status?",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecb057d_bf813b1c",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T21:45:17Z",
+      "side": 1,
+      "message": "nit: let\u0027s add an empty line after this new method.",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
