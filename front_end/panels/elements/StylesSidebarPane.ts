@@ -71,6 +71,8 @@ import {
 import * as LayersWidget from './LayersWidget.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 
+import {WebCustomData} from './WebCustomData.js';
+
 const UIStrings = {
   /**
    *@description No matches element text content in Styles Sidebar Pane of the Elements panel
@@ -172,6 +174,8 @@ const UIStrings = {
 
 const str_ = i18n.i18n.registerUIStrings('panels/elements/StylesSidebarPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+const webCustomData = WebCustomData.create();
 
 // Number of ms elapsed with no keypresses to determine is the input is finished, to announce results
 const FILTER_IDLE_PERIOD = 500;
@@ -304,32 +308,48 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.activeCSSAngle = null;
 
     this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
-      const icon = event.composedPath()[0] as Element;
+      const hoveredNode = event.composedPath()[0] as Element;
 
-      if (!icon) {
+      if (!hoveredNode) {
         return null;
       }
 
-      if (!icon.matches('.hint')) {
-        return null;
+      if (hoveredNode.matches('.hint')) {
+        const hint = activeHints.get(hoveredNode);
+
+        if (hint) {
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      const hint = activeHints.get(icon);
+      if (hoveredNode.matches('.webkit-css-property')) {
+        const cssPropertyName = hoveredNode.textContent;
+        const cssProperty = cssPropertyName && webCustomData.findCssProperty(cssPropertyName);
 
-      if (!hint) {
-        return null;
+        if (cssProperty) {
+          return {
+            box: hoveredNode.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSPropertyDocsView.CSSPropertyDocsView(cssProperty);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
       }
 
-      return {
-        box: icon.boxInWindow(),
-        show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
-          const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
-          popover.contentElement.appendChild(popupElement);
-          return true;
-        },
-      };
+      return null;
     });
-    this.#hintPopoverHelper.setTimeout(200);
+
+    this.#hintPopoverHelper.setDisableOnClick(true);
+    this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
   }
 
