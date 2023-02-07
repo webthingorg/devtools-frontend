@@ -16,6 +16,24 @@
       "message": "should we add a note that the file is auto-generated? (like in other generated files)",
       "revId": "053393851ca45966643b9d188e8ac22ba2440e4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67744fc_cf38bd48",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-07T10:20:11Z",
+      "side": 1,
+      "message": "Nice catch, added.",
+      "parentUuid": "5bda6b7b_2f7cbf8e",
+      "revId": "053393851ca45966643b9d188e8ac22ba2440e4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
