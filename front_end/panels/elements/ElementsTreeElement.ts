@@ -416,10 +416,14 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         this.listItemElement.classList.add('hovered');
       } else {
         this.listItemElement.classList.remove('hovered');
+        this.listItemElement.style.cssText = '';
       }
     }
   }
 
+  setAsViolatingElement(): void {
+    this.listItemElement.classList.add('violating-element');
+  }
   expandedChildrenLimit(): number {
     return this.expandedChildrenLimitInternal;
   }

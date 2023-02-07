@@ -517,6 +517,20 @@ export class DOMNode {
     });
   }
 
+  private findChildNode(backendNodeId: Protocol.DOM.BackendNodeId): DOMNode|null {
+    return this.children()?.find((child: DOMNode) => child.backendNodeId() === backendNodeId) || null;
+  }
+
+  getChildNode(callback: (arg0: DOMNode|null) => void, backendNodeId: Protocol.DOM.BackendNodeId): void {
+    if (this.childrenInternal) {
+      callback(this.findChildNode(backendNodeId));
+      return;
+    }
+    void this.#agent.invoke_requestChildNodes({nodeId: this.id}).then(response => {
+      callback(response.getError() ? null : this.findChildNode(backendNodeId));
+    });
+  }
+
   async getSubtree(depth: number, pierce: boolean): Promise<DOMNode[]|null> {
     const response = await this.#agent.invoke_requestChildNodes({nodeId: this.id, depth: depth, pierce: pierce});
     return response.getError() ? null : this.childrenInternal;
@@ -1013,6 +1027,34 @@ export class DeferredDOMNode {
 
   highlight(): void {
     this.#domModelInternal.overlayModel().highlightInOverlay({deferredNode: this, selectorList: undefined});
+  }
+}
+
+export class DeferredDOMNodeFromDOMModel {
+  readonly #domModelInternal: DOMModel;
+  readonly #backendNodeIdInternal: Protocol.DOM.BackendNodeId;
+
+  constructor(domModel: DOMModel, backendNodeId: Protocol.DOM.BackendNodeId) {
+    this.#domModelInternal = domModel;
+    this.#backendNodeIdInternal = backendNodeId;
+  }
+
+  resolve(callback: (arg0: DOMNode|null) => void): void {
+    void this.resolvePromise().then(callback);
+  }
+
+  async resolvePromise(): Promise<DOMNode|null> {
+    const nodeIds =
+        await this.#domModelInternal.pushNodesByBackendIdsToFrontend(new Set([this.#backendNodeIdInternal]));
+    return nodeIds && nodeIds.get(this.#backendNodeIdInternal) || null;
+  }
+
+  backendNodeId(): Protocol.DOM.BackendNodeId {
+    return this.#backendNodeIdInternal;
+  }
+
+  domModel(): DOMModel {
+    return this.#domModelInternal;
   }
 }
 
