@@ -1358,8 +1358,8 @@ export function waitForUISourceCode(urlSuffix, projectType) {
 /**
  * @param {!Function} callback
  */
-export function waitForUISourceCodeRemoved(callback) {
-  self.Workspace.workspace.once(Workspace.Workspace.Events.UISourceCodeRemoved).then(callback);
+export function waitForUISourceCodesRemoved(callback) {
+  self.Workspace.workspace.once(Workspace.Workspace.Events.UISourceCodesRemoved).then(callback);
 }
 
 /**
@@ -1515,7 +1515,7 @@ TestRunner.clearSpecificInfoFromStackFrames = clearSpecificInfoFromStackFrames;
 TestRunner.hideInspectorView = hideInspectorView;
 TestRunner.mainFrame = mainFrame;
 TestRunner.waitForUISourceCode = waitForUISourceCode;
-TestRunner.waitForUISourceCodeRemoved = waitForUISourceCodeRemoved;
+TestRunner.waitForUISourceCodesRemoved = waitForUISourceCodesRemoved;
 TestRunner.url = url;
 TestRunner.dumpSyntaxHighlight = dumpSyntaxHighlight;
 TestRunner.loadLegacyModule = loadLegacyModule;

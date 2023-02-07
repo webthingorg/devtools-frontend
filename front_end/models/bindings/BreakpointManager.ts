@@ -76,7 +76,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#breakpointByStorageId = new Map();
 
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
-    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
+    this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, this.uiSourceCodesRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
 
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
@@ -289,9 +289,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.restoreBreakpoints(uiSourceCode);
   }
 
-  private uiSourceCodeRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
-    const uiSourceCode = event.data;
-    this.removeUISourceCode(uiSourceCode);
+  private uiSourceCodesRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode[]>):
+      void {
+    for (const uiSourceCode of event.data) {
+      this.removeUISourceCode(uiSourceCode);
+    }
   }
 
   private projectRemoved(event: Common.EventTarget.EventTargetEvent<Workspace.Workspace.Project>): void {

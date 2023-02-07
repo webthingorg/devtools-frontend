@@ -34,8 +34,8 @@ describeWithMockConnection('CompilerScriptMapping', () => {
   const waitForUISourceCodeRemoved = (uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> =>
       new Promise(resolve => {
         const {eventType, listener} =
-            workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, event => {
-              if (event.data === uiSourceCode) {
+            workspace.addEventListener(Workspace.Workspace.Events.UISourceCodesRemoved, event => {
+              if (event.data.includes(uiSourceCode)) {
                 workspace.removeEventListener(eventType, listener);
                 resolve();
               }
