@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d977f7_df06165f",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cddc7f65_e0c2ae22",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 28
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fa444f9_1dfe4d34",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-07T14:08:35Z",
       "side": 1,
       "message": "nit: I think it might be cleaner to assign this by default e.g:\n\nlet jsFrameType \u003d RecordType.JSSystemFrame;\n\nand then have a twice with the different cases and no default case. wdyt?",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 280,
+        "endChar": 18
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f284135_437d47b1",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fa444f9_1dfe4d34",
       "range": {
         "startLine": 278,
         "startChar": 8,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf3f210_86e1fa43",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4e5a4cd_4950cc08",
+      "range": {
+        "startLine": 1703,
+        "startChar": 0,
+        "endLine": 1705,
+        "endChar": 35
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44efad85_3d8c5d55",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d10745_2fa42254",
+        "filename": "front_end/models/timeline_model/TimelineProfileTree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T17:58:11Z",
+      "side": 1,
+      "message": "I did think about this before. \nBut I only remembered I didn\u0027t do it because other helper functions are inside the TimelineModelImpl class. And I want to move those helper function out of the TimelineModelImpl class when I do the EventPayload work. But I do revisit the change and I feel so many duplicate code, so I think add one is better for now 😂.",
+      "parentUuid": "44efad85_3d8c5d55",
+      "range": {
+        "startLine": 517,
+        "startChar": 3,
+        "endLine": 518,
+        "endChar": 46
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6cb1876_c7c7d074",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-02-07T14:08:35Z",
       "side": 1,
       "message": "I think all the strings here need to be done via i18nString as per the others. Also for JSIDLE what do you think to \"(Idle JS)\" instead?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 45,
+        "endLine": 1254,
+        "endChar": 0
+      },
+      "revId": "ed6e19889bdfcb859758defbdda252f0721b99c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62cd8513_9c0753fe",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T17:58:11Z",
+      "side": 1,
+      "message": "Yes, forget to update these. They usually are the same as the type name\nAnd the display name will be the real function name. which is handled L1406 this file.",
+      "parentUuid": "b6cb1876_c7c7d074",
       "range": {
         "startLine": 1249,
         "startChar": 45,
