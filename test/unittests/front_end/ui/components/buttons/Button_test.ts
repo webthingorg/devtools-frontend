@@ -20,7 +20,9 @@ describe('Button', async () => {
       text = 'Button'): Promise<Buttons.Button.Button> {
     const button = new Buttons.Button.Button();
     button.data = data;
-    button.innerText = text;
+    if (text) {
+      button.innerText = text;
+    }
     renderElementIntoDOM(button);
     await coordinator.done();
     return button;
@@ -31,8 +33,8 @@ describe('Button', async () => {
         variant: Buttons.Button.Variant.PRIMARY,
         disabled: false,
       },
-      expectedClickCount = 1): Promise<void> {
-    const button = await renderButton(data);
+      expectedClickCount = 1, text = 'Button'): Promise<void> {
+    const button = await renderButton(data, text);
 
     let clicks = 0;
     button.onclick = () => clicks++;
@@ -79,10 +81,12 @@ describe('Button', async () => {
   });
 
   it('toolbar button can be clicked', async () => {
-    await testClick({
-      variant: Buttons.Button.Variant.TOOLBAR,
-      iconUrl,
-    });
+    await testClick(
+        {
+          variant: Buttons.Button.Variant.TOOLBAR,
+          iconUrl,
+        },
+        1, '');
   });
 
   it('disabled toolbar button cannot be clicked', async () => {
@@ -92,7 +96,7 @@ describe('Button', async () => {
           iconUrl,
           disabled: true,
         },
-        0);
+        0, '');
   });
 
   it('gets the no additional classes set for the inner button if only text is provided', async () => {
