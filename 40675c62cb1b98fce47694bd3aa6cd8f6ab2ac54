@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ef84a42_51e741c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-07T15:04:21Z",
+      "side": 1,
+      "message": "Hi Jack!\n\nOne of the data_grid_controller interactions test was flaking: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Win/7968/overview\n\nThis is an attempt to unflake it. PTAL! (Is there a way to stress test an interaction test, similar to the e2e test stressors?)",
+      "revId": "40675c62cb1b98fce47694bd3aa6cd8f6ab2ac54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
