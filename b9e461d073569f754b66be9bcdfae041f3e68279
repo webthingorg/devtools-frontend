@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cab16fa_03d92521",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-07T07:27:15Z",
+      "side": 1,
+      "message": "The `deprecation.json5` is not complete w.r.t. to all the enum variants from CDP. Ideally we enforce it but I\u0027m not sure if it\u0027s possible or makes sense.",
+      "range": {
+        "startLine": 86,
+        "startChar": 45,
+        "endLine": 86,
+        "endChar": 52
+      },
+      "revId": "b9e461d073569f754b66be9bcdfae041f3e68279",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
