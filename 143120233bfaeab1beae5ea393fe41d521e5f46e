@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "382996f6_de6c819a",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:10:41Z",
+      "side": 1,
+      "message": "now this is a regular loop from 0 up, can we make it like that and remove the idleIndex stuff? And lose the console assertion.",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 5
+      },
+      "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f62f41_ab8dda57",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-07T14:10:41Z",
+      "side": 1,
+      "message": "don\u0027t both sides of this conditional ultimately end up pushing categoryIndex||otherIndex onto the stack?",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 9
+      },
+      "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
