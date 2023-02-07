@@ -420,6 +420,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
+  setAsViolatingElement(): void {
+    this.listItemElement.classList.add('violating-element');
+  }
   expandedChildrenLimit(): number {
     return this.expandedChildrenLimitInternal;
   }
