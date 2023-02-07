@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52abd7eb_1ea70d66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-07T16:41:47Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\n(This will also require some layout test dance, the test update is mostly ready here: crrev.com/c/4224643)",
+      "revId": "578d8144d3997a0469b69f0dab1c7c3c3d42fd59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
