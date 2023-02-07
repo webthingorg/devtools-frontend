@@ -1016,6 +1016,34 @@ export class DeferredDOMNode {
   }
 }
 
+export class DeferredDOMNodeFromDOMModel {
+  readonly #domModelInternal: DOMModel;
+  readonly #backendNodeIdInternal: Protocol.DOM.BackendNodeId;
+
+  constructor(domModel: DOMModel, backendNodeId: Protocol.DOM.BackendNodeId) {
+    this.#domModelInternal = domModel;
+    this.#backendNodeIdInternal = backendNodeId;
+  }
+
+  resolve(callback: (arg0: DOMNode|null) => void): void {
+    void this.resolvePromise().then(callback);
+  }
+
+  async resolvePromise(): Promise<DOMNode|null> {
+    const nodeIds =
+        await this.#domModelInternal.pushNodesByBackendIdsToFrontend(new Set([this.#backendNodeIdInternal]));
+    return nodeIds && nodeIds.get(this.#backendNodeIdInternal) || null;
+  }
+
+  backendNodeId(): Protocol.DOM.BackendNodeId {
+    return this.#backendNodeIdInternal;
+  }
+
+  domModel(): DOMModel {
+    return this.#domModelInternal;
+  }
+}
+
 export class DOMNodeShortcut {
   nodeType: number;
   nodeName: string;
