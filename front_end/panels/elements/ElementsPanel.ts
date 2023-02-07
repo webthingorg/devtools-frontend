@@ -899,7 +899,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     return ElementsTreeOutline.forDOMModel(node.domModel());
   }
 
-  private treeElementForNode(node: SDK.DOMModel.DOMNode): ElementsTreeElement|null {
+  treeElementForNode(node: SDK.DOMModel.DOMNode): ElementsTreeElement|null {
     const treeOutline = this.treeOutlineForNode(node);
     if (!treeOutline) {
       return null;
