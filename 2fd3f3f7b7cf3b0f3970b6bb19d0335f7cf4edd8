@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c643292_7c07b8ab",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "nit: we now prefer JavaScript\u0027s native private field `#XXX` over TypeScript\u0027s `private XXX` annotation, i.e. `#genericIssues`.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e516547_1fd2e431",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "I guess this line isn\u0027t needed anymore, since TypeScript should be able to infer the more specific type `GenericIssue` from the if statement above.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3469a4_76f8e895",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "It seems like in the constructor here, we only _add_ the issues, but not setting the related elements as _violating_. I suppose the actual \"setting\" would happen in a `DocumentUpdated` event, but I\u0027d like to double-check if this is expected.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e8070d3_14231170",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "Same here: it would be fine if you\u0027d like to localize this variable from `event.data.issue` to `genericIssue`, but the type definition here won\u0027t be necessary.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e971d8f_f1ba8be7",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "I think when we implicitly `return` in an async function, it\u0027s already returning Promise\u003cvoid\u003e, so maybe we don\u0027t need the explicit return here.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23bce734_675103b3",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "nit 1: maybe we could stay consistent and use `#` instead of `private` for this and the next method as well?\n\nnit 2: `updateAllViolatingElement` -\u003e `updateAllViolatingElements`, so that we match the plurality of `All` in the name?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "100b7ee0_c77201e4",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "nit: is the outmost parenthesis here necessary?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737a86df_64b13e6c",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "We could shorten this with optional chaining, e.g.\n```\nthis.findTreeElement(node)?.setAsViolatingElement();\n// or\nconst treeElement \u003d this.findTreeElement(node);\ntreeElement?.setAsViolatingElement();\n```",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24518fd1_90a1656c",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "Do we need to await this? In other words, could we keep the function signature as is and not add the `async`?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bdbe225_f6686761",
+        "filename": "front_end/panels/issues/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-07T22:10:09Z",
+      "side": 1,
+      "message": "I think this isn\u0027t necessary anymore, or is it?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
