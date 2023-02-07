@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f0215d_87e8e298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-07T09:29:40Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nthis is the second CL for backmerging, could you rubberstamp this too?",
+      "revId": "5114d0c63d366b0f06de1920333de1cc3b1780ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
