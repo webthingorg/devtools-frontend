@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2336dee_0fb2096a",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T18:09:35Z",
+      "side": 1,
+      "message": "I changed the for loop, but still keep the assert.\nThe reason is the drawSample() will skip the idle events (idle events will be transparent and canvas is slow so I don\u0027t want to change that). So we do need to make sure IdleIndex is 0 so not skipping other events.",
+      "parentUuid": "382996f6_de6c819a",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 5
+      },
+      "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8f62f41_ab8dda57",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-07T14:10:41Z",
       "side": 1,
       "message": "don\u0027t both sides of this conditional ultimately end up pushing categoryIndex||otherIndex onto the stack?",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 9
+      },
+      "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "383a2cb5_07db2aeb",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-07T18:09:35Z",
+      "side": 1,
+      "message": "IdleIndex is 0, which is the reason why idle events are counted as \"other\" before.\nThis is the thing I\u0027m not sure, so I plan to guard it with a flag and ask Paul",
+      "parentUuid": "f8f62f41_ab8dda57",
       "range": {
         "startLine": 270,
         "startChar": 4,
