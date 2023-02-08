@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9f859de_acddf239",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T17:19:19Z",
+      "side": 1,
+      "message": "lgtm % 2 comments",
+      "revId": "a5495a7bdb58b4a1f1911bbee12054c7642c426e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe6adb1_235d14d5",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T17:19:19Z",
+      "side": 1,
+      "message": "Since you are here already could you change this line to:\n\n```\n  return \u0027The top-level of ES modules can not be edited\u0027;\n```\n\nThat would take one item of my ToDo list xD",
+      "range": {
+        "startLine": 402,
+        "startChar": 10,
+        "endLine": 402,
+        "endChar": 72
+      },
+      "revId": "a5495a7bdb58b4a1f1911bbee12054c7642c426e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9615106_13399cbb",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T17:19:19Z",
+      "side": 1,
+      "message": "This can be removed now.",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "a5495a7bdb58b4a1f1911bbee12054c7642c426e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
