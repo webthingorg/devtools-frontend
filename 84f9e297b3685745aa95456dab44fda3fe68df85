@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d27926_70187a5b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-08T06:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1e18c55_7443059d",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 45
+      },
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb2ce490_0943f7d4",
@@ -178,6 +202,30 @@
       "writtenOn": "2023-02-08T06:19:08Z",
       "side": 1,
       "message": "nit: Lit has a `nothing` sentinel. Please use that here instead of rendering an empty text node (also in the two places below).",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0b9982b_7bbbd28f",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-08T06:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34185dca_3cd74c8a",
       "range": {
         "startLine": 61,
         "startChar": 12,
