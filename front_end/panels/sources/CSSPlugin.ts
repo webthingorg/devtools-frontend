@@ -261,6 +261,7 @@ function createCSSTooltip(active: ActiveTooltip): CodeMirror.Tooltip {
       }
       const dom = document.createElement('div');
       dom.className = 'cm-tooltip-swatchEdit';
+      dom.style.overflow = 'auto';
       widget.markAsRoot();
       widget.show(dom);
       widget.showWidget();
