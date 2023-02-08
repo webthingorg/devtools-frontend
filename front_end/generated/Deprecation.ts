@@ -173,6 +173,10 @@ export const UIStrings = {
    */
   PrefixedVideoSupportsFullscreen: 'HTMLVideoElement.webkitSupportsFullscreen is deprecated. Please use Document.fullscreenEnabled instead.',
   /**
+   * @description Warning displayed to developers that the API `chrome.privacy.websites.privacySandboxEnabled` is being deprecated in favour of three new more granular APIs: topicsEnabled, FledgeEnabled and adMeasurementEnabled. The `privacySandboxEnabled` API allowed extensions to control the homologous Chrome Setting. The existing Chrome Setting for Privacy Sandbox is also going away in favor of more granular settings that are matched by the new extensions APIs- topicsEnabled, FledgeEnabled and adMeasurementEnabled.
+   */
+  PrivacySandboxExtensionsAPI: 'We\u2019re deprecating the API `chrome.privacy.websites.privacySandboxEnabled`, though it will remain active for backward compatibility until release M113. Instead, please use `chrome.privacy.websites.topicsEnabled`, `chrome.privacy.websites.fledgeEnabled` and `chrome.privacy.websites.adMeasurementEnabled`. See https://developer.chrome.com/docs/extensions/reference/privacy/#property-websites-privacySandboxEnabled.',
+  /**
    * @description Standard message when one web API is deprecated in favor of another.
    */
   RangeExpand: 'Range.expand() is deprecated. Please use Selection.modify() instead.',
@@ -223,7 +227,7 @@ export interface DeprecationDescriptor {
   chromeStatusFeature?: number;
 }
 
-export const DEPRECATIONS_METADATA: Partial<Record<Audits.DeprecationIssueType, DeprecationDescriptor>> = {
+export const DEPRECATIONS_METADATA: Partial<Record<string, DeprecationDescriptor>> = {
   "AuthorizationCoveredByWildcard": {
     "milestone": 97
   },
