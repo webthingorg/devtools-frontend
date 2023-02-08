@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94b82fbf_5646fd47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-08T06:33:47Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m disabling a flaky e2e test on mac, ptal!",
+      "revId": "dd61f57d73d670ff0fd1bd6e2e670b2891401b0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
