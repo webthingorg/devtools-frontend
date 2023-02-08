@@ -33,6 +33,24 @@
       "message": "(nit): Can we add a comment on why don\u0027t have remoteBase in hosted mode?\n\n(or, for example, if we won\u0027t show WebCustomData in HostedMode, we can early return in the `create` call to better clarify the behavior here.)",
       "revId": "8824a023f17951cba2233aefe5a442208075e121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "839e9f23_ec75cc45",
+        "filename": "front_end/panels/elements/WebCustomData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T09:01:38Z",
+      "side": 1,
+      "message": "Hosted mode might have a valid remoteBase but it might not. Depending on how the actual hosting works. So we still should at least attempt the fetch.\n\nIn the end it\u0027s purely about surpressing the assertion failure in web tests but keeping the actual assertion for production DevTools.\n\nI\u0027ll add a comment though.",
+      "parentUuid": "45c8e8fc_1a626b76",
+      "revId": "8824a023f17951cba2233aefe5a442208075e121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
