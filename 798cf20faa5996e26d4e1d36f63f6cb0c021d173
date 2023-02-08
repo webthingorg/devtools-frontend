@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51233816_27dc9ecf",
+        "filename": "front_end/panels/elements/WebCustomData.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-08T14:30:54Z",
+      "side": 1,
+      "message": "BTW, the URL for `fetch` was forming incorrectly because of `remoteBase` when I served the DevTools code locally and used the `--custom-devtools-frontend` command line argument. Is this fixed?",
+      "revId": "798cf20faa5996e26d4e1d36f63f6cb0c021d173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
