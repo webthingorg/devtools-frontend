@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38485049_edf56b0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-08T14:03:20Z",
+      "side": 1,
+      "message": "Note that I have not implemented removing projects for the execution context destruction handler, that will come in a separate CL.",
+      "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
