@@ -87,6 +87,24 @@
       "parentUuid": "39b966c9_db2413a8",
       "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16af2103_34521f0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:02:15Z",
+      "side": 1,
+      "message": "The e2e failure originates from the deprecation.json5: It doesn\u0027t contain an entry for \"DeprecationExample\". Should we switch the e2e test to use a \"real\" deprecation or add the entry to \"deprecation.json5\"?\n\nThe enum variant is present in CDP so I\u0027d opt to also add it to \"deprecation.json5\" to keep it consistent.",
+      "parentUuid": "50131e86_0a010b84",
+      "revId": "c54619a4622c1b2a26fd973fe8149adecfe35e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
