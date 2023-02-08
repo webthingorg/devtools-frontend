@@ -33,6 +33,24 @@
       "message": "LGTM, thank you!\n\nRE stress testing, I usually use it.repeat to run it a bunch of times, and you can set the STRESS environment variable (I think, cannot remember the exact name), to throttle locally",
       "revId": "40675c62cb1b98fce47694bd3aa6cd8f6ab2ac54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad640b8_b7c92c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-08T06:29:48Z",
+      "side": 1,
+      "message": "Ok, thanks for the info! I gave it a try with these options now, and locally it seems not to flake.",
+      "parentUuid": "79bb2d6a_2af086e6",
+      "revId": "40675c62cb1b98fce47694bd3aa6cd8f6ab2ac54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
