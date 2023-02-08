@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cde4f2bb_460cb83b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-08T09:02:56Z",
+      "side": 1,
+      "message": "One more point: let\u0027s add a screenshot or two for the wavy line warning in the DOM tree. We usually provide screenshots for visual changes, and we usually do this by uploading a screenshot to https://imgur.com/ and add that link in the CL descripotion.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c643292_7c07b8ab",
