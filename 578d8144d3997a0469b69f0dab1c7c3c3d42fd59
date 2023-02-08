@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?\n\n(This will also require some layout test dance, the test update is mostly ready here: crrev.com/c/4224643)",
       "revId": "578d8144d3997a0469b69f0dab1c7c3c3d42fd59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f9947e_04c9427b",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-08T06:49:55Z",
+      "side": 1,
+      "message": "Now that I look at the code: Did you consider to just remove the project(s) here? And also above in the executionContextDestroyed? That would be a less invasive change, and the NavigatorTree could continue to function as-is, and would just need to be tweaked to handle project removal more efficiently?",
+      "revId": "578d8144d3997a0469b69f0dab1c7c3c3d42fd59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
