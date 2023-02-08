@@ -88,5 +88,5 @@ with open(GENERATED_LOCATION, encoding="raw_unicode_escape", mode="w+") as f:
     f.write("}\n")
     f.write("\n")
     f.write(
-        "export const DEPRECATIONS_METADATA: Partial<Record<Audits.DeprecationIssueType, DeprecationDescriptor>> = %s;\n"
+        "export const DEPRECATIONS_METADATA: Partial<Record<string, DeprecationDescriptor>> = %s;\n"
         % json.dumps(meta, sort_keys=True, indent=2))

@@ -398,6 +398,8 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper<Resou
         case Protocol.Debugger.SetScriptSourceResponseStatus.CompileError:
         case Protocol.Debugger.SetScriptSourceResponseStatus.Ok:
           throw new Error('Compile errors and Ok status must not be reported on the console');
+        case Protocol.Debugger.SetScriptSourceResponseStatus.BlockedByTopLevelEsModuleChange:
+          throw new Error('TODO(crbug.com/1413447): Handle this case.');
       }
     }
   }
