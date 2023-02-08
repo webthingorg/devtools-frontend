@@ -19,6 +19,10 @@ export class WebCustomData {
   readonly fetchPromiseForTest: Promise<unknown>;
 
   constructor(remoteBase: string) {
+    if (!remoteBase) {
+      this.fetchPromiseForTest = Promise.resolve();
+      return;
+    }
     this.fetchPromiseForTest = fetch(`${remoteBase}third_party/vscode.web-custom-data/browsers.css-data.json`)
                                    .then(response => response.json())
                                    .then((json: CSSBrowserData) => {
@@ -36,7 +40,7 @@ export class WebCustomData {
    */
   static create(): WebCustomData {
     const remoteBase = Root.Runtime.getRemoteBase();
-    console.assert(Boolean(remoteBase?.base), 'No valid remote base found');
+    // Silently skip loading of the CSS data if remoteBase is not set properly.
     return new WebCustomData(remoteBase?.base ?? '');
   }
 
