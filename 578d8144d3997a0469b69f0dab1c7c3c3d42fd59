@@ -33,6 +33,24 @@
       "message": "Now that I look at the code: Did you consider to just remove the project(s) here? And also above in the executionContextDestroyed? That would be a less invasive change, and the NavigatorTree could continue to function as-is, and would just need to be tweaked to handle project removal more efficiently?",
       "revId": "578d8144d3997a0469b69f0dab1c7c3c3d42fd59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d177488_0e8972e4",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-08T14:01:40Z",
+      "side": 1,
+      "message": "Uploaded a new patch. Is that what you had in mind?",
+      "parentUuid": "84f9947e_04c9427b",
+      "revId": "578d8144d3997a0469b69f0dab1c7c3c3d42fd59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
