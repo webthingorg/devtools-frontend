@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nThe second breakpoint-csp-violations test is also flaking now on Mac, so I\u0027m disabling it. PTAL!",
       "revId": "3c0d794ad7eca4c065a1a97e6c52ea1026967bd5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9bb184_fd8b6570",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-02-08T16:11:10Z",
+      "side": 1,
+      "message": "Hm, weird, we were quite sure refactoring the click helper fixes this. LGTM",
+      "revId": "3c0d794ad7eca4c065a1a97e6c52ea1026967bd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
