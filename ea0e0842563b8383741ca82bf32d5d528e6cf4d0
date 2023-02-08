@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb60727f_eb4e71f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-08T11:39:55Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nthis disables a flaky test for all platforms, since it\u0027s now not only flaky on mac. PTAL!",
+      "revId": "ea0e0842563b8383741ca82bf32d5d528e6cf4d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
