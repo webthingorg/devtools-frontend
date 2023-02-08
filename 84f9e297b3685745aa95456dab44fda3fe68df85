@@ -76,6 +76,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0ca26d5_ff1450bc",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-08T06:34:00Z",
+      "side": 1,
+      "message": "Ok, let\u0027s land it with duplicated type definitions.",
+      "parentUuid": "4baa6fdd_3d9ae894",
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00417451_1791f246",
@@ -89,6 +107,30 @@
       "writtenOn": "2023-02-08T06:19:08Z",
       "side": 1,
       "message": "IIRC then the convention for such components is that we trigger rendering from the \"connectedCallback\" instead of from the constructor.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d9bbfce_c87a8800",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-02-08T06:34:00Z",
+      "side": 1,
+      "message": "Hm, e.g. in the `front_end/panels/elements/components/CSSHintDetailsView.ts` the `this.#render()` is called from the `constructor`. Do I really have to change this here?",
+      "parentUuid": "00417451_1791f246",
       "range": {
         "startLine": 45,
         "startChar": 4,
