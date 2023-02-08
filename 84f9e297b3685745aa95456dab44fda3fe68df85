@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "153a7f4f_0005b225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:19:08Z",
+      "side": 1,
+      "message": "Thanks for adding the test!\n\nSome minor comments, then it\u0027s good to land :)",
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e18c55_7443059d",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:19:08Z",
+      "side": 1,
+      "message": "Let\u0027s have this as a field of StylesSidebarPane. It\u0027s a singleton so we don\u0027t run the risk of multiple loads. It\u0027s also preferable over global state, otherwise readers might wonder who else is using the `webCustomData` instance.\n\nWe\u0027d also trigger the load to early. Since this would be a side-effect of evaluating the module, which basically hoists this up to DevTools boot time.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 45
+      },
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb2ce490_0943f7d4",
@@ -14,6 +54,70 @@
       "writtenOn": "2023-02-07T20:21:16Z",
       "side": 1,
       "message": "It seems can be replaced by `import {CSSProperty} from \u0027../WebCustomData.js\u0027;`, but in this case I get the following error:\n\n```\nTypeScript compilation failed. Used tsconfig gen/front_end/panels/elements/components/components-tsconfig.json\n\n../../front_end/panels/elements/components/CSSPropertyDocsView.ts(13,27): error TS6059: File \u0027/devtools-frontend/front_end/panels/elements/WebCustomData.ts\u0027 is not under \u0027rootDir\u0027 \u0027/devtools-frontend/front_end/panels/elements/components\u0027. \u0027rootDir\u0027 is expected to contain all source files.\n../../front_end/panels/elements/components/CSSPropertyDocsView.ts(13,27): error TS6307: File \u0027/devtools-frontend/front_end/panels/elements/WebCustomData.ts\u0027 is not listed within the file list of project \u0027/devtools-frontend/out/Default/gen/front_end/panels/elements/components/components-tsconfig.json\u0027. Projects must list all files or use an \u0027include\u0027 pattern.\n```",
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4baa6fdd_3d9ae894",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:19:08Z",
+      "side": 1,
+      "message": "Unfortunately we can\u0027t do that import without introducing a cyclic dependency between the \"elements/components\" module and the \"elements\" module itself.\n\nThere are two options: Either duplicate the type-definitions or move the `WebCustomData.ts` to a standalone module that both \"elements/components\" and \"elements\" can DEPS in.\n\nI\u0027d land it with duplicated type definitions and maybe clean it up later, since having it as a separate module is not worth it IMO.",
+      "parentUuid": "fb2ce490_0943f7d4",
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00417451_1791f246",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:19:08Z",
+      "side": 1,
+      "message": "IIRC then the convention for such components is that we trigger rendering from the \"connectedCallback\" instead of from the constructor.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34185dca_3cd74c8a",
+        "filename": "front_end/panels/elements/components/CSSPropertyDocsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-08T06:19:08Z",
+      "side": 1,
+      "message": "nit: Lit has a `nothing` sentinel. Please use that here instead of rendering an empty text node (also in the two places below).",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 14
+      },
       "revId": "84f9e297b3685745aa95456dab44fda3fe68df85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
