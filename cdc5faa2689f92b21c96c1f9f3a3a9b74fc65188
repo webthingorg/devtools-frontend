@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a32ad5f_d01f799e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-09T11:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8348106_b1ee8476",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1a175dc_bdd2bad0",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-09T11:10:19Z",
       "side": 1,
       "message": "Can we add a test for this change?\n* Which case was saying not `isGamutClipped` before but it will now.",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bb06aea_04706dd1",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-09T11:48:06Z",
+      "side": 1,
+      "message": "We have a test. Without this change the parse result of `rgb(-1 1 256)` is considered unclipped",
+      "parentUuid": "b1a175dc_bdd2bad0",
       "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
