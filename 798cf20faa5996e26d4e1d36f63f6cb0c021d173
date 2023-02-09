@@ -16,6 +16,24 @@
       "message": "BTW, the URL for `fetch` was forming incorrectly because of `remoteBase` when I served the DevTools code locally and used the `--custom-devtools-frontend` command line argument. Is this fixed?",
       "revId": "798cf20faa5996e26d4e1d36f63f6cb0c021d173",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db103b2d_e1ff8355",
+        "filename": "front_end/panels/elements/WebCustomData.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-09T05:09:00Z",
+      "side": 1,
+      "message": "It\u0027s a known issue. I filed https://crbug.com/1413160 since we have to consider a couple of different workflows and loading remote resources is not done outside of locale files and now the MDN data.",
+      "parentUuid": "51233816_27dc9ecf",
+      "revId": "798cf20faa5996e26d4e1d36f63f6cb0c021d173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
