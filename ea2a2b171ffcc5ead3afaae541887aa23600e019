@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad539d6a_db93c57a",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-09T09:35:15Z",
+      "side": 1,
+      "message": "Not sure what exactly you are asking for here. Let me clear the #projects map first and then remove the projects themselves. Does that look ok?",
+      "parentUuid": "05f3a0ce_4d567a38",
+      "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1767f4bb_c75a648c",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-02-09T06:03:20Z",
       "side": 1,
       "message": "Why do we need this? I thought the contract is that the project removal implicitly removes all the UISourceCodes?",
+      "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f79492_d0577290",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-09T09:35:15Z",
+      "side": 1,
+      "message": "Where is some kind of documentation for that contract? I cannot find any comment to that effect.\n\nAlso, I believe that \"contract\" is not followed. For instance, SourceFormatter.ts only clears its source codes in its UISourceCodeRemoved handler, but it does not even subscribe to the ProjectRemoved event.\n\nThat said, I removed the dispatch in this CL.",
+      "parentUuid": "1767f4bb_c75a648c",
       "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
