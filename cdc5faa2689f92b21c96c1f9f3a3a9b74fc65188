@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8348106_b1ee8476",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-09T11:10:19Z",
+      "side": 1,
+      "message": "(nit): Can we move this `1` to a constant above to get rid of magic numbers? It might be something like `LIGHTNESS_EPSILON`.",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1a175dc_bdd2bad0",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-09T11:10:19Z",
+      "side": 1,
+      "message": "Can we add a test for this change?\n* Which case was saying not `isGamutClipped` before but it will now.",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
