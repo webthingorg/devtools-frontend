@@ -87,6 +87,24 @@
       "parentUuid": "8bb06aea_04706dd1",
       "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca132382_620770b2",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-09T16:07:40Z",
+      "side": 1,
+      "message": "Ah, it only fails after the precision change in this CL. The change here is necessary to retain the old behavior.",
+      "parentUuid": "478e2575_430286c8",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
