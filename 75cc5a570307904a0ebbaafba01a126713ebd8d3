@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46969133_5c93c147",
+        "filename": "test/e2e/sources/breakpoint-csp-violations_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-09T14:19:36Z",
+      "side": 1,
+      "message": "Thanks for having a look Al! We actually have a `waitFor` in the click helper that is used below, see: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/shared/helper.ts;l\u003d102;drc\u003dad06e71b058ef1f89eca366d959ae51f33f9911e. This was recently changed. The `performActionOnSelector` doesn\u0027t seem to recognize `aria` as the queryHandler though since we use a different syntax, and if your change makes a difference, maybe we should use the click helper with `aria/CSP Violation Breakpoints\u0027 instead? I.e.:\n\n`await click(\u0027aria/CSP Violation Breakpoints\u0027)`",
+      "revId": "75cc5a570307904a0ebbaafba01a126713ebd8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
