@@ -34,6 +34,23 @@
       "parentUuid": "206123e4_1015a7e4",
       "revId": "875a97bda7541094f0b91a7e61b0650cf2ed6c66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9142cfc6_09b785ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-09T18:33:42Z",
+      "side": 1,
+      "message": "LGTM! I like how small this change is! Just a thought, and if we think it\u0027s a good idea can totally be a followup: I was wondering whether there might be a cleaner way to represent the state of the picker in a single property, based on whose changes we can update the sliders, text, and css color. We could have a special HSL subclass for example, one which doesn\u0027t clip to gamut, only applies powerless replacement. Then the current this.hsva would correspond to the class\u0027s rawValues, and you can do all the conversions from there without so much manual churn.",
+      "revId": "875a97bda7541094f0b91a7e61b0650cf2ed6c66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
