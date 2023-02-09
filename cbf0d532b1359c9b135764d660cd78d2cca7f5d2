@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cdd81da_17e6b5c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T09:29:16Z",
+      "side": 1,
+      "message": "LGTM with code comment to clarify idle behaviour",
+      "revId": "cbf0d532b1359c9b135764d660cd78d2cca7f5d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

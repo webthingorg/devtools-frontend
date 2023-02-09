@@ -93,6 +93,30 @@
       },
       "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a02fa5_d35baf6b",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T09:29:16Z",
+      "side": 1,
+      "message": "Ah OK, so this code relies on the implicit nature of the idle index being 0. Could we consider trying to extract some variables or at least leaving comments explaining this? Without you explaining this I would have happily refactored this code and introduced a bug.",
+      "parentUuid": "383a2cb5_07db2aeb",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 9
+      },
+      "revId": "143120233bfaeab1beae5ea393fe41d521e5f46e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
