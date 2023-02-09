@@ -643,7 +643,7 @@ experimental domain Audits
       ContentSecurityPolicyViolationType contentSecurityPolicyViolationType
       optional AffectedFrame frameAncestor
       optional SourceCodeLocation sourceCodeLocation
-      optional DOM.BackendNodeId violatingNodeId
+      optional string violatingNodeAttr
 
   type SharedArrayBufferIssueType extends string
     enum
@@ -759,6 +759,7 @@ experimental domain Audits
       GenericIssueErrorType errorType
       optional Page.FrameId frameId
       optional DOM.BackendNodeId violatingNodeId
+      optional DOM.BackendNodeId violatingNodeAttr
 
   type DeprecationIssueType extends string
     enum
