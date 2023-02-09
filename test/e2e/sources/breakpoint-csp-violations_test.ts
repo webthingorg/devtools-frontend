@@ -8,10 +8,12 @@ import {click, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getPausedMessages, openSourcesPanel, PAUSE_ON_UNCAUGHT_EXCEPTION_SELECTOR} from '../helpers/sources-helpers.js';
 
-describe('Breakpoints on CSP Violation', async () => {
-  // Flaky on mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1413970] CSP Violations should come up before break on exceptions', async () => {
+// eslint-disable-next-line rulesdir/no_only
+describe.only('Breakpoints on CSP Violation', async () => {
+  // eslint-disable-next-line rulesdir/no_repeated_tests
+  it.repeat(100, 'CSP Violations should come up before break on exceptions', async () => {
     await openSourcesPanel();
+    // await waitForAria('CSP Violation Breakpoints');
     await click('[aria-label="CSP Violation Breakpoints"]');
     await click('[aria-label="Trusted Type Violations"]');
     await click(PAUSE_ON_UNCAUGHT_EXCEPTION_SELECTOR);
@@ -34,8 +36,10 @@ describe('Breakpoints on CSP Violation', async () => {
   });
 
   // Flaky on mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1413970] CSP Violations should show in report-only mode', async () => {
+  // eslint-disable-next-line rulesdir/no_repeated_tests
+  it.repeat(100, '[crbug.com/1413970] CSP Violations should show in report-only mode', async () => {
     await openSourcesPanel();
+    // await waitForAria('CSP Violation Breakpoints');
     await click('[aria-label="CSP Violation Breakpoints"]');
     await click('[aria-label="Trusted Type Violations"]');
 
