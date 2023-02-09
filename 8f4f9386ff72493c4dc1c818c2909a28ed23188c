@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb93ba0_c939b38a",
+        "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-09T13:41:49Z",
+      "side": 1,
+      "message": "nit: you can use the step function for documentation instead of comments (this way they will appear in the stacktraces)",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 35
+      },
+      "revId": "8f4f9386ff72493c4dc1c818c2909a28ed23188c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
