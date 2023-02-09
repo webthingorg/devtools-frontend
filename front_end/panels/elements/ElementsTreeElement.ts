@@ -420,6 +420,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
+  highlightTagAsViolating(): void {
+    this.listItemElement.getElementsByClassName('webkit-html-tag-name')[0].classList.add('violating-element');
+  }
+
+  highlightViolatingAttr(name: string): void {
+    const tag = this.listItemElement.getElementsByClassName('webkit-html-tag')[0];
+    const attributes = tag.getElementsByClassName('webkit-html-attribute');
+    for (let i = 0; i < attributes.length; i++) {
+      if (attributes[i].getElementsByClassName('webkit-html-attribute-name')[0].textContent === name) {
+        attributes[i].getElementsByClassName('webkit-html-attribute-name')[0].classList.add('violating-element');
+      }
+    }
+  }
+
   expandedChildrenLimit(): number {
     return this.expandedChildrenLimitInternal;
   }
@@ -1705,7 +1719,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           this.buildTagDOM(titleDOM, tagName, true, true, updateRecord);
           break;
         }
-
         this.buildTagDOM(titleDOM, tagName, false, false, updateRecord);
 
         if (this.isExpandable()) {
