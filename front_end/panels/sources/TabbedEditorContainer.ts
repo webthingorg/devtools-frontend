@@ -80,6 +80,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
   private currentFileInternal!: Workspace.UISourceCode.UISourceCode|null;
   private currentView!: UI.Widget.Widget|null;
   private scrollTimer?: number;
+  private reentrantShow: boolean;
   constructor(
       delegate: TabbedEditorContainerDelegate, setting: Common.Settings.Setting<SerializedHistoryItem[]>,
       placeholderElement: Element, focusedPlaceholderElement?: Element) {
@@ -111,6 +112,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     this.history = History.fromObject(this.previouslyViewedFilesSetting.get());
     this.uriToUISourceCode = new Map();
     this.idToUISourceCode = new Map();
+    this.reentrantShow = false;
   }
 
   private onBindingCreated(event: Common.EventTarget.EventTargetEvent<Persistence.Persistence.PersistenceBinding>):
@@ -199,7 +201,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
         frame?.currentUISourceCode() === uiSourceCode) {
       Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName(true));
     } else {
-      this.innerShowFile(this.canonicalUISourceCode(uiSourceCode), true);
+      this.innerShowFile(uiSourceCode, true);
     }
   }
 
@@ -284,6 +286,9 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
   }
 
   private innerShowFile(uiSourceCode: Workspace.UISourceCode.UISourceCode, userGesture?: boolean): void {
+    if (this.reentrantShow) {
+      return;
+    }
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
     uiSourceCode = binding ? binding.fileSystem : uiSourceCode;
     if (this.currentFileInternal === uiSourceCode) {
@@ -293,9 +298,16 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     this.removeViewListeners();
     this.currentFileInternal = uiSourceCode;
 
-    const tabId = this.tabIds.get(uiSourceCode) || this.appendFileTab(uiSourceCode, userGesture);
+    try {
+      const canonicalSourceCode = this.canonicalUISourceCode(uiSourceCode);
+      this.reentrantShow = true;
+      const tabId = this.tabIds.get(canonicalSourceCode) || this.appendFileTab(canonicalSourceCode, userGesture);
 
-    this.tabbedPane.selectTab(tabId, userGesture);
+      this.tabbedPane.selectTab(tabId, userGesture);
+    } finally {
+      this.reentrantShow = false;
+    }
+
     if (userGesture) {
       this.editorSelectedByUserAction();
     }
@@ -303,6 +315,10 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     const previousView = this.currentView;
     this.currentView = this.visibleView;
     this.addViewListeners();
+
+    if (this.currentView instanceof UISourceCodeFrame && this.currentView.uiSourceCode() !== uiSourceCode) {
+      this.currentView.setUISourceCode(uiSourceCode);
+    }
 
     const eventData = {
       currentFile: this.currentFileInternal,
@@ -534,7 +550,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
   private tabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void {
     const {tabId, isUserGesture} = event.data;
     const uiSourceCode = this.files.get(tabId);
-    if (this.currentFileInternal === uiSourceCode) {
+    if (this.currentFileInternal && this.canonicalUISourceCode(this.currentFileInternal) === uiSourceCode) {
       this.removeViewListeners();
       this.currentView = null;
       this.currentFileInternal = null;
