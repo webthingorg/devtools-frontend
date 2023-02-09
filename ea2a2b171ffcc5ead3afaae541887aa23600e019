@@ -16,6 +16,40 @@
       "message": "Note that I have not implemented removing projects for the execution context destruction handler, that will come in a separate CL.",
       "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f3a0ce_4d567a38",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-09T06:03:20Z",
+      "side": 1,
+      "message": "I think it\u0027s better to remove the projects from the `this.#projects` here.",
+      "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1767f4bb_c75a648c",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-09T06:03:20Z",
+      "side": 1,
+      "message": "Why do we need this? I thought the contract is that the project removal implicitly removes all the UISourceCodes?",
+      "revId": "ea2a2b171ffcc5ead3afaae541887aa23600e019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
