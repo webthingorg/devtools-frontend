@@ -240,8 +240,10 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky test.
-      it.skip('[crbug.com/1368493] for newly created workers', async () => {
+      // eslint-disable-next-line rulesdir/no_only
+      it.only('for newly created workers', async () => {
+        this.timeout(20000);
+
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
