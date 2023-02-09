@@ -362,3 +362,7 @@ li.hovered:not(.always-parent) + ol.children:not(.shadow-root) {
     forced-color-adjust: none;
   }
 }
+
+.violating-element {
+  text-decoration: underline wavy var(--color-accent-red);
+}

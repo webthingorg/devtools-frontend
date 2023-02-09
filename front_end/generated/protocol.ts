@@ -1032,6 +1032,7 @@ export namespace Audits {
     errorType: GenericIssueErrorType;
     frameId?: Page.FrameId;
     violatingNodeId?: DOM.BackendNodeId;
+    violatingNodeAttr?: string;
   }
 
   export const enum DeprecationIssueType {
