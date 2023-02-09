@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "722658e0_03d3fe71",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fec59796_bdf532b2",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3f2dd27_dbe65150",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ab0c3cd_77b4fb85",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "I think the violating-element should always match the issues panel, specially when we add the tooltip that links to it. I believe that issues in there are only updated on a page reload correct? meaning...if I manually edit the html using devtools, issues should not go away.\n\n\nso I do not think we would have to do that, @dsv@chromium.org for a second opinion.",
+      "parentUuid": "c3f2dd27_dbe65150",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3
@@ -48,6 +84,24 @@
       "writtenOn": "2023-02-07T21:45:17Z",
       "side": 1,
       "message": "nit: let\u0027s add an empty line after this new method.",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea788f3b_2981193f",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ecb057d_bf813b1c",
       "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

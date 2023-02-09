@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e9a419_8143ff85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Hi folks, please take a look at this proof of concept cl. Ignore the changes done to the protocol, they are here to make the build pass. I will break them down when we decide to move forward.\n\n@dsv@chromium.org and @changhaohan@chromium.org It would be great if you could judge the overall approach and let me know if this is a good direction. Another option considered was accessing the element panel and consequently the TreeElement from the issues panel, however this one seems cleaner and more aligned to the architecture.\n\nA few notes:\n  - I decided to add a violatingNodeAttr param instead of hardcoding in the front end because it is not always a 1:1 thing, ultimately only the backend can decide the violating attribute.\n  - I had to rebuild the violating element UI (i.e reapply the class) on node update because of the expansion case. When clicking \"Expand recursevelly\" nodes are recreated, including the top node. Without it, we miss the wave line.\n  - Please let me know if I am overlooking the possibility of accessing null elements.\n\n\n@petermueller@chromium.org please look at https://screenshot.googleplex.com/8ngy943qkCQWEaa and let me know what you think. I wrote a form with many errors. What do you think from a UI perspective? IMO this is not bloated, specially when taking into account that it was purposely written to be very wrong.\n\nthanks.",
+      "revId": "4341179fb2962328695e9629b91b5ffd6df15f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

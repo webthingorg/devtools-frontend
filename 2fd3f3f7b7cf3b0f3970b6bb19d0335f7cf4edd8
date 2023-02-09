@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b287ac5b_57aac5ab",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c643292_7c07b8ab",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e516547_1fd2e431",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-02-07T22:10:09Z",
       "side": 1,
       "message": "I guess this line isn\u0027t needed anymore, since TypeScript should be able to infer the more specific type `GenericIssue` from the if statement above.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ef61b1_c3eaa12f",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e516547_1fd2e431",
       "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bddaa737_b6105c87",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "yep, rootDOMNode is null at this point.",
+      "parentUuid": "7b3469a4_76f8e895",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e8070d3_14231170",
         "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
         "patchSetId": 5
@@ -99,6 +153,24 @@
       "writtenOn": "2023-02-07T22:10:09Z",
       "side": 1,
       "message": "Same here: it would be fine if you\u0027d like to localize this variable from `event.data.issue` to `genericIssue`, but the type definition here won\u0027t be necessary.",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a36f583_3a636949",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8070d3_14231170",
       "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eadad9c_eb318004",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e971d8f_f1ba8be7",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23bce734_675103b3",
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58c8fe08_20417f6d",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23bce734_675103b3",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "100b7ee0_c77201e4",
@@ -150,6 +258,24 @@
       "writtenOn": "2023-02-07T22:10:09Z",
       "side": 1,
       "message": "nit: is the outmost parenthesis here necessary?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee4217b_7a820620",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "100b7ee0_c77201e4",
       "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -173,6 +299,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7de6216c_7dbc3926",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "PTAL, I updated it to handle attributes.",
+      "parentUuid": "737a86df_64b13e6c",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24518fd1_90a1656c",
         "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
         "patchSetId": 5
@@ -184,6 +328,24 @@
       "writtenOn": "2023-02-07T22:10:09Z",
       "side": 1,
       "message": "Do we need to await this? In other words, could we keep the function signature as is and not add the `async`?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "336a631c_136cd455",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24518fd1_90a1656c",
       "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -201,6 +363,24 @@
       "writtenOn": "2023-02-07T22:10:09Z",
       "side": 1,
       "message": "I think this isn\u0027t necessary anymore, or is it?",
+      "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b757d0_dbf2bec8",
+        "filename": "front_end/panels/issues/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-09T12:00:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bdbe225_f6686761",
       "revId": "2fd3f3f7b7cf3b0f3970b6bb19d0335f7cf4edd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
