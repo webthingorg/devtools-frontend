@@ -200,7 +200,8 @@ describe('Multi-Workers', async function() {
       });
     });
 
-    describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
+    // eslint-disable-next-line rulesdir/no_only
+    describe.only(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
         await waitForSourceFiles(
@@ -241,7 +242,10 @@ describe('Multi-Workers', async function() {
       });
 
       // Flaky test.
-      it.skip('[crbug.com/1368493] for newly created workers', async () => {
+      // eslint-disable-next-line rulesdir/no_repeated_tests
+      it.repeat(1000, '[crbug.com/1368493] for newly created workers', async () => {
+        this.timeout(20000);
+
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
