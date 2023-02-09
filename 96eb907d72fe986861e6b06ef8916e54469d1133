@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d9b8eb4_c87b4e82",
+        "filename": "front_end/models/timeline_model/TimelineModelFilter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T16:29:37Z",
+      "side": 1,
+      "message": "I think there is more we can do here, I am not sure we need multiple differing filters that are all nearly the same, but I want to write more tests and get more familiar with the code before making any big changes.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 70
+      },
+      "revId": "96eb907d72fe986861e6b06ef8916e54469d1133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "093e23eb_290f1c38",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineModelFilter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T16:29:37Z",
+      "side": 1,
+      "message": "I looked at creating real events, but it quickly gets complicated trying to fake out all the data, and I do not think it is worth parsing an actual trace to generate events to use.\n\nI have a few thoughts on how we can do this without mocking the entire event object; but I will experiment in subsequent CLs.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 100
+      },
+      "revId": "96eb907d72fe986861e6b06ef8916e54469d1133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
