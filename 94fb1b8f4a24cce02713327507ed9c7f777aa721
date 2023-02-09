@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d49080c7_f253e385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T09:32:16Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "94fb1b8f4a24cce02713327507ed9c7f777aa721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "717875b3_281bbb92",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-09T09:32:16Z",
+      "side": 1,
+      "message": "nice!",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 0
+      },
+      "revId": "94fb1b8f4a24cce02713327507ed9c7f777aa721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
