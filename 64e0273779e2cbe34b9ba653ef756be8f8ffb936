@@ -16,6 +16,23 @@
       "message": "Tim PTAL unit test changes",
       "revId": "64e0273779e2cbe34b9ba653ef756be8f8ffb936",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "932dbdeb_5d4467f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-09T22:45:57Z",
+      "side": 1,
+      "message": "lgtm!",
+      "revId": "64e0273779e2cbe34b9ba653ef756be8f8ffb936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
