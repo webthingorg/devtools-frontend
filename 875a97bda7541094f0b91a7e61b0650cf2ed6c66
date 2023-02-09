@@ -16,6 +16,24 @@
       "message": "Hey @pfaffe@chromium.org, I think we need to take this in after crrev.com/c/4236121 because it needs the less precise `equals` check (for `c` to be equal to `0` after conversions, otherwise it is sometimes stuck at 0.01 not being equal to 0)",
       "revId": "875a97bda7541094f0b91a7e61b0650cf2ed6c66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f868a5e_43df8860",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-09T17:44:55Z",
+      "side": 1,
+      "message": "I think you can say Depends-On: \u003cid\u003e to mark the CL as dependend",
+      "parentUuid": "206123e4_1015a7e4",
+      "revId": "875a97bda7541094f0b91a7e61b0650cf2ed6c66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
