@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e8f925d_6995796d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-10T07:21:52Z",
+      "side": 1,
+      "message": "PTAL\n\nI ran the stressor bots (20 iterations, all platforms) successfully so the test seems \"somewhat\" stable.",
+      "revId": "7488212323026171ec73838ffcf3ac318c36909f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
