@@ -123,6 +123,24 @@
       "parentUuid": "ca132382_620770b2",
       "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eefc523e_9e1c2e23",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-10T09:02:17Z",
+      "side": 1,
+      "message": "Ohhh now I understood, sorry for the confusion from my side 😅",
+      "parentUuid": "c8b68ebd_2a098366",
+      "revId": "cdc5faa2689f92b21c96c1f9f3a3a9b74fc65188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
