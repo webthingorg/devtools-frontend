@@ -48,7 +48,7 @@ def deprecations_from_file(file_name):
         if len(meta_for_entry): meta[name] = meta_for_entry
 
         ui_strings[name] = {
-            "message": entry["message"],
+            "message": entry["message"].replace("\\", "\\\\"),
             "note": entry["translation_note"]
         }
 
