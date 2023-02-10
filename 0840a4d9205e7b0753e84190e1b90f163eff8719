@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f02b49_f553d4d5",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-10T18:15:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "607d1f1f_873ce2b8",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "0840a4d9205e7b0753e84190e1b90f163eff8719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eac21f54_7e8b0757",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-10T15:53:09Z",
       "side": 1,
       "message": "Do you know why this was added with the special character in the first place? I went through some lengths to preserve the `\\u` sequence by choosing the \"raw_unicode_escape\" encoding when writing the file.\n\nIf we now break \\u sequences in deprecation messages we might have to add it to the presubmit check. Otherwise we might break DevTools on the roll.",
+      "range": {
+        "startLine": 524,
+        "startChar": 128,
+        "endLine": 524,
+        "endChar": 129
+      },
+      "revId": "0840a4d9205e7b0753e84190e1b90f163eff8719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "786eefe5_f23e809b",
+        "filename": "third_party/blink/renderer/core/frame/deprecation/deprecation.json5",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2023-02-10T18:15:26Z",
+      "side": 1,
+      "message": "Got it, I can add a check to the presubmit in chromium to verify no unicode is used. The inclusion here was an accident, must have been copied out of a word doc or something.",
+      "parentUuid": "eac21f54_7e8b0757",
       "range": {
         "startLine": 524,
         "startChar": 128,
