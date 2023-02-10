@@ -50,6 +50,24 @@
       "message": "Nit: I think this could be as simple as\n\n```\nfor (const [id, project] of this.#projects) {\n  this.#projects.delete(id);\n  project.removeProject();\n}\n```\n\nThat way the callback would see a consistent state (wrt. to the not yet removed projects) in case they ask for mappings in between (which I hope they don\u0027t). Also this loop is easier on the eyes IMHO 😊",
       "revId": "ff02ca4fc616f202dcb0903addf6d00dcb399645",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8201bf80_d0d6f7c1",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-10T09:14:28Z",
+      "side": 1,
+      "message": "Done. (Sorry, I always feel anxious removing from a collection while iterating it. Bad memories from C++/C#.)",
+      "parentUuid": "3d865da7_104135fb",
+      "revId": "ff02ca4fc616f202dcb0903addf6d00dcb399645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
