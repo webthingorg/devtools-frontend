@@ -48,7 +48,8 @@ def deprecations_from_file(file_name):
         if len(meta_for_entry): meta[name] = meta_for_entry
 
         ui_strings[name] = {
-            "message": entry["message"],
+            "message": entry["message"].replace("\\",
+                                                "\\\\").replace("'", "\\'"),
             "note": entry["translation_note"]
         }
 
@@ -59,7 +60,7 @@ meta, ui_strings = deprecations_from_file(READ_LOCATION)
 now = datetime.datetime.now()
 # Windows PRESUBMIT doesn't like unicode characters in TypeScript string literals.
 # We use 'raw_unicode_escape' which is basically latin-1 and everything unknown as \uXXXX.
-with open(GENERATED_LOCATION, encoding="raw_unicode_escape", mode="w+") as f:
+with open(GENERATED_LOCATION, encoding="utf-8", mode="w+") as f:
     f.write("// Copyright %d The Chromium Authors. All rights reserved.\n" %
             now.year)
     f.write(
@@ -72,7 +73,7 @@ with open(GENERATED_LOCATION, encoding="raw_unicode_escape", mode="w+") as f:
     f.write("\n")
     f.write("export const UIStrings = {\n")
     for name, ui_string in ui_strings.items():
-        message = ui_string["message"].replace("'", "\\'")
+        message = ui_string["message"]
         note = ui_string["note"].replace("\n", "\\n").replace("\r", "\\r")
         f.write("  /**\n")
         f.write("   * @description %s\n" % note)
