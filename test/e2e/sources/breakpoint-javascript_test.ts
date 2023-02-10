@@ -16,9 +16,14 @@ import {
   waitForFunction,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
+import {
+  navigateToConsoleTab,
+  waitForConsoleMessageAndClickOnLink,
+} from '../helpers/console-helpers.js';
 import {getMenuItemAtPosition, getMenuItemTitleAtPosition, openFileQuickOpen} from '../helpers/quick_open-helpers.js';
 import {
   addBreakpointForLine,
+  addLogpointForLine,
   getBreakpointHitLocation,
   isBreakpointSet,
   isEqualOrAbbreviation,
