@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3191af7f_d490bf7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-10T10:46:10Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nthis e2e test is very flaky now after the lighthouse roll, so I\u0027m disabling it. PTAL!",
+      "revId": "a4f56ec50e029b159437f3e4bf055e7ad108f879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
