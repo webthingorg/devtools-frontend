@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad4606c_8ae70b1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-10T15:53:09Z",
+      "side": 1,
+      "message": "Thanks for fixing this up!\n\nlgtm % comments",
+      "revId": "0840a4d9205e7b0753e84190e1b90f163eff8719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "607d1f1f_873ce2b8",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-10T15:53:09Z",
+      "side": 1,
+      "message": "maybe move the single quote escaping also to here. It currently happens in the for-loop below.",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "0840a4d9205e7b0753e84190e1b90f163eff8719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac21f54_7e8b0757",
+        "filename": "third_party/blink/renderer/core/frame/deprecation/deprecation.json5",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-10T15:53:09Z",
+      "side": 1,
+      "message": "Do you know why this was added with the special character in the first place? I went through some lengths to preserve the `\\u` sequence by choosing the \"raw_unicode_escape\" encoding when writing the file.\n\nIf we now break \\u sequences in deprecation messages we might have to add it to the presubmit check. Otherwise we might break DevTools on the roll.",
+      "range": {
+        "startLine": 524,
+        "startChar": 128,
+        "endLine": 524,
+        "endChar": 129
+      },
+      "revId": "0840a4d9205e7b0753e84190e1b90f163eff8719",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
