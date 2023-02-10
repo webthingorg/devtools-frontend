@@ -16,6 +16,40 @@
       "message": "Could you take another look, please?",
       "revId": "ff02ca4fc616f202dcb0903addf6d00dcb399645",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cecc827_d43dca4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-10T05:27:03Z",
+      "side": 1,
+      "message": "LGTM with nit (feel free to ignore)",
+      "revId": "ff02ca4fc616f202dcb0903addf6d00dcb399645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d865da7_104135fb",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-10T05:27:03Z",
+      "side": 1,
+      "message": "Nit: I think this could be as simple as\n\n```\nfor (const [id, project] of this.#projects) {\n  this.#projects.delete(id);\n  project.removeProject();\n}\n```\n\nThat way the callback would see a consistent state (wrt. to the not yet removed projects) in case they ask for mappings in between (which I hope they don\u0027t). Also this loop is easier on the eyes IMHO 😊",
+      "revId": "ff02ca4fc616f202dcb0903addf6d00dcb399645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
