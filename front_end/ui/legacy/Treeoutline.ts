@@ -46,7 +46,13 @@ import {type Icon} from './Icon.js';
 import {InplaceEditor, type Config} from './InplaceEditor.js';
 import {Keys} from './KeyboardShortcut.js';
 import {Tooltip} from './Tooltip.js';
-import {deepElementFromPoint, enclosingNodeOrSelfWithNodeNameInArray, isEditing} from './UIUtils.js';
+
+import {
+  deepElementFromPoint,
+  enclosingNodeOrSelfWithNodeNameInArray,
+  isEditing,
+  type CheckboxLabel,
+} from './UIUtils.js';
 import treeoutlineStyles from './treeoutline.css.legacy.js';
 
 type AnyIcon = Icon|IconButton.Icon.Icon;
@@ -1153,7 +1159,7 @@ export class TreeElement {
   }
 
   selectOnMouseDown(event: MouseEvent): void {
-    if (this.select(false, true)) {
+    if (this.select(false, true, event)) {
       event.consume(true);
     }
 
@@ -1166,7 +1172,7 @@ export class TreeElement {
     }
   }
 
-  select(omitFocus?: boolean, selectedByUser?: boolean): boolean {
+  select(omitFocus?: boolean, selectedByUser?: boolean, event?: MouseEvent): boolean {
     omitFocus = omitFocus || this.disableSelectFocus;
     if (!this.treeOutline || !this.selectable || this.selected) {
       if (!omitFocus) {
@@ -1201,6 +1207,17 @@ export class TreeElement {
     this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
     if (lastSelected) {
       lastSelected.deselect();
+    }
+
+    const showSelectionOnKeyboardFocus = this.treeOutline ? this.treeOutline.showSelectionOnKeyboardFocus : false;
+    const toggleOnClick = this.toggleOnClick && (showSelectionOnKeyboardFocus || !this.selectable);
+    const isInTriangle = event && this.isEventWithinDisclosureTriangle(event);
+    if (!toggleOnClick && !isInTriangle) {
+      if (event && this.isEventWithinTargetLabel(event) && this.isTreeItemWithCheckboxAndLabel()) {
+        const checked = this.treeOutline?.selectedTreeElement?.listItemElement.getAttribute('aria-checked');
+        this.treeOutline?.selectedTreeElement?.listItemElement.setAttribute(
+            'aria-checked', `${!(checked === 'true' || checked === 'mixed')}`);
+      }
     }
     return this.onselect(selectedByUser);
   }
@@ -1389,5 +1406,15 @@ export class TreeElement {
 
   setDisableSelectFocus(toggle: boolean): void {
     this.disableSelectFocus = toggle;
+  }
+
+  isEventWithinTargetLabel(event: MouseEvent): boolean {
+    const currentTarget = event.currentTarget as HTMLElement;
+    return event?.x <= currentTarget?.children[1]?.getBoundingClientRect()?.right &&
+        event?.x > (currentTarget?.children[1] as CheckboxLabel)?.textElement?.getBoundingClientRect().left;
+  }
+
+  isTreeItemWithCheckboxAndLabel(): HTMLElement|null {
+    return (this.treeOutline?.selectedTreeElement?.titleElement as CheckboxLabel)?.checkboxElement;
   }
 }
