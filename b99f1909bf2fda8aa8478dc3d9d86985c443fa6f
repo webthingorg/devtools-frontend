@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c09a04a_0856c3f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-13T09:18:39Z",
+      "side": 1,
+      "message": "Hi folks, reminder \u003d)",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
