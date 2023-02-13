@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e9670f_f2a5348d",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-13T11:00:57Z",
+      "side": 1,
+      "message": "this was failing on debug mode because it was clicking an error message link.",
+      "range": {
+        "startLine": 420,
+        "startChar": 6,
+        "endLine": 420,
+        "endChar": 54
+      },
+      "revId": "b7ee9f9fa2512868cf20b172fc923a90287f292e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
