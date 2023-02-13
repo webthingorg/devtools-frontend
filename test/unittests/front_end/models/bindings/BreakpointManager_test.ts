@@ -1204,6 +1204,165 @@ describeWithMockConnection('BreakpointManager', () => {
     assert.isTrue(slidingBreakpoint.isRemoved);
   });
 
+  describe('can correctly set breakpoints for all pre-registered targets', () => {
+    const ORIGINAL_SOURCE_URL = 'https://site/original-script.js' as Platform.DevToolsPath.UrlString;
+    let mainUiSourceCode: Workspace.UISourceCode.UISourceCode;
+    let workerUiSourceCode: Workspace.UISourceCode.UISourceCode;
+
+    let workerScript: SDK.Script.Script;
+    let mainScript: SDK.Script.Script;
+
+    let breakpoint: Bindings.BreakpointManager.Breakpoint;
+
+    async function waitForBreakpointLocationsAdded() {
+      let twoBreakpointLocationsCallback: () => void;
+      const twoBreakpointLocationsAddedPromise = new Promise<void>(resolve => {
+        twoBreakpointLocationsCallback = resolve;
+      });
+      breakpointManager.addEventListener(Bindings.BreakpointManager.Events.BreakpointAdded, () => {
+        if (breakpointManager.allBreakpointLocations().length === 2) {
+          twoBreakpointLocationsCallback();
+        }
+      });
+      await twoBreakpointLocationsAddedPromise;
+    }
+
+    beforeEach(async () => {
+      const sourcesContent = 'function foo() {\n  console.log(\'Hello\');\n}\n';
+      const sourceMapUrl = 'https://site/script.js.map' as Platform.DevToolsPath.UrlString;
+
+      // Created with `terser -m -o script.min.js --source-map "includeSources;url=script.min.js.map" original-script.js`
+      const sourceMapContent = JSON.stringify({
+        'version': 3,
+        'names': ['foo', 'console', 'log'],
+        'sources': ['/original-script.js'],
+        'sourcesContent': [sourcesContent],
+        'mappings': 'AAAA,SAASA,MACPC,QAAQC,IAAI,QACd',
+      });
+      setupPageResourceLoaderForSourceMap(sourceMapContent);
+
+      // Create a worker target.
+      const workerTarget = createTarget({name: 'worker'});
+
+      // Add script with source map.
+      const scriptInfo = {url: URL, content: sourcesContent};
+      const sourceMapInfo = {url: sourceMapUrl, content: sourceMapContent};
+      mainScript = await backend.addScript(target, scriptInfo, sourceMapInfo);
+      workerScript = await backend.addScript(workerTarget, scriptInfo, sourceMapInfo);
+
+      // Get the uiSourceCode for the original source in the main target.
+      mainUiSourceCode = await debuggerWorkspaceBinding.uiSourceCodeForSourceMapSourceURLPromise(
+          mainScript.debuggerModel, ORIGINAL_SOURCE_URL, mainScript.isContentScript());
+      assertNotNullOrUndefined(mainUiSourceCode);
+
+      // Get the uiSourceCode for the original source in the worker target.
+      workerUiSourceCode = await debuggerWorkspaceBinding.uiSourceCodeForSourceMapSourceURLPromise(
+          workerScript.debuggerModel, ORIGINAL_SOURCE_URL, workerScript.isContentScript());
+      assertNotNullOrUndefined(mainUiSourceCode);
+
+      // Stub the 'modelAdded' function that is called in the Breakpoint prototype.
+      // The 'modelAdded' will kick off updating the debugger of each target as soon as a new breakpoint was created.
+      // By stubbing it it and ignoring what should be done, we can manually call 'modelAdded' in the order that we want,
+      // and thus control which target is taken care of first.
+      const modelAddedStub =
+          sinon.stub(Bindings.BreakpointManager.Breakpoint.prototype, 'modelAdded').callsFake((() => {}));
+
+      // Set the breakpoint on the main target, but note that the debugger won't be updated.
+      breakpoint = await breakpointManager.setBreakpoint(mainUiSourceCode, 0, 0, ...DEFAULT_BREAKPOINT);
+
+      // Now restore the actual behavior of 'modelAdded'.
+      modelAddedStub.restore();
+    });
+
+    // TODO(crbug.com/1415258): Update outcomes as soon as the bug is fixed (see comments).
+    it('if the target whose uiSourceCode was used for breakpoint setting is handled last', async () => {
+      // Handle setting breakpoint on the worker first.
+      //
+      // Note: Capturing the status quo right now.
+      // We would normally expect the request for breakpoint to be set on the compiled file, not
+      // on the original source file. Change the request from 'ORIGINAL_SOURCE_URL' to 'URL'.
+      breakpoint.modelAdded(workerScript.debuggerModel);
+      await backend.responderToBreakpointByUrlRequest(ORIGINAL_SOURCE_URL, 0)({
+        breakpointId: 'WORKER_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: workerScript.scriptId,
+            lineNumber: 0,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      // Handle setting breakpoint on the main target next.
+      breakpoint.modelAdded(mainScript.debuggerModel);
+      await backend.responderToBreakpointByUrlRequest(URL, 0)({
+        breakpointId: 'MAIN_BREAK_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: mainScript.scriptId,
+            lineNumber: 0,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      await waitForBreakpointLocationsAdded();
+
+      // Note: Capturing the status quo right now.
+      // We would normally expect both the worker's and the main target's uiSourceCode to appear here.
+      // Change '[mainUiSourceCode]' to '[mainUiSourceCode, workerUiSourceCode]'.
+      assert.deepEqual(Array.from(breakpoint.getUiSourceCodes()), [mainUiSourceCode]);
+
+      const mainBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(mainUiSourceCode);
+      assert.strictEqual(1, mainBoundLocations.length);
+
+      const workerBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(workerUiSourceCode);
+      assert.strictEqual(1, workerBoundLocations.length);
+    });
+
+    // TODO(crbug.com/1415258): Update outcomes as soon as the bug is fixed (see comments).
+    it('if the target whose uiSourceCode was used for breakpoint setting is handled last', async () => {
+      // Handle setting breakpoint on the main target first.
+      breakpoint.modelAdded(mainScript.debuggerModel);
+      await backend.responderToBreakpointByUrlRequest(URL, 0)({
+        breakpointId: 'MAIN_BREAK_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: mainScript.scriptId,
+            lineNumber: 0,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      // Handle setting breakpoint on the worker next.
+      breakpoint.modelAdded(workerScript.debuggerModel);
+      await backend.responderToBreakpointByUrlRequest(URL, 0)({
+        breakpointId: 'WORKER_ID' as Protocol.Debugger.BreakpointId,
+        locations: [
+          {
+            scriptId: workerScript.scriptId,
+            lineNumber: 0,
+            columnNumber: 0,
+          },
+        ],
+      });
+
+      await waitForBreakpointLocationsAdded();
+
+      // Note: Capturing the status quo right now.
+      // We would normally expect both the worker's and the main target's uiSourceCode to appear here.
+      // Change '[mainUiSourceCode]' to '[mainUiSourceCode, workerUiSourceCode]'.
+      assert.deepEqual(Array.from(breakpoint.getUiSourceCodes()), [mainUiSourceCode]);
+
+      const mainBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(mainUiSourceCode);
+      assert.strictEqual(1, mainBoundLocations.length);
+
+      const workerBoundLocations = breakpointManager.breakpointLocationsForUISourceCode(workerUiSourceCode);
+      assert.strictEqual(1, workerBoundLocations.length);
+    });
+  });
+
   describe('supports modern Web development workflows', () => {
     it('supports webpack code splitting', async () => {
       // This is basically the "Shared code with webpack entry point code-splitting" scenario
