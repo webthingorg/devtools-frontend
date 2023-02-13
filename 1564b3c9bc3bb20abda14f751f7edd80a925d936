@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cba907c_4dbe0a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-13T11:58:03Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis is a CL to capture the current behavior of `setBreakpoint` when it comes to multiple already existing targets: If the target which can resolve the uiLocation comes first wrt. scheduleUpdateInDebugger, the other target will successfully set the breakpoint on the correct script, otherwise not. PTAL!",
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
