@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "294eeb00_b6260e58",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-13T13:30:12Z",
+      "side": 1,
+      "message": "Oh, yes, this is an unattended left over that I missed updating. I\u0027ll remove it!",
+      "parentUuid": "df441780_f4a3a717",
+      "range": {
+        "startLine": 1211,
+        "startChar": 4,
+        "endLine": 1211,
+        "endChar": 100
+      },
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e5fedc2_a4bbd9f0",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-02-13T12:18:32Z",
       "side": 1,
       "message": "Nit: remove \u0027it\u0027.",
+      "range": {
+        "startLine": 1258,
+        "startChar": 24,
+        "endLine": 1258,
+        "endChar": 26
+      },
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f310b15_50a0d5ee",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-13T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fedc2_a4bbd9f0",
       "range": {
         "startLine": 1258,
         "startChar": 24,
