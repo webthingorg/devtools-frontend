@@ -37,7 +37,7 @@ import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 
 import {CSSFontFace} from './CSSFontFace.js';
 import {CSSMatchedStyles} from './CSSMatchedStyles.js';
@@ -53,7 +53,12 @@ import {Events as ResourceTreeModelEvents, ResourceTreeModel, type ResourceTreeF
 import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import {type Resource} from './Resource.js';
 
+type PendingStyleSheet = {
+  resource?: Resource,
+  header?: CSSStyleSheetHeader,
+};
 export class CSSModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.CSSApi;
   readonly #domModel: DOMModel;
@@ -72,6 +77,8 @@ export class CSSModel extends SDKModel<EventTypes> {
   #isEnabled: boolean;
   #isRuleUsageTrackingEnabled: boolean;
   #isTrackingRequestPending: boolean;
+  #pendingStyleSheets = new Map<Protocol.Page.FrameId|null, Map<Platform.DevToolsPath.UrlString, PendingStyleSheet>>();
+  #pendingStyleSheetsById = new Map<Protocol.CSS.StyleSheetId, PendingStyleSheet>();
 
   constructor(target: Target) {
     super(target);
@@ -86,6 +93,7 @@ export class CSSModel extends SDKModel<EventTypes> {
     if (this.#resourceTreeModel) {
       this.#resourceTreeModel.addEventListener(
           ResourceTreeModelEvents.MainFrameNavigated, this.onMainFrameNavigated, this);
+      this.#resourceTreeModel.addEventListener(ResourceTreeModelEvents.ResourceAdded, this.#resourceAdded, this);
     }
     target.registerCSSDispatcher(new CSSDispatcher(this));
     if (!target.suspended()) {
@@ -583,10 +591,83 @@ export class CSSModel extends SDKModel<EventTypes> {
     return this.#styleSheetIdToHeader.values();
   }
 
-  styleSheetAdded(header: Protocol.CSS.CSSStyleSheetHeader): void {
-    console.assert(!this.#styleSheetIdToHeader.get(header.styleSheetId));
-    const styleSheetHeader = new CSSStyleSheetHeader(this, header);
-    this.#styleSheetIdToHeader.set(header.styleSheetId, styleSheetHeader);
+  #getPendingStyleSheet(resourceOrHeader: Resource|CSSStyleSheetHeader): PendingStyleSheet {
+    const {frameId} = resourceOrHeader;
+    const isHeader = 'resourceURL' in resourceOrHeader;
+    const url = isHeader ? resourceOrHeader.resourceURL() : resourceOrHeader.url;
+    let byFrame = this.#pendingStyleSheets.get(frameId);
+
+    if (!byFrame) {
+      byFrame = new Map();
+      this.#pendingStyleSheets.set(frameId, byFrame);
+    }
+
+    const pendingSheet = byFrame.get(url);
+    if (!pendingSheet) {
+      const newEntry = isHeader ? {header: resourceOrHeader} : {resource: resourceOrHeader};
+      byFrame.set(url, newEntry);
+      if (isHeader) {
+        this.#pendingStyleSheetsById.set(resourceOrHeader.id, newEntry);
+      }
+      return newEntry;
+    }
+
+    if (isHeader) {
+      console.assert(!pendingSheet.header, `Duplicate stylesheet header reported: ${frameId}, ${url}`);
+      pendingSheet.header = resourceOrHeader;
+      this.#pendingStyleSheetsById.set(resourceOrHeader.id, pendingSheet);
+    } else {
+      console.assert(!pendingSheet.resource, `Duplicate stylesheet resource reported: ${frameId}, ${url}`);
+      pendingSheet.resource = resourceOrHeader;
+    }
+    return pendingSheet;
+  }
+
+  #deletePendingStyleSheet({resource, header}: PendingStyleSheet): void {
+    const frameId = (resource ?? header)?.frameId;
+    const url = resource?.url ?? header?.resourceURL();
+
+    if (frameId === undefined || url === undefined) {
+      return;
+    }
+
+    const byFrame = this.#pendingStyleSheets.get(frameId);
+    byFrame?.delete(url);
+    if (byFrame?.size === 0) {
+      this.#pendingStyleSheets.delete(frameId);
+    }
+    if (header) {
+      this.#pendingStyleSheetsById.delete(header.id);
+    }
+  }
+
+  #resourceAdded(event: Common.EventTarget.EventTargetEvent<Resource>): void {
+    if (!event.data.contentType().isStyleSheet() || !event.data.request) {
+      return;
+    }
+    const {header, resource} = this.#getPendingStyleSheet(event.data);
+    if (header && resource) {
+      this.#deletePendingStyleSheet({header, resource});
+      this.#commitStyleSheetAdded(header);
+    }
+  }
+
+  styleSheetAdded(protocolHeader: Protocol.CSS.CSSStyleSheetHeader): void {
+    const styleSheetHeader = new CSSStyleSheetHeader(this, protocolHeader);
+    if (!styleSheetHeader.resourceURL() || styleSheetHeader.origin !== Protocol.CSS.StyleSheetOrigin.Regular) {
+      this.#commitStyleSheetAdded(styleSheetHeader);
+    } else {
+      const {header, resource} = this.#getPendingStyleSheet(styleSheetHeader);
+      if (header && resource) {
+        this.#deletePendingStyleSheet({header, resource});
+        this.#commitStyleSheetAdded(header);
+      }
+    }
+  }
+
+  #commitStyleSheetAdded(styleSheetHeader: CSSStyleSheetHeader): void {
+    console.assert(!this.#styleSheetIdToHeader.get(styleSheetHeader.id));
+    this.#styleSheetIdToHeader.set(styleSheetHeader.id, styleSheetHeader);
     const url = styleSheetHeader.resourceURL();
     let frameIdToStyleSheetIds = this.#styleSheetIdsForURL.get(url);
     if (!frameIdToStyleSheetIds) {
@@ -607,8 +688,9 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   styleSheetRemoved(id: Protocol.CSS.StyleSheetId): void {
     const header = this.#styleSheetIdToHeader.get(id);
-    console.assert(Boolean(header));
     if (!header) {
+      const deleted = this.#deletePendingStyleSheet({header});
+      console.assert(deleted);
       return;
     }
     this.#styleSheetIdToHeader.delete(id);
@@ -699,6 +781,8 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   private resetStyleSheets(): void {
     const headers = [...this.#styleSheetIdToHeader.values()];
+    this.#pendingStyleSheets.clear();
+    this.#pendingStyleSheetsById.clear();
     this.#styleSheetIdsForURL.clear();
     this.#styleSheetIdToHeader.clear();
     for (const header of headers) {
