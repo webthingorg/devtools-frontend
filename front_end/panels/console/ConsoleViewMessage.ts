@@ -1274,6 +1274,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     } else if (this.message.level === Protocol.Log.LogEntryLevel.Error) {
       iconName = 'error_icon';
       accessibleName = i18nString(UIStrings.error);
+    } else if (this.message.originatesFromLogpoint) {
+      iconName = 'console-logpoint';
+      // accessibleName = i18nString(UIStrings.logpoint);
+    } else if (this.message.originatesFromConditionalBreakpoint) {
+      iconName = 'console-conditional-breakpoint';
     }
     if (!iconName) {
       return;
