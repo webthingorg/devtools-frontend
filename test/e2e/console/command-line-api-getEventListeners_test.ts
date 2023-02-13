@@ -13,7 +13,10 @@ import {
 
 const checkCommandResult = checkCommandResultFunction(0);
 
-describe('The Console Tab', async () => {
+describe('The Console Tab', async function() {
+  // to avoid timing out when running in parallel
+  this.timeout(60_000);
+
   it('returns the correct values when using the getEventListeners method', async () => {
     await goToResource('../resources/console/command-line-api-getEventListeners.html');
     await navigateToConsoleTab();
