@@ -16,6 +16,69 @@
       "message": "Hi Jaro,\n\nThis is a CL to capture the current behavior of `setBreakpoint` when it comes to multiple already existing targets: If the target which can resolve the uiLocation comes first wrt. scheduleUpdateInDebugger, the other target will successfully set the breakpoint on the correct script, otherwise not. PTAL!",
       "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f969170a_3acdb2a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-13T12:18:32Z",
+      "side": 1,
+      "message": "LGTM with some nits.",
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df441780_f4a3a717",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-13T12:18:32Z",
+      "side": 1,
+      "message": "Could not use ORIGINAL_SCRIPT_SOURCE_URL here? It is already very hard to follow what all the URLs are and aliasing constants makes this even more confusing.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 4,
+        "endLine": 1211,
+        "endChar": 100
+      },
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5fedc2_a4bbd9f0",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-13T12:18:32Z",
+      "side": 1,
+      "message": "Nit: remove \u0027it\u0027.",
+      "range": {
+        "startLine": 1258,
+        "startChar": 24,
+        "endLine": 1258,
+        "endChar": 26
+      },
+      "revId": "1564b3c9bc3bb20abda14f751f7edd80a925d936",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
