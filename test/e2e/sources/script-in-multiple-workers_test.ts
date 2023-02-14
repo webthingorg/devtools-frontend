@@ -240,14 +240,20 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky test.
-      it.skip('[crbug.com/1368493] for newly created workers', async () => {
-        const {target} = getBrowserAndPages();
-        // Launch new worker to hit breakpoint
-        await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
+      // eslint-disable-next-line rulesdir/no_only
+      it.only('for newly created workers', async () => {
+        this.timeout(30000);
 
-        // Validate that we are paused by locating the resume button
-        await waitFor(RESUME_BUTTON);
+        const {target} = getBrowserAndPages();
+
+        await waitForFunction(async () => {
+          // Launch new worker to hit breakpoint
+          await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
+
+          // Validate that we are paused by locating the resume button
+          const found = await $$(RESUME_BUTTON);
+          return found.length !== 0;
+        });
 
         // Validate that the code has paused on the breakpoint at the correct script location
         assert.deepEqual(await retrieveTopCallFrameWithoutResuming(), 'multi-workers.js:6');
