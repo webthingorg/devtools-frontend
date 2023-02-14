@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "workspace တွင် ထည့်ရန် ဖိုင်တွဲကို လွှတ်ချပါ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "‘အလုပ်နေရာများ’ အကြောင်း ပိုမိုလေ့လာရန်"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ဖိုင်ဖွင့်ရန်"
   },

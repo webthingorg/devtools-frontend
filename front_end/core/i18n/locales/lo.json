@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ວາງໃນໂຟນເດີເພື່ອເພີ່ມໃສ່ພື້ນທີ່ວຽກ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ Workspaces"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ເປີດໄຟລ໌"
   },

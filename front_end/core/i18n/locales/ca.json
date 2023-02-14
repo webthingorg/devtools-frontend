@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Deixa-ho anar en una carpeta per afegir-ho a una àrea de treball"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Més informació sobre les àrees de treball"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Obre el fitxer"
   },

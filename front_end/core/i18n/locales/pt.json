@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Solte em uma pasta para adicionar mais espaço de trabalho"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Saiba mais sobre espaços de trabalho"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Abrir arquivo"
   },

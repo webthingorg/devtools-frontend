@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Plasează un dosar pentru a-l adăuga la spațiul de lucru"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Află mai multe despre spațiile de lucru"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Deschide fișierul"
   },

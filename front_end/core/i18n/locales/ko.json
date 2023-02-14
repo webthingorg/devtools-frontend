@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "작업공간에 추가할 폴더에 드롭"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "작업공간 자세히 알아보기"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "파일 열기"
   },

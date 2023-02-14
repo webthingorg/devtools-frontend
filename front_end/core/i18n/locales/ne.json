@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "कार्यस्थानमा हाल्न फाइल ड्रयाग गरेर फोल्डरमा ड्रप गर्नुहोस्"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "कार्यस्थानका बारेमा थप जान्नुहोस्"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "फाइल खोल्नुहोस्"
   },

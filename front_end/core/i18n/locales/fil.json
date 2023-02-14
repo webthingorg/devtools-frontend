@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Mag-drop ng folder na idaragdag sa workspace"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Matuto pa tungkol sa Mga Workspace"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Buksan ang file"
   },

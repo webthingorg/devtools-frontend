@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "برای افزودن به فضای کاری، در پوشه‌ای رها کنید"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "درباره محیط‌های کاری بیشتر بدانید"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "باز کردن فایل"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Çalışma alanına eklemek için bir klasörün içine bırakın"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Çalışma alanları hakkında daha fazla bilgi"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Dosya aç"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Pudota kansio, jonka haluat lisätä työtilaan"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Lue lisää työtiloista"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Avaa tiedosto"
   },

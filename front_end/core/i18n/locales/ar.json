@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "إفلات في مجلّد لإضافة مساحة عمل"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "مزيد من المعلومات حول مساحات العمل"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "فتح ملف"
   },

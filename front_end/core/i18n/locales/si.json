@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "කාර්ය ඉඩට එක් කිරීමට ෆෝල්ඩරයක දමන්න"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "කාර්ය ඉඩ ගැන තව දැන ගන්න"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ගොනුව විවෘත කරන්න"
   },

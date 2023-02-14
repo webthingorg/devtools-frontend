@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "სამუშაო სივრცეში საქაღალდის დასამატებლად ჩავლებით ჩააგდეთ ის"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "შეიტყვეთ ვრცლად სამუშაო სივრცეების შესახებ"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ფაილის გახსნა"
   },

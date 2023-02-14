@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "వర్క్ స్పేస్‌కు జోడించడానికి ఫోల్డర్‌ను డ్రాప్ చేయండి"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "వర్క్ స్పేస్‌ల గురించి మరింత తెలుసుకోండి"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ఫైల్‌ను తెరువండి"
   },

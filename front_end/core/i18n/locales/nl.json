@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Sleep een map hierheen om deze toe te voegen aan de werkruimte"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Meer informatie over werkruimten"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Bestand openen"
   },

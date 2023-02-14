@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Ish stoliga kiritish uchun jildga tashlang"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Ish stollari haqida batafsil"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Faylni ochish"
   },

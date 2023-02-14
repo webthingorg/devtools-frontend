@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Upuść folder, aby dodać go do obszaru roboczego"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Więcej informacji o obszarach roboczych"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Otwórz plik"
   },

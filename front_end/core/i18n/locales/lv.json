@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Lai pievienotu vienumu darbvietai, nometiet to mapē"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Uzziniet vairāk par darbvietām"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Atvērt failu"
   },

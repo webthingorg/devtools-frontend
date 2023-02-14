@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ទម្លាក់​ក្នុងថត​ណាមួយ ដើម្បី​បញ្ចូល​ទៅក្នុង​លំហការងារ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ស្វែងយល់​បន្ថែមអំពី Workspaces"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "បើក​ឯកសារ"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Для добавления в рабочую область перетащите в папку."
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Подробнее о рабочих областях…"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Открыть файл"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ワークスペースに追加するフォルダをドロップ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ワークスペースの詳細"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ファイルを開く"
   },

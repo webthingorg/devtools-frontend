@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ورک اسپیس میں شامل کرنے کے لئے کسی فولڈر میں ڈراپ کریں"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ورک اسپیسز کے بارے میں مزید جانیں"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "فائل کھولیں"
   },

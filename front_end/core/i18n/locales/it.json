@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Trascina una cartella per aggiungerla a un'area di lavoro"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Scopri di più sulle aree di lavoro"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Apri file"
   },

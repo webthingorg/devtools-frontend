@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Աշխատանքային տարածքում ավելացնելու համար քաշեք պանակը։"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Իմանալ ավելին աշխատանքային տարածքների մասին"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Բացել ֆայլը"
   },

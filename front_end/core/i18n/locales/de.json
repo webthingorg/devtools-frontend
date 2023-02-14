@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Zum Hinzufügen zum Arbeitsbereich in einen Ordner legen"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Weitere Informationen zu Arbeitsbereichen"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Datei öffnen"
   },

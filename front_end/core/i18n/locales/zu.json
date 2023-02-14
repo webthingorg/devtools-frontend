@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Beka ifolda ukuze uyingeze endaweni yokusebenza"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Funda kabanzi ngezindawo zokusebenzela"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Vula ifayela"
   },

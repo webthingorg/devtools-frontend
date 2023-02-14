@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Slipp inn en mappe for å legge den til arbeidsområde"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Finn ut mer om arbeidsområder"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Åpne fil"
   },

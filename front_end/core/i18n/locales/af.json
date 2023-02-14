@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Los in 'n vouer om by werkspasie te voeg"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Kom meer te wete oor werkspasies"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Maak lêer oop"
   },

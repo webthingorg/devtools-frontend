@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Släpp i en mapp för att lägga till i arbetsytan"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Läs mer om arbetsytor"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Öppna fil"
   },

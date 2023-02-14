@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Lepaskan dalam folder untuk ditambahkan pada ruang kerja"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Ketahui lebih lanjut tentang Ruang Kerja"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Buka fail"
   },

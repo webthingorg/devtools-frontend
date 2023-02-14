@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Jaregin karpeta batean, lan-eremuan gehitzeko"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Lortu informazio gehiago lan-eremuei buruz"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Ireki fitxategia"
   },

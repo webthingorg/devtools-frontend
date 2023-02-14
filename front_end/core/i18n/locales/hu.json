@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Húzza be valamelyik mappába a munkaterülethez való hozzáadáshoz"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "További információ a munkaterületekről"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Fájl megnyitása"
   },

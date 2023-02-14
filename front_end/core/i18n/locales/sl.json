@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Spustite v mapo, če želite dodati v delovni prostor"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Preberite več o delovnih prostorih"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Odpri datoteko"
   },

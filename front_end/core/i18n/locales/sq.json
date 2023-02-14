@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Lëshoje në një dosje për ta shtuar në hapësirën e punës"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Mëso më shumë rreth Workspaces"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Hap një skedar"
   },

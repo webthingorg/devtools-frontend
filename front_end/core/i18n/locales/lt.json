@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Nuvilkti aplanke norint pridėti prie darbo srities"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Sužinokite daugiau apie darbo sritis"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Atidaryti failą"
   },

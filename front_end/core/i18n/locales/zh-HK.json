@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "拖曳到資料夾即可新增至工作區"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "進一步瞭解工作區"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "開啟檔案"
   },

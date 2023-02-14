@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Отпустите фолдер да бисте га додали у радни простор"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Сазнајте више о радним просторима"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Отвори фајл"
   },

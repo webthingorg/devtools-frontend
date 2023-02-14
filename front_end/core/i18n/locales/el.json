@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Αποθέστε σε έναν φάκελο για προσθήκη στον χώρο εργασίας"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Μάθετε περισσότερα για τους χώρους εργασίας"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Άνοιγμα αρχείου"
   },

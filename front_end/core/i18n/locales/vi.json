@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Thả vào một thư mục để thêm vào không gian làm việc"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Tìm hiểu thêm về Không gian làm việc"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Mở tệp"
   },

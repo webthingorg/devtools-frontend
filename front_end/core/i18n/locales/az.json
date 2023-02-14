@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "İş yerinə əlavə etmək üçün qovluqda buraxın"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "İş sahələri haqqında daha ətraflı məlumat əldə edin"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Faylı açın"
   },

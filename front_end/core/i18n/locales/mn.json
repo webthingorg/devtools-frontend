@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Ажлын талбарт нэмэхийн тулд фолдерт буулгана уу"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Ажлын талбарын талаар нэмэлт мэдээлэл авах"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Файлыг нээх"
   },

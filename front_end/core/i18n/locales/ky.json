@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Иштөө аймагына кошуу үчүн папкага сүйрөңүз"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Иштөө аймактары жөнүндө кененирээк маалымат"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Файлды ачуу"
   },

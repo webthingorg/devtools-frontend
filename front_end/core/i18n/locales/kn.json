@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ಕಾರ್ಯಸ್ಥಳವನ್ನು ಸೇರಿಸಲು ಫೋಲ್ಡರ್ ಅನ್ನು ಡ್ರಾಪ್ ಮಾಡಿ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ಕಾರ್ಯಸ್ಥಳಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ಫೈಲ್ ತೆರೆಯಿರಿ"
   },

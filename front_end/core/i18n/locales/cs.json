@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Přetažením do složky soubor přidáte do pracovního prostoru"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Další informace o pracovních prostorech"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Otevřít soubor"
   },

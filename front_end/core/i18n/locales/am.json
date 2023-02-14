@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ወደ የመሥሪያ ቦታ ለማከል በአቃፊ ውስጥ ጣል ያድርጉ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ስለመሥሪያ ቦታዎች የበለጠ ይወቁ"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ፋይልን ክፈት"
   },

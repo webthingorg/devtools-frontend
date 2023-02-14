@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Soltar nun cartafol para engadir ao espazo de traballo"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Máis información sobre os espazos de traballo"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Abrir ficheiro"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Slepptu í möppu til að bæta við vinnusvæði"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Frekari upplýsingar um vinnusvæði"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Opna skrá"
   },

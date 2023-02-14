@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "பணியிடத்தில் சேர்க்க ஃபோல்டரில் இழுத்து விடவும்"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Workspaces குறித்து மேலும் அறிக"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ஃபைலைத் திற"
   },

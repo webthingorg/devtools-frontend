@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "വർക്ക്‌സ്‌പെയ്‌സിലേക്ക് ചേർക്കാൻ ഒരു ഫോൾഡറിലേക്ക് വലിച്ചിടുക"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "വർക്ക്‌സ്‌പെയ്‌സുകളെ കുറിച്ച് കൂടുതലറിയുക"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ഫയൽ തുറക്കുക"
   },

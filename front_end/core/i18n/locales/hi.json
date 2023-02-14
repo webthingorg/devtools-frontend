@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "फ़ाइल फ़ोल्डर जोड़ने के लिए, खींचकर किसी फ़ोल्डर में छोड़ें"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Workspaces के बारे में ज़्यादा जानें"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "फ़ाइल खोलें"
   },

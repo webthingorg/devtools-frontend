@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Dondosha folda ya kuweka kwenye nafasi ya kazi"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Pata maelezo zaidi kuhusu nafasi za kazi"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Fungua faili"
   },

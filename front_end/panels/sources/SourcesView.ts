@@ -27,6 +27,12 @@ import {Events as UISourceCodeFrameEvents, UISourceCodeFrame} from './UISourceCo
 
 const UIStrings = {
   /**
+   * @description Text for link in the Filesystem Side View in Sources Panel. Workspaces is a
+   * DevTools feature that allows editing local files inside DevTools.
+   * See: https://developer.chrome.com/docs/devtools/workspaces/
+   */
+  learnMoreAboutWorkspaces: 'Learn more about Workspaces',
+  /**
    *@description Text to open a file
    */
   openFile: 'Open file',
@@ -183,7 +189,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     }
 
     element.appendChild(
-        UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/', 'Learn more about Workspaces'));
+        UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/', i18nString(UIStrings.learnMoreAboutWorkspaces)));
 
     return element;
   }

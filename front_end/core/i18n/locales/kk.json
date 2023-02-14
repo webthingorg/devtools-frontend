@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Жұмыс орнына қосу үшін осы қалтаға тастау"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Жұмыс орындары туралы толық ақпарат"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Файлды ашу"
   },

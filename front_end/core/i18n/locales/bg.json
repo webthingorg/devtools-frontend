@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Преместете папка вътре, за да я добавите към работното пространство"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Научете повече за работните пространства"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Отваряне на файл"
   },

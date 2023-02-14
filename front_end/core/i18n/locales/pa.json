@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "ਵਰਕਸਪੇਸ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨ ਲਈ, ਕਿਸੇ ਫੋਲਡਰ ਵਿੱਚ ਛੱਡੋ"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Workspaces ਬਾਰੇ ਹੋਰ ਜਾਣੋ"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Pukseerige üksus kausta, et see tööruumi lisada"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Vaadake lisateavet tööruumide kohta"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Ava fail"
   },

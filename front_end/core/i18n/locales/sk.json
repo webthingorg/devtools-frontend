@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Vložte priečinok, ktorý chcete pridať do pracovného priestoru"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Ďalšie informácie o pracovných priestoroch"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Otvoriť súbor"
   },

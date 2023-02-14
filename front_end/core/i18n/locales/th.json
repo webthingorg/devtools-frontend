@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "วางโฟลเดอร์เพื่อเพิ่มในพื้นที่ทำงาน"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "ดูข้อมูลเพิ่มเติมเกี่ยวกับพื้นที่ทำงาน"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "เปิดไฟล์"
   },

@@ -10571,6 +10571,9 @@
   "panels/sources/SourcesView.ts | dropInAFolderToAddToWorkspace": {
     "message": "Gollyngwch mewn ffolder i ychwanegu man gwaith"
   },
+  "panels/sources/SourcesView.ts | learnMoreAboutWorkspaces": {
+    "message": "Dysgu rhagor am Workspace"
+  },
   "panels/sources/SourcesView.ts | openFile": {
     "message": "Agor ffeil"
   },
