@@ -16,6 +16,23 @@
       "message": "Hi deprecation-devtool-issues@chromium.org, please take a look, thanks!",
       "revId": "b01c3b7785296a2fca8da4fea8611d4dd9b201b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac1231a_12a9873d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-14T05:28:15Z",
+      "side": 1,
+      "message": "looks good, thanks!",
+      "revId": "b01c3b7785296a2fca8da4fea8611d4dd9b201b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
