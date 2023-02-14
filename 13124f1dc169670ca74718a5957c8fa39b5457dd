@@ -22,6 +22,30 @@
       },
       "revId": "13124f1dc169670ca74718a5957c8fa39b5457dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876de907_4a679286",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-14T06:16:12Z",
+      "side": 1,
+      "message": "That\u0027s a good idea, with this definition I can see three usages of `BreakpointType`.",
+      "parentUuid": "9de78af8_c9508da2",
+      "range": {
+        "startLine": 778,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 1
+      },
+      "revId": "13124f1dc169670ca74718a5957c8fa39b5457dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
