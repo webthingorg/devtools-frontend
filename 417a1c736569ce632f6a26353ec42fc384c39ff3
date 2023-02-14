@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e2f36f_87c161d6",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-14T15:41:22Z",
+      "side": 1,
+      "message": "yes, agreed!",
+      "parentUuid": "730ae124_4af44101",
+      "range": {
+        "startLine": 232,
+        "startChar": 28,
+        "endLine": 232,
+        "endChar": 81
+      },
+      "revId": "417a1c736569ce632f6a26353ec42fc384c39ff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2783325e_dd51f6ba",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-02-14T13:54:25Z",
       "side": 1,
       "message": "nit: \"is set\". (Same for tests below).",
+      "range": {
+        "startLine": 428,
+        "startChar": 47,
+        "endLine": 428,
+        "endChar": 51
+      },
+      "revId": "417a1c736569ce632f6a26353ec42fc384c39ff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21979c87_dba62604",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-14T15:41:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2783325e_dd51f6ba",
       "range": {
         "startLine": 428,
         "startChar": 47,
