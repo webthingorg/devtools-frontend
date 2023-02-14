@@ -221,7 +221,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   // For inline scripts, this function translates the line-column coordinates into the coordinates
-  // of the ebedding document. For other scripts, it just returns unchanged line-column.
+  // of the embedding document. For other scripts, it just returns unchanged line-column.
   static breakpointLocationFromUiLocation(uiLocation: Workspace.UISourceCode.UILocation):
       {lineNumber: number, columnNumber: number|undefined} {
     const uiSourceCode = uiLocation.uiSourceCode;
@@ -309,17 +309,42 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   async setBreakpoint(
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number|undefined,
       condition: UserCondition, enabled: boolean, isLogpoint: boolean, origin: BreakpointOrigin): Promise<Breakpoint> {
-    let uiLocation: Workspace.UISourceCode.UILocation =
+    // Compute the uiLocation for the primary uiSourceCode first.
+    const uiLocation: Workspace.UISourceCode.UILocation =
         new Workspace.UISourceCode.UILocation(uiSourceCode, lineNumber, columnNumber);
     const normalizedLocation = await this.debuggerWorkspaceBinding.normalizeUILocation(uiLocation);
+    const breakpointLocation = BreakpointManager.breakpointLocationFromUiLocation(uiLocation);
+
     if (normalizedLocation.id() !== uiLocation.id()) {
       void Common.Revealer.reveal(normalizedLocation);
-      uiLocation = normalizedLocation;
     }
-    const breakpointLocation = BreakpointManager.breakpointLocationFromUiLocation(uiLocation);
-    return this.innerSetBreakpoint(
-        uiLocation.uiSourceCode, breakpointLocation.lineNumber, breakpointLocation.columnNumber, condition, enabled,
-        isLogpoint, origin);
+
+    const primaryBreakpoint = this.innerSetBreakpoint(
+        normalizedLocation.uiSourceCode, breakpointLocation.lineNumber, breakpointLocation.columnNumber, condition,
+        enabled, isLogpoint, origin);
+
+    // Now set the breakpoint on all uiSourceCodes that are similar to this one.
+    // As part of de-duplication, we always only show one uiSourceCode, but we may have several uiSourceCodes that correspond to the same
+    // file, so set a breakpoint on all of them.
+    const isSimilar = (other: Workspace.UISourceCode.UISourceCode): boolean => {
+      return other.contentType() === uiSourceCode.contentType() && other.url() === uiSourceCode.url() &&
+          other.content() === uiSourceCode.content();
+    };
+    const similarUiSourceCodes = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodes().filter(
+        other => isSimilar(other) && other !== uiSourceCode);
+
+    await Promise.all(similarUiSourceCodes.map(async similarUiSourceCode => {
+      const uiLocation: Workspace.UISourceCode.UILocation =
+          new Workspace.UISourceCode.UILocation(similarUiSourceCode, lineNumber, columnNumber);
+      const normalizedLocation = await this.debuggerWorkspaceBinding.normalizeUILocation(uiLocation);
+      const breakpointLocation = BreakpointManager.breakpointLocationFromUiLocation(uiLocation);
+
+      return this.innerSetBreakpoint(
+          normalizedLocation.uiSourceCode, breakpointLocation.lineNumber, breakpointLocation.columnNumber, condition,
+          enabled, isLogpoint, origin);
+    }));
+
+    return primaryBreakpoint;
   }
 
   private innerSetBreakpoint(
