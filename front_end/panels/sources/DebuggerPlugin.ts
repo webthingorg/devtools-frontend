@@ -1509,9 +1509,15 @@ export class DebuggerPlugin extends Plugin {
       lineNumber: number, columnNumber: number|undefined, condition: Bindings.BreakpointManager.UserCondition,
       enabled: boolean, isLogpoint: boolean): Promise<void> {
     Common.Settings.Settings.instance().moduleSetting('breakpointsActive').set(true);
-    await this.breakpointManager.setBreakpoint(
-        this.uiSourceCode, lineNumber, columnNumber, condition, enabled, isLogpoint,
-        Bindings.BreakpointManager.BreakpointOrigin.USER_ACTION);
+
+    const uiSourceCodes = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodes().filter(
+        other => other.contentType() === this.uiSourceCode.contentType() && other.url() === this.uiSourceCode.url());
+
+    await Promise.all(uiSourceCodes.map(
+        uiSourceCode => this.breakpointManager.setBreakpoint(
+            uiSourceCode, lineNumber, columnNumber, condition, enabled, isLogpoint,
+            Bindings.BreakpointManager.BreakpointOrigin.USER_ACTION),
+        ));
     this.breakpointWasSetForTest(lineNumber, columnNumber, condition, enabled);
   }
 
