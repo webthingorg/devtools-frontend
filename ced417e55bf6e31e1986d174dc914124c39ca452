@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "601866a8_2caa59b2",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-14T08:44:39Z",
+      "side": 1,
+      "message": "If the issues come from the backend, I would imagine the issue can arrive at any time, e.g. dynamically from user\u0027s JavaScript modifying some html autofill attributes? In these cases, do we get new issues and subsequently set `violating-element` on this _newly offending_ element?\n\nIf so, the other way should work too.",
+      "parentUuid": "2ab0c3cd_77b4fb85",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3

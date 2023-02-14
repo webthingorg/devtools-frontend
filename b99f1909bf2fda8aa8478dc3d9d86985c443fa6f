@@ -16,6 +16,40 @@
       "message": "Hi folks, reminder \u003d)",
       "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7290a79_43e03c94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-14T08:44:39Z",
+      "side": 1,
+      "message": "I think this general approach is good. I just have a question regarding dynamically created issues, and the possibility to fix the issue and having DevTools receive some sort of \"issue removed\" event. Is this possible, or being considered?",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf42faa_933ca547",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-14T08:44:39Z",
+      "side": 1,
+      "message": "It would be up to Danil to decide if we want to split protocol changes into a separate CL. I\u0027m fine either way. But for this to land, I think you need to add an extra line in the CL description, something like:\n```\n\u003callow_third_party\u003e: XXX\n```\n\nThe presubmit will prompt you to write the correct format.",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
