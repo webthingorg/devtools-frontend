@@ -434,6 +434,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     const breakpointLocation = new BreakpointLocation(breakpoint, uiLocation);
     breakpoints.set(uiLocation.id(), breakpointLocation);
     this.dispatchEventToListeners(Events.BreakpointAdded, breakpointLocation);
+    document.dispatchEvent(new Event(Events.BreakpointAdded));
   }
 
   uiLocationRemoved(breakpoint: Breakpoint, uiLocation: Workspace.UISourceCode.UILocation): void {
