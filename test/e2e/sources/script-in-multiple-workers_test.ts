@@ -9,6 +9,7 @@ import {
   click,
   getBrowserAndPages,
   goToResource,
+  platform,
   step,
   timeout,
   waitFor,
@@ -221,6 +222,7 @@ describe('Multi-Workers', async function() {
 
         await step('Set breakpoint', async () => {
           await addBreakpointForLine(frontend, 6);
+          await timeout(3000);
         });
       });
 
@@ -240,8 +242,14 @@ describe('Multi-Workers', async function() {
         await validateSourceTabs();
       });
 
-      // Flaky test.
-      it.skip('[crbug.com/1368493] for newly created workers', async () => {
+      // eslint-disable-next-line rulesdir/no_only
+      it.only('for newly created workers', async () => {
+        if (platform === 'mac') {
+          this.timeout(60000);
+        } else {
+          this.timeout(30000);
+        }
+
         const {target} = getBrowserAndPages();
         // Launch new worker to hit breakpoint
         await target.evaluate(`new Worker('${scriptFile}').postMessage({});`);
