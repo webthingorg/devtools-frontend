@@ -339,6 +339,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     breakpoint =
         new Breakpoint(this, uiSourceCode, url, lineNumber, columnNumber, condition, enabled, isLogpoint, origin);
     this.#breakpointByStorageId.set(storageId, breakpoint);
+    document.dispatchEvent(new Event(Events.BreakpointAdded));
     return breakpoint;
   }
 
