@@ -8,6 +8,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
+import * as ScopedTargetManager from '../scoped_target_manager/scoped_target_manager.js';
 
 import {CompilerScriptMapping} from './CompilerScriptMapping.js';
 import {DebuggerLanguagePluginManager} from './DebuggerLanguagePlugins.js';
@@ -28,9 +29,9 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
   readonly #debuggerModelToData: Map<SDK.DebuggerModel.DebuggerModel, ModelData>;
   readonly #liveLocationPromises: Set<Promise<void|Location|StackTraceTopFrameLocation|null>>;
   pluginManager: DebuggerLanguagePluginManager|null;
-  #targetManager: SDK.TargetManager.TargetManager;
+  #targetManager: ScopedTargetManager.ScopedTargetManager;
 
-  private constructor(resourceMapping: ResourceMapping, targetManager: SDK.TargetManager.TargetManager) {
+  private constructor(resourceMapping: ResourceMapping, targetManager: ScopedTargetManager.ScopedTargetManager) {
     this.resourceMapping = resourceMapping;
 
     this.#sourceMappings = [];
@@ -75,7 +76,7 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
                 new Error().stack}`);
       }
 
-      debuggerWorkspaceBindingInstance = new DebuggerWorkspaceBinding(resourceMapping, targetManager);
+      debuggerWorkspaceBindingInstance = new DebuggerWorkspaceBinding(resourceMapping, ScopedTargetManager.ScopedTargetManager.instance());
     }
 
     return debuggerWorkspaceBindingInstance;

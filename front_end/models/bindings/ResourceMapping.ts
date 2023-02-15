@@ -7,6 +7,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
+import * as ScopedTargetManager from '../scoped_target_manager/scoped_target_manager.js';
 
 import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
 import {CSSWorkspaceBinding} from './CSSWorkspaceBinding.js';
@@ -33,7 +34,7 @@ export class ResourceMapping implements SDK.TargetManager.SDKModelObserver<SDK.R
   constructor(targetManager: SDK.TargetManager.TargetManager, workspace: Workspace.Workspace.WorkspaceImpl) {
     this.workspace = workspace;
     this.#modelToInfo = new Map();
-    targetManager.observeModels(SDK.ResourceTreeModel.ResourceTreeModel, this);
+    ScopedTargetManager.ScopedTargetManager.instance().observeModels(SDK.ResourceTreeModel.ResourceTreeModel, this);
   }
 
   modelAdded(resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel): void {
@@ -264,6 +265,11 @@ class ModelInfo {
     const cssModel = target.model(SDK.CSSModel.CSSModel);
     console.assert(Boolean(cssModel));
     this.#cssModel = (cssModel as SDK.CSSModel.CSSModel);
+    for (const frame of resourceTreeModel.frames()) {
+      for (const resource of frame.getResourcesMap().values()) {
+        this.addResource(resource);
+      }
+    }
     this.#eventListeners = [
       resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.ResourceAdded, this.resourceAdded, this),
       resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameWillNavigate, this.frameWillNavigate, this),
@@ -318,7 +324,10 @@ class ModelInfo {
   }
 
   private resourceAdded(event: Common.EventTarget.EventTargetEvent<SDK.Resource.Resource>): void {
-    const resource = event.data;
+    this.addResource(event.data);
+  }
+
+  private addResource(resource: SDK.Resource.Resource): void {
     if (!this.acceptsResource(resource)) {
       return;
     }
