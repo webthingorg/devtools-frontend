@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9397f66d_9f5c5ac4",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-15T16:10:23Z",
+      "side": 0,
+      "message": "this helper isn\u0027t used anywhere",
+      "range": {
+        "startLine": 2941,
+        "startChar": 0,
+        "endLine": 2941,
+        "endChar": 25
+      },
+      "revId": "60b6d9dc823a5d85dad0cc2a1a3eeda80c27d296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
