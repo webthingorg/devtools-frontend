@@ -252,6 +252,17 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     return null;
   }
 
+  allUiSourceCodesForURL(url: Platform.DevToolsPath.UrlString): UISourceCode[] {
+    const result: UISourceCode[] = [];
+    for (const project of this.projectsInternal.values()) {
+      const uiSourceCode = project.uiSourceCodeForURL(url);
+      if (uiSourceCode) {
+        result.push(uiSourceCode);
+      }
+    }
+    return result;
+  }
+
   uiSourceCodesForProjectType(type: projectTypes): UISourceCode[] {
     const result: UISourceCode[] = [];
     for (const project of this.projectsInternal.values()) {
