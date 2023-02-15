@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b2c612_136af820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-15T10:17:12Z",
+      "side": 1,
+      "message": "PTAL, let me know if I should split the refactoring out and land that first",
+      "revId": "c03aa0f95ca8e1b4fe7eee13dd277a8a5acf5b26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
