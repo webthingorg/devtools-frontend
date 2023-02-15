@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8585c1_5042e226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-15T11:53:18Z",
+      "side": 1,
+      "message": "I don\u0027t think bubbling up the \"checked\" logic to a generic low-level class `TreeOutline` is the proper way to do it. This delay of \"checked\" state should be fixed downstream, in the particular view with this issue.",
+      "revId": "bd6b757973f191b327597ce8f8e31af086e57e9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
