@@ -72,8 +72,10 @@ async function editorTabHasPurpleDot(): Promise<boolean> {
 }
 
 async function correspondingFileTreeEntryIconHasPurpleDot(): Promise<boolean> {
-  await clickOnContextMenu('.tabbed-pane-header-tab[aria-label=".headers"]', 'Reveal in sidebar');
-  const fileTreeIcon = await waitFor('.icon', await activeElement());
+  const element = await activeElement();
+  const title = await element.evaluate(e => e.getAttribute('title')) || '';
+  assert.match(title, /\/test\/e2e\/resources\/network\/\.headers$/);
+  const fileTreeIcon = await waitFor('.icon', element);
   return await fileTreeIcon?.evaluate(node => node.classList.contains('largeicon-navigator-file-sync'));
 }
 
