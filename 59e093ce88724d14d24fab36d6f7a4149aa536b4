@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6b9e35_6fab4085",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-16T15:52:24Z",
+      "side": 1,
+      "message": "After checking the failing snapshots of about 100 runs there seems to be two steps the test is failing at: `selecting the search result that we need` and `waiting for retainer chain`. The first step failure looks like it can be solved with a longer timeout, the second one seems to be that the retainer chain that appears is not consistent every time (checkout the screenshots here https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8789002250841925841/overview). My question is what would constitute a success in the step `waiting for retainer chain`? would it be enough if the expected elements appeared in the retain chain? or do they have to appear in order? or they have to be exact? I think relaxing this assertion might solve the flakiness. Do you have any suggestions how to go about it?",
+      "range": {
+        "startLine": 89,
+        "startChar": 7,
+        "endLine": 89,
+        "endChar": 73
+      },
+      "revId": "59e093ce88724d14d24fab36d6f7a4149aa536b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
