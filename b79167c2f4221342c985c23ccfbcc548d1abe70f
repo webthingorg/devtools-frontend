@@ -70,6 +70,30 @@
       },
       "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49dd6a4b_b257d8ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-16T12:53:57Z",
+      "side": 1,
+      "message": "No, this shouldn\u0027t be the default. It\u0027s still experimental, but we\u0027ve been using it for some tests to be more stable. Thanks for the fix!",
+      "parentUuid": "287ca5c3_7ad0932f",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 9,
+        "endChar": 222
+      },
+      "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
