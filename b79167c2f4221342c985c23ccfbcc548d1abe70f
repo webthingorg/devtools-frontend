@@ -46,6 +46,30 @@
       },
       "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "287ca5c3_7ad0932f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-16T12:13:02Z",
+      "side": 1,
+      "message": "Done, this seems to have solved the issue (find the below stress runs). Should this be the default?\n\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8789007907630062209/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8789007907630062193/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8789007907630062177/overview",
+      "parentUuid": "e8f6c5d0_a9f5cceb",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 9,
+        "endChar": 222
+      },
+      "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
