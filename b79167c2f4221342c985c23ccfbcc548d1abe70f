@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab24608_95439670",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-16T09:24:15Z",
+      "side": 1,
+      "message": "@kim: Could this be also our instrumentation breakpoint problem? The worker runs the script before DevTools manages to set the breakpoint?\n\nIf so, could we fix the flake by enabling instrumentation breakpoints?",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 9,
+        "endChar": 222
+      },
+      "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
