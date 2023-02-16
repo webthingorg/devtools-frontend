@@ -188,7 +188,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private groupByFolder?: any;
 
-  #throttler: Throttle;
+  #throttler: Common.Throttler.SimpleThrottler.Throttle;
 
   constructor(enableAuthoredGrouping?: boolean) {
     super(true);
@@ -212,7 +212,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     const throttleTimeout = 500;
     const forceFlushTaskCount = 250;
     const forceFlushUpToSourceCodeCount = 10;
-    this.#throttler = makeThrottler(
+    this.#throttler = Common.Throttler.SimpleThrottler.makeSimpleThrottler(
         throttleTimeout,
         pending =>
             pending.length >= forceFlushTaskCount || this.uiSourceCodeNodes.size < forceFlushUpToSourceCodeCount);
@@ -1291,7 +1291,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
 
   constructor(
       navigatorView: NavigatorView, uiSourceCode: Workspace.UISourceCode.UISourceCode, title: string,
-      node: NavigatorUISourceCodeTreeNode, throttle: Throttle) {
+      node: NavigatorUISourceCodeTreeNode, throttle: Common.Throttler.SimpleThrottler.Throttle) {
     super('', false);
     this.nodeType = Types.File;
     this.node = node;
@@ -1575,7 +1575,8 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
 
   constructor(
       navigatorView: NavigatorView, uiSourceCode: Workspace.UISourceCode.UISourceCode,
-      frame: SDK.ResourceTreeModel.ResourceTreeFrame|null, private throttler: Throttle) {
+      frame: SDK.ResourceTreeModel.ResourceTreeFrame|null,
+      private throttler: Common.Throttler.SimpleThrottler.Throttle) {
     super(navigatorView, 'UISourceCode:' + uiSourceCode.canononicalScriptId(), Types.File);
     this.uiSourceCodeInternal = uiSourceCode;
     this.treeElement = null;
@@ -1947,39 +1948,4 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
       this.treeElement.title = this.title;
     }
   }
-}
-
-// Export auxiliary types for tests.
-export type ThrottleTask = () => void;
-export type Throttle = (task: ThrottleTask) => void;
-export interface TimeoutControlForTest {
-  setTimeout(callback: () => void, timeout: number): number;
-  clearTimeout(id: number|undefined): void;
-}
-
-// Export for tests.
-export function makeThrottler(
-    duration: number, condition: (pending: ThrottleTask[]) => boolean,
-    timeoutControl: TimeoutControlForTest = window): Throttle {
-  const tasks: ThrottleTask[] = [];
-  let timeout: number|undefined = undefined;
-
-  function flush(): void {
-    const taskCount = tasks.length;
-    tasks.forEach(task => task());
-    // Assert that the task handlers did not add more tasks.
-    console.assert(tasks.length === taskCount);
-    tasks.length = 0;
-    timeoutControl.clearTimeout(timeout);
-    timeout = undefined;
-  }
-
-  return (task: ThrottleTask) => {
-    tasks.push(task);
-    if (condition(tasks)) {
-      flush();
-    } else if (timeout === undefined) {
-      timeout = timeoutControl.setTimeout(flush, duration);
-    }
-  };
 }
