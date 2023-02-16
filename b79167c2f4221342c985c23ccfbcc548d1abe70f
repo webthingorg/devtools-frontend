@@ -22,6 +22,30 @@
       },
       "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f6c5d0_a9f5cceb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-16T09:36:31Z",
+      "side": 1,
+      "message": "Yes, I think it is. There were a few things that needed to be fixed for instrumentation breakpoints to be turned on for this example, but I think everything is done by now. Al, could you try to turn on the instrumentation breakpoint experiment for these tests (Note: it won\u0027t work for (\u0027[crbug.com/1407186] for pre-loaded workers) yet, I\u0027m currently working on a fix: https://crrev.com/c/4248192)? For adding instrumentation breakpoints, you\u0027ll need to add:\n\n```\nawait enableExperiment(\u0027instrumentationBreakpoints\u0027);\n```",
+      "parentUuid": "fab24608_95439670",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 9,
+        "endChar": 222
+      },
+      "revId": "b79167c2f4221342c985c23ccfbcc548d1abe70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
