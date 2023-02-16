@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
@@ -202,6 +203,7 @@ describe('Multi-Workers', async function() {
 
     describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
+        await enableExperiment('instrumentationBreakpoints');
         const {frontend} = getBrowserAndPages();
         await waitForSourceFiles(
             SourceFileEvents.SourceFileLoaded, files => files.some(f => f.endsWith('multi-workers.js')), async () => {
@@ -224,11 +226,11 @@ describe('Multi-Workers', async function() {
         });
       });
 
-      // Flakey on waterfall.
-      it.skip('[crbug.com/1407186] for pre-loaded workers', async () => {
+      // eslint-disable-next-line rulesdir/no_only
+      it.only('for pre-loaded workers', async () => {
         const {target} = getBrowserAndPages();
         // Send message to a worker to trigger break
-        await target.evaluate('workers[5].postMessage({});');
+        await target.evaluate('workers[0].postMessage({});');
 
         // Validate that we are paused by locating the resume button
         await waitFor(RESUME_BUTTON);
