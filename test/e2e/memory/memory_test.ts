@@ -83,7 +83,7 @@ describe('The Memory Panel', async function() {
         ]);
       });
 
-  // Flaky test
+  // Flaky test test
   it.skipOnPlatforms(
       ['mac', 'linux'], '[crbug.com/1134602] Correctly retains the path for event listeners', async () => {
         await goToResource('memory/event-listeners.html');
