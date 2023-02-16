@@ -57,7 +57,7 @@ export const NativeFunctions = [
   {
     name: 'toString',
     signatures: [['?radix']],
-    receivers: ['Number','BigInt']
+    receivers: ['Number']
   },
   {
     name: 'get',
@@ -86,23 +86,13 @@ export const NativeFunctions = [
   },
   {
     name: 'get',
-    signatures: [['target','p','receiver']],
-    receivers: ['ProxyHandler']
-  },
-  {
-    name: 'get',
-    signatures: [['key']],
-    receivers: ['Map','ReadonlyMap','WeakMap','XRHand']
+    signatures: [['property']],
+    receivers: ['StylePropertyMapReadOnly']
   },
   {
     name: 'get',
     signatures: [['id']],
-    receivers: ['Clients','BackgroundFetchManager']
-  },
-  {
-    name: 'get',
-    signatures: [['property']],
-    receivers: ['StylePropertyMapReadOnly']
+    receivers: ['BackgroundFetchManager','Clients']
   },
   {
     name: 'get',
@@ -115,6 +105,11 @@ export const NativeFunctions = [
     receivers: ['PaymentInstruments']
   },
   {
+    name: 'get',
+    signatures: [['key']],
+    receivers: ['XRHand']
+  },
+  {
     name: 'set',
     signatures: [['v']],
     receivers: ['PropertyDescriptor']
@@ -122,7 +117,7 @@ export const NativeFunctions = [
   {
     name: 'set',
     signatures: [['array','?offset']],
-    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'set',
@@ -141,16 +136,6 @@ export const NativeFunctions = [
   },
   {
     name: 'set',
-    signatures: [['target','p','newValue','receiver']],
-    receivers: ['ProxyHandler']
-  },
-  {
-    name: 'set',
-    signatures: [['key','value']],
-    receivers: ['Map','WeakMap','CSSToggleMap']
-  },
-  {
-    name: 'set',
     signatures: [['featureValueName','values']],
     receivers: ['CSSFontFeatureValuesMap']
   },
@@ -158,6 +143,11 @@ export const NativeFunctions = [
     name: 'set',
     signatures: [['property','...values']],
     receivers: ['StylePropertyMap']
+  },
+  {
+    name: 'set',
+    signatures: [['key','value']],
+    receivers: ['CSSToggleMap']
   },
   {
     name: 'set',
@@ -177,7 +167,7 @@ export const NativeFunctions = [
   {
     name: 'toLocaleString',
     signatures: [['?locales','?options']],
-    receivers: ['Date','Number','BigInt']
+    receivers: ['Date','Number']
   },
   {
     name: 'hasOwnProperty',
@@ -193,23 +183,11 @@ export const NativeFunctions = [
   },
   {
     name: 'getPrototypeOf',
-    signatures: [['o']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'getPrototypeOf',
-    signatures: [['target']],
-    receivers: ['ProxyHandler']
+    signatures: [['o']]
   },
   {
     name: 'getOwnPropertyDescriptor',
-    signatures: [['o','p']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'getOwnPropertyDescriptor',
-    signatures: [['target','p']],
-    receivers: ['ProxyHandler']
+    signatures: [['o','p']]
   },
   {
     name: 'getOwnPropertyNames',
@@ -227,13 +205,7 @@ export const NativeFunctions = [
   },
   {
     name: 'defineProperty',
-    signatures: [['o','p','attributes']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'defineProperty',
-    signatures: [['target','property','attributes']],
-    receivers: ['ProxyHandler']
+    signatures: [['o','p','attributes']]
   },
   {
     name: 'defineProperties',
@@ -249,13 +221,7 @@ export const NativeFunctions = [
   },
   {
     name: 'preventExtensions',
-    signatures: [['o']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'preventExtensions',
-    signatures: [['target']],
-    receivers: ['ProxyHandler']
+    signatures: [['o']]
   },
   {
     name: 'isSealed',
@@ -267,13 +233,7 @@ export const NativeFunctions = [
   },
   {
     name: 'isExtensible',
-    signatures: [['o']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'isExtensible',
-    signatures: [['target']],
-    receivers: ['ProxyHandler']
+    signatures: [['o']]
   },
   {
     name: 'keys',
@@ -294,11 +254,6 @@ export const NativeFunctions = [
     name: 'apply',
     signatures: [['thisArg','?args']],
     receivers: ['CallableFunction','NewableFunction']
-  },
-  {
-    name: 'apply',
-    signatures: [['target','thisArg','argArray']],
-    receivers: ['ProxyHandler']
   },
   {
     name: 'call',
@@ -346,7 +301,7 @@ export const NativeFunctions = [
   {
     name: 'indexOf',
     signatures: [['searchElement','?fromIndex']],
-    receivers: ['ReadonlyArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    receivers: ['ReadonlyArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'lastIndexOf',
@@ -356,7 +311,7 @@ export const NativeFunctions = [
   {
     name: 'lastIndexOf',
     signatures: [['searchElement','?fromIndex']],
-    receivers: ['ReadonlyArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    receivers: ['ReadonlyArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'localeCompare',
@@ -364,7 +319,7 @@ export const NativeFunctions = [
   },
   {
     name: 'match',
-    signatures: [['regexp'],['matcher']],
+    signatures: [['regexp']],
     receivers: ['String']
   },
   {
@@ -394,17 +349,17 @@ export const NativeFunctions = [
   },
   {
     name: 'search',
-    signatures: [['regexp'],['searcher']]
+    signatures: [['regexp']]
   },
   {
     name: 'slice',
     signatures: [['?start','?end']],
-    receivers: ['String','ReadonlyArray','ConcatArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    receivers: ['String','ReadonlyArray','ConcatArray','Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'slice',
     signatures: [['begin','?end']],
-    receivers: ['ArrayBuffer','SharedArrayBuffer']
+    receivers: ['ArrayBuffer']
   },
   {
     name: 'slice',
@@ -413,7 +368,7 @@ export const NativeFunctions = [
   },
   {
     name: 'split',
-    signatures: [['separator','?limit'],['splitter','?limit']]
+    signatures: [['separator','?limit']]
   },
   {
     name: 'substring',
@@ -697,7 +652,7 @@ export const NativeFunctions = [
   {
     name: 'sort',
     signatures: [['?compareFn']],
-    receivers: ['Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    receivers: ['Array','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'splice',
@@ -794,7 +749,7 @@ export const NativeFunctions = [
   {
     name: 'fill',
     signatures: [['value','?start','?end']],
-    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','Array','BigInt64Array','BigUint64Array']
+    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'fill',
@@ -809,7 +764,7 @@ export const NativeFunctions = [
   {
     name: 'find',
     signatures: [['predicate','?thisArg']],
-    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','Array','ReadonlyArray','BigInt64Array','BigUint64Array']
+    receivers: ['Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array']
   },
   {
     name: 'find',
@@ -830,13 +785,7 @@ export const NativeFunctions = [
   },
   {
     name: 'from',
-    signatures: [['arrayLike','?mapfn','?thisArg']],
-    receivers: ['Int8ArrayConstructor','Uint8ArrayConstructor','Uint8ClampedArrayConstructor','Int16ArrayConstructor','Uint16ArrayConstructor','Int32ArrayConstructor','Uint32ArrayConstructor','Float32ArrayConstructor','Float64ArrayConstructor','BigInt64ArrayConstructor','BigUint64ArrayConstructor']
-  },
-  {
-    name: 'from',
-    signatures: [['iterable','?mapfn','?thisArg'],['arrayLike','?mapfn','?thisArg']],
-    receivers: ['ArrayConstructor']
+    signatures: [['arrayLike','?mapfn','?thisArg']]
   },
   {
     name: 'drawArraysInstancedANGLE',
@@ -863,7 +812,7 @@ export const NativeFunctions = [
   {
     name: 'addEventListener',
     signatures: [['type','listener','?options']],
-    receivers: ['AbortSignal','SharedWorker','Worker','ServiceWorker','Animation','AudioBufferSourceNode','AudioContext','AudioScheduledSourceNode','AudioWorkletNode','BaseAudioContext','BroadcastChannel','CSSAnimation','CSSTransition','CanvasCaptureMediaStreamTrack','ConstantSourceNode','Document','HTMLElement','MathMLElement','SVGElement','Element','EventSource','FileReader','FontFaceSet','Window','HTMLAnchorElement','HTMLAreaElement','HTMLAudioElement','HTMLBRElement','HTMLBaseElement','HTMLBodyElement','HTMLButtonElement','HTMLCanvasElement','HTMLDListElement','HTMLDataElement','HTMLDataListElement','HTMLDetailsElement','HTMLDialogElement','HTMLDirectoryElement','HTMLDivElement','HTMLDocument','HTMLEmbedElement','HTMLFieldSetElement','HTMLFontElement','HTMLFormElement','HTMLFrameElement','HTMLFrameSetElement','HTMLHRElement','HTMLHeadElement','HTMLHeadingElement','HTMLHtmlElement','HTMLIFrameElement','HTMLImageElement','HTMLInputElement','HTMLLIElement','HTMLLabelElement','HTMLLegendElement','HTMLLinkElement','HTMLMapElement','HTMLMarqueeElement','HTMLMediaElement','HTMLMenuElement','HTMLMetaElement','HTMLMeterElement','HTMLModElement','HTMLOListElement','HTMLObjectElement','HTMLOptGroupElement','HTMLOptionElement','HTMLOutputElement','HTMLParagraphElement','HTMLParamElement','HTMLPictureElement','HTMLPreElement','HTMLProgressElement','HTMLQuoteElement','HTMLScriptElement','HTMLSelectElement','HTMLSlotElement','HTMLSourceElement','HTMLSpanElement','HTMLStyleElement','HTMLTableCaptionElement','HTMLTableCellElement','HTMLTableColElement','HTMLTableDataCellElement','HTMLTableElement','HTMLTableHeaderCellElement','HTMLTableRowElement','HTMLTableSectionElement','HTMLTemplateElement','HTMLTextAreaElement','HTMLTimeElement','HTMLTitleElement','HTMLTrackElement','HTMLUListElement','HTMLUnknownElement','HTMLVideoElement','IDBDatabase','IDBOpenDBRequest','IDBRequest','IDBTransaction','MediaDevices','MediaKeySession','MediaQueryList','MediaRecorder','MediaSource','MediaStream','MediaStreamTrack','MessagePort','Notification','OfflineAudioContext','OffscreenCanvas','OscillatorNode','PaymentRequest','Performance','PermissionStatus','PictureInPictureWindow','RTCDTMFSender','RTCDataChannel','RTCDtlsTransport','RTCIceTransport','RTCPeerConnection','RTCSctpTransport','RemotePlayback','SVGAElement','SVGAnimateElement','SVGAnimateMotionElement','SVGAnimateTransformElement','SVGAnimationElement','SVGCircleElement','SVGClipPathElement','SVGComponentTransferFunctionElement','SVGDefsElement','SVGDescElement','SVGEllipseElement','SVGFEBlendElement','SVGFEColorMatrixElement','SVGFEComponentTransferElement','SVGFECompositeElement','SVGFEConvolveMatrixElement','SVGFEDiffuseLightingElement','SVGFEDisplacementMapElement','SVGFEDistantLightElement','SVGFEDropShadowElement','SVGFEFloodElement','SVGFEFuncAElement','SVGFEFuncBElement','SVGFEFuncGElement','SVGFEFuncRElement','SVGFEGaussianBlurElement','SVGFEImageElement','SVGFEMergeElement','SVGFEMergeNodeElement','SVGFEMorphologyElement','SVGFEOffsetElement','SVGFEPointLightElement','SVGFESpecularLightingElement','SVGFESpotLightElement','SVGFETileElement','SVGFETurbulenceElement','SVGFilterElement','SVGForeignObjectElement','SVGGElement','SVGGeometryElement','SVGGradientElement','SVGGraphicsElement','SVGImageElement','SVGLineElement','SVGLinearGradientElement','SVGMPathElement','SVGMarkerElement','SVGMaskElement','SVGMetadataElement','SVGPathElement','SVGPatternElement','SVGPolygonElement','SVGPolylineElement','SVGRadialGradientElement','SVGRectElement','SVGSVGElement','SVGScriptElement','SVGSetElement','SVGStopElement','SVGStyleElement','SVGSwitchElement','SVGSymbolElement','SVGTSpanElement','SVGTextContentElement','SVGTextElement','SVGTextPathElement','SVGTextPositioningElement','SVGTitleElement','SVGUseElement','SVGViewElement','ScreenOrientation','ScriptProcessorNode','ServiceWorkerContainer','ServiceWorkerRegistration','ShadowRoot','SourceBuffer','SourceBufferList','SpeechSynthesis','SpeechSynthesisUtterance','TextTrack','TextTrackCue','TextTrackList','VTTCue','VisualViewport','WebSocket','XMLDocument','XMLHttpRequest','XMLHttpRequestEventTarget','XMLHttpRequestUpload','DedicatedWorkerGlobalScope','ServiceWorkerGlobalScope','SharedWorkerGlobalScope','WorkerGlobalScope','Highlight']
+    receivers: ['AbortSignal','SharedWorker','Worker','ServiceWorker','Animation','AudioBufferSourceNode','AudioContext','AudioScheduledSourceNode','AudioWorkletNode','BaseAudioContext','BroadcastChannel','CSSAnimation','CSSTransition','CanvasCaptureMediaStreamTrack','ConstantSourceNode','Document','HTMLElement','MathMLElement','SVGElement','Element','EventSource','FileReader','FontFaceSet','Window','HTMLAnchorElement','HTMLAreaElement','HTMLAudioElement','HTMLBRElement','HTMLBaseElement','HTMLBodyElement','HTMLButtonElement','HTMLCanvasElement','HTMLDListElement','HTMLDataElement','HTMLDataListElement','HTMLDetailsElement','HTMLDialogElement','HTMLDirectoryElement','HTMLDivElement','HTMLDocument','HTMLEmbedElement','HTMLFieldSetElement','HTMLFontElement','HTMLFormElement','HTMLFrameElement','HTMLFrameSetElement','HTMLHRElement','HTMLHeadElement','HTMLHeadingElement','HTMLHtmlElement','HTMLIFrameElement','HTMLImageElement','HTMLInputElement','HTMLLIElement','HTMLLabelElement','HTMLLegendElement','HTMLLinkElement','HTMLMapElement','HTMLMarqueeElement','HTMLMediaElement','HTMLMenuElement','HTMLMetaElement','HTMLMeterElement','HTMLModElement','HTMLOListElement','HTMLObjectElement','HTMLOptGroupElement','HTMLOptionElement','HTMLOutputElement','HTMLParagraphElement','HTMLParamElement','HTMLPictureElement','HTMLPreElement','HTMLProgressElement','HTMLQuoteElement','HTMLScriptElement','HTMLSelectElement','HTMLSlotElement','HTMLSourceElement','HTMLSpanElement','HTMLStyleElement','HTMLTableCaptionElement','HTMLTableCellElement','HTMLTableColElement','HTMLTableDataCellElement','HTMLTableElement','HTMLTableHeaderCellElement','HTMLTableRowElement','HTMLTableSectionElement','HTMLTemplateElement','HTMLTextAreaElement','HTMLTimeElement','HTMLTitleElement','HTMLTrackElement','HTMLUListElement','HTMLUnknownElement','HTMLVideoElement','IDBDatabase','IDBOpenDBRequest','IDBRequest','IDBTransaction','MediaDevices','MediaKeySession','MediaQueryList','MediaRecorder','MediaSource','MediaStream','MediaStreamTrack','MessagePort','Notification','OfflineAudioContext','OffscreenCanvas','OscillatorNode','PaymentRequest','Performance','PermissionStatus','PictureInPictureWindow','RTCDTMFSender','RTCDataChannel','RTCDtlsTransport','RTCIceTransport','RTCPeerConnection','RTCSctpTransport','RemotePlayback','SVGAElement','SVGAnimateElement','SVGAnimateMotionElement','SVGAnimateTransformElement','SVGAnimationElement','SVGCircleElement','SVGClipPathElement','SVGComponentTransferFunctionElement','SVGDefsElement','SVGDescElement','SVGEllipseElement','SVGFEBlendElement','SVGFEColorMatrixElement','SVGFEComponentTransferElement','SVGFECompositeElement','SVGFEConvolveMatrixElement','SVGFEDiffuseLightingElement','SVGFEDisplacementMapElement','SVGFEDistantLightElement','SVGFEDropShadowElement','SVGFEFloodElement','SVGFEFuncAElement','SVGFEFuncBElement','SVGFEFuncGElement','SVGFEFuncRElement','SVGFEGaussianBlurElement','SVGFEImageElement','SVGFEMergeElement','SVGFEMergeNodeElement','SVGFEMorphologyElement','SVGFEOffsetElement','SVGFEPointLightElement','SVGFESpecularLightingElement','SVGFESpotLightElement','SVGFETileElement','SVGFETurbulenceElement','SVGFilterElement','SVGForeignObjectElement','SVGGElement','SVGGeometryElement','SVGGradientElement','SVGGraphicsElement','SVGImageElement','SVGLineElement','SVGLinearGradientElement','SVGMPathElement','SVGMarkerElement','SVGMaskElement','SVGMetadataElement','SVGPathElement','SVGPatternElement','SVGPolygonElement','SVGPolylineElement','SVGRadialGradientElement','SVGRectElement','SVGSVGElement','SVGScriptElement','SVGSetElement','SVGStopElement','SVGStyleElement','SVGSwitchElement','SVGSymbolElement','SVGTSpanElement','SVGTextContentElement','SVGTextElement','SVGTextPathElement','SVGTextPositioningElement','SVGTitleElement','SVGUseElement','SVGViewElement','ScreenOrientation','ScriptProcessorNode','ServiceWorkerContainer','ServiceWorkerRegistration','ShadowRoot','SourceBuffer','SourceBufferList','SpeechSynthesis','SpeechSynthesisUtterance','TextTrack','TextTrackCue','TextTrackList','VTTCue','VisualViewport','WebSocket','XMLDocument','XMLHttpRequest','XMLHttpRequestEventTarget','XMLHttpRequestUpload','Highlight']
   },
   {
     name: 'addEventListener',
@@ -873,7 +822,7 @@ export const NativeFunctions = [
   {
     name: 'removeEventListener',
     signatures: [['type','listener','?options']],
-    receivers: ['AbortSignal','SharedWorker','Worker','ServiceWorker','Animation','AudioBufferSourceNode','AudioContext','AudioScheduledSourceNode','AudioWorkletNode','BaseAudioContext','BroadcastChannel','CSSAnimation','CSSTransition','CanvasCaptureMediaStreamTrack','ConstantSourceNode','Document','HTMLElement','MathMLElement','SVGElement','Element','EventSource','FileReader','FontFaceSet','Window','HTMLAnchorElement','HTMLAreaElement','HTMLAudioElement','HTMLBRElement','HTMLBaseElement','HTMLBodyElement','HTMLButtonElement','HTMLCanvasElement','HTMLDListElement','HTMLDataElement','HTMLDataListElement','HTMLDetailsElement','HTMLDialogElement','HTMLDirectoryElement','HTMLDivElement','HTMLDocument','HTMLEmbedElement','HTMLFieldSetElement','HTMLFontElement','HTMLFormElement','HTMLFrameElement','HTMLFrameSetElement','HTMLHRElement','HTMLHeadElement','HTMLHeadingElement','HTMLHtmlElement','HTMLIFrameElement','HTMLImageElement','HTMLInputElement','HTMLLIElement','HTMLLabelElement','HTMLLegendElement','HTMLLinkElement','HTMLMapElement','HTMLMarqueeElement','HTMLMediaElement','HTMLMenuElement','HTMLMetaElement','HTMLMeterElement','HTMLModElement','HTMLOListElement','HTMLObjectElement','HTMLOptGroupElement','HTMLOptionElement','HTMLOutputElement','HTMLParagraphElement','HTMLParamElement','HTMLPictureElement','HTMLPreElement','HTMLProgressElement','HTMLQuoteElement','HTMLScriptElement','HTMLSelectElement','HTMLSlotElement','HTMLSourceElement','HTMLSpanElement','HTMLStyleElement','HTMLTableCaptionElement','HTMLTableCellElement','HTMLTableColElement','HTMLTableDataCellElement','HTMLTableElement','HTMLTableHeaderCellElement','HTMLTableRowElement','HTMLTableSectionElement','HTMLTemplateElement','HTMLTextAreaElement','HTMLTimeElement','HTMLTitleElement','HTMLTrackElement','HTMLUListElement','HTMLUnknownElement','HTMLVideoElement','IDBDatabase','IDBOpenDBRequest','IDBRequest','IDBTransaction','MediaDevices','MediaKeySession','MediaQueryList','MediaRecorder','MediaSource','MediaStream','MediaStreamTrack','MessagePort','Notification','OfflineAudioContext','OffscreenCanvas','OscillatorNode','PaymentRequest','Performance','PermissionStatus','PictureInPictureWindow','RTCDTMFSender','RTCDataChannel','RTCDtlsTransport','RTCIceTransport','RTCPeerConnection','RTCSctpTransport','RemotePlayback','SVGAElement','SVGAnimateElement','SVGAnimateMotionElement','SVGAnimateTransformElement','SVGAnimationElement','SVGCircleElement','SVGClipPathElement','SVGComponentTransferFunctionElement','SVGDefsElement','SVGDescElement','SVGEllipseElement','SVGFEBlendElement','SVGFEColorMatrixElement','SVGFEComponentTransferElement','SVGFECompositeElement','SVGFEConvolveMatrixElement','SVGFEDiffuseLightingElement','SVGFEDisplacementMapElement','SVGFEDistantLightElement','SVGFEDropShadowElement','SVGFEFloodElement','SVGFEFuncAElement','SVGFEFuncBElement','SVGFEFuncGElement','SVGFEFuncRElement','SVGFEGaussianBlurElement','SVGFEImageElement','SVGFEMergeElement','SVGFEMergeNodeElement','SVGFEMorphologyElement','SVGFEOffsetElement','SVGFEPointLightElement','SVGFESpecularLightingElement','SVGFESpotLightElement','SVGFETileElement','SVGFETurbulenceElement','SVGFilterElement','SVGForeignObjectElement','SVGGElement','SVGGeometryElement','SVGGradientElement','SVGGraphicsElement','SVGImageElement','SVGLineElement','SVGLinearGradientElement','SVGMPathElement','SVGMarkerElement','SVGMaskElement','SVGMetadataElement','SVGPathElement','SVGPatternElement','SVGPolygonElement','SVGPolylineElement','SVGRadialGradientElement','SVGRectElement','SVGSVGElement','SVGScriptElement','SVGSetElement','SVGStopElement','SVGStyleElement','SVGSwitchElement','SVGSymbolElement','SVGTSpanElement','SVGTextContentElement','SVGTextElement','SVGTextPathElement','SVGTextPositioningElement','SVGTitleElement','SVGUseElement','SVGViewElement','ScreenOrientation','ScriptProcessorNode','ServiceWorkerContainer','ServiceWorkerRegistration','ShadowRoot','SourceBuffer','SourceBufferList','SpeechSynthesis','SpeechSynthesisUtterance','TextTrack','TextTrackCue','TextTrackList','VTTCue','VisualViewport','WebSocket','XMLDocument','XMLHttpRequest','XMLHttpRequestEventTarget','XMLHttpRequestUpload','DedicatedWorkerGlobalScope','ServiceWorkerGlobalScope','SharedWorkerGlobalScope','WorkerGlobalScope','Highlight']
+    receivers: ['AbortSignal','SharedWorker','Worker','ServiceWorker','Animation','AudioBufferSourceNode','AudioContext','AudioScheduledSourceNode','AudioWorkletNode','BaseAudioContext','BroadcastChannel','CSSAnimation','CSSTransition','CanvasCaptureMediaStreamTrack','ConstantSourceNode','Document','HTMLElement','MathMLElement','SVGElement','Element','EventSource','FileReader','FontFaceSet','Window','HTMLAnchorElement','HTMLAreaElement','HTMLAudioElement','HTMLBRElement','HTMLBaseElement','HTMLBodyElement','HTMLButtonElement','HTMLCanvasElement','HTMLDListElement','HTMLDataElement','HTMLDataListElement','HTMLDetailsElement','HTMLDialogElement','HTMLDirectoryElement','HTMLDivElement','HTMLDocument','HTMLEmbedElement','HTMLFieldSetElement','HTMLFontElement','HTMLFormElement','HTMLFrameElement','HTMLFrameSetElement','HTMLHRElement','HTMLHeadElement','HTMLHeadingElement','HTMLHtmlElement','HTMLIFrameElement','HTMLImageElement','HTMLInputElement','HTMLLIElement','HTMLLabelElement','HTMLLegendElement','HTMLLinkElement','HTMLMapElement','HTMLMarqueeElement','HTMLMediaElement','HTMLMenuElement','HTMLMetaElement','HTMLMeterElement','HTMLModElement','HTMLOListElement','HTMLObjectElement','HTMLOptGroupElement','HTMLOptionElement','HTMLOutputElement','HTMLParagraphElement','HTMLParamElement','HTMLPictureElement','HTMLPreElement','HTMLProgressElement','HTMLQuoteElement','HTMLScriptElement','HTMLSelectElement','HTMLSlotElement','HTMLSourceElement','HTMLSpanElement','HTMLStyleElement','HTMLTableCaptionElement','HTMLTableCellElement','HTMLTableColElement','HTMLTableDataCellElement','HTMLTableElement','HTMLTableHeaderCellElement','HTMLTableRowElement','HTMLTableSectionElement','HTMLTemplateElement','HTMLTextAreaElement','HTMLTimeElement','HTMLTitleElement','HTMLTrackElement','HTMLUListElement','HTMLUnknownElement','HTMLVideoElement','IDBDatabase','IDBOpenDBRequest','IDBRequest','IDBTransaction','MediaDevices','MediaKeySession','MediaQueryList','MediaRecorder','MediaSource','MediaStream','MediaStreamTrack','MessagePort','Notification','OfflineAudioContext','OffscreenCanvas','OscillatorNode','PaymentRequest','Performance','PermissionStatus','PictureInPictureWindow','RTCDTMFSender','RTCDataChannel','RTCDtlsTransport','RTCIceTransport','RTCPeerConnection','RTCSctpTransport','RemotePlayback','SVGAElement','SVGAnimateElement','SVGAnimateMotionElement','SVGAnimateTransformElement','SVGAnimationElement','SVGCircleElement','SVGClipPathElement','SVGComponentTransferFunctionElement','SVGDefsElement','SVGDescElement','SVGEllipseElement','SVGFEBlendElement','SVGFEColorMatrixElement','SVGFEComponentTransferElement','SVGFECompositeElement','SVGFEConvolveMatrixElement','SVGFEDiffuseLightingElement','SVGFEDisplacementMapElement','SVGFEDistantLightElement','SVGFEDropShadowElement','SVGFEFloodElement','SVGFEFuncAElement','SVGFEFuncBElement','SVGFEFuncGElement','SVGFEFuncRElement','SVGFEGaussianBlurElement','SVGFEImageElement','SVGFEMergeElement','SVGFEMergeNodeElement','SVGFEMorphologyElement','SVGFEOffsetElement','SVGFEPointLightElement','SVGFESpecularLightingElement','SVGFESpotLightElement','SVGFETileElement','SVGFETurbulenceElement','SVGFilterElement','SVGForeignObjectElement','SVGGElement','SVGGeometryElement','SVGGradientElement','SVGGraphicsElement','SVGImageElement','SVGLineElement','SVGLinearGradientElement','SVGMPathElement','SVGMarkerElement','SVGMaskElement','SVGMetadataElement','SVGPathElement','SVGPatternElement','SVGPolygonElement','SVGPolylineElement','SVGRadialGradientElement','SVGRectElement','SVGSVGElement','SVGScriptElement','SVGSetElement','SVGStopElement','SVGStyleElement','SVGSwitchElement','SVGSymbolElement','SVGTSpanElement','SVGTextContentElement','SVGTextElement','SVGTextPathElement','SVGTextPositioningElement','SVGTitleElement','SVGUseElement','SVGViewElement','ScreenOrientation','ScriptProcessorNode','ServiceWorkerContainer','ServiceWorkerRegistration','ShadowRoot','SourceBuffer','SourceBufferList','SpeechSynthesis','SpeechSynthesisUtterance','TextTrack','TextTrackCue','TextTrackList','VTTCue','VisualViewport','WebSocket','XMLDocument','XMLHttpRequest','XMLHttpRequestEventTarget','XMLHttpRequestUpload','Highlight']
   },
   {
     name: 'removeEventListener',
@@ -1134,11 +1083,11 @@ export const NativeFunctions = [
   {
     name: 'postMessage',
     signatures: [['message','transfer'],['message','?options']],
-    receivers: ['MessagePort','ServiceWorker','Worker','Client','DedicatedWorkerGlobalScope']
+    receivers: ['MessagePort','ServiceWorker','Worker','DedicatedWorkerGlobalScope','Client']
   },
   {
     name: 'postMessage',
-    signatures: [['message','?options'],['message','transfer'],['message','targetOrigin','?transfer']],
+    signatures: [['message','?options'],['message','targetOrigin','?transfer']],
     receivers: ['Window']
   },
   {
@@ -1233,16 +1182,6 @@ export const NativeFunctions = [
   },
   {
     name: 'add',
-    signatures: [['typedArray','index','value']],
-    receivers: ['Atomics']
-  },
-  {
-    name: 'add',
-    signatures: [['value']],
-    receivers: ['Set','WeakSet']
-  },
-  {
-    name: 'add',
     signatures: [['node','?before']],
     receivers: ['AccessibleNodeList']
   },
@@ -1302,16 +1241,6 @@ export const NativeFunctions = [
   },
   {
     name: 'delete',
-    signatures: [['key']],
-    receivers: ['Map','WeakMap','SharedStorage']
-  },
-  {
-    name: 'delete',
-    signatures: [['value']],
-    receivers: ['Set','WeakSet']
-  },
-  {
-    name: 'delete',
     signatures: [['property']],
     receivers: ['StylePropertyMap']
   },
@@ -1331,14 +1260,14 @@ export const NativeFunctions = [
     receivers: ['PaymentInstruments']
   },
   {
-    name: 'matchAll',
-    signatures: [['?request','?options']],
-    receivers: ['Cache','BackgroundFetchRegistration']
+    name: 'delete',
+    signatures: [['key']],
+    receivers: ['SharedStorage']
   },
   {
     name: 'matchAll',
-    signatures: [['regexp']],
-    receivers: ['String']
+    signatures: [['?request','?options']],
+    receivers: ['Cache','BackgroundFetchRegistration']
   },
   {
     name: 'matchAll',
@@ -1374,21 +1303,6 @@ export const NativeFunctions = [
     name: 'has',
     signatures: [['keyId']],
     receivers: ['MediaKeyStatusMap']
-  },
-  {
-    name: 'has',
-    signatures: [['target','p']],
-    receivers: ['ProxyHandler']
-  },
-  {
-    name: 'has',
-    signatures: [['key']],
-    receivers: ['Map','ReadonlyMap','WeakMap']
-  },
-  {
-    name: 'has',
-    signatures: [['value']],
-    receivers: ['Set','ReadonlySet','WeakSet']
   },
   {
     name: 'has',
@@ -1819,13 +1733,7 @@ export const NativeFunctions = [
   },
   {
     name: 'store',
-    signatures: [['credential']],
-    receivers: ['CredentialsContainer']
-  },
-  {
-    name: 'store',
-    signatures: [['typedArray','index','value']],
-    receivers: ['Atomics']
+    signatures: [['credential']]
   },
   {
     name: 'getRandomValues',
@@ -2326,7 +2234,13 @@ export const NativeFunctions = [
   },
   {
     name: 'readAsText',
-    signatures: [['blob','?encoding'],['blob','?label']]
+    signatures: [['blob','?encoding'],['blob','?label']],
+    receivers: ['FileReader']
+  },
+  {
+    name: 'readAsText',
+    signatures: [['blob','?label']],
+    receivers: ['FileReaderSync']
   },
   {
     name: 'getDirectory',
@@ -2372,13 +2286,7 @@ export const NativeFunctions = [
   },
   {
     name: 'resolve',
-    signatures: [['possibleDescendant'],['possibleChild']],
-    receivers: ['FileSystemDirectoryHandle']
-  },
-  {
-    name: 'resolve',
-    signatures: [['?value']],
-    receivers: ['PromiseConstructor']
+    signatures: [['possibleDescendant'],['possibleChild']]
   },
   {
     name: 'readEntries',
@@ -2408,11 +2316,6 @@ export const NativeFunctions = [
     name: 'load',
     signatures: [['sessionId']],
     receivers: ['MediaKeySession']
-  },
-  {
-    name: 'load',
-    signatures: [['typedArray','index']],
-    receivers: ['Atomics']
   },
   {
     name: 'load',
@@ -2594,11 +2497,6 @@ export const NativeFunctions = [
     receivers: ['Location']
   },
   {
-    name: 'assign',
-    signatures: [['target','source'],['target','...sources'],['target','source1','source2','?source3']],
-    receivers: ['ObjectConstructor']
-  },
-  {
     name: 'assignedElements',
     signatures: [['?options']]
   },
@@ -2734,18 +2632,7 @@ export const NativeFunctions = [
   },
   {
     name: 'includes',
-    signatures: [['key']],
-    receivers: ['IDBKeyRange']
-  },
-  {
-    name: 'includes',
-    signatures: [['searchString','?position']],
-    receivers: ['String']
-  },
-  {
-    name: 'includes',
-    signatures: [['searchElement','?fromIndex']],
-    receivers: ['Array','ReadonlyArray','Int8Array','Uint8Array','Uint8ClampedArray','Int16Array','Uint16Array','Int32Array','Uint32Array','Float32Array','Float64Array','BigInt64Array','BigUint64Array']
+    signatures: [['key']]
   },
   {
     name: 'createIndex',
@@ -3061,11 +2948,6 @@ export const NativeFunctions = [
   {
     name: 'lookupPrefix',
     signatures: [['namespace'],['namespaceURI']]
-  },
-  {
-    name: 'normalize',
-    signatures: [['?form']],
-    receivers: ['String']
   },
   {
     name: 'removeChild',
@@ -3675,11 +3557,6 @@ export const NativeFunctions = [
   },
   {
     name: 'register',
-    signatures: [['target','heldValue','?unregisterToken']],
-    receivers: ['FinalizationRegistry']
-  },
-  {
-    name: 'register',
     signatures: [['tag','?options']],
     receivers: ['PeriodicSyncManager']
   },
@@ -3700,11 +3577,6 @@ export const NativeFunctions = [
   {
     name: 'showNotification',
     signatures: [['title','?options']]
-  },
-  {
-    name: 'unregister',
-    signatures: [['unregisterToken']],
-    receivers: ['FinalizationRegistry']
   },
   {
     name: 'unregister',
@@ -3778,13 +3650,7 @@ export const NativeFunctions = [
   },
   {
     name: 'sign',
-    signatures: [['algorithm','key','data']],
-    receivers: ['SubtleCrypto']
-  },
-  {
-    name: 'sign',
-    signatures: [['x']],
-    receivers: ['Math']
+    signatures: [['algorithm','key','data']]
   },
   {
     name: 'unwrapKey',
@@ -4956,13 +4822,7 @@ export const NativeFunctions = [
   },
   {
     name: 'clearTimeout',
-    signatures: [['id']],
-    receivers: ['Window','WorkerGlobalScope']
-  },
-  {
-    name: 'clearTimeout',
-    signatures: [['id'],['handle']],
-    receivers: ['Window']
+    signatures: [['id']]
   },
   {
     name: 'createImageBitmap',
@@ -5175,374 +5035,6 @@ export const NativeFunctions = [
     signatures: [['?dimension']]
   },
   {
-    name: 'next',
-    signatures: [['...args']],
-    receivers: ['Generator','Iterator','AsyncIterator','AsyncGenerator']
-  },
-  {
-    name: 'return',
-    signatures: [['value']],
-    receivers: ['Generator','AsyncGenerator']
-  },
-  {
-    name: 'return',
-    signatures: [['?value']],
-    receivers: ['Iterator','AsyncIterator']
-  },
-  {
-    name: 'throw',
-    signatures: [['e']],
-    receivers: ['Generator','AsyncGenerator']
-  },
-  {
-    name: 'throw',
-    signatures: [['?e']],
-    receivers: ['Iterator','AsyncIterator']
-  },
-  {
-    name: 'entries',
-    signatures: [['o']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'values',
-    signatures: [['o']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'all',
-    signatures: [['values']]
-  },
-  {
-    name: 'race',
-    signatures: [['values']]
-  },
-  {
-    name: 'reject',
-    signatures: [['?reason']]
-  },
-  {
-    name: 'construct',
-    signatures: [['target','argArray','newTarget']]
-  },
-  {
-    name: 'deleteProperty',
-    signatures: [['target','p']]
-  },
-  {
-    name: 'ownKeys',
-    signatures: [['target']]
-  },
-  {
-    name: 'setPrototypeOf',
-    signatures: [['target','v']],
-    receivers: ['ProxyHandler']
-  },
-  {
-    name: 'setPrototypeOf',
-    signatures: [['o','proto']],
-    receivers: ['ObjectConstructor']
-  },
-  {
-    name: 'revocable',
-    signatures: [['target','handler']]
-  },
-  {
-    name: 'for',
-    signatures: [['key']]
-  },
-  {
-    name: 'keyFor',
-    signatures: [['sym']]
-  },
-  {
-    name: 'getOwnPropertyDescriptors',
-    signatures: [['o']]
-  },
-  {
-    name: 'and',
-    signatures: [['typedArray','index','value']]
-  },
-  {
-    name: 'compareExchange',
-    signatures: [['typedArray','index','expectedValue','replacementValue']]
-  },
-  {
-    name: 'exchange',
-    signatures: [['typedArray','index','value']]
-  },
-  {
-    name: 'isLockFree',
-    signatures: [['size']]
-  },
-  {
-    name: 'or',
-    signatures: [['typedArray','index','value']]
-  },
-  {
-    name: 'sub',
-    signatures: [['typedArray','index','value']],
-    receivers: ['Atomics']
-  },
-  {
-    name: 'sub',
-    signatures: [['...values']],
-    receivers: ['CSSNumericValue']
-  },
-  {
-    name: 'sub',
-    signatures: [['a','b']],
-    receivers: ['MLGraphBuilder']
-  },
-  {
-    name: 'wait',
-    signatures: [['typedArray','index','value','?timeout']]
-  },
-  {
-    name: 'notify',
-    signatures: [['typedArray','index','?count']]
-  },
-  {
-    name: 'xor',
-    signatures: [['typedArray','index','value']]
-  },
-  {
-    name: 'padStart',
-    signatures: [['maxLength','?fillString']]
-  },
-  {
-    name: 'padEnd',
-    signatures: [['maxLength','?fillString']]
-  },
-  {
-    name: 'finally',
-    signatures: [['?onfinally']]
-  },
-  {
-    name: 'fromEntries',
-    signatures: [['entries']]
-  },
-  {
-    name: 'allSettled',
-    signatures: [['values']]
-  },
-  {
-    name: 'any',
-    signatures: [['values']],
-    receivers: ['PromiseConstructor']
-  },
-  {
-    name: 'any',
-    signatures: [['signals']],
-    receivers: ['AbortSignal']
-  },
-  {
-    name: 'replaceAll',
-    signatures: [['searchValue','replaceValue'],['searchValue','replacer']]
-  },
-  {
-    name: 'hasOwn',
-    signatures: [['o','v']]
-  },
-  {
-    name: 'waitAsync',
-    signatures: [['typedArray','index','value','?timeout']]
-  },
-  {
-    name: 'at',
-    signatures: [['index']]
-  },
-  {
-    name: 'clz32',
-    signatures: [['x']]
-  },
-  {
-    name: 'imul',
-    signatures: [['x','y']]
-  },
-  {
-    name: 'log10',
-    signatures: [['x']]
-  },
-  {
-    name: 'log2',
-    signatures: [['x']]
-  },
-  {
-    name: 'log1p',
-    signatures: [['x']]
-  },
-  {
-    name: 'expm1',
-    signatures: [['x']]
-  },
-  {
-    name: 'cosh',
-    signatures: [['x']]
-  },
-  {
-    name: 'sinh',
-    signatures: [['x']]
-  },
-  {
-    name: 'tanh',
-    signatures: [['x']]
-  },
-  {
-    name: 'acosh',
-    signatures: [['x']]
-  },
-  {
-    name: 'asinh',
-    signatures: [['x']]
-  },
-  {
-    name: 'atanh',
-    signatures: [['x']]
-  },
-  {
-    name: 'hypot',
-    signatures: [['...values']]
-  },
-  {
-    name: 'trunc',
-    signatures: [['x']]
-  },
-  {
-    name: 'fround',
-    signatures: [['x']]
-  },
-  {
-    name: 'cbrt',
-    signatures: [['x']]
-  },
-  {
-    name: 'isInteger',
-    signatures: [['number']]
-  },
-  {
-    name: 'isSafeInteger',
-    signatures: [['number']]
-  },
-  {
-    name: 'getOwnPropertySymbols',
-    signatures: [['o']]
-  },
-  {
-    name: 'is',
-    signatures: [['value1','value2']]
-  },
-  {
-    name: 'codePointAt',
-    signatures: [['pos']]
-  },
-  {
-    name: 'endsWith',
-    signatures: [['searchString','?endPosition']]
-  },
-  {
-    name: 'repeat',
-    signatures: [['count']]
-  },
-  {
-    name: 'startsWith',
-    signatures: [['searchString','?position']]
-  },
-  {
-    name: 'anchor',
-    signatures: [['name']]
-  },
-  {
-    name: 'fontcolor',
-    signatures: [['color']]
-  },
-  {
-    name: 'fontsize',
-    signatures: [['size']]
-  },
-  {
-    name: 'link',
-    signatures: [['url']]
-  },
-  {
-    name: 'fromCodePoint',
-    signatures: [['...codePoints']]
-  },
-  {
-    name: 'raw',
-    signatures: [['template','...substitutions']]
-  },
-  {
-    name: 'flatMap',
-    signatures: [['callback','?thisArg']]
-  },
-  {
-    name: 'flat',
-    signatures: [['?depth']]
-  },
-  {
-    name: 'asIntN',
-    signatures: [['bits','int']]
-  },
-  {
-    name: 'asUintN',
-    signatures: [['bits','int']]
-  },
-  {
-    name: 'getBigInt64',
-    signatures: [['byteOffset','?littleEndian']]
-  },
-  {
-    name: 'getBigUint64',
-    signatures: [['byteOffset','?littleEndian']]
-  },
-  {
-    name: 'setBigInt64',
-    signatures: [['byteOffset','value','?littleEndian']]
-  },
-  {
-    name: 'setBigUint64',
-    signatures: [['byteOffset','value','?littleEndian']]
-  },
-  {
-    name: 'openWindow',
-    signatures: [['url']]
-  },
-  {
-    name: 'waitUntil',
-    signatures: [['f']]
-  },
-  {
-    name: 'respondWith',
-    signatures: [['r']],
-    receivers: ['FetchEvent']
-  },
-  {
-    name: 'respondWith',
-    signatures: [['paymentAbortedResponse']],
-    receivers: ['AbortPaymentEvent']
-  },
-  {
-    name: 'respondWith',
-    signatures: [['canMakePaymentResponse']],
-    receivers: ['CanMakePaymentEvent']
-  },
-  {
-    name: 'respondWith',
-    signatures: [['response']],
-    receivers: ['PaymentRequestEvent']
-  },
-  {
-    name: 'navigate',
-    signatures: [['url']],
-    receivers: ['WindowClient']
-  },
-  {
-    name: 'navigate',
-    signatures: [['url','?options']],
-    receivers: ['Navigation']
-  },
-  {
     name: 'Animation',
     signatures: [['?effect','?timeline']]
   },
@@ -5663,6 +5155,16 @@ export const NativeFunctions = [
   {
     name: 'CSSMatrixComponent',
     signatures: [['matrix','?options']]
+  },
+  {
+    name: 'sub',
+    signatures: [['...values']],
+    receivers: ['CSSNumericValue']
+  },
+  {
+    name: 'sub',
+    signatures: [['a','b']],
+    receivers: ['MLGraphBuilder']
   },
   {
     name: 'mul',
@@ -5995,6 +5497,16 @@ export const NativeFunctions = [
   {
     name: 'timeout',
     signatures: [['milliseconds']]
+  },
+  {
+    name: 'any',
+    signatures: [['signals']],
+    receivers: ['AbortSignal']
+  },
+  {
+    name: 'any',
+    signatures: [['signals','?init']],
+    receivers: ['TaskSignal']
   },
   {
     name: 'Comment',
@@ -6517,6 +6029,16 @@ export const NativeFunctions = [
     signatures: [['options']]
   },
   {
+    name: 'navigate',
+    signatures: [['url','?options']],
+    receivers: ['Navigation']
+  },
+  {
+    name: 'navigate',
+    signatures: [['url']],
+    receivers: ['WindowClient']
+  },
+  {
     name: 'traverseTo',
     signatures: [['key','?options']]
   },
@@ -6942,6 +6464,10 @@ export const NativeFunctions = [
     signatures: [['type','?eventInitDict']]
   },
   {
+    name: 'TCPServerSocket',
+    signatures: [['localAddress','?options']]
+  },
+  {
     name: 'TCPSocket',
     signatures: [['remoteAddress','remotePort','?options']]
   },
@@ -7265,6 +6791,10 @@ export const NativeFunctions = [
     signatures: [['constraint','message']]
   },
   {
+    name: 'computeSync',
+    signatures: [['graph','inputs','outputs']]
+  },
+  {
     name: 'MLModelLoader',
     signatures: [['context']]
   },
@@ -7329,12 +6859,12 @@ export const NativeFunctions = [
     signatures: [['input','?options']]
   },
   {
-    name: 'softmax',
-    signatures: [['input']]
-  },
-  {
     name: 'sigmoid',
     signatures: [['?input']]
+  },
+  {
+    name: 'softmax',
+    signatures: [['input']]
   },
   {
     name: 'build',
@@ -7389,6 +6919,26 @@ export const NativeFunctions = [
     signatures: [['type','eventInitDict']]
   },
   {
+    name: 'respondWith',
+    signatures: [['paymentAbortedResponse']],
+    receivers: ['AbortPaymentEvent']
+  },
+  {
+    name: 'respondWith',
+    signatures: [['canMakePaymentResponse']],
+    receivers: ['CanMakePaymentEvent']
+  },
+  {
+    name: 'respondWith',
+    signatures: [['response']],
+    receivers: ['PaymentRequestEvent']
+  },
+  {
+    name: 'respondWith',
+    signatures: [['r']],
+    receivers: ['FetchEvent']
+  },
+  {
     name: 'CanMakePaymentEvent',
     signatures: [['type','eventInitDict']]
   },
@@ -7419,6 +6969,10 @@ export const NativeFunctions = [
   {
     name: 'PaymentRequestEvent',
     signatures: [['type','eventInitDict']]
+  },
+  {
+    name: 'openWindow',
+    signatures: [['url']]
   },
   {
     name: 'changePaymentMethod',
@@ -7655,6 +7209,10 @@ export const NativeFunctions = [
   {
     name: 'ExtendableEvent',
     signatures: [['type','?eventInitDict']]
+  },
+  {
+    name: 'waitUntil',
+    signatures: [['f']]
   },
   {
     name: 'ExtendableMessageEvent',

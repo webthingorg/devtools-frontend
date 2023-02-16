@@ -384,6 +384,14 @@
       ],
     },
     {
+      name: "PrefixedStorageInfo",
+      message: "`window.webkitStorageInfo` is deprecated. Please use standardized `navigator.storage` instead.",
+      translation_note: "Warning displayed to developers when `window.webkitStorageInfo` is used to notify that the API is deprecated.",
+      web_features: [
+        "kPrefixedStorageInfo",
+      ],
+    },
+    {
       name: "PrefixedVideoDisplayingFullscreen",
       message: "HTMLVideoElement.webkitDisplayingFullscreen is deprecated. Please use Document.fullscreenElement instead.",
       translation_note: "Standard message when one web API is deprecated in favor of another.",
@@ -511,6 +519,26 @@
         "kV8SharedArrayBufferConstructedInExtensionWithoutIsolation",
       ],
       milestone: 96,
+    },
+    {
+      name: "WindowPlacementPermissionDescriptorUsed",
+      message: "The permission descriptor `window-placement` is deprecated. Use `window-management` instead. For more help, check https://bit.ly/window-placement-rename.",
+      translation_note: "A deprecation warning shown in the DevTools Issues tab. 'window-placement' and 'window-management' are the name of the javascript descriptors (do not translate). The warning is shown when web pages attempt to use 'window-placement' in permission APIs (e.g. navigator.permissions.query(...))",
+      web_features: [
+        "kWindowPlacementPermissionDescriptorUsed",
+      ],
+      milestone: 112,
+      chrome_status_feature: 5137018030391296,
+    },
+    {
+      name: "WindowPlacementPermissionPolicyParsed",
+      message: "The permission policy `window-placement` is deprecated. Use `window-management` instead. For more help, check https://bit.ly/window-placement-rename.",
+      translation_note: "A deprecation warning shown in the DevTools Issues tab. 'window-placement' and 'window-management' are the name of the policy descriptors (do not translate). The warning is shown when web pages attempt to use 'window-placement' as a permission policy (parsed in iframe or header).",
+      web_features: [
+        "kWindowPlacementPermissionPolicyParsed",
+      ],
+      milestone: 112,
+      chrome_status_feature: 5137018030391296,
     },
     {
       name: "XHRJSONEncodingDetection",

@@ -3509,7 +3509,6 @@ export const generatedProperties = [
    "pre-wrap",
    "pre-line",
    "nowrap",
-   "-webkit-nowrap",
    "break-spaces"
   ],
   "name": "white-space"
@@ -5429,7 +5428,6 @@ export const generatedPropertyValues = {
    "pre-wrap",
    "pre-line",
    "nowrap",
-   "-webkit-nowrap",
    "break-spaces"
   ]
  },
