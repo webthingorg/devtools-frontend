@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e0f040_1ad106f2",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-16T15:09:40Z",
+      "side": 1,
+      "message": "I think we need to change this to `Promise\u003cvoid\u003e` to solve the compile error.",
+      "range": {
+        "startLine": 119,
+        "startChar": 69,
+        "endLine": 119,
+        "endChar": 73
+      },
+      "revId": "a98a2742dc0d7efb9c0417d0291da6381ba49789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
