@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a7b13c_c339075f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-16T21:06:04Z",
+      "side": 1,
+      "message": "Noticed that we\u0027re doing some redundant work when parsing the trace, just slowing things down.",
+      "revId": "e00011eef46823a15567d0a9b98af6eec315096a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
