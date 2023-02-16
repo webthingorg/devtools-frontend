@@ -187,11 +187,11 @@ Element.prototype.createChild = function(elementName: string, className?: string
 DocumentFragment.prototype.createChild = Element.prototype.createChild;
 
 Element.prototype.totalOffsetLeft = function(): number {
-  return this.totalOffset().left;
+  return this.getBoundingClientRect().left;
 };
 
 Element.prototype.totalOffsetTop = function(): number {
-  return this.totalOffset().top;
+  return this.getBoundingClientRect().top;
 };
 
 Element.prototype.totalOffset = function(): {
