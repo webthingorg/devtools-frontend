@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "ab65bf86cadc055021cebc9e849e8b4aa51011fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37a9b47_50c9ebfa",
+        "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-16T12:17:49Z",
+      "side": 1,
+      "message": "I will investigate this flake in a separate CL.",
+      "range": {
+        "startLine": 230,
+        "startChar": 6,
+        "endLine": 230,
+        "endChar": 73
+      },
+      "revId": "ab65bf86cadc055021cebc9e849e8b4aa51011fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
