@@ -116,7 +116,12 @@ describeWithMockConnection('StorageView', () => {
       await cacheAddedPromise;
       caches = [];
 
+<<<<<<< HEAD   (cae193 Remove security origin support from DOM Storage code as it w)
       Resources.StorageView.StorageView.clear(target, testOrigin, [Protocol.Storage.StorageType.Cache_storage], false);
+=======
+      Resources.StorageView.StorageView.clear(
+          target, testOrigin, '', [Protocol.Storage.StorageType.Cache_storage], false);
+>>>>>>> CHANGE (7ce487 Fix test for back merge)
 
       assert.isEmpty(cacheStorageModel.caches());
     });
