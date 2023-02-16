@@ -103,3 +103,39 @@ export class Throttler {
     return window.performance.now();
   }
 }
+
+export namespace SimpleThrottler {
+  // Export auxiliary types for tests.
+  export type ThrottleTask = () => void;
+  export type Throttle = (task: ThrottleTask) => void;
+  export interface TimeoutControlForTest {
+    setTimeout(callback: () => void, timeout: number): number;
+    clearTimeout(id: number|undefined): void;
+  }
+
+  export function makeSimpleThrottler(
+      duration: number, condition: (pending: ThrottleTask[]) => boolean,
+      timeoutControl: TimeoutControlForTest = window): Throttle {
+    const tasks: ThrottleTask[] = [];
+    let timeout: number|undefined = undefined;
+
+    function flush(): void {
+      const taskCount = tasks.length;
+      tasks.forEach(task => task());
+      // Assert that the task handlers did not add more tasks.
+      console.assert(tasks.length === taskCount);
+      tasks.length = 0;
+      timeoutControl.clearTimeout(timeout);
+      timeout = undefined;
+    }
+
+    return (task: ThrottleTask) => {
+      tasks.push(task);
+      if (condition(tasks)) {
+        flush();
+      } else if (timeout === undefined) {
+        timeout = timeoutControl.setTimeout(flush, duration);
+      }
+    };
+  }
+}
