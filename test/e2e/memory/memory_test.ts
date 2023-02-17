@@ -84,9 +84,10 @@ describe('The Memory Panel', async function() {
     ]);
   });
 
-  // Flaky test
-  it.skip(
-      '[crbug.com/1134602] Correctly retains the path for event listeners', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only(
+      'Correctly retains the path for event listeners', async () => {
+        this.timeout(30000);
         await goToResource('memory/event-listeners.html');
         await step('taking a heap snapshot', async () => {
           await navigateToMemoryTab();
