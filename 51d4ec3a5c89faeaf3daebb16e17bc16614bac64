@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a88d35_62842e04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-17T15:39:44Z",
+      "side": 1,
+      "message": "I am not sure which source codes can be considered the same. Adding Eric and Benedikt to chime in on the issue of source code identity.\n\nModulo the exact criteria for identity, the CL looks good.",
+      "revId": "51d4ec3a5c89faeaf3daebb16e17bc16614bac64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00c01dfc_d60ec250",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-02-17T15:39:44Z",
+      "side": 1,
+      "message": "is not there a danger that we get confused between different content types?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 3
+      },
+      "revId": "51d4ec3a5c89faeaf3daebb16e17bc16614bac64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
