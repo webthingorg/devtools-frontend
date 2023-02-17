@@ -33,6 +33,23 @@
       "message": "lgtm. not sure about that layout test, I am going to take a look at it as we have a lot of unit tests for user timing parsing now, so I am hopeful we might be able to just remove that layout test",
       "revId": "e00011eef46823a15567d0a9b98af6eec315096a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8dcb03_978876a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-17T08:45:58Z",
+      "side": 1,
+      "message": "Took a look at the layout test {https://chromium.googlesource.com/chromium/src/+/6a3d1821d20a6bf498b338c0cc7cca42cf63b028/third_party/blink/web_tests/http/tests/devtools/tracing/timeline-misc/timeline-user-timings.js) but I think it is testing the event trees rather than events on the track so we cannot delete it just yet. I do not really understand why it has broken due to this change.",
+      "revId": "e00011eef46823a15567d0a9b98af6eec315096a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
