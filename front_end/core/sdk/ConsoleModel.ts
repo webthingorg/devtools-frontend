@@ -64,6 +64,12 @@ const UIStrings = {
    */
   navigatedToS: 'Navigated to {PH1}',
   /**
+   *@description Text shown when the main frame (page) of the website was navigated to a different URL
+   * and the page was restored from back/forward cache (https://web.dev/bfcache/).
+   *@example {https://example.com} PH1
+   */
+  bfcacheNavigation: 'Navigated to {PH1} (Restored from back/forward cache)',
+  /**
    *@description Text shown in the console when a performance profile (with the given name) was started.
    *@example {title} PH1
    */
@@ -299,6 +305,11 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     };
     const consoleMessage =
         new ConsoleMessage(runtimeModel, FrontendMessageSource.ConsoleAPI, level, (message as string), details);
+    for (const msg of this.#messagesInternal) {
+      if (consoleMessage.isEqual(msg)) {
+        return;
+      }
+    }
     this.addMessage(consoleMessage);
   }
 
@@ -324,7 +335,12 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
 
   private mainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeFrame>): void {
     if (Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get()) {
-      Common.Console.Console.instance().log(i18nString(UIStrings.navigatedToS, {PH1: event.data.url}));
+      const frame = event.data;
+      if (frame.backForwardCacheDetails.restoredFromCache) {
+        Common.Console.Console.instance().log(i18nString(UIStrings.bfcacheNavigation, {PH1: event.data.url}));
+      } else {
+        Common.Console.Console.instance().log(i18nString(UIStrings.navigatedToS, {PH1: event.data.url}));
+      }
     }
   }
 
