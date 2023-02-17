@@ -16,6 +16,52 @@
       "message": "Please find the below stress runs for the deflaked tests:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8788903690854729969/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8788903690854729953/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8788903690854729937/overview",
       "revId": "fb81a0865ca9412429cbd61a67045d57877ff6a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "169d4ac9_8dc3a5ea",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-17T16:00:09Z",
+      "side": 1,
+      "message": "is this a good name? I have taken it from the `waitForFunction` options (https://pptr.dev/api/puppeteer.framewaitforfunctionoptions)",
+      "range": {
+        "startLine": 141,
+        "startChar": 61,
+        "endLine": 141,
+        "endChar": 68
+      },
+      "revId": "fb81a0865ca9412429cbd61a67045d57877ff6a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6568caf6_8a95e587",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-17T16:00:09Z",
+      "side": 1,
+      "message": "this this too long?",
+      "range": {
+        "startLine": 141,
+        "startChar": 79,
+        "endLine": 141,
+        "endChar": 82
+      },
+      "revId": "fb81a0865ca9412429cbd61a67045d57877ff6a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
