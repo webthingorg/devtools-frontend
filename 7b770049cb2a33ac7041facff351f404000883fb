@@ -16,6 +16,98 @@
       "message": "Could you have a look?",
       "revId": "7b770049cb2a33ac7041facff351f404000883fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ec1e93_272022cc",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-17T16:39:33Z",
+      "side": 1,
+      "message": "Do you plan to use it with a different template parameters in future?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31296028_86b20b76",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-17T16:39:33Z",
+      "side": 1,
+      "message": "Will this do more in future? Otherwise I\u0027d simply inline this function.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 59
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85e3f0b_d8a26f50",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-17T16:39:33Z",
+      "side": 1,
+      "message": "No need to have a CDP dispatcher, just listen to ResourceTreeMode.Events.MainFrameNavigated like e.g. here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/ConsoleModel.ts;l\u003d325?q\u003dMainFrameNavigated%20lang:ts",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09cec88_cc878990",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-17T16:39:33Z",
+      "side": 1,
+      "message": "It don\u0027t thin this is very useful. I\u0027d prefer us to test the public class (PreloadingModel) itself.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 27
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
