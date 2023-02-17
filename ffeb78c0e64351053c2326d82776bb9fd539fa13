@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1489639_f7d4104d",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-17T15:53:34Z",
+      "side": 1,
+      "message": "this step seems to flake when the `waitForFunction` in `findSearchResult` is stuck in an infinite loop when the below block is never entered (this is only a guess though):\n```\n    if (currentMatch \u0026\u0026 currentTextContent !\u003d\u003d previousContent) {\n      return currentMatch;\n    }\n```\nTo overcome this we created a promise race to try periodically until we find the search result.",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 76
+      },
+      "revId": "ffeb78c0e64351053c2326d82776bb9fd539fa13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01ed9650_57326edf",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-17T15:53:34Z",
+      "side": 1,
+      "message": "this was failing because the retainer chain sometimes appears differently; the last element sometimes appears as `Event` or `PageTransitionEvent`, this was apparent from investigating the snapshots. Therefore we relaxed the check to only verify that the elements appear in order (regardless of what elements are in between them) and removed the inconsistent elements.",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "ffeb78c0e64351053c2326d82776bb9fd539fa13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
