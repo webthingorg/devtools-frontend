@@ -33,6 +33,29 @@
       "message": "Note: This is definitely not the ideal / most beautiful solution. But I was looking for the minimal change, so that we can safely back-merge the fix to M-111.",
       "revId": "1bea7f5a0df500dd6a72e1d7f170ee3fe1dcd016",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b7459a_f35f0e2e",
+        "filename": "front_end/panels/sources/ResourceOriginPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-17T09:03:30Z",
+      "side": 1,
+      "message": "`debuggerWorkspaceBinding`",
+      "range": {
+        "startLine": 50,
+        "startChar": 26,
+        "endLine": 50,
+        "endChar": 96
+      },
+      "revId": "1bea7f5a0df500dd6a72e1d7f170ee3fe1dcd016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
