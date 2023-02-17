@@ -7,7 +7,7 @@ import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import type * as Protocol from '../../generated/protocol.js';
-import {type TargetManager} from './TargetManager.js';
+import {TargetManager} from './TargetManager.js';
 import {SDKModel} from './SDKModel.js';
 
 export class Target extends ProtocolClient.InspectorBackend.TargetBase {
@@ -146,6 +146,19 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
 
   parentTarget(): Target|null {
     return this.#parentTargetInternal;
+  }
+
+  outermostTarget(): Target {
+    if (!this.parentTarget()) {
+      return this;
+    }
+    const result: Target = this;
+    for (;;) {
+      if (result.parentTarget() === TargetManager.instance().mainTarget()) {
+        break;
+      }
+    }
+    return result;
   }
 
   dispose(reason: string): void {

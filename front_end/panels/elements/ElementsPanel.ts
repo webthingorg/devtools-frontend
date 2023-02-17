@@ -39,6 +39,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Extensions from '../../models/extensions/extensions.js';
+import * as ScopedTargetManager from '../../models/scoped_target_manager/scoped_target_manager.js';
 
 import elementsPanelStyles from './elementsPanel.css.js';
 
@@ -277,13 +278,13 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.updateSidebarPosition();
 
     this.cssStyleTrackerByCSSModel = new Map();
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
+    ScopedTargetManager.ScopedTargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.NameChanged, event => this.targetNameChanged(event.data));
     Common.Settings.Settings.instance()
         .moduleSetting('showUAShadowDOM')
         .addChangeListener(this.showUAShadowDOMChanged.bind(this));
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DocumentUpdated, this.documentUpdatedEvent, this);
     Extensions.ExtensionServer.ExtensionServer.instance().addEventListener(
         Extensions.ExtensionServer.Events.SidebarPaneAdded, this.extensionSidebarPaneAdded, this);
@@ -295,6 +296,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         Common.Settings.Settings.instance().moduleSetting('adornerSettings'));
     this.adornerSettingsPane = null;
     this.adornersByName = new Map();
+
+    UI.Context.Context.instance().addFlavorChangeListener(
+        SDK.Target.Target, ({data}) => this.documentUpdated(data.model(SDK.DOMModel.DOMModel)));
   }
 
   private initializeFullAccessibilityTreeView(): void {
@@ -446,7 +450,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       }
     }
 
-    const domModels = SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel);
+    const domModels = ScopedTargetManager.ScopedTargetManager.instance().models(SDK.DOMModel.DOMModel);
     for (const domModel of domModels) {
       if (domModel.parentModel()) {
         continue;
@@ -547,7 +551,10 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.setupStyleTracking(domModel.cssModel());
   }
 
-  private documentUpdated(domModel: SDK.DOMModel.DOMModel): void {
+  private documentUpdated(domModel: SDK.DOMModel.DOMModel|null): void {
+    if (!domModel) {
+      return;
+    }
     this.searchableViewInternal.resetSearch();
 
     if (!domModel.existingDocument()) {
@@ -649,7 +656,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.searchConfig = searchConfig;
 
     const showUAShadowDOM = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get();
-    const domModels = SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel);
+    const domModels = ScopedTargetManager.ScopedTargetManager.instance().models(SDK.DOMModel.DOMModel);
     const promises = domModels.map(domModel => domModel.performSearch(whitespaceTrimmedQuery, showUAShadowDOM));
     void Promise.all(promises).then(resultCounts => {
       this.searchResults = [];

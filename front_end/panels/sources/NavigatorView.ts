@@ -36,6 +36,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
+import * as ScopedTargetManager from '../../models/scoped_target_manager/scoped_target_manager.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -241,7 +242,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.NameChanged, this.targetNameChanged, this);
 
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    ScopedTargetManager.ScopedTargetManager.instance().observeTargets(this);
     this.resetWorkspace(Workspace.Workspace.WorkspaceImpl.instance());
     this.workspaceInternal.uiSourceCodes().forEach(this.addUISourceCode.bind(this));
     Bindings.NetworkProject.NetworkProjectManager.instance().addEventListener(

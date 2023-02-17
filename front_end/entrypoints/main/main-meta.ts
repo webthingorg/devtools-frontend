@@ -944,6 +944,19 @@ UI.Toolbar.registerToolbarItem({
   actionId: undefined,
 });
 
+UI.Toolbar.registerToolbarItem({
+  async loadItem() {
+    const Main = await loadMainModule();
+    return Main.TopLevelTargetSelector.TopLevelTargetSelector.instance();
+  },
+  order: 101,
+  location: UI.Toolbar.ToolbarItemLocation.MAIN_TOOLBAR_RIGHT,
+  showLabel: undefined,
+  condition: undefined,
+  separator: undefined,
+  actionId: undefined,
+});
+
 Common.AppProvider.registerAppProvider({
   async loadAppProvider() {
     const Main = await loadMainModule();
