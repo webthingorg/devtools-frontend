@@ -140,6 +140,8 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         Workspace.UISourceCode.Events.WorkingCopyChanged, this.onWorkingCopyChanged, this);
 
     this.filePathPrefixesToBindingCount.remove(binding.fileSystem.url());
+
+    // If the filesystem UI source code has not been removed yet, copy the breakpoint there.
     await this.breakpointManager.copyBreakpoints(binding.network, binding.fileSystem);
 
     this.notifyBindingEvent(binding.network);
