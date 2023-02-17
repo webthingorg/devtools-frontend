@@ -84,9 +84,9 @@ describe('The Memory Panel', async function() {
     ]);
   });
 
-  // Flaky test
-  it.skip(
-      '[crbug.com/1134602] Correctly retains the path for event listeners', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only(
+      'Correctly retains the path for event listeners', async () => {
         await goToResource('memory/event-listeners.html');
         await step('taking a heap snapshot', async () => {
           await navigateToMemoryTab();
@@ -99,9 +99,17 @@ describe('The Memory Panel', async function() {
         });
 
         await step('selecting the search result that we need', async () => {
-          await findSearchResult(async p => {
-            const el = await p.$(':scope > td > div > .object-value-function');
-            return el !== null && await el.evaluate(el => el.textContent === 'myEventListener()');
+          const next = await waitFor('[aria-label="Search next"]');
+          const match = await waitFor('#profile-views table.data');
+          await waitForFunction(async () => {
+            await next.click();
+            const result = Promise.race([
+              waitForElementWithTextContent('myEventListener()', match),
+              new Promise(resolve => {
+                setTimeout(resolve, 500, false);
+              }),
+            ]);
+            return result;
           });
         });
 
@@ -114,7 +122,6 @@ describe('The Memory Panel', async function() {
             'HTMLBodyElement',
             'HTMLHtmlElement',
             'HTMLDocument',
-            'Window',
           ]);
         });
       });

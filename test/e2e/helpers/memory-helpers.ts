@@ -228,17 +228,37 @@ export async function waitUntilRetainerChainSatisfies(p: (retainerChain: Array<R
   await waitForFunction(assertRetainerChainSatisfies.bind(null, p));
 }
 
+export function appearsInOrder(targetArray: string[], inputArray: string[]) {
+  let i = 0;
+  let j = 0;
+
+  if (inputArray.length > targetArray.length) {
+    return false;
+  }
+
+  if (inputArray === targetArray) {
+    return true;
+  }
+
+  while (i < targetArray.length && j < inputArray.length) {
+    if (inputArray[j] === targetArray[i]) {
+      i += 1;
+      j += 1;
+    } else {
+      i += 1;
+    }
+  }
+
+  if (j === inputArray.length) {
+    return true;
+  }
+  return false;
+}
+
 export async function waitForRetainerChain(expectedRetainers: Array<string>) {
   await waitForFunction(assertRetainerChainSatisfies.bind(null, retainerChain => {
-    if (retainerChain.length !== expectedRetainers.length) {
-      return false;
-    }
-    for (let i = 0; i < expectedRetainers.length; ++i) {
-      if (retainerChain[i].retainerClassName !== expectedRetainers[i]) {
-        return false;
-      }
-    }
-    return true;
+    const actual = retainerChain.map(e => e.retainerClassName);
+    return appearsInOrder(actual, expectedRetainers);
   }));
 }
 
