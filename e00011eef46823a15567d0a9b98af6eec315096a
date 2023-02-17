@@ -16,6 +16,23 @@
       "message": "Noticed that we\u0027re doing some redundant work when parsing the trace, just slowing things down.",
       "revId": "e00011eef46823a15567d0a9b98af6eec315096a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7494a6_bc748467",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-17T08:15:52Z",
+      "side": 1,
+      "message": "lgtm. not sure about that layout test, I am going to take a look at it as we have a lot of unit tests for user timing parsing now, so I am hopeful we might be able to just remove that layout test",
+      "revId": "e00011eef46823a15567d0a9b98af6eec315096a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
