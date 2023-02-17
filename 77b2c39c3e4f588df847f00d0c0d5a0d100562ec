@@ -39,6 +39,30 @@
       },
       "revId": "77b2c39c3e4f588df847f00d0c0d5a0d100562ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f548e5_87977e18",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-17T06:39:37Z",
+      "side": 1,
+      "message": "Yes. Already mentioned in the doc.",
+      "parentUuid": "50bb6741_fb54d056",
+      "range": {
+        "startLine": 356,
+        "startChar": 6,
+        "endLine": 356,
+        "endChar": 51
+      },
+      "revId": "77b2c39c3e4f588df847f00d0c0d5a0d100562ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
