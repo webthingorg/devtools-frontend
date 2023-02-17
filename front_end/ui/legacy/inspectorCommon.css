@@ -546,6 +546,10 @@ span[is="dt-icon-label"] {
   background-image: var(--image-file-popoverArrows);
 }
 
+.spritesheet-database {
+  -webkit-mask-image: var(--image-file-database);
+}
+
 .force-white-icons [is="ui-icon"].spritesheet-smallicons,
 :host-context(.force-white-icons) [is="ui-icon"].spritesheet-smallicons,
 [is="ui-icon"].force-white-icons.spritesheet-smallicons,
@@ -569,6 +573,15 @@ span[is="dt-icon-label"] {
 [is="ui-icon"].force-white-icons.spritesheet-mediumicons,
 .-theme-preserve {
   -webkit-mask-image: var(--image-file-mediumIcons);
+  -webkit-mask-position: var(--spritesheet-position);
+  background: var(--override-force-white-icons-background) !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.force-white-icons [is="ui-icon"].spritesheet-database,
+:host-context(.force-white-icons) [is="ui-icon"].spritesheet-database,
+[is="ui-icon"].force-white-icons.spritesheet-database,
+.-theme-preserve {
+  -webkit-mask-image: var(--image-file-database);
   -webkit-mask-position: var(--spritesheet-position);
   background: var(--override-force-white-icons-background) !important; /* stylelint-disable-line declaration-no-important */
 }
