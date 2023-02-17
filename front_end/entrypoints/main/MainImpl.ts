@@ -41,6 +41,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
+import * as ScopedTargetManager from '../../models/scoped_target_manager/scoped_target_manager.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as Persistence from '../../models/persistence/persistence.js';
@@ -546,6 +547,10 @@ export class MainImpl {
       forceNew: true,
       resourceMapping,
       targetManager: SDK.TargetManager.TargetManager.instance(),
+    });
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, ({data}) => {
+      const outermostTarget = data?.outermostTarget();
+      ScopedTargetManager.ScopedTargetManager.instance().setOutermostTarget(outermostTarget);
     });
     // @ts-ignore layout test global
     self.Bindings.breakpointManager = Bindings.BreakpointManager.BreakpointManager.instance({

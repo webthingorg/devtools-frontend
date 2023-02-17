@@ -36,6 +36,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
+import * as ScopedTargetManager from '../../models/scoped_target_manager/scoped_target_manager.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
@@ -314,21 +315,21 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
         .addChangeListener(this.breakpointsActiveStateChanged, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, this.onCurrentTargetChanged, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DebuggerModel.CallFrame, this.callFrameChanged, this);
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerWasEnabled, this.debuggerWasEnabled, this);
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this.debuggerPaused, this);
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebugInfoAttached, this.debugInfoAttached, this);
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed,
         event => this.debuggerResumed(event.data));
-    SDK.TargetManager.TargetManager.instance().addModelListener(
+    ScopedTargetManager.ScopedTargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.GlobalObjectCleared,
         event => this.debuggerResumed(event.data));
     Extensions.ExtensionServer.ExtensionServer.instance().addEventListener(
         Extensions.ExtensionServer.Events.SidebarPaneAdded, this.extensionSidebarPaneAdded, this);
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    ScopedTargetManager.ScopedTargetManager.instance().observeTargets(this);
     this.lastModificationTime = -Infinity;
   }
 

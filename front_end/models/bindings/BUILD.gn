@@ -37,6 +37,7 @@ devtools_module("bindings") {
     "../../core/root:bundle",
     "../../core/sdk:bundle",
     "../../generated:protocol",
+    "../../models/scoped_target_manager:bundle",
     "../../models/text_utils:bundle",
     "../../models/workspace:bundle",
   ]
@@ -75,6 +76,7 @@ devtools_entrypoint("bundle") {
     "../extensions/*",
     "../formatter/*",
     "../issues_manager/*",
+    "../scoped_target_manager/*",
     "../source_map_scopes/*",
   ]
 
