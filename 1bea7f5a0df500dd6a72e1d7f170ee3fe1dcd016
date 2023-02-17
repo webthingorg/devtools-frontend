@@ -56,6 +56,30 @@
       },
       "revId": "1bea7f5a0df500dd6a72e1d7f170ee3fe1dcd016",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58131908_8692531b",
+        "filename": "front_end/panels/sources/ResourceOriginPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-17T09:22:22Z",
+      "side": 1,
+      "message": "Yeah, somehow that made it into https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4262673 later 😊",
+      "parentUuid": "a1b7459a_f35f0e2e",
+      "range": {
+        "startLine": 50,
+        "startChar": 26,
+        "endLine": 50,
+        "endChar": 96
+      },
+      "revId": "1bea7f5a0df500dd6a72e1d7f170ee3fe1dcd016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
