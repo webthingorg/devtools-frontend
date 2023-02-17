@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "c9e0e99374a2e5adc202bf750b145027d4ceccdc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398a291e_ade3e71f",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-17T09:14:08Z",
+      "side": 1,
+      "message": "this is another false positive, I am working on a CL to fix the detection in the rule so that this line can be removed",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 63
+      },
+      "revId": "c9e0e99374a2e5adc202bf750b145027d4ceccdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
