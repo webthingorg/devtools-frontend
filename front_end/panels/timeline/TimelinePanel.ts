@@ -1106,21 +1106,21 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.setModel(null);
   }
 
-  private applyFilters(model: PerformanceModel): void {
+  private applyFilters(model: PerformanceModel, filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): void {
     if (model.timelineModel().isGenericTrace() || Root.Runtime.experiments.isEnabled('timelineShowAllEvents')) {
       return;
     }
-    model.setFilters([TimelineUIUtils.visibleEventsFilter()]);
+    model.setFilters(filter ? [filter] : [TimelineUIUtils.visibleEventsFilter()]);
   }
 
-  private setModel(model: PerformanceModel|null): void {
+  private setModel(model: PerformanceModel|null, filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): void {
     if (this.performanceModel) {
       this.performanceModel.removeEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
     }
     this.performanceModel = model;
     if (model) {
       this.searchableViewInternal.showWidget();
-      this.applyFilters(model);
+      this.applyFilters(model, filter);
     } else {
       this.searchableViewInternal.hideWidget();
     }
@@ -1274,7 +1274,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.flameChart.updateColorMapper();
   }
 
-  async loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): Promise<void> {
+  async loadingComplete(
+      tracingModel: SDK.TracingModel.TracingModel|null,
+      filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): Promise<void> {
     this.#traceEngineModel.reset();
     delete this.loader;
     this.setState(State.Idle);
@@ -1294,7 +1296,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     await this.performanceModel.setTracingModel(tracingModel);
-    this.setModel(this.performanceModel);
+    this.setModel(this.performanceModel, filter);
 
     if (!this.performanceModel.hasEventListeners(Events.NamesResolved)) {
       this.performanceModel.addEventListener(Events.NamesResolved, this.updateModelAndFlameChart, this);
