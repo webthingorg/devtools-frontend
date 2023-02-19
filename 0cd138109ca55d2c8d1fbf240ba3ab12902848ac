@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e781e29d_4e1b5a97",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-19T00:00:33Z",
+      "side": 0,
+      "message": "Back when this stuff relanded (https://crrev.com/c/967466) pavel flagged that maybe we dont want this to be user visible. I agree with him, especially given how much sampling data transforms before its in the flamechart.",
+      "revId": "0cd138109ca55d2c8d1fbf240ba3ab12902848ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
