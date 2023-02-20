@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2321a428_e405f703",
+        "filename": "front_end/models/bindings/DefaultScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2023-02-20T09:26:02Z",
+      "side": 1,
+      "message": "WDYT about calling this `unconditinoallyIgnoreListed` here and everywhere else?",
+      "revId": "0243ed4e4b0133c52d0d4a29b70359f658ead9d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a6456c9_08fe1a1f",
         "filename": "front_end/models/workspace/UISourceCode.ts",
         "patchSetId": 1
