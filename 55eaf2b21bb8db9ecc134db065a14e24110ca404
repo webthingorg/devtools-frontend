@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "55eaf2b21bb8db9ecc134db065a14e24110ca404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ccd79d_b3379ff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-20T14:34:50Z",
+      "side": 1,
+      "message": "This CL feels very good 😎",
+      "revId": "55eaf2b21bb8db9ecc134db065a14e24110ca404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
