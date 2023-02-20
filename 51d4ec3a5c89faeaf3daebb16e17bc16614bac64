@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3ae79be_f633cbe4",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-20T05:31:46Z",
+      "side": 1,
+      "message": "See Jaro\u0027s comment on the `allUiSourceCodesForURL` method: I think it\u0027d be better to pass url and content type here. Or even better have a `Workspace#findCompatibleUISourceCodes(uiSourceCode)` method that encapsulates the logic.",
+      "revId": "51d4ec3a5c89faeaf3daebb16e17bc16614bac64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00c01dfc_d60ec250",
         "filename": "front_end/models/workspace/WorkspaceImpl.ts",
         "patchSetId": 11
