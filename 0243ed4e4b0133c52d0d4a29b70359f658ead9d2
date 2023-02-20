@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a6456c9_08fe1a1f",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-20T08:24:41Z",
+      "side": 1,
+      "message": "@victor: I didn\u0027t want to lump this in with `isKnownThirdParty` as that one has it\u0027s own user setting with already defined semantics. Misusing that to ignore debug internal scripts felt wrong but I\u0027m open to suggestions how to code this differently.",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "0243ed4e4b0133c52d0d4a29b70359f658ead9d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
