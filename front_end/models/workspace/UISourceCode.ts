@@ -72,6 +72,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
   private disableEditInternal: boolean;
   private contentEncodedInternal?: boolean;
   private isKnownThirdPartyInternal: boolean;
+  private isIgnoreListedInternal: boolean;
 
   constructor(project: Project, url: Platform.DevToolsPath.UrlString, contentType: Common.ResourceType.ResourceType) {
     super();
@@ -110,6 +111,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     this.workingCopyGetter = null;
     this.disableEditInternal = false;
     this.isKnownThirdPartyInternal = false;
+    this.isIgnoreListedInternal = false;
   }
 
   requestMetadata(): Promise<UISourceCodeMetadata|null> {
@@ -404,6 +406,21 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
 
   markKnownThirdParty(): void {
     this.isKnownThirdPartyInternal = true;
+  }
+
+  /**
+   * {@link markAsIgnoreListed}
+   */
+  isIgnoreListed(): boolean {
+    return this.isIgnoreListedInternal;
+  }
+
+  /**
+   * Unconditionally ignore list this UISourcecode, ignoring any user
+   * setting. We use this to mark breakpoint/logpoint condition scripts for now.
+   */
+  markAsIgnoreListed(): void {
+    this.isIgnoreListedInternal = true;
   }
 
   extension(): string {
