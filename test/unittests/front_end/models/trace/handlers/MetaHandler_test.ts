@@ -470,7 +470,11 @@ describe('MetaHandler', () => {
   });
 
   describe('Unsupported files', () => {
-    it('throws when TracingStartedInBrowser is missing', async () => {
+    // Failing on trace files without TracingStartedInBrowser will
+    // cause generic traces used in layout tests to fail.
+    // TODO(crbug.com/1417612): Add support for generic traces in new
+    // engine and test behaviour for such support here.
+    it.skip('[crbug.com/1417612] throws when TracingStartedInBrowser is missing', async () => {
       const traceEvents = await loadEventsFromTraceFile('missing-tracing-start.json.gz');
 
       TraceModel.Handlers.ModelHandlers.Meta.reset();
