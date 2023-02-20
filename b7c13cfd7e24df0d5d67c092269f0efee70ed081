@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8818672c_50c5f902",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-20T13:47:36Z",
+      "side": 1,
+      "message": "PTAL. I know the plan was to add a separate module with a weakmap to link events to payloads, but this approach feels cleaner and avoids the entirely new module that didn\u0027t really do much different to this. This also means we know if the event is destroyed that the payload is too, and we do not need to lean on a WeakMap to make that happen.",
+      "revId": "b7c13cfd7e24df0d5d67c092269f0efee70ed081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
