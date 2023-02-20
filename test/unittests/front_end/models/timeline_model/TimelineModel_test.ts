@@ -288,7 +288,6 @@ describeWithEnvironment('TimelineModel', () => {
           tid: 1,        // CrRendererMain
           id: '1234',
           bind_id: '1234',
-          s: '',
           ts: 10,
           dur: 500,
           scope: 'scope',
@@ -313,7 +312,6 @@ describeWithEnvironment('TimelineModel', () => {
           tid: 1,        // CrRendererMain
           id: '1234',
           bind_id: '1234',
-          s: '',
           ts: 10,
           dur: 500,
           scope: 'scope',
@@ -338,7 +336,6 @@ describeWithEnvironment('TimelineModel', () => {
           tid: 1,        // CrRendererMain
           id: '1234',
           bind_id: '1234',
-          s: '',
           ts: 10,
           dur: 500,
           scope: 'scope',
