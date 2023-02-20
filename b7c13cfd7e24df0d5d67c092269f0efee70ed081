@@ -39,6 +39,30 @@
       },
       "revId": "b7c13cfd7e24df0d5d67c092269f0efee70ed081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03c872c_7f713b19",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-20T14:58:12Z",
+      "side": 1,
+      "message": "Yes, great catch, thank you!",
+      "parentUuid": "7f372c35_eb55f3fa",
+      "range": {
+        "startLine": 674,
+        "startChar": 2,
+        "endLine": 674,
+        "endChar": 13
+      },
+      "revId": "b7c13cfd7e24df0d5d67c092269f0efee70ed081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
