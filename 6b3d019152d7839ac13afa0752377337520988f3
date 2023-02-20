@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a247467_c907c581",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-20T13:12:02Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "6b3d019152d7839ac13afa0752377337520988f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af5cdce2_547ed37e",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "I don\u0027t think the order is relevant here: there are only 2 callsites:\n- ConsoleView: sorts messages by timestamp\n- PresentationConsoleMessageHelper: order not relevant either",
       "parentUuid": "af5cdce2_547ed37e",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 62
+      },
+      "revId": "6b3d019152d7839ac13afa0752377337520988f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f7c8770_403c9a53",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-20T13:12:02Z",
+      "side": 1,
+      "message": "Ok, in that case let\u0027s either add a comment, or even call this `unorderedMessages` (potentially returning Set instead of an array, however given that Set has a defined iteration order in JS I\u0027m not sure that would be helpful).",
+      "parentUuid": "58be16d4_83c0bbd6",
       "range": {
         "startLine": 364,
         "startChar": 0,
