@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "668c8984_c731020d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-20T11:52:32Z",
+      "side": 1,
+      "message": "PTAL. Do you agree with the overall aproach?\n\nI have a backend CL which fixes the failing tests.\nI don\u0027t want to merge this right away, but wait until after the branch cut.",
+      "revId": "6b3d019152d7839ac13afa0752377337520988f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
