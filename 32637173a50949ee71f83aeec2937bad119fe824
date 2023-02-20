@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36a0569_ca1ac7f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-20T11:49:31Z",
+      "side": 1,
+      "message": "Could you take a look please? I copied the idea / approach from chromium and added the most annoying refactorings. Thanks!",
+      "revId": "32637173a50949ee71f83aeec2937bad119fe824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
