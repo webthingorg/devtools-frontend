@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0b9faecfa7d4b1d2fb6f3eb760e1fbd8f69f20f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ccda600_5b7da8a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-20T15:39:55Z",
+      "side": 1,
+      "message": "LGTM. Do you think we should have a test that loads one of these traces and ensures that nothing crashes?",
+      "revId": "0b9faecfa7d4b1d2fb6f3eb760e1fbd8f69f20f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
