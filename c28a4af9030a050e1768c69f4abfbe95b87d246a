@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "c28a4af9030a050e1768c69f4abfbe95b87d246a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2452e08b_d773809d",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-20T09:55:31Z",
+      "side": 1,
+      "message": "Should we have a similar handling for `moveBreakpoints` or potentially move the logic to `setBreakpoints`, to protect ourselves from setting breakpoints on stale uiSourceCodes?",
+      "revId": "c28a4af9030a050e1768c69f4abfbe95b87d246a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
