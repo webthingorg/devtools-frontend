@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "b109838cb432fc5c422b2159c43fab9037023642",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ed3169_2ee5d3c1",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-20T12:31:13Z",
+      "side": 1,
+      "message": "Link to https://web.dev/bfcache/?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 77
+      },
+      "revId": "b109838cb432fc5c422b2159c43fab9037023642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43b5dc07_a80b59fe",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-20T12:31:13Z",
+      "side": 1,
+      "message": "I\u0027m afraid we can\u0027t afford a quadratic algorithm here as there might be a lot of console messages. How about having a `Platform.MapUtilities.Multimap\u003cnumber, ConsoleMessage\u003e messagesByTimestamp` and checking for \n\n\n    for (msg of messagesByTimestamp.get(comsoleMessage.timestamp).values()) {\n      if (consoleMessage.isEqual(msg)) return;\n    }",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 86
+      },
+      "revId": "b109838cb432fc5c422b2159c43fab9037023642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
