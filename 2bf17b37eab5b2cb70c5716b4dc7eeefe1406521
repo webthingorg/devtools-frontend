@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1bd418_38e635af",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-20T17:37:26Z",
+      "side": 0,
+      "message": "this is unused",
+      "range": {
+        "startLine": 1402,
+        "startChar": 2,
+        "endLine": 1402,
+        "endChar": 18
+      },
+      "revId": "2bf17b37eab5b2cb70c5716b4dc7eeefe1406521",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

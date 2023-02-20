@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ffcd2f_29e13662",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-20T17:37:26Z",
+      "side": 1,
+      "message": "drive-by helper addition",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "36178d52c6f90bc64169bbe9c3a66795b18f17d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
