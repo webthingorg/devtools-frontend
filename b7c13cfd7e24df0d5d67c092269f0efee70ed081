@@ -16,6 +16,29 @@
       "message": "PTAL. I know the plan was to add a separate module with a weakmap to link events to payloads, but this approach feels cleaner and avoids the entirely new module that didn\u0027t really do much different to this. This also means we know if the event is destroyed that the payload is too, and we do not need to lean on a WeakMap to make that happen.",
       "revId": "b7c13cfd7e24df0d5d67c092269f0efee70ed081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f372c35_eb55f3fa",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-20T14:33:46Z",
+      "side": 1,
+      "message": "do we also need to mark this as protected to make sure it\u0027s not instantiated directly (not using fromPayload)?",
+      "range": {
+        "startLine": 674,
+        "startChar": 2,
+        "endLine": 674,
+        "endChar": 13
+      },
+      "revId": "b7c13cfd7e24df0d5d67c092269f0efee70ed081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
