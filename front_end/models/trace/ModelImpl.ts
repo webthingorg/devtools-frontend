@@ -133,7 +133,7 @@ export class Model extends EventTarget {
     });
   }
 
-  traceParsedData(index: number): Handlers.Types.TraceParseData|null {
+  traceParsedData(index: number = this.#traces.length - 1): Handlers.Types.TraceParseData|null {
     if (!this.#traces[index]) {
       return null;
     }
