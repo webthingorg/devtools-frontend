@@ -547,6 +547,10 @@ export class MainImpl {
       resourceMapping,
       targetManager: SDK.TargetManager.TargetManager.instance(),
     });
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, ({data}) => {
+      const outermostTarget = data?.outermostTarget();
+      SDK.TargetManager.TargetManager.instance().setScopeTarget(outermostTarget);
+    });
     // @ts-ignore layout test global
     self.Bindings.breakpointManager = Bindings.BreakpointManager.BreakpointManager.instance({
       forceNew: true,

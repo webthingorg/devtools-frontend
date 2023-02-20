@@ -37,10 +37,10 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
 
     this.#debuggerModelToData = new Map();
     targetManager.addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.GlobalObjectCleared, this.globalObjectCleared, this);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.GlobalObjectCleared, this.globalObjectCleared, this, true);
     targetManager.addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this);
-    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this.debuggerResumed, this, true);
+    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this, true);
     this.#targetManager = targetManager;
 
     this.#liveLocationPromises = new Set();

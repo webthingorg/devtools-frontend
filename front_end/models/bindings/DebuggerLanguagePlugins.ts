@@ -921,7 +921,7 @@ export class DebuggerLanguagePluginManager implements
     this.#plugins = [];
 
     this.#debuggerModelToData = new Map();
-    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
+    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this, true);
 
     this.#rawModuleHandles = new Map();
   }

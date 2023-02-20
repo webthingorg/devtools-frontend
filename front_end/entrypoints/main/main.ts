@@ -5,9 +5,11 @@
 import * as ExecutionContextSelector from './ExecutionContextSelector.js';
 import * as MainImpl from './MainImpl.js';
 import * as SimpleApp from './SimpleApp.js';
+import * as TopLevelTargetSelector from './TopLevelTargetSelector.js';
 
 export {
   ExecutionContextSelector,
   MainImpl,
   SimpleApp,
+  TopLevelTargetSelector,
 };
