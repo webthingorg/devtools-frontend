@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb08189_e7a96968",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-20T09:19:17Z",
+      "side": 1,
+      "message": "Sounds good, done!",
+      "parentUuid": "d3ae79be_f633cbe4",
+      "revId": "51d4ec3a5c89faeaf3daebb16e17bc16614bac64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00c01dfc_d60ec250",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-17T15:39:44Z",
       "side": 1,
       "message": "is not there a danger that we get confused between different content types?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 3
+      },
+      "revId": "51d4ec3a5c89faeaf3daebb16e17bc16614bac64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45939ef2_df8e77e0",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-20T09:19:17Z",
+      "side": 1,
+      "message": "I\u0027ve changed it to `findCompatibleUiSourceCodes` now. Initially my thought was to keep in line with how `Workspace#uiSourceCodeForURL` works, but given that this is not safe either, it makes sense to encapsulate the identity part here!",
+      "parentUuid": "00c01dfc_d60ec250",
       "range": {
         "startLine": 256,
         "startChar": 0,

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e688909_2972281a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-20T09:19:17Z",
+      "side": 1,
+      "message": "Thanks for the reviews! I\u0027ve addressed Jaro\u0027s and Benedikt\u0027s concern on the encapsulation.",
+      "revId": "1439024f1af23c99b641ecd910171fc33b1c6b53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "173bc670_45e6718b",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-20T09:19:17Z",
+      "side": 1,
+      "message": "Note: I want to drop this requirement in a later CL (we should treat each target similarly) and remove the `unshift` operation to add the primary uiSourceCode. However, this can lead to behavior in which `setBreakpoint` doesn\u0027t return any breakpoint at the moment (if the uiSourceCode is no longer valid/part of a project), and I think it\u0027s good to have a separate discussion on that.",
+      "revId": "1439024f1af23c99b641ecd910171fc33b1c6b53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
