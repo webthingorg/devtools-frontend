@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5911cbd_6397bdfa",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-21T14:54:59Z",
+      "side": 1,
+      "message": "Yes. Currently, PrerenderingModel.ts has a similar type. I\u0027ll add a type PreloadingAttempt that unifies prerendering and preloading, and registry for it. `getAll`-like methods will use `WithId\u003cProtocol.Preload.PreloadingAttemptKey, PreloadAttempt\u003e`.",
+      "parentUuid": "11ec1e93_272022cc",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31296028_86b20b76",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-17T16:39:33Z",
       "side": 1,
       "message": "Will this do more in future? Otherwise I\u0027d simply inline this function.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 59
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6436e0_89cf5329",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-21T14:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31296028_86b20b76",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9b5d1a4_67db55ac",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-21T14:54:59Z",
+      "side": 1,
+      "message": "Ah, I\u0027ll use Page domain for a while for [1], but I understand we will be able to delete PageDispatcher soon when we stop `Page.prefetchStatusUpadted`.\n\nBTW, should we use `ResourceTreeModel` to listen `Page.prefetchStatusUpdated`?\n\n[1] https://chromium-review.googlesource.com/c/chromium/src/+/4207452",
+      "parentUuid": "c85e3f0b_d8a26f50",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f09cec88_cc878990",
         "filename": "front_end/core/sdk/PreloadingModel.ts",
         "patchSetId": 3
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-17T16:39:33Z",
       "side": 1,
       "message": "It don\u0027t thin this is very useful. I\u0027d prefer us to test the public class (PreloadingModel) itself.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 27
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5380f00_fa33da05",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-21T14:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09cec88_cc878990",
       "range": {
         "startLine": 212,
         "startChar": 0,
