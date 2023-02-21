@@ -83,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b05aa5b6_af3eba51",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:17:22Z",
+      "side": 1,
+      "message": "I wonder if it is worth leaving a comment here with roughly what you have in the CL description to explain to any new readers why we have multiple models",
+      "range": {
+        "startLine": 168,
+        "startChar": 10,
+        "endLine": 168,
+        "endChar": 32
+      },
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "719388de_f8f428a2",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 8
