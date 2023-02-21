@@ -34,6 +34,24 @@
       "parentUuid": "ba400482_583ec523",
       "revId": "0b8751c6327b5a92c88b5c9c224045df6adf5e5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "332b89f4_034ad368",
+        "filename": "front_end/ui/components/text_editor/AutocompleteHistory.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-21T12:30:01Z",
+      "side": 1,
+      "message": "Ack, thanks for the explanation!",
+      "parentUuid": "bab74083_57aedf2a",
+      "revId": "0b8751c6327b5a92c88b5c9c224045df6adf5e5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
