@@ -33,6 +33,24 @@
       "message": "LGTM, but I have to say that the `findSearchResult` helper looks worrisome to me (That\u0027s not on you, it was like this before). I\u0027m I\u0027m understanding this right, even on the happy path it will add 100ms for every search result that wasn\u0027t the element we\u0027re searching for. Conversely it will only wait for 100ms after the next match click, I can totally see that not being enough (corresponds to a single trip of waitForFunction).",
       "revId": "1f01ccc37fb7f5c65795c88e542eb57237d4fb10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e91199_5614da02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-21T09:21:17Z",
+      "side": 1,
+      "message": "I agree (actually on the happy path it adds 500ms between each click). The issue is that we need to wait for the element to appear but there was no easy way to confirm that the search results have finished loading after clicking next which made me add the race. Maybe in the future we can add an event to indicate that then listen to it in the test.",
+      "parentUuid": "a9d8c70e_4c5f9497",
+      "revId": "1f01ccc37fb7f5c65795c88e542eb57237d4fb10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
