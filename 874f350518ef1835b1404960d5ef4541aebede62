@@ -16,6 +16,23 @@
       "message": "Hey Marjin, to get rid of the regression, I thought it might make sense to just return to the previous behavior.\n\nThanks a lot for adding the option to opt-out of the resizing behavior in CodeMirror, let me know what you think! :)",
       "revId": "874f350518ef1835b1404960d5ef4541aebede62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed18e61_552ccc84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-21T15:33:51Z",
+      "side": 1,
+      "message": "I\u0027m taking this in before the branch cut to get rid of the regression but please let me know if there is anything else we can do here or if you have any other ideas :) @marijnh@gmail.com",
+      "revId": "874f350518ef1835b1404960d5ef4541aebede62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
