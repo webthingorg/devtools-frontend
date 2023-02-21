@@ -728,16 +728,16 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   async showHistory(): Promise<void> {
-    const model = await this.historyManager.showHistoryDropDown();
-    if (model && model !== this.performanceModel) {
-      this.setModel(model);
+    const recordingData = await this.historyManager.showHistoryDropDown();
+    if (recordingData && recordingData.legacyModel !== this.performanceModel) {
+      this.setModel(recordingData.legacyModel, recordingData.traceParseData);
     }
   }
 
   navigateHistory(direction: number): boolean {
-    const model = this.historyManager.navigate(direction);
-    if (model && model !== this.performanceModel) {
-      this.setModel(model);
+    const recordingData = this.historyManager.navigate(direction);
+    if (recordingData && recordingData.legacyModel !== this.performanceModel) {
+      this.setModel(recordingData.legacyModel, recordingData.traceParseData);
     }
     return true;
   }
@@ -1289,33 +1289,28 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.performanceModel = new PerformanceModel();
     }
 
-    try {
-      // Run the new engine in parallel with the parsing done in the performanceModel
-      await Promise.all(
-          [this.performanceModel.setTracingModel(tracingModel), this.executeNewTraceEngine(tracingModel)]);
-      const traceParsedData = this.#traceEngineModel.traceParsedData();
-      this.setModel(this.performanceModel, traceParsedData);
+    // Run the new engine in pararel with the parsing done in the performanceModel
+    await Promise.all([this.performanceModel.setTracingModel(tracingModel), this.executeNewTraceEngine(tracingModel)]);
+    const traceParsedData = this.#traceEngineModel.traceParsedData();
+    this.setModel(this.performanceModel, traceParsedData);
 
-      if (this.statusPane) {
-        this.statusPane.remove();
-      }
-      this.statusPane = null;
+    if (this.statusPane) {
+      this.statusPane.remove();
+    }
+    this.statusPane = null;
 
-      if (!this.performanceModel.hasEventListeners(Events.NamesResolved)) {
-        this.performanceModel.addEventListener(Events.NamesResolved, this.updateModelAndFlameChart, this);
-      }
+    if (!this.performanceModel.hasEventListeners(Events.NamesResolved)) {
+      this.performanceModel.addEventListener(Events.NamesResolved, this.updateModelAndFlameChart, this);
+    }
 
-      this.historyManager.addRecording(this.performanceModel);
+    this.historyManager.addRecording(this.performanceModel, traceParsedData);
 
-      if (this.startCoverage.get()) {
-        void UI.ViewManager.ViewManager.instance()
-            .showView('coverage')
-            .then(() => this.getCoverageViewWidget())
-            .then(widget => widget.processBacklog())
-            .then(() => this.updateOverviewControls());
-      }
-    } catch (error) {
-      this.recordingFailed(error.message);
+    if (this.startCoverage.get()) {
+      void UI.ViewManager.ViewManager.instance()
+          .showView('coverage')
+          .then(() => this.getCoverageViewWidget())
+          .then(widget => widget.processBacklog())
+          .then(() => this.updateOverviewControls());
     }
   }
 
@@ -1329,7 +1324,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
    * impact the main thread, as we `void` it to ensure we don't want for the
    * parsing to complete.
    **/
-  private async executeNewTraceEngine(tracingModel: SDK.TracingModel.TracingModel): Promise<void> {
+  async executeNewTraceEngine(tracingModel: SDK.TracingModel.TracingModel): Promise<void> {
     return this.#traceEngineModel.parse(
         // OPP's data layer uses `EventPayload` as the type to represent raw JSON from the trace.
         // When we pass this into the new data engine, we need to tell TS to use the new TraceEventData type.

@@ -165,16 +165,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   private partialFramePatternCanvas: HTMLCanvasElement;
   private timelineDataInternal: PerfUI.FlameChart.TimelineData|null;
   private currentLevel: number;
-
-  // The Performance and the Timeline models are expected to be
-  // deprecrated in favor of using traceEngineData (new RPP engine) only
-  // as part of the work in crbug.com/1386091. For this reason they
-  // have the "legacy" prefix on their name.
   private legacyPerformanceModel: PerformanceModel|null;
   private legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl|null;
-  private traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
-
   private minimumBoundaryInternal: number;
+  private traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
   private readonly maximumBoundary: number;
   private timeSpan: number;
   private readonly consoleColorGenerator: Common.Color.Generator;
