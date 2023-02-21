@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8047d15_254a78c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-02-21T09:42:52Z",
+      "side": 1,
+      "message": "Hi Victor, please take a look. The before and after screenshots are here: crbug.com/1417928#c3",
+      "revId": "54977e5b5ea12aebdbd69ded1cf2f0ec9eb74e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
