@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca6d53d_8965bb0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T11:51:37Z",
+      "side": 1,
+      "message": "lgtm. One nit, would you mind adding a screenshot link (on imgur or similar) to the commit message? just so we and anyone in the future can see what it looks like. Thanks, this is exciting!",
+      "revId": "e13741164737bce9b80969feb41245a61b7b4259",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f206feed_7c746c5e",
+        "filename": "front_end/panels/profiler/ProfilesPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T11:51:37Z",
+      "side": 1,
+      "message": "nit: I think let\u0027s just call this openPerformancePanel",
+      "range": {
+        "startLine": 720,
+        "startChar": 19,
+        "endLine": 720,
+        "endChar": 40
+      },
+      "revId": "e13741164737bce9b80969feb41245a61b7b4259",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
