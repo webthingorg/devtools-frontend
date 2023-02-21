@@ -173,10 +173,22 @@ export const editorTheme = CM.EditorView.theme({
   },
 
   '.cm-tooltip.cm-tooltip-autocomplete.cm-conservativeCompletion > ul > li[aria-selected]': {
+    display: 'flex',
+    justifyContent: 'space-between',
     backgroundColor: 'var(--color-background)',
     border: '1px dotted var(--color-text-primary)',
     '&, &.cm-secondaryCompletion::before': {
       color: 'var(--color-text-primary)',
+    },
+    '&::after': {
+      marginLeft: '5px',
+      padding: '1px 3px',
+      content: '"→ tab"',
+      border: '1px solid var(--color-text-secondary-selected)',
+      borderRadius: '3px',
+      fontSize: '10px',
+      lineHeight: '10px',
+      color: 'var(--color-text-secondary-selected)',
     },
   },
 
