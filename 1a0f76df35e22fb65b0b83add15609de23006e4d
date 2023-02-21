@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e143424f_d077ac92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2e497846_8766a342",
@@ -14,6 +37,115 @@
       "writtenOn": "2023-02-20T17:37:26Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8653323f_aaa851d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "a few nits but otherwise this looks good to me!",
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29cb702e_cf09866e",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "nit: I like this change, shall we take this opportunity to add a JSDoc comment documenting that by default it will return the most recent trace?",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719388de_f8f428a2",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1292,
+        "startChar": 29,
+        "endLine": 1292,
+        "endChar": 36
+      },
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e677ad74_776811fa",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "what is the rejection behaviour here? We should make sure errors in either model get dealt with and show an error to the user. I think that would happen by default but might be worth checking",
+      "range": {
+        "startLine": 1293,
+        "startChar": 18,
+        "endLine": 1293,
+        "endChar": 21
+      },
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42926dcf_0c51983e",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:16:22Z",
+      "side": 1,
+      "message": "could this method be private?",
+      "range": {
+        "startLine": 1327,
+        "startChar": 8,
+        "endLine": 1327,
+        "endChar": 29
+      },
       "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
