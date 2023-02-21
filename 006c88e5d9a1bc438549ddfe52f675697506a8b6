@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b5bc37_0abc31ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-21T16:01:20Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis is a follow up for https://crrev.com/c/4274088/3 in which I added a unit test for the case that setting a breakpoint on an invalid uiSourceCode should not result in a breakpoint. PTAL!",
+      "revId": "006c88e5d9a1bc438549ddfe52f675697506a8b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
