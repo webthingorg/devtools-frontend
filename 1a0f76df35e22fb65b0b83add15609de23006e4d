@@ -58,6 +58,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0981cb84_3741ff34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T06:44:06Z",
+      "side": 1,
+      "message": "I just discovered crbug.com/1417938 whilst working on something and think this will also cause issues with your CL. It avoids them at the moment as your imports to the new model are all type imports, but if/when they become real imports and we get BUILD.gn updates, it will fail.",
+      "revId": "1a0f76df35e22fb65b0b83add15609de23006e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29cb702e_cf09866e",
