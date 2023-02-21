@@ -114,8 +114,8 @@ function moveCompletionSelectionIfNotConversative(
     forward: boolean, by: 'option'|'page' = 'option'): ((view: CM.EditorView) => boolean) {
   return view => {
     if (view.state.field(conservativeCompletion, false)) {
-      // There's no CodeMirror API to select the first item, so we just go down and up here.
-      return CM.moveCompletionSelection(true, 'option')(view) && CM.moveCompletionSelection(false, 'option')(view);
+      view.dispatch({effects: [CM.setSelectedCompletion(0)]});
+      return true;
     }
     return CM.moveCompletionSelection(forward, by)(view);
   };

@@ -10,7 +10,8 @@ export {
   acceptCompletion, autocompletion, closeBrackets, closeBracketsKeymap,
   closeCompletion, completeAnyWord, Completion, CompletionContext, CompletionResult,
   CompletionSource, completionStatus, currentCompletions, ifNotIn,
-  moveCompletionSelection, selectedCompletion, selectedCompletionIndex, startCompletion
+  moveCompletionSelection, selectedCompletion, selectedCompletionIndex, startCompletion,
+  setSelectedCompletion
 } from '@codemirror/autocomplete';
 export {
   cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward,

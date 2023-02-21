@@ -2885,6 +2885,11 @@ declare class EditorView {
     */
     static inputHandler: Facet<(view: EditorView, from: number, to: number, text: string) => boolean, readonly ((view: EditorView, from: number, to: number, text: string) => boolean)[]>;
     /**
+    This facet can be used to provide functions that create effects
+    to be dispatched when the editor's focus state changes.
+    */
+    static focusChangeEffect: Facet<(state: EditorState, focusing: boolean) => StateEffect<any> | null, readonly ((state: EditorState, focusing: boolean) => StateEffect<any> | null)[]>;
+    /**
     By default, the editor assumes all its content has the same
     [text direction](https://codemirror.net/6/docs/ref/#view.Direction). Configure this with a `true`
     value to make it read the text direction of every (rendered)
@@ -4793,6 +4798,11 @@ Returns the currently selected position in the active completion
 list, or null if no completions are active.
 */
 declare function selectedCompletionIndex(state: EditorState): number | null;
+/**
+Create an effect that can be attached to a transaction to change
+the currently selected completion.
+*/
+declare function setSelectedCompletion(index: number): StateEffect<unknown>;
 
 /**
 Describes an element in your XML document schema.
@@ -5795,4 +5805,4 @@ declare function vue(): Promise<typeof _codemirror_lang_vue>;
 declare function wast(): Promise<typeof _codemirror_lang_wast>;
 declare function xml(): Promise<typeof _codemirror_lang_xml>;
 
-export { Annotation, AnnotationType, ChangeDesc, ChangeSet, ChangeSpec, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MapMode, MatchDecorator, NodeProp, NodeSet, NodeType, Panel, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, StyleModule, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, angular, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, closeCompletion, codeFolding, coffeescript, completeAnyWord, completionStatus, cpp, index_d$2 as css, cssStreamParser, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, dart, drawSelection, ensureSyntaxTree, foldGutter, foldKeymap, go, gss, gutter, gutters, highlightSelectionMatches, highlightSpecialChars, highlightTree, history, historyKeymap, index_d$1 as html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, insertNewlineAndIndent, java, index_d as javascript, json, keymap, kotlin, less, lineNumberMarkers, lineNumbers, markdown, moveCompletionSelection, php, placeholder, python, redo, redoSelection, repositionTooltips, sass, scala, scrollPastEnd, scss, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, selectedCompletion, selectedCompletionIndex, shell, showPanel, showTooltip, standardKeymap, startCompletion, svelte, syntaxHighlighting, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, vue, wast, xml };
+export { Annotation, AnnotationType, ChangeDesc, ChangeSet, ChangeSpec, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MapMode, MatchDecorator, NodeProp, NodeSet, NodeType, Panel, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, StyleModule, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, angular, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, closeCompletion, codeFolding, coffeescript, completeAnyWord, completionStatus, cpp, index_d$2 as css, cssStreamParser, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, dart, drawSelection, ensureSyntaxTree, foldGutter, foldKeymap, go, gss, gutter, gutters, highlightSelectionMatches, highlightSpecialChars, highlightTree, history, historyKeymap, index_d$1 as html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, insertNewlineAndIndent, java, index_d as javascript, json, keymap, kotlin, less, lineNumberMarkers, lineNumbers, markdown, moveCompletionSelection, php, placeholder, python, redo, redoSelection, repositionTooltips, sass, scala, scrollPastEnd, scss, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, selectedCompletion, selectedCompletionIndex, setSelectedCompletion, shell, showPanel, showTooltip, standardKeymap, startCompletion, svelte, syntaxHighlighting, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, vue, wast, xml };
