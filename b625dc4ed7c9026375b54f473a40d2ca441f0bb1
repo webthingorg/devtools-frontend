@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17a7bc1_85300ecd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-02-21T10:51:16Z",
+      "side": 1,
+      "message": "Hi Benedikt, please take a look at this fix. Screenshots of before and after are here: crbug.com/1340842#c3",
+      "revId": "b625dc4ed7c9026375b54f473a40d2ca441f0bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
