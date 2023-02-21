@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff56aae3_54384be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-21T14:48:58Z",
+      "side": 1,
+      "message": "Hey Marjin, to get rid of the regression, I thought it might make sense to just return to the previous behavior.\n\nThanks a lot for adding the option to opt-out of the resizing behavior in CodeMirror, let me know what you think! :)",
+      "revId": "874f350518ef1835b1404960d5ef4541aebede62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
