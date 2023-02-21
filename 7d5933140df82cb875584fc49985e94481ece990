@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872b6108_040f0dae",
+        "filename": "test/unittests/front_end/core/sdk/PreloadingModel_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-21T16:55:17Z",
+      "side": 1,
+      "message": "huh? the model doesn\u0027t render anything",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "7d5933140df82cb875584fc49985e94481ece990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

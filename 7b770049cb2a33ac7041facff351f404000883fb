@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9109ac8a_dc2cff9d",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-21T16:55:17Z",
+      "side": 1,
+      "message": "You don\u0027t need to implement `ResourceTreeModelObserver` either, you can simply do\n\n    TargetManager.TargetManager.instance().addModelListener(\n        ResourceTreeModel.ResourceTreeModel, \n        ResourceTreeModel.Events.MainFrameNavigated,\n        this.model.onMainFrameNavigated, this.model);\n        \n        \nWrt `Page.prefetchStatusUpdated` either way seems fine.",
+      "parentUuid": "c9b5d1a4_67db55ac",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "7b770049cb2a33ac7041facff351f404000883fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f09cec88_cc878990",
         "filename": "front_end/core/sdk/PreloadingModel.ts",
         "patchSetId": 3
