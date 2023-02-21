@@ -1106,22 +1106,23 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.setModel(null);
   }
 
-  private applyFilters(model: PerformanceModel): void {
+  private applyFilters(model: PerformanceModel, filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): void {
     if (model.timelineModel().isGenericTrace() || Root.Runtime.experiments.isEnabled('timelineShowAllEvents')) {
       return;
     }
-    model.setFilters([TimelineUIUtils.visibleEventsFilter()]);
+    model.setFilters(filter ? [filter] : [TimelineUIUtils.visibleEventsFilter()]);
   }
 
   private setModel(
-      model: PerformanceModel|null, newTraceEngineData: TraceEngine.Handlers.Types.TraceParseData|null = null): void {
+      model: PerformanceModel|null, filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter,
+      newTraceEngineData: TraceEngine.Handlers.Types.TraceParseData|null = null): void {
     if (this.performanceModel) {
       this.performanceModel.removeEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
     }
     this.performanceModel = model;
     if (model) {
       this.searchableViewInternal.showWidget();
-      this.applyFilters(model);
+      this.applyFilters(model, filter);
     } else {
       this.searchableViewInternal.hideWidget();
     }
@@ -1275,7 +1276,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.flameChart.updateColorMapper();
   }
 
-  async loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): Promise<void> {
+  async loadingComplete(
+      tracingModel: SDK.TracingModel.TracingModel|null,
+      filter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): Promise<void> {
     this.#traceEngineModel.reset();
     delete this.loader;
     this.setState(State.Idle);
@@ -1294,7 +1297,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       await Promise.all(
           [this.performanceModel.setTracingModel(tracingModel), this.executeNewTraceEngine(tracingModel)]);
       const traceParsedData = this.#traceEngineModel.traceParsedData();
-      this.setModel(this.performanceModel, traceParsedData);
+      this.setModel(this.performanceModel, filter, traceParsedData);
 
       if (this.statusPane) {
         this.statusPane.remove();
