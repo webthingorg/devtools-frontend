@@ -16,6 +16,24 @@
       "message": "Could we pass a string (the settings name) and create the setting in here? This way, we could make sure that it actually has the sole ownership of the setting.\nIs this maybe because of testability?",
       "revId": "0b8751c6327b5a92c88b5c9c224045df6adf5e5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab74083_57aedf2a",
+        "filename": "front_end/ui/components/text_editor/AutocompleteHistory.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-21T12:24:20Z",
+      "side": 1,
+      "message": "Even if we pass setting as a string, settings are global, so anyone could get it via `createLocalSetting`. And yes, that would make testing harder as we need to reset the settings in the global test helper.\n\nBoth are not ideal, but I usually prefer the solution that does not require accessing global state. So in this case `AutocompleteHistory` is slightly easier to reason about if we pass the setting directly.",
+      "parentUuid": "ba400482_583ec523",
+      "revId": "0b8751c6327b5a92c88b5c9c224045df6adf5e5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
