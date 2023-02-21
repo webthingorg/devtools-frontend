@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc9caa9_fa841b6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-21T10:06:25Z",
+      "side": 1,
+      "message": "PTAL. Bit messy parsing out the invalidations we want to assert on, but hopefully the comment I left is useful.",
+      "revId": "b0091a4ad7e43adfcb1135004915c15c2a4bb7b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
