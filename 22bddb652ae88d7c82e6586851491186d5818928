@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c51d6e_0476a1cc",
+        "filename": "scripts/test/run_test_suite.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-21T13:08:23Z",
+      "side": 1,
+      "message": "isn\u0027t `--parallel` implied by `--jobs` through our hooks?\n\nhttps://crsrc.org/c/third_party/devtools-frontend/src/test/base-mocharc.js;drc\u003d213707ae790922989236ca987dfd3f1598844e9d;l\u003d77",
+      "revId": "22bddb652ae88d7c82e6586851491186d5818928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "361f2b4e_920eb324",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-21T13:08:23Z",
+      "side": 1,
+      "message": "Please wrap this and the instances below in `if (this.timeout() !\u003d\u003d 0)` for debuggability.",
+      "revId": "22bddb652ae88d7c82e6586851491186d5818928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
