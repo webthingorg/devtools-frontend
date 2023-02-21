@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf6e311_e033d5d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-21T09:37:15Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nNote: I\u0027m sending this out primarly for discussion now. If you think we should go ahead with this, I\u0027ll add a test.\n\nin the previous change for adding all compatible uiSourceCodes (https://crrev.com/c/4248192) we treated the primaryTarget specially (i.e. we explicitly add the primary uiSourceCode to the list of uiSourceCodes to be processed). This CL would treat all targets and uiSourceCodes the same, meaning also that sometimes we might find out that the primary uiSourceCode is no longer valid (not part of the results of `findCompatibleUISourceCodes`).\n\nWDYT? I have a slight preference to not treat the primary uiSourceCode special, and instead to treat all uiSourceCodes simiarly. This would however also mean that the functionality of `setBreakpoint` will change in some cases, as we don\u0027t set any breakpoint if the uiSourceCode is no longer valid.",
+      "revId": "1950b3eee285a3ec1318288a81918ea17316a2f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
