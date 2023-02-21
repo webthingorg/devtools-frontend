@@ -96,7 +96,20 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['mediumicons', {cellWidth: 16, cellHeight: 16, padding: 0}],
   ['largeicons', {cellWidth: 28, cellHeight: 24, padding: 0}],
   ['arrowicons', {cellWidth: 19, cellHeight: 19, padding: 0}],
+  ['arrow-up-down', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['bell', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['clock', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['cloud', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['cookie', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['credit-card', {cellWidth: 18, cellHeight: 18, padding: 0}],
   ['database', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['devices', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['document', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['frame', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['gears', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['iframe', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['select-element', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['sync', {cellWidth: 18, cellHeight: 18, padding: 0}],
 ]);
 
 const initialDescriptors = new Map<string, Descriptor>([
@@ -264,7 +277,20 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-arrow-left', {position: 'a2', spritesheet: 'arrowicons'}],
   ['mediumicon-arrow-right', {position: 'a1', spritesheet: 'arrowicons'}],
 
+  ['arrow-up-down', {position: 'a1', spritesheet: 'arrow-up-down', isMask: true}],
+  ['bell', {position: 'a1', spritesheet: 'bell', isMask: true}],
+  ['clock', {position: 'a1', spritesheet: 'clock', isMask: true}],
+  ['cloud', {position: 'a1', spritesheet: 'cloud', isMask: true}],
+  ['cookie', {position: 'a1', spritesheet: 'cookie', isMask: true}],
+  ['credit-card', {position: 'a1', spritesheet: 'credit-card', isMask: true}],
   ['database', {position: 'a1', spritesheet: 'database', isMask: true}],
+  ['devices', {position: 'a1', spritesheet: 'devices', isMask: true}],
+  ['document', {position: 'a1', spritesheet: 'document', isMask: true}],
+  ['frame', {position: 'a1', spritesheet: 'frame', isMask: true}],
+  ['gears', {position: 'a1', spritesheet: 'gears', isMask: true}],
+  ['iframe', {position: 'a1', spritesheet: 'iframe', isMask: true}],
+  ['select-element', {position: 'a1', spritesheet: 'select-element', isMask: true}],
+  ['sync', {position: 'a1', spritesheet: 'sync', isMask: true}],
 ]);
 
 const descriptors = (initialDescriptors as Map<string, Descriptor>);

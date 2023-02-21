@@ -338,7 +338,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.databasesListTreeElement.setLink(
         'https://developer.chrome.com/docs/devtools/storage/websql/?utm_source=devtools' as
         Platform.DevToolsPath.UrlString);
-    const databaseIcon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const databaseIcon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.databasesListTreeElement.setLeadingIcons([databaseIcon]);
 
     storageTreeElement.appendChild(this.databasesListTreeElement);
@@ -347,7 +347,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.cookieListTreeElement.setLink(
         'https://developer.chrome.com/docs/devtools/storage/cookies/?utm_source=devtools' as
         Platform.DevToolsPath.UrlString);
-    const cookieIcon = UI.Icon.Icon.create('mediumicon-cookie', 'resource-tree-item');
+    const cookieIcon = UI.Icon.Icon.create('cookie', 'resource-tree-item');
     this.cookieListTreeElement.setLeadingIcons([cookieIcon]);
     storageTreeElement.appendChild(this.cookieListTreeElement);
 
@@ -936,17 +936,17 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
   private getIconType(): string {
     switch (this.serviceName) {
       case Protocol.BackgroundService.ServiceName.BackgroundFetch:
-        return 'mediumicon-fetch';
+        return 'arrow-up-down';
       case Protocol.BackgroundService.ServiceName.BackgroundSync:
-        return 'mediumicon-sync';
+        return 'sync';
       case Protocol.BackgroundService.ServiceName.PushMessaging:
-        return 'mediumicon-cloud';
+        return 'cloud';
       case Protocol.BackgroundService.ServiceName.Notifications:
-        return 'mediumicon-bell';
+        return 'bell';
       case Protocol.BackgroundService.ServiceName.PaymentHandler:
-        return 'mediumicon-payment';
+        return 'credit-card';
       case Protocol.BackgroundService.ServiceName.PeriodicBackgroundSync:
-        return 'mediumicon-schedule';
+        return 'clock';
       default:
         console.error(`Service ${this.serviceName} does not have a dedicated icon`);
         return 'mediumicon-table';
@@ -991,7 +991,7 @@ export class DatabaseTreeElement extends ApplicationPanelTreeElement {
     this.sidebar = sidebar;
     this.database = database;
 
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1051,7 +1051,7 @@ export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
 
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18n.i18n.lockedString('Service Workers'), false);
-    const icon = UI.Icon.Icon.create('mediumicon-service-worker', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('gears', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1074,7 +1074,7 @@ export class AppManifestTreeElement extends ApplicationPanelTreeElement {
   private view: AppManifestView;
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.manifest), true);
-    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('document', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     self.onInvokeElement(this.listItemElement, this.onInvoke.bind(this));
     const emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
@@ -1171,7 +1171,7 @@ export class ClearStorageTreeElement extends ApplicationPanelTreeElement {
   private view?: StorageView;
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.storage), false);
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1194,7 +1194,7 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   private idbDatabaseTreeElements: IDBDatabaseTreeElement[];
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.indexeddb), 'IndexedDB');
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.idbDatabaseTreeElements = [];
     this.initialize();
@@ -1318,7 +1318,7 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
     this.model = model;
     this.databaseId = databaseId;
     this.idbObjectStoreTreeElements = new Map();
-    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.model.addEventListener(IndexedDBModelEvents.DatabaseNamesRefreshed, this.refreshIndexedDB, this);
   }
@@ -1675,7 +1675,7 @@ export class CookieTreeElement extends ApplicationPanelTreeElement {
     this.target = frame.resourceTreeModel().target();
     this.cookieDomainInternal = cookieDomain;
     this.tooltip = i18nString(UIStrings.cookiesUsedByFramesFromS, {PH1: cookieDomain});
-    const icon = UI.Icon.Icon.create('mediumicon-cookie', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('cookie', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1972,12 +1972,12 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     this.view = null;
   }
 
-  getIconTypeForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): 'mediumicon-frame-blocked'|'mediumicon-frame'|
-      'mediumicon-frame-embedded-blocked'|'mediumicon-frame-embedded' {
+  getIconTypeForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): 'mediumicon-frame-blocked'|'frame'|
+      'mediumicon-frame-embedded-blocked'|'iframe' {
     if (frame.isTopFrame()) {
-      return frame.unreachableUrl() ? 'mediumicon-frame-blocked' : 'mediumicon-frame';
+      return frame.unreachableUrl() ? 'mediumicon-frame-blocked' : 'frame';
     }
-    return frame.unreachableUrl() ? 'mediumicon-frame-embedded-blocked' : 'mediumicon-frame-embedded';
+    return frame.unreachableUrl() ? 'mediumicon-frame-embedded-blocked' : 'iframe';
   }
 
   async frameNavigated(frame: SDK.ResourceTreeModel.ResourceTreeFrame): Promise<void> {
@@ -2179,7 +2179,7 @@ export class FrameResourceTreeElement extends ApplicationPanelTreeElement {
     this.tooltip = resource.url;
     resourceToFrameResourceTreeElement.set(this.resource, this);
 
-    const icon = UI.Icon.Icon.create('mediumicon-manifest', 'navigator-file-tree-item');
+    const icon = UI.Icon.Icon.create('document', 'navigator-file-tree-item');
     icon.classList.add('navigator-' + resource.resourceType().name() + '-tree-item');
     this.setLeadingIcons([icon]);
   }
