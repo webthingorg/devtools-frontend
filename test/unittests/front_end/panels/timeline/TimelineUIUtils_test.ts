@@ -37,7 +37,7 @@ describe('groupLayoutShiftsIntoClusters', () => {
       startTime: 2000,
     });
     const layoutShifts: SDK.TracingModel.Event[] = [shiftWithUserInput];
-    Timeline.TimelineUIUtils.assignLayoutShiftsToClusters(layoutShifts);
+    TimelineModel.TimelineModel.assignLayoutShiftsToClusters(layoutShifts);
     assert.isUndefined(shiftWithUserInput.args.data._current_cluster_id);
   });
 
@@ -48,7 +48,7 @@ describe('groupLayoutShiftsIntoClusters', () => {
       startTime: 2000,
     });
     const layoutShifts: SDK.TracingModel.Event[] = [shiftWithNoWeightedScore];
-    Timeline.TimelineUIUtils.assignLayoutShiftsToClusters(layoutShifts);
+    TimelineModel.TimelineModel.assignLayoutShiftsToClusters(layoutShifts);
     assert.isUndefined(shiftWithNoWeightedScore.args.data._current_cluster_id);
   });
 
@@ -65,7 +65,7 @@ describe('groupLayoutShiftsIntoClusters', () => {
       startTime: shiftOne.startTime + 100,
     });
     const layoutShifts: SDK.TracingModel.Event[] = [shiftOne, shiftTwo];
-    Timeline.TimelineUIUtils.assignLayoutShiftsToClusters(layoutShifts);
+    TimelineModel.TimelineModel.assignLayoutShiftsToClusters(layoutShifts);
 
     assert.strictEqual(shiftOne.args.data._current_cluster_id, 1);
     assert.strictEqual(shiftTwo.args.data._current_cluster_id, 1);
@@ -93,7 +93,7 @@ describe('groupLayoutShiftsIntoClusters', () => {
     });
 
     const layoutShifts: SDK.TracingModel.Event[] = [shiftOne, shiftTwo, shiftThree];
-    Timeline.TimelineUIUtils.assignLayoutShiftsToClusters(layoutShifts);
+    TimelineModel.TimelineModel.assignLayoutShiftsToClusters(layoutShifts);
 
     assert.strictEqual(shiftOne.args.data._current_cluster_id, 1);
     assert.strictEqual(shiftTwo.args.data._current_cluster_id, 1);

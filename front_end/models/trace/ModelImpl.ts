@@ -133,7 +133,9 @@ export class Model extends EventTarget {
     });
   }
 
-  traceParsedData(index: number): Handlers.Types.TraceParseData|null {
+  traceParsedData(_index?: number): Handlers.Types.TraceParseData|null {
+    // Default to the last trace.
+    const index = _index ?? this.#traces.length - 1;
     if (!this.#traces[index]) {
       return null;
     }

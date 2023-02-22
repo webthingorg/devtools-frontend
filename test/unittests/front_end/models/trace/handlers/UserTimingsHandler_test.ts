@@ -29,9 +29,9 @@ describe('UserTimingsHandler', () => {
     // ASYNC_NESTABLE_END.
     for (let i = 0; i < data.timings.length; i++) {
       assert.strictEqual(
-          data.timings[i].args.data.beginEvent.ph, TraceModel.Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_START);
+          data.timings[i].args.data.beginEvent?.ph, TraceModel.Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_START);
       assert.strictEqual(
-          data.timings[i].args.data.endEvent.ph, TraceModel.Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_END);
+          data.timings[i].args.data.endEvent?.ph, TraceModel.Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_END);
     }
   });
 
@@ -62,6 +62,10 @@ describe('UserTimingsHandler', () => {
     const data = TraceModel.Handlers.ModelHandlers.UserTimings.data();
     for (const timing of data.timings) {
       // Ensure for each timing pair we've set the dur correctly.
+      if (!timing.args.data.endEvent || !timing.args.data.beginEvent) {
+        assert.fail('End and begin event should not be undefined');
+        return;
+      }
       assert.strictEqual(timing.dur, timing.args.data.endEvent.ts - timing.args.data.beginEvent.ts);
     }
   });

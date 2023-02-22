@@ -13,8 +13,9 @@ import {HandlerState} from './types.js';
  * UserTimings and the trace events we parse currently.
  **/
 const syntheticEvents: Types.TraceEvents.TraceEventSyntheticUserTiming[] = [];
-
-const timingEvents: (Types.TraceEvents.TraceEventUserTimingBegin|Types.TraceEvents.TraceEventUserTimingEnd)[] = [];
+type TraceEventUserTiming = Types.TraceEvents.TraceEventUserTimingBegin|Types.TraceEvents.TraceEventUserTimingEnd|
+                            Types.TraceEvents.TraceEventUserTimingMark;
+const timingEvents: TraceEventUserTiming[] = [];
 
 interface UserTimingsData {
   timings: readonly Types.TraceEvents.TraceEventSyntheticUserTiming[];
@@ -31,8 +32,54 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   if (handlerState !== HandlerState.INITIALIZED) {
     throw new Error('UserTimings handler is not initialized');
   }
+  const resourceTimingNames = [
+    'workerStart',
+    'redirectStart',
+    'redirectEnd',
+    'fetchStart',
+    'domainLookupStart',
+    'domainLookupEnd',
+    'connectStart',
+    'connectEnd',
+    'secureConnectionStart',
+    'requestStart',
+    'responseStart',
+    'responseEnd',
+  ];
+  const navTimingNames = [
+    'navigationStart',
+    'unloadEventStart',
+    'unloadEventEnd',
+    'redirectStart',
+    'redirectEnd',
+    'fetchStart',
+    'commitNavigationEnd',
+    'domainLookupStart',
+    'domainLookupEnd',
+    'connectStart',
+    'connectEnd',
+    'secureConnectionStart',
+    'requestStart',
+    'responseStart',
+    'responseEnd',
+    'domLoading',
+    'domInteractive',
+    'domContentLoadedEventStart',
+    'domContentLoadedEventEnd',
+    'domComplete',
+    'loadEventStart',
+    'loadEventEnd',
+  ];
+  // These are events dispatched under the blink.user_timing category
+  // but that the user didn't add. Filter them out so that they do not
+  // Appear in the timings track (they still appear in the main thread
+  // flame chart).
+  const ignoredNames = [...resourceTimingNames, ...navTimingNames];
+  if (ignoredNames.includes(event.name)) {
+    return;
+  }
 
-  if (Types.TraceEvents.isTraceEventUserTimingsBeginOrEnd(event)) {
+  if (Types.TraceEvents.isTraceEventUserTiming(event)) {
     timingEvents.push(event);
   }
 }
@@ -41,15 +88,17 @@ export async function finalize(): Promise<void> {
   if (handlerState !== HandlerState.INITIALIZED) {
     throw new Error('UserTimings handler is not initialized');
   }
+  type UserTiming = {
+    mark?: Types.TraceEvents.TraceEventUserTimingMark,
+    begin?: Types.TraceEvents.TraceEventUserTimingBegin,
+    end?: Types.TraceEvents.TraceEventUserTimingEnd,
+  };
 
-  const matchedEvents: Map<string, {
-    begin: Types.TraceEvents.TraceEventUserTimingBegin | null,
-    end: Types.TraceEvents.TraceEventUserTimingEnd | null,
-  }> = new Map();
+  const matchedEvents: Map<string, UserTiming> = new Map();
   for (const event of timingEvents) {
-    const otherEventsWithID = Platform.MapUtilities.getWithDefault(matchedEvents, event.id, () => {
-      return {begin: null, end: null};
-    });
+    const eventId = event.id || event.name;
+    const otherEventsWithID =
+        Platform.MapUtilities.getWithDefault<string, UserTiming>(matchedEvents, eventId, () => ({}));
     const isStartEvent = event.ph === Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_START;
     const isEndEvent = event.ph === Types.TraceEvents.TraceEventPhase.ASYNC_NESTABLE_END;
 
@@ -57,32 +106,42 @@ export async function finalize(): Promise<void> {
       otherEventsWithID.begin = event;
     } else if (isEndEvent) {
       otherEventsWithID.end = event;
+    } else {
+      otherEventsWithID.mark = event;
     }
   }
 
-  for (const [id, eventsPair] of matchedEvents.entries()) {
-    if (!eventsPair.begin || !eventsPair.end) {
-      // This should never happen, the backend only creates the events once it
-      // has them both, so we should never get into this state.
-      // If we do, something is very wrong, so let's just drop that problematic event.
+  for (const [id, userTimingEvent] of matchedEvents.entries()) {
+    if (!userTimingEvent.begin && !userTimingEvent.mark) {
+      // Shouldn't happen due to how matchedEvents is built
+      continue;
+    }
+    if (userTimingEvent.begin && userTimingEvent.mark) {
+      // Shouldn't happen due to how matchedEvents is built
       continue;
     }
 
+    const dur = (userTimingEvent.begin && userTimingEvent.end) ?
+        Types.Timing.MicroSeconds(userTimingEvent.end.ts - userTimingEvent.begin.ts) :
+        Types.Timing.MicroSeconds(0);
+    const defaultEvent = (userTimingEvent.begin || userTimingEvent.mark) as TraceEventUserTiming;
+
     const event: Types.TraceEvents.TraceEventSyntheticUserTiming = {
-      cat: eventsPair.end.cat,
-      ph: eventsPair.end.ph,
-      pid: eventsPair.end.pid,
-      tid: eventsPair.end.tid,
+      cat: defaultEvent.cat,
+      ph: defaultEvent.ph,
+      pid: defaultEvent.pid,
+      tid: defaultEvent.tid,
       id,
       // Both events have the same name, so it doesn't matter which we pick to
       // use as the description
-      name: eventsPair.begin.name,
-      dur: Types.Timing.MicroSeconds(eventsPair.end.ts - eventsPair.begin.ts),
-      ts: eventsPair.begin.ts,
+      name: defaultEvent.name,
+      dur,
+      ts: defaultEvent.ts,
       args: {
         data: {
-          beginEvent: eventsPair.begin,
-          endEvent: eventsPair.end,
+          beginEvent: userTimingEvent.begin,
+          mark: userTimingEvent.mark,
+          endEvent: userTimingEvent.end,
         },
       },
     };
