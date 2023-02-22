@@ -10,8 +10,7 @@ import {
 } from '../helpers/animations-helpers.js';
 
 describe('The Animations Panel', async () => {
-  // Inconsistent behavior on Animations panel causes tets to be flaky
-  it.skip('[crbug.com/941646] Listens for animation in webpage', async () => {
+  it('Listens for animation in webpage', async () => {
     await waitForAnimationsPanelToLoad();
     await navigateToSiteWithAnimation();
     await waitForAnimationContent();
