@@ -880,6 +880,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (this.property.parsedOk) {
       void this.updateFontVariationSettingsWarning();
       this.updateAuthoringHint();
+      this.updateMDNHint();
     } else {
       // Avoid having longhands under an invalid shorthand.
       this.listItemElement.classList.add('not-parsed-ok');
@@ -956,6 +957,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         this.listItemElement.classList.add('inactive-property');
         break;
       }
+    }
+  }
+
+  private updateMDNHint(): void {
+    const cssProperty = this.parentPane().webCustomData.findCssProperty(this.property.name);
+    if (cssProperty) {
+      const hintIcon = UI.Icon.Icon.create('mediumicon-info', 'mdn-hint');
+      hintIcon.dataset.property = cssProperty.name;
+      this.listItemElement.append(hintIcon);
     }
   }
 
