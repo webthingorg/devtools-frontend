@@ -335,10 +335,11 @@ export class MainImpl {
     Root.Runtime.experiments.setEnabled('dualScreenSupport', true);
 
     // Advanced Perceptual Contrast Algorithm.
-    Root.Runtime.experiments.register(
-        'APCA',
-        'Enable new Advanced Perceptual Contrast Algorithm (APCA) replacing previous contrast ratio and AA/AAA guidelines',
-        undefined, 'https://developer.chrome.com/blog/new-in-devtools-89/#apca');
+    // Disabled because it got outdated.
+    // Root.Runtime.experiments.register(
+    //     'APCA',
+    //     'Enable new Advanced Perceptual Contrast Algorithm (APCA) replacing previous contrast ratio and AA/AAA guidelines',
+    //     undefined, 'https://developer.chrome.com/blog/new-in-devtools-89/#apca');
 
     // Full Accessibility Tree
     Root.Runtime.experiments.register(

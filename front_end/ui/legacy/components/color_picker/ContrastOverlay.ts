@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as Common from '../../../../core/common/common.js';
-import * as Root from '../../../../core/root/root.js';
 import * as UI from '../../legacy.js';
 
 import {Events, type ContrastInfo} from './ContrastInfo.js';
@@ -25,7 +24,8 @@ export class ContrastOverlay {
 
     this.contrastRatioSVG = UI.UIUtils.createSVGChild(colorElement, 'svg', 'spectrum-contrast-container fill');
     this.contrastRatioLines = new Map();
-    if (Root.Runtime.experiments.isEnabled('APCA')) {
+    const showAPCA = false;
+    if (showAPCA) {
       this.contrastRatioLines.set(
           'APCA', UI.UIUtils.createSVGChild(this.contrastRatioSVG, 'path', 'spectrum-contrast-line'));
     } else {
@@ -50,7 +50,8 @@ export class ContrastOverlay {
     if (!this.visible || this.contrastInfo.isNull()) {
       return;
     }
-    if (Root.Runtime.experiments.isEnabled('APCA') && this.contrastInfo.contrastRatioAPCA() === null) {
+    const showAPCA = false;
+    if (showAPCA && this.contrastInfo.contrastRatioAPCA() === null) {
       return;
     }
     if (!this.contrastInfo.contrastRatio()) {
@@ -90,7 +91,7 @@ export class ContrastRatioLineBuilder {
   }
 
   drawContrastRatioLine(width: number, height: number, level: string): string|null {
-    const isAPCA = Root.Runtime.experiments.isEnabled('APCA');
+    const isAPCA = false;
     const requiredContrast =
         isAPCA ? this.contrastInfo.contrastRatioAPCAThreshold() : this.contrastInfo.contrastRatioThreshold(level);
     if (!width || !height || requiredContrast === null) {
@@ -140,7 +141,8 @@ export class ContrastRatioLineBuilder {
               Common.ColorUtils.blendColors(Common.Color.Legacy.fromHSVA(candidateHSVA).rgba(), bgRGBA));
         };
 
-    if (Root.Runtime.experiments.isEnabled('APCA')) {
+    const showAPCA = false;
+    if (showAPCA) {
       candidateLuminance = (candidateHSVA: Common.ColorUtils.Color4D): number => {
         return Common.ColorUtils.luminanceAPCA(
             Common.ColorUtils.blendColors(Common.Color.Legacy.fromHSVA(candidateHSVA).rgba(), bgRGBA));

@@ -6,7 +6,6 @@ import * as Common from '../../../../core/common/common.js';
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import * as Root from '../../../../core/root/root.js';
 import * as UI from '../../legacy.js';
 
 import {Events as ContrastInfoEvents, type ContrastInfo} from './ContrastInfo.js';
@@ -243,7 +242,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.setVisible(true);
     this.hideNoContrastInfoAvailableMessage();
 
-    const isAPCAEnabled = Root.Runtime.experiments.isEnabled('APCA');
+    const isAPCAEnabled = false;
 
     const fgColor = this.contrastInfo.color();
     const bgColor = this.contrastInfo.bgColor();
