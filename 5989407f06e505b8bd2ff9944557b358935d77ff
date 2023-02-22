@@ -16,6 +16,40 @@
       "message": "Hi Philip, could you PTAL? Thanks!",
       "revId": "5989407f06e505b8bd2ff9944557b358935d77ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cea6f6ef_d3888c97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-22T14:45:42Z",
+      "side": 1,
+      "message": "LGTM with one question",
+      "revId": "5989407f06e505b8bd2ff9944557b358935d77ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6144062c_9e830bd7",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-22T14:45:42Z",
+      "side": 1,
+      "message": "does this work well in both themes? should it maybe be a var() instead?",
+      "revId": "5989407f06e505b8bd2ff9944557b358935d77ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
