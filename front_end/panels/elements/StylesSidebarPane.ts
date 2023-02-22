@@ -230,7 +230,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
   private readonly boundOnScroll: (event: Event) => void;
 
   private readonly imagePreviewPopover: ImagePreviewPopover;
-  private readonly webCustomData: WebCustomData;
+  #webCustomData?: WebCustomData;
   #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
   activeCSSAngle: InlineEditor.CSSAngle.CSSAngle|null;
   #urlToChangeTracker: Map<Platform.DevToolsPath.UrlString, ChangeTracker> = new Map();
@@ -306,7 +306,11 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
 
     this.activeCSSAngle = null;
 
-    this.webCustomData = WebCustomData.create();
+    const showDocumentationSetting =
+        Common.Settings.Settings.instance().moduleSetting('showCSSPropertyDocumentationOnHover');
+    if (showDocumentationSetting.get()) {
+      this.#webCustomData = WebCustomData.create();
+    }
 
     this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
       const hoveredNode = event.composedPath()[0] as Element;
@@ -330,9 +334,13 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         }
       }
 
-      if (hoveredNode.matches('.webkit-css-property')) {
+      if (showDocumentationSetting.get() && hoveredNode.matches('.webkit-css-property')) {
+        if (!this.#webCustomData) {
+          this.#webCustomData = WebCustomData.create();
+        }
+
         const cssPropertyName = hoveredNode.textContent;
-        const cssProperty = cssPropertyName && this.webCustomData.findCssProperty(cssPropertyName);
+        const cssProperty = cssPropertyName && this.#webCustomData.findCssProperty(cssPropertyName);
 
         if (cssProperty) {
           return {
