@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb539d74_3de15ad3",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfde6920_46ff2af2",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "367faac3_02761498",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-22T08:52:36Z",
       "side": 1,
       "message": "tiny nit: I think this reads better if we lose the comma and put in a \"that\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 42,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a04fb788_a2139443",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367faac3_02761498",
       "range": {
         "startLine": 20,
         "startChar": 42,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79ab9af_3d4f8539",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "Whoops, that also leaked. Fixed.",
+      "parentUuid": "4790fb9d_69e07814",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 55
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e02c3f49_2714d05f",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-22T08:52:36Z",
       "side": 1,
       "message": "I think I find this a bit confusing but it is probably because it is not used yet in this CL; to check my understanding, this will push into the flame chart all the data required to render the track in question, and it will do so at the level passed in as an argument?\n\nIf so, I would be tempted to call this appendTrackAtLevel just to be more explicit.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db9eed6_2e39a930",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "That\u0027s correct. Great suggestion! Done.\nBTW, do you think the wording in the doc of this prop transmits what the method is supposed to do?",
+      "parentUuid": "e02c3f49_2714d05f",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3f9737_9670e787",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f3725d_de11d8ef",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0785ea7a_50acb750",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-02-22T08:52:36Z",
       "side": 1,
       "message": "why do we need to store this?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 69
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a49d9d5_ab2e9f85",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "This leaked from the prototype I had where the timings track uses the new engine, and which I then split in multiple CLs (including this). This doesn\u0027t need to be here now, so I\u0027ll remove it.",
+      "parentUuid": "0785ea7a_50acb750",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd1a1d9_7d7bae45",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "these will be used and modified by each track appender implementation, so that they can \"append\" their data, or at least that\u0027s the plan.",
+      "parentUuid": "86491433_2d2a504c",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5bedbb0_155ff514",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-02-22T08:52:36Z",
       "side": 1,
       "message": "nit: EntryData (capital D)",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96993df6_99d548d8",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T11:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5bedbb0_155ff514",
       "range": {
         "startLine": 84,
         "startChar": 2,
