@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
-import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
@@ -60,8 +59,7 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel<void> {
     const highlightConfig = {
       contentColor: Common.Color.PageHighlight.Content.toProtocolRGBA(),
       showInfo: true,
-      contrastAlgorithm: Root.Runtime.experiments.isEnabled('APCA') ? Protocol.Overlay.ContrastAlgorithm.Apca :
-                                                                      Protocol.Overlay.ContrastAlgorithm.Aa,
+      contrastAlgorithm: Protocol.Overlay.ContrastAlgorithm.Aa,
     };
 
     void this.#overlayAgent.invoke_hideHighlight();
@@ -282,7 +280,8 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel<void> {
           const formattedTextColor = formatColor(blendedTextColor);
           const formattedBackgroundColor = formatColor(blendedBackgroundColor.asLegacyColor());
           const key = `${formattedTextColor}_${formattedBackgroundColor}`;
-          if (Root.Runtime.experiments.isEnabled('APCA')) {
+          const showAPCA = false;
+          if (showAPCA) {
             const contrastRatio = contrastInfo.contrastRatioAPCA();
             const threshold = contrastInfo.contrastRatioAPCAThreshold();
             const passes = contrastRatio && threshold ? Math.abs(contrastRatio) >= threshold : false;

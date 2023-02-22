@@ -698,7 +698,6 @@ export enum DevtoolsExperiments {
   'wasmDWARFDebugging' = 31,
   'dualScreenSupport' = 32,
   'keyboardShortcutEditor' = 35,
-  'APCA' = 39,
   'cspViolationsView' = 40,
   'fontEditor' = 41,
   'fullAccessibilityTree' = 42,
