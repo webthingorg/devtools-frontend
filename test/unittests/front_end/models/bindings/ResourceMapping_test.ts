@@ -84,7 +84,7 @@ describeWithMockConnection('ResourceMapping', () => {
     const frame = resourceTreeModel.frameAttached(frameId, null);
     frame?.addResource(new SDK.Resource.Resource(
         resourceTreeModel, null, url, url, frameId, null, Common.ResourceType.ResourceType.fromMimeType(mimeType),
-        mimeType, null, null));
+        mimeType, null, null, SDK.Resource.ResourceSource.Network));
     uiSourceCode = workspace.uiSourceCodeForURL(url) as Workspace.UISourceCode.UISourceCode;
     assert.isNotNull(uiSourceCode);
 

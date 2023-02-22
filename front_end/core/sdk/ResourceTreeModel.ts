@@ -42,7 +42,7 @@ import {DOMModel, type DeferredDOMNode, type DOMNode} from './DOMModel.js';
 
 import {Events as NetworkManagerEvents, NetworkManager, type RequestUpdateDroppedEventData} from './NetworkManager.js';
 import {type NetworkRequest} from './NetworkRequest.js';
-import {Resource} from './Resource.js';
+import {Resource, ResourceSource} from './Resource.js';
 import {ExecutionContext, RuntimeModel} from './RuntimeModel.js';
 
 import {Capability, Type, type Target} from './Target.js';
@@ -326,7 +326,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
 
     const resource = new Resource(
         this, null, url, frame.url, frameId, data.loaderId, Common.ResourceType.resourceTypes[data.resourceType],
-        data.mimeType, data.lastModified, null);
+        data.mimeType, data.lastModified, null, ResourceSource.Network);
     frame.addResource(resource);
   }
 
@@ -386,7 +386,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     const lastModified = typeof lastModifiedTime === 'number' ? new Date(lastModifiedTime * 1000) : null;
     return new Resource(
         this, null, url, frame.url as Platform.DevToolsPath.UrlString, frame.id, frame.loaderId, type, mimeType,
-        lastModified, contentSize);
+        lastModified, contentSize, ResourceSource.Cache);
   }
 
   suspendReload(): void {
@@ -944,7 +944,7 @@ export class ResourceTreeFrame {
     }
     resource = new Resource(
         this.#model, request, request.url(), request.documentURL, request.frameId, request.loaderId,
-        request.resourceType(), request.mimeType, null, null);
+        request.resourceType(), request.mimeType, null, null, ResourceSource.Network);
     this.resourcesMap.set(resource.url, resource);
     this.#model.dispatchEventToListeners(Events.ResourceAdded, resource);
   }

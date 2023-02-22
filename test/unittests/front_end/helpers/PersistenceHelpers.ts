@@ -72,7 +72,8 @@ function createResourceInMainFrame(
   const mainFrameId = 'main' as Protocol.Page.FrameId;
   const resource = new SDK.Resource.Resource(
       resourceTreeModel, null, networkScriptUrl, networkScriptUrl, mainFrameId, null,
-      Common.ResourceType.ResourceType.fromMimeType('text/javascript'), mimeType, null, content.length);
+      Common.ResourceType.ResourceType.fromMimeType('text/javascript'), mimeType, null, content.length,
+      SDK.Resource.ResourceSource.Network);
 
   const frame = resourceTreeModel.frameForId(mainFrameId);
   assertNotNullOrUndefined(frame);
