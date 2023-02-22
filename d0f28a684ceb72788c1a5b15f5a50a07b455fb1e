@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e963554c_ef4fbdfe",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-22T13:16:05Z",
+      "side": 0,
+      "message": "the reason for the flake was here, it seems that the click sometimes happens when the button is not functional yet; this was proved when adding a wait after this removed the flake. Below we retry the click in 0.1 second intervals if it was not functional the first time.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "d0f28a684ceb72788c1a5b15f5a50a07b455fb1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
