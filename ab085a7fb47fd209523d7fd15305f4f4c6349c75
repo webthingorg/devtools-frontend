@@ -16,6 +16,23 @@
       "message": "Please find the below stress runs (please wait for them to finish before LGTM):\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8788456941601415217/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8788456941601415185/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8788456941601415201/overview",
       "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc898441_7ddf8388",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-22T13:25:50Z",
+      "side": 1,
+      "message": "blindly re-clicking the button until a desired effect occurs does sound like a good strategy to me. rather, can we find out what the right signal is that lets us determine that the button is clickable?",
+      "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
