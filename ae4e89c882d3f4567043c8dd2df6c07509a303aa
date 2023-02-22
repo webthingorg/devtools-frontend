@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e76620b5_3a31526a",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T12:10:27Z",
+      "side": 1,
+      "message": "This check moved out of the function.",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 97,
+        "endChar": 42
+      },
+      "revId": "ae4e89c882d3f4567043c8dd2df6c07509a303aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
