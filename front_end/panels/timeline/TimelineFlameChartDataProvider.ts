@@ -161,7 +161,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export const FONT = '11px ' + Host.Platform.fontFamily();
 
 export type TimelineFlameChartEntry =
-    (SDK.FilmStripModel.Frame|SDK.TracingModel.Event|TimelineModel.TimelineFrameModel.TimelineFrame);
+    (SDK.FilmStripModel.Frame|SDK.TracingModel.Event|TimelineModel.TimelineFrameModel.TimelineFrame|
+     TraceEngine.Types.TraceEvents.TraceEventData);
 export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     PerfUI.FlameChart.FlameChartDataProvider {
   private droppedFramePatternCanvas: HTMLCanvasElement;
@@ -339,6 +340,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
     if (entryType === entryTypes.Screenshot) {
       return '';
+    }
+    if (entryType === entryTypes.TrackAppender) {
+      const timelineData = (this.timelineDataInternal as PerfUI.FlameChart.TimelineData);
+      const eventLevel = timelineData.entryLevels[entryIndex];
+      const event = (this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData);
+      return this.compatibilityTracksAppender?.titleForEvent(event, eventLevel) || null;
     }
     let title: Common.UIString.LocalizedString|string = this.entryIndexToTitle[entryIndex];
     if (!title) {
@@ -621,10 +628,21 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const entryTypes = EntryType;
     this.timelineData();
     for (let i = 0; i < this.entryData.length; ++i) {
-      if (this.entryType(i) !== entryTypes.Event) {
+      if (this.entryType(i) !== entryTypes.Event && this.entryType(i) !== entryTypes.TrackAppender) {
         continue;
       }
-      const event = (this.entryData[i] as SDK.TracingModel.Event);
+      let event;
+      if (this.entryType(i) === entryTypes.TrackAppender && this.compatibilityTracksAppender) {
+        event = this.compatibilityTracksAppender.getLegacyEvent(
+            this.entryData[i] as TraceEngine.Types.TraceEvents.TraceEventData);
+      } else {
+        event = this.entryData[i] as SDK.TracingModel.Event;
+      }
+
+      if (!event) {
+        continue;
+      }
+
       if (event.startTime > endTime) {
         continue;
       }
@@ -973,7 +991,17 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     let nameSpanTimelineInfoTime = 'timeline-info-time';
 
     const type = this.entryType(entryIndex);
-    if (type === EntryType.Event) {
+    if (type === EntryType.TrackAppender) {
+      if (!this.compatibilityTracksAppender) {
+        return null;
+      }
+      const event = (this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData);
+      const timelineData = (this.timelineDataInternal as PerfUI.FlameChart.TimelineData);
+      const eventLevel = timelineData.entryLevels[entryIndex];
+      const highlightedEntryInfo = this.compatibilityTracksAppender.highlightedEntryInfo(event, eventLevel);
+      title = highlightedEntryInfo.title;
+      time = highlightedEntryInfo.formattedTime;
+    } else if (type === EntryType.Event) {
       const event = (this.entryData[entryIndex] as SDK.TracingModel.Event);
       const totalTime = event.duration;
       const selfTime = event.selfTime;
@@ -1095,6 +1123,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (type === entryTypes.ExtensionEvent) {
       const event = (this.entryData[entryIndex] as SDK.TracingModel.Event);
       return this.extensionColorGenerator.colorForID(event.name);
+    }
+    if (type === entryTypes.TrackAppender) {
+      const timelineData = (this.timelineDataInternal as PerfUI.FlameChart.TimelineData);
+      const eventLevel = timelineData.entryLevels[entryIndex];
+      const event = (this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData);
+      return this.compatibilityTracksAppender?.colorForEvent(event, eventLevel) || '';
     }
     return '';
   }
@@ -1363,8 +1397,15 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   createSelection(entryIndex: number): TimelineSelection|null {
     const type = this.entryType(entryIndex);
     let timelineSelection: TimelineSelection|null = null;
-    if (type === EntryType.Event) {
-      timelineSelection = TimelineSelection.fromTraceEvent((this.entryData[entryIndex] as SDK.TracingModel.Event));
+    if (type === EntryType.Event || type === EntryType.TrackAppender) {
+      const event = type === EntryType.TrackAppender ?
+          this.compatibilityTracksAppender?.getLegacyEvent(
+              this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData) :
+          this.entryData[entryIndex] as SDK.TracingModel.Event;
+      if (!event) {
+        return null;
+      }
+      timelineSelection = TimelineSelection.fromTraceEvent(event);
     } else if (type === EntryType.Frame) {
       timelineSelection =
           TimelineSelection.fromFrame((this.entryData[entryIndex] as TimelineModel.TimelineFrameModel.TimelineFrame));
@@ -1481,6 +1522,7 @@ export type EventTypes = {
 export enum EntryType {
   Frame = 'Frame',
   Event = 'Event',
+  TrackAppender = 'TrackAppender',
   ExtensionEvent = 'ExtensionEvent',
   Screenshot = 'Screenshot',
 }
