@@ -63,6 +63,30 @@
       },
       "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacc7121_3318154c",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T12:25:23Z",
+      "side": 1,
+      "message": "Let\u0027s not mention it or make it clear how the data is passed in and accessed. I will defer to you on this - I do not feel strongly either.",
+      "parentUuid": "2b30cc06_d4633bc8",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
