@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02eb451a_89d26f53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-02-22T06:35:49Z",
+      "side": 1,
+      "message": "Great fix, thanks Marijn!\n\nSimon, can you rubber-stamp please?",
+      "revId": "3b46a1d36963307b21ed27907d03de00d84da9d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
