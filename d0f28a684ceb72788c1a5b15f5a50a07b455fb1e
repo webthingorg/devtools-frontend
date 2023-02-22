@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "675e9a2d_891f93e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T10:56:51Z",
+      "side": 1,
+      "message": "This CL breaks the console history: It\u0027s now no longer possible to go forward via \u0027ArrowDown\u0027. I bisected to this CL since I also made some refactorings today.\n\nShould we revert?",
+      "revId": "d0f28a684ceb72788c1a5b15f5a50a07b455fb1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
