@@ -1423,6 +1423,28 @@ describeWithEnvironment('TimelineModel', () => {
         },
       ]);
     });
+
+    it('detects the correct invalidations for an ID being changed', async () => {
+      const {timelineModel} = await traceModelFromTraceFile('style-invalidation-change-id.json.gz');
+      const invalidations = await invalidationsFromTestFunction(timelineModel, 'testFuncs.changeIdAndDisplay');
+      // In this trace there are three nodes impacted by the ID change:
+      // the two test divs, and the button, which gains the :active pseudo
+      // class
+      assert.deepEqual(invalidations.map(invalidationToBasicObject), [
+        {
+          reason: 'PseudoClass',
+          nodeName: 'BUTTON id=\'changeIdAndDisplay\'',
+        },
+        {
+          reason: 'Element has pending invalidation list',
+          nodeName: 'DIV id=\'testElementFour\'',
+        },
+        {
+          reason: 'Element has pending invalidation list',
+          nodeName: 'DIV id=\'testElementFive\'',
+        },
+      ]);
+    });
   });
 });
 
