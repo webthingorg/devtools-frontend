@@ -548,9 +548,9 @@ export class DebuggerModel extends SDKModel<EventTypes> {
 
   globalObjectCleared(): void {
     this.setDebuggerPausedDetails(null);
-    this.reset();
     // TODO(dgozman): move clients to ExecutionContextDestroyed/ScriptCollected events.
     this.dispatchEventToListeners(Events.GlobalObjectCleared, this);
+    this.reset();
   }
 
   private reset(): void {
