@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef77232a_ec7c9b72",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-22T16:53:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "016eae10_8c894329",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "68862163703924fae629dcd74467d4f06645d4dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3d60d01_8d675bd2",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-22T14:47:16Z",
       "side": 1,
       "message": "duplicate of previous test?",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 39
+      },
+      "revId": "68862163703924fae629dcd74467d4f06645d4dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5117c97_a274e3ad",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-22T16:53:01Z",
+      "side": 1,
+      "message": "Oops, done.",
+      "parentUuid": "c3d60d01_8d675bd2",
       "range": {
         "startLine": 57,
         "startChar": 2,
