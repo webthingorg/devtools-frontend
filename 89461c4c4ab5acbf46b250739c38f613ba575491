@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48927e0d_9168fd4a",
+        "filename": "front_end/ui/components/text_editor/TextEditorHistory.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T07:28:42Z",
+      "side": 1,
+      "message": "@Marjin: Is this done via screen coordinates for performance reasons? Or could we use `doc.lineAt` and `doc.lines` instead.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "89461c4c4ab5acbf46b250739c38f613ba575491",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
