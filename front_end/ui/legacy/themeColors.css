@@ -140,6 +140,15 @@
   --color-ic-file-webbundle: rgb(128 134 139);
   --color-ic-file-default: rgb(128 134 139);
 
+  /* Values for file icon filters */
+  --value-filter-file-document: invert(62%) sepia(89%) saturate(5949%) hue-rotate(205deg) brightness(96%) contrast(95%);
+  --value-filter-file-image: invert(51%) sepia(98%) saturate(373%) hue-rotate(84deg) brightness(96%) contrast(84%);
+  --value-filter-file-font: invert(80%) sepia(25%) saturate(7052%) hue-rotate(146deg) brightness(91%) contrast(94%);
+  --value-filter-file-script: invert(67%) sepia(37%) saturate(2944%) hue-rotate(8deg) brightness(104%) contrast(101%);
+  --value-filter-file-stylesheet: invert(36%) sepia(80%) saturate(2660%) hue-rotate(249deg) brightness(103%) contrast(101%);
+  --value-filter-file-webbundle: invert(55%) sepia(1%) saturate(1654%) hue-rotate(165deg) brightness(96%) contrast(83%);
+  --value-filter-file-default: invert(55%) sepia(1%) saturate(1654%) hue-rotate(165deg) brightness(96%) contrast(83%);
+
   /* Code highlighting colors */
   --color-token-variable: inherit;
   --color-token-property: inherit;
@@ -288,6 +297,15 @@
   --color-ic-file-stylesheet: rgb(161 66 244);
   --color-ic-file-webbundle: rgb(128 134 139);
   --color-ic-file-default: rgb(128 134 139);
+
+  /* Values for file icon filters */
+  --value-filter-file-document: invert(62%) sepia(89%) saturate(5949%) hue-rotate(205deg) brightness(96%) contrast(95%);
+  --value-filter-file-image: invert(45%) sepia(27%) saturate(1222%) hue-rotate(85deg) brightness(92%) contrast(91%);
+  --value-filter-file-font: invert(49%) sepia(100%) saturate(399%) hue-rotate(139deg) brightness(98%) contrast(92%);
+  --value-filter-file-script: invert(55%) sepia(40%) saturate(3984%) hue-rotate(8deg) brightness(100%) contrast(101%);
+  --value-filter-file-stylesheet: invert(39%) sepia(73%) saturate(6002%) hue-rotate(259deg) brightness(100%) contrast(92%);
+  --value-filter-file-webbundle: invert(55%) sepia(1%) saturate(1654%) hue-rotate(165deg) brightness(96%) contrast(83%);
+  --value-filter-file-default: invert(55%) sepia(1%) saturate(1654%) hue-rotate(165deg) brightness(96%) contrast(83%);
 
   /* Code highlighting colors */
   --color-token-variable: rgb(217 217 217);
