@@ -33,6 +33,24 @@
       "message": "blindly re-clicking the button until a desired effect occurs does sound like a good strategy to me. rather, can we find out what the right signal is that lets us determine that the button is clickable?",
       "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b9301f8_ce8c886c",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-22T14:49:51Z",
+      "side": 1,
+      "message": "I could not find a visual indicator that the button is functional, however I used `waitForFunctionWithTries` so we do not retry infinitely (we do it only three times). Do you think that is good enough?",
+      "parentUuid": "dc898441_7ddf8388",
+      "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
