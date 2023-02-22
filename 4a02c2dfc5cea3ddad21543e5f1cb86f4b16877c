@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad823e9_866e8234",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T11:36:23Z",
+      "side": 1,
+      "message": "I\u0027ll revert for now due to branch cut tomorrow.",
+      "revId": "4a02c2dfc5cea3ddad21543e5f1cb86f4b16877c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
