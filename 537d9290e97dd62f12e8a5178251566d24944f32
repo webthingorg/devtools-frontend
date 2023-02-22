@@ -87,6 +87,30 @@
       },
       "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c1fdd2_42e07f3c",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T12:53:24Z",
+      "side": 1,
+      "message": "After giving it another thought, I\u0027m now leaning towards passing the flame chart data as a param. This can result in code being more simple and easier to test. I\u0027ve added this changed as well as comments for the new params.",
+      "parentUuid": "eacc7121_3318154c",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
