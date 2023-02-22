@@ -10,6 +10,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -888,6 +889,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.listItemElement.insertBefore(
           StylesSidebarPane.createExclamationMark(this.property, null), this.listItemElement.firstChild);
     }
+    this.updateMDNHint();
 
     if (!this.property.activeInStyle()) {
       this.listItemElement.classList.add('inactive');
@@ -956,6 +958,22 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         this.listItemElement.classList.add('inactive-property');
         break;
       }
+    }
+  }
+
+  private updateMDNHint(): void {
+    const cssProperty = this.parentPane().webCustomData.findCssProperty(this.property.name);
+    if (cssProperty) {
+      const hintIcon = new IconButton.Icon.Icon();
+      hintIcon.data = {
+        iconName: 'help_outline',
+        color: 'rgb(110 110 110)',
+        width: '16px',
+        height: '16px',
+      };
+      hintIcon.classList.add('mdn-hint');
+      hintIcon.dataset.property = cssProperty.name;
+      this.listItemElement.append(hintIcon);
     }
   }
 

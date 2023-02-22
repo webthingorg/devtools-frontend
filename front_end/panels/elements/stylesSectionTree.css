@@ -156,16 +156,6 @@ ol.expanded {
   transform: scale(0.9);
 }
 
-.hint {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto auto auto 3px;
-  display: inline-block;
-  cursor: pointer;
-  transform: scale(0.9);
-}
-
 .has-ignorable-error {
   color: var(--color-text-disabled);
 }
@@ -210,20 +200,32 @@ ol.expanded {
   white-space: pre;
 }
 
-.styles-pane-button {
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  border: 0;
-  margin: 0 0 0 6px;
-  position: absolute;
-  top: -1px;
-  background-color: var(--color-background-elevation-2);
-  border-radius: 3px;
+.styles-pane-button,
+.hint,
+.mdn-hint {
+  height: 16px;
+  width: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  vertical-align: middle;
+  margin: -1px 3px;
+}
+
+.styles-pane-button {
+  padding: 0;
+  border: 0;
+  background-color: var(--color-background-elevation-2);
+  border-radius: 3px;
+}
+
+.mdn-hint {
+  visibility: hidden;
+}
+
+.tree-outline li:hover .mdn-hint {
+  visibility: visible;
 }
 
 .tree-outline li.child-editing .styles-clipboard-only {
