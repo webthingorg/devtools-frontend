@@ -86,8 +86,9 @@ const createSettingSelect = function(
   ARIAUtils.bindLabelToControl(label, select);
 
   for (const option of options) {
-    if (option.text && typeof option.value === 'string') {
-      select.add(new Option(option.text, option.value));
+    const valueType = typeof option.value;
+    if (option.text && (valueType === 'string' || valueType === 'number')) {
+      select.add(new Option(option.text, option.value.toString()));
     }
   }
 

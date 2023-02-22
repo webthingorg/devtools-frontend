@@ -235,6 +235,46 @@ const UIStrings = {
    */
   disableJavascriptSourceMaps: 'Disable JavaScript source maps',
   /**
+   *@description Title of a setting under the Sources category that can be invoked through the Command Menu
+   */
+  sourcemapTimeout30Seconds: 'Set source maps load timeout to 30 seconds',
+  /**
+   *@description Title of a setting under the Sources category that can be invoked through the Command Menu
+   */
+  sourcemapTimeoutOneMinute: 'Set source maps load timeout to 1 minute',
+  /**
+   *@description Title of a setting under the Sources category that can be invoked through the Command Menu
+   */
+  sourcemapTimeoutTwoMinutes: 'Set source maps load timeout to 2 minutes',
+  /**
+   *@description Title of a setting under the Sources category in Settings
+   */
+  sourcemapLoadTimeout: 'Source maps load timeout:',
+  /**
+   *@description Title of a setting under the Sources category that can be invoked through the Command Menu
+   */
+  sourcemapTimeoutDisabled: 'Disable source maps load timeout',
+  /**
+   * @description One value of an option that can be set to '30 seconds', '1 minute', '2 minutes' or 'disabled'. The setting
+   * controls the timeout for loading source maps, or disablment of said timeout
+   */
+  thirtySeconds: '30 seconds',
+  /**
+   * @description One value of an option that can be set to '30 seconds', '1 minute', '2 minutes' or 'disabled'. The setting
+   * controls the timeout for loading source maps, or disablment of said timeout
+   */
+  oneMinute: '1 minute',
+  /**
+   * @description One value of an option that can be set to '30 seconds', '1 minute', '2 minutes' or 'disabled'. The setting
+   * controls the timeout for loading source maps, or disablment of said timeout
+   */
+  twoMinutes: '2 minutes',
+  /**
+   * @description One value of an option that can be set to '30 seconds', '1 minute', '2 minutes' or 'disabled'. The setting
+   * controls the timeout for loading source maps, or disablment of said timeout
+   */
+  disabled: 'Disabled',
+  /**
    *@description Title of a setting that can be invoked through the Command Menu.
    *'tab moves focus' is the name of the setting, which means that when the user
    *hits the tab key, the focus in the UI will be moved to the next part of the
@@ -1458,6 +1498,37 @@ Common.Settings.registerSettingExtension({
     {
       value: false,
       title: i18nLazyString(UIStrings.disableJavascriptSourceMaps),
+    },
+  ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.SOURCES,
+  storageType: Common.Settings.SettingStorageType.Synced,
+  title: i18nLazyString(UIStrings.sourcemapLoadTimeout),
+  settingName: 'jsSourceMapLoadTimeout',
+  settingType: Common.Settings.SettingType.ENUM,
+  defaultValue: 30000,
+  options: [
+    {
+      title: i18nLazyString(UIStrings.sourcemapTimeout30Seconds),
+      text: i18nLazyString(UIStrings.thirtySeconds),
+      value: 30000,
+    },
+    {
+      title: i18nLazyString(UIStrings.sourcemapTimeoutOneMinute),
+      text: i18nLazyString(UIStrings.oneMinute),
+      value: 60000,
+    },
+    {
+      title: i18nLazyString(UIStrings.sourcemapTimeoutTwoMinutes),
+      text: i18nLazyString(UIStrings.twoMinutes),
+      value: 120000,
+    },
+    {
+      title: i18nLazyString(UIStrings.sourcemapTimeoutDisabled),
+      text: i18nLazyString(UIStrings.disabled),
+      value: 0,
     },
   ],
 });

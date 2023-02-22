@@ -29,7 +29,7 @@
  */
 
 import * as TextUtils from '../../models/text_utils/text_utils.js';
-import type * as Common from '../common/common.js';
+import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import type * as Platform from '../platform/platform.js';
 
@@ -70,7 +70,9 @@ export class CompilerSourceMappingContentProvider implements TextUtils.ContentPr
 
   async requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
     try {
-      const {content} = await PageResourceLoader.instance().loadResource(this.#sourceURL, this.#initiator);
+      const sourceMapLoadTimeout = Common.Settings.Settings.instance().moduleSetting('jsSourceMapLoadTimeout').get();
+      const {content} =
+          await PageResourceLoader.instance().loadResource(this.#sourceURL, this.#initiator, sourceMapLoadTimeout);
       return {content, isEncoded: false};
     } catch (e) {
       const error = i18nString(UIStrings.couldNotLoadContentForSS, {PH1: this.#sourceURL, PH2: e.message});

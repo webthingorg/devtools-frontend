@@ -171,7 +171,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 async function loadSourceMap(
     url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): Promise<SourceMapV3> {
   try {
-    const {content} = await PageResourceLoader.instance().loadResource(url, initiator);
+    const sourceMapLoadTimeout = Common.Settings.Settings.instance().moduleSetting('jsSourceMapLoadTimeout').get();
+    const {content} = await PageResourceLoader.instance().loadResource(url, initiator, sourceMapLoadTimeout);
     return parseSourceMap(content);
   } catch (cause) {
     throw new Error(`Could not load content for ${url}: ${cause.message}`, {cause});

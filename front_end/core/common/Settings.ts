@@ -1271,7 +1271,7 @@ export interface Serializer<I, O> {
 }
 
 export interface SimpleSettingOption {
-  value: string|boolean;
+  value: string|boolean|number;
   title: string;
   text?: string;
   raw?: boolean;

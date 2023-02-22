@@ -183,7 +183,9 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
     throw new Error('Invalid initiator');
   }
 
-  async loadResource(url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): Promise<{
+  async loadResource(
+      url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator,
+      loadTimeout: number = this.#loadTimeout): Promise<{
     content: string,
   }> {
     const key = PageResourceLoader.makeKey(url, initiator);
@@ -192,8 +194,9 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
     this.dispatchEventToListeners(Events.Update);
     try {
       await this.acquireLoadSlot();
-      const resultPromise = this.dispatchLoad(url, initiator);
-      const result = await PageResourceLoader.withTimeout(resultPromise, this.#loadTimeout);
+      const loadPromise = this.dispatchLoad(url, initiator);
+      const resultPromise = loadTimeout > 0 ? PageResourceLoader.withTimeout(loadPromise, loadTimeout) : loadPromise;
+      const result = await resultPromise;
       pageResource.errorMessage = result.errorDescription.message;
       pageResource.success = result.success;
       if (result.success) {

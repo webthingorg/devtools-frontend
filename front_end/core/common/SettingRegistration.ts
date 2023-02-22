@@ -292,7 +292,7 @@ export interface SettingRegistration {
   deprecationNotice?: {disabled: boolean, warning: () => Platform.UIString.LocalizedString, experiment?: string};
 }
 interface LocalizedSettingExtensionOption {
-  value: boolean|string;
+  value: boolean|string|number;
   title: () => Platform.UIString.LocalizedString;
   text?: () => Platform.UIString.LocalizedString;
   raw?: false;
