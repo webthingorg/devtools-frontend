@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30ac9182_85a8f416",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T10:42:14Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "7ec1c5b7fbf377765a2eb07fd315f4f6d15c8545",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c08501_266f8d74",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T10:42:14Z",
+      "side": 1,
+      "message": "since we now use this for causes other than class name change, let\u0027s rename this to apply to other causes, something like `invalidationEventForTestFunction`",
+      "range": {
+        "startLine": 1387,
+        "startChar": 12,
+        "endLine": 1387,
+        "endChar": 42
+      },
+      "revId": "7ec1c5b7fbf377765a2eb07fd315f4f6d15c8545",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
