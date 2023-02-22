@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa7f23b_47a99a22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "lgtm with some nits, I think mainly if we can use type assertions over as statements. Would also consider test coverage for some of these changes, either as part of this CL or in followups, I will leave that to you.",
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd3c44a_d5e5ecfb",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "to check my understanding: is an \"entry\" here a track, such as the main thread track, or interactions, etc?",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 17
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2095b888_3c45c234",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "rather than use `as` here, can we write a type assertion function ? e.g. like in Insights where we have `isLCPCandidateEvent` which narrows the type for us",
+      "range": {
+        "startLine": 638,
+        "startChar": 5,
+        "endLine": 641,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ab95782_96dbfedd",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "one that I am happy to be in a follow up, but this feels like we could be able to unit test this if we had a helper for tests that could get an entryIndex for a given event. wdyt?\n\nmay be applicable for other parts of this file too",
+      "range": {
+        "startLine": 990,
+        "startChar": 2,
+        "endLine": 990,
+        "endChar": 29
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fa0b5e2_8177c7c1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "I know you didn\u0027t introduce this, but given TypeScript has an actual `type` keyword, can we call this `entryType` or similar , and update that in this CL whilst we are here?",
+      "range": {
+        "startLine": 996,
+        "startChar": 10,
+        "endLine": 996,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a88132_81fc75c4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "same note here about the type keyboard",
+      "range": {
+        "startLine": 1401,
+        "startChar": 10,
+        "endLine": 1401,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbe3f60_3b0aaf3f",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T13:38:44Z",
+      "side": 1,
+      "message": "again, would love if we could use type assertion functions which I think would help make this clearer and less verbose with the as calls",
+      "range": {
+        "startLine": 1404,
+        "startChar": 1,
+        "endLine": 1408,
+        "endChar": 19
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
