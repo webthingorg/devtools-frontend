@@ -22,6 +22,30 @@
       },
       "revId": "89461c4c4ab5acbf46b250739c38f613ba575491",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2589af57_752f6e3b",
+        "filename": "front_end/ui/components/text_editor/TextEditorHistory.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2023-02-22T08:47:19Z",
+      "side": 1,
+      "message": "`lineAt` and `lines` tell you nothing about whether lines are wrapped, and this is trying to determine whether there is another piece of wrapped line above/below the cursor. You could maybe use `view.moveToLineBoundary` as an alternative way to check this.",
+      "parentUuid": "48927e0d_9168fd4a",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "89461c4c4ab5acbf46b250739c38f613ba575491",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
