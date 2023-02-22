@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c92347_afbecb18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T12:11:38Z",
+      "side": 1,
+      "message": "Kim, PTAL since you have the most context :)\n\nBenedikt, did I add the correct CodeMirror extensions here? I basically took the same ones as the console minus JavaScript autocompletions.",
+      "revId": "0b4d8f00c843021db014e2e73f39f0c2e48925a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
