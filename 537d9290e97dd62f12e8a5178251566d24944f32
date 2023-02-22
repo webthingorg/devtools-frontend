@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0c01ff_41b70421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T11:59:58Z",
+      "side": 1,
+      "message": "lgtm with one nit. thanks!",
+      "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025f6c3a_52f0d482",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T11:59:58Z",
+      "side": 1,
+      "message": "nit: I find this explanation a bit confusing, perhaps because this is the first CL of a few, but the second sentence about the data being expressed in terms of level, timestamp, duration and type is confusing because the method only takes the level as an argument, so I think I am left confused wondering where we deal with the rest of the data.\n\nThe param \u0026 return part makes sense.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "537d9290e97dd62f12e8a5178251566d24944f32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
