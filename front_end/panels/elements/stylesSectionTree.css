@@ -156,7 +156,8 @@ ol.expanded {
   transform: scale(0.9);
 }
 
-.hint {
+.hint,
+.mdn-hint {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -164,6 +165,14 @@ ol.expanded {
   display: inline-block;
   cursor: pointer;
   transform: scale(0.9);
+}
+
+.mdn-hint {
+  visibility: hidden;
+}
+
+.tree-outline li:hover .mdn-hint {
+  visibility: visible;
 }
 
 .has-ignorable-error {
