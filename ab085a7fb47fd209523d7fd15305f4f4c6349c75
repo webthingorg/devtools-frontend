@@ -87,6 +87,24 @@
       "parentUuid": "1b9301f8_ce8c886c",
       "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6808a289_3b926f91",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-22T15:00:58Z",
+      "side": 1,
+      "message": "What if we only append the preview element to its parent container _after_ all the setup: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/animation/AnimationTimeline.ts;drc\u003da2eb4e9429deb0b781eb5579d8bb0ac7b10d580d;l\u003d550",
+      "parentUuid": "8eb4d553_f3f92036",
+      "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
