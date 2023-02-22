@@ -166,6 +166,7 @@ devtools_svg_sources = [
   "survey_feedback_icon.svg",
   "switcherIcon.svg",
   "sync.svg",
+  "table.svg",
   "three_dots_menu_icon.svg",
   "trash_bin_icon.svg",
   "trash_bin_material_icon.svg",

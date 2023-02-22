@@ -96,20 +96,21 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['mediumicons', {cellWidth: 16, cellHeight: 16, padding: 0}],
   ['largeicons', {cellWidth: 28, cellHeight: 24, padding: 0}],
   ['arrowicons', {cellWidth: 19, cellHeight: 19, padding: 0}],
-  ['arrow-up-down', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['bell', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['clock', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['cloud', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['cookie', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['credit-card', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['database', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['devices', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['document', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['frame', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['gears', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['iframe', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['select-element', {cellWidth: 18, cellHeight: 18, padding: 0}],
-  ['sync', {cellWidth: 18, cellHeight: 18, padding: 0}],
+  ['arrow-up-down', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['bell', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['clock', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['cloud', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['cookie', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['credit-card', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['database', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['devices', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['document', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['frame', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['gears', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['iframe', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['select-element', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['sync', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['table', {cellWidth: 20, cellHeight: 20, padding: 0}],
 ]);
 
 const initialDescriptors = new Map<string, Descriptor>([
@@ -291,6 +292,7 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['iframe', {position: 'a1', spritesheet: 'iframe', isMask: true}],
   ['select-element', {position: 'a1', spritesheet: 'select-element', isMask: true}],
   ['sync', {position: 'a1', spritesheet: 'sync', isMask: true}],
+  ['table', {position: 'a1', spritesheet: 'table', isMask: true}],
 ]);
 
 const descriptors = (initialDescriptors as Map<string, Descriptor>);

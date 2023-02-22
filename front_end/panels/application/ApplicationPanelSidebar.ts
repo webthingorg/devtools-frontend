@@ -315,7 +315,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.localStorageListTreeElement.setLink(
         'https://developer.chrome.com/docs/devtools/storage/localstorage/?utm_source=devtools' as
         Platform.DevToolsPath.UrlString);
-    const localStorageIcon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    const localStorageIcon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.localStorageListTreeElement.setLeadingIcons([localStorageIcon]);
 
     storageTreeElement.appendChild(this.localStorageListTreeElement);
@@ -324,7 +324,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.sessionStorageListTreeElement.setLink(
         'https://developer.chrome.com/docs/devtools/storage/sessionstorage/?utm_source=devtools' as
         Platform.DevToolsPath.UrlString);
-    const sessionStorageIcon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    const sessionStorageIcon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.sessionStorageListTreeElement.setLeadingIcons([sessionStorageIcon]);
 
     storageTreeElement.appendChild(this.sessionStorageListTreeElement);
@@ -949,7 +949,7 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
         return 'clock';
       default:
         console.error(`Service ${this.serviceName} does not have a dedicated icon`);
-        return 'mediumicon-table';
+        return 'table';
     }
   }
 
@@ -1029,7 +1029,7 @@ export class DatabaseTableTreeElement extends ApplicationPanelTreeElement {
     this.sidebar = sidebar;
     this.database = database;
     this.tableName = tableName;
-    const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1433,7 +1433,7 @@ export class IDBObjectStoreTreeElement extends ApplicationPanelTreeElement {
     this.idbIndexTreeElements = new Map();
     this.objectStore = objectStore;
     this.view = null;
-    const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
@@ -1638,7 +1638,7 @@ export class DOMStorageTreeElement extends ApplicationPanelTreeElement {
   constructor(storagePanel: ResourcesPanel, domStorage: DOMStorage) {
     super(storagePanel, domStorage.storageKey ? domStorage.storageKey : i18nString(UIStrings.localFiles), false);
     this.domStorage = domStorage;
-    const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    const icon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
