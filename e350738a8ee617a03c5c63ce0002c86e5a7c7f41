@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba41601_ca6ac0dc",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-22T13:18:08Z",
+      "side": 0,
+      "message": "This event was defined twice.",
+      "range": {
+        "startLine": 553,
+        "startChar": 17,
+        "endLine": 553,
+        "endChar": 41
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
