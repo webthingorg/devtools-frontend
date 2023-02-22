@@ -96,6 +96,17 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['mediumicons', {cellWidth: 16, cellHeight: 16, padding: 0}],
   ['largeicons', {cellWidth: 28, cellHeight: 24, padding: 0}],
   ['arrowicons', {cellWidth: 19, cellHeight: 19, padding: 0}],
+  ['clear', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['download', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['file-document', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['file-script', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['filter', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['gear', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['import', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['network-settings', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['record-start', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['record-stop', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['search', {cellWidth: 20, cellHeight: 20, padding: 0}],
 ]);
 
 const initialDescriptors = new Map<string, Descriptor>([
@@ -262,6 +273,18 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-arrow-bottom', {position: 'a3', spritesheet: 'arrowicons'}],
   ['mediumicon-arrow-left', {position: 'a2', spritesheet: 'arrowicons'}],
   ['mediumicon-arrow-right', {position: 'a1', spritesheet: 'arrowicons'}],
+
+  ['clear', {position: 'a1', spritesheet: 'clear', isMask: true}],
+  ['download', {position: 'a1', spritesheet: 'download', isMask: true}],
+  ['file-document', {position: 'a1', spritesheet: 'file-document', isMask: true}],
+  ['file-script', {position: 'a1', spritesheet: 'file-script', isMask: true}],
+  ['filter', {position: 'a1', spritesheet: 'filter', isMask: true}],
+  ['gear', {position: 'a1', spritesheet: 'gear', isMask: true}],
+  ['import', {position: 'a1', spritesheet: 'import', isMask: true}],
+  ['network-settings', {position: 'a1', spritesheet: 'network-settings', isMask: true}],
+  ['record-start', {position: 'a1', spritesheet: 'record-start', isMask: true}],
+  ['record-stop', {position: 'a1', spritesheet: 'record-stop', isMask: true}],
+  ['search', {position: 'a1', spritesheet: 'search', isMask: true}],
 ]);
 
 const descriptors = (initialDescriptors as Map<string, Descriptor>);

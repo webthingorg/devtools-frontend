@@ -88,8 +88,7 @@ export class FilterBar extends Common.ObjectWrapper.eventMixin<FilterBarEventTyp
 
     this.stateSetting =
         Common.Settings.Settings.instance().createSetting('filterBar-' + name + '-toggled', Boolean(visibleByDefault));
-    this.filterButtonInternal =
-        new ToolbarSettingToggle(this.stateSetting, 'largeicon-filter', i18nString(UIStrings.filter));
+    this.filterButtonInternal = new ToolbarSettingToggle(this.stateSetting, 'filter', i18nString(UIStrings.filter));
 
     this.filters = [];
 

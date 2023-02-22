@@ -54,7 +54,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {type NetworkTimeCalculator} from './NetworkTimeCalculator.js';
 
-import {imageNameForResourceType} from '../utils/utils.js';
+import {imageNameForResourceType, imageColorFilterForResourceType} from '../utils/utils.js';
 
 const UIStrings = {
   /**
@@ -1078,6 +1078,7 @@ export class NetworkRequestNode extends NetworkNode {
             new URL(
                 `../../Images/${imageNameForResourceType(this.requestInternal.resourceType())}.svg`, import.meta.url)
                 .toString();
+        iconElement.style.filter = imageColorFilterForResourceType(this.requestInternal.resourceType());
       }
       iconElement.classList.add('icon');
 

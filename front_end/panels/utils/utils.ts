@@ -9,7 +9,7 @@ import * as DiffView from '../../ui/components/diff_view/diff_view.js';
 
 export function imageNameForResourceType(resourceType: Common.ResourceType.ResourceType): string {
   if (resourceType.isDocument()) {
-    return 'ic_file_document';
+    return 'file-document';
   }
   if (resourceType.isImage()) {
     return 'ic_file_image';
@@ -18,15 +18,37 @@ export function imageNameForResourceType(resourceType: Common.ResourceType.Resou
     return 'ic_file_font';
   }
   if (resourceType.isScript()) {
-    return 'ic_file_script';
+    return 'file-script';
   }
   if (resourceType.isStyleSheet()) {
-    return 'ic_file_stylesheet';
+    return 'file-stylesheet';
   }
   if (resourceType.isWebbundle()) {
     return 'ic_file_webbundle';
   }
   return 'ic_file_default';
+}
+
+export function imageColorFilterForResourceType(resourceType: Common.ResourceType.ResourceType): string {
+  if (resourceType.isDocument()) {
+    return 'var(--value-filter-file-document)';
+  }
+  if (resourceType.isImage()) {
+    return 'var(--value-filter-file-image)';
+  }
+  if (resourceType.isFont()) {
+    return 'var(--value-filter-file-font)';
+  }
+  if (resourceType.isScript()) {
+    return 'var(--value-filter-file-script)';
+  }
+  if (resourceType.isStyleSheet()) {
+    return 'var(--value-filter-file-stylesheet)';
+  }
+  if (resourceType.isWebbundle()) {
+    return 'var(--value-filter-file-webbundle)';
+  }
+  return 'var(--value-filter-file-default)';
 }
 
 export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promise<string> {
