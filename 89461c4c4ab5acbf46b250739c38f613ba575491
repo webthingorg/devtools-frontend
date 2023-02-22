@@ -46,6 +46,30 @@
       },
       "revId": "89461c4c4ab5acbf46b250739c38f613ba575491",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22a0b67_8a6b5a35",
+        "filename": "front_end/ui/components/text_editor/TextEditorHistory.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-22T08:49:40Z",
+      "side": 1,
+      "message": "Got it, thanks for the explanation! I was only considering short lines with line endings, and not wrapped lines. I\u0027ll leave the code as is, I was just wondering when I wrote the tests for it.",
+      "parentUuid": "2589af57_752f6e3b",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "89461c4c4ab5acbf46b250739c38f613ba575491",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
