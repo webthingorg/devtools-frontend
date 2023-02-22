@@ -4,7 +4,6 @@
 
 import type * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
-import {type EntryType, type TimelineFlameChartEntry} from './TimelineFlameChartDataProvider.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 
@@ -45,10 +44,15 @@ export interface TrackAppender {
    * Appends into the flame chart data the data corresponding to a track.
    * @param level the horizontal level of the flame chart events where the
    * track's events will start being appended.
+   * @param flameChartData the data used by the flame chart renderer on
+   * which the track data will be appended.
+   * @param traceParsedData the trace parsing engines output.
    * @returns the first available level to append more data after having
    * appended the track's events.
    */
-  appendTrackAtLevel(level: number): number;
+  appendTrackAtLevel(
+      level: number, flameChartData: PerfUI.FlameChart.TimelineData,
+      traceParsedData: TraceEngine.Handlers.Types.TraceParseData): number;
   /**
    * Returns the color an event is shown with in the timeline.
    */
@@ -63,49 +67,17 @@ export interface TrackAppender {
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
 }
 
-export type TrackAppenderData = {
-  traceParsedData: TraceEngine.Handlers.Types.TraceParseData,
-  /**
-   * The object used by the FlameChart instance, which is to be edited
-   * in place as tracks are appended.
-   */
-  flameChartData: PerfUI.FlameChart.TimelineData,
-
-  // TODO(crbug.com/1416533)
-  // The following properties are used only for compatibility with the
-  // legacy flame chart architechture of the panel. Once all tracks
-  // have been migrated to use the new engine and flame chart
-  // architecture, the references can be removed.
-  legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
-  legacyEntrydata: TimelineFlameChartEntry[],
-  legacyEntryTypeByLevel: EntryType[],
-};
-
 export class CompatibilityTracksAppender {
   #trackForLevel = new Map<number, TrackAppender>();
-  #traceParsedData: TraceEngine.Handlers.Types.TraceParseData;
+  // TODO(crbug.com/1416533)
+  // This is used only for compatibility with the legacy flame chart
+  // architechture of the panel. Once all tracks have been migrated to
+  // use the new engine and flame chart architecture, the reference can
+  // be removed.
   #legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl;
-  #flameChartData: PerfUI.FlameChart.TimelineData;
-  #legacyEntrydata: TimelineFlameChartEntry[];
-  #legacyEntryTypeByLevel: EntryType[];
-  constructor(data: TrackAppenderData) {
-    this.#traceParsedData = data.traceParsedData;
-    this.#legacyTimelineModel = data.legacyTimelineModel;
-    this.#flameChartData = data.flameChartData;
-    this.#legacyEntrydata = data.legacyEntrydata;
-    this.#legacyEntryTypeByLevel = data.legacyEntryTypeByLevel;
-  }
-  getFlameChartData(): PerfUI.FlameChart.TimelineData {
-    return this.#flameChartData;
-  }
-  getLegacyEntryData(): TimelineFlameChartEntry[] {
-    return this.#legacyEntrydata;
-  }
-  getLegacyEntryTypeByLevel(): EntryType[] {
-    return this.#legacyEntryTypeByLevel;
-  }
-  getTraceParsedData(): TraceEngine.Handlers.Types.TraceParseData {
-    return this.#traceParsedData;
+
+  constructor(legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl) {
+    this.#legacyTimelineModel = legacyTimelineModel;
   }
   /**
    * Given a trace event returns instantiates a legacy SDK.Event. This should
