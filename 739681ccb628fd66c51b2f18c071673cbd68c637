@@ -16,6 +16,190 @@
       "message": "PTAL",
       "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfde6920_46ff2af2",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "maybe include here some docs or comments summing up what this is, or linking to your design doc / bug?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "367faac3_02761498",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "tiny nit: I think this reads better if we lose the comma and put in a \"that\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 42,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4790fb9d_69e07814",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "is this sentence missing the end of it?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 55
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02c3f49_2714d05f",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "I think I find this a bit confusing but it is probably because it is not used yet in this CL; to check my understanding, this will push into the flame chart all the data required to render the track in question, and it will do so at the level passed in as an argument?\n\nIf so, I would be tempted to call this appendTrackAtLevel just to be more explicit.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f3725d_de11d8ef",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "let\u0027s use actual JS private fields, rather than TS, by default.",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0785ea7a_50acb750",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "why do we need to store this?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 69
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86491433_2d2a504c",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "do we need all these getters? I would rather not add them by default if we are not sure",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5bedbb0_155ff514",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-22T08:52:36Z",
+      "side": 1,
+      "message": "nit: EntryData (capital D)",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "739681ccb628fd66c51b2f18c071673cbd68c637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
