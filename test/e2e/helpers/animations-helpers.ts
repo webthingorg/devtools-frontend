@@ -2,7 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {click, goToResource, waitFor} from '../../shared/helper.js';
+import {click, goToResource, waitFor, waitForFunctionWithTries} from '../../shared/helper.js';
+
 import {openPanelViaMoreTools} from './settings-helpers.js';
 
 export async function waitForAnimationsPanelToLoad() {
@@ -20,7 +21,15 @@ export async function navigateToSiteWithAnimation() {
 export async function waitForAnimationContent() {
   const firstAnimationPreviewSelector = '.animation-buffer-preview[aria-label="Animation Preview 1"]';
   await waitFor(firstAnimationPreviewSelector);
-  await click(firstAnimationPreviewSelector);
-  await waitFor('.animation-node-row');
+  await waitForFunctionWithTries(async () => {
+    await click(firstAnimationPreviewSelector);
+    const result = Promise.race([
+      waitFor('.animation-node-row'),
+      new Promise(resolve => {
+        setTimeout(resolve, 100, false);
+      }),
+    ]);
+    return result;
+  }, {tries: 3});
   await waitFor('svg.animation-ui');
 }
