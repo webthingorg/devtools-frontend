@@ -279,4 +279,28 @@ describe('PageLoadMetricsHandler', function() {
       }
     });
   });
+  describe('Marker events', () => {
+    let mainFrameId: string;
+    let allMarkerEvents: TraceModel.Types.TraceEvents.PageLoadEvent[];
+    beforeEach(async () => {
+      const {PageLoadMetrics, Meta} = await loadModelDataFromTraceFile('multiple-navigations-with-iframes.json.gz');
+      mainFrameId = Meta.mainFrameId;
+      allMarkerEvents = PageLoadMetrics.allMarkerEvents;
+    });
+    it('extracts all marker events from a trace correctly', () => {
+      for (const metricName of TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MarkerName) {
+        const markerEventsOfThisType = allMarkerEvents.filter(event => event.name === metricName);
+        // There should be 2 events for each marker and all of them should correspond to the main frame
+        assert.strictEqual(markerEventsOfThisType.length, 2);
+        assert.isTrue(markerEventsOfThisType.every(
+            marker =>
+                TraceModel.Handlers.ModelHandlers.PageLoadMetrics.getFrameIdForPageLoadEvent(marker) === mainFrameId));
+      }
+    });
+    it('only marker events are exported in allMarkerEvents', () => {
+      for (const marker of allMarkerEvents) {
+        assert.isTrue(TraceModel.Handlers.ModelHandlers.PageLoadMetrics.isTraceEventMarkerEvent(marker));
+      }
+    });
+  });
 });
