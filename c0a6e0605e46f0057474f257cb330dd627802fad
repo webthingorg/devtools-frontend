@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51bbaa98_6ba3b213",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-23T02:03:09Z",
+      "side": 1,
+      "message": "With these two CLs combined I\u0027m seeeing idle/program events in a browser trace. I don\u0027t think that was your intention, right?\n\nMy expectation is that we\u0027d see idle/program when we load cpuprofile but not with a trace. Is that right?",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
