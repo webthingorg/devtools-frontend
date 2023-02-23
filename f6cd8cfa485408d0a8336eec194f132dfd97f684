@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "857e6e1a_5a9eb78f",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "a82ada3d_addc2ef6",
+      "range": {
+        "startLine": 125,
+        "startChar": 96,
+        "endLine": 125,
+        "endChar": 101
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "329f5785_49ba4207",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-23T06:08:07Z",
       "side": 1,
       "message": "Shouldn\u0027t `Events[T]` work here?",
+      "range": {
+        "startLine": 154,
+        "startChar": 72,
+        "endLine": 154,
+        "endChar": 75
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35524b26_f8b48e7f",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "329f5785_49ba4207",
       "range": {
         "startLine": 154,
         "startChar": 72,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ebd362_1fae1d36",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Good catch! Done, also added a test.",
+      "parentUuid": "2900d52e_a10aeeb5",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 36
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df60ebc2_25a84092",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-23T06:08:07Z",
       "side": 1,
       "message": "I think this method needs some documentation. E.g. i\u0027d explicitly spell out here that passing `null` as the `scopeTarget` prevents any of the scoped observers/listeners to get any events. It took me a minute to figure that out from the code.\n\nI\u0027d also explicitly spell out that observers/modelObservers get removed/added events if they become \"active\" or \"inactive\".\n\nOne more question: Is it intentional that we don\u0027t early return in the case of `scopeTarget \u003d\u003d\u003d this.#scopeTarget`? If this can\u0027t happen, we should add an assertion, and if its intentional then we should document \"why\".",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 16
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52688183_3900db75",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Done.\n\nThanks for spotting the `scopeTarget \u003d\u003d\u003d this.#scopeTarget`. This was not intentional, just an oversight. Added an early return and a test.",
+      "parentUuid": "df60ebc2_25a84092",
       "range": {
         "startLine": 339,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff8ab09_d84b8252",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "No, removed. Thanks!",
+      "parentUuid": "f62d8421_ed446038",
+      "range": {
+        "startLine": 345,
+        "startChar": 22,
+        "endLine": 345,
+        "endChar": 67
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d71a29de_2cc0baf5",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-02-23T06:08:07Z",
       "side": 1,
       "message": "nit: maybe `isSDKModelEvent`?",
+      "range": {
+        "startLine": 409,
+        "startChar": 9,
+        "endLine": 409,
+        "endChar": 16
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c6a95d_8dba8f80",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d71a29de_2cc0baf5",
       "range": {
         "startLine": 409,
         "startChar": 9,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784ab416_91b999cc",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5c270c7_1055f99b",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62d8b084_d888e24a",
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b09ad2_e3ff72be",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "This doesn\u0027t work correctly with the `createTarget` helper which assumes the managements of the `TargetManager` instance. If I add `{forceNew: true}` here, I will have an instance of the `TargetManager` different from what `createTarget` is using.",
+      "parentUuid": "62d8b084_d888e24a",
+      "range": {
+        "startLine": 20,
+        "startChar": 52,
+        "endLine": 20,
+        "endChar": 60
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7518cbfe_2e0c71c0",
@@ -215,6 +407,30 @@
       "writtenOn": "2023-02-23T06:08:07Z",
       "side": 1,
       "message": "Drive-by comment: I usually prefer testing a single behavior per `it` block. E.g in this case we test 3 behaviors:\n\n  * \"it fires \u0027targetAdded\u0027 for targets created before we start observing\"\n  * \"it fires \u0027targetAdded\u0027 for targets created after we start observing\"\n  * \"it does not fire \u0027targetAdded\u0027 after we stopped observing\"\n\nI\u0027m fine with the tests as-is though, given that it\u0027d be very tedious for the TargetManager.\n\nBut maybe we could be more expressive for a sub-set of the `TargetManager#setScopeTarget`, in particular maybe one test case per transition:\n\n  1) null to non-null scopeTarget\n  2) non-null to different non-null scopeTarget\n  3) non-null to the same non-null scopeTarget\n  4) non-null to null scopeTarget\n  \nAnd check that we receive the appropriate events (maybe only for observer).",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 40
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ecffe6_e7c2af9d",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-23T10:35:12Z",
+      "side": 1,
+      "message": "I generally agree but I am also trying to be pragmatic and strike the balance between cohesion and brevity.\n\nWrt to testing various transitions with the scopeTarget, I agree, the existing tests don\u0027t cover this at all. I wanted to add a set of tests for this but forgot. Thanks for the careful review, added now. However in this case I also added a single test for the all 4 aspects to avoid repeating myself in setting up the fixture.",
+      "parentUuid": "7518cbfe_2e0c71c0",
       "range": {
         "startLine": 23,
         "startChar": 2,
