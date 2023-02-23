@@ -33,6 +33,23 @@
       "message": "Hi Kateryna, could you PTAL? Thanks!",
       "revId": "ed13c1602d3e100e9d44d11a914e58b18cb5756e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e6a8537_63c0d2de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-02-23T09:45:47Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "ed13c1602d3e100e9d44d11a914e58b18cb5756e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
