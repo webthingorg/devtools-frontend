@@ -16,6 +16,23 @@
       "message": "Hi Philip, PTAL at this updated version, thanks!",
       "revId": "7360956613732985b3353d0cf681858ee27840e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556217de_bd98ff3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-23T09:42:08Z",
+      "side": 1,
+      "message": "Hi Wolfgang, could you PTAL since Philip is out today? Thanks!",
+      "revId": "7360956613732985b3353d0cf681858ee27840e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
