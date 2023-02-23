@@ -16,6 +16,29 @@
       "message": "lgtm \u0026 thanks",
       "revId": "e9486338ba365452efe55ba2ae6c0f65f9e7037d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67296d07_f95457d0",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2023-02-23T14:25:36Z",
+      "side": 1,
+      "message": "The `parallel` option is respected in the [recipe](https://crrev.com/c/4272233).\n\nMaybe we can make the config less dependent from the name and add a property to the builder instead which makes clear, that this is a parallel execution builder.",
+      "range": {
+        "startLine": 68,
+        "startChar": 12,
+        "endLine": 68,
+        "endChar": 48
+      },
+      "revId": "e9486338ba365452efe55ba2ae6c0f65f9e7037d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
