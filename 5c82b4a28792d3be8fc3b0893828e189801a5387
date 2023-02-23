@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b650092f_93126dc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-23T02:10:01Z",
+      "side": 1,
+      "message": "Layering wise it seems a lil bit messy to have cpuprofile specific stuff defined in the loader rather than TimelineModel...but.. I don\u0027t care too strongly.\n\nHowever.. based on my comment on https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4265114 .. I\u0027m wondering if instead.. \n\nWe want to set some bit that we\u0027re handling a cpuprofile (that went through buildTraceProfileFromCpuProfile)... that way we can \n1) keep all the timelinemodelfilter stuff in timelinemodel and \n2) you have a clear this-is-a-cpuprofile bool to check in generateTracingEventsFromCpuProfile to use for the conditional i\u0027m suggesting.\n\nI feel like isCpuProfile is akin to the GenericTrace/InspectorTrace delineation that we also handle mostly in the TimelineModel.",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
