@@ -16,6 +16,40 @@
       "message": "Hi Ergün,\n\nPlease take a look. Screenshot here: crbug.com/1204033#c8",
       "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b63eabe6_1859dff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-23T15:43:43Z",
+      "side": 1,
+      "message": "LGTM after fix",
+      "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a429cb9_d4031387",
+        "filename": "front_end/panels/elements/components/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-23T15:43:43Z",
+      "side": 1,
+      "message": "It seems like this is missing the ending tag which is causing the failure, can you update here?",
+      "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
