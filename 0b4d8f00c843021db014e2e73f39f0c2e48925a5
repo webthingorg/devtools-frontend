@@ -33,6 +33,24 @@
       "message": "Generally LGTM. Looking at the screenshot it feels slightly unfortunate that the history is overlapping the code (which is normally the context that I feel is necessary to write the condition). Maybe something to bring up with UX?",
       "revId": "0b4d8f00c843021db014e2e73f39f0c2e48925a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ad50911_9f84d355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-23T06:14:42Z",
+      "side": 1,
+      "message": "Yes, I think we should iterate here. If the breakpoint edit dialog is always positioned below the line of the breakpoint, we could open the suggestions box downwards? Then it wouldn\u0027t get in the way. Then UX would differ to the console but it might be a better compromise.\n\nI\u0027ll hold off on landing this CL until after branch cut anyway so we can discuss offline next week.",
+      "parentUuid": "a3f386da_b25953d6",
+      "revId": "0b4d8f00c843021db014e2e73f39f0c2e48925a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
