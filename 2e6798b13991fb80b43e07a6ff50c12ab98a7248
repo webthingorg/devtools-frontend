@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e40e0c_b1d64655",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-02-23T14:48:18Z",
+      "side": 1,
+      "message": "Hi Ergün,\n\nPlease take a look. Screenshot here: crbug.com/1204033#c8",
+      "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
