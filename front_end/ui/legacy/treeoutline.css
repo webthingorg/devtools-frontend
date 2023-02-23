@@ -163,6 +163,18 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus * {
   padding-right: 3px;
 }
 
+new-devtools-icon.application-sidebar-icon { /* stylelint-disable-line selector-type-no-unknown */
+  color: var(--icon-application-sidebar) !important; /* stylelint-disable-line declaration-no-important */ /* stylelint-disable-line plugin/use_theme_colors */
+}
+
+.tree-outline li:not(.force-white-icons) new-devtools-icon { /* stylelint-disable-line selector-type-no-unknown */
+  --icon-application-sidebar: var(--icon-default);
+}
+
+.tree-outline li.selected.force-white-icons new-devtools-icon { /* stylelint-disable-line selector-type-no-unknown */
+  --icon-application-sidebar: var(--icon-force-white);
+}
+
 @media (forced-colors: active) {
   .tree-outline-disclosure li.parent::before,
   .tree-outline:not(.hide-selection-when-blurred) li.parent:not(.selected)::before,

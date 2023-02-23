@@ -49,7 +49,7 @@ import {Tooltip} from './Tooltip.js';
 import {deepElementFromPoint, enclosingNodeOrSelfWithNodeNameInArray, isEditing} from './UIUtils.js';
 import treeoutlineStyles from './treeoutline.css.legacy.js';
 
-type AnyIcon = Icon|IconButton.Icon.Icon;
+type AnyIcon = Icon|IconButton.Icon.Icon|IconButton.NewIcon.NewIcon;
 
 const nodeToParentTreeElementMap = new WeakMap<Node, TreeElement>();
 
