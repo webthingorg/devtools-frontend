@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a82ada3d_addc2ef6",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T09:49:12Z",
+      "side": 1,
+      "message": "Are `opts` needed here? Could `observer` always be deleted from `#scopedObservers` (if it has `observer`)?\nWhat happens if \n```\nobserveModels(fooModelClass, fooObserver, {scoped: true});\nunobserveModels(fooModelClass, fooObserver, {scoped: false});\n```\n(probably not a real problem because of using a WeakSet)",
+      "range": {
+        "startLine": 125,
+        "startChar": 96,
+        "endLine": 125,
+        "endChar": 101
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "329f5785_49ba4207",
         "filename": "front_end/core/sdk/TargetManager.ts",
         "patchSetId": 2
@@ -43,6 +66,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2900d52e_a10aeeb5",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T09:49:12Z",
+      "side": 1,
+      "message": "Could this return true in cases where `#scopeTarget` is null?",
+      "range": {
+        "startLine": 336,
+        "startChar": 11,
+        "endLine": 336,
+        "endChar": 36
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df60ebc2_25a84092",
         "filename": "front_end/core/sdk/TargetManager.ts",
         "patchSetId": 2
@@ -59,6 +105,29 @@
         "startChar": 2,
         "endLine": 339,
         "endChar": 16
+      },
+      "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62d8421_ed446038",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T09:49:12Z",
+      "side": 1,
+      "message": "Are the outer parenthesis necessary?\n\nWhy isn\u0027t `target.model(modelClass)` an option?",
+      "range": {
+        "startLine": 345,
+        "startChar": 22,
+        "endLine": 345,
+        "endChar": 67
       },
       "revId": "f6cd8cfa485408d0a8336eec194f132dfd97f684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
