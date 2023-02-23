@@ -533,9 +533,13 @@ export class BreakpointsView extends HTMLElement {
 
   #renderFileIcon(): LitHtml.TemplateResult {
     return LitHtml.html`
+<<<<<<< HEAD
       <${IconButton.Icon.Icon.litTagName} class='file-icon' .data=${
         {iconName: 'ic_file_script', color: 'var(--color-ic-file-script)', width: '16px', height: '16px'} as
         IconButton.Icon.IconWithName}></${IconButton.Icon.Icon.litTagName}>
+=======
+      <new-devtools-icon class='breakpoints-file-script' name='code-blocks'></new-devtools-icon>
+>>>>>>> 7e29a7f42 ([DevToolsIcons] Update breakpoints file script icon)
     `;
   }
 
