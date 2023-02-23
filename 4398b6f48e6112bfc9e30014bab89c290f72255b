@@ -16,6 +16,24 @@
       "message": "I guess the problem is that we unconditionally eat the ArrowDown event, without checking whether the autocompletion box is visible?\n\nMarijn, what\u0027s the best way to deal with this?",
       "revId": "4398b6f48e6112bfc9e30014bab89c290f72255b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b3f512_c5a7043f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2023-02-23T08:12:31Z",
+      "side": 1,
+      "message": "`completionStatus` allows you to check whether there is an active completion.",
+      "parentUuid": "cd461b27_0c4b0b2e",
+      "revId": "4398b6f48e6112bfc9e30014bab89c290f72255b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
