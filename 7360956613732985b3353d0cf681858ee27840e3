@@ -73,6 +73,30 @@
       },
       "revId": "7360956613732985b3353d0cf681858ee27840e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c585c64_10445a8a",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-23T11:20:49Z",
+      "side": 1,
+      "message": "This actually is necessary, due to this confusing fact that an element\u0027s attribute is not the same as an element\u0027s property. `?` translates to the attribute, which, surprisingly, does not affect the \u003cinput\u003e\u0027s rendering of the checkbox. The `.` translates to the property, which does affect the rendering of the checkbox.\n\nIn practice, this means that if we use the `checked` attribute, we can only set the initial status of the \u003cinput\u003e correctly, but subsequent updates of the `checked` *attribute* won\u0027t change the \u003cinput\u003e\u0027s status and its rendering. To achieve this, we need to use the `checked` *property*. This took me a while to find out. Here\u0027s more details: https://github.com/lit/lit-element/issues/601\n\nThis wasn\u0027t an issue because we are not changing the setting from other places. Now that we do, we were getting un-synced \u003cinput\u003e state, hence this fix.",
+      "parentUuid": "33e0179b_ffcd4fc4",
+      "range": {
+        "startLine": 70,
+        "startChar": 33,
+        "endLine": 70,
+        "endChar": 34
+      },
+      "revId": "7360956613732985b3353d0cf681858ee27840e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
