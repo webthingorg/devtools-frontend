@@ -97,6 +97,30 @@
       },
       "revId": "7360956613732985b3353d0cf681858ee27840e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b596fb8a_432fd314",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T11:56:59Z",
+      "side": 1,
+      "message": "Thanks for the explanation! I ran into the attribute/property discrepancy before myself, but didn\u0027t make the connection to how this relates to the fact that the setting can now be updated from elsewhere.",
+      "parentUuid": "7c585c64_10445a8a",
+      "range": {
+        "startLine": 70,
+        "startChar": 33,
+        "endLine": 70,
+        "endChar": 34
+      },
+      "revId": "7360956613732985b3353d0cf681858ee27840e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
