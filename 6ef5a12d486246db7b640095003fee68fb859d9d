@@ -33,6 +33,23 @@
       "message": "Simon, would you please review this change? Thanks!\n\n(changed reviewers since Tim appears to be inactive since last year)",
       "revId": "6ef5a12d486246db7b640095003fee68fb859d9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc468748_ee27178b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2023-02-23T14:33:58Z",
+      "side": 1,
+      "message": "Thanks for reviewing!",
+      "revId": "6ef5a12d486246db7b640095003fee68fb859d9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
