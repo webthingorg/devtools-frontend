@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c320c212_75958b72",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "an entry is just a trace event, they are classified into \"entry types\" because some events are rendered different. For example, screenshot events are rendered as images. These checks allow to have different styles, names, etc. for different event types. The idea is that in the future we won\u0027t have this checks and instead we will forward the event to the corresponding \"track appender\" and it will determine how the event shall be rendered.",
+      "parentUuid": "7dd3c44a_d5e5ecfb",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 17
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2095b888_3c45c234",
         "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-22T13:38:44Z",
       "side": 1,
       "message": "rather than use `as` here, can we write a type assertion function ? e.g. like in Insights where we have `isLCPCandidateEvent` which narrows the type for us",
+      "range": {
+        "startLine": 638,
+        "startChar": 5,
+        "endLine": 641,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4a63f2_74aea830",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "it absolutely can. Let\u0027s do that instead.",
+      "parentUuid": "2095b888_3c45c234",
       "range": {
         "startLine": 638,
         "startChar": 5,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "473c7725_75eedffc",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "agreed, there are many opportunities to test this file in general. Will do that as a follow up, once the file content is more stable",
+      "parentUuid": "6ab95782_96dbfedd",
+      "range": {
+        "startLine": 990,
+        "startChar": 2,
+        "endLine": 990,
+        "endChar": 29
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fa0b5e2_8177c7c1",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-22T13:38:44Z",
       "side": 1,
       "message": "I know you didn\u0027t introduce this, but given TypeScript has an actual `type` keyword, can we call this `entryType` or similar , and update that in this CL whilst we are here?",
+      "range": {
+        "startLine": 996,
+        "startChar": 10,
+        "endLine": 996,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e0ae90_cc8a0261",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa0b5e2_8177c7c1",
       "range": {
         "startLine": 996,
         "startChar": 10,
@@ -133,6 +229,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443d1423_5bce9d07",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9a88132_81fc75c4",
+      "range": {
+        "startLine": 1401,
+        "startChar": 10,
+        "endLine": 1401,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd43af48_3d340a0e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9a88132_81fc75c4",
+      "range": {
+        "startLine": 1401,
+        "startChar": 10,
+        "endLine": 1401,
+        "endChar": 14
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbbe3f60_3b0aaf3f",
@@ -146,6 +290,30 @@
       "writtenOn": "2023-02-22T13:38:44Z",
       "side": 1,
       "message": "again, would love if we could use type assertion functions which I think would help make this clearer and less verbose with the as calls",
+      "range": {
+        "startLine": 1404,
+        "startChar": 1,
+        "endLine": 1408,
+        "endChar": 19
+      },
+      "revId": "e350738a8ee617a03c5c63ce0002c86e5a7c7f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbf5111_d9f534bc",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-23T13:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbbe3f60_3b0aaf3f",
       "range": {
         "startLine": 1404,
         "startChar": 1,
