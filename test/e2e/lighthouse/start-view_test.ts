@@ -68,25 +68,33 @@ describe('The Lighthouse start view', async () => {
     assert.isTrue(disabled, 'The Generate Report button should be disabled');
   });
 
-  // Flaky on mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1418624] displays warning if important data may affect performance', async () => {
+  it('displays warning if important data may affect performance', async () => {
+    console.log('1');
     // e2e tests in application/ create websql and indexeddb items and don't clean up after themselves
     await clearSiteData();
+    console.log('2');
 
     await navigateToLighthouseTab('empty.html');
+    console.log('3');
 
     let warningElem = await waitFor('.lighthouse-warning-text.hidden');
+    console.log('4');
     const warningText1 = await warningElem.evaluate(node => node.textContent?.trim());
+    console.log('5');
     assert.strictEqual(warningText1, '');
 
     await navigateToLighthouseTab('lighthouse/lighthouse-storage.html');
+    console.log('6');
     // Wait for storage state to lazily update
     await waitForStorageUsage(quota => quota > 0);
+    console.log('7');
 
     warningElem = await waitFor('.lighthouse-warning-text:not(.hidden)');
+    console.log('8');
     const expected =
         'There may be stored data affecting loading performance in this location: IndexedDB. Audit this page in an incognito window to prevent those resources from affecting your scores.';
     const warningText2 = await warningElem.evaluate(node => node.textContent?.trim());
+    console.log('9');
     assert.strictEqual(warningText2, expected);
   });
 });
