@@ -16,6 +16,23 @@
       "message": "Hi Philip, PTAL at this patch for an undefined selector in the matching selector step. Thanks!",
       "revId": "ed13c1602d3e100e9d44d11a914e58b18cb5756e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2b30de_a103bd10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-23T09:41:07Z",
+      "side": 1,
+      "message": "Hi Kateryna, could you PTAL? Thanks!",
+      "revId": "ed13c1602d3e100e9d44d11a914e58b18cb5756e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
