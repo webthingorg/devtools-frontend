@@ -33,6 +33,46 @@
       "message": "Hi Wolfgang, could you PTAL since Philip is out today? Thanks!",
       "revId": "7360956613732985b3353d0cf681858ee27840e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9195d4_487e99cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T10:37:11Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "7360956613732985b3353d0cf681858ee27840e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e0179b_ffcd4fc4",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-23T10:37:11Z",
+      "side": 1,
+      "message": "Is this a required change? Wouldn\u0027t `checked` be false if not not set anyway?",
+      "range": {
+        "startLine": 70,
+        "startChar": 33,
+        "endLine": 70,
+        "endChar": 34
+      },
+      "revId": "7360956613732985b3353d0cf681858ee27840e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
