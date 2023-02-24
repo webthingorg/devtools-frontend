@@ -16,6 +16,41 @@
       "message": "Layering wise it seems a lil bit messy to have cpuprofile specific stuff defined in the loader rather than TimelineModel...but.. I don\u0027t care too strongly.\n\nHowever.. based on my comment on https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4265114 .. I\u0027m wondering if instead.. \n\nWe want to set some bit that we\u0027re handling a cpuprofile (that went through buildTraceProfileFromCpuProfile)... that way we can \n1) keep all the timelinemodelfilter stuff in timelinemodel and \n2) you have a clear this-is-a-cpuprofile bool to check in generateTracingEventsFromCpuProfile to use for the conditional i\u0027m suggesting.\n\nI feel like isCpuProfile is akin to the GenericTrace/InspectorTrace delineation that we also handle mostly in the TimelineModel.",
       "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03155663_50cfccba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:27:15Z",
+      "side": 1,
+      "message": "i still feel a bit weird about the layering here, but i wont push back  if you feel differently.",
+      "parentUuid": "b650092f_93126dc9",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ebd4ed_bd7f6514",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:27:15Z",
+      "side": 1,
+      "message": "maybe rename this to exclusiveFilter to clarify that the default visibleEventsFilter wont be used?\n\nshrug. it\u0027s not a perfect name. but this system of filters and exclusivity is kinda weird to fully understand. :)",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
