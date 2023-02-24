@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333332"
+   version="1.1"
+   id="svg652"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="medium_18.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview654"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="7.5329791"
+     inkscape:cx="18.053946"
+     inkscape:cy="10.08897"
+     inkscape:window-width="1792"
+     inkscape:window-height="1120"
+     inkscape:window-x="0"
+     inkscape:window-y="166"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g222" />
+  <defs
+     id="defs649" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="fill:#000000"
+       id="g222"
+       transform="matrix(0.26458333,0,0,0.26458333,0.11557237,0.27805135)">
+      <g
+         id="g4795"
+         transform="translate(-0.43680886,-1.0509027)">
+        <g
+           id="g4799">
+          <g
+             style="fill:none"
+             id="g4801">
+            <path
+               inkscape:connector-curvature="0"
+               id="path4803"
+               d="M 0,0 H 16 V 16 H 0 Z" />
+            <path
+               style="fill:#000000"
+               inkscape:connector-curvature="0"
+               id="path4805"
+               d="M 6,0 H 0.9954 C 0.45567,0 0,0.45078 0,1.0068 v 11.986 c 0,0.5569 0.44565,1.0068 0.9954,1.0068 H 9.0046 C 9.54433,13.9996 10,13.54882 10,12.9928 V 3.9996 l -4,-4 z M 9.29,4 H 6 V 0.71 Z"
+               transform="translate(3,1)" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

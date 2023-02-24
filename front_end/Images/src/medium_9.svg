@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333332"
+   version="1.1"
+   id="svg652"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="medium_9.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview654"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="7.5329791"
+     inkscape:cx="18.053946"
+     inkscape:cy="10.08897"
+     inkscape:window-width="1792"
+     inkscape:window-height="1120"
+     inkscape:window-x="0"
+     inkscape:window-y="166"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g222" />
+  <defs
+     id="defs649" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="fill:#000000"
+       id="g222"
+       transform="matrix(0.26458333,0,0,0.26458333,0.11557237,0.27805135)">
+      <g
+         transform="matrix(0.66666667,0,0,0.66666667,0.89652444,-0.38423602)"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+         id="Page-1">
+        <g
+           id="3px-Fetch"
+           transform="translate(-2,-1)">
+          <g
+             id="Fetch">
+            <rect
+               style="fill:#000000"
+               id="Rectangle"
+               x="6"
+               y="6"
+               width="3"
+               height="9" />
+            <rect
+               style="fill:#000000"
+               id="rect4301"
+               x="15"
+               y="9"
+               width="3"
+               height="9" />
+            <polygon
+               style="fill:#000000;fill-rule:nonzero"
+               id="Path"
+               points="2,7 6.125,7 8.875,7 13,7 7.5,1 " />
+            <polygon
+               style="fill:#000000;fill-rule:nonzero"
+               id="polygon4304"
+               transform="rotate(180,16.5,20)"
+               points="11,23 15.125,23 17.875,23 22,23 16.5,17 " />
+            <rect
+               id="rect4306"
+               x="0"
+               y="0"
+               width="24"
+               height="24" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
