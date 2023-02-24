@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "448fc11c_9b19eab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-24T08:16:08Z",
+      "side": 1,
+      "message": "LGTM\n\nI think it would be helpful if we would add a documentation markdown file to the repo, which explains tab target, frame targets,... and how they relate to eachother and to the terms used in the backend.",
+      "revId": "722d23e9a4574bcd2c3b0cc87bda2407924e1ae4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
