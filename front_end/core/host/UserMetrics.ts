@@ -722,7 +722,6 @@ export enum DevtoolsExperiments {
   'timelineAsConsoleProfileResultPanel' = 67,
   'preloadingStatusPanel' = 68,
   'disableColorFormatSetting' = 69,
-  'timelineDoNotSkipSystemNodesOfCpuProfile' = 70,
   // Increment this when new experiments are added.
   'MaxValue' = 71,
 }
