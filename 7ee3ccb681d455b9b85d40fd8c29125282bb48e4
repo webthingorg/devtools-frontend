@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40b0a1ca_efa1cbfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-24T14:34:28Z",
+      "side": 1,
+      "message": "Yes. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4262047",
+      "parentUuid": "f5d86b43_47ae19be",
+      "revId": "7ee3ccb681d455b9b85d40fd8c29125282bb48e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "247f5023_accf62c0",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-23T15:16:36Z",
       "side": 1,
       "message": "Please write something useful for the translators.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "7ee3ccb681d455b9b85d40fd8c29125282bb48e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0822cf76_3936ef77",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-24T14:34:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247f5023_accf62c0",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3a8c45b_58af3c7f",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-24T14:34:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d725e465_70093f44",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "7ee3ccb681d455b9b85d40fd8c29125282bb48e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b66e20e5_95fedd35",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-02-23T15:16:36Z",
       "side": 1,
       "message": "Let\u0027s move this logic to the `#source()`, otherwise it is pretty hard to see how malformed JSON is handeled.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "7ee3ccb681d455b9b85d40fd8c29125282bb48e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4af9729_5e87ac8e",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-02-24T14:34:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66e20e5_95fedd35",
       "range": {
         "startLine": 61,
         "startChar": 0,
