@@ -15,6 +15,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as Components from './components/components.js';
+import * as Root from '../../core/root/root.js';
 
 import {AffectedDirectivesView} from './AffectedDirectivesView.js';
 import {AffectedBlockedByResponseView} from './AffectedBlockedByResponseView.js';
@@ -92,7 +93,7 @@ class AffectedRequestsView extends AffectedResourcesView {
       const element = document.createElement('tr');
       element.classList.add('affected-resource-request');
       const category = this.issue.getCategory();
-      const tab = issueTypeToNetworkHeaderMap.get(category) || NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
+      const tab = issueTypeToNetworkHeaderMap.get(category) || headersTab;
       element.appendChild(this.createRequestCell(affectedRequest, {
         networkTab: tab,
         additionalOnClickAction() {
@@ -127,6 +128,9 @@ class AffectedRequestsView extends AffectedResourcesView {
   }
 }
 
+const headersTab = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) ?
+    NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent :
+    NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
 const issueTypeToNetworkHeaderMap =
     new Map<IssuesManager.Issue.IssueCategory, NetworkForward.UIRequestLocation.UIRequestTabs>([
       [
@@ -135,11 +139,11 @@ const issueTypeToNetworkHeaderMap =
       ],
       [
         IssuesManager.Issue.IssueCategory.CrossOriginEmbedderPolicy,
-        NetworkForward.UIRequestLocation.UIRequestTabs.Headers,
+        headersTab,
       ],
       [
         IssuesManager.Issue.IssueCategory.MixedContent,
-        NetworkForward.UIRequestLocation.UIRequestTabs.Headers,
+        headersTab,
       ],
     ]);
 
@@ -170,8 +174,7 @@ class AffectedMixedContentView extends AffectedResourcesView {
     element.classList.add('affected-resource-mixed-content');
 
     if (mixedContent.request) {
-      const networkTab = issueTypeToNetworkHeaderMap.get(this.issue.getCategory()) ||
-          NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
+      const networkTab = issueTypeToNetworkHeaderMap.get(this.issue.getCategory()) || headersTab;
       element.appendChild(this.createRequestCell(mixedContent.request, {
         networkTab,
         additionalOnClickAction() {
