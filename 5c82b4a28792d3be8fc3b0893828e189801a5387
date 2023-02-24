@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b82552_d81bdc30",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:23:00Z",
+      "side": 0,
+      "message": "without looking too closely, this cache seems like it might save some time. is it reasonable to keep that in the new callframe construction?\nno big whoop if not.",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

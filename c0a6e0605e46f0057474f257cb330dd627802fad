@@ -34,6 +34,58 @@
       "parentUuid": "51bbaa98_6ba3b213",
       "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6948fb4b_c5aa1f09",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:23:00Z",
+      "side": 1,
+      "message": "it took me a while to figure out what was going on but.. i generally have the showAllEvents experiment enabled 90% of the time.. and that totally conflicted with the visibleEventsFilter you set up. soo.. that explains it. :) \n\nthanks for confirming my expectation. :)  im happy we\u0027re on the same page.",
+      "parentUuid": "3496d13c_a9056938",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a9d5e14_9079e392",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:23:00Z",
+      "side": 1,
+      "message": "i wasnt sure WHY we do this... but... i think what you\u0027re doing here is probably similar to what\u0027s needed to fix this: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1417439#c4\n\nthat one breaks because of traceevents though. not cuz of samples.\n\nanyway, just noticing the pattern..",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5c63cf_f1cf3541",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-02-24T01:23:00Z",
+      "side": 1,
+      "message": "minor but.. I feel like this could be DRYed up quite a bit... \n\nL57-75 into....\n\n\n      const name \u003d node \u003d\u003d\u003d jsProfileModel.idleNode\n          ? RecordType.JSIdleSample\n          : node \u003d\u003d\u003d jsProfileModel.programNode || node \u003d\u003d\u003d jsProfileModel.gcNode\n            ? RecordType.JSSystemSample\n            : RecordType.JSSample;\n\n      const jsSampleEvent \u003d new SDK.TracingModel.ConstructedEvent(\n          SDK.TracingModel.DevToolsTimelineEventCategory, name, SDK.TracingModel.Phase.Instant,\n          timestamps[i], thread);\n      jsSampleEvent.args[\u0027data\u0027] \u003d {stackTrace: callFrames};\n      jsEvents.push(jsSampleEvent);",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
