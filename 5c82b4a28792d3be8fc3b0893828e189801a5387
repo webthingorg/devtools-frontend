@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c6925c_420bd8d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-24T22:34:01Z",
+      "side": 1,
+      "message": "Acknowledged. This is in plan when we do RPP trace engine migration. Will research deeper, and do it that time.",
+      "parentUuid": "03155663_50cfccba",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11ebd4ed_bd7f6514",
@@ -49,6 +67,24 @@
       "writtenOn": "2023-02-24T01:27:15Z",
       "side": 1,
       "message": "maybe rename this to exclusiveFilter to clarify that the default visibleEventsFilter wont be used?\n\nshrug. it\u0027s not a perfect name. but this system of filters and exclusivity is kinda weird to fully understand. :)",
+      "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f1a135_ac71ae4a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-24T22:34:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11ebd4ed_bd7f6514",
       "revId": "5c82b4a28792d3be8fc3b0893828e189801a5387",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
