@@ -50,6 +50,24 @@
       "message": "It seems like this is missing the ending tag which is causing the failure, can you update here?",
       "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87d5ea9c_e0693171",
+        "filename": "front_end/panels/elements/components/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-02-24T08:16:36Z",
+      "side": 1,
+      "message": "well spotted. this indeed seems to be the problem.",
+      "parentUuid": "8a429cb9_d4031387",
+      "revId": "2e6798b13991fb80b43e07a6ff50c12ab98a7248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
