@@ -38,6 +38,11 @@ import type * as Protocol from '../../generated/protocol.js';
 import {Events, type NetworkRequest} from './NetworkRequest.js';
 import {type ResourceTreeFrame, type ResourceTreeModel} from './ResourceTreeModel.js';
 
+export const enum ResourceSource {
+  Network = 'network',
+  Cache = 'cache',
+}
+
 export class Resource implements TextUtils.ContentProvider.ContentProvider {
   readonly #resourceTreeModel: ResourceTreeModel;
   #requestInternal: NetworkRequest|null;
@@ -60,7 +65,7 @@ export class Resource implements TextUtils.ContentProvider.ContentProvider {
       resourceTreeModel: ResourceTreeModel, request: NetworkRequest|null, url: Platform.DevToolsPath.UrlString,
       documentURL: Platform.DevToolsPath.UrlString, frameId: Protocol.Page.FrameId|null,
       loaderId: Protocol.Network.LoaderId|null, type: Common.ResourceType.ResourceType, mimeType: string,
-      lastModified: Date|null, contentSize: number|null) {
+      lastModified: Date|null, contentSize: number|null, readonly source: ResourceSource) {
     this.#resourceTreeModel = resourceTreeModel;
     this.#requestInternal = request;
     this.url = url;
