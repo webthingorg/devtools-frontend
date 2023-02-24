@@ -16,6 +16,121 @@
       "message": "Could you have a look?",
       "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d319c6f8_329f0915",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-24T16:00:13Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem  to capture any lexical scope, make it a private member function for easier readability?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 91
+      },
+      "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be9c45f2_7b4e738b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-24T16:00:13Z",
+      "side": 1,
+      "message": "// Currently, all rule sets that appear in DevTools are valid.\n    // TODO(https://crbug.com/1384419): Add property `validity` to the CDP.\n    ... \u003d\u003e ({id, validity: i18nString(UIStrings.validityValid)});",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 64
+      },
+      "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666fe6f5_a234f1c5",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-24T16:00:13Z",
+      "side": 1,
+      "message": "Toggle what? Could you write this as a sentence?",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 15
+      },
+      "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cede1730_dcb72d41",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-24T16:00:13Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 0
+      },
+      "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1230f098_80a395cc",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-24T16:00:13Z",
+      "side": 1,
+      "message": "Is this expected?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 27
+      },
+      "revId": "c7ea749f394434d8a555150e8d935d2db218b8a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
