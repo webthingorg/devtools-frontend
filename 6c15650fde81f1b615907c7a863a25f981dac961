@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9b62a5_5978b7d2",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-02-24T18:03:19Z",
+      "side": 1,
+      "message": "This really isn\u0027t a slow test under normal circumstances. Maybe change this message to \"Can be very slow when run in parallel\".",
+      "revId": "6c15650fde81f1b615907c7a863a25f981dac961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef75938_3fd636e5",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-02-24T18:03:19Z",
+      "side": 1,
+      "message": "Normally this test takes ~1-2s. A timeout of 120s seems a bit overkill. What about a timeout of 20-30s?",
+      "revId": "6c15650fde81f1b615907c7a863a25f981dac961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
