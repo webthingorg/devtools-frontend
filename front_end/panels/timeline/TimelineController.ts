@@ -385,7 +385,9 @@ export interface Client {
   loadingStarted(): void;
   processingStarted(): void;
   loadingProgress(progress?: number): void;
-  loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): void;
+  loadingComplete(
+      tracingModel: SDK.TracingModel.TracingModel|null,
+      exclusiveFilter?: TimelineModel.TimelineModelFilter.TimelineModelFilter): void;
   loadingCompleteForTest(): void;
 }
 export interface RecordingOptions {
