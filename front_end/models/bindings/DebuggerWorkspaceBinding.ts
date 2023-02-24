@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Common from '../../core/common/common.js';
+import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -157,6 +157,7 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
   }
 
   modelAdded(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.setBeforePausedCallback(this.beforePaused.bind(this));
     this.#debuggerModelToData.set(debuggerModel, new ModelData(debuggerModel, this));
     debuggerModel.setComputeAutoStepRangesCallback(this.computeAutoStepRanges.bind(this));
   }
@@ -486,6 +487,27 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
   private debuggerResumed(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): void {
     this.reset(event.data);
   }
+
+  private async beforePaused(
+      debuggerPausedDetails: SDK.DebuggerModel.DebuggerPausedDetails,
+      autoStep: SDK.DebuggerModel.Location|null): Promise<boolean> {
+    const {callFrames: [frame]} = debuggerPausedDetails;
+    if (!frame) {
+      return false;
+    }
+    const functionLocation = frame.functionLocation();
+    if (!autoStep || !functionLocation || !this.pluginManager || !frame.script.isWasm() ||
+        !Common.Settings.moduleSetting('wasmAutoStepping').get()) {
+      return true;
+    }
+    const uiLocation = await this.pluginManager.rawLocationToUILocation(frame.location());
+    if (uiLocation) {
+      return true;
+    }
+
+    return autoStep.script() !== functionLocation.script() || autoStep.columnNumber !== functionLocation.columnNumber ||
+        autoStep.lineNumber !== functionLocation.lineNumber;
+  }
 }
 
 class ModelData {
@@ -511,8 +533,6 @@ class ModelData {
     this.compilerMapping = new CompilerScriptMapping(debuggerModel, workspace, debuggerWorkspaceBinding);
 
     this.#locations = new Platform.MapUtilities.Multimap();
-
-    debuggerModel.setBeforePausedCallback(this.beforePaused.bind(this));
   }
 
   async createLiveLocation(
@@ -587,10 +607,6 @@ class ModelData {
     // and there's currently no way to inform the UI to update.
     // mappedLines = mappedLines ?? this.#resourceMapping.getMappedLines(uiSourceCode);
     return mappedLines;
-  }
-
-  private beforePaused(debuggerPausedDetails: SDK.DebuggerModel.DebuggerPausedDetails): boolean {
-    return Boolean(debuggerPausedDetails.callFrames[0]);
   }
 
   dispose(): void {
