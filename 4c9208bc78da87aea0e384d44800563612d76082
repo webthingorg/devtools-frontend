@@ -16,6 +16,24 @@
       "message": "Can we test this?",
       "revId": "4c9208bc78da87aea0e384d44800563612d76082",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e9d45d2_fe364489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-24T15:16:09Z",
+      "side": 1,
+      "message": "I fixed the existing unit tests and added checks for linking to the correct tab in \u0027RequestLinkIcon_test.ts\u0027. I don\u0027t think it\u0027s worth the effort to test this everywhere, especially since the old headers view will be removed soon anyway.",
+      "parentUuid": "7bd83c78_f9440d44",
+      "revId": "4c9208bc78da87aea0e384d44800563612d76082",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
