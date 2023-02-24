@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5ad7a940_743a73ae",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-24T22:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3701db71_6e0aede7",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5a9d5e14_9079e392",
         "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
         "patchSetId": 4
@@ -101,6 +119,24 @@
       "writtenOn": "2023-02-24T01:23:00Z",
       "side": 1,
       "message": "minor but.. I feel like this could be DRYed up quite a bit... \n\nL57-75 into....\n\n\n      const name \u003d node \u003d\u003d\u003d jsProfileModel.idleNode\n          ? RecordType.JSIdleSample\n          : node \u003d\u003d\u003d jsProfileModel.programNode || node \u003d\u003d\u003d jsProfileModel.gcNode\n            ? RecordType.JSSystemSample\n            : RecordType.JSSample;\n\n      const jsSampleEvent \u003d new SDK.TracingModel.ConstructedEvent(\n          SDK.TracingModel.DevToolsTimelineEventCategory, name, SDK.TracingModel.Phase.Instant,\n          timestamps[i], thread);\n      jsSampleEvent.args[\u0027data\u0027] \u003d {stackTrace: callFrames};\n      jsEvents.push(jsSampleEvent);",
+      "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f36c8ee5_f060d860",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-02-24T22:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5c63cf_f1cf3541",
       "revId": "c0a6e0605e46f0057474f257cb330dd627802fad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
