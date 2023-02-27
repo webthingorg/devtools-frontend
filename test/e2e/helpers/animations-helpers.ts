@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {click, goToResource, waitFor} from '../../shared/helper.js';
+
 import {openPanelViaMoreTools} from './settings-helpers.js';
 
 export async function waitForAnimationsPanelToLoad() {
