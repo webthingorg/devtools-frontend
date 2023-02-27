@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a22d4b_7dfa7eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-27T16:24:04Z",
+      "side": 1,
+      "message": "PTAL! I am not entirely sure how worthwhile this effort to replace more helpers is going to be; because the main frame logic for OPP exists more in the data layer, whereas for Insights it exists in the UI layer, that means there are extra checks in OPP that we do not do at the data layer in Insights. So I am not sure replacing all the helpers will be valuable. That said, we can still clean up some duplication so I think it is still a positive improvement.",
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
