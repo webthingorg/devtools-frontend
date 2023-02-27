@@ -79,7 +79,7 @@ function launchChrome() {
   const opts: puppeteer.LaunchOptions&puppeteer.BrowserLaunchArgumentOptions&puppeteer.BrowserConnectOptions = {
     headless,
     executablePath: envChromeBinary,
-    dumpio: !headless,
+    dumpio: headless,
     slowMo: envSlowMo,
   };
 
