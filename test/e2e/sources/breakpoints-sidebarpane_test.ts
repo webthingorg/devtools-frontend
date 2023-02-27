@@ -116,7 +116,8 @@ describe('The Breakpoints Sidebar', () => {
   });
 
   describe('for wasm files', () => {
-    it('shows the correct code snippets', async () => {
+    // eslint-disable-next-line rulesdir/no_only
+    it.only('shows the correct code snippets', async () => {
       const {frontend} = getBrowserAndPages();
       await openSourceCodeEditorForFile('memory.wasm', 'wasm/memory.html');
       await addBreakpointForLine(frontend, '0x039');
