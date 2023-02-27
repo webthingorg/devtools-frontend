@@ -16,6 +16,29 @@
       "message": "Please note this change might not be necessary",
       "revId": "4458c8ef32279b81ead682db57b2d54feef9b0a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e8041e_140abfb2",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-02-27T10:34:37Z",
+      "side": 1,
+      "message": "Actually, do you want the parallel builders on beta/stable/extended? What\u0027s the rationale behind this?",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "4458c8ef32279b81ead682db57b2d54feef9b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
