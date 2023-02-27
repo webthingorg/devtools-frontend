@@ -33,6 +33,23 @@
       "message": "+wolfi who is working on a general solution to this problem",
       "revId": "22dd86582f2e14e588180bda5729f4ef5444e10f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3bf13b8_f5baab3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-27T07:45:51Z",
+      "side": 1,
+      "message": "The CL description says \"simulating frameNavigated\" but the code doesn\u0027t emit the event. Do you mean handling prerenderAttemptCompleted similar to frameNaviated or something else?",
+      "revId": "22dd86582f2e14e588180bda5729f4ef5444e10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
