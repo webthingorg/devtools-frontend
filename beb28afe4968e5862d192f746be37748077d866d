@@ -33,6 +33,24 @@
       "message": "I remember that we discussed the option of only requesting the content in the uiSourceCode if the script was still registered in the debuggerModel to keep it local -- as postponing the reset may have some consequences that we don\u0027t know about yet. WDYT?",
       "revId": "beb28afe4968e5862d192f746be37748077d866d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d172b0d2_f05d40b1",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-02-27T08:32:48Z",
+      "side": 1,
+      "message": "Actually with the cachedWasmOnly escape hatch we won\u0027t even need this since we can\u0027t hit the expensive path anymore.",
+      "parentUuid": "e971aed9_99849eb7",
+      "revId": "beb28afe4968e5862d192f746be37748077d866d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
