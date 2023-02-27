@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86be5d10_81fa99bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-02-27T09:36:14Z",
+      "side": 1,
+      "message": "Don\u0027t you have a tracker bug for all the parallel investigations? Please always create/add tracker bugs if you have multiple CLs on one work stream.",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "4da9dca1358b42d06136a0bce04042655784f029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69757edf_faaba8f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-02-27T09:36:14Z",
+      "side": 1,
+      "message": "@liviu, maybe you can at some point put some thoughts into how to refactor this \"exclusion\" config. See comment below.",
+      "revId": "4da9dca1358b42d06136a0bce04042655784f029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "710f2079_00e548ca",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-02-27T09:36:14Z",
+      "side": 1,
+      "message": "This starts to be slightly less readable. Maybe consider refactoring this config by adding an \"inclusion\" list? And consider a semantics that requires fewest entries in these lists.",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 25
+      },
+      "revId": "4da9dca1358b42d06136a0bce04042655784f029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
