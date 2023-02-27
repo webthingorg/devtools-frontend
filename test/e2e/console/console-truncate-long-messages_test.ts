@@ -15,7 +15,8 @@ import {
 // to check the output before the last one.
 const checkCommandResult = checkCommandResultFunction(1);
 
-describe('The Console Tab', async function() {
+// skip these tests since they seem to make the parallel exectution very nosiy
+describe.skip('[crbug.com/1419802]: The Console Tab', async function() {
   // This test takes longer than usual because each command is typed and
   // checked individually.
   this.timeout(20000);
