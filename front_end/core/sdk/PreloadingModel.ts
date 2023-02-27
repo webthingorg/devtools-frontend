@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Common from '../common/common.js';
+import type * as Platform from '../platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
@@ -24,6 +25,10 @@ export interface WithId<I, V> {
 export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   private agent: ProtocolProxyApi.PreloadApi;
   private ruleSets: RuleSetRegistry = new RuleSetRegistry();
+  // See the comment in onMainFrameNavigated.
+  // TODO(https://crbug.com/1317959): Remove this.
+  private prerenderingUrlToLoaderId: Map<Platform.DevToolsPath.UrlString, Protocol.Network.LoaderId> =
+      new Map<Platform.DevToolsPath.UrlString, Protocol.Network.LoaderId>();
 
   constructor(target: Target.Target) {
     super(target);
@@ -36,6 +41,9 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     TargetManager.TargetManager.instance().addModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.MainFrameNavigated, this.onMainFrameNavigated,
         this);
+    TargetManager.TargetManager.instance().addModelListener(
+        ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrerenderAttemptCompleted,
+        this.onPrerenderAttemptCompleted, this);
   }
 
   dispose(): void {
@@ -44,6 +52,9 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     TargetManager.TargetManager.instance().removeModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.MainFrameNavigated, this.onMainFrameNavigated,
         this);
+    TargetManager.TargetManager.instance().removeModelListener(
+        ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrerenderAttemptCompleted,
+        this.onPrerenderAttemptCompleted, this);
 
     void this.agent.invoke_disable();
   }
@@ -67,8 +78,49 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     // be non empty and Protocol.Network.LoaderId because it is filled
     // by ResourceTreeFrame.navigate.
     const loaderId = frame.loaderId as Protocol.Network.LoaderId;
+
+    // Note that commit and activation differ for prerendered page, and
+    // currently, Page.frameNavigated event is emitted for
+    // DocumentLoader::WillCommitNavigation. So, roughly speaking,
+    // this method is called when SpeculationRules for prerendering
+    // added, and not called when the prerendered page is activated.
+    // For short-term, we mitigate this by simulating
+    // Page.frameNavigated for prerendered pages by using
+    // Page.prerenderAttemptCompleted. Note that this is far from
+    // perfect and may cause race.
+    //
+    // TODO(https://crbug.com/1317959): Rely on Page.frameNavigated and
+    // remove this.
+    const targetInfo = frame.resourceTreeModel().target().targetInfo();
+
+    if (targetInfo === undefined) {
+      return;
+    }
+
+    if (targetInfo.subtype === 'prerender') {
+      this.prerenderingUrlToLoaderId.set(frame.url as Platform.DevToolsPath.UrlString, loaderId);
+
+      return;
+    }
+
     this.ruleSets.clearOnMainFrameNavigation(loaderId);
     this.dispatchEventToListeners(Events.RuleSetsModified);
+
+    this.prerenderingUrlToLoaderId.clear();
+  }
+
+  onPrerenderAttemptCompleted(event: Common.EventTarget.EventTargetEvent<Protocol.Page.PrerenderAttemptCompletedEvent>):
+      void {
+    const inner = event.data;
+
+    // See the comment in onMainFrameNavigated.
+    const loaderId = this.prerenderingUrlToLoaderId.get(inner.prerenderingUrl as Platform.DevToolsPath.UrlString);
+    if (loaderId !== undefined) {
+      this.ruleSets.clearOnMainFrameNavigation(loaderId);
+      this.dispatchEventToListeners(Events.RuleSetsModified);
+    }
+
+    this.prerenderingUrlToLoaderId.clear();
   }
 
   onRuleSetUpdated(event: Protocol.Preload.RuleSetUpdatedEvent): void {
