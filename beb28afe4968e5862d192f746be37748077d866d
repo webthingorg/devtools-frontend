@@ -51,6 +51,24 @@
       "parentUuid": "e971aed9_99849eb7",
       "revId": "beb28afe4968e5862d192f746be37748077d866d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53a275b_4a002494",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-27T08:35:51Z",
+      "side": 1,
+      "message": "True! That\u0027s nice 😊, thanks!",
+      "parentUuid": "d172b0d2_f05d40b1",
+      "revId": "beb28afe4968e5862d192f746be37748077d866d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
