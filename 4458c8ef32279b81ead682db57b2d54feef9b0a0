@@ -39,6 +39,30 @@
       },
       "revId": "4458c8ef32279b81ead682db57b2d54feef9b0a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "877fad70_acf534ab",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-27T10:41:48Z",
+      "side": 1,
+      "message": "it does make more sense to remove these yes, I just kept them in order not to chnage the generated files. removed.",
+      "parentUuid": "26e8041e_140abfb2",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "4458c8ef32279b81ead682db57b2d54feef9b0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
