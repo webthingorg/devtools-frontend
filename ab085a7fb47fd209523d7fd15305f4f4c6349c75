@@ -105,6 +105,24 @@
       "parentUuid": "8eb4d553_f3f92036",
       "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "accf9017_0f8d5a41",
+        "filename": "test/e2e/helpers/animations-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-02-27T13:57:28Z",
+      "side": 1,
+      "message": "After discussion on this we decided to open a ticet about the reason of the flake (the button being non-functional for a short period after it appears) and keep this test skipped with a reference to it.",
+      "parentUuid": "6808a289_3b926f91",
+      "revId": "ab085a7fb47fd209523d7fd15305f4f4c6349c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
