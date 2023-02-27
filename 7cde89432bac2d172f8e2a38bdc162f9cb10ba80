@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "646e6e7b_c3706bfc",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-02-27T17:35:17Z",
+      "side": 1,
+      "message": "I think this needs to be a named function so that `this.timeout` will apply the new timeout to this single test. Then the `describe` block can just be an arrow function.\n\nAlternatively, we could move this timeout logic to the `describe` block which would apply this timeout to every test in this file.",
+      "revId": "7cde89432bac2d172f8e2a38bdc162f9cb10ba80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab5819b_bfc0cf21",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-02-27T17:35:17Z",
+      "side": 1,
+      "message": "Isn\u0027t the default timeout `10_000`? I was thinking this timeout should be `20_000`.",
+      "revId": "7cde89432bac2d172f8e2a38bdc162f9cb10ba80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
