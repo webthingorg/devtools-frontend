@@ -51,6 +51,24 @@
       "parentUuid": "a3f386da_b25953d6",
       "revId": "0b4d8f00c843021db014e2e73f39f0c2e48925a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5db9eee_a97bedad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-02-27T06:13:32Z",
+      "side": 1,
+      "message": "+1 to open the suggestions box downwards. SG, thanks!",
+      "parentUuid": "5ad50911_9f84d355",
+      "revId": "0b4d8f00c843021db014e2e73f39f0c2e48925a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
