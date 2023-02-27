@@ -79,9 +79,11 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
   }
 
   targetInfoChanged({targetInfo}: Protocol.Target.TargetInfoChangedEvent): void {
+    console.error('in targetInfoChanged');
     this.#targetInfosInternal.set(targetInfo.targetId, targetInfo);
     const target = this.#childTargetsById.get(targetInfo.targetId);
     if (target) {
+      console.error('found target');
       target.updateTargetInfo(targetInfo);
     }
     this.fireAvailableTargetsChanged();
