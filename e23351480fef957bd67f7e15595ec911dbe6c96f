@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7257a9_8857f1fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1126249
+      },
+      "writtenOn": "2023-02-27T09:25:52Z",
+      "side": 1,
+      "message": "I\u0027ve confirmed that with this CL, the warning shows up as expected in https://jsfiddle.net/7urkeay1/",
+      "revId": "e23351480fef957bd67f7e15595ec911dbe6c96f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
