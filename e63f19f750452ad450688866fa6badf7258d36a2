@@ -16,6 +16,24 @@
       "message": "I would be actually interested to know what are the cases where the second selector, `.suggest-box-content-item.selected \u003e span`, applies. I have a feeling that they are redundant, and honestly selecting on the class name seems better than selecting on the DOM tag, unless that `\u003cspan\u003e` is a totally different thing?",
       "revId": "e63f19f750452ad450688866fa6badf7258d36a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97f0ec99_4c67c8a5",
+        "filename": "front_end/ui/legacy/suggestBox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-02-28T15:10:12Z",
+      "side": 1,
+      "message": "It seems like it is expected to apply to `suggestion-title` and `suggestion-subtitle` at the same time; probably that\u0027s why the author used the `span` in general.\n\nThough it doesn\u0027t apply for `devtools-color-swatch` because it is not a span element.\n\nI agree with `span` being not a good idea and after verifying that we can use `.suggestion-title` and `.suggestion-subtitle` to mark explicitly. Though I\u0027m not sure if it breaks any other cases, so I\u0027m a bit reluctant to change either: I generally employ the principle of if a code is working and if it is there for a long time (5 years, in this case) don\u0027t touch it 😂",
+      "parentUuid": "73c6e067_516413b8",
+      "revId": "e63f19f750452ad450688866fa6badf7258d36a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
