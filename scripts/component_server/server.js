@@ -198,7 +198,7 @@ async function checkFileExists(filePath) {
   }
 }
 
-const EXCLUDED_COVERAGE_FOLDERS = new Set(['third_party', 'ui/components/docs', 'Images']);
+const EXCLUDED_COVERAGE_FOLDERS = new Set(['third_party', 'ui/components/docs', 'Images', 'models/trace/worker/']);
 
 /**
  * @param {string} filePath
@@ -224,7 +224,7 @@ const COVERAGE_INSTRUMENTER = createInstrumenter({
 
 const instrumentedSourceCacheForFilePaths = new Map();
 
-const SHOULD_GATHER_COVERAGE_INFORMATION = process.env.COVERAGE === '1';
+const SHOULD_GATHER_COVERAGE_INFORMATION = true;
 
 /**
  * @param {http.IncomingMessage} request
