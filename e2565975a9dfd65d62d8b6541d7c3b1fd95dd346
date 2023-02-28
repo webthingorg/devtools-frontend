@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e56a5ca1_864a81e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-28T05:35:14Z",
+      "side": 1,
+      "message": "Could we add a screenshot to the commit message?",
+      "revId": "e2565975a9dfd65d62d8b6541d7c3b1fd95dd346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93bd26e_d026850c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-28T05:35:14Z",
+      "side": 1,
+      "message": "lgtm % comments",
+      "revId": "e2565975a9dfd65d62d8b6541d7c3b1fd95dd346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6fba59d_1787cfa7",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-28T05:35:14Z",
+      "side": 1,
+      "message": "left-overs?",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 42
+      },
+      "revId": "e2565975a9dfd65d62d8b6541d7c3b1fd95dd346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b3350f8_4afaac6b",
+        "filename": "front_end/entrypoints/main/OutermostTargetSelector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-28T05:35:14Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e2565975a9dfd65d62d8b6541d7c3b1fd95dd346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f254846_357da738",
+        "filename": "front_end/entrypoints/main/OutermostTargetSelector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-02-28T05:35:14Z",
+      "side": 1,
+      "message": "While this terminology makes sense for us DevTools / Chromium developers, I\u0027m not sure this carries a lot of meaning for web developers.\n\nWhat is the terminology used by DevRel or the prerendering team externally? Intuitively I would lean towards \"Page\", as we switch between the shown or prerendered page.",
+      "range": {
+        "startLine": 16,
+        "startChar": 22,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "e2565975a9dfd65d62d8b6541d7c3b1fd95dd346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
