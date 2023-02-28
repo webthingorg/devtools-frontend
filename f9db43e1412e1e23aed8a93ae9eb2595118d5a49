@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c0e2ad_d4765355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-02-28T18:50:44Z",
+      "side": 1,
+      "message": "I am currently doing analogous work i.e. investigating how to make DevTools correctly handle frame activations and mostly treat them similar to main frame navigations.\n\nI am experimenting with introducing a `frameActivated` event (https://crrev.com/c/4296547 which is very much WIP), which would be triggered by CDP\u0027s `Target.targetInfoChanged`. I believe the relevant `targetInfoChanged` events would be fired more or less at similar times to the `prerenderAttemptCompleted` events. And the `frameActivated` would give you direct access to the frame, so you wouldn\u0027t need the `prerenderingUrlToLoaderId` map anymore.\n\nWDYT? Would this work for your use case here?",
+      "revId": "f9db43e1412e1e23aed8a93ae9eb2595118d5a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
