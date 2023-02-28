@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "2ffa9b7448b4ff9b1edb5fcd187c2a8e7fe75704",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c937de77_b41f02c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-28T15:17:22Z",
+      "side": 1,
+      "message": "LGTM but please explain why this is needed in the CL description. (I can tell from the added test but this should be in the CL description)",
+      "revId": "2ffa9b7448b4ff9b1edb5fcd187c2a8e7fe75704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
