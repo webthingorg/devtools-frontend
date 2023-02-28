@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "102de0cf_e29d17e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-28T16:15:48Z",
+      "side": 1,
+      "message": "Thanks! Please make sure to also update histogram definitions in chromium.",
+      "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f3a760_1debddc4",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-28T16:15:48Z",
+      "side": 1,
+      "message": "This values are persistent. Please don\u0027t redefine the numbers.",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 14
+      },
+      "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
