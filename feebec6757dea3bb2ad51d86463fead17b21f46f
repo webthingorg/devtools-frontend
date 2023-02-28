@@ -39,6 +39,30 @@
       },
       "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30634623_2c0137c8",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-28T11:01:34Z",
+      "side": 1,
+      "message": "I am not sure I agree; I do think there is a world in the future where we might want to selectively show or hide metrics based on the frame they were in beyond a simple boolean for them being on the main frame. This was the reason that we created the Insights engine to largely ignore main frame filtering in the initial data layer.\n\nI would much rather we migrate the UI layer over to care about these concerns and make it much closer to the Tracks architecture we had in Insights.\n\nOr, we have helpers like isLCPCandidateEvent that return true or false, and then we have another helper function called isMainThread or similar which does that filtering. I am not sure I want to implicitly filter for main thread in the data layer. WDYT?",
+      "parentUuid": "a66a61ee_43d31373",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
