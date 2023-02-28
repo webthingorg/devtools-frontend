@@ -87,6 +87,30 @@
       },
       "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74b81f9_b5c0a5ec",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-28T13:50:10Z",
+      "side": 1,
+      "message": "Yeah I take your point; I think in the case of LCP it is nearly always going to be main frame only, but for other data that we parse it is not. Therefore, I wonder if it is cleaner for the data layer to never remove any non-main-frame events, rather than have it filter by main frame for some events, but not others.\n\nI would also like to look at how we determine if events are main frame - in Insights, we look for the main frame ID (which the meta handlers parses), but in OPP as we can see we rely on the presence of this data in the event.\n\nI could also see a world where the PageLoadMetrics handler exposes `mainFrameEvents` as a top level key, along with `allEvents` (or something), so that the filtering is done, if you want it to. Perhaps that is clearer?\n\nBut for this CL, that doesn\u0027t impact us, as this helper method is not using any data from the new engine yet.\n\nWDYT?",
+      "parentUuid": "2c5b0aa1_a9851fdd",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
