@@ -16,6 +16,29 @@
       "message": "PTAL! I am not entirely sure how worthwhile this effort to replace more helpers is going to be; because the main frame logic for OPP exists more in the data layer, whereas for Insights it exists in the UI layer, that means there are extra checks in OPP that we do not do at the data layer in Insights. So I am not sure replacing all the helpers will be valuable. That said, we can still clean up some duplication so I think it is still a positive improvement.",
       "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66a61ee_43d31373",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-28T10:10:39Z",
+      "side": 1,
+      "message": "What do you think about adding this logic to the new data layer? I think we would benefit if the UI layer is as \"ignorant\" as possible about the business logic. This way the deprecration of legacy helpers in the future would be easier, since both data layers are equivalent.",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
