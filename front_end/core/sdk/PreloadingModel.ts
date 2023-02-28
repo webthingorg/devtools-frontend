@@ -71,7 +71,7 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     return this.ruleSets.getAll();
   }
 
-  onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeModel.ResourceTreeFrame>): void {
+  private onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeModel.ResourceTreeFrame>): void {
     const frame = event.data;
 
     // Note that at this timing ResourceTreeFrame.loaderId is ensured to
@@ -109,8 +109,8 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     this.prerenderingUrlToLoaderId.clear();
   }
 
-  onPrerenderAttemptCompleted(event: Common.EventTarget.EventTargetEvent<Protocol.Page.PrerenderAttemptCompletedEvent>):
-      void {
+  private onPrerenderAttemptCompleted(
+      event: Common.EventTarget.EventTargetEvent<Protocol.Page.PrerenderAttemptCompletedEvent>): void {
     const inner = event.data;
 
     // See the comment in onMainFrameNavigated.
