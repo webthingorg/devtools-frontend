@@ -111,6 +111,30 @@
       },
       "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bca4d35_b5304600",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-28T14:00:28Z",
+      "side": 1,
+      "message": "sounds good, we can refine the new data layer to handle the importance of the main frames where it matters!",
+      "parentUuid": "a74b81f9_b5c0a5ec",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
