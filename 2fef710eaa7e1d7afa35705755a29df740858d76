@@ -123,6 +123,30 @@
       },
       "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9aa9dc6_5d696817",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-02-28T20:44:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeeae997_45918b98",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 14
+      },
+      "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
