@@ -81,6 +81,30 @@
       },
       "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeeae997_45918b98",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-02-28T17:03:33Z",
+      "side": 1,
+      "message": "MaxValue is alright, Other should stay.",
+      "parentUuid": "91f80a7b_ab841336",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 14
+      },
+      "revId": "2fef710eaa7e1d7afa35705755a29df740858d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
