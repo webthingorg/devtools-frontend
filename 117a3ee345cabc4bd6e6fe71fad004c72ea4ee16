@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2665bea7_fa134f7e",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-02-28T16:46:56Z",
+      "side": 1,
+      "message": "I am not sure I follow why we cannot add this instead; we should ideally calculate the coverage of this folder when running interaction tests. What would it take to do that? (sorry if I am missing something obvious, I do not remember much about how the coverage works in this case)",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 114
+      },
+      "revId": "117a3ee345cabc4bd6e6fe71fad004c72ea4ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
