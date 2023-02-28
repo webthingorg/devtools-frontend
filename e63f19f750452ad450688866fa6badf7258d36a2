@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73c6e067_516413b8",
+        "filename": "front_end/ui/legacy/suggestBox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-02-28T13:20:34Z",
+      "side": 1,
+      "message": "I would be actually interested to know what are the cases where the second selector, `.suggest-box-content-item.selected \u003e span`, applies. I have a feeling that they are redundant, and honestly selecting on the class name seems better than selecting on the DOM tag, unless that `\u003cspan\u003e` is a totally different thing?",
+      "revId": "e63f19f750452ad450688866fa6badf7258d36a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
