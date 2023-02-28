@@ -63,6 +63,30 @@
       },
       "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5b0aa1_a9851fdd",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-02-28T13:43:35Z",
+      "side": 1,
+      "message": "I assumed that lcp particularly is only relevant when it comes from the main frame, in the sense we don\u0027t show lcp for any sub-frame, so the filtering seemed to me to be a \"parsing\" step, which I would favor to locate in the data layer (to prevent the boundary with the UI layer fading like it did with the legacy timelinemodel/flamechart). I guess this assumption is not always valid and things might change in the future. Ultimately the call is yours :).\n\nHaving a `isMainThread` sounds like a good idea to me, or/and maybe something in between like `isMainFrameLCP`.",
+      "parentUuid": "30634623_2c0137c8",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "feebec6757dea3bb2ad51d86463fead17b21f46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
