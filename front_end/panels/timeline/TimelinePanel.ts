@@ -1290,11 +1290,29 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     try {
+      // We have temporarily disabled the new trace engine; we are not yet
+      // using any of the data it is generating and therefore do not want to
+      // impact the performance of tracing when none of the new engine's data
+      // is shown in the UI. Once we are using data from the new engine, we
+      // will renable this.
       // Run the new engine in parallel with the parsing done in the performanceModel
+<<<<<<< HEAD   (2436ae Remove unnecessary cast.)
       await Promise.all(
           [this.performanceModel.setTracingModel(tracingModel), this.executeNewTraceEngine(tracingModel)]);
       const traceParsedData = this.#traceEngineModel.traceParsedData();
       this.setModel(this.performanceModel, traceParsedData);
+=======
+      await Promise.all([
+        this.performanceModel.setTracingModel(tracingModel),
+        // TODO: re-enable once we are using this data
+        /* this.executeNewTraceEngine(tracingModel)*/
+      ]);
+
+      // TODO: re-enable once we are using this data
+      // const traceParsedData = this.#traceEngineModel.traceParsedData();
+      const traceParsedData = null;
+      this.setModel(this.performanceModel, exclusiveFilter, traceParsedData);
+>>>>>>> CHANGE (274b87 Remove execution of new trace engine)
 
       if (this.statusPane) {
         this.statusPane.remove();
