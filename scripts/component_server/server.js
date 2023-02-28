@@ -198,7 +198,7 @@ async function checkFileExists(filePath) {
   }
 }
 
-const EXCLUDED_COVERAGE_FOLDERS = new Set(['third_party', 'ui/components/docs', 'Images']);
+const EXCLUDED_COVERAGE_FOLDERS = new Set(['third_party', 'ui/components/docs', 'Images', 'models/trace/worker']);
 
 /**
  * @param {string} filePath
