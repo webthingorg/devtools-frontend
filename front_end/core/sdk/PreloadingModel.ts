@@ -20,11 +20,12 @@ export interface WithId<I, V> {
 // Holds preloading related information.
 //
 // - SpeculationRule rule sets
-// - (TODO) Preloading attempts
+// - Preloading attempts
 // - (TODO) Relationship between rule sets and preloading attempts
 export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   private agent: ProtocolProxyApi.PreloadApi;
   private ruleSets: RuleSetRegistry = new RuleSetRegistry();
+  private preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
   // See the comment in onMainFrameNavigated.
   // TODO(https://crbug.com/1317959): Remove this.
   private prerenderingUrlToLoaderId: Map<Platform.DevToolsPath.UrlString, Protocol.Network.LoaderId> =
@@ -34,6 +35,7 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     super(target);
 
     target.registerPreloadDispatcher(new PreloadDispatcher(this));
+    target.registerPageDispatcher(new PageDispatcher(this));
 
     this.agent = target.preloadAgent();
     void this.agent.invoke_enable();
@@ -69,6 +71,18 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   // Returned values may or may not be updated as the time grows.
   getAllRuleSets(): WithId<Protocol.Preload.RuleSetId, Protocol.Preload.RuleSet>[] {
     return this.ruleSets.getAll();
+  }
+
+  // Returns reference. Don't save returned values.
+  // Returned value may or may not be updated as the time grows.
+  getPreloadingAttemptById(id: PreloadingAttemptId): PreloadingAttempt|null {
+    return this.preloadingAttempts.getById(id);
+  }
+
+  // Returns array of pairs of id and reference. Don't save returned references.
+  // Returned values may or may not be updated as the time grows.
+  getAllPreloadingAttempts(): WithId<PreloadingAttemptId, PreloadingAttempt>[] {
+    return this.preloadingAttempts.getAll();
   }
 
   private onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeModel.ResourceTreeFrame>): void {
@@ -143,6 +157,40 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     this.ruleSets.delete(id);
     this.dispatchEventToListeners(Events.RuleSetsModified);
   }
+
+  onPrefetchStatusUpdated(event: Protocol.Page.PrefetchStatusUpdatedEvent): void {
+    // Currently, prefetch/prerenderStatusUpdated events don't have PreloadingAttemptKey.
+    // Temporarily, we fill this gap by fake key.
+    //
+    // TODO(https://crbug.com/1317959): Correct this.
+    const attempt = {
+      key: {
+        loaderId: 'fakeLoaderId' as Protocol.Network.LoaderId,
+        action: SpeculationAction.Prefetch,
+        url: event.prefetchUrl as Platform.DevToolsPath.UrlString,
+        targetHint: null,
+      },
+      status: event.status,
+    };
+    this.preloadingAttempts.upsert(attempt);
+  }
+
+  onPrerenderStatusUpdated(event: Protocol.Page.PrerenderStatusUpdatedEvent): void {
+    // Currently, prefetch/prerenderStatusUpdated events don't have PreloadingAttemptKey.
+    // Temporarily, we fill this gap by fake key.
+    //
+    // TODO(https://crbug.com/1317959): Correct this.
+    const attempt = {
+      key: {
+        loaderId: 'fakeLoaderId' as Protocol.Network.LoaderId,
+        action: SpeculationAction.Prerender,
+        url: event.prerenderingUrl as Platform.DevToolsPath.UrlString,
+        targetHint: null,
+      },
+      status: event.status,
+    };
+    this.preloadingAttempts.upsert(attempt);
+  }
 }
 
 SDKModel.SDKModel.register(PreloadingModel, {capabilities: Target.Capability.Target, autostart: false});
@@ -170,6 +218,105 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
 
   ruleSetRemoved(event: Protocol.Preload.RuleSetRemovedEvent): void {
     this.model.onRuleSetRemoved(event);
+  }
+}
+
+// TODO(https://crbug.com/1384419): Remove this once events moved to
+// Preload domains.
+class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
+  private model: PreloadingModel;
+
+  constructor(model: PreloadingModel) {
+    this.model = model;
+  }
+
+  backForwardCacheNotUsed(_: Protocol.Page.BackForwardCacheNotUsedEvent): void {
+  }
+
+  compilationCacheProduced(_: Protocol.Page.CompilationCacheProducedEvent): void {
+  }
+
+  documentOpened(_: Protocol.Page.DocumentOpenedEvent): void {
+  }
+
+  domContentEventFired(_: Protocol.Page.DomContentEventFiredEvent): void {
+  }
+
+  downloadProgress(): void {
+  }
+
+  downloadWillBegin(_: Protocol.Page.DownloadWillBeginEvent): void {
+  }
+
+  fileChooserOpened(_: Protocol.Page.FileChooserOpenedEvent): void {
+  }
+
+  frameAttached(_: Protocol.Page.FrameAttachedEvent): void {
+  }
+
+  frameDetached(_: Protocol.Page.FrameDetachedEvent): void {
+  }
+
+  frameStartedLoading(_: Protocol.Page.FrameStartedLoadingEvent): void {
+  }
+
+  frameStoppedLoading(_: Protocol.Page.FrameStoppedLoadingEvent): void {
+  }
+
+  frameRequestedNavigation(_: Protocol.Page.FrameRequestedNavigationEvent): void {
+  }
+
+  frameScheduledNavigation(_: Protocol.Page.FrameScheduledNavigationEvent): void {
+  }
+
+  frameClearedScheduledNavigation(_: Protocol.Page.FrameClearedScheduledNavigationEvent): void {
+  }
+
+  frameNavigated(_: Protocol.Page.FrameNavigatedEvent): void {
+  }
+
+  frameResized(): void {
+  }
+
+  interstitialHidden(): void {
+  }
+
+  interstitialShown(): void {
+  }
+
+  javascriptDialogOpening(_: Protocol.Page.JavascriptDialogOpeningEvent): void {
+  }
+
+  javascriptDialogClosed(_: Protocol.Page.JavascriptDialogClosedEvent): void {
+  }
+
+  lifecycleEvent(_: Protocol.Page.LifecycleEventEvent): void {
+  }
+
+  loadEventFired(_: Protocol.Page.LoadEventFiredEvent): void {
+  }
+
+  navigatedWithinDocument(_: Protocol.Page.NavigatedWithinDocumentEvent): void {
+  }
+
+  prefetchStatusUpdated(event: Protocol.Page.PrefetchStatusUpdatedEvent): void {
+    this.model.onPrefetchStatusUpdated(event);
+  }
+
+  prerenderAttemptCompleted(_: Protocol.Page.PrerenderAttemptCompletedEvent): void {
+  }
+
+  prerenderStatusUpdated(event: Protocol.Page.PrerenderStatusUpdatedEvent): void {
+    this.model.onPrerenderStatusUpdated(event);
+  }
+
+  screencastFrame(_: Protocol.Page.ScreencastFrameEvent): void {
+  }
+
+  screencastVisibilityChanged(_: Protocol.Page.ScreencastVisibilityChangedEvent): void {
+  }
+
+  windowOpen(_: Protocol.Page.WindowOpenEvent): void {
   }
 }
 
@@ -208,5 +355,83 @@ class RuleSetRegistry {
         this.map.delete(ruleSet.id);
       }
     }
+  }
+}
+
+// TODO(https://crbug.com/1317959): Use types Protocol.Preload.* once backend CL lands.
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum SpeculationAction {
+  Prefetch = 'Prefetch',
+  Prerender = 'Prerender',
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum SpeculationTargetHint {
+  Blank = 'Blank',
+  Self = 'Self',
+}
+
+export interface PreloadingAttemptKey {
+  loaderId: Protocol.Network.LoaderId;
+  action: SpeculationAction;
+  url: Platform.DevToolsPath.UrlString;
+  targetHint: SpeculationTargetHint|null;
+}
+
+export type PreloadingAttemptId = string;
+
+export interface PreloadingAttempt {
+  key: PreloadingAttemptKey;
+  status: Protocol.Page.PreloadingStatus;
+}
+
+function makePreloadingAttemptId(key: PreloadingAttemptKey): PreloadingAttemptId {
+  let action;
+  switch (key.action) {
+    case SpeculationAction.Prefetch:
+      action = 'Prefetch';
+      break;
+    case SpeculationAction.Prerender:
+      action = 'Prerender';
+      break;
+  }
+
+  let targetHint;
+  switch (key.targetHint) {
+    case null:
+      targetHint = 'null';
+      break;
+    case SpeculationTargetHint.Blank:
+      targetHint = 'Blank';
+      break;
+    case SpeculationTargetHint.Self:
+      targetHint = 'Self';
+      break;
+  }
+
+  return `${key.loaderId}:${action}:${key.url}:${targetHint}`;
+}
+
+class PreloadingAttemptRegistry {
+  private map: Map<PreloadingAttemptId, PreloadingAttempt> = new Map<PreloadingAttemptId, PreloadingAttempt>();
+
+  // Returns reference. Don't save returned values.
+  // Returned values may or may not be updated as the time grows.
+  getById(id: PreloadingAttemptId): PreloadingAttempt|null {
+    return this.map.get(id) || null;
+  }
+
+  // Returns reference. Don't save returned values.
+  // Returned values may or may not be updated as the time grows.
+  getAll(): WithId<PreloadingAttemptId, PreloadingAttempt>[] {
+    return Array.from(this.map.entries()).map(([id, value]) => ({id, value}));
+  }
+
+  upsert(attempt: PreloadingAttempt): void {
+    const id = makePreloadingAttemptId(attempt.key);
+
+    this.map.set(id, attempt);
   }
 }
