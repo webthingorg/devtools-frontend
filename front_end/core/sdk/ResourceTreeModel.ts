@@ -233,7 +233,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
     this.dispatchEventToListeners(Events.FrameNavigated, frame);
 
-    if (frame.isMainFrame()) {
+    if (frame.isMainFrame() && frame.isRegularTarget()) {
       this.processPendingEvents(frame);
       this.dispatchEventToListeners(Events.MainFrameNavigated, frame);
       const networkManager = this.target().model(NetworkManager);
@@ -253,6 +253,13 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
     this.updateSecurityOrigins();
     void this.updateStorageKeys();
+  }
+
+  frameActivated(): void {
+    const frame = this.mainFrame;
+    if (frame) {
+      this.dispatchEventToListeners(Events.FrameActivated, frame);
+    }
   }
 
   documentOpened(framePayload: Protocol.Page.Frame): void {
@@ -629,6 +636,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
+  FrameActivated = 'FrameActivated',
   FrameAdded = 'FrameAdded',
   FrameNavigated = 'FrameNavigated',
   FrameDetached = 'FrameDetached',
@@ -652,6 +660,7 @@ export enum Events {
 }
 
 export type EventTypes = {
+  [Events.FrameActivated]: ResourceTreeFrame,
   [Events.FrameAdded]: ResourceTreeFrame,
   [Events.FrameNavigated]: ResourceTreeFrame,
   [Events.FrameDetached]: {frame: ResourceTreeFrame, isSwap: boolean},
@@ -906,6 +915,10 @@ export class ResourceTreeFrame {
   isOutermostFrame(): boolean {
     return this.#model.target().parentTarget()?.type() !== Type.Frame && !this.#sameTargetParentFrameInternal &&
         !this.crossTargetParentFrameId;
+  }
+
+  isRegularTarget(): boolean {
+    return !Boolean(this.#model.target().targetInfo()?.subtype);
   }
 
   removeChildFrame(frame: ResourceTreeFrame, isSwap: boolean): void {
