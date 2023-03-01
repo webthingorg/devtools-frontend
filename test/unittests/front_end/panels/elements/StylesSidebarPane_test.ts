@@ -158,6 +158,40 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
        assert.isTrue(colorHandler.called);
        assert.isFalse(bezierHandler.called);
      });
+
+  it('parses animation correctly', () => {
+    const renderer =
+        new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'animation', 'example 5s');
+    renderer.setAnimationHandler(() => document.createTextNode(nodeContents));
+
+    const nodeContents = 'nodeContents';
+
+    const node = renderer.renderValue();
+    assert.deepEqual(node.textContent, nodeContents);
+  });
+
+  it('bezier handler runs before animation handler if both match', () => {
+    const renderer =
+        new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'animation', 'example 5s linear');
+    let time = 0;
+    let bezierCallTime = -1;
+    let animationCallTime = -1;
+    renderer.setBezierHandler(() => {
+      time++;
+      bezierCallTime = time;
+      return document.createTextNode('');
+    });
+    renderer.setAnimationHandler(() => {
+      time++;
+      animationCallTime = time;
+      return document.createTextNode('');
+    });
+
+    renderer.renderValue();
+    assert.isFalse(bezierCallTime === -1, 'Bezier handler is not called');
+    assert.isFalse(animationCallTime === -1, 'Animation handler is not called');
+    assert.isTrue(bezierCallTime < animationCallTime, 'Bezier handler is called after animation handler');
+  });
 });
 
 describe('IdleCallbackManager', () => {
