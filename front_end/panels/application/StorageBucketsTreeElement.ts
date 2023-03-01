@@ -13,6 +13,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import {ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
 import {StorageBucketsViewWrapper} from './components/StorageBucketsView.js';
+import {IndexedDBTreeElement} from './ApplicationPanelSidebar.js';
 
 const UIStrings = {
   /**
@@ -133,6 +134,9 @@ export class StorageBucketsTreeElement extends ExpandableApplicationPanelTreeEle
     const interestGroupIcon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
     this.setLeadingIcons([interestGroupIcon]);
     this.view = new StorageBucketsViewWrapper(model, bucket);
+
+    const indexedDBTreeElement = new IndexedDBTreeElement(resourcesPanel, bucket);
+    this.appendChild(indexedDBTreeElement);
   }
 
   get itemURL(): Platform.DevToolsPath.UrlString {
