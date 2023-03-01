@@ -15,7 +15,8 @@ import {
   waitForStorageUsage,
 } from '../helpers/lighthouse-helpers.js';
 
-describe('The Lighthouse start view', async function() {
+// skip these tests since they seem to make the parallel exectution very nosiy
+describe.skip('[crbug.com/1419802]: The Lighthouse start view', async () => {
   it('shows a button to generate a new report', async () => {
     await navigateToLighthouseTab('empty.html');
 

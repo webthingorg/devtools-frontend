@@ -34,7 +34,8 @@ import {
 // This test will fail (by default) in headful mode, as the target page never gets painted.
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
-describe('Navigation', async function() {
+// skip these tests since they seem to make the parallel exectution very nosiy
+describe.skip('[crbug.com/1419802]: Navigation', async function() {
   // The tests in this suite are particularly slow especially in parallel
   if (this.timeout() !== 0) {
     this.timeout(120_000);
