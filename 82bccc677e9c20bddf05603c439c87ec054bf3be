@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297ce0e2_4730f119",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 0,
+      "message": "I think isMarkerEvent is used for more than just user timings, are we sure we can remove this?\nEdit: ah, seems like the user timings track also deals with markers for things like LCP, is that correct?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 7
+      },
+      "revId": "82bccc677e9c20bddf05603c439c87ec054bf3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -33,6 +33,276 @@
       "message": "I noted there are some issues with the details pane, I hadn\u0027t realized before. Marking as WIP while I look into them. Sorry for any inconvenience Jack!",
       "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbad1f76_cc1e4b22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "This is very exciting! I have a few thoughts but please don\u0027t be put off, most are nits or questions, overall this looks great. Nice work!",
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade0c4c5_242e52ab",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "nit: random parens",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 14
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "febaa43d_ae3e5840",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "how does this weight get used relative to the rest of the tracks that are outputted by the \"legacy\" flame chart? It is not clear to me if this means that the timings track will be the very first one in the entire UI, or the first one relative to all the other tracks that this system does not manage yet.\n\nedit: I have just seen in the DataProvider that the weight of the legacy UserTimings track was 1, so I guess this matches that. I wonder if we can centralise the numbers into some data structure, rather than have random numbers in more than one place. WDYT? Could be a follow-up for sure.",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f028af_456c4524",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "should this be newLevel? guess it doesn\u0027t really matter",
+      "range": {
+        "startLine": 89,
+        "startChar": 41,
+        "endLine": 89,
+        "endChar": 53
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b4bf12c_e1cda4db",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "nit: typo (Chart)",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 26
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e0aa78a_224ed416",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "in this class I do not think we use this return number; do we need to return something or could we not return anything?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 17
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df12a5d_f8b3e32e",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "nit: could we call this appendTimings? I do not really see the distinction of async vs sync that useful, and it isn\u0027t really one that the new data layer makes, so I would rather avoid using it if possible.",
+      "range": {
+        "startLine": 146,
+        "startChar": 3,
+        "endLine": 146,
+        "endChar": 21
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4496423a_7cc17e1c",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "let\u0027s just call this event",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea2fc90_2c1b68d6",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "do we do this because the user might have configured certain events to be hidden? Or are there some set of events we hide by default?",
+      "range": {
+        "startLine": 154,
+        "startChar": 5,
+        "endLine": 156,
+        "endChar": 7
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d787685_be5c603d",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "this might need a comment explaining why the empty loop",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 7
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6244ad5f_e4b80b14",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "TIL that you can call fill(value, start). Maybe worth a comment saying that we are putting the track appender type in at that index, or just using [currentLevel] \u003d EntryType.TrackAppender",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee620543_df4bd822",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/TimingsTrackAppender_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T15:35:21Z",
+      "side": 1,
+      "message": "for a follow up CL, but would love to think about what helpers we could create to make testing and creating TrackAppenders more easy",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
