@@ -90,7 +90,9 @@ class MainSplitWidget extends UI.SplitWidget.SplitWidget {
     const prepareEvents = (filterFunction: (arg0: SDK.TracingModel.Event) => boolean): number[] =>
         events.filter(filterFunction).map(e => e.startTime - minimumBoundary);
 
-    const lcpEvents = events.filter(e => timelineModel.isLCPCandidateEvent(e) || timelineModel.isLCPInvalidateEvent(e));
+    const lcpEvents = events.filter(
+        e => SDK.TracingModel.eventHasPayload(e) && timelineModel.isLCPCandidateEvent(e) ||
+            timelineModel.isLCPInvalidateEvent(e));
     const lcpEventsByNavigationId = new Map<string, SDK.TracingModel.Event>();
     for (const e of lcpEvents) {
       const navigationId = e.args['data']['navigationId'];
@@ -101,7 +103,8 @@ class MainSplitWidget extends UI.SplitWidget.SplitWidget {
     }
 
     const latestLcpCandidatesByNavigationId = Array.from(lcpEventsByNavigationId.values());
-    const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(e => timelineModel.isLCPCandidateEvent(e));
+    const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(
+        e => SDK.TracingModel.eventHasPayload(e) && timelineModel.isLCPCandidateEvent(e));
 
     const longTasks =
         events.filter(e => SDK.TracingModel.TracingModel.isCompletePhase(e.phase) && timelineModel.isLongRunningTask(e))
@@ -162,7 +165,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly groupBySetting: Common.Settings.Setting<any>;
   private searchableView!: UI.SearchableView.SearchableView;
-  private urlToColorCache?: Map<Platform.DevToolsPath.UrlString, string>;
   private needsResizeToPreferredHeights?: boolean;
   private selectedSearchResult?: number;
   private searchRegex?: RegExp;
@@ -266,7 +268,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   }
 
   updateColorMapper(): void {
-    this.urlToColorCache = new Map();
     if (!this.model) {
       return;
     }
