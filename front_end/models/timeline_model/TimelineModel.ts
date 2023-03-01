@@ -317,7 +317,7 @@ export class TimelineModelImpl {
     return event.name === RecordType.NavigationStart;
   }
 
-  isMainFrameNavigationStartEvent(event: SDK.TracingModel.Event): boolean {
+  isPrimaryPageChangedStartEvent(event: SDK.TracingModel.Event): boolean {
     return this.isNavigationStartEvent(event) &&
         (event.args['data']['isOutermostMainFrame'] ?? event.args['data']['isLoadingMainFrame']) &&
         event.args['data']['documentLoaderURL'];
