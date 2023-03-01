@@ -1024,11 +1024,6 @@ export class TimelineModelImpl {
         continue;
       }
 
-      if (asyncEvent.hasCategory(TimelineModelImpl.Category.UserTiming)) {
-        group(TrackType.Timings).push(asyncEvent);
-        continue;
-      }
-
       if (asyncEvent.name === RecordType.Animation) {
         group(TrackType.Animation).push(asyncEvent);
         continue;
@@ -1095,10 +1090,6 @@ export class TimelineModelImpl {
     }
     timelineData.frameId = pageFrameId || (this.mainFrame && this.mainFrame.frameId) || '';
     this.asyncEventTracker.processEvent(event);
-
-    if (this.isMarkerEvent(event)) {
-      this.ensureNamedTrack(TrackType.Timings);
-    }
 
     switch (event.name) {
       case RecordType.ResourceSendRequest:
@@ -1949,7 +1940,6 @@ export enum TrackType {
   MainThread = 'MainThread',
   Worker = 'Worker',
   Animation = 'Animation',
-  Timings = 'Timings',
   Console = 'Console',
   Raster = 'Raster',
   GPU = 'GPU',
