@@ -16,6 +16,23 @@
       "message": "PTAL, Jack. This will require removing/refactoring some layout tests and running the new engine to land",
       "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b50535_02700325",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-01T15:24:19Z",
+      "side": 1,
+      "message": "I noted there are some issues with the details pane, I hadn\u0027t realized before. Marking as WIP while I look into them. Sorry for any inconvenience Jack!",
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
