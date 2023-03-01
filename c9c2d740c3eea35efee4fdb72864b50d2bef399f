@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "c9c2d740c3eea35efee4fdb72864b50d2bef399f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5784de0_39e12676",
+        "filename": "test/unittests/front_end/models/trace/handlers/GPUHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-01T11:49:35Z",
+      "side": 1,
+      "message": "I am not sure why suddenly these are required, but clearly some other test is not resetting the handlers after testing. I think I am going to update our test-setup code to run reset() on all the handlers for us between each test, but I will do that in a follow up CL. Otherwise it would be very easy to get situations like this where handler data leaks between tests.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "c9c2d740c3eea35efee4fdb72864b50d2bef399f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
