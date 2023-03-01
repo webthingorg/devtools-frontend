@@ -2095,6 +2095,7 @@ export class StylesSidebarPropertyRenderer {
   private angleHandler: ((arg0: string) => Node)|null;
   private lengthHandler: ((arg0: string) => Node)|null;
   private animationNameHandler: ((data: string) => Node)|null;
+  private animationHandler: ((data: string) => Node)|null;
 
   constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
     this.rule = rule;
@@ -2111,6 +2112,7 @@ export class StylesSidebarPropertyRenderer {
     this.animationNameHandler = null;
     this.angleHandler = null;
     this.lengthHandler = null;
+    this.animationHandler = null;
   }
 
   setColorHandler(handler: (arg0: string) => Node): void {
@@ -2143,6 +2145,10 @@ export class StylesSidebarPropertyRenderer {
 
   setAnimationNameHandler(handler: (arg0: string) => Node): void {
     this.animationNameHandler = handler;
+  }
+
+  setAnimationHandler(handler: (arg0: string) => Node): void {
+    this.animationHandler = handler;
   }
 
   setAngleHandler(handler: (arg0: string) => Node): void {
@@ -2241,6 +2247,15 @@ export class StylesSidebarPropertyRenderer {
       regexes.push(/^.*$/g);
       processors.push(this.animationNameHandler);
     }
+
+    // Handling of `animation` shorthand must be after handling of bezier
+    // regex because we first want to handle the `bezier` part to show
+    // easing tool for the easing part and then linkify the animation part.
+    if (this.propertyName === 'animation' || this.propertyName === '-webkit-animation') {
+      regexes.push(/^.*$/g);
+      processors.push(this.animationHandler);
+    }
+
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this.propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {
       const result = results[i];
