@@ -37,6 +37,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Formatter from '../../models/formatter/formatter.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
@@ -1016,7 +1017,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    const initialValue = this.convertWhitespaceToEntities(maybeInitialValue).text;
+    const rawInitialValue = this.convertWhitespaceToEntities(maybeInitialValue).text;
+    const initialValue = (await Formatter.FormatterWorkerPool.FormatterWorkerPool.instance().format(
+                              'text/html', rawInitialValue, '    '))
+                             .content;
     this.htmlEditElement = document.createElement('div');
     this.htmlEditElement.className = 'source-code elements-tree-editor';
 
