@@ -7,6 +7,7 @@
 // use require here due to
 // https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
 import puppeteer = require('puppeteer');
+import * as os from 'os';
 
 import {type CoverageMapData} from 'istanbul-lib-coverage';
 
@@ -82,6 +83,10 @@ function launchChrome() {
     dumpio: !headless,
     slowMo: envSlowMo,
   };
+
+  if (os.platform().startsWith('win')) {
+    opts['dumpio'] = headless;
+  }
 
   // Always set the default viewport because setting only the window size for
   // headful mode would result in much smaller actual viewport.
