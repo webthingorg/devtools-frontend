@@ -84,7 +84,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
     this.#pageResources = new Map();
     this.#queuedLoads = [];
     TargetManager.instance().addModelListener(
-        ResourceTreeModel, ResourceTreeModelEvents.MainFrameNavigated, this.onMainFrameNavigated, this);
+        ResourceTreeModel, ResourceTreeModelEvents.PrimaryPageChanged, this.onPrimaryPageChanged, this);
     this.#loadOverride = loadOverride;
     this.#loadTimeout = loadTimeout;
   }
@@ -115,7 +115,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
     pageResourceLoader = null;
   }
 
-  onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeFrame>): void {
+  onPrimaryPageChanged(event: Common.EventTarget.EventTargetEvent<ResourceTreeFrame>): void {
     const mainFrame = event.data;
     if (!mainFrame.isOutermostFrame()) {
       return;
