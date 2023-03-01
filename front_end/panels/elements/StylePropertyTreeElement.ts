@@ -295,6 +295,34 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return swatch;
   }
 
+  private processAnimation(text: string): Node {
+    const animationNameProperty =
+        this.property.getLonghandProperties().find(longhand => longhand.name === 'animation-name');
+    if (!animationNameProperty) {
+      return document.createTextNode(text);
+    }
+
+    const startIndex = text.indexOf(animationNameProperty.value);
+    // `animation-name` is not found in the `animation` shorthand
+    // This can happen when the shorthand is evaluated with
+    // different processors. (i.e. if easing handled one part before and
+    // this part of the `animation` value does not contain the
+    // animation name text, just return the text node as usual)
+    if (startIndex === -1) {
+      return document.createTextNode(text);
+    }
+
+    const beforeAnimationNamePart = text.substring(0, startIndex);
+    const animationNamePart = text.substring(startIndex, startIndex + animationNameProperty.value.length);
+    const afterAnimationNamePart = text.substring(startIndex + animationNameProperty.value.length);
+
+    const contentChild = document.createElement('span');
+    contentChild.appendChild(document.createTextNode(beforeAnimationNamePart));
+    contentChild.appendChild(this.processAnimationName(animationNamePart));
+    contentChild.appendChild(document.createTextNode(afterAnimationNamePart));
+    return contentChild;
+  }
+
   private processColor(text: string, valueChild?: Node|null): Node {
     return this.renderColorSwatch(text, valueChild);
   }
@@ -813,6 +841,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (this.property.parsedOk) {
       propertyRenderer.setVarHandler(this.processVar.bind(this));
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
+      propertyRenderer.setAnimationHandler(this.processAnimation.bind(this));
       propertyRenderer.setColorHandler(this.processColor.bind(this));
       propertyRenderer.setColorMixHandler(this.processColorMix.bind(this));
       propertyRenderer.setBezierHandler(this.processBezier.bind(this));
