@@ -423,7 +423,12 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
     };
 
     UI.Tooltip.Tooltip.install(memoryIcon, 'Reveal in Memory Inspector panel');
-    element.classList.add('object-value-with-memory-icon');
+
+    // Directly set property on memory icon, so that the memory icon is also
+    // aligned within the context of code mirror.
+    memoryIcon.style.setProperty('vertical-align', 'sub');
+    memoryIcon.style.setProperty('cursor', 'pointer');
+
     element.appendChild(memoryIcon);
   }
 
