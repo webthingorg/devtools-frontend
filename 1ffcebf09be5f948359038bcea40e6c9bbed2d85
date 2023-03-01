@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c81e4c4e_4c8f9f20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-01T09:12:59Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nThis is a css change to make the outline of the link in the BreakpointEditDialog look uniform. PTAL!",
+      "revId": "1ffcebf09be5f948359038bcea40e6c9bbed2d85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
