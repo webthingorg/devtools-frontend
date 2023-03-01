@@ -37,7 +37,7 @@ import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 
 import {CSSFontFace} from './CSSFontFace.js';
 import {CSSMatchedStyles} from './CSSMatchedStyles.js';
@@ -53,6 +53,7 @@ import {Events as ResourceTreeModelEvents, ResourceTreeModel, type ResourceTreeF
 import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import {ResourceSource, type Resource} from './Resource.js';
 
 export class CSSModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.CSSApi;
@@ -72,6 +73,9 @@ export class CSSModel extends SDKModel<EventTypes> {
   #isEnabled: boolean;
   #isRuleUsageTrackingEnabled: boolean;
   #isTrackingRequestPending: boolean;
+  #pendingStyleSheets =
+      new Map<Protocol.Page.FrameId|null, Map<Platform.DevToolsPath.UrlString, CSSStyleSheetHeader>>();
+  #pendingStyleSheetsById = new Map<Protocol.CSS.StyleSheetId, CSSStyleSheetHeader>();
 
   constructor(target: Target) {
     super(target);
@@ -86,6 +90,7 @@ export class CSSModel extends SDKModel<EventTypes> {
     if (this.#resourceTreeModel) {
       this.#resourceTreeModel.addEventListener(
           ResourceTreeModelEvents.MainFrameNavigated, this.onMainFrameNavigated, this);
+      this.#resourceTreeModel.addEventListener(ResourceTreeModelEvents.ResourceAdded, this.#resourceAdded, this);
     }
     target.registerCSSDispatcher(new CSSDispatcher(this));
     if (!target.suspended()) {
@@ -583,10 +588,68 @@ export class CSSModel extends SDKModel<EventTypes> {
     return this.#styleSheetIdToHeader.values();
   }
 
-  styleSheetAdded(header: Protocol.CSS.CSSStyleSheetHeader): void {
-    console.assert(!this.#styleSheetIdToHeader.get(header.styleSheetId));
-    const styleSheetHeader = new CSSStyleSheetHeader(this, header);
-    this.#styleSheetIdToHeader.set(header.styleSheetId, styleSheetHeader);
+  #popPendingStyleSheet(frameId: Protocol.Page.FrameId, url: Platform.DevToolsPath.UrlString): CSSStyleSheetHeader
+      |undefined {
+    const byFrame = this.#pendingStyleSheets.get(frameId);
+    const header = byFrame?.get(url);
+    if (!header) {
+      return undefined;
+    }
+    byFrame?.delete(url);
+    if (byFrame?.size === 0) {
+      this.#pendingStyleSheets.delete(frameId);
+    }
+    this.#pendingStyleSheetsById.delete(header.id);
+    return header;
+  }
+
+  #resourceAdded(event: Common.EventTarget.EventTargetEvent<Resource>): void {
+    const resource = event.data;
+    if (!resource.contentType().isStyleSheet() || resource.source !== ResourceSource.Network) {
+      return;
+    }
+    const {frameId, url} = resource;
+
+    if (!frameId) {
+      return;
+    }
+
+    const header = this.#popPendingStyleSheet(frameId, url);
+    if (header) {
+      this.#commitStyleSheetAdded(header);
+    }
+  }
+
+  styleSheetAdded(protocolHeader: Protocol.CSS.CSSStyleSheetHeader): void {
+    const styleSheetHeader = new CSSStyleSheetHeader(this, protocolHeader);
+    if (!styleSheetHeader.resourceURL() || styleSheetHeader.origin !== Protocol.CSS.StyleSheetOrigin.Regular ||
+        styleSheetHeader.hasSourceURL || styleSheetHeader.isInline || styleSheetHeader.isConstructed) {
+      this.#commitStyleSheetAdded(styleSheetHeader);
+    } else {
+      const resource = this.#resourceTreeModel?.resourceForURL(styleSheetHeader.resourceURL());
+      if (resource && resource.source === ResourceSource.Network) {
+        this.#commitStyleSheetAdded(styleSheetHeader);
+      } else {
+        let byFrame = this.#pendingStyleSheets.get(styleSheetHeader.frameId);
+
+        if (!byFrame) {
+          byFrame = new Map();
+          this.#pendingStyleSheets.set(styleSheetHeader.frameId, byFrame);
+        }
+
+        // Intentionally ignore duplicates. Pausing/resuming targets for exapmle re-raises styleSheetAdded events, but
+        // we only want to keep track of the latest one.
+        byFrame.set(styleSheetHeader.resourceURL(), styleSheetHeader);
+        this.#pendingStyleSheetsById.set(styleSheetHeader.id, styleSheetHeader);
+      }
+    }
+  }
+
+  #commitStyleSheetAdded(styleSheetHeader: CSSStyleSheetHeader): void {
+    console.assert(
+        !this.#styleSheetIdToHeader.get(styleSheetHeader.id),
+        `Duplicate stylesheet header on commit ${styleSheetHeader.id}`);
+    this.#styleSheetIdToHeader.set(styleSheetHeader.id, styleSheetHeader);
     const url = styleSheetHeader.resourceURL();
     let frameIdToStyleSheetIds = this.#styleSheetIdsForURL.get(url);
     if (!frameIdToStyleSheetIds) {
@@ -607,10 +670,10 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   styleSheetRemoved(id: Protocol.CSS.StyleSheetId): void {
     const header = this.#styleSheetIdToHeader.get(id);
-    console.assert(Boolean(header));
     if (!header) {
       return;
     }
+    this.#popPendingStyleSheet(header.frameId, header.resourceURL());
     this.#styleSheetIdToHeader.delete(id);
     const url = header.resourceURL();
     const frameIdToStyleSheetIds = this.#styleSheetIdsForURL.get(url);
@@ -699,6 +762,8 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   private resetStyleSheets(): void {
     const headers = [...this.#styleSheetIdToHeader.values()];
+    this.#pendingStyleSheets.clear();
+    this.#pendingStyleSheetsById.clear();
     this.#styleSheetIdsForURL.clear();
     this.#styleSheetIdToHeader.clear();
     for (const header of headers) {
