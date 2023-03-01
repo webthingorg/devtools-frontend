@@ -28,7 +28,8 @@ const IPAD_MINI_LANDSCAPE_VIEWPORT_DIMENSIONS = {
   devicePixelRatio: 2,
 };
 
-describe('DevTools', function() {
+// skip these tests since they seem to make the parallel exectution very nosiy
+describe.skip('[crbug.com/1419802]: DevTools', function() {
   // The tests in this suite are particularly slow
   this.timeout(60_000);
 
