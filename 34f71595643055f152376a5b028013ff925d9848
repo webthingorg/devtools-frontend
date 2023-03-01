@@ -16,6 +16,24 @@
       "message": "fwiw here\u0027s the bug: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d596228\nand LH\u0027s similar handling: https://github.com/GoogleChrome/lighthouse/blob/main/core/computed/user-timings.js#L35-L40\n\n\nit\u0027s kinda stupid. (okay.. very stupid).\n\nThe good news is that it\u0027s probably somewhat reasonable to move these out of this trace category. We could try that if we want.",
       "revId": "34f71595643055f152376a5b028013ff925d9848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8f8597_ab6f7800",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-01T11:40:20Z",
+      "side": 1,
+      "message": "wow that was quite a while ago XD. I think it makes a lot of sense to make the changes upstream. However I\u0027m afraid that would cause significant impact on dependencies and I don\u0027t know whether we can simply land the change",
+      "parentUuid": "6e39a988_fe847e8e",
+      "revId": "34f71595643055f152376a5b028013ff925d9848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

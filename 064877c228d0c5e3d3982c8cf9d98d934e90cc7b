@@ -39,6 +39,30 @@
       },
       "revId": "064877c228d0c5e3d3982c8cf9d98d934e90cc7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d31a50_1a369d10",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-01T11:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aa04f10_7deee848",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "064877c228d0c5e3d3982c8cf9d98d934e90cc7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
