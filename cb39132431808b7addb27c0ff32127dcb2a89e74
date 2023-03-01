@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af5ee7d_d378526a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1572243
+      },
+      "writtenOn": "2023-03-01T15:25:25Z",
+      "side": 1,
+      "message": "Changed CL to remove source map load timeout",
+      "revId": "cb39132431808b7addb27c0ff32127dcb2a89e74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
