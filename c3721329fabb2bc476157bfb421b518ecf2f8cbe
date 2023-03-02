@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19cf816b_6c46e510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-02T09:13:25Z",
+      "side": 1,
+      "message": "Updated to make it clear that the git workflow also creates the CL. I will leave the other workflow be as I haven\u0027t used it, but feel free to add it in 😊",
+      "revId": "c3721329fabb2bc476157bfb421b518ecf2f8cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65a540ba_4f5acd53",
@@ -48,6 +65,24 @@
       "writtenOn": "2023-03-02T09:05:16Z",
       "side": 1,
       "message": "Maybe we should re-phrase this a little bit and explicitly call out that these steps *create* the cherry-pick CL via git, and we don\u0027t use Gerrit to create the cherry-pick CL.\n\nThe alternative (which we might also include), is to create the cherry-pick via Gerrit as per usual, and then do locally:\n\n```\ngit cl patch -b BRANCH_NAME -f CL_NUMBER\n// Fix merge conflict and commit\ngit cl upload\n```",
+      "revId": "c3721329fabb2bc476157bfb421b518ecf2f8cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53902a6c_30c4777d",
+        "filename": "docs/workflows.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-02T09:13:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a540ba_4f5acd53",
       "revId": "c3721329fabb2bc476157bfb421b518ecf2f8cbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
