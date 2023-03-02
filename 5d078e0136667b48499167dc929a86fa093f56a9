@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c81bfa0_84305c87",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-02T10:01:05Z",
+      "side": 1,
+      "message": "can coverage ever be set to true now? Can we just delete this entirely?",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 34
+      },
+      "revId": "5d078e0136667b48499167dc929a86fa093f56a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
