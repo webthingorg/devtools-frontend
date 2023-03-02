@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4f6812_81d18557",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-02T09:28:31Z",
+      "side": 1,
+      "message": "LGTM with one suggestion!",
+      "revId": "a568a67e7636dd312287ecdb83e70568ed2d6c1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c191b2c3_bf454aa2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-02T09:28:31Z",
+      "side": 1,
+      "message": "Parsing the animation shorthand is terrible, but I\u0027m wondering if we can do a tiny bit better than picking the first match. Two things I think we can do:\n* support multiple comma-separated animations by splitting on comma. That\u0027s the only legal occurence of the comma, right?\n* pick the _last_ match instead of the first one. If the animation-name is a keyword, I understand keywords take precendence and animation-name is parsed last, is that correct?",
+      "revId": "a568a67e7636dd312287ecdb83e70568ed2d6c1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
