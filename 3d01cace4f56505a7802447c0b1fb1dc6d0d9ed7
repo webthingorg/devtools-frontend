@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4422ae73_9f149bf2",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-02T10:01:35Z",
+      "side": 0,
+      "message": "is this class used anywhere now? can we delete it?",
+      "range": {
+        "startLine": 772,
+        "startChar": 37,
+        "endLine": 772,
+        "endChar": 63
+      },
+      "revId": "3d01cace4f56505a7802447c0b1fb1dc6d0d9ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
