@@ -541,7 +541,8 @@ ConsoleTestRunner.waitUntilConsoleEditorLoaded = function() {
  * @param {!Function} callback
  */
 ConsoleTestRunner.waitUntilMessageReceived = function(callback) {
-  TestRunner.addSniffer(self.SDK.consoleModel, 'addMessage', callback, false);
+  const consoleModel = self.SDK.targetManager.primaryPageTarget().model(SDK.ConsoleModel);
+  TestRunner.addSniffer(consoleModel, 'addMessage', callback, false);
 };
 
 /**
@@ -556,14 +557,15 @@ ConsoleTestRunner.waitUntilMessageReceivedPromise = function() {
  * @param {!Function} callback
  */
 ConsoleTestRunner.waitUntilNthMessageReceived = function(count, callback) {
+  const consoleModel = self.SDK.targetManager.primaryPageTarget().model(SDK.ConsoleModel);
   function override() {
     if (--count === 0) {
       TestRunner.safeWrap(callback)();
     } else {
-      TestRunner.addSniffer(self.SDK.consoleModel, 'addMessage', override, false);
+      TestRunner.addSniffer(consoleModel, 'addMessage', override, false);
     }
   }
-  TestRunner.addSniffer(self.SDK.consoleModel, 'addMessage', override, false);
+  TestRunner.addSniffer(consoleModel, 'addMessage', override, false);
 };
 
 /**
