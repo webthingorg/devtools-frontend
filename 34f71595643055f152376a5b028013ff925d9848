@@ -34,6 +34,24 @@
       "parentUuid": "6e39a988_fe847e8e",
       "revId": "34f71595643055f152376a5b028013ff925d9848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ba528c_0bf3a44d",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-02T03:50:58Z",
+      "side": 1,
+      "message": "YUP. That\u0027s 90% of the reason why it hasn\u0027t been resolved. A little scary cuz its challenging to know who breaks.\n\nMy guess is we\u0027d have to check RPP, NPP, catapult/traceviewer, and perfetto. And there\u0027s a mailing list of tooling vendors we could FYI to. That\u0027d get us 85% of the way. \nAnyway. I\u0027m not strongly suggesting it right now. Just sharing the context for when we get our confidence. :)",
+      "parentUuid": "9d8f8597_ab6f7800",
+      "revId": "34f71595643055f152376a5b028013ff925d9848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
