@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708a4cc3_a44a9753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-02T12:52:24Z",
+      "side": 1,
+      "message": "Can we make",
+      "revId": "95e592f700e230535934891e09effcf22a7dcb61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d57d31_0ecd5013",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-02T12:52:24Z",
+      "side": 1,
+      "message": "We could make this public and have a simple test in `test/unittests/front_end/panels/console/ConsoleView_test.ts` that would use `dispatchPasteEvent` from `test/unittests/front_end/helpers/DOMHelpers.ts` and make sure that e.g. textContent didn\u0027t change?",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 39
+      },
+      "revId": "95e592f700e230535934891e09effcf22a7dcb61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7812ca0c_bfdaa161",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-02T12:52:24Z",
+      "side": 1,
+      "message": "Underscore signifies unused argument. Now that it is used let\u0027s remove it please.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 6,
+        "endLine": 1299,
+        "endChar": 12
+      },
+      "revId": "95e592f700e230535934891e09effcf22a7dcb61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
