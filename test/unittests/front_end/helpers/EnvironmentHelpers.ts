@@ -100,7 +100,6 @@ const REGISTERED_EXPERIMENTS = [
   'cssTypeComponentLength',
   'recordCoverageWithPerformanceTracing',
   'timelineEventInitiators',
-  'inputEventsOnTimelineOverview',
   'timelineAsConsoleProfileResultPanel',
   'headerOverrides',
   'breakpointView',
