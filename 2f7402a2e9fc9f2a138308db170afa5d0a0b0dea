@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "2f7402a2e9fc9f2a138308db170afa5d0a0b0dea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fe4cb1a_41f43474",
+        "filename": "test/unittests/front_end/test_setup/test_setup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-02T09:16:31Z",
+      "side": 1,
+      "message": "given that this is specific to the perf panel only, I wonder if in the future we might want a have a way to add custom \"middleware\" in the hooks for specific test dirs. Though doing so might be overcomplicating things if there aren\u0027t many use cases...",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 74
+      },
+      "revId": "2f7402a2e9fc9f2a138308db170afa5d0a0b0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
