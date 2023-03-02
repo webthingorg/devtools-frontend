@@ -259,6 +259,11 @@ const UIStrings = {
    *@example {5} PH1
    */
   filteredMessagesInConsole: '{PH1} messages in console',
+  /**
+   *@description An error message showed when console paste is blocked.
+   */
+  consolePasteBlocked:
+      'Pasting code into devtools is often used to scam people and take over their accounts. It is blocked on this page.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1287,6 +1292,12 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private messagesPasted(_event: Event): void {
+    const url = SDK.TargetManager.TargetManager.instance().inspectedURL();
+    if (Root.Runtime.queryParam('consolePaste') === 'blockwebui' &&
+        (url.startsWith('chrome://') || url.startsWith('os://'))) {
+      _event.preventDefault();
+      Common.Console.Console.instance().error(i18nString(UIStrings.consolePasteBlocked));
+    }
     if (UI.UIUtils.isEditing()) {
       return;
     }
