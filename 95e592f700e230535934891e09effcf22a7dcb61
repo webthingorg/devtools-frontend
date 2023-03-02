@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "796fa3f4_8454bde7",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1186968
+      },
+      "writtenOn": "2023-03-02T14:11:52Z",
+      "side": 1,
+      "message": "I might struggle to do this test since I\u0027m not familar with the code.  Is there any chance that we could submit this code, and you could add the test?\n\nOr could you upload a new PS to this CL with the test?",
+      "parentUuid": "74d57d31_0ecd5013",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 39
+      },
+      "revId": "95e592f700e230535934891e09effcf22a7dcb61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7812ca0c_bfdaa161",
         "filename": "front_end/panels/console/ConsoleView.ts",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-02T12:52:24Z",
       "side": 1,
       "message": "Underscore signifies unused argument. Now that it is used let\u0027s remove it please.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 6,
+        "endLine": 1299,
+        "endChar": 12
+      },
+      "revId": "95e592f700e230535934891e09effcf22a7dcb61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67475a54_afe4ba4d",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1186968
+      },
+      "writtenOn": "2023-03-02T14:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7812ca0c_bfdaa161",
       "range": {
         "startLine": 1299,
         "startChar": 6,
