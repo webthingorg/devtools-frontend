@@ -39,6 +39,30 @@
       },
       "revId": "2f7402a2e9fc9f2a138308db170afa5d0a0b0dea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d3fb7c_a5ab6286",
+        "filename": "test/unittests/front_end/test_setup/test_setup.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-02T09:27:59Z",
+      "side": 1,
+      "message": "Yeah, agree, I would like to have it so if in any folder you create a test_setup file then it is automatically run for you for those tests. One to explore in the future.",
+      "parentUuid": "1fe4cb1a_41f43474",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 74
+      },
+      "revId": "2f7402a2e9fc9f2a138308db170afa5d0a0b0dea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
