@@ -129,10 +129,6 @@ const UIStrings = {
    */
   showWebVitals: 'Show Web Vitals',
   /**
-   *@description Text in Timeline Panel of the Performance panel
-   */
-  recordCoverageWithPerformance: 'Record coverage with performance trace',
-  /**
    *@description Tooltip text that appears when hovering over the largeicon settings gear in show settings pane setting in timeline panel of the performance panel
    */
   captureSettings: 'Capture settings',
@@ -372,9 +368,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.startCoverage = Common.Settings.Settings.instance().createSetting('timelineStartCoverage', false);
     this.startCoverage.setTitle(i18nString(UIStrings.coverage));
 
-    if (!Root.Runtime.experiments.isEnabled('recordCoverageWithPerformanceTracing')) {
-      this.startCoverage.set(false);
-    }
+    this.startCoverage.set(false);
 
     this.showMemorySetting = Common.Settings.Settings.instance().createSetting('timelineShowMemory', false);
     this.showMemorySetting.setTitle(i18nString(UIStrings.memory));
@@ -564,12 +558,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.showWebVitalsToolbarCheckbox =
           this.createSettingCheckbox(this.showWebVitalsSetting, i18nString(UIStrings.showWebVitals));
       this.panelToolbar.appendToolbarItem(this.showWebVitalsToolbarCheckbox);
-    }
-
-    if (Root.Runtime.experiments.isEnabled('recordCoverageWithPerformanceTracing')) {
-      this.startCoverageCheckbox =
-          this.createSettingCheckbox(this.startCoverage, i18nString(UIStrings.recordCoverageWithPerformance));
-      this.panelToolbar.appendToolbarItem(this.startCoverageCheckbox);
     }
 
     // GC
