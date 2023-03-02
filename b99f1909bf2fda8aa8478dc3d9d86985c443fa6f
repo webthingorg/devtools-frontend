@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1bcb247_c44a472d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-02T11:39:10Z",
+      "side": 1,
+      "message": "I remember that you had a nice screenshot of how these wavy lines look like. Could you add the link here, e.g.\nscreenshot: imgur.com/XXX\n\nAnd could you also add a link to the PRD as well? e.g.\nPRD: https://.....\n\nThanks!",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0c09a04a_0856c3f5",
@@ -48,6 +65,24 @@
       "writtenOn": "2023-03-02T11:13:19Z",
       "side": 1,
       "message": "Friendly reminder.",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfa3c1b_26d4aa55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-02T11:39:10Z",
+      "side": 1,
+      "message": "Somehow this was sent as \"resolved\". Unresolving this to get some answers :)",
+      "parentUuid": "c7290a79_43e03c94",
       "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
