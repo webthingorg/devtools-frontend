@@ -66,7 +66,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
   isInterstitialShowing: boolean;
   mainFrame: ResourceTreeFrame|null;
   #pendingBackForwardCacheNotUsedEvents: Set<Protocol.Page.BackForwardCacheNotUsedEvent>;
-  #pendingPrerenderAttemptCompletedEvents: Set<Protocol.Page.PrerenderAttemptCompletedEvent>;
+  #pendingPrerenderAttemptCompletedEvents: Set<Protocol.Preload.PrerenderAttemptCompletedEvent>;
 
   constructor(target: Target) {
     super(target);
@@ -82,7 +82,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     this.#securityOriginManager = (target.model(SecurityOriginManager) as SecurityOriginManager);
     this.#storageKeyManager = (target.model(StorageKeyManager) as StorageKeyManager);
     this.#pendingBackForwardCacheNotUsedEvents = new Set<Protocol.Page.BackForwardCacheNotUsedEvent>();
-    this.#pendingPrerenderAttemptCompletedEvents = new Set<Protocol.Page.PrerenderAttemptCompletedEvent>();
+    this.#pendingPrerenderAttemptCompletedEvents = new Set<Protocol.Preload.PrerenderAttemptCompletedEvent>();
     target.registerPageDispatcher(new PageDispatcher(this));
 
     this.framesInternal = new Map();
@@ -585,7 +585,7 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     }
   }
 
-  onPrerenderAttemptCompleted(event: Protocol.Page.PrerenderAttemptCompletedEvent): void {
+  onPrerenderAttemptCompleted(event: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
     if (this.mainFrame && this.mainFrame.id === event.initiatingFrameId) {
       this.mainFrame.setPrerenderFinalStatus(event.finalStatus);
       this.dispatchEventToListeners(Events.PrerenderingStatusUpdated, this.mainFrame);
@@ -672,7 +672,7 @@ export type EventTypes = {
   [Events.InterstitialHidden]: void,
   [Events.BackForwardCacheDetailsUpdated]: ResourceTreeFrame,
   [Events.PrerenderingStatusUpdated]: ResourceTreeFrame,
-  [Events.PrerenderAttemptCompleted]: Protocol.Page.PrerenderAttemptCompletedEvent,
+  [Events.PrerenderAttemptCompleted]: Protocol.Preload.PrerenderAttemptCompletedEvent,
   [Events.JavaScriptDialogOpening]: Protocol.Page.JavascriptDialogOpeningEvent,
 };
 
@@ -705,7 +705,7 @@ export class ResourceTreeFrame {
     explanations: [],
     explanationsTree: undefined,
   };
-  prerenderFinalStatus: Protocol.Page.PrerenderFinalStatus|null;
+  prerenderFinalStatus: Protocol.Preload.PrerenderFinalStatus|null;
   prerenderDisallowedApiMethod: string|null;
 
   constructor(
@@ -1082,7 +1082,7 @@ export class ResourceTreeFrame {
     return this.resourcesMap;
   }
 
-  setPrerenderFinalStatus(status: Protocol.Page.PrerenderFinalStatus): void {
+  setPrerenderFinalStatus(status: Protocol.Preload.PrerenderFinalStatus): void {
     this.prerenderFinalStatus = status;
   }
 
@@ -1192,14 +1192,14 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
   downloadProgress(): void {
   }
 
-  prerenderAttemptCompleted(params: Protocol.Page.PrerenderAttemptCompletedEvent): void {
+  prerenderAttemptCompleted(params: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
     this.#resourceTreeModel.onPrerenderAttemptCompleted(params);
   }
 
   prefetchStatusUpdated({}: Protocol.Page.PrefetchStatusUpdatedEvent): void {
   }
 
-  prerenderStatusUpdated({}: Protocol.Page.PrerenderStatusUpdatedEvent): void {
+  prerenderStatusUpdated({}: Protocol.Preload.PrerenderStatusUpdatedEvent): void {
   }
 }
 
