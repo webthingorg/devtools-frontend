@@ -486,6 +486,7 @@ export enum Phase {
   Metadata = 'M',
   Sample = 'P',
   SnapshotObject = 'O',
+  MARK = 'R',
 }
 
 export const eventPhasesOfInterestForTraceBounds: Set<string> = new Set([
