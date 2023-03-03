@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0e5427d_949d009d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-03T15:52:08Z",
+      "side": 1,
+      "message": "Please find the below stress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8787632086271373329/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8787632086271373313/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8787632086271373297/overview",
+      "revId": "1e5d80e9e0d7bf3ef24c1c9f4ab4df7d14dadfa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdf7e72_7c9b818e",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-03T15:52:08Z",
+      "side": 1,
+      "message": "please note that even though we repeat the process here the scenario is not changing becuase the click has failed.",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 23
+      },
+      "revId": "1e5d80e9e0d7bf3ef24c1c9f4ab4df7d14dadfa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

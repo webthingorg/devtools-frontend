@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91de190_217b5bbe",
+        "filename": "test/e2e/helpers/application-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-03T15:52:08Z",
+      "side": 0,
+      "message": "Let\u0027s fix that :)",
+      "range": {
+        "startLine": 84,
+        "startChar": 18,
+        "endLine": 84,
+        "endChar": 64
+      },
+      "revId": "c0e707bf563029b8ff25ecc5c7b2c86f0e33933c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
