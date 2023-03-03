@@ -50,8 +50,8 @@ describe('The Application Tab', async () => {
     });
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1369995] can delete selected items', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('can delete selected items', async () => {
     const {target} = getBrowserAndPages();
 
     await navigateToApplicationTab(target, 'session-storage');
