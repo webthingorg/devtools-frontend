@@ -41,4 +41,6 @@ describeWithRealConnection('ElementsPanel', () => {
             Host.UserMetrics.SidebarPaneCodes.Styles),
         'Expected "Styles" tab to show up in metrics');
   });
+
+  it('observes scoped', () => {});
 });
