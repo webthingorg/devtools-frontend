@@ -9,6 +9,7 @@ ts_library("elements") {
   sources = [
     "CSSPropertyPrompt_test.ts",
     "CSSRuleValidator_test.ts",
+    "ClassesPaneWidget_test.ts",
     "ElementsPanel_test.ts",
     "StylePropertyHighlighter_test.ts",
     "StylePropertyTreeElement_test.ts",
