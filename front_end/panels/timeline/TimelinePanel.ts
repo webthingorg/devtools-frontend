@@ -1304,13 +1304,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       // Run the new engine in parallel with the parsing done in the performanceModel
       await Promise.all([
         this.performanceModel.setTracingModel(tracingModel),
-        // TODO: re-enable once we are using this data
-        /* this.executeNewTraceEngine(tracingModel)*/
+        this.executeNewTraceEngine(tracingModel),
       ]);
 
-      // TODO: re-enable once we are using this data
-      // const traceParsedData = this.#traceEngineModel.traceParsedData();
-      const traceParsedData = null;
+      const traceParsedData = this.#traceEngineModel.traceParsedData();
       this.setModel(this.performanceModel, exclusiveFilter, traceParsedData);
 
       if (this.statusPane) {
