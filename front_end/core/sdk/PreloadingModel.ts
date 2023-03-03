@@ -9,7 +9,12 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import * as SDKModel from './SDKModel.js';
 import * as Target from './Target.js';
 import * as TargetManager from './TargetManager.js';
-import * as ResourceTreeModel from './ResourceTreeModel.js';
+import {
+  Events as ResourceTreeModelEvents,
+  ResourceTreeModel,
+  type ResourceTreeFrame,
+  type PrimaryPageChangeType,
+} from './ResourceTreeModel.js';
 
 export interface WithId<I, V> {
   id: I;
@@ -34,16 +39,14 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     void this.agent.invoke_enable();
 
     TargetManager.TargetManager.instance().addModelListener(
-        ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrimaryPageChanged, this.onPrimaryPageChanged,
-        this);
+        ResourceTreeModel, ResourceTreeModelEvents.PrimaryPageChanged, this.onPrimaryPageChanged, this);
   }
 
   dispose(): void {
     super.dispose();
 
     TargetManager.TargetManager.instance().removeModelListener(
-        ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrimaryPageChanged, this.onPrimaryPageChanged,
-        this);
+        ResourceTreeModel, ResourceTreeModelEvents.PrimaryPageChanged, this.onPrimaryPageChanged, this);
 
     void this.agent.invoke_disable();
   }
@@ -60,8 +63,9 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
     return this.ruleSets.getAll();
   }
 
-  private onPrimaryPageChanged(event: Common.EventTarget.EventTargetEvent<ResourceTreeModel.ResourceTreeFrame>): void {
-    const frame = event.data;
+  private onPrimaryPageChanged(
+      event: Common.EventTarget.EventTargetEvent<{frame: ResourceTreeFrame, type: PrimaryPageChangeType}>): void {
+    const {frame} = event.data;
 
     // Note that at this timing ResourceTreeFrame.loaderId is ensured to
     // be non empty and Protocol.Network.LoaderId because it is filled
