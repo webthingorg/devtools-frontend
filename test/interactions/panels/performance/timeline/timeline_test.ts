@@ -12,7 +12,7 @@ describe('Performance panel', () => {
   preloadForCodeCoverage('performance_panel/liviu.html');
 
   // Disabled until screenshot tests infrastructure is available in DevTools bots.
-  itScreenshot.skip('[crbug.com/1407638] renders the timeline correctly', async () => {
+  itScreenshot('[crbug.com/1407638] renders the timeline correctly', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=animation');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
