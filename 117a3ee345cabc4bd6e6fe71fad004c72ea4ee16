@@ -22,6 +22,30 @@
       },
       "revId": "117a3ee345cabc4bd6e6fe71fad004c72ea4ee16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57408e38_df15d756",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T08:29:59Z",
+      "side": 1,
+      "message": "the reasoning was that interaction test coverage was aimed for the specific ui components and so much for the backend logic, in this case the trace parsing engine.\n\nIn any case, since we don\u0027t have the worker anymore, we no longer need this line in the change, so I\u0027ve excluded it in the newest patchset.",
+      "parentUuid": "2665bea7_fa134f7e",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 114
+      },
+      "revId": "117a3ee345cabc4bd6e6fe71fad004c72ea4ee16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
