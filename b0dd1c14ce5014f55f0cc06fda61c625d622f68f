@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "167c5c8a_8fc82614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "PTAnotherLook.\n\nApart for addressing the comments this accounts for the fact that the legacy track still needs to be fed (read more at the bottom of [1]): \n\n - The code to add events to the timings track in the TimelineModel is kept.\n - When the flame chart group is created in the track appender, the reference to the legacy timings track is added to the FlameChart.Group.Track property.\n\n\n[1] https://docs.google.com/document/d/1kQlWn5c64YBi9SdXQYPK9zDXTNLKIs5VyPIapB7tYAM/edit?resourcekey\u003d0-4_RFds4ZZ0iTTe310C0TgA#",
+      "revId": "b0dd1c14ce5014f55f0cc06fda61c625d622f68f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

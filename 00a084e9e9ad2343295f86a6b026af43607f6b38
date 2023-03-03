@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4271f973_013c5ad1",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade0c4c5_242e52ab",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 14
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "febaa43d_ae3e5840",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-03-01T15:35:21Z",
       "side": 1,
       "message": "how does this weight get used relative to the rest of the tracks that are outputted by the \"legacy\" flame chart? It is not clear to me if this means that the timings track will be the very first one in the entire UI, or the first one relative to all the other tracks that this system does not manage yet.\n\nedit: I have just seen in the DataProvider that the weight of the legacy UserTimings track was 1, so I guess this matches that. I wonder if we can centralise the numbers into some data structure, rather than have random numbers in more than one place. WDYT? Could be a follow-up for sure.",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dedb3ba9_d9bf4ff9",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "I opted to have the weight assigned in the same place where the legacy weight\u0027s are assigned, so that they all can be seen together. I added a name to each track appender as a way to identify it and assign the corresponding weight.",
+      "parentUuid": "febaa43d_ae3e5840",
       "range": {
         "startLine": 103,
         "startChar": 11,
@@ -121,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef0bcf7_8a65768d",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "functionally it\u0027s the same but with your suggestion it might be easier to read. Done.",
+      "parentUuid": "a6f028af_456c4524",
+      "range": {
+        "startLine": 89,
+        "startChar": 41,
+        "endLine": 89,
+        "endChar": 53
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b4bf12c_e1cda4db",
@@ -134,6 +206,30 @@
       "writtenOn": "2023-03-01T15:35:21Z",
       "side": 1,
       "message": "nit: typo (Chart)",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 26
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6453d9ab_140fc027",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b4bf12c_e1cda4db",
       "range": {
         "startLine": 124,
         "startChar": 10,
@@ -167,6 +263,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd5bd08_06b6052d",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "this index is used at appendMarkers, to mark the corresponding timing of the appended item in the other data structures. In general, that will be a common pattern, where we need to know which index the appended items occupy in the entryData array to keep the other arrays in sync. I expect this to happen in other appenders as well.",
+      "parentUuid": "9e0aa78a_224ed416",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 17
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0df12a5d_f8b3e32e",
@@ -180,6 +300,30 @@
       "writtenOn": "2023-03-01T15:35:21Z",
       "side": 1,
       "message": "nit: could we call this appendTimings? I do not really see the distinction of async vs sync that useful, and it isn\u0027t really one that the new data layer makes, so I would rather avoid using it if possible.",
+      "range": {
+        "startLine": 146,
+        "startChar": 3,
+        "endLine": 146,
+        "endChar": 21
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e7f8d42_b674a9c8",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "Agreed. The `async` part is a consequence of inheriting the namings of the legacy counterparts, but we can drop them now.",
+      "parentUuid": "0df12a5d_f8b3e32e",
       "range": {
         "startLine": 146,
         "startChar": 3,
@@ -213,6 +357,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c338e4f_b0eaebc0",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4496423a_7cc17e1c",
+      "range": {
+        "startLine": 149,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fea2fc90_2c1b68d6",
@@ -226,6 +394,30 @@
       "writtenOn": "2023-03-01T15:35:21Z",
       "side": 1,
       "message": "do we do this because the user might have configured certain events to be hidden? Or are there some set of events we hide by default?",
+      "range": {
+        "startLine": 154,
+        "startChar": 5,
+        "endLine": 156,
+        "endChar": 7
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e6ae29_6ead15f7",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "there\u0027s a default behaviour where certain events are hidden. This filtering happened in the legacy code and so to keep the exact same behaviour after migrating the filtering was added here as well. I\u0027ve added an explanatory comment in that regard.",
+      "parentUuid": "fea2fc90_2c1b68d6",
       "range": {
         "startLine": 154,
         "startChar": 5,
@@ -259,6 +451,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d29800_5b63cbab",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d787685_be5c603d",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 7
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6244ad5f_e4b80b14",
@@ -282,6 +498,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53885d26_39623c32",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "this is a one liner in lieu of:\n```\nfor (let i \u003d currentLevel; i \u003c legacyEntryTypeByLevel.length; i++) {\n   legacyEntryTypeByLevel[i] \u003d  EntryType.TrackAppender;\n}\n```\n\nI\u0027ll add a comment here too",
+      "parentUuid": "6244ad5f_e4b80b14",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee620543_df4bd822",
@@ -295,6 +535,30 @@
       "writtenOn": "2023-03-01T15:35:21Z",
       "side": 1,
       "message": "for a follow up CL, but would love to think about what helpers we could create to make testing and creating TrackAppenders more easy",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "00a084e9e9ad2343295f86a6b026af43607f6b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c4561bd_78783559",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/TimingsTrackAppender_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 1,
+      "message": "absolutely good point, we can abstract out a bunch of these things and have them into helpers shared with other appenders. Will do as follow up",
+      "parentUuid": "ee620543_df4bd822",
       "range": {
         "startLine": 44,
         "startChar": 1,

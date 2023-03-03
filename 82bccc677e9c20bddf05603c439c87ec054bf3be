@@ -22,6 +22,30 @@
       },
       "revId": "82bccc677e9c20bddf05603c439c87ec054bf3be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "983bf95d_04dc3d13",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-03T14:42:23Z",
+      "side": 0,
+      "message": "yes, within the main flame chart the timings track is the only aware of marker events.",
+      "parentUuid": "297ce0e2_4730f119",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 7
+      },
+      "revId": "82bccc677e9c20bddf05603c439c87ec054bf3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
