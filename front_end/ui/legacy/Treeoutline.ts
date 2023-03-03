@@ -46,6 +46,7 @@ import {type Icon} from './Icon.js';
 import {InplaceEditor, type Config} from './InplaceEditor.js';
 import {Keys} from './KeyboardShortcut.js';
 import {Tooltip} from './Tooltip.js';
+
 import {deepElementFromPoint, enclosingNodeOrSelfWithNodeNameInArray, isEditing} from './UIUtils.js';
 import treeoutlineStyles from './treeoutline.css.legacy.js';
 
@@ -1202,6 +1203,7 @@ export class TreeElement {
     if (lastSelected) {
       lastSelected.deselect();
     }
+
     return this.onselect(selectedByUser);
   }
 
