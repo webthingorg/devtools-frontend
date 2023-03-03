@@ -120,11 +120,13 @@ export class InspectorBackend {
   }
 
   static reportProtocolError(error: string, messageObject: Object): void {
-    console.error(error + ': ' + JSON.stringify(messageObject));
+    assert(messageObject);
+    console.error(error);
   }
 
   static reportProtocolWarning(error: string, messageObject: Object): void {
-    console.warn(error + ': ' + JSON.stringify(messageObject));
+    assert(messageObject);
+    console.warn(error);
   }
 
   isInitialized(): boolean {
