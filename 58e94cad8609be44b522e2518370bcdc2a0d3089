@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45659879_33ea7b9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-03T11:56:48Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "58e94cad8609be44b522e2518370bcdc2a0d3089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108e852a_3ecb4e51",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-03T11:56:48Z",
+      "side": 1,
+      "message": "Subtype is transmitted as string over CDP and seems to originate from [1]. Maybe this could be changed into a CDP enum in the future?\n\n[1] https://crsrc.org/c/content/browser/devtools/render_frame_devtools_agent_host.cc;l\u003d856",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 80
+      },
+      "revId": "58e94cad8609be44b522e2518370bcdc2a0d3089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
