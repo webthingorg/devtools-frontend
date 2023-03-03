@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8e13315_c8443b06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-03T15:17:03Z",
+      "side": 1,
+      "message": "lgtm with one nit about adding some JSDocs. Nice !",
+      "revId": "3fee7b652058070dfdb2a55611bbf01e24e83514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755cf3b8_8b5d8110",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-03T15:17:03Z",
+      "side": 1,
+      "message": "I wonder if the methods in this file could do with some JSDoc comments, nothing too formal, but mostly noting what the return numbers are? It is hard to know what the number returned is, but if we had a doc comment for each method explaining, that might be useful. Because sometimes methods return indexes, other times they return the current level, and it would be good to have that explicitly noted.",
+      "range": {
+        "startLine": 151,
+        "startChar": 3,
+        "endLine": 151,
+        "endChar": 16
+      },
+      "revId": "3fee7b652058070dfdb2a55611bbf01e24e83514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
