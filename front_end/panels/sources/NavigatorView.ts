@@ -1627,6 +1627,16 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
             this.uiSourceCodeInternal);
     this.treeElement.listItemElement.classList.toggle('is-ignore-listed', isIgnoreListed);
 
+    const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(this.uiSourceCodeInternal);
+    const debuggerModel = target?.model(SDK.DebuggerModel.DebuggerModel);
+    if (debuggerModel) {
+      const scriptFile = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().scriptFile(
+          this.uiSourceCodeInternal, debuggerModel);
+      if (scriptFile?.hasSourceMapURL()) {
+        this.treeElement.listItemElement.classList.toggle('is-ignore-listed', true);
+      }
+    }
+
     let tooltip: string = this.uiSourceCodeInternal.url();
     if (this.uiSourceCodeInternal.contentType().isFromSourceMap()) {
       tooltip = i18nString(UIStrings.sFromSourceMap, {PH1: this.uiSourceCodeInternal.displayName()});
