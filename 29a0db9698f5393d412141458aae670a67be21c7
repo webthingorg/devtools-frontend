@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8e210f_7cc26399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-03T14:21:17Z",
+      "side": 1,
+      "message": "LGTM but can we not add to the phase enum please?",
+      "revId": "29a0db9698f5393d412141458aae670a67be21c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf24d07_5b8a045b",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-03T14:21:17Z",
+      "side": 1,
+      "message": "nit: given that we are migrating to the new phase enum from the new engine, could we use that instead of adding to this one?\n\nYou might need to cast in the unit test to keep TS happy, but that is OK. I would just rather not add to this enum that we are working on removing.",
+      "range": {
+        "startLine": 489,
+        "startChar": 2,
+        "endLine": 489,
+        "endChar": 6
+      },
+      "revId": "29a0db9698f5393d412141458aae670a67be21c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
