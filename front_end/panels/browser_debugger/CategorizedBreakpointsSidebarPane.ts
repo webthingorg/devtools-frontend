@@ -89,7 +89,18 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
         event.consume(true);
       }
     });
-    labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
+
+    labelNode.checkboxElement.addEventListener('keydown', event => {
+      treeElement.listItemElement.focus();
+      if (event.key === ' ') {
+        const category = this.#categories.get(name);
+        if (category) {
+          category.checkbox.click();
+        }
+        event.consume(true);
+      }
+    });
+
     UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
     this.#categoriesTreeOutline.appendChild(treeElement);
 
@@ -112,7 +123,18 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
         event.consume(true);
       }
     });
-    labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
+
+    labelNode.checkboxElement.addEventListener('keydown', event => {
+      treeElement.listItemElement.focus();
+      if (event.key === ' ') {
+        const category = this.#breakpoints.get(breakpoint);
+        if (category) {
+          category.checkbox.click();
+        }
+        event.consume(true);
+      }
+    });
+
     UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
     treeElement.listItemElement.createChild('div', 'breakpoint-hit-marker');
     const category = this.#categories.get(breakpoint.category());
