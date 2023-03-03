@@ -22,8 +22,7 @@ export interface WithId<I, V> {
 // - SpeculationRule rule sets
 // - Preloading attempts
 // - (TODO) Relationship between rule sets and preloading attempts
-export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
-  private agent: ProtocolProxyApi.PreloadApi;
+export class PreloadingModel extends SDKModel.SDKModel<EventTypes> implements TargetManager.Observer {
   private ruleSets: RuleSetRegistry = new RuleSetRegistry();
   private preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
   // See the comment in onMainFrameNavigated.
@@ -32,14 +31,10 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
       new Map<Platform.DevToolsPath.UrlString, Protocol.Network.LoaderId>();
 
   constructor(target: Target.Target) {
+    console.log('PreloadingModel: ctor', target);
     super(target);
 
-    target.registerPreloadDispatcher(new PreloadDispatcher(this));
-    target.registerPageDispatcher(new PageDispatcher(this));
-
-    this.agent = target.preloadAgent();
-    void this.agent.invoke_enable();
-
+    TargetManager.TargetManager.instance().observeTargets(this);
     TargetManager.TargetManager.instance().addModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.MainFrameNavigated, this.onMainFrameNavigated,
         this);
@@ -48,7 +43,26 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
         this.onPrerenderAttemptCompleted, this);
   }
 
+  targetAdded(target: Target.Target): void {
+    target.registerPreloadDispatcher(new PreloadDispatcher(this));
+    target.registerPageDispatcher(new PageDispatcher(this));
+
+    void target.preloadAgent().invoke_enable();
+  }
+
+  targetRemoved(_target: Target.Target): void {
+  }
+
+  private onTargetCreated(target: Target.Target): void {
+    target.registerPreloadDispatcher(new PreloadDispatcher(this));
+    target.registerPageDispatcher(new PageDispatcher(this));
+
+    void target.preloadAgent().invoke_enable();
+  }
+
   dispose(): void {
+    const error = new Error('dtor');
+    console.log('PreloadingModel: dtor', error.stack);
     super.dispose();
 
     TargetManager.TargetManager.instance().removeModelListener(
@@ -58,7 +72,7 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrerenderAttemptCompleted,
         this.onPrerenderAttemptCompleted, this);
 
-    void this.agent.invoke_disable();
+    // void this.agent.invoke_disable();
   }
 
   // Returns reference. Don't save returned values.
