@@ -120,7 +120,7 @@ export class InspectorBackend {
   }
 
   static reportProtocolError(error: string, messageObject: Object): void {
-    console.error(error + ': ' + JSON.stringify(messageObject));
+    console.error(error + ': ' + JSON.stringify(messageObject).slice(100));
   }
 
   static reportProtocolWarning(error: string, messageObject: Object): void {
