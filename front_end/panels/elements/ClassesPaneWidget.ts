@@ -37,7 +37,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/elements/ClassesPaneWidget.ts',
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ClassesPaneWidget extends UI.Widget.Widget {
   private input: HTMLElement;
-  private readonly classesContainer: HTMLElement;
+  readonly classesContainer: HTMLElement;
   private readonly prompt: ClassNamePrompt;
   private readonly mutatingNodes: Set<SDK.DOMModel.DOMNode>;
   private readonly pendingNodeClasses: Map<SDK.DOMModel.DOMNode, string>;
@@ -62,7 +62,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     proxyElement.addEventListener('keydown', this.onKeyDown.bind(this), false);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DOMMutated, this.onDOMMutated, this);
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DOMMutated, this.onDOMMutated, this, {scoped: true});
     this.mutatingNodes = new Set();
     this.pendingNodeClasses = new Map();
     this.updateNodeThrottler = new Common.Throttler.Throttler(0);
