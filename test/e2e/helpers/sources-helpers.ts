@@ -524,7 +524,8 @@ export async function readSourcesTreeView(): Promise<string[]> {
   const items = await $$('.navigator-folder-tree-item,.navigator-file-tree-item');
   const promises = items.map(handle => handle.evaluate(el => el.textContent as string));
   const results = await Promise.all(promises);
-  return results.map(item => item.replace(/localhost:[0-9]+/, 'localhost:XXXX'));
+  return results.filter(item => item !== '__puppeteer_utility_world__')
+      .map(item => item.replace(/localhost:[0-9]+/, 'localhost:XXXX'));
 }
 
 export async function readIgnoreListedSources(): Promise<string[]> {
