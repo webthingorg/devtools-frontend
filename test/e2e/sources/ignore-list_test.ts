@@ -60,7 +60,7 @@ describe('Ignore list', async function() {
   });
 
   // Flaky.
-  it.skip('[crbug.com/1346232] shows no toggle when everything is ignore-listed', async function() {
+  it.only('[crbug.com/1346232] shows no toggle when everything is ignore-listed', async function() {
     await setIgnoreListPattern('multi|puppeteer');
     const {target, frontend} = getBrowserAndPages();
 

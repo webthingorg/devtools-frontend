@@ -23,7 +23,7 @@ describe('The Application Tab', async () => {
   });
 
   // Reland after chromium checkout on CQ updates
-  it.skip('[crbug.com/1347831] shows Session Storage keys and values', async () => {
+  it.only('[crbug.com/1347831] shows Session Storage keys and values', async () => {
     const {target} = getBrowserAndPages();
 
     await step('navigate to session-storage resource and open Application tab', async () => {

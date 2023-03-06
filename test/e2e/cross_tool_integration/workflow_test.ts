@@ -53,7 +53,7 @@ describe('A user can navigate across', async function() {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1322534]: Console -> Issues', async () => {
+  it.only('[crbug.com/1322534]: Console -> Issues', async () => {
     await navigateToConsoleTab();
     await navigateToIssuesPanelViaInfoBar();
 
@@ -72,7 +72,7 @@ describe('A user can navigate across', async function() {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1375161] Performance -> Sources', async () => {
+  it.only('[crbug.com/1375161] Performance -> Sources', async () => {
     await navigateToPerformanceTab();
 
     await startRecording();
