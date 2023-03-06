@@ -50,6 +50,24 @@
       "message": "It\u0027s a bit unfortunate: The browser_protocol.pdl contains a change that moves some events to a different domain (\"prefetchStatusUpdated\", \"prerenderStatusUpdated\")\n\nFor each domain we auto-generate a \"dispatch interface\" thats implemented by a corresponding DevTools class. The compilation errors we see is that missmatch between interface declaration and implementation.\n\nIn these cases we have to also update non-generated code in the roll CL directly.\n\nThe author who changed \"browser_protocol.pdl\" is already working on a roll CL that fixes this: https://crrev.com/c/4305501.",
       "revId": "dde4ad18b86fecb0e1a0b9934c682d16a462a669",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23058e4d_884c2238",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499972
+      },
+      "writtenOn": "2023-03-06T19:16:11Z",
+      "side": 1,
+      "message": "Ahh I see, thanks for the explanation. Looks like that CL landed, so I\u0027ve updated this one accordingly, and things look less broken.",
+      "parentUuid": "fffd9e54_95a957cd",
+      "revId": "dde4ad18b86fecb0e1a0b9934c682d16a462a669",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
