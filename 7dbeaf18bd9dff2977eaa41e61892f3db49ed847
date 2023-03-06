@@ -39,6 +39,30 @@
       },
       "revId": "7dbeaf18bd9dff2977eaa41e61892f3db49ed847",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89099c5_22687496",
+        "filename": "front_end/panels/elements/PropertiesWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-06T09:17:48Z",
+      "side": 1,
+      "message": "It is. I am mocking a valid state of a remote object with no properties, but this code fails in this case.",
+      "parentUuid": "bda54a35_ed182fdd",
+      "range": {
+        "startLine": 152,
+        "startChar": 30,
+        "endLine": 152,
+        "endChar": 31
+      },
+      "revId": "7dbeaf18bd9dff2977eaa41e61892f3db49ed847",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
