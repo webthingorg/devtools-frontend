@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1968a67f_d2facd35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T15:58:20Z",
+      "side": 1,
+      "message": "Can we also add a sentence or two in test/e2e/README.md?",
+      "revId": "3306fc379ab6153445c91528b538604e4315a397",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
