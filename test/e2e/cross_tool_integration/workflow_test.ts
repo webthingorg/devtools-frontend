@@ -52,8 +52,7 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1322534]: Console -> Issues', async () => {
+  it('Console -> Issues', async () => {
     await navigateToConsoleTab();
     await navigateToIssuesPanelViaInfoBar();
 
@@ -71,8 +70,7 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1375161] Performance -> Sources', async () => {
+  it('Performance -> Sources', async () => {
     await navigateToPerformanceTab();
 
     await startRecording();
