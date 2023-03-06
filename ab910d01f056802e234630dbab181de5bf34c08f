@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d6f4e2_c9feb2b3",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-06T15:32:02Z",
+      "side": 1,
+      "message": "I think this was the reason for the flake; for some reason on mac clicking this button sometimes does not clear the data, I have checked the source code and it adds the event listener to the button before attaching it to the DOM so I was not sure why this was happening. The solution (or workaround) is to try clearing again until the quota usage is 0. I did not consider that this changes the scenario because 1) Clicking the button again does not change things enough for it to become a new scenario and 2) this is technically a cleanup step so it is not part of the story.",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 37
+      },
+      "revId": "ab910d01f056802e234630dbab181de5bf34c08f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

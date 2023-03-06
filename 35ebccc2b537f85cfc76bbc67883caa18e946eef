@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8841493_4f406d11",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-06T15:32:02Z",
+      "side": 1,
+      "message": "For comaprison I have ran the stressor with and without the change to make sure we can reproduce it, however we need to keep an eye on this anyway because the flake is infrequent.\n\nStress runs before change:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8787366230867092961/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8787366230867092977/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8787366230867092945/overview\n\nStress runs after change:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8787363378992113233/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8787363378992113217/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8787363378992113249/overview",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 79
+      },
+      "revId": "35ebccc2b537f85cfc76bbc67883caa18e946eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
