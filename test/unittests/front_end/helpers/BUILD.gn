@@ -52,6 +52,7 @@ ts_library("helpers") {
     "../../../../front_end/panels/elements:meta",
     "../../../../front_end/panels/sensors:meta",
     "../../../../front_end/panels/timeline:bundle",
+    "../../../../front_end/ui/components/helpers:bundle",
     "../../../../front_end/ui/components/node_text:bundle",
     "../../../../front_end/ui/legacy:bundle",
     "../../../../front_end/ui/lit-html:bundle",
