@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ace9747c_68dce723",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Since we do not have multiple commands `update_goldens_v2.py` is enough and `update` makes no sense to be appear here.\n\nPls see output for `update_goldens_v2.py --help`",
+      "parentUuid": "f71e7e7f_8c7b97b3",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "485fc2d4ab1b675a65ee7caaeb79ac9dc7bfed98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9f13dae_48574baa",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca52aac8_0b1fad45",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f13dae_48574baa",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 82
+      },
+      "revId": "485fc2d4ab1b675a65ee7caaeb79ac9dc7bfed98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9727749b_e4d16d92",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-06T14:36:16Z",
       "side": 1,
       "message": "nit: this part can also be removed (same for the other test)",
+      "range": {
+        "startLine": 15,
+        "startChar": 16,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "485fc2d4ab1b675a65ee7caaeb79ac9dc7bfed98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c648419_535eeaab",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9727749b_e4d16d92",
       "range": {
         "startLine": 15,
         "startChar": 16,

@@ -47,6 +47,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2065f895_61ae1b13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfef80d_922b4fb4",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff23c4a8_71e19cc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ee395ed_a98f32b9",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e967935_67dbd8d5",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-03-06T12:19:46Z",
       "side": 1,
       "message": "Please add more information about this CL. How is the v2 script rolled out compared to v1 - e.g. why do we have it? What\u0027s the follow-up plan?",
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9155d7b_63f35068",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e967935_67dbd8d5",
       "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -117,6 +183,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3f94eb5_b5bc702d",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Tested manually. The script is rather strait forward now. I will inline `update` function when we remove v1.",
+      "parentUuid": "34fb79e1_60b01c24",
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0457686e_2da86798",
         "filename": "scripts/tools/update_goldens_v2.py",
         "patchSetId": 10
@@ -128,6 +212,30 @@
       "writtenOn": "2023-03-06T12:19:46Z",
       "side": 1,
       "message": "nit: empty line after this. Isn\u0027t the doc string usually above the imports?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e685235_bdb2cb49",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0457686e_2da86798",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -151,6 +259,30 @@
       "writtenOn": "2023-03-06T12:19:46Z",
       "side": 1,
       "message": "Why is project_config a parameter. Is it changed anywhere, e.g. in tests?",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "b3a609e3bab06566d90788a0a31dbb4aafa43a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0355b032_c6a99560",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-06T14:45:44Z",
+      "side": 1,
+      "message": "We have different configs in different projects.",
+      "parentUuid": "c0705646_84789863",
       "range": {
         "startLine": 35,
         "startChar": 11,
