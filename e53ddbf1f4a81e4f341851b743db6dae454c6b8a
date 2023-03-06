@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d1ad6b_085b2b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-06T16:38:15Z",
+      "side": 1,
+      "message": "LGTM with 1 comment",
+      "revId": "e53ddbf1f4a81e4f341851b743db6dae454c6b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f523a383_eea343c9",
+        "filename": "test/unittests/front_end/panels/accessibility/AccessibilitySidebarView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-06T16:38:15Z",
+      "side": 1,
+      "message": "AttrRemoved",
+      "range": {
+        "startLine": 66,
+        "startChar": 42,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "e53ddbf1f4a81e4f341851b743db6dae454c6b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
