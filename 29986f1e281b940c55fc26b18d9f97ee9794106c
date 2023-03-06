@@ -34,6 +34,24 @@
       "parentUuid": "d1d6b751_63da73e7",
       "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1d0e6ed_1de9ed67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T10:39:52Z",
+      "side": 1,
+      "message": "I would suggest test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts. Maybe we can find a way to inject a stub StylesSidebarPropertyRenderer and call updateTitle?",
+      "parentUuid": "e52c4bd7_0b94bfc8",
+      "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
