@@ -34,6 +34,24 @@
       "parentUuid": "f2b051d2_92b112b6",
       "revId": "57007378ba391fb698058a0b06ceb9cffffd727d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a195552_98565ec9",
+        "filename": "test/unittests/front_end/helpers/RealConnection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T14:44:28Z",
+      "side": 1,
+      "message": "Can you explain why the check is necessary in the first place?",
+      "parentUuid": "8f36a3c8_5eafbb13",
+      "revId": "57007378ba391fb698058a0b06ceb9cffffd727d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
