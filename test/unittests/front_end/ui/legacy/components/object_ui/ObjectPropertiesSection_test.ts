@@ -185,7 +185,7 @@ describeWithRealConnection('ObjectPropertiesSection', () => {
   });
 
   // Flaky
-  it.skip('[crbug.com/1408761] visually distinguishes important DOM properties for the window object', async () => {
+  it.only('[crbug.com/1408761] visually distinguishes important DOM properties for the window object', async () => {
     Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.IMPORTANT_DOM_PROPERTIES);
     const treeOutline = await setupTreeOutline(
         `(() => {
