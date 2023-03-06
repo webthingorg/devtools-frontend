@@ -16,6 +16,24 @@
       "message": "Did the stressor bots run all the e2e tests? The failing tests seem unrelated to the tests that are enabled by this CL.",
       "revId": "6099e24e44e0331ebea6e94ae4330b5c7696dd94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2780d24c_4fb45ce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-06T19:06:55Z",
+      "side": 1,
+      "message": "The stressor bots were run on all tests. Based on the results, the ones I\u0027ve reactivated are passing 😊",
+      "parentUuid": "259483fd_b82070c0",
+      "revId": "6099e24e44e0331ebea6e94ae4330b5c7696dd94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
