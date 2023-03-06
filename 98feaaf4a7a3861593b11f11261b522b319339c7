@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "98feaaf4a7a3861593b11f11261b522b319339c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f25bd0_794d3b5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-06T15:46:49Z",
+      "side": 1,
+      "message": "lgtm with one nit",
+      "revId": "98feaaf4a7a3861593b11f11261b522b319339c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bca8df2b_bd7fd688",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-06T15:46:49Z",
+      "side": 1,
+      "message": "nit: the array of numbers that is returned, is that indexes in the big array of events, or something else? Can we be a bit more specific with what the return type is?",
+      "range": {
+        "startLine": 518,
+        "startChar": 17,
+        "endLine": 518,
+        "endChar": 25
+      },
+      "revId": "98feaaf4a7a3861593b11f11261b522b319339c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
