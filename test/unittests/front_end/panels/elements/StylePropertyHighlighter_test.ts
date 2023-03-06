@@ -14,7 +14,7 @@ describeWithRealConnection('StylePropertyHighlighter', () => {
   });
 
   it('highlights layers', () => {
-    const stylesSidebarPane = Elements.StylesSidebarPane.StylesSidebarPane.instance();
+    const stylesSidebarPane = Elements.StylesSidebarPane.StylesSidebarPane.instance({forceNew: true});
     const getSectionBlockByName = sinon.stub(stylesSidebarPane, 'getSectionBlockByName');
     const matchedStyles = new SDK.CSSMatchedStyles.CSSMatchedStyles(
         stylesSidebarPane.cssModel() as SDK.CSSModel.CSSModel, stylesSidebarPane.node() as SDK.DOMModel.DOMNode, null,
