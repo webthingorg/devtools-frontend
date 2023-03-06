@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "debf2adb_7f0af0c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-06T09:48:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "75e327cb344d249880f85f481c3705627967447d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f9797fa_cd8c1541",
+        "filename": "test/unittests/front_end/panels/elements/ElementsTreeElementHighlighter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-06T09:48:09Z",
+      "side": 1,
+      "message": "assert.isTrue ?",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "75e327cb344d249880f85f481c3705627967447d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
