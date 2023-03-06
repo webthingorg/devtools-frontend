@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e650ca_a10549cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1237795
+      },
+      "writtenOn": "2023-03-06T21:48:30Z",
+      "side": 1,
+      "message": "A step in our migration to git submodules.\nhttps://groups.google.com/a/chromium.org/g/chromium-dev/c/weYzs3_WWts",
+      "revId": "8fdc60fb54510ca70687640728f771fb6aad0963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
