@@ -5,6 +5,7 @@
 import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 
 describeWithRealConnection('StylePropertyHighlighter', () => {
@@ -13,7 +14,13 @@ describeWithRealConnection('StylePropertyHighlighter', () => {
     Elements = await import('../../../../../front_end/panels/elements/elements.js');
   });
 
-  it('highlights layers', () => {
+  it('highlights layers', async () => {
+    const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+    assertNotNullOrUndefined(target);
+    const domModel = target.model(SDK.DOMModel.DOMModel);
+    assertNotNullOrUndefined(domModel);
+    await domModel.requestDocument();
+    UI.Context.Context.instance().setFlavor(SDK.DOMModel.DOMNode, domModel.existingDocument());
     const stylesSidebarPane = Elements.StylesSidebarPane.StylesSidebarPane.instance();
     const getSectionBlockByName = sinon.stub(stylesSidebarPane, 'getSectionBlockByName');
     const matchedStyles = new SDK.CSSMatchedStyles.CSSMatchedStyles(
