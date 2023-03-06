@@ -26,7 +26,7 @@ import {
 
 describe('Sources Tab', () => {
   // Flaky test
-  it.skip('[crbug.com/1363071] pauses the script when clicking the "Pause" button', async () => {
+  it.only('[crbug.com/1363071] pauses the script when clicking the "Pause" button', async () => {
     const {target} = getBrowserAndPages();
     await step('navigate to page', async () => {
       await goToResource('sources/infinity-loop.html');
