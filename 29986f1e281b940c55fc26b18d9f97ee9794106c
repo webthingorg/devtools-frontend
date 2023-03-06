@@ -70,6 +70,24 @@
       "parentUuid": "e1d0e6ed_1de9ed67",
       "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be3eb87_5133e445",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-06T10:59:39Z",
+      "side": 1,
+      "message": "Added tests for\n* Rendering an `animation-name` swatch for a regular case\n* Rendering more than 1 animation-name swatches for the multiple case.\n\nIt seemed quite cumbersome to mock `keyframes()` from matchedStyles so I didn\u0027t write more detailed tests. IMO it might be cool to separate swatch logic from the element code so that we can test it in isolation. WDYT?",
+      "parentUuid": "4670fcc9_15242be7",
+      "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
