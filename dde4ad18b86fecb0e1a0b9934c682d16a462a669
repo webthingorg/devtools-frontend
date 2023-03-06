@@ -33,6 +33,23 @@
       "message": "Could I get some assistance on this roll? I followed the instructions here exactly, and this is the CL that came out:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/deprecation/README.md\n\nIt seems either I did something wrong (though there is really only one step, so I\u0027m not sure how) or something is broken.",
       "revId": "dde4ad18b86fecb0e1a0b9934c682d16a462a669",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fffd9e54_95a957cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-06T05:15:17Z",
+      "side": 1,
+      "message": "It\u0027s a bit unfortunate: The browser_protocol.pdl contains a change that moves some events to a different domain (\"prefetchStatusUpdated\", \"prerenderStatusUpdated\")\n\nFor each domain we auto-generate a \"dispatch interface\" thats implemented by a corresponding DevTools class. The compilation errors we see is that missmatch between interface declaration and implementation.\n\nIn these cases we have to also update non-generated code in the roll CL directly.\n\nThe author who changed \"browser_protocol.pdl\" is already working on a roll CL that fixes this: https://crrev.com/c/4305501.",
+      "revId": "dde4ad18b86fecb0e1a0b9934c682d16a462a669",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
