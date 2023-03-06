@@ -9,22 +9,51 @@ The goal of these end-to-end tests is to implement core user journeys throughout
 As such, the tests you write should read like a little story that you can read, even if you don't know how it is implemented.
 
 The tests therefore have a dual purpose:
+
 1. Verify that core user stories are working as intended and are not broken by a particular DevTools frontend change.
 1. Serve as documentation and reference point for how DevTools is intended to be used.
 
 ## Running tests
-Run all tests: `npm run e2etest` (note, this requires python2 to be the default python binary!)
 
-Some optional, helpful flags:
-* `--jobs=N` — use N parallel runners to speed things up
-* `--chrome-binary-path=LOCATION` — set a path to the chrome executable
-* `--chrome-features=FEATURES` — set a comma separated list of chrome features passed as `--enable-features=[FEATURES]` to the chrome binary.
-* `--test-file-pattern=FILE_PATTERN` — run tests in selected test files only. The extglob pattern matches paths relative to the test/e2e/ directory. To run all sources panel tests, for example, use `--test-file-pattern=sources/*`.
+The following command (builds and) runs all tests:
 
-To use the flags, first append `--` to the `npm` command, e.g.
-`npm run e2etest -- --jobs=4`
+```sh
+npm run auto-e2etest
+```
 
-If you only want to run a single test or testsuite, use respectively `it.only` or `describe.only`.
+> Note, you can use `it.only` to run a single test!
+
+### Flags
+
+The following list of flags are commonly used:
+
+- `--jobs=N` — use N parallel runners to speed things up
+ - The number to chose depends on several factors, not just the number of cores.
+   A good way to determine the number is to bisect the number of cores until the
+   tests pass.
+- `--chrome-binary-path=LOCATION` — set a path to the chrome executable
+- `--chrome-features=FEATURES` — set a comma separated list of chrome features
+  passed as `--enable-features=[FEATURES]` to the chrome binary.
+- `--test-file-pattern=FILE_PATTERN` — run tests in selected test files only.
+  The extglob pattern matches paths relative to the test/e2e/ directory. To run
+  all sources panel tests, for example, use `--test-file-pattern=sources/*`.
+
+To use the flags, first append `--` to the `npm` command. For example,
+
+```sh
+npm run auto-e2etest -- --jobs=4
+```
+
+See scripts/test/run_test_suite.py for more flags.
+
+### Environment variables
+
+The following environmental variable are commonly used:
+
+ - `ITERATIONS=N` - Runs every test `N` number of times.
+ - `LATE_PROMISES=true|N` - Delays all promises in the frontend by `N` number of
+   milliseconds. Defaults to 50ms if set to `true`.
+ - `STRESS=true` - Emulates CPU slow-down.
 
 ## Skipping tests
 
@@ -39,6 +68,7 @@ it.skipOnPlatforms(['linux'], '[crbug.com/xxx] ...', () => {...});
 To use `skipOnPlatforms`, you need to import `it` from `test/shared/mocha-extensions.ts`.
 
 ## Debugging tests
+
 To see what the test script does, run `npm run debug-e2etest`. This will bring up the chrome window and stop just
 before your test script is about to execute. The test will then run to completion and exit. You can add an infinite
 await `await new Promise(() => {});` at the end of your test to give you some time to examine the result of your
@@ -53,40 +83,43 @@ it.repeat(20, 'find element', async () => {...});
 `it.repeat` behaves like `it.only` in that it will cause just that single test to be run.
 
 ### Debug tests with DevTools
+
 Running `npm run debug-e2etest` also allows debugging a test with DevTools. Please note that there are two different
 targets that can be inspected, and the way they are inspected differs slightly:
 
-* You can debug the "DevTools under test" with DevTools-on-DevTools. Use the standard DevTools key combination to
-open another DevTools instance while you look at the "DevTools under test". You can set breakpoints and inspect the status of
-the "DevTools under test" this way.
-* You can debug the puppeteer side by inspecting the Node.js process that runs the e2e suite. Either open `chrome://inspect` or
-click the Node.js icon in any open DevTools window to connect to the puppeteer process. You can step through the puppeteer test
-code this way.
+- You can debug the "DevTools under test" with DevTools-on-DevTools. Use the standard DevTools key combination to
+  open another DevTools instance while you look at the "DevTools under test". You can set breakpoints and inspect the status of
+  the "DevTools under test" this way.
+- You can debug the puppeteer side by inspecting the Node.js process that runs the e2e suite. Either open `chrome://inspect` or
+  click the Node.js icon in any open DevTools window to connect to the puppeteer process. You can step through the puppeteer test
+  code this way.
 
 ### Debug tests with VSCode
+
 To debug in VSCode, open the "Run and Debug" sidebar, select "Run end-to-end tests in VS Code debugger" from the dropdown, and
 click the start button or press F5. Current limitations when using VSCode:
 
-* VSCode only attaches to the node portion of the code (mostly the test files and the test helpers), not to Chrome.
-* VSCode debugging only works with headless mode.
+- VSCode only attaches to the node portion of the code (mostly the test files and the test helpers), not to Chrome.
+- VSCode debugging only works with headless mode.
 
 ## Debugging flaky tests
+
 To see if certain tests are flaky you can use E2E stressor bot. Open a CL with your test changes and run the following command specifying your test file:
 
 ```
-git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"TEST_PATTERNS":"network/network-datagrid_test.ts","ITERATIONS":20}'
+git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"STRESS":true,"LATE_PROMISES":true,"TEST_PATTERNS":"network/network-datagrid_test.ts","ITERATIONS":20}'
 ```
 
 or multiple test files:
 
 ```
-git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"TEST_PATTERNS":"network/network-datagrid_test.ts,network/network_test.ts","ITERATIONS":20}'
+git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"STRESS":true,"LATE_PROMISES":true,"TEST_PATTERNS":"network/network-datagrid_test.ts,network/network_test.ts","ITERATIONS":20}'
 ```
 
 Note that by default the stressor runs the test using the debug build. To run it using the release build, add the `builder_config` parameter, e.g.:
 
 ```
-git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"TEST_PATTERNS":"network/network-datagrid_test.ts","ITERATIONS":20}' -p builder_config=Release
+git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env='{"STRESS":true,"LATE_PROMISES":true,"TEST_PATTERNS":"network/network-datagrid_test.ts","ITERATIONS":20}' -p builder_config=Release
 ```
 
 It will run the specified tests on dedicated bots with the specified number of iterations. Note that in order for iterations to work the test should be using `it` from `mocha_extensions.ts`.
@@ -103,17 +136,15 @@ The "how" are functions in [helpers](helpers/) that implement the interaction wi
 For example, an end-to-end test might read like this:
 
 ```js
-it('can show newly created snippets show up in command menu', async () => {
-    await openSourcesPanel();
-    await openSnippetsSubPane();
-    await createNewSnippet('New snippet');
+it("can show newly created snippets show up in command menu", async () => {
+  await openSourcesPanel();
+  await openSnippetsSubPane();
+  await createNewSnippet("New snippet");
 
-    await openCommandMenu();
-    await showSnippetsAutocompletion();
+  await openCommandMenu();
+  await showSnippetsAutocompletion();
 
-    assert.deepEqual(await getAvailableSnippets(), [
-      'New snippet\u200B',
-    ]);
+  assert.deepEqual(await getAvailableSnippets(), ["New snippet\u200B"]);
 });
 ```
 
@@ -127,33 +158,33 @@ For example, this is the implementation of `openCommandMenu()`:
 
 ```js
 export const openCommandMenu = async () => {
-  const {frontend} = getBrowserAndPages();
+  const { frontend } = getBrowserAndPages();
 
   switch (platform) {
-    case 'mac':
-      await frontend.keyboard.down('Meta');
-      await frontend.keyboard.down('Shift');
+    case "mac":
+      await frontend.keyboard.down("Meta");
+      await frontend.keyboard.down("Shift");
       break;
 
-    case 'linux':
-    case 'win32':
-      await frontend.keyboard.down('Control');
-      await frontend.keyboard.down('Shift');
+    case "linux":
+    case "win32":
+      await frontend.keyboard.down("Control");
+      await frontend.keyboard.down("Shift");
       break;
   }
 
-  await frontend.keyboard.press('P');
+  await frontend.keyboard.press("P");
 
   switch (platform) {
-    case 'mac':
-      await frontend.keyboard.up('Meta');
-      await frontend.keyboard.up('Shift');
+    case "mac":
+      await frontend.keyboard.up("Meta");
+      await frontend.keyboard.up("Shift");
       break;
 
-    case 'linux':
-    case 'win32':
-      await frontend.keyboard.up('Control');
-      await frontend.keyboard.up('Shift');
+    case "linux":
+    case "win32":
+      await frontend.keyboard.up("Control");
+      await frontend.keyboard.up("Shift");
       break;
   }
 
@@ -173,6 +204,7 @@ This means that you always have to wait for something to happen and you can't as
 As such, be aware of the functionality you are testing and relying on, as it could render differently than you originally assumed.
 
 To summarize:
+
 1. Separate the "what" from the "how".
 1. Use real actions (clicking, using key-bindings, typing) instead of "bypassing" via components/models.
 1. Every action must be observed by a change in the UI and must be waited for.
@@ -181,6 +213,7 @@ To summarize:
 ## Helpers
 
 There are two kinds of helpers:
+
 1. Helpers written as part of the end-to-end test, implementing the "how" of user actions.
 1. Helpers supplied to interact with a page and abstract away the way the tests are run.
 
@@ -190,5 +223,5 @@ The latter are implemented in [../shared](../shared/), written by the Puppeteer 
 In general, the e2e/helpers make use of the shared helpers.
 See [../shared/README.md](../shared/README.md) for more documentation on the shared helpers.
 
-[Puppeteer]: https://pptr.dev/
-[Mocha]: https://mochajs.org
+[puppeteer]: https://pptr.dev/
+[mocha]: https://mochajs.org
