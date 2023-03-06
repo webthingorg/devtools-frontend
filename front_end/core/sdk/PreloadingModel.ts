@@ -22,8 +22,7 @@ export interface WithId<I, V> {
 // - SpeculationRule rule sets
 // - Preloading attempts
 // - (TODO) Relationship between rule sets and preloading attempts
-export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
-  private agent: ProtocolProxyApi.PreloadApi;
+export class PreloadingModel extends SDKModel.SDKModel<EventTypes> implements TargetManager.Observer {
   private ruleSets: RuleSetRegistry = new RuleSetRegistry();
   private preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
   // See the comment in onMainFrameNavigated.
@@ -34,12 +33,7 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   constructor(target: Target.Target) {
     super(target);
 
-    target.registerPreloadDispatcher(new PreloadDispatcher(this));
-    target.registerPageDispatcher(new PageDispatcher(this));
-
-    this.agent = target.preloadAgent();
-    void this.agent.invoke_enable();
-
+    TargetManager.TargetManager.instance().observeTargets(this);
     TargetManager.TargetManager.instance().addModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.MainFrameNavigated, this.onMainFrameNavigated,
         this);
@@ -51,14 +45,15 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   dispose(): void {
     super.dispose();
 
+    for (const target of TargetManager.TargetManager.instance().targets()) {
+      void target.preloadAgent().invoke_disable();
+    }
     TargetManager.TargetManager.instance().removeModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.MainFrameNavigated, this.onMainFrameNavigated,
         this);
     TargetManager.TargetManager.instance().removeModelListener(
         ResourceTreeModel.ResourceTreeModel, ResourceTreeModel.Events.PrerenderAttemptCompleted,
         this.onPrerenderAttemptCompleted, this);
-
-    void this.agent.invoke_disable();
   }
 
   // Returns reference. Don't save returned values.
@@ -83,6 +78,18 @@ export class PreloadingModel extends SDKModel.SDKModel<EventTypes> {
   // Returned values may or may not be updated as the time grows.
   getAllPreloadingAttempts(): WithId<PreloadingAttemptId, PreloadingAttempt>[] {
     return this.preloadingAttempts.getAll();
+  }
+
+  // Method of TargetManager.Observer
+  targetAdded(target: Target.Target): void {
+    target.registerPreloadDispatcher(new PreloadDispatcher(this));
+    target.registerPageDispatcher(new PageDispatcher(this));
+
+    void target.preloadAgent().invoke_enable();
+  }
+
+  // Method of TargetManager.Observer
+  targetRemoved(_target: Target.Target): void {
   }
 
   private onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<ResourceTreeModel.ResourceTreeFrame>): void {

@@ -544,12 +544,25 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.periodicBackgroundSyncTreeElement.initialize(backgroundServiceModel);
     this.pushMessagingTreeElement.initialize(backgroundServiceModel);
 
-    // The condition is equivalent to
+    // The first condition is equivalent to
     // `Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)`.
-    if (this.preloadingTreeElement) {
-      const preloadingModel = this.target?.model(SDK.PreloadingModel.PreloadingModel);
-      if (preloadingModel) {
-        this.preloadingTreeElement.initialize(preloadingModel);
+    if (this.preloadingTreeElement && this.target !== undefined) {
+      // Get a tab target.
+      let target = this.target;
+      while (true) {
+        const t = target.parentTarget();
+        if (t !== null) {
+          target = t;
+        } else {
+          break;
+        }
+      }
+
+      if (target.type() === SDK.Target.Type.Tab) {
+        const preloadingModel = target.model(SDK.PreloadingModel.PreloadingModel);
+        if (preloadingModel) {
+          this.preloadingTreeElement.initialize(preloadingModel);
+        }
       }
     }
   }
