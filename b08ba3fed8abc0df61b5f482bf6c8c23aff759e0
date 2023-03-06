@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd420140_8b47b638",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T11:02:43Z",
+      "side": 1,
+      "message": "Looks great with two super-nits!",
+      "revId": "b08ba3fed8abc0df61b5f482bf6c8c23aff759e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a09e5097_c2ba5f57",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T11:02:43Z",
+      "side": 1,
+      "message": "\"is rendered\"",
+      "revId": "b08ba3fed8abc0df61b5f482bf6c8c23aff759e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4656f053_0c3a367d",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-06T11:02:43Z",
+      "side": 1,
+      "message": "\"is rendered twice for ...\"",
+      "revId": "b08ba3fed8abc0df61b5f482bf6c8c23aff759e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
