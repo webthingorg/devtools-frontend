@@ -50,7 +50,7 @@ describe('data grid controller', () => {
   preloadForCodeCoverage('data_grid_controller/basic.html');
 
   // Flaky test
-  it.skip('[crbug.com/1418918] lets the user right click on a header to show the context menu', async () => {
+  it.only('[crbug.com/1418918] lets the user right click on a header to show the context menu', async () => {
     await loadComponentDocExample('data_grid_controller/basic.html');
     await activateContextMenuOnColumnHeader('Key');
 

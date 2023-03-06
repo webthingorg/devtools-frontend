@@ -10,7 +10,7 @@ import {editCSSProperty} from '../helpers/elements-helpers.js';
 
 describe('The Changes Panel', async () => {
   // Flaky test causing build failures
-  it.skip('[crbug.com/1147806]: Shows changes made in the Styles pane', async () => {
+  it.only('[crbug.com/1147806]: Shows changes made in the Styles pane', async () => {
     const TEST_PAGE = 'styled-page';
 
     await openChangesPanelAndNavigateTo(TEST_PAGE);
