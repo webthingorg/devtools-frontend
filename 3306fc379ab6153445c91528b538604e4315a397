@@ -16,6 +16,24 @@
       "message": "Can we also add a sentence or two in test/e2e/README.md?",
       "revId": "3306fc379ab6153445c91528b538604e4315a397",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "693057f4_b4ef6d45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-06T16:37:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1968a67f_d2facd35",
+      "revId": "3306fc379ab6153445c91528b538604e4315a397",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
