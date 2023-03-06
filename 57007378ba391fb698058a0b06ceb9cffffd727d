@@ -52,6 +52,24 @@
       "parentUuid": "8f36a3c8_5eafbb13",
       "revId": "57007378ba391fb698058a0b06ceb9cffffd727d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a2907a7_fdb29c92",
+        "filename": "test/unittests/front_end/helpers/RealConnection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-06T14:49:33Z",
+      "side": 1,
+      "message": "Well, I didn\u0027t find a better way to detect if a suite has an exclusive test.\nAnd since we are postponing the execution of real connection tests until regular tests are loaded, we have to implement \"only\" ourselved.",
+      "parentUuid": "3a195552_98565ec9",
+      "revId": "57007378ba391fb698058a0b06ceb9cffffd727d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
