@@ -1266,6 +1266,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.historyManager.addRecording(this.performanceModel, traceParsedData);
     } catch (error) {
       this.recordingFailed(error.message);
+      console.error(error);
     }
   }
 
