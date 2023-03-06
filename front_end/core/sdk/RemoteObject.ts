@@ -722,6 +722,7 @@ export class RemoteObjectProperty {
   enumerable: boolean;
   writable: boolean;
   isOwn: boolean;
+  isInternal: boolean;
   wasThrown: boolean;
   symbol: RemoteObject|undefined;
   synthetic: boolean;
@@ -736,7 +737,7 @@ export class RemoteObjectProperty {
   constructor(
       name: string, value: RemoteObject|null, enumerable?: boolean, writable?: boolean, isOwn?: boolean,
       wasThrown?: boolean, symbol?: RemoteObject|null, synthetic?: boolean,
-      syntheticSetter?: ((arg0: string) => Promise<RemoteObject|null>), isPrivate?: boolean) {
+      syntheticSetter?: ((arg0: string) => Promise<RemoteObject|null>), isPrivate?: boolean, isInternal?: boolean) {
     this.name = name;
     this.value = value !== null ? value : undefined;
     this.enumerable = typeof enumerable !== 'undefined' ? enumerable : true;
@@ -752,6 +753,7 @@ export class RemoteObjectProperty {
       this.syntheticSetter = syntheticSetter;
     }
     this.private = Boolean(isPrivate);
+    this.isInternal = Boolean(isInternal);
   }
 
   async setSyntheticValue(expression: string): Promise<boolean> {
