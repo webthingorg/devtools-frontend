@@ -193,6 +193,15 @@
   --color-evaluated-expression-border: rgb(163 41 34);
   --color-variable-values: #ffe3c7;
   --color-non-breakable-line: rgb(128 128 128 / 40%);
+
+  /* Color tokens for icons */
+  --color-on-surface: rgb(32 33 36);
+  --color-on-surface-variant: rgb(95 99 104);
+  --color-blue: rgb(26 115 232);
+  --color-orange: rgb(238 152 54);
+  --color-green-new: rgb(48 165 80);
+  --color-red-new: rgb(220 54 46);
+  --color-purple: rgb(191 103 255);
 }
 
 .-theme-with-dark-background {
@@ -341,4 +350,13 @@
   --color-evaluated-expression-border: rgb(221 99 92);
   --color-variable-values: rgb(56 28 0);
   --color-non-breakable-line: rgb(127 127 127 / 40%);
+
+  /* Color tokens for icons */
+  --color-on-surface: rgb(232 234 237);
+  --color-on-surface-variant: rgb(154 160 166);
+  --color-blue: rgb(138 180 248);
+  --color-orange: rgb(238 152 54);
+  --color-green-new: rgb(80 193 104);
+  --color-red-new: rgb(228 105 98);
+  --color-purple: rgb(209 144 255);
 }
