@@ -12,13 +12,15 @@ export class StaticContentProvider implements ContentProvider {
   private readonly contentURLInternal: Platform.DevToolsPath.UrlString;
   private readonly contentTypeInternal: Common.ResourceType.ResourceType;
   private readonly lazyContent: () => Promise<DeferredContent>;
+  fullHash?: string;
 
   constructor(
       contentURL: Platform.DevToolsPath.UrlString, contentType: Common.ResourceType.ResourceType,
-      lazyContent: () => Promise<DeferredContent>) {
+      lazyContent: () => Promise<DeferredContent>, fullHash?: string) {
     this.contentURLInternal = contentURL;
     this.contentTypeInternal = contentType;
     this.lazyContent = lazyContent;
+    this.fullHash = fullHash;
   }
 
   static fromString(

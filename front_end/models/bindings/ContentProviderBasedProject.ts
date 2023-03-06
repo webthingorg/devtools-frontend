@@ -40,6 +40,7 @@ const UIStrings = {
    */
   unknownErrorLoadingFile: 'Unknown error loading file',
 };
+
 const str_ = i18n.i18n.registerUIStrings('models/bindings/ContentProviderBasedProject.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
@@ -47,23 +48,76 @@ interface UISourceCodeData {
   mimeType: string;
   metadata: Workspace.UISourceCode.UISourceCodeMetadata|null;
   contentProvider: TextUtils.ContentProvider.ContentProvider;
+  cacheEntry?: ContentCacheEntry;
+}
+
+interface ContentCacheEntry {
+  fullHash: string;
+  referenceCount: number;
+  contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>;
 }
 
 export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStore {
   readonly #isServiceProjectInternal: boolean;
   readonly #uiSourceCodeToData: WeakMap<Workspace.UISourceCode.UISourceCode, UISourceCodeData>;
+  readonly #hashToContent: Map<string, ContentCacheEntry>;
+
   constructor(
       workspace: Workspace.Workspace.WorkspaceImpl, id: string, type: Workspace.Workspace.projectTypes,
       displayName: string, isServiceProject: boolean) {
     super(workspace, id, type, displayName);
     this.#isServiceProjectInternal = isServiceProject;
     this.#uiSourceCodeToData = new WeakMap();
+    this.#hashToContent = new Map();
     workspace.addProject(this);
+    workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.onUiSourceCodeRemoved, this);
   }
 
-  async requestFileContent(uiSourceCode: Workspace.UISourceCode.UISourceCode):
+  requestFileContent(uiSourceCode: Workspace.UISourceCode.UISourceCode):
       Promise<TextUtils.ContentProvider.DeferredContent> {
-    const {contentProvider} = this.#uiSourceCodeToData.get(uiSourceCode) as UISourceCodeData;
+    const data = this.#uiSourceCodeToData.get(uiSourceCode) as UISourceCodeData;
+    if (data.cacheEntry) {
+      if (data.cacheEntry.fullHash === data.contentProvider.fullHash) {
+        return data.cacheEntry.contentPromise;
+      }
+      // Cache entry no longer valid due to a live edit
+      this.unlinkContent(data.cacheEntry);
+      data.cacheEntry = undefined;
+    }
+    if (data.contentProvider.fullHash) {
+      const cacheEntry = this.#hashToContent.get(data.contentProvider.fullHash);
+      if (cacheEntry) {
+        cacheEntry.referenceCount++;
+        data.cacheEntry = cacheEntry;
+        return cacheEntry.contentPromise;
+      }
+      data.cacheEntry = {
+        referenceCount: 1,
+        fullHash: data.contentProvider.fullHash,
+        contentPromise: this.innerRequestFileContent(data.contentProvider),
+      };
+      this.#hashToContent.set(data.contentProvider.fullHash, data.cacheEntry);
+      return data.cacheEntry.contentPromise;
+    }
+    return this.innerRequestFileContent(data.contentProvider);
+  }
+
+  private unlinkContent(content: ContentCacheEntry): void {
+    content.referenceCount--;
+    if (content.referenceCount === 0) {
+      this.#hashToContent.delete(content.fullHash);
+    }
+  }
+
+  private onUiSourceCodeRemoved(arg0: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+    const data = this.#uiSourceCodeToData.get(arg0.data);
+    if (data && data.cacheEntry) {
+      this.unlinkContent(data.cacheEntry);
+    }
+  }
+
+  private async innerRequestFileContent(contentProvider: TextUtils.ContentProvider.ContentProvider):
+      Promise<TextUtils.ContentProvider.DeferredContent> {
     try {
       const content = await contentProvider.requestContent();
       const wasmDisassemblyInfo = 'wasmDisassemblyInfo' in content ? content.wasmDisassemblyInfo : undefined;

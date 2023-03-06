@@ -63,6 +63,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   endColumn: number;
   executionContextId: number;
   hash: string;
+  fullHash?: string;
   readonly #isContentScriptInternal: boolean;
   readonly #isLiveEditInternal: boolean;
   sourceMapURL?: string;
@@ -104,6 +105,11 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     this.#language = scriptLanguage;
     this.#contentPromise = null;
     this.#embedderNameInternal = embedderName;
+
+    if (hash && !isLiveEdit) {
+      // This key should be sufficient to identify scripts that are known to have the same content.
+      this.fullHash = [scriptLanguage, length, startLine, startColumn, endLine, endColumn, codeOffset, hash].join(':');
+    }
   }
 
   embedderName(): Platform.DevToolsPath.UrlString|null {
@@ -265,7 +271,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
 
   originalContentProvider(): TextUtils.ContentProvider.ContentProvider {
     return new TextUtils.StaticContentProvider.StaticContentProvider(
-        this.contentURL(), this.contentType(), () => this.requestContent());
+        this.contentURL(), this.contentType(), () => this.requestContent(), this.fullHash);
   }
 
   async searchInContent(query: string, caseSensitive: boolean, isRegex: boolean):
@@ -310,6 +316,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
 
     if (!response.getError() && response.status === Protocol.Debugger.SetScriptSourceResponseStatus.Ok) {
       this.#contentPromise = Promise.resolve({content: newSource, isEncoded: false});
+      this.fullHash = undefined;
     }
 
     return {changed: true, status: response.status, exceptionDetails: response.exceptionDetails};

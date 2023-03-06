@@ -36,6 +36,7 @@ export abstract class ContentProvider {
   abstract contentType(): Common.ResourceType.ResourceType;
   abstract requestContent(): Promise<DeferredContent>;
   abstract searchInContent(query: string, caseSensitive: boolean, isRegex: boolean): Promise<SearchMatch[]>;
+  fullHash?: string;
 }
 
 export class SearchMatch {
