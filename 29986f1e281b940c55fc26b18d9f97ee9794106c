@@ -16,6 +16,24 @@
       "message": "LGTM! how about adding a test?",
       "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52c4bd7_0b94bfc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-06T10:31:57Z",
+      "side": 1,
+      "message": "Makes sense, though do you have a suggestion on where to add? AFAIU we currently don\u0027t test the single `animation-name` case too from here[1]\n\n[1]: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4024907",
+      "parentUuid": "d1d6b751_63da73e7",
+      "revId": "29986f1e281b940c55fc26b18d9f97ee9794106c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
