@@ -85,6 +85,7 @@ export function stubNoopSettings() {
 }
 
 const REGISTERED_EXPERIMENTS = [
+  'APCA',
   'bfcacheDisplayTree',
   'captureNodeCreationStacks',
   'keyboardShortcutEditor',
@@ -233,6 +234,10 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.PERFORMANCE, 'flamechartMouseWheelAction', false,
         Common.Settings.SettingType.ENUM),
+    createSettingValue(
+        Common.Settings.SettingCategory.ELEMENTS, 'showMetricsRulers', false, Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
+        Common.Settings.SettingCategory.APPEARANCE, 'colorFormat', 'original', Common.Settings.SettingType.ENUM),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
