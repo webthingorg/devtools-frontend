@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Common from '../common/common.js';
+import type * as Platform from '../platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
@@ -24,11 +25,12 @@ export interface WithId<I, V> {
 // Holds preloading related information.
 //
 // - SpeculationRule rule sets
-// - (TODO) Preloading attempts
+// - Preloading attempts
 // - (TODO) Relationship between rule sets and preloading attempts
 export class PreloadingModel extends SDKModel<EventTypes> {
   private agent: ProtocolProxyApi.PreloadApi;
   private ruleSets: RuleSetRegistry = new RuleSetRegistry();
+  private preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
 
   constructor(target: Target) {
     super(target);
@@ -63,6 +65,18 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     return this.ruleSets.getAll();
   }
 
+  // Returns reference. Don't save returned values.
+  // Returned value may or may not be updated as the time grows.
+  getPreloadingAttemptById(id: PreloadingAttemptId): PreloadingAttempt|null {
+    return this.preloadingAttempts.getById(id);
+  }
+
+  // Returns array of pairs of id and reference. Don't save returned references.
+  // Returned values may or may not be updated as the time grows.
+  getAllPreloadingAttempts(): WithId<PreloadingAttemptId, PreloadingAttempt>[] {
+    return this.preloadingAttempts.getAll();
+  }
+
   private onPrimaryPageChanged(
       event: Common.EventTarget.EventTargetEvent<{frame: ResourceTreeFrame, type: PrimaryPageChangeType}>): void {
     const {frame} = event.data;
@@ -95,6 +109,42 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     this.ruleSets.delete(id);
     this.dispatchEventToListeners(Events.RuleSetsModified);
   }
+
+  onPrefetchStatusUpdated(event: Protocol.Preload.PrefetchStatusUpdatedEvent): void {
+    // Currently, prefetch/prerenderStatusUpdated events don't have PreloadingAttemptKey.
+    // Temporarily, we fill this gap by fake key.
+    //
+    // TODO(https://crbug.com/1317959): Correct this.
+    const attempt = {
+      key: {
+        loaderId: 'fakeLoaderId' as Protocol.Network.LoaderId,
+        action: SpeculationAction.Prefetch,
+        url: event.prefetchUrl as Platform.DevToolsPath.UrlString,
+        targetHint: null,
+      },
+      status: event.status,
+    };
+    this.preloadingAttempts.upsert(attempt);
+    this.dispatchEventToListeners(Events.RuleSetsModified);
+  }
+
+  onPrerenderStatusUpdated(event: Protocol.Preload.PrerenderStatusUpdatedEvent): void {
+    // Currently, prefetch/prerenderStatusUpdated events don't have PreloadingAttemptKey.
+    // Temporarily, we fill this gap by fake key.
+    //
+    // TODO(https://crbug.com/1317959): Correct this.
+    const attempt = {
+      key: {
+        loaderId: 'fakeLoaderId' as Protocol.Network.LoaderId,
+        action: SpeculationAction.Prerender,
+        url: event.prerenderingUrl as Platform.DevToolsPath.UrlString,
+        targetHint: null,
+      },
+      status: event.status,
+    };
+    this.preloadingAttempts.upsert(attempt);
+    this.dispatchEventToListeners(Events.RuleSetsModified);
+  }
 }
 
 SDKModel.register(PreloadingModel, {capabilities: Capability.Target, autostart: false});
@@ -124,13 +174,15 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
     this.model.onRuleSetRemoved(event);
   }
 
-  prerenderAttemptCompleted(_event: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
+  prefetchStatusUpdated(event: Protocol.Preload.PrefetchStatusUpdatedEvent): void {
+    this.model.onPrefetchStatusUpdated(event);
   }
 
-  prefetchStatusUpdated(_event: Protocol.Preload.PrefetchStatusUpdatedEvent): void {
+  prerenderAttemptCompleted(_: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
   }
 
-  prerenderStatusUpdated(_event: Protocol.Preload.PrerenderStatusUpdatedEvent): void {
+  prerenderStatusUpdated(event: Protocol.Preload.PrerenderStatusUpdatedEvent): void {
+    this.model.onPrerenderStatusUpdated(event);
   }
 }
 
@@ -169,5 +221,83 @@ class RuleSetRegistry {
         this.map.delete(ruleSet.id);
       }
     }
+  }
+}
+
+// TODO(https://crbug.com/1317959): Use types Protocol.Preload.* once backend CL lands.
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum SpeculationAction {
+  Prefetch = 'Prefetch',
+  Prerender = 'Prerender',
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum SpeculationTargetHint {
+  Blank = 'Blank',
+  Self = 'Self',
+}
+
+export interface PreloadingAttemptKey {
+  loaderId: Protocol.Network.LoaderId;
+  action: SpeculationAction;
+  url: Platform.DevToolsPath.UrlString;
+  targetHint: SpeculationTargetHint|null;
+}
+
+export type PreloadingAttemptId = string;
+
+export interface PreloadingAttempt {
+  key: PreloadingAttemptKey;
+  status: Protocol.Preload.PreloadingStatus;
+}
+
+function makePreloadingAttemptId(key: PreloadingAttemptKey): PreloadingAttemptId {
+  let action;
+  switch (key.action) {
+    case SpeculationAction.Prefetch:
+      action = 'Prefetch';
+      break;
+    case SpeculationAction.Prerender:
+      action = 'Prerender';
+      break;
+  }
+
+  let targetHint;
+  switch (key.targetHint) {
+    case null:
+      targetHint = 'null';
+      break;
+    case SpeculationTargetHint.Blank:
+      targetHint = 'Blank';
+      break;
+    case SpeculationTargetHint.Self:
+      targetHint = 'Self';
+      break;
+  }
+
+  return `${key.loaderId}:${action}:${key.url}:${targetHint}`;
+}
+
+class PreloadingAttemptRegistry {
+  private map: Map<PreloadingAttemptId, PreloadingAttempt> = new Map<PreloadingAttemptId, PreloadingAttempt>();
+
+  // Returns reference. Don't save returned values.
+  // Returned values may or may not be updated as the time grows.
+  getById(id: PreloadingAttemptId): PreloadingAttempt|null {
+    return this.map.get(id) || null;
+  }
+
+  // Returns reference. Don't save returned values.
+  // Returned values may or may not be updated as the time grows.
+  getAll(): WithId<PreloadingAttemptId, PreloadingAttempt>[] {
+    return Array.from(this.map.entries()).map(([id, value]) => ({id, value}));
+  }
+
+  upsert(attempt: PreloadingAttempt): void {
+    const id = makePreloadingAttemptId(attempt.key);
+
+    this.map.set(id, attempt);
   }
 }
