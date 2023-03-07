@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "e1acecef11623b5ef0559fc6cbce1a15a72faad3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0046036f_957f1a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-03-07T13:53:58Z",
+      "side": 1,
+      "message": "But those are all opt-in, so as long as nobody uses them, they aren\u0027t blocking any CQ builders. One could argue that when a developer explicitly triggers one of those bots, they should be rather fast responding?",
+      "revId": "e1acecef11623b5ef0559fc6cbce1a15a72faad3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
