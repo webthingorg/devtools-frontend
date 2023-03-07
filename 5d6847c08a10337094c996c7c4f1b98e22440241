@@ -33,6 +33,24 @@
       "message": "LGTM % question\nIs there a more fine-grained way to unittest this change?",
       "revId": "5d6847c08a10337094c996c7c4f1b98e22440241",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25213664_97e1afca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-07T14:32:13Z",
+      "side": 1,
+      "message": "Added another test which only tests the fixed behavior.",
+      "parentUuid": "e0fecf0e_49a4073f",
+      "revId": "5d6847c08a10337094c996c7c4f1b98e22440241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
