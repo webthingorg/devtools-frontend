@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e06fa8_e97a021d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-07T14:46:27Z",
+      "side": 1,
+      "message": "Hey folks, after realizing that we weren\u0027t handling multiple animations in crrev.com/c/4300470 I\u0027ve decided to update the logic.\n\nThen, I\u0027ve also realized that most of the things we do with text finding will be erroneous in some cases (albeit not-so-frequent cases). However, I\u0027ve also wanted to test the rendering logic in isolation (which parts are rendered as what) for that I\u0027ve decided to create CSSAnimationModel that is holding the exact information. So, I\u0027ve gone with it. LMK what you think :)",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
