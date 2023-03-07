@@ -16,6 +16,23 @@
       "message": "Hi Jack - this is a small, easy bugfix for a very sporadic NFE that blocks the Performance tool from being used (and I believe the rest of DevTools if we get into this state) without restarting.",
       "revId": "08a19cf1041723b200aa1424dfe4c4ca62775f42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac4f0d7_4689d6d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-07T23:00:18Z",
+      "side": 1,
+      "message": "works for me.\n\nRob, this isn\u0027t the maximum callstack exceeded exception is it? I get that one sporadically and still tracking it down, but the callstack usually points to the time formatter for the status pane. That much sounds very related, but... I\u0027ve only seen it happen after the \"Loading profile..\" is gone and we\u0027re onto rendering the flamechart.",
+      "revId": "08a19cf1041723b200aa1424dfe4c4ca62775f42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
