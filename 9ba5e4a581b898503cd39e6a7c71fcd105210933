@@ -16,6 +16,52 @@
       "message": "PTAL\nThanks!",
       "revId": "9ba5e4a581b898503cd39e6a7c71fcd105210933",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a280a59_f45718b9",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-07T15:08:13Z",
+      "side": 1,
+      "message": "These cannot be removed yet without reworking quite a bit of the original script. It\u0027s more pragmatic to temporarily add them back.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "9ba5e4a581b898503cd39e6a7c71fcd105210933",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7528ac6f_bcd25977",
+        "filename": "scripts/tools/update_goldens_v2.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-03-07T15:08:13Z",
+      "side": 1,
+      "message": "Instructing the script to collect from the mac builders as well.",
+      "range": {
+        "startLine": 64,
+        "startChar": 43,
+        "endLine": 64,
+        "endChar": 46
+      },
+      "revId": "9ba5e4a581b898503cd39e6a7c71fcd105210933",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
