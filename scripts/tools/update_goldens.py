@@ -441,4 +441,8 @@ def gsutil_cmd(*args):
 
 
 if __name__ == '__main__':
-    main(ProjectConfig(platforms=['linux', 'mac', 'win64']), sys.argv[1:])
+    print('Deprecation warning: this script is deprecated and will be removed')
+    print('Please use `update_goldens_v2.py` instead.')
+    print('Make sure you familiarize yourself with the new script via '
+          '`update_goldens_v2.py --help`')
+    print('Note: removal pending deprecation in other projects.')
