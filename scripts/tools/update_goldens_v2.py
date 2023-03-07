@@ -53,5 +53,5 @@ def build_parser():
 
 if __name__ == '__main__':
     main(
-        ProjectConfig(platforms=['linux', 'win64'],
+        ProjectConfig(platforms=['linux', 'mac', 'win64'],
                       builder_prefix='devtools_frontend'), sys.argv[1:])
