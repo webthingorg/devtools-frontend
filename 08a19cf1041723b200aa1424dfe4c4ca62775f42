@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcc94879_d95727eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-03-07T20:04:33Z",
+      "side": 1,
+      "message": "Hi Jack - this is a small, easy bugfix for a very sporadic NFE that blocks the Performance tool from being used (and I believe the rest of DevTools if we get into this state) without restarting.",
+      "revId": "08a19cf1041723b200aa1424dfe4c4ca62775f42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
