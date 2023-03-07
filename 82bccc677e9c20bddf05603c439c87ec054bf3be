@@ -16,6 +16,24 @@
       "message": "Looks like this timeout was not actually being applied. When I look at the failure here https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/9687/overview the timeout still says 10s instead of 20s. I believe this is because we are trying to set the timeout in the test itself, when this code should be moved to the body of the `describe` block.",
       "revId": "82bccc677e9c20bddf05603c439c87ec054bf3be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c97ac62_6a204755",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-07T09:21:06Z",
+      "side": 1,
+      "message": "Even though that seems to be the case, when checking the snapshot and stacktrace the test seems to be failing at the beginning of the test (`clearSiteData`). Which implies that the source of the flake is not a timeout, I have addressed that in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4306771.",
+      "parentUuid": "8262ee93_db6fe26d",
+      "revId": "82bccc677e9c20bddf05603c439c87ec054bf3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
