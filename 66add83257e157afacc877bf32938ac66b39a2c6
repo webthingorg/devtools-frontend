@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "66add83257e157afacc877bf32938ac66b39a2c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2706dcb_e1758f77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-03-07T09:16:15Z",
+      "side": 1,
+      "message": "Will v2 eventually become the old script? I.e. so that we don\u0027t have v2 in the name forever?",
+      "revId": "66add83257e157afacc877bf32938ac66b39a2c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
