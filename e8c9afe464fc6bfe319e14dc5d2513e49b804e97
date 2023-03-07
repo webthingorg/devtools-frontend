@@ -37,6 +37,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40669076_29c38929",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2224,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "Unrelated to this feature, but I hope that we could in-parellel process variables, and not let variable processor *block* the other processors.",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ad0e9b_b70f3b5a",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "It seems like we are moving more towards having a CSS parser in our own codebase. Have we considered some alternatives?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60cb8577_706d34e0",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "What kind of change would we expect if we will support linear easing function later? Context: https://chromestatus.com/feature/5139710823890944",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53208973_6922da0d",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of making `parse` static, and instantiating a `CSSAnimationModel` object at the end? How would it be different from directly calling a non-static function `parse(text...)` and parsing everything into `parts`?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0fe658e_4d37bb1c",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "nit: Object.entries can be omitted, I suppose, because it\u0027s the default iterator?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd1a73ca_0ccbe4c6",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -48,6 +133,41 @@
       "writtenOn": "2023-03-07T14:50:53Z",
       "side": 1,
       "message": "I\u0027m not sure how I feel about defining functions inside other functions but I think separating logic this way makes implementation a bit easier. Maybe I can update these to:\n* be defined outside of the function.\n* creating something like `parsingContext` for the state and passing it to other functions.\n\nWDYT?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a68786c_3a71aa82",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "I think these separate functions are very easy to read compared to inlined logic, so seperating out is definitely a good idea. Currently defining them in a nested way makes it harder to read, and I think having a `parserContext` makes sense.",
+      "parentUuid": "fd1a73ca_0ccbe4c6",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d769dece_8805b6e1",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-07T22:32:31Z",
+      "side": 1,
+      "message": "Same point as above: linear() is shipping, and how much of a change would we have here to include that as well? (Yes we need a separate CL to have a swatch that\u0027s linear()-friendly)",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
