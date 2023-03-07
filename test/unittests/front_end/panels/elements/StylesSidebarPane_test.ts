@@ -158,6 +158,40 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
        assert.isTrue(colorHandler.called);
        assert.isFalse(bezierHandler.called);
      });
+
+  it('parses animation correctly', () => {
+    const renderer =
+        new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'animation', 'example 5s');
+    renderer.setAnimationHandler(() => document.createTextNode(nodeContents));
+
+    const nodeContents = 'nodeContents';
+
+    const node = renderer.renderValue();
+    assert.deepEqual(node.textContent, nodeContents);
+  });
+
+  it('animation handler runs without bezier part if both match', () => {
+    const renderer =
+        new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'animation', 'example 5s linear');
+    let animationText: string|undefined = undefined;
+    let bezierText: string|undefined = undefined;
+    renderer.setBezierHandler(text => {
+      bezierText = text;
+      return document.createTextNode('');
+    });
+    renderer.setAnimationHandler(text => {
+      animationText = text;
+      return document.createTextNode('');
+    });
+
+    renderer.renderValue();
+    assert.isTrue(
+        animationText === 'example 5s ',
+        `Animation handler expected to be called with 'example 5s' but it is called with ${animationText}`);
+    assert.isTrue(
+        bezierText === 'linear',
+        `Bezier handler expected to be called with 'linear' but it is called with ${bezierText}`);
+  });
 });
 
 describe('IdleCallbackManager', () => {
