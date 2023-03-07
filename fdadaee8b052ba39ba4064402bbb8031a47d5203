@@ -16,6 +16,23 @@
       "message": "lgtm",
       "revId": "fdadaee8b052ba39ba4064402bbb8031a47d5203",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f85eda_1a59b217",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-07T19:34:44Z",
+      "side": 1,
+      "message": "LGTM % the recipe update to include the new flag",
+      "revId": "fdadaee8b052ba39ba4064402bbb8031a47d5203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
