@@ -1124,22 +1124,22 @@ describeWithEnvironment('ResponseHeaderSection', () => {
         'https://www.example.com/index.html' as Platform.DevToolsPath.UrlString, '' as Platform.DevToolsPath.UrlString,
         null, null, null);
     request.responseHeaders = [
-      {name: 'cache-control', value: 'max-age=600'},
-      {name: 'z-header', value: 'zzz'},
+      {name: 'Cache-Control', value: 'max-age=600'},
+      {name: 'Z-Header', value: 'zzz'},
     ];
     request.originalResponseHeaders = [
-      {name: 'set-cookie', value: 'bar=original'},
-      {name: 'set-cookie', value: 'foo=original'},
-      {name: 'set-cookie', value: 'malformed'},
-      {name: 'cache-control', value: 'max-age=600'},
-      {name: 'z-header', value: 'zzz'},
+      {name: 'Set-Cookie', value: 'bar=original'},
+      {name: 'Set-Cookie', value: 'foo=original'},
+      {name: 'Set-Cookie', value: 'malformed'},
+      {name: 'Cache-Control', value: 'max-age=600'},
+      {name: 'Z-header', value: 'zzz'},
     ];
     request.setCookieHeaders = [
-      {name: 'set-cookie', value: 'bar=original'},
-      {name: 'set-cookie', value: 'foo=overridden'},
-      {name: 'set-cookie', value: 'user=12345'},
-      {name: 'set-cookie', value: 'malformed'},
-      {name: 'set-cookie', value: 'wrong format'},
+      {name: 'Set-Cookie', value: 'bar=original'},
+      {name: 'Set-Cookie', value: 'foo=overridden'},
+      {name: 'Set-Cookie', value: 'user=12345'},
+      {name: 'Set-Cookie', value: 'malformed'},
+      {name: 'Set-Cookie', value: 'wrong format'},
     ];
 
     const headerOverridesFileContent = `[
