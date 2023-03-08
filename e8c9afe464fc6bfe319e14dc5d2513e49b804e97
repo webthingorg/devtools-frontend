@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c5a2ad4_825b8dd2",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2224,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-08T10:00:49Z",
+      "side": 1,
+      "message": "The processors are all synchronous, so running them in parallel doesn\u0027t change anything really.",
+      "parentUuid": "40669076_29c38929",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad0e9b_b70f3b5a",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -99,6 +117,24 @@
       "writtenOn": "2023-03-07T22:32:31Z",
       "side": 1,
       "message": "What\u0027s the purpose of making `parse` static, and instantiating a `CSSAnimationModel` object at the end? How would it be different from directly calling a non-static function `parse(text...)` and parsing everything into `parts`?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702df0d5_d0d74784",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-08T10:00:49Z",
+      "side": 1,
+      "message": "I would suggest going the other way and making the constructor private 😄",
+      "parentUuid": "53208973_6922da0d",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -151,6 +187,24 @@
       "side": 1,
       "message": "I think these separate functions are very easy to read compared to inlined logic, so seperating out is definitely a good idea. Currently defining them in a nested way makes it harder to read, and I think having a `parserContext` makes sense.",
       "parentUuid": "fd1a73ca_0ccbe4c6",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06cd381c_0d8b4b1b",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-08T10:00:49Z",
+      "side": 1,
+      "message": "Why have the function at all, and not just put the cases into the loop directly?",
+      "parentUuid": "6a68786c_3a71aa82",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
