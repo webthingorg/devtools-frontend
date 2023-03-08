@@ -6,11 +6,12 @@ import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
 import {$textContent, getBrowserAndPages} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   getAuditsBreakdown,
   getServiceWorkerCount,
+  itSequential,
   navigateToLighthouseTab,
   registerServiceWorker,
   selectMode,
@@ -43,7 +44,7 @@ describe('Snapshot', async function() {
     await unregisterAllServiceWorkers();
   });
 
-  it('successfully returns a Lighthouse report for the page state', async () => {
+  itSequential('successfully returns a Lighthouse report for the page state', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
 
