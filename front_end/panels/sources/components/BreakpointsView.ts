@@ -269,9 +269,9 @@ export class BreakpointsView extends HTMLElement {
             @keydown=${this.#keyDownHandler}
             data-first-pause>
           <label class='checkbox-label'>
-            <input type='checkbox' tabindex=-1 ?checked=${this.#pauseOnUncaughtExceptions} @change=${this.#onPauseOnUncaughtExceptionsStateChanged.bind(this)}>
-            <span>${i18nString(UIStrings.pauseOnUncaughtExceptions)}</span>
+            <input type='checkbox' tabindex=-1 ?checked=${this.#pauseOnUncaughtExceptions} @change=${this.#onPauseOnUncaughtExceptionsStateChanged.bind(this)} aria-label=${i18nString(UIStrings.pauseOnUncaughtExceptions)}>
           </label>
+          <span>${i18nString(UIStrings.pauseOnUncaughtExceptions)}</span>
         </div>
         <div class='pause-on-caught-exceptions'
               tabindex='-1'
@@ -279,9 +279,9 @@ export class BreakpointsView extends HTMLElement {
               @keydown=${this.#keyDownHandler}
               data-last-pause>
             <label class='checkbox-label'>
-              <input data-pause-on-caught-checkbox type='checkbox' tabindex=-1 ?checked=${pauseOnCaughtIsChecked} ?disabled=${pauseOnCaughtExceptionIsDisabled} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)}>
-              <span>${i18nString(UIStrings.pauseOnCaughtExceptions)}</span>
+              <input data-pause-on-caught-checkbox type='checkbox' tabindex=-1 ?checked=${pauseOnCaughtIsChecked} ?disabled=${pauseOnCaughtExceptionIsDisabled} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)} aria-label=${i18nString(UIStrings.pauseOnCaughtExceptions)}>
             </label>
+            <span data-pause-on-caught-text>${i18nString(UIStrings.pauseOnCaughtExceptions)}</span>
         </div>
         <div role=tree>
           ${LitHtml.Directives.repeat(
@@ -673,7 +673,9 @@ export class BreakpointsView extends HTMLElement {
     const {checked} = e.target as HTMLInputElement;
     if (!this.#independentPauseToggles) {
       const pauseOnCaughtCheckbox = this.#shadow.querySelector<HTMLInputElement>('[data-pause-on-caught-checkbox]');
+      const pauseOnCaughtText = this.#shadow.querySelector<HTMLSpanElement>('[data-pause-on-caught-text]');
       assertNotNullOrUndefined(pauseOnCaughtCheckbox);
+      assertNotNullOrUndefined(pauseOnCaughtText);
       if (!checked && pauseOnCaughtCheckbox.checked) {
         // If we can only pause on caught exceptions if we pause on uncaught exceptions, make sure to
         // uncheck the pause on caught exception checkbox.
@@ -685,8 +687,10 @@ export class BreakpointsView extends HTMLElement {
         // or not we are pausing on uncaught exceptions.
         if (checked) {
           pauseOnCaughtCheckbox.disabled = false;
+          pauseOnCaughtText.classList.remove('pause-on-caught-disabled');
         } else {
           pauseOnCaughtCheckbox.disabled = true;
+          pauseOnCaughtText.classList.add('pause-on-caught-disabled');
         }
       });
     }

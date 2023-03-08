@@ -238,14 +238,21 @@ summary:hover .group-checkbox {
   margin-bottom: 3px;
 }
 
-/* TODO(crbug.com/1382762): Remove special casing with dependent toggles as soon as Node LTS caught up on independent pause of exception toggles. */
-input:disabled + span {
-  color: var(--color-text-disabled);
-}
-
 .pause-on-caught-exceptions > .checkbox-label > input,
 .pause-on-uncaught-exceptions > .checkbox-label > input {
   margin-left: 6px;
+}
+
+/* TODO(crbug.com/1382762): Remove special casing with dependent toggles as soon as Node LTS caught up on independent pause of exception toggles. */
+.pause-on-caught-disabled {
+  color: var(--color-text-disabled);
+}
+
+.pause-on-caught-exceptions > span,
+.pause-on-uncaught-exceptions > span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .pause-on-uncaught-exceptions,
