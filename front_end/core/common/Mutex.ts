@@ -12,31 +12,38 @@ type ReleaseFn = () => void;
  */
 export class Mutex {
   #locked = false;
-  #acquiringQueue: Array<(release: ReleaseFn) => void> = [];
+  #acquirers: Array<() => void> = [];
 
-  acquire(): Promise<ReleaseFn> {
-    let resolver = (_release: ReleaseFn): void => {};
-    const promise = new Promise<ReleaseFn>((resolve): void => {
-      resolver = resolve;
-    });
-    this.#acquiringQueue.push(resolver);
-    this.#processAcquiringQueue();
-    return promise;
-  }
-
-  #processAcquiringQueue(): void {
-    if (this.#locked) {
-      return;
-    }
-    const nextAquirePromise = this.#acquiringQueue.shift();
-    if (nextAquirePromise) {
+  // This is FIFO.
+  async acquire(): Promise<ReleaseFn> {
+    if (!this.#locked) {
       this.#locked = true;
-      nextAquirePromise(this.#release.bind(this));
+      return this.#release.bind(this);
     }
+    let resolve!: () => void;
+    const promise = new Promise<void>(res => {
+      resolve = res;
+    });
+    this.#acquirers.push(resolve);
+    await promise;
+    return this.#release.bind(this);
   }
 
   #release(): void {
-    this.#locked = false;
-    this.#processAcquiringQueue();
+    const resolve = this.#acquirers.shift();
+    if (!resolve) {
+      this.#locked = false;
+      return;
+    }
+    resolve();
+  }
+
+  async run<T>(action: () => Promise<T>): Promise<T> {
+    try {
+      await this.acquire();
+      return await action();
+    } finally {
+      this.#release();
+    }
   }
 }
