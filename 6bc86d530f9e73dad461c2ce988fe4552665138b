@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "35e65293_7234177a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-08T11:36:04Z",
+      "side": 1,
+      "message": "Nice, LGTM.",
+      "revId": "6bc86d530f9e73dad461c2ce988fe4552665138b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c396c09d_0065428f",
         "filename": "front_end/panels/console/ConsoleViewMessage.ts",
         "patchSetId": 13
