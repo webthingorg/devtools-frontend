@@ -81,6 +81,20 @@ export class PreloadingModel extends SDKModel<EventTypes> {
       event: Common.EventTarget.EventTargetEvent<{frame: ResourceTreeFrame, type: PrimaryPageChangeType}>): void {
     const {frame} = event.data;
 
+    // Note that primary page is changed means there's a main frame
+    // navigation in non prerendered page or prerendered page is
+    // activated. But, currently, ResourceTreeModel.PrimaryPageChanged
+    // event is emitted when prerendered page is created in WebContents
+    // instead of activated. For short-term, we mitigate this by
+    // ignoring prerendered page's case.
+    //
+    // TODO(https://crbug.com/1317959): Rely on
+    // ResourceTreeModel.PrimaryPageChanged and remove this.
+    const targetInfo = frame.resourceTreeModel().target().targetInfo();
+    if (targetInfo === undefined || targetInfo.subtype === 'prerender') {
+      return;
+    }
+
     // Note that at this timing ResourceTreeFrame.loaderId is ensured to
     // be non empty and Protocol.Network.LoaderId because it is filled
     // by ResourceTreeFrame.navigate.
