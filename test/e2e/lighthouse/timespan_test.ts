@@ -6,12 +6,13 @@ import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
 import {$textContent, getBrowserAndPages} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   endTimespan,
   getAuditsBreakdown,
   getServiceWorkerCount,
+  itSequential,
   navigateToLighthouseTab,
   registerServiceWorker,
   selectDevice,
@@ -47,7 +48,7 @@ describe('Timespan', async function() {
     await unregisterAllServiceWorkers();
   });
 
-  it('successfully returns a Lighthouse report for user interactions', async () => {
+  itSequential('successfully returns a Lighthouse report for user interactions', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
 

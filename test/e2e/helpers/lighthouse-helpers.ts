@@ -17,6 +17,7 @@ import {getQuotaUsage, waitForQuotaUsage} from './application-helpers.js';
 
 import {type ElementHandle} from 'puppeteer';
 import {assert} from 'chai';
+import {makeCustomWrappedIt} from '../../shared/mocha-extensions.js';
 
 export async function navigateToLighthouseTab(path?: string): Promise<ElementHandle<Element>> {
   let lighthouseTabButton = await $('#tab-lighthouse');
@@ -263,3 +264,5 @@ export async function renderHtmlInIframe(html: string) {
            return iframe.contentDocument;
          }, html)).asElement() as ElementHandle<Document>;
 }
+
+export const itSequential = makeCustomWrappedIt('[sequential]:');
