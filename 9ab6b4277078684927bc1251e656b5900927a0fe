@@ -80,6 +80,30 @@
       },
       "revId": "9ab6b4277078684927bc1251e656b5900927a0fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5e72ca_1d5b7288",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-08T10:37:00Z",
+      "side": 1,
+      "message": "I think we still need the proxy to point to the build dir in the test environment (I think so because using \"/test/unittests/fixtures/traces/${name}\" instead of the proxy in the tests makes the server throw 404).",
+      "parentUuid": "0a44cfe0_3397389a",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "9ab6b4277078684927bc1251e656b5900927a0fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
