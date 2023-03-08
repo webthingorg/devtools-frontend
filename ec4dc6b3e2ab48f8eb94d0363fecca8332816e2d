@@ -22,6 +22,30 @@
       },
       "revId": "ec4dc6b3e2ab48f8eb94d0363fecca8332816e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1d088b_f4308d0e",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-03-08T17:25:58Z",
+      "side": 1,
+      "message": "Seems like this should be in a more generic helper file in case some non-lighthouse test wants to use it eventually.",
+      "parentUuid": "09f90920_642c0ea6",
+      "range": {
+        "startLine": 268,
+        "startChar": 13,
+        "endLine": 268,
+        "endChar": 25
+      },
+      "revId": "ec4dc6b3e2ab48f8eb94d0363fecca8332816e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
