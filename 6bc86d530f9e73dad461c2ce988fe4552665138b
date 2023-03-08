@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a6dfc46_df4bd912",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-08T10:30:41Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nThis is making some changes in how and where we change the memory icon. We now show it for all allowed types, but only for those properties that are not synthetic. Furthermore, we now also show it next to the description on a console.log.\n\nPTAL!",
+      "revId": "6bc86d530f9e73dad461c2ce988fe4552665138b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c396c09d_0065428f",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-08T10:30:41Z",
+      "side": 1,
+      "message": "Previously, we would not show the icon on evaluated objects in the Console (the first evaluated line, see also screenshots before/after).",
+      "revId": "6bc86d530f9e73dad461c2ce988fe4552665138b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ad7f60_dce0b043",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-08T10:30:41Z",
+      "side": 1,
+      "message": "This is necessary now, since we have aria labels on the memory icon too. This is making sure that we click only on a context menu item.",
+      "revId": "6bc86d530f9e73dad461c2ce988fe4552665138b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
