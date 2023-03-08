@@ -5,18 +5,19 @@
 import {assert} from 'chai';
 
 import {goTo, goToResource, waitFor} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clearSiteData,
   getHelpText,
   isGenerateReportButtonDisabled,
+  itSequential,
   navigateToLighthouseTab,
   selectCategories,
   waitForStorageUsage,
 } from '../helpers/lighthouse-helpers.js';
 
 describe('The Lighthouse start view', async () => {
-  it('shows a button to generate a new report', async () => {
+  itSequential('shows a button to generate a new report', async () => {
     await navigateToLighthouseTab('empty.html');
 
     const disabled = await isGenerateReportButtonDisabled();
@@ -25,7 +26,7 @@ describe('The Lighthouse start view', async () => {
     assert.strictEqual(helpText, '');
   });
 
-  it('disables the start button when no categories are selected', async () => {
+  itSequential('disables the start button when no categories are selected', async () => {
     await navigateToLighthouseTab('empty.html');
 
     await selectCategories([]);
@@ -36,7 +37,7 @@ describe('The Lighthouse start view', async () => {
     assert.strictEqual(helpText, 'At least one category must be selected.');
   });
 
-  it('enables the start button if only one category is selected', async () => {
+  itSequential('enables the start button if only one category is selected', async () => {
     await navigateToLighthouseTab('empty.html');
 
     await selectCategories(['performance']);
@@ -47,7 +48,7 @@ describe('The Lighthouse start view', async () => {
     assert.strictEqual(helpText, '');
   });
 
-  it('disables the start button for internal pages', async () => {
+  itSequential('disables the start button for internal pages', async () => {
     await navigateToLighthouseTab();
     await goTo('about:blank');
 
@@ -60,15 +61,16 @@ describe('The Lighthouse start view', async () => {
   });
 
   // Broken on non-debug runs
-  it.skip('[crbug.com/1057948] shows generate report button even when navigating to an unreachable page', async () => {
-    await navigateToLighthouseTab('empty.html');
+  itSequential.skip(
+      '[crbug.com/1057948] shows generate report button even when navigating to an unreachable page', async () => {
+        await navigateToLighthouseTab('empty.html');
 
-    await goToResource('network/unreachable.rawresponse');
-    const disabled = await isGenerateReportButtonDisabled();
-    assert.isTrue(disabled, 'The Generate Report button should be disabled');
-  });
+        await goToResource('network/unreachable.rawresponse');
+        const disabled = await isGenerateReportButtonDisabled();
+        assert.isTrue(disabled, 'The Generate Report button should be disabled');
+      });
 
-  it('displays warning if important data may affect performance', async () => {
+  itSequential('displays warning if important data may affect performance', async () => {
     // e2e tests in application/ create websql and indexeddb items and don't clean up after themselves
     await clearSiteData();
 
