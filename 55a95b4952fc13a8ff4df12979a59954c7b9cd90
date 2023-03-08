@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41d2cb0_66c0652a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-08T21:59:47Z",
+      "side": 1,
+      "message": "Looks like there\u0027s a few more.\n\nI did a search for `extens` within panels/timeline. And then I looked at https://codereview.chromium.org/2563383003\n\nThe remaining identifiers i\u0027m seeing that i\u0027m 90% sure are part of this..\n\nextensionTracingModels\naddExtensionEvents\nExtensionDataAdded\nextensionInfo\nextensionColorGenerator\nExtensionEvent\nnextExtensionIndex\n\nBut it looks like all the TimelineTreeView stuff is separate (chrome extension overhead detection).\n\nI\u0027ll set as LGTM so you don\u0027t need to wait any longer and these changes should be uber straightforward. 🤞",
+      "revId": "55a95b4952fc13a8ff4df12979a59954c7b9cd90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
