@@ -89,6 +89,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b19081aa_9837fc18",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-08T10:36:39Z",
+      "side": 1,
+      "message": "Could this be a Map\u003cstring, LonghandPart\u003e?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60cb8577_706d34e0",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
