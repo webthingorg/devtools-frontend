@@ -238,6 +238,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   };
   #responseHeadersTextInternal: string;
   #originalResponseHeaders: Protocol.Fetch.HeaderEntry[];
+  #sortedOriginalResponseHeadersInternal?: NameValue[];
 
   // This field is only used when intercepting and overriding requests, because
   // in that case 'this.responseHeaders' does not contain 'set-cookie' headers.
@@ -962,6 +963,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   set originalResponseHeaders(headers: Protocol.Fetch.HeaderEntry[]) {
     this.#originalResponseHeaders = headers;
+    this.#sortedOriginalResponseHeadersInternal = undefined;
   }
 
   get setCookieHeaders(): Protocol.Fetch.HeaderEntry[] {
@@ -987,11 +989,45 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       return this.#sortedResponseHeadersInternal;
     }
 
-    this.#sortedResponseHeadersInternal = this.responseHeaders.slice();
-    this.#sortedResponseHeadersInternal.sort(function(a, b) {
-      return Platform.StringUtilities.compare(a.name.toLowerCase(), b.name.toLowerCase());
-    });
+    this.#sortedResponseHeadersInternal = this.#sortHeadersByNameAndValue(this.responseHeaders);
     return this.#sortedResponseHeadersInternal;
+  }
+
+  get sortedOriginalResponseHeaders(): NameValue[] {
+    if (this.#sortedOriginalResponseHeadersInternal !== undefined) {
+      return this.#sortedOriginalResponseHeadersInternal;
+    }
+
+    this.#sortedOriginalResponseHeadersInternal = this.#sortHeadersByNameAndValue(this.originalResponseHeaders);
+    return this.#sortedOriginalResponseHeadersInternal;
+  }
+
+  #sortHeadersByNameAndValue(nameValues: NameValue[]): NameValue[] {
+    const result = nameValues.slice();
+    return result.sort(function(a, b) {
+      return Platform.StringUtilities.compare(a.name.toLowerCase(), b.name.toLowerCase()) ||
+          Platform.StringUtilities.compare(a.value, b.value);
+    });
+  }
+
+  hasOverriddenHeaders(): boolean {
+    if (!this.#originalResponseHeaders.length) {
+      return false;
+    }
+    const sortedResponseHeaders = this.sortedResponseHeaders;
+    const sortedOriginalResponseHeaders = this.sortedOriginalResponseHeaders;
+    if (sortedOriginalResponseHeaders.length !== sortedResponseHeaders.length) {
+      return true;
+    }
+    for (let i = 0; i < sortedResponseHeaders.length; i++) {
+      if (sortedResponseHeaders[i].name.toLowerCase() !== sortedOriginalResponseHeaders[i].name.toLowerCase()) {
+        return true;
+      }
+      if (sortedResponseHeaders[i].value !== sortedOriginalResponseHeaders[i].value) {
+        return true;
+      }
+    }
+    return false;
   }
 
   responseHeaderValue(headerName: string): string|undefined {
