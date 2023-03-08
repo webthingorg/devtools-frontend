@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3201a1c7_6696ea7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-08T13:18:50Z",
+      "side": 1,
+      "message": "Jaro, PTAL whether this makes sense. I\u0027m not too familiar with projects, scripts and UISourceCodes. Will add a test if you think the approach is ok.",
+      "revId": "2ab22a57a55ce97c0049ced71f10a70ad036112f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
