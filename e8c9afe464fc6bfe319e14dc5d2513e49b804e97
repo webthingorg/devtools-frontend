@@ -319,6 +319,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "309f2e08_a4243e1a",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-08T16:46:29Z",
+      "side": 1,
+      "message": "This will all go away with Map\u003cstring, LonghandPart\u003e",
+      "parentUuid": "b2c3d960_149a7c91",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf6b2ede_f6da15f1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
