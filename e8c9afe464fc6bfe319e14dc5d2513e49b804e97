@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2bf2f6a_862969a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "Added it to the CL description :)",
+      "parentUuid": "fa763a23_21a47859",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40669076_29c38929",
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3d75edc_7b112816",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2224,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "Somewhat related to this, since we\u0027ve taken rendering of `animation` property on our hand; we needed to mark Variables correctly too. I\u0027ve updated the CL for that, LMK what you think :)\n\nIn addition to that, brought back `animation-name` handling to the regex part since if it is a variable, it should show a variable link.",
+      "parentUuid": "2c5a2ad4_825b8dd2",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad0e9b_b70f3b5a",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -83,6 +119,24 @@
       "writtenOn": "2023-03-07T22:32:31Z",
       "side": 1,
       "message": "It seems like we are moving more towards having a CSS parser in our own codebase. Have we considered some alternatives?",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6786e288_4931a01b",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "From our offline discussion:\n* We\u0027ve talked that it is alright to proceed like this for this CL and we can continue to experiment with writing our own \"pseudo\" parsers for now.\n* However, in the long term, we need to think of this in a higher level:\n-\u003e Can we get help for parsing from Blink?\n-\u003e Is there any risks for future maintenance of our frontend pseudo parsers? Let\u0027s say a new property added to `animation` shorthand, it shouldn\u0027t break our logic.\n-\u003e Is there are risk of frontend\u0027s understanding of the syntax diverging with Blink\u0027s understanding of it? (i.e. we say something is easing function and they say it is animation name)\n\nMoving forward, we\u0027re going to think of these issues and come up with a proposal on how to move forward by discussing with the related parties.\n\nThough I also don\u0027t think this is a very pressing issue for now. Though we might need to answer some questions regarding future implementations. (i.e. should anchor positioning use a pseudo parser or regex based thingie?)\n\nIMO, we can first try to handle with regex and if it doesn\u0027t work correctly, we can write own pseudo parser. WDYT?",
+      "parentUuid": "e8ad0e9b_b70f3b5a",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -104,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b46e19_fe401d47",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to keep it this way to be able to update easily in the future. (There are scroll timeline stuff coming I think 😊)",
+      "parentUuid": "b19081aa_9837fc18",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60cb8577_706d34e0",
@@ -117,6 +189,24 @@
       "writtenOn": "2023-03-07T22:32:31Z",
       "side": 1,
       "message": "What kind of change would we expect if we will support linear easing function later? Context: https://chromestatus.com/feature/5139710823890944",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49eea98_0bbf3b5a",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "There will be two changes needed:\n* Updating bezier tool to show linear function\n* Updating bezier regex to recognize `linear(...` part as well. WDYT?",
+      "parentUuid": "60cb8577_706d34e0",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -158,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a169240_a4be5cc1",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "It is mostly to be consistent with other `Model` pseudo parsers like `CSSShadowModel` etc. I don\u0027t have any strong preference here but I\u0027d suggest to go with this way and making the constructor `private`, WDYT?",
+      "parentUuid": "702df0d5_d0d74784",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0fe658e_4d37bb1c",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -175,6 +283,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2c3d960_149a7c91",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "Typescript gets angry with me saying that `Type \u0027Record\u003cLonghandPart, Set\u003cstring\u003e\u003e\u0027 must have a \u0027[Symbol.iterator]()\u0027 method that returns an iterator.ts(2488)`. I have tried with `{}` as well and it gave the same error. So I guess we can go with this, WDYT?",
+      "parentUuid": "d0fe658e_4d37bb1c",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf6b2ede_f6da15f1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -186,6 +312,24 @@
       "writtenOn": "2023-03-08T10:29:49Z",
       "side": 1,
       "message": "can you add a testcase for `3s linear none` and `3s none linear`? I believe the precendece isn\u0027t handled correctly.",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f2facd4_bf7881b0",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "I think it should be: [Text, EasingFunction, Text] and [Text, Text, EasingFunction], I have added tests for these as well and they confirm. What do you think should be the expected result?\n\n`none` shouldn\u0027t be assigned to `animation-name` since it is assigned to `animation-fill-mode` first and it shouldn\u0027t be assigned to `animation-timing-function` since `none` is not a keyword for the timing function.",
+      "parentUuid": "bf6b2ede_f6da15f1",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -245,6 +389,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dff888cd_af06c3de",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "There are two reasons:\n* It increases the complexity of the `parse` function and I think it becomes harder to understand.\n* I lose the ability to early return... 😅\n\nSo I have created a `parserContext` and used it. Does it make sense?",
+      "parentUuid": "06cd381c_0d8b4b1b",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d769dece_8805b6e1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -256,6 +418,24 @@
       "writtenOn": "2023-03-07T22:32:31Z",
       "side": 1,
       "message": "Same point as above: linear() is shipping, and how much of a change would we have here to include that as well? (Yes we need a separate CL to have a swatch that\u0027s linear()-friendly)",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6410ae2e_aaed77cb",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "Answered above :)",
+      "parentUuid": "d769dece_8805b6e1",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -273,6 +453,24 @@
       "writtenOn": "2023-03-08T10:29:49Z",
       "side": 1,
       "message": "This sounds more like a PartType to me.",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f743a420_1b86ac33",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T15:29:42Z",
+      "side": 1,
+      "message": "Makes sense, updated it :)",
+      "parentUuid": "b22c6a34_ed56428c",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
