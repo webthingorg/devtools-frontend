@@ -38,6 +38,20 @@ describeWithLocale('Recorder', () => {
       assert.instanceOf(await lock2, Function);
     });
 
+    it('should work with run', async () => {
+      const mutex = new Common.Mutex.Mutex();
+      const lock = mutex.acquire();
+      const action = mutex.run(async () => {
+        return true;
+      });
+      const release = await lock;
+      // lock2 should not be resolved set.
+      assert.strictEqual(await Promise.race([action, notAcquired()]), 'not acquired');
+      release();
+      await triggerMicroTaskQueue();
+      assert.isTrue(await action);
+    });
+
     it('should work for two async functions accessing shared state', async () => {
       const mutex = new Common.Mutex.Mutex();
       const shared: string[] = [];
