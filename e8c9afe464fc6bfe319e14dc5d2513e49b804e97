@@ -196,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "caf50d72_239d14c2",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T17:41:27Z",
+      "side": 1,
+      "message": "There are two reasons I prefer this way:\n* One keyword might map to multiple longhands: \"none\" will be the case for `animation-timeline`.\n* I think defining keywords list for specific longhand parts are easier to understand, with the animation timeline it will be: `[LonghandParts.AnimationTimeline]: new Set([\"auto\", \"none\"])`\n\nSo I think this is good enough, wdyt? :)",
+      "parentUuid": "d36f6663_b9777794",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60cb8577_706d34e0",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -337,6 +355,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1bc2478_80fad64a",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T17:41:27Z",
+      "side": 1,
+      "message": "It\u0027s not so bad this way either IMO, I like `Object.entries` :D",
+      "parentUuid": "309f2e08_a4243e1a",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf6b2ede_f6da15f1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -384,6 +420,24 @@
       "side": 1,
       "message": "True, maybe also throw a fill mode in there! how about `3s backwards none`, `3s none backwards`, `3s backwards`?",
       "parentUuid": "3f2facd4_bf7881b0",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc315d09_62381e75",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T17:41:27Z",
+      "side": 1,
+      "message": "Added those too, wdyt? :)",
+      "parentUuid": "a07ce356_b3db235b",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -473,6 +527,24 @@
       "side": 1,
       "message": "it makes sense but it\u0027s a lot more complicated than just the if/else with like the three cases you care about, isn\u0027t it?",
       "parentUuid": "dff888cd_af06c3de",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "110adc73_5a7cac85",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-08T17:41:27Z",
+      "side": 1,
+      "message": "It seems like we get something like this: https://gist.github.com/ergunsh/d3f6d67d68ab71694dd4b4062b271e1a\n\nI think I\u0027d prefer the other way of splitting the logic into functions.\n\nCan we simplify the above function or is it better than splitting the logic into functions?",
+      "parentUuid": "9b805e0c_9faa9438",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
