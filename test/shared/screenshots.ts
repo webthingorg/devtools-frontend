@@ -154,6 +154,7 @@ const assertScreenshotUnchanged = async(options: ScreenshotAssertionOptions): Pr
    */
   const shouldUpdate = Boolean(
       (process.env.UPDATE_GOLDEN && process.env.UPDATE_GOLDEN === fileName) || process.env.FORCE_UPDATE_ALL_GOLDENS);
+  const throwAfterGoldenUpdate = Boolean(process.env.THROW_AFTER_GOLDEN_UPDATE);
 
   let onBotAndImageNotFound = false;
 
@@ -188,6 +189,9 @@ const assertScreenshotUnchanged = async(options: ScreenshotAssertionOptions): Pr
       if (shouldUpdate) {
         console.log(`=> ${fileName} was out of date and failed; updating`);
         setGeneratedFileAsGolden(goldenScreenshotPath, generatedScreenshotPath);
+        if (throwAfterGoldenUpdate) {
+          throw compareError;
+        }
         return;
       }
       // If we don't want to update, throw the assertion error so we fail the test.
