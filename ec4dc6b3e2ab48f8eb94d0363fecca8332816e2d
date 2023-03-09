@@ -46,6 +46,30 @@
       },
       "revId": "ec4dc6b3e2ab48f8eb94d0363fecca8332816e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f385cf_16282cb2",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T11:21:40Z",
+      "side": 1,
+      "message": "Done, moved to `test/shared/helper.ts`.",
+      "parentUuid": "fd1d088b_f4308d0e",
+      "range": {
+        "startLine": 268,
+        "startChar": 13,
+        "endLine": 268,
+        "endChar": 25
+      },
+      "revId": "ec4dc6b3e2ab48f8eb94d0363fecca8332816e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
