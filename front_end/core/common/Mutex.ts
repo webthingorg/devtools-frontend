@@ -12,31 +12,42 @@ type ReleaseFn = () => void;
  */
 export class Mutex {
   #locked = false;
-  #acquiringQueue: Array<(release: ReleaseFn) => void> = [];
+  #acquirers: Array<() => void> = [];
 
+  // This is FIFO.
   acquire(): Promise<ReleaseFn> {
-    let resolver = (_release: ReleaseFn): void => {};
-    const promise = new Promise<ReleaseFn>((resolve): void => {
-      resolver = resolve;
-    });
-    this.#acquiringQueue.push(resolver);
-    this.#processAcquiringQueue();
-    return promise;
+    let promise: Promise<void>;
+    if (!this.#locked) {
+      this.#locked = true;
+      promise = Promise.resolve();
+    } else {
+      promise = new Promise<void>(resolve => {
+        this.#acquirers.push(resolve);
+      });
+    }
+    return promise.then(() => this.#release.bind(this, {resolved: false}));
   }
 
-  #processAcquiringQueue(): void {
-    if (this.#locked) {
+  #release(state: {resolved: boolean}): void {
+    if (state.resolved) {
+      throw new Error('Cannot release more than once.');
+    }
+    state.resolved = true;
+
+    const resolve = this.#acquirers.shift();
+    if (!resolve) {
+      this.#locked = false;
       return;
     }
-    const nextAquirePromise = this.#acquiringQueue.shift();
-    if (nextAquirePromise) {
-      this.#locked = true;
-      nextAquirePromise(this.#release.bind(this));
-    }
+    resolve();
   }
 
-  #release(): void {
-    this.#locked = false;
-    this.#processAcquiringQueue();
+  async run<T>(action: () => Promise<T>): Promise<T> {
+    const release = await this.acquire();
+    try {
+      return await action();
+    } finally {
+      release();
+    }
   }
 }
