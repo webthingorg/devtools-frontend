@@ -16,6 +16,75 @@
       "message": "could you clarify why this change is needed? what does it help to solve? what is the associated issue?",
       "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fcacad9_e43cbef3",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-09T05:34:59Z",
+      "side": 1,
+      "message": "nit: Let\u0027s keep `acquire` not async. It\u0027s easier to argue if the method is not re-entrant. E.g. it\u0027s very important that we don\u0027t add anything inbetween the `await promise` and the return statement.\n\nSo I\u0027d rewrite this as:\n\n```\nreturn promise.then(() \u003d\u003e this.#release.bind(this));\n```\n\nAnd turn `acquire` back into a normal method.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 36
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3114f060_888372fd",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-09T05:34:59Z",
+      "side": 1,
+      "message": "I just noticed that the old and new implementation break when `release` is called multiple times accidentally. Not sure if we want/need to fix that.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 3
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a3fcca5_e7350b2f",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-09T05:34:59Z",
+      "side": 1,
+      "message": "Why was the re-write of the class necessary? Using the existing impl we can write `run` as:\n\n```\nasync run\u003cT\u003e(action: () \u003d\u003e Promise\u003cT\u003e): Promise\u003cT\u003e {\n  const release \u003d await this.acquire();\n  try {\n    // The `await` is crucial here. Otherwise we release the lock before `action`\n    // completes/resolves.\n    return await action();\n  } finally {\n    release();\n  }\n}\n```\n\nIf we keep the new implementation, please add the same comment why `await` is crucial.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
