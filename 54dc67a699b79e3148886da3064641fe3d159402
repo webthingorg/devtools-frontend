@@ -16,6 +16,40 @@
       "message": "PTAL thanks!",
       "revId": "54dc67a699b79e3148886da3064641fe3d159402",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cec4877_169606d3",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-09T09:25:16Z",
+      "side": 1,
+      "message": "Let\u0027s deduplicate the same logic here and below.",
+      "revId": "54dc67a699b79e3148886da3064641fe3d159402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceaee714_af82b9df",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-09T09:25:16Z",
+      "side": 1,
+      "message": "Same here: let\u0027s reuse the same logic to avoid duplicating code.",
+      "revId": "54dc67a699b79e3148886da3064641fe3d159402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
