@@ -623,6 +623,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a00e693b_bc088991",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-09T08:51:54Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong preference either way, but I think having them as nested functions are not as good as the other two options (functions at the same level, or totally inlined).",
+      "parentUuid": "110adc73_5a7cac85",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d769dece_8805b6e1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
