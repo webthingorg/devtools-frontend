@@ -4,6 +4,7 @@
 
 import {assert, AssertionError} from 'chai';
 import * as os from 'os';
+
 import type * as puppeteer from 'puppeteer';
 
 import {type DevToolsFrontendReloadOptions} from '../conductor/frontend_tab.js';
