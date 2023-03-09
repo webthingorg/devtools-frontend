@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ffab58_bbf7a5a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-09T21:02:53Z",
+      "side": 1,
+      "message": "Yah. See the screenshot at the top: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d142277",
+      "parentUuid": "d7f39d80_9bbf53b6",
+      "range": {
+        "startLine": 17,
+        "startChar": 44,
+        "endLine": 17,
+        "endChar": 79
+      },
+      "revId": "e23cb2be2866af1cadf6fa1212e9d61ea6d7f7b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b5d264c_200da6f0",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-09T09:26:08Z",
       "side": 1,
       "message": "I suspect we could remove those now, wdyt?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "e23cb2be2866af1cadf6fa1212e9d61ea6d7f7b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0738966a_ea4d13ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-09T21:02:53Z",
+      "side": 1,
+      "message": "works for me. It seems like we\u0027ll be using some different events for INP stuff, so.. I\u0027m fine with us devesting from the latencyinfo events.",
+      "parentUuid": "9b5d264c_200da6f0",
       "range": {
         "startLine": 19,
         "startChar": 0,
