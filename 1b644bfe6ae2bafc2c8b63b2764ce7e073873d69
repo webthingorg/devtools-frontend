@@ -33,6 +33,24 @@
       "message": "Marijn, it looks like something changed in CodeMirror that now causes RangeErrors in a layout test?",
       "revId": "1b644bfe6ae2bafc2c8b63b2764ce7e073873d69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd9db69_bb6f51d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2023-03-09T10:16:14Z",
+      "side": 1,
+      "message": "Any chance this could be a data race in the test setup? Is this test something that I could run in isolation?\n\nThe assertion that throws that error has been in the library since before 6.0, and the circumstances that trigger it (someone dispatching a transaction that doesn\u0027t start with the editor view\u0027s current state) don\u0027t look like they could be affected by this change.",
+      "parentUuid": "435e6b79_ec9861b4",
+      "revId": "1b644bfe6ae2bafc2c8b63b2764ce7e073873d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
