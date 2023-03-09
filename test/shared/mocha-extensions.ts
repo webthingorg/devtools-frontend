@@ -123,6 +123,14 @@ describe.skipOnPlatforms = function(platforms: Array<Platform>, name: string, fn
   }
 };
 
+describe.skipOnParallel = function(name: string, fn: (this: Mocha.Suite) => void) {
+  if (process.env.JOBS !== '1') {
+    wrapDescribe(Mocha.describe.skip, `[sequential] ${name}`, fn);
+  } else {
+    describe(`[sequential] ${name}`, fn);
+  }
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err?: any) {
   function* joinStacks() {
@@ -180,7 +188,8 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
   };
 
   newMochaItFunc.skip = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-    wrapMochaCall(Mocha.it.skip, name, callback);
+    const testName = namePrefix ? `${namePrefix} ${name}` : name;
+    wrapMochaCall(Mocha.it.skip, testName, callback);
   };
 
   newMochaItFunc.skipOnPlatforms = function(
@@ -189,7 +198,15 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
     if (shouldSkip) {
       wrapMochaCall(Mocha.it.skip, name, callback);
     } else {
-      it(name, callback);
+      newMochaItFunc(name, callback);
+    }
+  };
+
+  newMochaItFunc.skipOnParallel = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
+    if (process.env.JOBS !== '1') {
+      wrapMochaCall(Mocha.it.skip, `[sequential] ${name}`, callback);
+    } else {
+      newMochaItFunc(`[sequential] ${name}`, callback);
     }
   };
 
