@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5404917f_81423285",
+        "filename": "test/e2e/lighthouse/devtools-settings_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8560c35f_ca164c36",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20cec661_7fe97fcb",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-09T14:07:28Z",
       "side": 1,
       "message": "let\u0027s keep the `if`",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ee6942_7bbaef45",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20cec661_7fe97fcb",
       "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b95190d5_3843e001",
+        "filename": "test/e2e/lighthouse/snapshot_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6207ff38_f99e9e0c",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04fb46f2_949b7275",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-03-09T14:07:28Z",
       "side": 1,
       "message": "let\u0027s keep the `if`!",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c131ea1f_c56b8ba1",
+        "filename": "test/e2e/lighthouse/timespan_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04fb46f2_949b7275",
       "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
