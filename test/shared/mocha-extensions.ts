@@ -180,7 +180,8 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
   };
 
   newMochaItFunc.skip = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-    wrapMochaCall(Mocha.it.skip, name, callback);
+    const testName = namePrefix ? `${namePrefix} ${name}` : name;
+    wrapMochaCall(Mocha.it.skip, testName, callback);
   };
 
   newMochaItFunc.skipOnPlatforms = function(
@@ -189,7 +190,7 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
     if (shouldSkip) {
       wrapMochaCall(Mocha.it.skip, name, callback);
     } else {
-      it(name, callback);
+      newMochaItFunc(name, callback);
     }
   };
 

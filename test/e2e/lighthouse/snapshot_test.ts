@@ -5,8 +5,8 @@
 import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
-import {$textContent, getBrowserAndPages} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {$textContent, getBrowserAndPages, itSequential} from '../../shared/helper.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   getAuditsBreakdown,
@@ -22,10 +22,8 @@ import {
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
 describe('Snapshot', async function() {
-  // The tests in this suite are particularly slow especially in parallel
-  if (this.timeout() !== 0) {
-    this.timeout(120_000);
-  }
+  // The tests in this suite are particularly slow
+  this.timeout(60_000);
 
   beforeEach(() => {
     // https://github.com/GoogleChrome/lighthouse/issues/14572
@@ -43,7 +41,7 @@ describe('Snapshot', async function() {
     await unregisterAllServiceWorkers();
   });
 
-  it('successfully returns a Lighthouse report for the page state', async () => {
+  itSequential('successfully returns a Lighthouse report for the page state', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
 

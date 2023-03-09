@@ -9,11 +9,12 @@ import {expectError} from '../../conductor/events.js';
 import {
   $textContent,
   getBrowserAndPages,
+  itSequential,
   setDevToolsSettings,
   waitFor,
   waitForElementWithTextContent,
 } from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   getAuditsBreakdown,
@@ -35,10 +36,8 @@ import {
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
 describe('Navigation', async function() {
-  // The tests in this suite are particularly slow especially in parallel
-  if (this.timeout() !== 0) {
-    this.timeout(120_000);
-  }
+  // The tests in this suite are particularly slow
+  this.timeout(60_000);
 
   let consoleLog: string[] = [];
   const consoleListener = (e: puppeteer.ConsoleMessage) => {
@@ -76,7 +75,7 @@ describe('Navigation', async function() {
 
   for (const mode of modes) {
     describe(`in ${mode} mode`, () => {
-      it('successfully returns a Lighthouse report', async () => {
+      itSequential('successfully returns a Lighthouse report', async () => {
         await navigateToLighthouseTab('lighthouse/hello.html');
         await registerServiceWorker();
 
@@ -199,7 +198,7 @@ describe('Navigation', async function() {
         assert.strictEqual(await getServiceWorkerCount(), 0);
       });
 
-      it('successfully returns a Lighthouse report with DevTools throttling', async () => {
+      itSequential('successfully returns a Lighthouse report with DevTools throttling', async () => {
         await navigateToLighthouseTab('lighthouse/hello.html');
 
         await setThrottlingMethod('devtools');
@@ -236,7 +235,7 @@ describe('Navigation', async function() {
         assert.ok(viewTraceButton);
       });
 
-      it('successfully returns a Lighthouse report when settings changed', async () => {
+      itSequential('successfully returns a Lighthouse report when settings changed', async () => {
         await setDevToolsSettings({language: 'es'});
         await navigateToLighthouseTab('lighthouse/hello.html');
         await registerServiceWorker();

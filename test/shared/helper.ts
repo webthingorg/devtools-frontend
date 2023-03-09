@@ -4,6 +4,9 @@
 
 import {assert, AssertionError} from 'chai';
 import * as os from 'os';
+
+import {makeCustomWrappedIt} from './mocha-extensions.js';
+
 import type * as puppeteer from 'puppeteer';
 
 import {type DevToolsFrontendReloadOptions} from '../conductor/frontend_tab.js';
@@ -800,3 +803,5 @@ export async function setCheckBox(selector: string, wantChecked: boolean): Promi
 export const summonSearchBox = async () => {
   await pressKey('f', {control: true});
 };
+
+export const itSequential = makeCustomWrappedIt('[sequential]:');

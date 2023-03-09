@@ -6,8 +6,14 @@ import {assert} from 'chai';
 import * as path from 'path';
 
 import {expectError} from '../../conductor/events.js';
-import {getBrowserAndPages, waitFor, waitForAria, waitForElementWithTextContent} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {
+  getBrowserAndPages,
+  itSequential,
+  waitFor,
+  waitForAria,
+  waitForElementWithTextContent,
+} from '../../shared/helper.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {openDeviceToolbar, reloadDockableFrontEnd, selectDevice} from '../helpers/emulation-helpers.js';
 import {
   clickStartButton,
@@ -69,7 +75,7 @@ describe('DevTools', function() {
       });
     });
 
-    it('is respected during a lighthouse run', async () => {
+    itSequential('is respected during a lighthouse run', async () => {
       await navigateToLighthouseTab('lighthouse/hello.html');
 
       await selectCategories(['performance']);
@@ -100,7 +106,7 @@ describe('DevTools', function() {
       await openDeviceToolbar();
     });
 
-    it('is restored after a lighthouse run', async () => {
+    itSequential('is restored after a lighthouse run', async () => {
       // Use iPad Mini in landscape mode and custom zoom.
       await selectDevice('iPad Mini');
       const rotateButton = await waitForAria('Rotate');
