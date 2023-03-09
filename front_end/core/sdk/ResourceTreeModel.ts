@@ -1210,6 +1210,9 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
   ruleSetRemoved(_event: Protocol.Preload.RuleSetRemovedEvent): void {
   }
 
+  preloadingAttemptSourcesUpdated(_event: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void {
+  }
+
   prerenderAttemptCompleted(params: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
     this.#resourceTreeModel.onPrerenderAttemptCompleted(params);
   }

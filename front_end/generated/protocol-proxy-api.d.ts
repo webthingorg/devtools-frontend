@@ -3638,6 +3638,11 @@ declare namespace ProtocolProxyApi {
      */
     prerenderStatusUpdated(params: Protocol.Preload.PrerenderStatusUpdatedEvent): void;
 
+    /**
+     * Send a list of sources for all preloading attempts.
+     */
+    preloadingAttemptSourcesUpdated(params: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void;
+
   }
 
   export interface FedCmApi {
