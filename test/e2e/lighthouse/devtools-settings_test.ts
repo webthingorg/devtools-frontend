@@ -6,7 +6,12 @@ import {assert} from 'chai';
 import * as path from 'path';
 
 import {expectError} from '../../conductor/events.js';
-import {getBrowserAndPages, waitFor, waitForAria, waitForElementWithTextContent} from '../../shared/helper.js';
+import {
+  getBrowserAndPages,
+  waitFor,
+  waitForAria,
+  waitForElementWithTextContent,
+} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {openDeviceToolbar, reloadDockableFrontEnd, selectDevice} from '../helpers/emulation-helpers.js';
 import {
@@ -28,7 +33,7 @@ const IPAD_MINI_LANDSCAPE_VIEWPORT_DIMENSIONS = {
   devicePixelRatio: 2,
 };
 
-describe('DevTools', function() {
+describe.skipOnParallel('DevTools', function() {
   // The tests in this suite are particularly slow
   this.timeout(60_000);
 
