@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f39d80_9bbf53b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-09T09:26:08Z",
+      "side": 1,
+      "message": "I\u0027m curious where these events ended up being shown, was it in the main thread flame chart?",
+      "range": {
+        "startLine": 17,
+        "startChar": 44,
+        "endLine": 17,
+        "endChar": 79
+      },
+      "revId": "e23cb2be2866af1cadf6fa1212e9d61ea6d7f7b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b5d264c_200da6f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-09T09:26:08Z",
+      "side": 1,
+      "message": "I suspect we could remove those now, wdyt?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "e23cb2be2866af1cadf6fa1212e9d61ea6d7f7b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c601a0_ae786ac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-09T09:26:08Z",
+      "side": 1,
+      "message": "LGTM thanks for the thorough description!",
+      "revId": "e23cb2be2866af1cadf6fa1212e9d61ea6d7f7b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
