@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac39819_d32c2b9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T14:07:28Z",
+      "side": 1,
+      "message": "LGTM with nits!",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8560c35f_ca164c36",
+        "filename": "test/e2e/lighthouse/devtools-settings_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T14:07:28Z",
+      "side": 1,
+      "message": "While we\u0027re here, can we add the `if (this.timeout() !\u003d\u003d 0)`?",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20cec661_7fe97fcb",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T14:07:28Z",
+      "side": 1,
+      "message": "let\u0027s keep the `if`",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fb46f2_949b7275",
+        "filename": "test/e2e/lighthouse/timespan_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T14:07:28Z",
+      "side": 1,
+      "message": "let\u0027s keep the `if`!",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
