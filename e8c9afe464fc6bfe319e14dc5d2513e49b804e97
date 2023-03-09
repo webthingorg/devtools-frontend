@@ -250,6 +250,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "696cea17_ac166e0f",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T09:28:15Z",
+      "side": 1,
+      "message": "In that case it\u0027d be a Map\u003cstring, LonghandPart[]\u003e. What\u0027s the status of timeline currently? how will the parsing algorithm change once we have it?",
+      "parentUuid": "caf50d72_239d14c2",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60cb8577_706d34e0",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -445,6 +463,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edaffedb_23ce4d84",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T09:28:15Z",
+      "side": 1,
+      "message": "The entire function goes away if you use a map :)",
+      "parentUuid": "e1bc2478_80fad64a",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf6b2ede_f6da15f1",
         "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
         "patchSetId": 2
@@ -510,6 +546,24 @@
       "side": 1,
       "message": "Added those too, wdyt? :)",
       "parentUuid": "a07ce356_b3db235b",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f511bd_9201d053",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T09:28:15Z",
+      "side": 1,
+      "message": "Looks good! Seems like precedence is working!",
+      "parentUuid": "fc315d09_62381e75",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

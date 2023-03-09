@@ -33,6 +33,24 @@
       "message": "Added this disclaimer here and I don\u0027t think this will be a such a wildly encountered case. WDYT?\n\nIf we want to handle this, we need to:\n* Pass the value of the matching variable here\n* If the value is a matching keyword, mark that in `foundLonghands`",
       "revId": "f28f0f137564653b088189dee36fb7926e0e3240",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1d302e_6b484d35",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T09:28:15Z",
+      "side": 1,
+      "message": "Would it make sense to just bail if we encounter a variable name? My impression is that parsing becomes very hard then.",
+      "parentUuid": "6c92ae43_b70fd4d5",
+      "revId": "f28f0f137564653b088189dee36fb7926e0e3240",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
