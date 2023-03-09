@@ -16,6 +16,24 @@
       "message": "I don\u0027t feel super-strongly about it, but how about `it.sequential(...)` to be consistent with `it.skip(...)` and the like?",
       "revId": "390fca0e42be0f78903030177681dd648e30bf45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e691890_b3edddad",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T11:58:05Z",
+      "side": 1,
+      "message": "that would be nice! I\u0027m wondering if we can have or create a way to detect in a test or in a describe() whether we\u0027re in a parallel runner or not. If so, we could avoid the fgrep.",
+      "parentUuid": "b64e0da9_3ed65030",
+      "revId": "390fca0e42be0f78903030177681dd648e30bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
