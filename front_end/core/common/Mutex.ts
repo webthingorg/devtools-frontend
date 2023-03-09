@@ -11,32 +11,36 @@ type ReleaseFn = () => void;
  * lock. Failing to `release` the lock may lead to deadlocks.
  */
 export class Mutex {
-  #locked = false;
-  #acquiringQueue: Array<(release: ReleaseFn) => void> = [];
+  #acquirers = new Set<() => void>();
 
+  // This is FIFO.
   acquire(): Promise<ReleaseFn> {
-    let resolver = (_release: ReleaseFn): void => {};
-    const promise = new Promise<ReleaseFn>((resolve): void => {
-      resolver = resolve;
-    });
-    this.#acquiringQueue.push(resolver);
-    this.#processAcquiringQueue();
-    return promise;
+    let resolve = (): void => {};
+    let promise: Promise<void>;
+    if (this.#acquirers.size === 0) {
+      promise = Promise.resolve();
+    } else {
+      promise = new Promise<void>(res => {
+        resolve = res;
+      });
+    }
+    this.#acquirers.add(resolve);
+    return promise.then(() => this.#release.bind(this, resolve));
   }
 
-  #processAcquiringQueue(): void {
-    if (this.#locked) {
-      return;
+  #release(resolve: () => void): void {
+    if (!this.#acquirers.delete(resolve)) {
+      throw new Error('Cannot release more than once.');
     }
-    const nextAquirePromise = this.#acquiringQueue.shift();
-    if (nextAquirePromise) {
-      this.#locked = true;
-      nextAquirePromise(this.#release.bind(this));
-    }
+    resolve();
   }
 
-  #release(): void {
-    this.#locked = false;
-    this.#processAcquiringQueue();
+  async run<T>(action: () => Promise<T>): Promise<T> {
+    const release = await this.acquire();
+    try {
+      return await action();
+    } finally {
+      release();
+    }
   }
 }
