@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f64b772_a3338228",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-03-09T18:28:41Z",
+      "side": 1,
+      "message": "Should we update this commit message now? Looks like `itSequential` was dropped in favor of `.skipOnParallel`.",
+      "revId": "e2a9ae9eca91867d2c859db5511292cfb91a58fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74d78d4c_2551fa35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-03-09T18:28:41Z",
+      "side": 1,
+      "message": "Overall LGTM",
+      "revId": "e2a9ae9eca91867d2c859db5511292cfb91a58fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
