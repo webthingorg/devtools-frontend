@@ -16,6 +16,23 @@
       "message": "Ken, thanks for making me aware of https://crbug.com/1422612. This is my attempt at ensuring that the PrimaryPageChanged event is not sent when the prerendering is happening in the background, but only on prerender activation.\nPTAL\n\n(I\u0027ll wait for Danil to return before attempting to merge this).",
       "revId": "6cae8e404957367c80ab83bfa5daf66f7c72caa8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "368b7247_a5533dd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-09T14:13:31Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "6cae8e404957367c80ab83bfa5daf66f7c72caa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
