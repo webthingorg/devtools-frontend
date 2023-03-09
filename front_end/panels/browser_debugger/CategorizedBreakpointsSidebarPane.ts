@@ -74,6 +74,15 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     this.#categoriesTreeOutline.forceSelect();
   }
 
+  private handleSpaceKeyEventOnBreakPoint(event: KeyboardEvent, breakpoint?: Item): void {
+    if (event && event.key === ' ') {
+      if (breakpoint) {
+        breakpoint.checkbox.click();
+      }
+      event.consume(true);
+    }
+  }
+
   private createCategory(name: string): void {
     const labelNode = UI.UIUtils.CheckboxLabel.create(name);
     labelNode.checkboxElement.addEventListener('click', this.categoryCheckboxClicked.bind(this, name), true);
@@ -82,14 +91,17 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     const treeElement = new UI.TreeOutline.TreeElement(labelNode);
     treeElement.listItemElement.addEventListener('keydown', event => {
       if (event.key === ' ') {
-        const category = this.#categories.get(name);
-        if (category) {
-          category.checkbox.click();
-        }
-        event.consume(true);
+        this.handleSpaceKeyEventOnBreakPoint(event, this.#categories.get(name));
       }
     });
-    labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
+
+    labelNode.checkboxElement.addEventListener('keydown', event => {
+      treeElement.listItemElement.focus();
+      if (event.key === ' ') {
+        this.handleSpaceKeyEventOnBreakPoint(event, this.#categories.get(name));
+      }
+    });
+
     UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
     this.#categoriesTreeOutline.appendChild(treeElement);
 
@@ -105,14 +117,17 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     const treeElement = new UI.TreeOutline.TreeElement(labelNode);
     treeElement.listItemElement.addEventListener('keydown', event => {
       if (event.key === ' ') {
-        const breakpointToClick = this.#breakpoints.get(breakpoint);
-        if (breakpointToClick) {
-          breakpointToClick.checkbox.click();
-        }
-        event.consume(true);
+        this.handleSpaceKeyEventOnBreakPoint(event, this.#breakpoints.get(breakpoint));
       }
     });
-    labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
+
+    labelNode.checkboxElement.addEventListener('keydown', event => {
+      treeElement.listItemElement.focus();
+      if (event.key === ' ') {
+        this.handleSpaceKeyEventOnBreakPoint(event, this.#breakpoints.get(breakpoint));
+      }
+    });
+
     UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
     treeElement.listItemElement.createChild('div', 'breakpoint-hit-marker');
     const category = this.#categories.get(breakpoint.category());
