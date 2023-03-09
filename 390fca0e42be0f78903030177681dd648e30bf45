@@ -34,6 +34,24 @@
       "parentUuid": "b64e0da9_3ed65030",
       "revId": "390fca0e42be0f78903030177681dd648e30bf45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "517bf507_9f258345",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T13:40:01Z",
+      "side": 1,
+      "message": "I did add a `skipOnParallel` function to it and describe but I kept the tag and the fgrep because the plan is to run the sequential tests separately from the parallel tests.",
+      "parentUuid": "6e691890_b3edddad",
+      "revId": "390fca0e42be0f78903030177681dd648e30bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
