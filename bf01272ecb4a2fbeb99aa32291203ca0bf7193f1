@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "bf01272ecb4a2fbeb99aa32291203ca0bf7193f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac13c8f_b737aeae",
+        "filename": "scripts/test/run_auto_unittests.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-09T13:40:48Z",
+      "side": 1,
+      "message": "even though this is not necessary anymore I think it does not hurt to have it.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "bf01272ecb4a2fbeb99aa32291203ca0bf7193f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
