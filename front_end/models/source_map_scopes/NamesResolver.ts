@@ -469,13 +469,13 @@ export const resolveExpression = async(
   if (!text) {
     return '';
   }
-  const textRanges = sourceMap.reverseMapTextRanges(
+  const textRange = sourceMap.reverseMapTextRange(
       uiSourceCode.url(),
       new TextUtils.TextRange.TextRange(lineNumber, startColumnNumber, lineNumber, endColumnNumber));
-  if (textRanges.length !== 1) {
+  if (!textRange) {
     return '';
   }
-  const subjectText = text.extract(textRanges[0]);
+  const subjectText = text.extract(textRange);
   if (!subjectText) {
     return '';
   }
