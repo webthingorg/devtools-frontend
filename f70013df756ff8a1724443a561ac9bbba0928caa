@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6207ff38_f99e9e0c",
+        "filename": "test/e2e/lighthouse/snapshot_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-09T14:07:56Z",
+      "side": 1,
+      "message": "let\u0027s keep the `if`!",
+      "revId": "f70013df756ff8a1724443a561ac9bbba0928caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04fb46f2_949b7275",
         "filename": "test/e2e/lighthouse/timespan_test.ts",
         "patchSetId": 9
