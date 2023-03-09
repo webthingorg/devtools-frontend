@@ -34,11 +34,9 @@ import {
 // This test will fail (by default) in headful mode, as the target page never gets painted.
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
-describe('Navigation', async function() {
-  // The tests in this suite are particularly slow especially in parallel
-  if (this.timeout() !== 0) {
-    this.timeout(120_000);
-  }
+describe.skipOnParallel('Navigation', async function() {
+  // The tests in this suite are particularly slow
+  this.timeout(60_000);
 
   let consoleLog: string[] = [];
   const consoleListener = (e: puppeteer.ConsoleMessage) => {
