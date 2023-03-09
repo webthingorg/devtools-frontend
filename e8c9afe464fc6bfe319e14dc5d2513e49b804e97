@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2b5bc6_005f53bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "56e06fa8_e97a021d",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40669076_29c38929",
@@ -177,6 +195,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a00d7bb_b7c17d40",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "Sounds good! :)",
+      "parentUuid": "b23be092_80105052",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b19081aa_9837fc18",
@@ -262,6 +298,24 @@
       "side": 1,
       "message": "In that case it\u0027d be a Map\u003cstring, LonghandPart[]\u003e. What\u0027s the status of timeline currently? how will the parsing algorithm change once we have it?",
       "parentUuid": "caf50d72_239d14c2",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bd3b83a_84df1e19",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "Updated it to use a map.",
+      "parentUuid": "696cea17_ac166e0f",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -390,6 +444,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "539f42ad_4143961e",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "I think there isn\u0027t much advantage for now, it might have been cool if we needed to play with model (i.e. `const model \u003d CSSAnimationModel.parse(\u00271px infinite\u0027); model.setEasingFunction(\u0027linear\u0027)) etc.\n\nSince this also exists for other models as well, we can move forward with this and think about updating all in one CL to be different.\n\nI\u0027m resolving this comment to move forward but feel free to reopen it and we can make the change for the other models too :)",
+      "parentUuid": "8d160459_fba55846",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0fe658e_4d37bb1c",
@@ -475,6 +547,24 @@
       "side": 1,
       "message": "The entire function goes away if you use a map :)",
       "parentUuid": "e1bc2478_80fad64a",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb64c2d_2d5025ce",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edaffedb_23ce4d84",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -689,6 +779,24 @@
       "side": 1,
       "message": "I don\u0027t have a strong preference either way, but I think having them as nested functions are not as good as the other two options (functions at the same level, or totally inlined).",
       "parentUuid": "110adc73_5a7cac85",
+      "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaf717b6_bf21fb73",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "Inlined the function",
+      "parentUuid": "a00e693b_bc088991",
       "revId": "e8c9afe464fc6bfe319e14dc5d2513e49b804e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

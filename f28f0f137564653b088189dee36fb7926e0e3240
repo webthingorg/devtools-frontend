@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3306a9d2_01653a92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "This is ACK\u0027ed. I\u0027ll take a look at resolving those longhands too from the backend but it is not urgent yet.",
+      "parentUuid": "1bff6668_ae5b7337",
+      "revId": "f28f0f137564653b088189dee36fb7926e0e3240",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c92ae43_b70fd4d5",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "Would it make sense to just bail if we encounter a variable name? My impression is that parsing becomes very hard then.",
       "parentUuid": "6c92ae43_b70fd4d5",
+      "revId": "f28f0f137564653b088189dee36fb7926e0e3240",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faeded85_1f59abc2",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSAnimationModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-09T11:59:30Z",
+      "side": 1,
+      "message": "I think if we do that we lose the variable swatch as well (since we handle `animation` property differently than regex based parsing). I think we can move forward with this and after we fix the longhand issue, the feature will work directly.",
+      "parentUuid": "ae1d302e_6b484d35",
       "revId": "f28f0f137564653b088189dee36fb7926e0e3240",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
