@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f697220_40a69ad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-03-09T22:31:13Z",
+      "side": 1,
+      "message": "Danil, can you PTAL at this chain of CLs? The chromium changes are here: https://chromium-review.googlesource.com/c/chromium/src/+/4193281",
+      "revId": "bd63c508a57ee2dd3d1277514282fe764be13d95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
