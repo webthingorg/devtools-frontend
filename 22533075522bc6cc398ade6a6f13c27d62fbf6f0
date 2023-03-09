@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0697d8b3_47f94275",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-09T13:33:13Z",
+      "side": 1,
+      "message": "The test says it\u0027s part of `Recorder` lol",
+      "parentUuid": "10d2909e_8db8599b",
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75f24419_802d79e2",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "526c779c_51c7eef8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-09T13:33:13Z",
+      "side": 1,
+      "message": "`run` is basically C++ lock guard (https://en.cppreference.com/w/cpp/thread/lock_guard). It\u0027s a safer API.",
+      "parentUuid": "75f24419_802d79e2",
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fcacad9_e43cbef3",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-03-09T05:34:59Z",
       "side": 1,
       "message": "nit: Let\u0027s keep `acquire` not async. It\u0027s easier to argue if the method is not re-entrant. E.g. it\u0027s very important that we don\u0027t add anything inbetween the `await promise` and the return statement.\n\nSo I\u0027d rewrite this as:\n\n```\nreturn promise.then(() \u003d\u003e this.#release.bind(this));\n```\n\nAnd turn `acquire` back into a normal method.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 36
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bbb87a0_60ecf37b",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-09T13:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fcacad9_e43cbef3",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb533eb_3a81963e",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-09T13:33:13Z",
+      "side": 1,
+      "message": "That\u0027s a nice find. I\u0027ve added this.",
+      "parentUuid": "3114f060_888372fd",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 3
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a3fcca5_e7350b2f",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-03-09T05:34:59Z",
       "side": 1,
       "message": "Why was the re-write of the class necessary? Using the existing impl we can write `run` as:\n\n```\nasync run\u003cT\u003e(action: () \u003d\u003e Promise\u003cT\u003e): Promise\u003cT\u003e {\n  const release \u003d await this.acquire();\n  try {\n    // The `await` is crucial here. Otherwise we release the lock before `action`\n    // completes/resolves.\n    return await action();\n  } finally {\n    release();\n  }\n}\n```\n\nIf we keep the new implementation, please add the same comment why `await` is crucial.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "22533075522bc6cc398ade6a6f13c27d62fbf6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd957b73_db4a5a24",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-09T13:33:13Z",
+      "side": 1,
+      "message": "This implementation just splits up the intermediate logic so certain branches don\u0027t run twice. This obsolete now since I added improvements based on your other comment.",
+      "parentUuid": "0a3fcca5_e7350b2f",
       "range": {
         "startLine": 40,
         "startChar": 0,
