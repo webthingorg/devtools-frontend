@@ -260,6 +260,11 @@ export class UserMetrics {
     });
   }
 
+  recordingAssertion(value: RecordingAssertion): void {
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.RecordingAssertion, value, RecordingAssertion.MaxValue);
+  }
+
   recordingToggled(value: RecordingToggled): void {
     InspectorFrontendHostInstance.recordEnumeratedHistogram(
         EnumeratedHistogram.RecordingToggled, value, RecordingToggled.MaxValue);
@@ -1044,6 +1049,13 @@ export enum RecordingToggled {
   RecordingStarted = 1,
   RecordingFinished = 2,
   MaxValue = 3,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingAssertion {
+  AssertionAdded = 1,
+  MaxValue = 2,
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
