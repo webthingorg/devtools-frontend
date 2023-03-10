@@ -59,7 +59,7 @@ h3 {
 }
 
 x-link { /* stylelint-disable-line selector-type-no-unknown */
-  color: var(--color-primary);
+  color: linktext;
   text-decoration-line: underline;
 }
 
