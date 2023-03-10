@@ -81,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08b5851_44d2cb5d",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-10T13:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83461f75_a62310ed",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "113edd5e_c9ad204f",
@@ -94,6 +118,30 @@
       "writtenOn": "2023-03-10T06:06:27Z",
       "side": 1,
       "message": "I think the test should fully acquire the lock before triggering `run`. IMO this is what we wanna test: Delay running the action when the someone else locked the mutex.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fa2d41_611950b4",
+        "filename": "test/unittests/front_end/core/common/Mutex_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-03-10T13:01:37Z",
+      "side": 1,
+      "message": "Right, I\u0027m missing an await 😂",
+      "parentUuid": "113edd5e_c9ad204f",
       "range": {
         "startLine": 49,
         "startChar": 4,
