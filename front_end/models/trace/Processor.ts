@@ -25,21 +25,55 @@ export type TraceParseEventProgressData = {
 
 export class TraceProcessor<ModelHandlers extends {[key: string]: Handlers.Types.TraceEventHandler}> extends
     EventTarget {
-  readonly #traceHandlers: {[key: string]: Handlers.Types.TraceEventHandler};
+  readonly #traceHandlers: ModelHandlers;
   #pauseDuration: number;
   #pauseFrequencyMs: number;
   #status = Status.IDLE;
 
-  static create(): TraceProcessor<typeof Handlers.ModelHandlers> {
+  static createWithAllHandlers(): TraceProcessor<typeof Handlers.ModelHandlers> {
     return new TraceProcessor(Handlers.ModelHandlers);
   }
 
-  private constructor(traceHandlers: ModelHandlers, {pauseDuration = 20, pauseFrequencyMs = 100} = {}) {
+  constructor(traceHandlers: ModelHandlers, {pauseDuration = 20, pauseFrequencyMs = 100} = {}) {
     super();
 
+    this.#verifyHandlers(traceHandlers);
     this.#traceHandlers = traceHandlers;
     this.#pauseDuration = pauseDuration;
     this.#pauseFrequencyMs = pauseFrequencyMs;
+  }
+
+  /**
+   * When the user passes in a set of handlers, we want to ensure that we have all
+   * the required handlers. Handlers can depend on other handlers, so if the user
+   * passes in FooHandler which depends on BarHandler, they must also pass in
+   * BarHandler too. This method verifies that all dependencies are met, and
+   * throws if not.
+   **/
+  #verifyHandlers(providedHandlers: ModelHandlers): void {
+    // Tiny optimisation: if the amount of provided handlers matches the amount
+    // of handlers in the Handlers.ModelHandlers object, that means that the
+    // user has passed in every handler we have. So therefore they cannot have
+    // missed any, and there is no need to iterate through the handlers and
+    // check the dependencies.
+    if (Object.keys(providedHandlers).length === Object.keys(Handlers.ModelHandlers).length) {
+      return;
+    }
+    const requiredHandlerKeys: Set<Handlers.Types.TraceEventHandlerName> = new Set();
+    for (const [handlerName, handler] of Object.entries(providedHandlers)) {
+      requiredHandlerKeys.add(handlerName as Handlers.Types.TraceEventHandlerName);
+      for (const depName of (handler.deps?.() || [])) {
+        requiredHandlerKeys.add(depName);
+      }
+    }
+
+    const providedHandlerKeys = new Set(Object.keys(providedHandlers));
+
+    for (const requiredKey of requiredHandlerKeys) {
+      if (!providedHandlerKeys.has(requiredKey)) {
+        throw new Error(`Required handler ${requiredKey} not provided.`);
+      }
+    }
   }
 
   reset(): void {
