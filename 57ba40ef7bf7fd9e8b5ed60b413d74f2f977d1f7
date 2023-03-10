@@ -16,6 +16,92 @@
       "message": "Leaving the review up to szuend@",
       "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f31719a4_acae4af9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-10T06:06:27Z",
+      "side": 1,
+      "message": "lgtm % comments",
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f024cd0_b2da2fa1",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-10T06:06:27Z",
+      "side": 1,
+      "message": "Clever! :)",
+      "range": {
+        "startLine": 28,
+        "startChar": 55,
+        "endLine": 28,
+        "endChar": 72
+      },
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83461f75_a62310ed",
+        "filename": "front_end/core/common/Mutex.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-10T06:06:27Z",
+      "side": 1,
+      "message": "Please include a comment that this `await` is very much necessary.\nOtherwise we\u0027d early return the pending promise from `action` while already releasing the lock.",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "113edd5e_c9ad204f",
+        "filename": "test/unittests/front_end/core/common/Mutex_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-10T06:06:27Z",
+      "side": 1,
+      "message": "I think the test should fully acquire the lock before triggering `run`. IMO this is what we wanna test: Delay running the action when the someone else locked the mutex.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "57ba40ef7bf7fd9e8b5ed60b413d74f2f977d1f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
