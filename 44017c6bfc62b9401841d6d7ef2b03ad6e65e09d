@@ -33,6 +33,75 @@
       "message": "Danil, PTAL",
       "revId": "44017c6bfc62b9401841d6d7ef2b03ad6e65e09d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba236ab9_a7f74007",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-10T11:07:04Z",
+      "side": 1,
+      "message": "No need in `Internal` suffix if you are already using `#notation`.",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 55
+      },
+      "revId": "44017c6bfc62b9401841d6d7ef2b03ad6e65e09d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e19bb87_bba9e32d",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-10T11:07:04Z",
+      "side": 1,
+      "message": "Let\u0027s inline this. It is not too long and is not meant to be reused. I think it increases the reader\u0027s cognitive load by being a separate function.",
+      "range": {
+        "startLine": 1005,
+        "startChar": 3,
+        "endLine": 1005,
+        "endChar": 28
+      },
+      "revId": "44017c6bfc62b9401841d6d7ef2b03ad6e65e09d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a9bdee8_5271a0a0",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-10T11:07:04Z",
+      "side": 1,
+      "message": "Also test this? At least with an e2e test?",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 56
+      },
+      "revId": "44017c6bfc62b9401841d6d7ef2b03ad6e65e09d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
