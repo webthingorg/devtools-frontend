@@ -30,6 +30,15 @@ export type TraceEventHandlerName = keyof typeof ModelHandlers;
 // TraceProcessor would contain a key called 'TraceBounds' whose value is
 // a TraceWindow.
 export type HandlerData<T extends {[key: string]: TraceEventHandler}> = {
+  // We allow the user to configure which handlers are created by passing them
+  // in when constructing a model instance. However, we then ensure that the
+  // Meta handler is added to that, as the Model relies on some of the data
+  // from the Meta handler when creating the file. Therefore, this type
+  // explicitly defines that the Meta data is present, before then extending it
+  // with the index type to represent all the other handlers.
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Meta: Readonly<ReturnType<typeof ModelHandlers['Meta']['data']>>,
+}&{
   // For every key in the object, look up the TraceEventHandler's data function
   // and use its return type as the value for the object.
   [K in keyof T]: Readonly<ReturnType<T[K]['data']>>;
