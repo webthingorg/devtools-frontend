@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a7489f_e060eb89",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-10T14:49:02Z",
+      "side": 1,
+      "message": "a small drive by improvement",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "4b32220267d45a8f3089bad3cdaffeaa43a612d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

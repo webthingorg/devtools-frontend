@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81985514_2c38911a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-10T14:49:02Z",
+      "side": 0,
+      "message": "this TODO is TODONE, but I forgot to remove it in a prior CL",
+      "range": {
+        "startLine": 1290,
+        "startChar": 2,
+        "endLine": 1292,
+        "endChar": 29
+      },
+      "revId": "6bc5a16461c463020a26d561b14a65735557385e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
