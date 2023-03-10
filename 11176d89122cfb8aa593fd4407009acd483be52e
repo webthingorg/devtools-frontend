@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217bee7f_81c27b3e",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-10T07:40:15Z",
+      "side": 1,
+      "message": "Nit: I will refactor this to be an object in the next CL. Positional parameters don\u0027t scale.",
+      "revId": "11176d89122cfb8aa593fd4407009acd483be52e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
