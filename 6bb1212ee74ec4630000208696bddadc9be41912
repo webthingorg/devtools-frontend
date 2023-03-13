@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0690d405_bc2e6339",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-13T07:20:51Z",
+      "side": 1,
+      "message": "Is there the chromium CL corresponding to this change?",
+      "revId": "6bb1212ee74ec4630000208696bddadc9be41912",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
