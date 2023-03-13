@@ -1449,7 +1449,6 @@
                     "type": "string",
                     "enum": [
                         "PermissionPolicyDisabled",
-                        "PermissionPolicyNotDelegated",
                         "UntrustworthyReportingOrigin",
                         "InsecureContext",
                         "InvalidHeader",
@@ -1458,7 +1457,12 @@
                         "TooManyConcurrentRequests",
                         "SourceAndTriggerHeaders",
                         "SourceIgnored",
-                        "TriggerIgnored"
+                        "TriggerIgnored",
+                        "OsSourceIgnored",
+                        "OsTriggerIgnored",
+                        "InvalidRegisterOsSourceHeader",
+                        "InvalidRegisterOsTriggerHeader",
+                        "WebAndOsHeaders"
                     ]
                 },
                 {
@@ -4249,9 +4253,6 @@
         {
             "domain": "CacheStorage",
             "experimental": true,
-            "dependencies": [
-                "Storage"
-            ],
             "types": [
                 {
                     "id": "CacheId",
@@ -4345,12 +4346,6 @@
                             "type": "string"
                         },
                         {
-                            "name": "storageBucketId",
-                            "description": "Storage bucket of the cache.",
-                            "optional": true,
-                            "type": "number"
-                        },
-                        {
                             "name": "cacheName",
                             "description": "The name of the cache.",
                             "type": "string"
@@ -4418,7 +4413,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -4427,12 +4422,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         }
                     ],
                     "returns": [
@@ -8722,8 +8711,7 @@
             "domain": "IndexedDB",
             "experimental": true,
             "dependencies": [
-                "Runtime",
-                "Storage"
+                "Runtime"
             ],
             "types": [
                 {
@@ -8944,7 +8932,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -8953,12 +8941,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -8978,7 +8960,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -8987,12 +8969,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -9007,7 +8983,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9016,12 +8992,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -9052,7 +9022,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9061,12 +9031,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -9122,7 +9086,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9131,12 +9095,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -9168,7 +9126,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9177,12 +9135,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         },
                         {
                             "name": "databaseName",
@@ -9204,7 +9156,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9213,12 +9165,6 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
-                        },
-                        {
-                            "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
-                            "$ref": "Storage.StorageBucketInfo"
                         }
                     ],
                     "returns": [
@@ -19127,7 +19073,6 @@
                         "cache_storage",
                         "interest_groups",
                         "shared_storage",
-                        "storage_buckets",
                         "all",
                         "other"
                     ]
@@ -19404,66 +19349,6 @@
                             "description": "Whether or not to set an entry for a key if that key is already present.\nPresent only for SharedStorageAccessType.documentSet and\nSharedStorageAccessType.workletSet.",
                             "optional": true,
                             "type": "boolean"
-                        }
-                    ]
-                },
-                {
-                    "id": "StorageBucketsDurability",
-                    "type": "string",
-                    "enum": [
-                        "relaxed",
-                        "strict"
-                    ]
-                },
-                {
-                    "id": "StorageBucketInfo",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "storageKey",
-                            "$ref": "SerializedStorageKey"
-                        },
-                        {
-                            "name": "id",
-                            "type": "number"
-                        },
-                        {
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "name": "isDefault",
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "expiration",
-                            "$ref": "Network.TimeSinceEpoch"
-                        },
-                        {
-                            "name": "quota",
-                            "type": "number"
-                        },
-                        {
-                            "name": "persistent",
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "durability",
-                            "$ref": "StorageBucketsDurability"
-                        }
-                    ]
-                },
-                {
-                    "id": "StorageBucketLocator",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "storageKey",
-                            "$ref": "SerializedStorageKey"
-                        },
-                        {
-                            "name": "id",
-                            "type": "number"
                         }
                     ]
                 }
@@ -19886,56 +19771,6 @@
                             "type": "boolean"
                         }
                     ]
-                },
-                {
-                    "name": "getStorageBucketList",
-                    "description": "Get list of storage bucket names.",
-                    "experimental": true,
-                    "parameters": [
-                        {
-                            "name": "storageKey",
-                            "type": "string"
-                        }
-                    ],
-                    "returns": [
-                        {
-                            "name": "storageBuckets",
-                            "type": "array",
-                            "items": {
-                                "$ref": "StorageBucketInfo"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "setStorageBucketTracking",
-                    "description": "Set tracking for a storage key's buckets.",
-                    "experimental": true,
-                    "parameters": [
-                        {
-                            "name": "storageKey",
-                            "type": "string"
-                        },
-                        {
-                            "name": "enable",
-                            "type": "boolean"
-                        }
-                    ]
-                },
-                {
-                    "name": "deleteStorageBucket",
-                    "description": "Deletes the Storage Bucket with the given storage key and bucket name.",
-                    "experimental": true,
-                    "parameters": [
-                        {
-                            "name": "storageKey",
-                            "type": "string"
-                        },
-                        {
-                            "name": "bucketName",
-                            "type": "string"
-                        }
-                    ]
                 }
             ],
             "events": [
@@ -19952,11 +19787,6 @@
                             "name": "storageKey",
                             "description": "Storage key to update.",
                             "type": "string"
-                        },
-                        {
-                            "name": "bucketId",
-                            "description": "Storage bucket to update.",
-                            "type": "number"
                         },
                         {
                             "name": "cacheName",
@@ -19978,11 +19808,6 @@
                             "name": "storageKey",
                             "description": "Storage key to update.",
                             "type": "string"
-                        },
-                        {
-                            "name": "bucketId",
-                            "description": "Storage bucket to update.",
-                            "type": "number"
                         }
                     ]
                 },
@@ -19999,11 +19824,6 @@
                             "name": "storageKey",
                             "description": "Storage key to update.",
                             "type": "string"
-                        },
-                        {
-                            "name": "bucketId",
-                            "description": "Storage bucket to update.",
-                            "type": "number"
                         },
                         {
                             "name": "databaseName",
@@ -20030,11 +19850,6 @@
                             "name": "storageKey",
                             "description": "Storage key to update.",
                             "type": "string"
-                        },
-                        {
-                            "name": "bucketId",
-                            "description": "Storage bucket to update.",
-                            "type": "number"
                         }
                     ]
                 },
@@ -20088,24 +19903,6 @@
                             "name": "params",
                             "description": "The sub-parameters warapped by `params` are all optional and their\npresence/absence depends on `type`.",
                             "$ref": "SharedStorageAccessParams"
-                        }
-                    ]
-                },
-                {
-                    "name": "storageBucketCreatedOrUpdated",
-                    "parameters": [
-                        {
-                            "name": "bucket",
-                            "$ref": "StorageBucketInfo"
-                        }
-                    ]
-                },
-                {
-                    "name": "storageBucketDeleted",
-                    "parameters": [
-                        {
-                            "name": "bucketLocator",
-                            "$ref": "StorageBucketLocator"
                         }
                     ]
                 }
@@ -22998,6 +22795,73 @@
                     ]
                 },
                 {
+                    "id": "SpeculationAction",
+                    "description": "The type of preloading attempted. It corresponds to\nmojom::SpeculationAction (although PrefetchWithSubresources is omitted as it\nisn't being used by clients).",
+                    "type": "string",
+                    "enum": [
+                        "Prefetch",
+                        "Prerender"
+                    ]
+                },
+                {
+                    "id": "SpeculationTargetHint",
+                    "description": "Corresponds to mojom::SpeculationTargetHint.\nSee https://github.com/WICG/nav-speculation/blob/main/triggers.md#window-name-targeting-hints",
+                    "type": "string",
+                    "enum": [
+                        "Blank",
+                        "Self"
+                    ]
+                },
+                {
+                    "id": "PreloadingAttemptKey",
+                    "description": "A key that identifies a preloading attempt.\n\nThe url used is the url specified by the trigger (i.e. the initial URL), and\nnot the final url that is navigated to. For example, prerendering allows\nsame-origin main frame navigations during the attempt, but the attempt is\nstill keyed with the initial URL.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "loaderId",
+                            "$ref": "Network.LoaderId"
+                        },
+                        {
+                            "name": "action",
+                            "$ref": "SpeculationAction"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string"
+                        },
+                        {
+                            "name": "targetHint",
+                            "optional": true,
+                            "$ref": "SpeculationTargetHint"
+                        }
+                    ]
+                },
+                {
+                    "id": "PreloadingAttemptSource",
+                    "description": "Lists sources for a preloading attempt, specifically the ids of rule sets\nthat had a speculation rule that triggered the attempt, and the\nBackendNodeIds of <a href> or <area href> elements that triggered the\nattempt (in the case of attempts triggered by a document rule). It is\npossible for mulitple rule sets and links to trigger a single attempt.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "key",
+                            "$ref": "PreloadingAttemptKey"
+                        },
+                        {
+                            "name": "ruleSetIds",
+                            "type": "array",
+                            "items": {
+                                "$ref": "RuleSetId"
+                            }
+                        },
+                        {
+                            "name": "nodeIds",
+                            "type": "array",
+                            "items": {
+                                "$ref": "DOM.BackendNodeId"
+                            }
+                        }
+                    ]
+                },
+                {
                     "id": "PrerenderFinalStatus",
                     "description": "List of FinalStatus reasons for Prerender2.",
                     "type": "string",
@@ -23042,7 +22906,6 @@
                         "CrossSiteRedirect",
                         "CrossSiteNavigation",
                         "SameSiteCrossOriginRedirect",
-                        "SameSiteCrossOriginNavigation",
                         "SameSiteCrossOriginRedirectNotOptIn",
                         "SameSiteCrossOriginNavigationNotOptIn",
                         "ActivationNavigationParameterMismatch",
@@ -23164,6 +23027,19 @@
                             "$ref": "PreloadingStatus"
                         }
                     ]
+                },
+                {
+                    "name": "preloadingAttemptSourcesUpdated",
+                    "description": "Send a list of sources for all preloading attempts.",
+                    "parameters": [
+                        {
+                            "name": "preloadingAttemptSources",
+                            "type": "array",
+                            "items": {
+                                "$ref": "PreloadingAttemptSource"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -23171,9 +23047,51 @@
             "domain": "FedCm",
             "description": "This domain allows interacting with the FedCM dialog.",
             "experimental": true,
+            "types": [
+                {
+                    "id": "Account",
+                    "description": "Corresponds to IdentityRequestAccount",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "accountId",
+                            "type": "string"
+                        },
+                        {
+                            "name": "email",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "givenName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "pictureUrl",
+                            "type": "string"
+                        },
+                        {
+                            "name": "idpConfigUrl",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
             "events": [
                 {
-                    "name": "dialogShown"
+                    "name": "dialogShown",
+                    "parameters": [
+                        {
+                            "name": "accounts",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Account"
+                            }
+                        }
+                    ]
                 }
             ],
             "commands": [
