@@ -33,6 +33,23 @@
       "message": "I\u0027m sorry, but the themes referred to in the Bug do not exist in Chrome DevTools. This change makes the default theming colors inconsistent.",
       "revId": "d3fdcafe36df04a6e894a3cd2e6658210b2dad8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac20caa_a32ffcbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2023-03-13T18:51:44Z",
+      "side": 1,
+      "message": "Hi Yang, the high contrast theme is a windows OS theme. More info here https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696.\n\nIf the issue is with linkText then let me figure out another way to get the correct theme color. \nThank you.",
+      "revId": "d3fdcafe36df04a6e894a3cd2e6658210b2dad8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
