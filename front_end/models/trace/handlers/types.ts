@@ -1,4 +1,3 @@
-
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -53,6 +52,11 @@ export type EnabledHandlersWithMeta<T extends {[key: string]: TraceEventHandler}
 
 import type * as ModelHandlers from './ModelHandlers.js';
 
+// Represents the final parsed data from all of the handlers. Note that because
+// we are currently in the middle of the migration of data engines, not all the
+// handlers are enabled. Therefore for now you should use the type defined in
+// models/trace/ModelImpl.ts, `PartialTraceParseDataDuringMigration`, which
+// represents the final parsed data for only the enabled handlers.
 export type TraceParseData = Readonly<EnabledHandlerDataWithMeta<typeof ModelHandlers>>;
 
 export type Handlers = typeof ModelHandlers;
