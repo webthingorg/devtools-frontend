@@ -22,6 +22,30 @@
       },
       "revId": "80586f9a4612cac80102a0be1a0e152fd168e1e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dbeb03a_e38b2ef8",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-13T14:15:34Z",
+      "side": 0,
+      "message": "We are not sure about that yet, I removed it for now to check if it was and if it is we can either increase the timeout or skip it on parallel too.",
+      "parentUuid": "39290a56_286e0e16",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "80586f9a4612cac80102a0be1a0e152fd168e1e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
