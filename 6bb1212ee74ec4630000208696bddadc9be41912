@@ -16,6 +16,24 @@
       "message": "Is there the chromium CL corresponding to this change?",
       "revId": "6bb1212ee74ec4630000208696bddadc9be41912",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59af8329_e1be34f9",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2023-03-13T09:35:14Z",
+      "side": 1,
+      "message": "Done. I\u0027ll merge this when the Chromium CL is approved. https://chromium-review.googlesource.com/c/chromium/src/+/4334036",
+      "parentUuid": "0690d405_bc2e6339",
+      "revId": "6bb1212ee74ec4630000208696bddadc9be41912",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
