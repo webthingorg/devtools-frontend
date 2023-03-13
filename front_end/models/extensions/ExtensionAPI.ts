@@ -1210,7 +1210,11 @@ self.injectedExtensionAPI = function(
   }
 
   function canAccessResource(resource: APIImpl.ResourceData): boolean {
+<<<<<<< HEAD   (292c22 [sources] Key quick open items on URL and resource type.)
     return extensionInfo.allowFileAccess || !resource.url.startsWith('file://');
+=======
+    return extensionInfo.allowFileAccess || !resource.url.toLowerCase().startsWith('file:');
+>>>>>>> CHANGE (916947 Also handle uppercase FILE: URLs.)
   }
 
   function InspectedWindow(this: PublicAPI.Chrome.DevTools.InspectedWindow): void {
