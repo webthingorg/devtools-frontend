@@ -16,6 +16,91 @@
       "message": "PTAL. Tests now pass, and I\u0027ve redone the cacheing and verified it on Google Earth.",
       "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "626849ec_2acd3654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-13T14:38:42Z",
+      "side": 1,
+      "message": "Hi Eric,\n\na partial pass with some questions, will have another look tomorrow.",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e32be0b5_7d4ed0d0",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-13T14:38:42Z",
+      "side": 1,
+      "message": "Could you introduce a constant for the file size? The number looks very specific, is there a reason it\u0027s specifically this number?",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a15f4a7_9cdb0c37",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-13T14:38:42Z",
+      "side": 1,
+      "message": "WDYT about adding an explicit type for this? Since there are quite some inputs that go in here, it feels as if it\u0027s easy to get it wrong accidentally. We could then also use the type in the Map explicitly.",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2204709_4848ac56",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-13T14:38:42Z",
+      "side": 1,
+      "message": "Do we disable live edit with this? In any case, why do we disable editing here?",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71da1819_7c929b4e",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-13T14:38:42Z",
+      "side": 1,
+      "message": "nit: left over",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
