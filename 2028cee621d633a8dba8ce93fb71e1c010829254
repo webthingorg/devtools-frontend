@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e54756_1d0b5a6e",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-13T11:28:08Z",
+      "side": 1,
+      "message": "Yeah, definitely! Nice idea.",
+      "parentUuid": "c3dbf1be_0e0d14e9",
+      "range": {
+        "startLine": 35,
+        "startChar": 19,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "2028cee621d633a8dba8ce93fb71e1c010829254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ffb3d48_ba33f1a2",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-03-13T10:31:39Z",
       "side": 1,
       "message": "maybe it\u0027s worth replacing this with an intersected type of this and {\u0027Meta\u0027: ...} (just like you did with the parsed data type).",
+      "range": {
+        "startLine": 26,
+        "startChar": 28,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "2028cee621d633a8dba8ce93fb71e1c010829254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41068431_2b46659b",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-13T11:28:08Z",
+      "side": 1,
+      "message": "Yeah, agreed. So I have moved the enabling of the meta handler logic into this class and will remove it from the ModelImpl.",
+      "parentUuid": "3ffb3d48_ba33f1a2",
       "range": {
         "startLine": 26,
         "startChar": 28,
