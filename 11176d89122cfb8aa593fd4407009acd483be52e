@@ -16,6 +16,24 @@
       "message": "Nit: I will refactor this to be an object in the next CL. Positional parameters don\u0027t scale.",
       "revId": "11176d89122cfb8aa593fd4407009acd483be52e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "544f6445_a9651615",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-13T18:08:27Z",
+      "side": 1,
+      "message": "SGTM! :)",
+      "parentUuid": "217bee7f_81c27b3e",
+      "revId": "11176d89122cfb8aa593fd4407009acd483be52e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
