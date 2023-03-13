@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39290a56_286e0e16",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-03-13T13:16:36Z",
+      "side": 0,
+      "message": "Why is this not needed anymore? IIUC, the test is not skipped, but will keep running in parallel. Same with the security test below. Were the timeouts caused by the presence of the lighthouse tests?",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "80586f9a4612cac80102a0be1a0e152fd168e1e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

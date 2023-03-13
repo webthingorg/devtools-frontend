@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120a93bc_9d651d4e",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-03-13T13:16:36Z",
+      "side": 1,
+      "message": "Should this not be [parallel]? IIUC, this is the name of the test as it appears when it is skipped. The parallel one is skipped, right?\n\nAlso in line 206.\n\nNote that the other skip logic in this file doesn\u0027t change the name. Does it matter what the name was when it\u0027s skipped?\n\nIs process.env.JOBS always set? If it\u0027s undefined, it\u0027d also evaluate to true, right? Maybe I\u0027m having a Python mindset here...\n\nAlternative suggestion:\n\nYou could call this describe.sequentialOnly with only the logic:\ndescribe(`[sequential] ${name}`, fn);\n\nThen on the infra site make use of the new --invert flag:\nSequential run:\n--mocha-fgrep\u003d[sequential]\nParallel run:\n--mocha-fgrep\u003d[sequential] --invert",
+      "range": {
+        "startLine": 128,
+        "startChar": 40,
+        "endLine": 128,
+        "endChar": 50
+      },
+      "revId": "f85f58f7b18c06bc0919f11938e3227c74ed0cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
