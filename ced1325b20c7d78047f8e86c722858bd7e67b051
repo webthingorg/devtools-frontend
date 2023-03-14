@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3e0f8e_05294e5c",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T12:04:37Z",
+      "side": 0,
+      "message": "drive-by fix. This isn\u0027t used in the frontend, let\u0027s see if removing this causes layout test failures.",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 12
+      },
+      "revId": "ced1325b20c7d78047f8e86c722858bd7e67b051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

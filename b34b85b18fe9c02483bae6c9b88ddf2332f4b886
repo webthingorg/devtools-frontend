@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f0b2a5_3f57987e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T12:04:37Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72bffcc_f887d85a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T12:04:37Z",
+      "side": 1,
+      "message": "setting the timing bounds in `setModel` is the cause of the screenshot update of the timings track, it\u0027s working as intended",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 28
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
