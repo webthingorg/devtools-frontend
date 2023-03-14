@@ -450,7 +450,7 @@ class TickingFlameChartDataProvider implements PerfUI.FlameChart.FlameChartDataP
     return this.maxLevel + 1;
   }
 
-  timelineData(): PerfUI.FlameChart.TimelineData {
+  buildTimelineData(): PerfUI.FlameChart.TimelineData {
     return this.timelineDataInternal;
   }
 

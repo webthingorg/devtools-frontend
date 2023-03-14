@@ -82,7 +82,7 @@ export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameCha
     return this.maxStackDepthInternal;
   }
 
-  timelineData(): PerfUI.FlameChart.TimelineData|null {
+  buildTimelineData(): PerfUI.FlameChart.TimelineData|null {
     return this.timelineData_ || this.calculateTimelineData();
   }
 
@@ -363,7 +363,7 @@ export class OverviewPane extends Common.ObjectWrapper.eventMixin<OverviewPaneEv
   }
 
   timelineData(): PerfUI.FlameChart.TimelineData|null {
-    return this.dataProvider.timelineData();
+    return this.dataProvider.buildTimelineData();
   }
 
   onResize(): void {

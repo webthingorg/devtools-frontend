@@ -7,13 +7,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Performance Panel Timings Track</title>
     <style>
       p {
         font-size: 18px;
         padding: 10px;
       }
-      p:after {
+      p.loading:after {
       overflow: hidden;
       display: inline-block;
       vertical-align: bottom;
@@ -37,9 +36,23 @@
   <body>
 
     <div id="container">
-      <p>Timings track is loading</p>
     </div>
 
-    <script type="module" src="./timings_track.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        const track = params.get('track');
+        const container = document.querySelector('#container');
+        const p = document.createElement('p');
+        if (!track) {
+          document.title = 'Performance panel track example';
+          p.innerText = 'Use the `track` URL search param to see a track example (f.e. track_example.html?track=timings)';
+        } else {
+          document.title = `Performance panel ${track} track`;
+          p.innerText = `${track} track is loading`;
+          p.classList.add('loading');
+          import(`./${track}_track.js`);
+        }
+        container.appendChild(p);
+    </script>
   </body>
 </html>

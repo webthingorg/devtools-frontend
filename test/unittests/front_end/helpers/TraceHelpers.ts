@@ -191,6 +191,35 @@ export async function getMainFlameChartWithTracks(
   return {flameChart, dataProvider};
 }
 
+export async function getMainFlameChartWithLegacyTracks(
+    traceFileName: string, trackType: TimelineModel.TimelineModel.TrackType): Promise<{
+  flameChart: PerfUI.FlameChart.FlameChart,
+  dataProvider: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider,
+}> {
+  await initializeGlobalVars();
+
+  const {traceParsedData, performanceModel, timelineModel} = await allModelsFromFile(traceFileName);
+
+  const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+  // The data provider still needs a reference to the legacy model to
+  // work properly.
+  dataProvider.setModel(performanceModel, traceParsedData);
+  const track = timelineModel.tracks().find(track => track.type === trackType);
+  if (!track) {
+    throw new Error(`Legacy track with of type ${trackType} not found in timeline model.`);
+  }
+  dataProvider.timelineDataInstance();
+  dataProvider.appendLegacyTrackData(track, /* expanded */ true);
+  const delegate = new MockFlameChartDelegate();
+  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const minTime = TraceModel.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
+  const maxTime = TraceModel.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
+  flameChart.setWindowTimes(minTime, maxTime);
+  flameChart.markAsRoot();
+  flameChart.update();
+  return {flameChart, dataProvider};
+}
+
 export async function allModelsFromFile(file: string): Promise<{
   tracingModel: SDK.TracingModel.TracingModel,
   timelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
