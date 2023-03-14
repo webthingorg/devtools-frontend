@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b477411_b11c5cd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-14T09:49:13Z",
+      "side": 1,
+      "message": "In the future: Please use the \"Reland\" button on the original CL instead of reverting the revert. Otherwise you run the risk of landing the reland with \"No-Try: true\".",
+      "revId": "692dd9074320a0c14bcbeeee24da7a907b50ebdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
