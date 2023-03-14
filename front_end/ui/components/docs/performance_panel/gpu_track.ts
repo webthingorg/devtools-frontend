@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as FrontendHelpers from '../../../../../test/unittests/front_end/helpers/TraceHelpers.js';
+import * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
 import * as ComponentSetup from '../../helpers/helpers.js';
 
 await ComponentSetup.ComponentServerSetup.setup();
@@ -12,8 +13,8 @@ if (!container) {
   throw new Error('could not find container');
 }
 container.innerHTML = '';
-const {flameChart, dataProvider} =
-    await FrontendHelpers.getMainFlameChartWithTracks('timings-track.json.gz', new Set(['Timings']));
+const {flameChart, dataProvider} = await FrontendHelpers.getMainFlameChartWithLegacyTrack(
+    'threejs-gpu.json.gz', TimelineModel.TimelineModel.TrackType.GPU);
 const timingsTrackOffset = flameChart.levelToOffset(dataProvider.maxStackDepth());
 container.style.height = `${timingsTrackOffset}px`;
 flameChart.show(container);
