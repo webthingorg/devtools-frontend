@@ -93,7 +93,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   }
 
   isEmpty(): boolean {
-    this.timelineData();
+    this.buildTimelineData();
     return !this.requests.length;
   }
 
@@ -101,7 +101,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     return this.maxLevel;
   }
 
-  timelineData(): PerfUI.FlameChart.TimelineData {
+  buildTimelineData(): PerfUI.FlameChart.TimelineData {
     if (this.timelineDataInternal) {
       return this.timelineDataInternal;
     }

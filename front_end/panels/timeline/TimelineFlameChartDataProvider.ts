@@ -421,7 +421,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * the new trace engine) and the legacy code paths present in this
    * file. The result built data is cached and returned.
    */
-  timelineData(): PerfUI.FlameChart.TimelineData {
+  buildTimelineData(): PerfUI.FlameChart.TimelineData {
     if (this.timelineDataInternal && this.timelineDataInternal.entryLevels.length !== 0) {
       // The flame chart data is built already, so return the cached
       // data.
@@ -651,7 +651,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   search(startTime: number, endTime: number, filter: TimelineModel.TimelineModelFilter.TimelineModelFilter): number[] {
     const result = [];
-    this.timelineData();
+    this.buildTimelineData();
     for (let i = 0; i < this.entryData.length; ++i) {
       const entry = this.entryData[i];
       if (!this.isEntryRegularEvent(entry)) {
