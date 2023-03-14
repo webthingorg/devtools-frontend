@@ -163,6 +163,24 @@
       "parentUuid": "438aa475_fb20adef",
       "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "313ca5c1_0eb4d0d2",
+        "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-14T14:12:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3f910d28_1da73513",
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dd77bb1_4761d8e7",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-14T14:12:28Z",
+      "side": 1,
+      "message": "Since this is the only use case it probably doesn\u0027t matter much. Fine to leave it like this then.",
+      "parentUuid": "89269122_2d97689b",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2204709_4848ac56",
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "This is an extension of the logic to disable live editing in addUISourceCode. The idea is that live editing would be confusing if you updated one version of the code but not others, so we turn off editing whenever multiple UISourceCodes share a tab. That said, we could reconsider this decision, as at least now it would be possible to go through various workers one by one and make an edit in each one, whereas previously it would not have been possible to edit any version other than the one considered canonical. It could still be a confusing experience, though.",
       "parentUuid": "b2204709_4848ac56",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5dd9ac1_228c9c6a",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-14T14:12:28Z",
+      "side": 1,
+      "message": "Thanks for the explanation! I wasn\u0027t aware that live edit is disabled by default if a tab is shared. Makes sense to disable it here then too.",
+      "parentUuid": "89aaa2ff_e94df3c8",
       "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
