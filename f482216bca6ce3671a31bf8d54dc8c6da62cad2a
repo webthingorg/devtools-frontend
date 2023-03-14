@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e450eb1_6cfe034f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T10:12:42Z",
+      "side": 1,
+      "message": "PTAL, as per your suggestion in crrev.com/c/4335996",
+      "revId": "f482216bca6ce3671a31bf8d54dc8c6da62cad2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
