@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2c0c179e_857f0838",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T16:48:07Z",
+      "side": 1,
+      "message": "Yeah, if Chromium changes how fonts are rendered, that might affect us. But at least we know the exact font we are using will not change.",
+      "parentUuid": "1cf5fa5f_9f3335a6",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "75c3a21f1d3eb19f7bf15efc28d3cf13645ef4ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "03ac9704_27eee1d3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
