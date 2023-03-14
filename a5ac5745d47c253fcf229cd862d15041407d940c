@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ccfeb5e_f144e32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T09:33:37Z",
+      "side": 1,
+      "message": "LGTM with suggestions wrt using the `Enabled` prefix \u0026 dep on Renderer hdlr.",
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d53feda_e4657610",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T09:33:37Z",
+      "side": 1,
+      "message": "I just realized with the failures that the PageLoadMetrics handler needs the Renderer Handler. It needs it only for calculating TBT, something we don\u0027t use yet. So maybe we could remove the TBT calculation for now and remove the dep on the Renderer (to spare some processing time)",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bceb4cd2_2dd13577",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T09:33:37Z",
+      "side": 1,
+      "message": "per the previous comment I think the `EnabledModelHandlers` is fine here, since the model is certain to run with enabled handlers only.",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da215f63_ac01701a",
+        "filename": "front_end/models/trace/handlers/types.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-14T09:33:37Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be used for the enabled handlers only (`TraceParseData` uses it with all types), maybe we could keep the generic name we had before to avoid getting confusing.",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
