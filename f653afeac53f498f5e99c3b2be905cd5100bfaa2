@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a113699_f1a37cf0",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-14T08:06:16Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this mean that if we have several requests following each other, that we actually wouldn\u0027t show the last selected uiSourceCode (which is what we would expect to happen I think?)?",
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "687363f4_4e5171c1",
         "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
         "patchSetId": 5
@@ -43,6 +60,23 @@
         "endLine": 319,
         "endChar": 105
       },
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438aa475_fb20adef",
+        "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-14T08:06:16Z",
+      "side": 1,
+      "message": "Does this comment mean that it wouldn\u0027t open the correct uiSourceCode if it weren\u0027t for the explicit click (although we stop at a different uiSourceCode)?",
       "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
