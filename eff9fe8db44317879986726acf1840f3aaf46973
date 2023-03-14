@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63c1887e_c931bc99",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "Done. There\u0027s no reason to use 16 MB specifically, and a smaller size is probably better, but there\u0027s no reason to cache tiny scripts.",
+      "parentUuid": "e32be0b5_7d4ed0d0",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a15f4a7_9cdb0c37",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-03-13T14:38:42Z",
       "side": 1,
       "message": "WDYT about adding an explicit type for this? Since there are quite some inputs that go in here, it feels as if it\u0027s easy to get it wrong accidentally. We could then also use the type in the Map explicitly.",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89269122_2d97689b",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "The number of inputs shouldn\u0027t matter since this is the only place we are computing this. Do you mean you want me to create a tagged string type for this key? I am willing to, it just seems like overkill when all the uses are in a single function.",
+      "parentUuid": "2a15f4a7_9cdb0c37",
       "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89aaa2ff_e94df3c8",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "This is an extension of the logic to disable live editing in addUISourceCode. The idea is that live editing would be confusing if you updated one version of the code but not others, so we turn off editing whenever multiple UISourceCodes share a tab. That said, we could reconsider this decision, as at least now it would be possible to go through various workers one by one and make an edit in each one, whereas previously it would not have been possible to edit any version other than the one considered canonical. It could still be a confusing experience, though.",
+      "parentUuid": "b2204709_4848ac56",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71da1819_7c929b4e",
         "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
         "patchSetId": 4
@@ -99,6 +153,24 @@
       "writtenOn": "2023-03-13T14:38:42Z",
       "side": 1,
       "message": "nit: left over",
+      "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b78f36a9_00ff82be",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71da1819_7c929b4e",
       "revId": "eff9fe8db44317879986726acf1840f3aaf46973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

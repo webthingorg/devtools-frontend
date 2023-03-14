@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f08a5c8_47d1b7ef",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "I don\u0027t think this could happen, because this code is synchronous.",
+      "parentUuid": "4a113699_f1a37cf0",
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "687363f4_4e5171c1",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-14T07:19:16Z",
       "side": 1,
       "message": "Could you please add a comment that explains how the re-entry happens? Is it because selectTab below will try to show the canonical file?",
+      "range": {
+        "startLine": 303,
+        "startChar": 11,
+        "endLine": 303,
+        "endChar": 24
+      },
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c800888_5d26f2b2",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "687363f4_4e5171c1",
       "range": {
         "startLine": 303,
         "startChar": 11,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33750cf4_75cee996",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "Done. Or whatever UISourceCode was shown last, possibly from a different worker.",
+      "parentUuid": "a937ff3e_30f7cada",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 105
+      },
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "438aa475_fb20adef",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-03-14T08:06:16Z",
       "side": 1,
       "message": "Does this comment mean that it wouldn\u0027t open the correct uiSourceCode if it weren\u0027t for the explicit click (although we stop at a different uiSourceCode)?",
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f910d28_1da73513",
+        "filename": "test/e2e/sources/script-in-multiple-workers_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-14T10:56:22Z",
+      "side": 1,
+      "message": "With some pauses this line would be unnecessary. This was the easiest way to make the test reliable, but in manual testing it does switch to the right UISourceCode.",
+      "parentUuid": "438aa475_fb20adef",
       "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
