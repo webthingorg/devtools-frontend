@@ -9,6 +9,7 @@ ts_library("ts") {
   testonly = true
   sources = [
     "basic.ts",
+    "gpu_track.ts",
     "timings_track.ts",
   ]
   deps = [
@@ -16,6 +17,7 @@ ts_library("ts") {
     "../../../../core/common:bundle",
     "../../../../core/sdk:bundle",
     "../../../../models/bindings:bundle",
+    "../../../../models/timeline_model:bundle",
     "../../../../models/timeline_model:bundle",
     "../../../../models/workspace:bundle",
     "../../../../panels/timeline:bundle",
