@@ -97,7 +97,7 @@ export const UIStrings = {
   /**
    * @description This warning is displayed when a site contains a `<template>` element with the `shadowroot` attribute.
    */
-  NonStandardDeclarativeShadowDOM: 'The older, non-standardized `shadowroot` attribute is deprecated. Please use the new, standardized `shadowrootmode` attribute instead.',
+  NonStandardDeclarativeShadowDOM: 'The older, non-standardized `shadowroot` attribute is deprecated, and will *no longer function* in M119. Please use the new, standardized `shadowrootmode` attribute instead.',
   /**
    * @description This warning occurs when the browser requests Web MIDI access as sysex (system exclusive messages) can be allowed via prompt even if the browser did not specifically request it.
    */
@@ -291,7 +291,7 @@ export const DEPRECATIONS_METADATA: Partial<Record<string, DeprecationDescriptor
   },
   "NonStandardDeclarativeShadowDOM": {
     "chromeStatusFeature": 6239658726391808,
-    "milestone": 112
+    "milestone": 119
   },
   "NotificationPermissionRequestedIframe": {
     "chromeStatusFeature": 6451284559265792
