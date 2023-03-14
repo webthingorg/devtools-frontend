@@ -17,7 +17,6 @@ ts_library("ts") {
     "../../../../core/sdk:bundle",
     "../../../../models/bindings:bundle",
     "../../../../models/timeline_model:bundle",
-    "../../../../models/timeline_model:bundle",
     "../../../../models/workspace:bundle",
     "../../../../panels/timeline:bundle",
     "../../../legacy:bundle",
