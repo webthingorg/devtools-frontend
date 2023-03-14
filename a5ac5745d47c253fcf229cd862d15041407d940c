@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9871b64d_85361e30",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T10:12:55Z",
+      "side": 1,
+      "message": "Yeah, good idea! I will send a separate CL to do that change and land it before this one.\n\ncrrev.com/c/4334772",
+      "parentUuid": "0d53feda_e4657610",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bceb4cd2_2dd13577",
         "filename": "front_end/models/trace/ModelImpl.ts",
         "patchSetId": 2
@@ -94,6 +118,30 @@
       "writtenOn": "2023-03-14T09:33:37Z",
       "side": 1,
       "message": "This doesn\u0027t seem to be used for the enabled handlers only (`TraceParseData` uses it with all types), maybe we could keep the generic name we had before to avoid getting confusing.",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "a5ac5745d47c253fcf229cd862d15041407d940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4937cf_ad63fd12",
+        "filename": "front_end/models/trace/handlers/types.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T10:12:55Z",
+      "side": 1,
+      "message": "Yeah agreed, will rename to HandlersWithMeta.",
+      "parentUuid": "da215f63_ac01701a",
       "range": {
         "startLine": 47,
         "startChar": 12,
