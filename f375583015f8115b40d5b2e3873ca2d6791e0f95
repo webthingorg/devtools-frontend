@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bbd7a39_fa5664b9",
+        "filename": "test/e2e/sources/ignore-list_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-14T14:56:54Z",
+      "side": 1,
+      "message": "please remove the onlys before merging",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 9
+      },
+      "revId": "f375583015f8115b40d5b2e3873ca2d6791e0f95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
