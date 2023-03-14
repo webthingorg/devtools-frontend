@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77008ecc_2715c866",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T15:47:07Z",
+      "side": 1,
+      "message": "Ah OK, I understand. I agree this is a good change if it makes our tests do more of what happens in prod!",
+      "parentUuid": "bedcd9aa_4ca4d8cc",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 28
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04cf6d5d_dfb83000",
@@ -126,6 +150,30 @@
       "side": 1,
       "message": "Since I had to move this bits of code, I created a new method to group the lines. And because the code requires data we have already in the new engine I took the opportunity to use that instead, but we don\u0027t really need to, we could rewrite the new method to use the legacy data instead.",
       "parentUuid": "04cf6d5d_dfb83000",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 3
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f887d0e9_233bc161",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T15:47:07Z",
+      "side": 1,
+      "message": "No I think we should use the new engine! Let\u0027s leave it here, especially if we are happy that it doesn\u0027t change the bounds, which I do not think it does.",
+      "parentUuid": "a9cdefff_ce38d071",
       "range": {
         "startLine": 297,
         "startChar": 0,
