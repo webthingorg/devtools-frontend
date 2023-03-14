@@ -131,12 +131,12 @@ export class AttributionReportingIssue extends Issue<IssueCode> {
       case IssueCode.SourceIgnored:
         return {
           file: 'arSourceIgnored.md',
-          links: [structuredHeaderLink],
+          links: [],
         };
       case IssueCode.TriggerIgnored:
         return {
           file: 'arTriggerIgnored.md',
-          links: [structuredHeaderLink],
+          links: [],
         };
       case IssueCode.Unknown:
         return null;
