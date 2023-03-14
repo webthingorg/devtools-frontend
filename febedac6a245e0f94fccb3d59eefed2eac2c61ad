@@ -16,6 +16,23 @@
       "message": "LGTM but let’s wait for Simon’s review as well please",
       "revId": "febedac6a245e0f94fccb3d59eefed2eac2c61ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2659a74_53317efc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-14T05:04:31Z",
+      "side": 1,
+      "message": "Are there plans to fix this in the backend? Ideally we handle \"runIfWaitingForDebugger\" with multiple sessions correctly in the backend.\n\nlgtm as a workaround.\n\nJaro FYI",
+      "revId": "febedac6a245e0f94fccb3d59eefed2eac2c61ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
