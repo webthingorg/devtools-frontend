@@ -39,6 +39,122 @@
       },
       "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa37ba25_c7cd2910",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T12:19:41Z",
+      "side": 1,
+      "message": "Ack. Is this preferable to setting the bounds in `timelineData` like it was before? And are we happy with the fact that the new engine produces very slightly different timings to the old one?",
+      "parentUuid": "a72bffcc_f887d85a",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 28
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04cf6d5d_dfb83000",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T12:19:41Z",
+      "side": 1,
+      "message": "to check my understanding, this change moves us from using the legacy model for setting the min max bounds to using the new model, correct? If so, I wonder if this should be a separate CL",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 3
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84bb404a_a8a4073d",
+        "filename": "front_end/ui/components/docs/performance_panel/track_example.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T12:19:41Z",
+      "side": 1,
+      "message": "If I read this right this relies on there being timings_track.js in this same folder. Is there any way that we can make this fully generic, e.g. I can pass in a track name and we have all the code required to set up the track without me having to create a new file to do that?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 122
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db06480_f67aa9c4",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T12:19:41Z",
+      "side": 1,
+      "message": "nit: maybe worth a JS Doc comment? wdyt?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 56
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9b501e_e9016b75",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-14T12:19:41Z",
+      "side": 1,
+      "message": "could appendLegacyTrackData make the call to instantiate the timeline data itself, meaning we could keep the instantiateTimelineData method private?",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "b34b85b18fe9c02483bae6c9b88ddf2332f4b886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
