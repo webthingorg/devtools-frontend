@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "510e7f24_9ed22fd1",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-14T10:51:50Z",
+      "side": 1,
+      "message": "What about other async things (see the unittest async tracking)? Are promises the most important use-case, and can we ignore the rest?",
+      "revId": "32d457b37bdd5ea73b9156811311097bd3cc72ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
