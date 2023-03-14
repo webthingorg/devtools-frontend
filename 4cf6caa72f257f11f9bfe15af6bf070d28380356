@@ -33,6 +33,24 @@
       "message": "FYI when we join via space, it looks like this for multiple warnings: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d590281\u0026signed_aid\u003dDZKDdFz1ZoHtWFULhPCEfg\u003d\u003d\u0026inline\u003d1\n\nIf you think it is important, then we can update here. Otherwise, feel free to skip it too! :)",
       "revId": "4cf6caa72f257f11f9bfe15af6bf070d28380356",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f8c399a_d59af283",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-14T08:10:45Z",
+      "side": 1,
+      "message": "Looks okay to me with the space. We can update the text later if we want.",
+      "parentUuid": "06b23b9b_c58fa6e2",
+      "revId": "4cf6caa72f257f11f9bfe15af6bf070d28380356",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
