@@ -16,6 +16,23 @@
       "message": "Shouldn\u0027t `third_party/blink/public/devtools_protocol/browser_protocol.pdl` have been updated in the Chromium repository first and then imported in the DevTools one? As is, attempting to re-import changes from Chromium into DevTools undoes the changes here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4335680\n\nShould this be reverted?",
       "revId": "a8e792068157be249a2e0bd27071b980246e5393",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79f0d63_05e5b1ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-14T15:27:27Z",
+      "side": 1,
+      "message": "I think we need to revert this change. I don\u0027t see the browser_protocol.pdl changes upstream in Chromium. And the git history also doesn\u0027t show any revert, which means the changes were *introduced* with this CL and really rolled from Chromium.\n\nThis is currently causing issues when we try rolling DevTools into Chromium.",
+      "revId": "a8e792068157be249a2e0bd27071b980246e5393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
