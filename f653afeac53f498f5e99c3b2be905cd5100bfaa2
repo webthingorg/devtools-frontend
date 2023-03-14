@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "687363f4_4e5171c1",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-14T07:19:16Z",
+      "side": 1,
+      "message": "Could you please add a comment that explains how the re-entry happens? Is it because selectTab below will try to show the canonical file?",
+      "range": {
+        "startLine": 303,
+        "startChar": 11,
+        "endLine": 303,
+        "endChar": 24
+      },
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a937ff3e_30f7cada",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-14T07:19:16Z",
+      "side": 1,
+      "message": "This would also deserve some comment. Is this handling the case when currentView shows the canonical source code?",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 105
+      },
+      "revId": "f653afeac53f498f5e99c3b2be905cd5100bfaa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
