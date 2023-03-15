@@ -61,6 +61,7 @@ describe('The Memory Panel', async function() {
     assert.strictEqual(heapSnapShots.length, 2);
   });
 
+  // Flakey on parallel
   it('Shows a DOM node and its JS wrapper as a single node', async () => {
     await goToResource('memory/detached-node.html');
     await navigateToMemoryTab();
