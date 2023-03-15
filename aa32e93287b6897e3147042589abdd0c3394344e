@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "aa32e93287b6897e3147042589abdd0c3394344e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c92a0b_8e45fa64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-15T09:29:51Z",
+      "side": 1,
+      "message": "Nice clean up!!",
+      "revId": "aa32e93287b6897e3147042589abdd0c3394344e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f14ca432_fc3fd610",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-15T09:29:51Z",
+      "side": 1,
+      "message": "optional nit: given that this event is added to the `HTMLElementEventMap` shouldn\u0027t we be able to type it as `TraceParseProgressEvent`and omit the casting below. Also should we include `ModelUpdateEvent` too?",
+      "range": {
+        "startLine": 102,
+        "startChar": 34,
+        "endLine": 102,
+        "endChar": 39
+      },
+      "revId": "aa32e93287b6897e3147042589abdd0c3394344e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
