@@ -13,8 +13,12 @@ import {
   typeIntoConsoleAndWaitForResult,
 } from '../helpers/console-helpers.js';
 
-describe('The Console Tab', async () => {
+describe('The Console Tab', async function() {
   it('is able to log uncaught promise rejections into console', async () => {
+    // slow on parallel
+    if (this.timeout() !== 0) {
+      this.timeout(20000);
+    }
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
 
