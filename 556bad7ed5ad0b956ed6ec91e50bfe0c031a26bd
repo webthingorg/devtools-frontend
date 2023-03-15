@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f87f9c38_3fa1f2a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-15T13:22:13Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "556bad7ed5ad0b956ed6ec91e50bfe0c031a26bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a252d8e2_96d5ebca",
+        "filename": "test/unittests/front_end/panels/animation/AnimationTimeline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-15T13:22:13Z",
+      "side": 1,
+      "message": "... out of scope ...",
+      "range": {
+        "startLine": 59,
+        "startChar": 27,
+        "endLine": 59,
+        "endChar": 36
+      },
+      "revId": "556bad7ed5ad0b956ed6ec91e50bfe0c031a26bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
