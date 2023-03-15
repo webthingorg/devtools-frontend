@@ -232,6 +232,10 @@ describe('The Sources Tab', async function() {
 
   it('can hit a breakpoint in an inline script with sourceURL comment on the main thread on a fresh DevTools',
      async () => {
+       // slow on parallel
+       if (this.timeout() !== 0) {
+         this.timeout(20000);
+       }
        await enableExperiment('instrumentationBreakpoints');
        const {frontend, target} = getBrowserAndPages();
 

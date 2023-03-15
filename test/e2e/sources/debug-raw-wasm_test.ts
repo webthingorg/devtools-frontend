@@ -272,6 +272,10 @@ describe('Sources Tab', async function() {
   });
 
   it('is able to step with state in multi-threaded code in main thread', async () => {
+    // slow on parallel
+    if (this.timeout() !== 0) {
+      this.timeout(20000);
+    }
     await enableExperiment('instrumentationBreakpoints');
     const {target, frontend} = getBrowserAndPages();
     // enableExperiment() reloads the devtools page, so we need to reinstall the listener on the new window.
@@ -386,6 +390,10 @@ describe('Sources Tab', async function() {
   });
 
   it('is able to step with state in multi-threaded code in worker thread', async () => {
+    // slow on parallel
+    if (this.timeout() !== 0) {
+      this.timeout(20000);
+    }
     await enableExperiment('instrumentationBreakpoints');
     const {target, frontend} = getBrowserAndPages();
     // enableExperiment() reloads the devtools page, so we need to reinstall the listener on the new window.
