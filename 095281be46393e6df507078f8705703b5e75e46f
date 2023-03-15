@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c0e362_339d06aa",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-03-15T16:52:44Z",
+      "side": 1,
+      "message": "I believe the consume call is already wrapped inside the check for when the `event.key \u003d\u003d\u003d \u0027 \u0027`",
+      "parentUuid": "ff0f9c05_907ab5c3",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8e738a7_e3d6ba17",
