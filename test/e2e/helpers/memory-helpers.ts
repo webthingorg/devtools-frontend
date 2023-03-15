@@ -141,7 +141,6 @@ export async function waitForSearchResultNumber(results: number) {
 export async function findSearchResult(searchResult: string, pollIntrerval: number = 500) {
   const match = await waitFor('#profile-views table.data');
   await waitForFunction(async () => {
-    await click('[aria-label="Search next"]');
     const result = Promise.race([
       waitForElementWithTextContent(searchResult, match),
       new Promise(resolve => {
