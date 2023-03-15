@@ -16,6 +16,74 @@
       "message": "@changhaohan@chromium.org PTAL thanks.",
       "revId": "095281be46393e6df507078f8705703b5e75e46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "382e0ab2_f560e7a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-15T10:13:32Z",
+      "side": 1,
+      "message": "Overall LGTM. Let\u0027s fix ths remaining points and this should be good to go.",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df862a40_8aab8ae8",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-15T10:13:32Z",
+      "side": 1,
+      "message": "nit: let\u0027s treat `BreakPoint` as one work and use `Breakpoint` instead.",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0f9c05_907ab5c3",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-15T10:13:32Z",
+      "side": 1,
+      "message": "Do we always want to consume this event inside `handleSpaceKeyEventOnBreakPoint`? I would suppose that we only consume the event when the `event.key \u003d\u003d\u003d \u0027 \u0027`.",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e738a7_e3d6ba17",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-15T10:13:32Z",
+      "side": 1,
+      "message": "We are checking `if (event.key \u003d\u003d\u003d \u0027 \u0027)` both here and inside `handleSpaceKeyEventOnBreakPoint)`. I would suggest moving this check into `handleSpaceKeyEventOnBreakPoint` and remove this `if` check here, and subsequently, the other three call sites as well.",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
