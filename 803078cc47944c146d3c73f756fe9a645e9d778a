@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6725d8c7_f27df3df",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-15T11:46:27Z",
+      "side": 1,
+      "message": "This is redundant this time :thinking_face:\n\nFixed, but I feel the formatter is aggressible a little...",
+      "parentUuid": "3423249c_eec03e46",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 110
+      },
+      "revId": "803078cc47944c146d3c73f756fe9a645e9d778a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70444d07_1e2fa45f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-14T07:52:21Z",
       "side": 1,
       "message": "Either use descriptive name or destructuring like `{key}: SDK.PreloadingModel.PreloadingAttempt`\n\nAlso throughout the CL",
+      "range": {
+        "startLine": 58,
+        "startChar": 16,
+        "endLine": 58,
+        "endChar": 17
+      },
+      "revId": "803078cc47944c146d3c73f756fe9a645e9d778a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "462ebb72_68ccf043",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-15T11:46:27Z",
+      "side": 1,
+      "message": "Thanks. I didn\u0027t yet use to this pattern.",
+      "parentUuid": "70444d07_1e2fa45f",
       "range": {
         "startLine": 58,
         "startChar": 16,
