@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d67f13_579ef8d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-15T09:55:00Z",
+      "side": 1,
+      "message": "You are correct. I checked the application panel and the menu is very inconsistent e.g. in Greek. \"Manifest\" is translated but \"Cookie\" or \"IndexedDB\" is not.\n\nI remember the guidance being that if it\u0027s not 100% a strong brand name to give translators the option to translate. This is especially true in this case, since \"tokens\" is a plural so we can\u0027t lock the term as translators might some leeway how to structure sentences.\n\nI\u0027ll remove the \u0027doesn\u0027t need to be translated\u0027 and will use an UIString consistently everywhere.",
+      "parentUuid": "5bc72572_ff22ba43",
+      "revId": "7ec164945566c3a6d96bdc248ef11070d86e9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2703ed8b_fc0fd62b",
