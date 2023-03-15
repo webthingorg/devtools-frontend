@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$, platform, waitForElementWithTextContent} from '../../shared/helper.js';
+import {$, platform, waitForElementWithTextContent, waitForNoElementsWithTextContent} from '../../shared/helper.js';
 import {
   $$,
   click,
@@ -141,11 +141,14 @@ export async function waitForSearchResultNumber(results: number) {
 export async function findSearchResult(searchResult: string, pollIntrerval: number = 500) {
   const match = await waitFor('#profile-views table.data');
   await waitForFunction(async () => {
-    await click('[aria-label="Search next"]');
-    const result = Promise.race([
+    const result = await Promise.race([
       waitForElementWithTextContent(searchResult, match),
       new Promise(resolve => {
-        setTimeout(resolve, pollIntrerval, false);
+        setTimeout(resolve, pollIntrerval, (async () => {
+                     await click('[aria-label="Search next"]');
+                     await waitForNoElementsWithTextContent(searchResult, match);
+                     return false;
+                   })());
       }),
     ]);
     return result;
