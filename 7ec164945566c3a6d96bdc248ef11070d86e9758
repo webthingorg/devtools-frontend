@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc72572_ff22ba43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-15T09:39:46Z",
+      "side": 1,
+      "message": "The current state feels inconsistent to me: either \u0027Private State Tokens\u0027 should be untranslatable and locked/backticked everywhere, or it is translatable and should be translated everywhere.",
+      "revId": "7ec164945566c3a6d96bdc248ef11070d86e9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2703ed8b_fc0fd62b",
+        "filename": "front_end/panels/application/components/TrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-15T09:39:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be either a UIString or `i18n.i18n.lockedString(\u0027Private State Tokens\u0027)`?",
+      "range": {
+        "startLine": 112,
+        "startChar": 30,
+        "endLine": 112,
+        "endChar": 50
+      },
+      "revId": "7ec164945566c3a6d96bdc248ef11070d86e9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd8f8ad_650b4e29",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-15T09:39:46Z",
+      "side": 1,
+      "message": "If this is the case, why do we need a localizable string for it then?",
+      "range": {
+        "startLine": 113,
+        "startChar": 93,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "7ec164945566c3a6d96bdc248ef11070d86e9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
