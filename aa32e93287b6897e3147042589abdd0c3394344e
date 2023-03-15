@@ -56,6 +56,30 @@
       },
       "revId": "aa32e93287b6897e3147042589abdd0c3394344e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe1d15d8_a3d0cde0",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-15T09:45:48Z",
+      "side": 1,
+      "message": "Annoyingly no, because it knows that the Processor is an EventTarget, not an HTMLElement, and the TS definition for addEventListener in that situation does not understand when we add events to the global object. I will update it with ModelUpdateEvent too though.",
+      "parentUuid": "f14ca432_fc3fd610",
+      "range": {
+        "startLine": 102,
+        "startChar": 34,
+        "endLine": 102,
+        "endChar": 39
+      },
+      "revId": "aa32e93287b6897e3147042589abdd0c3394344e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
