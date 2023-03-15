@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c517d1_826d3694",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-03-15T16:54:13Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "df862a40_8aab8ae8",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff0f9c05_907ab5c3",
@@ -100,6 +118,24 @@
       "writtenOn": "2023-03-15T10:13:32Z",
       "side": 1,
       "message": "We are checking `if (event.key \u003d\u003d\u003d \u0027 \u0027)` both here and inside `handleSpaceKeyEventOnBreakPoint)`. I would suggest moving this check into `handleSpaceKeyEventOnBreakPoint` and remove this `if` check here, and subsequently, the other three call sites as well.",
+      "revId": "095281be46393e6df507078f8705703b5e75e46f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f9c286_76c1ee4b",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-03-15T16:54:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8e738a7_e3d6ba17",
       "revId": "095281be46393e6df507078f8705703b5e75e46f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
