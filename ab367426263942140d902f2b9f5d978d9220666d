@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35245498_b178b429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-15T04:50:58Z",
+      "side": 1,
+      "message": "lgtm for the code. Do we want DevRel or a Tech Writer to take a look at the descriptions?\n\nAlso note that we recently added mac as a try bot to CQ and we haven\u0027t figured out yet why it\u0027s flakier then the corresponding CI bot. So no need to investigate, the CL should be fine.",
+      "revId": "ab367426263942140d902f2b9f5d978d9220666d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
