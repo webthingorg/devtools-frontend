@@ -8340,9 +8340,12 @@ export namespace Network {
     reportOnlyReportingEndpoint?: string;
   }
 
+  export type ContentSecurityPolicyStatus = string;
+
   export interface SecurityIsolationStatus {
     coop?: CrossOriginOpenerPolicyStatus;
     coep?: CrossOriginEmbedderPolicyStatus;
+    csp?: ContentSecurityPolicyStatus;
   }
 
   /**

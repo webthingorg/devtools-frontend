@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "files": [
+    "package/dist/evaluator.js",
+    "package/dist/parser.js"
+  ]
+}
