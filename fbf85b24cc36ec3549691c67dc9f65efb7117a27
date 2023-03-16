@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e08c5c9b_794bd74e",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-16T06:34:39Z",
+      "side": 1,
+      "message": "I didn\u0027t get it completely: the code change looks like it always takes the chromium_dir version now. Are we using the same versions btw?",
+      "revId": "fbf85b24cc36ec3549691c67dc9f65efb7117a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
