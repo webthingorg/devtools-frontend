@@ -52,6 +52,24 @@
       "parentUuid": "8f1e580b_f869f3cf",
       "revId": "fbf85b24cc36ec3549691c67dc9f65efb7117a27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c66c17_75f489dd",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-16T06:48:18Z",
+      "side": 1,
+      "message": "ah, okay, never mind, got it.",
+      "parentUuid": "d8ce9c40_c50fa7ad",
+      "revId": "fbf85b24cc36ec3549691c67dc9f65efb7117a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
