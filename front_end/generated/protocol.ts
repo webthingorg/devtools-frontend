@@ -2888,6 +2888,10 @@ export namespace CacheStorage {
      */
     storageKey: string;
     /**
+     * Storage bucket of the cache.
+     */
+    storageBucketId?: number;
+    /**
      * The name of the cache.
      */
     cacheName: string;
@@ -2928,7 +2932,7 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -2936,6 +2940,10 @@ export namespace CacheStorage {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -5878,7 +5886,7 @@ export namespace IndexedDB {
 
   export interface ClearObjectStoreRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -5886,6 +5894,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     /**
      * Database name.
      */
@@ -5898,7 +5910,7 @@ export namespace IndexedDB {
 
   export interface DeleteDatabaseRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -5906,6 +5918,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     /**
      * Database name.
      */
@@ -5914,7 +5930,7 @@ export namespace IndexedDB {
 
   export interface DeleteObjectStoreEntriesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -5922,6 +5938,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     databaseName: string;
     objectStoreName: string;
     /**
@@ -5932,7 +5952,7 @@ export namespace IndexedDB {
 
   export interface RequestDataRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -5940,6 +5960,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     /**
      * Database name.
      */
@@ -5979,7 +6003,7 @@ export namespace IndexedDB {
 
   export interface GetMetadataRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -5987,6 +6011,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     /**
      * Database name.
      */
@@ -6012,7 +6040,7 @@ export namespace IndexedDB {
 
   export interface RequestDatabaseRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -6020,6 +6048,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
     /**
      * Database name.
      */
@@ -6035,7 +6067,7 @@ export namespace IndexedDB {
 
   export interface RequestDatabaseNamesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -6043,6 +6075,10 @@ export namespace IndexedDB {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucketInfo;
   }
 
   export interface RequestDatabaseNamesResponse extends ProtocolResponseWithError {
@@ -12885,6 +12921,7 @@ export namespace Storage {
     Cache_storage = 'cache_storage',
     Interest_groups = 'interest_groups',
     Shared_storage = 'shared_storage',
+    Storage_buckets = 'storage_buckets',
     All = 'all',
     Other = 'other',
   }
@@ -13063,6 +13100,27 @@ export namespace Storage {
      * SharedStorageAccessType.workletSet.
      */
     ignoreIfPresent?: boolean;
+  }
+
+  export const enum StorageBucketsDurability {
+    Relaxed = 'relaxed',
+    Strict = 'strict',
+  }
+
+  export interface StorageBucketInfo {
+    storageKey: SerializedStorageKey;
+    id: number;
+    name: string;
+    isDefault: boolean;
+    expiration: Network.TimeSinceEpoch;
+    quota: number;
+    persistent: boolean;
+    durability: StorageBucketsDurability;
+  }
+
+  export interface StorageBucketLocator {
+    storageKey: SerializedStorageKey;
+    id: number;
   }
 
   export interface GetStorageKeyForFrameRequest {
@@ -13298,6 +13356,24 @@ export namespace Storage {
     enable: boolean;
   }
 
+  export interface GetStorageBucketListRequest {
+    storageKey: string;
+  }
+
+  export interface GetStorageBucketListResponse extends ProtocolResponseWithError {
+    storageBuckets: StorageBucketInfo[];
+  }
+
+  export interface SetStorageBucketTrackingRequest {
+    storageKey: string;
+    enable: boolean;
+  }
+
+  export interface DeleteStorageBucketRequest {
+    storageKey: string;
+    bucketName: string;
+  }
+
   /**
    * A cache's contents have been modified.
    */
@@ -13310,6 +13386,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: number;
     /**
      * Name of cache in origin.
      */
@@ -13328,6 +13408,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: number;
   }
 
   /**
@@ -13342,6 +13426,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: number;
     /**
      * Database to update.
      */
@@ -13364,6 +13452,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: number;
   }
 
   /**
@@ -13402,6 +13494,14 @@ export namespace Storage {
      * presence/absence depends on `type`.
      */
     params: SharedStorageAccessParams;
+  }
+
+  export interface StorageBucketCreatedOrUpdatedEvent {
+    bucket: StorageBucketInfo;
+  }
+
+  export interface StorageBucketDeletedEvent {
+    bucketLocator: StorageBucketLocator;
   }
 }
 
