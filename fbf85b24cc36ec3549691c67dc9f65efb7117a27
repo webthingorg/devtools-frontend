@@ -16,6 +16,24 @@
       "message": "I didn\u0027t get it completely: the code change looks like it always takes the chromium_dir version now. Are we using the same versions btw?",
       "revId": "fbf85b24cc36ec3549691c67dc9f65efb7117a27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1e580b_f869f3cf",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-16T06:41:36Z",
+      "side": 1,
+      "message": "Yes, we\u0027ll always use the node binary from the Chromium directory since it\u0027s guaranteed to be there. The node binary in the DevTools directory is only present for standalone checkouts.\n\nIIRC the binaries are updated separately but should be close enough in revision that it shouldn\u0027t matter in the end in case the version doesn\u0027t match perfectly.",
+      "parentUuid": "e08c5c9b_794bd74e",
+      "revId": "fbf85b24cc36ec3549691c67dc9f65efb7117a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
