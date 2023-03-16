@@ -50,6 +50,24 @@
       "message": "Hi Yang, the high contrast theme is a windows OS theme. More info here https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696.\n\nIf the issue is with linkText then let me figure out another way to get the correct theme color. \nThank you.",
       "revId": "d3fdcafe36df04a6e894a3cd2e6658210b2dad8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "263182bd_f6e80987",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-03-16T15:17:25Z",
+      "side": 1,
+      "message": "Hi. The problem is that linkText is a different color than --color-primary. This affects the regular theme as well and makes it inconsistent.",
+      "parentUuid": "1ac20caa_a32ffcbf",
+      "revId": "d3fdcafe36df04a6e894a3cd2e6658210b2dad8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
