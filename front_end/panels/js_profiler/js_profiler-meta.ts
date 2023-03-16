@@ -99,7 +99,6 @@ UI.ViewManager.registerViewExtension({
   title: i18nLazyString(UIStrings.performance),
   commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 66,
-  persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   hasToolbar: false,
   isPreviewFeature: true,
   async loadView() {
