@@ -3047,6 +3047,9 @@
   "panels/application/SharedStorageListTreeElement.ts | sharedStorage": {
     "message": "Shared storage"
   },
+  "panels/application/StorageBucketsTreeElement.ts | storageBuckets": {
+    "message": "Storage Buckets"
+  },
   "panels/application/StorageItemsView.ts | clearAll": {
     "message": "Clear all"
   },
@@ -4051,6 +4054,36 @@
   },
   "panels/application/components/StackTrace.ts | showSMoreFrames": {
     "message": "{n,plural, =1{Show # more frame}other{Show # more frames}}"
+  },
+  "panels/application/components/StorageBucketsView.ts | loading": {
+    "message": "Loading…"
+  },
+  "panels/application/components/StorageBucketsView.ts | storageKey": {
+    "message": "Storage Key"
+  },
+  "panels/application/components/StorageBucketsView.ts | persistent": {
+    "message": "Persistent"
+  },
+  "panels/application/components/StorageBucketsView.ts | durability": {
+    "message": "Durability"
+  },
+  "panels/application/components/StorageBucketsView.ts | quota": {
+    "message": "Quota"
+  },
+  "panels/application/components/StorageBucketsView.ts | expiration": {
+    "message": "Expiration"
+  },
+  "panels/application/components/StorageBucketsView.ts | deleteBucket": {
+    "message": "Delete bucket"
+  },
+  "panels/application/components/StorageBucketsView.ts | quotaNone": {
+    "message": "None"
+  },
+  "panels/application/components/StorageBucketsView.ts | expirationNone": {
+    "message": "None"
+  },
+  "panels/application/components/StorageBucketsView.ts | pleaseConfirmDeleteOfBucket": {
+    "message": "Please confirm delete of '{PH1}' bucket."
   },
   "panels/application/components/TrustTokensView.ts | allStoredTrustTokensAvailableIn": {
     "message": "All stored trust tokens available in this browser instance."

@@ -72,6 +72,7 @@ import {InterestGroupTreeElement} from './InterestGroupTreeElement.js';
 import {OpenedWindowDetailsView, WorkerDetailsView} from './OpenedWindowDetailsView.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
 import {ServiceWorkersView} from './ServiceWorkersView.js';
+import {StorageBucketsTreeParentElement} from './StorageBucketsTreeElement.js';
 
 import {SharedStorageListTreeElement} from './SharedStorageListTreeElement.js';
 import {
@@ -253,6 +254,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   trustTokensTreeElement: TrustTokensTreeElement;
   cacheStorageListTreeElement: ServiceWorkerCacheTreeElement;
   sharedStorageListTreeElement: SharedStorageListTreeElement;
+  storageBucketsTreeElement: StorageBucketsTreeParentElement|undefined;
   private backForwardCacheListTreeElement?: BackForwardCacheTreeElement;
   backgroundFetchTreeElement: BackgroundServiceTreeElement;
   backgroundSyncTreeElement: BackgroundServiceTreeElement;
@@ -363,6 +365,11 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.cacheStorageListTreeElement = new ServiceWorkerCacheTreeElement(panel);
     storageTreeElement.appendChild(this.cacheStorageListTreeElement);
 
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE)) {
+      this.storageBucketsTreeElement = new StorageBucketsTreeParentElement(panel);
+      storageTreeElement.appendChild(this.storageBucketsTreeElement);
+    }
+
     const backgroundServiceSectionTitle = i18nString(UIStrings.backgroundServices);
     const backgroundServiceTreeElement = this.addSidebarSection(backgroundServiceSectionTitle);
 
@@ -439,6 +446,11 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
         console.error(err);
       }),
       modelRemoved: (model: SharedStorageModel): void => this.sharedStorageModelRemoved(model),
+    });
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.StorageBucketsModel.StorageBucketsModel, {
+      modelAdded: (model: SDK.StorageBucketsModel.StorageBucketsModel): void => this.storageBucketsModelAdded(model),
+      modelRemoved: (model: SDK.StorageBucketsModel.StorageBucketsModel): void =>
+          this.storageBucketsModelRemoved(model),
     });
 
     this.sharedStorageTreeElementDispatcher =
@@ -595,6 +607,14 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     model.removeEventListener(SharedStorageModelEvents.SharedStorageAdded, this.sharedStorageAdded, this);
     model.removeEventListener(SharedStorageModelEvents.SharedStorageRemoved, this.sharedStorageRemoved, this);
     model.removeEventListener(SharedStorageModelEvents.SharedStorageAccess, this.sharedStorageAccess, this);
+  }
+
+  private storageBucketsModelAdded(model: SDK.StorageBucketsModel.StorageBucketsModel): void {
+    model.enable();
+  }
+
+  private storageBucketsModelRemoved(model: SDK.StorageBucketsModel.StorageBucketsModel): void {
+    this.storageBucketsTreeElement?.removeBucketsForModel(model);
   }
 
   private resetWithFrames(): void {
