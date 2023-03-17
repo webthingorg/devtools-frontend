@@ -343,6 +343,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   // Note that scopeTarget could be null, which will effectively prevent scoped
   // observes from getting any events.
   setScopeTarget(scopeTarget: Target|null): void {
+    console.log('setScopeTarget', scopeTarget);
     if (scopeTarget === this.#scopeTarget) {
       return;
     }
