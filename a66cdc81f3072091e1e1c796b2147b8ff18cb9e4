@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f069c98e_c48d4aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-17T08:07:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a66cdc81f3072091e1e1c796b2147b8ff18cb9e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dcfe9c7_498d5f58",
+        "filename": "test/unittests/front_end/panels/media/MainView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-17T08:07:09Z",
+      "side": 1,
+      "message": "Should this be \u0027does not react to...\u0027 here and in the other tests asserting \u0027not called\u0027?",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "a66cdc81f3072091e1e1c796b2147b8ff18cb9e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
