@@ -46,6 +46,7 @@ export class DevToolsLocale {
 
   static instance(opts: DevToolsLocaleCreationOptions = {create: false}): DevToolsLocale {
     if (!devToolsLocaleInstance && !opts.create) {
+      console.error((new Error()).stack);
       throw new Error('No LanguageSelector instance exists yet.');
     }
 
