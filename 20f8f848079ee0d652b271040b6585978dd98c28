@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49a29d5_30feb930",
+        "filename": "front_end/panels/profiler/ProfilesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-17T15:58:37Z",
+      "side": 1,
+      "message": "This will be the link for the blogpost",
+      "range": {
+        "startLine": 739,
+        "startChar": 13,
+        "endLine": 739,
+        "endChar": 71
+      },
+      "revId": "20f8f848079ee0d652b271040b6585978dd98c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
