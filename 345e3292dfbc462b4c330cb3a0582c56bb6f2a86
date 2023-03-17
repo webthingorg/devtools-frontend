@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d676cb5_0efee9bd",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-17T15:59:08Z",
+      "side": 1,
+      "message": "This will be the link for the blogpost",
+      "range": {
+        "startLine": 1150,
+        "startChar": 24,
+        "endLine": 1150,
+        "endChar": 82
+      },
+      "revId": "345e3292dfbc462b4c330cb3a0582c56bb6f2a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
