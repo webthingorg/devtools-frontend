@@ -748,6 +748,10 @@ export class ResourceTreeFrame {
     }
   }
 
+  isInScope(): boolean {
+    return TargetManager.instance().isInScope(this.#model);
+  }
+
   isSecureContext(): boolean {
     return this.#secureContextType !== null && this.#secureContextType.startsWith('Secure');
   }
