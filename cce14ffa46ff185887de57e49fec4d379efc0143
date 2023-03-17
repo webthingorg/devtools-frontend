@@ -74,6 +74,30 @@
       },
       "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53b946df_31e258c8",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-17T10:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ffa892a_a9fa5d64",
+      "range": {
+        "startLine": 408,
+        "startChar": 34,
+        "endLine": 408,
+        "endChar": 43
+      },
+      "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
