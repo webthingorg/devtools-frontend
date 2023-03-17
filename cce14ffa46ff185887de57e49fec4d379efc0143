@@ -16,6 +16,64 @@
       "message": "Hi Simon, can you take a look at this CL. I change this so I can add a button in JS Profiler to directly go to an exact experiment flag.\nLike this: https://imgur.com/a/SItwSnz\n\nThanks",
       "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe3657e_38690914",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-17T04:54:19Z",
+      "side": 1,
+      "message": "You could add the screenshot to the CL description :)",
+      "parentUuid": "56177237_d4f93770",
+      "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1ca6c8_4e8d5074",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-17T04:54:19Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffa892a_a9fa5d64",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-17T04:54:19Z",
+      "side": 1,
+      "message": "Since you unconditionally initialize `this.#inputElement` in the constructor, you can drop the `|undefined`.\n\nThis allows you to get rid of the optional chaining (`?`) and the `if` below.",
+      "range": {
+        "startLine": 408,
+        "startChar": 34,
+        "endLine": 408,
+        "endChar": 43
+      },
+      "revId": "cce14ffa46ff185887de57e49fec4d379efc0143",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
