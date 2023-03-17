@@ -412,6 +412,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.sidebarTree.contentElement.addEventListener('mousemove', this.onmousemove.bind(this), false);
     this.sidebarTree.contentElement.addEventListener('mouseleave', this.onmouseleave.bind(this), false);
 
+    // HERE
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this.frameNavigated,
@@ -655,6 +656,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.interestGroupTreeElement.clearEvents();
   }
 
+  // HERE
   private frameNavigated(event: Common.EventTarget.EventTargetEvent<SDK.ResourceTreeModel.ResourceTreeFrame>): void {
     const frame = event.data;
 
@@ -1762,17 +1764,27 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
         SDK.FrameManager.Events.ResourceAdded, event => this.resourceAdded(event.data.resource), this);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetCreated, this.windowOpened,
-        this);
+        SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetCreated, this.windowOpened, this,
+        {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetInfoChanged, this.windowChanged,
-        this);
+        this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ChildTargetManager.ChildTargetManager, SDK.ChildTargetManager.Events.TargetDestroyed, this.windowDestroyed,
-        this);
+        this, {scoped: true});
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.PrimaryPageChanged,
+        this.#primaryPageChanged, this);
 
-    SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, this.#flavorChanged, this);
 
+    SDK.TargetManager.TargetManager.instance().observeTargets(this, {scoped: true});
+
+    this.#rebuild();
+  }
+
+  #rebuild(): void {
+    const frameManager = SDK.FrameManager.FrameManager.instance();
     for (const frame of frameManager.getAllFrames()) {
       if (!this.treeElementForFrameId.get(frame.id)) {
         this.addFrameAndParents(frame);
@@ -1782,6 +1794,13 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
         for (const targetInfo of childTargetManager.targetInfos()) {
           this.windowOpened({data: targetInfo});
         }
+      }
+    }
+
+    const targetManager = SDK.TargetManager.TargetManager.instance();
+    for (const target of targetManager.targets()) {
+      if (targetManager.isInScope(target)) {
+        this.targetAdded(target);
       }
     }
   }
@@ -1851,6 +1870,9 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   }
 
   private frameAdded(frame: SDK.ResourceTreeModel.ResourceTreeFrame): void {
+    if (!frame.isInScope()) {
+      return;
+    }
     const parentFrame = frame.parentFrame();
     const parentTreeElement = parentFrame ? this.treeElementForFrameId.get(parentFrame.id) : this.treeElement;
     if (!parentTreeElement) {
@@ -1891,14 +1913,30 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   }
 
   private frameNavigated(frame: SDK.ResourceTreeModel.ResourceTreeFrame): void {
+    if (!frame.isInScope()) {
+      return;
+    }
     const frameTreeElement = this.treeElementForFrameId.get(frame.id);
     if (frameTreeElement) {
       void frameTreeElement.frameNavigated(frame);
     }
   }
 
+  #primaryPageChanged(
+      event: Common.EventTarget.EventTargetEvent<
+          {frame: SDK.ResourceTreeModel.ResourceTreeFrame, type: SDK.ResourceTreeModel.PrimaryPageChangeType}>): void {
+    if (event.data.type === SDK.ResourceTreeModel.PrimaryPageChangeType.Activation) {
+      this.#rebuild();
+    }
+  }
+
+  #flavorChanged(): void {
+    this.reset();
+    this.#rebuild();
+  }
+
   private resourceAdded(resource: SDK.Resource.Resource): void {
-    if (!resource.frameId) {
+    if (!resource.frameId || !resource.frame()?.isInScope()) {
       return;
     }
     const frameTreeElement = this.treeElementForFrameId.get(resource.frameId);
