@@ -2,15 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Common from '../../../../../front_end/core/common/common.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Common from '../../../../../front_end/core/common/common.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as Root from '../../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as Application from '../../../../../front_end/panels/application/application.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {createTarget, stubNoopSettings} from '../../helpers/EnvironmentHelpers.js';
-import {describeWithMockConnection} from '../../helpers/MockConnection.js';
+import {describeWithMockConnection, setMockConnectionResponseHandler} from '../../helpers/MockConnection.js';
 
 const {assert} = chai;
 
@@ -46,7 +48,7 @@ class SharedStorageTreeElementListener {
   }
 }
 
-describeWithMockConnection('ApplicationPanelSidebar', () => {
+describeWithMockConnection.only('ApplicationPanelSidebar', () => {
   const tests = (targetFactory: () => SDK.Target.Target) => {
     let target: SDK.Target.Target;
 
@@ -105,10 +107,11 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
       stubNoopSettings();
       target = targetFactory();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
     });
 
     it('shows cookies for all frames', async () => {
-      sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
+      SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
       Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
       const sidebar = await Application.ResourcesPanel.ResourcesPanel.showAndGetSidebar();
       const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
@@ -139,8 +142,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
     });
 
     it('shows shared storages and events for origins using shared storage', async () => {
-      sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
-
+      SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
       const securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
       assertNotNullOrUndefined(securityOriginManager);
       sinon.stub(securityOriginManager, 'securityOrigins').returns([
@@ -182,6 +184,92 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
 
       assert.deepEqual(sidebar.sharedStorageListTreeElement.view.getEventsForTesting(), EVENTS);
     });
+
+    function parseEvent(eventString: string): {
+      modelClass: new (arg1: SDK.Target.Target) => SDK.SDKModel.SDKModel<unknown>,
+      event: Common.EventTarget.EventTargetEvent<unknown>,
+    } {
+      const components = eventString.split('.');
+      assert.strictEqual(components.length, 4);
+      assert.strictEqual(components[0], 'Application');
+      // @ts-ignore
+      const module = Application[components[0]];
+      assertNotNullOrUndefined(module);
+      const modelClass = module[components[1]];
+      assertNotNullOrUndefined(modelClass);
+      const events = module[components[2]];
+      assertNotNullOrUndefined(events);
+      const event = events[components[3]];
+      assertNotNullOrUndefined(event);
+      return {modelClass, event};
+    }
+
+    function parseExpectedCall(
+        expectedCall: string, sidebar: Application.ApplicationPanelSidebar.ApplicationPanelSidebar): sinon.SinonSpy {
+      const components = expectedCall.split('.');
+      assert.strictEqual(components.length, 2);
+      // @ts-ignore
+      const object = sidebar[components[0]];
+      assertNotNullOrUndefined(object);
+      return sinon.spy(object, components[1]);
+    }
+
+    const testUiUpdate =
+        (event: any,       //Common.EventTarget.EventTargetEvent<unknown>,
+         modelClass: any,  //new (arg1: SDK.Target.Target) => SDK.SDKModel.SDKModel<unknown>
+         expectedCallString: string, inScope: boolean) => async () => {
+          setMockConnectionResponseHandler('Storage.getSharedStorageEntries', () => ({}));
+          setMockConnectionResponseHandler('Storage.setSharedStorageTracking', () => ({}));
+          if (inScope) {
+            SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
+          }
+          Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+          const sidebar = await Application.ResourcesPanel.ResourcesPanel.showAndGetSidebar();
+          // const {event, modelClass} = parseEvent(eventString);
+          const expectedCall = parseExpectedCall(expectedCallString, sidebar);
+          const model = target.model(modelClass);
+          assertNotNullOrUndefined(model);
+          // @ts-ignore
+          model.dispatchEventToListeners(event, {addEventListener: () => {}});
+          await new Promise(resolve => setTimeout(resolve, 0));
+          assert.strictEqual(expectedCall.called, inScope);
+        };
+
+    it('adds database element on in scope event',
+       testUiUpdate(
+           Application.DatabaseModel.Events.DatabaseAdded, Application.DatabaseModel.DatabaseModel,
+           'databasesListTreeElement.appendChild', true));
+    it('adds database element on out of scope event',
+       testUiUpdate(
+           Application.DatabaseModel.Events.DatabaseAdded, Application.DatabaseModel.DatabaseModel,
+           'databasesListTreeElement.appendChild', false));
+    it('adds interest group event on in scope event',
+       testUiUpdate(
+           Application.InterestGroupStorageModel.Events.InterestGroupAccess,
+           Application.InterestGroupStorageModel.InterestGroupStorageModel, 'interestGroupTreeElement.addEvent', true));
+    it('adds interest group event on out of scope event',
+       testUiUpdate(
+           Application.InterestGroupStorageModel.Events.InterestGroupAccess,
+           Application.InterestGroupStorageModel.InterestGroupStorageModel, 'interestGroupTreeElement.addEvent',
+           false));
+    it('adds DOM storage on in scope event',
+       testUiUpdate(
+           Application.DOMStorageModel.Events.DOMStorageAdded, Application.DOMStorageModel.DOMStorageModel,
+           'sessionStorageListTreeElement.appendChild', true));
+    it('adds DOM storage on out of scope event',
+       testUiUpdate(
+           Application.DOMStorageModel.Events.DOMStorageAdded, Application.DOMStorageModel.DOMStorageModel,
+           'sessionStorageListTreeElement.appendChild', false));
+
+    it('adds shared storage on in scope event',
+       testUiUpdate(
+           Application.SharedStorageModel.Events.SharedStorageAdded, Application.SharedStorageModel.SharedStorageModel,
+           'sharedStorageListTreeElement.appendChild', true));
+    it('adds shared storage on in scope event',
+       testUiUpdate(
+           Application.SharedStorageModel.Events.SharedStorageAdded, Application.SharedStorageModel.SharedStorageModel,
+           'sharedStorageListTreeElement.appendChild', false));
+
   };
   describe('without tab target', () => tests(() => createTarget()));
   describe('with tab target', () => tests(() => {
@@ -189,4 +277,100 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
                                 createTarget({parentTarget: tabTarget, subtype: 'prerender'});
                                 return createTarget({parentTarget: tabTarget});
                               }));
+});
+
+describeWithMockConnection('IndexedDBTreeElement', () => {
+  beforeEach(() => {
+    stubNoopSettings();
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+  });
+
+  const addsElement = (inScope: boolean) => () => {
+    const target = createTarget();
+    const model = target.model(Application.IndexedDBModel.IndexedDBModel);
+    assertNotNullOrUndefined(model);
+    if (inScope) {
+      SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
+    }
+    const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+    const treeElement = new Application.ApplicationPanelSidebar.IndexedDBTreeElement(panel);
+
+    assert.strictEqual(treeElement.childCount(), 0);
+    model.dispatchEventToListeners(
+        Application.IndexedDBModel.Events.DatabaseAdded,
+        {databaseId: new Application.IndexedDBModel.DatabaseId('', ''), model});
+    assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
+  };
+  it('adds element on in scope event', addsElement(true));
+  it('does not add element on out of scope event', addsElement(false));
+});
+
+describeWithMockConnection('ResourcesSection', () => {
+  const tests = (inScope: boolean) => () => {
+    let target: SDK.Target.Target;
+    beforeEach(() => {
+      stubNoopSettings();
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      SDK.FrameManager.FrameManager.instance({forceNew: true});
+      target = createTarget();
+    });
+
+    const FRAME_ID = 'frame-id' as Protocol.Page.FrameId;
+
+    it('adds tree elements for a frame and resource', () => {
+      if (inScope) {
+        SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
+      }
+      const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+      const treeElement = new UI.TreeOutline.TreeElement();
+      new Application.ApplicationPanelSidebar.ResourcesSection(panel, treeElement);
+
+      const model = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(model);
+
+      assert.strictEqual(treeElement.childCount(), 0);
+      const frame = model.frameAttached(FRAME_ID, null);
+      assertNotNullOrUndefined(frame);
+      assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
+
+      const mimeType = 'text/html';
+      const url = 'http://example.com' as Platform.DevToolsPath.UrlString;
+      const resource = new SDK.Resource.Resource(
+          model, null, url, url, FRAME_ID, null, Common.ResourceType.ResourceType.fromMimeType(mimeType), mimeType,
+          null, null);
+      assert.strictEqual(treeElement.firstChild()?.childCount() ?? 0, 0);
+      model.dispatchEventToListeners(SDK.ResourceTreeModel.Events.ResourceAdded, resource);
+      assert.strictEqual(treeElement.firstChild()?.childCount() ?? 0, inScope ? 1 : 0);
+    });
+
+    it('picks up existing frames and resource', () => {
+      const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+      const treeElement = new UI.TreeOutline.TreeElement();
+      new Application.ApplicationPanelSidebar.ResourcesSection(panel, treeElement);
+
+      const model = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      assertNotNullOrUndefined(model);
+
+      const frame = model.frameAttached(FRAME_ID, null);
+      assertNotNullOrUndefined(frame);
+
+      const mimeType = 'text/html';
+      const url = 'http://example.com' as Platform.DevToolsPath.UrlString;
+      const resource = new SDK.Resource.Resource(
+          model, null, url, url, FRAME_ID, null, Common.ResourceType.ResourceType.fromMimeType(mimeType), mimeType,
+          null, null);
+      assert.strictEqual(treeElement.firstChild()?.childCount() ?? 0, 0);
+      frame.addResource(resource);
+
+      assert.strictEqual(treeElement.childCount(), 0);
+      if (inScope) {
+        SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
+      }
+      assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
+      assert.strictEqual(treeElement.firstChild()?.childCount() ?? 0, inScope ? 1 : 0);
+    });
+  };
+
+  describe('in scope', tests(true));
+  describe('out of scope', tests(false));
 });
