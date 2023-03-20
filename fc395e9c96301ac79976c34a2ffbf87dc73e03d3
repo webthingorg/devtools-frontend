@@ -51,6 +51,24 @@
       "parentUuid": "848dda9d_6c756f98",
       "revId": "fc395e9c96301ac79976c34a2ffbf87dc73e03d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c0823b4_044f971f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T09:59:54Z",
+      "side": 1,
+      "message": "I think if TS compiles the decorators away, we would be OK (e.g. https://github.com/evanw/esbuild/issues/104#issuecomment-1025061506). But I guess our current config has them left in and not compiled away?\n\nI think if we land this and it has features that ESBuild cannot support (satisfies, and maybe decorators), we should probably have lint rules or config to ban those features.",
+      "parentUuid": "364be71a_7d3d9a8b",
+      "revId": "fc395e9c96301ac79976c34a2ffbf87dc73e03d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
