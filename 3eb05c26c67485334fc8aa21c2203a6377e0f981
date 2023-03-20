@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e64f5d0_6c7c6c77",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-20T10:10:07Z",
+      "side": 1,
+      "message": "Hmm... I feel inlining this makes code complex and it is not ignored. I prefer combining components of single responsibilities. Let me merge it untouched here and update it if consistency become an issue.",
+      "parentUuid": "76723721_0d164932",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 111
+      },
+      "revId": "3eb05c26c67485334fc8aa21c2203a6377e0f981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7644332_efedf46b",
         "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-20T06:10:55Z",
       "side": 1,
       "message": "Could you use createTarget from front_end/helpers/EnvironmentHelpers.ts instead?\nThere\u0027s a fair amount of non-trivial logic in the target setup and I\u0027d rather not have multiple instances of it.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 95
+      },
+      "revId": "3eb05c26c67485334fc8aa21c2203a6377e0f981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23fdf98b_91bedc37",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-20T10:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7644332_efedf46b",
       "range": {
         "startLine": 204,
         "startChar": 0,
