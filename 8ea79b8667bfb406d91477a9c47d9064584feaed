@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aecc0f2f_8fc56912",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T14:13:40Z",
+      "side": 1,
+      "message": "nit: it might be nice to have a comment next to each of these saying what code triggers them. I think most are obvious, but the timestamp one is less so, and it would help an engineer who maybe is not as familiar with web APIs get started.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57329c1a_1b0ab8b7",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T14:13:40Z",
+      "side": 1,
+      "message": "nit: might be worth a comment explaining why and when this field is used.",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 42
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1859467c_bbf5c6c2",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T14:13:40Z",
+      "side": 1,
+      "message": "do we need any form of helper now to get the ID for an event, when it might have id and or id2? Is it just console events currently that use id2?",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 729,
+        "endChar": 23
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f6905f_4fa50628",
+        "filename": "test/interactions/goldens/linux/performance/timings_track.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T14:13:40Z",
+      "side": 1,
+      "message": "is there a reason this has changed so much?\n\nedit: ah, did we change the trace file for some reason?",
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
