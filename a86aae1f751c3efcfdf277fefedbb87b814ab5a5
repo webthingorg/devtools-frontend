@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39bc611a_7ee4387d",
+        "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-03-20T13:11:34Z",
+      "side": 1,
+      "message": "Drive-by: we could simplify this a bit by using `last.at(-1)`. Same for the line above",
+      "range": {
+        "startLine": 31,
+        "startChar": 85,
+        "endLine": 31,
+        "endChar": 106
+      },
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f0b0d21_f08b9d67",
         "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
         "patchSetId": 1
