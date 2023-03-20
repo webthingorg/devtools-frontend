@@ -65,10 +65,6 @@ const UIStrings = {
    */
   userInteractions: 'Interactions',
   /**
-   *@description Title of the Console tool
-   */
-  console: 'Console',
-  /**
    *@description Text in Timeline Flame Chart Data Provider of the Performance panel
    *@example {example.com} PH1
    */
@@ -180,7 +176,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   private minimumBoundaryInternal: number;
   private timeSpan: number;
-  private readonly consoleColorGenerator: Common.Color.Generator;
   private readonly headerLevel1: PerfUI.FlameChart.GroupStyle;
   private readonly headerLevel2: PerfUI.FlameChart.GroupStyle;
   private readonly staticHeader: PerfUI.FlameChart.GroupStyle;
@@ -219,13 +214,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.minimumBoundaryInternal = 0;
     this.timeSpan = 0;
 
-    this.consoleColorGenerator = new Common.Color.Generator(
-        {
-          min: 30,
-          max: 55,
-          count: undefined,
-        },
-        {min: 70, max: 100, count: 6}, 50, 0.7);
     this.headerLevel1 = this.buildGroupStyle({shareHeaderLine: false});
     this.headerLevel2 = this.buildGroupStyle({padding: 2, nestingLevel: 1, collapsible: false});
     this.staticHeader = this.buildGroupStyle({collapsible: false});
@@ -499,20 +487,18 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           return 0;
         case TimelineModel.TimelineModel.TrackType.UserInteractions:
           return 2;
-        case TimelineModel.TimelineModel.TrackType.Console:
-          return 3;
         case TimelineModel.TimelineModel.TrackType.Experience:
-          return 4;
+          return 3;
         case TimelineModel.TimelineModel.TrackType.MainThread:
-          return track.forMainFrame ? 5 : 6;
+          return track.forMainFrame ? 4 : 5;
         case TimelineModel.TimelineModel.TrackType.Worker:
-          return 7;
+          return 6;
         case TimelineModel.TimelineModel.TrackType.Raster:
-          return 8;
+          return 7;
         case TimelineModel.TimelineModel.TrackType.GPU:
-          return 9;
+          return 8;
         case TimelineModel.TimelineModel.TrackType.Other:
-          return 10;
+          return 9;
         default:
           return -1;
       }
@@ -563,13 +549,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.appendAsyncEventsGroup(
             track, i18nString(UIStrings.animation), track.asyncEvents, this.animationsHeader, eventEntryType,
             false /* selectable */, expanded);
-        break;
-      }
-
-      case TimelineModel.TimelineModel.TrackType.Console: {
-        this.appendAsyncEventsGroup(
-            track, i18nString(UIStrings.console), track.asyncEvents, this.headerLevel1, eventEntryType,
-            true /* selectable */, expanded);
         break;
       }
 
@@ -1017,12 +996,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       }
       if (!TraceEngine.Types.TraceEvents.isAsyncPhase(event.phase) && this.colorForEvent) {
         return this.colorForEvent(event);
-      }
-      if (this.legacyTimelineModel.isEventTimingInteractionEvent(event)) {
-        return this.consoleColorGenerator.colorForID(event.args.data.type + ':' + event.args.data.interactionId);
-      }
-      if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
-        return this.consoleColorGenerator.colorForID(event.name);
       }
       const category = TimelineUIUtils.eventStyle(event).category;
       return patchColorAndCache(this.asyncColorByCategory, category, () => category.color);
