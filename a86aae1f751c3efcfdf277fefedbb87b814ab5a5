@@ -16,6 +16,40 @@
       "message": "Could you take a look, please?\n\nThis aims at a minimal fix, the whole pretty printing machinery is somewhat ad-hoc.",
       "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f4d53cf_6ec7745b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-03-20T13:09:55Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0b0d21_f08b9d67",
+        "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-03-20T13:09:55Z",
+      "side": 1,
+      "message": "I noticed numbers are included, suggesting we don’t *just* care about IdentifierStart characters. Do we actually mean to match all IdentifierPart characters? In that case we could use [$_\\u200C\\u200D\\p{ID_Continue}].",
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
