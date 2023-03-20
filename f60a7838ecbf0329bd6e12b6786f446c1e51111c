@@ -22,6 +22,30 @@
       },
       "revId": "f60a7838ecbf0329bd6e12b6786f446c1e51111c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a98f217_4d8a2963",
+        "filename": "front_end/panels/js_profiler/js_profiler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-20T10:02:38Z",
+      "side": 0,
+      "message": "Done. I originally thought about making Performance panel default visible. But yes it should be closable. So i reverted this line.",
+      "parentUuid": "c18921e6_b15afae7",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 56
+      },
+      "revId": "f60a7838ecbf0329bd6e12b6786f446c1e51111c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
