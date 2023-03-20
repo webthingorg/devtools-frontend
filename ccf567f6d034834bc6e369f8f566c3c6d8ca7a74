@@ -16,6 +16,23 @@
       "message": "Could you take a look please?",
       "revId": "ccf567f6d034834bc6e369f8f566c3c6d8ca7a74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5870a616_75ea3511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-20T07:15:46Z",
+      "side": 1,
+      "message": "lgtm % making the setting synced as discussed offline",
+      "revId": "ccf567f6d034834bc6e369f8f566c3c6d8ca7a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
