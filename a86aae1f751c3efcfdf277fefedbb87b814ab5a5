@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7002721b_61a00f2b",
+        "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-20T14:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39bc611a_7ee4387d",
+      "range": {
+        "startLine": 31,
+        "startChar": 85,
+        "endLine": 31,
+        "endChar": 106
+      },
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f0b0d21_f08b9d67",
@@ -89,6 +113,24 @@
       "side": 1,
       "message": "Or rather\n\n    [$\\u200C\\u200D\\p{ID_Continue}]\n\nsince `_` is already part of \\p{ID_Continue}",
       "parentUuid": "8f0b0d21_f08b9d67",
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "573ffed7_89c67dfb",
+        "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-20T14:46:47Z",
+      "side": 1,
+      "message": "I am taking your suggestion. The intention behind the code seems to be complicated. The regexp should match for identifiers and numbers (as illustrated by the tests), it should not match operators, parens and such. It is unclear to me if it should or should not match string literals, so I am not changing that behavior.",
+      "parentUuid": "fcc210b9_a8cd9655",
       "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
