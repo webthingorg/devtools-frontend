@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5183b999_394f3b13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-20T07:20:52Z",
+      "side": 1,
+      "message": "lgtm, but the CL also needs to update an e2e test where we click an element based on one of the labels.\n\nThe line is here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/application/cookies_test.ts;l\u003d119;drc\u003dd71c54870f8ed4f63a5577ac24f006916f8591a8",
+      "revId": "95ef244d3bbb9f82f3badbef7ab27e8d29fad733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
