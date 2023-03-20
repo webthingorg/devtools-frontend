@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84d7b7e5_73e4a6a3",
+        "filename": "front_end/panels/timeline/components/getMetricsInPage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T17:12:21Z",
+      "side": 1,
+      "message": "@Paul this is what is currently broken",
+      "revId": "27050f34371b595d7d479eb3eb1030efc7f2eabc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
