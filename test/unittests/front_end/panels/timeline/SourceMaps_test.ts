@@ -11,7 +11,6 @@ import * as Timeline from '../../../../../front_end/panels/timeline/timeline.js'
 import {TestPlugin} from '../../helpers/LanguagePluginHelpers.js';
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
-import * as Root from '../../../../../front_end/core/root/root.js';
 import * as Console from '../../../../../front_end/panels/console/console.js';
 
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
@@ -188,7 +187,6 @@ describeWithMockConnection('Name resolving in the Performance panel', () => {
     const cpuProfiles = performanceModel.timelineModel().cpuProfiles();
     const nodes = cpuProfiles[0].nodes();
 
-    Root.Runtime.experiments.setEnabled('wasmDWARFDebugging', true);
     const pluginManager =
         Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().initPluginManagerForTest();
     assertNotNullOrUndefined(pluginManager);

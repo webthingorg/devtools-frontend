@@ -5,7 +5,6 @@
 import * as Common from '../../../../../../front_end/core/common/common.js';
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../../../front_end/core/platform/platform.js';
-import * as Root from '../../../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../../../front_end/models/bindings/bindings.js';
@@ -256,7 +255,6 @@ describeWithMockConnection('TextEditor autocompletion', () => {
     const targetManager = SDK.TargetManager.TargetManager.instance();
     const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
 
-    Root.Runtime.experiments.setEnabled('wasmDWARFDebugging', true);
     const pluginManager = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding
                               .instance({forceNew: true, targetManager, resourceMapping})
                               .initPluginManagerForTest();
