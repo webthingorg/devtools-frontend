@@ -16,6 +16,23 @@
       "message": "PTAL\n\nAt the end of the file list is also a change to `Color_test.ts` (unit test). I didn\u0027t see an obvious fix after 5 min looking so I\u0027m ignoring the error for now. Somehow TS is no longer able to correctly infer the function signature that sinon is stubbing. Might be fixed by a sinon update later down the line hopefully.",
       "revId": "fc395e9c96301ac79976c34a2ffbf87dc73e03d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103efe30_79648fbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T09:23:37Z",
+      "side": 1,
+      "message": "LGTM. In previous attempts to upgrade TSC we hit issues with esbuild upstream failing, however I think that was down to the satisfies keyword (we need an esbuild update to use it). So I think this should be OK.",
+      "revId": "fc395e9c96301ac79976c34a2ffbf87dc73e03d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
