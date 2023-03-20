@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94e86aa_ac7f61d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-03-20T08:46:33Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nThis CL is removing the old sidebar pane and also the breakpoint view experiment setting. PTAL!",
+      "revId": "4f9650aef257b497328868d36c723c9f16d1efad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
