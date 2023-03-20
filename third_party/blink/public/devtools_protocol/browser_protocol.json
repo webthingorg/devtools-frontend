@@ -12388,6 +12388,11 @@
                     ]
                 },
                 {
+                    "id": "ContentSecurityPolicyStatus",
+                    "experimental": true,
+                    "type": "string"
+                },
+                {
                     "id": "SecurityIsolationStatus",
                     "experimental": true,
                     "type": "object",
@@ -12401,6 +12406,11 @@
                             "name": "coep",
                             "optional": true,
                             "$ref": "CrossOriginEmbedderPolicyStatus"
+                        },
+                        {
+                            "name": "csp",
+                            "optional": true,
+                            "$ref": "ContentSecurityPolicyStatus"
                         }
                     ]
                 },
