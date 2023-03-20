@@ -93,6 +93,7 @@ describeWithMockConnection('BreakpointManager', () => {
     Bindings.IgnoreListManager.IgnoreListManager.instance({forceNew: true, debuggerWorkspaceBinding});
     backend = new MockProtocolBackend();
     target = createTarget();
+    SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
 
     // Wait for the resource tree model to load; otherwise, our uiSourceCodes could be asynchronously
     // invalidated during the test.
