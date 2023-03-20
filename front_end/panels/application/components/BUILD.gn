@@ -53,6 +53,7 @@ devtools_module("components") {
     "../../../core/root:bundle",
     "../../../core/sdk:bundle",
     "../../../models/bindings:bundle",
+    "../../../third_party/csp_evaluator:bundle",
     "../../../panels/network/forward:bundle",
     "../../../ui/components/adorners:bundle",
     "../../../ui/components/buttons:bundle",
