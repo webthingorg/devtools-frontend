@@ -80,6 +80,7 @@ export class UISourceCodeFrame extends
 
   constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode) {
     super(workingCopy);
+    const that = this;
     this.uiSourceCodeInternal = uiSourceCode;
 
     this.muteSourceCodeEvents = false;
@@ -104,10 +105,10 @@ export class UISourceCodeFrame extends
     this.initializeUISourceCode();
 
     async function workingCopy(): Promise<TextUtils.ContentProvider.DeferredContent> {
-      if (uiSourceCode.isDirty()) {
-        return {content: uiSourceCode.workingCopy(), isEncoded: false};
+      if (that.uiSourceCodeInternal.isDirty()) {
+        return {content: that.uiSourceCodeInternal.workingCopy(), isEncoded: false};
       }
-      return uiSourceCode.requestContent();
+      return that.uiSourceCodeInternal.requestContent();
     }
   }
 
@@ -163,7 +164,7 @@ export class UISourceCodeFrame extends
   setUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
     const loaded = uiSourceCode.contentLoaded() ? Promise.resolve() : uiSourceCode.requestContent();
     const startUISourceCode = this.uiSourceCodeInternal;
-    loaded.then(() => {
+    loaded.then(async () => {
       if (this.uiSourceCodeInternal !== startUISourceCode) {
         return;
       }
@@ -171,7 +172,7 @@ export class UISourceCodeFrame extends
       this.uiSourceCodeInternal = uiSourceCode;
       if (uiSourceCode.workingCopy() !== this.textEditor.state.doc.toString()) {
         // This call is only asynchronous if we fall back for wasm disassembly.
-        void this.setDeferredContent(uiSourceCode.workingCopyContent());
+        await this.setDeferredContent(Promise.resolve(uiSourceCode.workingCopyContent()));
       } else {
         this.reloadPlugins();
       }
@@ -389,7 +390,7 @@ export class UISourceCodeFrame extends
 
   private maybeSetContent(content: TextUtils.ContentProvider.DeferredContent): void {
     if (this.textEditor.state.doc.toString() !== content.content) {
-      void this.setDeferredContent(content);
+      void this.setDeferredContent(Promise.resolve(content));
     }
   }
 

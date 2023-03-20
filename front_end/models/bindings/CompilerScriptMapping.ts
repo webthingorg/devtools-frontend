@@ -362,7 +362,8 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
 
     if (!IgnoreListManager.instance().isUserIgnoreListedURL(script.sourceURL, script.isContentScript())) {
       const target = script.target();
-      const projectId = `jsSourceMaps:${script.isContentScript() ? 'extensions' : ''}:${target.id()}`;
+      const projectId =
+          `jsSourceMaps:${script.isContentScript() ? 'extensions' : ''}:${target.id()}:${sourceMap.url()}`;
       let project = this.#projects.get(projectId);
       if (!project) {
         const projectType = script.isContentScript() ? Workspace.Workspace.projectTypes.ContentScripts :

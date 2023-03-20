@@ -1,0 +1,16 @@
+<script type="module">
+    import * as A from './multi-sourcemap-sourcea.js';
+    import * as B from './multi-sourcemap-sourceb.js';
+    import * as C from './multi-sourcemap-sourcec.js';
+
+    export function testAll() {
+        A.test1();
+        B.test2();
+        C.test1();  // C is identical to A
+    }
+
+    window.testAll = testAll;
+    window.testA = A.test1;
+    window.testB = B.test2;
+    window.testC = C.test1;
+</script>
