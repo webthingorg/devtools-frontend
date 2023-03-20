@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55efae59_281ca74d",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-20T10:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18b5507d_10c2a31d",
+      "range": {
+        "startLine": 1805,
+        "startChar": 0,
+        "endLine": 1807,
+        "endChar": 5
+      },
+      "revId": "94338543aa7a87f41c0f23afa85c1dea52035484",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1368ebbe_f0154522",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-20T09:56:36Z",
       "side": 1,
       "message": "\u0027does not add...\u0027 here and in the other cases where expectation is \u0027false\u0027.",
+      "range": {
+        "startLine": 222,
+        "startChar": 8,
+        "endLine": 222,
+        "endChar": 12
+      },
+      "revId": "94338543aa7a87f41c0f23afa85c1dea52035484",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2315f758_23746bfd",
+        "filename": "test/unittests/front_end/panels/application/ApplicationPanelSidebar_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-20T10:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1368ebbe_f0154522",
       "range": {
         "startLine": 222,
         "startChar": 8,
