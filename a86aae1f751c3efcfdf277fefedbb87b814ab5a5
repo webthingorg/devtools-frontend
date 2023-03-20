@@ -73,6 +73,24 @@
       "message": "I noticed numbers are included, suggesting we don’t *just* care about IdentifierStart characters. Do we actually mean to match all IdentifierPart characters? In that case we could use [$_\\u200C\\u200D\\p{ID_Continue}].",
       "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc210b9_a8cd9655",
+        "filename": "front_end/entrypoints/formatter_worker/FormattedContentBuilder.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-03-20T13:53:36Z",
+      "side": 1,
+      "message": "Or rather\n\n    [$\\u200C\\u200D\\p{ID_Continue}]\n\nsince `_` is already part of \\p{ID_Continue}",
+      "parentUuid": "8f0b0d21_f08b9d67",
+      "revId": "a86aae1f751c3efcfdf277fefedbb87b814ab5a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
