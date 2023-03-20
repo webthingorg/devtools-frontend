@@ -1,0 +1,29 @@
+/*
+ * Copyright 2023 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+:root {
+  --icon-arrow-threads: var(--color-blue);
+  --icon-checkmark-green: var(--color-green-new);
+  --icon-checkmark-purple: var(--color-purple);
+  --icon-checkmark-red: var(--color-red-new);
+  --icon-contrast-issue: var(--color-red-new);
+  --icon-default: var(--color-on-surface-variant);
+  --icon-default-hover: var(--color-on-surface);
+  --icon-file-authored: var(--color-orange);
+  --icon-file-image: var(--color-green-new);
+  --icon-file-script: var(--color-orange);
+  --icon-file-styles: var(--color-purple);
+  --icon-folder-authored: var(--color-orange);
+  --icon-folder-deployed: var(--color-blue);
+  --icon-folder-workspace: var(--color-orange);
+  --icon-info: var(--color-blue);
+  --icon-record: var(--color-red-new);
+  --icon-red: var(--color-red-new);
+  --icon-request-response: var(--color-blue);
+  --icon-security-lock: var(--color-green-new);
+  --icon-status-code-ok: var(--color-green-new);
+  --icon-stop: var(--color-red-new);
+  --icon-warning: var(--color-orange);
+}
