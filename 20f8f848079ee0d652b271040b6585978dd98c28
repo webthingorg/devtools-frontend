@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "75571348_9e897c24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T08:44:12Z",
+      "side": 1,
+      "message": "lgtm with a couple of thoughts",
+      "revId": "20f8f848079ee0d652b271040b6585978dd98c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6451399_90c243cc",
+        "filename": "front_end/panels/profiler/ProfilesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T08:44:12Z",
+      "side": 1,
+      "message": "nit: I think this else block could be moved into a function, such as this.#showDeprecationWarningAndNoPanel()",
+      "range": {
+        "startLine": 709,
+        "startChar": 6,
+        "endLine": 709,
+        "endChar": 12
+      },
+      "revId": "20f8f848079ee0d652b271040b6585978dd98c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f49a29d5_30feb930",
         "filename": "front_end/panels/profiler/ProfilesPanel.ts",
         "patchSetId": 2
