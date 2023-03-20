@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848dda9d_6c756f98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-20T09:13:02Z",
+      "side": 1,
+      "message": "PTAL\n\nAt the end of the file list is also a change to `Color_test.ts` (unit test). I didn\u0027t see an obvious fix after 5 min looking so I\u0027m ignoring the error for now. Somehow TS is no longer able to correctly infer the function signature that sinon is stubbing. Might be fixed by a sinon update later down the line hopefully.",
+      "revId": "fc395e9c96301ac79976c34a2ffbf87dc73e03d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
