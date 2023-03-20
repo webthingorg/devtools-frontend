@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15115d80_b594bfab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-20T08:42:08Z",
+      "side": 1,
+      "message": "LGTM. Once we finish off this work and have it all done, I think a CL that adds some documentation on how this works and how to gather the coverage accurately across unit tests and interactions would be useful.",
+      "revId": "08a113bc8ee8a142771d2e0a59ffe200d489fa8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
