@@ -1409,8 +1409,6 @@ experimental domain CSS
       optional StyleSheetId styleSheetId
       # Rule selector data.
       SelectorList selectorList
-      # Array of selectors from ancestor style rules, sorted by distance from the current rule.
-      experimental optional array of string nestingSelectors
       # Parent stylesheet's origin.
       StyleSheetOrigin origin
       # Associated style declaration.
@@ -10864,6 +10862,7 @@ experimental domain Preload
   # Fired when a prerender attempt is completed.
   event prerenderAttemptCompleted
     parameters
+      PreloadingAttemptKey key
       # The frame id of the frame initiating prerendering.
       Page.FrameId initiatingFrameId
       string prerenderingUrl
@@ -10887,6 +10886,7 @@ experimental domain Preload
   # Fired when a prefetch attempt is updated.
   event prefetchStatusUpdated
     parameters
+      PreloadingAttemptKey key
       # The frame id of the frame initiating prefetch.
       Page.FrameId initiatingFrameId
       string prefetchUrl
@@ -10895,6 +10895,7 @@ experimental domain Preload
   # Fired when a prerender attempt is updated.
   event prerenderStatusUpdated
     parameters
+      PreloadingAttemptKey key
       # The frame id of the frame initiating prerender.
       Page.FrameId initiatingFrameId
       string prerenderingUrl

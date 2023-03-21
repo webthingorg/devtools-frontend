@@ -887,9 +887,9 @@ inspectorBackend.registerEnum("Preload.PrerenderFinalStatus", {Activated: "Activ
 inspectorBackend.registerEnum("Preload.PreloadingStatus", {Pending: "Pending", Running: "Running", Ready: "Ready", Success: "Success", Failure: "Failure", NotSupported: "NotSupported"});
 inspectorBackend.registerEvent("Preload.ruleSetUpdated", ["ruleSet"]);
 inspectorBackend.registerEvent("Preload.ruleSetRemoved", ["id"]);
-inspectorBackend.registerEvent("Preload.prerenderAttemptCompleted", ["initiatingFrameId", "prerenderingUrl", "finalStatus", "disallowedApiMethod"]);
-inspectorBackend.registerEvent("Preload.prefetchStatusUpdated", ["initiatingFrameId", "prefetchUrl", "status"]);
-inspectorBackend.registerEvent("Preload.prerenderStatusUpdated", ["initiatingFrameId", "prerenderingUrl", "status"]);
+inspectorBackend.registerEvent("Preload.prerenderAttemptCompleted", ["key", "initiatingFrameId", "prerenderingUrl", "finalStatus", "disallowedApiMethod"]);
+inspectorBackend.registerEvent("Preload.prefetchStatusUpdated", ["key", "initiatingFrameId", "prefetchUrl", "status"]);
+inspectorBackend.registerEvent("Preload.prerenderStatusUpdated", ["key", "initiatingFrameId", "prerenderingUrl", "status"]);
 inspectorBackend.registerEvent("Preload.preloadingAttemptSourcesUpdated", ["preloadingAttemptSources"]);
 inspectorBackend.registerCommand("Preload.enable", [], []);
 inspectorBackend.registerCommand("Preload.disable", [], []);

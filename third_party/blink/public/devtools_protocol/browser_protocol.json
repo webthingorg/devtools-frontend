@@ -2895,16 +2895,6 @@
                             "$ref": "SelectorList"
                         },
                         {
-                            "name": "nestingSelectors",
-                            "description": "Array of selectors from ancestor style rules, sorted by distance from the current rule.",
-                            "experimental": true,
-                            "optional": true,
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        {
                             "name": "origin",
                             "description": "Parent stylesheet's origin.",
                             "$ref": "StyleSheetOrigin"
@@ -22980,6 +22970,10 @@
                     "description": "Fired when a prerender attempt is completed.",
                     "parameters": [
                         {
+                            "name": "key",
+                            "$ref": "PreloadingAttemptKey"
+                        },
+                        {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prerendering.",
                             "$ref": "Page.FrameId"
@@ -23005,6 +22999,10 @@
                     "description": "Fired when a prefetch attempt is updated.",
                     "parameters": [
                         {
+                            "name": "key",
+                            "$ref": "PreloadingAttemptKey"
+                        },
+                        {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prefetch.",
                             "$ref": "Page.FrameId"
@@ -23023,6 +23021,10 @@
                     "name": "prerenderStatusUpdated",
                     "description": "Fired when a prerender attempt is updated.",
                     "parameters": [
+                        {
+                            "name": "key",
+                            "$ref": "PreloadingAttemptKey"
+                        },
                         {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prerender.",
