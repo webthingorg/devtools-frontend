@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff50c8d_67e9aa0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-21T08:52:00Z",
+      "side": 1,
+      "message": "Could you rubberstamp, please? (The patch is merged without any manual changes.)",
+      "revId": "bee50fb18811e0c9373c995d737c2bc93aa1af77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
