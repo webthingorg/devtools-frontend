@@ -642,8 +642,12 @@ export interface TraceEventPrePaint extends TraceEventComplete {
   name: 'PrePaint';
 }
 
+export type TraceEventNestableAsync = TraceEventNestableAsyncBegin|TraceEventNestableAsyncEnd;
 export interface TraceEventNestableAsyncBegin extends TraceEventData {
   ph: Phase.ASYNC_NESTABLE_START;
+  // The id2 field gives flexibility to explicitly specify if an event
+  // id is global among processes or process local. However not all
+  // events use it, so both kind of ids need to be marked as optional.
   id2?: {local?: string, global?: string};
   id?: string;
 }

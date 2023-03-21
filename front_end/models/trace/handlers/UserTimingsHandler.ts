@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Platform from '../../../core/platform/platform.js';
+import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 
 import {HandlerState} from './types.js';
@@ -22,9 +23,26 @@ const consoleTimings: (Types.TraceEvents.TraceEventConsoleTimeBegin|Types.TraceE
 const timestampEvents: Types.TraceEvents.TraceEventTimeStamp[] = [];
 
 export interface UserTimingsData {
+  /**
+   * Events triggered with the performance.measure() API.
+   * https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure
+   */
   performanceMeasures: readonly Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[];
+  /**
+   * Events triggered with the performance.mark() API.
+   * https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark
+   */
   performanceMarks: readonly Types.TraceEvents.TraceEventPerformanceMark[];
+  /**
+   * Events triggered with the console.time(), console.timeEnd() and
+   * console.timeLog() API.
+   * https://developer.mozilla.org/en-US/docs/Web/API/console/time
+   */
   consoleTimings: readonly Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[];
+  /**
+   * Events triggered with the console.timeStamp() API
+   * https://developer.mozilla.org/en-US/docs/Web/API/console/timeStamp
+   */
   timestampEvents: readonly Types.TraceEvents.TraceEventTimeStamp[];
 }
 let handlerState = HandlerState.UNINITIALIZED;
@@ -117,7 +135,7 @@ export async function finalize(): Promise<void> {
   }> = new Map();
 
   for (const event of [...performanceMeasureEvents, ...consoleTimings]) {
-    const id = event.id || event.id2?.local;
+    const id = Helpers.Trace.extractId(event);
     if (id === undefined) {
       continue;
     }
