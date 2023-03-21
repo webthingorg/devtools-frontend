@@ -8,6 +8,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import {type TimelineFlameChartEntry, type EntryType} from './TimelineFlameChartDataProvider.js';
 import {TimingsTrackAppender} from './TimingsTrackAppender.js';
+import {GPUTrackAppender} from './GPUTrackAppender.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -65,7 +66,7 @@ export interface TrackAppender {
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
 }
 
-export const TrackNames = ['Timings'] as const;
+export const TrackNames = ['Timings', 'GPU'] as const;
 export type TrackAppenderName = typeof TrackNames[number];
 
 export class CompatibilityTracksAppender {
@@ -84,6 +85,7 @@ export class CompatibilityTracksAppender {
   #legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl;
   #legacyEntryTypeByLevel: EntryType[];
   #timingsTrackAppender: TimingsTrackAppender;
+  #gpuTrackAppender: GPUTrackAppender;
 
   /**
    * @param flameChartData the data used by the flame chart renderer on
@@ -112,7 +114,12 @@ export class CompatibilityTracksAppender {
         this.#legacyTimelineModel.tracks().find(track => track.type === TimelineModel.TimelineModel.TrackType.Timings);
     this.#timingsTrackAppender = new TimingsTrackAppender(
         this, this.#flameChartData, this.#traceParsedData, this.#entryData, this.#legacyEntryTypeByLevel, timings);
-    this.#allTrackAppenders.push(this.#timingsTrackAppender);
+    const gpuLegacyTrack =
+        this.#legacyTimelineModel.tracks().find(track => track.type === TimelineModel.TimelineModel.TrackType.GPU);
+    this.#gpuTrackAppender = new GPUTrackAppender(
+        this, this.#flameChartData, this.#traceParsedData, this.#entryData, this.#legacyEntryTypeByLevel,
+        gpuLegacyTrack);
+    this.#allTrackAppenders.push(this.#timingsTrackAppender, this.#gpuTrackAppender);
   }
 
   /**
@@ -130,6 +137,10 @@ export class CompatibilityTracksAppender {
 
   timingsTrackAppender(): TimingsTrackAppender {
     return this.#timingsTrackAppender;
+  }
+
+  gpuTrackAppender(): GPUTrackAppender {
+    return this.#gpuTrackAppender;
   }
 
   /**
