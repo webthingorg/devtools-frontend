@@ -41,6 +41,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b7c43d_6a0fd52a",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-21T12:07:40Z",
+      "side": 1,
+      "message": "Nice idea! Done.",
+      "parentUuid": "aecc0f2f_8fc56912",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10f9d36_f72ed148",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-21T12:07:40Z",
+      "side": 1,
+      "message": "Good idea! Done.",
+      "parentUuid": "aecc0f2f_8fc56912",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57329c1a_1b0ab8b7",
@@ -54,6 +102,30 @@
       "writtenOn": "2023-03-20T14:13:40Z",
       "side": 1,
       "message": "nit: might be worth a comment explaining why and when this field is used.",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 42
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7280a9b_e537f025",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-21T12:07:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57329c1a_1b0ab8b7",
       "range": {
         "startLine": 647,
         "startChar": 0,
@@ -87,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b30ccbb1_b3b59ce8",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-21T12:07:40Z",
+      "side": 1,
+      "message": "I hadn\u0027t thought of it but it can be convenient. The id2 field is commonly, but not always, used. We might in fact want to add something similar to [1] to provide truly unique ids. For now I\u0027ll add the helper to extract the correct id field\n\nThe trace event format [2] explains pretty good what this field is all about.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/TracingModel.ts;l\u003d58\n\n[2]\nhttps://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit\n\nDone.",
+      "parentUuid": "1859467c_bbf5c6c2",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 729,
+        "endChar": 23
+      },
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4f6905f_4fa50628",
@@ -100,6 +196,24 @@
       "writtenOn": "2023-03-20T14:13:40Z",
       "side": 1,
       "message": "is there a reason this has changed so much?\n\nedit: ah, did we change the trace file for some reason?",
+      "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e767857e_2470fcde",
+        "filename": "test/interactions/goldens/linux/performance/timings_track.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-21T12:07:40Z",
+      "side": 1,
+      "message": "Yeah, the trace timings-track.json file was changed in order to include console.timings to unit test the new parsing of those events. This image diff is ok.",
+      "parentUuid": "a4f6905f_4fa50628",
       "revId": "8ea79b8667bfb406d91477a9c47d9064584feaed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
