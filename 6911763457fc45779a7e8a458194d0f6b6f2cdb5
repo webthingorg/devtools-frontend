@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51f26858_c524c92b",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-21T07:29:22Z",
+      "side": 1,
+      "message": "Simply\n\n\n    const [document] \u003d this.documents.values();\n    return document;",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 28
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ea6bda_100492eb",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-21T07:29:22Z",
+      "side": 1,
+      "message": "return [...this.map.entries()]\n       .map(([id, value]) \u003d\u003e ({id, value: this.enrich(...)}))\n       .filter(({value}) \u003d\u003e !ruleSetId || value.ruleSetIds.includes(ruleSetId));",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 16
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b68956df_b74a95ff",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-21T07:29:22Z",
+      "side": 1,
+      "message": "this.map \u003d new Map(sources.map(s \u003d\u003e [makePreloadingAttemptId(s.key), s]));",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 21
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
