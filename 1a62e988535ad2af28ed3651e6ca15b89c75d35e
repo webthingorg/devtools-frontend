@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db6d81d0_7cab3605",
+        "filename": "generated/project.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-03-21T11:52:52Z",
+      "side": 1,
+      "message": "Maybe update your depot_tools",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "1a62e988535ad2af28ed3651e6ca15b89c75d35e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
