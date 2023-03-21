@@ -208,6 +208,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       void target.pageAgent().invoke_waitForDebugger();
     }
     target.createModels(new Set(this.#modelObservers.keysArray()));
+    const firstTarget = this.#targetsInternal.size === 0;
     this.#targetsInternal.add(target);
 
     // Iterate over a copy. #observers might be modified during iteration.
@@ -228,6 +229,10 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
           model.addEventListener(key, info.wrappedListener);
         }
       }
+    }
+
+    if (firstTarget) {
+      this.setScopeTarget(target);
     }
 
     return target;

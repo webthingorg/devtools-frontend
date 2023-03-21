@@ -33,9 +33,7 @@ describeWithMockConnection('PropertiesWidget', () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updatesUiOnEvent = (event: any, inScope: boolean) => async () => {
-    if (inScope) {
-      SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
-    }
+    SDK.TargetManager.TargetManager.instance().setScopeTarget(inScope ? target : null);
     const model = target.model(SDK.DOMModel.DOMModel);
     assertNotNullOrUndefined(model);
 

@@ -25,9 +25,7 @@ describeWithMockConnection('MediaMainView', () => {
   const testUiUpdate =
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (event: any, expectedMethod: keyof Media.MainView.PlayerDataDownloadManager, inScope: boolean) => async () => {
-        if (inScope) {
-          SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
-        }
+        SDK.TargetManager.TargetManager.instance().setScopeTarget(inScope ? target : null);
         const downloadStore = new Media.MainView.PlayerDataDownloadManager();
         const expectedCall = sinon.stub(downloadStore, expectedMethod).returns();
         const mainView = Media.MainView.MainView.instance({forceNew: true, downloadStore});

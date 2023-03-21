@@ -34,9 +34,7 @@ describeWithMockConnection('LayoutSidebarPane', () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updatesUiOnEvent = (event: any, inScope: boolean) => async () => {
-    if (inScope) {
-      SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
-    }
+    SDK.TargetManager.TargetManager.instance().setScopeTarget(inScope ? target : null);
     view = Elements.LayoutSidebarPane.LayoutSidebarPane.instance(
         {forceNew: true, layoutPaneComponent, throttleTimeout: 0});
     view.markAsRoot();
