@@ -360,6 +360,19 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         }
       }
 
+      if (hoveredNode.matches('.nesting-symbol')) {
+        const box = hoveredNode.boxInWindow();
+        return {
+          box,
+          show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+            const element = document.createElement('span');
+            element.textContent = (hoveredNode as HTMLElement).dataset.nestingSelectors || '';
+            popover.contentElement.appendChild(element);
+            return true;
+          },
+        };
+      }
+
       return null;
     });
 
