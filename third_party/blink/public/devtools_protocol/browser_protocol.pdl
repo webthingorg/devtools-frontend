@@ -6466,10 +6466,13 @@ domain Network
       optional string reportingEndpoint
       optional string reportOnlyReportingEndpoint
 
+  experimental type ContentSecurityPolicyStatus extends string
+
   experimental type SecurityIsolationStatus extends object
     properties
       optional CrossOriginOpenerPolicyStatus coop
       optional CrossOriginEmbedderPolicyStatus coep
+      optional ContentSecurityPolicyStatus csp
 
   # Returns information about the COEP/COOP isolation status.
   experimental command getSecurityIsolationStatus

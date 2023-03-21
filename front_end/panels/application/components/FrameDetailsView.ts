@@ -25,6 +25,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as Protocol from '../../../generated/protocol.js';
+import * as CspEvaluator from '../../../third_party/csp_evaluator/csp_evaluator.js';
 
 import {OriginTrialTreeView, type OriginTrialTreeViewData} from './OriginTrialTreeView.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
@@ -699,6 +700,9 @@ export class FrameDetailsReportView extends HTMLElement {
             this.#maybeRenderCrossOriginStatus(
                 info.coop, i18n.i18n.lockedString('Cross-Origin Opener Policy (COOP)'),
                 Protocol.Network.CrossOriginOpenerPolicyValue.UnsafeNone)}
+          ${
+            this.#maybeRenderCSPStatus(
+                info.csp, i18n.i18n.lockedString('Content Security Policy (CSP)'))}
         `;
       }
     }
@@ -727,6 +731,22 @@ export class FrameDetailsReportView extends HTMLElement {
       </${ReportView.ReportView.ReportValue.litTagName}>
     `;
   }
+
+  #maybeRenderCSPStatus(info: string|undefined, policyName:string): LitHtml.LitTemplate {
+    const parsed = info ? new CspEvaluator.CspParser.CspParser(info).csp : null;
+    const evaluated = parsed ? new CspEvaluator.CspEvaluator.CspEvaluator(parsed).evaluate() : null;
+    const effectiveDirectives = [];
+    for (let directive in parsed?.directives) {
+      effectiveDirectives.push(LitHtml.html`<div><b>${directive}</b>${": " + parsed?.directives[directive]?.join(", ")}</div>`)
+    }
+    console.log(evaluated ? evaluated : "NOTHING EVALUATED");
+    return LitHtml.html`
+    <${ReportView.ReportView.ReportKey.litTagName}>${policyName}</${ReportView.ReportView.ReportKey.litTagName}>
+    <${ReportView.ReportView.ReportValue.litTagName}>
+      ${parsed ? LitHtml.html`${effectiveDirectives}` : LitHtml.nothing}
+    </${ReportView.ReportView.ReportValue.litTagName}>
+  `;
+  };
 
   #renderApiAvailabilitySection(): LitHtml.LitTemplate {
     if (!this.#frame) {
