@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8717dba9_8059fd9a",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-21T15:26:11Z",
+      "side": 0,
+      "message": "Is there a way to reset the browser between each run without closing it?",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 24
+      },
+      "revId": "d04cab149b762b3673a1543dd26ea947cfad18ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
