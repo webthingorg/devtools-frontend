@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc84e17_2c3d6476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-21T15:56:18Z",
+      "side": 1,
+      "message": "Hey Jack, I separated the part for testing the collapsed track. And I think this is safe to be merged before branch cut.",
+      "revId": "c4d35bebdc0fcabb7cc4dbd153540578f6862c40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
