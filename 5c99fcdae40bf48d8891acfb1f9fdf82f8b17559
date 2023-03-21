@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "358b105c_787d86b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-21T10:56:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5c99fcdae40bf48d8891acfb1f9fdf82f8b17559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c8056e_5fc6742f",
+        "filename": "test/unittests/front_end/panels/network/BlockedURLsPane_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-21T10:56:43Z",
+      "side": 1,
+      "message": "double license",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "5c99fcdae40bf48d8891acfb1f9fdf82f8b17559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
