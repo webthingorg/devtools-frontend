@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad8e8d8_92e44aa8",
+        "filename": "test/unittests/front_end/models/bindings/ResourceMapping_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-21T10:49:44Z",
+      "side": 1,
+      "message": "Should this be \u0027otherUrl\u0027?",
+      "range": {
+        "startLine": 125,
+        "startChar": 48,
+        "endLine": 125,
+        "endChar": 51
+      },
+      "revId": "65a126776d12adc92b9f6051061253b9b505a4c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
