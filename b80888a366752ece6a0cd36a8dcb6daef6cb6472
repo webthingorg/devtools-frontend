@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec631994_cb9ad1a7",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-22T14:47:12Z",
+      "side": 1,
+      "message": "This seems a couple of pixels off downwards, relative to the rest of the line.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 46
+      },
+      "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
