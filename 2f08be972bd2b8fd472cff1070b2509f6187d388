@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde84885_c3f47c0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-22T09:07:17Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5be2a1_60ed50b3",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-22T09:07:17Z",
+      "side": 1,
+      "message": "Would `if (this.#targetsInternal.size \u003d\u003d\u003d 1)` work as well?",
+      "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
