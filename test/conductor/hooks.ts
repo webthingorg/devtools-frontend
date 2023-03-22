@@ -23,7 +23,7 @@ import {
   DevToolsFrontendTab,
   type DevToolsFrontendReloadOptions,
 } from './frontend_tab.js';
-import {dumpCollectedErrors, installPageErrorHandlers, setupBrowserProcessIO} from './events.js';
+import {dumpCollectedErrors, installPageErrorHandlers} from './events.js';
 import {TargetTab} from './target_tab.js';
 
 // Workaround for mismatching versions of puppeteer types and puppeteer library.
@@ -57,7 +57,7 @@ let targetTab: TargetTab;
 const envChromeBinary = getTestRunnerConfigSetting<string>('chrome-binary-path', process.env['CHROME_BIN'] || '');
 const envChromeFeatures = getTestRunnerConfigSetting<string>('chrome-features', process.env['CHROME_FEATURES'] || '');
 
-function launchChrome() {
+export function launchChrome() {
   // Use port 0 to request any free port.
   const enabledFeatures = [
     'Portals',
@@ -101,8 +101,10 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  const browserWSEndpoint = process.env.WS_ENDPOINTS?.split(',')[Number(process.env.MOCHA_WORKER_ID || 0)];
+  browser = await puppeteer.connect({
+    browserWSEndpoint,
+  });
 
   // Load the target page.
   targetTab = await TargetTab.create(browser);
@@ -176,7 +178,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
+  browser.disconnect();
 
   clearPuppeteerState();
   dumpCollectedErrors();
