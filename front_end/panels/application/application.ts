@@ -31,6 +31,7 @@ import * as SharedStorageItemsView from './SharedStorageItemsView.js';
 import * as SharedStorageListTreeElement from './SharedStorageListTreeElement.js';
 import * as SharedStorageModel from './SharedStorageModel.js';
 import * as SharedStorageTreeElement from './SharedStorageTreeElement.js';
+import * as StorageBucketsTreeElement from './StorageBucketsTreeElement.js';
 import * as StorageItemsView from './StorageItemsView.js';
 import * as StorageView from './StorageView.js';
 import * as TrustTokensTreeElement from './TrustTokensTreeElement.js';
@@ -65,6 +66,7 @@ export {
   SharedStorageListTreeElement,
   SharedStorageModel,
   SharedStorageTreeElement,
+  StorageBucketsTreeElement,
   StorageItemsView,
   StorageView,
   TrustTokensTreeElement,

@@ -105,6 +105,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
       stubNoopSettings();
       target = targetFactory();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
     });
 
     it('shows cookies for all frames', async () => {
