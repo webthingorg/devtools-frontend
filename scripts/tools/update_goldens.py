@@ -385,6 +385,8 @@ def download_patches(project_config, results, destination_dir, verbose):
     """
     patches = []
     for builder, result in results.items():
+        if (builder == 'devtools_frontend_mac_rel'):
+            continue
         gs_path = [
             project_config.gs_folder, builder,
             str(result['cl']),
