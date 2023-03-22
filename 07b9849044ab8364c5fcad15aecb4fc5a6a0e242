@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c708f66f_8851a944",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-22T10:53:53Z",
+      "side": 1,
+      "message": "Note that this call is strictly speaking not necessary but for a subtle reason: Both `globalStorage.removeAll` and `syncedStorage.removeAll` call the `clearPreferences` host binding in the end. The backend then clears both synced and unsycned settings. I just added the call so future readers don\u0027t have to go digging to find the same thing.",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "07b9849044ab8364c5fcad15aecb4fc5a6a0e242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
