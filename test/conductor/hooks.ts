@@ -50,6 +50,7 @@ const envThrottleRate = process.env['STRESS'] ? 3 : 1;
 
 const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 'hosted-mode');
 
+let browserLaunched: puppeteer.Browser;
 let browser: puppeteer.Browser;
 let frontendTab: DevToolsFrontendTab;
 let targetTab: TargetTab;
@@ -101,8 +102,15 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  if (!browserLaunched) {
+    browserLaunched = await launchChrome();
+    setupBrowserProcessIO(browserLaunched);
+  }
+  const browserWSEndpoint = browserLaunched.wsEndpoint();
+  browserLaunched.disconnect();
+  browser = await puppeteer.connect({
+    browserWSEndpoint,
+  });
 
   // Load the target page.
   targetTab = await TargetTab.create(browser);
@@ -176,7 +184,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
+  browser.disconnect();
 
   clearPuppeteerState();
   dumpCollectedErrors();
