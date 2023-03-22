@@ -51,6 +51,24 @@
       "parentUuid": "cb5be2a1_60ed50b3",
       "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22db83f4_0ccf9e0c",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-22T15:29:46Z",
+      "side": 1,
+      "message": "Changed this to be first primaryPageTarget as the outermost target of a tab target is null and the whole thing doesn\u0027t make any sense.",
+      "parentUuid": "f687e569_0260c881",
+      "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
