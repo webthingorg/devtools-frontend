@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39564d3_4baaffad",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T10:10:51Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "df21ae35_40b49067",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 5
+      },
+      "revId": "0b1102d42f77d93baf3d350fd0176151f40e3b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a38919d9_1344f2f5",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "In practice the progress indicator just doesn\u0027t appear when there is no content to wait for.\n\nWe could also get rid of the progress bar and replace it with something else to indicate that loading is in progress. We only set incremental progress when falling back to the old wasm disassembler, which is rare, so just a \"Loading...\" message might be better.",
       "parentUuid": "40611554_4da456bf",
+      "range": {
+        "startLine": 464,
+        "startChar": 4,
+        "endLine": 464,
+        "endChar": 39
+      },
+      "revId": "0b1102d42f77d93baf3d350fd0176151f40e3b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2def743_b519026d",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T10:10:51Z",
+      "side": 1,
+      "message": "I am happy landing as is as long as there are no visual artifacts.",
+      "parentUuid": "f28769cf_9bc00f8d",
       "range": {
         "startLine": 464,
         "startChar": 4,
