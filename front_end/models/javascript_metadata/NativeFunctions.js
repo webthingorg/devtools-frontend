@@ -6029,8 +6029,8 @@ export const NativeFunctions = [
     signatures: [['?options']]
   },
   {
-    name: 'requestStorageAccessForOrigin',
-    signatures: [['origin']]
+    name: 'requestStorageAccessFor',
+    signatures: [['requestedOrigin']]
   },
   {
     name: 'hasPrivateToken',
@@ -7345,6 +7345,10 @@ export const NativeFunctions = [
   {
     name: 'hardSwish',
     signatures: [['?x']]
+  },
+  {
+    name: 'leakyRelu',
+    signatures: [['?options'],['x','?options']]
   },
   {
     name: 'averagePool2d',
