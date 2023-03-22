@@ -50,7 +50,7 @@ const envThrottleRate = process.env['STRESS'] ? 3 : 1;
 
 const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 'hosted-mode');
 
-let browser: puppeteer.Browser;
+const browsers: puppeteer.Browser[] = [];
 let frontendTab: DevToolsFrontendTab;
 let targetTab: TargetTab;
 
@@ -101,11 +101,16 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
+  if(!browsers[Number(process.env.MOCHA_WORKER_ID || 0)]) {
+    browsers[Number(process.env.MOCHA_WORKER_ID || 0)] = await launchChrome();
+  }
+  const browser = browsers[Number(process.env.MOCHA_WORKER_ID || 0)];
   setupBrowserProcessIO(browser);
 
   // Load the target page.
-  targetTab = await TargetTab.create(browser);
+  if(!targetTab) {
+    targetTab = await TargetTab.create(browser);
+  }
 
   // Create the frontend - the page that will be under test. This will be either
   // DevTools Frontend in hosted mode, or the component docs in docs test mode.
@@ -115,7 +120,9 @@ async function loadTargetPageAndFrontend(testServerPort: number) {
     /**
      * In hosted mode we run the DevTools and test against it.
      */
-    frontendTab = await DevToolsFrontendTab.create({browser, testServerPort, targetId: targetTab.targetId()});
+    if (!frontendTab) {
+      frontendTab = await DevToolsFrontendTab.create({browser, testServerPort, targetId: targetTab.targetId()});
+    }
     frontend = frontendTab.page;
   } else if (TEST_SERVER_TYPE === 'component-docs') {
     /**
@@ -176,8 +183,8 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
-
+  const browser = browsers[Number(process.env.MOCHA_WORKER_ID || 0)];
+  browser.removeAllListeners();
   clearPuppeteerState();
   dumpCollectedErrors();
 }
