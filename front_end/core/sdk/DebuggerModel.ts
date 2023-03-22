@@ -706,11 +706,14 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     return script;
   }
 
-  setSourceMapURL(script: Script, newSourceMapURL: Platform.DevToolsPath.UrlString): void {
+  setSourceMapURL(
+      script: Script, newSourceMapURL: Platform.DevToolsPath.UrlString,
+      acceptOutOfBoundsCallback?: () => Promise<boolean>): void {
     // Detach any previous source map from the `script` first.
     this.#sourceMapManagerInternal.detachSourceMap(script);
     script.sourceMapURL = newSourceMapURL;
-    this.#sourceMapManagerInternal.attachSourceMap(script, script.sourceURL, script.sourceMapURL);
+    this.#sourceMapManagerInternal.attachSourceMap(
+        script, script.sourceURL, script.sourceMapURL, acceptOutOfBoundsCallback);
   }
 
   async setDebugInfoURL(script: Script, _externalURL: Platform.DevToolsPath.UrlString): Promise<void> {

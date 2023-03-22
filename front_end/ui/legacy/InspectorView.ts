@@ -31,6 +31,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 
 import {type ActionDelegate as ActionDelegateInterface} from './ActionRegistration.js';
@@ -124,6 +125,20 @@ const UIStrings = {
    *@description Label for a button which opens a file picker.
    */
   selectFolder: 'Select folder',
+  /**
+   *@description Error message indicating that manually attached sourcemap does not match the file it was attached to.
+   *@example {http://example.com/source.map} url
+   */
+  sourceMapIncompatible: 'The sourcemap at {url} looks incompatible since there were out-of-bounds mappings.',
+
+  /**
+   *@description Button text for button to confirm and close the incompatible sourcemaps warning.
+   */
+  dismissIncompatibleSourceMap: 'Dismiss',
+  /**
+   *@description Button text for button to ignore the incompatible sourcemaps warning and to use the sourcemap anyways.
+   */
+  acceptIncompatibleSourceMap: 'Attach anyways',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/InspectorView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -438,6 +453,29 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     if (this.ownerSplitWidget) {
       this.ownerSplitWidget.setSidebarMinimized(false);
     }
+  }
+
+  displaySourceMapWarning(url: Platform.DevToolsPath.UrlString): Promise<boolean> {
+    return new Promise(resolve => {
+      const message = i18nString(UIStrings.sourceMapIncompatible, {url});
+      const infobar = new Infobar(InfobarType.Error, message, [
+        {
+          text: i18nString(UIStrings.dismissIncompatibleSourceMap),
+          highlight: true,
+          delegate: () => resolve(false),
+          dismiss: true,
+        },
+        {
+          text: i18nString(UIStrings.acceptIncompatibleSourceMap),
+          highlight: false,
+          delegate: () => resolve(true),
+          dismiss: true,
+        },
+      ]);
+      infobar.setParentView(this);
+      infobar.setCloseCallback(() => resolve(false));
+      this.attachInfobar(infobar);
+    });
   }
 
   displayReloadRequiredWarning(message: string): void {

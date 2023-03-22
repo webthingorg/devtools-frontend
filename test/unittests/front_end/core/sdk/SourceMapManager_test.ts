@@ -18,8 +18,8 @@ const content = JSON.stringify({
   'sources': [
     '/original-script.js',
   ],
-});
 
+});
 describeWithMockConnection('SourceMapManager', () => {
   it('uses url for a worker\'s source maps from frame', async () => {
     setupPageResourceLoaderForSourceMap(content);
@@ -113,6 +113,10 @@ describe('SourceMapManager', () => {
   };
 
   class MockClient implements SDK.FrameAssociated.FrameAssociated {
+    sourceURL: Platform.DevToolsPath.UrlString = '' as Platform.DevToolsPath.UrlString;
+    endLine: number = 0;
+    endColumn: number = 0;
+
     constructor(private target: SDK.Target.Target) {
     }
 
@@ -216,6 +220,80 @@ describe('SourceMapManager', () => {
       sourceMapManager.setEnabled(true);
       assert.strictEqual(loadResource.callCount, 1, 'loadResource calls');
       await sourceMapManager.sourceMapForClientPromise(client);
+    });
+
+    it('detects incompatible sourcemaps and asks confirmation', async () => {
+      const target = createTarget();
+      const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
+
+      // This maps line 2 to column 5 (0-based).
+      const contentWithOOBMapping =
+          JSON.stringify({...JSON.parse(content), mappings: ';;K', file: sourceURL} as SDK.SourceMap.SourceMapV3);
+      const client = new MockClient(target);
+      client.sourceURL = sourceURL;
+      client.endLine = 2;
+      client.endColumn = 5;
+
+      sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({
+        content: contentWithOOBMapping,
+      });
+
+      const mockCallback = sinon.mock();
+
+      // Compatible sourcemap doesn't call the callback
+      mockCallback.returns(Promise.resolve(true));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.notStrictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.notCalled);
+      sourceMapManager.detachSourceMap(client);
+
+      client.sourceURL = (sourceURL + '/bar.js') as Platform.DevToolsPath.UrlString;
+      client.endLine = 2;
+      client.endColumn = 5;
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(true));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.notStrictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(false));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.strictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
+
+      client.sourceURL = sourceURL;
+      client.endLine = 1;
+      client.endColumn = 5;
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(true));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.notStrictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(false));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.strictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
+
+      client.sourceURL = sourceURL;
+      client.endLine = 2;
+      client.endColumn = 4;
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(true));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.notStrictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
+      mockCallback.reset();
+      mockCallback.returns(Promise.resolve(false));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+      assert.strictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+      assert.isTrue(mockCallback.calledOnce);
+      sourceMapManager.detachSourceMap(client);
     });
   });
 

@@ -510,6 +510,10 @@ export class ContextMenu extends SubMenu {
     this.itemSelected(event.data);
   }
 
+  itemSelectedForTest(id: number): void {
+    this.itemSelected(id);
+  }
+
   private itemSelected(id: number): void {
     const handler = this.handlers.get(id);
     if (handler) {
