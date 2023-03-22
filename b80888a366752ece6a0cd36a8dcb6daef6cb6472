@@ -39,6 +39,30 @@
       },
       "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "556bcffe_f56ec87f",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-22T15:06:34Z",
+      "side": 1,
+      "message": "Yes, this one is a bit tricky. If you look closely at the updated screenshots (https://imgur.com/a/bcgWCEM), you\u0027ll see that the question mark icon and the text are aligned, but that the file icon seems to move vertically depending on whether it has the purple dot.\nThis leads to the situation that question mark and file icon without dot seem aligned. And question mark and file icon with dot seem misaligned.\n\nWhat I could do is bump the question mark icon up by a pixel or 2, to make it seem better aligned with the file icon with dot, but at the price of making the alignment with the file icon without dot worse.",
+      "parentUuid": "ec631994_cb9ad1a7",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 46
+      },
+      "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
