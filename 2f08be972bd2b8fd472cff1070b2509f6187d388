@@ -33,6 +33,24 @@
       "message": "Would `if (this.#targetsInternal.size \u003d\u003d\u003d 1)` work as well?",
       "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f687e569_0260c881",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-22T09:41:49Z",
+      "side": 1,
+      "message": "Not necessary, the observers and event listeners might theoretically attach to new targets.",
+      "parentUuid": "cb5be2a1_60ed50b3",
+      "revId": "2f08be972bd2b8fd472cff1070b2509f6187d388",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
