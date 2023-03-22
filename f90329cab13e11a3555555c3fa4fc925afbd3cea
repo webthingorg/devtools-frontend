@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a28b83_2c5e6011",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-22T19:24:55Z",
+      "side": 1,
+      "message": "This CL reverts [1] and makes tests of [2] work.\nCould you have a look?\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4319605/comment/e7644332_efedf46b/\n[2] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4362619",
+      "revId": "f90329cab13e11a3555555c3fa4fc925afbd3cea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
