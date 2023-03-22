@@ -63,6 +63,30 @@
       },
       "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a083ae29_4020eb4c",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-22T15:30:14Z",
+      "side": 1,
+      "message": "Spoke to Peter. Moving the file icon with purple dot down a bit. This should fix the problem.",
+      "parentUuid": "556bcffe_f56ec87f",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 46
+      },
+      "revId": "b80888a366752ece6a0cd36a8dcb6daef6cb6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
