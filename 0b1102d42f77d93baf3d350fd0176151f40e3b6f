@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c647837_902c0e8b",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T06:54:23Z",
+      "side": 1,
+      "message": "It looks like this could be a private method of UISourceCodeFrame now. Then you could pass it to the super constructor as this.#workingCopy.bind(this) without needing to resort to the \"that \u003d this\" gymnastics. WDYT?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 5
+      },
+      "revId": "0b1102d42f77d93baf3d350fd0176151f40e3b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38919d9_1344f2f5",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T06:54:23Z",
+      "side": 1,
+      "message": "Looking at your changes to setDeferredContent, this is not true anymore. Perhaps remove the comment?",
+      "range": {
+        "startLine": 174,
+        "startChar": 8,
+        "endLine": 174,
+        "endChar": 79
+      },
+      "revId": "0b1102d42f77d93baf3d350fd0176151f40e3b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40611554_4da456bf",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T06:54:23Z",
+      "side": 1,
+      "message": "Does not this cause some annoying flickering? It seems that prior to this change, we did not always instantiate the progress indicator?",
+      "range": {
+        "startLine": 464,
+        "startChar": 4,
+        "endLine": 464,
+        "endChar": 39
+      },
+      "revId": "0b1102d42f77d93baf3d350fd0176151f40e3b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
