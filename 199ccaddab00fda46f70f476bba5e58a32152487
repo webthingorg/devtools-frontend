@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b9a177_c37782ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T12:50:39Z",
+      "side": 1,
+      "message": "Looks great, modulo small suggestions/questions.",
+      "revId": "199ccaddab00fda46f70f476bba5e58a32152487",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c75beb6_917b69a0",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T12:50:39Z",
+      "side": 1,
+      "message": "Would it also make sense to assert that the method for updating from CURRENT_VERSION to CURRENT_VERSION+1 does *not* exist?",
+      "range": {
+        "startLine": 623,
+        "startChar": 30,
+        "endLine": 623,
+        "endChar": 57
+      },
+      "revId": "199ccaddab00fda46f70f476bba5e58a32152487",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1f29bb_17591182",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-22T12:50:39Z",
+      "side": 1,
+      "message": "Could you add a comment here, which says that new migrations should be added before that comment and that they need to be idempotent. Perhaps also note that special care must be taken when renaming settings (e.g., updateVersionFrom19To20 does not seem to be idempotent).",
+      "range": {
+        "startLine": 1195,
+        "startChar": 2,
+        "endLine": 1195,
+        "endChar": 9
+      },
+      "revId": "199ccaddab00fda46f70f476bba5e58a32152487",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
