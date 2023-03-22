@@ -482,11 +482,12 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper<Resou
         Workspace.UISourceCode.Events.WorkingCopyCommitted, this.workingCopyCommitted, this);
   }
 
-  addSourceMapURL(sourceMapURL: Platform.DevToolsPath.UrlString): void {
+  addSourceMapURL(sourceMapURL: Platform.DevToolsPath.UrlString, acceptOutOfBoundsCallback?: () => Promise<boolean>):
+      void {
     if (!this.scriptInternal) {
       return;
     }
-    this.scriptInternal.debuggerModel.setSourceMapURL(this.scriptInternal, sourceMapURL);
+    this.scriptInternal.debuggerModel.setSourceMapURL(this.scriptInternal, sourceMapURL, acceptOutOfBoundsCallback);
   }
 
   addDebugInfoURL(debugInfoURL: Platform.DevToolsPath.UrlString): void {

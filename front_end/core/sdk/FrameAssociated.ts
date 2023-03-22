@@ -3,6 +3,11 @@
 // found in the LICENSE file.
 
 import {type PageResourceLoadInitiator} from './PageResourceLoader.js';
+import type * as Platform from '../../core/platform/platform.js';
+
 export interface FrameAssociated {
+  sourceURL: Platform.DevToolsPath.UrlString;
+  endLine: number;
+  endColumn: number;
   createPageResourceLoadInitiator: () => PageResourceLoadInitiator;
 }

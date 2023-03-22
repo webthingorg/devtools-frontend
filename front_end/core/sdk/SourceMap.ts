@@ -150,6 +150,7 @@ export class SourceMap {
   readonly #baseURL: Platform.DevToolsPath.UrlString;
   #mappingsInternal: SourceMapEntry[]|null;
   readonly #sourceInfos: Map<Platform.DevToolsPath.UrlString, SourceInfo>;
+  readonly #file: string|undefined;
 
   /**
    * Implements Source Map V3 model. See https://github.com/google/closure-compiler/wiki/Source-Maps
@@ -159,6 +160,7 @@ export class SourceMap {
       compiledURL: Platform.DevToolsPath.UrlString, sourceMappingURL: Platform.DevToolsPath.UrlString,
       payload: SourceMapV3) {
     this.#json = payload;
+    this.#file = payload.file;
     this.#compiledURLInternal = compiledURL;
     this.#sourceMappingURL = sourceMappingURL;
     this.#baseURL = (sourceMappingURL.startsWith('data:') ? compiledURL : sourceMappingURL);
@@ -658,6 +660,10 @@ export class SourceMap {
   compatibleForURL(sourceURL: Platform.DevToolsPath.UrlString, other: SourceMap): boolean {
     return this.embeddedContentByURL(sourceURL) === other.embeddedContentByURL(sourceURL) &&
         this.hasIgnoreListHint(sourceURL) === other.hasIgnoreListHint(sourceURL);
+  }
+
+  get file(): string|undefined {
+    return this.#file;
   }
 }
 

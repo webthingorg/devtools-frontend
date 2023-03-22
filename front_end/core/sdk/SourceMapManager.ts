@@ -12,7 +12,7 @@ import {Events as TargetManagerEvents, TargetManager} from './TargetManager.js';
 
 import {PageResourceLoader, type PageResourceLoadInitiator} from './PageResourceLoader.js';
 
-import {parseSourceMap, SourceMap, type SourceMapV3} from './SourceMap.js';
+import {parseSourceMap, SourceMap} from './SourceMap.js';
 
 export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWrapper.ObjectWrapper<EventTypes<T>> {
   readonly #target: Target;
@@ -97,7 +97,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 
   // TODO(bmeurer): We are lying about the type of |relativeSourceURL| here.
   attachSourceMap(
-      client: T, relativeSourceURL: Platform.DevToolsPath.UrlString, relativeSourceMapURL: string|undefined): void {
+      client: T, relativeSourceURL: Platform.DevToolsPath.UrlString, relativeSourceMapURL: string|undefined,
+      acceptOutOfBoundsCallback?: () => Promise<boolean>): void {
     if (this.#clientData.has(client)) {
       throw new Error('SourceMap is already attached or being attached to client');
     }
@@ -121,10 +122,9 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 
         const initiator = client.createPageResourceLoadInitiator();
         clientData.sourceMapPromise =
-            loadSourceMap(sourceMapURL, initiator)
+            this.#loadSourceMap(sourceURL, sourceMapURL, initiator, client, acceptOutOfBoundsCallback)
                 .then(
-                    payload => {
-                      const sourceMap = new SourceMap(sourceURL, sourceMapURL, payload);
+                    sourceMap => {
                       if (this.#clientData.get(client) === clientData) {
                         clientData.sourceMap = sourceMap;
                         this.#sourceMaps.set(sourceMap, client);
@@ -142,6 +142,41 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
       }
     }
     this.#clientData.set(client, clientData);
+  }
+
+  async #loadSourceMap(
+      sourceURL: Platform.DevToolsPath.UrlString, sourceMapURL: Platform.DevToolsPath.UrlString,
+      initiator: PageResourceLoadInitiator, client: T,
+      acceptOutOfBoundsCallback?: () => Promise<boolean>): Promise<SourceMap> {
+    let payload;
+    try {
+      const {content} = await PageResourceLoader.instance().loadResource(sourceMapURL, initiator);
+      payload = parseSourceMap(content);
+    } catch (cause) {
+      throw new Error(`Could not load content for ${sourceMapURL}: ${cause.message}`, {cause});
+    }
+    const sourceMap = new SourceMap(sourceURL, sourceMapURL, payload);
+    if (acceptOutOfBoundsCallback && !this.#sourceMapCompatibleWithClient(client, sourceMap)) {
+      const acceptAnyways = await acceptOutOfBoundsCallback();
+      if (!acceptAnyways) {
+        throw new Error(`Source map at ${sourceMapURL} is incompatible, out-of-bounds mappings found.`);
+      }
+    }
+    return sourceMap;
+  }
+
+  #sourceMapCompatibleWithClient(client: T, sourceMap: SourceMap): boolean {
+    const mappings = sourceMap.mappings();
+    if (mappings.length === 0) {
+      return true;
+    }
+    const lastMapping = mappings[mappings.length - 1];
+    const clientUrlPieces = client.sourceURL.split('/');
+    const sourcemapFileUrlPieces = sourceMap.file?.split('/');
+    return (!sourcemapFileUrlPieces ||
+            clientUrlPieces[clientUrlPieces.length - 1] ===
+                sourcemapFileUrlPieces[sourcemapFileUrlPieces.length - 1]) &&
+        client.endLine >= lastMapping.lineNumber && client.endColumn >= lastMapping.columnNumber;
   }
 
   detachSourceMap(client: T): void {
@@ -165,16 +200,6 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
   dispose(): void {
     TargetManager.instance().removeEventListener(
         TargetManagerEvents.InspectedURLChanged, this.inspectedURLChanged, this);
-  }
-}
-
-async function loadSourceMap(
-    url: Platform.DevToolsPath.UrlString, initiator: PageResourceLoadInitiator): Promise<SourceMapV3> {
-  try {
-    const {content} = await PageResourceLoader.instance().loadResource(url, initiator);
-    return parseSourceMap(content);
-  } catch (cause) {
-    throw new Error(`Could not load content for ${url}: ${cause.message}`, {cause});
   }
 }
 
