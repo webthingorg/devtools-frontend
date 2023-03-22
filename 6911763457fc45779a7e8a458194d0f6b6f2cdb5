@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a11a56_3bab8a30",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-22T06:02:28Z",
+      "side": 1,
+      "message": "Oh, looks good!",
+      "parentUuid": "51f26858_c524c92b",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 28
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58ea6bda_100492eb",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30087cb5_92330e5e",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-22T06:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58ea6bda_100492eb",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 16
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b68956df_b74a95ff",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-21T07:29:22Z",
       "side": 1,
       "message": "this.map \u003d new Map(sources.map(s \u003d\u003e [makePreloadingAttemptId(s.key), s]));",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 21
+      },
+      "revId": "6911763457fc45779a7e8a458194d0f6b6f2cdb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44f5bc42_773f06c8",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-03-22T06:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b68956df_b74a95ff",
       "range": {
         "startLine": 351,
         "startChar": 0,
