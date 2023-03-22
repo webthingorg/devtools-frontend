@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23041615_8e4d2b66",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1348151
+      },
+      "writtenOn": "2023-03-22T22:59:30Z",
+      "side": 1,
+      "message": "driving by - rather than using string comparison functions can you use the builtin url class to obtain the scheme - treating the url as a Url rather than a string?",
+      "revId": "9169474e0b2de2564fbf29cab349f3528f3fb0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
