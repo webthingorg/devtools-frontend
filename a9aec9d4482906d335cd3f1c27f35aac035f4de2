@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d00c6b1_6a542aa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-22T13:46:55Z",
+      "side": 1,
+      "message": "LGTM with one question!",
+      "revId": "a9aec9d4482906d335cd3f1c27f35aac035f4de2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12ab17c8_52625b74",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-22T13:46:55Z",
+      "side": 1,
+      "message": "can the \u0026 marker not appear at the end?",
+      "revId": "a9aec9d4482906d335cd3f1c27f35aac035f4de2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
