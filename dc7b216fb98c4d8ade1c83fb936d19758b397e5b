@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc7b7bf_bcd15c6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-23T14:21:25Z",
+      "side": 1,
+      "message": "LGTM modulo the hard-to-read test.",
+      "revId": "dc7b216fb98c4d8ade1c83fb936d19758b397e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d51743b_2e0b34ee",
+        "filename": "test/unittests/front_end/core/sdk/SourceMapManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-23T14:21:25Z",
+      "side": 1,
+      "message": "What is the difference between these three blocks? Could you split the test into smaller tests?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 47
+      },
+      "revId": "dc7b216fb98c4d8ade1c83fb936d19758b397e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
