@@ -517,50 +517,9 @@ export class DebuggerPlugin extends Plugin {
   }
 
   populateTextAreaContextMenu(contextMenu: UI.ContextMenu.ContextMenu): void {
-    function addSourceMapURL(scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile): void {
-      const dialog =
-          AddDebugInfoURLDialog.createAddSourceMapURLDialog(addSourceMapURLDialogCallback.bind(null, scriptFile));
-      dialog.show();
-    }
-
-    function addSourceMapURLDialogCallback(
-        scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile, url: Platform.DevToolsPath.UrlString): void {
-      if (!url) {
-        return;
-      }
-      scriptFile.addSourceMapURL(url);
-    }
-
-    function addDebugInfoURL(scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile): void {
-      const dialog =
-          AddDebugInfoURLDialog.createAddDWARFSymbolsURLDialog(addDebugInfoURLDialogCallback.bind(null, scriptFile));
-      dialog.show();
-    }
-
-    function addDebugInfoURLDialogCallback(
-        scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile, url: Platform.DevToolsPath.UrlString): void {
-      if (!url) {
-        return;
-      }
-      scriptFile.addDebugInfoURL(url);
-    }
-
-    if (this.uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
-        Common.Settings.Settings.instance().moduleSetting('jsSourceMapsEnabled').get() &&
-        !Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(this.uiSourceCode.url())) {
-      if (this.scriptFileForDebuggerModel.size) {
-        const scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile =
-            this.scriptFileForDebuggerModel.values().next().value;
-        const addSourceMapURLLabel = i18nString(UIStrings.addSourceMap);
-        contextMenu.debugSection().appendItem(addSourceMapURLLabel, addSourceMapURL.bind(null, scriptFile));
-        if (scriptFile.script?.isWasm() &&
-            !Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().pluginManager?.hasPluginForScript(
-                scriptFile.script)) {
-          contextMenu.debugSection().appendItem(
-              i18nString(UIStrings.addWasmDebugInfo), addDebugInfoURL.bind(null, scriptFile));
-        }
-      }
-    }
+    const scriptFile =
+        this.scriptFileForDebuggerModel.size ? this.scriptFileForDebuggerModel.values().next().value : null;
+    populateTextAreaContextMenu(contextMenu, this.uiSourceCode, scriptFile);
   }
 
   private workingCopyChanged(): void {
@@ -1608,6 +1567,53 @@ export class DebuggerPlugin extends Plugin {
 
     UI.Context.Context.instance().removeFlavorChangeListener(SDK.DebuggerModel.CallFrame, this.callFrameChanged, this);
     this.liveLocationPool.disposeAll();
+  }
+}
+
+export function populateTextAreaContextMenu(
+    contextMenu: UI.ContextMenu.ContextMenu, uiSourceCode: Workspace.UISourceCode.UISourceCode,
+    scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile|null): void {
+  function addSourceMapURL(scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile): void {
+    const dialog =
+        AddDebugInfoURLDialog.createAddSourceMapURLDialog(addSourceMapURLDialogCallback.bind(null, scriptFile));
+    dialog.show();
+  }
+
+  function addSourceMapURLDialogCallback(
+      scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile, url: Platform.DevToolsPath.UrlString): void {
+    if (!url) {
+      return;
+    }
+    scriptFile.addSourceMapURL(url, () => UI.InspectorView.InspectorView.instance().displaySourceMapWarning(url));
+  }
+
+  function addDebugInfoURL(scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile): void {
+    const dialog =
+        AddDebugInfoURLDialog.createAddDWARFSymbolsURLDialog(addDebugInfoURLDialogCallback.bind(null, scriptFile));
+    dialog.show();
+  }
+
+  function addDebugInfoURLDialogCallback(
+      scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile, url: Platform.DevToolsPath.UrlString): void {
+    if (!url) {
+      return;
+    }
+    scriptFile.addDebugInfoURL(url);
+  }
+
+  if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
+      Common.Settings.Settings.instance().moduleSetting('jsSourceMapsEnabled').get() &&
+      !Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(uiSourceCode.url())) {
+    if (scriptFile) {
+      const addSourceMapURLLabel = i18nString(UIStrings.addSourceMap);
+      contextMenu.debugSection().appendItem(addSourceMapURLLabel, addSourceMapURL.bind(null, scriptFile));
+      if (scriptFile.script?.isWasm() &&
+          !Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().pluginManager?.hasPluginForScript(
+              scriptFile.script)) {
+        contextMenu.debugSection().appendItem(
+            i18nString(UIStrings.addWasmDebugInfo), addDebugInfoURL.bind(null, scriptFile));
+      }
+    }
   }
 }
 

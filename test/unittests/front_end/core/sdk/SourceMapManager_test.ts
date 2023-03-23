@@ -18,8 +18,8 @@ const content = JSON.stringify({
   'sources': [
     '/original-script.js',
   ],
-});
 
+});
 describeWithMockConnection('SourceMapManager', () => {
   it('uses url for a worker\'s source maps from frame', async () => {
     setupPageResourceLoaderForSourceMap(content);
@@ -113,6 +113,10 @@ describe('SourceMapManager', () => {
   };
 
   class MockClient implements SDK.FrameAssociated.FrameAssociated {
+    sourceURL: Platform.DevToolsPath.UrlString = '' as Platform.DevToolsPath.UrlString;
+    endLine: number = 0;
+    endColumn: number = 0;
+
     constructor(private target: SDK.Target.Target) {
     }
 
@@ -216,6 +220,66 @@ describe('SourceMapManager', () => {
       sourceMapManager.setEnabled(true);
       assert.strictEqual(loadResource.callCount, 1, 'loadResource calls');
       await sourceMapManager.sourceMapForClientPromise(client);
+    });
+
+    describe('asks confirmation for incompatible sourcemaps', () => {
+      let client: MockClient,
+          sourceMapManager: SDK.SourceMapManager.SourceMapManager<SDK.FrameAssociated.FrameAssociated>;
+      beforeEach(() => {
+        const target = createTarget();
+        sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
+
+        // This maps line 2 to column 5 (0-based).
+        const contentWithOOBMapping =
+            JSON.stringify({...JSON.parse(content), mappings: ';;K', file: sourceURL} as SDK.SourceMap.SourceMapV3);
+        client = new MockClient(target);
+        client.sourceURL = sourceURL;
+        client.endLine = 2;
+        client.endColumn = 5;
+
+        sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({
+          content: contentWithOOBMapping,
+        });
+      });
+
+      it('unless the sourcemap is compatible', async () => {
+        const mockCallback = sinon.mock();
+        mockCallback.returns(Promise.resolve(true));
+        sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+        assert.notStrictEqual(await sourceMapManager.sourceMapForClientPromise(client), undefined);
+        assert.isTrue(mockCallback.notCalled);
+      });
+
+      async function attachSourceMapAndConfirm(
+          client: SDK.FrameAssociated.FrameAssociated, attachingConfirmed: boolean) {
+        const mockCallback = sinon.mock();
+        mockCallback.returns(Promise.resolve(attachingConfirmed));
+        sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, mockCallback);
+        const result = await sourceMapManager.sourceMapForClientPromise(client);
+        if (attachingConfirmed) {
+          assert.notStrictEqual(result, undefined);
+        } else {
+          assert.strictEqual(result, undefined);
+        }
+        assert.isTrue(mockCallback.calledOnce);
+      }
+
+      for (const confirmed of [true, false]) {
+        const confirmedMessage = confirmed ? 'attaching confirmed' : 'attaching aborted';
+
+        it(`if the sourceURL is a mismatch (${confirmedMessage})`, async () => {
+          client.sourceURL = (sourceURL + '/bar.js') as Platform.DevToolsPath.UrlString;
+          await attachSourceMapAndConfirm(client, confirmed);
+        });
+        it(`if the line count does not match (${confirmedMessage})`, async () => {
+          client.endLine = 1;
+          await attachSourceMapAndConfirm(client, confirmed);
+        });
+        it(`if the column count does not match (${confirmedMessage})`, async () => {
+          client.endColumn = 4;
+          await attachSourceMapAndConfirm(client, confirmed);
+        });
+      }
     });
   });
 
