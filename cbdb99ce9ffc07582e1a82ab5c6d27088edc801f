@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea19373_252cf70f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-23T11:57:19Z",
+      "side": 1,
+      "message": "PTAL, we don\u0027t want to change grey icon colors to Material 3 just yet",
+      "revId": "cbdb99ce9ffc07582e1a82ab5c6d27088edc801f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
