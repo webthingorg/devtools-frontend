@@ -605,6 +605,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
       section.element.classList.toggle('has-open-popover', data.open);
       this.parentPaneInternal.setEditingStyle(data.open);
+
+      if (!data.open) {
+        this.updatePane();
+      }
     };
 
     const valueChanged = async(event: Event): Promise<void> => {
