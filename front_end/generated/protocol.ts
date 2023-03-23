@@ -1025,6 +1025,7 @@ export namespace Audits {
     FormInputAssignedAutocompleteValueToIdOrNameAttributeError = 'FormInputAssignedAutocompleteValueToIdOrNameAttributeError',
     FormLabelHasNeitherForNorNestedInput = 'FormLabelHasNeitherForNorNestedInput',
     FormLabelForMatchesNonExistingIdError = 'FormLabelForMatchesNonExistingIdError',
+    FormInputHasWrongButWellIntendedAutocompleteValueError = 'FormInputHasWrongButWellIntendedAutocompleteValueError',
   }
 
   /**

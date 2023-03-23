@@ -1547,7 +1547,8 @@
                         "FormAriaLabelledByToNonExistingId",
                         "FormInputAssignedAutocompleteValueToIdOrNameAttributeError",
                         "FormLabelHasNeitherForNorNestedInput",
-                        "FormLabelForMatchesNonExistingIdError"
+                        "FormLabelForMatchesNonExistingIdError",
+                        "FormInputHasWrongButWellIntendedAutocompleteValueError"
                     ]
                 },
                 {
