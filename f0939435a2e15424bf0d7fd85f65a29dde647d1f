@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4561aea_28512116",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T16:05:37Z",
+      "side": 1,
+      "message": "Some sizes questions",
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c91ae543_5cf46395",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T16:05:37Z",
+      "side": 1,
+      "message": "Same question as below",
+      "range": {
+        "startLine": 178,
+        "startChar": 77,
+        "endLine": 178,
+        "endChar": 105
+      },
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9190a95c_206b18bc",
+        "filename": "front_end/ui/components/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T16:05:37Z",
+      "side": 1,
+      "message": "It might be possible that this needs to be of other size, have you checked irregular icon sizes doc? (since it was 14px before and not 16)",
+      "range": {
+        "startLine": 165,
+        "startChar": 74,
+        "endLine": 165,
+        "endChar": 78
+      },
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
