@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "229d9fb66a48126400a0a8946cf7f6a9e1ec103b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "382b05e1_b6aaee70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-24T09:30:03Z",
+      "side": 1,
+      "message": "lgtm, nice improvement! What a confusing method name 😊",
+      "revId": "229d9fb66a48126400a0a8946cf7f6a9e1ec103b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b893dad6_74e6c878",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-24T09:30:03Z",
+      "side": 1,
+      "message": "is this diagram correct? The code above implies that e1 should start after e2",
+      "range": {
+        "startLine": 1974,
+        "startChar": 4,
+        "endLine": 1977,
+        "endChar": 28
+      },
+      "revId": "229d9fb66a48126400a0a8946cf7f6a9e1ec103b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
