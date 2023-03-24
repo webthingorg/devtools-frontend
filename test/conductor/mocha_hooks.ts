@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import puppeteer = require('puppeteer');
+
 import * as fs from 'fs';
 import {createCoverageMap, createFileCoverage} from 'istanbul-lib-coverage';
 import * as report from 'istanbul-lib-report';
@@ -10,9 +12,10 @@ import * as reports from 'istanbul-reports';
 import * as path from 'path';
 import * as rimraf from 'rimraf';
 
-import {collectCoverageFromPage, postFileTeardown, preFileSetup, resetPages} from './hooks.js';
+import {collectCoverageFromPage, launchChrome, postFileTeardown, preFileSetup, resetPages} from './hooks.js';
 import {getTestRunnerConfigSetting} from './test_runner_config.js';
 import {startServer, stopServer} from './test_server.js';
+import {setupBrowserProcessIO} from './events.js';
 
 /* eslint-disable no-console */
 
@@ -23,6 +26,8 @@ const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 
 if (TEST_SERVER_TYPE !== 'hosted-mode' && TEST_SERVER_TYPE !== 'component-docs' && TEST_SERVER_TYPE !== 'none') {
   throw new Error(`Invalid test server type: ${TEST_SERVER_TYPE}`);
 }
+
+const browsers: puppeteer.Browser[] = [];
 
 // Required to reassign to allow for TypeScript to correctly deduce its type
 const DERIVED_SERVER_TYPE = TEST_SERVER_TYPE;
@@ -49,10 +54,22 @@ export async function mochaGlobalSetup(this: Mocha.Suite) {
   }
   process.env.testServerPort = String(await startServer(DERIVED_SERVER_TYPE));
   console.log(`Started ${DERIVED_SERVER_TYPE} server on port ${process.env.testServerPort}`);
+  for (let i = 0; i < Number(process.env.JOBS); i++) {
+    const browser = await launchChrome();
+    setupBrowserProcessIO(browser);
+    browsers.push(browser);
+  }
+  process.env.WS_ENDPOINTS = browsers.map(browser => browser.wsEndpoint()).join(',');
+  browsers.forEach(browser => {
+    browser.disconnect();
+  });
 }
 
-export function mochaGlobalTeardown() {
+export async function mochaGlobalTeardown() {
   console.log('Stopping server');
+  browsers.forEach(async browser => {
+    await browser.close();
+  });
   stopServer();
 }
 

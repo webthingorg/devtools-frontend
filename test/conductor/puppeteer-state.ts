@@ -20,7 +20,8 @@ export interface BrowserAndPages {
   browser: puppeteer.Browser;
 }
 
-export const clearPuppeteerState = () => {
+export const clearPuppeteerState = async () => {
+  await frontend?.close();
   target = null;
   frontend = null;
   browser = null;
