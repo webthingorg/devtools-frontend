@@ -16,6 +16,24 @@
       "message": "Hey hey, this is a great catch; thanks for fixing this!\n\nUsually, how we do these things for cases like this is to apply the style changes as \"majorChange\" after the widget is closed.\n\nSo, instead of `this.updatePane()`, can you update it to call `await this.applyStyleText(this.renderedPropertyText(), true);`?",
       "revId": "d4b7c471620ea534143f4a5a7ff2a5fcd72e3207",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ecee2e_900cdf6a",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1569937
+      },
+      "writtenOn": "2023-03-24T10:31:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861a764e_34e420a7",
+      "revId": "d4b7c471620ea534143f4a5a7ff2a5fcd72e3207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
