@@ -66,7 +66,7 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
     this.dialog.show();
   }
 
-  private done(value: Platform.DevToolsPath.UrlString): void {
+  done(value: Platform.DevToolsPath.UrlString): void {
     this.dialog.hide();
     this.callback(value);
   }

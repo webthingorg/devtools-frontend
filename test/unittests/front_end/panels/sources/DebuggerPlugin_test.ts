@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
@@ -10,11 +11,11 @@ import * as Workspace from '../../../../../front_end/models/workspace/workspace.
 import * as Sources from '../../../../../front_end/panels/sources/sources.js';
 import * as CodeMirror from '../../../../../front_end/third_party/codemirror.next/codemirror.next.js';
 import * as TextEditor from '../../../../../front_end/ui/components/text_editor/text_editor.js';
-
-import type * as Platform from '../../../../../front_end/core/platform/platform.js';
+import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {createTarget, describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 import {MockProtocolBackend, parseScopeChain} from '../../helpers/MockScopeChain.js';
+import {createContentProviderUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
 
 describeWithMockConnection('Inline variable view scope helpers', () => {
   const URL = 'file:///tmp/example.js' as Platform.DevToolsPath.UrlString;
@@ -568,6 +569,62 @@ globalThis.foo = bar + baz;
           );
         }
       });
+    });
+  });
+});
+
+describeWithEnvironment('DebuggerPlugin', () => {
+  describe('text area context menu', () => {
+    it('shows confirmation dialog when attaching incompatible sourcemaps', async () => {
+      // This test verifies that the 'Add source map' action in the text area context menu is wired up correctly with
+      // the warning dialog for incompatible source maps. For this purpose it:
+      // * populates the text area context menu for some source file
+      // * verifies that it's rigged to call back into the debugger model for the new source map url
+      // * verifies that that callback in turn passes the right callback to display the incompatible source map warning
+
+      // Step 0 - Setup: We need a UISourceCode and a ResourceScriptFile
+      const workspace = Workspace.Workspace.WorkspaceImpl.instance();
+      const targetManager = SDK.TargetManager.TargetManager.instance();
+      const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
+      const debuggerWorkspaceBinding = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance({
+        forceNew: true,
+        resourceMapping,
+        targetManager,
+      });
+      Bindings.IgnoreListManager.IgnoreListManager.instance({forceNew: true, debuggerWorkspaceBinding});
+      const event = new CustomEvent('test');
+      const menu = new UI.ContextMenu.ContextMenu(event);
+
+      const url = 'data:text/plain,HelloWorld' as Platform.DevToolsPath.UrlString;
+      const mockResourceScriptMapping = sinon.createStubInstance(Bindings.ResourceScriptMapping.ResourceScriptMapping);
+      const mockDebuggerModel = sinon.createStubInstance(SDK.DebuggerModel.DebuggerModel);
+      const {uiSourceCode} = createContentProviderUISourceCode(
+          {url, mimeType: 'text/plain', projectType: Workspace.Workspace.projectTypes.Network});
+
+      const script = new SDK.Script.Script(
+          mockDebuggerModel, '1' as Protocol.Runtime.ScriptId, url, 0, 0, 0, 0, 0, '', false, false, undefined, false,
+          0, null, null, null, null, null, null);
+      const scriptFile =
+          new Bindings.ResourceScriptMapping.ResourceScriptFile(mockResourceScriptMapping, uiSourceCode, [script]);
+
+      // Step 1 - Populate text area context menu
+      const createDialogStub =
+          sinon.spy(Sources.AddSourceMapURLDialog.AddDebugInfoURLDialog, 'createAddSourceMapURLDialog');
+      const displayWarningStub = sinon.stub(UI.InspectorView.InspectorView.instance(), 'displaySourceMapWarning');
+      Sources.DebuggerPlugin.populateTextAreaContextMenu(menu, uiSourceCode, scriptFile);
+
+      // Step 2 - Verify that the 'Add source map' action calls back into the debugger model
+      const addSourceMapUrlItem = menu.debugSection().items[0];
+      menu.itemSelectedForTest(addSourceMapUrlItem.id());
+      sinon.assert.calledOnce(createDialogStub);
+      const sourceMapURL = `${url}.map` as Platform.DevToolsPath.UrlString;
+      createDialogStub.returnValues[0].done(sourceMapURL);
+
+      // Step 3 - Verify that that callback passes the proper callback to display the warning.
+      const [, , acceptOOBSourceMapCallback] = mockDebuggerModel.setSourceMapURL.args[0];
+      Platform.assertNotNullOrUndefined(acceptOOBSourceMapCallback);
+      void acceptOOBSourceMapCallback();
+      sinon.assert.calledOnceWithExactly(displayWarningStub, sourceMapURL);
     });
   });
 });
