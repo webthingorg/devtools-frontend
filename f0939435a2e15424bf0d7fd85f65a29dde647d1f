@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10b6d17b_1033c026",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T16:13:36Z",
+      "side": 1,
+      "message": "This is one pixel smaller, I don\u0027t think we want this kind of discrepancy in the UI.",
+      "parentUuid": "c91ae543_5cf46395",
+      "range": {
+        "startLine": 178,
+        "startChar": 77,
+        "endLine": 178,
+        "endChar": 105
+      },
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9190a95c_206b18bc",
         "filename": "front_end/ui/components/linear_memory_inspector/ValueInterpreterDisplay.ts",
         "patchSetId": 1
