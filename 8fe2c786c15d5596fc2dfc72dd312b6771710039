@@ -39,6 +39,30 @@
       },
       "revId": "8fe2c786c15d5596fc2dfc72dd312b6771710039",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdeb4c66_74438c40",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T13:36:39Z",
+      "side": 1,
+      "message": "Nope, I pass in 20 explicitly for the new icon, but there\u0027s another invocation of this one with an old icon, which I kept at 16.",
+      "parentUuid": "494f7ec8_c359e688",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "8fe2c786c15d5596fc2dfc72dd312b6771710039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
