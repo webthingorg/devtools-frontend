@@ -110,6 +110,30 @@
       },
       "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68296c08_1c15dc33",
+        "filename": "front_end/ui/components/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T16:39:08Z",
+      "side": 1,
+      "message": "As discussed changed all non-standard sizes to 16px",
+      "parentUuid": "e21b1886_03e2689a",
+      "range": {
+        "startLine": 165,
+        "startChar": 74,
+        "endLine": 165,
+        "endChar": 78
+      },
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
