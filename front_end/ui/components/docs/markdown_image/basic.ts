@@ -11,7 +11,7 @@ await FrontendHelpers.initializeGlobalVars();
 
 // Adding a couple image keys to the image map.
 MarkdownView.MarkdownImagesMap.markdownImages.set('test-icon', {
-  src: '../../Images/issue-text-icon.svg',
+  src: '../../Images/issue-text-filled.svg',
   isIcon: true,
   width: '16px',
   height: '16px',
