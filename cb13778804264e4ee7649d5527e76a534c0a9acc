@@ -16,6 +16,24 @@
       "message": "The icon also comes up multiple times in a test, could you please update there too?\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/ui/components/issue_counter/IssueCounter_test.ts",
       "revId": "cb13778804264e4ee7649d5527e76a534c0a9acc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31bd5b97_fa200d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T14:36:17Z",
+      "side": 1,
+      "message": "Yup, just noticed that as well. Done, thanks!",
+      "parentUuid": "7e8e0456_e993d5ef",
+      "revId": "cb13778804264e4ee7649d5527e76a534c0a9acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
