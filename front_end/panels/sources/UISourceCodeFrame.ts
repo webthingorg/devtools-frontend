@@ -520,7 +520,7 @@ function getIconDataForLevel(level: Workspace.UISourceCode.Message.Level): IconB
     return {color: '', width: '12px', height: '12px', iconName: 'warning_icon'};
   }
   if (level === Workspace.UISourceCode.Message.Level.Issue) {
-    return {color: 'var(--issue-color-yellow)', width: '12px', height: '12px', iconName: 'issue-exclamation-icon'};
+    return {color: 'var(--icon-warning)', width: '15px', height: '15px', iconName: 'issue-exclamation-filled'};
   }
   return {color: '', width: '12px', height: '12px', iconName: 'error_icon'};
 }

@@ -32,7 +32,7 @@ export function getIssueKindIconData(issueKind: IssuesManager.Issue.IssueKind): 
     case IssuesManager.Issue.IssueKind.PageError:
       return {iconName: 'issue-cross-icon', color: 'var(--issue-color-red)', width: '16px', height: '16px'};
     case IssuesManager.Issue.IssueKind.BreakingChange:
-      return {iconName: 'issue-exclamation-icon', color: 'var(--issue-color-yellow)', width: '16px', height: '16px'};
+      return {iconName: 'issue-exclamation-filled', color: 'var(--icon-warning)', width: '20px', height: '20px'};
     case IssuesManager.Issue.IssueKind.Improvement:
       return {iconName: 'issue-text-icon', color: 'var(--issue-color-blue)', width: '16px', height: '16px'};
   }
