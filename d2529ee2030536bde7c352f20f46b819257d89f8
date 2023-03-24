@@ -16,6 +16,41 @@
       "message": "Thanks for the prompt review Ergün. I applied your suggestion.\n\nAs this is my first contribution to devtools, I\u0027m not sure about tests for this kind of feature. Are there any? If so where do they live? Or can you suggest how to add some?",
       "revId": "d2529ee2030536bde7c352f20f46b819257d89f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7033ace_a79d0241",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-24T12:39:27Z",
+      "side": 1,
+      "message": "Currently we don\u0027t have much test coverage for this part of the code, so we can skip adding test for this bug fix.",
+      "parentUuid": "7af7042f_c6e4aea2",
+      "revId": "d2529ee2030536bde7c352f20f46b819257d89f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b90fef_7b3404a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-24T12:39:27Z",
+      "side": 1,
+      "message": "I have also realized one thing, see these steps:\n* Click on the angle icon and open angle editor widget\n* Before closing the angle editor, click on the checkbox on one of the properties to disable.\n\nNow, the disable action doesn\u0027t work because we\u0027ve already set `editing` in parent pane. I\u0027ve seen that the popover is closed but we don\u0027t emit PopoverToggledEvent from `CSSAngle`.\n\nSo, can you also add `@focusout\u003d${this.minify}` to `.css-angle` element. After this, I think we are good to go.\n\nLet me know if you also find any other strange cases :)",
+      "revId": "d2529ee2030536bde7c352f20f46b819257d89f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
