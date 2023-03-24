@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b647a8ec_814e1bb8",
+        "filename": "front_end/ui/components/docs/icon_button/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T15:55:37Z",
+      "side": 1,
+      "message": "This is just an example in docs.",
+      "parentUuid": "1a8af72f_a960dd67",
+      "range": {
+        "startLine": 30,
+        "startChar": 48,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "5a26090ff8d736802bb96c210e4825afca2fee9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e780059_cb7c5f8a",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c783681c_88e6ec78",
+        "filename": "front_end/ui/components/docs/markdown_image/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T15:55:37Z",
+      "side": 1,
+      "message": "This is also an example in docs. Updagted.",
+      "parentUuid": "5e780059_cb7c5f8a",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "5a26090ff8d736802bb96c210e4825afca2fee9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9ee7e63_7d64df0b",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-03-24T15:44:51Z",
       "side": 1,
       "message": "This should be updated too",
+      "range": {
+        "startLine": 120,
+        "startChar": 20,
+        "endLine": 120,
+        "endChar": 45
+      },
+      "revId": "5a26090ff8d736802bb96c210e4825afca2fee9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d328b95_cbeb9387",
+        "filename": "front_end/ui/legacy/infobar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T15:55:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ee7e63_7d64df0b",
       "range": {
         "startLine": 120,
         "startChar": 20,
