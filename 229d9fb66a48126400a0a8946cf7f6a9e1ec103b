@@ -56,6 +56,30 @@
       },
       "revId": "229d9fb66a48126400a0a8946cf7f6a9e1ec103b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6521e43f_a0f55a55",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-24T09:54:40Z",
+      "side": 1,
+      "message": "good catch! The diagram is correct but the code isn\u0027t! It\u0027s supposed to be `e1.startTime \u003c\u003d e2.startTime \u0026\u0026 ...`\nFixed",
+      "parentUuid": "b893dad6_74e6c878",
+      "range": {
+        "startLine": 1974,
+        "startChar": 4,
+        "endLine": 1977,
+        "endChar": 28
+      },
+      "revId": "229d9fb66a48126400a0a8946cf7f6a9e1ec103b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
