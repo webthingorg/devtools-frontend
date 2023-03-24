@@ -16,6 +16,23 @@
       "message": "This looks good to me but when we interact with the color picker (ex: by playing with the hue slider) the color picker\u0027s height flakes and this makes the interaction buggy. \n\nWDYT, can we do something about that too?",
       "revId": "7464b133095458c419f305e067ba9d011d3c652d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05ac7423_bd4fbfd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-03-24T13:25:24Z",
+      "side": 1,
+      "message": "This is fixed in crrev.com/c/4274963 I believe, so I\u0027m removing myself from reviewers list. You can abandon the CL as well :)",
+      "revId": "7464b133095458c419f305e067ba9d011d3c652d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
