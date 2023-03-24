@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98985eaa_1e2080aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T14:54:04Z",
+      "side": 1,
+      "message": "LGTM % if you noticed where the gray and selected white colors are being set, please update those as well",
+      "revId": "cb7e784467c1aed3550a08bf2d2251b94c26af9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
