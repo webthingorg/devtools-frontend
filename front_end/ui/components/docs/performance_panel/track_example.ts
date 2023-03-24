@@ -64,5 +64,6 @@ async function renderContent() {
   } catch (error) {
     p.classList.remove('loading');
     p.innerText = error;
+    console.error(error);
   }
 }
