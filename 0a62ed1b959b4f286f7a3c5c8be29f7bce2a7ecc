@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f319ca_6524a678",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-24T10:35:43Z",
+      "side": 1,
+      "message": "Oh, and when we do the next What\u0027s new in DT, we should feature this. And perhaps ping Sofia to see if we need to update any user documentation?",
+      "revId": "0a62ed1b959b4f286f7a3c5c8be29f7bce2a7ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d368be43_1c8f736c",
