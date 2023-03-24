@@ -39,6 +39,30 @@
       },
       "revId": "dc7b216fb98c4d8ade1c83fb936d19758b397e5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02b63fd_063dfb2c",
+        "filename": "test/unittests/front_end/core/sdk/SourceMapManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-24T13:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d51743b_2e0b34ee",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 47
+      },
+      "revId": "dc7b216fb98c4d8ade1c83fb936d19758b397e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
