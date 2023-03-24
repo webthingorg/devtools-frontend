@@ -74,3 +74,7 @@ export function data(): GPUHandlerReturnData {
 export function deps(): TraceEventHandlerName[] {
   return ['Meta'];
 }
+
+export const enum MetricName {
+  GPU = 'GPU',
+}
