@@ -1138,7 +1138,15 @@ self.injectedExtensionAPI = function(
   }
 
   function canAccessResource(resource: APIImpl.ResourceData): boolean {
+<<<<<<< HEAD   (1223b5 Prevent host bindings from loading resources from remote fil)
     return extensionInfo.allowFileAccess || !resource.url.startsWith('file://');
+=======
+    try {
+      return extensionInfo.allowFileAccess || (new URL(resource.url)).protocol !== 'file:';
+    } catch (e) {
+      return false;
+    }
+>>>>>>> CHANGE (b2e370 Use built-in URL class instead of string comparison in file )
   }
 
   function InspectedWindow(this: PublicAPI.Chrome.DevTools.InspectedWindow): void {
