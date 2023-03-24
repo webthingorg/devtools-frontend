@@ -62,6 +62,30 @@
       },
       "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e21b1886_03e2689a",
+        "filename": "front_end/ui/components/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-24T16:11:22Z",
+      "side": 1,
+      "message": "It doesn\u0027t mention this case. Here\u0027s how it looks like: https://imgur.com/a/dKrV65w\n\nNot great but in line with the rest of the changes.",
+      "parentUuid": "9190a95c_206b18bc",
+      "range": {
+        "startLine": 165,
+        "startChar": 74,
+        "endLine": 165,
+        "endChar": 78
+      },
+      "revId": "f0939435a2e15424bf0d7fd85f65a29dde647d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
