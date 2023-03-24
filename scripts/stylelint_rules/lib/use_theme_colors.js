@@ -46,6 +46,8 @@ const CUSTOM_VARIABLE_OVERRIDE_PREFIX = '--override-';
 
 const themeColorsPath = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'legacy', 'themeColors.css');
 const inspectorCommonPath = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'legacy', 'inspectorCommon.css');
+const applicationColorTokensPath =
+    path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'legacy', 'applicationColorTokens.css');
 
 function getRootVariableDeclarationsFromCSSFile(filePath) {
   const fileContents = fs.readFileSync(filePath, {encoding: 'utf-8'});
@@ -64,6 +66,7 @@ function getRootVariableDeclarationsFromCSSFile(filePath) {
 
 const DEFINED_THEME_COLOR_VARIABLES = getRootVariableDeclarationsFromCSSFile(themeColorsPath);
 const DEFINED_INSPECTOR_STYLE_VARIABLES = getRootVariableDeclarationsFromCSSFile(inspectorCommonPath);
+const DEFINED_APPLICATION_COLOR_TOKEN_VARIABLES = getRootVariableDeclarationsFromCSSFile(applicationColorTokensPath);
 
 module.exports = stylelint.createPlugin(RULE_NAME, function(primary, secondary, context) {
   return function(postcssRoot, postcssResult) {
@@ -151,8 +154,9 @@ module.exports = stylelint.createPlugin(RULE_NAME, function(primary, secondary, 
           return;
         }
 
-        const variableIsValid =
-            DEFINED_INSPECTOR_STYLE_VARIABLES.has(variableName) || DEFINED_THEME_COLOR_VARIABLES.has(variableName);
+        const variableIsValid = DEFINED_INSPECTOR_STYLE_VARIABLES.has(variableName) ||
+            DEFINED_THEME_COLOR_VARIABLES.has(variableName) ||
+            DEFINED_APPLICATION_COLOR_TOKEN_VARIABLES.has(variableName);
         if (!variableIsValid) {
           reportError(declarationToErrorOn, !alreadyFixed);
         }
