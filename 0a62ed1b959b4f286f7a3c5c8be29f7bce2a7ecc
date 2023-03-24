@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a116d7a3_a94d20d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-24T13:27:17Z",
+      "side": 1,
+      "message": "sounds good I\u0027ll reach out to her",
+      "parentUuid": "04f319ca_6524a678",
+      "revId": "0a62ed1b959b4f286f7a3c5c8be29f7bce2a7ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d368be43_1c8f736c",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-03-24T10:35:08Z",
       "side": 1,
       "message": "ah nice, I noticed that the timings track seemed to be taking up a bit of extra room",
+      "revId": "0a62ed1b959b4f286f7a3c5c8be29f7bce2a7ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b7b82c_fdc15905",
+        "filename": "test/interactions/goldens/linux/performance/timeline.png",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-24T13:27:17Z",
+      "side": 1,
+      "message": "yes, it was reserving some space in between page load events (LCP, FCP, etc.) and the user timings, event if there are no user timings. This was fixed in this CL :)",
+      "parentUuid": "d368be43_1c8f736c",
       "revId": "0a62ed1b959b4f286f7a3c5c8be29f7bce2a7ecc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
