@@ -40,7 +40,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
-import {CompatibilityTracksAppender, type TrackAppenderName} from './CompatibilityTracksAppender.js';
+import {CompatibilityTracksAppender, TrackNames, type TrackAppenderName} from './CompatibilityTracksAppender.js';
 
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
 
@@ -91,10 +91,6 @@ const UIStrings = {
    *@example {2} PH1
    */
   rasterizerThreadS: 'Rasterizer Thread {PH1}',
-  /**
-   *@description Text in Timeline Flame Chart Data Provider of the Performance panel
-   */
-  gpu: 'GPU',
   /**
    *@description Text in Timeline Flame Chart Data Provider of the Performance panel
    */
@@ -325,6 +321,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
     return this.timelineDataInternal;
   }
+
   /**
    * Builds the flame chart data using the track appenders
    */
@@ -479,10 +476,15 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const weight = (track: {type?: string, forMainFrame?: boolean, appenderName?: TrackAppenderName}): number => {
       if (track.appenderName !== undefined) {
         switch (track.appenderName) {
-          case 'Timings':
+          // Timings
+          case TrackNames[0]:
             return 1;
-          case 'Interactions':
+          // Interactions
+          case TrackNames[1]:
             return 2;
+          // GPU
+          case TrackNames[2]:
+            return 9;
           default:
             return -1;
         }
@@ -501,8 +503,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           return 7;
         case TimelineModel.TimelineModel.TrackType.Raster:
           return 8;
-        case TimelineModel.TimelineModel.TrackType.GPU:
-          return 9;
         case TimelineModel.TimelineModel.TrackType.Other:
           return 10;
         default:
@@ -591,13 +591,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.appendSyncEvents(
             track, track.events, i18nString(UIStrings.rasterizerThreadS, {PH1: this.#rasterCount}), this.headerLevel2,
             eventEntryType, true /* selectable */, expanded);
-        break;
-      }
-
-      case TimelineModel.TimelineModel.TrackType.GPU: {
-        this.appendSyncEvents(
-            track, track.events, i18nString(UIStrings.gpu), this.headerLevel1, eventEntryType, true /* selectable */,
-            expanded);
         break;
       }
 
