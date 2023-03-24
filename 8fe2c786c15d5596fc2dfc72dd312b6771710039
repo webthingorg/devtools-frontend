@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0be96f_1c2ed65a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T13:30:04Z",
+      "side": 1,
+      "message": "LGTM % size nit",
+      "revId": "8fe2c786c15d5596fc2dfc72dd312b6771710039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "494f7ec8_c359e688",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-24T13:30:04Z",
+      "side": 1,
+      "message": "This should probably be 20 since it was 16 before",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "8fe2c786c15d5596fc2dfc72dd312b6771710039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
