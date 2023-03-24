@@ -116,7 +116,7 @@
 }
 
 .issue-icon {
-  -webkit-mask-image: var(--image-file-issue-text-icon);
+  -webkit-mask-image: var(--image-file-issue-text-filled);
   background-color: var(--color-primary-old);
 }
 
