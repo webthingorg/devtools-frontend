@@ -589,7 +589,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     };
     cssAngle.append(valueElement);
 
-    const popoverToggled = (event: Event): void => {
+    const popoverToggled = async(event: Event): Promise<void> => {
       const section = this.section();
       if (!section) {
         return;
@@ -605,6 +605,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
       section.element.classList.toggle('has-open-popover', data.open);
       this.parentPaneInternal.setEditingStyle(data.open);
+
+      if (!data.open) {
+        await this.applyStyleText(this.renderedPropertyText(), true);
+      }
     };
 
     const valueChanged = async(event: Event): Promise<void> => {
