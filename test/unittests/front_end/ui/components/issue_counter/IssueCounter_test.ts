@@ -64,7 +64,7 @@ describeWithLocale('IssueCounter', () => {
       assert.strictEqual(icons.length, 2);
       assert.deepEqual(icons.map(c => c.label), ['2', '1']);
       const iconNames = icons.map(c => 'iconName' in c.iconData ? c.iconData.iconName : undefined);
-      assert.deepEqual(iconNames, ['issue-cross-icon', 'issue-exclamation-icon']);
+      assert.deepEqual(iconNames, ['issue-cross-filled', 'issue-exclamation-icon']);
     });
 
     it('updates correctly', () => {
