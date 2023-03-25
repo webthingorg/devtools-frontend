@@ -62,8 +62,10 @@ class LinkSwatch extends HTMLElement {
     // The linkText's space must be removed, otherwise it cannot be triggered when clicked.
     const onActivate = isDefined ? this.onLinkActivate.bind(this, text.trim()) : null;
 
+    // We added var popover, so don't need the title attribute anymore and
+    // only provide the data-title for the popover to get the data.
     render(
-        html`<span class=${classes} title=${title} @mousedown=${onActivate} @keydown=${
+        html`<span class=${classes} data-title=${title} @mousedown=${onActivate} @keydown=${
             onActivate} role="link" tabindex="-1">${text}</span>`,
         this.shadow, {host: this});
   }
@@ -153,9 +155,10 @@ export class CSSVarSwatch extends HTMLElement {
     const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
 
     render(
-        html`<span title=${data.computedValue || ''}>${functionParts.pre}<${LinkSwatch.litTagName} .data=${
+        html`<span data-title=${data.computedValue || ''}>${functionParts.pre}<${LinkSwatch.litTagName} .data=${
             {title, text: functionParts.variableName, isDefined, onLinkActivate} as
-            LinkSwatchRenderData}></${LinkSwatch.litTagName}>${fallbackIncludeComma}${functionParts.post}</span>`,
+            LinkSwatchRenderData} class="css-var-link"></${LinkSwatch.litTagName}>${fallbackIncludeComma}${
+            functionParts.post}</span>`,
         this.shadow, {host: this});
   }
 }
