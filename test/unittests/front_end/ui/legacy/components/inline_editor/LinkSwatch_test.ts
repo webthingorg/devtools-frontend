@@ -9,7 +9,7 @@ import {describeWithLocale} from '../../../../helpers/EnvironmentHelpers.js';
 
 const {assert} = chai;
 
-function assertSwatch(swatch: InlineEditor.LinkSwatch.CSSVarSwatch, expected: {
+function assertCSSVarSwatch(swatch: InlineEditor.LinkSwatch.CSSVarSwatch, expected: {
   valueTooltip: string|null,
   linkTooltip: string,
   isDefined: boolean,
@@ -27,11 +27,11 @@ function assertSwatch(swatch: InlineEditor.LinkSwatch.CSSVarSwatch, expected: {
   assertNotNullOrUndefined(link);
 
   assert.strictEqual(
-      container.getAttribute('title'), expected.valueTooltip || '', 'The computed values appears as a tooltip');
+      container.getAttribute('data-title'), expected.valueTooltip || '', 'The computed values appears as a tooltip');
   assert.strictEqual(
       link.classList.contains('undefined'), !expected.isDefined,
       'The link only has the class undefined when the property is undefined');
-  assert.strictEqual(link.getAttribute('title'), expected.linkTooltip, 'The link has the right tooltip');
+  assert.strictEqual(link.getAttribute('data-title'), expected.linkTooltip, 'The link has the right tooltip');
   assert.strictEqual(link.textContent, expected.varText, 'The link has the right text content');
 }
 
@@ -53,7 +53,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: '2px',
       linkTooltip: '2px',
       isDefined: true,
@@ -71,7 +71,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: null,
       linkTooltip: '--undefined is not defined',
       isDefined: false,
@@ -89,7 +89,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: '3px',
       linkTooltip: '--undefined is not defined',
       isDefined: false,
@@ -107,7 +107,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: 'green',
       linkTooltip: '--undefined-color is not defined',
       isDefined: false,
@@ -125,7 +125,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: 'green',
       linkTooltip: '--undefined-color is not defined',
       isDefined: false,
@@ -143,7 +143,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: 'red',
       linkTooltip: 'red',
       isDefined: true,
@@ -161,7 +161,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: 'red',
       linkTooltip: 'red',
       isDefined: true,
@@ -179,7 +179,7 @@ describeWithLocale('CSSVarSwatch', () => {
       onLinkActivate: () => {},
     };
 
-    assertSwatch(component, {
+    assertCSSVarSwatch(component, {
       valueTooltip: 'red',
       linkTooltip: 'red',
       isDefined: true,

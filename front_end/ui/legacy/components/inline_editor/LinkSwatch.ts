@@ -23,6 +23,7 @@ const {render, html, Directives} = LitHtml;
 interface LinkSwatchRenderData {
   text: string;
   title: string;
+  showTitle: boolean;
   isDefined: boolean;
   onLinkActivate: (linkText: string) => void;
 }
@@ -50,6 +51,7 @@ class LinkSwatch extends HTMLElement {
       data.onLinkActivate(linkText);
       event.consume(true);
     };
+    data.showTitle = data.showTitle === undefined ? true : data.showTitle;
     this.render(data);
   }
 
@@ -62,10 +64,19 @@ class LinkSwatch extends HTMLElement {
     // The linkText's space must be removed, otherwise it cannot be triggered when clicked.
     const onActivate = isDefined ? this.onLinkActivate.bind(this, text.trim()) : null;
 
-    render(
-        html`<span class=${classes} title=${title} @mousedown=${onActivate} @keydown=${
-            onActivate} role="link" tabindex="-1">${text}</span>`,
-        this.shadow, {host: this});
+    // We added var popover, so don't need the title attribute when no need for showing title and
+    // only provide the data-title for the popover to get the data.
+    if (data.showTitle) {
+      render(
+          html`<span class=${classes} title=${title} @mousedown=${onActivate} @keydown=${
+              onActivate} role="link" tabindex="-1">${text}</span>`,
+          this.shadow, {host: this});
+    } else {
+      render(
+          html`<span class=${classes} data-title=${title} @mousedown=${onActivate} @keydown=${
+              onActivate} role="link" tabindex="-1">${text}</span>`,
+          this.shadow, {host: this});
+    }
   }
 }
 
@@ -153,9 +164,10 @@ export class CSSVarSwatch extends HTMLElement {
     const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
 
     render(
-        html`<span title=${data.computedValue || ''}>${functionParts.pre}<${LinkSwatch.litTagName} .data=${
-            {title, text: functionParts.variableName, isDefined, onLinkActivate} as
-            LinkSwatchRenderData}></${LinkSwatch.litTagName}>${fallbackIncludeComma}${functionParts.post}</span>`,
+        html`<span data-title=${data.computedValue || ''}>${functionParts.pre}<${LinkSwatch.litTagName} .data=${
+            {title, showTitle: false, text: functionParts.variableName, isDefined, onLinkActivate} as
+            LinkSwatchRenderData} class="css-var-link"></${LinkSwatch.litTagName}>${fallbackIncludeComma}${
+            functionParts.post}</span>`,
         this.shadow, {host: this});
   }
 }
