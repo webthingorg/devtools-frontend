@@ -16,6 +16,24 @@
       "message": "Did you mean to change this line?",
       "revId": "3ad95a00513dab2086a4f362df0864bf9ca27740",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d404dc8_00a63086",
+        "filename": "test/e2e/lighthouse/start-view_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-03-27T20:04:13Z",
+      "side": 1,
+      "message": "Nope",
+      "parentUuid": "58b8e217_5ec5c223",
+      "revId": "3ad95a00513dab2086a4f362df0864bf9ca27740",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
