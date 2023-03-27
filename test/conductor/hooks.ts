@@ -11,7 +11,6 @@ import puppeteer = require('puppeteer');
 import {type CoverageMapData} from 'istanbul-lib-coverage';
 
 import {
-  clearPuppeteerState,
   getBrowserAndPages,
   registerHandlers,
   setBrowserAndPages,
@@ -23,7 +22,7 @@ import {
   DevToolsFrontendTab,
   type DevToolsFrontendReloadOptions,
 } from './frontend_tab.js';
-import {dumpCollectedErrors, installPageErrorHandlers, setupBrowserProcessIO} from './events.js';
+import {dumpCollectedErrors, installPageErrorHandlers} from './events.js';
 import {TargetTab} from './target_tab.js';
 
 // Workaround for mismatching versions of puppeteer types and puppeteer library.
@@ -53,11 +52,12 @@ const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 
 let browser: puppeteer.Browser;
 let frontendTab: DevToolsFrontendTab;
 let targetTab: TargetTab;
+let setupWorkers: boolean[];
 
 const envChromeBinary = getTestRunnerConfigSetting<string>('chrome-binary-path', process.env['CHROME_BIN'] || '');
 const envChromeFeatures = getTestRunnerConfigSetting<string>('chrome-features', process.env['CHROME_FEATURES'] || '');
 
-function launchChrome() {
+export function launchChrome() {
   // Use port 0 to request any free port.
   const enabledFeatures = [
     'Portals',
@@ -101,8 +101,11 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  const browserWSEndpoint = process.env.WS_ENDPOINTS?.split(',')[Number(process.env.MOCHA_WORKER_ID || 0)];
+
+  browser = await puppeteer.connect({
+    browserWSEndpoint,
+  });
 
   // Load the target page.
   targetTab = await TargetTab.create(browser);
@@ -162,6 +165,19 @@ export async function reloadDevTools(options?: DevToolsFrontendReloadOptions) {
   await frontendTab.reload(options);
 }
 
+export async function beforeWorker(serverPort: number) {
+  if(!setupWorkers) {
+    setupWorkers = []
+    for (let i = 0; i < Number(process.env.JOBS); i++) {
+      setupWorkers.push(false);
+    }
+  }
+  if(!setupWorkers[Number(process.env.MOCHA_WORKER_ID || 0)]) {
+    await preFileSetup(serverPort);
+    setupWorkers[Number(process.env.MOCHA_WORKER_ID || 0)] = true;
+  }
+}
+
 // Can be run multiple times in the same process.
 export async function preFileSetup(serverPort: number) {
   setTestServerPort(serverPort);
@@ -176,9 +192,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
 
-  clearPuppeteerState();
   dumpCollectedErrors();
 }
 

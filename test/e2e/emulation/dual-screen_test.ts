@@ -16,7 +16,7 @@ import {
 const DUO_VERTICAL_SPANNED_WIDTH = '1114';
 const DUO_VERTICAL_WIDTH = '540';
 
-describe('Dual screen mode', async () => {
+describe.skipOnParallel('Dual screen mode', async () => {
   beforeEach(async function() {
     await startEmulationWithDualScreenFlag();
   });
