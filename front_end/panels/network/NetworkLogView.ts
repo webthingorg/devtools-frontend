@@ -47,6 +47,7 @@ import * as Persistence from '../../models/persistence/persistence.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as Sources from '../../panels/sources/sources.js';
+import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -370,6 +371,8 @@ const enum FetchStyle {
   NodeJs = 1,
 }
 
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
+
 export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
     implements SDK.TargetManager.SDKModelObserver<SDK.NetworkManager.NetworkManager>, NetworkLogViewInterface {
   private readonly networkInvertFilterSetting: Common.Settings.Setting<boolean>;
@@ -393,7 +396,6 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private timeFilter: Filter|null;
   private hoveredNodeInternal: NetworkNode|null;
   private recordingHint: Element|null;
-  private refreshRequestId: number|null;
   private highlightedNode: NetworkRequestNode|null;
   private readonly linkifierInternal: Components.Linkifier.Linkifier;
   private recording: boolean;
@@ -464,7 +466,6 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     this.timeFilter = null;
     this.hoveredNodeInternal = null;
     this.recordingHint = null;
-    this.refreshRequestId = null;
     this.highlightedNode = null;
 
     this.linkifierInternal = new Components.Linkifier.Linkifier();
@@ -841,8 +842,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       resourceTreeModel.addEventListener(
           SDK.ResourceTreeModel.Events.DOMContentLoaded, this.domContentLoadedEventFired, this);
     }
+    const targetManager = SDK.TargetManager.TargetManager.instance();
     for (const request of Logs.NetworkLog.NetworkLog.instance().requests()) {
-      this.refreshRequest(request);
+      if (targetManager.isInScope(SDK.NetworkManager.NetworkManager.forRequest(request))) {
+        this.refreshRequest(request);
+      }
     }
   }
 
@@ -1149,8 +1153,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
     this.needsRefresh = true;
 
-    if (this.isShowing() && !this.refreshRequestId) {
-      this.refreshRequestId = this.element.window().requestAnimationFrame(this.refresh.bind(this));
+    if (this.isShowing()) {
+      void coordinator.write(this.refresh.bind(this));
     }
   }
 
@@ -1287,11 +1291,6 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
   private refresh(): void {
     this.needsRefresh = false;
-
-    if (this.refreshRequestId) {
-      this.element.window().cancelAnimationFrame(this.refreshRequestId);
-      this.refreshRequestId = null;
-    }
 
     this.removeAllNodeHighlights();
 
@@ -1448,7 +1447,9 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
   private onRequestUpdated(event: Common.EventTarget.EventTargetEvent<SDK.NetworkRequest.NetworkRequest>): void {
     const request = event.data;
-    this.refreshRequest(request);
+    if (SDK.TargetManager.TargetManager.instance().isInScope(SDK.NetworkManager.NetworkManager.forRequest(request))) {
+      this.refreshRequest(request);
+    }
   }
 
   private refreshRequest(request: SDK.NetworkRequest.NetworkRequest): void {
