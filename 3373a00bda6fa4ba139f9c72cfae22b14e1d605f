@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84821476_46948134",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-27T09:09:37Z",
+      "side": 1,
+      "message": "Done. Q: What\u0027s the reasoning of picking that particular color? Is it just choosing one from themeColors.css icon vars that\u0027s similar to the one being replaced or is there another way to know?",
+      "parentUuid": "32083638_b83e0aa3",
+      "range": {
+        "startLine": 465,
+        "startChar": 55,
+        "endLine": 465,
+        "endChar": 81
+      },
+      "revId": "3373a00bda6fa4ba139f9c72cfae22b14e1d605f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85455f40_be87bcd9",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-03-24T15:52:49Z",
       "side": 1,
       "message": "and this `--icon-request-response` :)",
+      "range": {
+        "startLine": 504,
+        "startChar": 56,
+        "endLine": 504,
+        "endChar": 75
+      },
+      "revId": "3373a00bda6fa4ba139f9c72cfae22b14e1d605f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ac36ea_6f48a247",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-03-27T09:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85455f40_be87bcd9",
       "range": {
         "startLine": 504,
         "startChar": 56,
