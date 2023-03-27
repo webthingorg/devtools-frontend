@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9435cdb1_45f3252b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-27T12:08:28Z",
+      "side": 1,
+      "message": "nit question that doesn\u0027t block submission: why is this console error needed?",
+      "revId": "f3c4aeb07e3dfdebd71fab2b1b129222578c25b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
