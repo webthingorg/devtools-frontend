@@ -897,7 +897,7 @@ export namespace Audits {
     contentSecurityPolicyViolationType: ContentSecurityPolicyViolationType;
     frameAncestor?: AffectedFrame;
     sourceCodeLocation?: SourceCodeLocation;
-    violatingNodeId?: DOM.BackendNodeId;
+    violatingNodeAttr?: string;
   }
 
   export const enum SharedArrayBufferIssueType {
@@ -1038,6 +1038,7 @@ export namespace Audits {
     errorType: GenericIssueErrorType;
     frameId?: Page.FrameId;
     violatingNodeId?: DOM.BackendNodeId;
+    violatingNodeAttr?: DOM.BackendNodeId;
   }
 
   /**
