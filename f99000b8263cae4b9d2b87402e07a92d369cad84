@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db23194_f274f5c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-27T13:58:57Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f99000b8263cae4b9d2b87402e07a92d369cad84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1b283e_7bc6641e",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-27T13:58:57Z",
+      "side": 1,
+      "message": "How about \u0027appends requests...\u0027?",
+      "range": {
+        "startLine": 184,
+        "startChar": 8,
+        "endLine": 184,
+        "endChar": 16
+      },
+      "revId": "f99000b8263cae4b9d2b87402e07a92d369cad84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
