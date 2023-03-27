@@ -11,7 +11,6 @@ import puppeteer = require('puppeteer');
 import {type CoverageMapData} from 'istanbul-lib-coverage';
 
 import {
-  clearPuppeteerState,
   getBrowserAndPages,
   registerHandlers,
   setBrowserAndPages,
@@ -23,7 +22,7 @@ import {
   DevToolsFrontendTab,
   type DevToolsFrontendReloadOptions,
 } from './frontend_tab.js';
-import {dumpCollectedErrors, installPageErrorHandlers, setupBrowserProcessIO} from './events.js';
+import {dumpCollectedErrors, installPageErrorHandlers} from './events.js';
 import {TargetTab} from './target_tab.js';
 
 // Workaround for mismatching versions of puppeteer types and puppeteer library.
@@ -53,11 +52,12 @@ const TEST_SERVER_TYPE = getTestRunnerConfigSetting<string>('test-server-type', 
 let browser: puppeteer.Browser;
 let frontendTab: DevToolsFrontendTab;
 let targetTab: TargetTab;
+let setupWorkers: boolean[];
 
 const envChromeBinary = getTestRunnerConfigSetting<string>('chrome-binary-path', process.env['CHROME_BIN'] || '');
 const envChromeFeatures = getTestRunnerConfigSetting<string>('chrome-features', process.env['CHROME_FEATURES'] || '');
 
-function launchChrome() {
+export function launchChrome() {
   // Use port 0 to request any free port.
   const enabledFeatures = [
     'Portals',
@@ -101,11 +101,18 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  const browserWSEndpoint = process.env.WS_ENDPOINTS?.split(',')[Number(process.env.MOCHA_WORKER_ID || 0)];
+
+  if (!browser) {
+    browser = await puppeteer.connect({
+      browserWSEndpoint,
+    });
+  }
 
   // Load the target page.
-  targetTab = await TargetTab.create(browser);
+  if (!targetTab) {
+    targetTab = await TargetTab.create(browser);    
+  }
 
   // Create the frontend - the page that will be under test. This will be either
   // DevTools Frontend in hosted mode, or the component docs in docs test mode.
@@ -115,8 +122,10 @@ async function loadTargetPageAndFrontend(testServerPort: number) {
     /**
      * In hosted mode we run the DevTools and test against it.
      */
-    frontendTab = await DevToolsFrontendTab.create({browser, testServerPort, targetId: targetTab.targetId()});
-    frontend = frontendTab.page;
+    if(!frontendTab) {
+      frontendTab = await DevToolsFrontendTab.create({browser, testServerPort, targetId: targetTab.targetId()});
+    }
+    frontend = frontendTab.page;      
   } else if (TEST_SERVER_TYPE === 'component-docs') {
     /**
      * In the component docs mode it points to the page where we load component
@@ -176,9 +185,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
 
-  clearPuppeteerState();
   dumpCollectedErrors();
 }
 

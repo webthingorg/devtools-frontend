@@ -20,19 +20,10 @@ export interface BrowserAndPages {
   browser: puppeteer.Browser;
 }
 
-export const clearPuppeteerState = () => {
-  target = null;
-  frontend = null;
-  browser = null;
-  testServerPort = null;
-};
-
 export const setBrowserAndPages = (newValues: BrowserAndPages) => {
-  if (target || frontend || browser) {
-    throw new Error('Can\'t set the puppeteer browser twice.');
-  }
-
-  ({target, frontend, browser} = newValues);
+  target ??= newValues.target;
+  frontend ??= newValues.frontend;
+  browser ??= newValues.browser;
 };
 
 export const getBrowserAndPages = (): BrowserAndPages => {
@@ -56,7 +47,7 @@ export const getBrowserAndPages = (): BrowserAndPages => {
 };
 
 export const setTestServerPort = (port: number) => {
-  if (testServerPort) {
+  if (testServerPort && port !== testServerPort) {
     throw new Error('Can\'t set the test server port twice.');
   }
   testServerPort = port;
