@@ -17,6 +17,6 @@ describe('Interactions track', () => {
         // small amount to make them appear on screen nicely for the screenshot.
         'performance_panel/track_example.html?track=Interactions&fileName=slow-interaction-button-click&windowStart=337944700&windowEnd=337945100');
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track.png');
   });
 });
