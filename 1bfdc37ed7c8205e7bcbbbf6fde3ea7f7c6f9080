@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b025950a_da53098d",
+        "filename": "front_end/models/trace/handlers/GPUHandler.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-27T10:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "646cd784_6c2313dc",
+      "range": {
+        "startLine": 78,
+        "startChar": 18,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "1bfdc37ed7c8205e7bcbbbf6fde3ea7f7c6f9080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15e8d03a_65b163a8",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-27T08:13:39Z",
       "side": 1,
       "message": "nit: I think this should never happen, right? (per the if check). We could throw/log an error since arriving here would be unexpected.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 70
+      },
+      "revId": "1bfdc37ed7c8205e7bcbbbf6fde3ea7f7c6f9080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd955b0_f60df914",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-27T10:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15e8d03a_65b163a8",
       "range": {
         "startLine": 187,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6013306_88fd1589",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-27T10:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3952d1c3_913a00fc",
+      "range": {
+        "startLine": 467,
+        "startChar": 15,
+        "endLine": 467,
+        "endChar": 25
+      },
+      "revId": "1bfdc37ed7c8205e7bcbbbf6fde3ea7f7c6f9080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "912c2f58_5f3f2022",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-03-27T08:13:39Z",
       "side": 1,
       "message": "nit: duplicate header :)",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 29
+      },
+      "revId": "1bfdc37ed7c8205e7bcbbbf6fde3ea7f7c6f9080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c694715_dd3d2c95",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/GPUTrackAppender_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-03-27T10:49:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "912c2f58_5f3f2022",
       "range": {
         "startLine": 4,
         "startChar": 0,
