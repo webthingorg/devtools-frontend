@@ -44,7 +44,7 @@ const viewportHeight = 720;
 const windowWidth = viewportWidth + 50;
 const windowHeight = viewportHeight + 200;
 
-const headless = !process.env['DEBUG_TEST'];
+const headless = false;
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
 const envThrottleRate = process.env['STRESS'] ? 3 : 1;
 
@@ -66,6 +66,7 @@ function launchChrome() {
     'SharedStorageAPI',
     'FencedFrames',
     'PrivacySandboxAdsAPIsOverride',
+    'AutofillEnableDevtoolsIssues',
   ];
   const launchArgs = [
     '--remote-allow-origins=*', '--remote-debugging-port=0', '--enable-experimental-web-platform-features',
