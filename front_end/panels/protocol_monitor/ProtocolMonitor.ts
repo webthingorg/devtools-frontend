@@ -19,7 +19,7 @@ import protocolMonitorStyles from './protocolMonitor.css.js';
 
 const UIStrings = {
   /**
-   *@description Text for one or a group of functions
+   *@description Text for one or a group of functions.
    */
   method: 'Method',
   /**
