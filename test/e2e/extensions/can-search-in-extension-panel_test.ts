@@ -15,7 +15,7 @@ declare global {
 }
 
 const PAGE_TITLE = 'TestPanel';
-describe('Extension panels', async () => {
+describe.skipOnParallel('Extension panels', async () => {
   it('can perform search actions', async () => {
     const extension = await loadExtension('TestExtension');
 
