@@ -80,6 +80,30 @@
       },
       "revId": "8720ab3dc007509542f74cbab5c3e611a8edd2be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c59f1a8_b4ab5493",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-27T13:03:54Z",
+      "side": 1,
+      "message": "The idea is that 16x16px should become 20x20, for icons of smaller sizes (e.g. toolbar console error) icons still get new sizes (just not 20x20), which can be read off from the irregular icon sizes doc I linked in the email. If this icon wasn\u0027t mentioned in the doc, we should go with either 14x14 or 16x16px (these are other two sizes that icons can have after the update) and aim at it visually being similar in size to the previous. Have you tried out 16x16 here? Does it look too small?",
+      "parentUuid": "d2ee60ad_2011ba5d",
+      "range": {
+        "startLine": 115,
+        "startChar": 16,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "8720ab3dc007509542f74cbab5c3e611a8edd2be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
