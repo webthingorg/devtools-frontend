@@ -56,6 +56,30 @@
       },
       "revId": "8720ab3dc007509542f74cbab5c3e611a8edd2be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ee60ad_2011ba5d",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-27T12:54:03Z",
+      "side": 1,
+      "message": "I thought we want to standardise on 20px where possible? And here the layout is not sensitive to icon size so I thought changing to 20px would make sense.",
+      "parentUuid": "dfd395e7_93787837",
+      "range": {
+        "startLine": 115,
+        "startChar": 16,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "8720ab3dc007509542f74cbab5c3e611a8edd2be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
