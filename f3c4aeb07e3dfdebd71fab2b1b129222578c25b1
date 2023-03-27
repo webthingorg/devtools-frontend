@@ -16,6 +16,24 @@
       "message": "nit question that doesn\u0027t block submission: why is this console error needed?",
       "revId": "f3c4aeb07e3dfdebd71fab2b1b129222578c25b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d1326b2_1af7f7d3",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-27T14:10:38Z",
+      "side": 1,
+      "message": "I am not quite sure, but looking at the protocol, there are no other services outside of these, so this case doesn\u0027t really happen",
+      "parentUuid": "9435cdb1_45f3252b",
+      "revId": "f3c4aeb07e3dfdebd71fab2b1b129222578c25b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
