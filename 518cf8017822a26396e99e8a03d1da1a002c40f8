@@ -56,6 +56,30 @@
       },
       "revId": "518cf8017822a26396e99e8a03d1da1a002c40f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74bdd824_3cb81247",
+        "filename": "front_end/ui/legacy/applicationColorTokens.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-28T07:48:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12a5a46b_3729b639",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "518cf8017822a26396e99e8a03d1da1a002c40f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
