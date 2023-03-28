@@ -69,6 +69,7 @@ devtools_svg_sources = [
   "copy_icon.svg",
   "database.svg",
   "deployed.svg",
+  "dots-vertical.svg",
   "dropdown_7x6_icon.svg",
   "edit-icon.svg",
   "errorWave.svg",
