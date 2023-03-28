@@ -33,6 +33,24 @@
       "message": "Curious: why do we still need these `spritesheet` fields? Is this for backwards compatibility?",
       "revId": "9422de565790eae09f8890ba1b522161331f1b19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1995c40_8ab30819",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-28T13:06:20Z",
+      "side": 1,
+      "message": "It is because we are trying to use a file with a single SVG as a spritesheet (in order to update legacy icon SVGsz without the need to change implementation first). And we need to register the file (that\u0027s the spritesheet bit) and be able to access the icon from it by name (that\u0027s the first string in the line)",
+      "parentUuid": "9b3c06fe_3e8ff4f6",
+      "revId": "9422de565790eae09f8890ba1b522161331f1b19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
