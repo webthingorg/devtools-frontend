@@ -16,6 +16,46 @@
       "message": "Could you take a look please? Thanks! 😄",
       "revId": "518cf8017822a26396e99e8a03d1da1a002c40f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecfda034_557cc5f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-28T07:04:15Z",
+      "side": 1,
+      "message": "Thanks, looks good, just a color nit:)",
+      "revId": "518cf8017822a26396e99e8a03d1da1a002c40f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12a5a46b_3729b639",
+        "filename": "front_end/ui/legacy/applicationColorTokens.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-28T07:04:15Z",
+      "side": 1,
+      "message": "We want to use colors defined in the \u0027color tokens for icons\u0027 section of themeColors.css for these. I think `--color-on-surface-variant` would fit here, even though it\u0027s not the exact same color. Could you please update and add a before/after screenshot?",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "518cf8017822a26396e99e8a03d1da1a002c40f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
