@@ -16,6 +16,46 @@
       "message": "PTAL. Even though the previous size was 14px, 20px for the new icon looks similar in size visually.",
       "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c03695bb_0472f1dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-28T10:57:41Z",
+      "side": 1,
+      "message": "Looks good, just a padding nit",
+      "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a780947a_f580154c",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-28T10:57:41Z",
+      "side": 1,
+      "message": "The icon moved to the left after the update, could you maybe try decreasing the right padding (or even setting negative) to move it back into place?",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
