@@ -56,6 +56,30 @@
       },
       "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8531e0bd_c380eb8e",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-28T14:08:43Z",
+      "side": 1,
+      "message": "Good catch. Fixed this and created a follow-up CL which rearranges to overall layout a bit.",
+      "parentUuid": "a780947a_f580154c",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
