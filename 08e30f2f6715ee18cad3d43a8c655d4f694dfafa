@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4405a59d_27c756d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462835
+      },
+      "writtenOn": "2023-03-28T08:51:56Z",
+      "side": 1,
+      "message": "Hi, I\u0027m a first-time contributor to devtools and I want to make sure I\u0027m doing things correctly. If there\u0027s anything I can improve or if you have any suggestions, I\u0027d appreciate it. Thank you!",
+      "revId": "08e30f2f6715ee18cad3d43a8c655d4f694dfafa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
