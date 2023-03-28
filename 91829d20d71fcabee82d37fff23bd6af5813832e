@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e9bb093_8eddca6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-28T10:49:48Z",
+      "side": 1,
+      "message": "PTAL. Even though the previous size was 14px, 20px for the new icon looks similar in size visually.",
+      "revId": "91829d20d71fcabee82d37fff23bd6af5813832e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
