@@ -16,6 +16,23 @@
       "message": "Please kindly take a look :)",
       "revId": "9422de565790eae09f8890ba1b522161331f1b19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3c06fe_3e8ff4f6",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-03-28T13:03:15Z",
+      "side": 1,
+      "message": "Curious: why do we still need these `spritesheet` fields? Is this for backwards compatibility?",
+      "revId": "9422de565790eae09f8890ba1b522161331f1b19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
