@@ -264,7 +264,9 @@ const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleView.ts', UIStri
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let consoleViewInstance: ConsoleView;
 
-export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Searchable, ConsoleViewportProvider {
+export class ConsoleView extends UI.Widget.VBox implements
+    UI.SearchableView.Searchable, ConsoleViewportProvider,
+    SDK.TargetManager.SDKModelObserver<SDK.ConsoleModel.ConsoleModel> {
   private readonly searchableViewInternal: UI.SearchableView.SearchableView;
   private readonly sidebar: ConsoleSidebar;
   private isSidebarOpen: boolean;
@@ -320,7 +322,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   private requestResolver = new Logs.RequestResolver.RequestResolver();
   private issueResolver = new IssuesManager.IssueResolver.IssueResolver();
 
-  constructor() {
+  constructor(viewportThrottlerTimeout: number) {
     super();
     this.setMinimumSize(0, 35);
 
@@ -496,7 +498,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this.messagesCountElement = this.consoleToolbarContainer.createChild('div', 'message-count');
     UI.ARIAUtils.markAsPoliteLiveRegion(this.messagesCountElement, false);
 
-    this.viewportThrottler = new Common.Throttler.Throttler(50);
+    this.viewportThrottler = new Common.Throttler.Throttler(viewportThrottlerTimeout);
     this.pendingBatchResize = false;
     this.onMessageResizedBound = (e: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void => {
       void this.onMessageResized(e);
@@ -560,14 +562,18 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this.messagesElement.addEventListener('touchcancel', this.updateStickToBottomOnPointerUp.bind(this), false);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.ConsoleCleared, this.consoleCleared, this);
+        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.ConsoleCleared, this.consoleCleared, this,
+        {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.MessageAdded, this.onConsoleMessageAdded, this);
+        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.MessageAdded, this.onConsoleMessageAdded, this,
+        {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.MessageUpdated, this.onConsoleMessageUpdated, this);
+        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.MessageUpdated, this.onConsoleMessageUpdated, this,
+        {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.CommandEvaluated, this.commandEvaluated, this);
-    SDK.ConsoleModel.ConsoleModel.allMessagesUnordered().forEach(this.addConsoleMessage, this);
+        SDK.ConsoleModel.ConsoleModel, SDK.ConsoleModel.Events.CommandEvaluated, this.commandEvaluated, this,
+        {scoped: true});
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.ConsoleModel.ConsoleModel, this, {scoped: true});
 
     const issuesManager = IssuesManager.IssuesManager.IssuesManager.instance();
     this.issueToolbarThrottle = new Common.Throttler.Throttler(100);
@@ -590,15 +596,26 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     return checkbox;
   }
 
-  static instance(opts?: {forceNew: boolean}): ConsoleView {
+  static instance(opts?: {forceNew: boolean, viewportThrottlerTimeout?: number}): ConsoleView {
     if (!consoleViewInstance || opts?.forceNew) {
-      consoleViewInstance = new ConsoleView();
+      consoleViewInstance = new ConsoleView(opts?.viewportThrottlerTimeout ?? 50);
     }
     return consoleViewInstance;
   }
 
   static clearConsole(): void {
     SDK.ConsoleModel.ConsoleModel.requestClearMessages();
+  }
+
+  modelAdded(model: SDK.ConsoleModel.ConsoleModel): void {
+    model.messages().forEach(this.addConsoleMessage, this);
+  }
+
+  modelRemoved(model: SDK.ConsoleModel.ConsoleModel): void {
+    if (!Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get() &&
+        model.target().outermostTarget() === model.target()) {
+      this.consoleCleared();
+    }
   }
 
   private onFilterChanged(): void {
@@ -1091,7 +1108,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private async saveConsole(): Promise<void> {
-    const url = (SDK.TargetManager.TargetManager.instance().primaryPageTarget() as SDK.Target.Target).inspectedURL();
+    const url = (SDK.TargetManager.TargetManager.instance().scopeTarget() as SDK.Target.Target).inspectedURL();
     const parsedURL = Common.ParsedURL.ParsedURL.fromString(url);
     const filename =
         Platform.StringUtilities.sprintf('%s-%d.log', parsedURL ? parsedURL.host : 'console', Date.now()) as

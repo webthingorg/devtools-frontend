@@ -47,22 +47,22 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this.onExecutionContextCreated,
-        this);
+        this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextChanged, this.onExecutionContextChanged,
-        this);
+        this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed,
-        this.onExecutionContextDestroyed, this);
+        this.onExecutionContextDestroyed, this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this.frameNavigated,
-        this);
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this.frameNavigated, this,
+        {scoped: true});
 
     UI.Context.Context.instance().addFlavorChangeListener(
         SDK.RuntimeModel.ExecutionContext, this.executionContextChangedExternally, this);
     UI.Context.Context.instance().addFlavorChangeListener(
         SDK.DebuggerModel.CallFrame, this.callFrameSelectedInUI, this);
-    SDK.TargetManager.TargetManager.instance().observeModels(SDK.RuntimeModel.RuntimeModel, this);
+    SDK.TargetManager.TargetManager.instance().observeModels(SDK.RuntimeModel.RuntimeModel, this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.CallFrameSelected, this.callFrameSelectedInModel,
         this);
