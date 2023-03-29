@@ -87,6 +87,24 @@
       "parentUuid": "c6f19ade_614a477f",
       "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fc5fbf_ac22a29f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-29T15:06:07Z",
+      "side": 1,
+      "message": "I\u0027ve updated the other occurrence to use `eye` instead. For the Console some more work is necessary, so the action is not a toggle (tracked via the separate bug).",
+      "parentUuid": "9e763a06_97d0668e",
+      "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
