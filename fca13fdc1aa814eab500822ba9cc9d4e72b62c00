@@ -33,6 +33,24 @@
       "message": "Could you try to align the text following the checkmark and the http... below it?\nOtherwise great!",
       "revId": "fca13fdc1aa814eab500822ba9cc9d4e72b62c00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "281e693e_6ca388a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-29T11:19:48Z",
+      "side": 1,
+      "message": "ok, let me handle this in a follow-up because it affects 2 icons. https://crrev.com/c/4379750",
+      "parentUuid": "ec613c82_7776a549",
+      "revId": "fca13fdc1aa814eab500822ba9cc9d4e72b62c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
