@@ -39,6 +39,30 @@
       },
       "revId": "6cb54dbf4cc491dbf2b8e4ea71009584d9f892a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425b97e4_90d8fa1d",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-29T16:52:50Z",
+      "side": 1,
+      "message": "That\u0027s what I thought too. 14px is the maximum icon height without increasing overall line height. Since 14px square still felt too small, I tried increasing just the width a bit further and it seems to work. The icons appear a bit bigger without looking stretched. My guess is that this is due to the new icon svg containing a bit of padding, which is cut off vertically and not horizontally here.",
+      "parentUuid": "5a051f9e_8638539e",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 104
+      },
+      "revId": "6cb54dbf4cc491dbf2b8e4ea71009584d9f892a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
