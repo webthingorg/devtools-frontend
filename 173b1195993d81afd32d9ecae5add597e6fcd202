@@ -51,6 +51,24 @@
       "parentUuid": "abfd612d_16d81cd2",
       "revId": "173b1195993d81afd32d9ecae5add597e6fcd202",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8bc9df5_7fc7c382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T11:36:14Z",
+      "side": 1,
+      "message": "One more point in favour of the implementation update!",
+      "parentUuid": "f7fef2b8_c2516009",
+      "revId": "173b1195993d81afd32d9ecae5add597e6fcd202",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
