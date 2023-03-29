@@ -69,6 +69,8 @@ grd_files_release_sources = [
   "front_end/Images/edit-icon.svg",
   "front_end/Images/errorWave.svg",
   "front_end/Images/error_icon.svg",
+  "front_end/Images/eye-filled.svg",
+  "front_end/Images/eye.svg",
   "front_end/Images/feedback_button_icon.svg",
   "front_end/Images/file-sync_icon.svg",
   "front_end/Images/file_icon.svg",

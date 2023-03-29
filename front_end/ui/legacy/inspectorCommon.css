@@ -544,6 +544,10 @@ span[is="dt-icon-label"] {
   background-image: var(--image-file-popoverArrows);
 }
 
+.spritesheet-clear.icon-mask {
+  -webkit-mask-image: var(--image-file-clear);
+}
+
 .spritesheet-cross.icon-mask {
   -webkit-mask-image: var(--image-file-cross);
 }
@@ -562,6 +566,14 @@ span[is="dt-icon-label"] {
 
 .spritesheet-gear.icon-mask {
   -webkit-mask-image: var(--image-file-gear);
+}
+
+.spritesheet-eye-filled.icon-mask {
+  -webkit-mask-image: var(--image-file-eye-filled);
+}
+
+.spritesheet-eye.icon-mask {
+  -webkit-mask-image: var(--image-file-eye);
 }
 
 .spritesheet-pause.icon-mask {
