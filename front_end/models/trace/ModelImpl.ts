@@ -184,6 +184,10 @@ export class Model<EnabledModelHandlers extends {[key: string]: Handlers.Types.T
     return this.#traces[index].traceEvents;
   }
 
+  indexOfTraceData(data: Handlers.Types.EnabledHandlerDataWithMeta<EnabledModelHandlers>): number {
+    return this.#traces.findIndex(trace => trace.traceParsedData === data);
+  }
+
   size(): number {
     return this.#traces.length;
   }
