@@ -98,6 +98,7 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['arrowicons', {cellWidth: 19, cellHeight: 19, padding: 0}],
 
   ['chevron-double-right', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['cross-circle-filled', {cellWidth: 14, cellHeight: 14, padding: 0}],
   ['cross', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['devices', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['dots-vertical', {cellWidth: 20, cellHeight: 20, padding: 0}],
@@ -105,6 +106,9 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['select-element', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['table', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['database', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['triangle-down', {cellWidth: 14, cellHeight: 14, padding: 0}],
+  ['triangle-right', {cellWidth: 14, cellHeight: 14, padding: 0}],
+  ['warning-filled', {cellWidth: 14, cellHeight: 14, padding: 0}],
 ]);
 
 const initialDescriptors = new Map<string, Descriptor>([
@@ -269,6 +273,7 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-arrow-right', {position: 'a1', spritesheet: 'arrowicons'}],
 
   ['chevron-double-right', {position: 'a1', spritesheet: 'chevron-double-right', isMask: true}],
+  ['cross-circle-filled', {position: 'a1', spritesheet: 'cross-circle-filled', isMask: true}],
   ['cross', {position: 'a1', spritesheet: 'cross', isMask: true}],
   ['devices', {position: 'a1', spritesheet: 'devices', isMask: true}],
   ['dots-vertical', {position: 'a1', spritesheet: 'dots-vertical', isMask: true}],
@@ -276,6 +281,9 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['select-element', {position: 'a1', spritesheet: 'select-element', isMask: true}],
   ['table', {position: 'a1', spritesheet: 'table', isMask: true}],
   ['database', {position: 'a1', spritesheet: 'database', isMask: true}],
+  ['triangle-down', {position: 'a1', spritesheet: 'triangle-down', isMask: true}],
+  ['triangle-right', {position: 'a1', spritesheet: 'triangle-right', isMask: true}],
+  ['warning-filled', {position: 'a1', spritesheet: 'warning-filled', isMask: true}],
 ]);
 
 const descriptors = (initialDescriptors as Map<string, Descriptor>);
