@@ -93,7 +93,7 @@ const UIStrings = {
    */
   findStringInLogs: 'Find string in logs',
   /**
-   *@description Tooltip text that appears when hovering over the largeicon settings gear in show settings pane setting in console view of the console panel
+   *@description Tooltip text that appears when hovering over the settings gear in show settings pane setting in console view of the console panel
    */
   consoleSettings: 'Console settings',
   /**
@@ -393,7 +393,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this.showSettingsPaneSetting =
         Common.Settings.Settings.instance().createSetting('consoleShowSettingsToolbar', false);
     this.showSettingsPaneButton = new UI.Toolbar.ToolbarSettingToggle(
-        this.showSettingsPaneSetting, 'largeicon-settings-gear', i18nString(UIStrings.consoleSettings));
+        this.showSettingsPaneSetting, 'gear', i18nString(UIStrings.consoleSettings));
     this.progressToolbarItem = new UI.Toolbar.ToolbarItem(document.createElement('div'));
     this.groupSimilarSetting = Common.Settings.Settings.instance().moduleSetting('consoleGroupSimilar');
     this.groupSimilarSetting.addChangeListener(() => this.updateMessageList());
