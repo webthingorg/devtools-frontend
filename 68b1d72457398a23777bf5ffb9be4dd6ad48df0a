@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "68b1d72457398a23777bf5ffb9be4dd6ad48df0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b046b2db_652f4f3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T13:26:39Z",
+      "side": 1,
+      "message": "LGTM, Q: On the screenshot a blue request-response icon is present only before, is it still there after your update?",
+      "revId": "68b1d72457398a23777bf5ffb9be4dd6ad48df0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
