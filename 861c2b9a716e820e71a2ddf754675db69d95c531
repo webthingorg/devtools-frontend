@@ -69,6 +69,24 @@
       "parentUuid": "c6f19ade_614a477f",
       "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e763a06_97d0668e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T14:56:06Z",
+      "side": 1,
+      "message": "Could you still update other occurrences of the icon to be unfilled here please?\nReg. 2 types, just one step further (where LARCEICON_VISIBILITY is used in console-meta.ts) you can add a `toggledIconClass` and set it to the filled icon, that should do the trick",
+      "parentUuid": "c6f19ade_614a477f",
+      "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
