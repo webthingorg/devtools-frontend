@@ -16,6 +16,23 @@
       "message": "When is the scrollend event launching?",
       "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2208367_192e58e6",
+        "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-29T17:34:11Z",
+      "side": 1,
+      "message": "it looks like events here are in no particular order, so let\u0027s put scrollend right after scroll?",
+      "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
