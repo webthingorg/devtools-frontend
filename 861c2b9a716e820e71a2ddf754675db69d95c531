@@ -16,6 +16,23 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "199e18a8_5056d801",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T14:46:13Z",
+      "side": 1,
+      "message": "The visibility icon should be filled only for active(!) watch expressions as I see here go/devtools-icons-before-after Could you swap it out please?",
+      "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
