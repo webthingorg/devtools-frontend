@@ -232,7 +232,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       }
     }
 
-    if (target === this.primaryPageTarget() && !this.#defaultScopeSet) {
+    if (target === target.outermostTarget() && !this.#defaultScopeSet) {
       this.#defaultScopeSet = true;
       this.setScopeTarget(target);
     }
