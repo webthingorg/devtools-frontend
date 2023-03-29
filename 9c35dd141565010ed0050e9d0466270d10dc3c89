@@ -56,6 +56,30 @@
       },
       "revId": "9c35dd141565010ed0050e9d0466270d10dc3c89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60d1deb0_d33d417f",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-29T15:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f521c80b_51198c38",
+      "range": {
+        "startLine": 274,
+        "startChar": 2,
+        "endLine": 274,
+        "endChar": 72
+      },
+      "revId": "9c35dd141565010ed0050e9d0466270d10dc3c89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
