@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ddc25df7_21f33b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2023-03-29T18:24:41Z",
+      "side": 1,
+      "message": "We\u0027re targeting the 114 (04/20/2023) cut to have it enabled by default.\nI was going to gate submitting this patch on having it enabled by default. Is there anything else we should have in place before making this update?",
+      "parentUuid": "59f573fd_71742e3c",
+      "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2208367_192e58e6",
         "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-29T17:34:11Z",
       "side": 1,
       "message": "it looks like events here are in no particular order, so let\u0027s put scrollend right after scroll?",
+      "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee3566c1_96f2b2b9",
+        "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2023-03-29T18:24:41Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "d2208367_192e58e6",
       "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
