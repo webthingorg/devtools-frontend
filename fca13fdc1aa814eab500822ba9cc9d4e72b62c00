@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "fca13fdc1aa814eab500822ba9cc9d4e72b62c00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec613c82_7776a549",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T10:38:46Z",
+      "side": 1,
+      "message": "Could you try to align the text following the checkmark and the http... below it?\nOtherwise great!",
+      "revId": "fca13fdc1aa814eab500822ba9cc9d4e72b62c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
