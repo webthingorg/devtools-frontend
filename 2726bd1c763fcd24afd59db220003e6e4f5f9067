@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6198789e_cb946b3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1186968
+      },
+      "writtenOn": "2023-03-29T00:44:45Z",
+      "side": 1,
+      "message": "@dsv, I have made this \u0027paste\u0027 checking also apply to \u0027drop\u0027 events in order to also block users from doing drag-drop of text.",
+      "revId": "2726bd1c763fcd24afd59db220003e6e4f5f9067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
