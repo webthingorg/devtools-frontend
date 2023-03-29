@@ -16,6 +16,23 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "173b1195993d81afd32d9ecae5add597e6fcd202",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abfd612d_16d81cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T11:06:36Z",
+      "side": 1,
+      "message": "Looks good, thank you! You don\u0027t have to update the implementation yet, but thanks for that, it makes it easier for the future LitElement update!",
+      "revId": "173b1195993d81afd32d9ecae5add597e6fcd202",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
