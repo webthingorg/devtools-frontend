@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb0e33e_47295b16",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-29T14:26:37Z",
+      "side": 1,
+      "message": "I\u0027ve been looking at this file as well: This will lead to a line height change for the codemirror line. I\u0027m working on a workaround.",
+      "range": {
+        "startLine": 523,
+        "startChar": 42,
+        "endLine": 523,
+        "endChar": 70
+      },
+      "revId": "be9d021f4dea39f8f6dc7dd4066aac48dc9af80b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
