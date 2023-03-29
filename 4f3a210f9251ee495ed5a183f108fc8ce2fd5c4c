@@ -16,6 +16,24 @@
       "message": "Looks good, just on the screenshot, when the snippet is clicked the line highlights blue and the icon should turn white. Same goes for the Page panel, do icons change colors there correctly?",
       "revId": "4f3a210f9251ee495ed5a183f108fc8ce2fd5c4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5939f199_cea120d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-03-29T15:18:07Z",
+      "side": 1,
+      "message": "Good catch! Fixed.",
+      "parentUuid": "f3662855_21a85db8",
+      "revId": "4f3a210f9251ee495ed5a183f108fc8ce2fd5c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
