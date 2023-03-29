@@ -119,7 +119,7 @@ describe('TraceProcessor', async function() {
           // updates more frequently. Otherwise, wiith the fact that most of our
           // trace files are quite small, we couldn't guarantee that we do get a
           // status update.
-          pauseFrequencyMs: 10,
+          pauseFrequencyMs: 5,
           pauseDuration: 1,
         });
 

@@ -147,8 +147,4 @@ export class TempFileBackingStorage implements SDK.TracingModel.BackingStorage {
     this.#strings = [];
     this.#stringsLength = 0;
   }
-
-  writeToStream(outputStream: Common.StringOutputStream.OutputStream): Promise<DOMError|null> {
-    return this.#file ? this.#file.copyToOutputStream(outputStream) : Promise.resolve(null);
-  }
 }
