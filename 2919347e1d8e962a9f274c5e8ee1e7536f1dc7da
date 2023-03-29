@@ -16,6 +16,69 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "2919347e1d8e962a9f274c5e8ee1e7536f1dc7da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f441f002_f40f7675",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T09:25:47Z",
+      "side": 1,
+      "message": "Some minor fixes + Q: On the screenshots there\u0027s a request-response icon (below (index):7) which should be blue, but is orange. Might it have changed color in connection with your changes?",
+      "revId": "2919347e1d8e962a9f274c5e8ee1e7536f1dc7da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda0c57e_5944222a",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T09:25:47Z",
+      "side": 1,
+      "message": "`cross-circle-filled`?",
+      "range": {
+        "startLine": 276,
+        "startChar": 57,
+        "endLine": 276,
+        "endChar": 62
+      },
+      "revId": "2919347e1d8e962a9f274c5e8ee1e7536f1dc7da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446b8211_01f60ab5",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-29T09:25:47Z",
+      "side": 1,
+      "message": "`warning-filled`?\nI am surprised this works",
+      "range": {
+        "startLine": 286,
+        "startChar": 52,
+        "endLine": 286,
+        "endChar": 66
+      },
+      "revId": "2919347e1d8e962a9f274c5e8ee1e7536f1dc7da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
