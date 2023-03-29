@@ -33,6 +33,24 @@
       "message": "The visibility icon should be filled only for active(!) watch expressions as I see here go/devtools-icons-before-after Could you swap it out please?",
       "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f19ade_614a477f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-29T14:51:15Z",
+      "side": 1,
+      "message": "Ok, let me do that in a follow-up CL. The current action registration machinery does not support having two different icons (same problem as for the breakpoints disabled indicator).\n\nLet\u0027s land this as-is otherwise?",
+      "parentUuid": "199e18a8_5056d801",
+      "revId": "861c2b9a716e820e71a2ddf754675db69d95c531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
