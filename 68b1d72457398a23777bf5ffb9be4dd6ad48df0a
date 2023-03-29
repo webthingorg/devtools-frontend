@@ -33,6 +33,24 @@
       "message": "LGTM, Q: On the screenshot a blue request-response icon is present only before, is it still there after your update?",
       "revId": "68b1d72457398a23777bf5ffb9be4dd6ad48df0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8328f542_241e99bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-29T13:44:38Z",
+      "side": 1,
+      "message": "Yes, it\u0027s still there (it only shows up when DevTools is opened during the page load)",
+      "parentUuid": "b046b2db_652f4f3d",
+      "revId": "68b1d72457398a23777bf5ffb9be4dd6ad48df0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
