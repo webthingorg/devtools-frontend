@@ -33,6 +33,24 @@
       "message": "LGTM, thank you!\nI like these really professional screenshots:)",
       "revId": "ab6320e76c0fec856f7a44c4652beebe20b9cf1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a622056d_314f3b25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-29T11:30:39Z",
+      "side": 1,
+      "message": "Thanks, I\u0027m exercising my Figma skills here 😂",
+      "parentUuid": "d01f56f9_b4e803dd",
+      "revId": "ab6320e76c0fec856f7a44c4652beebe20b9cf1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
