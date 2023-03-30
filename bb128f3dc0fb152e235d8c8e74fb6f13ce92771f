@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1e0b5a_2ff6e4ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-03-30T05:42:13Z",
+      "side": 1,
+      "message": "Thanks, I think it is sufficient. If the feature can be disabled perhaps it would make sense to detect if it is enabled or disabled but it seems to be not worth the effort. For this CL we just need to merge a few days before the branch point because the devtools frontend needs a few rolls to actually land into Chromium.",
+      "parentUuid": "ddc25df7_21f33b61",
+      "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2208367_192e58e6",
