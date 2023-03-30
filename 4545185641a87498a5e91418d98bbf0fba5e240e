@@ -16,6 +16,29 @@
       "message": "Please kindly take a look",
       "revId": "4545185641a87498a5e91418d98bbf0fba5e240e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b489085f_fa4fb68c",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-03-30T07:19:28Z",
+      "side": 1,
+      "message": "hardcoding these colors seem not ideal. But I see this being done elsewhere too, so I guess let\u0027s address that at some other time.",
+      "range": {
+        "startLine": 678,
+        "startChar": 41,
+        "endLine": 678,
+        "endChar": 63
+      },
+      "revId": "4545185641a87498a5e91418d98bbf0fba5e240e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
