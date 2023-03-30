@@ -115,3 +115,17 @@ export const getSelectedItemText = async () => {
   }
   return await textContent.jsonValue();
 };
+
+export async function typeIntoQuickOpen(query: string, expectEmptyResults?: boolean) {
+  await openFileQuickOpen();
+  const prompt = await waitFor('[aria-label="Quick open prompt"]');
+  await prompt.type(query);
+  if (expectEmptyResults) {
+    await waitFor('.filtered-list-widget :not(.hidden).not-found-text');
+  } else {
+    // Because each highlighted character is in its own div, we can count the highlighted
+    // characters in one item to see that the list reflects the full query.
+    const highlightSelector = new Array(query.length).fill('.highlight').join(' ~ ');
+    await waitFor('.filtered-list-widget-title ' + highlightSelector);
+  }
+}
