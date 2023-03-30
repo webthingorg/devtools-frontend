@@ -39,6 +39,30 @@
       },
       "revId": "4545185641a87498a5e91418d98bbf0fba5e240e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e31c9f_c3c4ec82",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-30T07:35:59Z",
+      "side": 1,
+      "message": "I think we can address this during the Material 3 color update",
+      "parentUuid": "b489085f_fa4fb68c",
+      "range": {
+        "startLine": 678,
+        "startChar": 41,
+        "endLine": 678,
+        "endChar": 63
+      },
+      "revId": "4545185641a87498a5e91418d98bbf0fba5e240e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
