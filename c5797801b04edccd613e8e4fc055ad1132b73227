@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee16ee3_cdbcda98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-03-30T09:34:28Z",
+      "side": 1,
+      "message": "@szuend@chromium.org I just read your comment on chromium:1420377 so I take out ActionCategory.INPUTS and ActionCategory.SENSORS since they are unused. It looks like the Dry Run got cancelled because of the new patch. Can you retry the Dry Run? It seems I do not have permission to do Dry Runs at the moment. Thank you!",
+      "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
