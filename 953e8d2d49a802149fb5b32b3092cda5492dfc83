@@ -16,6 +16,23 @@
       "message": "LGTM, but Victor can do the full review",
       "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f251d6_4347dac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2023-03-30T18:32:59Z",
+      "side": 1,
+      "message": "```\nbiboswan98@gmail.com is not in AUTHORS file. If you are a new contributor, please visit\n\nhttps://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/contributing.md#Legal-stuff\n\nand read the \"Legal stuff\" section\n```",
+      "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
