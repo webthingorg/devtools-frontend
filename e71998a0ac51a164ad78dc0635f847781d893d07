@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ad819d6_3cc27d00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-30T04:43:30Z",
+      "side": 1,
+      "message": "nit: No need to put the bug number here, and kindly keep the opening line below 80 characters",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 27
+      },
+      "revId": "e71998a0ac51a164ad78dc0635f847781d893d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fe04b15_f2562cc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-30T04:43:30Z",
+      "side": 1,
+      "message": "looks good to me in general % some nits.\n\nPlease also add yourself to the AUTHORS file to make the presubmit check happy :)",
+      "revId": "e71998a0ac51a164ad78dc0635f847781d893d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a3c7889_347af5c7",
+        "filename": "front_end/ui/legacy/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-30T04:43:30Z",
+      "side": 1,
+      "message": "nit: Remove this TODO. `ActionCategory` is in a good state after this CL.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "e71998a0ac51a164ad78dc0635f847781d893d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe199554_17a1315c",
+        "filename": "front_end/ui/legacy/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-30T04:43:30Z",
+      "side": 1,
+      "message": "This might need to be a normal `enum` instead of a `const enum` to make the currently failing unit tests pass. To use a normal `enum` you have disable eslint for that line. There are other examples in the codebase if you search for \"export enum\".",
+      "range": {
+        "startLine": 289,
+        "startChar": 7,
+        "endLine": 289,
+        "endChar": 12
+      },
+      "revId": "e71998a0ac51a164ad78dc0635f847781d893d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
