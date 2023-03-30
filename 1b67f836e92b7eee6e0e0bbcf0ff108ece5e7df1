@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b5d37dd_f31c2f9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2023-03-30T22:11:24Z",
+      "side": 1,
+      "message": "Hi Mathias, can you PTAL at this accessibility change or refer someone else to review? Thank you!",
+      "revId": "1b67f836e92b7eee6e0e0bbcf0ff108ece5e7df1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
