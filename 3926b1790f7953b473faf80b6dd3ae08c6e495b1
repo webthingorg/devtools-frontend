@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20994e04_31653081",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-30T10:35:51Z",
+      "side": 1,
+      "message": "Could we update the cl description to be a bit clearer on what this change means? If I am using console.profile on my website and load up the site with DevTools, what now happens?",
+      "revId": "3926b1790f7953b473faf80b6dd3ae08c6e495b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
