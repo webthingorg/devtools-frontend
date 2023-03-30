@@ -310,7 +310,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const binding = this.bindings.get(uiSourceCode);
     if (binding) {
       const mutex = this.#getOrCreateMutex(binding.network);
-      await mutex.run(this.#innerUnbind.bind(this, binding));
+      const release = await mutex.acquire();
+      try {
+        await this.#innerUnbind(binding);
+      } finally {
+        release();
+      }
     }
   }
 
@@ -331,7 +336,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       networkUISourceCode: Workspace.UISourceCode.UISourceCode,
       fileSystemUISourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     const mutex = this.#getOrCreateMutex(networkUISourceCode);
-    await mutex.run(async () => {
+    const release = await mutex.acquire();
+    try {
       const existingBinding = this.bindings.get(networkUISourceCode);
       if (existingBinding) {
         const {network, fileSystem} = existingBinding;
@@ -343,7 +349,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       }
 
       await this.#innerAddBinding(networkUISourceCode, fileSystemUISourceCode);
-    });
+    } finally {
+      release();
+    }
   }
 
   #getOrCreateMutex(networkUISourceCode: Workspace.UISourceCode.UISourceCode): Common.Mutex.Mutex {

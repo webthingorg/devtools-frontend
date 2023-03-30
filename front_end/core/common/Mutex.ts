@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-type ReleaseFunction = () => void;
+type ReleaseFn = () => void;
 
 /**
  * Use Mutex class to coordinate local concurrent operations.
@@ -12,44 +12,31 @@ type ReleaseFunction = () => void;
  */
 export class Mutex {
   #locked = false;
-  #acquirers: Array<() => void> = [];
+  #acquiringQueue: Array<(release: ReleaseFn) => void> = [];
 
-  // This is FIFO.
-  acquire(): Promise<ReleaseFunction> {
-    const state = {resolved: false};
-    if (this.#locked) {
-      return new Promise(resolve => {
-        this.#acquirers.push(() => resolve(this.#release.bind(this, state)));
-      });
-    }
-    this.#locked = true;
-    return Promise.resolve(this.#release.bind(this, state));
+  acquire(): Promise<ReleaseFn> {
+    let resolver = (_release: ReleaseFn): void => {};
+    const promise = new Promise<ReleaseFn>((resolve): void => {
+      resolver = resolve;
+    });
+    this.#acquiringQueue.push(resolver);
+    this.#processAcquiringQueue();
+    return promise;
   }
 
-  #release(state: {resolved: boolean}): void {
-    if (state.resolved) {
-      throw new Error('Cannot release more than once.');
-    }
-    state.resolved = true;
-
-    const resolve = this.#acquirers.shift();
-    if (!resolve) {
-      this.#locked = false;
+  #processAcquiringQueue(): void {
+    if (this.#locked) {
       return;
     }
-    resolve();
+    const nextAquirePromise = this.#acquiringQueue.shift();
+    if (nextAquirePromise) {
+      this.#locked = true;
+      nextAquirePromise(this.#release.bind(this));
+    }
   }
 
-  async run<T>(action: () => Promise<T>): Promise<T> {
-    const release = await this.acquire();
-    try {
-      // Note we need to await here because we want the await to release AFTER
-      // that await happens. Returning action() will trigger the release
-      // immediately which is counter to what we want.
-      const result = await action();
-      return result;
-    } finally {
-      release();
-    }
+  #release(): void {
+    this.#locked = false;
+    this.#processAcquiringQueue();
   }
 }
