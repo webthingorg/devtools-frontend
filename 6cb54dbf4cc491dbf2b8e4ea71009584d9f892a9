@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7debe962_7f96a95b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-30T09:48:36Z",
+      "side": 1,
+      "message": "On the after screenshot either the error icon appears to small or the issue warning icon too big. They don\u0027t have to be of the exact same size, but could you please try changing their size a bit to make it look a bit more balanced?\nI think the error icon should usually be about the size of the warning triangle",
+      "revId": "6cb54dbf4cc491dbf2b8e4ea71009584d9f892a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a051f9e_8638539e",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "That\u0027s what I thought too. 14px is the maximum icon height without increasing overall line height. Since 14px square still felt too small, I tried increasing just the width a bit further and it seems to work. The icons appear a bit bigger without looking stretched. My guess is that this is due to the new icon svg containing a bit of padding, which is cut off vertically and not horizontally here.",
       "parentUuid": "5a051f9e_8638539e",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 104
+      },
+      "revId": "6cb54dbf4cc491dbf2b8e4ea71009584d9f892a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a763f7_8191fddf",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-30T09:48:36Z",
+      "side": 1,
+      "message": "Generally we wouldn\u0027t want to do this and would stick to square size, but if the icons don\u0027t look good otherwise, I think we can.",
+      "parentUuid": "425b97e4_90d8fa1d",
       "range": {
         "startLine": 517,
         "startChar": 0,
