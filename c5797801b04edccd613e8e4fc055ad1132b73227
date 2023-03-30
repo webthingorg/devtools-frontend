@@ -16,6 +16,23 @@
       "message": "@szuend@chromium.org I just read your comment on chromium:1420377 so I take out ActionCategory.INPUTS and ActionCategory.SENSORS since they are unused. It looks like the Dry Run got cancelled because of the new patch. Can you retry the Dry Run? It seems I do not have permission to do Dry Runs at the moment. Thank you!",
       "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede8870a_3ca306fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-30T10:53:02Z",
+      "side": 1,
+      "message": "Looks like the e2e \"shortcut_settings_test.ts\" is failing. Maybe we render the string in another place as well and we use the enum value there now?\n\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_win64_rel/b8785208636042704321/overview",
+      "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
