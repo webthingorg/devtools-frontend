@@ -51,6 +51,24 @@
       "parentUuid": "ede8870a_3ca306fa",
       "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae57658_50633e0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-03-30T13:51:01Z",
+      "side": 1,
+      "message": "It turns out we still need to add one in the function createActionCommand() as well. For the e2e tests, I tried yesterday and it gave me a server connection error in the middle a number of times so I uploaded it anyways. Just found out that it was because my machine decided to go to sleep so it disconnected. Should not let this happen, apologies. The patch will be uploaded shortly.",
+      "parentUuid": "8df69206_c4cc6901",
+      "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
