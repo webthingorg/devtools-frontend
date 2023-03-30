@@ -33,6 +33,24 @@
       "message": "Looks like the e2e \"shortcut_settings_test.ts\" is failing. Maybe we render the string in another place as well and we use the enum value there now?\n\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_win64_rel/b8785208636042704321/overview",
       "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df69206_c4cc6901",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-03-30T11:40:09Z",
+      "side": 1,
+      "message": "Yes - will look into it.",
+      "parentUuid": "ede8870a_3ca306fa",
+      "revId": "c5797801b04edccd613e8e4fc055ad1132b73227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
