@@ -899,7 +899,8 @@ export enum IssueCreated {
   'GenericIssue::LabelHasNeitherForNorNestedInput' = 72,
   'GenericIssue::LabelForMatchesNonExistingIdError' = 73,
   'GenericIssue::HasPasswordFieldWithoutUsernameFieldError' = 74,
-  MaxValue = 75,
+  'GenericIssue::kFormInputHasWrongButWellIntendedAutocompleteValueError' = 75,
+  MaxValue = 76,
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
