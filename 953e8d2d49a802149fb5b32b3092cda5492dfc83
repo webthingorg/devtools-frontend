@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d634d82_ae34a330",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2023-03-30T18:30:22Z",
+      "side": 1,
+      "message": "LGTM, but Victor can do the full review",
+      "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
