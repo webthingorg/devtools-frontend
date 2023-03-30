@@ -46,6 +46,7 @@ devtools_module("timeline") {
     "UIDevtoolsController.ts",
     "UIDevtoolsUtils.ts",
     "WebVitalsTimelineUtils.ts",
+    "utils.ts",
   ]
 
   deps = [

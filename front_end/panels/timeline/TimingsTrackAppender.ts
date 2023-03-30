@@ -15,26 +15,18 @@ import {
   type HighlightedEntryInfo,
   type TrackAppenderName,
 } from './CompatibilityTracksAppender.js';
-import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import {TimelineFlameChartMarker} from './TimelineFlameChartView.js';
 import {type TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';
 import * as Common from '../../core/common/common.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import {buildGroupStyle, buildTrackHeader, highlightedEntryInfo} from './utils.js';
 
 const UIStrings = {
   /**
    *@description Text in Timeline Flame Chart Data Provider of the Performance panel
    */
   timings: 'Timings',
-  /**
-   * @description Text in the Performance panel to show how long was spent in a particular part of the code.
-   * The first placeholder is the total time taken for this node and all children, the second is the self time
-   * (time taken in this node, without children included).
-   *@example {10ms} PH1
-   *@example {10ms} PH2
-   */
-  sSelfS: '{PH1} (self {PH2})',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimingsTrackAppender.ts', UIStrings);
@@ -105,22 +97,11 @@ export class TimingsTrackAppender implements TrackAppender {
    */
   #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
     const trackIsCollapsible = this.#traceParsedData.UserTimings.performanceMeasures.length > 0;
-
-    const style: PerfUI.FlameChart.GroupStyle = {
-      padding: 4,
-      height: 17,
-      collapsible: trackIsCollapsible,
-      color: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary'),
-      backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-background'),
-      nestingLevel: 0,
-      shareHeaderLine: true,
-      useFirstLineForOverview: true,
-    };
-    const group =
-        ({startLevel: currentLevel, name: i18nString(UIStrings.timings), style: style, selectable: true, expanded} as
-         PerfUI.FlameChart.Group);
+    const style =
+        buildGroupStyle({shareHeaderLine: true, useFirstLineForOverview: true, collapsible: trackIsCollapsible});
+    const group = buildTrackHeader(
+        currentLevel, i18nString(UIStrings.timings), style, /* selectable= */ true, expanded, this.#legacyTrack);
     this.#flameChartData.groups.push(group);
-    group.track = this.#legacyTrack;
   }
 
   /**
@@ -192,6 +173,7 @@ export class TimingsTrackAppender implements TrackAppender {
     }
     return this.#appendTimingsAtLevel(newLevel, this.#traceParsedData.UserTimings.consoleTimings);
   }
+
   /**
    * Adds into the flame chart data the syntetic nestable async events
    * These events are taken from the UserTimings handler from console
@@ -339,20 +321,6 @@ export class TimingsTrackAppender implements TrackAppender {
    * is hovered in the timeline.
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo {
-    const title = this.titleForEvent(event);
-    const totalTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(
-        (event.dur || 0) as TraceEngine.Types.Timing.MicroSeconds);
-    const selfTime = totalTime;
-    if (totalTime === TraceEngine.Types.Timing.MilliSeconds(0)) {
-      return {title, formattedTime: ''};
-    }
-    const minSelfTimeSignificance = 1e-6;
-    const time = Math.abs(totalTime - selfTime) > minSelfTimeSignificance && selfTime > minSelfTimeSignificance ?
-        i18nString(UIStrings.sSelfS, {
-          PH1: i18n.TimeUtilities.millisToString(totalTime, true),
-          PH2: i18n.TimeUtilities.millisToString(selfTime, true),
-        }) :
-        i18n.TimeUtilities.millisToString(totalTime, true);
-    return {title, formattedTime: time};
+    return highlightedEntryInfo(event, this.titleForEvent);
   }
 }

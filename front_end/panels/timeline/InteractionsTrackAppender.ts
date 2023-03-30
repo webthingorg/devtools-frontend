@@ -6,32 +6,25 @@ import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
   EntryType,
+  InstantEventVisibleDurationMs,
   type TimelineFlameChartEntry,
 } from './TimelineFlameChartDataProvider.js';
 import {
   type CompatibilityTracksAppender,
-  type TrackAppender,
   type HighlightedEntryInfo,
+  type TrackAppender,
   type TrackAppenderName,
 } from './CompatibilityTracksAppender.js';
-import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Common from '../../core/common/common.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import {appendEventsAtLevel, buildGroupStyle, buildTrackHeader, highlightedEntryInfo} from './utils.js';
 
 const UIStrings = {
   /**
    *@description Text in Timeline Flame Chart Data Provider of the Performance panel
    */
   interactions: 'Interactions',
-  /**
-   * @description Text in the Performance panel to show how long was spent in a particular part of the code.
-   * The first placeholder is the total time taken for this node and all children, the second is the self time
-   * (time taken in this node, without children included).
-   *@example {10ms} PH1
-   *@example {10ms} PH2
-   */
-  sSelfS: '{PH1} (self {PH2})',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/InteractionsTrackAppender.ts', UIStrings);
@@ -75,7 +68,7 @@ export class InteractionsTrackAppender implements TrackAppender {
 
   /**
    * Appends into the flame chart data the data corresponding to the
-   * timings track.
+   * interactions track.
    * @param level the horizontal level of the flame chart events where
    * the track's events will start being appended.
    * @param expanded wether the track should be rendered expanded.
@@ -92,7 +85,7 @@ export class InteractionsTrackAppender implements TrackAppender {
 
   /**
    * Adds into the flame chart data the header corresponding to the
-   * timings track. A header is added in the shape of a group in the
+   * interactions track. A header is added in the shape of a group in the
    * flame chart data. A group has a predefined style and a reference
    * to the definition of the legacy track (which should be removed
    * in the future).
@@ -100,66 +93,31 @@ export class InteractionsTrackAppender implements TrackAppender {
    * appended.
    */
   #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
-    const trackIsCollapsible = this.#traceParsedData.UserInteractions.interactionEvents.length > 0;
-    const style: PerfUI.FlameChart.GroupStyle = {
-      padding: 4,
-      height: 17,
-      collapsible: trackIsCollapsible,
-      color: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary'),
-      backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-background'),
-      nestingLevel: 0,
-      shareHeaderLine: true,
-      useFirstLineForOverview: true,
-    };
-    const group = ({
-      startLevel: currentLevel,
-      name: i18nString(UIStrings.interactions),
-      style: style,
-      selectable: true,
-      expanded,
-    } as PerfUI.FlameChart.Group);
+    const style = buildGroupStyle({shareHeaderLine: false, useFirstLineForOverview: true, collapsible: false});
+    const group = buildTrackHeader(
+        currentLevel, i18nString(UIStrings.interactions), style, /* selectable= */ true, expanded, this.#legacyTrack);
     this.#flameChartData.groups.push(group);
-    group.track = this.#legacyTrack;
   }
 
   /**
-   * Adds into the flame chart data the trace events corresponding to
-   * user timings (performance.measure and performance.mark). These are
-   * taken straight from the UserTimings handler.
-   * @param currentLevel the flame chart level from which user timings will
-   * be appended.
-   * @returns the next level after the last occupied by the appended
-   * timings (the first available level to append more data).
-   */
-  /**
    * Adds into the flame chart data the trace events dispatched by the
-   * performace.measure API. These events are taken from the UserTimings
+   * performace.measure API. These events are taken from the UserInteractions
    * handler.
-   * @param currentLevel the flame chart level from which timings will
+   * @param currentLevel the flame chart level from which interactions will
    * be appended.
    * @returns the next level after the last occupied by the appended
-   * timings (the first available level to append more data).
+   * interactions (the first available level to append more data).
    */
 
   #appendInteractionsAtLevel(currentLevel: number): number {
     const interactions = this.#traceParsedData.UserInteractions.interactionEvents;
-    const lastUsedTimeByLevel: number[] = [];
-    for (let i = 0; i < interactions.length; ++i) {
-      const event = interactions[i];
-      const startTime = event.ts;
-      let level;
-      // look vertically for the first level where this event fits,
-      // that is, where it wouldn't overlap with other events.
-      for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
-      }
-      this.#appendEventAtLevel(event, currentLevel + level);
-      const endTime = event.ts + (event.dur || 0);
-      lastUsedTimeByLevel[level] = endTime;
-    }
-    this.#legacyEntryTypeByLevel.length = currentLevel + lastUsedTimeByLevel.length;
+    const levelUsed = appendEventsAtLevel(
+        currentLevel, interactions as TraceEngine.Types.TraceEvents.TraceEventData[],
+        this.#appendEventAtLevel.bind(this));
+    this.#legacyEntryTypeByLevel.length = currentLevel + levelUsed;
     // Set the entry type to TrackAppender for all the levels occupied by the appended timings.
     this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, currentLevel);
-    return currentLevel + lastUsedTimeByLevel.length;
+    return currentLevel + levelUsed;
   }
 
   /**
@@ -174,7 +132,9 @@ export class InteractionsTrackAppender implements TrackAppender {
     this.#legacyEntryTypeByLevel[level] = EntryType.TrackAppender;
     this.#flameChartData.entryLevels[index] = level;
     this.#flameChartData.entryStartTimes[index] = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.ts);
-    const msDuration = event.dur || TraceEngine.Types.Timing.MicroSeconds(0);
+    const msDuration = event.dur ||
+        TraceEngine.Helpers.Timing.millisecondsToMicroseconds(
+            InstantEventVisibleDurationMs as TraceEngine.Types.Timing.MilliSeconds);
     this.#flameChartData.entryTotalTimes[index] = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(msDuration);
     return index;
   }
@@ -213,20 +173,6 @@ export class InteractionsTrackAppender implements TrackAppender {
    * is hovered in the timeline.
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo {
-    const title = this.titleForEvent(event);
-    const totalTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(
-        (event.dur || 0) as TraceEngine.Types.Timing.MicroSeconds);
-    const selfTime = totalTime;
-    if (totalTime === TraceEngine.Types.Timing.MilliSeconds(0)) {
-      return {title, formattedTime: ''};
-    }
-    const minSelfTimeSignificance = 1e-6;
-    const time = Math.abs(totalTime - selfTime) > minSelfTimeSignificance && selfTime > minSelfTimeSignificance ?
-        i18nString(UIStrings.sSelfS, {
-          PH1: i18n.TimeUtilities.millisToString(totalTime, true),
-          PH2: i18n.TimeUtilities.millisToString(selfTime, true),
-        }) :
-        i18n.TimeUtilities.millisToString(totalTime, true);
-    return {title, formattedTime: time};
+    return highlightedEntryInfo(event, this.titleForEvent);
   }
 }
