@@ -52,8 +52,7 @@ describe('The Elements panel', async () => {
     await waitForPartialContentOfSelectedElementsNode('<h1>​headline​</h1>');
   });
 
-  // Flaky on bots.
-  it.skip('[crbug.com/1342151] has link from a slot element to a slot', async () => {
+  it('has link from a slot element to a slot', async () => {
     await goToResource('elements/slot-element.html');
     await expandSelectedNodeRecursively();
     await waitForAdorners(([
