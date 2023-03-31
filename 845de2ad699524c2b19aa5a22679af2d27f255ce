@@ -16,6 +16,57 @@
       "message": "note to self: need to manually verify this does not break cpuprofile loading and parsing (it should not as we haven\u0027t changed anything relating to loading)",
       "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f44ac98_5ffbc8de",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-31T02:09:36Z",
+      "side": 1,
+      "message": "not a big deal for now, but it\u0027d be cool to use a timestamp of the recording, put that in the metadata and use that here.  \nthat\u0027d help me cuz sometimes i forget i\u0027ve already saved it.. and then it\u0027d warn me about the potential overwrite.\n\nactually recordStartTimeInternal is already on the performance model. that could work.",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82be2301_bc84e67b",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-31T02:09:36Z",
+      "side": 1,
+      "message": "Let\u0027s use `Trace-`",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d68edf_39eb65b0",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-31T02:09:36Z",
+      "side": 1,
+      "message": "do we go through here if you have two+ traces and toggle back and forth?",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
