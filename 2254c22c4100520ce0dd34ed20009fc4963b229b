@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee25ff13_05298131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-31T04:53:29Z",
+      "side": 1,
+      "message": "Rebased and checked color tokens. This is good to go now.",
+      "revId": "2254c22c4100520ce0dd34ed20009fc4963b229b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -33,6 +33,24 @@
       "message": "Thanks, Benedik! Q: Do these icons already use new colors? (they are not toolbar icons, I think)",
       "revId": "404dee085dc9f0c0d3252fbcda2bfac4c0db6734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d0de08_a67bec5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-03-31T04:53:29Z",
+      "side": 1,
+      "message": "Yes, these icons have the `[is\u003d\"ui-icon\"]` selector and use the styling from `inspectorCommon.css`, which puts `var(--icon-default)`.",
+      "parentUuid": "222e1f50_2ea66795",
+      "revId": "404dee085dc9f0c0d3252fbcda2bfac4c0db6734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
