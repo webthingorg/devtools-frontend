@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51ddcc1c_f6396f01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-31T02:17:55Z",
+      "side": 1,
+      "message": "also.. i have a 80% mature branch that does a version of this plus backingStorage removal.  as i recall it was pretty good, but I couldnt\u0027 figure out why ObjectSnapshot used backingStorage.. I guess so screenshots aren\u0027t kept as strings in memory?  This comment probably is useless to you until you run into it yourself. But.. even then probably still not that useful. :)",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f44ac98_5ffbc8de",
