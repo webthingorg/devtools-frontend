@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba38050a_7c3185ba",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-03-31T14:34:00Z",
+      "side": 1,
+      "message": "What does this function do?",
+      "range": {
+        "startLine": 1209,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 108
+      },
+      "revId": "cbacfc0b0872099e75391c4f479095cfa05ee729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
