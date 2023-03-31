@@ -22,6 +22,30 @@
       },
       "revId": "cbacfc0b0872099e75391c4f479095cfa05ee729",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dab30ae_e7c5a324",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-03-31T15:10:36Z",
+      "side": 1,
+      "message": "it makes sure that if a node is updated we \"re-render\" the violation. This happens for example if one updates a node inner text",
+      "parentUuid": "ba38050a_7c3185ba",
+      "range": {
+        "startLine": 1209,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 108
+      },
+      "revId": "cbacfc0b0872099e75391c4f479095cfa05ee729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
