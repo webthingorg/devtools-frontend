@@ -313,12 +313,35 @@ export const expandSelectedNodeRecursively = async () => {
   await click(EXPAND_RECURSIVELY);
 };
 
+export const waitForAnimation = async (element: puppeteer.ElementHandle<Element>) => {
+  let elementLocation = await element.evaluate(c => {
+    const {top, left, bottom, right} = c.getBoundingClientRect();
+    return {top, left, bottom, right};
+  });
+  let stoppedMoving = 0;
+  await waitForFunction(async () => {
+    const newElementLocation = await element.evaluate(c => {
+      const {top, left, bottom, right} = c.getBoundingClientRect();
+      return {top, left, bottom, right};
+    });
+    if (JSON.stringify(elementLocation) === JSON.stringify(newElementLocation)) {
+      stoppedMoving++;
+    } else {
+      stoppedMoving = 0;
+    }
+    if (stoppedMoving > 10) {
+      return true;
+    }
+    elementLocation = newElementLocation;
+    return false;
+  });
+};
+
 export const forcePseudoState = async (pseudoState: string) => {
   // Open element state pane and wait for it to be loaded asynchronously
   await click('[aria-label="Toggle Element State"]');
-  await waitFor(`[aria-label="${pseudoState}"]`);
-  // FIXME(crbug/1112692): Refactor test to remove the timeout.
-  await timeout(100);
+  const checkbox = await waitFor(`[aria-label="${pseudoState}"]`);
+  await waitForAnimation(checkbox);
   await click(`[aria-label="${pseudoState}"]`);
 };
 
