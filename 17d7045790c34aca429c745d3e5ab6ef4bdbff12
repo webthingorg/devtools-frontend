@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7177ce08_4baa233e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-31T14:02:54Z",
+      "side": 1,
+      "message": "Happy to land this as long as we file a bug to fix it once the backmerge is sorted.\n\nThanks!",
+      "revId": "17d7045790c34aca429c745d3e5ab6ef4bdbff12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "503d216d_a5c0dd7c",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "The reason is I also want to back-merge this one to 113, so I think this will be the fastest change, otherwise I need to change several functions.\nI mentioned to Andres so he can take care later.",
       "parentUuid": "503d216d_a5c0dd7c",
+      "revId": "17d7045790c34aca429c745d3e5ab6ef4bdbff12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ee5f3d_506fa577",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-03-31T14:02:54Z",
+      "side": 1,
+      "message": "OK, let\u0027s do that then. Please could you file a bug so that next week we can fix this properly, and only fall back to the legacy mode just for Node users? Thanks.",
+      "parentUuid": "accbf744_368beae1",
       "revId": "17d7045790c34aca429c745d3e5ab6ef4bdbff12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
