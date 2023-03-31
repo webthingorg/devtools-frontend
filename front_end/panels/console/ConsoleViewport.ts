@@ -635,12 +635,7 @@ export class ConsoleViewport {
 
     let chars = 0;
     let node: Node|null = itemElement;
-    while ((node = node.traverseNextNode(itemElement)) && node !== selectionNode) {
-      if (node.nodeType !== Node.TEXT_NODE ||
-          (node.parentElement &&
-           (node.parentElement.nodeName === 'STYLE' || node.parentElement.nodeName === 'SCRIPT'))) {
-        continue;
-      }
+    while ((node = node.traverseNextTextNode(itemElement)) && node !== selectionNode) {
       chars += Components.Linkifier.Linkifier.untruncatedNodeText(node).length;
     }
     // If the selected node text was truncated, treat any non-zero offset as the full length.

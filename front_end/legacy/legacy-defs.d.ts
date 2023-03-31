@@ -97,6 +97,7 @@ interface Node {
   setTextContentTruncatedIfNeeded(text: any, placeholder?: string): boolean;
   traverseNextNode(stayWithin?: Node): Node|null;
   traversePreviousNode(stayWithin?: Node): Node|null;
+  traverseNextTextNode(stayWithin?: Node): Node|null;
   deepTextContent(): string
   window(): Window;
   childTextNodes(): Node[];
