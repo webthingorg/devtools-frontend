@@ -23,6 +23,14 @@ The main flame chart is currently being migrated to use the data of the new engi
 
 Migrating a track consists of taking the code in the data provider corresponding to a track (both the appending into the flame chart data and the handling of extra features) and moving it to a dedicated "track appender". Generally this boils down to these steps (note that steps 3 - 6 must be implemented together in the same change):
 
+0. Add screenshot tests for the legacy track. Currently we want to keep RPP behave same as before. the best way to
+ensure this is to add screenshot tests for expanded and collapsed track. See the example the [gpu_track_test](../../../test/interactions/panels/performance/timeline/gpu_track_test.ts).
+    
+    After add the test file, you can run `npm run auto-screenshotstest` to generate the screenshot locally to check before submit.
+    
+    Or you can upload to the Gerrit and after the screenshot tests fails, run `./scripts/tools/update_goldens_v2.py` to update the screenshots.
+    See [update_goldens_v2.py](../../../scripts/tools/update_goldens_v2.py) for more information.
+
 1. Add missing related functionality to the new engine (not always needed).
 
     Whatever's needed to support using the new engine as source of data for the track being migrated. This could mean adding a new handler or buffering/exporting a new kind of event in a particular handler, for example.
