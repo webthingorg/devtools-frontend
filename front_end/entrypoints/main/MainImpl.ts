@@ -368,6 +368,10 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES, 'Sync CSS changes in the Styles pane');
 
+    // Highlightes a violating node or attribute by rendering a squiggly line under it and adding a tooltip linking to the issues panel.
+    Root.Runtime.experiments.register(
+      Root.Runtime.ExperimentName.VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_STYLES_PANEL, 'Highlights violating node or attribute');
+
     // Local overrides for response headers
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.HEADER_OVERRIDES, 'Local overrides for response headers');
