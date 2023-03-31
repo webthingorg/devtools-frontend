@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d6ec753d_24239781",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-03-31T13:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1bcb247_c44a472d",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0c09a04a_0856c3f5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -100,6 +118,42 @@
       "writtenOn": "2023-03-02T13:40:27Z",
       "side": 1,
       "message": "We need to have some kind of tests for this. e2e tests seem the most straightforward, see e.g.: third_party/devtools-frontend/src/test/e2e/elements/reveal-correct-node_test.ts or third_party/devtools-frontend/src/test/e2e/elements/adornment_test.ts\n\nThe test would load a page where we expect a squiggly line and ensure that the right CSS class is set on the right element.\n\nOf course we could also have a unit tests, but it seems like it would be rather challenging to setup a text fixture for this case.",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c5b704_f38f896b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-03-31T13:21:20Z",
+      "side": 1,
+      "message": "As we talked offline, for now the test only works in non-headless. I tried writing unit tests but they were quite hard without having to expose private methods, plus id did not cover the functionality well.\n\nI remember you saying that soon we will be able to run this in non headless so I am skipping the test for now (it of course works locally). Let me know what you think",
+      "parentUuid": "78bd5429_d667dd53",
+      "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06efe9bd_51d4d237",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-03-31T13:21:20Z",
+      "side": 1,
+      "message": "those are good question, here are my findings.\n\nGiven how/when autofill parses a field, here is what happens now.\n\n- At page load issues are sent, this happens multiple times due to forms reparsing being triggered several times.\n- After loading, if a new input field is added/removed to a form, this leads to a reparsing and if something is wrong with this field, an issue is sent.\n- Updating attributes do not cause reparse, so if a developer dynamically changes an attr that fixes an issue, the issue will still be there.\n\nHaving an issue that no longer exists in the html is a corner case but not a big problem IMO. This is a problem I have seen in some websites for one specific issue type, but I have already removed it for now, see https://chromium-review.googlesource.com/c/chromium/src/+/4381884. After that I tested many of them and have not caught another case. \n\nNonetheless I talked to Danil about adding a remove issue event but it does not seem to be a necessity for now. I am already working on a next iteration to delay issues sent so that we mitigate the case of the HTML changing in the first seconds of loading. Note that because we do not react to attribute changes, even with a remove issue event, it would still be possible to have dangling issues.",
+      "parentUuid": "bbfa3c1b_26d4aa55",
       "revId": "b99f1909bf2fda8aa8478dc3d9d86985c443fa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
