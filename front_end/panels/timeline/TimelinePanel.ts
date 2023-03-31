@@ -1265,7 +1265,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
    * parsing to complete.
    **/
   async #executeNewTraceEngine(tracingModel: SDK.TracingModel.TracingModel, isFreshRecording: boolean): Promise<void> {
-    const metadata = await SDK.TraceSDKServices.getMetadataForRecording();
+    const metadata = isFreshRecording ? await SDK.TraceSDKServices.getMetadataForRecording() : undefined;
     return this.#traceEngineModel.parse(
         // OPP's data layer uses `EventPayload` as the type to represent raw JSON from the trace.
         // When we pass this into the new data engine, we need to tell TS to use the new TraceEventData type.
