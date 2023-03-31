@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bc92a70_9fb7cea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-03-31T10:57:54Z",
+      "side": 1,
+      "message": "@szuend@chromium.org Looks like the Dry Run has passed.\n\nI saw your comments on the issue, read your bug filed earlier (issue 1429478) this morning and investigate a bit in the code. It is not very clear to me so I would like to confirm with you about the scoring. \n\nAre we comparing the score in `FilteredListWidget.filterItems()`? \ni.e. in `scoreItems(this: FilteredListWidget, fromIndex: number)`? \n\nIf my understanding is correct, this class allow us to set a provider and the function `itemScoreAt()` will base on the provider we give to it using `setProvider()`. So if the provider is `CommandMenuProvider`, then we are using the `itemScoreAt()` which give a score based on whether the category starts with \u0027Panel\u0027 or \u0027Drawer\u0027.\n\nSince now we create the Action Command category using l10n string, specifically `CreateCommandOptions.category`, this \u0027Panel\u0027 or \u0027Drawer\u0027 scoring is not working anymore.\n\nIf this is the case, as a work around, I think we can add a new option:\nisPanelOrDrawer?: string\nto the interface `CreateCommandOptions` and set it to \u0027Panel\u0027 or \u0027Drawer\u0027 upon creation so we can catch it in the `itemScoreAt()` function and add the score as usual again.\n\nWhat do you think?",
+      "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
