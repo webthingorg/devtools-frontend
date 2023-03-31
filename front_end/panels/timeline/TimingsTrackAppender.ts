@@ -11,8 +11,6 @@ import {
 } from './TimelineFlameChartDataProvider.js';
 import {
   type CompatibilityTracksAppender,
-  type TrackAppender,
-  type HighlightedEntryInfo,
   type TrackAppenderName,
 } from './CompatibilityTracksAppender.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
@@ -21,6 +19,7 @@ import {TimelineFlameChartMarker} from './TimelineFlameChartView.js';
 import {type TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';
 import * as Common from '../../core/common/common.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import {type HighlightedEntryInfo, type TrackAppender} from './TrackAppender.js';
 
 const UIStrings = {
   /**

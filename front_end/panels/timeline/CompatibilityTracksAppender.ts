@@ -6,66 +6,12 @@ import type * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+
 import {type TimelineFlameChartEntry, type EntryType} from './TimelineFlameChartDataProvider.js';
 import {TimingsTrackAppender} from './TimingsTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
-
-export type HighlightedEntryInfo = {
-  title: string,
-  formattedTime: string,
-  warning?: string,
-};
-
-/**
- * Track appenders add the data of each track into the timeline flame
- * chart. Each track appender also implements functions tha allow the
- * canvas renderer to gather more information about an event in a track,
- * like its display name or color.
- *
- * At the moment, tracks in the timeline flame chart are appended in
- * two locations: in the TimelineFlameChartDataProvider and in the track
- * appenders exported by this module. As part of the work to use a new
- * trace parsing engine, a track appender will be defined with this API
- * for each of the tracks in the timeline. With this implementation in
- * place its counterpart in the TimelineFlameChartDataProvider can be
- * removed. This processes of doing this for a track is referred to as
- * "migrating the track" to the new system.
- *
- * The migration implementation will result benefitial among other
- * things because the complexity of rendering the details of each track
- * is distributed among multiple standalone modules.
- * Read more at go/rpp-flamechart-arch
- */
-
-export interface TrackAppender {
-  /**
-   * The unique name given to the track appender.
-   */
-  appenderName: TrackAppenderName;
-
-  /**
-   * Appends into the flame chart data the data corresponding to a track.
-   * @param level the horizontal level of the flame chart events where the
-   * track's events will start being appended.
-   * @param expanded wether the track should be rendered expanded.
-   * @returns the first available level to append more data after having
-   * appended the track's events.
-   */
-  appendTrackAtLevel(level: number, expanded?: boolean): number;
-  /**
-   * Returns the color an event is shown with in the timeline.
-   */
-  colorForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string;
-  /**
-   * Returns the title an event is shown with in the timeline.
-   */
-  titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string;
-  /**
-   * Returns the info shown when an event in the timeline is hovered.
-   */
-  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
-}
+import {type HighlightedEntryInfo, type TrackAppender} from './TrackAppender.js';
 
 export const TrackNames = ['Timings', 'Interactions', 'GPU'] as const;
 export type TrackAppenderName = typeof TrackNames[number];
@@ -112,6 +58,7 @@ export class CompatibilityTracksAppender {
     this.#entryData = entryData;
     this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel;
     this.#legacyTimelineModel = legacyTimelineModel;
+
     const timingsLegacyTrack =
         this.#legacyTimelineModel.tracks().find(track => track.type === TimelineModel.TimelineModel.TrackType.Timings);
     this.#timingsTrackAppender = new TimingsTrackAppender(
@@ -122,15 +69,15 @@ export class CompatibilityTracksAppender {
     const interactionsLegacyTrack = this.#legacyTimelineModel.tracks().find(
         track => track.type === TimelineModel.TimelineModel.TrackType.UserInteractions);
     this.#interactionsTrackAppender = new InteractionsTrackAppender(
-        this, this.#flameChartData, this.#traceParsedData, this.#entryData, this.#legacyEntryTypeByLevel,
-        interactionsLegacyTrack);
+        this, this.#flameChartData, this.#traceParsedData.UserInteractions.interactionEvents, this.#entryData,
+        this.#legacyEntryTypeByLevel, interactionsLegacyTrack);
     this.#allTrackAppenders.push(this.#interactionsTrackAppender);
 
     const gpuLegacyTrack =
         this.#legacyTimelineModel.tracks().find(track => track.type === TimelineModel.TimelineModel.TrackType.GPU);
     this.#gpuTrackAppender = new GPUTrackAppender(
-        this, this.#flameChartData, this.#traceParsedData, this.#entryData, this.#legacyEntryTypeByLevel,
-        gpuLegacyTrack);
+        this, this.#flameChartData, this.#traceParsedData.GPU.mainGPUThreadTasks, this.#entryData,
+        this.#legacyEntryTypeByLevel, gpuLegacyTrack);
     this.#allTrackAppenders.push(this.#gpuTrackAppender);
   }
 
