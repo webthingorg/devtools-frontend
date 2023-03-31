@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f943922b_dfcc7bd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-31T20:09:55Z",
+      "side": 1,
+      "message": "Stress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8785096568540836209/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8785096568540836193/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8785096568540836177/overview",
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b284b1e1_2f4ef3d3",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-03-31T20:09:55Z",
+      "side": 1,
+      "message": "should this be higher or lower?",
+      "range": {
+        "startLine": 332,
+        "startChar": 24,
+        "endLine": 332,
+        "endChar": 26
+      },
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
