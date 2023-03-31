@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c1d105_8061360e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-03-31T02:53:49Z",
+      "side": 1,
+      "message": "ptal.  \nalso the the offending CL just made branch point.. so we\u0027ll have to do a merge on this badboy.",
+      "revId": "6c94f2599316514aabc5178f9f3b27004724745b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
