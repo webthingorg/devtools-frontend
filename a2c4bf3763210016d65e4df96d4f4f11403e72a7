@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59054c59_91be5cce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-31T10:13:50Z",
+      "side": 1,
+      "message": "Looks good once the comments/names are improved.",
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6d44bb9_c2232af0",
@@ -159,6 +176,29 @@
         "startChar": 1,
         "endLine": 494,
         "endChar": 29
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3625795_33c6c21c",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-03-31T10:13:50Z",
+      "side": 1,
+      "message": "Please add a comment explaining what this is trying to achieve (stepping in the function identified by `autoStep` while there is no debug info). Also, document the meaning of the `autoStep` parameter (here or in DebuggerModel).\n\nI find this code hard to understand, especially in the presence of obscurely named parameters and undocumented return values.",
+      "range": {
+        "startLine": 502,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 60
       },
       "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
