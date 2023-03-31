@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39cd655b_46090ee3",
+        "filename": "test/unittests/front_end/panels/console/ConsoleView_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-31T08:02:45Z",
+      "side": 1,
+      "message": "lol",
+      "range": {
+        "startLine": 156,
+        "startChar": 55,
+        "endLine": 156,
+        "endChar": 102
+      },
+      "revId": "9c610b5a96be989b3451d8f1ccd4dafeccbd1cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

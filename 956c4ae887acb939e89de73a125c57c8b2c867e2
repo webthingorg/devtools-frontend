@@ -16,6 +16,75 @@
       "message": "This should be ready for review",
       "revId": "956c4ae887acb939e89de73a125c57c8b2c867e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfe85383_b525f5e3",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-31T08:02:45Z",
+      "side": 1,
+      "message": "remove leftover",
+      "range": {
+        "startLine": 828,
+        "startChar": 4,
+        "endLine": 828,
+        "endChar": 42
+      },
+      "revId": "956c4ae887acb939e89de73a125c57c8b2c867e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73ad172_8e587101",
+        "filename": "test/unittests/front_end/panels/console/ConsoleContextSelector_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-31T08:02:45Z",
+      "side": 1,
+      "message": "nit: because this does not depend on the `inScope` value, it is run twice in the same configuration.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 56
+      },
+      "revId": "956c4ae887acb939e89de73a125c57c8b2c867e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3103d917_3ce297fa",
+        "filename": "test/unittests/front_end/panels/console/ConsoleView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-03-31T08:02:45Z",
+      "side": 1,
+      "message": "Shouldn\u0027t there be another assertion checking the console messages after the scope switch?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 77
+      },
+      "revId": "956c4ae887acb939e89de73a125c57c8b2c867e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
