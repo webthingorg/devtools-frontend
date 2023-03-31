@@ -16,6 +16,24 @@
       "message": "@szuend@chromium.org Looks like the Dry Run has passed.\n\nI saw your comments on the issue, read your bug filed earlier (issue 1429478) this morning and investigate a bit in the code. It is not very clear to me so I would like to confirm with you about the scoring. \n\nAre we comparing the score in `FilteredListWidget.filterItems()`? \ni.e. in `scoreItems(this: FilteredListWidget, fromIndex: number)`? \n\nIf my understanding is correct, this class allow us to set a provider and the function `itemScoreAt()` will base on the provider we give to it using `setProvider()`. So if the provider is `CommandMenuProvider`, then we are using the `itemScoreAt()` which give a score based on whether the category starts with \u0027Panel\u0027 or \u0027Drawer\u0027.\n\nSince now we create the Action Command category using l10n string, specifically `CreateCommandOptions.category`, this \u0027Panel\u0027 or \u0027Drawer\u0027 scoring is not working anymore.\n\nIf this is the case, as a work around, I think we can add a new option:\nisPanelOrDrawer?: string\nto the interface `CreateCommandOptions` and set it to \u0027Panel\u0027 or \u0027Drawer\u0027 upon creation so we can catch it in the `itemScoreAt()` function and add the score as usual again.\n\nWhat do you think?",
       "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b717d09_24967cee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-03-31T11:12:38Z",
+      "side": 1,
+      "message": "Indeed, thats basically the spelled out suggestion from crbug.com/1429478. I\u0027d suggest using an enum though, so something like:\n\n```\nconst enum PanelOrDrawer {\n  PANEL,\n  DRAWER,\n}\n\n// and then in the options\n...\n  isPanelOrDrawer?: PanelOrDrawer;\n...\n```\n\nand check that in `itemScoreAt`.\n\nIf you wanna give that a go, please do it in a separate CL, and we\u0027ll land this CL as-is once the `PanelOrDrawer` one has landed :)",
+      "parentUuid": "9bc92a70_9fb7cea6",
+      "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
