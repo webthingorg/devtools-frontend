@@ -16,6 +16,23 @@
       "message": "Rebased and checked color tokens. This is good to go now.",
       "revId": "2254c22c4100520ce0dd34ed20009fc4963b229b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad1a15e0_134c30f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-03-31T08:19:47Z",
+      "side": 1,
+      "message": "LGTM, thanks Benedikt!",
+      "revId": "2254c22c4100520ce0dd34ed20009fc4963b229b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
