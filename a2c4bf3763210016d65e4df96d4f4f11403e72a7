@@ -72,6 +72,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ab12e5d_9e7e71cb",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-31T09:49:15Z",
+      "side": 1,
+      "message": "Null doesn\u0027t happen normally, but the function location is optional on the CDP call frame data.",
+      "parentUuid": "fb97e59d_951f0489",
+      "range": {
+        "startLine": 424,
+        "startChar": 99,
+        "endLine": 424,
+        "endChar": 103
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd1bbe0a_1adf3a39",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-03-31T09:49:15Z",
+      "side": 1,
+      "message": "We\u0027re autostepping while frame.functionLocation remains the same. If that changes it means we\u0027ve stepped out of the previous function and want to stop stepping.",
+      "parentUuid": "bf8ce7e0_3aa7bc98",
+      "range": {
+        "startLine": 424,
+        "startChar": 77,
+        "endLine": 424,
+        "endChar": 94
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "231c88b6_537e5c24",
         "filename": "front_end/core/sdk/DebuggerModel.ts",
         "patchSetId": 6
