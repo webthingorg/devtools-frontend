@@ -52,6 +52,24 @@
       "parentUuid": "4b717d09_24967cee",
       "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ece23bb_4ff7c352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-03-31T13:57:53Z",
+      "side": 1,
+      "message": "@szuend@chromium.org Done and uploaded the CL for this, please review:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4386380",
+      "parentUuid": "cc227c57_20895097",
+      "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
