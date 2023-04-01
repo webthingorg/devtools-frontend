@@ -16,6 +16,23 @@
       "message": "prunsrv.exe // IS // Gerrit --DisplayName \u003d \"مراجعة كود Gerrit\" --Startup \u003d auto ^\n      --Jvm \u003d \"C: \\ Program Files \\ Java \\ jre1.8.0_65 \\ bin \\ server \\ jvm.dll\" ^\n      --Classpath \u003d C: \\ MY \\ GERRIT \\ SITE \\ bin \\ gerrit.war ^\n      --LogPath \u003d C: \\ MY \\ GERRIT \\ SITE \\ logs ^\n      --StartPath \u003d C: \\ MY \\ GERRIT \\ SITE ^\n      --StartMode \u003d jvm --StopMode \u003d jvm ^\n      --StartClass \u003d com.google.gerrit.launcher.GerritLauncher --StartMethod \u003d daemonStart ^\n      --StopClass \u003d com.google.gerrit.launcher.GerritLauncher --StopMethod \u003d daemonStop",
       "revId": "549adf0ea9353a13bc14d8e3b1c7d10c6a18d0e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca98c0c2_9c464482",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576793
+      },
+      "writtenOn": "2023-04-01T12:22:10Z",
+      "side": 1,
+      "message": "prunsrv.exe // IS // Gerrit --DisplayName \u003d \"مراجعة كود Gerrit\" --Startup \u003d auto ^\n      --Jvm \u003d \"C: \\ Program Files \\ Java \\ jre1.8.0_65 \\ bin \\ server \\ jvm.dll\" ^\n      --Classpath \u003d C: \\ MY \\ GERRIT \\ SITE \\ bin \\ gerrit.war ^\n      --LogPath \u003d C: \\ MY \\ GERRIT \\ SITE \\ logs ^\n      --StartPath \u003d C: \\ MY \\ GERRIT \\ SITE ^\n      --StartMode \u003d jvm --StopMode \u003d jvm ^\n      --StartClass \u003d com.google.gerrit.launcher.GerritLauncher --StartMethod \u003d daemonStart ^\n      --StopClass \u003d com.google.gerrit.launcher.GerritLauncher --StopMethod \u003d daemonStop",
+      "revId": "549adf0ea9353a13bc14d8e3b1c7d10c6a18d0e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
