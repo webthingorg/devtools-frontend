@@ -57,6 +57,30 @@
       },
       "revId": "5757c1af45f16a0db3fb51f9f537128a84418daf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbca1556_d1541131",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-01T18:04:45Z",
+      "side": 1,
+      "message": "I\u0027d rather keep an option to add other sites to allowlist.",
+      "parentUuid": "cb866198_63f6262f",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 61
+      },
+      "revId": "5757c1af45f16a0db3fb51f9f537128a84418daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
