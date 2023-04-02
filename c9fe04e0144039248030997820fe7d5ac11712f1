@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae01c4d_1c015042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-02T21:21:22Z",
+      "side": 1,
+      "message": "I am not sure if the descriptions I created in the UIStrings in ViewRegistration.ts are precise enough. Please let me know if any of them does not look right to you. Thank you.",
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
