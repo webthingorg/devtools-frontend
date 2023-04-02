@@ -70,6 +70,24 @@
       "parentUuid": "cc227c57_20895097",
       "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f841f1_bc7b6387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-02T21:22:52Z",
+      "side": 1,
+      "message": "@szuend@chromium.org I just pushed the CL for fixing ViewLocationCategoryValues here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4393502\n\nPlease kindly review. Thank you!",
+      "parentUuid": "6ece23bb_4ff7c352",
+      "revId": "88ef1390f9297725f99fdee3dabad75182587a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
