@@ -132,9 +132,12 @@ export class CommandMenu {
 
   static createRevealViewCommand(options: RevealViewCommandOptions): Command {
     const {title, tags, category, userActionCode, id} = options;
+    if (!category) {
+      throw new Error(`Creating '${title}' reveal view command failed. Reveal view has no category.`);
+    }
 
     return CommandMenu.createCommand({
-      category,
+      category: UI.ViewManager.getLocalizedViewLocationCategory(category as UI.ViewManager.ViewLocationCategory),
       keys: tags,
       title,
       shortcut: '',
