@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6362db8c_ec44b80d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T10:43:10Z",
+      "side": 1,
+      "message": "What if the developer edits and fixes the attribute in the Elements panel?",
+      "parentUuid": "601866a8_2caa59b2",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3
