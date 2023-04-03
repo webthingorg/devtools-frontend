@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "7ab6ceab5fa8de544300f2ef08bd357443bf653f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6e73cd_f004f2f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-03T14:09:01Z",
+      "side": 1,
+      "message": "In the screenshot, some icons have a drastic difference in size, e.g. cross, bin, could you please increase the new sizes? Also do the new icons in the components visually look alright in terms of size?",
+      "revId": "7ab6ceab5fa8de544300f2ef08bd357443bf653f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02e96897_c7c049d8",
+        "filename": "front_end/panels/application/components/TrustTokensView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-03T14:09:01Z",
+      "side": 1,
+      "message": "I think for the icon to retain the size, it should be 14 too now",
+      "range": {
+        "startLine": 81,
+        "startChar": 63,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "7ab6ceab5fa8de544300f2ef08bd357443bf653f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "253835e7_b5b38065",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-03T14:09:01Z",
+      "side": 1,
+      "message": "here too and below in the same file:)\nLooks like these are used not just in an example, but in actual components, would be great to see how they look like there now",
+      "range": {
+        "startLine": 579,
+        "startChar": 66,
+        "endLine": 579,
+        "endChar": 70
+      },
+      "revId": "7ab6ceab5fa8de544300f2ef08bd357443bf653f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
