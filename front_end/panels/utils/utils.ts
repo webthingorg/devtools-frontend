@@ -12,7 +12,7 @@ export function imageNameForResourceType(resourceType: Common.ResourceType.Resou
     return 'ic_file_document';
   }
   if (resourceType.isImage()) {
-    return 'ic_file_image';
+    return 'file-image';
   }
   if (resourceType.isFont()) {
     return 'ic_file_font';
