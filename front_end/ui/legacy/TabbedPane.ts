@@ -1161,7 +1161,7 @@ export class TabbedPaneTab {
     closeIconContainer.classList.add('close-button', 'tabbed-pane-close-button');
     const closeIcon = new IconButton.Icon.Icon();
     closeIcon.data = {
-      iconName: 'close-icon',
+      iconName: 'cross',
       color: 'var(--tabbed-pane-close-icon-color)',
       width: '7px',
     };

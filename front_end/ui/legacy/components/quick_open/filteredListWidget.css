@@ -164,8 +164,8 @@ devtools-text-prompt {
   --icon-color: var(--color-ic-file-document);
 }
 
-.filtered-list-widget-item-wrapper devtools-icon.ic_file_image {
-  --icon-color: var(--color-ic-file-image);
+.filtered-list-widget-item-wrapper devtools-icon.file-image {
+  --icon-color: var(--icon-file-image);
 }
 
 .filtered-list-widget-item-wrapper devtools-icon.ic_file_font {

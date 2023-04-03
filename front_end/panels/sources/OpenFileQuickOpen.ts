@@ -43,8 +43,8 @@ export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
     iconElement.data = {
       iconName: iconName,
       color: 'var(--icon-color)',
-      width: '18px',
-      height: '18px',
+      width: '20px',
+      height: '20px',
     };
     iconElement.classList.add(iconName);
     titleElement.parentElement?.parentElement?.insertBefore(iconElement, titleElement.parentElement);

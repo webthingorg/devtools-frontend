@@ -343,7 +343,7 @@
 }
 
 .close-button {
-  --tabbed-pane-close-icon-color: var(--color-text-primary);
+  --tabbed-pane-close-icon-color: var(--icon-default-hover);
 
   width: 14px;
   height: 14px;
