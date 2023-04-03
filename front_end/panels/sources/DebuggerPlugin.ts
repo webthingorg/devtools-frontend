@@ -421,13 +421,14 @@ export class DebuggerPlugin extends Plugin {
     this.popoverHelper?.hidePopover();
   }
 
-  editBreakpointLocation({breakpoint, uiLocation}: Bindings.BreakpointManager.BreakpointLocation): void {
+  editBreakpointLocation(
+      {breakpoint, uiLocation}: Bindings.BreakpointManager.BreakpointLocation, openedFromRevealable: boolean): void {
     const {lineNumber} = this.transformer.uiLocationToEditorLocation(uiLocation.lineNumber, uiLocation.columnNumber);
     const line = this.editor?.state.doc.line(lineNumber + 1);
     if (!line) {
       return;
     }
-    this.editBreakpointCondition(line, breakpoint, null, breakpoint.isLogpoint());
+    this.editBreakpointCondition(line, breakpoint, null, breakpoint.isLogpoint(), openedFromRevealable);
   }
 
   populateLineGutterContextMenu(contextMenu: UI.ContextMenu.ContextMenu, editorLineNumber: number): void {
@@ -785,7 +786,7 @@ export class DebuggerPlugin extends Plugin {
         lineNumber: number,
         columnNumber: number,
       }|null,
-      isLogpoint?: boolean): void {
+      isLogpoint?: boolean, openedFromRevealable = false): void {
     if (breakpoint?.isRemoved) {
       // This method can get called for stale breakpoints, e.g. via the revealer.
       // In that case we don't show the edit dialog as to not resurrect the breakpoint
@@ -804,7 +805,7 @@ export class DebuggerPlugin extends Plugin {
       if (!result.committed) {
         return;
       }
-
+      recordBreakpointConditionEdited(openedFromRevealable, oldCondition, result);
       recordBreakpointWithConditionAdded(result);
       if (breakpoint) {
         breakpoint.setCondition(result.condition, result.isLogpoint);
@@ -833,6 +834,20 @@ export class DebuggerPlugin extends Plugin {
     dialog.focusEditor();
     this.activeBreakpointDialog = dialog;
 
+    // This counts how often a condition is edited and categorizes according to the revealing source.
+    function recordBreakpointConditionEdited(
+        openedFromRevealable: boolean, oldCondition: string|Bindings.BreakpointManager.UserCondition,
+        result: BreakpointEditDialogResult): void {
+      if (oldCondition !== result.condition) {
+        if (openedFromRevealable) {
+          Host.userMetrics.actionTaken(Host.UserMetrics.Action.BreakpointConditionEditedFromRevealable);
+        } else {
+          Host.userMetrics.actionTaken(Host.UserMetrics.Action.BreakpointConditionEditedFromOtherSource);
+        }
+      }
+    }
+
+    // This counts new conditional breakpoints or logpoints that are added.
     function recordBreakpointWithConditionAdded(result: BreakpointEditDialogResult): void {
       const {condition: newCondition, isLogpoint} = result;
       const isConditionalBreakpoint = newCondition.length !== 0 && !isLogpoint;
@@ -1562,7 +1577,7 @@ export class BreakpointLocationRevealer implements Common.Revealer.Revealer {
     SourcesPanel.instance().showUILocation(uiLocation, omitFocus);
     const debuggerPlugin = debuggerPluginForUISourceCode.get(uiLocation.uiSourceCode);
     if (debuggerPlugin) {
-      debuggerPlugin.editBreakpointLocation(breakpointLocation);
+      debuggerPlugin.editBreakpointLocation(breakpointLocation, true /* openedFromRevealable */);
     }
   }
 }

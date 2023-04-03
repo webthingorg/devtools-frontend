@@ -432,7 +432,9 @@ export enum Action {
   BreakpointsInFileRemovedFromContextMenu = 70,
   BreakpointsInFileCheckboxToggled = 71,
   BreakpointsInFileEnabledDisabledFromContextMenu = 72,
-  MaxValue = 73,
+  BreakpointConditionEditedFromRevealable = 73,
+  BreakpointConditionEditedFromOtherSource = 74,
+  MaxValue = 75,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -769,7 +771,8 @@ export const enum BreakpointEditDialogRevealedFrom {
   BreakpointMarkerContextMenu = 2,
   LineGutterContextMenu = 3,
   KeyboardShortcut = 4,
-  MaxValue = 5,
+  Linkifier = 5,
+  MaxValue = 6,
 }
 
 export const enum ColorConvertedFrom {
