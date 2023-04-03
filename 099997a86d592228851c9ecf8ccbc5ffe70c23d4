@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f3bf3ed_e1b0ea69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-03T08:30:45Z",
+      "side": 1,
+      "message": "Hi folks, adding the two of you because I am not sure at which timezone you are both working \u003d)",
+      "revId": "099997a86d592228851c9ecf8ccbc5ffe70c23d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
