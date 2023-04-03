@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1a28215_16dd9bb0",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Removed the comment since it\u0027s obsolete now. That being said there\u0027s a slight change in behavior now, in that if we\u0027re stepping from a place that doesn\u0027t have a functionLocation to a place that doesn\u0027t have callframes, the debugger would do a stepIn instead of a stepOver as before. Does that seem acceptable?",
+      "parentUuid": "e6d44bb9_c2232af0",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf8ce7e0_3aa7bc98",
         "filename": "front_end/core/sdk/DebuggerModel.ts",
         "patchSetId": 6
@@ -135,6 +159,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe4def6_9b912bcc",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd1bbe0a_1adf3a39",
+      "range": {
+        "startLine": 424,
+        "startChar": 77,
+        "endLine": 424,
+        "endChar": 94
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c397fd5_0793f9bd",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab12e5d_9e7e71cb",
+      "range": {
+        "startLine": 424,
+        "startChar": 99,
+        "endLine": 424,
+        "endChar": 103
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "231c88b6_537e5c24",
@@ -148,6 +220,30 @@
       "writtenOn": "2023-03-31T09:35:34Z",
       "side": 1,
       "message": "Nit: Insert empty line before to be consistent with the rest of the file.",
+      "range": {
+        "startLine": 603,
+        "startChar": 1,
+        "endLine": 603,
+        "endChar": 46
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01437a9f_21a5d3ec",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231c88b6_537e5c24",
       "range": {
         "startLine": 603,
         "startChar": 1,
@@ -181,6 +277,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a86f1c17_f7dff892",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b720e758_d4b89f6c",
+      "range": {
+        "startLine": 494,
+        "startChar": 1,
+        "endLine": 494,
+        "endChar": 29
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3625795_33c6c21c",
@@ -194,6 +314,30 @@
       "writtenOn": "2023-03-31T10:13:50Z",
       "side": 1,
       "message": "Please add a comment explaining what this is trying to achieve (stepping in the function identified by `autoStep` while there is no debug info). Also, document the meaning of the `autoStep` parameter (here or in DebuggerModel).\n\nI find this code hard to understand, especially in the presence of obscurely named parameters and undocumented return values.",
+      "range": {
+        "startLine": 502,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 60
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40616fad_f34009af",
+        "filename": "front_end/models/bindings/DebuggerWorkspaceBinding.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T07:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3625795_33c6c21c",
       "range": {
         "startLine": 502,
         "startChar": 4,
