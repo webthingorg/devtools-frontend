@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1944cbc8_367c66a7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T06:57:05Z",
+      "side": 1,
+      "message": "let\u0027s have this function take a selector and not an element and move the waitFor in here, and also into the loop.",
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b284b1e1_2f4ef3d3",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 3
@@ -37,6 +54,47 @@
         "endLine": 332,
         "endChar": 26
       },
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cfbf686_02618d98",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T06:57:05Z",
+      "side": 1,
+      "message": "10 means that this function will wait for at least one second _after_ the animation has ended, that seems excessive.",
+      "parentUuid": "b284b1e1_2f4ef3d3",
+      "range": {
+        "startLine": 332,
+        "startChar": 24,
+        "endLine": 332,
+        "endChar": 26
+      },
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc591d30_a4a0f67e",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-03T06:57:05Z",
+      "side": 1,
+      "message": "How terrible would it be to add a listener for `animationend` to the element instead of observing its size changes?",
       "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
