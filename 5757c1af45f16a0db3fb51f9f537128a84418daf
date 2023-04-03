@@ -81,6 +81,30 @@
       },
       "revId": "5757c1af45f16a0db3fb51f9f537128a84418daf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5d4ad9_bc26f087",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1549788
+      },
+      "writtenOn": "2023-04-03T16:39:58Z",
+      "side": 1,
+      "message": "Sounds good!",
+      "parentUuid": "dbca1556_d1541131",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 61
+      },
+      "revId": "5757c1af45f16a0db3fb51f9f537128a84418daf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
