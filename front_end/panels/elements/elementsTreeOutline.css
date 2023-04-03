@@ -364,3 +364,30 @@ li.hovered:not(.always-parent) + ol.children:not(.shadow-root) {
     forced-color-adjust: none;
   }
 }
+
+.violating-element {
+  background-image: var(--image-file-errorWave);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 1px;
+  position: relative;
+}
+
+.violating-element-tooltip {
+  visibility: hidden;
+  white-space: nowrap;
+  background-color: #777;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.violating-element:hover .violating-element-tooltip {
+  visibility: visible;
+}

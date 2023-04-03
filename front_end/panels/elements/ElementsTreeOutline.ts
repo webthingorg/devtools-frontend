@@ -35,10 +35,12 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as Root from '../../core/root/root.js';
 
 import * as ElementsComponents from './components/components.js';
 import {ElementsPanel} from './ElementsPanel.js';
@@ -103,10 +105,24 @@ export class ElementsTreeOutline extends
   private treeElementBeingDragged?: ElementsTreeElement;
   private dragOverTreeElement?: ElementsTreeElement;
   private updateModifiedNodesTimeout?: number;
+  #genericIssues: Array<IssuesManager.GenericIssue.GenericIssue> = [];
   #topLayerContainerByParent: Map<UI.TreeOutline.TreeElement, TopLayerContainer> = new Map();
+  #issuesManager?: IssuesManager.IssuesManager.IssuesManager;
 
   constructor(omitRootDOMNode?: boolean, selectEnabled?: boolean, hideGutter?: boolean) {
     super();
+
+    if(Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_STYLES_PANEL)) {
+      this.#issuesManager = IssuesManager.IssuesManager.IssuesManager.instance();
+      this.#issuesManager.addEventListener(
+          IssuesManager.IssuesManager.Events.IssueAdded, this.#onIssueEventReceived, this);
+      for (const issue of this.#issuesManager.issues()) {
+        if (issue instanceof IssuesManager.GenericIssue.GenericIssue) {
+          this.#onIssueAdded(issue);
+        }
+      }
+    }
+
     this.treeElementByNode = new WeakMap();
     const shadowContainer = document.createElement('div');
     this.shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
@@ -181,6 +197,50 @@ export class ElementsTreeOutline extends
 
   static forDOMModel(domModel: SDK.DOMModel.DOMModel): ElementsTreeOutline|null {
     return elementsTreeOutlineByDOMModel.get(domModel) || null;
+  }
+
+  async #onIssueEventReceived(event: Common.EventTarget.EventTargetEvent<IssuesManager.IssuesManager.IssueAddedEvent>):
+      Promise<void> {
+    if (event.data.issue instanceof IssuesManager.GenericIssue.GenericIssue) {
+      this.#onIssueAdded(event.data.issue);
+      await this.#updateViolatingElements(event.data.issue);
+    }
+  }
+
+  #onIssueAdded(issue: IssuesManager.GenericIssue.GenericIssue): void {
+    this.#genericIssues.push(issue);
+  }
+
+  #updateAllViolatingElement(): void {
+    for (const issue of this.#genericIssues) {
+      void this.#updateViolatingElements(issue);
+    }
+  }
+
+  async #updateViolatingElements(issue: IssuesManager.GenericIssue.GenericIssue): Promise<void> {
+    const issueDetails = issue.details();
+
+    if (!this.rootDOMNode || !issueDetails.violatingNodeId) {
+      return;
+    }
+    const deferredDOMNode =
+        new SDK.DOMModel.DeferredDOMNode(this.rootDOMNode.domModel().target(), issueDetails.violatingNodeId);
+    const node = await deferredDOMNode.resolvePromise();
+
+    if (!node) {
+      return;
+    }
+
+    const treeElement = this.findTreeElement(node);
+    if (!treeElement) {
+      return;
+    }
+
+    if (issueDetails.violatingNodeAttribute) {
+      treeElement.highlightViolatingAttr(issueDetails.violatingNodeAttribute, issue);
+    } else {
+      treeElement.highlightTagAsViolating(issue);
+    }
   }
 
   private onShowHTMLCommentsChange(): void {
@@ -1039,6 +1099,9 @@ export class ElementsTreeOutline extends
     this.reset();
     if (domModel.existingDocument()) {
       this.rootDOMNode = domModel.existingDocument();
+      if(Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_STYLES_PANEL)) {
+        this.#updateAllViolatingElement();
+      }
     }
   }
 
@@ -1143,10 +1206,19 @@ export class ElementsTreeOutline extends
     this.fireElementsTreeUpdated(updatedNodes);
   }
 
+  private updateTreeElementTitle(treeElement: ElementsTreeElement, updatedRecord: UpdateRecord|null): void {
+    treeElement.updateTitle(updatedRecord);
+    void this.#updateAllViolatingElement();
+  }
+
   private updateModifiedNode(node: SDK.DOMModel.DOMNode): void {
     const treeElement = this.findTreeElement(node);
     if (treeElement) {
-      treeElement.updateTitle(this.updateRecordForHighlight(node));
+      if(Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_STYLES_PANEL)) {
+        this.updateTreeElementTitle(treeElement, this.updateRecordForHighlight(node));
+      } else {
+        treeElement.updateTitle(this.updateRecordForHighlight(node));
+      }
     }
   }
 
@@ -1154,7 +1226,11 @@ export class ElementsTreeOutline extends
     const parentTreeElement = this.findTreeElement(node);
     if (parentTreeElement) {
       parentTreeElement.setExpandable(this.hasVisibleChildren(node));
-      parentTreeElement.updateTitle(this.updateRecordForHighlight(node));
+      if(Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_STYLES_PANEL)) {
+        this.updateTreeElementTitle(parentTreeElement, this.updateRecordForHighlight(node));
+      } else {
+        parentTreeElement.updateTitle(this.updateRecordForHighlight(node));
+      }
       if (populatedTreeElements.has(parentTreeElement)) {
         this.updateChildren(parentTreeElement);
       }

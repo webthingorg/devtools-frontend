@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as HideIssuesMenu from './HideIssuesMenu.js';
+import * as ElementsPanelLink from './ElementsPanelLink.js';
 
 export {
   HideIssuesMenu,
+  ElementsPanelLink,
 };

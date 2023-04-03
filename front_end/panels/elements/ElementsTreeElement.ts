@@ -46,10 +46,11 @@ import * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Emulation from '../emulation/emulation.js';
-
 import * as ElementsComponents from './components/components.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsPanel} from './ElementsPanel.js';
+import { IssuesPane } from '../issues/IssuesPane.js';
+import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 
 import {MappedCharToEntity, type ElementsTreeOutline, type UpdateRecord} from './ElementsTreeOutline.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
@@ -416,6 +417,70 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         this.listItemElement.classList.add('hovered');
       } else {
         this.listItemElement.classList.remove('hovered');
+      }
+    }
+  }
+
+  #issueCodeToTooltipTitle(issue_code: string): string {
+    switch(issue_code) {
+       case "GenericIssue::FormLabelForNameError":
+        return "Incorrect use of <label for=FORM_ELEMENT>";
+       case "GenericIssue::FormDuplicateIdForInputError":
+        return "Duplicate form field id in the same form";
+       case "GenericIssue::FormInputWithNoLabelError":
+        return "Form field without valid aria-labelledby attribute or associated label";
+       case "GenericIssue::FormAutocompleteAttributeEmptyError":
+        return "Incorrect use of autocomplete attribute";
+       case "GenericIssue::FormEmptyIdAndNameAttributesForInputError":
+        return "A form field element should have an id or name attribute";
+       case "GenericIssue::FormAriaLabelledByToNonExistingId":
+        return "An aria-labelledby attribute doesn't match any element id";
+       case "GenericIssue::FormInputAssignedAutocompleteValueToIdOrNameAttributeError":
+        return "An element doesn't have an autocomplete attribute";
+       case "GenericIssue::FormLabelHasNeitherForNorNestedInput":
+        return "No label associated with a form field";
+       case "GenericIssue::FormLabelForMatchesNonExistingIdError":
+        return "Incorrect use of <label for=FORM_ELEMENT>";
+       case "GenericIssue::FormInputHasWrongButWellIntendedAutocompleteValueError":
+        return "Non-standard autocomplete attribute value";
+       default:
+        return "";
+            }
+  }
+
+  highlightTagAsViolating(issue: IssuesManager.Issue.Issue): void {
+    const tooltipTitle = this.#issueCodeToTooltipTitle(issue.code());
+    if(tooltipTitle.length === 0)
+      return;
+
+    const tagElement = this.listItemElement.getElementsByClassName('webkit-html-tag-name')[0];
+    tagElement.classList.add('violating-element');
+    const violatingElementTooltip = tagElement.createChild('span', 'violating-element-tooltip');
+    violatingElementTooltip.textContent = tooltipTitle;
+    violatingElementTooltip.addEventListener('click', () => {
+      void UI.ViewManager.ViewManager.instance().showView('issues-pane');
+      IssuesPane.instance().reveal(issue);
+    });
+  }
+
+  highlightViolatingAttr(name: string, issue: IssuesManager.Issue.Issue): void {
+    const tooltipTitle = this.#issueCodeToTooltipTitle(issue.code());
+    if(tooltipTitle.length === 0)
+      return;
+
+    const tag = this.listItemElement.getElementsByClassName('webkit-html-tag')[0];
+    const attributes = tag.getElementsByClassName('webkit-html-attribute');
+    for (let i = 0; i < attributes.length; i++) {
+      if (attributes[i].getElementsByClassName('webkit-html-attribute-name')[0].textContent === name) {
+        const attributeElement = attributes[i].getElementsByClassName('webkit-html-attribute-name')[0];
+        attributeElement.classList.add('violating-element');
+      
+        const violatingElementTooltip = attributeElement.createChild('span', 'violating-element-tooltip');
+        violatingElementTooltip.textContent = tooltipTitle;
+        violatingElementTooltip.addEventListener('click', () => {
+          void UI.ViewManager.ViewManager.instance().showView('issues-pane');
+          IssuesPane.instance().reveal(issue);
+        });
       }
     }
   }
