@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f1b72b_7e54581f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-03T09:52:06Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027m adding UMA data to the breakpoint view that collects:\n\n* single breakpoints removed (from context menu / from remove button)\n* file breakpoints removed (from context menu / from remove button)\n* file breakpoints toggled (from context menu / from checkbox)\n\nPTAL!",
+      "revId": "764f6ce58e7dd7ce7fc0bb52ea13cdadbc392430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
