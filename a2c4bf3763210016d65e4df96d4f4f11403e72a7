@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "525af236_720b0e1b",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-04-03T07:50:45Z",
+      "side": 1,
+      "message": "I think that\u0027s ok.",
+      "parentUuid": "a1a28215_16dd9bb0",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "a2c4bf3763210016d65e4df96d4f4f11403e72a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf8ce7e0_3aa7bc98",
