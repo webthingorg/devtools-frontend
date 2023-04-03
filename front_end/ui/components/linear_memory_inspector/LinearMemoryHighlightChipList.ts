@@ -109,8 +109,8 @@ export class LinearMemoryHighlightChipList extends HTMLElement {
           <button class="delete-highlight-button" title=${
               i18nString(UIStrings.deleteHighlight)} @click=${():void => this.#onDeleteHighlightClick(highlightInfo)}>
             <${IconButton.Icon.Icon.litTagName} .data=${{
-              iconName: 'close-icon',
-              color: 'var(--color-text-primary)',
+              iconName: 'cross',
+              color: 'var(--icon-default-hover)',
               width: '7px',
               } as IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
