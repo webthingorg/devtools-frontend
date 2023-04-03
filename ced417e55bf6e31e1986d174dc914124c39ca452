@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd61d96b_2d41c915",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-03T13:49:31Z",
+      "side": 1,
+      "message": "If the issues come from the backend, I would imagine the issue can arrive at any time, e.g. dynamically from user\u0027s JavaScript modifying some html autofill attributes? In these cases, do we get new issues and subsequently set violating-element on this newly offending element?\n\u003e Yes, if we get new issues we update the element. Does that answer you?\n\n\u003e What if the developer edits and fixes the attribute in the Elements panel?\nThe issue would still be there since it comes from the backend. The only way to get rid of it as a developer would be to change the actual code and refreshing the page. I do not really see it as a big problem but let me know your thoughts",
+      "parentUuid": "6362db8c_ec44b80d",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3
