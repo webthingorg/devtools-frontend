@@ -16,6 +16,23 @@
       "message": "PTAL,thanks.",
       "revId": "018df0fee54b46cca079735a78d20ed0f69b2e12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "821ed5f0_554424df",
+        "filename": "front_end/panels/css_overview/CSSOverviewSidebarPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-03T09:14:33Z",
+      "side": 1,
+      "message": "nit: please state what is the purpose of this string, e.g. accessible label, button name, or something else?",
+      "revId": "018df0fee54b46cca079735a78d20ed0f69b2e12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
