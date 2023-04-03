@@ -34,29 +34,24 @@ li.storage-group-list-item::before {
 }
 
 .navigator-file-tree-item {
-  background: linear-gradient(45deg, hsl(0deg 0% 50%), hsl(0deg 0% 70%)); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--icon-file-default) !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .navigator-folder-tree-item {
-  background: linear-gradient(45deg, hsl(210deg 82% 65%), hsl(210deg 82% 80%)); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--icon-folder-primary) !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .navigator-script-tree-item {
-  background: linear-gradient(45deg, hsl(48deg 70% 50%), hsl(48deg 70% 70%)); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--icon-file-script) !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .navigator-stylesheet-tree-item {
-  background: linear-gradient(45deg, hsl(256deg 50% 50%), hsl(256deg 50% 70%)); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--icon-file-styles) !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .navigator-image-tree-item,
 .navigator-font-tree-item {
-  background: linear-gradient(45deg, hsl(109deg 33% 50%), hsl(109deg 33% 70%)); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--icon-file-image) !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .window-closed .tree-element-title {
