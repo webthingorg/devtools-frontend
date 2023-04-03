@@ -39,6 +39,30 @@
       },
       "revId": "58aabb7dde53873fdab04bfe9df8e97a9e07fe7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41b1d02_9ce13ef8",
+        "filename": "front_end/panels/application/resourcesSidebar.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-03T13:41:14Z",
+      "side": 1,
+      "message": "Yes! Thanks for pointing out!",
+      "parentUuid": "901709b9_42537d2b",
+      "range": {
+        "startLine": 37,
+        "startChar": 45,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "58aabb7dde53873fdab04bfe9df8e97a9e07fe7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
