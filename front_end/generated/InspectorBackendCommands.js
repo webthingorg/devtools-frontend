@@ -335,6 +335,13 @@ inspectorBackend.registerCommand("IO.close", [{"name": "handle", "type": "string
 inspectorBackend.registerCommand("IO.read", [{"name": "handle", "type": "string", "optional": false}, {"name": "offset", "type": "number", "optional": true}, {"name": "size", "type": "number", "optional": true}], ["base64Encoded", "data", "eof"]);
 inspectorBackend.registerCommand("IO.resolveBlob", [{"name": "objectId", "type": "string", "optional": false}], ["uuid"]);
 
+// OriginPrivateFileSystem.
+inspectorBackend.registerCommand("OriginPrivateFileSystem.refreshDirectory", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "path", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("OriginPrivateFileSystem.renameDirectory", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "name", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("OriginPrivateFileSystem.deleteDirectory", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "path", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("OriginPrivateFileSystem.saveAs", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "path", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("OriginPrivateFileSystem.deleteFile", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "path", "type": "string", "optional": false}], []);
+
 // IndexedDB.
 inspectorBackend.registerEnum("IndexedDB.KeyType", {Number: "number", String: "string", Date: "date", Array: "array"});
 inspectorBackend.registerEnum("IndexedDB.KeyPathType", {Null: "null", String: "string", Array: "array"});
@@ -714,15 +721,18 @@ inspectorBackend.registerCommand("ServiceWorker.unregister", [{"name": "scopeURL
 inspectorBackend.registerCommand("ServiceWorker.updateRegistration", [{"name": "scopeURL", "type": "string", "optional": false}], []);
 
 // Storage.
-inspectorBackend.registerEnum("Storage.StorageType", {Appcache: "appcache", Cookies: "cookies", File_systems: "file_systems", Indexeddb: "indexeddb", Local_storage: "local_storage", Shader_cache: "shader_cache", Websql: "websql", Service_workers: "service_workers", Cache_storage: "cache_storage", Interest_groups: "interest_groups", Shared_storage: "shared_storage", All: "all", Other: "other"});
+inspectorBackend.registerEnum("Storage.StorageType", {Appcache: "appcache", Cookies: "cookies", File_systems: "file_systems", Indexeddb: "indexeddb", Local_storage: "local_storage", Shader_cache: "shader_cache", Websql: "websql", Service_workers: "service_workers", Cache_storage: "cache_storage", Interest_groups: "interest_groups", Shared_storage: "shared_storage", Storage_buckets: "storage_buckets", All: "all", Other: "other"});
 inspectorBackend.registerEnum("Storage.InterestGroupAccessType", {Join: "join", Leave: "leave", Update: "update", Loaded: "loaded", Bid: "bid", Win: "win"});
 inspectorBackend.registerEnum("Storage.SharedStorageAccessType", {DocumentAddModule: "documentAddModule", DocumentSelectURL: "documentSelectURL", DocumentRun: "documentRun", DocumentSet: "documentSet", DocumentAppend: "documentAppend", DocumentDelete: "documentDelete", DocumentClear: "documentClear", WorkletSet: "workletSet", WorkletAppend: "workletAppend", WorkletDelete: "workletDelete", WorkletClear: "workletClear", WorkletGet: "workletGet", WorkletKeys: "workletKeys", WorkletEntries: "workletEntries", WorkletLength: "workletLength", WorkletRemainingBudget: "workletRemainingBudget"});
+inspectorBackend.registerEnum("Storage.StorageBucketsDurability", {Relaxed: "relaxed", Strict: "strict"});
 inspectorBackend.registerEvent("Storage.cacheStorageContentUpdated", ["origin", "storageKey", "cacheName"]);
 inspectorBackend.registerEvent("Storage.cacheStorageListUpdated", ["origin", "storageKey"]);
 inspectorBackend.registerEvent("Storage.indexedDBContentUpdated", ["origin", "storageKey", "databaseName", "objectStoreName"]);
 inspectorBackend.registerEvent("Storage.indexedDBListUpdated", ["origin", "storageKey"]);
 inspectorBackend.registerEvent("Storage.interestGroupAccessed", ["accessTime", "type", "ownerOrigin", "name"]);
 inspectorBackend.registerEvent("Storage.sharedStorageAccessed", ["accessTime", "type", "mainFrameId", "ownerOrigin", "params"]);
+inspectorBackend.registerEvent("Storage.storageBucketCreatedOrUpdated", ["bucket"]);
+inspectorBackend.registerEvent("Storage.storageBucketDeleted", ["bucketId"]);
 inspectorBackend.registerCommand("Storage.getStorageKeyForFrame", [{"name": "frameId", "type": "string", "optional": false}], ["storageKey"]);
 inspectorBackend.registerCommand("Storage.clearDataForOrigin", [{"name": "origin", "type": "string", "optional": false}, {"name": "storageTypes", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.clearDataForStorageKey", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "storageTypes", "type": "string", "optional": false}], []);
@@ -750,6 +760,8 @@ inspectorBackend.registerCommand("Storage.deleteSharedStorageEntry", [{"name": "
 inspectorBackend.registerCommand("Storage.clearSharedStorageEntries", [{"name": "ownerOrigin", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.resetSharedStorageBudget", [{"name": "ownerOrigin", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("Storage.setSharedStorageTracking", [{"name": "enable", "type": "boolean", "optional": false}], []);
+inspectorBackend.registerCommand("Storage.setStorageBucketTracking", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "enable", "type": "boolean", "optional": false}], []);
+inspectorBackend.registerCommand("Storage.deleteStorageBucket", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketName", "type": "string", "optional": false}], []);
 
 // SystemInfo.
 inspectorBackend.registerEnum("SystemInfo.SubsamplingFormat", {Yuv420: "yuv420", Yuv422: "yuv422", Yuv444: "yuv444"});
@@ -897,11 +909,12 @@ inspectorBackend.registerCommand("Preload.disable", [], []);
 
 // FedCm.
 inspectorBackend.registerEnum("FedCm.LoginState", {SignIn: "SignIn", SignUp: "SignUp"});
-inspectorBackend.registerEvent("FedCm.dialogShown", ["dialogId", "accounts"]);
+inspectorBackend.registerEvent("FedCm.dialogShown", ["dialogId", "accounts", "title", "subtitle"]);
 inspectorBackend.registerCommand("FedCm.enable", [{"name": "disableRejectionDelay", "type": "boolean", "optional": true}], []);
 inspectorBackend.registerCommand("FedCm.disable", [], []);
 inspectorBackend.registerCommand("FedCm.selectAccount", [{"name": "dialogId", "type": "string", "optional": false}, {"name": "accountIndex", "type": "number", "optional": false}], []);
-inspectorBackend.registerCommand("FedCm.dismissDialog", [{"name": "dialogId", "type": "string", "optional": false}], []);
+inspectorBackend.registerCommand("FedCm.dismissDialog", [{"name": "dialogId", "type": "string", "optional": false}, {"name": "triggerCooldown", "type": "boolean", "optional": true}], []);
+inspectorBackend.registerCommand("FedCm.resetCooldown", [], []);
 
 // Debugger.
 inspectorBackend.registerEnum("Debugger.ScopeType", {Global: "global", Local: "local", With: "with", Closure: "closure", Catch: "catch", Block: "block", Script: "script", Eval: "eval", Module: "module", WasmExpressionStack: "wasm-expression-stack"});

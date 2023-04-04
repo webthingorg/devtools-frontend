@@ -765,6 +765,7 @@ experimental domain Audits
       GenericIssueErrorType errorType
       optional Page.FrameId frameId
       optional DOM.BackendNodeId violatingNodeId
+      optional string violatingNodeAttribute
 
   # This issue tracks information needed to print a deprecation message.
   # https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/third_party/blink/renderer/core/frame/deprecation/README.md
@@ -4005,6 +4006,74 @@ domain IO
     returns
       # UUID of the specified Blob.
       string uuid
+
+experimental domain OriginPrivateFileSystem
+  depends on Runtime
+
+  type Directory extends object
+    properties
+      # Directory name.
+      string name
+      # Directories nested directly in this directory.
+      array of Directory directories
+      # Files nested directly in this directory.
+      array of File files
+
+  type File extends object
+    properties
+      # File name.
+      string name
+      # Last Modified date.
+      number lastModified
+      # The size of the file in bytes.
+      number size
+      # The mime type of the file.
+      string mimeType
+
+  command refreshDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory path.
+      string path
+
+  command renameDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory name.
+      string name
+
+  command deleteDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory path.
+      string path
+
+  command saveAs
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # File path.
+      string path
+
+  command deleteFile
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # File path.
+      string path
 
 experimental domain IndexedDB
   depends on Runtime
@@ -9004,6 +9073,7 @@ experimental domain Storage
       cache_storage
       interest_groups
       shared_storage
+      storage_buckets
       all
       other
 
@@ -9138,6 +9208,23 @@ experimental domain Storage
       # Present only for SharedStorageAccessType.documentSet and
       # SharedStorageAccessType.workletSet.
       optional boolean ignoreIfPresent
+
+  type StorageBucketsDurability extends string
+    enum
+      relaxed
+      strict
+
+  type StorageBucketInfo extends object
+    properties
+      SerializedStorageKey storageKey
+      string id
+      string name
+      boolean isDefault
+      Network.TimeSinceEpoch expiration
+      # Storage quota (bytes).
+      number quota
+      boolean persistent
+      StorageBucketsDurability durability
 
   # Returns a storage key given a frame id.
   command getStorageKeyForFrame
@@ -9335,6 +9422,18 @@ experimental domain Storage
     parameters
       boolean enable
 
+  # Set tracking for a storage key's buckets.
+  experimental command setStorageBucketTracking
+    parameters
+      string storageKey
+      boolean enable
+
+  # Deletes the Storage Bucket with the given storage key and bucket name.
+  experimental command deleteStorageBucket
+    parameters
+      string storageKey
+      string bucketName
+
   # A cache's contents have been modified.
   event cacheStorageContentUpdated
     parameters
@@ -9396,6 +9495,14 @@ experimental domain Storage
       # The sub-parameters warapped by `params` are all optional and their
       # presence/absence depends on `type`.
       SharedStorageAccessParams params
+
+  event storageBucketCreatedOrUpdated
+    parameters
+      StorageBucketInfo bucket
+
+  event storageBucketDeleted
+    parameters
+      string bucketId
 
 # The SystemInfo domain defines methods and events for querying low-level system information.
 experimental domain SystemInfo
@@ -10971,6 +11078,10 @@ experimental domain FedCm
     parameters
       string dialogId
       array of Account accounts
+      # These exist primarily so that the caller can verify the
+      # RP context was used appropriately.
+      string title
+      optional string subtitle
 
   command enable
     parameters
@@ -10989,3 +11100,9 @@ experimental domain FedCm
   command dismissDialog
     parameters
       string dialogId
+      optional boolean triggerCooldown
+
+  # Resets the cooldown time, if any, to allow the next FedCM call to show
+  # a dialog even if one was recently dismissed by the user.
+  command resetCooldown
+

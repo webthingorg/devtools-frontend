@@ -21,7 +21,9 @@ export const generatedProperties = [
    "animation-fill-mode",
    "animation-play-state",
    "animation-name",
-   "animation-timeline"
+   "animation-timeline",
+   "animation-range-start",
+   "animation-range-end"
   ],
   "name": "-alternative-animation-with-delay-start-end"
  },
@@ -35,9 +37,19 @@ export const generatedProperties = [
    "animation-fill-mode",
    "animation-play-state",
    "animation-name",
-   "animation-timeline"
+   "animation-timeline",
+   "animation-range-start",
+   "animation-range-end"
   ],
   "name": "-alternative-animation-with-timeline"
+ },
+ {
+  "inherited": true,
+  "longhands": [
+   "white-space-collapse",
+   "text-wrap"
+  ],
+  "name": "-alternative-white-space"
  },
  {
   "inherited": true,
@@ -2561,6 +2573,13 @@ export const generatedProperties = [
   "name": "overflow-y"
  },
  {
+  "keywords": [
+   "none",
+   "auto"
+  ],
+  "name": "overlay"
+ },
+ {
   "name": "override-colors"
  },
  {
@@ -3332,6 +3351,7 @@ export const generatedProperties = [
   "inherited": true,
   "keywords": [
    "wrap",
+   "nowrap",
    "balance"
   ],
   "name": "text-wrap"
@@ -3372,13 +3392,6 @@ export const generatedProperties = [
    "auto"
   ],
   "name": "top"
- },
- {
-  "keywords": [
-   "none",
-   "browser"
-  ],
-  "name": "top-layer"
  },
  {
   "keywords": [
@@ -3543,6 +3556,16 @@ export const generatedProperties = [
    "break-spaces"
   ],
   "name": "white-space"
+ },
+ {
+  "inherited": true,
+  "keywords": [
+   "collapse",
+   "preserve",
+   "preserve-breaks",
+   "break-spaces"
+  ],
+  "name": "white-space-collapse"
  },
  {
   "inherited": true,
@@ -4948,6 +4971,12 @@ export const generatedPropertyValues = {
    "clip"
   ]
  },
+ "overlay": {
+  "values": [
+   "none",
+   "auto"
+  ]
+ },
  "overscroll-behavior-x": {
   "values": [
    "auto",
@@ -5334,6 +5363,7 @@ export const generatedPropertyValues = {
  "text-wrap": {
   "values": [
    "wrap",
+   "nowrap",
    "balance"
   ]
  },
@@ -5360,12 +5390,6 @@ export const generatedPropertyValues = {
  "top": {
   "values": [
    "auto"
-  ]
- },
- "top-layer": {
-  "values": [
-   "none",
-   "browser"
   ]
  },
  "touch-action": {
@@ -5473,6 +5497,14 @@ export const generatedPropertyValues = {
    "pre-wrap",
    "pre-line",
    "nowrap",
+   "break-spaces"
+  ]
+ },
+ "white-space-collapse": {
+  "values": [
+   "collapse",
+   "preserve",
+   "preserve-breaks",
    "break-spaces"
   ]
  },
