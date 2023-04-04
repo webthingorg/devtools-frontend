@@ -16,6 +16,29 @@
       "message": "Jack, PTAL",
       "revId": "0442ac2c25afb235d8012d5ab999345b5558a4a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dffe7f60_ed86e31f",
+        "filename": "front_end/ui/components/docs/icon_button/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-04T14:44:17Z",
+      "side": 1,
+      "message": "Commenting just to check whether using an old color here is intentional? Otherwise use some of icon color tokens from applicationColorTokens.css",
+      "range": {
+        "startLine": 21,
+        "startChar": 55,
+        "endLine": 21,
+        "endChar": 74
+      },
+      "revId": "0442ac2c25afb235d8012d5ab999345b5558a4a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
