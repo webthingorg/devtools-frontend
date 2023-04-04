@@ -310,6 +310,7 @@ export enum ExperimentName {
   DISABLE_COLOR_FORMAT_SETTING = 'disableColorFormatSetting',
   TIMELINE_AS_CONSOLE_PROFILE_RESULT_PANEL = 'timelineAsConsoleProfileResultPanel',
   OUTERMOST_TARGET_SELECTOR = 'outermostTargetSelector',
+  VIOLATING_NODE_OR_ATTRIBUTE_IS_HIGHLIGHTED_IN_ELEMENTS_PANEL = 'violatingNodeOrAttributeIsHighlightedInElementsPanel',
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
