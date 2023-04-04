@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16f9f09_db4a7a63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-04T12:42:34Z",
+      "side": 1,
+      "message": "Seems like the icons are not colorful anymore after the update, could you please make sure they are and use the new colors for that? \nAlso are you not on vacation?😅",
+      "revId": "4eb8eb1a5e0de2b70cf53dd8ee5a95096fc2fb72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
