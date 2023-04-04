@@ -9,24 +9,24 @@ import * as DiffView from '../../ui/components/diff_view/diff_view.js';
 
 export function imageNameForResourceType(resourceType: Common.ResourceType.ResourceType): string {
   if (resourceType.isDocument()) {
-    return 'ic_file_document';
+    return 'file-document';
   }
   if (resourceType.isImage()) {
-    return 'ic_file_image';
+    return 'file-image';
   }
   if (resourceType.isFont()) {
-    return 'ic_file_font';
+    return 'file-font';
   }
   if (resourceType.isScript()) {
-    return 'ic_file_script';
+    return 'file-script';
   }
   if (resourceType.isStyleSheet()) {
-    return 'ic_file_stylesheet';
+    return 'file-stylesheet';
   }
   if (resourceType.isWebbundle()) {
-    return 'ic_file_webbundle';
+    return 'bundle';
   }
-  return 'ic_file_default';
+  return 'document';
 }
 
 export async function formatCSSChangesFromDiff(diff: Diff.Diff.DiffArray): Promise<string> {

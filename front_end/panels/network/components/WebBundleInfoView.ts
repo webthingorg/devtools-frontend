@@ -67,7 +67,7 @@ export class WebBundleInfoElement extends HTMLElement {
               return html`
                 <div style="display: flex;">
                   <${IconButton.Icon.Icon.litTagName} class="icon"
-                    .data=${{color: '', iconName, width: '18px'} as IconButton.Icon.IconData}>
+                    .data=${{color: '', iconName, width: '20px'} as IconButton.Icon.IconData}>
                   </${IconButton.Icon.Icon.litTagName}>
                   <span>${url}</span>
                 </div>`;
