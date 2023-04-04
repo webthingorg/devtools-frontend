@@ -966,7 +966,6 @@ export namespace Audits {
 
   export const enum AttributionReportingIssueType {
     PermissionPolicyDisabled = 'PermissionPolicyDisabled',
-    PermissionPolicyNotDelegated = 'PermissionPolicyNotDelegated',
     UntrustworthyReportingOrigin = 'UntrustworthyReportingOrigin',
     InsecureContext = 'InsecureContext',
     InvalidHeader = 'InvalidHeader',
@@ -5707,6 +5706,118 @@ export namespace IO {
      * UUID of the specified Blob.
      */
     uuid: string;
+  }
+}
+
+export namespace OriginPrivateFileSystem {
+
+  export interface Directory {
+    /**
+     * Directory name.
+     */
+    name: string;
+    /**
+     * Directories nested directly in this directory.
+     */
+    directories: Directory[];
+    /**
+     * Files nested directly in this directory.
+     */
+    files: File[];
+  }
+
+  export interface File {
+    /**
+     * File name.
+     */
+    name: string;
+    /**
+     * Last Modified date.
+     */
+    lastModified: number;
+    /**
+     * The size of the file in bytes.
+     */
+    size: number;
+    /**
+     * The mime type of the file.
+     */
+    mimeType: string;
+  }
+
+  export interface RefreshDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface RenameDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory name.
+     */
+    name: string;
+  }
+
+  export interface DeleteDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface SaveAsRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
+  }
+
+  export interface DeleteFileRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
   }
 }
 
@@ -15282,6 +15393,53 @@ export namespace Preload {
   }
 
   /**
+   * The type of preloading attempted. It corresponds to
+   * mojom::SpeculationAction (although PrefetchWithSubresources is omitted as it
+   * isn't being used by clients).
+   */
+  export const enum SpeculationAction {
+    Prefetch = 'Prefetch',
+    Prerender = 'Prerender',
+  }
+
+  /**
+   * Corresponds to mojom::SpeculationTargetHint.
+   * See https://github.com/WICG/nav-speculation/blob/main/triggers.md#window-name-targeting-hints
+   */
+  export const enum SpeculationTargetHint {
+    Blank = 'Blank',
+    Self = 'Self',
+  }
+
+  /**
+   * A key that identifies a preloading attempt.
+   *
+   * The url used is the url specified by the trigger (i.e. the initial URL), and
+   * not the final url that is navigated to. For example, prerendering allows
+   * same-origin main frame navigations during the attempt, but the attempt is
+   * still keyed with the initial URL.
+   */
+  export interface PreloadingAttemptKey {
+    loaderId: Network.LoaderId;
+    action: SpeculationAction;
+    url: string;
+    targetHint?: SpeculationTargetHint;
+  }
+
+  /**
+   * Lists sources for a preloading attempt, specifically the ids of rule sets
+   * that had a speculation rule that triggered the attempt, and the
+   * BackendNodeIds of <a href> or <area href> elements that triggered the
+   * attempt (in the case of attempts triggered by a document rule). It is
+   * possible for mulitple rule sets and links to trigger a single attempt.
+   */
+  export interface PreloadingAttemptSource {
+    key: PreloadingAttemptKey;
+    ruleSetIds: RuleSetId[];
+    nodeIds: DOM.BackendNodeId[];
+  }
+
+  /**
    * List of FinalStatus reasons for Prerender2.
    */
   export const enum PrerenderFinalStatus {
@@ -15325,7 +15483,6 @@ export namespace Preload {
     CrossSiteRedirect = 'CrossSiteRedirect',
     CrossSiteNavigation = 'CrossSiteNavigation',
     SameSiteCrossOriginRedirect = 'SameSiteCrossOriginRedirect',
-    SameSiteCrossOriginNavigation = 'SameSiteCrossOriginNavigation',
     SameSiteCrossOriginRedirectNotOptIn = 'SameSiteCrossOriginRedirectNotOptIn',
     SameSiteCrossOriginNavigationNotOptIn = 'SameSiteCrossOriginNavigationNotOptIn',
     ActivationNavigationParameterMismatch = 'ActivationNavigationParameterMismatch',
@@ -15407,12 +15564,35 @@ export namespace Preload {
     prerenderingUrl: string;
     status: PreloadingStatus;
   }
+
+  /**
+   * Send a list of sources for all preloading attempts.
+   */
+  export interface PreloadingAttemptSourcesUpdatedEvent {
+    preloadingAttemptSources: PreloadingAttemptSource[];
+  }
 }
 
 /**
  * This domain allows interacting with the FedCM dialog.
  */
 export namespace FedCm {
+
+  /**
+   * Corresponds to IdentityRequestAccount
+   */
+  export interface Account {
+    accountId: string;
+    email: string;
+    name: string;
+    givenName: string;
+    pictureUrl: string;
+    idpConfigUrl: string;
+  }
+
+  export interface DialogShownEvent {
+    accounts: Account[];
+  }
 }
 
 /**

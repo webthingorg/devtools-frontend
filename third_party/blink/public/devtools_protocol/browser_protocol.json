@@ -1449,7 +1449,6 @@
                     "type": "string",
                     "enum": [
                         "PermissionPolicyDisabled",
-                        "PermissionPolicyNotDelegated",
                         "UntrustworthyReportingOrigin",
                         "InsecureContext",
                         "InvalidHeader",
@@ -8697,6 +8696,170 @@
                         {
                             "name": "uuid",
                             "description": "UUID of the specified Blob.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "OriginPrivateFileSystem",
+            "experimental": true,
+            "dependencies": [
+                "Runtime"
+            ],
+            "types": [
+                {
+                    "id": "Directory",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "directories",
+                            "description": "Directories nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Directory"
+                            }
+                        },
+                        {
+                            "name": "files",
+                            "description": "Files nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "File"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "File",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "File name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastModified",
+                            "description": "Last Modified date.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the file in bytes.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "mimeType",
+                            "description": "The mime type of the file.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "refreshDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "renameDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "saveAs",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteFile",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
                             "type": "string"
                         }
                     ]
@@ -22791,6 +22954,73 @@
                     ]
                 },
                 {
+                    "id": "SpeculationAction",
+                    "description": "The type of preloading attempted. It corresponds to\nmojom::SpeculationAction (although PrefetchWithSubresources is omitted as it\nisn't being used by clients).",
+                    "type": "string",
+                    "enum": [
+                        "Prefetch",
+                        "Prerender"
+                    ]
+                },
+                {
+                    "id": "SpeculationTargetHint",
+                    "description": "Corresponds to mojom::SpeculationTargetHint.\nSee https://github.com/WICG/nav-speculation/blob/main/triggers.md#window-name-targeting-hints",
+                    "type": "string",
+                    "enum": [
+                        "Blank",
+                        "Self"
+                    ]
+                },
+                {
+                    "id": "PreloadingAttemptKey",
+                    "description": "A key that identifies a preloading attempt.\n\nThe url used is the url specified by the trigger (i.e. the initial URL), and\nnot the final url that is navigated to. For example, prerendering allows\nsame-origin main frame navigations during the attempt, but the attempt is\nstill keyed with the initial URL.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "loaderId",
+                            "$ref": "Network.LoaderId"
+                        },
+                        {
+                            "name": "action",
+                            "$ref": "SpeculationAction"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string"
+                        },
+                        {
+                            "name": "targetHint",
+                            "optional": true,
+                            "$ref": "SpeculationTargetHint"
+                        }
+                    ]
+                },
+                {
+                    "id": "PreloadingAttemptSource",
+                    "description": "Lists sources for a preloading attempt, specifically the ids of rule sets\nthat had a speculation rule that triggered the attempt, and the\nBackendNodeIds of <a href> or <area href> elements that triggered the\nattempt (in the case of attempts triggered by a document rule). It is\npossible for mulitple rule sets and links to trigger a single attempt.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "key",
+                            "$ref": "PreloadingAttemptKey"
+                        },
+                        {
+                            "name": "ruleSetIds",
+                            "type": "array",
+                            "items": {
+                                "$ref": "RuleSetId"
+                            }
+                        },
+                        {
+                            "name": "nodeIds",
+                            "type": "array",
+                            "items": {
+                                "$ref": "DOM.BackendNodeId"
+                            }
+                        }
+                    ]
+                },
+                {
                     "id": "PrerenderFinalStatus",
                     "description": "List of FinalStatus reasons for Prerender2.",
                     "type": "string",
@@ -22835,7 +23065,6 @@
                         "CrossSiteRedirect",
                         "CrossSiteNavigation",
                         "SameSiteCrossOriginRedirect",
-                        "SameSiteCrossOriginNavigation",
                         "SameSiteCrossOriginRedirectNotOptIn",
                         "SameSiteCrossOriginNavigationNotOptIn",
                         "ActivationNavigationParameterMismatch",
@@ -22957,6 +23186,19 @@
                             "$ref": "PreloadingStatus"
                         }
                     ]
+                },
+                {
+                    "name": "preloadingAttemptSourcesUpdated",
+                    "description": "Send a list of sources for all preloading attempts.",
+                    "parameters": [
+                        {
+                            "name": "preloadingAttemptSources",
+                            "type": "array",
+                            "items": {
+                                "$ref": "PreloadingAttemptSource"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -22964,9 +23206,51 @@
             "domain": "FedCm",
             "description": "This domain allows interacting with the FedCM dialog.",
             "experimental": true,
+            "types": [
+                {
+                    "id": "Account",
+                    "description": "Corresponds to IdentityRequestAccount",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "accountId",
+                            "type": "string"
+                        },
+                        {
+                            "name": "email",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "givenName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "pictureUrl",
+                            "type": "string"
+                        },
+                        {
+                            "name": "idpConfigUrl",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
             "events": [
                 {
-                    "name": "dialogShown"
+                    "name": "dialogShown",
+                    "parameters": [
+                        {
+                            "name": "accounts",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Account"
+                            }
+                        }
+                    ]
                 }
             ],
             "commands": [

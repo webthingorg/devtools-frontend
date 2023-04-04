@@ -642,7 +642,11 @@ export namespace ProtocolMapping {
      * Fired when a prerender attempt is updated.
      */
     'Preload.prerenderStatusUpdated': [Protocol.Preload.PrerenderStatusUpdatedEvent];
-    'FedCm.dialogShown': [];
+    /**
+     * Send a list of sources for all preloading attempts.
+     */
+    'Preload.preloadingAttemptSourcesUpdated': [Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent];
+    'FedCm.dialogShown': [Protocol.FedCm.DialogShownEvent];
     /**
      * Fired when breakpoint is resolved to an actual script and location.
      */
@@ -2127,6 +2131,26 @@ export namespace ProtocolMapping {
     'IO.resolveBlob': {
       paramsType: [Protocol.IO.ResolveBlobRequest];
       returnType: Protocol.IO.ResolveBlobResponse;
+    };
+    'OriginPrivateFileSystem.refreshDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.renameDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.RenameDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.deleteDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.DeleteDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.saveAs': {
+      paramsType: [Protocol.OriginPrivateFileSystem.SaveAsRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.deleteFile': {
+      paramsType: [Protocol.OriginPrivateFileSystem.DeleteFileRequest];
+      returnType: void;
     };
     /**
      * Clears all entries from an object store.
