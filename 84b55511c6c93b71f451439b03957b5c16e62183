@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "84b55511c6c93b71f451439b03957b5c16e62183",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a072c36_3129ae86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-04T15:11:37Z",
+      "side": 1,
+      "message": "LGTM - nice fix. Is there a test case we could add for this exact case to prevent it regressing accidentally in the future?",
+      "revId": "84b55511c6c93b71f451439b03957b5c16e62183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b08e45f_e44afc8f",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-04T15:11:37Z",
+      "side": 1,
+      "message": "nit, and do not feel strongly, but is it worth not giving this a default value so it must always be passed?",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 99
+      },
+      "revId": "84b55511c6c93b71f451439b03957b5c16e62183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
