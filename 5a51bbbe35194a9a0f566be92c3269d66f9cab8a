@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c86d676_72d4974c",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-04T12:30:09Z",
+      "side": 1,
+      "message": "Yeah sg, I\u0027m not sure either, since it\u0027s only for UMA. Jaro, for context, you can compare patchset 8 with patchset 10 for the two approaches :).",
+      "parentUuid": "db32be37_add99c94",
+      "revId": "5a51bbbe35194a9a0f566be92c3269d66f9cab8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "15585123_d63fe0e7",
