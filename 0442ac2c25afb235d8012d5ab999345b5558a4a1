@@ -56,6 +56,30 @@
       },
       "revId": "0442ac2c25afb235d8012d5ab999345b5558a4a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "315c77bc_8e9748fe",
+        "filename": "front_end/ui/components/docs/icon_button/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-04T14:53:13Z",
+      "side": 1,
+      "message": "This is just a drive-by fixing a typo. Let\u0027s tackle all the icons in this file in a separate CL",
+      "parentUuid": "dffe7f60_ed86e31f",
+      "range": {
+        "startLine": 21,
+        "startChar": 55,
+        "endLine": 21,
+        "endChar": 74
+      },
+      "revId": "0442ac2c25afb235d8012d5ab999345b5558a4a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
