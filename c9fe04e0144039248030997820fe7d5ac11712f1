@@ -292,6 +292,30 @@
       },
       "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75c96d8_6f8446dc",
+        "filename": "test/unittests/front_end/entrypoints/meta/view_registration_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T09:10:38Z",
+      "side": 1,
+      "message": "Understood, I will change this on CL 4386380 since the variable `isPanelOrDrawer` is over there. I will push the changes on this CL once the e2e tests finished.",
+      "parentUuid": "8402d956_96ef1395",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
