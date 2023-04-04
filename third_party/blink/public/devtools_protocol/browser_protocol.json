@@ -1570,6 +1570,11 @@
                             "name": "violatingNodeId",
                             "optional": true,
                             "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "violatingNodeAttribute",
+                            "optional": true,
+                            "type": "string"
                         }
                     ]
                 },
@@ -8763,6 +8768,170 @@
                         {
                             "name": "uuid",
                             "description": "UUID of the specified Blob.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "OriginPrivateFileSystem",
+            "experimental": true,
+            "dependencies": [
+                "Runtime"
+            ],
+            "types": [
+                {
+                    "id": "Directory",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "directories",
+                            "description": "Directories nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Directory"
+                            }
+                        },
+                        {
+                            "name": "files",
+                            "description": "Files nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "File"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "File",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "File name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastModified",
+                            "description": "Last Modified date.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the file in bytes.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "mimeType",
+                            "description": "The mime type of the file.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "refreshDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "renameDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "saveAs",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteFile",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
                             "type": "string"
                         }
                     ]
@@ -19135,6 +19304,7 @@
                         "cache_storage",
                         "interest_groups",
                         "shared_storage",
+                        "storage_buckets",
                         "all",
                         "other"
                     ]
@@ -19411,6 +19581,53 @@
                             "description": "Whether or not to set an entry for a key if that key is already present.\nPresent only for SharedStorageAccessType.documentSet and\nSharedStorageAccessType.workletSet.",
                             "optional": true,
                             "type": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "id": "StorageBucketsDurability",
+                    "type": "string",
+                    "enum": [
+                        "relaxed",
+                        "strict"
+                    ]
+                },
+                {
+                    "id": "StorageBucketInfo",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "storageKey",
+                            "$ref": "SerializedStorageKey"
+                        },
+                        {
+                            "name": "id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "isDefault",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "expiration",
+                            "$ref": "Network.TimeSinceEpoch"
+                        },
+                        {
+                            "name": "quota",
+                            "description": "Storage quota (bytes).",
+                            "type": "number"
+                        },
+                        {
+                            "name": "persistent",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "durability",
+                            "$ref": "StorageBucketsDurability"
                         }
                     ]
                 }
@@ -19833,6 +20050,36 @@
                             "type": "boolean"
                         }
                     ]
+                },
+                {
+                    "name": "setStorageBucketTracking",
+                    "description": "Set tracking for a storage key's buckets.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "type": "string"
+                        },
+                        {
+                            "name": "enable",
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteStorageBucket",
+                    "description": "Deletes the Storage Bucket with the given storage key and bucket name.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketName",
+                            "type": "string"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -19965,6 +20212,24 @@
                             "name": "params",
                             "description": "The sub-parameters warapped by `params` are all optional and their\npresence/absence depends on `type`.",
                             "$ref": "SharedStorageAccessParams"
+                        }
+                    ]
+                },
+                {
+                    "name": "storageBucketCreatedOrUpdated",
+                    "parameters": [
+                        {
+                            "name": "bucket",
+                            "$ref": "StorageBucketInfo"
+                        }
+                    ]
+                },
+                {
+                    "name": "storageBucketDeleted",
+                    "parameters": [
+                        {
+                            "name": "bucketId",
+                            "type": "string"
                         }
                     ]
                 }
@@ -23224,6 +23489,16 @@
                             "items": {
                                 "$ref": "Account"
                             }
+                        },
+                        {
+                            "name": "title",
+                            "description": "These exist primarily so that the caller can verify the\nRP context was used appropriately.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "subtitle",
+                            "optional": true,
+                            "type": "string"
                         }
                     ]
                 }
@@ -23262,8 +23537,17 @@
                         {
                             "name": "dialogId",
                             "type": "string"
+                        },
+                        {
+                            "name": "triggerCooldown",
+                            "optional": true,
+                            "type": "boolean"
                         }
                     ]
+                },
+                {
+                    "name": "resetCooldown",
+                    "description": "Resets the cooldown time, if any, to allow the next FedCM call to show\na dialog even if one was recently dismissed by the user."
                 }
             ]
         },
