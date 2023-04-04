@@ -212,6 +212,7 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-arrow-in-circle', {position: 'c3', spritesheet: 'mediumicons', isMask: true}],
   ['mediumicon-file-sync', {position: 'd3', spritesheet: 'mediumicons', invert: true}],
   ['mediumicon-file', {position: 'a2', spritesheet: 'mediumicons', invert: true}],
+  ['mediumicon-navigator-folder', {position: 'f8', spritesheet: 'mediumicons', invert: true}],
   ['mediumicon-gray-cross-active', {position: 'b2', spritesheet: 'mediumicons'}],
   ['mediumicon-gray-cross-hover', {position: 'c2', spritesheet: 'mediumicons'}],
   ['mediumicon-red-cross-active', {position: 'd2', spritesheet: 'mediumicons'}],

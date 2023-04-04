@@ -643,7 +643,7 @@ export namespace ProtocolMapping {
      */
     'Preload.prerenderStatusUpdated': [Protocol.Preload.PrerenderStatusUpdatedEvent];
     /**
-     * Send a list of sources for all preloading attempts in a document.
+     * Send a list of sources for all preloading attempts.
      */
     'Preload.preloadingAttemptSourcesUpdated': [Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent];
     'FedCm.dialogShown': [Protocol.FedCm.DialogShownEvent];
@@ -2131,6 +2131,26 @@ export namespace ProtocolMapping {
     'IO.resolveBlob': {
       paramsType: [Protocol.IO.ResolveBlobRequest];
       returnType: Protocol.IO.ResolveBlobResponse;
+    };
+    'OriginPrivateFileSystem.refreshDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.renameDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.RenameDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.deleteDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.DeleteDirectoryRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.saveAs': {
+      paramsType: [Protocol.OriginPrivateFileSystem.SaveAsRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.deleteFile': {
+      paramsType: [Protocol.OriginPrivateFileSystem.DeleteFileRequest];
+      returnType: void;
     };
     /**
      * Clears all entries from an object store.
@@ -4092,19 +4112,11 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     'FedCm.enable': {
-      paramsType: [Protocol.FedCm.EnableRequest?];
+      paramsType: [];
       returnType: void;
     };
     'FedCm.disable': {
       paramsType: [];
-      returnType: void;
-    };
-    'FedCm.selectAccount': {
-      paramsType: [Protocol.FedCm.SelectAccountRequest];
-      returnType: void;
-    };
-    'FedCm.dismissDialog': {
-      paramsType: [Protocol.FedCm.DismissDialogRequest];
       returnType: void;
     };
     /**

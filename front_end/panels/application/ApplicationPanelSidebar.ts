@@ -248,6 +248,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   sessionStorageListTreeElement: ExpandableApplicationPanelTreeElement;
   indexedDBListTreeElement: IndexedDBTreeElement;
   interestGroupTreeElement: InterestGroupTreeElement;
+  opfsTreeElement: ExpandableApplicationPanelTreeElement;
   databasesListTreeElement: ExpandableApplicationPanelTreeElement;
   cookieListTreeElement: ExpandableApplicationPanelTreeElement;
   trustTokensTreeElement: TrustTokensTreeElement;
@@ -362,6 +363,24 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.cacheStorageListTreeElement = new ServiceWorkerCacheTreeElement(panel);
     storageTreeElement.appendChild(this.cacheStorageListTreeElement);
+
+    this.opfsTreeElement = new ExpandableApplicationPanelTreeElement(panel, i18nString(UIStrings.opfs), 'OPFS');
+    this.opfsTreeElement.setLink(
+        'https://developer.chrome.com/articles/file-system-access/#accessing-the-origin-private-file-system' as
+        Platform.DevToolsPath.UrlString);
+    const opfsIcon = UI.Icon.Icon.create('mediumicon-navigator-folder', 'resource-tree-item');
+    this.opfsTreeElement.setLeadingIcons([opfsIcon]);
+
+    const folder = new ExpandableApplicationPanelTreeElement(panel, i18nString(UIStrings.opfs), 'FOLDER');
+    folder.setLink(
+        'https://developer.chrome.com/articles/file-system-access/#accessing-the-origin-private-file-system' as
+        Platform.DevToolsPath.UrlString);
+    const folderIcon = UI.Icon.Icon.create('mediumicon-navigator-folder', 'resource-tree-item');
+    folder.setLeadingIcons([folderIcon]);
+
+    this.opfsTreeElement.appendChild(folder);
+
+    storageTreeElement.appendChild(this.opfsTreeElement);
 
     const backgroundServiceSectionTitle = i18nString(UIStrings.backgroundServices);
     const backgroundServiceTreeElement = this.addSidebarSection(backgroundServiceSectionTitle);

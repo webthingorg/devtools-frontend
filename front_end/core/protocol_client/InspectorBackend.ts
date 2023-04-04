@@ -698,6 +698,10 @@ export class TargetBase {
     return this.getAgent('Network');
   }
 
+  originPrivateFileSystemAgent(): ProtocolProxyApi.OriginPrivateFileSystemApi {
+    return this.getAgent('OriginPrivateFileSystem');
+  }
+
   overlayAgent(): ProtocolProxyApi.OverlayApi {
     return this.getAgent('Overlay');
   }

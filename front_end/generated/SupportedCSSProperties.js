@@ -3162,15 +3162,6 @@ export const generatedProperties = [
   "name": "text-anchor"
  },
  {
-  "keywords": [
-   "normal",
-   "start",
-   "end",
-   "both"
-  ],
-  "name": "text-box-trim"
- },
- {
   "inherited": true,
   "keywords": [
    "none",
@@ -5218,14 +5209,6 @@ export const generatedPropertyValues = {
    "start",
    "middle",
    "end"
-  ]
- },
- "text-box-trim": {
-  "values": [
-   "normal",
-   "start",
-   "end",
-   "both"
   ]
  },
  "text-combine-upright": {

@@ -1457,12 +1457,7 @@
                         "TooManyConcurrentRequests",
                         "SourceAndTriggerHeaders",
                         "SourceIgnored",
-                        "TriggerIgnored",
-                        "OsSourceIgnored",
-                        "OsTriggerIgnored",
-                        "InvalidRegisterOsSourceHeader",
-                        "InvalidRegisterOsTriggerHeader",
-                        "WebAndOsHeaders"
+                        "TriggerIgnored"
                     ]
                 },
                 {
@@ -1547,8 +1542,7 @@
                         "FormAriaLabelledByToNonExistingId",
                         "FormInputAssignedAutocompleteValueToIdOrNameAttributeError",
                         "FormLabelHasNeitherForNorNestedInput",
-                        "FormLabelForMatchesNonExistingIdError",
-                        "FormInputHasWrongButWellIntendedAutocompleteValueError"
+                        "FormLabelForMatchesNonExistingIdError"
                     ]
                 },
                 {
@@ -2896,16 +2890,6 @@
                             "$ref": "SelectorList"
                         },
                         {
-                            "name": "nestingSelectors",
-                            "description": "Array of selectors from ancestor style rules, sorted by distance from the current rule.",
-                            "experimental": true,
-                            "optional": true,
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        {
                             "name": "origin",
                             "description": "Parent stylesheet's origin.",
                             "$ref": "StyleSheetOrigin"
@@ -3532,48 +3516,6 @@
                     ]
                 },
                 {
-                    "id": "CSSTryRule",
-                    "description": "CSS try rule representation.",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "styleSheetId",
-                            "description": "The css style sheet identifier (absent for user agent stylesheet and user-specified\nstylesheet rules) this rule came from.",
-                            "optional": true,
-                            "$ref": "StyleSheetId"
-                        },
-                        {
-                            "name": "origin",
-                            "description": "Parent stylesheet's origin.",
-                            "$ref": "StyleSheetOrigin"
-                        },
-                        {
-                            "name": "style",
-                            "description": "Associated style declaration.",
-                            "$ref": "CSSStyle"
-                        }
-                    ]
-                },
-                {
-                    "id": "CSSPositionFallbackRule",
-                    "description": "CSS position-fallback rule representation.",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "name",
-                            "$ref": "Value"
-                        },
-                        {
-                            "name": "tryRules",
-                            "description": "List of keyframes.",
-                            "type": "array",
-                            "items": {
-                                "$ref": "CSSTryRule"
-                            }
-                        }
-                    ]
-                },
-                {
                     "id": "CSSKeyframesRule",
                     "description": "CSS keyframes rule representation.",
                     "type": "object",
@@ -3880,15 +3822,6 @@
                             "type": "array",
                             "items": {
                                 "$ref": "CSSKeyframesRule"
-                            }
-                        },
-                        {
-                            "name": "cssPositionFallbackRules",
-                            "description": "A list of CSS position fallbacks matching this node.",
-                            "optional": true,
-                            "type": "array",
-                            "items": {
-                                "$ref": "CSSPositionFallbackRule"
                             }
                         },
                         {
@@ -8763,6 +8696,170 @@
                         {
                             "name": "uuid",
                             "description": "UUID of the specified Blob.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "OriginPrivateFileSystem",
+            "experimental": true,
+            "dependencies": [
+                "Runtime"
+            ],
+            "types": [
+                {
+                    "id": "Directory",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "directories",
+                            "description": "Directories nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Directory"
+                            }
+                        },
+                        {
+                            "name": "files",
+                            "description": "Files nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "File"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "File",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "File name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastModified",
+                            "description": "Last Modified date.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the file in bytes.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "mimeType",
+                            "description": "The mime type of the file.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "refreshDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "renameDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteDirectory",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "Directory path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "saveAs",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteFile",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Bucket Id.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "path",
+                            "description": "File path.",
                             "type": "string"
                         }
                     ]
@@ -22853,28 +22950,7 @@
                             "name": "sourceText",
                             "description": "Source text of JSON representing the rule set. If it comes from\n<script> tag, it is the textContent of the node. Note that it is\na JSON for valid case.\n\nSee also:\n- https://wicg.github.io/nav-speculation/speculation-rules.html\n- https://github.com/WICG/nav-speculation/blob/main/triggers.md",
                             "type": "string"
-                        },
-                        {
-                            "name": "errorType",
-                            "description": "Error information\n`errorMessage` is null iff `errorType` is null.",
-                            "optional": true,
-                            "$ref": "RuleSetErrorType"
-                        },
-                        {
-                            "name": "errorMessage",
-                            "description": "TODO(https://crbug.com/1425354): Replace this property with structured error.",
-                            "deprecated": true,
-                            "optional": true,
-                            "type": "string"
                         }
-                    ]
-                },
-                {
-                    "id": "RuleSetErrorType",
-                    "type": "string",
-                    "enum": [
-                        "SourceIsNotJsonObject",
-                        "InvalidRulesSkipped"
                     ]
                 },
                 {
@@ -22986,10 +23062,11 @@
                         "InactivePageRestriction",
                         "StartFailed",
                         "TimeoutBackgrounded",
-                        "CrossSiteRedirectInInitialNavigation",
-                        "CrossSiteNavigationInInitialNavigation",
-                        "SameSiteCrossOriginRedirectNotOptInInInitialNavigation",
-                        "SameSiteCrossOriginNavigationNotOptInInInitialNavigation",
+                        "CrossSiteRedirect",
+                        "CrossSiteNavigation",
+                        "SameSiteCrossOriginRedirect",
+                        "SameSiteCrossOriginRedirectNotOptIn",
+                        "SameSiteCrossOriginNavigationNotOptIn",
                         "ActivationNavigationParameterMismatch",
                         "ActivatedInBackground",
                         "EmbedderHostDisallowed",
@@ -23002,11 +23079,7 @@
                         "PreloadingDisabled",
                         "BatterySaverEnabled",
                         "ActivatedDuringMainFrameNavigation",
-                        "PreloadingUnsupportedByWebContents",
-                        "CrossSiteRedirectInMainFrameNavigation",
-                        "CrossSiteNavigationInMainFrameNavigation",
-                        "SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation",
-                        "SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation"
+                        "PreloadingUnsupportedByWebContents"
                     ]
                 },
                 {
@@ -23056,10 +23129,6 @@
                     "description": "Fired when a prerender attempt is completed.",
                     "parameters": [
                         {
-                            "name": "key",
-                            "$ref": "PreloadingAttemptKey"
-                        },
-                        {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prerendering.",
                             "$ref": "Page.FrameId"
@@ -23085,10 +23154,6 @@
                     "description": "Fired when a prefetch attempt is updated.",
                     "parameters": [
                         {
-                            "name": "key",
-                            "$ref": "PreloadingAttemptKey"
-                        },
-                        {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prefetch.",
                             "$ref": "Page.FrameId"
@@ -23108,10 +23173,6 @@
                     "description": "Fired when a prerender attempt is updated.",
                     "parameters": [
                         {
-                            "name": "key",
-                            "$ref": "PreloadingAttemptKey"
-                        },
-                        {
                             "name": "initiatingFrameId",
                             "description": "The frame id of the frame initiating prerender.",
                             "$ref": "Page.FrameId"
@@ -23128,12 +23189,8 @@
                 },
                 {
                     "name": "preloadingAttemptSourcesUpdated",
-                    "description": "Send a list of sources for all preloading attempts in a document.",
+                    "description": "Send a list of sources for all preloading attempts.",
                     "parameters": [
-                        {
-                            "name": "loaderId",
-                            "$ref": "Network.LoaderId"
-                        },
                         {
                             "name": "preloadingAttemptSources",
                             "type": "array",
@@ -23150,15 +23207,6 @@
             "description": "This domain allows interacting with the FedCM dialog.",
             "experimental": true,
             "types": [
-                {
-                    "id": "LoginState",
-                    "description": "Whether this is a sign-up or sign-in action for this account, i.e.\nwhether this account has ever been used to sign in to this RP before.",
-                    "type": "string",
-                    "enum": [
-                        "SignIn",
-                        "SignUp"
-                    ]
-                },
                 {
                     "id": "Account",
                     "description": "Corresponds to IdentityRequestAccount",
@@ -23187,25 +23235,6 @@
                         {
                             "name": "idpConfigUrl",
                             "type": "string"
-                        },
-                        {
-                            "name": "idpSigninUrl",
-                            "type": "string"
-                        },
-                        {
-                            "name": "loginState",
-                            "$ref": "LoginState"
-                        },
-                        {
-                            "name": "termsOfServiceUrl",
-                            "description": "These two are only set if the loginState is signUp",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "privacyPolicyUrl",
-                            "optional": true,
-                            "type": "string"
                         }
                     ]
                 }
@@ -23214,10 +23243,6 @@
                 {
                     "name": "dialogShown",
                     "parameters": [
-                        {
-                            "name": "dialogId",
-                            "type": "string"
-                        },
                         {
                             "name": "accounts",
                             "type": "array",
@@ -23230,40 +23255,10 @@
             ],
             "commands": [
                 {
-                    "name": "enable",
-                    "parameters": [
-                        {
-                            "name": "disableRejectionDelay",
-                            "description": "Allows callers to disable the promise rejection delay that would\nnormally happen, if this is unimportant to what's being tested.\n(step 4 of https://fedidcg.github.io/FedCM/#browser-api-rp-sign-in)",
-                            "optional": true,
-                            "type": "boolean"
-                        }
-                    ]
+                    "name": "enable"
                 },
                 {
                     "name": "disable"
-                },
-                {
-                    "name": "selectAccount",
-                    "parameters": [
-                        {
-                            "name": "dialogId",
-                            "type": "string"
-                        },
-                        {
-                            "name": "accountIndex",
-                            "type": "integer"
-                        }
-                    ]
-                },
-                {
-                    "name": "dismissDialog",
-                    "parameters": [
-                        {
-                            "name": "dialogId",
-                            "type": "string"
-                        }
-                    ]
                 }
             ]
         },
@@ -24465,8 +24460,7 @@
                                 "OOM",
                                 "other",
                                 "promiseRejection",
-                                "XHR",
-                                "step"
+                                "XHR"
                             ]
                         },
                         {
