@@ -5,6 +5,7 @@
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as TimelineModel from '../../../../../front_end/models/timeline_model/timeline_model.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
+import * as Components from '../../../../../front_end/ui/legacy/components/utils/utils.js';
 import * as TraceEngine from '../../../../../front_end/models/trace/trace.js';
 import * as Timeline from '../../../../../front_end/panels/timeline/timeline.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
@@ -90,7 +91,8 @@ describeWithMockConnection('TimelineUIUtils', () => {
     it('makes the script location of a call frame a full URL when the inspected target is not the same the call frame was taken from (e.g. a loaded file)',
        async () => {
          target.setInspectedURL('https://not-google.com' as Platform.DevToolsPath.UrlString);
-         const node = await Timeline.TimelineUIUtils.TimelineUIUtils.buildDetailsNodeForTraceEvent(event);
+         const node = await Timeline.TimelineUIUtils.TimelineUIUtils.buildDetailsNodeForTraceEvent(
+             event, target, new Components.Linkifier.Linkifier());
          if (!node) {
            throw new Error('Node was unexpectedly null');
          }
@@ -100,7 +102,8 @@ describeWithMockConnection('TimelineUIUtils', () => {
     it('makes the script location of a call frame a script name when the inspected target is the one the call frame was taken from',
        async () => {
          target.setInspectedURL('https://google.com' as Platform.DevToolsPath.UrlString);
-         const node = await Timeline.TimelineUIUtils.TimelineUIUtils.buildDetailsNodeForTraceEvent(event);
+         const node = await Timeline.TimelineUIUtils.TimelineUIUtils.buildDetailsNodeForTraceEvent(
+             event, target, new Components.Linkifier.Linkifier());
          if (!node) {
            throw new Error('Node was unexpectedly null');
          }
