@@ -132,9 +132,12 @@ export class CommandMenu {
 
   static createRevealViewCommand(options: RevealViewCommandOptions): Command {
     const {title, tags, category, userActionCode, id} = options;
+    if (!category) {
+      throw new Error(`Creating '${title}' reveal view command failed. Reveal view has no category.`);
+    }
 
     return CommandMenu.createCommand({
-      category,
+      category: UI.ViewManager.getLocalizedViewLocationCategory(category),
       keys: tags,
       title,
       shortcut: '',
@@ -146,7 +149,7 @@ export class CommandMenu {
   }
 
   private loadCommands(): void {
-    const locations = new Map<UI.ViewManager.ViewLocationValues, string>();
+    const locations = new Map<UI.ViewManager.ViewLocationValues, UI.ViewManager.ViewLocationCategory>();
     for (const {category, name} of UI.ViewManager.getRegisteredLocationResolvers()) {
       if (category && name) {
         locations.set(name, category);
@@ -196,7 +199,7 @@ export interface RevealViewCommandOptions {
   id: string;
   title: string;
   tags: string;
-  category: string;
+  category: UI.ViewManager.ViewLocationCategory;
   userActionCode?: number;
 }
 
