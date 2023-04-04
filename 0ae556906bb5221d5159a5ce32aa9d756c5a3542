@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "850c7abe_38bc9e99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-04T12:19:54Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nThanks a lot for the review! I\u0027ve replied/updated the code, ptal!",
+      "revId": "0ae556906bb5221d5159a5ce32aa9d756c5a3542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

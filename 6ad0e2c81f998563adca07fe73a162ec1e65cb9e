@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c75f962_0f3da28a",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-04T12:19:54Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct",
+      "parentUuid": "1d72de79_75a30f22",
+      "range": {
+        "startLine": 1569,
+        "startChar": 5,
+        "endLine": 1571,
+        "endChar": 5
+      },
+      "revId": "6ad0e2c81f998563adca07fe73a162ec1e65cb9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d993beab_1b4135db",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-04T11:12:27Z",
       "side": 1,
       "message": "We could also do a small enum ala\n\n```\nconst enum BreakpointEditInitiator {\n  EDIT_BUTTON,\n  CONTEXT_MENU,\n}\n```\n\nBut boolean is fine if you prefer.",
+      "range": {
+        "startLine": 185,
+        "startChar": 41,
+        "endLine": 185,
+        "endChar": 58
+      },
+      "revId": "6ad0e2c81f998563adca07fe73a162ec1e65cb9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a163556e_2fdad10d",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-04T12:19:54Z",
+      "side": 1,
+      "message": "I slightly prefer the boolean here since we only have two initiators. But if you want me to, I can change it.",
+      "parentUuid": "d993beab_1b4135db",
       "range": {
         "startLine": 185,
         "startChar": 41,
