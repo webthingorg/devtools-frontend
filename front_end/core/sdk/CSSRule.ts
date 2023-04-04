@@ -270,3 +270,28 @@ export class CSSKeyframeRule extends CSSRule {
     return this.cssModelInternal.setKeyframeKey(styleSheetId, range, newKeyText);
   }
 }
+
+export class CSSPositionFallbackRule {
+  readonly #name: CSSValue;
+  readonly #tryRules: CSSTryRule[];
+  constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSPositionFallbackRule) {
+    this.#name = new CSSValue(payload.name);
+    this.#tryRules = payload.tryRules.map(tryRule => new CSSTryRule(cssModel, tryRule));
+  }
+
+  name(): CSSValue {
+    return this.#name;
+  }
+
+  tryRules(): CSSTryRule[] {
+    return this.#tryRules;
+  }
+}
+
+export class CSSTryRule extends CSSRule {
+  constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSTryRule) {
+    // TODO(crbug.com/1011811): Replace with spread operator or better types once Closure is gone.
+    // TODO(ergunsh): Mark `style` as non-optional in the protocol.
+    super(cssModel, {origin: payload.origin, style: payload.style!, styleSheetId: payload.styleSheetId});
+  }
+}

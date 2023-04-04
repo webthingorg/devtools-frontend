@@ -1666,6 +1666,21 @@ export class KeyframePropertiesSection extends StylePropertiesSection {
   }
 }
 
+export class TryRuleSection extends StylePropertiesSection {
+  constructor(
+      stylesPane: StylesSidebarPane, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
+      style: SDK.CSSStyleDeclaration.CSSStyleDeclaration, sectionIdx: number) {
+    super(stylesPane, matchedStyles, style, sectionIdx, null, null);
+    this.selectorElement.className = 'try-rule-selector-element';
+    // Disables clicking on the selector element for `@try` rules.
+    this.selectorElement.addEventListener('click', ev => ev.stopPropagation(), true);
+  }
+
+  headerText(): string {
+    return '@try';
+  }
+}
+
 export class HighlightPseudoStylePropertiesSection extends StylePropertiesSection {
   isPropertyInherited(_propertyName: string): boolean {
     // For highlight pseudos, all valid properties are treated as inherited.
