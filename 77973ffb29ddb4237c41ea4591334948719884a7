@@ -33,6 +33,24 @@
       "message": "Looks good, just in the last screenshot in Permissions Policy the icons initially were 14x14 (I think you are updating the already updated sizes there). Can you please set the sizes for those icons to 16 rather than 20?",
       "revId": "77973ffb29ddb4237c41ea4591334948719884a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f8bcb18_8a557f43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-04T12:08:24Z",
+      "side": 1,
+      "message": "They all render onto the same panel, so I think they should all have the same size.\nhttps://imgur.com/a/vKei9dT",
+      "parentUuid": "27e6c484_a95da0d6",
+      "revId": "77973ffb29ddb4237c41ea4591334948719884a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
