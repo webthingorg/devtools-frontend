@@ -66,6 +66,7 @@ import {
   BlankStylePropertiesSection,
   KeyframePropertiesSection,
   HighlightPseudoStylePropertiesSection,
+  TryRuleSection,
 } from './StylePropertiesSection.js';
 
 import * as LayersWidget from './LayersWidget.js';
@@ -1159,6 +1160,18 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       blocks.push(block);
     }
 
+    for (const positionFallbackRule of matchedStyles.positionFallbackRules()) {
+      const block = SectionBlock.createPositionFallbackBlock(positionFallbackRule.name().text);
+      for (const tryRule of positionFallbackRule.tryRules()) {
+        this.idleCallbackManager.schedule(() => {
+          block.sections.push(new TryRuleSection(
+              this, matchedStyles, tryRule.style, sectionIdx, computedStyles, parentsComputedStyles));
+          sectionIdx++;
+        });
+      }
+      blocks.push(block);
+    }
+
     // If we have seen a layer in matched styles we enable
     // the layer widget button.
     if (sawLayers) {
@@ -1623,6 +1636,13 @@ export class SectionBlock {
     const separatorElement = document.createElement('div');
     separatorElement.className = 'sidebar-separator';
     separatorElement.textContent = `@keyframes ${keyframesName}`;
+    return new SectionBlock(separatorElement);
+  }
+
+  static createPositionFallbackBlock(positionFallbackName: string): SectionBlock {
+    const separatorElement = document.createElement('div');
+    separatorElement.className = 'sidebar-separator';
+    separatorElement.textContent = `@position-fallback ${positionFallbackName}`;
     return new SectionBlock(separatorElement);
   }
 
