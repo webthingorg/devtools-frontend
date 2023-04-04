@@ -42,9 +42,9 @@ export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
     const iconName = imageNameForResourceType(this.itemContentTypeAt(itemIndex));
     iconElement.data = {
       iconName: iconName,
-      color: 'var(--icon-color)',
-      width: '18px',
-      height: '18px',
+      color: 'var(--icon-default)',
+      width: '20px',
+      height: '20px',
     };
     iconElement.classList.add(iconName);
     titleElement.parentElement?.parentElement?.insertBefore(iconElement, titleElement.parentElement);
