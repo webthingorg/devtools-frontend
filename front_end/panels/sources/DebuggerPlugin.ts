@@ -161,6 +161,16 @@ type BreakpointDescription = {
 
 const debuggerPluginForUISourceCode = new Map<Workspace.UISourceCode.UISourceCode, DebuggerPlugin>();
 
+export const enum Events {
+  BreakpointEditFinished = 'breakpointEditFinished',
+}
+
+export type EventTypes = {
+  [Events.BreakpointEditFinished]: {breakpoint: Bindings.BreakpointManager.Breakpoint|null, edited: boolean},
+};
+
+export const debuggerPluginWrapper = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
+
 export class DebuggerPlugin extends Plugin {
   private editor: TextEditor.TextEditor.TextEditor|undefined = undefined;
   // Set if the debugger is stopped on a breakpoint in this file
@@ -802,9 +812,11 @@ export class DebuggerPlugin extends Plugin {
       dialog.detach();
       editor.dispatch({effects: compartment.reconfigure([])});
       if (!result.committed) {
+        debuggerPluginWrapper.dispatchEventToListeners(Events.BreakpointEditFinished, {breakpoint, edited: false});
         return;
       }
-
+      debuggerPluginWrapper.dispatchEventToListeners(
+          Events.BreakpointEditFinished, {breakpoint, edited: oldCondition !== result.condition});
       recordBreakpointWithConditionAdded(result);
       if (breakpoint) {
         breakpoint.setCondition(result.condition, result.isLogpoint);
@@ -833,6 +845,7 @@ export class DebuggerPlugin extends Plugin {
     dialog.focusEditor();
     this.activeBreakpointDialog = dialog;
 
+    // This counts new conditional breakpoints or logpoints that are added.
     function recordBreakpointWithConditionAdded(result: BreakpointEditDialogResult): void {
       const {condition: newCondition, isLogpoint} = result;
       const isConditionalBreakpoint = newCondition.length !== 0 && !isLogpoint;
@@ -1563,6 +1576,9 @@ export class BreakpointLocationRevealer implements Common.Revealer.Revealer {
     const debuggerPlugin = debuggerPluginForUISourceCode.get(uiLocation.uiSourceCode);
     if (debuggerPlugin) {
       debuggerPlugin.editBreakpointLocation(breakpointLocation);
+    } else {
+      debuggerPluginWrapper.dispatchEventToListeners(
+          Events.BreakpointEditFinished, {breakpoint: breakpointLocation.breakpoint, edited: false});
     }
   }
 }
