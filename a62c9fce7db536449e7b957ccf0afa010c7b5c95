@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bb6e0ff_6dffbdba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T09:06:18Z",
+      "side": 1,
+      "message": "lgtm once https://crrev.com/c/4386380 has landed and we can rebase the test on those changes.",
+      "revId": "a62c9fce7db536449e7b957ccf0afa010c7b5c95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
