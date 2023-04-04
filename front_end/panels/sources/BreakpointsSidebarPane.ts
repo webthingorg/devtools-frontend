@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as Platform from '../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -99,6 +100,7 @@ export class BreakpointsSidebarController implements UI.ContextFlavorListener.Co
   readonly #collapsedFilesSettings: Common.Settings.Setting<Platform.DevToolsPath.UrlString[]>;
   readonly #collapsedFiles: Set<Platform.DevToolsPath.UrlString>;
 
+  #hasOutstandingEditRequest = false;
   #updateScheduled = false;
   #updateRunning = false;
 
@@ -148,6 +150,13 @@ export class BreakpointsSidebarController implements UI.ContextFlavorListener.Co
     void this.update();
   }
 
+  notifyBreakpointConditionEdited(edited: boolean): void {
+    if (this.#hasOutstandingEditRequest && edited) {
+      Host.userMetrics.actionTaken(Host.UserMetrics.Action.BreakpointConditionEditedFromSidebar);
+    }
+    this.#hasOutstandingEditRequest = false;
+  }
+
   breakpointStateChanged(breakpointItem: SourcesComponents.BreakpointsView.BreakpointItem, checked: boolean): void {
     const locations = this.#getLocationsForBreakpointItem(breakpointItem);
     locations.forEach((value: Bindings.BreakpointManager.BreakpointLocation) => {
@@ -165,6 +174,7 @@ export class BreakpointsSidebarController implements UI.ContextFlavorListener.Co
       }
     }
     if (location) {
+      this.#hasOutstandingEditRequest = true;
       await Common.Revealer.reveal(location);
     }
   }
