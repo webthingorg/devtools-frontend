@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e62915_7a9da9c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:11:48Z",
+      "side": 1,
+      "message": "Thanks lgtm % nit",
+      "revId": "5405d6a628c87ed2dc7850e1bfcd93d24b4c76ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef74520_81d5864c",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:11:48Z",
+      "side": 1,
+      "message": "nit: Use `category` variable here. (I know we\u0027ll replace this with a call to our l10n function.",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 34
+      },
+      "revId": "5405d6a628c87ed2dc7850e1bfcd93d24b4c76ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
