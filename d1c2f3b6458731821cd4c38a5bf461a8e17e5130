@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62bbb92_60d10e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-04T16:01:36Z",
+      "side": 1,
+      "message": "LGTM with a suggestion",
+      "revId": "d1c2f3b6458731821cd4c38a5bf461a8e17e5130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff64a5b6_160a0012",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-04T16:01:36Z",
+      "side": 1,
+      "message": "Maybe add another `assert.deepStrictEqual(dispatchedIssues.map(getBlockedUrl), expected);` after this line to show that switching scope does not emit additional `IssueAdded` events. \n\nIIUC `IssuesManager` does not send `IssueAdded` for issues which move into scope upon scope change, but sends `FullUpdateRequired` instead.",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 77
+      },
+      "revId": "d1c2f3b6458731821cd4c38a5bf461a8e17e5130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
