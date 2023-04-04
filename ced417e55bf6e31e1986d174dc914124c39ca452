@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d7d3c60_fe496c9b",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-04T08:34:39Z",
+      "side": 1,
+      "message": "We need to think carefully about the lifecycle of these issues. I am fine with submitting as is right now, but let\u0027s sit together and discuss how this and other autofill issues can be re-validated and added after user editing.",
+      "parentUuid": "dd61d96b_2d41c915",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3
