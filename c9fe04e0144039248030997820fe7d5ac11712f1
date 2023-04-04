@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b6a63957_1ce07eff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T08:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79e82bbf_a5ac070a",
+      "range": {
+        "startLine": 10,
+        "startChar": 58,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3ae01c4d_1c015042",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1bf3098_ef288dd6",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T08:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02827656_e05f23bc",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c275ff0_58484726",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-04-04T06:07:24Z",
       "side": 1,
       "message": "we could use `i18n.i18n.lockedString` here to always return a `LocalizedString`.",
+      "range": {
+        "startLine": 231,
+        "startChar": 13,
+        "endLine": 231,
+        "endChar": 15
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f072a2_af1048b5",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T08:49:31Z",
+      "side": 1,
+      "message": "@szuend@chromium.org\nDone, I guess we should also do this for ActionCategory and SettingCategory as well?",
+      "parentUuid": "1c275ff0_58484726",
       "range": {
         "startLine": 231,
         "startChar": 13,
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b3da30_b19f8f20",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T08:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27913117_1d28dd78",
+      "range": {
+        "startLine": 152,
+        "startChar": 65,
+        "endLine": 152,
+        "endChar": 71
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14b00fcd_71010fc0",
@@ -140,6 +236,30 @@
       "writtenOn": "2023-04-04T06:56:21Z",
       "side": 1,
       "message": "Looks like this assertion is failing currently",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23ac4782_cc20f596",
+        "filename": "test/unittests/front_end/entrypoints/meta/view_registration_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-04T08:49:31Z",
+      "side": 1,
+      "message": "@szuend@chromium.org\nOh yes, if I understand this correctly for this test case `command.category()` is a translated string and `UI.ViewManager.ViewLocationCategory.PANEL` is an enum `\"PANEL\"` and I remembered you mentioned before that there is no test for translated languages. So I am not sure if I should use l10n string comparison here or I should use the isPanelOrDrawer option I created in CL 4386380.\n\nWhat do you think?",
+      "parentUuid": "14b00fcd_71010fc0",
       "range": {
         "startLine": 58,
         "startChar": 11,
