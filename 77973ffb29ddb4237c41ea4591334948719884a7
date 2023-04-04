@@ -51,6 +51,24 @@
       "parentUuid": "27e6c484_a95da0d6",
       "revId": "77973ffb29ddb4237c41ea4591334948719884a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57075641_92d11975",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-04T12:23:22Z",
+      "side": 1,
+      "message": "Okay, we can do that:)\nCan we please use the outlined error icon in this case? For 20x20 size we don\u0027t use the filled version for it",
+      "parentUuid": "8f8bcb18_8a557f43",
+      "revId": "77973ffb29ddb4237c41ea4591334948719884a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
