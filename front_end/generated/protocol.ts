@@ -975,11 +975,6 @@ export namespace Audits {
     SourceAndTriggerHeaders = 'SourceAndTriggerHeaders',
     SourceIgnored = 'SourceIgnored',
     TriggerIgnored = 'TriggerIgnored',
-    OsSourceIgnored = 'OsSourceIgnored',
-    OsTriggerIgnored = 'OsTriggerIgnored',
-    InvalidRegisterOsSourceHeader = 'InvalidRegisterOsSourceHeader',
-    InvalidRegisterOsTriggerHeader = 'InvalidRegisterOsTriggerHeader',
-    WebAndOsHeaders = 'WebAndOsHeaders',
   }
 
   /**
@@ -1025,7 +1020,6 @@ export namespace Audits {
     FormInputAssignedAutocompleteValueToIdOrNameAttributeError = 'FormInputAssignedAutocompleteValueToIdOrNameAttributeError',
     FormLabelHasNeitherForNorNestedInput = 'FormLabelHasNeitherForNorNestedInput',
     FormLabelForMatchesNonExistingIdError = 'FormLabelForMatchesNonExistingIdError',
-    FormInputHasWrongButWellIntendedAutocompleteValueError = 'FormInputHasWrongButWellIntendedAutocompleteValueError',
   }
 
   /**
@@ -1939,10 +1933,6 @@ export namespace CSS {
      */
     selectorList: SelectorList;
     /**
-     * Array of selectors from ancestor style rules, sorted by distance from the current rule.
-     */
-    nestingSelectors?: string[];
-    /**
      * Parent stylesheet's origin.
      */
     origin: StyleSheetOrigin;
@@ -2402,36 +2392,6 @@ export namespace CSS {
   }
 
   /**
-   * CSS try rule representation.
-   */
-  export interface CSSTryRule {
-    /**
-     * The css style sheet identifier (absent for user agent stylesheet and user-specified
-     * stylesheet rules) this rule came from.
-     */
-    styleSheetId?: StyleSheetId;
-    /**
-     * Parent stylesheet's origin.
-     */
-    origin: StyleSheetOrigin;
-    /**
-     * Associated style declaration.
-     */
-    style: CSSStyle;
-  }
-
-  /**
-   * CSS position-fallback rule representation.
-   */
-  export interface CSSPositionFallbackRule {
-    name: Value;
-    /**
-     * List of keyframes.
-     */
-    tryRules: CSSTryRule[];
-  }
-
-  /**
    * CSS keyframes rule representation.
    */
   export interface CSSKeyframesRule {
@@ -2630,10 +2590,6 @@ export namespace CSS {
      * A list of CSS keyframed animations matching this node.
      */
     cssKeyframesRules?: CSSKeyframesRule[];
-    /**
-     * A list of CSS position fallbacks matching this node.
-     */
-    cssPositionFallbackRules?: CSSPositionFallbackRule[];
     /**
      * Id of the first parent element that does not have display: contents.
      */
@@ -5750,6 +5706,118 @@ export namespace IO {
      * UUID of the specified Blob.
      */
     uuid: string;
+  }
+}
+
+export namespace OriginPrivateFileSystem {
+
+  export interface Directory {
+    /**
+     * Directory name.
+     */
+    name: string;
+    /**
+     * Directories nested directly in this directory.
+     */
+    directories: Directory[];
+    /**
+     * Files nested directly in this directory.
+     */
+    files: File[];
+  }
+
+  export interface File {
+    /**
+     * File name.
+     */
+    name: string;
+    /**
+     * Last Modified date.
+     */
+    lastModified: number;
+    /**
+     * The size of the file in bytes.
+     */
+    size: number;
+    /**
+     * The mime type of the file.
+     */
+    mimeType: string;
+  }
+
+  export interface RefreshDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface RenameDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory name.
+     */
+    name: string;
+  }
+
+  export interface DeleteDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface SaveAsRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
+  }
+
+  export interface DeleteFileRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
   }
 }
 
@@ -15322,20 +15390,6 @@ export namespace Preload {
      * - https://github.com/WICG/nav-speculation/blob/main/triggers.md
      */
     sourceText: string;
-    /**
-     * Error information
-     * `errorMessage` is null iff `errorType` is null.
-     */
-    errorType?: RuleSetErrorType;
-    /**
-     * TODO(https://crbug.com/1425354): Replace this property with structured error.
-     */
-    errorMessage?: string;
-  }
-
-  export const enum RuleSetErrorType {
-    SourceIsNotJsonObject = 'SourceIsNotJsonObject',
-    InvalidRulesSkipped = 'InvalidRulesSkipped',
   }
 
   /**
@@ -15426,10 +15480,11 @@ export namespace Preload {
     InactivePageRestriction = 'InactivePageRestriction',
     StartFailed = 'StartFailed',
     TimeoutBackgrounded = 'TimeoutBackgrounded',
-    CrossSiteRedirectInInitialNavigation = 'CrossSiteRedirectInInitialNavigation',
-    CrossSiteNavigationInInitialNavigation = 'CrossSiteNavigationInInitialNavigation',
-    SameSiteCrossOriginRedirectNotOptInInInitialNavigation = 'SameSiteCrossOriginRedirectNotOptInInInitialNavigation',
-    SameSiteCrossOriginNavigationNotOptInInInitialNavigation = 'SameSiteCrossOriginNavigationNotOptInInInitialNavigation',
+    CrossSiteRedirect = 'CrossSiteRedirect',
+    CrossSiteNavigation = 'CrossSiteNavigation',
+    SameSiteCrossOriginRedirect = 'SameSiteCrossOriginRedirect',
+    SameSiteCrossOriginRedirectNotOptIn = 'SameSiteCrossOriginRedirectNotOptIn',
+    SameSiteCrossOriginNavigationNotOptIn = 'SameSiteCrossOriginNavigationNotOptIn',
     ActivationNavigationParameterMismatch = 'ActivationNavigationParameterMismatch',
     ActivatedInBackground = 'ActivatedInBackground',
     EmbedderHostDisallowed = 'EmbedderHostDisallowed',
@@ -15443,10 +15498,6 @@ export namespace Preload {
     BatterySaverEnabled = 'BatterySaverEnabled',
     ActivatedDuringMainFrameNavigation = 'ActivatedDuringMainFrameNavigation',
     PreloadingUnsupportedByWebContents = 'PreloadingUnsupportedByWebContents',
-    CrossSiteRedirectInMainFrameNavigation = 'CrossSiteRedirectInMainFrameNavigation',
-    CrossSiteNavigationInMainFrameNavigation = 'CrossSiteNavigationInMainFrameNavigation',
-    SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation = 'SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation',
-    SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation = 'SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation',
   }
 
   /**
@@ -15477,7 +15528,6 @@ export namespace Preload {
    * Fired when a prerender attempt is completed.
    */
   export interface PrerenderAttemptCompletedEvent {
-    key: PreloadingAttemptKey;
     /**
      * The frame id of the frame initiating prerendering.
      */
@@ -15495,7 +15545,6 @@ export namespace Preload {
    * Fired when a prefetch attempt is updated.
    */
   export interface PrefetchStatusUpdatedEvent {
-    key: PreloadingAttemptKey;
     /**
      * The frame id of the frame initiating prefetch.
      */
@@ -15508,7 +15557,6 @@ export namespace Preload {
    * Fired when a prerender attempt is updated.
    */
   export interface PrerenderStatusUpdatedEvent {
-    key: PreloadingAttemptKey;
     /**
      * The frame id of the frame initiating prerender.
      */
@@ -15518,10 +15566,9 @@ export namespace Preload {
   }
 
   /**
-   * Send a list of sources for all preloading attempts in a document.
+   * Send a list of sources for all preloading attempts.
    */
   export interface PreloadingAttemptSourcesUpdatedEvent {
-    loaderId: Network.LoaderId;
     preloadingAttemptSources: PreloadingAttemptSource[];
   }
 }
@@ -15530,15 +15577,6 @@ export namespace Preload {
  * This domain allows interacting with the FedCM dialog.
  */
 export namespace FedCm {
-
-  /**
-   * Whether this is a sign-up or sign-in action for this account, i.e.
-   * whether this account has ever been used to sign in to this RP before.
-   */
-  export const enum LoginState {
-    SignIn = 'SignIn',
-    SignUp = 'SignUp',
-  }
 
   /**
    * Corresponds to IdentityRequestAccount
@@ -15550,35 +15588,9 @@ export namespace FedCm {
     givenName: string;
     pictureUrl: string;
     idpConfigUrl: string;
-    idpSigninUrl: string;
-    loginState: LoginState;
-    /**
-     * These two are only set if the loginState is signUp
-     */
-    termsOfServiceUrl?: string;
-    privacyPolicyUrl?: string;
-  }
-
-  export interface EnableRequest {
-    /**
-     * Allows callers to disable the promise rejection delay that would
-     * normally happen, if this is unimportant to what's being tested.
-     * (step 4 of https://fedidcg.github.io/FedCM/#browser-api-rp-sign-in)
-     */
-    disableRejectionDelay?: boolean;
-  }
-
-  export interface SelectAccountRequest {
-    dialogId: string;
-    accountIndex: integer;
-  }
-
-  export interface DismissDialogRequest {
-    dialogId: string;
   }
 
   export interface DialogShownEvent {
-    dialogId: string;
     accounts: Account[];
   }
 }
@@ -16340,7 +16352,6 @@ export namespace Debugger {
     Other = 'other',
     PromiseRejection = 'promiseRejection',
     XHR = 'XHR',
-    Step = 'step',
   }
 
   /**

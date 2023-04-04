@@ -54,6 +54,8 @@ declare namespace ProtocolProxyApi {
 
     IO: IOApi;
 
+    OriginPrivateFileSystem: OriginPrivateFileSystemApi;
+
     IndexedDB: IndexedDBApi;
 
     Input: InputApi;
@@ -152,6 +154,8 @@ declare namespace ProtocolProxyApi {
     HeadlessExperimental: HeadlessExperimentalDispatcher;
 
     IO: IODispatcher;
+
+    OriginPrivateFileSystem: OriginPrivateFileSystemDispatcher;
 
     IndexedDB: IndexedDBDispatcher;
 
@@ -1498,6 +1502,21 @@ declare namespace ProtocolProxyApi {
 
   }
   export interface IODispatcher {
+  }
+
+  export interface OriginPrivateFileSystemApi {
+    invoke_refreshDirectory(params: Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_renameDirectory(params: Protocol.OriginPrivateFileSystem.RenameDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteDirectory(params: Protocol.OriginPrivateFileSystem.DeleteDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_saveAs(params: Protocol.OriginPrivateFileSystem.SaveAsRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteFile(params: Protocol.OriginPrivateFileSystem.DeleteFileRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+  }
+  export interface OriginPrivateFileSystemDispatcher {
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -3639,20 +3658,16 @@ declare namespace ProtocolProxyApi {
     prerenderStatusUpdated(params: Protocol.Preload.PrerenderStatusUpdatedEvent): void;
 
     /**
-     * Send a list of sources for all preloading attempts in a document.
+     * Send a list of sources for all preloading attempts.
      */
     preloadingAttemptSourcesUpdated(params: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void;
 
   }
 
   export interface FedCmApi {
-    invoke_enable(params: Protocol.FedCm.EnableRequest): Promise<Protocol.ProtocolResponseWithError>;
+    invoke_enable(): Promise<Protocol.ProtocolResponseWithError>;
 
     invoke_disable(): Promise<Protocol.ProtocolResponseWithError>;
-
-    invoke_selectAccount(params: Protocol.FedCm.SelectAccountRequest): Promise<Protocol.ProtocolResponseWithError>;
-
-    invoke_dismissDialog(params: Protocol.FedCm.DismissDialogRequest): Promise<Protocol.ProtocolResponseWithError>;
 
   }
   export interface FedCmDispatcher {

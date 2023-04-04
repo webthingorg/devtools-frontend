@@ -712,11 +712,6 @@ experimental domain Audits
       SourceAndTriggerHeaders
       SourceIgnored
       TriggerIgnored
-      OsSourceIgnored
-      OsTriggerIgnored
-      InvalidRegisterOsSourceHeader
-      InvalidRegisterOsTriggerHeader
-      WebAndOsHeaders
 
   # Details for issues around "Attribution Reporting API" usage.
   # Explainer: https://github.com/WICG/attribution-reporting-api
@@ -756,7 +751,6 @@ experimental domain Audits
       FormInputAssignedAutocompleteValueToIdOrNameAttributeError
       FormLabelHasNeitherForNorNestedInput
       FormLabelForMatchesNonExistingIdError
-      FormInputHasWrongButWellIntendedAutocompleteValueError
 
   # Depending on the concrete errorType, different properties are set.
   type GenericIssueDetails extends object
@@ -1410,8 +1404,6 @@ experimental domain CSS
       optional StyleSheetId styleSheetId
       # Rule selector data.
       SelectorList selectorList
-      # Array of selectors from ancestor style rules, sorted by distance from the current rule.
-      experimental optional array of string nestingSelectors
       # Parent stylesheet's origin.
       StyleSheetOrigin origin
       # Associated style declaration.
@@ -1669,24 +1661,6 @@ experimental domain CSS
       # Available variation settings (a.k.a. "axes").
       optional array of FontVariationAxis fontVariationAxes
 
-  # CSS try rule representation.
-  type CSSTryRule extends object
-    properties
-      # The css style sheet identifier (absent for user agent stylesheet and user-specified
-      # stylesheet rules) this rule came from.
-      optional StyleSheetId styleSheetId
-      # Parent stylesheet's origin.
-      StyleSheetOrigin origin
-      # Associated style declaration.
-      CSSStyle style
-
-  # CSS position-fallback rule representation.
-  type CSSPositionFallbackRule extends object
-    properties
-      Value name
-      # List of keyframes.
-      array of CSSTryRule tryRules
-
   # CSS keyframes rule representation.
   type CSSKeyframesRule extends object
     properties
@@ -1820,8 +1794,6 @@ experimental domain CSS
       optional array of InheritedPseudoElementMatches inheritedPseudoElements
       # A list of CSS keyframed animations matching this node.
       optional array of CSSKeyframesRule cssKeyframesRules
-      # A list of CSS position fallbacks matching this node.
-      optional array of CSSPositionFallbackRule cssPositionFallbackRules
       # Id of the first parent element that does not have display: contents.
       experimental optional DOM.NodeId parentLayoutNodeId
 
@@ -4005,6 +3977,74 @@ domain IO
     returns
       # UUID of the specified Blob.
       string uuid
+
+experimental domain OriginPrivateFileSystem
+  depends on Runtime
+
+  type Directory extends object
+    properties
+      # Directory name.
+      string name
+      # Directories nested directly in this directory.
+      array of Directory directories
+      # Files nested directly in this directory.
+      array of File files
+
+  type File extends object
+    properties
+      # File name.
+      string name
+      # Last Modified date.
+      number lastModified
+      # The size of the file in bytes.
+      number size
+      # The mime type of the file.
+      string mimeType
+
+  command refreshDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory path.
+      string path
+
+  command renameDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory name.
+      string name
+
+  command deleteDirectory
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # Directory path.
+      string path
+
+  command saveAs
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # File path.
+      string path
+
+  command deleteFile
+    parameters
+      # Storage key.
+      string storageKey
+      # Bucket Id.
+      string bucketId
+      # File path.
+      string path
 
 experimental domain IndexedDB
   depends on Runtime
@@ -10768,16 +10808,6 @@ experimental domain Preload
       # - https://wicg.github.io/nav-speculation/speculation-rules.html
       # - https://github.com/WICG/nav-speculation/blob/main/triggers.md
       string sourceText
-      # Error information
-      # `errorMessage` is null iff `errorType` is null.
-      optional RuleSetErrorType errorType
-      # TODO(https://crbug.com/1425354): Replace this property with structured error.
-      deprecated optional string errorMessage
-
-  type RuleSetErrorType extends string
-    enum
-      SourceIsNotJsonObject
-      InvalidRulesSkipped
 
   # The type of preloading attempted. It corresponds to
   # mojom::SpeculationAction (although PrefetchWithSubresources is omitted as it
@@ -10873,10 +10903,11 @@ experimental domain Preload
       InactivePageRestriction
       StartFailed
       TimeoutBackgrounded
-      CrossSiteRedirectInInitialNavigation
-      CrossSiteNavigationInInitialNavigation
-      SameSiteCrossOriginRedirectNotOptInInInitialNavigation
-      SameSiteCrossOriginNavigationNotOptInInInitialNavigation
+      CrossSiteRedirect
+      CrossSiteNavigation
+      SameSiteCrossOriginRedirect
+      SameSiteCrossOriginRedirectNotOptIn
+      SameSiteCrossOriginNavigationNotOptIn
       ActivationNavigationParameterMismatch
       ActivatedInBackground
       EmbedderHostDisallowed
@@ -10890,15 +10921,10 @@ experimental domain Preload
       BatterySaverEnabled
       ActivatedDuringMainFrameNavigation
       PreloadingUnsupportedByWebContents
-      CrossSiteRedirectInMainFrameNavigation
-      CrossSiteNavigationInMainFrameNavigation
-      SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation
-      SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation
 
   # Fired when a prerender attempt is completed.
   event prerenderAttemptCompleted
     parameters
-      PreloadingAttemptKey key
       # The frame id of the frame initiating prerendering.
       Page.FrameId initiatingFrameId
       string prerenderingUrl
@@ -10922,7 +10948,6 @@ experimental domain Preload
   # Fired when a prefetch attempt is updated.
   event prefetchStatusUpdated
     parameters
-      PreloadingAttemptKey key
       # The frame id of the frame initiating prefetch.
       Page.FrameId initiatingFrameId
       string prefetchUrl
@@ -10931,27 +10956,18 @@ experimental domain Preload
   # Fired when a prerender attempt is updated.
   event prerenderStatusUpdated
     parameters
-      PreloadingAttemptKey key
       # The frame id of the frame initiating prerender.
       Page.FrameId initiatingFrameId
       string prerenderingUrl
       PreloadingStatus status
 
-  # Send a list of sources for all preloading attempts in a document.
+  # Send a list of sources for all preloading attempts.
   event preloadingAttemptSourcesUpdated
     parameters
-      Network.LoaderId loaderId
       array of PreloadingAttemptSource preloadingAttemptSources
 
 # This domain allows interacting with the FedCM dialog.
 experimental domain FedCm
-  # Whether this is a sign-up or sign-in action for this account, i.e.
-  # whether this account has ever been used to sign in to this RP before.
-  type LoginState extends string
-    enum
-      SignIn
-      SignUp
-
   # Corresponds to IdentityRequestAccount
   type Account extends object
     properties
@@ -10961,31 +10977,10 @@ experimental domain FedCm
       string givenName
       string pictureUrl
       string idpConfigUrl
-      string idpSigninUrl
-      LoginState loginState
-      # These two are only set if the loginState is signUp
-      optional string termsOfServiceUrl
-      optional string privacyPolicyUrl
 
   event dialogShown
     parameters
-      string dialogId
       array of Account accounts
 
   command enable
-    parameters
-      # Allows callers to disable the promise rejection delay that would
-      # normally happen, if this is unimportant to what's being tested.
-      # (step 4 of https://fedidcg.github.io/FedCM/#browser-api-rp-sign-in)
-      optional boolean disableRejectionDelay
-
   command disable
-
-  command selectAccount
-    parameters
-      string dialogId
-      integer accountIndex
-
-  command dismissDialog
-    parameters
-      string dialogId
