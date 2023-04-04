@@ -1096,7 +1096,7 @@ export class NetworkRequestNode extends NetworkNode {
         const secondIconElement = document.createElement('img');
         secondIconElement.classList.add('icon');
         secondIconElement.alt = i18nString(UIStrings.webBundleInnerRequest);
-        secondIconElement.src = new URL('../../Images/ic_file_webbundle_inner_request.svg', import.meta.url).toString();
+        secondIconElement.src = new URL('../../Images/bundle.svg', import.meta.url).toString();
 
         const networkManager = SDK.NetworkManager.NetworkManager.forRequest(this.requestInternal);
         if (webBundleInnerRequestInfo.bundleRequestId && networkManager) {
