@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fdc9b8c_367ec229",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-04T21:44:52Z",
+      "side": 1,
+      "message": "nit: if we currently don\u0027t have a tracking issue for anchor positioning support in DevTools, we should probably create one and put it here.",
+      "revId": "e373db1c01db1b23a6922941b4cc4a171fec0ee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7774e5_3bc784f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-04T21:44:52Z",
+      "side": 1,
+      "message": "I\u0027ll review carefully tomorrow :)",
+      "revId": "e373db1c01db1b23a6922941b4cc4a171fec0ee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
