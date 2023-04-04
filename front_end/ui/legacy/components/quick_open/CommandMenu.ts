@@ -139,7 +139,7 @@ export class CommandMenu {
     const shortcut = UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction(action.id()) || '';
 
     return CommandMenu.createCommand({
-      category: category,
+      category: UI.ActionRegistration.getLocalizedActionCategory(action.category()),
       keys: action.tags() || '',
       title: action.title() || '',
       shortcut,
