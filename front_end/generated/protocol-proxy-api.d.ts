@@ -54,6 +54,8 @@ declare namespace ProtocolProxyApi {
 
     IO: IOApi;
 
+    OriginPrivateFileSystem: OriginPrivateFileSystemApi;
+
     IndexedDB: IndexedDBApi;
 
     Input: InputApi;
@@ -152,6 +154,8 @@ declare namespace ProtocolProxyApi {
     HeadlessExperimental: HeadlessExperimentalDispatcher;
 
     IO: IODispatcher;
+
+    OriginPrivateFileSystem: OriginPrivateFileSystemDispatcher;
 
     IndexedDB: IndexedDBDispatcher;
 
@@ -1498,6 +1502,21 @@ declare namespace ProtocolProxyApi {
 
   }
   export interface IODispatcher {
+  }
+
+  export interface OriginPrivateFileSystemApi {
+    invoke_refreshDirectory(params: Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_renameDirectory(params: Protocol.OriginPrivateFileSystem.RenameDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteDirectory(params: Protocol.OriginPrivateFileSystem.DeleteDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_saveAs(params: Protocol.OriginPrivateFileSystem.SaveAsRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteFile(params: Protocol.OriginPrivateFileSystem.DeleteFileRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+  }
+  export interface OriginPrivateFileSystemDispatcher {
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
@@ -3019,6 +3038,16 @@ declare namespace ProtocolProxyApi {
      */
     invoke_setSharedStorageTracking(params: Protocol.Storage.SetSharedStorageTrackingRequest): Promise<Protocol.ProtocolResponseWithError>;
 
+    /**
+     * Set tracking for a storage key's buckets.
+     */
+    invoke_setStorageBucketTracking(params: Protocol.Storage.SetStorageBucketTrackingRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Deletes the Storage Bucket with the given storage key and bucket name.
+     */
+    invoke_deleteStorageBucket(params: Protocol.Storage.DeleteStorageBucketRequest): Promise<Protocol.ProtocolResponseWithError>;
+
   }
   export interface StorageDispatcher {
     /**
@@ -3653,6 +3682,12 @@ declare namespace ProtocolProxyApi {
     invoke_selectAccount(params: Protocol.FedCm.SelectAccountRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     invoke_dismissDialog(params: Protocol.FedCm.DismissDialogRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Resets the cooldown time, if any, to allow the next FedCM call to show
+     * a dialog even if one was recently dismissed by the user.
+     */
+    invoke_resetCooldown(): Promise<Protocol.ProtocolResponseWithError>;
 
   }
   export interface FedCmDispatcher {

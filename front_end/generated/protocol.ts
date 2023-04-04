@@ -1038,6 +1038,7 @@ export namespace Audits {
     errorType: GenericIssueErrorType;
     frameId?: Page.FrameId;
     violatingNodeId?: DOM.BackendNodeId;
+    violatingNodeAttribute?: string;
   }
 
   /**
@@ -5750,6 +5751,118 @@ export namespace IO {
      * UUID of the specified Blob.
      */
     uuid: string;
+  }
+}
+
+export namespace OriginPrivateFileSystem {
+
+  export interface Directory {
+    /**
+     * Directory name.
+     */
+    name: string;
+    /**
+     * Directories nested directly in this directory.
+     */
+    directories: Directory[];
+    /**
+     * Files nested directly in this directory.
+     */
+    files: File[];
+  }
+
+  export interface File {
+    /**
+     * File name.
+     */
+    name: string;
+    /**
+     * Last Modified date.
+     */
+    lastModified: number;
+    /**
+     * The size of the file in bytes.
+     */
+    size: number;
+    /**
+     * The mime type of the file.
+     */
+    mimeType: string;
+  }
+
+  export interface RefreshDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface RenameDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory name.
+     */
+    name: string;
+  }
+
+  export interface DeleteDirectoryRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * Directory path.
+     */
+    path: string;
+  }
+
+  export interface SaveAsRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
+  }
+
+  export interface DeleteFileRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+    /**
+     * Bucket Id.
+     */
+    bucketId: string;
+    /**
+     * File path.
+     */
+    path: string;
   }
 }
 
@@ -12924,6 +13037,7 @@ export namespace Storage {
     Cache_storage = 'cache_storage',
     Interest_groups = 'interest_groups',
     Shared_storage = 'shared_storage',
+    Storage_buckets = 'storage_buckets',
     All = 'all',
     Other = 'other',
   }
@@ -13102,6 +13216,25 @@ export namespace Storage {
      * SharedStorageAccessType.workletSet.
      */
     ignoreIfPresent?: boolean;
+  }
+
+  export const enum StorageBucketsDurability {
+    Relaxed = 'relaxed',
+    Strict = 'strict',
+  }
+
+  export interface StorageBucketInfo {
+    storageKey: SerializedStorageKey;
+    id: string;
+    name: string;
+    isDefault: boolean;
+    expiration: Network.TimeSinceEpoch;
+    /**
+     * Storage quota (bytes).
+     */
+    quota: number;
+    persistent: boolean;
+    durability: StorageBucketsDurability;
   }
 
   export interface GetStorageKeyForFrameRequest {
@@ -13335,6 +13468,16 @@ export namespace Storage {
 
   export interface SetSharedStorageTrackingRequest {
     enable: boolean;
+  }
+
+  export interface SetStorageBucketTrackingRequest {
+    storageKey: string;
+    enable: boolean;
+  }
+
+  export interface DeleteStorageBucketRequest {
+    storageKey: string;
+    bucketName: string;
   }
 
   /**
@@ -15575,11 +15718,18 @@ export namespace FedCm {
 
   export interface DismissDialogRequest {
     dialogId: string;
+    triggerCooldown?: boolean;
   }
 
   export interface DialogShownEvent {
     dialogId: string;
     accounts: Account[];
+    /**
+     * These exist primarily so that the caller can verify the
+     * RP context was used appropriately.
+     */
+    title: string;
+    subtitle?: string;
   }
 }
 
