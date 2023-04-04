@@ -68,8 +68,8 @@ export interface PermissionsPolicySectionData {
 }
 
 export function renderIconLink(
-    iconName: string, title: Platform.UIString.LocalizedString, clickHandler: (() => void)|(() => Promise<void>),
-    size: number = 16): LitHtml.TemplateResult {
+    iconName: string, title: Platform.UIString.LocalizedString,
+    clickHandler: (() => void)|(() => Promise<void>)): LitHtml.TemplateResult {
   // Disabled until https://crbug.com/1079231 is fixed.
   // clang-format off
   return LitHtml.html`
@@ -77,8 +77,8 @@ export function renderIconLink(
       <${IconButton.Icon.Icon.litTagName} .data=${{
         iconName: iconName,
         color: 'var(--icon-link)',
-        width: `${size}px`,
-        height: `${size}px`,
+        width: '20px',
+        height: '20px',
       } as IconButton.Icon.IconData}>
       </${IconButton.Icon.Icon.litTagName}>
     </button>
@@ -192,9 +192,9 @@ export class PermissionsPolicySection extends HTMLElement {
           <div class="block-reason">${blockReasonText}</div>
           <div>
             ${
-          linkTargetDOMNode ? renderIconLink(
+          linkTargetRequest ? renderIconLink(
                                   'code-circle', i18nString(UIStrings.clickToShowIframe),
-                                  (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode), 20) :
+                                  (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode)) :
                               LitHtml.nothing}
             ${
           linkTargetRequest ? renderIconLink(
