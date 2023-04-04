@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e82bbf_a5ac070a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:07:24Z",
+      "side": 1,
+      "message": "typo: \u0027user in other\u0027",
+      "range": {
+        "startLine": 10,
+        "startChar": 58,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3ae01c4d_1c015042",
@@ -14,6 +37,92 @@
       "writtenOn": "2023-04-02T21:21:22Z",
       "side": 1,
       "message": "I am not sure if the descriptions I created in the UIStrings in ViewRegistration.ts are precise enough. Please let me know if any of them does not look right to you. Thank you.",
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "066b33ab_c04d026b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:07:24Z",
+      "side": 1,
+      "message": "Thanks! Looks mostly good. Some comments on how we could improve the type-safety even further :)",
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02827656_e05f23bc",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:07:24Z",
+      "side": 1,
+      "message": "We have some guidance for how to write good descriptions here: https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/docs/l10n.md#how-to-write-good-descriptions\n\nI would change these descriptions (here and below) to something like:\n\n\"Badge label for an entry in the Quick Open menu. Selecting the entry opens the \u0027Elements\u0027 panel\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c275ff0_58484726",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:07:24Z",
+      "side": 1,
+      "message": "we could use `i18n.i18n.lockedString` here to always return a `LocalizedString`.",
+      "range": {
+        "startLine": 231,
+        "startChar": 13,
+        "endLine": 231,
+        "endChar": 15
+      },
+      "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27913117_1d28dd78",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-04T06:07:24Z",
+      "side": 1,
+      "message": "Could you try and see if we can type this as `ViewLocationCategory` instead. And also change the type of `RevealViewCommandOptions#category`. Then we wouldn\u0027t need the \"as\" cast above.",
+      "range": {
+        "startLine": 152,
+        "startChar": 65,
+        "endLine": 152,
+        "endChar": 71
+      },
       "revId": "c9fe04e0144039248030997820fe7d5ac11712f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
