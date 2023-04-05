@@ -22,6 +22,30 @@
       },
       "revId": "b7e2d3b3b35620937b093096aa1e0bea0ab13c8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e05a7f71_f50b9a18",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1566687
+      },
+      "writtenOn": "2023-04-05T08:43:26Z",
+      "side": 1,
+      "message": "@szuend@chromium.org Agree😎 Done and pushed.",
+      "parentUuid": "d85b8ae9_7c621613",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 14
+      },
+      "revId": "b7e2d3b3b35620937b093096aa1e0bea0ab13c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
