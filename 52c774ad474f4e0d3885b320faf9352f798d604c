@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c69ff7c_84c05449",
+        "filename": "third_party/blink/renderer/core/frame/deprecation/deprecation.json5",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-04-05T09:47:15Z",
+      "side": 1,
+      "message": "Please don’t make fun of me for this 😄 but… this is technically a regression. Chrome UI strings (incl. strings used in DevTools) must follow go/punctuation-standards, including proper use of curly quotes and apostrophes. From the context of this CL, I gather that this was done to avoid having to deal with escaping for non-ASCII characters — but the good news is, I think we can fix all that, and even remove the need for custom escaping logic!\n\nCL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4402896\n\nOnce this goes in, we should be able to restore the proper punctuation marks here without issues.",
+      "revId": "52c774ad474f4e0d3885b320faf9352f798d604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
