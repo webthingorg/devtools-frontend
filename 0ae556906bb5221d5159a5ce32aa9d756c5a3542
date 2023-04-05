@@ -33,6 +33,23 @@
       "message": "lgtm, but also wait for Jaro :)",
       "revId": "0ae556906bb5221d5159a5ce32aa9d756c5a3542",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48147a98_213c6a82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-04-05T07:51:52Z",
+      "side": 1,
+      "message": "LGTM whichever way you decide to go.",
+      "revId": "0ae556906bb5221d5159a5ce32aa9d756c5a3542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
