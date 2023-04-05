@@ -309,7 +309,7 @@ export function collectStackTraces(
   const tree = makeEmptyProfileTree();
 
   for (const chunk of chunks) {
-    const cpuProfile = chunk.args.data.cpuProfile;
+    const cpuProfile = chunk.args.data?.cpuProfile;
     if (!cpuProfile) {
       continue;
     }
