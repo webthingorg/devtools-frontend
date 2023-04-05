@@ -46,7 +46,7 @@ import * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Emulation from '../emulation/emulation.js';
-
+import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as ElementsComponents from './components/components.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsPanel} from './ElementsPanel.js';
@@ -243,6 +243,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
   private contentElement: HTMLElement;
+  #elementIssues: Array<IssuesManager.GenericIssue.GenericIssue> = [];
 
   readonly tagTypeContext: TagTypeContext;
 
@@ -420,11 +421,32 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
-  highlightTagAsViolating(): void {
+  addIssue(newIssue: IssuesManager.GenericIssue.GenericIssue): void {
+    for (const currentIssue of this.#elementIssues) {
+      if (newIssue.primaryKey() === currentIssue.primaryKey()) {
+        return;
+      }
+    }
+
+    this.#elementIssues.push(newIssue);
+    this.#applyIssueStyleAndTooltip(newIssue);
+  }
+
+  #applyIssueStyleAndTooltip(issue: IssuesManager.GenericIssue.GenericIssue): void {
+    const issueDetails = issue.details();
+
+    if (issueDetails.violatingNodeAttribute) {
+      this.#highlightViolatingAttr(issueDetails.violatingNodeAttribute);
+    } else {
+      this.#highlightTagAsViolating();
+    }
+  }
+
+  #highlightTagAsViolating(): void {
     this.listItemElement.getElementsByClassName('webkit-html-tag-name')[0].classList.add('violating-element');
   }
 
-  highlightViolatingAttr(name: string): void {
+  #highlightViolatingAttr(name: string): void {
     const tag = this.listItemElement.getElementsByClassName('webkit-html-tag')[0];
     const attributes = tag.getElementsByClassName('webkit-html-attribute');
     for (const attribute of attributes) {
@@ -1350,6 +1372,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       if (this.selected) {
         this.createSelection();
         this.createHint();
+      }
+
+      // If there is an issue with this node, make sure to update it.
+      for (const issue of this.#elementIssues) {
+        this.#applyIssueStyleAndTooltip(issue);
       }
     }
 
