@@ -235,6 +235,7 @@ export class TimelineModelImpl {
   isMarkerEvent(event: SDK.TracingModel.Event): boolean {
     switch (event.name) {
       case RecordType.TimeStamp:
+      case RecordType.LayoutShift:
         return true;
       case RecordType.MarkFirstPaint:
       case RecordType.MarkFCP:
@@ -383,20 +384,6 @@ export class TimelineModelImpl {
     this.minimumRecordTimeInternal = tracingModel.minimumRecordTime();
     this.maximumRecordTimeInternal = tracingModel.maximumRecordTime();
 
-    // Remove LayoutShift events from the main thread list of events because they are
-    // represented in the experience track. This is done prior to the main thread being processed for its own events.
-    const layoutShiftEvents = [];
-    for (const process of tracingModel.sortedProcesses()) {
-      if (process.name() !== 'Renderer') {
-        continue;
-      }
-
-      for (const thread of process.sortedThreads()) {
-        const shifts = thread.removeEventsByName(RecordType.LayoutShift);
-        layoutShiftEvents.push(...shifts);
-      }
-    }
-
     this.processSyncBrowserEvents(tracingModel);
     if (this.browserFrameTracking) {
       this.processThreadsForBrowserFrames(tracingModel);
@@ -415,7 +402,7 @@ export class TimelineModelImpl {
     this.processAsyncBrowserEvents(tracingModel);
     this.buildGPUEvents(tracingModel);
     this.buildTimings();
-    this.buildLoadingEvents(tracingModel, layoutShiftEvents);
+    // this.buildLoadingEvents(tracingModel);
     this.collectInteractionEvents(tracingModel);
     this.resetProcessingState();
   }
@@ -478,7 +465,7 @@ export class TimelineModelImpl {
     for (const track of this.tracks()) {
       if (track.type === TrackType.MainThread) {
         for (const event of track.events) {
-          if (this.isUserTimingEvent(event) || this.isConsoleTimestampEvent(event)) {
+          if (this.isUserTimingEvent(event) || this.isConsoleTimestampEvent(event) || this.isLayoutShiftEvent(event)) {
             if (IgnoreNames.includes(event.name)) {
               continue;
             }
@@ -811,8 +798,7 @@ export class TimelineModelImpl {
         thread.events().filter(event => event.name === gpuEventName);
   }
 
-  private buildLoadingEvents(tracingModel: SDK.TracingModel.TracingModel, layoutShiftEvents: SDK.TracingModel.Event[]):
-      void {
+  private buildLoadingEvents(tracingModel: SDK.TracingModel.TracingModel): void {
     const thread = tracingModel.getThreadByName('Renderer', 'CrRendererMain');
     if (!thread) {
       return;

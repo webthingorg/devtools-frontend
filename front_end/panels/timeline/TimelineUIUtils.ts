@@ -1831,10 +1831,10 @@ export class TimelineUIUtils {
 
     const recordTypes = TimelineModel.TimelineModel.RecordType;
 
-    if (event.name === recordTypes.LayoutShift) {
-      // Ensure that there are no pie charts or extended info for layout shifts.
-      detailed = false;
-    }
+    // if (event.name === recordTypes.LayoutShift) {
+    //   // Ensure that there are no pie charts or extended info for layout shifts.
+    //   detailed = false;
+    // }
 
     // This message may vary per event.name;
     let relatedNodeLabel;

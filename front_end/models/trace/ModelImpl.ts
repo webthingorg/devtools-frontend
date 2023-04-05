@@ -26,6 +26,8 @@ export const ENABLED_TRACE_HANDLERS = {
   UserTimings: Handlers.ModelHandlers.UserTimings,
   PageLoadMetrics: Handlers.ModelHandlers.PageLoadMetrics,
   UserInteractions: Handlers.ModelHandlers.UserInteractions,
+  LayoutShifts: Handlers.ModelHandlers.LayoutShifts,
+  Screenshots: Handlers.ModelHandlers.Screenshots,  // dep of LayoutShifts
   GPU: Handlers.ModelHandlers.GPU,
 };
 export type PartialTraceParseDataDuringMigration =
