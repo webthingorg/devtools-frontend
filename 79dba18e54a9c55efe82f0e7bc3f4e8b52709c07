@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875efcf8_4647970d",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-05T10:59:09Z",
+      "side": 1,
+      "message": "Note that this CL revealed that our metrics collection is slightly broken here: It only works for en-US, in other languages `title` is translated.\n\n@Wolfgang: Do we still need this metric or do we need to find a fix here?",
+      "range": {
+        "startLine": 80,
+        "startChar": 3,
+        "endLine": 80,
+        "endChar": 34
+      },
+      "revId": "79dba18e54a9c55efe82f0e7bc3f4e8b52709c07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
