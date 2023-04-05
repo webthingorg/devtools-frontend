@@ -390,8 +390,9 @@ export class BreakpointsView extends HTMLElement {
     <button data-edit-breakpoint @click=${clickHandler} title=${title}>
     <${IconButton.Icon.Icon.litTagName} .data=${{
         iconName: 'edit-icon',
-        width: '14px',
-        color: 'var(--color-text-secondary)',
+        width: '20px',
+        height: '20px',
+        color: 'var(--icon-default)',
       } as IconButton.Icon.IconData}
       }>
       </${IconButton.Icon.Icon.litTagName}>
