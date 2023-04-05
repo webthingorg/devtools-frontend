@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nI\u0027m updating the close button in the BreakpointView, ptal!",
       "revId": "b0113ab74716c29a8a224b24bcf06958ae533386",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac18a6c7_eac9e2f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-05T07:51:54Z",
+      "side": 1,
+      "message": "Oh my bad, I forgot that I need to update the color too. Let me fix that.",
+      "revId": "b0113ab74716c29a8a224b24bcf06958ae533386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
