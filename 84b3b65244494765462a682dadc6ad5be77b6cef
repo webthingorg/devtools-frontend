@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dba2dc5_778808bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T12:26:32Z",
+      "side": 1,
+      "message": "still lgtm!",
+      "revId": "84b3b65244494765462a682dadc6ad5be77b6cef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a6a2879_9af1fca0",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T12:26:32Z",
+      "side": 1,
+      "message": "we should not change it, but wow this is a lot of arguments!",
+      "range": {
+        "startLine": 150,
+        "startChar": 35,
+        "endLine": 150,
+        "endChar": 53
+      },
+      "revId": "84b3b65244494765462a682dadc6ad5be77b6cef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
