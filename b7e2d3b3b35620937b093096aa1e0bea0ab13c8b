@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d85b8ae9_7c621613",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-05T07:09:42Z",
+      "side": 1,
+      "message": "With the other CLs landed, I think we could type `category` here as a `LocalizedString` now. That would make it super clear :)",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 14
+      },
+      "revId": "b7e2d3b3b35620937b093096aa1e0bea0ab13c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
