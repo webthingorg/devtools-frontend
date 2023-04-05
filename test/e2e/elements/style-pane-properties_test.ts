@@ -55,9 +55,9 @@ const deletePropertyByBackspace = async (selector: string, root?: puppeteer.Elem
 };
 
 describe('The Styles pane', async () => {
-  // Flaky test.
-  it.skipOnPlatforms(
-      ['win32', 'linux'], '[crbug.com/1377761] can display the CSS properties of the selected element', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only(
+      'can display the CSS properties of the selected element', async () => {
         await goToResourceAndWaitForStyleSection('elements/simple-styled-page.html');
 
         const onH1RuleAppeared = waitForStyleRule('h1');
