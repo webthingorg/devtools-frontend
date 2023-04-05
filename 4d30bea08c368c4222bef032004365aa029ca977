@@ -39,6 +39,30 @@
       },
       "revId": "4d30bea08c368c4222bef032004365aa029ca977",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d0f429_7f45ab4c",
+        "filename": "front_end/panels/sources/components/BreakpointsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-05T08:26:08Z",
+      "side": 1,
+      "message": "It definitely looks better. I was already wondering about that, but it wasn\u0027t mentioned in the \u0027irregular sizes\u0027 doc. Ok, good to know that we can still adjust the sizes here :). I\u0027ve updated the code and the screenshot!",
+      "parentUuid": "95392030_973e937a",
+      "range": {
+        "startLine": 393,
+        "startChar": 8,
+        "endLine": 394,
+        "endChar": 23
+      },
+      "revId": "4d30bea08c368c4222bef032004365aa029ca977",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
