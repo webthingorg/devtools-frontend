@@ -411,8 +411,9 @@ export class BreakpointsView extends HTMLElement {
     return LitHtml.html`
     <button data-remove-breakpoint @click=${clickHandler} title=${tooltipText} aria-label=${tooltipText}>
     <${IconButton.Icon.Icon.litTagName} .data=${{
-        iconName: 'close-icon',
-        width: '10px',
+        iconName: 'cross',
+        width: '20px',
+        height: '20px',
         color: 'var(--color-text-secondary)',
       } as IconButton.Icon.IconData}
       }>
