@@ -50,7 +50,11 @@ import {BreakpointEditDialog, type BreakpointEditDialogResult} from './Breakpoin
 import {Plugin} from './Plugin.js';
 import {ScriptFormatterEditorAction} from './ScriptFormatterEditorAction.js';
 import {SourcesPanel} from './SourcesPanel.js';
+<<<<<<< HEAD   (e4ccf4 [uma] Merged: Add UMA data to track removing/enabling/disabl)
 import {getRegisteredEditorActions} from './SourcesView.js';
+=======
+import {BreakpointsSidebarController} from './BreakpointsSidebarPane.js';
+>>>>>>> CHANGE (0bd17e [uma] Adding uma data to the BreakpointEditDialog)
 
 const {EMPTY_BREAKPOINT_CONDITION, NEVER_PAUSE_HERE_CONDITION} = Bindings.BreakpointManager;
 
@@ -825,9 +829,10 @@ export class DebuggerPlugin extends Plugin {
       dialog.detach();
       editor.dispatch({effects: compartment.reconfigure([])});
       if (!result.committed) {
+        BreakpointsSidebarController.instance().breakpointEditFinished(breakpoint, false);
         return;
       }
-
+      BreakpointsSidebarController.instance().breakpointEditFinished(breakpoint, oldCondition !== result.condition);
       recordBreakpointWithConditionAdded(result);
       if (breakpoint) {
         breakpoint.setCondition(result.condition, result.isLogpoint);
@@ -856,6 +861,7 @@ export class DebuggerPlugin extends Plugin {
     dialog.focusEditor();
     this.activeBreakpointDialog = dialog;
 
+    // This counts new conditional breakpoints or logpoints that are added.
     function recordBreakpointWithConditionAdded(result: BreakpointEditDialogResult): void {
       const {condition: newCondition, isLogpoint} = result;
       const isConditionalBreakpoint = newCondition.length !== 0 && !isLogpoint;
@@ -1631,6 +1637,8 @@ export class BreakpointLocationRevealer implements Common.Revealer.Revealer {
     const debuggerPlugin = debuggerPluginForUISourceCode.get(uiLocation.uiSourceCode);
     if (debuggerPlugin) {
       debuggerPlugin.editBreakpointLocation(breakpointLocation);
+    } else {
+      BreakpointsSidebarController.instance().breakpointEditFinished(breakpointLocation.breakpoint, false);
     }
   }
 }
