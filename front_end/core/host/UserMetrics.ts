@@ -746,9 +746,10 @@ export enum DevtoolsExperiments {
   'disableColorFormatSetting' = 69,
   'outermostTargetSelector' = 71,
   'jsProfilerTemporarilyEnable' = 72,
+  'highlightErrorsElementsPanel' = 73,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 73,
+  'MaxValue' = 74,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
