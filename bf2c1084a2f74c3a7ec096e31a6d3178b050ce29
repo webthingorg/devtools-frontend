@@ -16,6 +16,23 @@
       "message": "Hi Jaro,\n\nThis is a CL to reorder the items in the context menu of the breakpoint sidebar pane. Similar actions are now grouped together (see screenshots). PTAL!",
       "revId": "bf2c1084a2f74c3a7ec096e31a6d3178b050ce29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3debe612_f67eb8ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-04-05T07:06:08Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "bf2c1084a2f74c3a7ec096e31a6d3178b050ce29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
