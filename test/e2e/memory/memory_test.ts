@@ -178,8 +178,8 @@ describe.skipOnParallel('The Memory Panel', async function() {
             ({propertyName, retainerClassName}) => propertyName === 'aUniqueName' && retainerClassName === 'Window'));
   });
 
-  // Times out
-  it.skip('[crbug.com/1363150] Correctly shows multiple retainer paths for an object', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('Correctly shows multiple retainer paths for an object', async () => {
     await goToResource('memory/multiple-retainers.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
