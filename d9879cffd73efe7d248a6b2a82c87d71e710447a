@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86463fb3_923c8496",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-05T09:32:21Z",
+      "side": 1,
+      "message": "Ack, we now do not use this function because it turned out to be slow and flaky.",
+      "parentUuid": "1944cbc8_367c66a7",
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b284b1e1_2f4ef3d3",
@@ -82,6 +100,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45884f4b_9f6aa71f",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-05T09:32:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3cfbf686_02618d98",
+      "range": {
+        "startLine": 332,
+        "startChar": 24,
+        "endLine": 332,
+        "endChar": 26
+      },
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc591d30_a4a0f67e",
@@ -95,6 +137,24 @@
       "writtenOn": "2023-04-03T06:57:05Z",
       "side": 1,
       "message": "How terrible would it be to add a listener for `animationend` to the element instead of observing its size changes?",
+      "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7668d163_49825457",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-05T09:32:21Z",
+      "side": 1,
+      "message": "Done, we now wait for the `animationend` event.",
+      "parentUuid": "fc591d30_a4a0f67e",
       "revId": "d9879cffd73efe7d248a6b2a82c87d71e710447a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
