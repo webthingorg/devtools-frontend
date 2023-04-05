@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e992221_3c1e6374",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-05T11:20:48Z",
+      "side": 1,
+      "message": "Some comments regarding the webbundle icon (https://imgur.com/a/Jnvl4kj):\n\n- it is not blue anymore in the Network sidebar, can you please make it?\n\n- in Preview there used to be no bundle icon next to a bundle name, now I see there is, do we want that change?",
+      "revId": "84cb640a95286e3ca2bdcef9396fe9621c11680d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
