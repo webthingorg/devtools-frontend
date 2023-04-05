@@ -88,9 +88,8 @@ export class TimingsTrackAppender implements TrackAppender {
   appendTrackAtLevel(currentLevel: number, expanded?: boolean): number {
     this.#appendTrackHeaderAtLevel(currentLevel, expanded);
     let newLevel = this.#appendMarkersAtLevel(currentLevel);
-    // Add some vertical space between page load markers and user
-    // timings by appending timings 2 levels after the markers' level.
-    newLevel = this.#appendUserTimingsAtLevel(newLevel + 1);
+    newLevel = this.#appendLayoutShifts(newLevel);
+    newLevel = this.#appendUserTimingsAtLevel(newLevel);
     return this.#appendConsoleTimings(newLevel);
   }
 
@@ -180,6 +179,28 @@ export class TimingsTrackAppender implements TrackAppender {
    * @returns the next level after the last occupied by the appended
    * timings (the first available level to append more data).
    */
+  #appendLayoutShifts(currentLevel: number): number {
+    let newLevel = currentLevel;
+    const events = this.#traceParsedData.LayoutShifts.clusters.map(c => c.events).flat();
+    for (const timestamp of events) {
+      this.#appendEventAtLevel(timestamp, newLevel);
+    }
+    if (events.length !== 0) {
+      // Add console.time events on the next level, but only if the
+      // current level was used by timestamp events.
+      newLevel++;
+    }
+    return newLevel; 
+    // return this.#appendTimingsAtLevel(newLevel, this.#traceParsedData.UserTimings.consoleTimings);
+  }
+
+  /**
+   * Adds into the flame chart data the layout shifts
+   * @param currentLevel the flame chart level from which user timings will
+   * be appended.
+   * @returns the next level after the last occupied by the appended
+   * timings (the first available level to append more data).
+   */
   #appendConsoleTimings(currentLevel: number): number {
     let newLevel = currentLevel;
     for (const timestamp of this.#traceParsedData.UserTimings.timestampEvents) {
@@ -192,6 +213,7 @@ export class TimingsTrackAppender implements TrackAppender {
     }
     return this.#appendTimingsAtLevel(newLevel, this.#traceParsedData.UserTimings.consoleTimings);
   }
+
   /**
    * Adds into the flame chart data the syntetic nestable async events
    * These events are taken from the UserTimings handler from console
