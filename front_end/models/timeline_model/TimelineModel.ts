@@ -2699,6 +2699,18 @@ export class TimelineData {
   }
 
   static forEvent(event: SDK.TracingModel.Event): TimelineData {
+    if (event instanceof SDK.TracingModel.PayloadEvent) {
+      return TimelineData.forTraceEventData(event.rawPayload());
+    }
+    let data = eventToData.get(event);
+    if (!data) {
+      data = new TimelineData();
+      eventToData.set(event, data);
+    }
+    return data;
+  }
+
+  static forTraceEventData(event: TraceEngine.Types.TraceEvents.TraceEventData): TimelineData {
     let data = eventToData.get(event);
     if (!data) {
       data = new TimelineData();
@@ -2708,7 +2720,7 @@ export class TimelineData {
   }
 }
 
-const eventToData = new WeakMap();
+const eventToData = new WeakMap<SDK.TracingModel.ConstructedEvent|TraceEngine.Types.TraceEvents.TraceEventData>();
 const eventToInvalidation = new WeakMap();
 export interface InvalidationCause {
   reason: string;
