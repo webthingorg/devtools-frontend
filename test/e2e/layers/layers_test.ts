@@ -29,8 +29,7 @@ describe('The Layers Panel', async () => {
     });
   });
 
-  // Disabled due to flakiness, original regression: crbug.com/1053901
-  it.skip('[crbug.com/1111256] should update the layers view when going offline', async () => {
+  it('should update the layers view when going offline', async () => {
     const {target} = getBrowserAndPages();
     await openPanelViaMoreTools('Layers');
 
