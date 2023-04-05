@@ -110,6 +110,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "15fbc3ee_1959793e",
+        "filename": "front_end/panels/sources/BreakpointsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-05T08:56:19Z",
+      "side": 1,
+      "message": "Ok, I have chosen patchset 8 + storing the breakpoint for double checking + renaming the function to `breakpointEditFinished`. Thanks for the reviews!",
+      "parentUuid": "6ec9c5d5_a7e1b200",
+      "revId": "5a51bbbe35194a9a0f566be92c3269d66f9cab8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "15585123_d63fe0e7",
         "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
         "patchSetId": 3
