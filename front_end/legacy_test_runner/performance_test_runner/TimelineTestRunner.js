@@ -211,7 +211,9 @@ PerformanceTestRunner.printTimelineRecordsWithDetails = async function(...names)
 
 PerformanceTestRunner.walkTimelineEventTree = async function(callback) {
   const view = new Timeline.EventsTimelineTreeView(UI.panels.timeline.filters, null);
-  view.setModel(PerformanceTestRunner.performanceModel(), PerformanceTestRunner.mainTrack());
+  view.setModel(
+      PerformanceTestRunner.performanceModel(), /* traceParsedData from new trace engine*/ null,
+      PerformanceTestRunner.mainTrack());
   const selection = Timeline.TimelineSelection.fromRange(
       PerformanceTestRunner.timelineModel().minimumRecordTime(),
       PerformanceTestRunner.timelineModel().maximumRecordTime());
