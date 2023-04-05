@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502be6ae_dfd56b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:56:51Z",
+      "side": 1,
+      "message": "Do we have canonical unit tests for keyframe rules that we can use to position fallbacks? If not, should we add some in this case?",
+      "revId": "9c901cc5ad40f93b84f47839d8f013cebc795241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b396644b_c9a95cd5",
+        "filename": "front_end/core/sdk/CSSRule.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:56:51Z",
+      "side": 1,
+      "message": "Are there any benefits of having a separate class for `CSSTryRule`, other than having its own name? Do we expect to have specific fields/methods for `CSSTryRule` in the near future?",
+      "revId": "9c901cc5ad40f93b84f47839d8f013cebc795241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
