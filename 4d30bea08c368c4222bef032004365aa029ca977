@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5cf9b4_899f34de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-05T08:14:59Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nupdating the edit icon in the BreakpointsView, ptal!",
+      "revId": "4d30bea08c368c4222bef032004365aa029ca977",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
