@@ -90,7 +90,8 @@ export class CommandMenu {
     return new Command(category, title, keys, shortcut, handler, availableHandler, deprecationWarning, isPanelOrDrawer);
   }
 
-  static createSettingCommand<V>(setting: Common.Settings.Setting<V>, title: string, value: V): Command {
+  static createSettingCommand<V>(setting: Common.Settings.Setting<V>, title: Common.UIString.LocalizedString, value: V):
+      Command {
     const category = setting.category();
     if (!category) {
       throw new Error(`Creating '${title}' setting command failed. Setting has no category.`);
@@ -141,7 +142,7 @@ export class CommandMenu {
     return CommandMenu.createCommand({
       category: UI.ActionRegistration.getLocalizedActionCategory(category),
       keys: action.tags() || '',
-      title: action.title() || '',
+      title: action.title(),
       shortcut,
       executeHandler: action.execute.bind(action),
       userActionCode,
@@ -224,7 +225,7 @@ export interface ActionCommandOptions {
 
 export interface RevealViewCommandOptions {
   id: string;
-  title: string;
+  title: Common.UIString.LocalizedString;
   tags: string;
   category: UI.ViewManager.ViewLocationCategory;
   userActionCode?: number;
@@ -233,7 +234,7 @@ export interface RevealViewCommandOptions {
 export interface CreateCommandOptions {
   category: Platform.UIString.LocalizedString;
   keys: string;
-  title: string;
+  title: Common.UIString.LocalizedString;
   shortcut: string;
   executeHandler: () => void;
   availableHandler?: () => boolean;
@@ -372,8 +373,8 @@ export const MaterialPaletteColors = [
 ];
 
 export class Command {
-  readonly category: string;
-  readonly title: string;
+  readonly category: Common.UIString.LocalizedString;
+  readonly title: Common.UIString.LocalizedString;
   readonly key: string;
   readonly shortcut: string;
   readonly deprecationWarning?: Platform.UIString.LocalizedString;
@@ -383,9 +384,9 @@ export class Command {
   readonly #availableHandler?: () => boolean;
 
   constructor(
-      category: string, title: string, key: string, shortcut: string, executeHandler: () => void,
-      availableHandler?: () => boolean, deprecationWarning?: Platform.UIString.LocalizedString,
-      isPanelOrDrawer?: PanelOrDrawer) {
+      category: Common.UIString.LocalizedString, title: Common.UIString.LocalizedString, key: string, shortcut: string,
+      executeHandler: () => void, availableHandler?: () => boolean,
+      deprecationWarning?: Platform.UIString.LocalizedString, isPanelOrDrawer?: PanelOrDrawer) {
     this.category = category;
     this.title = title;
     this.key = category + '\0' + title + '\0' + key;
