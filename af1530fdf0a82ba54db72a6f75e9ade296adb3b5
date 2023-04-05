@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "af1530fdf0a82ba54db72a6f75e9ade296adb3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b775779a_9034348d",
+        "filename": "third_party/blink/renderer/core/frame/deprecation/deprecation.json5",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-04-05T09:35:37Z",
+      "side": 1,
+      "message": "Upstream CL for this change: https://chromium-review.googlesource.com/c/chromium/src/+/4401593",
+      "revId": "af1530fdf0a82ba54db72a6f75e9ade296adb3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
