@@ -246,8 +246,8 @@ describe.skipOnParallel('The Memory Panel', async function() {
     assert.isTrue(childText[1].includes('inEventListener'));
   });
 
-  // Flaky test causing build failures
-  it.skip('[crbug.com/1239550] Shows the correct output for a detached iframe', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('Shows the correct output for a detached iframe', async () => {
     await goToResource('memory/detached-iframe.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
