@@ -16,6 +16,23 @@
       "message": "Ok, now ready for review 😊",
       "revId": "2b1e4ceaf7113b254014cc3c96ddc41c44157c8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8c40ec2_5fbc3089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-05T08:13:11Z",
+      "side": 1,
+      "message": "LGTM, thanks, Kim!:)",
+      "revId": "2b1e4ceaf7113b254014cc3c96ddc41c44157c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
