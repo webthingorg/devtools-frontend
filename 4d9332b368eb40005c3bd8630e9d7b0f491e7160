@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ebe92dab_27a172d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T14:22:22Z",
+      "side": 1,
+      "message": "Ah yeah sorry not sure why I wrote DCL. Updated the commit message.",
+      "parentUuid": "8c2b21c0_e095acb4",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2ec4282c_477fd781",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a070277_b0ece9e1",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3537,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T14:22:22Z",
+      "side": 1,
+      "message": "Agree, I think it would be nice to have it only take the trace data and the event, and wrap all the other logic up inside. I will explore in a follow up.",
+      "parentUuid": "07fa06db_6a217bc1",
+      "range": {
+        "startLine": 3537,
+        "startChar": 59,
+        "endLine": 3537,
+        "endChar": 85
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fcef875_25c4b713",
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "932ad74c_19cfb650",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T14:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fcef875_25c4b713",
+      "range": {
+        "startLine": 112,
+        "startChar": 48,
+        "endLine": 112,
+        "endChar": 59
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8b33de0_5e7a76cf",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-04-05T12:19:58Z",
       "side": 1,
       "message": "out of curiosity: are we adjusting timestamps for this type of events in the panel?",
+      "range": {
+        "startLine": 154,
+        "startChar": 33,
+        "endLine": 154,
+        "endChar": 50
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78b73b9_c10b2276",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-05T14:22:22Z",
+      "side": 1,
+      "message": "Not yet - but I think we will (crbug.com/1426762). For this test I just wanted some event which was explicitly not a page metric marker. I will adjust the it() description to make that clearer.",
+      "parentUuid": "a8b33de0_5e7a76cf",
       "range": {
         "startLine": 154,
         "startChar": 33,
