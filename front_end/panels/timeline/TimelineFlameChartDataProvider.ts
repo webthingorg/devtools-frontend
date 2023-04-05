@@ -688,7 +688,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         }
       }
 
-      if (this.legacyPerformanceModel && this.legacyPerformanceModel.timelineModel().isLayoutShiftEvent(e)) {
+      if (this.legacyPerformanceModel && false && this.legacyPerformanceModel.timelineModel().isLayoutShiftEvent(e)) {
         // TODO(crbug.com/1386091) this check should happen at the model level.
         // Expand layout shift events to the size of the frame in which it is situated.
         for (const frame of this.legacyPerformanceModel.frames()) {
@@ -882,7 +882,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       }
       warning = TimelineUIUtils.eventWarning(event);
 
-      if (this.legacyTimelineModel && this.legacyTimelineModel.isLayoutShiftEvent(event)) {
+      if (this.legacyTimelineModel && false && this.legacyTimelineModel.isLayoutShiftEvent(event)) {
         // TODO: Update this to be dynamic when the trace data supports it.
         const occurrences = 1;
         time = i18nString(UIStrings.occurrencesS, {PH1: occurrences});
