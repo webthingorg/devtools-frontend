@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2176725_6aa351e4",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "+1; I would also suggest to refine the lifecycle.",
+      "parentUuid": "0d7d3c60_fe496c9b",
+      "revId": "ced417e55bf6e31e1986d174dc914124c39ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecb057d_bf813b1c",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 3

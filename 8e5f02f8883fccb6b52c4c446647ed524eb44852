@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b66f3b6e_6c0d8ace",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "I think you would need to set the `disable_third_party_check` or something like that on the commit message to be able to have protocol changes and regular changes on the same CL. I\u0027ll let CQ decide if this will pass.",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efff22ee_081b173e",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "nit: if you\u0027re not set on this name, we could shorten this to be something like `HIGHLIGHT_ERRORS_ELEMENTS_PANEL`. This is what\u0027s being gated anyways.",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e483da6_fcd46838",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "nit: `Highlightes` -\u003e `Highlights`",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3393538f_1a0e1890",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "Let\u0027s be more specific in the description here: `Highlights violating node or attribute in the Elements panel DOM tree`, or something like this to point out where the highlights would be.",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4534a40_54de6d1e",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `for of`, e.g.\n```\nfor (const attribute of attributes) {\n  ...\n}\n```",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbfe522_5b18a5c0",
+        "filename": "test/e2e/elements/violating-element-and-attributes_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "nit: traditionally we don\u0027t capitalize the test name.",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6439fcb5_c7f757b1",
+        "filename": "test/e2e/resources/elements/form-with-issues.html",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-05T08:47:12Z",
+      "side": 1,
+      "message": "nit: 2020 -\u003e 2023",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
