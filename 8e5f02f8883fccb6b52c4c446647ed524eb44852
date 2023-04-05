@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb074a7_f4924f83",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efff22ee_081b173e",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e483da6_fcd46838",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-04-05T08:47:12Z",
       "side": 1,
       "message": "nit: `Highlightes` -\u003e `Highlights`",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5689a54c_df9c5233",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e483da6_fcd46838",
       "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c62ee38a_ed1b0596",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3393538f_1a0e1890",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4534a40_54de6d1e",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-04-05T08:47:12Z",
       "side": 1,
       "message": "nit: let\u0027s use `for of`, e.g.\n```\nfor (const attribute of attributes) {\n  ...\n}\n```",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4921a604_fc17f719",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4534a40_54de6d1e",
       "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3c57a5_e06a030e",
+        "filename": "test/e2e/elements/violating-element-and-attributes_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddbfe522_5b18a5c0",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6439fcb5_c7f757b1",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-04-05T08:47:12Z",
       "side": 1,
       "message": "nit: 2020 -\u003e 2023",
+      "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb37a4b_18e5ccf4",
+        "filename": "test/e2e/resources/elements/form-with-issues.html",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6439fcb5_c7f757b1",
       "revId": "8e5f02f8883fccb6b52c4c446647ed524eb44852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

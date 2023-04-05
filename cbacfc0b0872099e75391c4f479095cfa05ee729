@@ -210,6 +210,30 @@
       },
       "revId": "cbacfc0b0872099e75391c4f479095cfa05ee729",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e16815fe_a26fea60",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-05T12:44:49Z",
+      "side": 1,
+      "message": "updateTitle internally calls nodeTitleInfo which recreates the tag name and attributes. \n\nHowever I do see this now as wrong since updateTitle is called from other places as well, so it does not catch every update. I suggest keeping the issues inside ElementsTreeElement as a state variable so that from inside updateTitle we can check if issues exist and re-apply them. I can add this in a follow up.",
+      "parentUuid": "73f197d0_062e06ae",
+      "range": {
+        "startLine": 1209,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 108
+      },
+      "revId": "cbacfc0b0872099e75391c4f479095cfa05ee729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
