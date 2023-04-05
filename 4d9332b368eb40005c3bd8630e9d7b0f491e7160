@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2b21c0_e095acb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-05T12:19:58Z",
+      "side": 1,
+      "message": "I think tis works for",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2ec4282c_477fd781",
@@ -14,6 +37,92 @@
       "writtenOn": "2023-04-05T09:03:36Z",
       "side": 1,
       "message": "PTAL.",
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df239f75_f316d2d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-05T12:19:58Z",
+      "side": 1,
+      "message": "LGTM with nits/questions",
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07fa06db_6a217bc1",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3537,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-05T12:19:58Z",
+      "side": 1,
+      "message": "nit: could we make this helper more robust to be able to get the navigationId more generally? (not blocking for this CL)",
+      "range": {
+        "startLine": 3537,
+        "startChar": 59,
+        "endLine": 3537,
+        "endChar": 85
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcef875_25c4b713",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-05T12:19:58Z",
+      "side": 1,
+      "message": "typo: navigations",
+      "range": {
+        "startLine": 112,
+        "startChar": 48,
+        "endLine": 112,
+        "endChar": 59
+      },
+      "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b33de0_5e7a76cf",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-05T12:19:58Z",
+      "side": 1,
+      "message": "out of curiosity: are we adjusting timestamps for this type of events in the panel?",
+      "range": {
+        "startLine": 154,
+        "startChar": 33,
+        "endLine": 154,
+        "endChar": 50
+      },
       "revId": "4d9332b368eb40005c3bd8630e9d7b0f491e7160",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
