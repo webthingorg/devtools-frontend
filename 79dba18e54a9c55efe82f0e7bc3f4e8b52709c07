@@ -46,6 +46,30 @@
       },
       "revId": "79dba18e54a9c55efe82f0e7bc3f4e8b52709c07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80f915d3_12e942b0",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-06T06:59:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae70a2d_9f92ba62",
+      "range": {
+        "startLine": 80,
+        "startChar": 3,
+        "endLine": 80,
+        "endChar": 34
+      },
+      "revId": "79dba18e54a9c55efe82f0e7bc3f4e8b52709c07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
