@@ -16,6 +16,24 @@
       "message": "LGTM, thank you! Q: do they use a new color?",
       "revId": "c35862b984a00eaaae9ca88e773824ca93087aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e2a523_aad0d233",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-06T08:31:01Z",
+      "side": 1,
+      "message": "The icons are using the standard UIIcon CSS from inspectorCommon.css (\"var(--icon-default)\")\n\nI guess thats fine?",
+      "parentUuid": "b7b0ceed_5e6578be",
+      "revId": "c35862b984a00eaaae9ca88e773824ca93087aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
