@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c586b1e3_9242606b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-06T08:07:22Z",
+      "side": 1,
+      "message": "Thanks, Simon! LGTM",
+      "revId": "b5b4d4476d1760236fb36190ae055fc372b771a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8636eee_186fee75",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-04-06T07:50:42Z",
       "side": 1,
       "message": "I mirrored what Benedikt did in https://crrev.com/c/4379740 where he set the icon size for \"triangle-down also to 14px.",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 14
+      },
+      "revId": "b5b4d4476d1760236fb36190ae055fc372b771a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbacf340_a0bad8d2",
+        "filename": "front_end/Images/src/triangle-up.svg",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-06T08:07:22Z",
+      "side": 1,
+      "message": "Yes, this is the way to go here!",
+      "parentUuid": "d8636eee_186fee75",
       "range": {
         "startLine": 1,
         "startChar": 12,
