@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "410f35de_7650f95e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-06T08:14:16Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "c276af2a32996bee59e54c4efafcfe0c46c721a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f2ca4d_35710ee1",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2710,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-06T08:14:16Z",
+      "side": 1,
+      "message": "nit: we are introducing a bit of duplication with this part being the same as `forTraceEventData()`",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2710,
+        "endChar": 16
+      },
+      "revId": "c276af2a32996bee59e54c4efafcfe0c46c721a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81fa3b29_9c1117de",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-06T08:14:16Z",
+      "side": 1,
+      "message": "interesting that these two are strictly equal... when loading from a file aren\u0027t these different objects created separately by each engine?",
+      "range": {
+        "startLine": 1805,
+        "startChar": 22,
+        "endLine": 1805,
+        "endChar": 66
+      },
+      "revId": "c276af2a32996bee59e54c4efafcfe0c46c721a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
