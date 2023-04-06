@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8fa5425f_154a40ca",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2710,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:35:28Z",
+      "side": 1,
+      "message": "Good shout, deduped it! Thanks.",
+      "parentUuid": "71f2ca4d_35710ee1",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2710,
+        "endChar": 16
+      },
+      "revId": "c276af2a32996bee59e54c4efafcfe0c46c721a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "81fa3b29_9c1117de",
         "filename": "test/unittests/front_end/models/timeline_model/TimelineModel_test.ts",
         "patchSetId": 1
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "Oh nvm, I had forgot both come the same SDK.TracingModel!",
       "parentUuid": "81fa3b29_9c1117de",
+      "range": {
+        "startLine": 1805,
+        "startChar": 22,
+        "endLine": 1805,
+        "endChar": 66
+      },
+      "revId": "c276af2a32996bee59e54c4efafcfe0c46c721a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf64a02_e5e4dd43",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:35:28Z",
+      "side": 1,
+      "message": "I actually think in this case it is because trace loading is cached in our tests, so we first load the file for old engine, its raw trace events are cached, and so loading the file for the new engine returns the same set of cached trace events. \n\nSimilarly, in the panel itself we load the file once, and those are the raw events that get passed into SDK.TracingModel.PayloadEvent.fromPayload.",
+      "parentUuid": "2be20ccc_faf9ff3e",
       "range": {
         "startLine": 1805,
         "startChar": 22,
