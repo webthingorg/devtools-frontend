@@ -97,6 +97,30 @@
       },
       "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d082e0_dfbaad35",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-06T10:46:47Z",
+      "side": 1,
+      "message": "Thinking about it again, maybe \u0027save changes\u0027 is better, since it\u0027s more general (we may also switch types, or work on logpoints). Do you agree?",
+      "parentUuid": "501f2380_4fa94eec",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
