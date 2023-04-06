@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "b481e018af81cc7715476dfbe88ecb49eb1649e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2db2677e_904c77e8",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T10:06:00Z",
+      "side": 1,
+      "message": "annoyingly we cannot use Handlers.Types.Whatever here because that introduces a circular dep where trace/handlers and trace/helpers depend on each other. Not entirely sure how to resolve that, so for now let\u0027s just work around it.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 85
+      },
+      "revId": "b481e018af81cc7715476dfbe88ecb49eb1649e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a3cdb2_12555b2b",
+        "filename": "test/unittests/front_end/models/trace/helpers/Timing_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T10:06:00Z",
+      "side": 1,
+      "message": "these tests are somewhat dups of the TimelineUIUtils tests, but for now I think it is most beneficial to have the tests in both places.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "b481e018af81cc7715476dfbe88ecb49eb1649e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
