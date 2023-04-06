@@ -9,9 +9,8 @@ import {navigateToPerformanceTab, startRecording, stopRecording} from '../helper
 import {openSourcesPanel} from '../helpers/sources-helpers.js';
 
 describe('The Performance panel', () => {
-  // issue on Mac
-  it.skipOnPlatforms(
-      ['mac'], '[crbug.com/1428866] can collect a line-level CPU profile and show it in the text editor', async () => {
+  it(
+      'can collect a line-level CPU profile and show it in the text editor', async () => {
         const {target} = getBrowserAndPages();
         await navigateToPerformanceTab();
         await startRecording();
