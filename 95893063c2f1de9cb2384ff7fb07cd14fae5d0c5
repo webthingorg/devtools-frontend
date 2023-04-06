@@ -33,6 +33,46 @@
       "message": "Hi Simon,\n\nI\u0027m adding a close button the breakpoint edit dialog, ptal!",
       "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3681ebad_db4d35b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-06T09:48:06Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96474b08_ed622e7f",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-06T09:48:06Z",
+      "side": 1,
+      "message": "\"submit\" sounds like we are submitting a form. Maybe \"save condition\" is better? But also unsure, wdyt?",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
