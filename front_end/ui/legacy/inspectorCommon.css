@@ -608,6 +608,14 @@ span[is="dt-icon-label"] {
   -webkit-mask-image: var(--image-file-cloud);
 }
 
+.spritesheet-color-picker-filled.icon-mask {
+  -webkit-mask-image: var(--image-file-color-picker-filled);
+}
+
+.spritesheet-color-picker.icon-mask {
+  -webkit-mask-image: var(--image-file-color-picker);
+}
+
 .spritesheet-cookie.icon-mask {
   -webkit-mask-image: var(--image-file-cookie);
 }
