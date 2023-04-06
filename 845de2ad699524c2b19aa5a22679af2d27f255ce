@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aec2115_01a914cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:55:02Z",
+      "side": 1,
+      "message": "Thanks - I will merge this and then work on the CL to remove the backing storage, which I think is going to require some pain with layout tests, but we will see!",
+      "parentUuid": "51ddcc1c_f6396f01",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f44ac98_5ffbc8de",
@@ -70,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb32535_d62ce383",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:55:02Z",
+      "side": 1,
+      "message": "Ack! Will leave this be for now.",
+      "parentUuid": "9c0343c9_aba59e99",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82be2301_bc84e67b",
@@ -87,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98f3b29_e4ed125e",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:55:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82be2301_bc84e67b",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30d68edf_39eb65b0",
@@ -100,6 +154,24 @@
       "writtenOn": "2023-03-31T02:09:36Z",
       "side": 1,
       "message": "do we go through here if you have two+ traces and toggle back and forth?",
+      "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10042629_9391ff9c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-06T08:55:02Z",
+      "side": 1,
+      "message": "No, this code is only executed when a new trace is recorded or imported. Added a comment explaining that to clarify the code.",
+      "parentUuid": "30d68edf_39eb65b0",
       "revId": "845de2ad699524c2b19aa5a22679af2d27f255ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
