@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "689cb5db_dabc42da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-06T08:23:30Z",
+      "side": 1,
+      "message": "Stress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8784652143563944753/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8784652143563944737/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8784652143563944721/overview",
+      "revId": "1247f35129aba05774a41930869860bb283196e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
