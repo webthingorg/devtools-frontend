@@ -31,7 +31,7 @@ export async function navigateToLighthouseTab(path?: string): Promise<ElementHan
   await lighthouseTabButton.click();
   await waitFor('.view-container > .lighthouse');
   if (path) {
-    await goToResource(path);
+    await goToResource(path, {waitUntil: 'networkidle0'});
   }
 
   return waitFor('.lighthouse-start-view');
