@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f145b61_fe97e5da",
+        "filename": "config/gni/devtools_image_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-06T14:58:17Z",
+      "side": 0,
+      "message": "Can the svg file itself be removed now?",
+      "range": {
+        "startLine": 120,
+        "startChar": 3,
+        "endLine": 120,
+        "endChar": 28
+      },
+      "revId": "3d4c3976a188e7838f7f740a1a9622aeb5125900",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

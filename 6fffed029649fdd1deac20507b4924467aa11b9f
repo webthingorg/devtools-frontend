@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "6fffed029649fdd1deac20507b4924467aa11b9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68792537_af34b223",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-06T14:58:17Z",
+      "side": 1,
+      "message": "Which size do we want here? 20px is a visible increase. In your previous CL you kept the help icon at 16px.",
+      "range": {
+        "startLine": 555,
+        "startChar": 22,
+        "endLine": 556,
+        "endChar": 29
+      },
+      "revId": "6fffed029649fdd1deac20507b4924467aa11b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
