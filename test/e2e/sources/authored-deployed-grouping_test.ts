@@ -306,9 +306,7 @@ describe('Source Panel grouping', async function() {
     assert.deepEqual(await readSourcesTreeView(), groupedRedundantExpectedTree);
   });
 
-  // The localhost domain is getting renamed, which breaks this test.
-  // TODO(crbug.com/1327683): Enable this once the domain displays correctly.
-  it.skip('[crbug.com/1327683] can load new page with group by authored/deployed', async () => {
+  it('can load new page with group by authored/deployed', async () => {
     // Have the target load the non-sourcemapped page.
     await goToResource('sources/multi-workers.html');
     await openSourcesPanel();
