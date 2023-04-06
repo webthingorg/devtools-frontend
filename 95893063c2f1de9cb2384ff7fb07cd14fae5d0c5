@@ -16,6 +16,23 @@
       "message": "Hi Jecelyn,\n\nI\u0027ve added a close button to the breakpoint edit dialog. Is this what you had in mind (clicking on it, will close the dialog and SUBMIT the condition)? See \u0027after\u0027 screenshot. If yes, I\u0027ll send it for Simon for code review. PTAL!",
       "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac176895_90ef6e54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-06T07:57:04Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m adding a close button the breakpoint edit dialog, ptal!",
+      "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
