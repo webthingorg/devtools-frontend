@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d02000_3c2def2e",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-06T13:41:01Z",
+      "side": 1,
+      "message": "adding `await click(\u0027[aria-label\u003d\"Search next\"]\u0027);` before this and changing the assertion to \u0027Window\u0027 makes the flake go away. However this significantly changes the scenario, is it a bug that the `retainerClassName` does not have `\u0027Detached Window\u0027` on the first result? and is it also a bug that sometimes all the results have \u0027Window\u0027 instead of `\u0027Detached Window\u0027`?",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 111
+      },
+      "revId": "e51425df4c176aea3c3172cd25c3c6fd065784de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
