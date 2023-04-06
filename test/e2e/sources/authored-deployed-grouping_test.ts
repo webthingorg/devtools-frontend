@@ -20,6 +20,49 @@ import {
   readSourcesTreeView,
 } from '../helpers/sources-helpers.js';
 
+const groupedAuthoredExpectedTree = [
+  'Authored',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.js',
+  'Deployed',
+  'top',
+  '__puppeteer_utility_world__',
+  'test/e2e/resources/sources',
+  'multi-workers-sourcemap.html',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+  'multi-workers.min.js',
+  'localhost:XXXX',
+  'test/e2e/resources/sources',
+];
+
 const groupedExpectedTree = [
   'Authored',
   'localhost:XXXX',
@@ -306,9 +349,7 @@ describe('Source Panel grouping', async function() {
     assert.deepEqual(await readSourcesTreeView(), groupedRedundantExpectedTree);
   });
 
-  // The localhost domain is getting renamed, which breaks this test.
-  // TODO(crbug.com/1327683): Enable this once the domain displays correctly.
-  it.skip('[crbug.com/1327683] can load new page with group by authored/deployed', async () => {
+  it('can load new page with group by authored/deployed', async () => {
     // Have the target load the non-sourcemapped page.
     await goToResource('sources/multi-workers.html');
     await openSourcesPanel();
@@ -323,7 +364,7 @@ describe('Source Panel grouping', async function() {
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, sm-folder"]');
     await expandFileTree(workerFileSelectors(6));
 
-    assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
+    assert.deepEqual(await readSourcesTreeView(), groupedAuthoredExpectedTree);
   });
 
   // Flaky test
