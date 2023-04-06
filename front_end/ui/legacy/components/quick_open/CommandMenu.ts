@@ -378,8 +378,8 @@ export class Command {
   readonly shortcut: string;
   readonly deprecationWarning?: Platform.UIString.LocalizedString;
   readonly isPanelOrDrawer?: PanelOrDrawer;
+  readonly executeHandler: () => void;
 
-  readonly #executeHandler: () => void;
   readonly #availableHandler?: () => boolean;
 
   constructor(
@@ -390,7 +390,7 @@ export class Command {
     this.title = title;
     this.key = category + '\0' + title + '\0' + key;
     this.shortcut = shortcut;
-    this.#executeHandler = executeHandler;
+    this.executeHandler = executeHandler;
     this.#availableHandler = availableHandler;
     this.deprecationWarning = deprecationWarning;
     this.isPanelOrDrawer = isPanelOrDrawer;
@@ -401,7 +401,7 @@ export class Command {
   }
 
   execute(): void {
-    this.#executeHandler();
+    this.executeHandler();
   }
 }
 
