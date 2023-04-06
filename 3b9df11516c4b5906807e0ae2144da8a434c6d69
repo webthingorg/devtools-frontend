@@ -16,6 +16,24 @@
       "message": "Great, thanks! Just one last thing, the icon should turn white if the line gets highlighted in blue: https://imgur.com/a/EICNgTZ\nPlease make sure this works for all icons you updated placed on lines with the blue line highlighting",
       "revId": "3b9df11516c4b5906807e0ae2144da8a434c6d69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fb7659c_89287179",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-06T09:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aed23cfc_d8d64da6",
+      "revId": "3b9df11516c4b5906807e0ae2144da8a434c6d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
