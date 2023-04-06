@@ -121,6 +121,30 @@
       },
       "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e98519c_4b59560d",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-06T10:50:46Z",
+      "side": 1,
+      "message": "Yes! Even better!",
+      "parentUuid": "05d082e0_dfbaad35",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "95893063c2f1de9cb2384ff7fb07cd14fae5d0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
