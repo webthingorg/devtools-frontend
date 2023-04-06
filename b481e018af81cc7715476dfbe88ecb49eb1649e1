@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f074b966_5383ed18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-06T10:42:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b481e018af81cc7715476dfbe88ecb49eb1649e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2db2677e_904c77e8",
         "filename": "front_end/models/trace/helpers/Timing.ts",
         "patchSetId": 1
