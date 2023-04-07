@@ -33,6 +33,24 @@
       "message": "Does there need to be a space between the two parts? Can you give an example of the output here?\n\nI wonder if using a template literal would make this more clear, i.e.\n\n    `${i18nString(UIStrings.logLevel)}${this.messageLevelSelector.defaultTitle()}`\n\nvs.\n\n    `${i18nString(UIStrings.logLevel)} ${this.messageLevelSelector.defaultTitle()}`",
       "revId": "1b67f836e92b7eee6e0e0bbcf0ff108ece5e7df1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ff973e_d4e8aa79",
+        "filename": "front_end/panels/media/PlayerMessagesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2023-04-07T22:21:43Z",
+      "side": 1,
+      "message": "yes that\u0027s a great point, thank you! I have updated to use the template literal.",
+      "parentUuid": "d42e9585_af694539",
+      "revId": "1b67f836e92b7eee6e0e0bbcf0ff108ece5e7df1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
