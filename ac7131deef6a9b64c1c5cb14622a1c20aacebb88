@@ -51,6 +51,41 @@
       "parentUuid": "612e1460_c05ca7f2",
       "revId": "ac7131deef6a9b64c1c5cb14622a1c20aacebb88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "881b45f3_b8182fa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T08:09:40Z",
+      "side": 1,
+      "message": "right, I see",
+      "parentUuid": "48734ab9_49b2432b",
+      "revId": "ac7131deef6a9b64c1c5cb14622a1c20aacebb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06fa16d_db91b696",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T08:09:40Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "ac7131deef6a9b64c1c5cb14622a1c20aacebb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
