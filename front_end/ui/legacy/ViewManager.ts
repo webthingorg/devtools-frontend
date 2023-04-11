@@ -342,7 +342,7 @@ export class ViewManager {
   }
 
   createStackLocation(revealCallback?: (() => void), location?: string): ViewLocation {
-    return new _StackLocation(this, revealCallback, location);
+    return new StackLocation(this, revealCallback, location);
   }
 
   hasViewsForLocation(location: string): boolean {
@@ -419,9 +419,7 @@ export class ContainerWidget extends VBox {
   }
 }
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export class _ExpandableContainerWidget extends VBox {
+class ExpandableContainerWidget extends VBox {
   private titleElement: HTMLDivElement;
   private readonly titleExpandIcon: Icon;
   private readonly view: View;
@@ -543,7 +541,7 @@ export class _ExpandableContainerWidget extends VBox {
   }
 }
 
-const expandableContainerForView = new WeakMap<View, _ExpandableContainerWidget>();
+const expandableContainerForView = new WeakMap<View, ExpandableContainerWidget>();
 
 class Location {
   protected readonly manager: ViewManager;
@@ -849,11 +847,9 @@ export class _TabbedLocation extends Location implements TabbedViewLocation {
   static orderStep = 10;  // Keep in sync with descriptors.
 }
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-class _StackLocation extends Location implements ViewLocation {
+class StackLocation extends Location implements ViewLocation {
   private readonly vbox: VBox;
-  private readonly expandableContainers: Map<string, _ExpandableContainerWidget>;
+  private readonly expandableContainers: Map<string, ExpandableContainerWidget>;
 
   constructor(manager: ViewManager, revealCallback?: (() => void), location?: string) {
     const vbox = new VBox();
@@ -878,7 +874,7 @@ class _StackLocation extends Location implements ViewLocation {
     if (!container) {
       locationForView.set(view, this);
       this.manager.views.set(view.viewId(), view);
-      container = new _ExpandableContainerWidget(view);
+      container = new ExpandableContainerWidget(view);
       let beforeElement: (WidgetElement|null)|null = null;
       if (insertBefore) {
         const beforeContainer = expandableContainerForView.get(insertBefore);
