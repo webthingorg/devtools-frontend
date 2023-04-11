@@ -22,6 +22,30 @@
       },
       "revId": "6fffed029649fdd1deac20507b4924467aa11b9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd4ab65_d6c848fd",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T12:39:30Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a0163b14_fa7d610a",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "6fffed029649fdd1deac20507b4924467aa11b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
