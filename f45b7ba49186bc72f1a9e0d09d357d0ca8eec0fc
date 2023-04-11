@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "f45b7ba49186bc72f1a9e0d09d357d0ca8eec0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f93a2b3_b1cb128e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T08:45:37Z",
+      "side": 1,
+      "message": "Looks good, thank you! The icon still turns blue when toggled, right?",
+      "revId": "f45b7ba49186bc72f1a9e0d09d357d0ca8eec0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
