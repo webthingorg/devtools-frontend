@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bda5cf3_089994b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T12:38:33Z",
+      "side": 1,
+      "message": "There is the same problem here as with record/reload hint buttons, once the fix for that lands the distance here will be reduced",
+      "parentUuid": "31771a6e_74436d9a",
+      "revId": "3d4c3976a188e7838f7f740a1a9622aeb5125900",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1570532_aa3ad0e3",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-06T14:38:19Z",
       "side": 1,
       "message": "Is this change from blue to dark grey on purpose?",
+      "range": {
+        "startLine": 212,
+        "startChar": 27,
+        "endLine": 212,
+        "endChar": 44
+      },
+      "revId": "3d4c3976a188e7838f7f740a1a9622aeb5125900",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "456e8c90_a9f8b5c7",
+        "filename": "front_end/ui/legacy/components/color_picker/spectrum.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T12:38:33Z",
+      "side": 1,
+      "message": "Accidental change",
+      "parentUuid": "e1570532_aa3ad0e3",
       "range": {
         "startLine": 212,
         "startChar": 27,
