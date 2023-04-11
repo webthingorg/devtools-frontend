@@ -16,6 +16,24 @@
       "message": "What\u0027s the difference between `BaseLinkSwatch` and `LinkSwatch` now?",
       "revId": "f29e30d11159ee6ccda79eaebd7f6451651dc9eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa0f034_66bb7f82",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-11T12:40:03Z",
+      "side": 1,
+      "message": "The only difference is `BaseLinkSwatch` doesn\u0027t say anything about `title` but `LinkSwatch` and `CSSVarSwatch` uses `BaseLinkSwatch` and assigns the title.\n\nIMO we can get rid of `BaseLinkSwatch` and make it `LinkSwatch` and take `title` always from the outside. From the usage part, we can create the `title` string. I remember the reason I didn\u0027t do it now is because I didn\u0027t want to update the `sIsNotDefined` and move it to another file.\n\nWe can do this in a separate CL I think.",
+      "parentUuid": "fafec975_17afd32e",
+      "revId": "f29e30d11159ee6ccda79eaebd7f6451651dc9eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
