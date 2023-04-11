@@ -16,6 +16,23 @@
       "message": "Hi Jaro, \n\nThis is CL 2 of 2 for back-merging UMA data for the breakpoint sidebar. There were merge conflicts that I needed to resolve (if you want to see what conflicts there were, this CL shows the conflicts: https://crrev.com/c/4409267). I have run the tests locally and it builds cleanly. PTAL!",
       "revId": "b550d5304f7e2ba1585882d0b5c719ace05cf352",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79bb86fd_f1e059b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-11T08:22:31Z",
+      "side": 1,
+      "message": "Thanks Simon!",
+      "revId": "b550d5304f7e2ba1585882d0b5c719ace05cf352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
