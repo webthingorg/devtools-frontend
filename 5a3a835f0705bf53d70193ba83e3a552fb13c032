@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4380d10_9d939d56",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-11T15:01:02Z",
+      "side": 1,
+      "message": "I don\u0027t know why I had to do this; the clicking sometimes does not change the checkbox to checked, in the failing cases the location of the box seems to be the same so this eliminates animation (this is also confirmed by the mutation observer). I tried waiting for the class of the element not to have `hidden` but that did not help either. Is there a reason why it takes the checkbox a short time to become responsive? and if this is not a bug could we just get around it this way?",
+      "range": {
+        "startLine": 369,
+        "startChar": 12,
+        "endLine": 369,
+        "endChar": 27
+      },
+      "revId": "5a3a835f0705bf53d70193ba83e3a552fb13c032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9961b46a_f4293b24",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-11T15:01:02Z",
+      "side": 0,
+      "message": "this was a source of flaking, if there is no technical need for limiting the tries I suggest we just wait for the function.",
+      "range": {
+        "startLine": 377,
+        "startChar": 8,
+        "endLine": 377,
+        "endChar": 32
+      },
+      "revId": "3fc4bb2dc409fe73f21aac4677d2cb84f7ea00e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
