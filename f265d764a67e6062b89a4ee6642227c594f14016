@@ -16,6 +16,23 @@
       "message": "Wolfgang, could you please take a look? This is a regression fix",
       "revId": "f265d764a67e6062b89a4ee6642227c594f14016",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0afa5770_e3ebb5a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-11T08:01:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f265d764a67e6062b89a4ee6642227c594f14016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
