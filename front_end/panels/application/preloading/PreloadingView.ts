@@ -70,6 +70,15 @@ const UIStrings = {
    */
   warningDetailPrerenderingDisabledByFeatureFlag:
       'Prerendering is forced-enabled because DevTools is open. When DevTools is closed, prerendering will be disabled because this browser session is part of a holdback group used for performance comparisons.',
+  /**
+   *@description Title of preloading state disabled warning in infobar
+   */
+  warningTitlePreloadingStateDisabled: 'Preloading is disabled',
+  /**
+   *@description Detail of preloading sate disabled warning in infobar
+   */
+  warningDetailPreloadingStateDisabled:
+      'Preloading is disabled because of an extension. Go to [Preload pages settings](chrome://settings/preloading) to learn more, or go to [Extensions settings](chrome://extensions/) to disable the extension.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/PreloadingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -192,6 +201,7 @@ export class PreloadingView extends UI.Widget.VBox {
       new PreloadingComponents.PreloadingDetailsReportView.PreloadingDetailsReportView();
   private readonly usedPreloading = new PreloadingComponents.UsedPreloadingView.UsedPreloadingView();
   private readonly featureFlagWarningsPromise: Promise<void>;
+  private readonly preloadingStateDisabledWarningsPromise: Promise<void>;
 
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
@@ -256,6 +266,8 @@ export class PreloadingView extends UI.Widget.VBox {
     this.hsplitUsedPreloading.setSidebarWidget(usedPreloadingContainer);
 
     this.featureFlagWarningsPromise = this.getFeatureFlags().then(x => this.onGetFeatureFlags(x));
+
+    this.preloadingStateDisabledWarningsPromise = this.getPreloadPagesState().then(x => this.onGetPreloadPagesState(x));
   }
 
   private makeVsplit(left: HTMLElement, right: HTMLElement): UI.SplitWidget.SplitWidget {
@@ -398,6 +410,11 @@ export class PreloadingView extends UI.Widget.VBox {
     };
   }
 
+  async getPreloadPagesState(): Promise<boolean> {
+    const preloadPagesStatePromise = this.modelProxy.model.target().preloadAgent().invoke_getPreloadPagesState();
+    return (await preloadPagesStatePromise).disabled ?? null;
+  }
+
   // Shows warnings if features are disabled by feature flags.
   private onGetFeatureFlags(flags: FeatureFlags): void {
     if (flags.preloadingHoldback === true) {
@@ -410,6 +427,15 @@ export class PreloadingView extends UI.Widget.VBox {
       this.showInfobar(
           i18nString(UIStrings.warningTitlePrerenderingDisabledByFeatureFlag),
           i18nString(UIStrings.warningDetailPrerenderingDisabledByFeatureFlag));
+    }
+  }
+
+  // Shows warnings if preload status is disabled.
+  private onGetPreloadPagesState(disabled: boolean): void {
+    if (disabled) {
+      this.showInfobar(
+          i18nString(UIStrings.warningTitlePreloadingStateDisabled),
+          i18nString(UIStrings.warningDetailPreloadingStateDisabled));
     }
   }
 
