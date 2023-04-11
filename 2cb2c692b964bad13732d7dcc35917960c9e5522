@@ -16,6 +16,23 @@
       "message": "The test file LGTM",
       "revId": "2cb2c692b964bad13732d7dcc35917960c9e5522",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c26471_73ac7f4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-11T16:07:40Z",
+      "side": 1,
+      "message": "Didn\u0027t try it out, but it looks legit.",
+      "revId": "2cb2c692b964bad13732d7dcc35917960c9e5522",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
