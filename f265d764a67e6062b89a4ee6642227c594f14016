@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6224d83f_030d54d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T07:56:30Z",
+      "side": 1,
+      "message": "Wolfgang, could you please take a look? This is a regression fix",
+      "revId": "f265d764a67e6062b89a4ee6642227c594f14016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
