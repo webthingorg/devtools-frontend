@@ -350,8 +350,7 @@ describe('The Sources Tab', async function() {
     });
   });
 
-  // TODO(crbug.com/1346228) Flaky - timeouts.
-  it.skip('[crbug.com/1346228] automatically ignore-lists third party code from source maps', async function() {
+  it('automatically ignore-lists third party code from source maps', async function() {
     const {target} = getBrowserAndPages();
     await openSourceCodeEditorForFile('webpack-main.js', 'webpack-index.html');
 
@@ -367,13 +366,21 @@ describe('The Sources Tab', async function() {
     });
 
     await step('Toggle to show ignore-listed frames', async () => {
-      await click('.ignore-listed-message-label');
+      await waitForFunction(async () => {
+        await click('.ignore-listed-message-label input');
+        const checkbox = await waitFor('.ignore-listed-message-label input');
+        return await (await checkbox.getProperty('checked')).jsonValue();
+      });
       await waitFor('.ignore-listed-call-frame:not(.hidden)');
       assert.deepEqual(await getCallFrameNames(), ['baz', 'vendor', 'bar', 'foo', '(anonymous)']);
     });
 
     await step('Toggle back off', async () => {
-      await click('.ignore-listed-message-label');
+      await waitForFunction(async () => {
+        await click('.ignore-listed-message-label input');
+        const checkbox = await waitFor('.ignore-listed-message-label input');
+        return !(await (await checkbox.getProperty('checked')).jsonValue());
+      });
       await waitFor('.ignore-listed-call-frame.hidden');
       assert.deepEqual(await getCallFrameNames(), ['baz', 'bar', 'foo', '(anonymous)']);
     });

@@ -28,7 +28,6 @@ import {
   waitFor,
   clickElement,
   waitForFunction,
-  waitForFunctionWithTries,
   waitForAria,
 } from '../../shared/helper.js';
 
@@ -374,10 +373,10 @@ export async function waitForStackTopMatch(matcher: RegExp) {
   // The call stack is updated asynchronously, so let us wait until we see the correct one
   // (or report the last one we have seen before timeout).
   let stepLocation = '<no call stack>';
-  await waitForFunctionWithTries(async () => {
+  await waitForFunction(async () => {
     stepLocation = await retrieveTopCallFrameWithoutResuming() ?? '<invalid>';
     return stepLocation?.match(matcher);
-  }, {tries: 10});
+  });
   return stepLocation;
 }
 
