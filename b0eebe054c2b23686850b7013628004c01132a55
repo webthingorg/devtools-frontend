@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571f688a_57050937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-11T12:49:13Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "b0eebe054c2b23686850b7013628004c01132a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d9983fb_058f2159",
+        "filename": "front_end/ui/legacy/ViewManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-11T12:49:13Z",
+      "side": 1,
+      "message": "Why do we actually need the `as number` here, if we already have specified the map to contain number values?",
+      "revId": "b0eebe054c2b23686850b7013628004c01132a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
