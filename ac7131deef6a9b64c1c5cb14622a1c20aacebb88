@@ -33,6 +33,24 @@
       "message": "Looks good, one question: does it look too massive in 20px size? If it does, 16 sounds good",
       "revId": "ac7131deef6a9b64c1c5cb14622a1c20aacebb88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48734ab9_49b2432b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-11T08:02:05Z",
+      "side": 1,
+      "message": "Yes, it changes the layout quite significantly at bigger sizes (before it was scaled to 80% already via the `transform` rule).",
+      "parentUuid": "612e1460_c05ca7f2",
+      "revId": "ac7131deef6a9b64c1c5cb14622a1c20aacebb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
