@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "7da127134ea02fdf90f2b6e29beb4fa58703b39d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "498adbbd_5c8dda9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T12:07:21Z",
+      "side": 1,
+      "message": "LGTM with question",
+      "revId": "7da127134ea02fdf90f2b6e29beb4fa58703b39d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a989f111_9dde1f15",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T12:07:21Z",
+      "side": 1,
+      "message": "is it possible to use the `PageLoadMetricsHandler.isTraceEventMarkerEvent` helper here?",
+      "range": {
+        "startLine": 356,
+        "startChar": 38,
+        "endLine": 356,
+        "endChar": 81
+      },
+      "revId": "7da127134ea02fdf90f2b6e29beb4fa58703b39d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
