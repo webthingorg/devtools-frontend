@@ -552,8 +552,8 @@ export class BackForwardCacheView extends HTMLElement {
             <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
               iconName: 'help',
               color: 'var(--icon-default)',
-              width: '16px',
-              height: '16px',
+              width: '20px',
+              height: '20px',
               } as IconButton.Icon.IconData} title=${explainerText}>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
