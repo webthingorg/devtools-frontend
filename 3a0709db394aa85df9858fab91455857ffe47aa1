@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaaf710f_d7f476c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T15:32:05Z",
+      "side": 1,
+      "message": "Code looks good, but I would really appreciate to see screenshots for this icon.\n\nContext: in bfcache after the size update the icon looked too massive (I suspect this might be the case here if the icon comes right after some text), there we decided to leave it 16px",
+      "revId": "3a0709db394aa85df9858fab91455857ffe47aa1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
