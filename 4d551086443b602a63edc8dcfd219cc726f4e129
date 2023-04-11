@@ -16,6 +16,63 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c3bc5f_de86c4b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T15:14:44Z",
+      "side": 1,
+      "message": "Looks good, just one color question",
+      "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5139056_588fe6f0",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T15:14:44Z",
+      "side": 1,
+      "message": "I tried checking it with 14px, since we don\u0027t want to have 12 anymore, but that looked too big, maybe we\u0027ll add more padding to this icon and use it in 14 size later. For now this is okay",
+      "range": {
+        "startLine": 629,
+        "startChar": 12,
+        "endLine": 630,
+        "endChar": 28
+      },
+      "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac0913c_6f2669ca",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T15:14:44Z",
+      "side": 1,
+      "message": "I know this one here is a darker color, but could we use `--icon-default` here or introduce a new darker color token with this color? (I\u0027ll talk to Peter once he\u0027s back and update its value then)",
+      "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
