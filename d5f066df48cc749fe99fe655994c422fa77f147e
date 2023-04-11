@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df326cd6_42c59b08",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T13:11:35Z",
+      "side": 0,
+      "message": "all these methods were only used on the web vitals track",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 32
+      },
+      "revId": "d5f066df48cc749fe99fe655994c422fa77f147e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
