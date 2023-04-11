@@ -16,6 +16,23 @@
       "message": "PTAL, fix for another regression",
       "revId": "8806f2308af0e82bd7004a08f5e93068ade6252e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02766321_68b8fe90",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-11T09:50:09Z",
+      "side": 1,
+      "message": "How about `.toolbar-item:last-child:not(:first-child) {` instead?\n\nIIUC the problem only appears on \"standalone\" toolbar buttons (i.e. the button is the only child). By excluding these cases from this selector, we\u0027d have a more general solution.",
+      "revId": "8806f2308af0e82bd7004a08f5e93068ade6252e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
