@@ -16,6 +16,23 @@
       "message": "Thanks! LGTM",
       "revId": "81ec55a9d002492d99b06ea535bb5b5c2def5542",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56bc4159_5b713c8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T11:40:41Z",
+      "side": 1,
+      "message": "Thank you for fixing this, Ergün!",
+      "revId": "81ec55a9d002492d99b06ea535bb5b5c2def5542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
