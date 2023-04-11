@@ -50,6 +50,24 @@
       "message": "I don\u0027t see where this is used, did it slip in?",
       "revId": "4602a4e6287ab7963f00b232a40dd29188f53622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63022b15_5ce0603b",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-11T14:44:06Z",
+      "side": 1,
+      "message": "I planned to do a clean-up of the file \u0026 old SVGs today/tomorrow anyways, I\u0027ll remove it then",
+      "parentUuid": "879bbfa3_d98b19ad",
+      "revId": "4602a4e6287ab7963f00b232a40dd29188f53622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
