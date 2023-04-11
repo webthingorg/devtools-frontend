@@ -33,6 +33,23 @@
       "message": "I am expecting the tests to fail as I need to add goldens for Mac and Windows :)",
       "revId": "c7fd49f73911a20063323bf186c40258c5a552f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e10d67c9_84c69cd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T09:16:01Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c7fd49f73911a20063323bf186c40258c5a552f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

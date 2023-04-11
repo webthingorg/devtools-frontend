@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bfc74cd_4584b8e5",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T09:16:01Z",
+      "side": 1,
+      "message": "nit: update docs to Layout Shifts track",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 12
+      },
+      "revId": "90c2090cac9bd6150d2a4e17720500794a61ae0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37fd0ca_9044df3e",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T09:16:01Z",
+      "side": 1,
+      "message": "just to make sure: are we changing the color in the end?",
+      "range": {
+        "startLine": 172,
+        "startChar": 14,
+        "endLine": 172,
+        "endChar": 27
+      },
+      "revId": "90c2090cac9bd6150d2a4e17720500794a61ae0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e782dfc5_82ff19bf",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-11T09:16:01Z",
+      "side": 1,
+      "message": "nice fix!",
+      "range": {
+        "startLine": 1290,
+        "startChar": 0,
+        "endLine": 1290,
+        "endChar": 48
+      },
+      "revId": "90c2090cac9bd6150d2a4e17720500794a61ae0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
