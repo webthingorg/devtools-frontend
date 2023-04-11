@@ -287,6 +287,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assert.strictEqual(nameEditable.innerText, 'Some-Header-Name');
   });
 
+  // here
   it('resets edited value on escape key', async () => {
     const originalHeaderValue = 'special chars: \'\"\\.,;!?@_-+/=<>()[]{}|*&^%$#§±`~';
     const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {

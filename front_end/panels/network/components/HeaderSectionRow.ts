@@ -73,7 +73,7 @@ export const compareHeaders = (first: string|null|undefined, second: string|null
   // When working with contenteditables, their content can contain (non-obvious) NBSPs.
   // It would be tricky to get rid of NBSPs during editing and saving, so we just
   // handle them after reading them in.
-  return first?.replaceAll('\xa0', ' ') === second?.replaceAll('\xa0', ' ');
+  return first?.replaceAll(/\s/g, ' ') === second?.replaceAll(/\s/g, ' ');
 };
 
 export class HeaderEditedEvent extends Event {
@@ -435,8 +435,8 @@ export class HeaderSectionRow extends HTMLElement {
 
   #onHeaderValueEdit(event: Event): void {
     const editable = event.target as EditableSpan;
-    const isEdited =
-        this.#header?.originalValue !== undefined && (this.#header?.originalValue || '') !== editable.value;
+    const isEdited = this.#header?.originalValue !== undefined &&
+        (this.#header?.originalValue?.replace(/\s/g, ' ') || '') !== editable.value.replace(/\s/g, ' ');
     if (this.#isHeaderValueEdited !== isEdited) {
       this.#isHeaderValueEdited = isEdited;
       if (this.#header) {
