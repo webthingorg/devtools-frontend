@@ -33,6 +33,24 @@
       "message": "Looks good, thank you! The icon still turns blue when toggled, right?",
       "revId": "f45b7ba49186bc72f1a9e0d09d357d0ca8eec0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "268fd00d_b72b8f59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-11T11:15:26Z",
+      "side": 1,
+      "message": "Yes, it\u0027s using your logic that you landed earlier. 👍",
+      "parentUuid": "9f93a2b3_b1cb128e",
+      "revId": "f45b7ba49186bc72f1a9e0d09d357d0ca8eec0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
