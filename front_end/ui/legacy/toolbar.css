@@ -61,6 +61,11 @@
   justify-content: left;
 }
 
+.toolbar-item:has(.record-start),
+.toolbar-item:has(.refresh) {
+  justify-content: center;
+}
+
 .toolbar-shadow.vertical .toolbar-item {
   height: auto;
   min-height: var(--toolbar-height);
