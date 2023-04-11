@@ -16,6 +16,24 @@
       "message": "This list has been very different from third_party/blink/renderer/platform/graphics/compositing_reasons.cc. It seems not easy to keep them in sync. WDTY about letting blink send the full strings instead of the ids, and the inspector just display them as-is without this map?",
       "revId": "61b77d0c35a3bb028be9e59794e9cee4e0f9a58c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de31b15f_581dbf9d",
+        "filename": "front_end/layer_viewer/LayerDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2023-04-11T03:02:07Z",
+      "side": 1,
+      "message": "Can you file a bug with the devtools team to ask? I\u0027m not on that team anymore",
+      "parentUuid": "fce114af_c528a282",
+      "revId": "61b77d0c35a3bb028be9e59794e9cee4e0f9a58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
