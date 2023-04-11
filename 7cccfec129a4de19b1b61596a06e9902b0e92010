@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a887b0ce_094aa192",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T09:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91f749ed_52c5f691",
+      "revId": "7cccfec129a4de19b1b61596a06e9902b0e92010",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61bc1781_56c1e787",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-05T14:05:55Z",
       "side": 1,
       "message": "todo: leave a comment explaining why this number",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 82
+      },
+      "revId": "7cccfec129a4de19b1b61596a06e9902b0e92010",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "599ac0a0_9e15afc4",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T09:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61bc1781_56c1e787",
       "range": {
         "startLine": 151,
         "startChar": 0,
