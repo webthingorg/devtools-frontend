@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "448de48c_5769e91d",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T16:51:04Z",
+      "side": 1,
+      "message": "to confirm I understand: webpack has effectively figured out how we create fake trace data from samples, and has done the same so they can use devtools to debug their stuff?",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 127
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f718c84_41aae3eb",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T16:51:04Z",
+      "side": 1,
+      "message": "can we update the TS definition of the data obj here to mark frames as optional? so this doesn\u0027t catch us again elsewhere",
+      "range": {
+        "startLine": 173,
+        "startChar": 41,
+        "endLine": 173,
+        "endChar": 47
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "047b0900_312329e2",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-11T16:51:04Z",
+      "side": 1,
+      "message": "same Q here RE updating the types we have so that we cannot make this mistake again (given we explicitly want to support traces that do not have this data).",
+      "range": {
+        "startLine": 312,
+        "startChar": 22,
+        "endLine": 312,
+        "endChar": 51
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
