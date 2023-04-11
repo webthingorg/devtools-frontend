@@ -80,7 +80,7 @@ devtools_svg_sources = [
   "console-conditional-breakpoint.svg",
   "console-logpoint.svg",
   "cookie.svg",
-  "copy_icon.svg",
+  "copy.svg",
   "credit-card.svg",
   "cross-circle-filled.svg",
   "cross-circle.svg",

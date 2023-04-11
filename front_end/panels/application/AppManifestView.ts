@@ -625,7 +625,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         copyButton.title = i18nString(UIStrings.copyToClipboard);
         copyButton.data = {
           groups: [{
-            iconName: 'copy_icon',
+            iconName: 'copy',
             iconHeight: '12px',
             iconWidth: '12px',
             text: '',
