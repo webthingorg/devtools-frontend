@@ -16,6 +16,40 @@
       "message": "PTAnotherL:)",
       "revId": "4602a4e6287ab7963f00b232a40dd29188f53622",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05111df3_32b1ab07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-11T13:45:35Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "4602a4e6287ab7963f00b232a40dd29188f53622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879bbfa3_d98b19ad",
+        "filename": "front_end/ui/legacy/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-11T13:45:35Z",
+      "side": 1,
+      "message": "I don\u0027t see where this is used, did it slip in?",
+      "revId": "4602a4e6287ab7963f00b232a40dd29188f53622",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
