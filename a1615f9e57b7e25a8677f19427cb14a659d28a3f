@@ -33,6 +33,24 @@
       "message": "I think this looks so much better! Does it also use a new color token?",
       "revId": "a1615f9e57b7e25a8677f19427cb14a659d28a3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36da30e8_5b2e2280",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-12T12:18:44Z",
+      "side": 1,
+      "message": "Yes, it uses `var(--icon-default)`.",
+      "parentUuid": "c5c71d29_70325dd2",
+      "revId": "a1615f9e57b7e25a8677f19427cb14a659d28a3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
