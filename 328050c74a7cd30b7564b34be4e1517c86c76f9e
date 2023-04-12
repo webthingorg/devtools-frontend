@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc913e7d_be4ed121",
+        "filename": "front_end/models/timeline_model/TracingLayerTree.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1002481
+      },
+      "writtenOn": "2023-04-12T00:34:44Z",
+      "side": 0,
+      "message": "See the comment below.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "328050c74a7cd30b7564b34be4e1517c86c76f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abb3793_5915ba6e",
+        "filename": "front_end/models/timeline_model/TracingLayerTree.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1002481
+      },
+      "writtenOn": "2023-04-12T00:34:44Z",
+      "side": 0,
+      "message": "The changes conform to the current cc::LayerImpl: https://source.chromium.org/chromium/chromium/src/+/main:cc/layers/layer_impl.cc;drc\u003dc97609b6bb0b545340877ae17d6bdce82c8865bd;l\u003d726 which has been like that since Nov 2019.",
+      "revId": "328050c74a7cd30b7564b34be4e1517c86c76f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
