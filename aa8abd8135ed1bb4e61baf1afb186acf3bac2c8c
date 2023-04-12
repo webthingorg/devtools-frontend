@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "224b6fe6_77441429",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T07:00:13Z",
+      "side": 1,
+      "message": "I am fine with us using this code (if we cannot just use the JSON stringify with the third arg as per my other comment), but I am afraid I do have to insist on adding unit tests as part of this CL. Let\u0027s move the stringify code into its own module and add unit tests for it.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 93
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c09108_5a65ea1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T07:00:13Z",
+      "side": 1,
+      "message": "can you update the types etc (and likely need to update the function that fetches the metadata when a recording is created) ?\n\nThinking about it...this is a bigger change, so I would rather this CL only be the JSON formatting, and let\u0027s do the start time in its own CL please.",
+      "range": {
+        "startLine": 13,
+        "startChar": 41,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c1e34b_763cbd2c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T07:00:13Z",
+      "side": 1,
+      "message": "is there a reason we cannot use JSON.stringify(stuff, null, \\n) or similar?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 54
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e7cb7d_c6472ce7",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T07:00:13Z",
+      "side": 1,
+      "message": "we have a type for the metadata defined in the TraceEvents code, so let\u0027s use that not any",
+      "range": {
+        "startLine": 705,
+        "startChar": 107,
+        "endLine": 705,
+        "endChar": 110
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
