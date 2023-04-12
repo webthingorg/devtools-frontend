@@ -16,6 +16,23 @@
       "message": "Cool! LGTM, but tagging Jack at least as an FYI.",
       "revId": "fd4724b8f22c1c8d5632b0af9109a873cee994c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71485bd2_8febda03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T07:12:27Z",
+      "side": 1,
+      "message": "thanks for the change and tests too!",
+      "revId": "fd4724b8f22c1c8d5632b0af9109a873cee994c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
