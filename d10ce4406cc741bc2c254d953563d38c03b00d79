@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "352301c7_c6958fea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-12T12:15:28Z",
+      "side": 1,
+      "message": "Stress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8784034024645531553/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8784032643573359985/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8784034024645531521/overview",
+      "revId": "d10ce4406cc741bc2c254d953563d38c03b00d79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a4c557_91726976",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-12T12:15:28Z",
+      "side": 1,
+      "message": "should this be `networkidle0` or `networkidle2`?",
+      "range": {
+        "startLine": 34,
+        "startChar": 42,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "d10ce4406cc741bc2c254d953563d38c03b00d79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
