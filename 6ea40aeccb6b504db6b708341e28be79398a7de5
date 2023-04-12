@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65b3826_c890843e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-12T11:08:55Z",
+      "side": 1,
+      "message": "LGTM with suggestion about auto-generated unique event colors",
+      "revId": "6ea40aeccb6b504db6b708341e28be79398a7de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49c02ffd_c1806877",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-12T11:08:55Z",
+      "side": 1,
+      "message": "per the screenshots, it seems we are losing the unique colors generated with a hash of the title (because now the titles are not unique). Should we add the id to the data passed to `colorGenerator.colorForID()` to make sure we keep showing different colors for different interactions?",
+      "range": {
+        "startLine": 193,
+        "startChar": 48,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "6ea40aeccb6b504db6b708341e28be79398a7de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
