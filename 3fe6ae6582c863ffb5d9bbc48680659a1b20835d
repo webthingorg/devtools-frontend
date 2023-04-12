@@ -39,6 +39,30 @@
       },
       "revId": "3fe6ae6582c863ffb5d9bbc48680659a1b20835d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39fd140_6501a4f7",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-12T18:27:52Z",
+      "side": 1,
+      "message": "Multimap\u0027s value is a Set, which means it is not able to handle duplicate values.",
+      "parentUuid": "118c2f40_1f685fdf",
+      "range": {
+        "startLine": 1606,
+        "startChar": 0,
+        "endLine": 1606,
+        "endChar": 49
+      },
+      "revId": "3fe6ae6582c863ffb5d9bbc48680659a1b20835d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
