@@ -51,6 +51,24 @@
       "parentUuid": "2653d3c8_9251905b",
       "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9982d17e_ff58125b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-12T07:24:45Z",
+      "side": 1,
+      "message": "Which size does the new screenshot icon have?",
+      "parentUuid": "422ec79f_75a3e226",
+      "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
