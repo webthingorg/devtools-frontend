@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2653d3c8_9251905b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-12T07:10:29Z",
+      "side": 1,
+      "message": "Looks good, but ideally we would want to have just 14 or 16 or 20px sizes in the future, maybe we could revisit some time later to add more padding to this icon file and increase the size",
+      "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
