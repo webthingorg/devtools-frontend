@@ -198,9 +198,7 @@ export class InteractionsTrackAppender implements TrackAppender {
    */
   titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
     if (TraceEngine.Handlers.ModelHandlers.UserInteractions.eventIsInteractionEvent(event)) {
-      let eventText = event.args.data?.type || 'Interaction';
-      eventText += ` id:${event.interactionId}`;
-      return eventText;
+      return event.args.data?.type || 'Interaction';
     }
     return event.name;
   }
