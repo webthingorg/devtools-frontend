@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44ad660_763abeb8",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-12T05:00:44Z",
+      "side": 1,
+      "message": "I just rebased on your CL (https://crrev.com/c/4406233), where you changed this to 14x14 😊",
+      "parentUuid": "b5139056_588fe6f0",
+      "range": {
+        "startLine": 629,
+        "startChar": 12,
+        "endLine": 630,
+        "endChar": 28
+      },
+      "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eac0913c_6f2669ca",
@@ -71,6 +95,24 @@
       "writtenOn": "2023-04-11T15:14:44Z",
       "side": 1,
       "message": "I know this one here is a darker color, but could we use `--icon-default` here or introduce a new darker color token with this color? (I\u0027ll talk to Peter once he\u0027s back and update its value then)",
+      "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5173b62_a5502b01",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-12T05:00:44Z",
+      "side": 1,
+      "message": "I just rebased on your CL (https://crrev.com/c/4406233), where you changed this to `var(--icon-default-hover)` 😊",
+      "parentUuid": "eac0913c_6f2669ca",
       "revId": "4d551086443b602a63edc8dcfd219cc726f4e129",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
