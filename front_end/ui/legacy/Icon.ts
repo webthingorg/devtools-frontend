@@ -246,7 +246,6 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-feedback', {position: 'g6', spritesheet: 'mediumicons', isMask: true}],
 
   ['badge-navigator-file-sync', {position: 'a9', spritesheet: 'largeicons'}],
-  ['largeicon-add', {position: 'a8', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-camera', {position: 'b7', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-delete-filter', {position: 'i5', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-delete-list', {position: 'i6', spritesheet: 'largeicons', isMask: true}],
