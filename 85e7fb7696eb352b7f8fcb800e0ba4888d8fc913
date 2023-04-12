@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23fdc6f6_230a6433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-12T04:42:37Z",
+      "side": 1,
+      "message": "drive-by",
+      "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa5cf63_f76e4787",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-12T04:42:37Z",
+      "side": 1,
+      "message": "Is this caused only by the extensions? I think the preloading setting can be changed on chrome://settings/cookies as well.",
+      "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
