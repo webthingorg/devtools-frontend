@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c929c29d_4c54a35b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-12T11:18:06Z",
+      "side": 1,
+      "message": "Next time please have a move in a separate CL, to make reviewing easier.",
+      "revId": "f1efaa4412e7819e10e9be37aa5f28ba35e4f1d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8c3e1b_096af954",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-12T11:18:06Z",
+      "side": 1,
+      "message": "Use a Map instead?",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 64
+      },
+      "revId": "f1efaa4412e7819e10e9be37aa5f28ba35e4f1d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
