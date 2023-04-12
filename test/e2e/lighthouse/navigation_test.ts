@@ -200,10 +200,6 @@ describe.skipOnParallel('Navigation', async function() {
       });
 
       it('successfully returns a Lighthouse report with DevTools throttling', async () => {
-        // [crbug.com/1427407] Flaky in legacy mode
-        if (mode === 'legacy') {
-          return;
-        }
         await navigateToLighthouseTab('lighthouse/hello.html');
 
         await setThrottlingMethod('devtools');
