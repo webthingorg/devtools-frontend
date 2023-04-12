@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "3fe6ae6582c863ffb5d9bbc48680659a1b20835d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "118c2f40_1f685fdf",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-12T15:58:46Z",
+      "side": 1,
+      "message": "Use `Platform.MapUtilities.Multimap`?",
+      "range": {
+        "startLine": 1606,
+        "startChar": 0,
+        "endLine": 1606,
+        "endChar": 49
+      },
+      "revId": "3fe6ae6582c863ffb5d9bbc48680659a1b20835d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
