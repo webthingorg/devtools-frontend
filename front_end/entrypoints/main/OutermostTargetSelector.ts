@@ -90,6 +90,10 @@ export class OutermostTargetSelector implements SDK.TargetManager.Observer, UI.S
       return;
     }
     this.listItems.insertWithComparator(target, this.#targetComparator());
+    this.#toolbarItem.setVisible(this.listItems.length > 1);
+    // const hidden = this.listItems.length <= 1;
+    // this.#dropDown.element.classList.toggle('hidden', hidden);
+    // UI.ARIAUtils.setHidden(this.#dropDown.element, hidden);
 
     if (target === UI.Context.Context.instance().flavor(SDK.Target.Target)) {
       this.#dropDown.selectItem(target);
@@ -102,6 +106,10 @@ export class OutermostTargetSelector implements SDK.TargetManager.Observer, UI.S
       return;
     }
     this.listItems.remove(index);
+    this.#toolbarItem.setVisible(this.listItems.length > 1);
+    // const hidden = this.listItems.length <= 1;
+    // this.#dropDown.element.classList.toggle('hidden', hidden);
+    // UI.ARIAUtils.setHidden(this.#dropDown.element, hidden);
   }
 
   #targetComparator() {
