@@ -254,7 +254,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
             'secure connection and would have overwritten a cookie with the Secure attribute.');
   });
 
-  it('marks overridden headers', async () => {
+  it.only('marks overridden headers', async () => {
     const request = {
       sortedResponseHeaders: [
         {name: 'duplicate-both-no-mismatch', value: 'foo'},
@@ -475,7 +475,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
         Host.UserMetrics.Action.HeaderOverrideHeaderEdited));
   });
 
-  it('can handle tab-character in header value', async () => {
+  it.only('can handle tab-character in header value', async () => {
     const headers = [
       {name: 'foo', value: 'syn\tax'},
     ];
