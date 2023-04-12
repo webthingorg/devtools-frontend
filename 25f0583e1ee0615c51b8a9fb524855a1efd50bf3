@@ -33,6 +33,24 @@
       "message": "just FYI .. this cherrypick didnt land.\n\n(I\u0027m investigating why my own is also sitting in limbo..)",
       "revId": "25f0583e1ee0615c51b8a9fb524855a1efd50bf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6333a42_35e5bd95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-04-12T05:15:32Z",
+      "side": 1,
+      "message": "We are waiting for an approval (according to the merge process) here https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1432125 Once it\u0027s approved, we can land it via the three dots -\u003e Submit as there is no CQ for merges.",
+      "parentUuid": "a74708f7_a67625d9",
+      "revId": "25f0583e1ee0615c51b8a9fb524855a1efd50bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
