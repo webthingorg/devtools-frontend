@@ -33,6 +33,24 @@
       "message": "Why do we actually need the `as number` here, if we already have specified the map to contain number values?",
       "revId": "b0eebe054c2b23686850b7013628004c01132a55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b71ff7_3c8666e3",
+        "filename": "front_end/ui/legacy/ViewManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-12T03:58:55Z",
+      "side": 1,
+      "message": "It\u0027s a `Map\u003cstring, number\u003e` so `get` returns `number|undefined` It\u0027s not guaranteed that every key also has a value in the map. In this case it does, so we can cast. Note that this worked before since it was a `Map\u003cstring, any\u003e`.",
+      "parentUuid": "5d9983fb_058f2159",
+      "revId": "b0eebe054c2b23686850b7013628004c01132a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
