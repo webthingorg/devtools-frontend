@@ -39,6 +39,30 @@
       },
       "revId": "6ea40aeccb6b504db6b708341e28be79398a7de5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9431693f_8da0b6f5",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-12T11:40:25Z",
+      "side": 1,
+      "message": "Ah great spot, thanks!",
+      "parentUuid": "49c02ffd_c1806877",
+      "range": {
+        "startLine": 193,
+        "startChar": 48,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "6ea40aeccb6b504db6b708341e28be79398a7de5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
