@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "409ee649_6e2b4853",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-04-12T07:00:13Z",
+      "side": 1,
+      "message": "The approach we usually take is:\n\n1) land a Chromium CL updating Blink web tests expectations to temporarily allow failing the affected tests\n2) land the DevTools CL\n3) land a Chromium CL rebaselining + re-enabling the affected Blink web tests\n\nYour approach seems fine too, however, and I don’t have a preference — just pointing this out in case it’s useful.",
+      "revId": "4c89d2407695b1f8bcfcee401e8e2fc9caae5dc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "60a2d9b5_0ef20488",
