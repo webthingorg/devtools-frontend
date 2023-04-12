@@ -39,6 +39,30 @@
       },
       "revId": "d10ce4406cc741bc2c254d953563d38c03b00d79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "640c4f5f_bf50510c",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-04-12T18:27:53Z",
+      "side": 1,
+      "message": "`networkidle0` should work here. I don\u0027t imagine we will be testing on any pages with prolonged network requests.",
+      "parentUuid": "f0a4c557_91726976",
+      "range": {
+        "startLine": 34,
+        "startChar": 42,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "d10ce4406cc741bc2c254d953563d38c03b00d79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
