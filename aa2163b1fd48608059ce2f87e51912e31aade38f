@@ -103,6 +103,41 @@
       "parentUuid": "301ac98b_322cb699",
       "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f335ccd0_b03f732c",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-12T10:51:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e4d04617_dbbb298a",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37a6234_3522c6d8",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-12T10:51:40Z",
+      "side": 1,
+      "message": "Are there instances where the tabIndex is set to other values?",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
