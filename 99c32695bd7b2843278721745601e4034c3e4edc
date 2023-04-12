@@ -33,6 +33,24 @@
       "message": "Looks good, but ideally we would want to have just 14 or 16 or 20px sizes in the future, maybe we could revisit some time later to add more padding to this icon file and increase the size",
       "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "422ec79f_75a3e226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-12T07:18:58Z",
+      "side": 1,
+      "message": "Oops, this was an oversight. I actually meant to change it to 14px (just like the \u0027bin\u0027 icon already is).",
+      "parentUuid": "2653d3c8_9251905b",
+      "revId": "99c32695bd7b2843278721745601e4034c3e4edc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
