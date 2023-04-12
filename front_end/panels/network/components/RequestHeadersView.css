@@ -147,14 +147,15 @@ x-link .inline-icon { /* stylelint-disable-line selector-type-no-unknown */
   padding-right: 3px;
 }
 
-.purple-dot {
-  filter: hue-rotate(160deg);
-  padding-top: 2px;
-}
-
-.-theme-with-dark-background .purple-dot,
-:host-context(.-theme-with-dark-background) .purple-dot {
-  filter: invert(80%) hue-rotate(350deg);
+.purple-dot::after {
+  background-color: var(--icon-file-styles);
+  border-radius: 50%;
+  content: " ";
+  display: block;
+  height: 5px;
+  margin-left: 10px;
+  margin-top: -5px;
+  width: 5px;
 }
 
 summary label {
