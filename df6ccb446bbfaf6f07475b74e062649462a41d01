@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "df6ccb446bbfaf6f07475b74e062649462a41d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa314db3_17833a1b",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-12T15:56:35Z",
+      "side": 1,
+      "message": "Use `compareHeaders` here?",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 65
+      },
+      "revId": "df6ccb446bbfaf6f07475b74e062649462a41d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
