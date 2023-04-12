@@ -265,6 +265,7 @@ export type TraceFile = {
  */
 export interface TraceFileMetaData {
   source?: 'DevTools';
+  startTime?: string;
   networkThrottling?: string;
   cpuThrottling?: number;
   hardwareConcurrency?: number;
