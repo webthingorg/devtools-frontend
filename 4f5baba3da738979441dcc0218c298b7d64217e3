@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18355910_5f89322b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-13T13:58:15Z",
+      "side": 1,
+      "message": "This SGTM though I think we\u0027ll need to add being able to \"anchor\" to a specific element, see this case: https://imgur.com/a/usH9YOB\n\n(Anchor positioning for the win! :D)",
+      "revId": "4f5baba3da738979441dcc0218c298b7d64217e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
