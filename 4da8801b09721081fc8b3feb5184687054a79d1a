@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nI\u0027m updating 3/5 icons in the LinearMemoryNavigator class to Material 3.\nSince the code for creating buttons is reused, the remaining two icons\u0027 sizes that need to be updated (undo and redo) are also affected (I think it\u0027s fine for now). I\u0027ll take care of using the new icons there soon - redo alredy exists, but undo doesn\u0027t in the drive. It\u0027s probably just the mirrored one, but I\u0027ve tagged Peter and mentioned it in the feedback doc: go/icon-feedback.\n\nAs soon as I get feedback on that, I\u0027ll update the other two icons too! PTAL!",
       "revId": "4da8801b09721081fc8b3feb5184687054a79d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd5c9bae_816f6c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-13T09:24:08Z",
+      "side": 1,
+      "message": "Thanks Kim! Looks good!\nI think for the \u0027undo\u0027 button we should use the \u0027revert\u0027 SVG, but indeed best that Peter confirms",
+      "revId": "4da8801b09721081fc8b3feb5184687054a79d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
