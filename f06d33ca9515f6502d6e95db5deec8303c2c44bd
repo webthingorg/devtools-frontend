@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8cb6f77_2ac854d8",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLinearEasingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-13T10:41:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09349a8b_5c60ee3a",
+      "revId": "f06d33ca9515f6502d6e95db5deec8303c2c44bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9c0628f_8452e4f8",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-12T10:47:38Z",
       "side": 1,
       "message": "Do we have to handle the case when `upperIndex \u003d -1` and maybe abort early?",
+      "revId": "f06d33ca9515f6502d6e95db5deec8303c2c44bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "441d8bd2_6b5e756c",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLinearEasingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-13T10:41:23Z",
+      "side": 1,
+      "message": "I think there is no need since there is no way that `upperIndex` can be `-1` and I\u0027ve tried to clarify with the comment. WDYT?",
+      "parentUuid": "c9c0628f_8452e4f8",
       "revId": "f06d33ca9515f6502d6e95db5deec8303c2c44bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
