@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e48d5c_e6d2cb62",
+        "filename": "test/unittests/front_end/models/trace/handlers/UserInteractionsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-13T13:27:25Z",
+      "side": 0,
+      "message": "this set of assertions was not useful, we are only testing the IDs here, not the timings.",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 9
+      },
+      "revId": "d01f6a99a5dd2e2bf3471b3afaf66c8d048b51ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
