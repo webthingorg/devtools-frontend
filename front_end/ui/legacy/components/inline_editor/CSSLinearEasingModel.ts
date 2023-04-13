@@ -168,6 +168,25 @@ export class CSSLinearEasingModel {
       if (isNaN(points[i].input)) {
         if (i > upperIndex) {
           // Since the last point's input is always defined
+<<<<<<< PATCH SET (ae1c2b Unify creating animation timing function models and their re)
+          // we now that `upperIndex` cannot be `-1`.
+          upperIndex = findNextDefinedInputIndex(points, i);
+        }
+
+        points[i].input =
+            points[i - 1].input + (points[upperIndex].input - points[i - 1].input) / (upperIndex - (i - 1));
+      }
+    }
+
+    return new CSSLinearEasingModel(points);
+  }
+
+  points(): Point[] {
+    return this.#points;
+  }
+
+  asCSSText(): string {
+=======
           // we know that `upperIndex` cannot be `-1`.
           upperIndex = findNextDefinedInputIndex(points, i);
         }
@@ -181,6 +200,7 @@ export class CSSLinearEasingModel {
   }
 
   toCSSText(): string {
+>>>>>>> BASE      (8c3cfa Parse linear easing function in CSSLinearEasingModel)
     const args =
         this.#points.map(point => `${numberFormatter.format(point.output)} ${numberFormatter.format(point.input)}%`)
             .join(', ');

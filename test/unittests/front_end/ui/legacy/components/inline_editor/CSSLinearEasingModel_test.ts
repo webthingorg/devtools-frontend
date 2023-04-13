@@ -10,7 +10,11 @@ const {assert} = chai;
 function testValidCase(input: string, output: string): void {
   const model = InlineEditor.CSSLinearEasingModel.CSSLinearEasingModel.parse(input);
   assertNotNullOrUndefined(model);
+<<<<<<< PATCH SET (ae1c2b Unify creating animation timing function models and their re)
+  assert.strictEqual(model.asCSSText(), output, `Parsing is invalid for case "${input}"`);
+=======
   assert.strictEqual(model.toCSSText(), output, `Parsing is invalid for case "${input}"`);
+>>>>>>> BASE      (8c3cfa Parse linear easing function in CSSLinearEasingModel)
 }
 
 function testInvalidCase(input: string): void {
