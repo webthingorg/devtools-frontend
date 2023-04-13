@@ -167,6 +167,7 @@ export interface TraceEventDispatch extends TraceEventComplete {
 
 export interface TraceEventEventTiming extends TraceEventData {
   ph: Phase.ASYNC_NESTABLE_START|Phase.ASYNC_NESTABLE_END;
+  id: string;
   args: TraceEventArgs&{
     frame: string,
     data?: TraceEventArgsData&{
@@ -178,6 +179,13 @@ export interface TraceEventEventTiming extends TraceEventData {
       interactionId?: number, type: string,
     },
   };
+}
+
+export interface TraceEventEventTimingStart extends TraceEventEventTiming {
+  ph: Phase.ASYNC_NESTABLE_START;
+}
+export interface TraceEventEventTimingEnd extends TraceEventEventTiming {
+  ph: Phase.ASYNC_NESTABLE_END;
 }
 
 export interface TraceEventGPUTask extends TraceEventComplete {
@@ -891,6 +899,14 @@ export function isTraceEventInteractiveTime(traceEventData: TraceEventData):
 
 export function isTraceEventEventTiming(traceEventData: TraceEventData): traceEventData is TraceEventEventTiming {
   return traceEventData.name === 'EventTiming';
+}
+
+export function isTraceEventEventTimingEnd(traceEventData: TraceEventData): traceEventData is TraceEventEventTimingEnd {
+  return isTraceEventEventTiming(traceEventData) && traceEventData.ph === Phase.ASYNC_NESTABLE_END;
+}
+export function isTraceEventEventTimingStart(traceEventData: TraceEventData):
+    traceEventData is TraceEventEventTimingStart {
+  return isTraceEventEventTiming(traceEventData) && traceEventData.ph === Phase.ASYNC_NESTABLE_START;
 }
 
 export function isTraceEventGPUTask(traceEventData: TraceEventData): traceEventData is TraceEventGPUTask {
