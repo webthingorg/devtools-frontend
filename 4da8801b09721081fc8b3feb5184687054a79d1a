@@ -33,6 +33,41 @@
       "message": "Thanks Kim! Looks good!\nI think for the \u0027undo\u0027 button we should use the \u0027revert\u0027 SVG, but indeed best that Peter confirms",
       "revId": "4da8801b09721081fc8b3feb5184687054a79d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3128f036_2a877fdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-13T09:53:57Z",
+      "side": 1,
+      "message": "Ah I meant undo (revert) already exists, but not the redo one. Will wait for Peter on that :)!",
+      "parentUuid": "dd5c9bae_816f6c41",
+      "revId": "4da8801b09721081fc8b3feb5184687054a79d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f271635f_a20aa0d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-13T09:53:57Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "4da8801b09721081fc8b3feb5184687054a79d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
