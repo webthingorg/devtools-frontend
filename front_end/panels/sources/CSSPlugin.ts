@@ -255,7 +255,7 @@ function createCSSTooltip(active: ActiveTooltip): CodeMirror.Tooltip {
         widget = spectrum;
         Host.userMetrics.colorPickerOpenedFrom(Host.UserMetrics.ColorPickerOpenedFrom.SourcesPanel);
       } else {
-        const spectrum = new InlineEditor.BezierEditor.BezierEditor(active.curve);
+        const spectrum = new InlineEditor.BezierEditor.BezierEditor({model: active.curve});
         widget = spectrum;
         addListener = (handler): void => {
           spectrum.addEventListener(InlineEditor.BezierEditor.Events.BezierChanged, handler);
