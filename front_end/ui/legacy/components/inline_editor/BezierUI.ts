@@ -4,6 +4,14 @@
 
 import * as UI from '../../legacy.js';
 
+interface Params {
+  width: number;
+  height: number;
+  marginTop: number;
+  controlPointRadius: number;
+  shouldDrawLine: boolean;
+}
+
 export class BezierUI {
   width: number;
   height: number;
@@ -11,12 +19,12 @@ export class BezierUI {
   radius: number;
   linearLine: boolean;
 
-  constructor(width: number, height: number, marginTop: number, controlPointRadius: number, linearLine: boolean) {
+  constructor({width, height, marginTop, controlPointRadius, shouldDrawLine}: Params) {
     this.width = width;
     this.height = height;
     this.marginTop = marginTop;
     this.radius = controlPointRadius;
-    this.linearLine = linearLine;
+    this.linearLine = shouldDrawLine;
   }
 
   static drawVelocityChart(bezier: UI.Geometry.CubicBezier, path: Element, width: number): void {
