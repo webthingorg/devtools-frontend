@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbca1bff_5c552339",
+        "filename": "test/e2e/coverage/coverage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/10034/overview",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 83
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e6045a_ed8dd56c",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Linux/12175/overview",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 65
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94df8009_854ba501",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/10024/overview",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 70
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5aa964_b986530b",
+        "filename": "test/e2e/elements/computed-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Linux/12173/overview",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 98
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8cd364_139b05f5",
+        "filename": "test/e2e/media/media-tab_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Win/8553/overview",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 81
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aad4869_30fbbb5f",
+        "filename": "test/e2e/sources/header-overrides_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-04-13T12:02:34Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/10035/overview",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 75
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
