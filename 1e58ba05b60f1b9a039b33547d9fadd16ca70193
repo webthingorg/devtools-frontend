@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a286ecf3_68c6aab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-13T12:07:41Z",
+      "side": 1,
+      "message": "One additional thought!",
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bbca1bff_5c552339",
         "filename": "test/e2e/coverage/coverage_test.ts",
         "patchSetId": 1
@@ -106,6 +123,30 @@
       "writtenOn": "2023-04-13T12:02:34Z",
       "side": 1,
       "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Win/8553/overview",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 81
+      },
+      "revId": "1e58ba05b60f1b9a039b33547d9fadd16ca70193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd6c2225_ea0889b5",
+        "filename": "test/e2e/media/media-tab_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-13T12:07:41Z",
+      "side": 1,
+      "message": "How about referencing individual crbugs here? Or maybe the original ones before they were unskipped?",
+      "parentUuid": "ce8cd364_139b05f5",
       "range": {
         "startLine": 19,
         "startChar": 0,
