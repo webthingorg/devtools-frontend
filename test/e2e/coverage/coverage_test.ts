@@ -33,7 +33,7 @@ describe('The Coverage Panel', async () => {
     await clearCoverageContent();
   });
 
-  it('Shows completly uncovered css files', async () => {
+  it.skipOnParallel('Shows completly uncovered css files', async () => {
     const {target} = getBrowserAndPages();
 
     await goToResource('coverage/unused-css-coverage.html');

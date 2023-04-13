@@ -15,7 +15,7 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {toggleAccessibilityTree} from '../helpers/elements-helpers.js';
 
 describe('Accessibility Tree in the Elements Tab', async function() {
-  it('displays the fuller accessibility tree', async () => {
+  it.skipOnParallel('displays the fuller accessibility tree', async () => {
     await enableExperiment('fullAccessibilityTree');
     await enableExperiment('protocolMonitor');
     await goToResource('elements/accessibility-simple-page.html');
@@ -24,7 +24,7 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForElementWithTextContent('link\xa0"cats" focusable:\xa0true');
   });
 
-  it('allows navigating iframes', async () => {
+  it.skipOnParallel('allows navigating iframes', async () => {
     await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-iframe-page.html');
     await toggleAccessibilityTree();
