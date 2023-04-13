@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70e724d0_cb6671ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2023-04-13T21:01:12Z",
+      "side": 1,
+      "message": "FWIW, some parts of this documents look like they more appropriate on the back-end side, perhaps next to https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/devtools_protocol/README.md (and some actually look duplicate to that). So perhaps we could leave the front-end specifics to this file and refer to the one above for the protocol overview and backend specifics, moving anything back-end related worth keeping from devtools-protocol.md to devtools_protocol/README.md?",
+      "revId": "4054d1ec6a7211c707847713eda35c00d047cbe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
