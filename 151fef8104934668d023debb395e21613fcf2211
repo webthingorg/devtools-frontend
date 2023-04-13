@@ -16,6 +16,23 @@
       "message": "PTAL. This is a follow-up to your https://crrev.com/c/4386381. I hope it\u0027s not breaking any trees, the ones I checked all look fine with this change.",
       "revId": "151fef8104934668d023debb395e21613fcf2211",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "558f0012_9192e305",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-13T09:10:15Z",
+      "side": 1,
+      "message": "This looks great! Thank you Wolfgang!",
+      "revId": "151fef8104934668d023debb395e21613fcf2211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
