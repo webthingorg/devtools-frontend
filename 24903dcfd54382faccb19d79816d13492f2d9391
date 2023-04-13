@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b7fd92_1f8eaec9",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-13T10:38:27Z",
+      "side": 1,
+      "message": "I think you rather want something like `model.target().outermostTarget() \u003d\u003d\u003d model.target()`",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 55
+      },
+      "revId": "24903dcfd54382faccb19d79816d13492f2d9391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
