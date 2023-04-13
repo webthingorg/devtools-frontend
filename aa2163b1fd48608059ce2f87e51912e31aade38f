@@ -138,6 +138,24 @@
       "message": "Are there instances where the tabIndex is set to other values?",
       "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb998d3_9ac061aa",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-04-13T01:00:47Z",
+      "side": 1,
+      "message": "Hi Changhao ~ tabIndex gets set to 0 in the \"showTab\" function on line 836. \nThis function initially just removed the tabIndex but now sets it to -1.",
+      "parentUuid": "f37a6234_3522c6d8",
+      "revId": "aa2163b1fd48608059ce2f87e51912e31aade38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
