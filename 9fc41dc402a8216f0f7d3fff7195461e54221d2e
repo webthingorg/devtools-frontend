@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b9d0db_684bb908",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-13T13:47:54Z",
+      "side": 1,
+      "message": "Somehow rebasing to the crrev.com/c/4403734 is too cumbersome; so you can assume this is on top of crrev.com/c/4403734 and do not look into CSSLinearEasingModel.ts and CSSLinearEasingModel_test.ts\n\nI\u0027ll do the rebasing once the other one is submitted.",
+      "revId": "9fc41dc402a8216f0f7d3fff7195461e54221d2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
