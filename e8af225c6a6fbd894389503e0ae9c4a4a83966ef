@@ -46,6 +46,30 @@
       },
       "revId": "e8af225c6a6fbd894389503e0ae9c4a4a83966ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1330590_4398a0ca",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-13T08:56:19Z",
+      "side": 0,
+      "message": "I agree, that waitForFunction is curious and doesn\u0027t seem needed. The fact that the test is less flaky without it is suspicious though, and removing it looks to be hiding the underlying issue.",
+      "parentUuid": "b0bccf34_ead9c10c",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 30
+      },
+      "revId": "e8af225c6a6fbd894389503e0ae9c4a4a83966ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
