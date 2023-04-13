@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "adbb827fa0b42457dbfcc1b5aaad30ac688cae42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b8d6d3_0d7bac80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-13T14:10:56Z",
+      "side": 1,
+      "message": "LGTM, could you also delete the old SVG please \u0026 update .gni files? as far as I can see it\u0027s not used anywhere else",
+      "revId": "adbb827fa0b42457dbfcc1b5aaad30ac688cae42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
