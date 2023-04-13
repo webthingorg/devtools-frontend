@@ -143,8 +143,8 @@ describeWithLocale('RequestLinkIcon', () => {
       });
 
       const {iconData, label} = extractData(shadowRoot);
-      assert.strictEqual('iconName' in iconData ? iconData.iconName : null, 'network_panel_icon');
-      assert.strictEqual(iconData.color, 'var(--issue-color-yellow)');
+      assert.strictEqual('iconName' in iconData ? iconData.iconName : null, 'arrow-up-down-circle');
+      assert.strictEqual(iconData.color, 'var(--icon-request)');
       assert.isNull(label, 'Didn\'t expect a label');
     });
 
@@ -154,8 +154,8 @@ describeWithLocale('RequestLinkIcon', () => {
       });
 
       const {iconData, label} = extractData(shadowRoot);
-      assert.strictEqual('iconName' in iconData ? iconData.iconName : null, 'network_panel_icon');
-      assert.strictEqual(iconData.color, 'var(--color-link)');
+      assert.strictEqual('iconName' in iconData ? iconData.iconName : null, 'arrow-up-down-circle');
+      assert.strictEqual(iconData.color, 'var(--icon-link)');
       assert.isNull(label, 'Didn\'t expect a label');
     });
 
