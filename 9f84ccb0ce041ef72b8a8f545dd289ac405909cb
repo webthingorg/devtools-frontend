@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c421dd0_d4fe269b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-13T09:06:59Z",
+      "side": 1,
+      "message": "Would it actually work to set a border to the dot in background color? So that the gap between dot and file is still there as in the before image",
+      "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
