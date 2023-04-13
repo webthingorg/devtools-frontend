@@ -98,7 +98,8 @@ describe('The Overrides Panel', async function() {
     await waitFor(ENABLE_OVERRIDES_SELECTOR);
   });
 
-  it('can create header overrides', async () => {
+  // Skip until flake is fixed
+  it.skip('[crbug.com/1432925]: can create header overrides', async () => {
     await enableExperiment('headerOverrides');
     await goToResource('empty.html');
     await openSourcesPanel();
