@@ -16,6 +16,23 @@
       "message": "PTAL\n\nStress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8784665624973433313/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8784665624973433329/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8784665624973433297/overview",
       "revId": "c771fedacbac1bfdec11d6e0f4d9947d9d695739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89269f9_a12e16b7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-13T08:10:16Z",
+      "side": 1,
+      "message": "That won\u0027t work, we might miss the `animationend` event if the listener is installed too late. It needs to be installed before the click.",
+      "revId": "c771fedacbac1bfdec11d6e0f4d9947d9d695739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
