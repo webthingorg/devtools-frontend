@@ -21,6 +21,8 @@ import {
   waitForAria,
   clickElement,
   waitForFunction,
+  waitForEvent,
+  prepareWaitForEvent,
 } from '../../shared/helper.js';
 
 const SELECTED_TREE_ELEMENT_SELECTOR = '.selected[role="treeitem"]';
@@ -315,10 +317,11 @@ export const expandSelectedNodeRecursively = async () => {
 
 export const forcePseudoState = async (pseudoState: string) => {
   // Open element state pane and wait for it to be loaded asynchronously
+  const boxElement = await waitFor('.styles-sidebar-toolbar-pane');
+  await prepareWaitForEvent(boxElement, 'animationend');
   await click('[aria-label="Toggle Element State"]');
+  await waitForEvent(boxElement, 'animationend');
   await waitFor(`[aria-label="${pseudoState}"]`);
-  // FIXME(crbug/1112692): Refactor test to remove the timeout.
-  await timeout(100);
   await click(`[aria-label="${pseudoState}"]`);
 };
 
