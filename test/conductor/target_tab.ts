@@ -22,7 +22,10 @@ export class TargetTab {
     const frameTarget = new Promise<puppeteer.Target>(resolve => browser.once('targetcreated', resolve));
     const jsonNewReponse = await fetch(`http://${host}/json/new?${escape('about:blank')}&for_tab`, {method: 'PUT'});
     const tabTarget = await jsonNewReponse.json();
-    const page = await frameTarget.then(t => t.page()) as puppeteer.Page;
+    let page = null;
+    while (!page) {
+      page = await frameTarget.then(t => t.page()) as puppeteer.Page;
+    }
     await loadEmptyPageAndWaitForContent(page);
 
     return new TargetTab(page, tabTarget.id);
