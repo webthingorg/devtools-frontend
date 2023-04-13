@@ -16,6 +16,23 @@
       "message": "Stress runs:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8784101804516499873/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_linux/b8784101804516499889/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_win64/b8784101804516499857/overview",
       "revId": "fd0127f91e2fc51cd9d4ac9ee6e56271e76281d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82de771_48bd2382",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-13T10:46:58Z",
+      "side": 1,
+      "message": "You can also wait for the checkbox being checked with the `:checked` css pseudo-class selector. Although I\u0027m not yet sure that\u0027s a good solution.",
+      "revId": "fd0127f91e2fc51cd9d4ac9ee6e56271e76281d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
