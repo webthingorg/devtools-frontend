@@ -16,6 +16,46 @@
       "message": "PTAL.",
       "revId": "8f31761f80d2bf8ba5f3e69b592610884bc5da76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbb1ad9_75732132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-13T13:50:52Z",
+      "side": 1,
+      "message": "nice fix! LGTM with suggestion about consistency with other synthetic tuple events",
+      "revId": "8f31761f80d2bf8ba5f3e69b592610884bc5da76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d46e01e_f5aa0408",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-13T13:50:52Z",
+      "side": 1,
+      "message": "I think it would be convenient if we used a shape similar to the other synthetic event types for event \"tuples\" like user timings [1] (i.e. begin and end events under `args`). I don\u0027t feel strongly about any shape in particular, but I think it makes sense to be consistent. Same with the place in which the synthetic types are defined. WDYT?\n\nhttps://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/d01f6a99a5dd2e2bf3471b3afaf66c8d048b51ac:front_end/models/trace/types/TraceEvents.ts;l\u003d723",
+      "range": {
+        "startLine": 23,
+        "startChar": 17,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "8f31761f80d2bf8ba5f3e69b592610884bc5da76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
