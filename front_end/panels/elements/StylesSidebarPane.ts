@@ -779,6 +779,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.allSections().forEach(section => {
       section.propertiesTreeOutline.element.style.width = width;
     });
+    this.hideAllPopovers();
     return Promise.resolve();
   }
 
