@@ -206,7 +206,7 @@ describe('The Network Request view', async () => {
     assert.deepEqual(color, 'rgb(255, 0, 0)');
   });
 
-  it('stores websocket filter', async () => {
+  it.skipOnParallel('stores websocket filter', async () => {
     const navigateToWebsocketMessages = async () => {
       await navigateToNetworkTab('websocket.html');
 
