@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e560b20c_15fd1d33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-14T17:14:40Z",
+      "side": 1,
+      "message": "dsv@, could you have a look?\n\nadithyas@, could you check comments about document rules? IIUC, trigger timing is hardly depending on the implementation and `\"eagerness\": \"conservative\"` currently triggers at mousedown, right?",
+      "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
