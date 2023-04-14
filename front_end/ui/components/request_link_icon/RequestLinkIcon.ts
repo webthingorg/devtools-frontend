@@ -123,7 +123,7 @@ export class RequestLinkIcon extends HTMLElement {
 
   #iconColor(): string {
     if (!this.#request) {
-      return '--icon-no-request';
+      return '--icon-request';
     }
     return '--icon-link';
   }
