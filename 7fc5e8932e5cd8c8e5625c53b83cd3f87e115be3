@@ -16,6 +16,23 @@
       "message": "dsv@, could you have a look?\n\nadithyas@, could you check comments about document rules? IIUC, trigger timing is hardly depending on the implementation and `\"eagerness\": \"conservative\"` currently triggers at mousedown, right?",
       "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2c4c7b_67194278",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2023-04-14T21:35:11Z",
+      "side": 1,
+      "message": "Actually the renderer always sends these candidates to the browser. The browser just queues these candidates and waits for a mousedown/hover event from the renderer before actually starting the preload.\n\nSo I would just change this to:\n\n\"NotTriggered\" is used to denote that a PreloadingAttempt is waiting for at trigger event (eg: mousedown / mouseover). All PreloadingAttempts will start off as \"NotTriggered\", but \"eager\" preloading attempts (attempts not actually waiting for any trigger) will be processed by the browser immediately, and will not stay in this state for long.",
+      "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
