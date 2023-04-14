@@ -224,7 +224,9 @@ function executeTestSuite({
     }
   }
   if (jobs > 1) {
-    argumentsForNode.push(`--jobs=${jobs}`);
+    // argumentsForNode.push(`--jobs=${jobs}`);
+    argumentsForNode.push('--jobs=8');
+    argumentsForNode.push(`--timeout=${60 * 100}`);
   }
   const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
