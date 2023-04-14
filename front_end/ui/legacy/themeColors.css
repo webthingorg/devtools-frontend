@@ -197,6 +197,7 @@
   /* Color tokens for icons */
   --color-on-surface: rgb(32 33 36);
   --color-on-surface-variant: rgb(110 110 110);
+  --color-grey-bleak: rgb(128 134 139);
   --color-primary: rgb(11 87 208);
   --color-primary-bright: rgb(27 110 243);
   --color-on-primary: rgb(255 255 255);
@@ -364,6 +365,7 @@
   /* Color tokens for icons */
   --color-on-surface: rgb(232 234 237);
   --color-on-surface-variant: rgb(145 145 145);
+  --color-grey-bleak: rgb(128 134 139);
   --color-primary: rgb(168 199 250);
   --color-primary-bright: rgb(124 172 248);
   --color-on-primary: rgb(255 255 255);
