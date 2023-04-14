@@ -226,7 +226,21 @@ function executeTestSuite({
   if (jobs > 1) {
     argumentsForNode.push(`--jobs=${jobs}`);
   }
-  const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
+  // argumentsForNode.push(`--dry-run`);
+  // argumentsForNode.push(`--reporter=list`);
+  const tests_list = [
+    'application/cookies_test.ts: The Application Tab shows cookies even when navigating to an unreachable page (crbug.com/1047348)',
+    'application/cookies_test.ts: The Application Tab shows a preview of the cookie value (crbug.com/462370)',
+    'application/cookies_test.ts: The Application Tab shows cookie partition key',
+  ];
+  tests_list.forEach(element => {
+    childProcess.spawnSync(
+        nodePath(), argumentsForNode.concat([`--fgrep='${element}'`]), {encoding: 'utf-8', stdio: 'inherit', cwd});
+  });
+
+  const result = childProcess.spawnSync(
+      nodePath(), argumentsForNode.concat(['--fgrep=\'dfjkgdfjkghjkdfhgjkd\'']),
+      {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {
     throw result.error;
