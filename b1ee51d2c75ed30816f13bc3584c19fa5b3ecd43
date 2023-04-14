@@ -16,6 +16,24 @@
       "message": "LGTM % q: do these use a new color token?",
       "revId": "b1ee51d2c75ed30816f13bc3584c19fa5b3ecd43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3100bdbd_242f7c94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-14T05:52:58Z",
+      "side": 1,
+      "message": "I double checked, it\u0027s using `--icon-default` :)",
+      "parentUuid": "eb29877e_b48152db",
+      "revId": "b1ee51d2c75ed30816f13bc3584c19fa5b3ecd43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
