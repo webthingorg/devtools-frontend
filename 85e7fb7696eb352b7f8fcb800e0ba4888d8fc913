@@ -33,6 +33,24 @@
       "message": "Is this caused only by the extensions? I think the preloading setting can be changed on chrome://settings/cookies as well.",
       "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab4dc68_b2c309bf",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-14T10:28:04Z",
+      "side": 1,
+      "message": "+1. It is good to point out the direct cause and recommended action for it.",
+      "parentUuid": "2aa5cf63_f76e4787",
+      "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
