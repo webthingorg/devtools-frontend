@@ -18,7 +18,11 @@ const allEvents: Types.TraceEvents.TraceEventEventTiming[] = [];
 export interface UserInteractionsData {
   allEvents: readonly Types.TraceEvents.TraceEventEventTiming[];
   interactionEvents: readonly Types.TraceEvents.SyntheticInteractionEvent[];
+  // The longest duration interaction event. Can be null if the trace has no interaction events.
+  longestInteractionEvent: Readonly<Types.TraceEvents.SyntheticInteractionEvent>|null;
 }
+
+let longestInteractionEvent: Types.TraceEvents.SyntheticInteractionEvent|null = null;
 
 const interactionEvents: Types.TraceEvents.SyntheticInteractionEvent[] = [];
 const eventTimingEndEventsById = new Map<string, Types.TraceEvents.TraceEventEventTimingEnd>();
@@ -109,8 +113,12 @@ export async function finalize(): Promise<void> {
       type: interactionStartEvent.args.data.type,
       interactionId: interactionStartEvent.args.data.interactionId,
     };
+    if (!longestInteractionEvent || longestInteractionEvent.dur < interactionEvent.dur) {
+      longestInteractionEvent = interactionEvent;
+    }
     interactionEvents.push(interactionEvent);
   }
+
   handlerState = HandlerState.FINALIZED;
 }
 
@@ -118,5 +126,6 @@ export function data(): UserInteractionsData {
   return {
     allEvents: [...allEvents],
     interactionEvents: [...interactionEvents],
+    longestInteractionEvent,
   };
 }
