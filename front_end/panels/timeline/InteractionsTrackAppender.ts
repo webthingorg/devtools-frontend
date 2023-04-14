@@ -100,15 +100,14 @@ export class InteractionsTrackAppender implements TrackAppender {
    * appended.
    */
   #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
-    const trackIsCollapsible = this.#traceParsedData.UserInteractions.interactionEvents.length > 0;
     const style: PerfUI.FlameChart.GroupStyle = {
       padding: 4,
       height: 17,
-      collapsible: trackIsCollapsible,
+      collapsible: false,
       color: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary'),
       backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-background'),
       nestingLevel: 0,
-      shareHeaderLine: true,
+      shareHeaderLine: false,
       useFirstLineForOverview: true,
     };
     const group = ({
