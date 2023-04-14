@@ -16,6 +16,23 @@
       "message": "PTAL, I only managed to repro the trust token error case. But since both are \"tab icons\" it should be fine.",
       "revId": "be7b30843a1160c4536ece26075cda4496a203d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19543e29_3c3cf163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-14T12:17:11Z",
+      "side": 1,
+      "message": "Looks good, thank you!",
+      "revId": "be7b30843a1160c4536ece26075cda4496a203d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
