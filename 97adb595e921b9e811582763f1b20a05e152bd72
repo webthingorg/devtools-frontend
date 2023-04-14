@@ -16,6 +16,98 @@
       "message": "PTAL",
       "revId": "97adb595e921b9e811582763f1b20a05e152bd72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc88a59f_64d8e8da",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2027,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-14T12:57:32Z",
+      "side": 1,
+      "message": "Could we use an icon color instead?",
+      "range": {
+        "startLine": 2027,
+        "startChar": 61,
+        "endLine": 2027,
+        "endChar": 82
+      },
+      "revId": "97adb595e921b9e811582763f1b20a05e152bd72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56dadfc_a21fb96c",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-14T12:57:32Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 1695,
+        "startChar": 61,
+        "endLine": 1695,
+        "endChar": 82
+      },
+      "revId": "97adb595e921b9e811582763f1b20a05e152bd72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7533836_05fca817",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-14T12:57:32Z",
+      "side": 1,
+      "message": "Could we use an icon color instead?",
+      "range": {
+        "startLine": 97,
+        "startChar": 61,
+        "endLine": 97,
+        "endChar": 82
+      },
+      "revId": "97adb595e921b9e811582763f1b20a05e152bd72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514353dc_90d094cf",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-14T12:57:32Z",
+      "side": 1,
+      "message": "Should this be `--icon-default`?",
+      "range": {
+        "startLine": 577,
+        "startChar": 6,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "97adb595e921b9e811582763f1b20a05e152bd72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
