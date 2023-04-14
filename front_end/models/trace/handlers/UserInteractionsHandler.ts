@@ -18,7 +18,7 @@ const allEvents: Types.TraceEvents.TraceEventEventTiming[] = [];
 
 export interface UserInteractionsData {
   allEvents: readonly Types.TraceEvents.TraceEventEventTiming[];
-  interactionEvents: readonly InteractionEvent[];
+  interactionEvents: InteractionEvent[];
 }
 
 export interface InteractionEvent extends Types.TraceEvents.TraceEventEventTiming {
