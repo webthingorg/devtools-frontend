@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "daaaafcc4cb6afc9dc6e0479831a5ba3a86f2122",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a37bb1c_1625678a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-14T12:18:34Z",
+      "side": 1,
+      "message": "Looks great! Thanks for fixing the styles as well!",
+      "revId": "daaaafcc4cb6afc9dc6e0479831a5ba3a86f2122",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
