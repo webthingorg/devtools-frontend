@@ -16,6 +16,24 @@
       "message": "I purposefully made it collapsable because it seems that most of our tracks are...so it felt weird to me having this one not be collapsable too. WDYT?",
       "revId": "5af24d78629a467d128bd8a960af5bc104dabc8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0839306_e504c35d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-04-14T09:48:26Z",
+      "side": 1,
+      "message": "Sounds good, then how about adding a comment in the bug or the CL to make it clear?",
+      "parentUuid": "0f6e633c_95c04f05",
+      "revId": "5af24d78629a467d128bd8a960af5bc104dabc8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
