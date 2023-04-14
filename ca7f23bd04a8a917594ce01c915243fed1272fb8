@@ -16,6 +16,115 @@
       "message": "Per chat in doc, we will use appenderUtil file.\nSo let\u0027s start with the simplest two functions\nPTAL, thx",
       "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a7951c_7c6a92d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T15:43:31Z",
+      "side": 1,
+      "message": "cool!! LGTM with a couple of nits and questions.",
+      "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ea3683_5827bbf0",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T15:43:31Z",
+      "side": 1,
+      "message": "I notice we always call these two together, do you think it makes sense to group these two in a single helper to reduce the duplicate code even more? Up to you, I don\u0027t feel very strongly about it.",
+      "range": {
+        "startLine": 96,
+        "startChar": 9,
+        "endLine": 97,
+        "endChar": 35
+      },
+      "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57893832_0f5ce6f7",
+        "filename": "front_end/panels/timeline/appenderUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T15:43:31Z",
+      "side": 1,
+      "message": "I think this isn\u0027t the right description for this param :)",
+      "range": {
+        "startLine": 31,
+        "startChar": 16,
+        "endLine": 31,
+        "endChar": 76
+      },
+      "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4074df0_c9939ab0",
+        "filename": "front_end/panels/timeline/appenderUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T15:43:31Z",
+      "side": 1,
+      "message": "typo: if",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439da7ba_0d6d6a02",
+        "filename": "front_end/panels/timeline/appenderUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T15:43:31Z",
+      "side": 1,
+      "message": "let\u0027s make this more explicit saying that it is used for selecting a track in the details pane",
+      "range": {
+        "startLine": 34,
+        "startChar": 80,
+        "endLine": 34,
+        "endChar": 99
+      },
+      "revId": "ca7f23bd04a8a917594ce01c915243fed1272fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
