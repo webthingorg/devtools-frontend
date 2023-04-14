@@ -16,6 +16,40 @@
       "message": "PTAL (I will update screenshots after the bots moan at me 😄)",
       "revId": "e87f5a6ef10a4e6dc33ae7b4b21a004f2f8531c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c31d6873_0a4ca986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T11:10:55Z",
+      "side": 1,
+      "message": "LGTM with question",
+      "revId": "e87f5a6ef10a4e6dc33ae7b4b21a004f2f8531c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef754283_7dfe09c6",
+        "filename": "test/interactions/goldens/linux/performance/interactions_track.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T11:10:55Z",
+      "side": 1,
+      "message": "is the change in the pointerup end time expected?",
+      "revId": "e87f5a6ef10a4e6dc33ae7b4b21a004f2f8531c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
