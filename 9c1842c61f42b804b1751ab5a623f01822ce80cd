@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "9c1842c61f42b804b1751ab5a623f01822ce80cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf25dde_8591e75b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T09:23:14Z",
+      "side": 1,
+      "message": "LGTM with question",
+      "revId": "9c1842c61f42b804b1751ab5a623f01822ce80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7390ad42_28defd47",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-14T09:23:14Z",
+      "side": 1,
+      "message": "non-blocking and only out of curiousity: do we know why close interactions commonly have the exact same end time even if they are different interactions?",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "9c1842c61f42b804b1751ab5a623f01822ce80cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
