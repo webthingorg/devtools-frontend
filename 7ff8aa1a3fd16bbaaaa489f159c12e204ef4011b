@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97c4a177_ca31c568",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-14T14:59:18Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "7ff8aa1a3fd16bbaaaa489f159c12e204ef4011b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ad654b_016bfb2b",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-14T14:59:18Z",
+      "side": 1,
+      "message": "Increasing this would probably influence the height of the whole line, right?",
+      "range": {
+        "startLine": 420,
+        "startChar": 15,
+        "endLine": 420,
+        "endChar": 17
+      },
+      "revId": "7ff8aa1a3fd16bbaaaa489f159c12e204ef4011b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
