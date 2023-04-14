@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd77ee6d_f98a2205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-14T10:18:50Z",
+      "side": 1,
+      "message": "PTAL\n\nWhat\u0027s the proper way to do this? Elsewhere in DevTools I often see stuff like this:\n\n```\n@media (forced-colors: active) {\n  .icon-basic {\n    forced-color-adjust: none;\n    background-color: ButtonText;\n    color: HighlightText;\n  }\n}\n```\nIs it enough to turn off color adjustment or do I need to explicitly set some colors as well? Since this selector applies to a lot of different icons, I think it makes more sense to not enforce a specific color.",
+      "revId": "0fb741a479f0f0748df54c6f524bea313fb88297",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
