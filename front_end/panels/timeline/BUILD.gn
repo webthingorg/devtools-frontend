@@ -43,6 +43,7 @@ devtools_module("timeline") {
     "TimelineLoader.ts",
     "TimelinePaintProfilerView.ts",
     "TimelinePanel.ts",
+    "TimelineSelection.ts",
     "TimelineTreeView.ts",
     "TimelineUIUtils.ts",
     "TimingsTrackAppender.ts",
