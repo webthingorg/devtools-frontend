@@ -54,9 +54,9 @@ export class HelpQuickOpen extends Provider {
     const iconElement = new IconButton.Icon.Icon();
     iconElement.data = {
       iconName: provider.iconName,
-      color: 'var(--color-text-primary)',
-      width: '18px',
-      height: '18px',
+      color: 'var(--icon-default)',
+      width: '20px',
+      height: '20px',
     };
     titleElement.parentElement?.parentElement?.insertBefore(iconElement, titleElement.parentElement);
 
@@ -76,7 +76,7 @@ export class HelpQuickOpen extends Provider {
 
 registerProvider({
   prefix: '?',
-  iconName: 'ic_command_help',
+  iconName: 'help',
   provider: () => Promise.resolve(new HelpQuickOpen()),
   titlePrefix: () => 'Help',
   titleSuggestion: undefined,

@@ -1897,7 +1897,7 @@ UI.ContextMenu.registerItem({
 
 QuickOpen.FilteredListWidget.registerProvider({
   prefix: '@',
-  iconName: 'ic_command_go_to_symbol',
+  iconName: 'symbol',
   async provider() {
     const Sources = await loadSourcesModule();
     return new Sources.OutlineQuickOpen.OutlineQuickOpen();
@@ -1908,7 +1908,7 @@ QuickOpen.FilteredListWidget.registerProvider({
 
 QuickOpen.FilteredListWidget.registerProvider({
   prefix: ':',
-  iconName: 'ic_command_go_to_line',
+  iconName: 'colon',
   async provider() {
     const Sources = await loadSourcesModule();
     return new Sources.GoToLineQuickOpen.GoToLineQuickOpen();
@@ -1919,7 +1919,7 @@ QuickOpen.FilteredListWidget.registerProvider({
 
 QuickOpen.FilteredListWidget.registerProvider({
   prefix: '',
-  iconName: 'ic_command_open_file',
+  iconName: 'document',
   async provider() {
     const Sources = await loadSourcesModule();
     return new Sources.OpenFileQuickOpen.OpenFileQuickOpen();
