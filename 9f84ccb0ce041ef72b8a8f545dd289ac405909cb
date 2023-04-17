@@ -70,6 +70,24 @@
       "parentUuid": "b0948151_4c40ce1f",
       "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8cbdf54_de61556c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-04-17T12:54:11Z",
+      "side": 1,
+      "message": "Yes i\u0027d love if there would be a 2 px wide border around the dot. Eric and I looked at it and came to the conclusion that it\u0027s not so easy to do and might be done in a follow-up. See here: https://docs.google.com/document/d/1qFCaS2OfIrtFdsOtGzzUfoO5TEDfzzi6VzahPU54npw/edit?resourcekey\u003d0--WTwG6kfymwZ34oVhsVKZw#bookmark\u003did.jc6wddlr7xds\n\nA nit: in the screenshot the dot is below the file icon, not on top.",
+      "parentUuid": "c829471b_b6890694",
+      "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
