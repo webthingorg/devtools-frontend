@@ -52,6 +52,24 @@
       "parentUuid": "c951eea6_0ec52631",
       "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c829471b_b6890694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-17T11:45:31Z",
+      "side": 1,
+      "message": "+petermueller, do we want to have a border around the dot?",
+      "parentUuid": "b0948151_4c40ce1f",
+      "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
