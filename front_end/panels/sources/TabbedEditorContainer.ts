@@ -38,6 +38,7 @@ import * as Workspace from '../../models/workspace/workspace.js';
 import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import type * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Snippets from '../snippets/snippets.js';
 
 import {SourcesView} from './SourcesView.js';
@@ -612,7 +613,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
       const title = this.titleForFile(uiSourceCode);
       const tooltip = this.tooltipForFile(uiSourceCode);
       this.tabbedPane.changeTabTitle(tabId, title, tooltip);
-      let icon: UI.Icon.Icon|(UI.Icon.Icon | null)|null = null;
+      let icon: IconButton.Icon.Icon|UI.Icon.Icon|(UI.Icon.Icon | null)|null = null;
       if (uiSourceCode.loadError()) {
         icon = UI.Icon.Icon.create('smallicon-error');
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.unableToLoadThisContent));
