@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e38119_68e81507",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-17T17:58:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "14a0e43490d32cb11fdc2111ea181f7020dbf5b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2c452f3_e5e255c0",
+        "filename": "front_end/panels/timeline/TimelineSelection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-17T17:58:51Z",
+      "side": 1,
+      "message": "I\u0027d guess we have to update the timeline-legacy file to fix the layout tests failures?",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "14a0e43490d32cb11fdc2111ea181f7020dbf5b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
