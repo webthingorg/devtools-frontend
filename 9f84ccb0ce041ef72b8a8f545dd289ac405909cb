@@ -34,6 +34,24 @@
       "parentUuid": "2c421dd0_d4fe269b",
       "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0948151_4c40ce1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-17T11:43:41Z",
+      "side": 1,
+      "message": "Background toolbar color, probably `rgb(241, 243, 244)`, to recreate that gap between the dot and the file icon",
+      "parentUuid": "c951eea6_0ec52631",
+      "revId": "9f84ccb0ce041ef72b8a8f545dd289ac405909cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
