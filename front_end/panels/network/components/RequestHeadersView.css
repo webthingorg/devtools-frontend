@@ -147,14 +147,14 @@ x-link .inline-icon { /* stylelint-disable-line selector-type-no-unknown */
   padding-right: 3px;
 }
 
-.purple-dot {
-  filter: hue-rotate(160deg);
-  padding-top: 2px;
-}
-
-.-theme-with-dark-background .purple-dot,
-:host-context(.-theme-with-dark-background) .purple-dot {
-  filter: invert(80%) hue-rotate(350deg);
+.purple-dot::before {
+  -webkit-mask-image: url("Images/file-sync-badge.svg");
+  background-color: var(--color-purple-bright);
+  content: url("Images/empty.svg");
+  margin-left: -19px;
+  margin-top: -3px;
+  position: absolute;
+  z-index: 1;
 }
 
 summary label {
