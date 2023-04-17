@@ -424,7 +424,7 @@ export class ShowActionDelegate implements UI.ActionRegistration.ActionDelegate 
 
 registerProvider({
   prefix: '>',
-  iconName: 'ic_command_run_command',
+  iconName: 'chevron-right',
   provider: () => Promise.resolve(new CommandMenuProvider()),
   titlePrefix: (): Common.UIString.LocalizedString => i18nString(UIStrings.run),
   titleSuggestion: (): Common.UIString.LocalizedString => i18nString(UIStrings.command),
