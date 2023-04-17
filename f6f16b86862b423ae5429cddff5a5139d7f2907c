@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ee5ae0_c53bee48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-17T13:48:09Z",
+      "side": 1,
+      "message": "Thanks! In order to fix the build errors, you\u0027ll need to add 2 methods to all implementations of ProtocolProxyApi.StorageDispatcher (should be ServiceWorkerCacheModel, IndexedDBModel, InterestGroupStorageModel, and SharedStorageModel). Something like this should work:\n\n```\nstorageBucketCreatedOrUpdated(_event: Protocol.Storage.StorageBucketCreatedOrUpdatedEvent): void {\n}\n\nstorageBucketDeleted(_event: Protocol.Storage.StorageBucketDeletedEvent): void {\n}\n```",
+      "revId": "f6f16b86862b423ae5429cddff5a5139d7f2907c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aff10be_201ff6fd",
+        "filename": "front_end/models/javascript_metadata/DOMPinnedProperties.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-17T13:48:09Z",
+      "side": 1,
+      "message": "The changes to this file are only in formatting and are usually caught and fixed by a presubmit hook automatically. See https://crrev.com/6176614da62a9840cedffb4197bb8025b198b9d7/docs/workflows.md#managing-dependencies and let me know if that does not work for you.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 6
+      },
+      "revId": "f6f16b86862b423ae5429cddff5a5139d7f2907c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
