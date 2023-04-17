@@ -12,15 +12,19 @@ describe('StylePropertiesSection', async () => {
     Elements = await import('../../../../../front_end/panels/elements/elements.js');
   });
 
+  // TODO(bramus) Check specificity of selectors with & in them
   it('renders selectors with nesting symbols correctly', async () => {
     let selectorElement = Elements.StylePropertiesSection.StylePropertiesSection.renderSelectors(
-        ['.child', '.item'], [true], new WeakMap(), ['.parent']);
+        [{text: '.child', specificity: {a: 0, b: 1, c: 0}}, {text: '.item', specificity: {a: 0, b: 1, c: 0}}], [true],
+        new WeakMap(), ['.parent']);
     assert.deepEqual(selectorElement.textContent, '& .child, .item');
     selectorElement = Elements.StylePropertiesSection.StylePropertiesSection.renderSelectors(
-        ['.child', '& .item'], [true], new WeakMap(), ['.parent']);
+        [{text: '.child', specificity: {a: 0, b: 1, c: 0}}, {text: '& .item', specificity: {a: 0, b: 1, c: 0}}], [true],
+        new WeakMap(), ['.parent']);
     assert.deepEqual(selectorElement.textContent, '.child, & .item');
     selectorElement = Elements.StylePropertiesSection.StylePropertiesSection.renderSelectors(
-        ['&.child', '& .item'], [true], new WeakMap(), ['.parent']);
+        [{text: '&.child', specificity: {a: 0, b: 1, c: 0}}, {text: '& .item', specificity: {a: 0, b: 1, c: 0}}],
+        [true], new WeakMap(), ['.parent']);
     assert.deepEqual(selectorElement.textContent, '&.child, & .item');
   });
 

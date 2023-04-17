@@ -84,10 +84,14 @@ export class CSSRule {
 class CSSValue {
   text: string;
   range: TextUtils.TextRange.TextRange|undefined;
+  specificity: Protocol.CSS.Specificity|undefined;
   constructor(payload: Protocol.CSS.Value) {
     this.text = payload.text;
     if (payload.range) {
       this.range = TextUtils.TextRange.TextRange.fromObject(payload.range);
+    }
+    if (payload.specificity) {
+      this.specificity = payload.specificity;
     }
   }
 
@@ -96,6 +100,7 @@ class CSSValue {
       return;
     }
     this.range = this.range.rebaseAfterTextEdit(edit.oldRange, edit.newRange);
+    // TODO(bramus) Edit should pass in new Specificity too, no?
   }
 }
 
