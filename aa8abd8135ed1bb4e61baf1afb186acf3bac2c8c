@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "173f512b_a1635865",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-17T08:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "224b6fe6_77441429",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 93
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93c09108_5a65ea1f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-12T07:00:13Z",
       "side": 1,
       "message": "can you update the types etc (and likely need to update the function that fetches the metadata when a recording is created) ?\n\nThinking about it...this is a bigger change, so I would rather this CL only be the JSON formatting, and let\u0027s do the start time in its own CL please.",
+      "range": {
+        "startLine": 13,
+        "startChar": 41,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d10d38a_fcf9ab0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-17T08:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93c09108_5a65ea1f",
       "range": {
         "startLine": 13,
         "startChar": 41,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa51967_d6a143e1",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-17T08:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8c1e34b_763cbd2c",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 54
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25e7cb7d_c6472ce7",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-12T07:00:13Z",
       "side": 1,
       "message": "we have a type for the metadata defined in the TraceEvents code, so let\u0027s use that not any",
+      "range": {
+        "startLine": 705,
+        "startChar": 107,
+        "endLine": 705,
+        "endChar": 110
+      },
+      "revId": "aa8abd8135ed1bb4e61baf1afb186acf3bac2c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1821a11_05d7c4da",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-17T08:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25e7cb7d_c6472ce7",
       "range": {
         "startLine": 705,
         "startChar": 107,
