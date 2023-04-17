@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93085dce_f67f0b23",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-17T07:48:46Z",
+      "side": 1,
+      "message": "I prefer using enum or union, not mixing them up. In this case, Protocol.Preload.PreloadingStatus is enum and it is easy and coherent to use enum.",
+      "parentUuid": "fba7acd1_78fa28b9",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 51
+      },
+      "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b2c4c7b_67194278",
         "filename": "front_end/core/sdk/PreloadingModel.ts",
         "patchSetId": 4
@@ -54,6 +78,24 @@
       "writtenOn": "2023-04-14T21:35:11Z",
       "side": 1,
       "message": "Actually the renderer always sends these candidates to the browser. The browser just queues these candidates and waits for a mousedown/hover event from the renderer before actually starting the preload.\n\nSo I would just change this to:\n\n\"NotTriggered\" is used to denote that a PreloadingAttempt is waiting for at trigger event (eg: mousedown / mouseover). All PreloadingAttempts will start off as \"NotTriggered\", but \"eager\" preloading attempts (attempts not actually waiting for any trigger) will be processed by the browser immediately, and will not stay in this state for long.",
+      "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb44059e_5dd8f37f",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-17T07:48:46Z",
+      "side": 1,
+      "message": "Thans!",
+      "parentUuid": "6b2c4c7b_67194278",
       "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +113,30 @@
       "writtenOn": "2023-04-17T06:18:37Z",
       "side": 1,
       "message": "Add a getter returning iterator instead?",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 98
+      },
+      "revId": "7fc5e8932e5cd8c8e5625c53b83cd3f87e115be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e372994d_0cf66d05",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-17T07:48:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da00977b_fd1fdd09",
       "range": {
         "startLine": 498,
         "startChar": 0,
