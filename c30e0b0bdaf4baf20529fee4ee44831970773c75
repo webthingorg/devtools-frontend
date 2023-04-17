@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9492a02d_f370b201",
+        "filename": "front_end/panels/elements/TopLayerContainer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-17T11:44:35Z",
+      "side": 1,
+      "message": "I talked to Peter, we decided yo use `--icon-default` here",
+      "parentUuid": "72542b9e_719c39c7",
+      "range": {
+        "startLine": 97,
+        "startChar": 57,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "c30e0b0bdaf4baf20529fee4ee44831970773c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50ad2ecd_62e6a3c7",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc1027a2_76681217",
+        "filename": "front_end/ui/legacy/applicationColorTokens.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-17T11:44:35Z",
+      "side": 1,
+      "message": "Don\u0027t need the color now",
+      "parentUuid": "50ad2ecd_62e6a3c7",
+      "revId": "c30e0b0bdaf4baf20529fee4ee44831970773c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "532a33eb_2f6d8c7c",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-04-17T08:29:57Z",
       "side": 1,
       "message": "Is this color used anywhere?",
+      "revId": "c30e0b0bdaf4baf20529fee4ee44831970773c75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4322ce3c_430431af",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-17T11:44:35Z",
+      "side": 1,
+      "message": "it\u0027s not, removed",
+      "parentUuid": "532a33eb_2f6d8c7c",
       "revId": "c30e0b0bdaf4baf20529fee4ee44831970773c75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
