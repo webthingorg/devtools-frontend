@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a97f10_64126b26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "Overall LGTM. Nice refactor!",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b090fbb9_df4746fd",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "Why do we need to type-assert `as InlineEditor.AnimationTimingModel.AnimationTimingModel` here? Is this to get by the theoretically possible `null` return from `parse()`?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33228bcc_ee853f94",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "This probably didn\u0027t result from your code, but it looks a little bit redundant to me when we say:\n1. create a Bezier Editor with the given `model`;\n2. set this newly created `bezierEditor`\u0027s model to be this given `model`, which I just used to create this `bezierEditor`.\nI guess my question is, why do we need to separate these two steps?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1484989_be358385",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "Is it possible to use Lit / LitHTML here?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb2453b_b5cd39ae",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "nit: let\u0027s use the native `#` for private?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a7fe5e_c69da382",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierUI.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-17T14:56:21Z",
+      "side": 1,
+      "message": "nit: honestly the old parameter name does not reflect its boolean-ness easily. Is it better to use `shouldDrawLine` throughout the class?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
