@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59bc8b5d_f72771a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-17T11:13:30Z",
+      "side": 1,
+      "message": "I think we should not display the checkmarks at all for inactive metrics. I\u0027ll submit some feedback for Peter.",
+      "revId": "a79cfa9dab2dd80e04d4be0f6d54f5fd6db3323c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
