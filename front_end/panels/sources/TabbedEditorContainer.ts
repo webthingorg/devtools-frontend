@@ -39,6 +39,7 @@ import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.n
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Snippets from '../snippets/snippets.js';
 
 import {SourcesView} from './SourcesView.js';
