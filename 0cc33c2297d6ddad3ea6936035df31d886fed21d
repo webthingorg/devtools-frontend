@@ -94,6 +94,30 @@
       },
       "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc922da_264c9c8b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-18T13:13:18Z",
+      "side": 1,
+      "message": "Logged crbug.com/1434297. Will see if I can find some time soon.",
+      "parentUuid": "ba921185_5d0c3394",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 222
+      },
+      "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
