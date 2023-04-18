@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "af60c4f898d6ac32fb376c9afc8807c91e81806c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f50d31e6_864a2eb3",
+        "filename": "front_end/panels/timeline/TimelineSelection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-18T12:55:58Z",
+      "side": 1,
+      "message": "Renamed for clarity",
+      "range": {
+        "startLine": 14,
+        "startChar": 19,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "af60c4f898d6ac32fb376c9afc8807c91e81806c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
