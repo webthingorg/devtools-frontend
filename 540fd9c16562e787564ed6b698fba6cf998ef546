@@ -16,6 +16,24 @@
       "message": "you could remove the error parameter",
       "revId": "540fd9c16562e787564ed6b698fba6cf998ef546",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9995eaf_c42cac54",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-18T23:08:14Z",
+      "side": 1,
+      "message": "true, but devtools style prefers it like this. (and linting wont let me do it w/o)",
+      "parentUuid": "4d228a95_40e05a12",
+      "revId": "540fd9c16562e787564ed6b698fba6cf998ef546",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
