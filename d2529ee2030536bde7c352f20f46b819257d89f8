@@ -68,6 +68,24 @@
       "message": "Hi there Olivier, have you made more progress in this CL here?",
       "revId": "d2529ee2030536bde7c352f20f46b819257d89f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9494a8ed_1cb2364c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-18T20:55:56Z",
+      "side": 1,
+      "message": "[Unresolving this message]",
+      "parentUuid": "46050994_ab445ed9",
+      "revId": "d2529ee2030536bde7c352f20f46b819257d89f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
