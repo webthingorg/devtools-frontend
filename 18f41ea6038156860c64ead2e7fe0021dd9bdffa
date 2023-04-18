@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "572522a9_9d27571d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-18T23:28:52Z",
+      "side": 1,
+      "message": "Shift drag selection (aka brushing) was explicitly disabled for network. Why? No idea.\n\nAlso added some comments I had sitting around.",
+      "revId": "18f41ea6038156860c64ead2e7fe0021dd9bdffa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
