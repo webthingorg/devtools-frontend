@@ -22,6 +22,30 @@
       },
       "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f1beb65_59fc6ad9",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-18T12:45:07Z",
+      "side": 1,
+      "message": "Unfortunately, the CL I mentioned missed this dependency to the legacy track, it only accounted for the references to the property in the details pane.\n\nI think it\u0027s better if we don\u0027t reference the appender system here to keep this class generic (it might also generate a dep circle).\n\nA possible option I think of is introducing a new array in `TimelineData`, where each item `i` contains the amount of time that should have the candy stripe mask, if any (i.e. the time where the defined threshold was exceeded). We would set the values in the corresponding track appender and here we would draw the candy stripe from the event\u0027s end. As a side win we would only need a `drawCandyStripes` method here. WDYT?",
+      "parentUuid": "90fd8839_735f0781",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 222
+      },
+      "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
