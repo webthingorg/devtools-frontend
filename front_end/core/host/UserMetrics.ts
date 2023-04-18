@@ -218,6 +218,22 @@ export class UserMetrics {
         EnumeratedHistogram.DeveloperResourceScheme, developerResourceScheme, DeveloperResourceScheme.MaxValue);
   }
 
+  inlineScriptParsed(inlineScriptType: InlineScriptParsed): void {
+    if (inlineScriptType >= InlineScriptParsed.MaxValue) {
+      return;
+    }
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.InlineScriptParsed, inlineScriptType, InlineScriptParsed.MaxValue);
+  }
+
+  vmInlineScriptContentShown(inlineScriptType: VMInlineScriptContentShown): void {
+    if (inlineScriptType >= VMInlineScriptContentShown.MaxValue) {
+      return;
+    }
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.VMInlineScriptTypeShown, inlineScriptType, VMInlineScriptContentShown.MaxValue);
+  }
+
   linearMemoryInspectorRevealedFrom(linearMemoryInspectorRevealedFrom: LinearMemoryInspectorRevealedFrom): void {
     if (linearMemoryInspectorRevealedFrom >= LinearMemoryInspectorRevealedFrom.MaxValue) {
       return;
@@ -956,6 +972,18 @@ export enum LinearMemoryInspectorTarget {
   TypedArray = 3,
   WebAssemblyMemory = 4,
   MaxValue = 5,
+}
+
+export const enum VMInlineScriptContentShown {
+  MODULE_SCRIPT = 0,
+  CLASSIC_SCRIPT = 1,
+  MaxValue = 2,
+}
+
+export const enum InlineScriptParsed {
+  MODULE_SCRIPT = 0,
+  CLASSIC_SCRIPT = 1,
+  MaxValue = 2,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
