@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "a2501a989288d7f2fe6ccf80566db78c2401c957",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b488663_9842494b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-18T12:55:29Z",
+      "side": 1,
+      "message": "Nice, thanks Benedikt! Just checking that is uses a new color token?",
+      "revId": "a2501a989288d7f2fe6ccf80566db78c2401c957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
