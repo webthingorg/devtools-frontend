@@ -107,6 +107,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
       stubNoopSettings();
       target = targetFactory();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
     });
 
@@ -258,6 +259,7 @@ describeWithMockConnection('IndexedDBTreeElement', () => {
   beforeEach(() => {
     stubNoopSettings();
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
   });
 
   const addsElement = (inScope: boolean) => () => {
@@ -284,6 +286,7 @@ describeWithMockConnection('ResourcesSection', () => {
     beforeEach(() => {
       stubNoopSettings();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       SDK.FrameManager.FrameManager.instance({forceNew: true});
       target = createTarget();
     });
