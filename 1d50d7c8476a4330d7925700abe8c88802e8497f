@@ -39,6 +39,30 @@
       },
       "revId": "1d50d7c8476a4330d7925700abe8c88802e8497f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c5bdd1_efc37ce2",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-18T13:07:19Z",
+      "side": 1,
+      "message": "So much simpler! Not sure why I didn\u0027t think of that, thanks!",
+      "parentUuid": "cbb9e7fb_321a8a13",
+      "range": {
+        "startLine": 193,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 3
+      },
+      "revId": "1d50d7c8476a4330d7925700abe8c88802e8497f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
