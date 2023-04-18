@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efdd2419_35531f45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-18T08:33:18Z",
+      "side": 1,
+      "message": "Hi Kateryna!\n\nI\u0027m changing the icons in the HelpQuickOpen class and also have a question regarding colors. PTAL!",
+      "revId": "0b6da946b5b01a3e2af815727efef4420fedbcf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f52edc0_322f23ac",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-18T08:33:18Z",
+      "side": 1,
+      "message": "This relates to the mail that I sent to you: `--color-background` for example had two different colors depending on the light/dark theme. I think the same is true for the other colors used before in this CL. How do we handle light/dark theme colors?",
+      "revId": "0b6da946b5b01a3e2af815727efef4420fedbcf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
