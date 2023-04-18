@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e72c2d3e_d3222e4d",
+        "filename": "front_end/panels/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1925,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-18T11:43:29Z",
+      "side": 1,
+      "message": "Ok sorry - I missed that! I have used 16px now -- it was more about aligning how big the other icons are with this one 😊 I\u0027ve updated the updated after screenshot -- I guess it looks fine with  how big all the icons are altogether.",
+      "parentUuid": "3e12bb6b_c4c0e294",
+      "range": {
+        "startLine": 1925,
+        "startChar": 14,
+        "endLine": 1925,
+        "endChar": 18
+      },
+      "revId": "75478271eec3dec3d540fb7ed2a5e9d7d6df55ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c9139a7a_9fee0b46",
         "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
         "patchSetId": 2
