@@ -614,6 +614,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     if (window.performance.now() - this.lastModificationTime < lastModificationTimeout) {
       return;
     }
+
     this.sourcesViewInternal.showSourceLocation(uiLocation.uiSourceCode, uiLocation, undefined, true);
   }
 

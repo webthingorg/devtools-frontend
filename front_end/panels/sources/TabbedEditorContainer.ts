@@ -29,16 +29,19 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Extensions from '../../models/extensions/extensions.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+
 import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Snippets from '../snippets/snippets.js';
+import * as Bindings from '../../models/bindings/bindings.js';
 
 import {SourcesView} from './SourcesView.js';
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';
@@ -201,6 +204,17 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
         frame?.currentUISourceCode() === uiSourceCode) {
       Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName(true));
     } else {
+      if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Debugger) {
+        const script = Bindings.DefaultScriptMapping.DefaultScriptMapping.scriptForUISourceCode(uiSourceCode);
+        if (script && script.isInlineScript() && !script.hasSourceURL) {
+          if (script.isModule) {
+            Host.userMetrics.vmInlineScriptContentShown(Host.UserMetrics.VMInlineScriptContentShown.MODULE_SCRIPT);
+          } else {
+            Host.userMetrics.vmInlineScriptContentShown(Host.UserMetrics.VMInlineScriptContentShown.CLASSIC_SCRIPT);
+          }
+        }
+      }
+
       this.innerShowFile(uiSourceCode, true);
     }
   }
