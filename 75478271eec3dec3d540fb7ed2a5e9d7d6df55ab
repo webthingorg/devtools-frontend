@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9139a7a_9fee0b46",
+        "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-18T08:35:18Z",
+      "side": 1,
+      "message": "BTW: This icon is not really used, but the helper needs to register itself as a provider. Therefore you don\u0027t see it in the screenshot. For more info on the code: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts;l\u003d30;drc\u003d093fbeb7e801da07a2b50371d8b97f65b97bbf9d\n(Note that titleSuggestion is undefined here)",
+      "revId": "75478271eec3dec3d540fb7ed2a5e9d7d6df55ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
