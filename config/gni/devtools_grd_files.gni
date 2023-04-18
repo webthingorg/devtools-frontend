@@ -843,6 +843,7 @@ grd_files_debug_sources = [
   "front_end/models/har/Writer.js",
   "front_end/models/heap_snapshot_model/HeapSnapshotModel.js",
   "front_end/models/issues_manager/AttributionReportingIssue.js",
+  "front_end/models/issues_manager/BounceTrackingIssue.js",
   "front_end/models/issues_manager/ClientHintIssue.js",
   "front_end/models/issues_manager/ContentSecurityPolicyIssue.js",
   "front_end/models/issues_manager/ContrastCheckTrigger.js",
