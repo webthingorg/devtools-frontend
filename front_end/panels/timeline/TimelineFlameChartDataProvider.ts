@@ -1239,6 +1239,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
     this.lastInitiatorEntry = entryIndex;
     let event = this.eventByIndex(entryIndex);
+    if (!(event instanceof SDK.TracingModel.Event)) {
+      // TODO(crbug.com/1386091): Add support for this use case in the
+      // new engine.
+      return false;
+    }
     const td = this.timelineDataInternal;
     if (!td) {
       return false;
@@ -1278,14 +1283,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return this.entryParent[eventIndex] || null;
   }
 
-  eventByIndex(entryIndex: number): SDK.TracingModel.Event|null {
+  eventByIndex(entryIndex: number): SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData|null {
     if (entryIndex < 0) {
       return null;
     }
     const entryType = this.entryType(entryIndex);
     if (entryType === EntryType.TrackAppender) {
-      return this.compatibilityTracksAppenderInstance().getLegacyEvent(
-          this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData);
+      return this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData;
     }
     if (entryType === EntryType.Event) {
       return this.entryData[entryIndex] as SDK.TracingModel.Event;
