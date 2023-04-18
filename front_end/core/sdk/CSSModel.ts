@@ -599,6 +599,14 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   styleSheetAdded(header: Protocol.CSS.CSSStyleSheetHeader): void {
     console.assert(!this.#styleSheetIdToHeader.get(header.styleSheetId));
+    if (header.loadingFailed) {
+      header.hasSourceURL = false;
+      header.isConstructed = true;
+      header.isInline = false;
+      header.isMutable = false;
+      header.sourceURL = '';
+      header.sourceMapURL = undefined;
+    }
     const styleSheetHeader = new CSSStyleSheetHeader(this, header);
     this.#styleSheetIdToHeader.set(header.styleSheetId, styleSheetHeader);
     const url = styleSheetHeader.resourceURL();
@@ -621,7 +629,6 @@ export class CSSModel extends SDKModel<EventTypes> {
 
   styleSheetRemoved(id: Protocol.CSS.StyleSheetId): void {
     const header = this.#styleSheetIdToHeader.get(id);
-    console.assert(Boolean(header));
     if (!header) {
       return;
     }
