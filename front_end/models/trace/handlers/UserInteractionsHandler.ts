@@ -99,32 +99,108 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
 }
 
 /**
+ * See https://web.dev/better-responsiveness-metric/#interaction-types for the
+ * table that defines these sets.
+ **/
+const pointerEventTypes = new Set([
+  'pointerdown',
+  'touchstart',
+  'pointerup',
+  'touchend',
+  'mousedown',
+  'mouseup',
+  'click',
+]);
+
+const keyboardEventTypes = new Set([
+  'keydown',
+  'keypress',
+  'keyup',
+]);
+
+function categoryOfInteraction(interaction: Types.TraceEvents.SyntheticInteractionEvent): 'KEYBOARD'|'POINTER'|
+    'UNKNOWN' {
+  if (pointerEventTypes.has(interaction.type)) {
+    return 'POINTER';
+  }
+  if (keyboardEventTypes) {
+    return 'KEYBOARD';
+  }
+
+  console.error(`Unexpected interaction type: ${interaction.type}`);
+  return 'UNKNOWN';
+}
+
+/**
  * We define a set of interactions as nested where:
  * 1. Their end times align.
- * 2. The longest interaction's start time is earlier than all other interactions with the same end time.
+ * 2. The longest interaction's start time is earlier than all other
+ * interactions with the same end time.
+ * 3. The interactions are of the same category [each interaction is either
+ * categorised as keyboard, or pointer.]
  *
- * =============A=============
- *        ===========B========
- *        ===========C========
- *              =====D========
+ * =============A=[pointerup]=
+ *        ====B=[pointerdown]=
+ *        ===C=[pointerdown]==
+ *         ===D=[pointerup]===
  *
- * In this example, B, C and D are all nested and therefore should not be returned from this function.
+ * In this example, B, C and D are all nested and therefore should not be
+ * returned from this function.
+ *
+ * However, in this example we would only consider B nested (under A) and D
+ * nested (under C). A and C both stay because they are of different types.
+ * ========A=[keydown]====
+ *   =======B=[keyup]=====
+ *    ====C=[pointerdown]=
+ *         =D=[pointerup]=
  **/
 export function removeNestedInteractions(interactions: readonly Types.TraceEvents.SyntheticInteractionEvent[]):
     readonly Types.TraceEvents.SyntheticInteractionEvent[] {
-  const earliestEventForEndTime = new Map<Types.Timing.MicroSeconds, Types.TraceEvents.SyntheticInteractionEvent>();
+  const earliestEventForEndTimePointerEvents =
+      new Map<Types.Timing.MicroSeconds, Types.TraceEvents.SyntheticInteractionEvent>();
+  const earliestEventForEndTimeKeyboardEvents =
+      new Map<Types.Timing.MicroSeconds, Types.TraceEvents.SyntheticInteractionEvent>();
+
   for (const interaction of interactions) {
     const endTime = Types.Timing.MicroSeconds(interaction.ts + interaction.dur);
-    const earliestCurrentEvent = earliestEventForEndTime.get(endTime);
-    if (!earliestCurrentEvent) {
-      earliestEventForEndTime.set(endTime, interaction);
+    const category = categoryOfInteraction(interaction);
+    if (category === 'KEYBOARD') {
+      const earliestCurrentEvent = earliestEventForEndTimeKeyboardEvents.get(endTime);
+      if (!earliestCurrentEvent) {
+        earliestEventForEndTimeKeyboardEvents.set(endTime, interaction);
+        continue;
+      }
+      if (interaction.ts < earliestCurrentEvent.ts) {
+        earliestEventForEndTimeKeyboardEvents.set(endTime, interaction);
+      }
+    } else if (category === 'POINTER') {
+      const earliestCurrentEvent = earliestEventForEndTimePointerEvents.get(endTime);
+      if (!earliestCurrentEvent) {
+        earliestEventForEndTimePointerEvents.set(endTime, interaction);
+        continue;
+      }
+      if (interaction.ts < earliestCurrentEvent.ts) {
+        earliestEventForEndTimePointerEvents.set(endTime, interaction);
+      }
+    } else {
+      // This interaction has an unknown category, so just silently drop it.
       continue;
     }
-    if (interaction.ts < earliestCurrentEvent.ts) {
-      earliestEventForEndTime.set(endTime, interaction);
-    }
   }
-  return Array.from(earliestEventForEndTime.values());
+  const keptEvents = [
+    ...earliestEventForEndTimeKeyboardEvents.values(),
+    ...earliestEventForEndTimePointerEvents.values(),
+  ];
+  keptEvents.sort((eventA, eventB) => {
+    if (eventA.ts > eventB.ts) {
+      return 1;
+    }
+    if (eventB.ts > eventA.ts) {
+      return -1;
+    }
+    return 0;
+  });
+  return keptEvents;
 }
 
 export async function finalize(): Promise<void> {
