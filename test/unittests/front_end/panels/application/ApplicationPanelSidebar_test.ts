@@ -271,9 +271,10 @@ describeWithMockConnection('IndexedDBTreeElement', () => {
     const treeElement = new Application.ApplicationPanelSidebar.IndexedDBTreeElement(panel);
 
     assert.strictEqual(treeElement.childCount(), 0);
+    const storageBucket = {storageKey: '', name: '', id: '', isDefault: true};
     model.dispatchEventToListeners(
         Application.IndexedDBModel.Events.DatabaseAdded,
-        {databaseId: new Application.IndexedDBModel.DatabaseId('', ''), model});
+        {databaseId: new Application.IndexedDBModel.DatabaseId(storageBucket, ''), model});
     assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
   };
   it('adds element on in scope event', addsElement(true));
