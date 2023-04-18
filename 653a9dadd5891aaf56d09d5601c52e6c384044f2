@@ -16,6 +16,23 @@
       "message": "PTAL, for the screenshots, I only added 2 occurrences of small icons and the single large icon to verify that the approach works :)\n\nIt\u0027s a bit hacky but I think we can clean it up once we move to LitElement.",
       "revId": "653a9dadd5891aaf56d09d5601c52e6c384044f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1264a15_c3879af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-18T09:33:59Z",
+      "side": 1,
+      "message": "Looks good to me, thank you!",
+      "revId": "653a9dadd5891aaf56d09d5601c52e6c384044f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
