@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90fd8839_735f0781",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-18T12:06:08Z",
+      "side": 1,
+      "message": "@andoli would love your thoughts on this - that CL you mentioned earlier where we remove group.tracks and supply that data through the appender is likely relevant.\n\nI think perhaps we need to pass the appender system into the FlameChart component, maybe? \n\nOr we do something in the appenders that allow them to mark an event as annotated perhaps, rather than have the flame chart able to find events from a specific track.",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 222
+      },
+      "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
