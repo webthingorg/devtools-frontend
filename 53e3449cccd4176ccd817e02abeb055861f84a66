@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cf4e2a_a097cd8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-04-18T22:18:12Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nPlease take a look this change to update the delete button tooltips and aria labels with more descriptive messages in the network conditions panel.\n\nThanks,\nGavin",
+      "revId": "53e3449cccd4176ccd817e02abeb055861f84a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
