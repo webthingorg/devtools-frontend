@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c398f16_73e16ebb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-18T14:24:19Z",
+      "side": 1,
+      "message": "Thanks! lgtm % question",
+      "revId": "8fea2c474cf330f81acd88fe535c57b0636a5d56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57efcbd4_c0ad1808",
+        "filename": "DEPS",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-18T14:24:19Z",
+      "side": 1,
+      "message": "do multiple hooks with the same name work?",
+      "range": {
+        "startLine": 156,
+        "startChar": 13,
+        "endLine": 156,
+        "endChar": 21
+      },
+      "revId": "8fea2c474cf330f81acd88fe535c57b0636a5d56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
