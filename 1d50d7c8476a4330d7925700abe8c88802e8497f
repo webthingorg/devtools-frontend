@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1de75b07_3ab43e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-18T10:07:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1d50d7c8476a4330d7925700abe8c88802e8497f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb9e7fb_321a8a13",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-18T10:07:11Z",
+      "side": 1,
+      "message": "nit: we could simplify to `(eventA, eventB) \u003d\u003e eventA - eventB);`",
+      "range": {
+        "startLine": 193,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 3
+      },
+      "revId": "1d50d7c8476a4330d7925700abe8c88802e8497f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
