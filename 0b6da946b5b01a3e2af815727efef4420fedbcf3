@@ -33,6 +33,24 @@
       "message": "This relates to the mail that I sent to you: `--color-background` for example had two different colors depending on the light/dark theme. I think the same is true for the other colors used before in this CL. How do we handle light/dark theme colors?",
       "revId": "0b6da946b5b01a3e2af815727efef4420fedbcf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1475e65e_996cd5d7",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-18T09:42:55Z",
+      "side": 1,
+      "message": "`--icon-force-white` is using a palette color token that has the same value in the light and dark themes. It might be just one or one of a few that don\u0027t change in the dark theme.",
+      "parentUuid": "9f52edc0_322f23ac",
+      "revId": "0b6da946b5b01a3e2af815727efef4420fedbcf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

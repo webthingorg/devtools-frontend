@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5acdb4e6_f23d96de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-18T09:42:55Z",
+      "side": 1,
+      "message": "Looks good, Kim, thanks! Just one size question",
+      "revId": "75478271eec3dec3d540fb7ed2a5e9d7d6df55ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e12bb6b_c4c0e294",
+        "filename": "front_end/panels/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1925,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-18T09:42:55Z",
+      "side": 1,
+      "message": "Could we avoid having 18px size? We planned on having 3 sizes going forward: 14px, 16px and 20px. However, if the icon looks bad in different size, I think it\u0027s fine to have an exception here:)",
+      "range": {
+        "startLine": 1925,
+        "startChar": 14,
+        "endLine": 1925,
+        "endChar": 18
+      },
+      "revId": "75478271eec3dec3d540fb7ed2a5e9d7d6df55ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c9139a7a_9fee0b46",
         "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
         "patchSetId": 2
