@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8896f2_fbcc8c3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-18T10:59:05Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nI\u0027m adding UMA data as desribed in go/chrome-devtools:pausing-on-inline-scripts-proposal under the \u0027Understanding the context with UMA\u0027 section - ptal!",
+      "revId": "5249afe01ab85f5c202887934a0b4d154e8d294a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
