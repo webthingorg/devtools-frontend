@@ -206,6 +206,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     context.fillRect(barX, barY - 0.5, sendStart - barX, barHeight);
     context.fillRect(finish, barY - 0.5, barX + barWidth - finish, barHeight);
 
+    // Draw h2 push time
     // If the request is from cache, pushStart refers to the original request, and hence cannot be used.
     if (!request.cached() && timing.pushStart) {
       const pushStart = timeToPixel(timing.pushStart * 1000);
@@ -236,6 +237,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       context.restore();
     }
 
+    // Draws left and right whiskers
     function drawTick(begin: number, end: number, y: number): void {
       const /** @const */ tickHeightPx = 6;
       context.moveTo(begin, y - tickHeightPx / 2);
@@ -262,6 +264,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       }
     }
 
+    // Draw request URL as text
     const textStart = Math.max(sendStart, 0);
     const textWidth = finish - textStart;
     const /** @const */ minTextWidthPx = 20;
