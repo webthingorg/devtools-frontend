@@ -48,6 +48,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import invalidationsTreeStyles from './invalidationsTree.css.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
+import {timesForEventInMilliseconds, eventHasCategory, phaseForEvent, threadIDForEvent} from './EventTypeHelpers.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import {TimelinePanel, TimelineSelection} from './TimelinePanel.js';
@@ -1372,10 +1373,10 @@ export class TimelineUIUtils {
     return frame && frame.url as Platform.DevToolsPath.UrlString || null;
   }
 
-  static eventStyle(event: SDK.TracingModel.Event): TimelineRecordStyle {
+  static eventStyle(event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData): TimelineRecordStyle {
     const eventStyles = TimelineUIUtils.initEventStyles();
-    if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
-        event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming)) {
+    if (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
+        eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming)) {
       return new TimelineRecordStyle(event.name, TimelineUIUtils.categories()['scripting']);
     }
 
@@ -1410,7 +1411,7 @@ export class TimelineUIUtils {
     return color;
   }
 
-  static eventTitle(event: SDK.TracingModel.Event): string {
+  static eventTitle(event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData): string {
     const recordType = TimelineModel.TimelineModel.RecordType;
     const eventData = event.args['data'];
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
@@ -1422,7 +1423,7 @@ export class TimelineUIUtils {
       return event.args.data.type;
     }
     const title = TimelineUIUtils.eventStyle(event).title;
-    if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
+    if (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
       return title;
     }
     if (event.name === recordType.TimeStamp) {
@@ -1484,7 +1485,8 @@ export class TimelineUIUtils {
     }
   }
 
-  static async buildDetailsTextForTraceEvent(event: SDK.TracingModel.Event): Promise<string|null> {
+  static async buildDetailsTextForTraceEvent(event: SDK.TracingModel.Event|
+                                             TraceEngine.Types.TraceEvents.TraceEventData): Promise<string|null> {
     const recordType = TimelineModel.TimelineModel.RecordType;
     let detailsText;
     const eventData = event.args['data'];
@@ -1598,7 +1600,7 @@ export class TimelineUIUtils {
         break;
 
       default:
-        if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
+        if (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
           detailsText = null;
         } else {
           detailsText = await linkifyTopCallFrameAsText();
@@ -1619,8 +1621,8 @@ export class TimelineUIUtils {
   }
 
   static async buildDetailsNodeForTraceEvent(
-      event: SDK.TracingModel.Event, target: SDK.Target.Target|null, linkifier: Components.Linkifier.Linkifier,
-      isFreshRecording = false): Promise<Node|null> {
+      event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, target: SDK.Target.Target|null,
+      linkifier: Components.Linkifier.Linkifier, isFreshRecording = false): Promise<Node|null> {
     const recordType = TimelineModel.TimelineModel.RecordType;
     let details: HTMLElement|HTMLSpanElement|(Element | null)|Text|null = null;
     let detailsText;
@@ -1735,7 +1737,7 @@ export class TimelineUIUtils {
       }
 
       default: {
-        if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
+        if (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
           detailsText = null;
         } else {
           details = this.linkifyTopCallFrame(event, target, linkifier, isFreshRecording);
@@ -1768,8 +1770,8 @@ export class TimelineUIUtils {
   }
 
   static linkifyTopCallFrame(
-      event: SDK.TracingModel.Event, target: SDK.Target.Target|null, linkifier: Components.Linkifier.Linkifier,
-      isFreshRecording = false): Element|null {
+      event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, target: SDK.Target.Target|null,
+      linkifier: Components.Linkifier.Linkifier, isFreshRecording = false): Element|null {
     const frame = TimelineModel.TimelineProfileTree.eventStackFrame(event);
     if (!frame) {
       return null;
@@ -1788,7 +1790,8 @@ export class TimelineUIUtils {
     return Components.Linkifier.Linkifier.linkifyURL(frame.url as Platform.DevToolsPath.UrlString, options);
   }
 
-  static buildDetailsNodeForPerformanceEvent(event: SDK.TracingModel.Event): Element {
+  static buildDetailsNodeForPerformanceEvent(event: SDK.TracingModel.Event|
+                                             TraceEngine.Types.TraceEvents.TraceEventData): Element {
     let link = 'https://web.dev/user-centric-performance-metrics/';
     let name = 'page performance metrics';
     const recordType = TimelineModel.TimelineModel.RecordType;
@@ -1831,7 +1834,7 @@ export class TimelineUIUtils {
   }
 
   static async buildTraceEventDetails(
-      event: SDK.TracingModel.Event,
+      event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData,
       model: TimelineModel.TimelineModel.TimelineModelImpl,
       linkifier: Components.Linkifier.Linkifier,
       detailed: boolean,
@@ -1842,6 +1845,7 @@ export class TimelineUIUtils {
       traceParseData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|null = null,
       ): Promise<DocumentFragment> {
     const maybeTarget = model.targetByEvent(event);
+    const {duration, selfTime} = timesForEventInMilliseconds(event);
     let relatedNodesMap: (Map<number, SDK.DOMModel.DOMNode|null>|null)|null = null;
     if (maybeTarget) {
       const target = (maybeTarget as SDK.Target.Target);
@@ -1854,7 +1858,9 @@ export class TimelineUIUtils {
             imageAltText: Components.ImagePreview.ImagePreview.defaultAltTextForImageURL(url),
             precomputedFeatures: undefined,
           });
-        } else if (TimelineModel.TimelineModel.TimelineData.forEvent(event).picture) {
+        } else if (
+            event instanceof SDK.TracingModel.Event &&
+            TimelineModel.TimelineModel.TimelineData.forEvent(event).picture) {
           previewElement = await TimelineUIUtils.buildPicturePreviewContent(event, target);
         }
         // @ts-ignore TODO(crbug.com/1011811): Remove symbol usage.
@@ -1868,7 +1874,9 @@ export class TimelineUIUtils {
           nodeIdsToResolve.add(timelineData.backendNodeIds[i]);
         }
       }
-      const invalidationTrackingEvents = TimelineModel.TimelineModel.InvalidationTracker.invalidationEventsFor(event);
+      const invalidationTrackingEvents = event instanceof SDK.TracingModel.Event ?
+          TimelineModel.TimelineModel.InvalidationTracker.invalidationEventsFor(event) :
+          null;
       if (invalidationTrackingEvents) {
         TimelineUIUtils.collectInvalidationNodeIds(nodeIdsToResolve, invalidationTrackingEvents);
       }
@@ -1907,11 +1915,10 @@ export class TimelineUIUtils {
       contentHelper.appendWarningRow(event, TimelineModel.TimelineModel.TimelineModelImpl.WarningType.V8Deopt);
     }
 
-    if (detailed && !Number.isNaN(event.duration || 0)) {
+    if (detailed && !Number.isNaN(duration || 0)) {
       contentHelper.appendTextRow(
-          i18nString(UIStrings.totalTime), i18n.TimeUtilities.millisToString(event.duration || 0, true));
-      contentHelper.appendTextRow(
-          i18nString(UIStrings.selfTime), i18n.TimeUtilities.millisToString(event.selfTime, true));
+          i18nString(UIStrings.totalTime), i18n.TimeUtilities.millisToString(duration || 0, true));
+      contentHelper.appendTextRow(i18nString(UIStrings.selfTime), i18n.TimeUtilities.millisToString(selfTime, true));
     }
 
     if (model.isGenericTrace()) {
@@ -2170,7 +2177,7 @@ export class TimelineUIUtils {
       }
 
       case recordTypes.Animation: {
-        if (event.phase === TraceEngine.Types.TraceEvents.Phase.ASYNC_NESTABLE_INSTANT) {
+        if (phaseForEvent(event) === TraceEngine.Types.TraceEvents.Phase.ASYNC_NESTABLE_INSTANT) {
           contentHelper.appendTextRow(i18nString(UIStrings.state), eventData['state']);
         }
         break;
@@ -2314,8 +2321,7 @@ export class TimelineUIUtils {
     const showPieChart = detailed && TimelineUIUtils.aggregatedStatsForTraceEvent(stats, model, event);
     if (showPieChart) {
       contentHelper.addSection(i18nString(UIStrings.aggregatedTime));
-      const pieChart =
-          TimelineUIUtils.generatePieChart(stats, TimelineUIUtils.eventStyle(event).category, event.selfTime);
+      const pieChart = TimelineUIUtils.generatePieChart(stats, TimelineUIUtils.eventStyle(event).category, selfTime);
       contentHelper.appendElementRow('', pieChart);
     }
 
@@ -2569,10 +2575,10 @@ export class TimelineUIUtils {
   }
 
   private static generateCauses(
-      event: SDK.TracingModel.Event, target: SDK.Target.Target|null,
+      event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, target: SDK.Target.Target|null,
       relatedNodesMap: Map<number, SDK.DOMModel.DOMNode|null>|null, contentHelper: TimelineDetailsContentHelper): void {
     const recordTypes = TimelineModel.TimelineModel.RecordType;
-
+    const {startTime} = timesForEventInMilliseconds(event);
     let callSiteStackLabel;
     let stackLabel;
 
@@ -2607,12 +2613,13 @@ export class TimelineUIUtils {
 
     const initiator = TimelineModel.TimelineModel.TimelineData.forEvent(event).initiator();
     // Indirect causes.
-    if (TimelineModel.TimelineModel.InvalidationTracker.invalidationEventsFor(event) && target) {
+    if (event instanceof SDK.TracingModel.Event &&
+        TimelineModel.TimelineModel.InvalidationTracker.invalidationEventsFor(event) && target) {
       // Full invalidation tracking (experimental).
       contentHelper.addSection(i18nString(UIStrings.invalidations));
       TimelineUIUtils.generateInvalidations(event, target, relatedNodesMap, contentHelper);
     } else if (initiator) {  // Partial invalidation tracking.
-      const delay = event.startTime - initiator.startTime;
+      const delay = startTime - initiator.startTime;
       contentHelper.appendTextRow(i18nString(UIStrings.pendingFor), i18n.TimeUtilities.preciseMillisToString(delay, 1));
 
       const link = document.createElement('span');
@@ -2729,19 +2736,20 @@ export class TimelineUIUtils {
       total: {
         [x: string]: number,
       },
-      model: TimelineModel.TimelineModel.TimelineModelImpl, event: SDK.TracingModel.Event): boolean {
+      model: TimelineModel.TimelineModel.TimelineModelImpl,
+      event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData): boolean {
     const events = model.inspectedTargetEvents();
+    const {startTime, endTime} = timesForEventInMilliseconds(event);
     function eventComparator(startTime: number, e: SDK.TracingModel.Event): number {
       return startTime - e.startTime;
     }
 
-    const index = Platform.ArrayUtilities.binaryIndexOf(events, event.startTime, eventComparator);
+    const index = Platform.ArrayUtilities.binaryIndexOf(events, startTime, eventComparator);
     // Not a main thread event?
     if (index < 0) {
       return false;
     }
     let hasChildren = false;
-    const endTime = event.endTime;
     if (endTime) {
       for (let i = index; i < events.length; i++) {
         const nextEvent = events[i];
@@ -2751,7 +2759,7 @@ export class TimelineUIUtils {
         if (!nextEvent.selfTime) {
           continue;
         }
-        if (nextEvent.thread !== event.thread) {
+        if (threadIDForEvent(nextEvent) !== threadIDForEvent(event)) {
           continue;
         }
         if (i > index) {
@@ -2761,13 +2769,13 @@ export class TimelineUIUtils {
         total[categoryName] = (total[categoryName] || 0) + nextEvent.selfTime;
       }
     }
-    if (TraceEngine.Types.TraceEvents.isAsyncPhase(event.phase)) {
-      if (event.endTime) {
+    if (TraceEngine.Types.TraceEvents.isAsyncPhase(phaseForEvent(event))) {
+      if (endTime) {
         let aggregatedTotal = 0;
         for (const categoryName in total) {
           aggregatedTotal += total[categoryName];
         }
-        total['idle'] = Math.max(0, event.endTime - event.startTime - aggregatedTotal);
+        total['idle'] = Math.max(0, endTime - startTime - aggregatedTotal);
       }
       return false;
     }
@@ -3044,20 +3052,21 @@ export class TimelineUIUtils {
     return null;
   }
 
-  static markerStyleForEvent(event: SDK.TracingModel.Event): TimelineMarkerStyle {
+  static markerStyleForEvent(event: SDK.TracingModel.Event|
+                             TraceEngine.Types.TraceEvents.TraceEventData): TimelineMarkerStyle {
     const tallMarkerDashStyle = [6, 4];
     const title = TimelineUIUtils.eventTitle(event);
     const recordTypes = TimelineModel.TimelineModel.RecordType;
 
     if (event.name !== recordTypes.NavigationStart &&
-        (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
-         event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming))) {
+        (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
+         eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming))) {
       return {
         title: title,
         dashStyle: tallMarkerDashStyle,
         lineWidth: 0.5,
-        color: event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming) ? 'purple' :
-                                                                                                      'orange',
+        color: eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.UserTiming) ? 'purple' :
+                                                                                                            'orange',
         tall: false,
         lowPriority: false,
       };
@@ -3116,9 +3125,12 @@ export class TimelineUIUtils {
     return colorGenerator.colorForID(id);
   }
 
-  static eventWarning(event: SDK.TracingModel.Event, warningType?: string): Element|null {
-    const timelineData = TimelineModel.TimelineModel.TimelineData.forEvent(event);
-    const warning = warningType || timelineData.warning;
+  static eventWarning(event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, warningType?: string):
+      Element|null {
+    const timelineData =
+        event instanceof SDK.TracingModel.Event ? TimelineModel.TimelineModel.TimelineData.forEvent(event) : null;
+    const {duration} = timesForEventInMilliseconds(event);
+    const warning = warningType || timelineData?.warning;
     if (!warning) {
       return null;
     }
@@ -3138,21 +3150,20 @@ export class TimelineUIUtils {
       }
 
       case warnings.IdleDeadlineExceeded: {
-        const exceededMs =
-            i18n.TimeUtilities.millisToString((event.duration || 0) - eventData['allottedMilliseconds'], true);
+        const exceededMs = i18n.TimeUtilities.millisToString((duration || 0) - eventData['allottedMilliseconds'], true);
         span.textContent = i18nString(UIStrings.idleCallbackExecutionExtended, {PH1: exceededMs});
         break;
       }
 
       case warnings.LongHandler: {
         span.textContent =
-            i18nString(UIStrings.handlerTookS, {PH1: i18n.TimeUtilities.millisToString((event.duration || 0), true)});
+            i18nString(UIStrings.handlerTookS, {PH1: i18n.TimeUtilities.millisToString((duration || 0), true)});
         break;
       }
 
       case warnings.LongRecurringHandler: {
         span.textContent = i18nString(
-            UIStrings.recurringHandlerTookS, {PH1: i18n.TimeUtilities.millisToString((event.duration || 0), true)});
+            UIStrings.recurringHandlerTookS, {PH1: i18n.TimeUtilities.millisToString((duration || 0), true)});
         break;
       }
 
@@ -3161,7 +3172,7 @@ export class TimelineUIUtils {
             UI.XLink.XLink.create('https://web.dev/optimize-long-tasks/', i18nString(UIStrings.longTask));
         span.appendChild(i18n.i18n.getFormatLocalizedString(
             str_, UIStrings.sTookS,
-            {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((event.duration || 0), true)}));
+            {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((duration || 0), true)}));
         break;
       }
 
@@ -3554,7 +3565,8 @@ export class TimelineDetailsContentHelper {
     stackTraceElement.appendChild(callFrameContents.element);
   }
 
-  appendWarningRow(event: SDK.TracingModel.Event, warningType?: string): void {
+  appendWarningRow(event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, warningType?: string):
+      void {
     const warning = TimelineUIUtils.eventWarning(event, warningType);
     if (warning) {
       this.appendElementRow(i18nString(UIStrings.warning), warning, true);
@@ -3584,11 +3596,13 @@ export interface TimelineMarkerStyle {
  * TraceEngine helpers, and not have it take the legacy model.
  **/
 export function timeStampForEventAdjustedForClosestNavigationIfPossible(
-    event: SDK.TracingModel.Event, model: TimelineModel.TimelineModel.TimelineModelImpl,
+    event: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData,
+    model: TimelineModel.TimelineModel.TimelineModelImpl,
     traceParsedData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|
     null): TraceEngine.Types.Timing.MilliSeconds {
+  const {startTime} = timesForEventInMilliseconds(event);
   if (event instanceof SDK.TracingModel.PayloadEvent && traceParsedData) {
-    const payload = event.rawPayload();
+    const payload = event instanceof SDK.TracingModel.PayloadEvent ? event.rawPayload() : event;
     const time = TraceEngine.Helpers.Timing.timeStampForEventAdjustedByClosestNavigation(
         payload,
         traceParsedData.Meta.traceBounds,
@@ -3598,12 +3612,12 @@ export function timeStampForEventAdjustedForClosestNavigationIfPossible(
     return TraceEngine.Helpers.Timing.microSecondsToMilliseconds(time);
   }
 
-  let eventTimeStamp = event.startTime - model.minimumRecordTime();
+  let eventTimeStamp = startTime - model.minimumRecordTime();
   const {navigationId} = event.args.data;
   if (navigationId) {
     const navStartTime = model.navStartTimes().get(navigationId);
     if (navStartTime) {
-      eventTimeStamp = event.startTime - navStartTime.startTime;
+      eventTimeStamp = startTime - navStartTime.startTime;
     }
   }
 
