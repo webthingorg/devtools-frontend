@@ -1278,7 +1278,7 @@ export namespace ProtocolMapping {
      * Requests cache names.
      */
     'CacheStorage.requestCacheNames': {
-      paramsType: [Protocol.CacheStorage.RequestCacheNamesRequest?];
+      paramsType: [Protocol.CacheStorage.RequestCacheNamesRequest];
       returnType: Protocol.CacheStorage.RequestCacheNamesResponse;
     };
     /**
@@ -2194,7 +2194,7 @@ export namespace ProtocolMapping {
      * Requests database names for given security origin.
      */
     'IndexedDB.requestDatabaseNames': {
-      paramsType: [Protocol.IndexedDB.RequestDatabaseNamesRequest?];
+      paramsType: [Protocol.IndexedDB.RequestDatabaseNamesRequest];
       returnType: Protocol.IndexedDB.RequestDatabaseNamesResponse;
     };
     /**

@@ -2946,7 +2946,7 @@ export namespace CacheStorage {
     /**
      * Storage bucket of the cache.
      */
-    storageBucketId?: string;
+    storageBucketId: string;
     /**
      * The name of the cache.
      */
@@ -2988,18 +2988,9 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -5942,18 +5933,9 @@ export namespace IndexedDB {
 
   export interface ClearObjectStoreRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     /**
      * Database name.
      */
@@ -5966,18 +5948,9 @@ export namespace IndexedDB {
 
   export interface DeleteDatabaseRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     /**
      * Database name.
      */
@@ -5986,18 +5959,9 @@ export namespace IndexedDB {
 
   export interface DeleteObjectStoreEntriesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     databaseName: string;
     objectStoreName: string;
     /**
@@ -6008,18 +5972,9 @@ export namespace IndexedDB {
 
   export interface RequestDataRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     /**
      * Database name.
      */
@@ -6059,18 +6014,9 @@ export namespace IndexedDB {
 
   export interface GetMetadataRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     /**
      * Database name.
      */
@@ -6096,18 +6042,9 @@ export namespace IndexedDB {
 
   export interface RequestDatabaseRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
     /**
      * Database name.
      */
@@ -6123,18 +6060,9 @@ export namespace IndexedDB {
 
   export interface RequestDatabaseNamesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-     * Security origin.
+     * Storage bucket.
      */
-    securityOrigin?: string;
-    /**
-     * Storage key.
-     */
-    storageKey?: string;
-    /**
-     * Storage bucket. If not specified, it uses the default bucket.
-     */
-    storageBucket?: Storage.StorageBucket;
+    storageBucket: Storage.StorageBucket;
   }
 
   export interface RequestDatabaseNamesResponse extends ProtocolResponseWithError {

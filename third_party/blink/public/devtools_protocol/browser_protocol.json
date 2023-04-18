@@ -4444,7 +4444,6 @@
                         {
                             "name": "storageBucketId",
                             "description": "Storage bucket of the cache.",
-                            "optional": true,
                             "type": "string"
                         },
                         {
@@ -4514,21 +4513,8 @@
                     "description": "Requests cache names.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         }
                     ],
@@ -9040,21 +9026,8 @@
                     "description": "Clears all entries from an object store.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9074,21 +9047,8 @@
                     "description": "Deletes a database.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9103,21 +9063,8 @@
                     "description": "Delete a range of entries from an object store",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9148,21 +9095,8 @@
                     "description": "Requests data from object store or index.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9218,21 +9152,8 @@
                     "description": "Gets metadata of an object store.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9264,21 +9185,8 @@
                     "description": "Requests database with given name in given frame.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         },
                         {
@@ -9300,21 +9208,8 @@
                     "description": "Requests database names for given security origin.",
                     "parameters": [
                         {
-                            "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "storageKey",
-                            "description": "Storage key.",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
                             "name": "storageBucket",
-                            "description": "Storage bucket. If not specified, it uses the default bucket.",
-                            "optional": true,
+                            "description": "Storage bucket.",
                             "$ref": "Storage.StorageBucket"
                         }
                     ],

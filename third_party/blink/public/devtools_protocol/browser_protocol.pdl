@@ -2069,7 +2069,7 @@ experimental domain CacheStorage
       # Storage key of the cache.
       string storageKey
       # Storage bucket of the cache.
-      optional string storageBucketId
+      string storageBucketId
       # The name of the cache.
       string cacheName
 
@@ -2101,13 +2101,8 @@ experimental domain CacheStorage
   # Requests cache names.
   command requestCacheNames
     parameters
-      # At least and at most one of securityOrigin, storageKey, storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
     returns
       # Caches for the security origin.
       array of Cache caches
@@ -4119,13 +4114,8 @@ experimental domain IndexedDB
   # Clears all entries from an object store.
   command clearObjectStore
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4134,26 +4124,16 @@ experimental domain IndexedDB
   # Deletes a database.
   command deleteDatabase
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
 
   # Delete a range of entries from an object store
   command deleteObjectStoreEntries
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       string databaseName
       string objectStoreName
       # Range of entry keys to delete
@@ -4168,13 +4148,8 @@ experimental domain IndexedDB
   # Requests data from object store or index.
   command requestData
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4196,13 +4171,8 @@ experimental domain IndexedDB
   # Gets metadata of an object store.
   command getMetadata
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4218,13 +4188,8 @@ experimental domain IndexedDB
   # Requests database with given name in given frame.
   command requestDatabase
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
     returns
@@ -4234,13 +4199,8 @@ experimental domain IndexedDB
   # Requests database names for given security origin.
   command requestDatabaseNames
     parameters
-      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
-      # Security origin.
-      optional string securityOrigin
-      # Storage key.
-      optional string storageKey
-      # Storage bucket. If not specified, it uses the default bucket.
-      optional Storage.StorageBucket storageBucket
+      # Storage bucket.
+      Storage.StorageBucket storageBucket
     returns
       # Database names for origin.
       array of string databaseNames

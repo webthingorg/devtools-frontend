@@ -189,12 +189,7 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
     const oldCaches = new Map<string, Cache>();
 
     for (const cacheJson of cachesJson) {
-      let storageBucket;
-      if (cacheJson.storageBucketId) {
-        storageBucket = this.#storageBucketModel.getBucketById(cacheJson.storageBucketId)?.bucket;
-      } else {
-        storageBucket = this.#storageBucketModel.getDefaultBucketForStorageKey(cacheJson.storageKey)?.bucket;
-      }
+      const storageBucket = this.#storageBucketModel.getBucketById(cacheJson.storageBucketId)?.bucket;
       if (!storageBucket) {
         continue;
       }
