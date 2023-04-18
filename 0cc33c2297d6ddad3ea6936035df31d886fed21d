@@ -46,6 +46,30 @@
       },
       "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56c63ab_11181784",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-18T13:07:10Z",
+      "side": 1,
+      "message": "Yeah agreed - I did have a quick hack of referencing the appender here and quickly hit upon the circular dep. I think TimelineData is the way to go here and agree. I also wonder if we make it more generic so it can store any form of annotations in?\n\ne.g.:\n\n```\nconst annotations \u003d [undefined, { annotate: \u0027candy\u0027, fromDuration: 200 }, { annotate: \u0027candy\u0027, fromDuration: 50 }, { annotate: \u0027warningTriangle\u0027 }]\n```\n\nSo that we don\u0027t end up having N arrays for N types of decoration, but one for all of them. WDYT? I will file a bug so we can keep track of this.",
+      "parentUuid": "5f1beb65_59fc6ad9",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 222
+      },
+      "revId": "0cc33c2297d6ddad3ea6936035df31d886fed21d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
