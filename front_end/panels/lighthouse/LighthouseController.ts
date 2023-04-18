@@ -6,6 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as EmulationModel from '../../models/emulation/emulation.js';
@@ -18,8 +19,7 @@ const UIStrings = {
   /**
    *@description Explanation for user that Ligthhouse can only audit HTTP/HTTPS pages
    */
-  canOnlyAuditHttphttpsPagesAnd:
-      'Can only audit HTTP/HTTPS pages and `Chrome` extensions. Navigate to a different page to start an audit.',
+  canOnlyAuditHttphttpsPagesAnd: 'Can only audit pages on HTTP or HTTPS. Navigate to a different page.',
   /**
    *@description Text when stored data in one location may affect Lighthouse run
    *@example {IndexedDB} PH1
@@ -302,7 +302,28 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
 
     const mainTarget = this.manager.target();
     const inspectedURL = mainTarget && mainTarget.inspectedURL();
-    if (inspectedURL && !/^(http|chrome-extension)/.test(inspectedURL)) {
+    /*
+     * The full history of Lighthouse panel + extensions et al:
+     *
+     * Running Lighthouse against extensions caused crashes (crbug.com/734532), so we disabled it in Aug 2017
+     * Unfortunately, the CAN_DOCK heuristic used also disabled auditing any page while remote-debugging.
+     *
+     * In Sept 2017 we allow-listed http* and chrome-extension URLs formally: crrev.com/c/639032
+     * This added support for chrome-extension:// pages (not overlays/popups) as they satisfy CAN_DOCK.
+     *
+     * We wanted remote-debugging support restored, and the crashes were fixed,
+     * so we renabled auditing in all CAN_DOCK cases in Feb 2019 (crbug.com/931849). This included all chrome extensions views.
+     *
+     * While full-page chrome-extension URLs is fine, auditing overlay windows/popups cause problems with viewport emulation.
+     * In April 2023 we added the below special case to block those cases.
+     * FYI: The CAN_DOCK signal is what determines if the device-mode functionality (viewport emulation) should be shown in the UI.
+     */
+    if (inspectedURL?.startsWith('chrome-extension') &&
+        !Root.Runtime.Runtime.queryParam(Root.Runtime.ConditionName.CAN_DOCK)) {
+      return i18nString(UIStrings.canOnlyAuditHttphttpsPagesAnd);
+    }
+    // Catch about:*, chrome://dino, file://*, etc.
+    if (!inspectedURL?.startsWith('http') || !inspectedURL?.startsWith('chrome-extension')) {
       return i18nString(UIStrings.canOnlyAuditHttphttpsPagesAnd);
     }
 
