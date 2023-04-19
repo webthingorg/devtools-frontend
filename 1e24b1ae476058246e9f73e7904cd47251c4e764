@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "14c05499_6f800b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T13:36:22Z",
+      "side": 1,
+      "message": "this is awesome! Two thoughts on it but this is so exciting!",
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a72148b7_5f33a69a",
         "filename": "front_end/models/timeline_model/TimelineModel.ts",
         "patchSetId": 1
@@ -82,6 +99,29 @@
         "startChar": 0,
         "endLine": 547,
         "endChar": 1
+      },
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "761ce1e9_ca07372f",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2258,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T13:36:22Z",
+      "side": 1,
+      "message": "do we know for sure that we will not have a legacy event here? I wonder about wrapping in an isSyntheticLayoutShift (even if we error if it is not true) just to be explicit and make sure this `as X` doesn\u0027t hide any future compiler issues.",
+      "range": {
+        "startLine": 2258,
+        "startChar": 0,
+        "endLine": 2258,
+        "endChar": 88
       },
       "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
