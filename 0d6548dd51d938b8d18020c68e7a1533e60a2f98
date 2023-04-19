@@ -33,6 +33,24 @@
       "message": "Thanks, Kim, this looks great! Just to double-check, do these use new colors already?",
       "revId": "0d6548dd51d938b8d18020c68e7a1533e60a2f98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ff2228_cded7397",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-19T09:51:53Z",
+      "side": 1,
+      "message": "Yes, they do (they use a general helper that I already changed before: https://crrev.com/c/4422330, see `createButton`)",
+      "parentUuid": "b0e20a02_042df65e",
+      "revId": "0d6548dd51d938b8d18020c68e7a1533e60a2f98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
