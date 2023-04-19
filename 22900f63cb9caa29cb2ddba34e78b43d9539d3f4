@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a62163_04cd70b8",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T10:27:27Z",
+      "side": 1,
+      "message": "This is indeed better!",
+      "parentUuid": "a01c5c97_8b3b153a",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33228bcc_ee853f94",
@@ -123,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81314d94_378f6c0a",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T10:27:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f40bff73_b46c87db",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ceb2453b_b5cd39ae",
@@ -154,6 +190,24 @@
       "side": 1,
       "message": "Since everything already uses `private` keyword, I didn\u0027t want to change here. We can update all at once in a separate CL to not complicate the diff. WDYT?",
       "parentUuid": "ceb2453b_b5cd39ae",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed153d1_53e9eb2f",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T10:27:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "08969932_c3415c6c",
       "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
