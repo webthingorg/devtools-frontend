@@ -62,6 +62,29 @@
       },
       "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd34929_9fe0580b",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T13:24:42Z",
+      "side": 1,
+      "message": "for the other synthetic events (which I know are usually pairs of async events), we usually do args.data.beginEvent, I am wondering if we should do something similar so we have:\n\n```\nSyntheticLayoutShift extends TraceEventLayoutShift {\n  args: { data: { rawEvent: TraceEventLayoutShift } },\n  // other stuff here\n}\n```\n\nAnd we populate the top level with all the stuff to make sure it conforms to the TraceEventLayoutShift type.\n\nNow I type that... I am not 100% sure, but it does feel slightly odd that for other synthetic events we have the raw data in args.data, but here we do not. WDYT?",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 1
+      },
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
