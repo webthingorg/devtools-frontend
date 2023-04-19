@@ -48,7 +48,8 @@ import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js'
 import {type PerformanceModel} from './PerformanceModel.js';
 
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
-import {SelectionType, TimelineSelection} from './TimelineSelection.js';
+
+import {TimelineSelection, type TimelineSelectionType} from './TimelineSelection.js';
 
 import {TimelineUIUtils, type TimelineCategory} from './TimelineUIUtils.js';
 
@@ -1156,9 +1157,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.timelineDataInternal.entryStartTimes[index] = frame.startTime;
   }
 
-  createSelection(entryIndex: number): TimelineSelection|null {
+  createSelection(entryIndex: number): TimelineSelectionType|null {
     const entryType = this.entryType(entryIndex);
-    let timelineSelection: TimelineSelection|null = null;
+    let timelineSelection: TimelineSelectionType|null = null;
     const entry = this.entryData[entryIndex];
     if (entry && this.isEntryRegularEvent(entry)) {
       timelineSelection = TimelineSelection.fromTraceEvent(entry);
@@ -1180,16 +1181,16 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return false;
   }
 
-  entryIndexForSelection(selection: TimelineSelection|null): number {
-    if (!selection || selection.type() === SelectionType.Range) {
+  entryIndexForSelection(selection: TimelineSelectionType|null): number {
+    if (!selection || TimelineSelection.isRangeSelection(selection) ||
+        TimelineSelection.isNetworkRequestSelection(selection)) {
       return -1;
     }
 
-    if (this.lastSelection && this.lastSelection.timelineSelection.object() === selection.object()) {
+    if (this.lastSelection && this.lastSelection.timelineSelection.object === selection.object) {
       return this.lastSelection.entryIndex;
     }
-    const index = this.entryData.indexOf(
-        (selection.object() as SDK.TracingModel.Event | TimelineModel.TimelineFrameModel.TimelineFrame));
+    const index = this.entryData.indexOf(selection.object);
     if (index !== -1) {
       this.lastSelection = new Selection(selection, index);
     }

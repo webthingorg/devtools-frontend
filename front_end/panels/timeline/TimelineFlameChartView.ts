@@ -25,7 +25,8 @@ import {
 import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
 
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
-import {TimelineSelection} from './TimelineSelection.js';
+
+import {TimelineSelection, type TimelineSelectionType} from './TimelineSelection.js';
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
 
 import {TimelineUIUtils, type TimelineMarkerStyle} from './TimelineUIUtils.js';
@@ -306,7 +307,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
-  setSelection(selection: TimelineSelection|null): void {
+  setSelection(selection: TimelineSelectionType|null): void {
     let index = this.mainDataProvider.entryIndexForSelection(selection);
     this.mainFlameChart.setSelectedEntry(index);
     index = this.networkDataProvider.entryIndexForSelection(selection);
@@ -429,9 +430,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 }
 
 export class Selection {
-  timelineSelection: TimelineSelection;
+  timelineSelection: TimelineSelectionType;
   entryIndex: number;
-  constructor(selection: TimelineSelection, entryIndex: number) {
+  constructor(selection: TimelineSelectionType, entryIndex: number) {
     this.timelineSelection = selection;
     this.entryIndex = entryIndex;
   }

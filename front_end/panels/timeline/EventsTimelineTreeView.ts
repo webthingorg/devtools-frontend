@@ -8,12 +8,13 @@ import type * as SDK from '../../core/sdk/sdk.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import {eventIsFromNewEngine} from './EventTypeHelpers.js';
 
 import {Category, IsLong} from './TimelineFilters.js';
 
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 
-import {SelectionType, type TimelineSelection} from './TimelineSelection.js';
+import {TimelineSelection, type TimelineSelectionType} from './TimelineSelection.js';
 import {TimelineTreeView} from './TimelineTreeView.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 
@@ -60,11 +61,14 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     return [...super.filters(), ...this.filtersControl.filters()];
   }
 
-  override updateContents(selection: TimelineSelection): void {
+  override updateContents(selection: TimelineSelectionType): void {
     super.updateContents(selection);
-    if (selection.type() === SelectionType.TraceEvent) {
-      const event = (selection.object() as SDK.TracingModel.Event);
-      this.selectEvent(event, true);
+    if (TimelineSelection.isTraceEventSelection(selection)) {
+      if (eventIsFromNewEngine(selection.object)) {
+        // TODO: support new trace event types in the tree view.
+        return;
+      }
+      this.selectEvent(selection.object, true);
     }
   }
 
