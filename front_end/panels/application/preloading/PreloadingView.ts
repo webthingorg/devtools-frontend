@@ -121,6 +121,17 @@ class PreloadingUIUtils {
         return i18nString(UIStrings.validitySomeRulesInvalid);
     }
   }
+
+  // Where a rule set came from, shown in grid.
+  static sourceLocation(ruleSet: Protocol.Preload.RuleSet): string {
+    if (ruleSet.nodeId !== undefined) {
+      return i18n.i18n.lockedString('<script>');
+    } else if (ruleSet.url !== undefined) {
+      return ruleSet.url;
+    } else {
+      throw Error('unreachable');
+    }
+  }
 }
 
 interface FeatureFlags {
@@ -345,7 +356,8 @@ export class PreloadingView extends UI.Widget.VBox {
     // TODO(https://crbug.com/1384419): Add property `validity` to the CDP.
     const ruleSetRows = this.modelProxy.model.getAllRuleSets().map(({id, value}) => ({
                                                                      id,
-                                                                     validity: PreloadingUIUtils.validity(value),
+      validity: PreloadingUIUtils.validity(value),
+      sourceLocation: PreloadingUIUtils.sourceLocation(value),
                                                                    }));
     this.ruleSetGrid.update(ruleSetRows);
 

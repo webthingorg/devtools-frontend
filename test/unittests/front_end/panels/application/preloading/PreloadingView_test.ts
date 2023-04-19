@@ -159,8 +159,10 @@ class NavigationEmulator {
     });
   }
 
-  async addSpecRules(specrules: string): Promise<void> {
+  async addSpecRules(specrules: string, url?: string): Promise<void> {
     this.seq++;
+
+    const nodeId = url === undefined ? this.seq : undefined;
 
     // For simplicity, we only emit errors if parse failed.
     let json;
@@ -172,6 +174,8 @@ class NavigationEmulator {
           id: `ruleSetId:${this.seq}`,
           loaderId: this.loaderId,
           sourceText: specrules,
+          nodeId,
+          url,
           errorType: Protocol.Preload.RuleSetErrorType.SourceIsNotJsonObject,
           errorMessage: 'fake error message',
         },
@@ -184,6 +188,8 @@ class NavigationEmulator {
         id: `ruleSetId:${this.seq}`,
         loaderId: this.loaderId,
         sourceText: specrules,
+        nodeId,
+        url,
       },
     });
 
@@ -300,9 +306,9 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [
-          ['Valid'],
+          ['Valid', '<script>'],
         ],
     );
 
@@ -345,9 +351,9 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [
-          ['Invalid'],
+          ['Invalid', '<script>'],
         ],
     );
 
@@ -399,7 +405,7 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [],
     );
   });
@@ -431,7 +437,7 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [],
     );
 
@@ -486,9 +492,9 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [
-          ['Valid'],
+          ['Valid', '<script>'],
         ],
     );
 
@@ -569,10 +575,10 @@ describeWithMockConnection('PreloadingView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity'],
+        ['Validity', 'Source location'],
         [
-          ['Valid'],
-          ['Valid'],
+          ['Valid', '<script>'],
+          ['Valid', '<script>'],
         ],
     );
 

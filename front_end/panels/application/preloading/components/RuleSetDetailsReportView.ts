@@ -7,7 +7,10 @@ import * as Protocol from '../../../../generated/protocol.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
+import * as Buttons from '../../../../ui/components/buttons/buttons.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+// import {TargetManager} from '../../../../../front_end/core/sdk/TargetManager.js';
 
 type RuleSet = Protocol.Preload.RuleSet;
 
@@ -28,6 +31,10 @@ const UIStrings = {
    *@description Description term: source text of rule set
    */
   detailsSource: 'Source',
+  /**
+   *@description Description term: source location of rule set (<script> or URL designated in the HTTP header)
+   */
+  detailsSourceLocation: 'Source location',
   /**
    *@description Validity: Rule set is valid
    */
@@ -104,6 +111,20 @@ export class RuleSetDetailsReportView extends HTMLElement {
             </div>
           </${ReportView.ReportView.ReportValue.litTagName}>
 
+          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsValidity)}</${
+            ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+            <div class="text-ellipsis" title="">
+              ${validity}
+        <${Buttons.Button.Button.litTagName}
+          aria-label=${"hoge"}
+          .variant=${Buttons.Button.Variant.PRIMARY}
+          @click=${this.#onClick}>
+          hoge
+        </${Buttons.Button.Button.litTagName}>
+            </div>
+          </${ReportView.ReportView.ReportValue.litTagName}>
+
           <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsError)}</${
             ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName}>
@@ -117,6 +138,22 @@ export class RuleSetDetailsReportView extends HTMLElement {
       `, this.#shadow, {host: this});
       // clang-format on
     });
+  }
+
+  async #onClick(): Promise<void> {
+    const backendNodeId = this.#data?.nodeId || null;
+    if (backendNodeId === null) {
+      throw new Error('unreachable');
+    }
+
+    console.log('onClick', backendNodeId);
+    // SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.model(SDK.DOMModel.DOMModel)?.overlayModel().inspectNodeRequested({backendNodeId});
+    // console.log(SDK.TargetManager.TargetManager.instance().primaryPageTarget());
+    console.log(SDK);
+    // console.log(TargetManager);
+    // const SDK = await import('../../../../../front_end/core/sdk/sdk.js');
+    // console.log(SDK);
+    // hoge();
   }
 
   #source(sourceText: string): LitHtml.LitTemplate {
@@ -168,3 +205,7 @@ declare global {
     'devtools-resources-rulesets-details-report-view': RuleSetDetailsReportView;
   }
 }
+
+// function hoge(): void {
+//   console.log(SDK);
+// }
