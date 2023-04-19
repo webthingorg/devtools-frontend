@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a01c5c97_8b3b153a",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-19T08:32:54Z",
+      "side": 1,
+      "message": "Yes! Though we\u0027re sure that it won\u0027t return null. Now that I think of it, we can make it better by providing a \"Linear\" from AnimationTimingModel. Updated here, WDYT?",
+      "parentUuid": "b090fbb9_df4746fd",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33228bcc_ee853f94",
         "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
         "patchSetId": 9
@@ -48,6 +66,24 @@
       "writtenOn": "2023-04-17T14:56:21Z",
       "side": 1,
       "message": "This probably didn\u0027t result from your code, but it looks a little bit redundant to me when we say:\n1. create a Bezier Editor with the given `model`;\n2. set this newly created `bezierEditor`\u0027s model to be this given `model`, which I just used to create this `bezierEditor`.\nI guess my question is, why do we need to separate these two steps?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "349f9d9f_3d7d0af6",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-19T08:32:54Z",
+      "side": 1,
+      "message": "Good catch! I was thinking we need this since it calls `updateUI` after setting the model but we don\u0027t need it since `wasShown` also calls `updateUI`. Removed it and saw that initial rendering works fine.",
+      "parentUuid": "33228bcc_ee853f94",
       "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f40bff73_b46c87db",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-19T08:32:54Z",
+      "side": 1,
+      "message": "I think yes, though I didn\u0027t want to do it here or now to follow the same pattern with BezierUI thingie. I\u0027ll look into moving these two Lit later, wdyt?",
+      "parentUuid": "a1484989_be358385",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ceb2453b_b5cd39ae",
         "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
         "patchSetId": 9
@@ -82,6 +136,24 @@
       "writtenOn": "2023-04-17T14:56:21Z",
       "side": 1,
       "message": "nit: let\u0027s use the native `#` for private?",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08969932_c3415c6c",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-19T08:32:54Z",
+      "side": 1,
+      "message": "Since everything already uses `private` keyword, I didn\u0027t want to change here. We can update all at once in a separate CL to not complicate the diff. WDYT?",
+      "parentUuid": "ceb2453b_b5cd39ae",
       "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
