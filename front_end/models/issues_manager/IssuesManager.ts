@@ -7,6 +7,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
 import {AttributionReportingIssue} from './AttributionReportingIssue.js';
+import {BounceTrackingIssue} from './BounceTrackingIssue.js';
 import {ClientHintIssue} from './ClientHintIssue.js';
 import {ContentSecurityPolicyIssue} from './ContentSecurityPolicyIssue.js';
 import {CorsIssue} from './CorsIssue.js';
@@ -107,6 +108,10 @@ const issueCodeHandlers = new Map<
   [
     Protocol.Audits.InspectorIssueCode.FederatedAuthRequestIssue,
     FederatedAuthRequestIssue.fromInspectorIssue,
+  ],
+  [
+    Protocol.Audits.InspectorIssueCode.BounceTrackingIssue,
+    BounceTrackingIssue.fromInspectorIssue,
   ],
 ]);
 
@@ -236,7 +241,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     const {frame} = event.data;
     const keptIssues = new Map<string, Issue>();
     for (const [key, issue] of this.#allIssues.entries()) {
-      if (issue.isAssociatedWithRequestId(frame.loaderId)) {
+      // TODO(jdh@): clear BounceTrackingIssues on user-initiated primary page changes.
+      if (issue.isAssociatedWithRequestId(frame.loaderId) ||
+          issue.code() === Protocol.Audits.InspectorIssueCode.BounceTrackingIssue) {
         keptIssues.set(key, issue);
       }
     }
