@@ -22,6 +22,30 @@
       },
       "revId": "f6183dc1c8465c64c522f630590ea409707bce68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "643463a2_b3dd8b08",
+        "filename": "config/typescript/tsconfig.base.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-04-19T10:34:53Z",
+      "side": 1,
+      "message": "TIL. I\u0027ve kept the one option that isn\u0027t included by `strict` 😊",
+      "parentUuid": "de4edeea_16fef363",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 41
+      },
+      "revId": "f6183dc1c8465c64c522f630590ea409707bce68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
