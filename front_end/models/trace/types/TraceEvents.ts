@@ -525,6 +525,27 @@ export interface TraceEventLayoutShift extends TraceEventInstant {
   };
 }
 
+interface LayoutShiftSessionWindowData {
+  // The sum of the weighted score of all the shifts
+  // that belong to a session window.
+  cumulativeWindowScore: number;
+  // A consecutive generated in the frontend to
+  // to identify a session window.
+  id: number;
+}
+export interface LayoutShiftParsedData {
+  screenshotSource?: string;
+  timeFromNavigation?: MicroSeconds;
+  // The sum of the weighted scores of the shifts that
+  // belong to a session window up until this shift
+  // (inclusive).
+  cumulativeWeightedScoreInWindow: number;
+  sessionWindowData: LayoutShiftSessionWindowData;
+}
+export interface SyntheticLayoutShift extends TraceEventLayoutShift {
+  parsedData: LayoutShiftParsedData;
+}
+
 export type Priorty = 'Low'|'High'|'VeryHigh'|'Highest';
 export type RenderBlocking = 'blocking'|'non_blocking'|'in_body_parser_blocking'|'potentially_blocking';
 export interface TraceEventResourceSendRequest extends TraceEventInstant {
