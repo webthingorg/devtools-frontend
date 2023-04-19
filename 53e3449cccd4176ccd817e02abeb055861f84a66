@@ -68,6 +68,24 @@
       "parentUuid": "61496d9c_384cc38d",
       "revId": "53e3449cccd4176ccd817e02abeb055861f84a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ee582f_d32c02e9",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-04-19T16:57:05Z",
+      "side": 1,
+      "message": "removed index and merged tooltip/aria label strings. Thanks for the suggestion. Please take a look when you get a chance.",
+      "parentUuid": "a8e91c56_59e45e1f",
+      "revId": "53e3449cccd4176ccd817e02abeb055861f84a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
