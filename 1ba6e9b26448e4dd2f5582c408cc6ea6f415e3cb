@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f9be88c_03bc03b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T08:14:59Z",
+      "side": 1,
+      "message": "Something I would also like to do (in a follow-up) is start some tests for some of the complex parts of TimelineUIUtils too - particularly the code that builds the details for events, as we are going to be changing a lot of that and I would like it to be tested. Let\u0027s make sure we explore that soon (I am happy to take a look).",
+      "revId": "1ba6e9b26448e4dd2f5582c408cc6ea6f415e3cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4343ba03_13f25f25",
