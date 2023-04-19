@@ -16,6 +16,29 @@
       "message": "PTAL - missed this in the last CL. I am going to follow this up with a CL that adds some tests for this particular part of the details UI because right now it feels very easy to accidentally break!",
       "revId": "bc2bd2d5a9ae79992e3737ac2e069b2fba057ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e513a7e_aad5bca8",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T12:29:39Z",
+      "side": 1,
+      "message": "wdyt to making this a helper function in a follow-up? I can see this pattern happening a lot.",
+      "range": {
+        "startLine": 2279,
+        "startChar": 6,
+        "endLine": 2284,
+        "endChar": 9
+      },
+      "revId": "bc2bd2d5a9ae79992e3737ac2e069b2fba057ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
