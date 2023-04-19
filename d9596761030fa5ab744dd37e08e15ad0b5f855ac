@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4254c68_7c5404b7",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T16:08:15Z",
+      "side": 1,
+      "message": "I remembered. It\u0027s not a type issue, it\u0027s something I\u0027ve encountered while testing. Here all the elements of the entire panel may take this route, and there are cases where it is not an Element. I have improved.",
+      "parentUuid": "553c6e78_be2a784e",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6bde189_b9d842ee",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 12
