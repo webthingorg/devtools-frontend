@@ -70,6 +70,15 @@ const UIStrings = {
    */
   warningDetailPrerenderingDisabledByFeatureFlag:
       'Prerendering is forced-enabled because DevTools is open. When DevTools is closed, prerendering will be disabled because this browser session is part of a holdback group used for performance comparisons.',
+  /**
+   *@description Title of preloading state disabled warning in infobar
+   */
+  warningTitlePreloadingStateDisabled: 'Preloading is disabled',
+  /**
+   *@description Detail of preloading sate disabled warning in infobar
+   */
+  warningDetailPreloadingStateDisabled:
+      'Preloading is disabled because of an extension. Go to [Preload pages settings](chrome://settings/preloading) to learn more, or go to [Extensions settings](chrome://extensions/) to disable the extension.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/PreloadingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -335,6 +344,12 @@ export class PreloadingView extends UI.Widget.VBox {
         preloadingAttempt,
         ruleSets,
       };
+    }
+
+    if (this.modelProxy.model.getPreloadEnabledState() === 'DisabledByPreference') {
+      this.showInfobar(
+          i18nString(UIStrings.warningTitlePreloadingStateDisabled),
+          i18nString(UIStrings.warningDetailPreloadingStateDisabled));
     }
   }
 
