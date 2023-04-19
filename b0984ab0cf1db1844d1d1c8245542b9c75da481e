@@ -22,6 +22,30 @@
       },
       "revId": "b0984ab0cf1db1844d1d1c8245542b9c75da481e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68d38222_75914be3",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T12:09:27Z",
+      "side": 1,
+      "message": "Code updated - it was working anyway but only because the event was always an SDK event (because of getLegacyEvent in the track appender) - but it will now work for either and is future-proofed.",
+      "parentUuid": "35b5d3dd_71ee5ea0",
+      "range": {
+        "startLine": 1438,
+        "startChar": 39,
+        "endLine": 1438,
+        "endChar": 87
+      },
+      "revId": "b0984ab0cf1db1844d1d1c8245542b9c75da481e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
