@@ -205,6 +205,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d2b764_e63147c1",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46a9bb3e_14ae4455",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "366cc1bf_4c3ad1cc",
@@ -218,6 +236,24 @@
       "writtenOn": "2023-04-19T09:49:41Z",
       "side": 1,
       "message": "We can simply getting the data attribute with `this.#variableLink.dataset.title`.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4a99cf_0bb737cc",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:48:38Z",
+      "side": 1,
+      "message": "There seems to be a type problem so it was not chosen.",
+      "parentUuid": "366cc1bf_4c3ad1cc",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -257,6 +293,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6616e293_a066b644",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "624600e6_933645f1",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd6d4daa_482eb437",
@@ -270,6 +324,24 @@
       "writtenOn": "2023-04-19T09:49:41Z",
       "side": 1,
       "message": "nit: 2023",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf907d21_94a1cc8a",
+        "filename": "test/unittests/front_end/panels/elements/components/CSSVariableValueView_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd6d4daa_482eb437",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
