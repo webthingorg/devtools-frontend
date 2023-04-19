@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fecf8fc_5998c9ba",
+        "filename": "front_end/panels/changes/ChangesSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-19T12:11:11Z",
+      "side": 1,
+      "message": "Good point, I actually can simplify the selectors a lot here (taking inspiration from the `navigatorTree.css` way of doing things). I also removed the negative margins to make the list items look like the items in the _Page_ tree.",
+      "parentUuid": "ee039183_da7e0c2b",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 38
+      },
+      "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9224b55_7fee456f",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-04-19T11:38:33Z",
       "side": 1,
       "message": "Would `--icon-default` or `--icon-default-hover` be a good fit here?",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "826364e7_0a565f43",
+        "filename": "front_end/panels/changes/changesSidebar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-19T12:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9224b55_7fee456f",
       "range": {
         "startLine": 18,
         "startChar": 20,
