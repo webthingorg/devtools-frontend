@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8daf6c4f_3d0bf2ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-04-19T22:28:48Z",
+      "side": 1,
+      "message": "A small CL to bring screen reader back to Console autocomplete. PTAL, thank you!",
+      "revId": "255fe78b6637bdf68a4d0c8368d7b013585b2983",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
