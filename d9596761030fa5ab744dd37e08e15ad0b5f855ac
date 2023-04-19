@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d1bfc8_11c7bcee",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "nit: `Binding` -\u003e `Bind`.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2acf6884_407c2fb3",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "Why is `linkContainer.matches?` necessary for `linkContainer`, while we don\u0027t need the `?` optional chaining for `link.matches`?",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bde189_b9d842ee",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this `if` block?",
+      "range": {
+        "startLine": 399,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 7
+      },
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46310944_09150e3b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "Let\u0027s remove the commented line if it\u0027s not needed anymore.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99df69a0_2346c686",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "nit: could you change this and the `if` block above for `#hintPopoverHelper` to use optional chaining, i.e.\n```\nthis.#hintPopoverHelper.hidePopover();\nthis.#evaluatedCSSVarPopoverHelper?.hidePopover();\n```",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a9bb3e_14ae4455",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "366cc1bf_4c3ad1cc",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "We can simply getting the data attribute with `this.#variableLink.dataset.title`.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "415ce942_a8245d11",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "Let\u0027s instead use this Lit directive for `title` attribute: https://lit.dev/docs/templates/directives/#ifdefined\n\nso that we can save some duplicate code and remove this `if` block.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6d4daa_482eb437",
+        "filename": "test/unittests/front_end/panels/elements/components/CSSVariableValueView_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T09:49:41Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
