@@ -70,7 +70,8 @@ import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
 import type * as Protocol from '../../generated/protocol.js';
 import {traceJsonGenerator} from './SaveFileFormatter.js';
-import {TimelineSelection, SelectionType} from './TimelineSelection.js';
+
+import {TimelineSelection, type TimelineSelectionType} from './TimelineSelection.js';
 
 const UIStrings = {
   /**
@@ -318,7 +319,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private networkThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private cpuThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private fileSelectorElement?: HTMLInputElement;
-  private selection?: TimelineSelection|null;
+  private selection?: TimelineSelectionType|null;
   #traceEngineModel: TraceEngine.TraceModel.Model<typeof TraceEngine.TraceModel.ENABLED_TRACE_HANDLERS>;
   // Tracks the index of the trace that the user is currently viewing.
   #traceEngineActiveTraceIndex = -1;
@@ -1351,22 +1352,21 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     void this.stopRecording();
   }
 
-  private frameForSelection(selection: TimelineSelection): TimelineModel.TimelineFrameModel.TimelineFrame|null {
-    switch (selection.type()) {
-      case SelectionType.Frame:
-        return selection.object() as TimelineModel.TimelineFrameModel.TimelineFrame;
-      case SelectionType.Range:
-        return null;
-      case SelectionType.TraceEvent:
-        if (!this.performanceModel) {
-          return null;
-        }
-        return this.performanceModel.frameModel().getFramesWithinWindow(
-            selection.endTimeInternal, selection.endTimeInternal)[0];
-      default:
-        console.assert(false, 'Should never be reached');
-        return null;
+  private frameForSelection(selection: TimelineSelectionType): TimelineModel.TimelineFrameModel.TimelineFrame|null {
+    if (TimelineSelection.isFrameSelection(selection)) {
+      return selection.object;
     }
+    if (TimelineSelection.isRangeSelection(selection) || TimelineSelection.isNetworkRequestSelection(selection)) {
+      return null;
+    }
+    if (TimelineSelection.isTraceEventSelection(selection)) {
+      if (!this.performanceModel) {
+        return null;
+      }
+      return this.performanceModel.frameModel().getFramesWithinWindow(selection.endTime, selection.endTime)[0];
+    }
+    console.assert(false, 'Should never be reached');
+    return null;
   }
 
   jumpToFrame(offset: number): true|undefined {
@@ -1384,7 +1384,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     return true;
   }
 
-  select(selection: TimelineSelection|null): void {
+  select(selection: TimelineSelectionType|null): void {
     this.selection = selection;
     this.flameChart.setSelection(selection);
   }
@@ -1465,7 +1465,7 @@ export const rowHeight = 18;
 
 export const headerHeight = 20;
 export interface TimelineModeViewDelegate {
-  select(selection: TimelineSelection|null): void;
+  select(selection: TimelineSelectionType|null): void;
   selectEntryAtTime(events: SDK.TracingModel.Event[]|null, time: number): void;
   highlightEvent(event: SDK.TracingModel.Event|null): void;
 }
