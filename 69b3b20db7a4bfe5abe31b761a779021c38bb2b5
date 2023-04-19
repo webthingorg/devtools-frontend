@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0afce1e2_177a992f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-19T22:00:48Z",
+      "side": 1,
+      "message": "bckenny noticed some dead code here. \nThey appear to go back to the WebKit fork: https://github.com/ChromeDevTools/devtools-frontend/blame/23a95679917d498197cac3dea0f3d04127e6150d/front_end/common/TextUtils.js\n\nThis removes all the ones that are unused.",
+      "revId": "69b3b20db7a4bfe5abe31b761a779021c38bb2b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
