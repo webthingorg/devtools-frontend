@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ab272c_53985cfa",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T15:08:32Z",
+      "side": 0,
+      "message": "drive-by fix. This passed the tests but was broken in the actual panel because this path didn\u0027t deal with the event being a new event.",
+      "range": {
+        "startLine": 1438,
+        "startChar": 5,
+        "endLine": 1441,
+        "endChar": 0
+      },
+      "revId": "c6070015392b59799fc93727eca3b522a778e1cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
