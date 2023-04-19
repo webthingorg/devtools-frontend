@@ -139,10 +139,10 @@ export class InteractionsTrackAppender implements TrackAppender {
   #appendEventAtLevel(syntheticEvent: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent, level: number): number {
     this.#compatibilityBuilder.registerTrackForLevel(level, this);
     const index = this.#entryData.length;
-    // Because interactions are synthetic events, we cannot push the event
-    // itself. So we push the startEvent onto the flame chart, because the
-    // startEvent is the event with all the metadata on (interactionId, type)
-    this.#entryData.push(syntheticEvent.args.data.beginEvent);
+
+    // Although the event is a SyntheticInteractionEvent, it extends
+    // TraceEventData, so we can safely push it onto entryData.
+    this.#entryData.push(syntheticEvent);
     this.#legacyEntryTypeByLevel[level] = EntryType.TrackAppender;
     this.#flameChartData.entryLevels[index] = level;
     this.#flameChartData.entryStartTimes[index] =
@@ -177,8 +177,8 @@ export class InteractionsTrackAppender implements TrackAppender {
    * Gets the title an event added by this appender should be rendered with.
    */
   titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    if (TraceEngine.Types.TraceEvents.isTraceEventEventTimingStart(event)) {
-      return event.args.data?.type || 'Interaction';
+    if (TraceEngine.Types.TraceEvents.isSyntheticInteractionEvent(event)) {
+      return event.type;
     }
     return event.name;
   }
@@ -189,23 +189,6 @@ export class InteractionsTrackAppender implements TrackAppender {
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo {
     const title = this.titleForEvent(event);
-
-    // We can find the synthetic event for this start event and use its duration field.
-    // Whilst we have to guard against nils here, this should always resolve to an actual evenet.
-    if (TraceEngine.Types.TraceEvents.isTraceEventEventTimingStart(event)) {
-      const syntheticEvent = this.#findSyntheticEventForStartEvent(event);
-      if (syntheticEvent) {
-        return {title, formattedTime: getFormattedTime(syntheticEvent.dur)};
-      }
-    }
     return {title, formattedTime: getFormattedTime(event.dur)};
-  }
-
-  #findSyntheticEventForStartEvent(beginEvent: TraceEngine.Types.TraceEvents.TraceEventEventTimingBegin):
-      TraceEngine.Types.TraceEvents.SyntheticInteractionEvent|null {
-    return this.#traceParsedData.UserInteractions.interactionEvents.find(event => {
-      return event.args.data.beginEvent === beginEvent;
-    }) ||
-        null;
   }
 }
