@@ -16,6 +16,46 @@
       "message": "Wolfgang, please kindly take a look",
       "revId": "dcd3f2696769c3a9fa79439e3252626de1417e49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1ce611_18116bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-19T09:12:56Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "dcd3f2696769c3a9fa79439e3252626de1417e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee100e0_e4a0dfba",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-19T09:12:56Z",
+      "side": 1,
+      "message": "nit: You could add an \u0027active\u0027 state as well, so that the button changes on button-down.\nThe button for closing the bottom drawer seems to switch from the hover-color back to the base-color in this case.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "dcd3f2696769c3a9fa79439e3252626de1417e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
