@@ -50,6 +50,24 @@
       "message": "is `index` an example here or will it be numbers like 1, 2, 3? How would that be localised?",
       "revId": "53e3449cccd4176ccd817e02abeb055861f84a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e91c56_59e45e1f",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-19T07:36:18Z",
+      "side": 1,
+      "message": "I don\u0027t think adding the {index} to the message has a lot of value: We don\u0027t number the entries in the UI so users have to think about what the \"1\" or \"2\" means in this context.\n\nI suggest we simply strip the {index} from the messages and just go with `Delete brand from user agent section` and `Delete brand from full version list`.\n\nNote that you don\u0027t have to duplicate the strings for the tooltip or aria label. The translation should be the same for both so please re-use the same message in both places.",
+      "parentUuid": "61496d9c_384cc38d",
+      "revId": "53e3449cccd4176ccd817e02abeb055861f84a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
