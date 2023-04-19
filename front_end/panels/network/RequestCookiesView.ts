@@ -311,7 +311,7 @@ export class RequestCookiesView extends UI.Widget.Widget {
     }
   }
 
-  wasShown(): void {
+  override wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([requestCookiesViewStyles]);
     this.request.addEventListener(
@@ -322,7 +322,7 @@ export class RequestCookiesView extends UI.Widget.Widget {
     this.refreshRequestCookiesView();
   }
 
-  willHide(): void {
+  override willHide(): void {
     this.request.removeEventListener(
         SDK.NetworkRequest.Events.RequestHeadersChanged, this.refreshRequestCookiesView, this);
     this.request.removeEventListener(

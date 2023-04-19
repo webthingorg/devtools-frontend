@@ -209,7 +209,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
   }
 
-  willHide(): void {
+  override willHide(): void {
     this.hideHighlight();
   }
 
@@ -1941,7 +1941,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.chartViewport.setContentHeight(height);
   }
 
-  onResize(): void {
+  override onResize(): void {
     this.scheduleUpdate();
   }
 
