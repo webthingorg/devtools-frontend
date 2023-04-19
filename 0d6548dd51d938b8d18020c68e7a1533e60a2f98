@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6939113_7d7df014",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-19T05:15:41Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nnow replacing the icons for redo/undo in the LinearMemoryNavigator, ptal!\n(Note: they look smaller now compared to the before picture, but the reason is that I already updated their size and color to 20px in a previous CL. They were smaller before too)",
+      "revId": "0d6548dd51d938b8d18020c68e7a1533e60a2f98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
