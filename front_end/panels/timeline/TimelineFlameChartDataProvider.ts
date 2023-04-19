@@ -1166,7 +1166,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (!event) {
         return null;
       }
-      timelineSelection = TimelineSelection.fromSDKTraceEvent(event);
+      timelineSelection = TimelineSelection.fromTraceEvent(event);
     } else if (entryType === EntryType.Frame) {
       timelineSelection =
           TimelineSelection.fromFrame((this.entryData[entryIndex] as TimelineModel.TimelineFrameModel.TimelineFrame));
