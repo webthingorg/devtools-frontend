@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21afa6d2_1f095311",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-19T08:35:56Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nupdating the gear icon in the memory inspector, ptal!",
+      "revId": "b4b817bfcf738d8e12569c8448509e62f654085b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
