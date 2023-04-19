@@ -16,6 +16,69 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d38ba7_ae6ac7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-19T11:38:33Z",
+      "side": 1,
+      "message": "Looks good, just a few comments:)",
+      "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee039183_da7e0c2b",
+        "filename": "front_end/panels/changes/ChangesSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-19T11:38:33Z",
+      "side": 1,
+      "message": "Suggestion: if there are not too many styles using this and it\u0027s not a pain to update, you could just use `devtools-icon` as a selector in CSS and get rid of the class",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 38
+      },
+      "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9224b55_7fee456f",
+        "filename": "front_end/panels/changes/changesSidebar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-19T11:38:33Z",
+      "side": 1,
+      "message": "Would `--icon-default` or `--icon-default-hover` be a good fit here?",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "dc77e646c9808930be70ac8dcc9cb94d918dadf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
