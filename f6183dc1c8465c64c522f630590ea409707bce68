@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4edeea_16fef363",
+        "filename": "config/typescript/tsconfig.base.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T10:00:09Z",
+      "side": 1,
+      "message": "do we need these? I think struct: true turns any strict* on by default so we do not need to specify these as well (reading from https://www.typescriptlang.org/tsconfig#strict)",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 41
+      },
+      "revId": "f6183dc1c8465c64c522f630590ea409707bce68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
