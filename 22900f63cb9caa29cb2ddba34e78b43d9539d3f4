@@ -227,6 +227,24 @@
       "message": "nit: honestly the old parameter name does not reflect its boolean-ness easily. Is it better to use `shouldDrawLine` throughout the class?",
       "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11a4516_7aff881e",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierUI.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T10:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5a7fe5e_c69da382",
+      "revId": "22900f63cb9caa29cb2ddba34e78b43d9539d3f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
