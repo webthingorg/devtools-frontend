@@ -7,12 +7,17 @@
 
     "noEmitOnError": true,
 
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
+<<<<<<< PATCH SET (32f70b Add `noUnusedLocals`.)
+
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "noUnusedLocals": false,
+=======
+>>>>>>> BASE      (4a83fd [RPP] Support new engine trace event type in some helpers in)
     "noImplicitReturns": true,
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
-    "useUnknownInCatchVariables": false,
 
     "experimentalDecorators": true,
 
