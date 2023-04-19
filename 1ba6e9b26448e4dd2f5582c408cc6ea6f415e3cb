@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "143a302e_5b254a7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T09:21:48Z",
+      "side": 1,
+      "message": "absolutely. I was thinking that we could add tests as we add support for new engine trace events that have particularities. For example, with layout shifts we can ensure the affected items are correctly rendered, etc.",
+      "parentUuid": "0f9be88c_03bc03b8",
+      "revId": "1ba6e9b26448e4dd2f5582c408cc6ea6f415e3cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4343ba03_13f25f25",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-19T08:13:50Z",
       "side": 1,
       "message": "this conditional will always be true because of the if() above it, so I am not sure we need this here.\n\nI think we probably want to make the top conditional if(traceParsedData) ?",
+      "range": {
+        "startLine": 3606,
+        "startChar": 0,
+        "endLine": 3606,
+        "endChar": 96
+      },
+      "revId": "1ba6e9b26448e4dd2f5582c408cc6ea6f415e3cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d3df65_47959e67",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 3606,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T09:21:48Z",
+      "side": 1,
+      "message": "good catch! we should check that the event is TraceEventData. Done.",
+      "parentUuid": "4343ba03_13f25f25",
       "range": {
         "startLine": 3606,
         "startChar": 0,
