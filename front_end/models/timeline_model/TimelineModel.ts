@@ -1892,6 +1892,7 @@ export namespace TimelineModelImpl {
     LongHandler = 'LongHandler',
     LongRecurringHandler = 'LongRecurringHandler',
     V8Deopt = 'V8Deopt',
+    LongInteraction = 'LongInteraction',
   }
 
   export const WorkerThreadName = 'DedicatedWorker thread';
