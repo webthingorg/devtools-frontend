@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fe278ad_6a1b9495",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-19T23:54:52Z",
+      "side": 1,
+      "message": "https://github.com/webpack/webpack/blob/main/lib/debug/ProfilingPlugin.js\n\nwellll.. if by \u0027webpack\u0027 you mean samsaccone and me, then yes. 😊\n\nhttps://github.com/samccone/chrome-trace-event \nwe wrote collabed on this a long while ago.\n\n\nBut.. this CL started cuz I noticed that some trace.cafe users are uploading webpack profiler plugin traces.. and they throw in the Trace engine.\n\n\nBut as for fake traces... lighthouse does the same thing as well.. (in two diff cases)\nhttps://github.com/GoogleChrome/lighthouse/blob/main/core/scripts/generate-timing-trace.js\nhttps://github.com/GoogleChrome/lighthouse/blob/main/core/lib/lantern-trace-saver.js\n\n--------\n\nthat said.. we definitely should not be making our own fakeTrace using this legacy \u0027cpuProfile\u0027 event. I think that was an oversight. We should use the \u0027Profile\u0027 event.",
+      "parentUuid": "448de48c_5769e91d",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 127
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f718c84_41aae3eb",
