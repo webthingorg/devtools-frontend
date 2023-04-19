@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ca57b9_29e571f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T13:21:49Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72148b7_5f33a69a",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T13:21:49Z",
+      "side": 1,
+      "message": "drive-by doc :)",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 61
+      },
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00575a2f_1ce1d566",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T13:21:49Z",
+      "side": 1,
+      "message": "another drive-by change.",
+      "range": {
+        "startLine": 1901,
+        "startChar": 10,
+        "endLine": 1901,
+        "endChar": 35
+      },
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
