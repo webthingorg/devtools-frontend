@@ -241,6 +241,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "624600e6_933645f1",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:34:01Z",
+      "side": 1,
+      "message": "Thanks for this tip!",
+      "parentUuid": "415ce942_a8245d11",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd6d4daa_482eb437",
         "filename": "test/unittests/front_end/panels/elements/components/CSSVariableValueView_test.ts",
         "patchSetId": 12
