@@ -16,6 +16,24 @@
       "message": "Could we test this in `navigation_test.ts`? On ~L156 of that file we click \"View Trace\" and go back to the LH panel. Might be a good spot to verify the scroll position stays the same.",
       "revId": "4646dafcb4845bd1ef4a232f98cc60371ce5b838",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc8088b_41683b79",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2023-04-19T19:48:35Z",
+      "side": 1,
+      "message": "We\u0027d also have to scroll in the test, which could become flaky?\n\nMany other panels override this function to do the same thing, so I don\u0027t think we\u0027re at too much risk leaving this untested.",
+      "parentUuid": "ac69cefd_8a1ee904",
+      "revId": "4646dafcb4845bd1ef4a232f98cc60371ce5b838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
