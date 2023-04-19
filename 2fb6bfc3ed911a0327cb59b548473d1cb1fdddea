@@ -16,6 +16,46 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "2fb6bfc3ed911a0327cb59b548473d1cb1fdddea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc68def_049038b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-19T06:12:54Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "2fb6bfc3ed911a0327cb59b548473d1cb1fdddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7c6ca2e_37121c9e",
+        "filename": "front_end/panels/profiler/ProfileDataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-19T06:12:54Z",
+      "side": 1,
+      "message": "Note that I fixed the alignment for users of `UI.InspectorView.InspectorView.instance().setPanelIcon` but I suspect here the icon will be too high.\n\n`RequestHeadersView` is disabled by default and Wolfgang will remove it so there we probably don\u0027t care.",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 209,
+        "endChar": 40
+      },
+      "revId": "2fb6bfc3ed911a0327cb59b548473d1cb1fdddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
