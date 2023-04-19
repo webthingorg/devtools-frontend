@@ -54,11 +54,11 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     this.splitWidget.showBoth();
   }
 
-  filters(): TimelineModel.TimelineModelFilter.TimelineModelFilter[] {
+  override filters(): TimelineModel.TimelineModelFilter.TimelineModelFilter[] {
     return [...super.filters(), ...this.filtersControl.filters()];
   }
 
-  updateContents(selection: TimelineSelection): void {
+  override updateContents(selection: TimelineSelection): void {
     super.updateContents(selection);
     if (selection.type() === TimelineSelection.Type.TraceEvent) {
       const event = (selection.object() as SDK.TracingModel.Event);
@@ -66,11 +66,11 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     }
   }
 
-  getToolbarInputAccessiblePlaceHolder(): string {
+  override getToolbarInputAccessiblePlaceHolder(): string {
     return i18nString(UIStrings.filterEventLog);
   }
 
-  buildTree(): TimelineModel.TimelineProfileTree.Node {
+  override buildTree(): TimelineModel.TimelineProfileTree.Node {
     this.currentTree = this.buildTopDownTree(true, null);
     return this.currentTree;
   }
@@ -114,7 +114,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     }
   }
 
-  populateColumns(columns: DataGrid.DataGrid.ColumnDescriptor[]): void {
+  override populateColumns(columns: DataGrid.DataGrid.ColumnDescriptor[]): void {
     columns.push(({
       id: 'startTime',
       title: i18nString(UIStrings.startTime),
@@ -128,12 +128,12 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     });
   }
 
-  populateToolbar(toolbar: UI.Toolbar.Toolbar): void {
+  override populateToolbar(toolbar: UI.Toolbar.Toolbar): void {
     super.populateToolbar(toolbar);
     this.filtersControl.populateToolbar(toolbar);
   }
 
-  showDetailsForNode(node: TimelineModel.TimelineProfileTree.Node): boolean {
+  override showDetailsForNode(node: TimelineModel.TimelineProfileTree.Node): boolean {
     const traceEvent = node.event;
     if (!traceEvent) {
       return false;
@@ -148,7 +148,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     return true;
   }
 
-  onHover(node: TimelineModel.TimelineProfileTree.Node|null): void {
+  override onHover(node: TimelineModel.TimelineProfileTree.Node|null): void {
     this.delegate.highlightEvent(node && node.event);
   }
 }

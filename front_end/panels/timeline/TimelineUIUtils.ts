@@ -3214,7 +3214,7 @@ export enum NetworkCategory {
 export const aggregatedStatsKey = Symbol('aggregatedStats');
 
 export class InvalidationsGroupElement extends UI.TreeOutline.TreeElement {
-  toggleOnClick: boolean;
+  override toggleOnClick: boolean;
   private readonly relatedNodesMap: Map<number, SDK.DOMModel.DOMNode|null>|null;
   private readonly contentHelper: TimelineDetailsContentHelper;
   private readonly invalidations: TimelineModel.TimelineModel.InvalidationTrackingEvent[];
@@ -3270,7 +3270,7 @@ export class InvalidationsGroupElement extends UI.TreeOutline.TreeElement {
     return title;
   }
 
-  async onpopulate(): Promise<void> {
+  override async onpopulate(): Promise<void> {
     const content = document.createElement('div');
     content.classList.add('content');
 
