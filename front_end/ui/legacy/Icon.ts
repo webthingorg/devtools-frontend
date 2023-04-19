@@ -180,6 +180,7 @@ const spriteSheets = new Map<string, SpriteSheet>([
   ['table', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['top-panel-close', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['top-panel-open', {cellWidth: 20, cellHeight: 20, padding: 0}],
+  ['triangle-bottom-right', {cellWidth: 20, cellHeight: 20, padding: 0}],
   ['triangle-down', {cellWidth: 14, cellHeight: 14, padding: 0}],
   ['triangle-left', {cellWidth: 14, cellHeight: 14, padding: 0}],
   ['triangle-right', {cellWidth: 14, cellHeight: 14, padding: 0}],
@@ -215,7 +216,6 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['mediumicon-elements-panel', {position: 'f3', spritesheet: 'mediumicons', isMask: true}],
   ['mediumicon-network-panel', {position: 'f2', spritesheet: 'mediumicons', isMask: true}],
 
-  ['largeicon-longclick-triangle', {position: 'b4', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-navigator-file', {position: 'e4', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-navigator-folder', {position: 'f8', spritesheet: 'largeicons', isMask: true}],
   ['largeicon-navigator-frame', {position: 'f7', spritesheet: 'largeicons', isMask: true}],
@@ -311,6 +311,7 @@ const initialDescriptors = new Map<string, Descriptor>([
   ['table', {position: 'a1', spritesheet: 'table', isMask: true}],
   ['top-panel-close', {position: 'a1', spritesheet: 'top-panel-close', isMask: true}],
   ['top-panel-open', {position: 'a1', spritesheet: 'top-panel-open', isMask: true}],
+  ['triangle-bottom-right', {position: 'a1', spritesheet: 'triangle-bottom-right', isMask: true}],
   ['triangle-down', {position: 'a1', spritesheet: 'triangle-down', isMask: true}],
   ['triangle-left', {position: 'a1', spritesheet: 'triangle-left', isMask: true}],
   ['triangle-right', {position: 'a1', spritesheet: 'triangle-right', isMask: true}],
