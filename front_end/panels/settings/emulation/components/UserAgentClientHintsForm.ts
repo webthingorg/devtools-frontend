@@ -67,16 +67,25 @@ const UIStrings = {
    */
   addBrand: 'Add Brand',
   /**
-   * @description Tooltip for delete icon for deleting browser brand in brands section.
+   * @description Tooltip for delete icon for deleting browser brand from brands user agent section.
    * Brands here relate to different browser brands/vendors like Google Chrome, Microsoft Edge etc.
    */
-  deleteTooltip: 'Delete',
+  brandUserAgentDeleteTooltip: 'Delete brand from user agent section',
   /**
-   * @description Aria label for delete icon for deleting browser brand in brands section.
+   * @description Tooltip for delete icon for deleting user agent from brands full version list.
    * Brands here relate to different browser brands/vendors like Google Chrome, Microsoft Edge etc.
-   * @example {index} PH1
    */
-  brandDeleteAriaLabel: 'Delete {PH1}',
+  brandFullVersionListDeleteTooltip: 'Delete brand from full version list',
+  /**
+   * @description Aria label for delete icon for deleting browser brand from brands user agent section.
+   * Brands here relate to different browser brands/vendors like Google Chrome, Microsoft Edge etc.
+   */
+  brandUserAgentDeleteAriaLabel: 'Delete brand from user agent section',
+  /**
+   * @description Aria label for delete icon for deleting browser brand from brands full version list.
+   * Brands here relate to different browser brands/vendors like Google Chrome, Microsoft Edge etc.
+   */
+  brandFullVersionListDeleteAriaLabel: 'Delete brand from full version list',
   /**
    * @description Label for full browser version input field.
    */
@@ -581,15 +590,13 @@ export class UserAgentClientHintsForm extends HTMLElement {
           <${IconButton.Icon.Icon.litTagName}
             .data=${
           {color: 'var(--icon-default)', iconName: 'bin', width: '16px', height: '16px'} as IconButton.Icon.IconData}
-            title=${i18nString(UIStrings.deleteTooltip)}
+            title=${i18nString(UIStrings.brandUserAgentDeleteTooltip)}
             class="delete-icon"
             tabindex="0"
             role="button"
             @click=${handleDeleteClick}
             @keypress=${handleKeyPress}
-            aria-label=${i18nString(UIStrings.brandDeleteAriaLabel, {
-        PH1: index + 1,
-      })}
+            aria-label=${i18nString(UIStrings.brandUserAgentDeleteAriaLabel)}
           >
           </${IconButton.Icon.Icon.litTagName}>
         </div>
@@ -672,15 +679,13 @@ export class UserAgentClientHintsForm extends HTMLElement {
           <${IconButton.Icon.Icon.litTagName}
             .data=${
           {color: 'var(--icon-default)', iconName: 'bin', width: '16px', height: '16px'} as IconButton.Icon.IconData}
-            title=${i18nString(UIStrings.deleteTooltip)}
+            title=${i18nString(UIStrings.brandFullVersionListDeleteTooltip)}
             class="delete-icon"
             tabindex="0"
             role="button"
             @click=${handleDeleteClick}
             @keypress=${handleKeyPress}
-            aria-label=${i18nString(UIStrings.brandDeleteAriaLabel, {
-        PH1: index + 1,
-      })}
+            aria-label=${i18nString(UIStrings.brandFullVersionListDeleteAriaLabel)}
           >
           </${IconButton.Icon.Icon.litTagName}>
         </div>
