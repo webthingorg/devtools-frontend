@@ -56,6 +56,30 @@
       },
       "revId": "dcd3f2696769c3a9fa79439e3252626de1417e49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "061fa779_975bd725",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-19T10:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ee100e0_e4a0dfba",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "dcd3f2696769c3a9fa79439e3252626de1417e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
