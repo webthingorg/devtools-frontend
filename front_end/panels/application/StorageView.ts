@@ -475,7 +475,7 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 
-  async doUpdate(): Promise<void> {
+  override async doUpdate(): Promise<void> {
     if (!this.securityOrigin || !this.target) {
       this.quotaRow.textContent = '';
       this.populatePieChart(0, []);
@@ -556,7 +556,7 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
         return i18nString(UIStrings.other);
     }
   }
-  wasShown(): void {
+  override wasShown(): void {
     super.wasShown();
     this.reportView.registerCSSFiles([storageViewStyles]);
     this.registerCSSFiles([storageViewStyles]);
