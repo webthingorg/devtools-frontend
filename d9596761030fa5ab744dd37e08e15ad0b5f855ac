@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "553c6e78_be2a784e",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T14:24:18Z",
+      "side": 1,
+      "message": "I guess I didn\u0027t make my question clear. I was mainly curious about that from what I can tell, both `link` and `linkContainer` are `HTMLElement`, but why does `link` does not need `?` after `matches`, i.e. why do we or TypeScript think `link` definitely has `matches` function, while for `linkContainer` we have to use optional chaining? Can we directly say `linkContainer.matches(\u0027.css-var-link\u0027)` here?",
+      "parentUuid": "6a2fc894_2780aaf9",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6bde189_b9d842ee",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 12
@@ -108,6 +126,30 @@
       "side": 1,
       "message": "Since LinkSwatch has become a base component and there are other components that extend it, I made an extra judgment call so as not to affect the other components.",
       "parentUuid": "f6bde189_b9d842ee",
+      "range": {
+        "startLine": 399,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 7
+      },
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec58eff_801791df",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T14:24:18Z",
+      "side": 1,
+      "message": "Can we directly check if the `linkContainer` matches `css-var-link`? It seems to be a more direct check anyways.",
+      "parentUuid": "6d978b79_4a0b80f7",
       "range": {
         "startLine": 399,
         "startChar": 6,

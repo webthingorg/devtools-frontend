@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e2e645_78d6a3b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-19T14:24:18Z",
+      "side": 1,
+      "message": "Looping in Ergün since it touches on BaseLinkSwatch, which you added previously.",
+      "revId": "8f590d80d2d48690df1c294b49259ce0185df2c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
