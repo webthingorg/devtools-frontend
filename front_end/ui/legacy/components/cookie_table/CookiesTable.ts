@@ -289,7 +289,7 @@ export class CookiesTable extends UI.Widget.VBox {
     this.cookieToBlockedReasons = null;
   }
 
-  wasShown(): void {
+  override wasShown(): void {
     this.registerCSSFiles([cookiesTableStyles]);
   }
 
@@ -327,7 +327,7 @@ export class CookiesTable extends UI.Widget.VBox {
     };
   }
 
-  willHide(): void {
+  override willHide(): void {
     this.lastEditedColumnId = null;
   }
 
@@ -739,7 +739,7 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode<DataGridNode> {
     this.blockedReasons = blockedReasons;
   }
 
-  createCells(element: Element): void {
+  override createCells(element: Element): void {
     super.createCells(element);
     if (this.blockedReasons && this.blockedReasons.length) {
       element.classList.add('flagged-cookie-attribute-row');
@@ -750,7 +750,7 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode<DataGridNode> {
     this.expiresTooltip = tooltip;
   }
 
-  createCell(columnId: string): HTMLElement {
+  override createCell(columnId: string): HTMLElement {
     const cell = super.createCell(columnId);
     if (columnId === SDK.Cookie.Attributes.SourcePort) {
       UI.Tooltip.Tooltip.install(cell, i18nString(UIStrings.sourcePortTooltip));
