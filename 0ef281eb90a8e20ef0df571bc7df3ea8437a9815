@@ -16,6 +16,23 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "0ef281eb90a8e20ef0df571bc7df3ea8437a9815",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3ca35c0_38eba429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-19T10:50:14Z",
+      "side": 1,
+      "message": "LGTM, thanks Benedikt! Would you like to review my clean-up as well? Please:)\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4445941",
+      "revId": "0ef281eb90a8e20ef0df571bc7df3ea8437a9815",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
