@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "268baeb0_5d33a6ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T13:38:24Z",
+      "side": 1,
+      "message": "Something I don\u0027t understand: right now in the perf panel if you click on the entire layout shift track, the \"EventLog\" table will be populated. I presume that was (or still is?) populated by the group.tracks.events property ?",
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a72148b7_5f33a69a",
