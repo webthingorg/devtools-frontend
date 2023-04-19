@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791fcdfb_a53521ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T08:13:50Z",
+      "side": 1,
+      "message": "Absolutely love this. One small nit, otherwise LGTM. Great stuff!",
+      "revId": "1ba6e9b26448e4dd2f5582c408cc6ea6f415e3cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4343ba03_13f25f25",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 3606,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-19T08:13:50Z",
+      "side": 1,
+      "message": "this conditional will always be true because of the if() above it, so I am not sure we need this here.\n\nI think we probably want to make the top conditional if(traceParsedData) ?",
+      "range": {
+        "startLine": 3606,
+        "startChar": 0,
+        "endLine": 3606,
+        "endChar": 96
+      },
+      "revId": "1ba6e9b26448e4dd2f5582c408cc6ea6f415e3cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
