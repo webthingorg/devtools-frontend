@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56583db3_212bc14d",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62d1bfc8_11c7bcee",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2acf6884_407c2fb3",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-19T09:49:41Z",
       "side": 1,
       "message": "Why is `linkContainer.matches?` necessary for `linkContainer`, while we don\u0027t need the `?` optional chaining for `link.matches`?",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a2fc894_2780aaf9",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:30:29Z",
+      "side": 1,
+      "message": "This is because each component that expands on BaseLinkSwatch has a different structure, and I can\u0027t expand directly on BaseLinkSwatch, so I picked the first DOM element inside to determine that match might not exist, so I used `?.()`",
+      "parentUuid": "2acf6884_407c2fb3",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -60,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d978b79_4a0b80f7",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:30:29Z",
+      "side": 1,
+      "message": "Since LinkSwatch has become a base component and there are other components that extend it, I made an extra judgment call so as not to affect the other components.",
+      "parentUuid": "f6bde189_b9d842ee",
+      "range": {
+        "startLine": 399,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 7
+      },
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46310944_09150e3b",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 12
@@ -71,6 +131,24 @@
       "writtenOn": "2023-04-19T09:49:41Z",
       "side": 1,
       "message": "Let\u0027s remove the commented line if it\u0027s not needed anymore.",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "405b5ef4_6378256e",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:30:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "46310944_09150e3b",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +166,24 @@
       "writtenOn": "2023-04-19T09:49:41Z",
       "side": 1,
       "message": "nit: could you change this and the `if` block above for `#hintPopoverHelper` to use optional chaining, i.e.\n```\nthis.#hintPopoverHelper.hidePopover();\nthis.#evaluatedCSSVarPopoverHelper?.hidePopover();\n```",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127783df_e2d330f6",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-19T11:30:29Z",
+      "side": 1,
+      "message": "Nice catch! Done.",
+      "parentUuid": "99df69a0_2346c686",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
