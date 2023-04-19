@@ -71,6 +71,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4437b3d0_bf67fa43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T14:51:46Z",
+      "side": 1,
+      "message": "that\u0027s right. A change in the TimelineModel file that removes the events added to the legacy Experience track was included in the initial patch of this CL and as such, it would break the behavior you mention. This change is in fact part of another CL I\u0027m preparing and should not had been included here. I have revereted that particular change in the last patch to make sure the track selection behaviour works still. Good catch!!",
+      "parentUuid": "268baeb0_5d33a6ae",
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a72148b7_5f33a69a",
         "filename": "front_end/models/timeline_model/TimelineModel.ts",
         "patchSetId": 1
@@ -199,6 +217,30 @@
       "writtenOn": "2023-04-19T13:36:22Z",
       "side": 1,
       "message": "do we know for sure that we will not have a legacy event here? I wonder about wrapping in an isSyntheticLayoutShift (even if we error if it is not true) just to be explicit and make sure this `as X` doesn\u0027t hide any future compiler issues.",
+      "range": {
+        "startLine": 2258,
+        "startChar": 0,
+        "endLine": 2258,
+        "endChar": 88
+      },
+      "revId": "1e24b1ae476058246e9f73e7904cd47251c4e764",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8eea0eb_0ed9a6b2",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2258,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-19T14:51:46Z",
+      "side": 1,
+      "message": "I believe it should be only from the new engine since that\u0027s what I\u0027ve updated the data provider to return when the track is selected. However I have added the check you suggested.",
+      "parentUuid": "761ce1e9_ca07372f",
       "range": {
         "startLine": 2258,
         "startChar": 0,
