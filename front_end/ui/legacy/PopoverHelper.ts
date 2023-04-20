@@ -39,17 +39,19 @@ export class PopoverHelper {
   private hidePopoverCallback: (() => void)|null;
   private readonly container: Element;
   private showTimeout: number;
+  private check: String;
   private hideTimeout: number;
   private hidePopoverTimer: number|null;
   private showPopoverTimer: number|null;
   private readonly boundMouseDown: (event: Event) => void;
   private readonly boundMouseMove: (ev: Event) => void;
   private readonly boundMouseOut: (event: Event) => void;
-  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null) {
+  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null, check: String = '') {
     this.disableOnClick = false;
     this.hasPadding = false;
     this.getRequest = getRequest;
     this.scheduledRequest = null;
+    this.check = check;
     this.hidePopoverCallback = null;
     this.container = container;
     this.showTimeout = 0;
@@ -101,12 +103,14 @@ export class PopoverHelper {
     const event = (ev as MouseEvent);
     // Pretend that nothing has happened.
     if (this.eventInScheduledContent(event)) {
+      console.log('this.eventInScheduledContent(event) is true ' + this.check);
       return;
     }
 
     this.startHidePopoverTimer(this.hideTimeout);
     this.stopShowPopoverTimer();
     if (event.which && this.disableOnClick) {
+      console.log('event.which && this.disableOnClick is true ' + this.check);
       return;
     }
     this.startShowPopoverTimer(event, this.isPopoverVisible() ? this.showTimeout * 0.6 : this.showTimeout);
@@ -123,6 +127,7 @@ export class PopoverHelper {
     }
     const node = (event.relatedTarget as Node | null);
     if (node && !node.isSelfOrDescendant(popover.contentElement)) {
+      console.log('node && !node.isSelfOrDescendant(popover.contentElement) ' + this.check);
       this.startHidePopoverTimer(this.hideTimeout);
     }
   }
@@ -149,12 +154,15 @@ export class PopoverHelper {
   }
 
   private startShowPopoverTimer(event: MouseEvent, timeout: number): void {
+    console.log(this.getRequest);
     this.scheduledRequest = this.getRequest.call(null, event);
     if (!this.scheduledRequest) {
+      console.log('!this.scheduledRequest is true ' + this.check);
       return;
     }
-
+    console.log('setting timer ' + this.check);
     this.showPopoverTimer = window.setTimeout(() => {
+      console.log('showing... ' + this.check);
       this.showPopoverTimer = null;
       this.stopHidePopoverTimer();
       this.hidePopoverInternal();
