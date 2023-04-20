@@ -108,7 +108,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.networkFlameChart =
         new PerfUI.FlameChart.FlameChart(this.networkDataProvider, this, this.networkFlameChartGroupExpansionSetting);
     this.networkFlameChart.alwaysShowVerticalScroll();
-    this.networkFlameChart.disableRangeSelection();
 
     this.networkPane = new UI.Widget.VBox();
     this.networkPane.setMinimumSize(23, 23);
@@ -273,7 +272,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   highlightEvent(event: SDK.TracingModel.Event|null): void {
     const entryIndex =
-        event ? this.mainDataProvider.entryIndexForSelection(TimelineSelection.fromSDKTraceEvent(event)) : -1;
+        event ? this.mainDataProvider.entryIndexForSelection(TimelineSelection.fromTraceEvent(event)) : -1;
     if (entryIndex >= 0) {
       this.mainFlameChart.highlightEntry(entryIndex);
     } else {

@@ -1024,6 +1024,16 @@ const UIStrings = {
    */
   forcedReflow: 'Forced reflow',
   /**
+   *@description Text used to highlight a long interaction and link to web.dev/inp
+   */
+  longInteractionINP: 'Long interaction',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel when the
+   *             user clicks on a long interaction.
+   *@example {Long interaction} PH1
+   */
+  sIsLikelyPoorPageResponsiveness: '{PH1} is indicating poor page responsiveness.',
+  /**
    *@description Text in Timeline UIUtils of the Performance panel
    *@example {Forced reflow} PH1
    */
@@ -1425,9 +1435,12 @@ export class TimelineUIUtils {
       return TimelineUIUtils.frameDisplayName(eventData);
     }
 
-    if (event.name === 'EventTiming' && event.args.data && event.args.data.interactionId) {
-      // This is an interaction event because it has an ID, so just show the type of interaction.
-      return event.args.data.type;
+    if (event.name === 'EventTiming' && event instanceof SDK.TracingModel.PayloadEvent) {
+      const syntheticInteraction = event.rawPayload();
+      if (TraceEngine.Types.TraceEvents.isSyntheticInteractionEvent(syntheticInteraction)) {
+        // For interaction events, show the type of the interaction as its title
+        return syntheticInteraction.type;
+      }
     }
     const title = TimelineUIUtils.eventStyle(event).title;
     if (eventHasCategory(event, TimelineModel.TimelineModel.TimelineModelImpl.Category.Console)) {
@@ -1922,6 +1935,21 @@ export class TimelineUIUtils {
       contentHelper.appendWarningRow(event, TimelineModel.TimelineModel.TimelineModelImpl.WarningType.V8Deopt);
     }
 
+    // TODO(crbug.com/1434594): it is messy that we have this check for the
+    // duration in the UIUtils. We need to come up with a solution so we canset
+    // this information in the handlers, and read it here.
+    if (event.name === recordTypes.EventTiming && duration > TraceEngine.Types.Timing.MilliSeconds(200)) {
+      // This ensures we do not have a ConstructedEvent which are not ever going to be Interaction events.
+      const eventHasPayload = eventIsFromNewEngine(event) || SDK.TracingModel.eventHasPayload(event);
+      if (eventHasPayload) {
+        const payload = eventIsFromNewEngine(event) ? event : event.rawPayload();
+        if (TraceEngine.Types.TraceEvents.isSyntheticInteractionEvent(payload)) {
+          contentHelper.appendWarningRow(
+              event, TimelineModel.TimelineModel.TimelineModelImpl.WarningType.LongInteraction);
+        }
+      }
+    }
+
     if (detailed && !Number.isNaN(duration || 0)) {
       contentHelper.appendTextRow(
           i18nString(UIStrings.totalTime), i18n.TimeUtilities.millisToString(duration || 0, true));
@@ -2248,13 +2276,26 @@ export class TimelineUIUtils {
         if (detailsNode) {
           contentHelper.appendElementRow(i18nString(UIStrings.details), detailsNode);
         }
-        if (eventData.interactionId) {
-          contentHelper.appendTextRow(i18nString(UIStrings.interactionID), eventData.interactionId);
+        let payload: TraceEngine.Types.TraceEvents.TraceEventData|null = null;
+        if (eventIsFromNewEngine(event)) {
+          payload = event;
+        } else if (SDK.TracingModel.eventHasPayload(event)) {
+          payload = event.rawPayload();
+        }
+
+        if (payload && TraceEngine.Types.TraceEvents.isSyntheticInteractionEvent(payload)) {
+          contentHelper.appendTextRow(i18nString(UIStrings.interactionID), payload.interactionId);
         }
         break;
       }
 
       case recordTypes.LayoutShift: {
+        if (!eventIsFromNewEngine(event) || !TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+          console.error('Unexpected type for LayoutShift event');
+          break;
+        }
+        const layoutShift = event as TraceEngine.Types.TraceEvents.SyntheticLayoutShift;
+        const layoutShiftEventData = layoutShift.args.data;
         const warning = document.createElement('span');
         const clsLink = UI.XLink.XLink.create('https://web.dev/cls/', i18nString(UIStrings.cumulativeLayoutShifts));
         const evolvedClsLink =
@@ -2263,17 +2304,17 @@ export class TimelineUIUtils {
         warning.appendChild(
             i18n.i18n.getFormatLocalizedString(str_, UIStrings.sCLSInformation, {PH1: clsLink, PH2: evolvedClsLink}));
         contentHelper.appendElementRow(i18nString(UIStrings.warning), warning, true);
-
-        contentHelper.appendTextRow(i18nString(UIStrings.score), eventData['score'].toPrecision(4));
+        if (!layoutShiftEventData) {
+          break;
+        }
+        contentHelper.appendTextRow(i18nString(UIStrings.score), layoutShiftEventData['score'].toPrecision(4));
         contentHelper.appendTextRow(
-            i18nString(UIStrings.cumulativeScore), eventData['cumulative_score'].toPrecision(4));
-        if ('_current_cluster_id' in eventData) {
-          contentHelper.appendTextRow(i18nString(UIStrings.currentClusterId), eventData['_current_cluster_id']);
-        }
-        if ('_current_cluster_score' in eventData) {
-          contentHelper.appendTextRow(
-              i18nString(UIStrings.currentClusterScore), eventData['_current_cluster_score'].toPrecision(4));
-        }
+            i18nString(UIStrings.cumulativeScore), layoutShiftEventData['cumulative_score'].toPrecision(4));
+        contentHelper.appendTextRow(
+            i18nString(UIStrings.currentClusterId), layoutShift.parsedData.sessionWindowData.id);
+        contentHelper.appendTextRow(
+            i18nString(UIStrings.currentClusterScore),
+            layoutShift.parsedData.sessionWindowData.cumulativeWindowScore.toPrecision(4));
         contentHelper.appendTextRow(
             i18nString(UIStrings.hadRecentInput),
             eventData['had_recent_input'] ? i18nString(UIStrings.yes) : i18nString(UIStrings.no));
@@ -2635,11 +2676,11 @@ export class TimelineUIUtils {
       link.tabIndex = 0;
       link.textContent = i18nString(UIStrings.reveal);
       link.addEventListener('click', () => {
-        TimelinePanel.instance().select(TimelineSelection.fromSDKTraceEvent((initiator as SDK.TracingModel.Event)));
+        TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((initiator as SDK.TracingModel.Event)));
       });
       link.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
-          TimelinePanel.instance().select(TimelineSelection.fromSDKTraceEvent((initiator as SDK.TracingModel.Event)));
+          TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((initiator as SDK.TracingModel.Event)));
           event.consume(true);
         }
       });
@@ -2815,10 +2856,10 @@ export class TimelineUIUtils {
     UI.ARIAUtils.markAsLink(container);
     container.tabIndex = 0;
     container.addEventListener(
-        'click', () => TimelinePanel.instance().select(TimelineSelection.fromSDKTraceEvent(event)), false);
+        'click', () => TimelinePanel.instance().select(TimelineSelection.fromTraceEvent(event)), false);
     container.addEventListener('keydown', keyEvent => {
       if (keyEvent.key === 'Enter') {
-        TimelinePanel.instance().select(TimelineSelection.fromSDKTraceEvent(event));
+        TimelinePanel.instance().select(TimelineSelection.fromTraceEvent(event));
         keyEvent.consume(true);
       }
     });
@@ -3165,6 +3206,14 @@ export class TimelineUIUtils {
       case warnings.LongHandler: {
         span.textContent =
             i18nString(UIStrings.handlerTookS, {PH1: i18n.TimeUtilities.millisToString((duration || 0), true)});
+        break;
+      }
+
+      case warnings.LongInteraction: {
+        const longInteractionINPLink =
+            UI.XLink.XLink.create('https://web.dev/inp', i18nString(UIStrings.longInteractionINP));
+        span.appendChild(i18n.i18n.getFormatLocalizedString(
+            str_, UIStrings.sIsLikelyPoorPageResponsiveness, {PH1: longInteractionINPLink}));
         break;
       }
 

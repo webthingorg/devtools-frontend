@@ -92,33 +92,188 @@ class BezierCurveUI {
   }
 }
 
+type Point = {input: number, output: number};
+type Position = {x: number, y: number};
 class LinearEasingUI {
-  #cssLinearEasingModel: CSSLinearEasingModel;
-  #container: HTMLElement;
-  #element: HTMLElement;
+    #model: CSSLinearEasingModel;
+    #onChange: (model: CSSLinearEasingModel) => void;
 
-  constructor({
-    model,
-    container,
-  }: {
-    model: CSSLinearEasingModel,
-    container: HTMLElement,
-  }) {
-    this.#cssLinearEasingModel = model;
-    this.#container = container;
+    #selectedPointIndex?: number;
+    #doubleClickTimer?: number;
+    #lastClickedPointIndex?: number;
+    #mouseDownPosition?: { x: number, y: number };
+    #renderedPositions?: {x:number, y: number}[];
 
-    this.#element = document.createElement('div');
-    this.#container.appendChild(this.#element);
-  }
+    #width: number;
+    #height: number;
+    #radius: number;
+    #marginTop: number;
 
-  setCSSLinearEasingModel(cssLinearEasingModel: CSSLinearEasingModel): void {
-    this.#cssLinearEasingModel = cssLinearEasingModel;
-    this.draw();
-  }
+    #svg: Element;
 
-  draw(): void {
-    this.#element.textContent = this.#cssLinearEasingModel.asCSSText();
-  }
+    constructor({
+        model,
+        container,
+        onChange,
+    }: {
+        model: CSSLinearEasingModel,
+        container: HTMLElement,
+        onChange: (model: CSSLinearEasingModel) => void,
+    }) {
+        this.#model = model;
+        this.#onChange = onChange;
+
+        this.#width = 150;
+        this.#height = 250;
+        this.#radius = 7;
+        this.#marginTop = 50;
+
+        this.#svg = UI.UIUtils.createSVGChild(container, 'svg', 'bezier-curve linear');
+
+        UI.UIUtils.installDragHandle(
+            this.#svg, this.#dragStart.bind(this), this.#dragMove.bind(this), this.#dragEnd.bind(this), 'default');
+    }
+
+    #curveWidth(): number {
+      return this.#width - this.#radius * 2;
+    }
+
+    #curveHeight(): number {
+      return this.#height - this.#radius * 2 - this.#marginTop * 2;
+    }
+
+    #handleLineClick(event: MouseEvent, target: SVGElement): void {
+      const newPoint = this.#positionToTimingPoint({x: event.offsetX, y: event.offsetY});
+      this.#model.addPoint(newPoint, Number(target.dataset.lineIndex));
+      this.#selectedPointIndex = undefined;
+      this.#mouseDownPosition = undefined;
+    }
+
+    #handleControlPointClick(event: MouseEvent, target: SVGElement): void {
+      this.#selectedPointIndex = Number(target.dataset.pointIndex);
+      this.#mouseDownPosition = {x: event.x, y: event.y};
+
+      clearTimeout(this.#doubleClickTimer);
+      if (this.#lastClickedPointIndex === this.#selectedPointIndex) {
+        this.#model.removePoint(this.#selectedPointIndex);
+        this.#lastClickedPointIndex = undefined;
+        this.#selectedPointIndex = undefined;
+        this.#mouseDownPosition = undefined;
+        return;
+      }
+
+      this.#lastClickedPointIndex = this.#selectedPointIndex;
+      this.#doubleClickTimer = window.setTimeout(() => {
+        this.#lastClickedPointIndex = undefined;
+      }, 300);
+    }
+
+    #dragStart(event: MouseEvent): boolean {
+      if (!(event.target instanceof SVGElement)) {
+        return false;
+      }
+
+      if (event.target.dataset.lineIndex !== undefined) {
+        this.#handleLineClick(event, event.target);
+        event.consume(true);
+        return true;
+      }
+
+      if (event.target.dataset.pointIndex !== undefined) {
+        this.#handleControlPointClick(event, event.target);
+        event.consume(true);
+        return true;
+      }
+
+      return false;
+    }
+
+    #updatePointPosition(mouseX: number, mouseY: number): void {
+      if (this.#selectedPointIndex === undefined || this.#mouseDownPosition === undefined) {
+        return;
+      }
+
+      const controlPosition = this.#renderedPositions?.[this.#selectedPointIndex];
+      if (!controlPosition) {
+        return;
+      }
+
+      const deltaX = mouseX - this.#mouseDownPosition.x;
+      const deltaY = mouseY - this.#mouseDownPosition.y;
+
+      this.#mouseDownPosition = {
+        x: mouseX,
+        y: mouseY,
+      };
+
+      const newPoint = {
+        x: controlPosition.x + deltaX,
+        y: controlPosition.y + deltaY,
+      };
+
+      this.#model.setPoint(this.#selectedPointIndex, this.#positionToTimingPoint(newPoint));
+    }
+
+    #dragMove(event: MouseEvent): void {
+      this.#updatePointPosition(event.x, event.y);
+      this.#onChange(this.#model);
+    }
+
+    #dragEnd(event: MouseEvent): void {
+      this.#updatePointPosition(event.x, event.y);
+      this.#onChange(this.#model);
+    }
+
+    #drawControlPoint(parentElement: Element, controlX: number, controlY: number, index: number): void {
+        const circle = UI.UIUtils.createSVGChild(parentElement, 'circle', 'bezier-control-circle');
+        circle.setAttribute('data-point-index', String(index));
+        circle.setAttribute('cx', String(controlX));
+        circle.setAttribute('cy', String(controlY));
+        circle.setAttribute('r', String(this.#radius));
+    }
+
+    #timingPointToPosition(point: Point): Position {
+      return {
+        x: (point.input / 100) * this.#curveWidth(),
+        y: (1 - point.output) * this.#curveHeight(),
+      };
+    }
+
+    #positionToTimingPoint(position: Position): Point {
+      return {
+        input: (position.x / this.#curveWidth()) * 100,
+        output: 1 - position.y / this.#curveHeight(),
+      };
+    }
+
+    setCSSLinearEasingModel(model: CSSLinearEasingModel): void {
+        this.#model = model;
+        this.draw();
+    }
+
+    draw(): void {
+        this.#svg.setAttribute('width', String(this.#curveWidth()));
+        this.#svg.setAttribute('height', String(this.#curveHeight()));
+        this.#svg.removeChildren();
+        const group = UI.UIUtils.createSVGChild(this.#svg, 'g');
+
+        const positions = this.#model.points().map(point => this.#timingPointToPosition(point));
+        this.#renderedPositions = positions;
+
+        let startingPoint = positions[0];
+        for (let i = 1; i < positions.length; i++) {
+          const position = positions[i];
+          const line = UI.UIUtils.createSVGChild(group, 'path', 'bezier-path linear-path');
+          line.setAttribute('d', `M ${startingPoint.x} ${startingPoint.y} L ${position.x} ${position.y}`);
+          line.setAttribute('data-line-index', String(i));
+          startingPoint = position;
+        }
+
+        for (let i = 0; i < positions.length; i++) {
+            const point = positions[i];
+            this.#drawControlPoint(group, point.x, point.y, i);
+        }
+    }
 }
 
 interface AnimationTimingUIParams {
@@ -156,6 +311,7 @@ export class AnimationTimingUI {
       this.#linearEasingUI = new LinearEasingUI({
         model: this.#model,
         container: this.#linearEasingContainer,
+        onChange: this.#onChange,
       });
     }
   }
@@ -180,7 +336,7 @@ export class AnimationTimingUI {
       if (this.#linearEasingUI) {
         this.#linearEasingUI.setCSSLinearEasingModel(this.#model);
       } else {
-        this.#linearEasingUI = new LinearEasingUI({model: this.#model, container: this.#linearEasingContainer});
+        this.#linearEasingUI = new LinearEasingUI({model: this.#model, container: this.#linearEasingContainer, onChange: this.#onChange});
       }
 
       this.#linearEasingContainer.classList.remove('hidden');

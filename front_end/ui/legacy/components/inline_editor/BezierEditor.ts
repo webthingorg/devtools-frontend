@@ -33,6 +33,7 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.model = model;
     this.contentElement.tabIndex = 0;
     this.setDefaultFocusedElement(this.contentElement);
+    this.element.style.overflowY = 'auto';
 
     // Preview UI
     this.previewElement = this.contentElement.createChild('div', 'bezier-preview-container');
@@ -112,7 +113,7 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
 
   private updateUI(): void {
     const labelText = this.selectedCategory ? this.selectedCategory.presets[this.selectedCategory.presetIndex].name :
-                                              this.model.asCSSText().replace(/\s(-\d\.\d)/g, '$1');
+                                              this.model.asCSSText();
     this.label.textContent = labelText;
     this.animationTimingUI?.draw();
   }
@@ -193,11 +194,13 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     const numberOnionSlices = 20;
 
     const keyframes = [
-      {offset: 0, transform: 'translateX(0px)', easing: this.model.asCSSText(), opacity: 1},
-      {offset: 0.9, transform: 'translateX(218px)', opacity: 1},
-      {offset: 1, transform: 'translateX(218px)', opacity: 0},
+      {offset: 0, transform: 'translateX(0px)', opacity: 1},
+      {offset: 1, transform: 'translateX(218px)', opacity: 1},
     ];
-    this.previewAnimation = this.previewElement.animate(keyframes, animationDuration);
+    this.previewAnimation = this.previewElement.animate(keyframes, {
+      easing: this.model.asCSSText(),
+      duration: animationDuration,
+    });
     this.previewOnion.removeChildren();
     for (let i = 0; i <= numberOnionSlices; i++) {
       const slice = this.previewOnion.createChild('div', 'bezier-preview-animation');
@@ -221,6 +224,10 @@ export type EventTypes = {
 };
 
 export const Presets = [
+  [
+    {name: 'linear', value: 'linear'},
+    {name: 'almost linear', value: 'linear(0 0%, 0.5 50%, 0.8 60%, 1 100%)'},
+  ],
   [
     {name: 'ease-in-out', value: 'ease-in-out'},
     {name: 'In Out · Sine', value: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)'},
