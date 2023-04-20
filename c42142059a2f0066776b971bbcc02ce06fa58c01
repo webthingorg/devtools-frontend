@@ -16,6 +16,46 @@
       "message": "PTAL, I only did the basic logic to build the \"call tree\" in this CL\nThanks",
       "revId": "c42142059a2f0066776b971bbcc02ce06fa58c01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b68affa_eb3e4044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-20T09:47:54Z",
+      "side": 1,
+      "message": "LGTM with suggestion to move extract logic into a tested helper",
+      "revId": "c42142059a2f0066776b971bbcc02ce06fa58c01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "641fcb89_58027bd2",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-20T09:47:54Z",
+      "side": 1,
+      "message": "per our conversation earlier we don\u0027t need to check for nested events in the GPU tracks. However since in the future we will, I think it would be nice if we added this logic into the AppenderUtils and use the helper instead. That way we can use it when we need to add nestable sync events to the flame chart in the future. We could also take the opportunity to add some unit tests to that helper :)",
+      "range": {
+        "startLine": 109,
+        "startChar": 10,
+        "endLine": 109,
+        "endChar": 31
+      },
+      "revId": "c42142059a2f0066776b971bbcc02ce06fa58c01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
