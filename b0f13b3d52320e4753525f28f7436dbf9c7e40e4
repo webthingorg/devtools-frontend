@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e0627a_c1a70211",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-20T08:01:50Z",
+      "side": 1,
+      "message": "CSS link swatch stuff looks good to me",
+      "revId": "b0f13b3d52320e4753525f28f7436dbf9c7e40e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
