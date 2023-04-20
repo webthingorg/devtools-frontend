@@ -71,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e0ebc1_b5a031a5",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-20T18:56:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f718c84_41aae3eb",
+      "range": {
+        "startLine": 173,
+        "startChar": 41,
+        "endLine": 173,
+        "endChar": 47
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "047b0900_312329e2",
@@ -84,6 +108,30 @@
       "writtenOn": "2023-04-11T16:51:04Z",
       "side": 1,
       "message": "same Q here RE updating the types we have so that we cannot make this mistake again (given we explicitly want to support traces that do not have this data).",
+      "range": {
+        "startLine": 312,
+        "startChar": 22,
+        "endLine": 312,
+        "endChar": 51
+      },
+      "revId": "9af63be37ed89f195bb83020ac3b3ed9e51235f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af64592b_e45390d6",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-04-20T18:56:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "047b0900_312329e2",
       "range": {
         "startLine": 312,
         "startChar": 22,
