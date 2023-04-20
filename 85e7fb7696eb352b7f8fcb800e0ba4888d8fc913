@@ -51,6 +51,24 @@
       "parentUuid": "2aa5cf63_f76e4787",
       "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43ee0e63_ba63a6e0",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-20T08:50:54Z",
+      "side": 1,
+      "message": "drive-by: If you want localisable strings to contain links, I\u0027d recommend using `i18n.i18n.getFormatLocalizedString` (https://chromium.googlesource.com/devtools/devtools-frontend/+/aef02a23d85d0362508819c7a39fc9a212783718/docs/l10n.md#i18n_i18n_getformatlocalizedstring).\nHere is an example doing something very similar: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/application/AppManifestView.ts;l\u003d735",
+      "parentUuid": "eab4dc68_b2c309bf",
+      "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
