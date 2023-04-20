@@ -87,6 +87,24 @@
       "parentUuid": "d2208367_192e58e6",
       "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "642e31ef_0e3ae967",
+        "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2023-04-20T22:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee3566c1_96f2b2b9",
+      "revId": "bb128f3dc0fb152e235d8c8e74fb6f13ce92771f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
