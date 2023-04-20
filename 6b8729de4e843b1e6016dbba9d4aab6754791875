@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c8d099e_2337f14b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-20T11:12:06Z",
+      "side": 1,
+      "message": "PTAL, I also fixed the color, it was supposed to be purple all along",
+      "revId": "6b8729de4e843b1e6016dbba9d4aab6754791875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
