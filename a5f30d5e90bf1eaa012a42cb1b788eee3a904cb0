@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b96f34b_00633427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-20T14:56:36Z",
+      "side": 1,
+      "message": "The CL looks good to me but I made the following tweaks:\n\n1. Removed the type parameter of the `TimelineSelection` class: I noted this added extra complexity by having to define a `TimelineSelectionType` on top of the `TimelineSelection` class. The definition of this type also resulted a bit too long with the unions of the different versions of the `TimelineSelection` class. Instead, in places where you added checks for the type of a `TimelineSelection` instance, I checked for the type of the `object`, which achieves the type safety we are looking for and in my opinion simplifies the code a bit. We can revert this decision if you prefer so :).\n\n2. Added a unit test for the eventTitle function by passing an interaction event.",
+      "revId": "a5f30d5e90bf1eaa012a42cb1b788eee3a904cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
