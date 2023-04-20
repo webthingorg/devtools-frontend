@@ -37,6 +37,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
@@ -45,8 +46,10 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as Root from '../../core/root/root.js';
 import * as Emulation from '../emulation/emulation.js';
-import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import {IssuesPane} from '../issues/IssuesPane.js';
+
 import * as ElementsComponents from './components/components.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsPanel} from './ElementsPanel.js';
@@ -244,6 +247,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private hintElement?: HTMLElement;
   private contentElement: HTMLElement;
   #elementIssues: Map<string, IssuesManager.GenericIssue.GenericIssue> = new Map();
+  #nodeElementToIssue: Map<Element, IssuesManager.Issue.Issue> = new Map();
+  #popupHelper?: UI.PopoverHelper.PopoverHelper;
 
   readonly tagTypeContext: TagTypeContext;
 
@@ -297,6 +302,48 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
     this.expandAllButtonElement = null;
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HIGHLIGHT_ERRORS_ELEMENTS_PANEL)) {
+      this.#popupHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
+        const hoveredNode = event.composedPath()[0] as Element;
+        if (!hoveredNode) {
+          return null;
+        }
+
+        if (!hoveredNode.matches('.violating-element')) {
+          return null;
+        }
+
+        const issue = this.#nodeElementToIssue.get(hoveredNode);
+        if (!issue) {
+          return null;
+        }
+
+        const tooltipTitle = this.#issueCodeToTooltipTitle(issue.code());
+        if (!tooltipTitle) {
+          return null;
+        }
+
+        return {
+          box: hoveredNode.boxInWindow(),
+          show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+            popover.setIgnoreLeftMargin(true);
+            const element = document.createElement('span');
+            element.style.setProperty('cursor', 'pointer');
+
+            element.textContent = tooltipTitle;
+            element.addEventListener('click', () => {
+              void UI.ViewManager.ViewManager.instance().showView('issues-pane');
+              void IssuesPane.instance().reveal(issue);
+            });
+            popover.contentElement.appendChild(element);
+            return true;
+          },
+        };
+      });
+      this.#popupHelper.setTimeout(300);
+      this.#popupHelper.setHasPadding(true);
+    }
   }
 
   static animateOnDOMUpdate(treeElement: ElementsTreeElement): void {
@@ -427,6 +474,33 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
+  #issueCodeToTooltipTitle(issueCode: string): string {
+    switch (issueCode) {
+      case 'GenericIssue::FormLabelForNameError':
+        return 'Incorrect use of <label for=FORM_ELEMENT>';
+      case 'GenericIssue::FormDuplicateIdForInputError':
+        return 'Duplicate form field id in the same form';
+      case 'GenericIssue::FormInputWithNoLabelError':
+        return 'Form field without valid aria-labelledby attribute or associated label';
+      case 'GenericIssue::FormAutocompleteAttributeEmptyError':
+        return 'Incorrect use of autocomplete attribute';
+      case 'GenericIssue::FormEmptyIdAndNameAttributesForInputError':
+        return 'A form field element should have an id or name attribute';
+      case 'GenericIssue::FormAriaLabelledByToNonExistingId':
+        return 'An aria-labelledby attribute doesn\'t match any element id';
+      case 'GenericIssue::FormInputAssignedAutocompleteValueToIdOrNameAttributeError':
+        return 'An element doesn\'t have an autocomplete attribute';
+      case 'GenericIssue::FormLabelHasNeitherForNorNestedInput':
+        return 'No label associated with a form field';
+      case 'GenericIssue::FormLabelForMatchesNonExistingIdError':
+        return 'Incorrect use of <label for=FORM_ELEMENT>';
+      case 'GenericIssue::FormInputHasWrongButWellIntendedAutocompleteValueError':
+        return 'Non-standard autocomplete attribute value';
+      default:
+        return '';
+    }
+  }
+
   addIssue(newIssue: IssuesManager.GenericIssue.GenericIssue): void {
     if (this.#elementIssues.has(newIssue.primaryKey())) {
       return;
@@ -440,22 +514,26 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const issueDetails = issue.details();
 
     if (issueDetails.violatingNodeAttribute) {
-      this.#highlightViolatingAttr(issueDetails.violatingNodeAttribute);
+      this.#highlightViolatingAttr(issueDetails.violatingNodeAttribute, issue);
     } else {
-      this.#highlightTagAsViolating();
+      this.#highlightTagAsViolating(issue);
     }
   }
 
-  #highlightTagAsViolating(): void {
-    this.listItemElement.getElementsByClassName('webkit-html-tag-name')[0].classList.add('violating-element');
+  #highlightTagAsViolating(issue: IssuesManager.Issue.Issue): void {
+    const tagElement = this.listItemElement.getElementsByClassName('webkit-html-tag-name')[0];
+    tagElement.classList.add('violating-element');
+    this.#nodeElementToIssue.set(tagElement, issue);
   }
 
-  #highlightViolatingAttr(name: string): void {
+  #highlightViolatingAttr(name: string, issue: IssuesManager.Issue.Issue): void {
     const tag = this.listItemElement.getElementsByClassName('webkit-html-tag')[0];
     const attributes = tag.getElementsByClassName('webkit-html-attribute');
-    for (const attribute of attributes) {
-      if (attribute.getElementsByClassName('webkit-html-attribute-name')[0].textContent === name) {
-        attribute.getElementsByClassName('webkit-html-attribute-name')[0].classList.add('violating-element');
+    for (let i = 0; i < attributes.length; i++) {
+      if (attributes[i].getElementsByClassName('webkit-html-attribute-name')[0].textContent === name) {
+        const attributeElement = attributes[i].getElementsByClassName('webkit-html-attribute-name')[0];
+        attributeElement.classList.add('violating-element');
+        this.#nodeElementToIssue.set(attributeElement, issue);
       }
     }
   }

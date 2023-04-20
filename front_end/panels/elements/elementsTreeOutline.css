@@ -368,3 +368,7 @@ li.hovered:not(.always-parent) + ol.children:not(.shadow-root) {
   background-position: bottom;
   padding-bottom: 1px;
 }
+
+.violating-element-tooltip {
+  cursor: pointer;
+}
