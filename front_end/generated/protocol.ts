@@ -1053,17 +1053,6 @@ export namespace Audits {
     type: string;
   }
 
-  /**
-   * This issue warns about sites in the redirect chain of a finished navigation
-   * that may be flagged as trackers and have their state cleared if they don't
-   * receive a user interaction. Note that in this context 'site' means eTLD+1.
-   * For example, if the URL `https://example.test:80/bounce` was in the
-   * redirect chain, the site reported would be `example.test`.
-   */
-  export interface BounceTrackingIssueDetails {
-    trackingSites: string[];
-  }
-
   export const enum ClientHintIssueReason {
     MetaTagAllowListInvalidOrigin = 'MetaTagAllowListInvalidOrigin',
     MetaTagModifiedHTML = 'MetaTagModifiedHTML',
@@ -1141,7 +1130,6 @@ export namespace Audits {
     DeprecationIssue = 'DeprecationIssue',
     ClientHintIssue = 'ClientHintIssue',
     FederatedAuthRequestIssue = 'FederatedAuthRequestIssue',
-    BounceTrackingIssue = 'BounceTrackingIssue',
   }
 
   /**
@@ -1166,7 +1154,6 @@ export namespace Audits {
     deprecationIssueDetails?: DeprecationIssueDetails;
     clientHintIssueDetails?: ClientHintIssueDetails;
     federatedAuthRequestIssueDetails?: FederatedAuthRequestIssueDetails;
-    bounceTrackingIssueDetails?: BounceTrackingIssueDetails;
   }
 
   /**
@@ -1936,10 +1923,6 @@ export namespace CSS {
      * Column offset of the end of the stylesheet within the resource (zero based).
      */
     endColumn: number;
-    /**
-     * If the style sheet was loaded from a network resource, this indicates when the resource failed to load
-     */
-    loadingFailed?: boolean;
   }
 
   /**
@@ -15377,6 +15360,15 @@ export namespace Preload {
      * - https://github.com/WICG/nav-speculation/blob/main/triggers.md
      */
     sourceText: string;
+    /**
+     * SpeculationRules comes from a <script> tag or a resource with
+     * dedicated URL. If the former, RuleSet has nodeId of the tag. If
+     * the latter, RuleSet has url.
+     * https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-script
+     * https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-header
+     */
+    backendNodeId?: DOM.BackendNodeId;
+    url?: string;
     /**
      * Error information
      * `errorMessage` is null iff `errorType` is null.

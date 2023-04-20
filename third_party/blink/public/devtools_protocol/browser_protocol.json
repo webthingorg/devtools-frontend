@@ -1599,20 +1599,6 @@
                     ]
                 },
                 {
-                    "id": "BounceTrackingIssueDetails",
-                    "description": "This issue warns about sites in the redirect chain of a finished navigation\nthat may be flagged as trackers and have their state cleared if they don't\nreceive a user interaction. Note that in this context 'site' means eTLD+1.\nFor example, if the URL `https://example.test:80/bounce` was in the\nredirect chain, the site reported would be `example.test`.",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "trackingSites",
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                },
-                {
                     "id": "ClientHintIssueReason",
                     "type": "string",
                     "enum": [
@@ -1700,8 +1686,7 @@
                         "GenericIssue",
                         "DeprecationIssue",
                         "ClientHintIssue",
-                        "FederatedAuthRequestIssue",
-                        "BounceTrackingIssue"
+                        "FederatedAuthRequestIssue"
                     ]
                 },
                 {
@@ -1788,11 +1773,6 @@
                             "name": "federatedAuthRequestIssueDetails",
                             "optional": true,
                             "$ref": "FederatedAuthRequestIssueDetails"
-                        },
-                        {
-                            "name": "bounceTrackingIssueDetails",
-                            "optional": true,
-                            "$ref": "BounceTrackingIssueDetails"
                         }
                     ]
                 },
@@ -2900,13 +2880,6 @@
                             "name": "endColumn",
                             "description": "Column offset of the end of the stylesheet within the resource (zero based).",
                             "type": "number"
-                        },
-                        {
-                            "name": "loadingFailed",
-                            "description": "If the style sheet was loaded from a network resource, this indicates when the resource failed to load",
-                            "experimental": true,
-                            "optional": true,
-                            "type": "boolean"
                         }
                     ]
                 },
@@ -22979,6 +22952,17 @@
                         {
                             "name": "sourceText",
                             "description": "Source text of JSON representing the rule set. If it comes from\n<script> tag, it is the textContent of the node. Note that it is\na JSON for valid case.\n\nSee also:\n- https://wicg.github.io/nav-speculation/speculation-rules.html\n- https://github.com/WICG/nav-speculation/blob/main/triggers.md",
+                            "type": "string"
+                        },
+                        {
+                            "name": "backendNodeId",
+                            "description": "SpeculationRules comes from a <script> tag or a resource with\ndedicated URL. If the former, RuleSet has nodeId of the tag. If\nthe latter, RuleSet has url.\nhttps://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-script\nhttps://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-header",
+                            "optional": true,
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "url",
+                            "optional": true,
                             "type": "string"
                         },
                         {
