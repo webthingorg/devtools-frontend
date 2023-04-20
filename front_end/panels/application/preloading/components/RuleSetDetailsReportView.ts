@@ -3,7 +3,10 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
+import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
+import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
+import * as Buttons from '../../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
@@ -25,6 +28,10 @@ const UIStrings = {
    */
   detailsError: 'Error',
   /**
+   *@description Description term: source location of rule set (<script> or URL designated in the HTTP header)
+   */
+  detailsLocation: 'Location',
+  /**
    *@description Description term: source text of rule set
    */
   detailsSource: 'Source',
@@ -40,6 +47,10 @@ const UIStrings = {
    *@description validity: Rule set contains invalid rules and they are ignored
    */
   validitySomeRulesInvalid: 'Some rules are invalid and ignored',
+  /**
+   *@description button: Show corresponding <script> tag of the rule set in Elements panel
+   */
+  buttonShowInElements: 'Show in Elements',
 };
 const str_ =
     i18n.i18n.registerUIStrings('panels/application/preloading/components/RuleSetDetailsReportView.ts', UIStrings);
@@ -112,11 +123,67 @@ export class RuleSetDetailsReportView extends HTMLElement {
             </div>
           </${ReportView.ReportView.ReportValue.litTagName}>
 
+          ${this.#location()}
+
           ${this.#source(this.#data.sourceText)}
         </${ReportView.ReportView.Report.litTagName}>
       `, this.#shadow, {host: this});
       // clang-format on
     });
+  }
+
+  #location(): LitHtml.LitTemplate {
+    assertNotNullOrUndefined(this.#data);
+
+    if (this.#data.backendNodeId !== undefined) {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      return LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsLocation)}</${
+            ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+            <div class="text-ellipsis">
+              &lt;script&gt;
+              <${Buttons.Button.Button.litTagName}
+                .variant=${Buttons.Button.Variant.SECONDARY}
+                @click=${this.#openSpeculationRulesInElements}>
+                ${i18nString(UIStrings.buttonShowInElements)}
+              </${Buttons.Button.Button.litTagName}>
+            </div>
+          </${ReportView.ReportView.ReportValue.litTagName}>
+      `;
+      // clang-format on
+    }
+
+    if (this.#data.url !== undefined) {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      return LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsLocation)}</${
+            ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+            <div class="text-ellipsis">
+              ${this.#data.url}
+            </div>
+          </${ReportView.ReportView.ReportValue.litTagName}>
+      `;
+      // clang-format on
+    }
+
+    throw new Error('unreachable');
+  }
+
+  async #openSpeculationRulesInElements(): Promise<void> {
+    const backendNodeId = this.#data?.backendNodeId || null;
+    if (backendNodeId === null) {
+      throw new Error('unreachable');
+    }
+
+    SDK.TargetManager.TargetManager.instance()
+        .scopeTarget()
+        ?.model(SDK.DOMModel.DOMModel)
+        ?.overlayModel()
+        .inspectNodeRequested({backendNodeId});
   }
 
   #source(sourceText: string): LitHtml.LitTemplate {
