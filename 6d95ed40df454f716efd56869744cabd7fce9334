@@ -16,6 +16,40 @@
       "message": "Could you take a look please? Thanks!",
       "revId": "6d95ed40df454f716efd56869744cabd7fce9334",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6804a19_ac3e28c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-21T09:21:22Z",
+      "side": 1,
+      "message": "Thanks Benedikt! Left some comments:)",
+      "revId": "6d95ed40df454f716efd56869744cabd7fce9334",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c6697c5_52ec654b",
+        "filename": "front_end/panels/sources/DebuggerPausedMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-21T09:21:22Z",
+      "side": 1,
+      "message": "Since this is a \u003c20px icon, could you please use info-filled here?\n\nAlso I think it might look a bit better if you moved both icons 1px to the left, can you try that out?",
+      "revId": "6d95ed40df454f716efd56869744cabd7fce9334",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
