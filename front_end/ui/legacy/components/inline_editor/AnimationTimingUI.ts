@@ -8,7 +8,7 @@ import * as UI from '../../legacy.js';
 import {BezierUI} from './BezierUI.js';
 
 import {type AnimationTimingModel} from './AnimationTimingModel.js';
-import {CSSLinearEasingModel} from './CSSLinearEasingModel.js';
+import {type Point, CSSLinearEasingModel} from './CSSLinearEasingModel.js';
 
 type Params = {
   container: Element,
@@ -92,32 +92,237 @@ class BezierCurveUI {
   }
 }
 
+type LinearEasingPresentationParams = {
+  width: number,
+  height: number,
+  marginTop: number,
+  radius: number,
+};
+type Position = {
+  x: number,
+  y: number,
+};
+export class LinearEasingPresentation {
+  width: number;
+  height: number;
+  marginTop: number;
+  radius: number;
+  renderedPositions?: Position[];
+
+  constructor({width, height, marginTop, radius}: LinearEasingPresentationParams) {
+    this.width = width;
+    this.height = height;
+    this.marginTop = marginTop;
+    this.radius = radius;
+  }
+
+  #curveWidth(): number {
+    return this.width - this.radius * 2;
+  }
+
+  #curveHeight(): number {
+    return this.height - this.radius * 2 - this.marginTop * 2;
+  }
+
+  #drawControlPoint(parentElement: Element, controlX: number, controlY: number, index: number): void {
+    const circle = UI.UIUtils.createSVGChild(parentElement, 'circle', 'bezier-control-circle');
+    circle.setAttribute('data-point-index', String(index));
+    circle.setAttribute('cx', String(controlX));
+    circle.setAttribute('cy', String(controlY));
+    circle.setAttribute('r', String(this.radius));
+  }
+
+  timingPointToPosition(point: Point): Position {
+    return {
+      x: (point.input / 100) * this.#curveWidth() + this.radius,
+      y: (1 - point.output) * this.#curveHeight() + this.radius,
+    };
+  }
+
+  positionToTimingPoint(position: Position): Point {
+    return {
+      input: ((position.x - this.radius) / this.#curveWidth()) * 100,
+      output: 1 - (position.y - this.radius) / this.#curveHeight(),
+    };
+  }
+
+  draw(linearEasingModel: CSSLinearEasingModel, svg: Element): void {
+    svg.setAttribute('width', String(this.#curveWidth()));
+    svg.setAttribute('height', String(this.#curveHeight()));
+    svg.removeChildren();
+    const group = UI.UIUtils.createSVGChild(svg, 'g');
+
+    const positions = linearEasingModel.points().map(point => this.timingPointToPosition(point));
+    this.renderedPositions = positions;
+    let startingPoint = positions[0];
+    for (let i = 1; i < positions.length; i++) {
+      const position = positions[i];
+      const line = UI.UIUtils.createSVGChild(group, 'path', 'bezier-path linear-path');
+      line.setAttribute('d', `M ${startingPoint.x} ${startingPoint.y} L ${position.x} ${position.y}`);
+      line.setAttribute('data-line-index', String(i));
+      startingPoint = position;
+    }
+
+    for (let i = 0; i < positions.length; i++) {
+      const point = positions[i];
+      this.#drawControlPoint(group, point.x, point.y, i);
+    }
+  }
+}
+
 class LinearEasingUI {
-  #cssLinearEasingModel: CSSLinearEasingModel;
-  #container: HTMLElement;
-  #element: HTMLElement;
+  #model: CSSLinearEasingModel;
+  #onChange: (model: CSSLinearEasingModel) => void;
+  #presentation: LinearEasingPresentation;
+  #selectedPointIndex?: number;
+  #doubleClickTimer?: number;
+  #lastClickedPointIndex?: number;
+  #mouseDownPosition?: {x: number, y: number};
+
+  #svg: Element;
 
   constructor({
     model,
     container,
+    onChange,
   }: {
     model: CSSLinearEasingModel,
     container: HTMLElement,
+    onChange: (model: CSSLinearEasingModel) => void,
   }) {
-    this.#cssLinearEasingModel = model;
-    this.#container = container;
+    this.#model = model;
+    this.#onChange = onChange;
+    this.#presentation = new LinearEasingPresentation({
+      width: 150,
+      height: 250,
+      radius: 7,
+      marginTop: 50,
+    });
+    this.#svg = UI.UIUtils.createSVGChild(container, 'svg', 'bezier-curve linear');
 
-    this.#element = document.createElement('div');
-    this.#container.appendChild(this.#element);
+    UI.UIUtils.installDragHandle(
+        this.#svg, this.#dragStart.bind(this), this.#dragMove.bind(this), this.#dragEnd.bind(this), 'default');
   }
 
-  setCSSLinearEasingModel(cssLinearEasingModel: CSSLinearEasingModel): void {
-    this.#cssLinearEasingModel = cssLinearEasingModel;
+  #handleLineClick(event: MouseEvent, target: SVGElement): void {
+    const newPoint = this.#presentation.positionToTimingPoint({x: event.offsetX, y: event.offsetY});
+    this.#model.addPoint(newPoint, Number(target.dataset.lineIndex));
+    this.#selectedPointIndex = undefined;
+    this.#mouseDownPosition = undefined;
+  }
+
+  #handleControlPointClick(event: MouseEvent, target: SVGElement): void {
+    this.#selectedPointIndex = Number(target.dataset.pointIndex);
+    this.#mouseDownPosition = {x: event.x, y: event.y};
+
+    clearTimeout(this.#doubleClickTimer);
+    if (this.#lastClickedPointIndex === this.#selectedPointIndex) {
+      this.#model.removePoint(this.#selectedPointIndex);
+      this.#lastClickedPointIndex = undefined;
+      this.#selectedPointIndex = undefined;
+      this.#mouseDownPosition = undefined;
+      return;
+    }
+
+    this.#lastClickedPointIndex = this.#selectedPointIndex;
+    this.#doubleClickTimer = window.setTimeout(() => {
+      this.#lastClickedPointIndex = undefined;
+    }, 300);
+  }
+
+  #dragStart(event: MouseEvent): boolean {
+    if (!(event.target instanceof SVGElement)) {
+      return false;
+    }
+
+    if (event.target.dataset.lineIndex !== undefined) {
+      this.#handleLineClick(event, event.target);
+      event.consume(true);
+      return true;
+    }
+
+    if (event.target.dataset.pointIndex !== undefined) {
+      this.#handleControlPointClick(event, event.target);
+      event.consume(true);
+      return true;
+    }
+
+    return false;
+  }
+
+  #updatePointPosition(mouseX: number, mouseY: number): void {
+    if (this.#selectedPointIndex === undefined || this.#mouseDownPosition === undefined) {
+      return;
+    }
+
+    const controlPosition = this.#presentation.renderedPositions?.[this.#selectedPointIndex];
+    if (!controlPosition) {
+      return;
+    }
+
+    const deltaX = mouseX - this.#mouseDownPosition.x;
+    const deltaY = mouseY - this.#mouseDownPosition.y;
+
+    this.#mouseDownPosition = {
+      x: mouseX,
+      y: mouseY,
+    };
+
+    const newPoint = {
+      x: controlPosition.x + deltaX,
+      y: controlPosition.y + deltaY,
+    };
+
+    this.#model.setPoint(this.#selectedPointIndex, this.#presentation.positionToTimingPoint(newPoint));
+  }
+
+  #dragMove(event: MouseEvent): void {
+    this.#updatePointPosition(event.x, event.y);
+    this.#onChange(this.#model);
+  }
+
+  #dragEnd(event: MouseEvent): void {
+    this.#updatePointPosition(event.x, event.y);
+    this.#onChange(this.#model);
+  }
+
+  setCSSLinearEasingModel(model: CSSLinearEasingModel): void {
+    this.#model = model;
     this.draw();
   }
 
   draw(): void {
-    this.#element.textContent = this.#cssLinearEasingModel.asCSSText();
+    this.#presentation.draw(this.#model, this.#svg);
+  }
+}
+
+export class PresetUI {
+  #linearEasingPresentation: LinearEasingPresentation;
+  #bezierPresentation: BezierUI;
+
+  constructor() {
+    this.#linearEasingPresentation = new LinearEasingPresentation({
+      width: 40,
+      height: 40,
+      marginTop: 0,
+      radius: 2,
+    });
+
+    this.#bezierPresentation = new BezierUI({
+      width: 40,
+      height: 40,
+      marginTop: 0,
+      controlPointRadius: 2,
+      shouldDrawLine: false,
+    });
+  }
+
+  draw(model: AnimationTimingModel, svg: Element): void {
+    if (model instanceof CSSLinearEasingModel) {
+      this.#linearEasingPresentation.draw(model, svg);
+    } else if (model instanceof UI.Geometry.CubicBezier) {
+      this.#bezierPresentation.drawCurve(model, svg);
+    }
   }
 }
 
@@ -156,6 +361,7 @@ export class AnimationTimingUI {
       this.#linearEasingUI = new LinearEasingUI({
         model: this.#model,
         container: this.#linearEasingContainer,
+        onChange: this.#onChange,
       });
     }
   }
@@ -180,7 +386,8 @@ export class AnimationTimingUI {
       if (this.#linearEasingUI) {
         this.#linearEasingUI.setCSSLinearEasingModel(this.#model);
       } else {
-        this.#linearEasingUI = new LinearEasingUI({model: this.#model, container: this.#linearEasingContainer});
+        this.#linearEasingUI =
+            new LinearEasingUI({model: this.#model, container: this.#linearEasingContainer, onChange: this.#onChange});
       }
 
       this.#linearEasingContainer.classList.remove('hidden');
