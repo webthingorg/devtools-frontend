@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce5838b_1cb21d32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:17:16Z",
+      "side": 1,
+      "message": "I\u0027d personally prefer adding this kind of links to the bug instead of the commit message so that they can be updated or removed if they ever become invalid.",
+      "revId": "a11653e8f89a4179adee74690d5976e83f882a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
