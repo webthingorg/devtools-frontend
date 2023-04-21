@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9455af72_0e207641",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-21T11:08:06Z",
+      "side": 1,
+      "message": "This line is the one causing the error.\n\n`XLink` does not allow links to \u0027chrome://...\u0027 URLs, you can use `ChromeLink` instead.\n\nI\u0027ve created https://crrev.com/c/4458649 so that the infobar details message can contain HTML elements and not only strings.\n\nI suggest something like this here:\n\n```\nconst preloadingSettingLink \u003d new ChromeLink.ChromeLink.ChromeLink();\npreloadingSettingLink.href \u003d \u0027chrome://settings/preloading\u0027;\npreloadingSettingLink.textContent \u003d i18nString(UIStrings.preloadingPageSettings);\nconst extensionSettingLink \u003d new ChromeLink.ChromeLink.ChromeLink();\nextensionSettingLink.href \u003d \u0027chrome://extensions\u0027;\nextensionSettingLink.textContent \u003d i18nString(UIStrings.extensionSettings);\nconst detailsMessage \u003d i18n.i18n.getFormatLocalizedString(\n  str_, UIStrings.warningDetailPreloadingStateDisabled,\n  {PH1: preloadingSettingLink, PH2: extensionSettingLink});\nthis.showInfobar(i18nString(UIStrings.warningTitlePreloadingStateDisabled), \n  detailsMessage);\n```\n\nand allowing `showInfobar` to accept `Element`:   \n```\nprivate showInfobar(titleText: string, detailsMessage: string|Element): void {\n```",
+      "range": {
+        "startLine": 365,
+        "startChar": 10,
+        "endLine": 365,
+        "endChar": 69
+      },
+      "revId": "d170d3e6061c5b87e93d907860d845927bcb1488",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
