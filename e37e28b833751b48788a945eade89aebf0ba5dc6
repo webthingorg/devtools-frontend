@@ -16,6 +16,86 @@
       "message": "Hi wolfgang, \n\nFeedback on the description and strings is pending, but in the meantime PTAL.\n\n-Josh",
       "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf525724_32470d82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-04-21T11:19:58Z",
+      "side": 1,
+      "message": "Request changes. Provided suggestions.",
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3845a4a_5fac34c3",
+        "filename": "front_end/models/issues_manager/descriptions/bounceTrackingMitigations.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-04-21T11:19:58Z",
+      "side": 1,
+      "message": "Suggestion: Chrome may soon delete state for intermediate websites in recent navigation chain\n\nNit: Use active voice to make clear who\u0027s performing the action: https://developers.google.com/style/voice\nAssumptions:\n- Chrome is the actor.\n- Not for all websites, just the intermediate ones. Makes the message less scary.\n- Added \"soon\". Makes the message less scary.",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "450ecc20_3d8a9537",
+        "filename": "front_end/models/issues_manager/descriptions/bounceTrackingMitigations.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-04-21T11:19:58Z",
+      "side": 1,
+      "message": "Suggestion: In a recent navigation chain, one or more websites accessed some form of local storage without prior direct user interaction. If these websites don\u0027t get such an interaction soon, Chrome will delete their state.\n\nNotes: Tried to simplify and make it more readable. Used active voice (https://developers.google.com/style/voice). Hopefully, didn\u0027t twist the meaning.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 257
+      },
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e08c11_45f20a4a",
+        "filename": "front_end/panels/issues/AffectedTrackingSitesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-04-21T11:19:58Z",
+      "side": 1,
+      "message": "Suggestion: {n, plural, \u003d1 {1 potentially tracking website} other {# potentially tracking websites}}\n\nNits:\n- Don\u0027t hyphenate adverbs ending in -ly: https://developers.google.com/style/hyphens#adverbs-ending-in--ly\n- Don\u0027t use unnecessary capitalization: https://developers.google.com/style/capitalization\n- Site and website are interchangeable in this context, however, site is still a more general term.",
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
