@@ -41,6 +41,7 @@ import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import {IssuesPane} from '../issues/IssuesPane.js';
 
 import * as ElementsComponents from './components/components.js';
 import {ElementsPanel} from './ElementsPanel.js';
@@ -108,6 +109,8 @@ export class ElementsTreeOutline extends
   #genericIssues: Array<IssuesManager.GenericIssue.GenericIssue> = [];
   #topLayerContainerByParent: Map<UI.TreeOutline.TreeElement, TopLayerContainer> = new Map();
   #issuesManager?: IssuesManager.IssuesManager.IssuesManager;
+  #popupHelper?: UI.PopoverHelper.PopoverHelper;
+  #nodeElementToIssue: Map<Element, IssuesManager.Issue.Issue> = new Map();
 
   constructor(omitRootDOMNode?: boolean, selectEnabled?: boolean, hideGutter?: boolean) {
     super();
@@ -193,6 +196,69 @@ export class ElementsTreeOutline extends
     this.showHTMLCommentsSetting = Common.Settings.Settings.instance().moduleSetting('showHTMLComments');
     this.showHTMLCommentsSetting.addChangeListener(this.onShowHTMLCommentsChange.bind(this));
     this.setUseLightSelectionColor(true);
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HIGHLIGHT_ERRORS_ELEMENTS_PANEL)) {
+      this.#popupHelper = new UI.PopoverHelper.PopoverHelper(this.elementInternal, event => {
+        const hoveredNode = event.composedPath()[0] as Element;
+        if (!hoveredNode || !hoveredNode.matches('.violating-element')) {
+          return null;
+        }
+
+        const issue = this.#nodeElementToIssue.get(hoveredNode);
+        if (!issue) {
+          return null;
+        }
+
+        const tooltipTitle = this.#issueCodeToTooltipTitle(issue.code());
+        if (!tooltipTitle) {
+          return null;
+        }
+
+        return {
+          box: hoveredNode.boxInWindow(),
+          show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+            popover.setIgnoreLeftMargin(true);
+            const element = document.createElement('span');
+            element.style.setProperty('cursor', 'pointer');
+            element.textContent = tooltipTitle;
+            element.addEventListener('click', () => {
+              void UI.ViewManager.ViewManager.instance().showView('issues-pane');
+              void IssuesPane.instance().reveal(issue);
+            });
+            popover.contentElement.appendChild(element);
+            return true;
+          },
+        };
+      });
+      this.#popupHelper.setTimeout(300);
+      this.#popupHelper.setHasPadding(true);
+    }
+  }
+
+  #issueCodeToTooltipTitle(issueCode: string): string {
+    switch (issueCode) {
+      case 'GenericIssue::FormLabelForNameError':
+        return 'Incorrect use of <label for=FORM_ELEMENT>';
+      case 'GenericIssue::FormDuplicateIdForInputError':
+        return 'Duplicate form field id in the same form';
+      case 'GenericIssue::FormInputWithNoLabelError':
+        return 'Form field without valid aria-labelledby attribute or associated label';
+      case 'GenericIssue::FormAutocompleteAttributeEmptyError':
+        return 'Incorrect use of autocomplete attribute';
+      case 'GenericIssue::FormEmptyIdAndNameAttributesForInputError':
+        return 'A form field element should have an id or name attribute';
+      case 'GenericIssue::FormAriaLabelledByToNonExistingId':
+        return 'An aria-labelledby attribute doesn\'t match any element id';
+      case 'GenericIssue::FormInputAssignedAutocompleteValueToIdOrNameAttributeError':
+        return 'An element doesn\'t have an autocomplete attribute';
+      case 'GenericIssue::FormLabelHasNeitherForNorNestedInput':
+        return 'No label associated with a form field';
+      case 'GenericIssue::FormLabelForMatchesNonExistingIdError':
+        return 'Incorrect use of <label for=FORM_ELEMENT>';
+      case 'GenericIssue::FormInputHasWrongButWellIntendedAutocompleteValueError':
+        return 'Non-standard autocomplete attribute value';
+      default:
+        return '';
+    }
   }
 
   static forDOMModel(domModel: SDK.DOMModel.DOMModel): ElementsTreeOutline|null {
@@ -220,6 +286,10 @@ export class ElementsTreeOutline extends
   async #addTreeElementIssue(issue: IssuesManager.GenericIssue.GenericIssue): Promise<void> {
     const issueDetails = issue.details();
 
+    const tooltipTitle = this.#issueCodeToTooltipTitle(issue.code());
+    if (!tooltipTitle) {
+      return;
+    }
     if (!this.rootDOMNode || !issueDetails.violatingNodeId) {
       return;
     }
@@ -234,6 +304,11 @@ export class ElementsTreeOutline extends
     const treeElement = this.findTreeElement(node);
     if (treeElement) {
       treeElement.addIssue(issue);
+      const treeElementNodeElementsToIssue = treeElement.issuesByNodeElement;
+      // This element could be the treeElement tags name or an attribute.
+      for (const [element, issue] of treeElementNodeElementsToIssue) {
+        this.#nodeElementToIssue.set(element, issue);
+      }
     }
   }
 
