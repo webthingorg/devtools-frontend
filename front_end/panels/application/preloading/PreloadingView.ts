@@ -70,6 +70,25 @@ const UIStrings = {
    */
   warningDetailPrerenderingDisabledByFeatureFlag:
       'Prerendering is forced-enabled because DevTools is open. When DevTools is closed, prerendering will be disabled because this browser session is part of a holdback group used for performance comparisons.',
+  /**
+   *@description Title of preloading state disabled warning in infobar
+   */
+  warningTitlePreloadingStateDisabled: 'Preloading is disabled',
+  /**
+   *@description Detail of preloading sate disabled warning in infobar
+   *@example {chrome://settings/preloading} PH1
+   *@example {chrome://extensions} PH2
+   */
+  warningDetailPreloadingStateDisabled:
+      'Preloading is disabled because of an extension. Go to {PH1} to learn more, or go to {PH2} to disable the extension.',
+  /**
+   *@description Text of Preload pages settings
+   */
+  preloadingPageSettings: 'Preload pages settings',
+  /**
+   *@description Text of Extension settings
+   */
+  extensionSettings: 'Extensions settings',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/PreloadingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -335,6 +354,18 @@ export class PreloadingView extends UI.Widget.VBox {
         preloadingAttempt,
         ruleSets,
       };
+    }
+    if (this.modelProxy.model.getPreloadEnabledState() === 'DisabledByPreference') {
+      const preloadingSettingLink =
+          UI.XLink.XLink.create('chrome://settings/preloading', i18nString(UIStrings.preloadingPageSettings));
+      const extensionSettingLink =
+          UI.XLink.XLink.create('chrome://extensions', i18nString(UIStrings.extensionSettings));
+      this.showInfobar(
+          i18nString(UIStrings.warningTitlePreloadingStateDisabled),
+          i18nString(UIStrings.warningDetailPreloadingStateDisabled));
+      this.infobarContainer.appendChild(i18n.i18n.getFormatLocalizedString(
+          str_, UIStrings.warningDetailPreloadingStateDisabled,
+          {PH1: preloadingSettingLink, PH2: extensionSettingLink}));
     }
   }
 
