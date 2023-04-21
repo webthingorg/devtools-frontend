@@ -63,8 +63,9 @@ describeWithEnvironment('TimelineSelection', () => {
     const selection = Timeline.TimelineSelection.TimelineSelection.fromTraceEvent(firstLCPEvent);
     assert.strictEqual(selection.object, firstLCPEvent);
     assert.strictEqual(
-        selection.startTime, Timeline.EventTypeHelpers.timesForEventInMilliseconds(firstLCPEvent).startTime);
-    assert.strictEqual(selection.endTime, Timeline.EventTypeHelpers.timesForEventInMilliseconds(firstLCPEvent).endTime);
+        selection.startTime, TimelineModel.EventTypeHelpers.timesForEventInMilliseconds(firstLCPEvent).startTime);
+    assert.strictEqual(
+        selection.endTime, TimelineModel.EventTypeHelpers.timesForEventInMilliseconds(firstLCPEvent).endTime);
     assert.isTrue(Timeline.TimelineSelection.TimelineSelection.isTraceEventSelection(selection.object));
   });
 
