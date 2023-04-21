@@ -6,7 +6,7 @@ import * as CodeMirror from '../../../../third_party/codemirror.next/codemirror.
 
 const cssParser = CodeMirror.css.cssLanguage.parser;
 
-type Point = {
+export type Point = {
   input: number,
   output: number,
 };
@@ -178,6 +178,23 @@ export class CSSLinearEasingModel {
     }
 
     return new CSSLinearEasingModel(points);
+  }
+
+  addPoint(point: Point, index?: number): void {
+    if (index !== undefined) {
+      this.#points.splice(index, 0, point);
+      return;
+    }
+
+    this.#points.push(point);
+  }
+
+  removePoint(index: number): void {
+    this.#points.splice(index, 1);
+  }
+
+  setPoint(index: number, point: Point): void {
+    this.#points[index] = point;
   }
 
   points(): Point[] {
