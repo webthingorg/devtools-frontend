@@ -104,7 +104,6 @@ describe.skipOnParallel('The Memory Panel', async function() {
             'InternalNode',
             'InternalNode',
             'HTMLBodyElement',
-            'HTMLHtmlElement',
           ]);
         });
       });
