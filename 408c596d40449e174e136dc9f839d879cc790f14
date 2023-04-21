@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8d1f33_47132296",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "Great work, LGTM overall, couple of smaller comments!",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2188474a_e998d2b5",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "This is obsolete now.",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8cbf798_318a3497",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "Why not use the ranged loop instead?",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04e7a63_3a91f3e4",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "can we give this and the function above the same name pattern? #highlightViolatingTag?",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bf220a_ea5258e2",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "You could maybe run this bit by petermueller@. I think we\u0027re reserving the pointer cursor for (things that look like) links. Maybe it would also be better to make it more clear that this is clickable? How about adding something like `Go to issue` link that looks like a link instead of making the whole tooltip clickable?",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c55329b_41125c3c",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-21T15:15:30Z",
+      "side": 1,
+      "message": "Would it make sense to have this as an enum?",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
