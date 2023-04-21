@@ -52,6 +52,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ebb760_00dbce0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-21T14:38:58Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ve added testing in the latest patchset.",
+      "parentUuid": "4b1b505f_f0ca0876",
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d536899_7dbcf118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-21T14:38:58Z",
+      "side": 1,
+      "message": "Changes implemented. Thank you for the thorough feedback!",
+      "parentUuid": "cf525724_32470d82",
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3845a4a_5fac34c3",
@@ -65,6 +101,30 @@
       "writtenOn": "2023-04-21T11:19:58Z",
       "side": 1,
       "message": "Suggestion: Chrome may soon delete state for intermediate websites in recent navigation chain\n\nNit: Use active voice to make clear who\u0027s performing the action: https://developers.google.com/style/voice\nAssumptions:\n- Chrome is the actor.\n- Not for all websites, just the intermediate ones. Makes the message less scary.\n- Added \"soon\". Makes the message less scary.",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a53e8a1f_bf58321e",
+        "filename": "front_end/models/issues_manager/descriptions/bounceTrackingMitigations.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-21T14:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3845a4a_5fac34c3",
       "range": {
         "startLine": 1,
         "startChar": 2,
@@ -98,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f04e81_3f6d68f8",
+        "filename": "front_end/models/issues_manager/descriptions/bounceTrackingMitigations.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-21T14:38:58Z",
+      "side": 1,
+      "message": "I\u0027ve gone with the suggestion minus the word \"directly\", as it could possibly be misleading.",
+      "parentUuid": "450ecc20_3d8a9537",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 257
+      },
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17e08c11_45f20a4a",
@@ -111,6 +195,24 @@
       "writtenOn": "2023-04-21T11:19:58Z",
       "side": 1,
       "message": "Suggestion: {n, plural, \u003d1 {1 potentially tracking website} other {# potentially tracking websites}}\n\nNits:\n- Don\u0027t hyphenate adverbs ending in -ly: https://developers.google.com/style/hyphens#adverbs-ending-in--ly\n- Don\u0027t use unnecessary capitalization: https://developers.google.com/style/capitalization\n- Site and website are interchangeable in this context, however, site is still a more general term.",
+      "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "620e356b_feb94421",
+        "filename": "front_end/panels/issues/AffectedTrackingSitesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-21T14:38:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e08c11_45f20a4a",
       "revId": "e37e28b833751b48788a945eade89aebf0ba5dc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
