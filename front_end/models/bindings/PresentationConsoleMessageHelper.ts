@@ -73,7 +73,7 @@ export class PresentationConsoleMessageManager implements
     }
     const helper = debuggerModelToMessageHelperMap.get(runtimeModel.debuggerModel());
     if (helper) {
-      helper.consoleMessageAdded(message);
+      void helper.consoleMessageAdded(message);
     }
   }
 
@@ -89,7 +89,8 @@ export class PresentationConsoleMessageManager implements
 
 export class PresentationConsoleMessageHelper {
   readonly #debuggerModel: SDK.DebuggerModel.DebuggerModel;
-  #pendingConsoleMessages: Map<string, SDK.ConsoleModel.ConsoleMessage[]>;
+  #pendingConsoleMessages:
+      Map<string, Array<{message: SDK.ConsoleModel.ConsoleMessage, presentation?: PresentationConsoleMessage}>>;
   #presentationConsoleMessages: PresentationConsoleMessage[];
   readonly #locationPool: LiveLocationPool;
 
@@ -103,24 +104,26 @@ export class PresentationConsoleMessageHelper {
     // TODO(dgozman): queueMicrotask because we race with DebuggerWorkspaceBinding on ParsedScriptSource event delivery.
     debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, event => {
       queueMicrotask(() => {
-        this.parsedScriptSource(event);
+        void this.parsedScriptSource(event);
       });
     });
     debuggerModel.addEventListener(SDK.DebuggerModel.Events.GlobalObjectCleared, this.debuggerReset, this);
+    Workspace.Workspace.WorkspaceImpl.instance().addEventListener(
+        Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded.bind(this));
 
     this.#locationPool = new LiveLocationPool();
   }
 
-  consoleMessageAdded(message: SDK.ConsoleModel.ConsoleMessage): void {
-    const rawLocation = this.rawLocation(message);
+  async consoleMessageAdded(message: SDK.ConsoleModel.ConsoleMessage): Promise<void> {
+    const rawLocation = await this.rawLocation(message);
     if (rawLocation) {
-      this.addConsoleMessageToScript(message, rawLocation);
+      await this.addConsoleMessageToScript(message, rawLocation);
     } else {
       this.addPendingConsoleMessage(message);
     }
   }
 
-  private rawLocation(message: SDK.ConsoleModel.ConsoleMessage): SDK.DebuggerModel.Location|null {
+  private async rawLocation(message: SDK.ConsoleModel.ConsoleMessage): Promise<SDK.DebuggerModel.Location|null> {
     if (message.scriptId) {
       return this.#debuggerModel.createRawLocationByScriptId(message.scriptId, message.line, message.column);
     }
@@ -135,24 +138,52 @@ export class PresentationConsoleMessageHelper {
     return null;
   }
 
-  private addConsoleMessageToScript(message: SDK.ConsoleModel.ConsoleMessage, rawLocation: SDK.DebuggerModel.Location):
-      void {
-    this.#presentationConsoleMessages.push(new PresentationConsoleMessage(message, rawLocation, this.#locationPool));
+  private async addConsoleMessageToScript(
+      message: SDK.ConsoleModel.ConsoleMessage, rawLocation: SDK.DebuggerModel.Location): Promise<void> {
+    const presentation = new PresentationConsoleMessage(message, rawLocation, this.#locationPool);
+    this.#presentationConsoleMessages.push(presentation);
+    await presentation.liveLocation;
   }
 
   private addPendingConsoleMessage(message: SDK.ConsoleModel.ConsoleMessage): void {
     if (!message.url) {
       return;
     }
+
+    const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(message.url);
+    let presentation;
+    if (uiSourceCode) {
+      const uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, message.line, message.column);
+      presentation = new PresentationConsoleMessage(message, uiLocation, this.#locationPool);
+      this.#presentationConsoleMessages.push(presentation);
+    }
+
     const pendingMessages = this.#pendingConsoleMessages.get(message.url);
     if (!pendingMessages) {
-      this.#pendingConsoleMessages.set(message.url, [message]);
+      this.#pendingConsoleMessages.set(message.url, [{message, presentation}]);
     } else {
-      pendingMessages.push(message);
+      pendingMessages.push({message, presentation});
     }
   }
 
-  private parsedScriptSource(event: Common.EventTarget.EventTargetEvent<SDK.Script.Script>): void {
+  private uiSourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+    const uiSourceCode = event.data;
+
+    const messages = this.#pendingConsoleMessages.get(uiSourceCode.url());
+    if (!messages) {
+      return;
+    }
+
+    for (const message of messages) {
+      if (!message.presentation) {
+        const uiLocation =
+            new Workspace.UISourceCode.UILocation(uiSourceCode, message.message.line, message.message.column);
+        message.presentation = new PresentationConsoleMessage(message.message, uiLocation, this.#locationPool);
+      }
+    }
+  }
+
+  async parsedScriptSource(event: Common.EventTarget.EventTargetEvent<SDK.Script.Script>): Promise<void> {
     const script = event.data;
 
     const messages = this.#pendingConsoleMessages.get(script.sourceURL);
@@ -161,12 +192,16 @@ export class PresentationConsoleMessageHelper {
     }
 
     const pendingMessages = [];
-    for (const message of messages) {
-      const rawLocation = this.rawLocation(message);
+    for (const {message, presentation} of messages) {
+      const rawLocation = await this.rawLocation(message);
       if (rawLocation && script.scriptId === rawLocation.scriptId) {
-        this.addConsoleMessageToScript(message, rawLocation);
+        if (presentation) {
+          await presentation.addRawLocation(rawLocation);
+        } else {
+          await this.addConsoleMessageToScript(message, rawLocation);
+        }
       } else {
-        pendingMessages.push(message);
+        pendingMessages.push({message, presentation});
       }
     }
 
@@ -193,28 +228,58 @@ export class PresentationConsoleMessageHelper {
 
 export class PresentationConsoleMessage extends Workspace.UISourceCode.Message {
   #uiSourceCode?: Workspace.UISourceCode.UISourceCode;
+  #liveLocation?: Promise<LiveLocation|null>;
+  #locationPool: LiveLocationPool;
 
   constructor(
-      message: SDK.ConsoleModel.ConsoleMessage, rawLocation: SDK.DebuggerModel.Location,
+      message: SDK.ConsoleModel.ConsoleMessage, location: SDK.DebuggerModel.Location|Workspace.UISourceCode.UILocation,
       locationPool: LiveLocationPool) {
     const level = message.level === Protocol.Log.LogEntryLevel.Error ? Workspace.UISourceCode.Message.Level.Error :
                                                                        Workspace.UISourceCode.Message.Level.Warning;
     super(level, message.messageText);
-    void DebuggerWorkspaceBinding.instance().createLiveLocation(
-        rawLocation, this.updateLocation.bind(this), locationPool);
+    this.#locationPool = locationPool;
+    if (location instanceof SDK.DebuggerModel.Location) {
+      void this.addRawLocation(location);
+    } else {
+      this.#addMessage(location);
+    }
   }
 
-  private async updateLocation(liveLocation: LiveLocation): Promise<void> {
+  liveLocation(): Promise<LiveLocation|null> {
+    return this.#liveLocation ?? Promise.resolve(null);
+  }
+
+  async addRawLocation(rawLocation: SDK.DebuggerModel.Location): Promise<void> {
+    const oldLiveLocation = this.#liveLocation;
+
+    this.#liveLocation = DebuggerWorkspaceBinding.instance().createLiveLocation(
+        rawLocation, this.updateLocation.bind(this), this.#locationPool);
+
+    if (oldLiveLocation) {
+      const oldLocation = await this.#liveLocation;
+      if (oldLocation) {
+        oldLocation.dispose();
+      }
+    }
+    await this.#liveLocation;
+  }
+
+  #addMessage(uiLocation: Workspace.UISourceCode.UILocation): void {
     if (this.#uiSourceCode) {
       this.#uiSourceCode.removeMessage(this);
     }
+
+    this.range = TextUtils.TextRange.TextRange.createFromLocation(uiLocation.lineNumber, uiLocation.columnNumber || 0);
+    this.#uiSourceCode = uiLocation.uiSourceCode;
+    this.#uiSourceCode.addMessage(this);
+  }
+
+  private async updateLocation(liveLocation: LiveLocation): Promise<void> {
     const uiLocation = await liveLocation.uiLocation();
     if (!uiLocation) {
       return;
     }
-    this.range = TextUtils.TextRange.TextRange.createFromLocation(uiLocation.lineNumber, uiLocation.columnNumber || 0);
-    this.#uiSourceCode = uiLocation.uiSourceCode;
-    this.#uiSourceCode.addMessage(this);
+    this.#addMessage(uiLocation);
   }
 
   dispose(): void {
