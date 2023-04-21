@@ -9,6 +9,7 @@ import './TimelineJSProfile.js';
 import './TimelineFrameModel.js';
 import './TimelineProfileTree.js';
 
+import * as EventTypeHelpers from './EventTypeHelpers.js';
 import * as TimelineFrameModel from './TimelineFrameModel.js';
 import * as TimelineJSProfile from './TimelineJSProfile.js';
 import * as TimelineModel from './TimelineModel.js';
@@ -17,6 +18,7 @@ import * as TimelineProfileTree from './TimelineProfileTree.js';
 import * as TracingLayerTree from './TracingLayerTree.js';
 
 export {
+  EventTypeHelpers,
   TimelineFrameModel,
   TimelineJSProfile,
   TimelineModel,
