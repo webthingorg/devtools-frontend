@@ -211,6 +211,8 @@ export function appearsInOrder(targetArray: string[], inputArray: string[]) {
   let j = 0;
 
   if (inputArray.length > targetArray.length) {
+    /* eslint-disable no-console */
+    console.log('Diff in length', targetArray.join());
     return false;
   }
 
@@ -228,6 +230,8 @@ export function appearsInOrder(targetArray: string[], inputArray: string[]) {
   if (j === inputArray.length) {
     return true;
   }
+  /* eslint-disable no-console */
+  console.log('Diff in content', targetArray.join());
   return false;
 }
 
