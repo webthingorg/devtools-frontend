@@ -358,11 +358,6 @@ export class TracingLayer implements SDK.LayerTreeBase.Layer {
     return Promise.resolve(this.compositingReasons);
   }
 
-  // TODO(wangxianzhu): Remove this function after updating blink web tests.
-  requestCompositingReasonIds(): Promise<string[]> {
-    return Promise.resolve([]);
-  }
-
   drawsContent(): boolean {
     return this.drawsContentInternal;
   }
