@@ -21,9 +21,8 @@ import {
   type TimelineMarkerStyle,
   TimelineUIUtils,
 } from './TimelineUIUtils.js';
-import * as Common from '../../core/common/common.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
-import {buildGroupStyle, buildTrackHeader, getFormattedTime} from './AppenderUtils.js';
+import {buildGroupStyle, buildTrackHeader, getColorForID, getFormattedTime} from './AppenderUtils.js';
 
 const UIStrings = {
   /**
@@ -38,7 +37,6 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TimingsTrackAppender implements TrackAppender {
   readonly appenderName: TrackAppenderName = 'Timings';
 
-  #colorGenerator: Common.Color.Generator;
   #compatibilityBuilder: CompatibilityTracksAppender;
   #flameChartData: PerfUI.FlameChart.TimelineData;
   #traceParsedData: Readonly<TraceEngine.TraceModel.PartialTraceParseDataDuringMigration>;
@@ -57,13 +55,6 @@ export class TimingsTrackAppender implements TrackAppender {
       entryData: TimelineFlameChartEntry[], legacyEntryTypeByLevel: EntryType[],
       legacyTrack?: TimelineModel.TimelineModel.Track) {
     this.#compatibilityBuilder = compatibilityBuilder;
-    this.#colorGenerator = new Common.Color.Generator(
-        {
-          min: 30,
-          max: 55,
-          count: undefined,
-        },
-        {min: 70, max: 100, count: 6}, 50, 0.7);
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
@@ -289,7 +280,7 @@ export class TimingsTrackAppender implements TrackAppender {
       return this.markerStyleForEvent(event).color;
     }
     // Performance and console timings.
-    return this.#colorGenerator.colorForID(event.name);
+    return getColorForID(event.name);
   }
 
   /**

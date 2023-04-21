@@ -52,12 +52,10 @@ export class InteractionsTrackAppender implements TrackAppender {
       legacyTrack?: TimelineModel.TimelineModel.Track) {
     this.#compatibilityBuilder = compatibilityBuilder;
     this.#colorGenerator = new Common.Color.Generator(
-        {
-          min: 30,
-          max: 55,
-          count: undefined,
-        },
-        {min: 70, max: 100, count: 6}, 90, 0.7);
+        /* hueSpace= */ {min: 30, max: 55, count: undefined},
+        /* satSpace= */ {min: 70, max: 100, count: 6},
+        /* lightnessSpace= */ 90,
+        /* alphaSpace= */ 0.7);
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;

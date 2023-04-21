@@ -55,6 +55,20 @@ describeWithEnvironment('AppenderUtils', () => {
     });
   });
 
+  describe('getColorForID', () => {
+    it('returns the color correctly', async () => {
+      const generatedColor = Timeline.AppenderUtils.getColorForID('event name');
+      // The function should return the same color for same ID because we use the hash not a random number to calculate
+      // the color.
+      // The hash code of "event name" is 1365796457.
+      // In hue space, count is undefined so count = max - min = 25, index = 1365796457 % 25 = 7,
+      // so it should be 30 + 7 = 37 deg
+      // In saturation space, count = 6, index = (1365796457 >> 8)%6 = 2, so it should be 70+2*6 = 82
+      // lightness and alpha are set to constant.
+      assert.strictEqual(generatedColor, 'hsl(37deg 82% 50% / 70%)');
+    });
+  });
+
   describe('getFormattedTime', () => {
     it('returns the time info for a entry with no duration correctly', async () => {
       const formattedTime = Timeline.AppenderUtils.getFormattedTime(defaultTraceEvent.dur);

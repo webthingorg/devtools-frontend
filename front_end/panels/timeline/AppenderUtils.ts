@@ -6,6 +6,7 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as Common from '../../core/common/common.js';
 
 const UIStrings = {
   /**
@@ -58,6 +59,20 @@ export function buildTrackHeader(
     group.track = track;
   }
   return group;
+}
+
+/**
+ * Returns the color for an event.
+ * @param eventID the id of the event, usually is the name of the event.
+ * @returns the generated color.
+ */
+export function getColorForID(eventID: string): string {
+  const colorGenerator = new Common.Color.Generator(
+      /* hueSpace= */ {min: 30, max: 55, count: undefined},
+      /* satSpace= */ {min: 70, max: 100, count: 6},
+      /* lightnessSpace= */ 50,
+      /* alphaSpace= */ 0.7);
+  return colorGenerator.colorForID(eventID);
 }
 
 /**
