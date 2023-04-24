@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-
+import * as Platform from '../platform/platform.js';
 import {type EventPayload} from './TracingManager.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
@@ -473,7 +473,6 @@ export class Event {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: any;
   id!: string|null;
-  ordinal: number;
   selfTime: number;
   endTime?: number;
   duration?: number;
@@ -493,8 +492,6 @@ export class Event {
     this.startTime = startTime;
     this.thread = thread;
     this.args = {};
-    this.ordinal = 0;
-
     this.selfTime = 0;
   }
 
@@ -507,10 +504,12 @@ export class Event {
   }
 
   static orderedCompareStartTime(a: Event, b: Event): number {
+    const ordinalA = getOrdinalForEvent(a);
+    const ordinalB = getOrdinalForEvent(b);
     // Array.mergeOrdered coalesces objects if comparator returns 0.
     // To change this behavior this comparator return -1 in the case events
     // startTime's are equal, so both events got placed into the result array.
-    return a.startTime - b.startTime || a.ordinal - b.ordinal || -1;
+    return a.startTime - b.startTime || ordinalA - ordinalB || -1;
   }
 
   hasCategory(categoryName: string): boolean {
@@ -828,7 +827,7 @@ export class Thread extends NamedObject {
     const toDelete = new Set<number>();
     for (let i = 0; i < this.#eventsInternal.length; ++i) {
       const e = this.#eventsInternal[i];
-      e.ordinal = i;
+      setOrdinalForEvent(e, i);
       if (this.#eventMatchesPhase(e, TraceEngine.Types.TraceEvents.Phase.END)) {
         toDelete.add(i);  // Mark for removal.
         // Quietly ignore unbalanced close events, they're legit (we could have missed start one).
@@ -983,4 +982,16 @@ export function threadIDForEvent(event: Event|
 export function eventIsFromNewEngine(event: Event|TraceEngine.Types.TraceEvents.TraceEventData|
                                      null): event is TraceEngine.Types.TraceEvents.TraceEventData {
   return event !== null && !(event instanceof Event);
+}
+
+/**
+ * Ordinal keep track of an event position relative to other events and are used for supporting
+ * CPU profiles. TODO(crbug.com/1431175) Add support for ordinals in the Samples handler.
+ */
+const eventOrdinal = new Map<Event|TraceEngine.Types.TraceEvents.TraceEventData, number>();
+export function getOrdinalForEvent(event: Event|TraceEngine.Types.TraceEvents.TraceEventData): number {
+  return Platform.MapUtilities.getWithDefault(eventOrdinal, event, () => 0);
+}
+export function setOrdinalForEvent(event: Event|TraceEngine.Types.TraceEvents.TraceEventData, ordinal: number): void {
+  eventOrdinal.set(event, ordinal);
 }
