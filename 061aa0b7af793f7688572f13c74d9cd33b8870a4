@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c73415d3_bf738e33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-24T13:44:54Z",
+      "side": 1,
+      "message": "This looks great, thanks! LGTM",
+      "revId": "061aa0b7af793f7688572f13c74d9cd33b8870a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "728ab318_ebde963a",
+        "filename": "front_end/panels/issues/AffectedTrackingSitesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-24T13:44:54Z",
+      "side": 1,
+      "message": "nit: This is probably more readable if spread over multiple lines",
+      "revId": "061aa0b7af793f7688572f13c74d9cd33b8870a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d620865f_d4fa64ff",
+        "filename": "test/e2e/issues/bounce-tracking-issues_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-24T13:44:54Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "061aa0b7af793f7688572f13c74d9cd33b8870a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
