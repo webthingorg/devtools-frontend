@@ -160,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cdbca987_de64eed2",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-04-24T08:58:48Z",
+      "side": 1,
+      "message": "Oh great, I didn\u0027t read your suggestion Phil, but we arrived at the same solution 😌 Yes, we can add a \"[Icon] View issue:\" to the tooltip to make it crystal clear what is happening. Quickly mocked it up: https://imgur.com/a/XUKVqls\n\nBruno suggested to do this in a follow up CL. How/when you implement it is up to you I guess.",
+      "parentUuid": "d402ad4e_0517cf24",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c55329b_41125c3c",
         "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
         "patchSetId": 8
