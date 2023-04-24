@@ -16,6 +16,23 @@
       "message": "I\u0027ve tested this enough by hand but it is an important feature so\nit\u0027d be cool if you can test as well. Also, let me know if it makes\nsense to add an E2E test for this.",
       "revId": "eaeccb00aeb499c86ef009edd5ca083ada695e47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d01873_96ed57ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-24T22:23:27Z",
+      "side": 1,
+      "message": "Thanks for the fix!",
+      "revId": "eaeccb00aeb499c86ef009edd5ca083ada695e47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
