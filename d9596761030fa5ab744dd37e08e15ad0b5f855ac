@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14bfc8a7_bbb80605",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-24T22:21:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f4254c68_7c5404b7",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6bde189_b9d842ee",
@@ -168,6 +186,30 @@
       "side": 1,
       "message": "Can we directly check if the `linkContainer` matches `css-var-link`? It seems to be a more direct check anyways.",
       "parentUuid": "6d978b79_4a0b80f7",
+      "range": {
+        "startLine": 399,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 7
+      },
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9018cb1a_b929c1d1",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-24T22:21:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dec58eff_801791df",
       "range": {
         "startLine": 399,
         "startChar": 6,
@@ -314,6 +356,24 @@
       "side": 1,
       "message": "There seems to be a type problem so it was not chosen.",
       "parentUuid": "366cc1bf_4c3ad1cc",
+      "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce02a79b_c3045634",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-24T22:21:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "de4a99cf_0bb737cc",
       "revId": "d9596761030fa5ab744dd37e08e15ad0b5f855ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
