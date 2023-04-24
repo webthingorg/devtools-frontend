@@ -196,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9702589_8903e805",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-24T09:48:14Z",
+      "side": 1,
+      "message": "Maybe..probably. However because I am not familiar with the code base it takes time to get even small changes done.\n\nI do not know where to find the icon nor if the link style already exists and whether I need to reuse it. Since I prefer small conditions progress I suggested doing it in a follow up. No strong feelings, whatever you folks prefer.",
+      "parentUuid": "6c46e948_d135c410",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c55329b_41125c3c",
         "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
         "patchSetId": 8
