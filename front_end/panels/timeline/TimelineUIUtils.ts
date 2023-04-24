@@ -1341,7 +1341,8 @@ export class TimelineUIUtils {
     return frame.functionName;
   }
 
-  static testContentMatching(traceEvent: SDK.TracingModel.Event, regExp: RegExp): boolean {
+  static testContentMatching(
+      traceEvent: SDK.TracingModel.Event|TraceEngine.Types.TraceEvents.TraceEventData, regExp: RegExp): boolean {
     const title = TimelineUIUtils.eventStyle(traceEvent).title;
     const tokens = [title];
     const url = TimelineModel.TimelineModel.TimelineData.forEvent(traceEvent).url;
