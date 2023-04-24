@@ -16,6 +16,23 @@
       "message": "I\u0027ll add some tests for `AnimationTimingUI` but in the meantime, this is ready to be reviewed.",
       "revId": "72306e6aa20ddf13531c91e5892c12ecfc72a254",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e493ea_f50ed315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-24T13:41:58Z",
+      "side": 1,
+      "message": "When there are many points, the line becomes invisible and\nthe control points take the space: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d595174\u0026signed_aid\u003dPKyz9FgXk7GrPGZZvACNbQ\u003d\u003d\u0026inline\u003d1\n\nI wonder if we should fix this, wdyt?",
+      "revId": "72306e6aa20ddf13531c91e5892c12ecfc72a254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
