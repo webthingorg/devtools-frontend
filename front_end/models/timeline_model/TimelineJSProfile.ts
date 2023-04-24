@@ -124,14 +124,14 @@ export class TimelineJSProfileProcessor {
         truncateJSStack((lockedJsStackDepth.pop() as number), e.startTime);
         fakeJSInvocation = false;
       }
-      e.ordinal = ++ordinal;
+      SDK.TracingModel.setOrdinalForEvent(e, ++ordinal);
       extractStackTrace(e);
       // For the duration of the event we cannot go beyond the stack associated with it.
       lockedJsStackDepth.push(jsFramesStack.length);
     }
 
     function onInstantEvent(e: SDK.TracingModel.Event, parent: SDK.TracingModel.Event|null): void {
-      e.ordinal = ++ordinal;
+      SDK.TracingModel.setOrdinalForEvent(e, ++ordinal);
       if ((parent && isJSInvocationEvent(parent)) || fakeJSInvocation) {
         extractStackTrace(e);
       } else if (
@@ -240,7 +240,8 @@ export class TimelineJSProfileProcessor {
         const jsFrameEvent = new SDK.TracingModel.ConstructedEvent(
             SDK.TracingModel.DevToolsTimelineEventCategory, jsFrameType, TraceEngine.Types.TraceEvents.Phase.COMPLETE,
             e.startTime, e.thread);
-        jsFrameEvent.ordinal = e.ordinal;
+        const ordinal = SDK.TracingModel.getOrdinalForEvent(e);
+        SDK.TracingModel.setOrdinalForEvent(jsFrameEvent, ordinal);
         jsFrameEvent.addArgs({data: frame});
         jsFrameEvent.setEndTime(endTime);
         jsFramesStack.push(jsFrameEvent);
