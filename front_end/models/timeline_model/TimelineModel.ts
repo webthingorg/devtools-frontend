@@ -38,7 +38,6 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TraceEngine from '../trace/trace.js';
 import type * as Protocol from '../../generated/protocol.js';
-
 import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
 
 const UIStrings = {
