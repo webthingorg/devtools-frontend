@@ -70,7 +70,6 @@ devtools_svg_sources = [
   "chevron-left.svg",
   "chevron-right.svg",
   "chevron-up.svg",
-  "chevrons.svg",
   "chromeSelect.svg",
   "chromeSelectDark.svg",
   "clear-list.svg",
