@@ -16,6 +16,23 @@
       "message": "Wolfgang, could you please take a look?",
       "revId": "7cd77615f81458b4d4c3fc0c5fb1644cf0096a0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3dbac6f_dd13c9de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-24T10:21:00Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7cd77615f81458b4d4c3fc0c5fb1644cf0096a0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
