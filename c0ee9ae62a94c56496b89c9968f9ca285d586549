@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b308b787_8e4301d1",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-24T11:22:19Z",
+      "side": 1,
+      "message": "Ohhh yes, you\u0027re right, thanks for catching this -- I have changed that now (the if case shouldn\u0027t contain the check for finishing the active dialog -- whenever we have an active one open and have the exact same request again, we can reuse it)",
+      "parentUuid": "9bafd164_8330b002",
+      "range": {
+        "startLine": 806,
+        "startChar": 0,
+        "endLine": 807,
+        "endChar": 13
+      },
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17e3e9a1_cde20c8a",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-04-24T10:39:23Z",
       "side": 1,
       "message": "nit: `return editA.isLogpoint \u003d\u003d\u003d editB.isLogpoint;`",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 913,
+        "endChar": 18
+      },
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a494b49b_f07ab20f",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-24T11:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e3e9a1_cde20c8a",
       "range": {
         "startLine": 910,
         "startChar": 6,
