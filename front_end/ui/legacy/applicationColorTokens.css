@@ -41,4 +41,5 @@
   --icon-stop: var(--color-error-bright);
   --icon-toggled: var(--color-primary-bright);
   --icon-warning: var(--color-orange-bright);
+  --icon-gap-default: var(--color-on-primary);
 }

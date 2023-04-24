@@ -269,7 +269,7 @@ export class RequestHeadersComponent extends HTMLElement {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     const fileIcon = overridesSetting.get() ? html`
-      <${IconButton.Icon.Icon.litTagName} class="inline-icon purple-dot" .data=${{
+      <${IconButton.Icon.Icon.litTagName} class="inline-icon dot purple" .data=${{
           iconName: 'file-sync_icon',
           width: '11px',
           height: '13px',
