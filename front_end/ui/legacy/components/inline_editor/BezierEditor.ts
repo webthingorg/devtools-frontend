@@ -6,9 +6,8 @@ import * as Common from '../../../../core/common/common.js';
 import * as UI from '../../legacy.js';
 
 import {AnimationTimingModel} from './AnimationTimingModel.js';
-import {AnimationTimingUI} from './AnimationTimingUI.js';
+import {AnimationTimingUI, PresetUI} from './AnimationTimingUI.js';
 import bezierEditorStyles from './bezierEditor.css.js';
-import {BezierUI} from './BezierUI.js';
 
 const PREVIEW_ANIMATION_DEBOUNCE_DELAY = 300;
 
@@ -19,7 +18,7 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   private readonly outerContainer: HTMLElement;
   private selectedCategory: PresetCategory|null;
   private readonly presetsContainer: HTMLElement;
-  private readonly presetUI: BezierUI;
+  private readonly presetUI: PresetUI;
   private readonly presetCategories: PresetCategory[];
   private animationTimingUI?: AnimationTimingUI;
   private readonly header: HTMLElement;
@@ -33,6 +32,7 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.model = model;
     this.contentElement.tabIndex = 0;
     this.setDefaultFocusedElement(this.contentElement);
+    this.element.style.overflowY = 'auto';
 
     // Preview UI
     this.previewElement = this.contentElement.createChild('div', 'bezier-preview-container');
@@ -46,17 +46,16 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     // Presets UI
     this.selectedCategory = null;
     this.presetsContainer = this.outerContainer.createChild('div', 'bezier-presets');
-    this.presetUI = new BezierUI({
-      width: 40,
-      height: 40,
-      marginTop: 0,
-      controlPointRadius: 2,
-      shouldDrawLine: false,
-    });
+    this.presetUI = new PresetUI();
 
     this.presetCategories = [];
     for (let i = 0; i < Presets.length; i++) {
-      this.presetCategories[i] = this.createCategory(Presets[i]);
+      const category = this.createCategory(Presets[i]);
+      if (!category) {
+        continue;
+      }
+
+      this.presetCategories[i] = category;
       this.presetsContainer.appendChild(this.presetCategories[i].icon);
     }
 
@@ -112,7 +111,7 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
 
   private updateUI(): void {
     const labelText = this.selectedCategory ? this.selectedCategory.presets[this.selectedCategory.presetIndex].name :
-                                              this.model.asCSSText().replace(/\s(-\d\.\d)/g, '$1');
+                                              this.model.asCSSText();
     this.label.textContent = labelText;
     this.animationTimingUI?.draw();
   }
@@ -120,12 +119,17 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   private createCategory(presetGroup: {
     name: string,
     value: string,
-  }[]): PresetCategory {
+  }[]): PresetCategory|null {
+    const pivot = AnimationTimingModel.parse(presetGroup[0].value);
+    if (!pivot) {
+      return null;
+    }
+
     const presetElement = document.createElement('div');
     presetElement.classList.add('bezier-preset-category');
     const iconElement = UI.UIUtils.createSVGChild(presetElement, 'svg', 'bezier-preset monospace');
     const category = {presets: presetGroup, presetIndex: 0, icon: presetElement};
-    this.presetUI.drawCurve(UI.Geometry.CubicBezier.parse(category.presets[0].value), iconElement);
+    this.presetUI.draw(pivot, iconElement);
     iconElement.addEventListener('click', this.presetCategorySelected.bind(this, category));
     return category;
   }
@@ -193,11 +197,13 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     const numberOnionSlices = 20;
 
     const keyframes = [
-      {offset: 0, transform: 'translateX(0px)', easing: this.model.asCSSText(), opacity: 1},
-      {offset: 0.9, transform: 'translateX(218px)', opacity: 1},
-      {offset: 1, transform: 'translateX(218px)', opacity: 0},
+      {offset: 0, transform: 'translateX(0px)', opacity: 1},
+      {offset: 1, transform: 'translateX(218px)', opacity: 1},
     ];
-    this.previewAnimation = this.previewElement.animate(keyframes, animationDuration);
+    this.previewAnimation = this.previewElement.animate(keyframes, {
+      easing: this.model.asCSSText(),
+      duration: animationDuration,
+    });
     this.previewOnion.removeChildren();
     for (let i = 0; i <= numberOnionSlices; i++) {
       const slice = this.previewOnion.createChild('div', 'bezier-preview-animation');
@@ -221,6 +227,32 @@ export type EventTypes = {
 };
 
 export const Presets = [
+  [
+    {name: 'linear', value: 'linear(0, 1)'},
+    {
+      name: 'spring',
+      value: `linear(
+        0, 0.009, 0.035 2.1%, 0.141,
+        0.281 6.7%, 0.723 12.9%, 0.938 16.7%,
+        1.017, 1.077, 1.121, 1.149 24.3%, 1.159,
+        1.163, 1.161, 1.154 29.9%, 1.129 32.8%,
+        1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%,
+        0.974 53.8%, 0.975 57.1%, 0.997 69.8%,
+        1.003 76.9%, 1.004 83.8%, 1
+      )`,
+    },
+    {
+      name: 'bounce',
+      value: `linear(
+        0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141,
+        0.25, 0.391, 0.563, 0.765, 1, 0.891,
+        0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754,
+        0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%,
+        0.973, 0.953, 0.941, 0.938, 0.941, 0.953,
+        0.973, 1, 0.988, 0.984, 0.988, 1
+      )`,
+    },
+  ],
   [
     {name: 'ease-in-out', value: 'ease-in-out'},
     {name: 'In Out · Sine', value: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)'},
