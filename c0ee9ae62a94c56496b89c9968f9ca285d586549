@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adbc351_b290c029",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-24T10:39:23Z",
+      "side": 1,
+      "message": "Looks good to me, but one question",
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ca9d73_d8b0c52f",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-24T10:39:23Z",
+      "side": 1,
+      "message": "Thanks for this cleanup!",
+      "range": {
+        "startLine": 793,
+        "startChar": 57,
+        "endLine": 793,
+        "endChar": 78
+      },
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bafd164_8330b002",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-24T10:39:23Z",
+      "side": 1,
+      "message": "Does this return actually get hit? We force set `this.#scheduledFinishingActiveDialog` to `false` on line 802. But between there and the `if` on 805 is no suspension point (e.g. via `await`).",
+      "range": {
+        "startLine": 806,
+        "startChar": 0,
+        "endLine": 807,
+        "endChar": 13
+      },
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e3e9a1_cde20c8a",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-24T10:39:23Z",
+      "side": 1,
+      "message": "nit: `return editA.isLogpoint \u003d\u003d\u003d editB.isLogpoint;`",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 913,
+        "endChar": 18
+      },
+      "revId": "c0ee9ae62a94c56496b89c9968f9ca285d586549",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
