@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af55f8d_ed9b9294",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-04-24T15:20:14Z",
+      "side": 1,
+      "message": "I\u0027ve tested this enough by hand but it is an important feature so\nit\u0027d be cool if you can test as well. Also, let me know if it makes\nsense to add an E2E test for this.",
+      "revId": "eaeccb00aeb499c86ef009edd5ca083ada695e47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
