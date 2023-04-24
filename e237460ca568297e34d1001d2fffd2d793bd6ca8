@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f21175e2_56930f59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-24T09:54:28Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nthe breakpoint edit dialog \"flashes\" when being repeatedly reopened (from the breakpoint sidebar pane you can repeatedly reclick on the edit button). This CL should debounce this.\n\nFor this, I\u0027ve moved the \u0027blur\u0027 listener out from the BreakpointEditDialog into the DebuggerPlugin which keeps track of the active dialog. The active dialog is only closed after a short amount of time after the blur occurred, if either: a new, different breakpoint edit dialog is opened, or if we didn\u0027t get any new request to the exact same edit dialog.\nIf there was a request to open the exact same dialog again, we refocus on the editor instead after the timeout is done.\n\nPTAL!",
+      "revId": "e237460ca568297e34d1001d2fffd2d793bd6ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
