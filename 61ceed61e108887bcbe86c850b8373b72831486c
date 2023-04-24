@@ -22,6 +22,30 @@
       },
       "revId": "61ceed61e108887bcbe86c850b8373b72831486c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b6f2da_9e53d6fb",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-04-24T09:39:51Z",
+      "side": 1,
+      "message": "This one has a different number, the lightness is 90. I will leave this track for Jack to decide",
+      "parentUuid": "b646ffc1_13c6b95a",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "61ceed61e108887bcbe86c850b8373b72831486c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
