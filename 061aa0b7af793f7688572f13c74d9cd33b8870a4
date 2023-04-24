@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1101c9f_e75e596b",
+        "filename": "front_end/panels/issues/AffectedTrackingSitesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-24T16:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "728ab318_ebde963a",
+      "revId": "061aa0b7af793f7688572f13c74d9cd33b8870a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d620865f_d4fa64ff",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-24T13:44:54Z",
       "side": 1,
       "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "061aa0b7af793f7688572f13c74d9cd33b8870a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d2e4ea_cd283cf1",
+        "filename": "test/e2e/issues/bounce-tracking-issues_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-24T16:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d620865f_d4fa64ff",
       "range": {
         "startLine": 1,
         "startChar": 13,
