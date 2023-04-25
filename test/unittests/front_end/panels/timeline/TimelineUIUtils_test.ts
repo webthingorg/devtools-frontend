@@ -15,7 +15,13 @@ import * as Workspace from '../../../../../front_end/models/workspace/workspace.
 import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelpers.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import {allModelsFromFile, getAllTracingModelPayloadEvents} from '../../helpers/TraceHelpers.js';
+
+import {
+  allModelsFromFile,
+  getAllTracingModelPayloadEvents,
+  type AllModelsFromFileResult,
+  getSDKEventForTraceEngineEvent,
+} from '../../helpers/TraceHelpers.js';
 import * as Common from '../../../../../front_end/core/common/common.js';
 
 const {assert} = chai;
@@ -280,21 +286,46 @@ describeWithMockConnection('TimelineUIUtils', () => {
         return {title, value};
       });
     }
+
+    /**
+     * Takes all the models, and the trace event from the new engine, and runs
+     * the assertion twice, once against the details built using the new engine
+     * event, and the other time against the details built with the old engine
+     * event, ensuring that they are the same.
+     **/
+    async function assertTraceDetailsForBothEventTypes(
+        allModels: AllModelsFromFileResult, event: TraceEngine.Types.TraceEvents.TraceEventData,
+        expectedRowData: Array<{title?: string, value?: string}>): Promise<void> {
+      const sdkEvent = getSDKEventForTraceEngineEvent(allModels.tracingModel, event);
+      const newEngineDetails = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          event,
+          allModels.timelineModel,
+          new Components.Linkifier.Linkifier(),
+          false,
+          allModels.traceParsedData,
+      );
+      const newEngineRowData = getRowDataForDetailsElement(newEngineDetails);
+      assert.deepEqual(newEngineRowData, expectedRowData, 'Incorrect details generated for new trace engine event.');
+
+      const sdkEngineDetails = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          sdkEvent,
+          allModels.timelineModel,
+          new Components.Linkifier.Linkifier(),
+          false,
+          allModels.traceParsedData,
+      );
+      const sdkEngineRowData = getRowDataForDetailsElement(sdkEngineDetails);
+      assert.deepEqual(sdkEngineRowData, expectedRowData, 'Incorrect details generated for SDK trace engine event');
+    }
+
     it('shows the interaction ID for EventTiming events that have an interaction ID', async () => {
       const data = await allModelsFromFile('slow-interaction-button-click.json.gz');
       const interactionEvent = data.traceParsedData.UserInteractions.interactionEventsWithNoNesting[0];
-      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
-          interactionEvent,
-          data.timelineModel,
-          new Components.Linkifier.Linkifier(),
-          false,
-          data.traceParsedData,
-      );
-      const rowData = getRowDataForDetailsElement(details);
-      assert.deepEqual(rowData, [{
-                         title: 'ID',
-                         value: '1540',
-                       }]);
+
+      await assertTraceDetailsForBothEventTypes(data, interactionEvent, [{
+                                                  title: 'ID',
+                                                  value: '1540',
+                                                }]);
     });
 
     it('renders the details for a layout shift properly', async () => {
@@ -343,7 +374,7 @@ describeWithMockConnection('TimelineUIUtils', () => {
     it('renders the correct title for an EventTiming event', async () => {
       const data = await allModelsFromFile('slow-interaction-button-click.json.gz');
       const interactionEvent = data.traceParsedData.UserInteractions.interactionEventsWithNoNesting[0];
-      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.eventTitle(interactionEvent);
+      const details = Timeline.TimelineUIUtils.TimelineUIUtils.eventTitle(interactionEvent);
       assert.deepEqual(details, 'pointerdown');
     });
   });
