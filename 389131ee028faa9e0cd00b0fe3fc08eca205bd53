@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6af45e9_9753cb6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-25T13:03:54Z",
+      "side": 1,
+      "message": "Left a comment",
+      "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5100d6a_ecdf6830",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-25T13:03:54Z",
+      "side": 1,
+      "message": "Is this the network request/response list? Peter said icons there should be 16x16px\nhttps://docs.google.com/document/d/1qFCaS2OfIrtFdsOtGzzUfoO5TEDfzzi6VzahPU54npw/#bookmark\u003did.keb2q2y3c303",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 15
+      },
+      "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
