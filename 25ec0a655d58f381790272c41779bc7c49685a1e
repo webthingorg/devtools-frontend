@@ -33,6 +33,29 @@
       "message": "To be clear: this is just a rename of an interface and a class, there is no behaviour change at all :)",
       "revId": "25ec0a655d58f381790272c41779bc7c49685a1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44da55f0_9a9e1969",
+        "filename": "front_end/models/timeline_model/timeline_model-legacy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-04-25T09:47:54Z",
+      "side": 1,
+      "message": "Do we need to change this?\nIn fact I don\u0027t know what this timeline_model-legacy.ts file is for, but don;t know if it will cause problem",
+      "range": {
+        "startLine": 58,
+        "startChar": 14,
+        "endLine": 58,
+        "endChar": 26
+      },
+      "revId": "25ec0a655d58f381790272c41779bc7c49685a1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
