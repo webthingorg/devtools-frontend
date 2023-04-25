@@ -39,6 +39,30 @@
       },
       "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69261e9a_a7bd68ac",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-25T13:43:12Z",
+      "side": 1,
+      "message": "Yeah. Done, but note that the actual visible icon even about 12px. Screenshot https://imgur.com/a/UDulNWn",
+      "parentUuid": "b5100d6a_ecdf6830",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 15
+      },
+      "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
