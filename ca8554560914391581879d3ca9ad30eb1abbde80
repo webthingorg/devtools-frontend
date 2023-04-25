@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d76b35c0_228e5438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T09:09:54Z",
+      "side": 1,
+      "message": "PTAL. To be totally honest I am not sure if this is a good idea or not - is it worth us investing in supporting both types, or are we better off migrating code so that we know the type (e.g. we know layout shifts are always new events now) ?\n\nProbably the second one? So maybe this isn\u0027t useful?",
+      "revId": "ca8554560914391581879d3ca9ad30eb1abbde80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
