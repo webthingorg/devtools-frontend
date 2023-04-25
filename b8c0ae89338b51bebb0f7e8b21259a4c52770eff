@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c703e18_ff9be857",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-25T08:41:22Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f6894b_78c4d0fe",
+        "filename": "front_end/models/timeline_model/TimelineModelFilter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-25T08:41:22Z",
+      "side": 1,
+      "message": "note: this union type has become very repetitive, I think it would be convenient to declare a new type that\u0027s assigned this union and use that instead. Will do as a follow up shortly.",
+      "range": {
+        "startLine": 21,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
