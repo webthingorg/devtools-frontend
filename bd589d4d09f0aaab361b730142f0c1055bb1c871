@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd40749f_caf53e34",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-25T21:52:14Z",
+      "side": 1,
+      "message": "nit: I feel like this can be turned into:\n```\nreturn CSSLinearEasingModel.parse(text) || null;\n\n```\nbut I\u0027m also ok this way.",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bdce300_1615809d",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-25T21:52:14Z",
+      "side": 1,
+      "message": "nit: would it be better to use a `LinearEasingPresentationParams` object here instead? This would make constructor assignment easier and gives a bit more readability.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a1f2d88_542dde4b",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-25T21:52:14Z",
+      "side": 1,
+      "message": "nit: where do these numbers come from? Would it make sense to add an explanation here?",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab48382_ea412b1d",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-04-25T21:52:14Z",
+      "side": 1,
+      "message": "It this a common problem when we need to listen to both drag and dblclick? I guess what I\u0027m saying is, is it worth it using a separate drag handler to listen to a proper `drag` event, instead of hacking on `mousedown`, therefore bypassing this problem? Or maybe there are legitimate reasons to use `mousedown` for drag somehow?",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
