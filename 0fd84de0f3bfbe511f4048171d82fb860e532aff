@@ -16,6 +16,24 @@
       "message": "LGTM! Do you have any idea how we can make this testable? Unittests possibly? Happy to have that in a followup though!",
       "revId": "0fd84de0f3bfbe511f4048171d82fb860e532aff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff01c7e_fc0e04a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-04-25T16:06:55Z",
+      "side": 1,
+      "message": "from a conversation with Danil we should be able to run non headless tests soon, which will fix this issue. As for unit tests, I remember spending a good amount of time on it but testing it was really difficult. If you have suggestions let me know",
+      "parentUuid": "930bef51_e59fcf22",
+      "revId": "0fd84de0f3bfbe511f4048171d82fb860e532aff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
