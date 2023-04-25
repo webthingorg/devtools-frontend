@@ -275,6 +275,9 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
     this.model.onRuleSetRemoved(event);
   }
 
+  preloadEnabledStateUpdated(_event: Protocol.Preload.PreloadEnabledStateUpdatedEvent): void {
+  }
+
   preloadingAttemptSourcesUpdated(event: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void {
     this.model.onPreloadingAttemptSourcesUpdated(event);
   }
