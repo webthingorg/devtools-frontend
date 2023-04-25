@@ -637,6 +637,10 @@ export namespace ProtocolMapping {
      */
     'Preload.prerenderAttemptCompleted': [Protocol.Preload.PrerenderAttemptCompletedEvent];
     /**
+     * Fired when a preload enabled state is updated.
+     */
+    'Preload.preloadEnabledStateUpdated': [Protocol.Preload.PreloadEnabledStateUpdatedEvent];
+    /**
      * Fired when a prefetch attempt is updated.
      */
     'Preload.prefetchStatusUpdated': [Protocol.Preload.PrefetchStatusUpdatedEvent];

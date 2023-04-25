@@ -1461,7 +1461,8 @@
                         "OsTriggerIgnored",
                         "InvalidRegisterOsSourceHeader",
                         "InvalidRegisterOsTriggerHeader",
-                        "WebAndOsHeaders"
+                        "WebAndOsHeaders",
+                        "NoWebOrOsSupport"
                     ]
                 },
                 {
@@ -1641,14 +1642,17 @@
                         "WellKnownNoResponse",
                         "WellKnownInvalidResponse",
                         "WellKnownListEmpty",
+                        "WellKnownInvalidContentType",
                         "ConfigNotInWellKnown",
                         "WellKnownTooBig",
                         "ConfigHttpNotFound",
                         "ConfigNoResponse",
                         "ConfigInvalidResponse",
+                        "ConfigInvalidContentType",
                         "ClientMetadataHttpNotFound",
                         "ClientMetadataNoResponse",
                         "ClientMetadataInvalidResponse",
+                        "ClientMetadataInvalidContentType",
                         "DisabledInSettings",
                         "ErrorFetchingSignin",
                         "InvalidSigninResponse",
@@ -1656,10 +1660,12 @@
                         "AccountsNoResponse",
                         "AccountsInvalidResponse",
                         "AccountsListEmpty",
+                        "AccountsInvalidContentType",
                         "IdTokenHttpNotFound",
                         "IdTokenNoResponse",
                         "IdTokenInvalidResponse",
                         "IdTokenInvalidRequest",
+                        "IdTokenInvalidContentType",
                         "ErrorIdToken",
                         "Canceled",
                         "RpPageNotVisible"
@@ -15437,6 +15443,7 @@
                         "payment",
                         "picture-in-picture",
                         "private-aggregation",
+                        "private-state-token-redemption",
                         "publickey-credentials-get",
                         "run-ad-auction",
                         "screen-wake-lock",
@@ -15447,7 +15454,6 @@
                         "smart-card",
                         "storage-access",
                         "sync-xhr",
-                        "trust-token-redemption",
                         "unload",
                         "usb",
                         "vertical-scroll",
@@ -22982,6 +22988,22 @@
                             "type": "string"
                         },
                         {
+                            "name": "backendNodeId",
+                            "description": "A speculation rule set is either added through an inline\n<script> tag or through an external resource via the\n'Speculation-Rules' HTTP header. For the first case, we include\nthe BackendNodeId of the relevant <script> tag. For the second\ncase, we include the external URL and RequestId which the rule\nset was loaded with.\n\nSee also:\n- https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-script\n- https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-header",
+                            "optional": true,
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "url",
+                            "optional": true,
+                            "type": "string"
+                        },
+                        {
+                            "name": "requestId",
+                            "optional": true,
+                            "$ref": "Network.RequestId"
+                        },
+                        {
                             "name": "errorType",
                             "description": "Error information\n`errorMessage` is null iff `errorType` is null.",
                             "optional": true,
@@ -23133,7 +23155,20 @@
                         "CrossSiteRedirectInMainFrameNavigation",
                         "CrossSiteNavigationInMainFrameNavigation",
                         "SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation",
-                        "SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation"
+                        "SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation",
+                        "MemoryPressureOnTrigger",
+                        "MemoryPressureAfterTriggered"
+                    ]
+                },
+                {
+                    "id": "PreloadEnabledState",
+                    "type": "string",
+                    "enum": [
+                        "Enabled",
+                        "DisabledByDataSaver",
+                        "DisabledByBatterySaver",
+                        "DisabledByPreference",
+                        "NotSupported"
                     ]
                 },
                 {
@@ -23204,6 +23239,16 @@
                             "description": "This is used to give users more information about the name of the API call\nthat is incompatible with prerender and has caused the cancellation of the attempt",
                             "optional": true,
                             "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "preloadEnabledStateUpdated",
+                    "description": "Fired when a preload enabled state is updated.",
+                    "parameters": [
+                        {
+                            "name": "state",
+                            "$ref": "PreloadEnabledState"
                         }
                     ]
                 },

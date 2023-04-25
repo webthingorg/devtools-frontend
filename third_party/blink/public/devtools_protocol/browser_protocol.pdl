@@ -716,6 +716,7 @@ experimental domain Audits
       InvalidRegisterOsSourceHeader
       InvalidRegisterOsTriggerHeader
       WebAndOsHeaders
+      NoWebOrOsSupport
 
   # Details for issues around "Attribution Reporting API" usage.
   # Explainer: https://github.com/WICG/attribution-reporting-api
@@ -809,14 +810,17 @@ experimental domain Audits
       WellKnownNoResponse
       WellKnownInvalidResponse
       WellKnownListEmpty
+      WellKnownInvalidContentType
       ConfigNotInWellKnown
       WellKnownTooBig
       ConfigHttpNotFound
       ConfigNoResponse
       ConfigInvalidResponse
+      ConfigInvalidContentType
       ClientMetadataHttpNotFound
       ClientMetadataNoResponse
       ClientMetadataInvalidResponse
+      ClientMetadataInvalidContentType
       DisabledInSettings
       ErrorFetchingSignin
       InvalidSigninResponse
@@ -824,10 +828,12 @@ experimental domain Audits
       AccountsNoResponse
       AccountsInvalidResponse
       AccountsListEmpty
+      AccountsInvalidContentType
       IdTokenHttpNotFound
       IdTokenNoResponse
       IdTokenInvalidResponse
       IdTokenInvalidRequest
+      IdTokenInvalidContentType
       ErrorIdToken
       Canceled
       RpPageNotVisible
@@ -7222,6 +7228,7 @@ domain Page
       payment
       picture-in-picture
       private-aggregation
+      private-state-token-redemption
       publickey-credentials-get
       run-ad-auction
       screen-wake-lock
@@ -7232,7 +7239,6 @@ domain Page
       smart-card
       storage-access
       sync-xhr
-      trust-token-redemption
       unload
       usb
       vertical-scroll
@@ -10819,6 +10825,19 @@ experimental domain Preload
       # - https://wicg.github.io/nav-speculation/speculation-rules.html
       # - https://github.com/WICG/nav-speculation/blob/main/triggers.md
       string sourceText
+      # A speculation rule set is either added through an inline
+      # <script> tag or through an external resource via the
+      # 'Speculation-Rules' HTTP header. For the first case, we include
+      # the BackendNodeId of the relevant <script> tag. For the second
+      # case, we include the external URL and RequestId which the rule
+      # set was loaded with.
+      #
+      # See also:
+      # - https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-script
+      # - https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-header
+      optional DOM.BackendNodeId backendNodeId
+      optional string url
+      optional Network.RequestId requestId
       # Error information
       # `errorMessage` is null iff `errorType` is null.
       optional RuleSetErrorType errorType
@@ -10945,6 +10964,8 @@ experimental domain Preload
       CrossSiteNavigationInMainFrameNavigation
       SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation
       SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation
+      MemoryPressureOnTrigger
+      MemoryPressureAfterTriggered
 
   # Fired when a prerender attempt is completed.
   event prerenderAttemptCompleted
@@ -10957,6 +10978,20 @@ experimental domain Preload
       # This is used to give users more information about the name of the API call
       # that is incompatible with prerender and has caused the cancellation of the attempt
       optional string disallowedApiMethod
+
+  type PreloadEnabledState extends string
+    enum
+      Enabled
+      DisabledByDataSaver
+      DisabledByBatterySaver
+      DisabledByPreference
+      # Service not available.
+      NotSupported
+
+  # Fired when a preload enabled state is updated.
+  event preloadEnabledStateUpdated
+    parameters
+      PreloadEnabledState state
 
   # Preloading status values, see also PreloadingTriggeringOutcome. This
   # status is shared by prefetchStatusUpdated and prerenderStatusUpdated.

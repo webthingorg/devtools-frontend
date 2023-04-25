@@ -979,6 +979,7 @@ export namespace Audits {
     InvalidRegisterOsSourceHeader = 'InvalidRegisterOsSourceHeader',
     InvalidRegisterOsTriggerHeader = 'InvalidRegisterOsTriggerHeader',
     WebAndOsHeaders = 'WebAndOsHeaders',
+    NoWebOrOsSupport = 'NoWebOrOsSupport',
   }
 
   /**
@@ -1086,14 +1087,17 @@ export namespace Audits {
     WellKnownNoResponse = 'WellKnownNoResponse',
     WellKnownInvalidResponse = 'WellKnownInvalidResponse',
     WellKnownListEmpty = 'WellKnownListEmpty',
+    WellKnownInvalidContentType = 'WellKnownInvalidContentType',
     ConfigNotInWellKnown = 'ConfigNotInWellKnown',
     WellKnownTooBig = 'WellKnownTooBig',
     ConfigHttpNotFound = 'ConfigHttpNotFound',
     ConfigNoResponse = 'ConfigNoResponse',
     ConfigInvalidResponse = 'ConfigInvalidResponse',
+    ConfigInvalidContentType = 'ConfigInvalidContentType',
     ClientMetadataHttpNotFound = 'ClientMetadataHttpNotFound',
     ClientMetadataNoResponse = 'ClientMetadataNoResponse',
     ClientMetadataInvalidResponse = 'ClientMetadataInvalidResponse',
+    ClientMetadataInvalidContentType = 'ClientMetadataInvalidContentType',
     DisabledInSettings = 'DisabledInSettings',
     ErrorFetchingSignin = 'ErrorFetchingSignin',
     InvalidSigninResponse = 'InvalidSigninResponse',
@@ -1101,10 +1105,12 @@ export namespace Audits {
     AccountsNoResponse = 'AccountsNoResponse',
     AccountsInvalidResponse = 'AccountsInvalidResponse',
     AccountsListEmpty = 'AccountsListEmpty',
+    AccountsInvalidContentType = 'AccountsInvalidContentType',
     IdTokenHttpNotFound = 'IdTokenHttpNotFound',
     IdTokenNoResponse = 'IdTokenNoResponse',
     IdTokenInvalidResponse = 'IdTokenInvalidResponse',
     IdTokenInvalidRequest = 'IdTokenInvalidRequest',
+    IdTokenInvalidContentType = 'IdTokenInvalidContentType',
     ErrorIdToken = 'ErrorIdToken',
     Canceled = 'Canceled',
     RpPageNotVisible = 'RpPageNotVisible',
@@ -10474,6 +10480,7 @@ export namespace Page {
     Payment = 'payment',
     PictureInPicture = 'picture-in-picture',
     PrivateAggregation = 'private-aggregation',
+    PrivateStateTokenRedemption = 'private-state-token-redemption',
     PublickeyCredentialsGet = 'publickey-credentials-get',
     RunAdAuction = 'run-ad-auction',
     ScreenWakeLock = 'screen-wake-lock',
@@ -10484,7 +10491,6 @@ export namespace Page {
     SmartCard = 'smart-card',
     StorageAccess = 'storage-access',
     SyncXhr = 'sync-xhr',
-    TrustTokenRedemption = 'trust-token-redemption',
     Unload = 'unload',
     Usb = 'usb',
     VerticalScroll = 'vertical-scroll',
@@ -15378,6 +15384,21 @@ export namespace Preload {
      */
     sourceText: string;
     /**
+     * A speculation rule set is either added through an inline
+     * <script> tag or through an external resource via the
+     * 'Speculation-Rules' HTTP header. For the first case, we include
+     * the BackendNodeId of the relevant <script> tag. For the second
+     * case, we include the external URL and RequestId which the rule
+     * set was loaded with.
+     *
+     * See also:
+     * - https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-script
+     * - https://wicg.github.io/nav-speculation/speculation-rules.html#speculation-rules-header
+     */
+    backendNodeId?: DOM.BackendNodeId;
+    url?: string;
+    requestId?: Network.RequestId;
+    /**
      * Error information
      * `errorMessage` is null iff `errorType` is null.
      */
@@ -15502,6 +15523,16 @@ export namespace Preload {
     CrossSiteNavigationInMainFrameNavigation = 'CrossSiteNavigationInMainFrameNavigation',
     SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation = 'SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation',
     SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation = 'SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation',
+    MemoryPressureOnTrigger = 'MemoryPressureOnTrigger',
+    MemoryPressureAfterTriggered = 'MemoryPressureAfterTriggered',
+  }
+
+  export const enum PreloadEnabledState {
+    Enabled = 'Enabled',
+    DisabledByDataSaver = 'DisabledByDataSaver',
+    DisabledByBatterySaver = 'DisabledByBatterySaver',
+    DisabledByPreference = 'DisabledByPreference',
+    NotSupported = 'NotSupported',
   }
 
   /**
@@ -15544,6 +15575,13 @@ export namespace Preload {
      * that is incompatible with prerender and has caused the cancellation of the attempt
      */
     disallowedApiMethod?: string;
+  }
+
+  /**
+   * Fired when a preload enabled state is updated.
+   */
+  export interface PreloadEnabledStateUpdatedEvent {
+    state: PreloadEnabledState;
   }
 
   /**

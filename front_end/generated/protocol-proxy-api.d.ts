@@ -3643,6 +3643,11 @@ declare namespace ProtocolProxyApi {
     prerenderAttemptCompleted(params: Protocol.Preload.PrerenderAttemptCompletedEvent): void;
 
     /**
+     * Fired when a preload enabled state is updated.
+     */
+    preloadEnabledStateUpdated(params: Protocol.Preload.PreloadEnabledStateUpdatedEvent): void;
+
+    /**
      * Fired when a prefetch attempt is updated.
      */
     prefetchStatusUpdated(params: Protocol.Preload.PrefetchStatusUpdatedEvent): void;
