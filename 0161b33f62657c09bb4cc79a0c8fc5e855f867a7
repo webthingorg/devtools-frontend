@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "0161b33f62657c09bb4cc79a0c8fc5e855f867a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62751749_51db5be0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-25T13:27:25Z",
+      "side": 1,
+      "message": "I was searching for an example, but it seems to me that `dt-checkbox-themed` is unused. I created a CL to remove it https://crrev.com/c/4474789. PTAL.",
+      "revId": "0161b33f62657c09bb4cc79a0c8fc5e855f867a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d774ef37_386a3230",
+        "filename": "front_end/ui/legacy/checkboxTextLabel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-25T13:27:25Z",
+      "side": 1,
+      "message": "Is this replacing the checkbox\u0027s image with an image of a double check-mark?",
+      "range": {
+        "startLine": 54,
+        "startChar": 29,
+        "endLine": 54,
+        "endChar": 53
+      },
+      "revId": "0161b33f62657c09bb4cc79a0c8fc5e855f867a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
