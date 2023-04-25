@@ -16,6 +16,23 @@
       "message": "PTAL!",
       "revId": "25ec0a655d58f381790272c41779bc7c49685a1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee0527b1_18d1de46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T09:17:11Z",
+      "side": 1,
+      "message": "To be clear: this is just a rename of an interface and a class, there is no behaviour change at all :)",
+      "revId": "25ec0a655d58f381790272c41779bc7c49685a1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
