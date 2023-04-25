@@ -63,6 +63,30 @@
       },
       "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a77e4d8_71b13f55",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-04-25T13:46:19Z",
+      "side": 1,
+      "message": "let\u0027s have it like this for now, we can adjust later, if that seems to small",
+      "parentUuid": "69261e9a_a7bd68ac",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 15
+      },
+      "revId": "389131ee028faa9e0cd00b0fe3fc08eca205bd53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
