@@ -36,6 +36,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e604db6_aff9e1b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T10:40:17Z",
+      "side": 1,
+      "message": "I do not think this CL is useful - let\u0027s invest in migrating paths to the new engine, and not worrying about dealing with both.",
+      "revId": "ca8554560914391581879d3ca9ad30eb1abbde80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78e85c1c_ddbf55a2",
@@ -49,6 +66,30 @@
       "writtenOn": "2023-04-25T09:48:01Z",
       "side": 1,
       "message": "aren\u0027t interaction events coming only from the new engine?",
+      "range": {
+        "startLine": 318,
+        "startChar": 23,
+        "endLine": 318,
+        "endChar": 39
+      },
+      "revId": "ca8554560914391581879d3ca9ad30eb1abbde80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e34b59_dc82325f",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T10:40:17Z",
+      "side": 1,
+      "message": "Yeah, they are, but I was playing around with the idea that we should make sure we support both in case there is some code path we do not know about. But I don\u0027t think there is...",
+      "parentUuid": "78e85c1c_ddbf55a2",
       "range": {
         "startLine": 318,
         "startChar": 23,
