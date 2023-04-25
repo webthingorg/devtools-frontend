@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "930bef51_e59fcf22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-25T15:33:07Z",
+      "side": 1,
+      "message": "LGTM! Do you have any idea how we can make this testable? Unittests possibly? Happy to have that in a followup though!",
+      "revId": "0fd84de0f3bfbe511f4048171d82fb860e532aff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

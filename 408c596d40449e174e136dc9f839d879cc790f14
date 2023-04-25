@@ -248,6 +248,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f0ccd4_225dcfc3",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-25T15:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aba9dba_2aa62be8",
+      "revId": "408c596d40449e174e136dc9f839d879cc790f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c55329b_41125c3c",
