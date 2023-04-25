@@ -39,6 +39,53 @@
       },
       "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a1e15e_9cbf893e",
+        "filename": "front_end/models/timeline_model/TimelineModelFilter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T08:58:26Z",
+      "side": 1,
+      "message": "agree!",
+      "parentUuid": "23f6894b_78c4d0fe",
+      "range": {
+        "startLine": 21,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 83
+      },
+      "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123ac97f_a162de33",
+        "filename": "front_end/panels/timeline/EventsTimelineTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-25T08:58:26Z",
+      "side": 1,
+      "message": "I am not entirely sure what child is here, but will this ever work for new trace events? How do we construct the tree?\n\nCan we add unit tests to this as part of this change?",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 21
+      },
+      "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
