@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1233cc1_635b050d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-26T13:53:59Z",
+      "side": 1,
+      "message": "It looks like crrev.com/c/4478411 landed about an hour ago and took care of the deps for `runBounceTrackingMitigations`. Should I just abandon this CL?",
+      "revId": "152aab59d51c288318a3ad0aa1527308d598327c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
