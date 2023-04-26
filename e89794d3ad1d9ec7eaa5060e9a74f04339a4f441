@@ -39,6 +39,30 @@
       },
       "revId": "e89794d3ad1d9ec7eaa5060e9a74f04339a4f441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e03b4d_3641dc18",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-26T09:30:12Z",
+      "side": 1,
+      "message": "I don\u0027t think we should because we wouldn\u0027t localise \u0027pointerdown\u0027, so I think we should stick with them as is.",
+      "parentUuid": "6b41ec97_7247284e",
+      "range": {
+        "startLine": 211,
+        "startChar": 12,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "e89794d3ad1d9ec7eaa5060e9a74f04339a4f441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
