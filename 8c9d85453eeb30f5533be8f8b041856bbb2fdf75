@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b227f9_afb76c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-26T07:07:30Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m adding the Ctrl/Meta + MouseClick shortcut for opening the edit dialog, ptal!",
+      "revId": "8c9d85453eeb30f5533be8f8b041856bbb2fdf75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
