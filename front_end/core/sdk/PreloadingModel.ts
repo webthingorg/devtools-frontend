@@ -145,6 +145,11 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     return document.preloadingAttempts.getAll(null, document.sources);
   }
 
+  // Returs preload enabled state.
+  getPreloadEnabledState(): string {
+    return this.preloadEnabledState;
+  }
+
   private onPrimaryPageChanged(
       event: Common.EventTarget.EventTargetEvent<{frame: ResourceTreeFrame, type: PrimaryPageChangeType}>): void {
     const {frame, type} = event.data;
@@ -305,6 +310,7 @@ class DocumentPreloadingData {
   ruleSets: RuleSetRegistry = new RuleSetRegistry();
   preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
   sources: SourceRegistry = new SourceRegistry();
+  preloadEnabledState: string = '';
 
   mergePrevious(prev: DocumentPreloadingData): void {
     // Note that CDP events Preload.ruleSetUpdated/Deleted and
