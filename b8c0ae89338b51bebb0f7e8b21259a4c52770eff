@@ -86,6 +86,30 @@
       },
       "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf346798_24c69ac9",
+        "filename": "front_end/panels/timeline/EventsTimelineTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-26T13:37:20Z",
+      "side": 1,
+      "message": "`child` is a `Node` instance and support for new engine trace events in that class is added on [1] \n\nthe data needed from the events to build the tree is already available to us as part of this and an upcoming change.\n\n\u003e How do we construct the tree?\n\nThe logic to build both bottom up and top down trees is implemented in [2]. I\u0027ve added some tests and explanatory comments on the next patch.\n\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4466288/4/front_end/models/timeline_model/TimelineProfileTree.ts#14\n[2] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/timeline_model/TimelineProfileTree.ts",
+      "parentUuid": "123ac97f_a162de33",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 21
+      },
+      "revId": "b8c0ae89338b51bebb0f7e8b21259a4c52770eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
