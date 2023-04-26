@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91dca789_c9e77adf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-26T09:42:29Z",
+      "side": 1,
+      "message": "Kindly add a screenshot that shows how this looks now for warnings/errors.",
+      "revId": "de9b5b85377143b2043c8bba85c65b018921555b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d3d181_802063f9",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-26T09:42:29Z",
+      "side": 1,
+      "message": "nit: strictEqual for string comparison.\n\nNote that there exists an `assert.lengthOf` assertion that would improve the error message here slightly if we\u0027d rewrite the code as follows:\n\n```\nlet messages \u003d [...uiSourceCode.messages()];\nassert.lengthOf(messages, 1);\nassert.strictEqual(messages[0].text(), message.messageText);\n```",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "revId": "de9b5b85377143b2043c8bba85c65b018921555b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
