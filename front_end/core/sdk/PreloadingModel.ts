@@ -211,6 +211,11 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     this.dispatchEventToListeners(Events.ModelUpdated);
   }
 
+  onPreloadEnabledStateUpdated(event: Protocol.Preload.PreloadEnabledStateUpdated): void {
+    this.preloadEnabledState = event.state;
+    this.dispatchEventToListeners(Events.ModelUpdated);
+  }
+
   onPreloadingAttemptSourcesUpdated(event: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void {
     const loaderId = event.loaderId;
     this.ensureDocumentPreloadingData(loaderId);
@@ -275,6 +280,10 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
     this.model.onRuleSetRemoved(event);
   }
 
+  preloadEnabledStateUpdated(event: Protocol.Preload.PreloadEnabledStateUpdatedEvent): void {
+    this.model.onPreloadEnabledStateUpdated(event);
+  }
+
   preloadingAttemptSourcesUpdated(event: Protocol.Preload.PreloadingAttemptSourcesUpdatedEvent): void {
     this.model.onPreloadingAttemptSourcesUpdated(event);
   }
@@ -295,6 +304,7 @@ class DocumentPreloadingData {
   ruleSets: RuleSetRegistry = new RuleSetRegistry();
   preloadingAttempts: PreloadingAttemptRegistry = new PreloadingAttemptRegistry();
   sources: SourceRegistry = new SourceRegistry();
+  preloadEnabledState: string = '';
 
   mergePrevious(prev: DocumentPreloadingData): void {
     // Note that CDP events Preload.ruleSetUpdated/Deleted and
