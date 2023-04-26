@@ -80,6 +80,30 @@
       },
       "revId": "7b135ebbc6509670b8e145aa8870934e15938bdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45fb8ae_616a9ff2",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-26T07:26:48Z",
+      "side": 1,
+      "message": "IIRC in the past we had cases where we file non-crashing reports on ChromeCrash for \"metrics out of bounds\" from the DevTools backend, but I can\u0027t remember the details. I don\u0027t think it applies in this case since `MaxValue` is also updated.",
+      "parentUuid": "50cfb191_916a796a",
+      "range": {
+        "startLine": 791,
+        "startChar": 3,
+        "endLine": 791,
+        "endChar": 17
+      },
+      "revId": "7b135ebbc6509670b8e145aa8870934e15938bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
