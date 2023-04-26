@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "312aaa0e_cec95a85",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T09:47:36Z",
+      "side": 1,
+      "message": "Is this for readabilities sake? The type checker wouldn\u0027t allow anything but a CSSModel in the second branch.",
+      "parentUuid": "977e5d9e_85e3b089",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb934036_dcfc534a",
         "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
         "patchSetId": 4
@@ -87,6 +111,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f65296_56096c7d",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T09:47:36Z",
+      "side": 1,
+      "message": "pendingLiveLocationChangesPromise doesn\u0027t cover the uiLocation path, it\u0027s only available for CSSLocation and DebuggerModel.Location",
+      "parentUuid": "dfda1949_fe28d505",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bacad283_b89a156a",
@@ -100,6 +148,30 @@
       "writtenOn": "2023-04-26T09:42:29Z",
       "side": 1,
       "message": "Clever, I like it a lot! :)",
+      "range": {
+        "startLine": 68,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 93
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c155d9ce_84b1399d",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T09:47:36Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "bacad283_b89a156a",
       "range": {
         "startLine": 68,
         "startChar": 3,
