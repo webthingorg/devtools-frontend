@@ -16,6 +16,24 @@
       "message": "Please add handlings of preloadEnabledStateUpdated to PreloadDispatchers.",
       "revId": "728f99ef1b511bf3a272d04538595d21413bf3fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0fe1dcc_9752df21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-26T06:06:43Z",
+      "side": 1,
+      "message": "Compile should fail.",
+      "parentUuid": "620f67ba_49f28353",
+      "revId": "728f99ef1b511bf3a272d04538595d21413bf3fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
