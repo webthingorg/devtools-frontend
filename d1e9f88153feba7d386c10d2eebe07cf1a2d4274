@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d1e9f88153feba7d386c10d2eebe07cf1a2d4274",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3b67874_4d88f16d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-26T09:33:34Z",
+      "side": 1,
+      "message": "LGTM (the failing lighthouse e2e tests on the windows bot are unrelated to this CL and a fix is being worked on)",
+      "revId": "d1e9f88153feba7d386c10d2eebe07cf1a2d4274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
