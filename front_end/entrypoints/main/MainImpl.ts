@@ -510,6 +510,7 @@ export class MainImpl {
       hideIssueSetting: IssuesManager.IssuesManager.getHideIssueByCodeSetting(),
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
+    IssuesManager.FormIssuesCheckTrigger.FormIssuesCheckTrigger.instance();
 
     // @ts-ignore layout test global
     self.UI.dockController = UI.DockController.DockController.instance({forceNew: true, canDock});

@@ -847,6 +847,7 @@ grd_files_debug_sources = [
   "front_end/models/issues_manager/CrossOriginEmbedderPolicyIssue.js",
   "front_end/models/issues_manager/DeprecationIssue.js",
   "front_end/models/issues_manager/FederatedAuthRequestIssue.js",
+  "front_end/models/issues_manager/FormIssuesCheckTrigger.js",
   "front_end/models/issues_manager/GenericIssue.js",
   "front_end/models/issues_manager/HeavyAdIssue.js",
   "front_end/models/issues_manager/Issue.js",

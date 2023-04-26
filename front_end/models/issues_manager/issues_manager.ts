@@ -10,6 +10,7 @@ import * as CookieIssue from './CookieIssue.js';
 import * as CorsIssue from './CorsIssue.js';
 import * as CrossOriginEmbedderPolicyIssue from './CrossOriginEmbedderPolicyIssue.js';
 import * as DeprecationIssue from './DeprecationIssue.js';
+import * as FormIssuesCheckTrigger from './FormIssuesCheckTrigger.js';
 import * as GenericIssue from './GenericIssue.js';
 import * as HeavyAdIssue from './HeavyAdIssue.js';
 import * as Issue from './Issue.js';
@@ -34,6 +35,7 @@ export {
   CorsIssue,
   CrossOriginEmbedderPolicyIssue,
   DeprecationIssue,
+  FormIssuesCheckTrigger,
   GenericIssue,
   HeavyAdIssue,
   Issue,
