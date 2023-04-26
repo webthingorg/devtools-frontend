@@ -253,6 +253,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43baf7f_ea484958",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T10:37:05Z",
+      "side": 1,
+      "message": "There\u0027s an extra tick in the eventHandler (queueMicrotask in setCSSModel, which is necessary for the race with CSSWorkspaceBinding). That being said the test is passing if I remove this, but it still makes me a little worried.",
+      "parentUuid": "3661614f_1e210690",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 35
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "37ca52d2_9f6f8e24",
@@ -289,6 +313,30 @@
       "writtenOn": "2023-04-26T09:42:29Z",
       "side": 1,
       "message": "strictEqual for number comparisons here and below",
+      "range": {
+        "startLine": 131,
+        "startChar": 11,
+        "endLine": 131,
+        "endChar": 20
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b014c5_cb783088",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T10:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a21b5ebe_46720753",
       "range": {
         "startLine": 131,
         "startChar": 11,

@@ -39,6 +39,30 @@
       },
       "revId": "de9b5b85377143b2043c8bba85c65b018921555b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6627c088_3048353e",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-04-26T10:37:05Z",
+      "side": 1,
+      "message": "I did not know about lengthOf! It only works with a .length property apparently, not .size, but still pretty cool!\n\nstrictEqual done.",
+      "parentUuid": "49d3d181_802063f9",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "revId": "de9b5b85377143b2043c8bba85c65b018921555b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
