@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fff114f_21e4aeee",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-26T10:26:49Z",
+      "side": 1,
+      "message": "Oh, I missed that bit, please ignore.",
+      "parentUuid": "312aaa0e_cec95a85",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb934036_dcfc534a",
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "pendingLiveLocationChangesPromise doesn\u0027t cover the uiLocation path, it\u0027s only available for CSSLocation and DebuggerModel.Location",
       "parentUuid": "dfda1949_fe28d505",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "d13d7a292773a2fe07b2dd94e4ee85ebda63f453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43315cd5_256d5fb3",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-26T10:26:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b2f65296_56096c7d",
       "range": {
         "startLine": 22,
         "startChar": 2,
