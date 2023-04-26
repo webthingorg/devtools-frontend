@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8157438f_0d7c0b52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-26T07:20:42Z",
+      "side": 1,
+      "message": "Thanks for the review!",
+      "revId": "7b135ebbc6509670b8e145aa8870934e15938bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7df1aaa1_9bdf1d7a",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-04-26T07:16:35Z",
       "side": 1,
       "message": "Was this already updated in the backend?",
+      "range": {
+        "startLine": 791,
+        "startChar": 3,
+        "endLine": 791,
+        "endChar": 17
+      },
+      "revId": "7b135ebbc6509670b8e145aa8870934e15938bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50cfb191_916a796a",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2023-04-26T07:20:42Z",
+      "side": 1,
+      "message": "Not yet, I was planning to update it after submitting this. As far as I know that shouldn\u0027t be problematic?",
+      "parentUuid": "7df1aaa1_9bdf1d7a",
       "range": {
         "startLine": 791,
         "startChar": 3,
