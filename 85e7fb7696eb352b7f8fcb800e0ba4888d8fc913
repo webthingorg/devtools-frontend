@@ -69,6 +69,24 @@
       "parentUuid": "eab4dc68_b2c309bf",
       "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b436da_72db34a1",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T01:53:43Z",
+      "side": 1,
+      "message": "After examining, `chrome://settings/cookies` directs to the same page as `chrome://settings/preloading`.\nBut due to the current backend implementation, there is no way to know the exact reason why the preference setting is disabled.\nI added a TODO here about extending the event to know the details.",
+      "parentUuid": "43ee0e63_ba63a6e0",
+      "revId": "85e7fb7696eb352b7f8fcb800e0ba4888d8fc913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -22,6 +22,30 @@
       },
       "revId": "d170d3e6061c5b87e93d907860d845927bcb1488",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2586a6_acd3d051",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T01:53:43Z",
+      "side": 1,
+      "message": "Thanks a lot! It works now.",
+      "parentUuid": "9455af72_0e207641",
+      "range": {
+        "startLine": 365,
+        "startChar": 10,
+        "endLine": 365,
+        "endChar": 69
+      },
+      "revId": "d170d3e6061c5b87e93d907860d845927bcb1488",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
