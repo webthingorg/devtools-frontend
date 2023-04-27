@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25965d8b_3f790da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-04-27T10:50:20Z",
+      "side": 1,
+      "message": "This is the first CL in preparation for moving Recorder to this repo. PTAL but I want to wait for subsequent CLs to be ready before I land this.",
+      "revId": "750a2de0dfbe0933e41d9f99f38427b732882af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
