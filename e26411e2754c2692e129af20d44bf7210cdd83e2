@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b161ab4a_a558964c",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-27T16:04:15Z",
+      "side": 1,
+      "message": "(This is my understanding.) Please don\u0027t implement handlers in the roll protocol CL. Keep it empty.\n\nAnyway, I feel this CDP is not a main part and it\u0027d be better to add this at the last of this class.",
+      "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8ba1d77_1f2bd785",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-27T16:04:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
