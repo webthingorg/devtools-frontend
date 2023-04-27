@@ -60,6 +60,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "361e6d9c_e78a2a2d",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-04-27T03:49:20Z",
+      "side": 1,
+      "message": "I wonder if it is related to curranmax@\u0027s gradual UI rollout via Finch? PreloadingDesktopSettingsSubPage.gcl / https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1399143 .",
+      "parentUuid": "3993ab3b_a7a7b13d",
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab87ac38_bba0f3a2",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 17
