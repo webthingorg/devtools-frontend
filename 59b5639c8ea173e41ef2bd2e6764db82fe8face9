@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0450fd09_1ba59bfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-04-27T18:58:56Z",
+      "side": 1,
+      "message": "Small suggestion.",
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd849943_1f3ed65b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-04-27T18:58:56Z",
+      "side": 1,
+      "message": "The descriptions are used to provide context for translators. I\u0027ll suggest we use the full name here.",
+      "range": {
+        "startLine": 395,
+        "startChar": 63,
+        "endLine": 395,
+        "endChar": 66
+      },
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
