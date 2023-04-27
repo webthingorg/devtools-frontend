@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "597f08ef_b8e1ff0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T02:29:39Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35db880_0a0562ad",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T02:29:39Z",
+      "side": 1,
+      "message": "state",
+      "range": {
+        "startLine": 79,
+        "startChar": 38,
+        "endLine": 79,
+        "endChar": 42
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3993ab3b_a7a7b13d",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T02:29:39Z",
+      "side": 1,
+      "message": "\u003e After examining, chrome://settings/cookies directs to the same page as chrome://settings/preloading.\n\nI\u0027m still not sure when `chrome://settings/preloading` is available. As far as I can test on the latest Canary on macOS (`114.0.5735.2 (Official Build) canary （x86_64）`), chrome://settings/preloading is not available (it\u0027s redirected to chrome://settings/), while chrome://settings/cookies shows the preloading setting. So, I wonder if it\u0027s safer to show chrome://settings/cookies here...?",
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab87ac38_bba0f3a2",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T02:29:39Z",
+      "side": 1,
+      "message": "\"because of an extension or a user setting\" ?",
+      "range": {
+        "startLine": 84,
+        "startChar": 44,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
