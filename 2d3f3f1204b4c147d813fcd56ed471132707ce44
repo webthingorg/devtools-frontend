@@ -20,6 +20,69 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "66fd98bc_17c5f135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-27T13:30:26Z",
+      "side": 1,
+      "message": "LGTM with small suggestions",
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7dedbc_bd7bbb57",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-27T13:30:26Z",
+      "side": 1,
+      "message": "Since I want to try the new  suggestion feature, let\u0027s use the variable we declared for simplicity. 😋\n```suggestion\n              entryStartTime + candyStripeStartTime;\n```",
+      "range": {
+        "startLine": 1101,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 112
+      },
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd0dd4b_2e1ecee3",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2138,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-04-27T13:30:26Z",
+      "side": 1,
+      "message": "I got a bit confused trying to understand the meaning of the name because I thought \"duration\" was referring to the duration of the stripe. Wdyt about `startAt`",
+      "range": {
+        "startLine": 2138,
+        "startChar": 2,
+        "endLine": 2138,
+        "endChar": 15
+      },
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d201015_badca2a6",
         "filename": "test/interactions/goldens/linux/performance/flame_chart_1.png",
         "patchSetId": 2
