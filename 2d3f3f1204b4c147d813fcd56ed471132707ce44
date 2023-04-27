@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d201015_badca2a6",
+        "filename": "test/interactions/goldens/linux/performance/flame_chart_1.png",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T12:59:53Z",
+      "side": 1,
+      "message": "reduced the height here just to save space and keep the screenshot smaller",
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
