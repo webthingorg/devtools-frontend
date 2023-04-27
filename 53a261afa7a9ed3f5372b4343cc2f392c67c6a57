@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb7b3f67_5588c599",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "nit: it might be useful to describe in the commit message what the check is.",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "34875a0a_7bd56c1f",
@@ -14,6 +37,345 @@
       "writtenOn": "2023-04-27T09:14:07Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3d64cf6_f0544ed3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "This is looking good! Please don\u0027t be put off by the amount of comments, most of them are small and mainly I think we should ensure that there is real clarification on what it means to be able to build a tree and why we can or cannot do that given a certain set of events.",
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8757492a_54ec6726",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "nit: I would also consider explaining here what the criteria is for if the events can be a tree or not.",
+      "range": {
+        "startLine": 215,
+        "startChar": 3,
+        "endLine": 218,
+        "endChar": 5
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d18c09_a2dca31d",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "will this ever actually be undefined? I think it\u0027ll always be event.ts which IIRC is always a number.\n\nAlso, should we type this as Timings.Microseconds?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 77
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bbd8dcd_779f9186",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "as per previous comment, not sure this ever actually gets called",
+      "range": {
+        "startLine": 224,
+        "startChar": 5,
+        "endLine": 226,
+        "endChar": 7
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1123d585_6d578e08",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "tiny nit: if we did stack.at(-1) that would 1) be a bit clearer perhaps and 2) make TS force us to check the undefined case.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 43
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bcb0af_e69e6173",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "I am not sure if the comment and the check in the code align here.\n\nThe comment says \"parent end time is after this event\u0027s start time\"\n\nBut the code says \"where the startTime is greater than the parent\u0027s end time\"",
+      "range": {
+        "startLine": 234,
+        "startChar": 7,
+        "endLine": 235,
+        "endChar": 57
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "145a36cf_39eb1977",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "same nit about using stack.at(-1)",
+      "range": {
+        "startLine": 237,
+        "startChar": 17,
+        "endLine": 237,
+        "endChar": 41
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "026863f8_a7c658d5",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "to check I understand here: we are saying if we have a bunch of async events, and they aren\u0027t all entirely nestable, we cannot build a tree?\n\nFor example, this set of events IS nestable:\n\n```\n\u003d\u003d\u003d\u003d\u003d\u003dA\u003d\u003d\u003d\u003d\u003d\u003d\n  \u003d\u003d\u003d\u003dB\u003d\u003d\u003d\n    \u003d\u003d\u003dC\u003d\u003d\n     \u003d\u003d\u003d\u003d\u003d\u003dD\u003d\n```\n\nBecause they are all nestable (even though D\u0027s end time is \u003e C or B?).\n\nHowever this set of events:\n\n```\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003dA\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d \u003d\u003d\u003d\u003d\u003dB\u003d\u003d\u003d\u003d\n \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003dC\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n```\n\nIs not, because B cannot be nested under A? So we cannot make one tree?\n\nI wonder if moving some examples like these into the code comments would help visually describe it.",
+      "range": {
+        "startLine": 244,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558d23b3_f42f4e32",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "does it? The return type on the function would disagree :D",
+      "range": {
+        "startLine": 260,
+        "startChar": 5,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248fb74e_ab5f1d5e",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "thinking out loud (not to be done right now or any time soon), I wonder if eventually we can remove the concept of a group and replace it with a track appender directly.",
+      "range": {
+        "startLine": 285,
+        "startChar": 62,
+        "endLine": 286,
+        "endChar": 55
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e5e813_72c27064",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "this is such a nice change",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 66
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bd45865_871e072b",
+        "filename": "test/unittests/fixtures/traces/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "what does this trace do and is the code that made it worth adding to https://github.com/ChromeDevTools/performance-stories ?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fb74a4d_b9af6af0",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/CompatibilityTracksAppender_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "I was surprised that we need to sort these here. Should the eventsInTrack() method not sort these?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 103
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea179e7_6d5b2c49",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/CompatibilityTracksAppender_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "why do we need to cast here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 99
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8819023b_792ac91e",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/CompatibilityTracksAppender_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:46:50Z",
+      "side": 1,
+      "message": "is there a reason you want this extra test? If it is testing something unique to the first, let\u0027s describe that in the string, otherwise let\u0027s remove it",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 67
+      },
       "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
