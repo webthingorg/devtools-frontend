@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "773d0150_1429ccd4",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T09:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8547e588_08528c13",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 70
+      },
+      "revId": "d104dafe5aae4c8f25bbd053456689c1bd96def9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d587971_e1fa23ea",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-27T08:57:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 366,
+        "startChar": 36,
+        "endLine": 366,
+        "endChar": 64
+      },
+      "revId": "d104dafe5aae4c8f25bbd053456689c1bd96def9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf523432_84fa79f3",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T09:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d587971_e1fa23ea",
       "range": {
         "startLine": 366,
         "startChar": 36,
