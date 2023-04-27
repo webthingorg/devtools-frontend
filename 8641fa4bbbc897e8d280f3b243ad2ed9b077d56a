@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "accfdceb_a2bdd3e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-27T08:53:52Z",
+      "side": 1,
+      "message": "Could you explain how this change is related to breakpoints?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a6e54fa_1d8663ac",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-27T08:53:52Z",
+      "side": 1,
+      "message": "nit: just `.called`?",
+      "range": {
+        "startLine": 216,
+        "startChar": 45,
+        "endLine": 216,
+        "endChar": 49
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5ae04f_567db3fa",
+        "filename": "test/unittests/front_end/panels/sources/SourcesNavigator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-04-27T08:53:52Z",
+      "side": 1,
+      "message": "These changes probably crept in unintentionally.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
