@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8547e588_08528c13",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T08:57:21Z",
+      "side": 1,
+      "message": "Sorry for nit-picking, but this may be `user settings or an extension` as the next sentence explains them in this order.",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 70
+      },
+      "revId": "d104dafe5aae4c8f25bbd053456689c1bd96def9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d587971_e1fa23ea",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T08:57:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 366,
+        "startChar": 36,
+        "endLine": 366,
+        "endChar": 64
+      },
+      "revId": "d104dafe5aae4c8f25bbd053456689c1bd96def9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
