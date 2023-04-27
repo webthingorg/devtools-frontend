@@ -16,6 +16,23 @@
       "message": "I\u0027m not sure if subclassing or this approach is better (use abstract methods that the subclasses implement for the 3 ops we need).",
       "revId": "2624f5cf4c72dd07fec5d18e4d54460c62d2719a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ca12f7_6837b040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-04-27T06:58:01Z",
+      "side": 1,
+      "message": "Philip, can you take a look at the TypeScript typings specifically?",
+      "revId": "2624f5cf4c72dd07fec5d18e4d54460c62d2719a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
