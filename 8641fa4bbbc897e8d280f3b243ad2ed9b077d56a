@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f5951c_ac04c4f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-27T09:57:44Z",
+      "side": 1,
+      "message": "With scoped listeners DebuggerWorkspaceBindings.modelAdded was called after DebuggerModel.parsedScriptSource, which was unexpected. Jaro looked into it, I\u0027m not sure about the details.",
+      "parentUuid": "accfdceb_a2bdd3e5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a6e54fa_1d8663ac",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e2acd0_776e6ca0",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-27T09:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a6e54fa_1d8663ac",
+      "range": {
+        "startLine": 216,
+        "startChar": 45,
+        "endLine": 216,
+        "endChar": 49
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe5ae04f_567db3fa",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-04-27T08:53:52Z",
       "side": 1,
       "message": "These changes probably crept in unintentionally.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "8641fa4bbbc897e8d280f3b243ad2ed9b077d56a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542c4279_76fc61a0",
+        "filename": "test/unittests/front_end/panels/sources/SourcesNavigator_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-27T09:57:44Z",
+      "side": 1,
+      "message": "The license? The autoformatter did it. Not sure why.",
+      "parentUuid": "fe5ae04f_567db3fa",
       "range": {
         "startLine": 1,
         "startChar": 0,
