@@ -102,6 +102,24 @@
       "message": "(nit): Instead of passing `link` element here, can we directly pass the content string so that instead of calling `this.#variableLink.getAttribute(\u0027data-title\u0027)` inside the `CSSVariableValueView` we call it here.\n\nThe reason I\u0027m asking this is, it seems like `CSSVariableValueView` don\u0027t need to know the `link` Element but only the content it is going to render. Since in here we know that link element is a `.css-var-link` we also know that it will contain `data-title` attribute. Whereas, `CSSVariableValueView` can be instantiated with any element and it might or might not contain `data-title` attribute. WDYT?",
       "revId": "b0f13b3d52320e4753525f28f7436dbf9c7e40e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b7bb86_668e6b3f",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1555450
+      },
+      "writtenOn": "2023-04-27T08:36:33Z",
+      "side": 1,
+      "message": "Make sense. It should not rely on specific attributes.\nDone.",
+      "parentUuid": "77286c3c_2af9fcfd",
+      "revId": "b0f13b3d52320e4753525f28f7436dbf9c7e40e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
