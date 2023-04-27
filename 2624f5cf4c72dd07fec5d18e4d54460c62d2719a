@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0051d8c3_105ec8a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-04-27T06:27:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure if subclassing or this approach is better (use abstract methods that the subclasses implement for the 3 ops we need).",
+      "revId": "2624f5cf4c72dd07fec5d18e4d54460c62d2719a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
