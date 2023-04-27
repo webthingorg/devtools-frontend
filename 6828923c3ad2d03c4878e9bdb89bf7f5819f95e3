@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d5f288_cd1b3c8b",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T08:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f5342a9_f46c0bbe",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 34
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d35db880_0a0562ad",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-04-27T02:29:39Z",
       "side": 1,
       "message": "state",
+      "range": {
+        "startLine": 79,
+        "startChar": 38,
+        "endLine": 79,
+        "endChar": 42
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c33d3218_135177bf",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T08:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d35db880_0a0562ad",
       "range": {
         "startLine": 79,
         "startChar": 38,
@@ -119,6 +167,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35f89d40_7d270337",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T08:52:25Z",
+      "side": 1,
+      "message": "Thanks for the info!\nI just tested the feature flag `PreloadingDesktopSettingsSubPage`, and I think it will be safer to redirect to `chrome://settings/cookies` here? Preloading settings options exists with or without `PreloadingDesktopSettingsSubPage` in both cases.",
+      "parentUuid": "bbae437e_9f44c120",
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab87ac38_bba0f3a2",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 17
@@ -130,6 +196,30 @@
       "writtenOn": "2023-04-27T02:29:39Z",
       "side": 1,
       "message": "\"because of an extension or a user setting\" ?",
+      "range": {
+        "startLine": 84,
+        "startChar": 44,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c51abdd_7c4c37a8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T08:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab87ac38_bba0f3a2",
       "range": {
         "startLine": 84,
         "startChar": 44,
@@ -153,6 +243,30 @@
       "writtenOn": "2023-04-27T06:42:44Z",
       "side": 1,
       "message": "`Protocol.Preload.PreloadEnabledState.DisabledByPreference`",
+      "range": {
+        "startLine": 364,
+        "startChar": 60,
+        "endLine": 364,
+        "endChar": 80
+      },
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "796cacca_69e4c88a",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-04-27T08:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1caa433e_bb3b5b26",
       "range": {
         "startLine": 364,
         "startChar": 60,
