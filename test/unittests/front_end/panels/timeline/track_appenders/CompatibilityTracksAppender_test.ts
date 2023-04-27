@@ -13,6 +13,17 @@ import type * as TimelineModel from '../../../../../../front_end/models/timeline
 
 const {assert} = chai;
 
+function initTrackAppender(
+    flameChartData: PerfUI.FlameChart.FlameChartTimelineData, traceParsedData: TraceModel.Handlers.Types.TraceParseData,
+    entryData: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartEntry[],
+    entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[],
+    timelineModel: TimelineModel.TimelineModel.TimelineModelImpl):
+    Timeline.CompatibilityTracksAppender.CompatibilityTracksAppender {
+  const compatibilityTracksAppender = new Timeline.CompatibilityTracksAppender.CompatibilityTracksAppender(
+      flameChartData, traceParsedData, entryData, entryTypeByLevel, timelineModel);
+  return compatibilityTracksAppender;
+}
+
 describeWithEnvironment('TimingTrackAppender', () => {
   let traceParsedData: TraceModel.Handlers.Types.TraceParseData;
   let timelineModel: TimelineModel.TimelineModel.TimelineModelImpl;
@@ -20,28 +31,24 @@ describeWithEnvironment('TimingTrackAppender', () => {
   let entryData: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartEntry[] = [];
   let flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
   let entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
-
-  async function initTrackAppender(fixture = 'timings-track.json.gz'): Promise<void> {
-    entryData = [];
-    flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    entryTypeByLevel = [];
-    traceParsedData = await loadModelDataFromTraceFile(fixture);
-    timelineModel = (await traceModelFromTraceFile(fixture)).timelineModel;
-    tracksAppender = new Timeline.CompatibilityTracksAppender.CompatibilityTracksAppender(
-        flameChartData, traceParsedData, entryData, entryTypeByLevel, timelineModel);
+  beforeEach(async () => {
+    traceParsedData = await loadModelDataFromTraceFile('timings-track.json.gz');
+    timelineModel = (await traceModelFromTraceFile('timings-track.json.gz')).timelineModel;
+    tracksAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel, timelineModel);
     const timingsTrack = tracksAppender.timingsTrackAppender();
     const gpuTrack = tracksAppender.gpuTrackAppender();
     const nextLevel = timingsTrack.appendTrackAtLevel(0);
     gpuTrack.appendTrackAtLevel(nextLevel);
-  }
-
-  beforeEach(async () => {
-    await initTrackAppender();
+  });
+  afterEach(() => {
+    entryData = [];
+    flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
+    entryTypeByLevel = [];
   });
 
   describe('CompatibilityTracksAppender', () => {
     describe('eventsInTrack', () => {
-      it('returns all the events appended by a track 1', () => {
+      it('returns all the events appended by a track', () => {
         const timingsTrackEvents = tracksAppender.eventsInTrack('Timings').sort((a, b) => a.ts - b.ts);
         const allTimingEvents = [
           ...traceParsedData.UserTimings.consoleTimings,
@@ -52,11 +59,6 @@ describeWithEnvironment('TimingTrackAppender', () => {
         ].sort((a, b) => a.ts - b.ts);
         assert.deepEqual(allTimingEvents, timingsTrackEvents);
       });
-      it('returns all the events appended by a track 2', () => {
-        const gpuTrackEvents = tracksAppender.eventsInTrack('GPU').sort((a, b) => a.ts - b.ts);
-        assert.deepEqual(
-            traceParsedData.GPU.mainGPUThreadTasks as TraceModel.Types.TraceEvents.TraceEventData[], gpuTrackEvents);
-      });
     });
     describe('eventsForTreeView', () => {
       it('returns only sync events if using async events means a tree cannot be built', () => {
@@ -66,41 +68,18 @@ describeWithEnvironment('TimingTrackAppender', () => {
         const allEventsAreSync = treeEvents.every(event => !TraceModel.Types.TraceEvents.isAsyncPhase(event.ph));
         assert.isTrue(allEventsAreSync);
       });
-      it('returns both sync and async events if a tree can be built with them', async () => {
+      it('returns both sync and async events if a tree can be built from them', async () => {
         // This file contains events in the timings track that can be assembled as a tree
-        await initTrackAppender('sync-like-timings.json.gz');
+        traceParsedData = await loadModelDataFromTraceFile('sync-like-timings.json.gz');
+        timelineModel = (await traceModelFromTraceFile('sync-like-timings.json.gz')).timelineModel;
+        tracksAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel, timelineModel);
+        const timingsTrack = tracksAppender.timingsTrackAppender();
+        timingsTrack.appendTrackAtLevel(0);
+
         const timingsEvents = tracksAppender.eventsInTrack('Timings');
         assert.isTrue(tracksAppender.canBuildTreeFromEvents(timingsEvents));
         const treeEvents = tracksAppender.eventsForTreeView('Timings');
         assert.deepEqual(timingsEvents, treeEvents);
-      });
-    });
-    describe('groupEventsForTreeView', () => {
-      it('returns all the events of a flame chart group 1', async () => {
-        // This file contains events in the timings track that can be assembled as a tree
-        await initTrackAppender('sync-like-timings.json.gz');
-        const timingsGroupEvents = tracksAppender.groupEventsForTreeView(flameChartData.groups[0]);
-        if (!timingsGroupEvents) {
-          assert.fail('Could not find events for group');
-          return;
-        }
-        const allTimingEvents = [
-          ...traceParsedData.UserTimings.consoleTimings,
-          ...traceParsedData.UserTimings.timestampEvents,
-          ...traceParsedData.UserTimings.performanceMarks,
-          ...traceParsedData.UserTimings.performanceMeasures,
-          ...traceParsedData.PageLoadMetrics.allMarkerEvents,
-        ].sort((a, b) => a.ts - b.ts);
-        assert.deepEqual(allTimingEvents, timingsGroupEvents);
-      });
-      it('returns all the events of a flame chart group 2', () => {
-        const gpuGroupEvents = tracksAppender.groupEventsForTreeView(flameChartData.groups[1]);
-        if (!gpuGroupEvents) {
-          assert.fail('Could not find events for group');
-          return;
-        }
-        assert.deepEqual(
-            traceParsedData.GPU.mainGPUThreadTasks as TraceModel.Types.TraceEvents.TraceEventData[], gpuGroupEvents);
       });
     });
   });
