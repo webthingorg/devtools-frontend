@@ -101,6 +101,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbae437e_9f44c120",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-04-27T08:23:55Z",
+      "side": 1,
+      "message": "Ah, thanks! Good to know. If he takes time to launch it, I think it\u0027s nice to have messages that are commonly meaningful here.",
+      "parentUuid": "361e6d9c_e78a2a2d",
+      "revId": "6828923c3ad2d03c4878e9bdb89bf7f5819f95e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab87ac38_bba0f3a2",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 17
