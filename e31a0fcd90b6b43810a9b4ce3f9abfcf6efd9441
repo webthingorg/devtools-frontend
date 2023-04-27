@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544303b9_dda9c3ba",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-04-27T16:09:47Z",
+      "side": 1,
+      "message": "Ditto: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4478411/comment/4c30fa39_488603f3/",
+      "revId": "e31a0fcd90b6b43810a9b4ce3f9abfcf6efd9441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
