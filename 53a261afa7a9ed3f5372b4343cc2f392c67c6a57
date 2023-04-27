@@ -221,6 +221,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fde74163_e82e43a7",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T09:47:30Z",
+      "side": 1,
+      "message": "Looking again at this: I am not sure I understand why we can always make a tree from sync events, but not always from async. So that might need an explainer and some comments too.",
+      "parentUuid": "026863f8_a7c658d5",
+      "range": {
+        "startLine": 244,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "53a261afa7a9ed3f5372b4343cc2f392c67c6a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "558d23b3_f42f4e32",
         "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
         "patchSetId": 1
