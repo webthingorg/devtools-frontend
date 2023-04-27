@@ -7,7 +7,6 @@ devtools_image_files = [
   "accelerometer-left.png",
   "accelerometer-right.png",
   "accelerometer-top.png",
-  "checker.png",
   "chromeLeft.avif",
   "chromeMiddle.avif",
   "chromeRight.avif",
@@ -65,7 +64,11 @@ devtools_svg_sources = [
   "bundle.svg",
   "check-circle.svg",
   "check-double.svg",
+<<<<<<< HEAD   (3f60fe Add margin to prevent focus ring overlap in User-Agent form)
   "checkboxCheckmark.svg",
+=======
+  "checker.svg",
+>>>>>>> CHANGE (55fe81 [DevToolsIcons] Update a non-Material 3 icon to svg)
   "checkmark.svg",
   "chevron-double-right.svg",
   "chevron-down.svg",
