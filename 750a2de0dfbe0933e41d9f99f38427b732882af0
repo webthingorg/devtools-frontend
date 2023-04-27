@@ -56,6 +56,30 @@
       },
       "revId": "750a2de0dfbe0933e41d9f99f38427b732882af0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97eee900_74b83185",
+        "filename": "front_end/third_party/puppeteer-replay/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-04-27T11:10:32Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "44878be4_05e5a617",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 32
+      },
+      "revId": "750a2de0dfbe0933e41d9f99f38427b732882af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
