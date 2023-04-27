@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d62021f_8fb885e6",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T13:45:43Z",
+      "side": 1,
+      "message": "I would accept but I think you are missing a closing ), but yes good change!",
+      "parentUuid": "aa7dedbc_bd7bbb57",
+      "range": {
+        "startLine": 1101,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 112
+      },
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cd0dd4b_2e1ecee3",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-04-27T13:30:26Z",
       "side": 1,
       "message": "I got a bit confused trying to understand the meaning of the name because I thought \"duration\" was referring to the duration of the stripe. Wdyt about `startAt`",
+      "range": {
+        "startLine": 2138,
+        "startChar": 2,
+        "endLine": 2138,
+        "endChar": 15
+      },
+      "revId": "2d3f3f1204b4c147d813fcd56ed471132707ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b51a492_09da51f2",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-04-27T13:45:43Z",
+      "side": 1,
+      "message": "Yeah much better - I have gone for `startAtTime` to be more explicit too. Thanks!",
+      "parentUuid": "3cd0dd4b_2e1ecee3",
       "range": {
         "startLine": 2138,
         "startChar": 2,
