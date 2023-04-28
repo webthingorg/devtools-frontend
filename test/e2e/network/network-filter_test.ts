@@ -45,9 +45,6 @@ async function clearFilter() {
 }
 
 describe('The Network Tab', async function() {
-  // One of these tests reloads panels repeatedly, which can take a longer time.
-  this.timeout(20_000);
-
   beforeEach(async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
   });

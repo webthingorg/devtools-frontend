@@ -39,9 +39,6 @@ async function getThirdPartyFilter() {
 }
 
 describe('The Network Tab', async function() {
-  // The tests here tend to take time because they wait for requests to appear in the request panel.
-  this.timeout(5000);
-
   beforeEach(async () => {
     await navigateToNetworkTab('empty.html');
     await setCacheDisabled(true);

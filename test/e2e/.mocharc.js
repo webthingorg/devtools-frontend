@@ -20,6 +20,6 @@ module.exports = createMochaConfig({
     // Maintaining pre-allocated frontend tabs in the background while also running
     // tests can cause very long running tests in some edge cases. We are more linient
     // in e2e tests.
-    timeout : 10000,
+    timeout : 30000,
   }
 })

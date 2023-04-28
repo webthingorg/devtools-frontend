@@ -222,8 +222,6 @@ describe('Shortcuts Settings tab', async () => {
   });
 
   describe('[slow test]', function() {
-    this.timeout(10000);
-
     it('should allow users to set a new shortcut after the chord timeout', async function() {
       const {frontend} = getBrowserAndPages();
       await enableExperiment('keyboardShortcutEditor');

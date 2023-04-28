@@ -10,9 +10,6 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToPerformanceTab, openCaptureSettings} from '../helpers/performance-helpers.js';
 
 describe('The Performance panel', async function() {
-  // These tests reload panels repeatedly, which can take a longer time.
-  this.timeout(20_000);
-
   beforeEach(async () => {
     await navigateToPerformanceTab('empty');
     await openCaptureSettings('.timeline-settings-pane');

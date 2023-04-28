@@ -43,10 +43,6 @@ async function getRequestRowInfo(frontend: BrowserAndPages['frontend'], name: st
 }
 
 describe('The Network Tab', async function() {
-  if (this.timeout() !== 0.0) {
-    // These tests take some time on slow windows machines.
-    this.timeout(10000);
-  }
   const formatByteSize = (value: number) => {
     return `${value}\xA0B`;
   };
