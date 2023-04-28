@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5af33f_7a4c9833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-28T14:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee275ff2_46e432d9",
+      "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcaa8346_6f86b773",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a918fa_1e4be1c2",
+        "filename": "front_end/panels/application/BounceTrackingMitigationsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-28T14:52:29Z",
+      "side": 1,
+      "message": "oops! Done.",
+      "parentUuid": "fcaa8346_6f86b773",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 58
+      },
+      "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03f7b516_efc64d39",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-04-28T07:16:38Z",
       "side": 1,
       "message": "Where is this called?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 53
+      },
+      "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25451425_3f742e9a",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-04-28T14:52:29Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "03f7b516_efc64d39",
       "range": {
         "startLine": 72,
         "startChar": 0,
