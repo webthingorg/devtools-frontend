@@ -204,7 +204,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
+  await browser?.close();
 
   clearPuppeteerState();
   dumpCollectedErrors();
