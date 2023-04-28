@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dcee79a_3bc15e64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-04-28T07:10:29Z",
+      "side": 1,
+      "message": "WDYT about this UX? Do we have a precedent for that?",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
