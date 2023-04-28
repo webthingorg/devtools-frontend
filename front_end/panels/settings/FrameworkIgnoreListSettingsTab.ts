@@ -20,15 +20,15 @@ const UIStrings = {
   /**
    *@description Text in Framework Ignore List Settings Tab of the Settings
    */
-  ignoreListContentScripts: 'Add content scripts to ignore list',
+  ignoreListContentScripts: 'Add extension scripts to ignore list',
   /**
    *@description Ignore List content scripts title in Framework Ignore List Settings Tab of the Settings
    */
-  ignoreListContentScriptsExtension: 'Add content scripts to ignore list (extension scripts in the page)',
+  ignoreListContentScriptsExtension: 'Add content scripts injected by extensions to ignore list',
   /**
    *@description Text in Framework Ignore List Settings Tab of the Settings
    */
-  automaticallyIgnoreListKnownThirdPartyScripts: 'Automatically add known third-party scripts to ignore list',
+  automaticallyIgnoreListKnownThirdPartyScripts: 'Add known third-party scripts to ignore list',
   /**
    *@description Text in Framework Ignore List Settings Tab of the Settings
    */
