@@ -1,0 +1,16 @@
+# Copyright 2023 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../../../scripts/build/ninja/devtools_pre_built.gni")
+
+image_files = [ "checkmark.svg" ]
+
+devtools_pre_built("images") {
+  sources = []
+  data = []
+  foreach(image, image_files) {
+    sources += [ image ]
+    data += [ "$target_gen_dir/$image" ]
+  }
+}
