@@ -40,6 +40,7 @@ import * as Workspace from '../../models/workspace/workspace.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Snippets from '../snippets/snippets.js';
+import type * as Protocol from '../../generated/protocol.js';
 
 import navigatorTreeStyles from './navigatorTree.css.js';
 import navigatorViewStyles from './navigatorView.css.js';
@@ -170,7 +171,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
       Platform.MapUtilities.Multimap<Workspace.UISourceCode.UISourceCode, NavigatorUISourceCodeTreeNode>;
   private readonly subfolderNodes: Map<string, NavigatorFolderTreeNode>;
   private readonly rootNode: NavigatorRootTreeNode;
-  private readonly frameNodes: Map<SDK.ResourceTreeModel.ResourceTreeFrame, NavigatorGroupTreeNode>;
+  private readonly frameNodes: Map<Protocol.Page.FrameId, NavigatorGroupTreeNode>;
   private authoredNode?: NavigatorGroupTreeNode;
   private deployedNode?: NavigatorGroupTreeNode;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
@@ -689,7 +690,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
       return this.targetNode(project, target, isAuthored);
     }
 
-    let frameNode = this.frameNodes.get(frame);
+    let frameNode = this.frameNodes.get(frame.id);
     if (frameNode) {
       return frameNode;
     }
@@ -697,7 +698,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     frameNode =
         new NavigatorGroupTreeNode(this, project, target.id() + ':' + frame.id, Types.Frame, frame.displayName());
     frameNode.setHoverCallback(hoverCallback);
-    this.frameNodes.set(frame, frameNode);
+    this.frameNodes.set(frame.id, frameNode);
 
     const parentFrame = frame.parentFrame();
     this.frameNode(project, parentFrame ? parentFrame.resourceTreeModel().target() : target, parentFrame, isAuthored)
@@ -1116,7 +1117,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     if (isAuthored) {
       return;
     }
-    const node = this.frameNodes.get(frame);
+    const node = this.frameNodes.get(frame.id);
     if (!node) {
       return;
     }
@@ -1124,7 +1125,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     if (node.parent) {
       node.parent.removeChild(node);
     }
-    this.frameNodes.delete(frame);
+    this.frameNodes.delete(frame.id);
     for (const child of frame.childFrames) {
       this.discardFrame(child, isAuthored);
     }
