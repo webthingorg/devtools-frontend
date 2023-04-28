@@ -90,22 +90,23 @@ const actionRegistry = UI.ActionRegistry.ActionRegistry.instance();
 UI.ShortcutRegistry.ShortcutRegistry.instance({forceNew: true, actionRegistry: actionRegistry});
 Common.Settings.settingForTest('flamechartMouseWheelAction').set('zoom');
 const params = new URLSearchParams(window.location.search);
-const traceFileName = params.get('trace');
+const cpuprofileName = params.get('cpuprofile');
 
-const traceFile =
-    new URL('../../../../../test/unittests/fixtures/traces/node-fibonacci-website.cpuprofile.gz', import.meta.url);
-
-const timeline = Timeline.TimelinePanel.TimelinePanel.instance({forceNew: true, isNode: true});
-const container = document.getElementById('container');
-if (!container) {
-  throw new Error('could not find container');
+if (cpuprofileName) {
+  const timeline = Timeline.TimelinePanel.TimelinePanel.instance({forceNew: true, isNode: true});
+  const container = document.getElementById('container');
+  if (!container) {
+    throw new Error('could not find container');
+  }
+  container.innerHTML = '';
+  timeline.markAsRoot();
+  timeline.show(container);
+  const cpuprofileFile =
+      new URL(`../../../../../test/unittests/fixtures/traces/${cpuprofileName}.cpuprofile.gz`, import.meta.url);
+  const response = await fetch(cpuprofileFile);
+  const asBlob = await response.blob();
+  const asFile = new File([asBlob], `${cpuprofileName}.cpuprofile.gz`, {
+    type: 'application/gzip',
+  });
+  void timeline.loadFromFile(asFile);
 }
-container.innerHTML = '';
-timeline.markAsRoot();
-timeline.show(container);
-const response = await fetch(traceFile);
-const asBlob = await response.blob();
-const asFile = new File([asBlob], `${traceFileName}.json.gz`, {
-  type: 'application/gzip',
-});
-void timeline.loadFromFile(asFile);
