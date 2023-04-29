@@ -102,6 +102,42 @@
       "message": "Thanks for the fix!\n\nCan you complete the steps in https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/contributing.md#Legal-stuff please to submit this CL? :)",
       "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256bf81c_8e7e83ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1572863
+      },
+      "writtenOn": "2023-04-29T11:57:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e59f8ca_3cfa0493",
+      "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e68a75_25d77499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1572863
+      },
+      "writtenOn": "2023-04-29T11:57:08Z",
+      "side": 1,
+      "message": "I did try to add my email in the authors list. Somehow I wasn\u0027t able to do so.\n\n`git cl upload -r \"ergunsh@chromium.org,tvanderlippe@ch\nromium.org\" --send-mail\nRunning Python 3 presubmit upload checks ...\n 249.0s to run CheckChangeOnUpload from /Volumes/MacStorage/chromium/src/PRESUBMIT.py.\nPresubmit checks took 250.3s to calculate.\nPython 3 presubmit checks passed.\n\nNo more presubmits to run - skipping Python 2 presubmits.\n AUTHORS | 1 +\n 1 file changed, 1 insertion(+)\nWaiting for editor...\n\nsaving CL description to /Users/biboswanroy/depot_tools/.git_cl_description_backup\n\nremote: PERMISSION_DENIED: The caller does not have permission\nremote: [type.googleapis.com/google.rpc.LocalizedMessage]\nremote: locale: \"en-US\"\nremote: message: \"No Contributor Agreement on file for user Biboswan Roy \u003cbiboswan98@gmail.com\u003e (id\u003d1572863)\"\nremote:\nremote: [type.googleapis.com/google.rpc.RequestInfo]\nremote: request_id: \"9cb8b0cc301c42699799ca9f997e9c1f\"\nremote:\nremote: [type.googleapis.com/google.rpc.RequestInfo]\nremote: request_id: \"8e02718a2a3b4faa88d322b014682bcb\"\nfatal: unable to access \u0027https://chromium.googlesource.com/chromium/src.git/\u0027: The requested URL returned error: 403\n\nsaving CL description to /Users/biboswanroy/depot_tools/.git_cl_description_backup\n\n`",
+      "parentUuid": "1cb6b26e_585daa8b",
+      "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
