@@ -16,6 +16,24 @@
       "message": "Ditto: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4478411/comment/4c30fa39_488603f3/",
       "revId": "e31a0fcd90b6b43810a9b4ce3f9abfcf6efd9441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc4afed_50201dbc",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-01T07:52:34Z",
+      "side": 1,
+      "message": "Updated in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4495748 , thanks for the comment.",
+      "parentUuid": "544303b9_dda9c3ba",
+      "revId": "e31a0fcd90b6b43810a9b4ce3f9abfcf6efd9441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
