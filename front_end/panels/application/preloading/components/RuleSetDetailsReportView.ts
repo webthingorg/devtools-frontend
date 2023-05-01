@@ -2,12 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
+import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
+import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
+import * as Buttons from '../../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
+import * as NetworkForward from '../../../network/forward/forward.js';
 
 type RuleSet = Protocol.Preload.RuleSet;
 
@@ -25,6 +30,10 @@ const UIStrings = {
    */
   detailsError: 'Error',
   /**
+   *@description Description term: source location of rule set (<script> or URL designated in the HTTP header)
+   */
+  detailsLocation: 'Location',
+  /**
    *@description Description term: source text of rule set
    */
   detailsSource: 'Source',
@@ -40,6 +49,14 @@ const UIStrings = {
    *@description validity: Rule set contains invalid rules and they are ignored
    */
   validitySomeRulesInvalid: 'Some rules are invalid and ignored',
+  /**
+   *@description button: Open the corresponding <script> tag of rule set in Elements panel
+   */
+  buttonOpenInElements: 'Open in Elements',
+  /**
+   *@description button: Open the corresponding request of rule set in Network panel
+   */
+  buttonOpenInNetwork: 'Open in Network',
 };
 const str_ =
     i18n.i18n.registerUIStrings('panels/application/preloading/components/RuleSetDetailsReportView.ts', UIStrings);
@@ -112,11 +129,104 @@ export class RuleSetDetailsReportView extends HTMLElement {
             </div>
           </${ReportView.ReportView.ReportValue.litTagName}>
 
+          ${this.#location()}
+
           ${this.#source(this.#data.sourceText)}
         </${ReportView.ReportView.Report.litTagName}>
       `, this.#shadow, {host: this});
       // clang-format on
     });
+  }
+
+  #location(): LitHtml.LitTemplate {
+    assertNotNullOrUndefined(this.#data);
+
+    if (this.#data.backendNodeId !== undefined) {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      return LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsLocation)}</${
+            ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+            <div class="text-ellipsis">
+              &lt;script&gt;
+              <${Buttons.Button.Button.litTagName}
+                .variant=${Buttons.Button.Variant.SECONDARY}
+                @click=${this.#openSpeculationRulesInElements}>
+                ${i18nString(UIStrings.buttonOpenInElements)}
+              </${Buttons.Button.Button.litTagName}>
+            </div>
+          </${ReportView.ReportView.ReportValue.litTagName}>
+      `;
+      // clang-format on
+    }
+
+    if (this.#data.url !== undefined) {
+      let maybeButton;
+      if (this.#data.requestId === undefined) {
+        maybeButton = LitHtml.nothing;
+      } else {
+        // Disabled until https://crbug.com/1079231 is fixed.
+        // clang-format off
+        maybeButton = LitHtml.html`
+            <${Buttons.Button.Button.litTagName}
+              .variant=${Buttons.Button.Variant.SECONDARY}
+              @click=${this.#openSpeculationRulesInNetwork}>
+              ${i18nString(UIStrings.buttonOpenInNetwork)}
+            </${Buttons.Button.Button.litTagName}>
+        `;
+        // clang-format on
+      }
+
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      return LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsLocation)}</${
+            ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+            <div class="text-ellipsis">
+              ${this.#data.url}
+              ${maybeButton}
+            </div>
+          </${ReportView.ReportView.ReportValue.litTagName}>
+      `;
+      // clang-format on
+    }
+
+    throw new Error('unreachable');
+  }
+
+  #openSpeculationRulesInElements(): void {
+    const backendNodeId = this.#data?.backendNodeId || null;
+    if (backendNodeId === null) {
+      throw new Error('unreachable');
+    }
+
+    SDK.TargetManager.TargetManager.instance()
+        .scopeTarget()
+        ?.model(SDK.DOMModel.DOMModel)
+        ?.overlayModel()
+        .inspectNodeRequested({backendNodeId});
+  }
+
+  async #openSpeculationRulesInNetwork(): Promise<void> {
+    const requestId = this.#data?.requestId || null;
+    if (requestId === null) {
+      throw new Error('unreachable');
+    }
+
+    const request = SDK.TargetManager.TargetManager.instance()
+                        .scopeTarget()
+                        ?.model(SDK.NetworkManager.NetworkManager)
+                        ?.requestForId(requestId) ||
+        null;
+    if (request === null) {
+      return;
+    }
+
+    const requestLocation = NetworkForward.UIRequestLocation.UIRequestLocation.tab(
+        request, NetworkForward.UIRequestLocation.UIRequestTabs.Preview, {clearFilter: false});
+    await Common.Revealer.reveal(requestLocation);
   }
 
   #source(sourceText: string): LitHtml.LitTemplate {
