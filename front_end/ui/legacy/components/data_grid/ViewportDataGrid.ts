@@ -210,6 +210,7 @@ export class ViewportDataGrid<T> extends Common.ObjectWrapper.eventMixin<EventTy
       node.setStriped((offset + i) % 2 === 0);
       if (element !== previousElement.nextSibling) {
         tBody.insertBefore(element, previousElement.nextSibling);
+        (this.selectedNode?.elementInternal?.firstElementChild as HTMLElement).focus();
       }
       node.revealed = true;
       previousElement = element;
