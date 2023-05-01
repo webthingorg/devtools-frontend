@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea9c029c_c4821ddd",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-01T07:52:59Z",
+      "side": 1,
+      "message": "Updated in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4495748 , thanks for the comment.",
+      "parentUuid": "4c30fa39_488603f3",
+      "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b161ab4a_a558964c",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc018a4c_e2a06ce6",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-01T07:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b161ab4a_a558964c",
+      "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8ba1d77_1f2bd785",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-04-27T16:04:15Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e0fa781_f54d8aa1",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-01T07:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8ba1d77_1f2bd785",
       "revId": "e26411e2754c2692e129af20d44bf7210cdd83e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
