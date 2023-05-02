@@ -145,6 +145,30 @@
       },
       "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "937f29b8_41ca11fd",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-02T19:43:15Z",
+      "side": 1,
+      "message": "Now used in `BounceTrackingMitigationsView_test.ts`",
+      "parentUuid": "25451425_3f742e9a",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 53
+      },
+      "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
