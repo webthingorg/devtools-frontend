@@ -46,6 +46,30 @@
       },
       "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4181ec7_41eeaff6",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-02T15:06:59Z",
+      "side": 1,
+      "message": "I\u0027m sorry I don\u0027t understand why removing references to the legacy track is a blocker here. We don\u0027t seem to be making reference to it here.",
+      "parentUuid": "ad0e1f89_7a65dc93",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 56
+      },
+      "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
