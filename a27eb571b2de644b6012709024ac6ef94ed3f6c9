@@ -16,6 +16,23 @@
       "message": "Hi DevTools folks! We (Meta) have been getting some feedback from developers recently that they\u0027d like to test their changes in Chrome for the Facebook in-app browser more easily.\n\nAs such, we thought it might be useful to add a user agent emulation preset that resembles a common device / app version using the Facebook in-app browser- adjusting for viewport size and user agent differences.\n\nMathias, would love your thoughts on this idea :) Thanks!",
       "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1452d2cc_0506f0eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-05-02T07:55:52Z",
+      "side": 1,
+      "message": "Hi Andrew, thanks for the patch! The code changes in the patch LGTM, but I’ll defer to dsv@ for the product decision.",
+      "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
