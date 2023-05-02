@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db793b9c_3d17dd27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T12:52:17Z",
+      "side": 1,
+      "message": "I\u0027m a bit reluctant to add unit tests for testing the interaction or rendering. Do you have a suggestion on which tests we can write here?\n\nI feel like only these cases make sense for unit tests:\n* AnimationTimingModel is able to handle both `cubic-bezier()` and linear() functions\n* AnimationTimingUI is able to render both `cubic-bezier()` and `linear()` functions visually (without asserting on how it looks, saying that it renders \"linear-container\" or \"cubic-bezier-container\" depending on the case)\n\nWDYT?",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
