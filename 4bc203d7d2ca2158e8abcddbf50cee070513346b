@@ -70,6 +70,30 @@
       },
       "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee9033f_9529c548",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-02T15:46:35Z",
+      "side": 1,
+      "message": "The appendEventAtLevel() function is the one that got blocked, which blocks this one because it is called in the for loop",
+      "parentUuid": "b4181ec7_41eeaff6",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 56
+      },
+      "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
