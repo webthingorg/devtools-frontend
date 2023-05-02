@@ -358,21 +358,8 @@ export class PreloadingView extends UI.Widget.VBox {
         ruleSets,
       };
     }
-    // TODO(crbug.com/1384419): Add more information in PreloadEnabledState from
-    // backend to distinguish the details of the reasons why preloading is
-    // disabled.
-    if (this.modelProxy.model.getPreloadEnabledState() === Protocol.Preload.PreloadEnabledState.DisabledByPreference) {
-      const preloadingSettingLink = new ChromeLink.ChromeLink.ChromeLink();
-      preloadingSettingLink.href = 'chrome://settings/cookies';
-      preloadingSettingLink.textContent = i18nString(UIStrings.preloadingPageSettings);
-      const extensionSettingLink = new ChromeLink.ChromeLink.ChromeLink();
-      extensionSettingLink.href = 'chrome://extensions';
-      extensionSettingLink.textContent = i18nString(UIStrings.extensionSettings);
-      const detailsMessage = i18n.i18n.getFormatLocalizedString(
-          str_, UIStrings.warningDetailPreloadingStateDisabled,
-          {PH1: preloadingSettingLink, PH2: extensionSettingLink});
-      this.showInfobar(i18nString(UIStrings.warningTitlePreloadingStateDisabled), detailsMessage);
-    }
+
+    this.updateInfobarWarning();
   }
 
   render(): void {
@@ -437,17 +424,9 @@ export class PreloadingView extends UI.Widget.VBox {
 
   // Shows warnings if features are disabled by feature flags.
   private onGetFeatureFlags(flags: FeatureFlags): void {
-    if (flags.preloadingHoldback === true) {
-      this.showInfobar(
-          i18nString(UIStrings.warningTitlePreloadingDisabledByFeatureFlag),
-          i18nString(UIStrings.warningDetailPreloadingDisabledByFeatureFlag));
-    }
-
-    if (flags.prerender2Holdback === true) {
-      this.showInfobar(
-          i18nString(UIStrings.warningTitlePrerenderingDisabledByFeatureFlag),
-          i18nString(UIStrings.warningDetailPrerenderingDisabledByFeatureFlag));
-    }
+    this.modelProxy.model.setPreloadingHoldback(flags.preloadingHoldback);
+    this.modelProxy.model.setPrerender2Holdback(flags.prerender2Holdback);
+    this.updateInfobarWarning();
   }
 
   private showInfobar(titleText: string, detailsMessage: string|Element): void {
@@ -484,5 +463,45 @@ export class PreloadingView extends UI.Widget.VBox {
 
   getFeatureFlagWarningsPromiseForTest(): Promise<void> {
     return this.featureFlagWarningsPromise;
+  }
+
+  updateInfobarWarning(): void {
+    let warningTitle = '';
+    let warningDescription = '';
+    let warningShouldBeShown = false;
+
+    if (this.modelProxy.model.getPreloadingHoldback() === true) {
+      warningTitle = i18nString(UIStrings.warningTitlePreloadingDisabledByFeatureFlag);
+      warningDescription = i18nString(UIStrings.warningDetailPreloadingDisabledByFeatureFlag);
+      warningShouldBeShown = true;
+    }
+
+    if (this.modelProxy.model.getPrerender2Holdback() === true) {
+      warningTitle += i18nString(UIStrings.warningTitlePrerenderingDisabledByFeatureFlag);
+      warningDescription += i18nString(UIStrings.warningDetailPrerenderingDisabledByFeatureFlag);
+      warningShouldBeShown = true;
+    }
+
+    // TODO(crbug.com/1384419): Add more information in PreloadEnabledState from
+    // backend to distinguish the details of the reasons why preloading is
+    // disabled.
+    if (this.modelProxy.model.getPreloadEnabledState() === Protocol.Preload.PreloadEnabledState.DisabledByPreference) {
+      warningTitle += i18nString(UIStrings.warningTitlePreloadingStateDisabled);
+      const preloadingSettingLink = new ChromeLink.ChromeLink.ChromeLink();
+      preloadingSettingLink.href = 'chrome://settings/cookies';
+      preloadingSettingLink.textContent = i18nString(UIStrings.preloadingPageSettings);
+      const extensionSettingLink = new ChromeLink.ChromeLink.ChromeLink();
+      extensionSettingLink.href = 'chrome://extensions';
+      extensionSettingLink.textContent = i18nString(UIStrings.extensionSettings);
+      const detailsMessage = i18n.i18n.getFormatLocalizedString(
+          str_, UIStrings.warningDetailPreloadingStateDisabled,
+          {PH1: preloadingSettingLink, PH2: extensionSettingLink});
+      this.showInfobar(i18nString(UIStrings.warningTitlePreloadingStateDisabled), detailsMessage);
+      warningShouldBeShown = true;
+    }
+
+    if (warningShouldBeShown) {
+      this.showInfobar(warningTitle, warningDescription);
+    }
   }
 }
