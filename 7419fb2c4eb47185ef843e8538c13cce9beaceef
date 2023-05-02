@@ -33,6 +33,24 @@
       "message": "Can we have a test, please?",
       "revId": "7419fb2c4eb47185ef843e8538c13cce9beaceef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8295eae4_e565b893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-02T09:07:25Z",
+      "side": 1,
+      "message": "I was suggesting to add an e2e-test in order to be able to check that the actual buggy behaviour is fixed. Do you know whether there is a way to enable the chrome feature flag for bfcache for an e2e-test?",
+      "parentUuid": "a8ed28f7_f2dfb9e5",
+      "revId": "7419fb2c4eb47185ef843e8538c13cce9beaceef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
