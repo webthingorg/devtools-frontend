@@ -16,6 +16,24 @@
       "message": "WDYT about this UX? Do we have a precedent for that?",
       "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff1f1ec_28b5eb85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-05-02T14:40:21Z",
+      "side": 1,
+      "message": "Hi all, I took a brief look at it and have some feedback/thoughts. The feedback is very all over the place, but it\u0027s hard to look at a specific, small UI item from a UX perspective since the problems usually originate on a higher level.\n\n**Checkbox for filtering**\n\n- We don’t use this pattern anywhere in DevTools, we might reconsider adding it.\n\n- I think the general issue here is that it’s not clear that the item at the top controls the item at the bottom. However, we use this select/filter pattern already in a lot of pages on the Application panel.\n\n-  Let’s take UI inspiration from other panels, for example Reporting API (see [reporting-api-example.png](https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1384419#c67) or the Cookies page in the Application panel. I think this UI works pretty intuitively there so it should also work for our problem.\n\nI think there is another, more high-level solution:\n\n**Information hierarchy of spec rules**\n\n- Right now, we have a double drill down on the right side: first select speculation rule, then click on filtered item.\n\n-  Consider moving the top hierarchy (the speculation rules) to the sidebar, similar to what cookies is doing (see [move-to-sidebar.png](https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1384419#c67)).\n\n- This way you make the hierarchy more obvious and the spec rules also look more selectable. You completely avoid the problem with selecting items from the table and filtering them below.\n\n- The top menu item `Prefetch and Prerender` can show an overview of all rules plus the validity, while the individual speculation rule items show the individual prefetched items.\n\n**Menu item and string**\n\n- Let’s not create a whole new section for just one item, better put it under “Background Services” ([sidebar-location.png](https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1384419#c67)).\n\n- Right now the menu item is called `Prefetching \u0026 Prerendering`.\n\n- Let’s replace the `\u0026` with `and` or `/`, since the ampersand `\u0026` is reserved for brand names.\n\n- Can we shorten it further? \u2028`Prefetch and Prerender` maybe.\n\nHope this helps to make a decision on how to move forward.",
+      "parentUuid": "5dcee79a_3bc15e64",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
