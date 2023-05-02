@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc18671_fd115067",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-02T14:58:12Z",
+      "side": 1,
+      "message": "to further deduplicate, could we extract the whole function into a new helper? The helper could receive a parameter with the array of events to be appended",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 56
+      },
+      "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
