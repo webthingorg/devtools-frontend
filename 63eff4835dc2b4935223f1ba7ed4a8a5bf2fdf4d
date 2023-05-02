@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d1c93f3_b8474f83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-02T10:09:32Z",
+      "side": 1,
+      "message": "+1 to adding tests\nLGTM, thanks!",
+      "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08c19ce7_0f3e761d",
@@ -53,6 +70,29 @@
         "startChar": 10,
         "endLine": 27,
         "endChar": 22
+      },
+      "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a02bd53a_9b5063f0",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-02T10:09:32Z",
+      "side": 1,
+      "message": "nit: Would this be simpler?\n```\n// clang-format off\nreturn LitHtml.html`\n  \u003c${ReportView.ReportView.ReportSection.litTagName}\u003e\n    ${i18nString(this.#screenStatus \u003d\u003d\u003d ScreenStatusType.Running ? UIStrings.checkingPotentialTrackers : UIStrings.noPotentialBounceTrackersIdentified)}\n  \u003c/${ReportView.ReportView.ReportSection.litTagName}\u003e\n`;\n// clang-format on\n```",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 24
       },
       "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
