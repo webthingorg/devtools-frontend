@@ -6,7 +6,6 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {RuntimeSettings} from './LighthouseController.js';
 import lighthouseDialogStyles from './lighthouseDialog.css.js';
 
 import {type LighthousePanel} from './LighthousePanel.js';
@@ -38,10 +37,6 @@ const UIStrings = {
    */
   lighthouseIsWarmingUp: '`Lighthouse` is warming up…',
   /**
-   *@description Status text in Lighthouse splash screen while an audit is being performed
-   */
-  lighthouseIsLoadingYourPage: '`Lighthouse` is loading your page',
-  /**
    *@description Text in Lighthouse Status View
    *@example {75% of global mobile users in 2016 were on 2G or 3G [Source: GSMA Mobile]} PH1
    */
@@ -71,20 +66,6 @@ const UIStrings = {
    *@description Text in Lighthouse splash screen when Lighthouse is generating a report.
    */
   almostThereLighthouseIsNow: 'Almost there! `Lighthouse` is now generating your report.',
-  /**
-   *@description Text in Lighthouse splash screen when loading the page for auditing
-   */
-  lighthouseIsLoadingYourPageWith:
-      '`Lighthouse` is loading your page with throttling to measure performance on a mobile device on 3G.',
-  /**
-   *@description Text in Lighthouse splash screen when loading the page for auditing
-   */
-  lighthouseIsLoadingYourPageWithThrottling:
-      '`Lighthouse` is loading your page with throttling to measure performance on a slow desktop on 3G.',
-  /**
-   *@description Text in Lighthouse splash screen when loading the page for auditing
-   */
-  lighthouseIsLoadingYourPageWithMobile: '`Lighthouse` is loading your page with mobile emulation.',
   /**
    *@description Fast fact in the splash screen while Lighthouse is performing an audit
    */
@@ -288,7 +269,7 @@ export class StatusView {
       clearTimeout(this.scheduledFastFactTimeout as number);
     } else if (nextPhase && (!this.currentPhase || currentPhaseIndex < nextPhaseIndex)) {
       this.currentPhase = nextPhase;
-      const text = this.getMessageForPhase(nextPhase);
+      const text = nextPhase.message();
       this.scheduleTextChange(text);
       this.scheduleFastFactCheck();
       this.resetProgressBarClasses();
@@ -302,22 +283,6 @@ export class StatusView {
 
   private cancel(): void {
     void this.panel.handleRunCancel();
-  }
-
-  private getMessageForPhase(phase: StatusPhase): string {
-    if (phase.message()) {
-      return phase.message();
-    }
-
-    const deviceTypeSetting = RuntimeSettings.find(item => item.setting.name === 'lighthouse.device_type');
-    const throttleSetting = RuntimeSettings.find(item => item.setting.name === 'lighthouse.throttling');
-    const deviceType = deviceTypeSetting ? deviceTypeSetting.setting.get() : '';
-    const throttling = throttleSetting ? throttleSetting.setting.get() : '';
-    const match = LoadingMessages.find(item => {
-      return item.deviceType === deviceType && item.throttling === throttling;
-    });
-
-    return match ? match.message() : i18nString(UIStrings.lighthouseIsLoadingYourPage);
   }
 
   private getPhaseForMessage(message: string): StatusPhase|null {
@@ -478,29 +443,6 @@ export const StatusPhases: StatusPhase[] = [
     progressBarClass: 'auditing',
     message: i18nLazyString(UIStrings.almostThereLighthouseIsNow),
     statusMessageRegex: /^Auditing/,
-  },
-];
-
-const LoadingMessages = [
-  {
-    deviceType: 'mobile',
-    throttling: 'on',
-    message: i18nLazyString(UIStrings.lighthouseIsLoadingYourPageWith),
-  },
-  {
-    deviceType: 'desktop',
-    throttling: 'on',
-    message: i18nLazyString(UIStrings.lighthouseIsLoadingYourPageWithThrottling),
-  },
-  {
-    deviceType: 'mobile',
-    throttling: 'off',
-    message: i18nLazyString(UIStrings.lighthouseIsLoadingYourPageWithMobile),
-  },
-  {
-    deviceType: 'desktop',
-    throttling: 'off',
-    message: i18nLazyString(UIStrings.lighthouseIsLoadingThePage),
   },
 ];
 

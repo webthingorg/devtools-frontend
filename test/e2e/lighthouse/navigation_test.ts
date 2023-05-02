@@ -245,8 +245,8 @@ describe.skipOnParallel('Navigation', async function() {
         await navigateToLighthouseTab('lighthouse/hello.html');
         await registerServiceWorker();
 
-        await setToolbarCheckboxWithText(mode === 'legacy', 'Navegación antigua');
-        await setToolbarCheckboxWithText(false, 'Borrar almacenamiento');
+        await setToolbarCheckboxWithText(mode === 'legacy', 'Legacy navigation');
+        await setToolbarCheckboxWithText(false, 'Clear storage');
         await selectCategories(['performance', 'best-practices']);
         await selectDevice('desktop');
 

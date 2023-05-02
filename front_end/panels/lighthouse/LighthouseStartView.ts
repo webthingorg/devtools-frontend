@@ -7,10 +7,12 @@ import * as UI from '../../ui/legacy/legacy.js';
 import type * as Platform from '../../core/platform/platform.js';
 import type * as Common from '../../core/common/common.js';
 
-import {Presets, RuntimeSettings, type LighthouseController, type Preset} from './LighthouseController.js';
+import {Presets, RuntimeSettings, type Preset} from './LighthousePanel.js';
 import {RadioSetting} from './RadioSetting.js';
 import lighthouseStartViewStyles from './lighthouseStartView.css.js';
 import {type LighthousePanel} from './LighthousePanel.js';
+
+import {Events, type PageAuditabilityChangedEvent, type PageWarningsChangedEvent} from './LighthouseController.js';
 
 const UIStrings = {
   /**
@@ -49,28 +51,46 @@ const UIStrings = {
    * @description Text that refers to device such as a phone
    */
   device: 'Device',
+  /**
+   * @description Help text in Lighthouse Controller
+   */
+  atLeastOneCategoryMustBeSelected: 'At least one category must be selected.',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthouseStartView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class StartView extends UI.Widget.Widget {
-  private controller: LighthouseController;
   private panel: LighthousePanel;
   private readonly settingsToolbarInternal: UI.Toolbar.Toolbar;
   private startButton!: HTMLButtonElement;
+  private controllerBlocker: string;
+  private controllerWarning: string;
   private helpText?: Element;
   private warningText?: Element;
   private checkboxes: Array<{preset: Preset, checkbox: UI.Toolbar.ToolbarCheckbox}> = [];
 
   changeFormMode?: (mode: string) => void;
 
-  constructor(controller: LighthouseController, panel: LighthousePanel) {
+  constructor(panel: LighthousePanel) {
     super();
 
-    this.controller = controller;
     this.panel = panel;
+    this.controllerBlocker = '';
+    this.controllerWarning = '';
     this.settingsToolbarInternal = new UI.Toolbar.Toolbar('');
+
+    panel.controller.addEventListener(Events.PageAuditabilityChanged, this.handleAuditabilityChange.bind(this));
+    panel.controller.addEventListener(Events.PageWarningsChanged, this.handleWarningChange.bind(this));
+
+    for (const preset of Presets) {
+      preset.setting.addChangeListener(this.refresh.bind(this));
+    }
+
+    for (const runtimeSetting of RuntimeSettings) {
+      runtimeSetting.setting.addChangeListener(this.refresh.bind(this));
+    }
+
     this.render();
   }
 
@@ -174,7 +194,7 @@ export class StartView extends UI.Widget.Widget {
     this.populateRuntimeSettingAsToolbarCheckbox('lighthouse.clear_storage', this.settingsToolbarInternal);
     this.populateRuntimeSettingAsToolbarDropdown('lighthouse.throttling', this.settingsToolbarInternal);
 
-    const {mode} = this.controller.getFlags();
+    const {mode} = this.panel.getFlags();
     this.populateStartButton(mode);
 
     const fragment = UI.Fragment.Fragment.build`
@@ -257,8 +277,19 @@ export class StartView extends UI.Widget.Widget {
     }
   }
 
+  private handleAuditabilityChange(evt: Common.EventTarget.EventTargetEvent<PageAuditabilityChangedEvent>): void {
+    this.controllerBlocker = evt.data.helpText;
+    this.refresh();
+  }
+
+  private handleWarningChange(evt: Common.EventTarget.EventTargetEvent<PageWarningsChangedEvent>): void {
+    this.controllerWarning = evt.data.warning;
+    this.refresh();
+  }
+
   refresh(): void {
-    const {mode} = this.controller.getFlags();
+    const {mode, disableStorageReset} = this.panel.getFlags();
+    const categoryIDs = this.panel.getCategoryIDs();
     this.populateStartButton(mode);
 
     for (const {checkbox, preset} of this.checkboxes) {
@@ -270,6 +301,20 @@ export class StartView extends UI.Widget.Widget {
         checkbox.setIndeterminate(true);
       }
     }
+
+    let blockerText = this.controllerBlocker;
+    if (categoryIDs.length === 0) {
+      blockerText = i18nString(UIStrings.atLeastOneCategoryMustBeSelected);
+    }
+
+    let warningText = this.controllerWarning;
+    if (mode !== 'navigation' || disableStorageReset) {
+      warningText = '';
+    }
+
+    this.setUnauditableExplanation(blockerText);
+    this.setStartButtonEnabled(!blockerText);
+    this.setWarningText(warningText);
 
     // Ensure the correct layout is used after refresh.
     this.onResize();
@@ -288,10 +333,6 @@ export class StartView extends UI.Widget.Widget {
       optionsEl.classList.toggle('wide', useWideLayout);
       optionsEl.classList.toggle('narrow', useNarrowLayout);
     }
-  }
-
-  focusStartButton(): void {
-    this.startButton.focus();
   }
 
   setStartButtonEnabled(isEnabled: boolean): void {
@@ -319,7 +360,10 @@ export class StartView extends UI.Widget.Widget {
 
   override wasShown(): void {
     super.wasShown();
-    this.controller.recomputePageAuditability();
+    this.refresh();
+    if (!this.startButton.disabled) {
+      this.startButton.focus();
+    }
     this.registerCSSFiles([lighthouseStartViewStyles]);
   }
 
