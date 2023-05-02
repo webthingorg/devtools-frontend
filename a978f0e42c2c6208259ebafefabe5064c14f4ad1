@@ -16,6 +16,23 @@
       "message": "wdyt",
       "revId": "a978f0e42c2c6208259ebafefabe5064c14f4ad1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2621f029_f933c5bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-02T16:33:07Z",
+      "side": 1,
+      "message": "I can see the reasoning for keeping it agnostic, but I don\u0027t like the now lack of type safety in certain places, or clarity around timings. I wonder if we create some generic Timings types, or migrate the trace ones out? Kinda like we do for Platform.DevToolsUrl stuff.",
+      "revId": "a978f0e42c2c6208259ebafefabe5064c14f4ad1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
