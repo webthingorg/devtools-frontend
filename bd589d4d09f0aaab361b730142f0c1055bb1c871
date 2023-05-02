@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e760d579_e31478cd",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T12:43:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd40749f_caf53e34",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bdce300_1615809d",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-25T21:52:14Z",
       "side": 1,
       "message": "nit: would it be better to use a `LinearEasingPresentationParams` object here instead? This would make constructor assignment easier and gives a bit more readability.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a504c60_52cafd1a",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T12:43:18Z",
+      "side": 1,
+      "message": "Sounds good, updated it! :)",
+      "parentUuid": "8bdce300_1615809d",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cb1173f_1144d77f",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T12:43:18Z",
+      "side": 1,
+      "message": "They are the dimensions for the tool to be rendered in the animation timing UI main visualization, they don\u0027t have inherent reasons to be this way, they just look good 😅\n\nI\u0027ve renamed `radius` to `pointRadius` to make \"radius\" a bit clearer, other than that couldn\u0027t think of a way to improve here. Do you have any suggestions?",
+      "parentUuid": "4a1f2d88_542dde4b",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bab48382_ea412b1d",
         "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
         "patchSetId": 10
@@ -71,6 +131,24 @@
       "writtenOn": "2023-04-25T21:52:14Z",
       "side": 1,
       "message": "It this a common problem when we need to listen to both drag and dblclick? I guess what I\u0027m saying is, is it worth it using a separate drag handler to listen to a proper `drag` event, instead of hacking on `mousedown`, therefore bypassing this problem? Or maybe there are legitimate reasons to use `mousedown` for drag somehow?",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a12cb92_4679f1d3",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T12:43:18Z",
+      "side": 1,
+      "message": "I\u0027ve looked at this a bit and I wasn\u0027t able to get drag \u0026 drop HTML API working for our use case. Since we don\u0027t need drag \u0026 drop outside of the page and transferring data between drag \u0026 drop elements; using pointer events for our use case feels like a good solution.\n\nAFAIU one of the reasons it is hard to receive both dblclick and drag events might be how `installDragHandle` is setting up the listeners. I think, for now we can continue to use the same abstraction and think about this problem if/when we\u0027re moving these to Lit components. WDYT?",
+      "parentUuid": "bab48382_ea412b1d",
       "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
