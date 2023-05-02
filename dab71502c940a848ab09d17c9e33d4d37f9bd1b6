@@ -46,6 +46,30 @@
       },
       "revId": "dab71502c940a848ab09d17c9e33d4d37f9bd1b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff5512b_cdaab9b7",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-02T15:19:27Z",
+      "side": 1,
+      "message": "Changed the function name to imply that multiple trees are valid and added some extra comments as suggested.",
+      "parentUuid": "2a3db38c_244cf607",
+      "range": {
+        "startLine": 217,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 21
+      },
+      "revId": "dab71502c940a848ab09d17c9e33d4d37f9bd1b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
