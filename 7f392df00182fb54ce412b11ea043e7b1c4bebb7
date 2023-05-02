@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "7f392df00182fb54ce412b11ea043e7b1c4bebb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "008d2bb7_3673211d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-02T08:35:50Z",
+      "side": 1,
+      "message": "super cool! LGTM with nit/question",
+      "revId": "7f392df00182fb54ce412b11ea043e7b1c4bebb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc00706c_c12e760f",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-02T08:35:50Z",
+      "side": 1,
+      "message": "nit: any particular reason why we didn\u0027t do this?\n\n```suggestion\n    decorationsForEvent.push({type: \u0027CANDY\u0027, startAtTime: LONG_INTERACTION_THRESHOLD});\n```",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 6
+      },
+      "revId": "7f392df00182fb54ce412b11ea043e7b1c4bebb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
