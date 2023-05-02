@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fba6348_a9399cb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-02T12:54:38Z",
+      "side": 1,
+      "message": "I find the combination of 2 messages confusing. Is Prerendering now disabled or not?\nMaybe there is a way to put all the info into a single infobar title and have the details tell the full story?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "e1cc71454ee447b627afdb307035f037c492b5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1bdca46_2062f332",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-02T12:54:38Z",
+      "side": 1,
+      "message": "Probably can be achieved with `this.infobarContainer.removeChildren()` as well",
+      "range": {
+        "startLine": 469,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 5
+      },
+      "revId": "e1cc71454ee447b627afdb307035f037c492b5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
