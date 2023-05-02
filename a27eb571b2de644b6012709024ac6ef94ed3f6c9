@@ -33,6 +33,23 @@
       "message": "Hi Andrew, thanks for the patch! The code changes in the patch LGTM, but I’ll defer to dsv@ for the product decision.",
       "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921c5f47_d2d75ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-02T09:15:15Z",
+      "side": 1,
+      "message": "LGTM but I wonder what Benedikt thought are.",
+      "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
