@@ -68,6 +68,23 @@
       "parentUuid": "921c5f47_d2d75ce1",
       "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b325b9cf_3321f7cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1305811
+      },
+      "writtenOn": "2023-05-02T18:05:47Z",
+      "side": 1,
+      "message": "Thanks folks! Added the `*@meta.com` CLA rule from Chromium over, as it looks like this was our first DevTools commit :)",
+      "revId": "a27eb571b2de644b6012709024ac6ef94ed3f6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
