@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025c9b53_ffa66557",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-02T14:15:24Z",
+      "side": 1,
+      "message": "nit: might be worth explaining why this is the case - presumably because e1 cannot be considered the parent of e2, given the end times?\n\nCan we note other cases here - e.g. what if we have two events that do not overlap at all?\n\nSorry, I know I am going on about this but I think this has caused us a lot of confusion in OPP and want to make sure we make it as clear as possible.",
+      "range": {
+        "startLine": 217,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 21
+      },
+      "revId": "dab71502c940a848ab09d17c9e33d4d37f9bd1b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
