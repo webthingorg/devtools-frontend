@@ -138,6 +138,24 @@
       "parentUuid": "1cb6b26e_585daa8b",
       "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e7f788_21030514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-02T09:26:28Z",
+      "side": 1,
+      "message": "Thanks for the fix, it seems like this worked after accepting Contributor Agreement :)",
+      "parentUuid": "40e68a75_25d77499",
+      "revId": "953e8d2d49a802149fb5b32b3092cda5492dfc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
