@@ -34,6 +34,8 @@ export class PreloadingModel extends SDKModel<EventTypes> {
   private documents: Map<Protocol.Network.LoaderId, DocumentPreloadingData> =
       new Map<Protocol.Network.LoaderId, DocumentPreloadingData>();
   private preloadEnabledState: Protocol.Preload.PreloadEnabledState|null = null;
+  private prerender2Holdback: boolean|null = null;
+  private preloadingHoldback: boolean|null = null;
 
   constructor(target: Target) {
     super(target);
@@ -147,6 +149,22 @@ export class PreloadingModel extends SDKModel<EventTypes> {
 
   getPreloadEnabledState(): Protocol.Preload.PreloadEnabledState|null {
     return this.preloadEnabledState;
+  }
+
+  getPrerender2Holdback(): boolean|null {
+    return this.prerender2Holdback;
+  }
+
+  getPreloadingHoldback(): boolean|null {
+    return this.preloadingHoldback;
+  }
+
+  setPrerender2Holdback(flag: boolean|null): void {
+    this.prerender2Holdback = flag;
+  }
+
+  setPreloadingHoldback(flag: boolean|null): void {
+    this.preloadingHoldback = flag;
   }
 
   private onPrimaryPageChanged(
