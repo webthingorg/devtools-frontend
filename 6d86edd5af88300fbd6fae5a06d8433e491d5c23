@@ -16,6 +16,23 @@
       "message": "I like this one, thank you!",
       "revId": "6d86edd5af88300fbd6fae5a06d8433e491d5c23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99ed9ee2_b0aecb27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-02T13:07:54Z",
+      "side": 1,
+      "message": "For completeness, let us wait for what Danil has to say (there is some technical nuance around workers and out-of-process iframes, but I think your text does not directly contradict any of that).",
+      "revId": "6d86edd5af88300fbd6fae5a06d8433e491d5c23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
