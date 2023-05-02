@@ -162,6 +162,30 @@
       },
       "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae4a39c9_aaae1a3a",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-02T19:46:54Z",
+      "side": 1,
+      "message": "Yields an error like this that doesn\u0027t appear to get silenced for some reason?\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/try/dtf_presubmit_linux/b8782180973719376273/overview",
+      "parentUuid": "5ad90427_51a50024",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 24
+      },
+      "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
