@@ -1037,6 +1037,11 @@ export const NativeFunctions = [
     receivers: ['AudioNode']
   },
   {
+    name: 'connect',
+    signatures: [['accessMode','?preferredProtocols']],
+    receivers: ['SmartCardReader']
+  },
+  {
     name: 'disconnect',
     signatures: [['?output'],['destinationNode','?output','?input'],['destinationParam','?output'],['destination','?output','?input']],
     receivers: ['AudioNode']
@@ -6061,7 +6066,7 @@ export const NativeFunctions = [
   },
   {
     name: 'hasPrivateToken',
-    signatures: [['issuer','type']]
+    signatures: [['issuer']]
   },
   {
     name: 'hasRedemptionRecord',
@@ -6740,6 +6745,10 @@ export const NativeFunctions = [
     signatures: [['privateToken']]
   },
   {
+    name: 'setAttributionReporting',
+    signatures: [['attributionReporting']]
+  },
+  {
     name: 'joinAdInterestGroup',
     signatures: [['group','durationSeconds']]
   },
@@ -6913,6 +6922,10 @@ export const NativeFunctions = [
   {
     name: 'CanvasFilter',
     signatures: [['init']]
+  },
+  {
+    name: 'beginLayer',
+    signatures: [['?filter']]
   },
   {
     name: 'scrollPathIntoView',
@@ -7360,6 +7373,10 @@ export const NativeFunctions = [
   {
     name: 'convTranspose2d',
     signatures: [['input','filter','?options']]
+  },
+  {
+    name: 'elu',
+    signatures: [['?options'],['x','?options']]
   },
   {
     name: 'gemm',
