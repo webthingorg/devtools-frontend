@@ -4,6 +4,9 @@
  * found in the LICENSE file.
  */
 
+/* TODO(crbug.com/1442257): remove stylelint-disable. */
+/* stylelint-disable plugin/use_theme_colors */
+
 * {
   margin: 0;
   padding: 0;
@@ -39,6 +42,7 @@ button {
     border radius.
   */
   --button-has-right-border-radius: calc(1 - var(--override-button-no-right-border-radius, 0));
+  --button-border-size: 1px;
 
   align-items: center;
   border-radius: 4px calc(var(--button-has-right-border-radius) * 4px) calc(var(--button-has-right-border-radius) * 4px) 4px;
@@ -97,34 +101,34 @@ button.round.tiny {
 }
 
 button.primary {
-  border: 1px solid var(--color-primary-old);
-  background: var(--color-primary-old);
+  border: var(--button-border-size) solid var(--color-primary);
+  background: var(--color-primary);
   color: var(--color-background);
 }
 
 button.primary:hover {
   background: var(--color-button-primary-background-hovering);
-  border: 1px solid var(--color-button-primary-background-hovering);
+  border: var(--button-border-size) solid var(--color-button-primary-background-hovering);
 }
 
 button.primary.active,
 button.primary:active {
   background: var(--color-button-primary-background-pressed);
-  border: 1px solid var(--color-button-primary-background-pressed);
+  border: var(--button-border-size) solid var(--color-button-primary-background-pressed);
 }
 
 button.primary:disabled,
 button.primary:disabled:hover {
-  border: 1px solid transparent;
+  border: var(--button-border-size) solid transparent;
   background: var(--color-background-elevation-1);
   color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
 button.secondary {
-  border: 1px solid var(--color-details-hairline);
+  border: var(--button-border-size) solid var(--color-details-hairline);
   background: var(--color-background);
-  color: var(--color-primary-old);
+  color: var(--color-primary);
 }
 
 button.secondary:hover {
@@ -134,16 +138,16 @@ button.secondary:hover {
 button.secondary.active,
 button.secondary:active {
   background: var(--color-button-secondary-background-pressed);
-  border: 1px solid var(--color-button-secondary-background-pressed);
+  border: var(--button-border-size) solid var(--color-button-secondary-background-pressed);
 }
 
 button.secondary:focus-visible {
-  border: 1px solid var(--color-background);
+  border: var(--button-border-size) solid var(--color-background);
 }
 
 button.secondary:disabled,
 button.secondary:disabled:hover {
-  border: 1px solid var(--color-background-elevation-1);
+  border: var(--button-border-size) solid var(--color-background-elevation-1);
   background: var(--color-background);
   color: var(--color-text-disabled);
   cursor: not-allowed;
@@ -151,7 +155,7 @@ button.secondary:disabled:hover {
 
 button.secondary.active:focus-visible,
 button.secondary:active:focus-visible {
-  border: 1px solid var(--color-button-secondary-background-pressed);
+  border: var(--button-border-size) solid var(--color-button-secondary-background-pressed);
 }
 
 button.toolbar:hover,
@@ -181,11 +185,11 @@ button.round:disabled:hover {
 }
 
 button.text-with-icon {
-  padding: 0 12px 0 4px;
+  padding: 0 calc(12px - var(--button-border-size)) 0 calc(8px - var(--button-border-size));
 }
 
 button.small.text-with-icon {
-  padding: 0 9px 0 3px;
+  padding: 0 calc(9px - var(--button-border-size)) 0 calc(3px - var(--button-border-size));
 }
 
 button.only-icon {
@@ -193,8 +197,12 @@ button.only-icon {
 }
 
 button devtools-icon {
-  width: 19px;
-  height: 19px;
+  width: 16px;
+  height: 16px;
+}
+
+button.text-with-icon devtools-icon {
+  margin-right: 4px;
 }
 
 button.toolbar devtools-icon,
@@ -275,7 +283,7 @@ button.secondary:disabled devtools-icon {
 }
 
 .spinner-component.secondary {
-  border: 2px solid var(--color-primary-old);
+  border: 2px solid var(--color-primary);
   border-right-color: transparent;
 }
 
