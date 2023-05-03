@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73dedca4_50e17332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316409
+      },
+      "writtenOn": "2023-05-03T23:06:48Z",
+      "side": 1,
+      "message": "Work around to build issue here: https://crrev.com/c/4501500",
+      "revId": "f4eb2edaf32f4928f66a586e604f34c2265b4935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
