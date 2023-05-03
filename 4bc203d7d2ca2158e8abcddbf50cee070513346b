@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6946c997_c85da65f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-03T12:44:48Z",
+      "side": 1,
+      "message": "LGTM % conversation we had internally about using the helper in other places and potentially export the whole method implementation into an util in the future.",
+      "revId": "4bc203d7d2ca2158e8abcddbf50cee070513346b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cc18671_fd115067",
