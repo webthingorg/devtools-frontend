@@ -51,6 +51,24 @@
       "message": "still LGTM",
       "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c07c57_be91c9d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-03T09:52:37Z",
+      "side": 1,
+      "message": "They are implementation details for handling the interactions inside AnimationTimingUI. I\u0027m thinking the public API of the AnimationTimingUI class is two entities:\n* PresetUI for rendering the preset categories (readonly presentation of the easing function)\n* AnimationTimingUI for rendering the main visualization.\n\nThey both use LinearEasingPresentation and BezierUI; readonly one doesn\u0027t add any interactions on top of them whereas AnimationTimingUI handles the drag events for both of them.\n\n`timingPointToPosition` and `positionToTimingPoint` are needed to be able to convert a timing point to a position or a position to a timing point in `AnimationTimingUI` while handling events. Essentially they are kind of related to the implementation details for AnimationTimingUI where we currently don\u0027t test.\n\nSo, if we were to add tests for interactions in AnimationTimingUI; those things would have been tested as well but I\u0027m still a bit reluctant to add interaction tests for this use case. So, I didn\u0027t add any tests for LinearEasingPresentation.\n\nI also didn\u0027t add any tests for PresetUI thinking that its logic is fairly simple. WDYT?",
+      "parentUuid": "861f2483_fef36994",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
