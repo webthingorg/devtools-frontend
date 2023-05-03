@@ -198,7 +198,8 @@ export class TimelineModelImpl {
       onEndEvent: (arg0: SDK.TracingModel.CompatibleTraceEvent) => void,
       onInstantEvent?:
           ((arg0: SDK.TracingModel.CompatibleTraceEvent, arg1: SDK.TracingModel.CompatibleTraceEvent|null) => void),
-      startTime?: number, endTime?: number, filter?: ((arg0: SDK.TracingModel.CompatibleTraceEvent) => boolean)): void {
+      startTime?: number, endTime?: number, filter?: ((arg0: SDK.TracingModel.CompatibleTraceEvent) => boolean),
+      filterAsyncEvents = true): void {
     startTime = startTime || 0;
     endTime = endTime || Infinity;
     const stack: SDK.TracingModel.CompatibleTraceEvent[] = [];
@@ -214,8 +215,9 @@ export class TimelineModelImpl {
       if (eventStartTime >= endTime) {
         break;
       }
-      if (TraceEngine.Types.TraceEvents.isAsyncPhase(eventPhase) ||
-          TraceEngine.Types.TraceEvents.isFlowPhase(eventPhase)) {
+      if (filterAsyncEvents &&
+          (TraceEngine.Types.TraceEvents.isAsyncPhase(eventPhase) ||
+           TraceEngine.Types.TraceEvents.isFlowPhase(eventPhase))) {
         continue;
       }
       let last = stack[stack.length - 1];
