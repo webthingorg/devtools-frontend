@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4c64f0_3ddd6b10",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T13:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49a4126_61fd2ad5",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 8
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69dacee7_24c7bbb3",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Yeah, the issue is not the rendering, but that `await` in front of `invoke_runBounceTrackingMitigations` which interrupts the control flow for the first time. At this point there\u0027s no work in the rendering queue so `coordinator.done()` resolves immediately. \n\nThis could have worked just as well with \n\n    await new Promise((resolve) \u003d\u003e setTimeout(resolve, 0));\n    await coordinator.done();\n    \n    \nIn fact both patterns are common in our code base. Thanks for brining this to my attention. With the http://crrev.com/c/4502862 you can now do `await coordinator.done({waitForWork:true});` which would block until something actually gets rendered.",
       "parentUuid": "13dc9783_f53eb17a",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b0404b_b438d304",
+        "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T13:52:18Z",
+      "side": 1,
+      "message": "Ahh okay, that makes sense. I\u0027ve moved to using the new pattern in the latest patchset. Thanks!",
+      "parentUuid": "654eb1af_0a311557",
       "range": {
         "startLine": 110,
         "startChar": 4,

@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff1b111_ce1ef928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T13:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c203142c_ce4a66c6",
+      "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08c19ce7_0f3e761d",
@@ -125,6 +143,30 @@
       "side": 1,
       "message": "Thought that went with using the StorageHandler. Switched to resourcesPanel.",
       "parentUuid": "08c19ce7_0f3e761d",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 22
+      },
+      "revId": "63eff4835dc2b4935223f1ba7ed4a8a5bf2fdf4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fbe7ea5_f04b9710",
+        "filename": "front_end/panels/application/BounceTrackingMitigationsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T13:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1637c6a8_d3f2c213",
       "range": {
         "startLine": 27,
         "startChar": 10,
