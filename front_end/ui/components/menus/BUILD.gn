@@ -41,6 +41,7 @@ devtools_entrypoint("bundle") {
 
   visibility = [
     "../*",
+    "../../../../front_end/panels/recorder/*",
     "../../../../test/interactions/*",
     "../../../../test/screenshots/*",
     "../../../../test/unittests/front_end/*",
