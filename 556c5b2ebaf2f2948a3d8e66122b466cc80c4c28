@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e726b1d_23094b6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-03T13:18:26Z",
+      "side": 1,
+      "message": "nit: let\u0027s make the CL summary a bit more specific",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "556c5b2ebaf2f2948a3d8e66122b466cc80c4c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8f022be_03f156a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-03T13:18:26Z",
+      "side": 1,
+      "message": "LGTM with nits and suggestions",
+      "revId": "556c5b2ebaf2f2948a3d8e66122b466cc80c4c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "323f4281_26d25264",
+        "filename": "front_end/panels/timeline/AppenderUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-03T13:18:26Z",
+      "side": 1,
+      "message": "to make the distinction between this and `getFirstFitLevel` wdyt if we rename the latter to `getAsyncEventLevel`?",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 33
+      },
+      "revId": "556c5b2ebaf2f2948a3d8e66122b466cc80c4c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcaa0a4f_0d1aba9c",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-03T13:18:26Z",
+      "side": 1,
+      "message": "in general I think we should aim to have a generic helper that implements what this whole `#getSyncEventLevel` function does. For now and for readability purposes I think it\u0027s ok to move a part of the function only but I think that we should move the whole function soonish.",
+      "range": {
+        "startLine": 109,
+        "startChar": 20,
+        "endLine": 109,
+        "endChar": 37
+      },
+      "revId": "556c5b2ebaf2f2948a3d8e66122b466cc80c4c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
