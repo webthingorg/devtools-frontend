@@ -32,7 +32,7 @@ import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import type * as SDK from '../../../../core/sdk/sdk.js';
-import * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
+import type * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
 import * as UI from '../../legacy.js';
 import * as ThemeSupport from '../../theme_support/theme_support.js';
 
@@ -1082,8 +1082,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // The attached bug proposes a generic way to do this where we can avoid
       // reaching into the data at the FlameChart level and provide information
       // on decorations in TimelineData.
-      const isInteractions = group.track?.type === TimelineModel.TimelineModel.TrackType.UserInteractions;
-      if (!isInteractions) {
+      if (!group.isInteractionsTrack) {
         continue;
       }
 
@@ -2200,6 +2199,14 @@ export interface Group {
   selectable?: boolean;
   style: GroupStyle;
   track?: TimelineModel.TimelineModel.Track|null;
+  // We shouldn't use a field dedicated for a single track
+  // At the moment we do so to identify the interactions track to
+  // draw long interactions. We'd like to move away from references to
+  // the legacy track definitions in timeline model, so we opt no to
+  // use the legacy Track.Type to identify this track.
+  // TODO(crbug.com/1434297): Remove field once a generic system to
+  // draw decorations in the flame chart has been implemented.
+  isInteractionsTrack?: boolean;
 }
 
 export interface GroupStyle {
