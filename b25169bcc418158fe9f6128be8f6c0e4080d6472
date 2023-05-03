@@ -70,6 +70,24 @@
       "parentUuid": "d09ebc8c_8a733614",
       "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb5997e_1c9bedb4",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T18:11:47Z",
+      "side": 1,
+      "message": "It looks like this regex is trying to remove any preceding whitespaces before a negative number. I\u0027m not sure why that\u0027s important. We can try removing that in a separate CL because it looks like obsolete code to me anyways.",
+      "parentUuid": "6a95b13f_e8ab46b2",
+      "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -69,6 +69,24 @@
       "parentUuid": "861f2483_fef36994",
       "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a5cac9_07ae4836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T18:11:47Z",
+      "side": 1,
+      "message": "SGTM. If timingPointToPosition and positionToTimingPoint are just implementation details, let\u0027s make them private then.",
+      "parentUuid": "48c07c57_be91c9d4",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
