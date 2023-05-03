@@ -1496,7 +1496,9 @@ export const generatedProperties = [
    "inline-grid",
    "contents",
    "flow-root",
-   "none"
+   "none",
+   "flow",
+   "math"
   ],
   "name": "display"
  },
@@ -1525,9 +1527,6 @@ export const generatedProperties = [
    "hide"
   ],
   "name": "empty-cells"
- },
- {
-  "name": "end"
  },
  {
   "name": "fallback"
@@ -3047,9 +3046,6 @@ export const generatedProperties = [
   "name": "size-adjust"
  },
  {
-  "name": "source"
- },
- {
   "inherited": true,
   "keywords": [
    "none",
@@ -3066,9 +3062,6 @@ export const generatedProperties = [
  },
  {
   "name": "src"
- },
- {
-  "name": "start"
  },
  {
   "keywords": [
@@ -3356,7 +3349,8 @@ export const generatedProperties = [
   "keywords": [
    "wrap",
    "nowrap",
-   "balance"
+   "balance",
+   "pretty"
   ],
   "name": "text-wrap"
  },
@@ -4363,7 +4357,9 @@ export const generatedPropertyValues = {
    "inline-grid",
    "contents",
    "flow-root",
-   "none"
+   "none",
+   "flow",
+   "math"
   ]
  },
  "dominant-baseline": {
@@ -5372,7 +5368,8 @@ export const generatedPropertyValues = {
   "values": [
    "wrap",
    "nowrap",
-   "balance"
+   "balance",
+   "pretty"
   ]
  },
  "toggle-group": {
