@@ -108,3 +108,28 @@ export function getFirstFitLevel(
   lastUsedTimeByLevel[level] = endTime;
   return level;
 }
+
+/**
+ * Returns the level that the sync event should be appended at.
+ * @param event the sync event.
+ * @param openEvents the array of all open events. An open event means an event that still has possibility to have
+ * child events.
+ * @returns the level to append this event.
+ */
+export function getSyncEventLevel(
+    event: TraceEngine.Types.TraceEvents.TraceEventData,
+    openEvents: TraceEngine.Types.TraceEvents.TraceEventData[]): number {
+  while (openEvents.length) {
+    const lastOpenEvent = openEvents[openEvents.length - 1];
+    const lastOpenEventEndTime = lastOpenEvent.ts + (lastOpenEvent.dur || 0);
+    if (lastOpenEventEndTime <= event.ts) {
+      openEvents.pop();
+    } else {
+      break;
+    }
+  }
+  const level = openEvents.length;
+  openEvents.push(event);
+
+  return level;
+}

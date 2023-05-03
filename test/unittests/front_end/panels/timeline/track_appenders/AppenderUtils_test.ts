@@ -117,4 +117,46 @@ describeWithEnvironment('AppenderUtils', () => {
       assert.strictEqual(level, 0);
     });
   });
+
+  describe('getSyncEventLevel', () => {
+    it('returns the level correctly', async () => {
+      const openEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
+      const eventOne = {
+        ...defaultTraceEvent,
+        ts: TraceEngine.Types.Timing.MicroSeconds(0),
+        dur: TraceEngine.Types.Timing.MicroSeconds(30),
+      };
+      const eventTwo = {
+        ...defaultTraceEvent,
+        ts: TraceEngine.Types.Timing.MicroSeconds(5),
+        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+      };
+      const eventThree = {
+        ...defaultTraceEvent,
+        ts: TraceEngine.Types.Timing.MicroSeconds(10),
+        dur: TraceEngine.Types.Timing.MicroSeconds(2),
+      };
+      const eventFour = {
+        ...defaultTraceEvent,
+        ts: TraceEngine.Types.Timing.MicroSeconds(20),
+        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+      };
+
+      let level = Timeline.AppenderUtils.getSyncEventLevel(eventOne, openEvents);
+      // For first event, the track is empty, so it always returns 0.
+      assert.strictEqual(level, 0);
+
+      level = Timeline.AppenderUtils.getSyncEventLevel(eventTwo, openEvents);
+      // For eventTwo, its time is a subset of the eventOne, so it will be append as eventOne's child.
+      assert.strictEqual(level, 1);
+
+      level = Timeline.AppenderUtils.getSyncEventLevel(eventThree, openEvents);
+      // For eventTwo, its time is a subset of the eventTwo, so it will be append as eventTwo's child.
+      assert.strictEqual(level, 2);
+
+      level = Timeline.AppenderUtils.getSyncEventLevel(eventFour, openEvents);
+      // For eventFour, its time is a subset of eventOne but not eventTwo, so it will be append as eventTwo's child.
+      assert.strictEqual(level, 1);
+    });
+  });
 });
