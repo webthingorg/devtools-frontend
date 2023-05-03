@@ -52,6 +52,24 @@
       "parentUuid": "0a240562_ae49fd99",
       "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a95b13f_e8ab46b2",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-03T09:00:51Z",
+      "side": 1,
+      "message": "Haha you\u0027re totally right and I don\u0027t know how I missed this 😅 I was trying to mention regex replace in here[1]\n\n[1]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/inline_editor/BezierEditor.ts;l\u003d115?q\u003dbeziereditor.ts",
+      "parentUuid": "d09ebc8c_8a733614",
+      "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
