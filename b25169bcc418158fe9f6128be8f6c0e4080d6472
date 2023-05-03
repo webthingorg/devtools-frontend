@@ -34,6 +34,24 @@
       "parentUuid": "47bf61ae_76b39322",
       "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09ebc8c_8a733614",
+        "filename": "front_end/ui/legacy/components/inline_editor/BezierEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T08:35:29Z",
+      "side": 1,
+      "message": "now -\u003e not 😞",
+      "parentUuid": "0a240562_ae49fd99",
+      "revId": "b25169bcc418158fe9f6128be8f6c0e4080d6472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
