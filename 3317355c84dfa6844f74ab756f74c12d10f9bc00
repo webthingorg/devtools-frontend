@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69dacee7_24c7bbb3",
+        "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T03:30:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure, but this assertion feels like it could present issues now that `describeWithMockConnection` is being used instead of `describeWithLocale`. Thoughts?",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13dc9783_f53eb17a",
+        "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-03T03:30:35Z",
+      "side": 1,
+      "message": "This doesn\u0027t feel right to me... but without it the tests fail. Is having to use something like this standard/normal here? If not, do you have any suggestions for an alternative (and deterministic) way to ensure the actions started by the button click have completed and the view has re-rendered before proceeding?",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
