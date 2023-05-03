@@ -16,6 +16,23 @@
       "message": "I have started updating paddings for the new icons and realised that a minus icon is missing as well as I am not sure how exactly round/tiny by toolbar/round combinations should look like",
       "revId": "4ef25153fdb5ff2c20af46f0bb2f64040929cde1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66aabff7_b5106a65",
+        "filename": "scripts/stylelint_rules/tests/use_theme_colors_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-03T16:34:19Z",
+      "side": 1,
+      "message": "https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1442257",
+      "revId": "4ef25153fdb5ff2c20af46f0bb2f64040929cde1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
