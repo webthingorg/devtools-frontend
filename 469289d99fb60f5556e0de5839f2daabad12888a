@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5325bfa3_09af4e26",
+        "filename": "front_end/ui/legacy/components/data_grid/ViewportDataGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T09:02:41Z",
+      "side": 1,
+      "message": "Quick question: why is this call placed here in the for-loop? From the look of it, it can be safely put outside of this for loop, either before or after? This way we save adding one extra call for each iteration.",
+      "revId": "469289d99fb60f5556e0de5839f2daabad12888a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
