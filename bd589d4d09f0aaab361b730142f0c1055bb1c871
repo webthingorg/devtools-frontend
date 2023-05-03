@@ -118,6 +118,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8044dbd_568f2671",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T08:33:12Z",
+      "side": 1,
+      "message": "All good!",
+      "parentUuid": "1cb1173f_1144d77f",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bab48382_ea412b1d",
@@ -149,6 +167,24 @@
       "side": 1,
       "message": "I\u0027ve looked at this a bit and I wasn\u0027t able to get drag \u0026 drop HTML API working for our use case. Since we don\u0027t need drag \u0026 drop outside of the page and transferring data between drag \u0026 drop elements; using pointer events for our use case feels like a good solution.\n\nAFAIU one of the reasons it is hard to receive both dblclick and drag events might be how `installDragHandle` is setting up the listeners. I think, for now we can continue to use the same abstraction and think about this problem if/when we\u0027re moving these to Lit components. WDYT?",
       "parentUuid": "bab48382_ea412b1d",
+      "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c00d02c_ee4296a6",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingUI.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T08:33:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0a12cb92_4679f1d3",
       "revId": "bd589d4d09f0aaab361b730142f0c1055bb1c871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

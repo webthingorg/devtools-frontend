@@ -16,6 +16,41 @@
       "message": "I\u0027m a bit reluctant to add unit tests for testing the interaction or rendering. Do you have a suggestion on which tests we can write here?\n\nI feel like only these cases make sense for unit tests:\n* AnimationTimingModel is able to handle both `cubic-bezier()` and linear() functions\n* AnimationTimingUI is able to render both `cubic-bezier()` and `linear()` functions visually (without asserting on how it looks, saying that it renders \"linear-container\" or \"cubic-bezier-container\" depending on the case)\n\nWDYT?",
       "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861f2483_fef36994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T08:33:12Z",
+      "side": 1,
+      "message": "Sounds good. From what I can tell, we added three public methods for LinearEasingPresentation:\n```\ntimingPointToPosition(point: Point): Position {}\n\npositionToTimingPoint(position: Position): Point {}\n\ndraw(linearEasingModel: CSSLinearEasingModel, svg: Element): void {}\n```\nI think it would also make sense to test these. If you think `timingPointToPosition` and `positionToTimingPoint` are just implementation details and not behaviors, we could also just make them private.",
+      "parentUuid": "db793b9c_3d17dd27",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b0834f5_a58590b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-03T08:33:12Z",
+      "side": 1,
+      "message": "still LGTM",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
