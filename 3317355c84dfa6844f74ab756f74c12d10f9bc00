@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f49a4126_61fd2ad5",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-03T11:57:55Z",
+      "side": 1,
+      "message": "Is `void` needed here?",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 8
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69dacee7_24c7bbb3",
         "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
         "patchSetId": 6
@@ -14,6 +37,30 @@
       "writtenOn": "2023-05-03T03:30:35Z",
       "side": 1,
       "message": "I\u0027m not sure, but this assertion feels like it could present issues now that `describeWithMockConnection` is being used instead of `describeWithLocale`. Thoughts?",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff808eae_f9715273",
+        "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-03T11:57:55Z",
+      "side": 1,
+      "message": "I think this should be fine.",
+      "parentUuid": "69dacee7_24c7bbb3",
       "range": {
         "startLine": 88,
         "startChar": 4,
@@ -37,6 +84,30 @@
       "writtenOn": "2023-05-03T03:30:35Z",
       "side": 1,
       "message": "This doesn\u0027t feel right to me... but without it the tests fail. Is having to use something like this standard/normal here? If not, do you have any suggestions for an alternative (and deterministic) way to ensure the actions started by the button click have completed and the view has re-rendered before proceeding?",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "3317355c84dfa6844f74ab756f74c12d10f9bc00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654eb1af_0a311557",
+        "filename": "test/unittests/front_end/panels/application/components/BounceTrackingMitigationsView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-03T11:57:55Z",
+      "side": 1,
+      "message": "Yeah, the issue is not the rendering, but that `await` in front of `invoke_runBounceTrackingMitigations` which interrupts the control flow for the first time. At this point there\u0027s no work in the rendering queue so `coordinator.done()` resolves immediately. \n\nThis could have worked just as well with \n\n    await new Promise((resolve) \u003d\u003e setTimeout(resolve, 0));\n    await coordinator.done();\n    \n    \nIn fact both patterns are common in our code base. Thanks for brining this to my attention. With the http://crrev.com/c/4502862 you can now do `await coordinator.done({waitForWork:true});` which would block until something actually gets rendered.",
+      "parentUuid": "13dc9783_f53eb17a",
       "range": {
         "startLine": 110,
         "startChar": 4,
