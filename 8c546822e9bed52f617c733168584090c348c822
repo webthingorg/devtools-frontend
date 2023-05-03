@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77526f0f_09d4557f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316409
+      },
+      "writtenOn": "2023-05-03T23:07:16Z",
+      "side": 1,
+      "message": "Hi deprecation-devtools@ team, I\u0027m having build issues rolling dependencies for deprecation message following the README. Wondering if you can help understand what I might be doing wrong here?\n\nAlternatively I created another CL with just the deprecation message change that I am interested in which seems to have no build issues if there aren\u0027t problems merging this separately. https://crrev.com/c/4500317\n\nThanks!",
+      "revId": "8c546822e9bed52f617c733168584090c348c822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
