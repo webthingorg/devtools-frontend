@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d92801_594a71c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-04T04:44:03Z",
+      "side": 1,
+      "message": "PTAL, landing this CL is blocked on https://crrev.com/c/4506350.",
+      "revId": "373b9838697ee9e7e5acc243d831febfaa24e00b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
