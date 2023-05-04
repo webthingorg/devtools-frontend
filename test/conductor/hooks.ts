@@ -109,39 +109,46 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  try {
+    browser = await launchChrome();
+    setupBrowserProcessIO(browser);
 
-  // Load the target page.
-  targetTab = await TargetTab.create(browser);
+    // Load the target page.
+    targetTab = await TargetTab.create(browser);
 
-  // Create the frontend - the page that will be under test. This will be either
-  // DevTools Frontend in hosted mode, or the component docs in docs test mode.
-  let frontend: puppeteer.Page;
+    // Create the frontend - the page that will be under test. This will be either
+    // DevTools Frontend in hosted mode, or the component docs in docs test mode.
+    let frontend: puppeteer.Page;
 
-  if (TEST_SERVER_TYPE === 'hosted-mode') {
-    /**
-     * In hosted mode we run the DevTools and test against it.
-     */
-    frontendTab = await DevToolsFrontendTab.create({
-      browser,
-      testServerPort,
-      targetId: targetTab.targetId(),
-    });
-    frontend = frontendTab.page;
-  } else if (TEST_SERVER_TYPE === 'component-docs') {
-    /**
-     * In the component docs mode it points to the page where we load component
-     * doc examples, so let's just set it to an empty page for now.
-     */
-    frontend = await browser.newPage();
-    installPageErrorHandlers(frontend);
-    await loadEmptyPageAndWaitForContent(frontend);
-  } else {
-    throw new Error(`Unknown TEST_SERVER_TYPE "${TEST_SERVER_TYPE}"`);
+    if (TEST_SERVER_TYPE === 'hosted-mode') {
+      /**
+       * In hosted mode we run the DevTools and test against it.
+       */
+      frontendTab = await DevToolsFrontendTab.create({
+        browser,
+        testServerPort,
+        targetId: targetTab.targetId(),
+      });
+      frontend = frontendTab.page;
+    } else if (TEST_SERVER_TYPE === 'component-docs') {
+      /**
+       * In the component docs mode it points to the page where we load component
+       * doc examples, so let's just set it to an empty page for now.
+       */
+      frontend = await browser.newPage();
+      installPageErrorHandlers(frontend);
+      await loadEmptyPageAndWaitForContent(frontend);
+    } else {
+      throw new Error(`Unknown TEST_SERVER_TYPE "${TEST_SERVER_TYPE}"`);
+    }
+
+    setBrowserAndPages({target: targetTab.page, frontend, browser});
+  } catch (error) {
+    if (browser) {
+      await browser.close();
+    }
+    await loadTargetPageAndFrontend(testServerPort);
   }
-
-  setBrowserAndPages({target: targetTab.page, frontend, browser});
 }
 
 export async function resetPages() {
