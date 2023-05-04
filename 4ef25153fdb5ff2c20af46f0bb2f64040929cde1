@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c37ac5d_e43bfc6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-05-04T11:24:46Z",
+      "side": 1,
+      "message": "I added `minus.svg` to `https://drive.google.com/corp/drive/folders/1EpmxLRjvdHn5Ia8iT3aicgIEPEvhXY_D?resourcekey\u003d0-QseNsNRsF4w8F5EKz7ncnA`",
+      "revId": "4ef25153fdb5ff2c20af46f0bb2f64040929cde1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66aabff7_b5106a65",
