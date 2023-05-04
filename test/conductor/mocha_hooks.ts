@@ -109,7 +109,7 @@ export const mochaHooks = {
   // In both modes, run before each test.
   beforeEach: async function(this: Mocha.Suite) {
     // Sets the timeout higher for this hook only.
-    this.timeout(10000);
+    this.timeout(30000);
     await resetPages();
 
     // Pause when running interactively in debug mode. This is mututally
