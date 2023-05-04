@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c25efd_32f4236a",
+        "filename": "config/owner/COMMON_OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-05-04T14:02:21Z",
+      "side": 1,
+      "message": "please use this opportunity to also remove Johan.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "dd425e28364fd947947ceab3d5beceeaf3487732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49dc43b3_6af63542",
+        "filename": "config/owner/COMMON_OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-05-04T14:02:21Z",
+      "side": 1,
+      "message": "and Tim.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "dd425e28364fd947947ceab3d5beceeaf3487732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
