@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d702319_ca163d84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-04T12:14:03Z",
+      "side": 1,
+      "message": "nit: let\u0027s create one and link it as `blocked by 618969`",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "b40cc388b32f0285ae4837cb6b420cbc8fababd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "758c67f7_b2b987e8",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-04T12:14:03Z",
+      "side": 1,
+      "message": "nit: should we also include `isGrid` as a prerequisite here?",
+      "revId": "b40cc388b32f0285ae4837cb6b420cbc8fababd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
