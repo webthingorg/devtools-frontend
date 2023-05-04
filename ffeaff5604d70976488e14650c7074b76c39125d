@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cdf2f0a_428449ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524704
+      },
+      "writtenOn": "2023-05-04T09:31:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "48a3cdfa_fe733f7f",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "ffeaff5604d70976488e14650c7074b76c39125d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9dab11f_d559ac81",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-04T09:26:18Z",
       "side": 1,
       "message": "nit: Reword as\n\n\"The \u0027user-agent\u0027 doesn\u0027t contain the word \u0027Mobile\u0027 and even with platform \u0027Android\u0027 the device shouldn\u0027t be marked as \u0027mobile\u0027 in the meta data.\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 61,
+        "endLine": 12,
+        "endChar": 52
+      },
+      "revId": "ffeaff5604d70976488e14650c7074b76c39125d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "636ac791_9ad5ce72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1524704
+      },
+      "writtenOn": "2023-05-04T09:31:25Z",
+      "side": 1,
+      "message": "Rephrased it differently",
+      "parentUuid": "b9dab11f_d559ac81",
       "range": {
         "startLine": 10,
         "startChar": 61,
