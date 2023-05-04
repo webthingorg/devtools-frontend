@@ -193,6 +193,30 @@
       },
       "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ce4b2a_8e23d37a",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-05-04T00:54:06Z",
+      "side": 1,
+      "message": "I suppose not haha. Removed.",
+      "parentUuid": "28d559c3_c0629ffc",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 53
+      },
+      "revId": "6fa01ea875fa7c5dc7931b60cdf0414071b359c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
