@@ -33,6 +33,23 @@
       "message": "Hi Wolfgang, could you please review this issues pannel change? Thanks",
       "revId": "c84ce88c996ac23f938315d29636588435a8c287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "636cd339_8a6ca4e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-04T09:33:31Z",
+      "side": 1,
+      "message": "The mentions of the issues in UserMetrics.ts can be deleted as well, otherwise LGTM",
+      "revId": "c84ce88c996ac23f938315d29636588435a8c287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
