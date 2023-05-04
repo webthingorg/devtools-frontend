@@ -30,7 +30,7 @@ import {
   setupRecorderWithScriptAndReplay,
 } from './helpers.js';
 
-describe('Recorder', function() {
+describe.skipOnParallel('Recorder', function() {
   if (this.timeout() !== 0) {
     this.timeout(40000);
   }
