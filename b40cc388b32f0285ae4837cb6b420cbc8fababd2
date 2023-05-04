@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a9198e1_95be486f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-04T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d702319_ca163d84",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "b40cc388b32f0285ae4837cb6b420cbc8fababd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "758c67f7_b2b987e8",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-05-04T12:14:03Z",
       "side": 1,
       "message": "nit: should we also include `isGrid` as a prerequisite here?",
+      "revId": "b40cc388b32f0285ae4837cb6b420cbc8fababd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d659a86_8b070692",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-04T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "758c67f7_b2b987e8",
       "revId": "b40cc388b32f0285ae4837cb6b420cbc8fababd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
