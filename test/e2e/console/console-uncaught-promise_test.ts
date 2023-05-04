@@ -14,7 +14,7 @@ import {
 } from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
-  it('is able to log uncaught promise rejections into console', async () => {
+  it.skipOnParallel('is able to log uncaught promise rejections into console', async () => {
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
 

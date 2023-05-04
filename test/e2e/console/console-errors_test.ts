@@ -47,7 +47,7 @@ describe('The Console\'s errors', () => {
     });
   });
 
-  it('shows errors to load a resource', async () => {
+  it.skipOnParallel('shows errors to load a resource', async () => {
     await goToResource('console/resource-errors.html');
     await navigateToConsoleTab();
     await showVerboseMessages();
