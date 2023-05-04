@@ -87,6 +87,24 @@
       "parentUuid": "48c07c57_be91c9d4",
       "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55122e50_f7377ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-04T10:56:00Z",
+      "side": 1,
+      "message": "They are implementation details for the module (we don\u0027t export those to outside of AnimationTimingUI) but they are needed in the public API of the LinearEasingPresentation because LinearEasingUI needs to be able to convert a position from a `LinearEasingPresentation` to a point in the function.\n\nThis kind of shows that there is a leaky abstraction here though I kind of copied the logic from how BezierUI is created and used before 😅\n\nLet\u0027s continue like this and maybe come back to update compositon here altogether.",
+      "parentUuid": "f3a5cac9_07ae4836",
+      "revId": "9df4bbe6b17e0bd387fe5b47ba3f70561692b092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
