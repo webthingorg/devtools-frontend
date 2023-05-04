@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a00b48f2_b0af63cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-04T07:28:24Z",
+      "side": 1,
+      "message": "After looking at the code I understand that one message is talking about the preload and another about the prerender. Not sure if I would have grasped it without the code.\n\nI agree it is a confusing UI and having a single infobar describing the state would be much better.",
+      "parentUuid": "5fba6348_a9399cb5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "e1cc71454ee447b627afdb307035f037c492b5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1bdca46_2062f332",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 8
