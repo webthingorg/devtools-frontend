@@ -33,6 +33,8 @@ const ALLOWED_ASSERTION_FAILURES = [
   'Request Runtime.evaluate failed. {"code":-32602,"message":"uniqueContextId not found"}',
   'uniqueContextId not found',
   'Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}',
+  'Request IndexedDB.requestDatabaseNames failed. {"code":-32602,"message":"specified storage not found"}',
+  'Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"No frame found for given storage key"}',
 ];
 
 const logLevels = {

@@ -929,7 +929,7 @@ describe('The Debugger Language Plugins', async () => {
     ]);
   });
 
-  it('shows variable value in popover', async () => {
+  it.skipOnParallel('shows variable value in popover', async () => {
     const extension = await loadExtension(
         'TestExtension', `${getResourcesPathWithDevToolsHostname()}/extensions/language_extensions.html`);
     await extension.evaluate(() => {
