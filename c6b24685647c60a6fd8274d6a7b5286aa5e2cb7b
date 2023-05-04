@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b51707e_f8caec9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2023-05-04T20:28:13Z",
+      "side": 1,
+      "message": "PTAL at this accessibility bug fix! Thank you!",
+      "revId": "c6b24685647c60a6fd8274d6a7b5286aa5e2cb7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
