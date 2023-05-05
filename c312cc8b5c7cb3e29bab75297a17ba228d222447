@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "c312cc8b5c7cb3e29bab75297a17ba228d222447",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8a99a0_c54d73eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:59:04Z",
+      "side": 1,
+      "message": "LGTM. We might need to update some screenshots (unless the threshold is too high?). Will be interesting to see if they fail. If they don\u0027t I propose landing this anyway, I saw Nancy had filed a bug to look into screenshots \u0026 how they help with regressions.",
+      "revId": "c312cc8b5c7cb3e29bab75297a17ba228d222447",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
