@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f11fed3c_97c3ddb0",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-05T09:58:27Z",
+      "side": 1,
+      "message": "Nit: precedence?",
+      "range": {
+        "startLine": 276,
+        "startChar": 23,
+        "endLine": 276,
+        "endChar": 32
+      },
+      "revId": "7e1de149c865ddc566875f652ad6d51a164aa273",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9bd8da6_1bcad8bf",
+        "filename": "front_end/panels/network/RequestResponseView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-05T09:58:27Z",
+      "side": 1,
+      "message": "Should not this be `mimeType`?",
+      "range": {
+        "startLine": 103,
+        "startChar": 90,
+        "endLine": 103,
+        "endChar": 99
+      },
+      "revId": "7e1de149c865ddc566875f652ad6d51a164aa273",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
