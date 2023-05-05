@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93622772_fbca1592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:12:01Z",
+      "side": 1,
+      "message": "LGTM! A couple of suggestions which you can take or leave :)",
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5640fd2_8729692d",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:12:01Z",
+      "side": 1,
+      "message": "nit: do you think that skipAsyncEvents or ignoreAsyncEvents might be clearer? On first read I wasn\u0027t sure if filterAsyncEvents meant keep them, or ignore them.",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 23
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1262eafb_923ef37d",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:12:01Z",
+      "side": 1,
+      "message": "should we make an isAsync() func that checks for both of these?",
+      "range": {
+        "startLine": 222,
+        "startChar": 19,
+        "endLine": 223,
+        "endChar": 67
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065ae692_ae082513",
+        "filename": "front_end/models/timeline_model/TimelineProfileTree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:12:01Z",
+      "side": 1,
+      "message": "just checking, but this is a deliberate change that now we won\u0027t skip async events when walking the tree?",
+      "range": {
+        "startLine": 119,
+        "startChar": 102,
+        "endLine": 119,
+        "endChar": 107
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e103908d_59fed38c",
+        "filename": "front_end/panels/timeline/CountersGraph.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-05T09:12:01Z",
+      "side": 1,
+      "message": "is a CompatibleTraceEvent not a superset of SDK.TracingModel.Event anyway? Or is this here because we have to think about ConstructedEvents ? In which case, should this type be SDK.TracingModel.ConstructedEvents?",
+      "range": {
+        "startLine": 141,
+        "startChar": 50,
+        "endLine": 141,
+        "endChar": 72
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
