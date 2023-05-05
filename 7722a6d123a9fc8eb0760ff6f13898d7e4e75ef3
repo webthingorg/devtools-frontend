@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dda1e72_82044aff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524704
+      },
+      "writtenOn": "2023-05-05T05:12:27Z",
+      "side": 1,
+      "message": "Another device slipped from my attention yesterday.",
+      "revId": "7722a6d123a9fc8eb0760ff6f13898d7e4e75ef3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
