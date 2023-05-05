@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ccb0d16_0738f51d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-05-05T08:38:37Z",
+      "side": 1,
+      "message": "Please find this experiment for running in parallel with the mocha hook, it seems that the sources of the issues are these:\n- Failing to launch chrome or create target or frontend tabs: for this we added a loop that keeps retrying the launch until it works, if it fails at any point of the setup it closes the browser and tries again. Even though it seems inefficient I was not able to know what causes the browser to throw an error when we try to run it in parallel (I assumed it is lack of resources).\n- Fatal errors that fail the after all hook even though they do not seem to fail the test, for this we just added an allowance for them to be ignored.\n- Some tests were failing on the parallel run, my assumption was it is because these tests rely on a certain degree of performance that is not guaranteed in parallel execution, so we skipped them on parallel and moved them to sequential.\n- The recorder tests seem to be flaky on parallel and sequential runs, so I skipped them entirely.\n\nThe runs with 4 jobs were able to cut the run time for each builder in half, see the below examples:\n- Linux:\n-- Sequential: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Linux/12406/timeline\n-- Parallel: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_parallel_linux/b8782013062582766657/timeline\n- Mac:\n-- Sequential: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/10244/timeline\n-- Parallel: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_parallel_mac/b8782013062582766641/timeline\n- Windows:\n-- Sequential: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Win/8792/timeline\n-- Parallel: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_parallel_win64/b8782013062582766625/timeline",
+      "revId": "e51627bd24f55d38f903a9a68d87fec24605f44d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1a1a15_96991fcf",
+        "filename": "scripts/test/run_test_suite.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-05-05T08:38:37Z",
+      "side": 1,
+      "message": "should this be lower?",
+      "range": {
+        "startLine": 228,
+        "startChar": 37,
+        "endLine": 228,
+        "endChar": 42
+      },
+      "revId": "e51627bd24f55d38f903a9a68d87fec24605f44d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa705b0f_19bf888c",
+        "filename": "test/conductor/events.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-05-05T08:38:37Z",
+      "side": 1,
+      "message": "are these okay to skip for all runs (both sequential and parallel)?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 116
+      },
+      "revId": "e51627bd24f55d38f903a9a68d87fec24605f44d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edf6ada_94a671a3",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-05-05T08:38:37Z",
+      "side": 1,
+      "message": "this catch is very inefficient, are there any suggestions for what to wait for if the launching was not successful?",
+      "range": {
+        "startLine": 149,
+        "startChar": 6,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e51627bd24f55d38f903a9a68d87fec24605f44d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b216d632_0cd5b627",
+        "filename": "test/e2e/recorder/export_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-05-05T08:38:37Z",
+      "side": 1,
+      "message": "I skipped the recorder tests because they seemed flaky on sequential runs too, is this known and should we skip them in a separate CL?",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "e51627bd24f55d38f903a9a68d87fec24605f44d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
