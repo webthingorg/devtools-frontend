@@ -142,10 +142,10 @@ const assertScreenshotUnchanged = async(options: ScreenshotAssertionOptions): Pr
     generatedScreenshotPath,
     goldenScreenshotPath,
     fileName,
-    maximumDiffThreshold,
     maximumRetries,
     retryCount = 1,
   } = options;
+  const maximumDiffThreshold = Boolean(process.env.FORCE_UPDATE_ALL_GOLDENS) ? 0 : options.maximumDiffThreshold;
   const screenshotOptions = {...defaultScreenshotOpts, ...options.screenshotOptions, path: generatedScreenshotPath};
   await (elementOrPage as puppeteer.Page).screenshot(screenshotOptions);
 
@@ -154,8 +154,8 @@ const assertScreenshotUnchanged = async(options: ScreenshotAssertionOptions): Pr
    * to update the golden image. This is useful if work has caused the
    * screenshot to change and therefore the test goldens need to be updated.
    */
-  const shouldUpdate = Boolean(process.env.FORCE_UPDATE_ALL_GOLDENS) ||
-      Boolean(process.env.UPDATE_GOLDEN && process.env.UPDATE_GOLDEN === fileName);
+  const shouldUpdate = Boolean(process.env.FORCE_UPDATE_ALL_GOLDENS) || Boolean(process.env.UPDATE_GOLDEN) ||
+      process.env.UPDATE_GOLDEN === fileName;
   const throwAfterGoldensUpdate = Boolean(process.env.THROW_AFTER_GOLDENS_UPDATE);
 
   let onBotAndImageNotFound = false;
