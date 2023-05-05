@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef1e63d8_d0eda2de",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-05T13:15:02Z",
+      "side": 1,
+      "message": "`ignoreAsyncEvents` is definitely clearer! Thanks for the suggestion!",
+      "parentUuid": "d5640fd2_8729692d",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 23
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1262eafb_923ef37d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-05T09:12:01Z",
       "side": 1,
       "message": "should we make an isAsync() func that checks for both of these?",
+      "range": {
+        "startLine": 222,
+        "startChar": 19,
+        "endLine": 223,
+        "endChar": 67
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ee4d7cf_4b6188be",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-05T13:15:02Z",
+      "side": 1,
+      "message": "I\u0027m unsure because the second check is for flow events. However I\u0027ve added a helper variable to make this more readable",
+      "parentUuid": "1262eafb_923ef37d",
       "range": {
         "startLine": 222,
         "startChar": 19,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c959456_c891e18b",
+        "filename": "front_end/models/timeline_model/TimelineProfileTree.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-05T13:15:02Z",
+      "side": 1,
+      "message": "that\u0027s correct. This particular call is part of the logic to build the trees in the detailes pane. Because in some cases we want to show async events in the details view, we need to make sure they are not filtered out. The old logic would create fake Constructed events with a fake sync category to prevent them from being filtered out. Since we don\u0027t want to create fake events with the new engine we resort to use this flag.",
+      "parentUuid": "065ae692_ae082513",
+      "range": {
+        "startLine": 119,
+        "startChar": 102,
+        "endLine": 119,
+        "endChar": 107
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e103908d_59fed38c",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-05-05T09:12:01Z",
       "side": 1,
       "message": "is a CompatibleTraceEvent not a superset of SDK.TracingModel.Event anyway? Or is this here because we have to think about ConstructedEvents ? In which case, should this type be SDK.TracingModel.ConstructedEvents?",
+      "range": {
+        "startLine": 141,
+        "startChar": 50,
+        "endLine": 141,
+        "endChar": 72
+      },
+      "revId": "76155407e43fa1b4684ba7ce2767d1471036f9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e909c7e3_72173f95",
+        "filename": "front_end/panels/timeline/CountersGraph.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-05T13:15:02Z",
+      "side": 1,
+      "message": "great catch! I think this was a left over after rebasing a couple of times.",
+      "parentUuid": "e103908d_59fed38c",
       "range": {
         "startLine": 141,
         "startChar": 50,
