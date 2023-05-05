@@ -536,7 +536,12 @@ export enum SidebarPaneCodes {
   'elements.domBreakpoints' = 5,
   'elements.domProperties' = 6,
   'accessibility.view' = 7,
-  MaxValue = 8,
+  'navigator-network' = 8,
+  'navigator-files' = 9,
+  'navigator-overrides' = 10,
+  'navigator-contentScripts' = 11,
+  'navigator-snippets' = 12,
+  MaxValue = 13,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
