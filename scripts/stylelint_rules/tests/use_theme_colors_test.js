@@ -148,6 +148,12 @@ describe('use_theme_colors', () => {
         [{column: 5, line: 1, rule: 'plugin/use_theme_colors', severity: 'error', text: EXPECTED_ERROR_MESSAGE}]);
   });
 
+  it('does not error when there is a var for the border width', async () => {
+    const warnings = await lint('p { border: var(--button-border-size) solid var(--color-primary); }');
+
+    assert.lengthOf(warnings, 0);
+  });
+
   it('allows locally declared variables to be used', async () => {
     const warnings = await lint('p { color: var(--color-primary-old); }');
     assert.lengthOf(warnings, 0);

@@ -152,11 +152,6 @@ const str_ = i18n.i18n.registerUIStrings(
 );
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-const deployMenuArrow = new URL(
-                            '../images/select-arrow-icon.svg',
-                            import.meta.url,
-                            )
-                            .toString();
 const abortIconUrl = new URL(
                          '../images/abort_icon.svg',
                          import.meta.url,
@@ -860,7 +855,7 @@ export class RecordingView extends HTMLElement {
               class="chevron"
               .data=${
                 {
-                  iconPath: deployMenuArrow,
+                  iconName: 'triangle-down',
                   color: 'var(--color-text-primary)',
                 } as IconButton.Icon.IconData
               }>
