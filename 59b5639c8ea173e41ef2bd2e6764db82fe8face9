@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "335e3864_a61e394d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-05-05T22:18:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8e5df9e_8b57744f",
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0450fd09_1ba59bfb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98142fe5_33aeac5d",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-05-05T22:18:54Z",
+      "side": 1,
+      "message": "Added CL for this change here https://chromium-review.googlesource.com/c/chromium/src/+/4509713",
+      "parentUuid": "1395bdce_aaa2f99e",
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd849943_1f3ed65b",
@@ -65,6 +101,30 @@
       "writtenOn": "2023-04-27T18:58:56Z",
       "side": 1,
       "message": "The descriptions are used to provide context for translators. I\u0027ll suggest we use the full name here.",
+      "range": {
+        "startLine": 395,
+        "startChar": 63,
+        "endLine": 395,
+        "endChar": 66
+      },
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1407529a_7ff515a5",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-05-05T22:18:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd849943_1f3ed65b",
       "range": {
         "startLine": 395,
         "startChar": 63,
