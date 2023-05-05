@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1395bdce_aaa2f99e",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-05-05T16:15:46Z",
+      "side": 1,
+      "message": "Needs a corresponding update to the enum in chromium.src/tools/metrics/histograms/enums.xml around line 26987\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:tools/metrics/histograms/enums.xml\n\nbefore this can land",
+      "revId": "59b5639c8ea173e41ef2bd2e6764db82fe8face9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd849943_1f3ed65b",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 1
