@@ -127,26 +127,13 @@ export class InteractionsTrackAppender implements TrackAppender {
    * @returns the position occupied by the new event in the entryData
    * array, which contains all the events in the timeline.
    */
-  #appendEventAtLevel(syntheticEvent: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent, level: number): number {
-    this.#compatibilityBuilder.registerTrackForLevel(level, this);
+  #appendEventAtLevel(syntheticEvent: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent, level: number): void {
     const index = this.#entryData.length;
-
-    // Although the event is a SyntheticInteractionEvent, it extends
-    // TraceEventData, so we can safely push it onto entryData.
-    this.#entryData.push(syntheticEvent);
-    this.#legacyEntryTypeByLevel[level] = EntryType.TrackAppender;
-    this.#flameChartData.entryLevels[index] = level;
-    this.#flameChartData.entryStartTimes[index] =
-        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(syntheticEvent.ts);
+    this.#compatibilityBuilder.appendEventAtLevel(syntheticEvent, level, this);
     const eventDurationMicroSeconds = syntheticEvent.dur || TraceEngine.Types.Timing.MicroSeconds(0);
-
     if (eventDurationMicroSeconds > LONG_INTERACTION_THRESHOLD) {
       this.#addCandyStripingForLongInteraction(index);
     }
-
-    this.#flameChartData.entryTotalTimes[index] =
-        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(eventDurationMicroSeconds);
-    return index;
   }
 
   #addCandyStripingForLongInteraction(eventIndex: number): void {
