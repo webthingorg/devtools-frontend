@@ -35,4 +35,8 @@ export class TargetTab {
   targetId(): string {
     return this.tabTargetId;
   }
+
+  async clsoe() {
+    await this.page.close();
+  }
 }

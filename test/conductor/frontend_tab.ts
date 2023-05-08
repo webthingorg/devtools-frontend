@@ -116,6 +116,10 @@ export class DevToolsFrontendTab {
     const url = new URL(this.page.url());
     return url.hostname;
   }
+
+  async clsoe() {
+    await this.page.close();
+  }
 }
 
 export async function loadEmptyPageAndWaitForContent(target: puppeteer.Page) {

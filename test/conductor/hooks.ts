@@ -109,8 +109,10 @@ function launchChrome() {
 }
 
 async function loadTargetPageAndFrontend(testServerPort: number) {
-  browser = await launchChrome();
-  setupBrowserProcessIO(browser);
+  if (!browser) {
+    browser = await launchChrome();
+    setupBrowserProcessIO(browser);
+  }
 
   // Load the target page.
   targetTab = await TargetTab.create(browser);
@@ -204,7 +206,9 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
-  await browser.close();
+  // await browser.close();
+  await targetTab.clsoe();
+  await frontendTab.clsoe();
 
   clearPuppeteerState();
   dumpCollectedErrors();
