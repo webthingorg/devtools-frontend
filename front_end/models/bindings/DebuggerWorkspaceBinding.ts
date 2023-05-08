@@ -500,6 +500,7 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     const functionLocation = frame.functionLocation();
     if (!autoSteppingContext || debuggerPausedDetails.reason !== Protocol.Debugger.PausedEventReason.Step ||
         !functionLocation || !this.pluginManager || !frame.script.isWasm() ||
+        !this.pluginManager.hasPluginForScript(frame.script) ||
         !Common.Settings.moduleSetting('wasmAutoStepping').get()) {
       return true;
     }

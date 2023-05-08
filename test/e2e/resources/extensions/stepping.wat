@@ -5,6 +5,7 @@
           (i32.add
             ;;@ FIRST_PAUSE:1:1
             (local.get $0)
+            ;;@ NOT_PAUSED:1:1
             (local.get $0)
             )
           )

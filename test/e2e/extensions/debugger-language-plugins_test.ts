@@ -1020,6 +1020,21 @@ describe('The Debugger Language Plugins', async () => {
     }
   });
 
+  it('does not auto-step for modules without a plugin', async () => {
+    const {frontend} = getBrowserAndPages();
+    const locationLabels = WasmLocationLabels.load('extensions/stepping.wat', 'extensions/stepping.wasm');
+
+    await goToWasmResource('stepping.wasm', {autoLoadModule: true});
+    await openSourcesPanel();
+
+    await locationLabels.setBreakpointInWasmAndRun('FIRST_PAUSE', 'window.Module.instance.exports.Main(16)');
+    await waitFor('.paused-status');
+    await locationLabels.checkLocationForLabel('FIRST_PAUSE');
+    installEventListener(frontend, DEBUGGER_PAUSED_EVENT);
+    await stepOver();
+    await locationLabels.checkLocationForLabel('NOT_PAUSED');
+  });
+
   it('auto-steps over unmapped code correctly', async () => {
     const {frontend} = getBrowserAndPages();
     const extension = await loadExtension(
