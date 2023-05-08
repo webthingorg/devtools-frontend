@@ -55,7 +55,8 @@ describe('The Application Tab', async () => {
     assertMatchesJSONSnapshot(dataGridRowValues);
   });
 
-  it('shows a preview of the cookie value (crbug.com/462370)', async () => {
+  // Flaky test
+  it.skip('[crbug.com/1443434]: shows a preview of the cookie value (crbug.com/462370)', async () => {
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
