@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf8cac7_3e2996c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-08T14:45:24Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6e45ddd_e0d25969",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-08T14:45:24Z",
+      "side": 1,
+      "message": "I intentionally keep this function, so it will be the same as other tracks, which will make the dedup of |appendEventsAtLevel| easier",
+      "range": {
+        "startLine": 113,
+        "startChar": 3,
+        "endLine": 113,
+        "endChar": 21
+      },
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
