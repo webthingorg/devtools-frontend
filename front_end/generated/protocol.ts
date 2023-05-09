@@ -1214,6 +1214,10 @@ export namespace Audits {
     reportAAA?: boolean;
   }
 
+  export interface CheckFormIssuesResponse extends ProtocolResponseWithError {
+    formIssues: GenericIssueDetails[];
+  }
+
   export interface IssueAddedEvent {
     issue: InspectorIssue;
   }

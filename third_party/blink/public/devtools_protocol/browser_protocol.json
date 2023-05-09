@@ -1853,6 +1853,19 @@
                             "type": "boolean"
                         }
                     ]
+                },
+                {
+                    "name": "checkFormIssues",
+                    "description": "Runs the form issues check for the target page. Current issues are dropped in favor of found ones.",
+                    "returns": [
+                        {
+                            "name": "formIssues",
+                            "type": "array",
+                            "items": {
+                                "$ref": "GenericIssueDetails"
+                            }
+                        }
+                    ]
                 }
             ],
             "events": [
