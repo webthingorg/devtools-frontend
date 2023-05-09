@@ -81,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e59b7c8_d6deab46",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-09T09:34:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3476b55b_5a529db3",
+      "range": {
+        "startLine": 131,
+        "startChar": 18,
+        "endLine": 131,
+        "endChar": 41
+      },
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62643eef_2cc170f4",
@@ -104,6 +128,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "257fe67f_39d8e2ac",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-09T09:34:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62643eef_2cc170f4",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 15
+      },
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fdb3a50_5a3f2898",
@@ -117,6 +165,30 @@
       "writtenOn": "2023-05-08T15:03:01Z",
       "side": 1,
       "message": "nit: is this a drive-by change or something that shouldn\u0027t be in this CL? (just making sure)",
+      "range": {
+        "startLine": 16,
+        "startChar": 94,
+        "endLine": 16,
+        "endChar": 95
+      },
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9321b54_a6956655",
+        "filename": "test/interactions/panels/performance/timeline/layout_shifts_track_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-09T09:34:16Z",
+      "side": 1,
+      "message": "Yes\nThe reason is when I changed the appendEventAtLevel in LayoutShiftTrackAppender, I forgot the part of event\u0027s duration, which should cause a failure, but the test passed with 0.55% diff",
+      "parentUuid": "8fdb3a50_5a3f2898",
       "range": {
         "startLine": 16,
         "startChar": 94,
