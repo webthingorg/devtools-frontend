@@ -261,7 +261,18 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   }
 
   private async loadDatabaseNamesByStorageKey(storageKey: string): Promise<string[]> {
-    const {databaseNames} = await this.indexedDBAgent.invoke_requestDatabaseNames({storageKey});
+    let response;
+    let error: Error|null = new Error(`Failed looking up names for "${storageKey}"`);
+    try {
+      response = await this.indexedDBAgent.invoke_requestDatabaseNames({storageKey});
+      error = null;
+    } finally {
+      if (error) {
+        throw error;
+      }
+    }
+    const {databaseNames} = response;
+    // const {databaseNames} = await this.indexedDBAgent.invoke_requestDatabaseNames({storageKey});
     if (!databaseNames) {
       return [];
     }
