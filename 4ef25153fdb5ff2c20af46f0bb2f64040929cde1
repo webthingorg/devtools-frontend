@@ -68,6 +68,24 @@
       "parentUuid": "66aabff7_b5106a65",
       "revId": "4ef25153fdb5ff2c20af46f0bb2f64040929cde1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a93bb02_ef0df9bd",
+        "filename": "scripts/stylelint_rules/tests/use_theme_colors_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-09T10:41:45Z",
+      "side": 1,
+      "message": "No, I have disabled the rule for the Button css file.",
+      "parentUuid": "06e9fd60_d4499dcb",
+      "revId": "4ef25153fdb5ff2c20af46f0bb2f64040929cde1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
