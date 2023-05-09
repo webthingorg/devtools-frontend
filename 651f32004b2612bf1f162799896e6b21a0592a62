@@ -197,6 +197,30 @@
       },
       "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c962843_410dbb44",
+        "filename": "test/interactions/panels/performance/timeline/layout_shifts_track_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-09T11:03:50Z",
+      "side": 1,
+      "message": "Change back to 2 to give the CQ some allowance\nSame as the reason here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4384818",
+      "parentUuid": "b9321b54_a6956655",
+      "range": {
+        "startLine": 16,
+        "startChar": 94,
+        "endLine": 16,
+        "endChar": 95
+      },
+      "revId": "651f32004b2612bf1f162799896e6b21a0592a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
