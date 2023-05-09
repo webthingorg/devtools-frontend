@@ -921,6 +921,10 @@ experimental domain Audits
       # Whether to report WCAG AAA level issues. Default is false.
       optional boolean reportAAA
 
+  # Runs the form issues check for the target page
+  # current issues are dropped in favor of new ones.
+  command checkFormIssues
+  
   event issueAdded
     parameters
       InspectorIssue issue

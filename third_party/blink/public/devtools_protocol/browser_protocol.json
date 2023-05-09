@@ -1853,6 +1853,10 @@
                             "type": "boolean"
                         }
                     ]
+                },
+                {
+                    "name": "checkFormIssues",
+                    "description": "Runs the form issues check for the target page\ncurrent issues are dropped in favor of new ones."
                 }
             ],
             "events": [

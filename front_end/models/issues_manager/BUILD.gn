@@ -19,6 +19,7 @@ devtools_module("issues_manager") {
     "CrossOriginEmbedderPolicyIssue.ts",
     "DeprecationIssue.ts",
     "FederatedAuthRequestIssue.ts",
+    "FormIssuesCheckTrigger.ts",
     "GenericIssue.ts",
     "HeavyAdIssue.ts",
     "Issue.ts",
