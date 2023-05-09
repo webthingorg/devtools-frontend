@@ -7158,6 +7158,7 @@ export namespace Network {
     Ping = 'Ping',
     CSPViolationReport = 'CSPViolationReport',
     Preflight = 'Preflight',
+    DataChannel = 'DataChannel',
     Other = 'Other',
   }
 
@@ -7814,6 +7815,22 @@ export namespace Network {
      * WebSocket message payload data.
      * If the opcode is 1, this is a text message and payloadData is a UTF-8 string.
      * If the opcode isn't 1, then payloadData is a base64 encoded string representing binary data.
+     */
+    payloadData: string;
+  }
+
+  /**
+   * DataChannel message data.
+   */
+  export interface DataChannelMessage {
+    /**
+     * DataChannel message is binary.
+     */
+    binary: boolean;
+    /**
+     * DataChannel message payload data.
+     * If binary is false, this is a text message and payloadData is a UTF-8 string.
+     * If binary is true, then payloadData is a base64 encoded string representing binary data.
      */
     payloadData: string;
   }
@@ -9366,6 +9383,98 @@ export namespace Network {
      * Timestamp.
      */
     timestamp: MonotonicTime;
+  }
+
+  /**
+   * Fired when DataChannel is closed.
+   */
+  export interface DataChannelClosedEvent {
+    /**
+     * DataChannel identifier.
+     */
+    dataChannelId: RequestId;
+    /**
+     * Timestamp.
+     */
+    timestamp: MonotonicTime;
+  }
+
+  /**
+   * Fired upon DataChannel creation.
+   */
+  export interface DataChannelCreatedEvent {
+    /**
+     * DataChannel identifier.
+     */
+    dataChannelId: RequestId;
+    /**
+     * DataChannel label.
+     */
+    label: string;
+    /**
+     * DataChannel protocol.
+     */
+    protocol: string;
+    /**
+     * DataChannel ordered property.
+     */
+    ordered: boolean;
+    /**
+     * DataChannel negotiated property.
+     */
+    negotiated: boolean;
+    /**
+     * Timestamp.
+     */
+    timestamp: MonotonicTime;
+    /**
+     * DataChannel maximum packet lifetime in milliseconds if set.
+     */
+    maxPacketLifetime?: integer;
+    /**
+     * DataChannel maximum retransmit count if set.
+     */
+    maxRetransmits?: integer;
+    /**
+     * Request initiator.
+     */
+    initiator?: Initiator;
+  }
+
+  /**
+   * Fired when DataChannel message is received.
+   */
+  export interface DataChannelMessageReceivedEvent {
+    /**
+     * DataChannel identifier.
+     */
+    dataChannelId: RequestId;
+    /**
+     * Timestamp.
+     */
+    timestamp: MonotonicTime;
+    /**
+     * DataChannel message data.
+     */
+    message: DataChannelMessage;
+  }
+
+  /**
+   * Fired when DataChannel message is sent.
+   */
+  export interface DataChannelMessageSentEvent {
+    /**
+     * DataChannel identifier.
+     */
+    dataChannelId: RequestId;
+    /**
+     * Timestamp.
+     */
+    timestamp: MonotonicTime;
+    /**
+     * DataChannel message data.
+     */
+    message: DataChannelMessage;
   }
 
   /**

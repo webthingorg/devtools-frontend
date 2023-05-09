@@ -1,0 +1,68 @@
+/*
+ * Copyright (c) 2023 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.datachannel-message-view {
+  --override-icon-color-when-row-selected: #fff;
+  --override-send-row-background-color: rgb(226 247 218);
+  --override-error-row-background-color: rgb(255 237 237);
+
+  user-select: text;
+}
+
+.-theme-with-dark-background .datachannel-message-view,
+:host-context(.-theme-with-dark-background) .datachannel-message-view {
+  --override-icon-color-when-row-selected: #000;
+  --override-send-row-background-color: rgb(16 37 8);
+  --override-error-row-background-color: rgb(18 0 0);
+}
+
+.datachannel-message-view .data-grid {
+  flex: auto;
+  border: none;
+}
+
+.datachannel-message-view .data-grid .data {
+  background-image: none;
+}
+
+.datachannel-message-view-td {
+  border-bottom: 1px solid var(--color-details-hairline);
+}
+
+.datachannel-message-view .data-grid td,
+.datachannel-message-view .data-grid th {
+  border-left-color: var(--color-details-hairline);
+}
+
+.datachannel-message-view-row-send td:first-child::before {
+  content: "\2B06";
+  color: var(--color-green);
+  padding-right: 4px;
+}
+
+.datachannel-message-view-row-receive td:first-child::before {
+  content: "\2B07";
+  color: var(--color-red);
+  padding-right: 4px;
+}
+
+.data-grid:focus .datachannel-message-view-row-send.selected td:first-child::before,
+.data-grid:focus .datachannel-message-view-row-receive.selected td:first-child::before {
+  color: var(--override-icon-color-when-row-selected);
+}
+
+.datachannel-message-view-row-send {
+  background-color: var(--override-send-row-background-color);
+}
+
+.datachannel-message-view-row-error {
+  background-color: var(--override-error-row-background-color);
+  color: var(--color-accent-red);
+}
+
+.datachannel-message-view .toolbar {
+  border-bottom: var(--legacy-divider-border);
+}

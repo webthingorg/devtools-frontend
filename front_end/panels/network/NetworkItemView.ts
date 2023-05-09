@@ -48,6 +48,7 @@ import {RequestPreviewView} from './RequestPreviewView.js';
 import {RequestResponseView} from './RequestResponseView.js';
 import {RequestTimingView} from './RequestTimingView.js';
 import {ResourceWebSocketFrameView} from './ResourceWebSocketFrameView.js';
+import { ResourceDataChannelMessageView } from './ResourceDataChannelMessageView.js';
 
 const UIStrings = {
   /**
@@ -66,6 +67,10 @@ const UIStrings = {
    *@description Text in Network Item View of the Network panel
    */
   websocketMessages: 'WebSocket messages',
+  /**
+   *@description Text in Network Item View of the Network panel 
+   */
+  dataChannelMessages: 'DataChannel messages',
   /**
    *@description Text in Network Item View of the Network panel
    */
@@ -132,8 +137,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   private requestInternal: SDK.NetworkRequest.NetworkRequest;
   private readonly resourceViewTabSetting: Common.Settings.Setting<NetworkForward.UIRequestLocation.UIRequestTabs>;
-  private readonly headersView: RequestHeadersView;
-  private readonly headersViewComponent: NetworkComponents.RequestHeadersView.RequestHeadersView;
+  private readonly headersView: RequestHeadersView|null;
+  private readonly headersViewComponent: NetworkComponents.RequestHeadersView.RequestHeadersView|null;
   private payloadView: RequestPayloadView|null;
   private readonly responseView: RequestResponseView|undefined;
   private cookiesView: RequestCookiesView|null;
@@ -146,18 +151,24 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this.requestInternal = request;
     this.element.classList.add('network-item-view');
 
-    const headersTab = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) ?
-        NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent :
-        NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
-    this.resourceViewTabSetting = Common.Settings.Settings.instance().createSetting('resourceViewTab', headersTab);
+    if (request.resourceType() !== Common.ResourceType.resourceTypes.DataChannel) {
+      const headersTab = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) ?
+          NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent :
+          NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
+      this.resourceViewTabSetting = Common.Settings.Settings.instance().createSetting('resourceViewTab', headersTab);
 
-    this.headersView = new RequestHeadersView(request);
-    this.headersViewComponent = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
-      this.appendTab(
-          headersTab, i18nString(UIStrings.headers), this.headersViewComponent, i18nString(UIStrings.headers));
+      this.headersView = new RequestHeadersView(request);
+      this.headersViewComponent = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
+      if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
+        this.appendTab(
+            headersTab, i18nString(UIStrings.headers), this.headersViewComponent, i18nString(UIStrings.headers));
+      } else {
+        this.appendTab(headersTab, i18nString(UIStrings.headers), this.headersView, i18nString(UIStrings.headers));
+      }
     } else {
-      this.appendTab(headersTab, i18nString(UIStrings.headers), this.headersView, i18nString(UIStrings.headers));
+      this.resourceViewTabSetting = Common.Settings.Settings.instance().createSetting('resourceViewTab', NetworkForward.UIRequestLocation.UIRequestTabs.DataChannelMessages);;
+      this.headersView = null;
+      this.headersViewComponent = null;
     }
 
     this.payloadView = null;
@@ -170,6 +181,10 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
       this.appendTab(
           NetworkForward.UIRequestLocation.UIRequestTabs.WsFrames, i18nString(UIStrings.messages), frameView,
           i18nString(UIStrings.websocketMessages));
+    } else if (request.resourceType() === Common.ResourceType.resourceTypes.DataChannel) {
+      const messageView = new ResourceDataChannelMessageView(request);
+      this.appendTab(NetworkForward.UIRequestLocation.UIRequestTabs.DataChannelMessages, i18nString(UIStrings.messages), messageView,
+      i18nString(UIStrings.dataChannelMessages));
     } else if (request.mimeType === SDK.NetworkRequest.MIME_TYPE.EVENTSTREAM) {
       this.appendTab(
           NetworkForward.UIRequestLocation.UIRequestTabs.EventSource, i18nString(UIStrings.eventstream),
@@ -314,6 +329,8 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   }
 
   revealHeader(section: NetworkForward.UIRequestLocation.UIHeaderSection, header: string|undefined): void {
+    if (!this.headersView || !this.headersViewComponent) return;
+
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
       this.selectTabInternal(NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent);
       this.headersViewComponent.revealHeader(section, header);
@@ -324,10 +341,10 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   }
 
   getHeadersView(): RequestHeadersView {
-    return this.headersView;
+    return this.headersView!;
   }
 
   getHeadersViewComponent(): NetworkComponents.RequestHeadersView.RequestHeadersView {
-    return this.headersViewComponent;
+    return this.headersViewComponent!;
   }
 }

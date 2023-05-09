@@ -10828,6 +10828,7 @@
                         "Ping",
                         "CSPViolationReport",
                         "Preflight",
+                        "DataChannel",
                         "Other"
                     ]
                 },
@@ -11653,6 +11654,24 @@
                         {
                             "name": "payloadData",
                             "description": "WebSocket message payload data.\nIf the opcode is 1, this is a text message and payloadData is a UTF-8 string.\nIf the opcode isn't 1, then payloadData is a base64 encoded string representing binary data.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "DataChannelMessage",
+                    "description": "DataChannel message data.",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "binary",
+                            "description": "DataChannel message is binary.",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "payloadData",
+                            "description": "DataChannel message payload data.\nIf binary is false, this is a text message and payloadData is a UTF-8 string.\nIf binary is true, then payloadData is a base64 encoded string representing binary data.",
                             "type": "string"
                         }
                     ]
@@ -13845,6 +13864,122 @@
                             "name": "timestamp",
                             "description": "Timestamp.",
                             "$ref": "MonotonicTime"
+                        }
+                    ]
+                },
+                {
+                    "name": "dataChannelClosed",
+                    "description": "Fired when DataChannel is closed.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "dataChannelId",
+                            "description": "DataChannel identifier.",
+                            "$ref": "RequestId"
+                        },
+                        {
+                            "name": "timestamp",
+                            "description": "Timestamp.",
+                            "$ref": "MonotonicTime"
+                        }
+                    ]
+                },
+                {
+                    "name": "dataChannelCreated",
+                    "description": "Fired upon DataChannel creation.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "dataChannelId",
+                            "description": "DataChannel identifier.",
+                            "$ref": "RequestId"
+                        },
+                        {
+                            "name": "label",
+                            "description": "DataChannel label.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "protocol",
+                            "description": "DataChannel protocol.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ordered",
+                            "description": "DataChannel ordered property.",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "negotiated",
+                            "description": "DataChannel negotiated property.",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "timestamp",
+                            "description": "Timestamp.",
+                            "$ref": "MonotonicTime"
+                        },
+                        {
+                            "name": "maxPacketLifetime",
+                            "description": "DataChannel maximum packet lifetime in milliseconds if set.",
+                            "optional": true,
+                            "type": "integer"
+                        },
+                        {
+                            "name": "maxRetransmits",
+                            "description": "DataChannel maximum retransmit count if set.",
+                            "optional": true,
+                            "type": "integer"
+                        },
+                        {
+                            "name": "initiator",
+                            "description": "Request initiator.",
+                            "optional": true,
+                            "$ref": "Initiator"
+                        }
+                    ]
+                },
+                {
+                    "name": "dataChannelMessageReceived",
+                    "description": "Fired when DataChannel message is received.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "dataChannelId",
+                            "description": "DataChannel identifier.",
+                            "$ref": "RequestId"
+                        },
+                        {
+                            "name": "timestamp",
+                            "description": "Timestamp.",
+                            "$ref": "MonotonicTime"
+                        },
+                        {
+                            "name": "message",
+                            "description": "DataChannel message data.",
+                            "$ref": "DataChannelMessage"
+                        }
+                    ]
+                },
+                {
+                    "name": "dataChannelMessageSent",
+                    "description": "Fired when DataChannel message is sent.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "dataChannelId",
+                            "description": "DataChannel identifier.",
+                            "$ref": "RequestId"
+                        },
+                        {
+                            "name": "timestamp",
+                            "description": "Timestamp.",
+                            "$ref": "MonotonicTime"
+                        },
+                        {
+                            "name": "message",
+                            "description": "DataChannel message data.",
+                            "$ref": "DataChannelMessage"
                         }
                     ]
                 },

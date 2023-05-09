@@ -259,6 +259,22 @@ export namespace ProtocolMapping {
      */
     'Network.webTransportClosed': [Protocol.Network.WebTransportClosedEvent];
     /**
+     * Fired when DataChannel is closed.
+     */
+    'Network.dataChannelClosed': [Protocol.Network.DataChannelClosedEvent];
+    /**
+     * Fired upon DataChannel creation.
+     */
+    'Network.dataChannelCreated': [Protocol.Network.DataChannelCreatedEvent];
+    /**
+     * Fired when DataChannel message is received.
+     */
+    'Network.dataChannelMessageReceived': [Protocol.Network.DataChannelMessageReceivedEvent];
+    /**
+     * Fired when DataChannel message is sent.
+     */
+    'Network.dataChannelMessageSent': [Protocol.Network.DataChannelMessageSentEvent];
+    /**
      * Fired when additional information about a requestWillBeSent event is available from the
      * network stack. Not every requestWillBeSent event will have an additional
      * requestWillBeSentExtraInfo fired for it, and there is no guarantee whether requestWillBeSent
