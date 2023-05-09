@@ -417,7 +417,7 @@ inspectorBackend.registerCommand("Memory.getBrowserSamplingProfile", [], ["profi
 inspectorBackend.registerCommand("Memory.getSamplingProfile", [], ["profile"]);
 
 // Network.
-inspectorBackend.registerEnum("Network.ResourceType", {Document: "Document", Stylesheet: "Stylesheet", Image: "Image", Media: "Media", Font: "Font", Script: "Script", TextTrack: "TextTrack", XHR: "XHR", Fetch: "Fetch", Prefetch: "Prefetch", EventSource: "EventSource", WebSocket: "WebSocket", Manifest: "Manifest", SignedExchange: "SignedExchange", Ping: "Ping", CSPViolationReport: "CSPViolationReport", Preflight: "Preflight", Other: "Other"});
+inspectorBackend.registerEnum("Network.ResourceType", {Document: "Document", Stylesheet: "Stylesheet", Image: "Image", Media: "Media", Font: "Font", Script: "Script", TextTrack: "TextTrack", XHR: "XHR", Fetch: "Fetch", Prefetch: "Prefetch", EventSource: "EventSource", WebSocket: "WebSocket", Manifest: "Manifest", SignedExchange: "SignedExchange", Ping: "Ping", CSPViolationReport: "CSPViolationReport", Preflight: "Preflight", DataChannel: "DataChannel", Other: "Other"});
 inspectorBackend.registerEnum("Network.ErrorReason", {Failed: "Failed", Aborted: "Aborted", TimedOut: "TimedOut", AccessDenied: "AccessDenied", ConnectionClosed: "ConnectionClosed", ConnectionReset: "ConnectionReset", ConnectionRefused: "ConnectionRefused", ConnectionAborted: "ConnectionAborted", ConnectionFailed: "ConnectionFailed", NameNotResolved: "NameNotResolved", InternetDisconnected: "InternetDisconnected", AddressUnreachable: "AddressUnreachable", BlockedByClient: "BlockedByClient", BlockedByResponse: "BlockedByResponse"});
 inspectorBackend.registerEnum("Network.ConnectionType", {None: "none", Cellular2g: "cellular2g", Cellular3g: "cellular3g", Cellular4g: "cellular4g", Bluetooth: "bluetooth", Ethernet: "ethernet", Wifi: "wifi", Wimax: "wimax", Other: "other"});
 inspectorBackend.registerEnum("Network.CookieSameSite", {Strict: "Strict", Lax: "Lax", None: "None"});
@@ -465,6 +465,10 @@ inspectorBackend.registerEvent("Network.webSocketWillSendHandshakeRequest", ["re
 inspectorBackend.registerEvent("Network.webTransportCreated", ["transportId", "url", "timestamp", "initiator"]);
 inspectorBackend.registerEvent("Network.webTransportConnectionEstablished", ["transportId", "timestamp"]);
 inspectorBackend.registerEvent("Network.webTransportClosed", ["transportId", "timestamp"]);
+inspectorBackend.registerEvent("Network.dataChannelClosed", ["dataChannelId", "timestamp"]);
+inspectorBackend.registerEvent("Network.dataChannelCreated", ["dataChannelId", "label", "protocol", "ordered", "negotiated", "timestamp", "maxPacketLifetime", "maxRetransmits", "initiator"]);
+inspectorBackend.registerEvent("Network.dataChannelMessageReceived", ["dataChannelId", "timestamp", "message"]);
+inspectorBackend.registerEvent("Network.dataChannelMessageSent", ["dataChannelId", "timestamp", "message"]);
 inspectorBackend.registerEvent("Network.requestWillBeSentExtraInfo", ["requestId", "associatedCookies", "headers", "connectTiming", "clientSecurityState", "siteHasCookieInOtherPartition"]);
 inspectorBackend.registerEvent("Network.responseReceivedExtraInfo", ["requestId", "blockedCookies", "headers", "resourceIPAddressSpace", "statusCode", "headersText", "cookiePartitionKey", "cookiePartitionKeyOpaque"]);
 inspectorBackend.registerEnum("Network.TrustTokenOperationDoneEventStatus", {Ok: "Ok", InvalidArgument: "InvalidArgument", FailedPrecondition: "FailedPrecondition", ResourceExhausted: "ResourceExhausted", AlreadyExists: "AlreadyExists", Unavailable: "Unavailable", Unauthorized: "Unauthorized", BadResponse: "BadResponse", InternalError: "InternalError", UnknownError: "UnknownError", FulfilledLocally: "FulfilledLocally"});

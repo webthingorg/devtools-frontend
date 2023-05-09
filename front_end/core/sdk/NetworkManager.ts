@@ -851,6 +851,55 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     this.finishNetworkRequest(networkRequest, time, -1);
   }
 
+  dataChannelCreated({
+    dataChannelId,
+    label,
+    protocol,
+    ordered,
+    negotiated,
+    maxPacketLifetime,
+    maxRetransmits,
+    timestamp: time,
+    initiator
+  }: Protocol.Network.DataChannelCreatedEvent): void {
+    const networkRequest = NetworkRequest.createForDataChannel(dataChannelId, label, initiator);
+    requestToManagerMap.set(networkRequest, this.#manager);
+    networkRequest.setResourceType(Common.ResourceType.resourceTypes.DataChannel);
+    this.startNetworkRequest(networkRequest, null);
+  }
+
+  dataChannelClosed({dataChannelId, timestamp: time}: Protocol.Network.DataChannelClosedEvent): void {
+    const networkRequest = this.#requestsById.get(dataChannelId);
+    if (!networkRequest) {
+      return;
+    }
+    this.finishNetworkRequest(networkRequest, time, -1);
+  }
+
+  dataChannelMessageReceived({dataChannelId, message, timestamp: time}: Protocol.Network.DataChannelMessageReceivedEvent): void {
+    const networkRequest = this.#requestsById.get(dataChannelId);
+    if (!networkRequest) {
+      return;
+    }
+
+    networkRequest.addDataChannelMessage(message, time, false);
+    networkRequest.responseReceivedTime = time;
+
+    this.updateNetworkRequest(networkRequest);
+  }
+
+  dataChannelMessageSent({dataChannelId, message, timestamp: time}: Protocol.Network.DataChannelMessageSentEvent): void {
+    const networkRequest = this.#requestsById.get(dataChannelId);
+    if (!networkRequest) {
+      return;
+    }
+
+    networkRequest.addDataChannelMessage(message, time, true);
+    networkRequest.responseReceivedTime = time;
+
+    this.updateNetworkRequest(networkRequest);
+  }
+
   eventSourceMessageReceived({requestId, timestamp: time, eventName, eventId, data}:
                                  Protocol.Network.EventSourceMessageReceivedEvent): void {
     const networkRequest = this.#requestsById.get(requestId);

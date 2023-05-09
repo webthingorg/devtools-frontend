@@ -43,6 +43,7 @@ import {CookieParser} from './CookieParser.js';
 import {NetworkManager, Events as NetworkManagerEvents} from './NetworkManager.js';
 import {Type} from './Target.js';
 import {ServerTiming} from './ServerTiming.js';
+import { UrlString } from '../platform/DevToolsPath';
 
 // clang-format off
 const UIStrings = {
@@ -233,6 +234,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #resourceTypeInternal: Common.ResourceType.ResourceType;
   #contentDataInternal: Promise<ContentData>|null;
   readonly #framesInternal: WebSocketFrame[];
+  readonly #dataChannelMessagesInternal: DataChannelMessage[];
   readonly #eventSourceMessagesInternal: EventSourceMessage[];
   #responseHeaderValues: {
     [x: string]: string|undefined,
@@ -347,6 +349,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#resourceTypeInternal = Common.ResourceType.resourceTypes.Other;
     this.#contentDataInternal = null;
     this.#framesInternal = [];
+    this.#dataChannelMessagesInternal = [];
     this.#eventSourceMessagesInternal = [];
 
     this.#responseHeaderValues = {};
@@ -408,6 +411,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       requestId: string, url: Platform.DevToolsPath.UrlString, documentURL: Platform.DevToolsPath.UrlString,
       initiator: Protocol.Network.Initiator|null): NetworkRequest {
     return new NetworkRequest(requestId, undefined, url, documentURL, null, null, initiator);
+  }
+
+  static createForDataChannel(backendRequestId: Protocol.Network.RequestId, label: string, initiator?: Protocol.Network.Initiator): NetworkRequest {
+    return new NetworkRequest(backendRequestId, backendRequestId, label as UrlString, Platform.DevToolsPath.EmptyUrlString, null, null, initiator || null);
   }
 
   identityCompare(other: NetworkRequest): number {
@@ -1380,6 +1387,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#framesInternal;
   }
 
+  dataChannelMessages(): DataChannelMessage[] {
+    return this.#dataChannelMessagesInternal;
+  }
+
   addProtocolFrameError(errorMessage: string, time: number): void {
     this.addFrame(
         {type: WebSocketFrameType.Error, text: errorMessage, time: this.pseudoWallTime(time), opCode: -1, mask: false});
@@ -1399,6 +1410,17 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   addFrame(frame: WebSocketFrame): void {
     this.#framesInternal.push(frame);
     this.dispatchEventToListeners(Events.WebsocketFrameAdded, frame);
+  }
+
+  addDataChannelMessage(message: Protocol.Network.DataChannelMessage, time: number, sent: boolean): void {
+    const newMessage = {
+      type: sent ? DataChannelMessageType.Send : DataChannelMessageType.Receive,
+      time: this.pseudoWallTime(time),
+      binary: message.binary,
+      text: message.payloadData,
+    };
+    this.#dataChannelMessagesInternal.push(newMessage);
+    this.dispatchEventToListeners(Events.DataChannelMessageAdded, newMessage);
   }
 
   eventSourceMessages(): EventSourceMessage[] {
@@ -1607,6 +1629,7 @@ export enum Events {
   WebsocketFrameAdded = 'WebsocketFrameAdded',
   EventSourceMessageAdded = 'EventSourceMessageAdded',
   TrustTokenResultAdded = 'TrustTokenResultAdded',
+  DataChannelMessageAdded = 'DataChannelMessageAdded',
 }
 
 export type EventTypes = {
@@ -1618,6 +1641,7 @@ export type EventTypes = {
   [Events.WebsocketFrameAdded]: WebSocketFrame,
   [Events.EventSourceMessageAdded]: EventSourceMessage,
   [Events.TrustTokenResultAdded]: void,
+  [Events.DataChannelMessageAdded]: DataChannelMessage,
 };
 
 // TODO(crbug.com/1167717): Make this a const enum again
@@ -1638,6 +1662,11 @@ export enum WebSocketFrameType {
   Send = 'send',
   Receive = 'receive',
   Error = 'error',
+}
+
+export const enum DataChannelMessageType {
+  Send = 'send',
+  Receive = 'receive',
 }
 
 export const cookieBlockedReasonToUiString = function(blockedReason: Protocol.Network.CookieBlockedReason): string {
@@ -1784,6 +1813,13 @@ export interface WebSocketFrame {
   text: string;
   opCode: number;
   mask: boolean;
+}
+
+export interface DataChannelMessage {
+  type: DataChannelMessageType,
+  time: number,
+  text: string,
+  binary: boolean,
 }
 
 export interface BlockedSetCookieWithReason {

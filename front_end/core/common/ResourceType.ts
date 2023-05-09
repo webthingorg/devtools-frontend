@@ -165,6 +165,10 @@ const UIStrings = {
    *@description Name of a network initiator type
    */
   webbundle: 'WebBundle',
+  /**
+   *@description Name of a data channel resource type
+   */
+  datachannel: 'DataChannel',
 };
 const str_ = i18n.i18n.registerUIStrings('core/common/ResourceType.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -377,6 +381,7 @@ export const resourceCategories = {
   WebSocket: new ResourceCategory(i18nLazyString(UIStrings.websockets), i18nLazyString(UIStrings.ws)),
   Wasm: new ResourceCategory(i18nLazyString(UIStrings.webassembly), i18nLazyString(UIStrings.wasm)),
   Manifest: new ResourceCategory(i18nLazyString(UIStrings.manifest), i18nLazyString(UIStrings.manifest)),
+  DataChannel: new ResourceCategory(i18nLazyString(UIStrings.datachannel), i18nLazyString(UIStrings.datachannel)),
   Other: new ResourceCategory(i18nLazyString(UIStrings.other), i18nLazyString(UIStrings.other)),
 };
 
@@ -415,6 +420,8 @@ export const resourceTypes = {
   SourceMapStyleSheet:
       new ResourceType('sm-stylesheet', i18nLazyString(UIStrings.stylesheet), resourceCategories.Stylesheet, true),
   WebBundle: new ResourceType('webbundle', i18nLazyString(UIStrings.webbundle), resourceCategories.Other, false),
+  DataChannel:
+      new ResourceType('datachannel', i18nLazyString(UIStrings.datachannel), resourceCategories.DataChannel, false),
 };
 
 const mimeTypeByName = new Map([
