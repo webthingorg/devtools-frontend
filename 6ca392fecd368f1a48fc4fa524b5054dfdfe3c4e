@@ -39,6 +39,30 @@
       },
       "revId": "6ca392fecd368f1a48fc4fa524b5054dfdfe3c4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08846b74_63def0f3",
+        "filename": "front_end/ui/components/menus/SelectMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-09T11:56:57Z",
+      "side": 1,
+      "message": "Yes, the new icon looks different from the native select.",
+      "parentUuid": "ca14f5ee_ca1242f6",
+      "range": {
+        "startLine": 82,
+        "startChar": 49,
+        "endLine": 82,
+        "endChar": 63
+      },
+      "revId": "6ca392fecd368f1a48fc4fa524b5054dfdfe3c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
