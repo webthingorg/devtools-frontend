@@ -296,9 +296,8 @@
 }
 
 .chevron {
-  width: 10px;
-  height: 13px;
-  top: 2px;
+  width: 14px;
+  height: 14px;
   left: 24px;
   transform: rotate(-90deg);
 }
