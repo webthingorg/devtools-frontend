@@ -2085,6 +2085,26 @@ declare namespace ProtocolProxyApi {
     webTransportClosed(params: Protocol.Network.WebTransportClosedEvent): void;
 
     /**
+     * Fired when DataChannel is closed.
+     */
+    dataChannelClosed(params: Protocol.Network.DataChannelClosedEvent): void;
+
+    /**
+     * Fired upon DataChannel creation.
+     */
+    dataChannelCreated(params: Protocol.Network.DataChannelCreatedEvent): void;
+
+    /**
+     * Fired when DataChannel message is received.
+     */
+    dataChannelMessageReceived(params: Protocol.Network.DataChannelMessageReceivedEvent): void;
+
+    /**
+     * Fired when DataChannel message is sent.
+     */
+    dataChannelMessageSent(params: Protocol.Network.DataChannelMessageSentEvent): void;
+
+    /**
      * Fired when additional information about a requestWillBeSent event is available from the
      * network stack. Not every requestWillBeSent event will have an additional
      * requestWillBeSentExtraInfo fired for it, and there is no guarantee whether requestWillBeSent

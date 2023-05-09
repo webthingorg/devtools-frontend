@@ -4936,6 +4936,7 @@ domain Network
       Ping
       CSPViolationReport
       Preflight
+      DataChannel
       Other
 
   # Unique loader identifier.
@@ -5377,6 +5378,16 @@ domain Network
       # WebSocket message payload data.
       # If the opcode is 1, this is a text message and payloadData is a UTF-8 string.
       # If the opcode isn't 1, then payloadData is a base64 encoded string representing binary data.
+      string payloadData
+
+  # DataChannel message data.
+  experimental type DataChannelMessage extends object
+    properties
+      # DataChannel message is binary.
+      boolean binary
+      # DataChannel message payload data.
+      # If binary is false, this is a text message and payloadData is a UTF-8 string.
+      # If binary is true, then payloadData is a base64 encoded string representing binary data.
       string payloadData
 
   # Information about the cached resource.
@@ -6304,6 +6315,56 @@ domain Network
       RequestId transportId
       # Timestamp.
       MonotonicTime timestamp
+
+  # Fired when DataChannel is closed.
+  experimental event dataChannelClosed
+    parameters
+      # DataChannel identifier.
+      RequestId dataChannelId
+      # Timestamp.
+      MonotonicTime timestamp
+
+  # Fired upon DataChannel creation.
+  experimental event dataChannelCreated
+    parameters
+      # DataChannel identifier.
+      RequestId dataChannelId
+      # DataChannel label.
+      string label
+      # DataChannel protocol.
+      string protocol
+      # DataChannel ordered property.
+      boolean ordered
+      # DataChannel negotiated property.
+      boolean negotiated
+      # Timestamp.
+      MonotonicTime timestamp
+      # DataChannel maximum packet lifetime in milliseconds if set.
+      optional integer maxPacketLifetime
+      # DataChannel maximum retransmit count if set.
+      optional integer maxRetransmits
+      # Request initiator.
+      optional Initiator initiator
+
+  # Fired when DataChannel message is received.
+  experimental event dataChannelMessageReceived
+    parameters
+      # DataChannel identifier.
+      RequestId dataChannelId
+      # Timestamp.
+      MonotonicTime timestamp
+      # DataChannel message data.
+      DataChannelMessage message
+
+  # Fired when DataChannel message is sent.
+  experimental event dataChannelMessageSent
+    parameters
+      # DataChannel identifier.
+      RequestId dataChannelId
+      # Timestamp.
+      MonotonicTime timestamp
+      # DataChannel message data.
+      DataChannelMessage message
 
   experimental type PrivateNetworkRequestPolicy extends string
     enum
