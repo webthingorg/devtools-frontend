@@ -901,6 +901,13 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     /**
+     * Runs the form issues check for the target page. Current issues are dropped in favor of found ones.
+     */
+    'Audits.checkFormIssues': {
+      paramsType: [];
+      returnType: Protocol.Audits.CheckFormIssuesResponse;
+    };
+    /**
      * Enables event updates for the service.
      */
     'BackgroundService.startObserving': {
