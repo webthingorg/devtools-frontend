@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5911c729_6bdc9668",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-09T09:48:35Z",
+      "side": 1,
+      "message": "LGTM with note",
+      "revId": "6ca392fecd368f1a48fc4fa524b5054dfdfe3c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca14f5ee_ca1242f6",
+        "filename": "front_end/ui/components/menus/SelectMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-09T09:48:35Z",
+      "side": 1,
+      "message": "just to make sure, this arrow is different from the one used in the native \u003cselect\u003e element in Chrome, which looks like the one replaced here (a chevron)",
+      "range": {
+        "startLine": 82,
+        "startChar": 49,
+        "endLine": 82,
+        "endChar": 63
+      },
+      "revId": "6ca392fecd368f1a48fc4fa524b5054dfdfe3c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
