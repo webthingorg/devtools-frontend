@@ -73,6 +73,7 @@ inspectorBackend.registerCommand("Audits.getEncodedResponse", [{"name": "request
 inspectorBackend.registerCommand("Audits.disable", [], []);
 inspectorBackend.registerCommand("Audits.enable", [], []);
 inspectorBackend.registerCommand("Audits.checkContrast", [{"name": "reportAAA", "type": "boolean", "optional": true}], []);
+inspectorBackend.registerCommand("Audits.checkFormIssues", [], ["formIssues"]);
 
 // BackgroundService.
 inspectorBackend.registerEnum("BackgroundService.ServiceName", {BackgroundFetch: "backgroundFetch", BackgroundSync: "backgroundSync", PushMessaging: "pushMessaging", Notifications: "notifications", PaymentHandler: "paymentHandler", PeriodicBackgroundSync: "periodicBackgroundSync"});
