@@ -907,7 +907,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     function removeZeroWidthSpaceRecursive(node: Node): void {
       if (node.nodeType === Node.TEXT_NODE) {
-        node.nodeValue = node.nodeValue ? node.nodeValue.replace(/\u200B/g, '') : '';
+        node.nodeValue = node.nodeValue ? node.nodeValue.replace(/(?<!\u200B)"/g, '\'').replace(/\u200B/g, '') : '';
         return;
       }
 
@@ -1608,7 +1608,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     if (hasText) {
-      UI.UIUtils.createTextChild(attrSpanElement, '"');
+      UI.UIUtils.createTextChild(attrSpanElement, '\u200B"');
     }
 
     function linkifySrcset(this: ElementsTreeElement, value: string): DocumentFragment {
