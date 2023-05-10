@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?",
       "revId": "05b2522f716341dea8542d11cf5df6b0d17b7a76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81143109_ad22d15a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-10T13:26:22Z",
+      "side": 1,
+      "message": "lgtm, maybe add a comment in the CL description or the test that this most likely happens on high resolution/DPI screens.",
+      "revId": "05b2522f716341dea8542d11cf5df6b0d17b7a76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
