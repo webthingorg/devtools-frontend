@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69dff32e_8661d0d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-10T07:23:21Z",
+      "side": 1,
+      "message": "Overall LGTM. I assume this is a prototype/demo not submittable as is. Apart from obvious issues that linter won\u0027t accept, the CL is too large and doesn\u0027t have any tests. \n\nOne thing I\u0027m not sure about is the messages view: it is probably fine to keep it as is if you think you benefit a lot from copying the websocket view. This is not ideal for us because it is using a legacy UI framework instead of Lit. We will eventually need to migrate this.\n\nBetter options would be to either share the code with the websocket view so that we have less to migrate or implement the new based on Lit, like e.g. `front_end/panels/application/components/TrustTokensView.ts`\n\nIt is a tradeoff though, if both options are too much work, I am fine with keeping the view as is.",
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1b55588_4b27db3a",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-10T07:23:21Z",
+      "side": 1,
+      "message": "Don\u0027t import individual symbols across namespaces. You already have\n\n    import * as Platform from \u0027../platform/platform.js\u0027;\n    \nabove. Use it and refer to the `UrlString` as `Platform.DevToolsPath.UrlString` as the rest of the file does.\n\nThis is to allow dynamic module loading. See more at https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/architecture_of_devtools.md#startup-process-overview and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/eslint_rules/lib/es_modules_import.js;l\u003d19",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d1ac51_8c6c7a5a",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-10T07:23:21Z",
+      "side": 1,
+      "message": "Lying is a sin:) Let\u0027s update the return type instead.",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 29
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b8dd6ec_4306d64e",
+        "filename": "front_end/panels/network/ResourceDataChannelMessageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-10T07:23:21Z",
+      "side": 1,
+      "message": "http://crrev.com/c/4516057",
+      "range": {
+        "startLine": 265,
+        "startChar": 41,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
