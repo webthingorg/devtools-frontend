@@ -11,6 +11,7 @@ import * as Protocol from '../../../generated/protocol.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 
 import * as PreloadingComponents from './components/components.js';
+import {Prerender2ReasonDescription} from '../components/Prerender2.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
 import emptyWidgetStyles from '../../../ui/legacy/emptyWidget.css.js';
@@ -106,6 +107,10 @@ class PreloadingUIUtils {
   }
 
   static status({status}: SDK.PreloadingModel.PreloadingAttempt): string {
+    if (status === null) {
+      return '';
+    }
+
     // See content/public/browser/preloading.h PreloadingAttemptOutcome.
     switch (status) {
       case SDK.PreloadingModel.PreloadingStatus.NotTriggered:
@@ -128,6 +133,14 @@ class PreloadingUIUtils {
       case SDK.PreloadingModel.PreloadingStatus.NotSupported:
         return i18n.i18n.lockedString('Internal error');
     }
+  }
+
+  static prerenderFinalStatus({prerenderFinalStatus}: SDK.PreloadingModel.PreloadingAttempt): string {
+    if (prerenderFinalStatus === null) {
+      return '';
+    }
+
+    return Prerender2ReasonDescription[prerenderFinalStatus].name();
   }
 
   // Summary of error of rule set shown in grid.
@@ -395,6 +408,7 @@ export class PreloadingView extends UI.Widget.VBox {
                                              action: PreloadingUIUtils.action(value),
                                              url: value.key.url,
                                              status: PreloadingUIUtils.status(value),
+                                             prerenderFinalStatus: PreloadingUIUtils.prerenderFinalStatus(value),
                                            }));
     this.preloadingGrid.update(preloadingAttemptRows);
 

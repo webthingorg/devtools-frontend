@@ -241,6 +241,19 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     const attempt = {
       key: event.key,
       status: convertPreloadingStatus(event.status),
+      prerenderFinalStatus: null,
+    };
+    this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
+    this.dispatchEventToListeners(Events.ModelUpdated);
+  }
+
+  onPrerenderAttemptCompleted(event: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
+    const loaderId = event.key.loaderId;
+    this.ensureDocumentPreloadingData(loaderId);
+    const attempt = {
+      key: event.key,
+      status: null,
+      prerenderFinalStatus: event.finalStatus,
     };
     this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
     this.dispatchEventToListeners(Events.ModelUpdated);
@@ -252,6 +265,7 @@ export class PreloadingModel extends SDKModel<EventTypes> {
     const attempt = {
       key: event.key,
       status: convertPreloadingStatus(event.status),
+      prerenderFinalStatus: null,
     };
     this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
     this.dispatchEventToListeners(Events.ModelUpdated);
@@ -297,7 +311,8 @@ class PreloadDispatcher implements ProtocolProxyApi.PreloadDispatcher {
     this.model.onPrefetchStatusUpdated(event);
   }
 
-  prerenderAttemptCompleted(_: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
+  prerenderAttemptCompleted(event: Protocol.Preload.PrerenderAttemptCompletedEvent): void {
+    this.model.onPrerenderAttemptCompleted(event);
   }
 
   prerenderStatusUpdated(event: Protocol.Preload.PrerenderStatusUpdatedEvent): void {
@@ -401,14 +416,16 @@ export type PreloadingAttemptId = string;
 
 export interface PreloadingAttempt {
   key: Protocol.Preload.PreloadingAttemptKey;
-  status: PreloadingStatus;
+  status: PreloadingStatus|null;
   ruleSetIds: Protocol.Preload.RuleSetId[];
   nodeIds: Protocol.DOM.BackendNodeId[];
+  prerenderFinalStatus: Protocol.Preload.PrerenderFinalStatus|null;
 }
 
 export interface PreloadingAttemptInternal {
   key: Protocol.Preload.PreloadingAttemptKey;
-  status: PreloadingStatus;
+  status: PreloadingStatus|null;
+  prerenderFinalStatus: Protocol.Preload.PrerenderFinalStatus|null;
 }
 
 function makePreloadingAttemptId(key: Protocol.Preload.PreloadingAttemptKey): PreloadingAttemptId {
@@ -496,6 +513,7 @@ class PreloadingAttemptRegistry {
       const attempt = {
         key,
         status: PreloadingStatus.NotTriggered,
+        prerenderFinalStatus: null,
       };
       this.map.set(id, attempt);
     }
