@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f61fecb_1b69883d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2023-05-10T09:10:08Z",
+      "side": 1,
+      "message": "I guess that since I proved that the messages on the protocol level are fine, we could finish that review, get it merged and then roll the protocol updates separately as a first step.\nI think the only part I\u0027m not too sure of is the long list of parameters in the created event that I might group into a dictionary for reuse elsewhere.\n\nI can look into writing another view using the new framework and try to make it generic enough for reuse in WebSockets. Though I\u0027m definitely not a frontend developer, so no promises there!",
+      "parentUuid": "69dff32e_8661d0d2",
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1b55588_4b27db3a",
         "filename": "front_end/core/sdk/NetworkRequest.ts",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-10T07:23:21Z",
       "side": 1,
       "message": "Don\u0027t import individual symbols across namespaces. You already have\n\n    import * as Platform from \u0027../platform/platform.js\u0027;\n    \nabove. Use it and refer to the `UrlString` as `Platform.DevToolsPath.UrlString` as the rest of the file does.\n\nThis is to allow dynamic module loading. See more at https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/architecture_of_devtools.md#startup-process-overview and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/eslint_rules/lib/es_modules_import.js;l\u003d19",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c379725_423a8b91",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2023-05-10T09:10:08Z",
+      "side": 1,
+      "message": "I blame VSCode for this one!",
+      "parentUuid": "c1b55588_4b27db3a",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d056e3e1_f7914282",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2023-05-10T09:10:08Z",
+      "side": 1,
+      "message": "It\u0027s the prototype way without having to refactor everything else for now.",
+      "parentUuid": "85d1ac51_8c6c7a5a",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 29
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b8dd6ec_4306d64e",
         "filename": "front_end/panels/network/ResourceDataChannelMessageView.ts",
         "patchSetId": 1
@@ -77,6 +143,30 @@
       "writtenOn": "2023-05-10T07:23:21Z",
       "side": 1,
       "message": "http://crrev.com/c/4516057",
+      "range": {
+        "startLine": 265,
+        "startChar": 41,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "08afc34f28d7749256c7e14dcd733a3381e1e344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0edaecc6_79eb75a2",
+        "filename": "front_end/panels/network/ResourceDataChannelMessageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2023-05-10T09:10:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8dd6ec_4306d64e",
       "range": {
         "startLine": 265,
         "startChar": 41,
