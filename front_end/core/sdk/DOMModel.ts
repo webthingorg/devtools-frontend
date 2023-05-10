@@ -615,7 +615,12 @@ export class DOMNode {
 
     for (let i = 0; i < attrs.length; i += 2) {
       const name = attrs[i];
-      const value = attrs[i + 1];
+      // If an attribute value contains double-quote (") we convert
+      // that to a single quote. The reason is, we represent the attributes
+      // in double-quotes in Elements panel (ex: style="color: red;")
+      // which becomes invalid syntax if the attribute value contains
+      // a double-quote (invalid ex: style="background: url("https://web.dev")").
+      const value = attrs[i + 1].replaceAll('"', '\'');
       this.addAttribute(name, value);
 
       if (attributesChanged) {
