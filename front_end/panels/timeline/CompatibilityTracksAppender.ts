@@ -15,7 +15,7 @@ import {TimingsTrackAppender} from './TimingsTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
-import {getSyncEventLevel} from './AppenderUtils.js';
+import {getAsyncEventLevel, getSyncEventLevel} from './AppenderUtils.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -129,12 +129,10 @@ export class CompatibilityTracksAppender {
     this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel;
     this.#legacyTimelineModel = legacyTimelineModel;
 
-    this.#timingsTrackAppender =
-        new TimingsTrackAppender(this, this.#flameChartData, this.#traceParsedData, this.#legacyEntryTypeByLevel);
+    this.#timingsTrackAppender = new TimingsTrackAppender(this, this.#flameChartData, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#timingsTrackAppender);
 
-    this.#interactionsTrackAppender =
-        new InteractionsTrackAppender(this, this.#flameChartData, this.#traceParsedData, this.#legacyEntryTypeByLevel);
+    this.#interactionsTrackAppender = new InteractionsTrackAppender(this, this.#flameChartData, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#interactionsTrackAppender);
 
     this.#gpuTrackAppender = new GPUTrackAppender(this, this.#traceParsedData);
@@ -142,8 +140,7 @@ export class CompatibilityTracksAppender {
 
     // Layout Shifts track in OPP was called the "Experience" track even though
     // all it shows are layout shifts.
-    this.#layoutShiftsTrackAppender =
-        new LayoutShiftsTrackAppender(this, this.#flameChartData, this.#traceParsedData, this.#legacyEntryTypeByLevel);
+    this.#layoutShiftsTrackAppender = new LayoutShiftsTrackAppender(this, this.#flameChartData, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
   }
 
@@ -370,6 +367,32 @@ export class CompatibilityTracksAppender {
     this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, trackStartLevel);
 
     return trackStartLevel + maxStackDepth;
+  }
+
+  /**
+   * Adds into the flame chart data the trace events corresponding to async
+   * events. The events should be taken straight from the trace handlers.
+   * @param events the trace events that will be appended to the flame chart.
+   * @param trackStartLevel the flame chart level from which the events will
+   * be appended.
+   * @param appender the track that the trace events belong to.
+   * @returns the next level after the last occupied by the appended these
+   * trace events (the first available level to append next track).
+   */
+  appendAsyncEventsAtLevel(
+      events: readonly TraceEngine.Types.TraceEvents.TraceEventData[], trackStartLevel: number,
+      appender: TrackAppender): number {
+    const lastUsedTimeByLevel: number[] = [];
+    for (let i = 0; i < events.length; ++i) {
+      const event = events[i];
+      const level = getAsyncEventLevel(event, lastUsedTimeByLevel);
+      appender.appendEventAtLevel(event, trackStartLevel + level);
+    }
+
+    this.#legacyEntryTypeByLevel.length = trackStartLevel + lastUsedTimeByLevel.length;
+    this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, trackStartLevel);
+
+    return trackStartLevel + lastUsedTimeByLevel.length;
   }
 
   /**

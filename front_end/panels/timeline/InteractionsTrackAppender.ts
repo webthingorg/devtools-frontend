@@ -5,9 +5,6 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
-  EntryType,
-} from './TimelineFlameChartDataProvider.js';
-import {
   type CompatibilityTracksAppender,
   type TrackAppender,
   type HighlightedEntryInfo,
@@ -15,7 +12,7 @@ import {
 } from './CompatibilityTracksAppender.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Common from '../../core/common/common.js';
-import {buildGroupStyle, buildTrackHeader, getAsyncEventLevel, getFormattedTime} from './AppenderUtils.js';
+import {buildGroupStyle, buildTrackHeader, getFormattedTime} from './AppenderUtils.js';
 
 const UIStrings = {
   /**
@@ -37,17 +34,10 @@ export class InteractionsTrackAppender implements TrackAppender {
   #compatibilityBuilder: CompatibilityTracksAppender;
   #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
   #traceParsedData: Readonly<TraceEngine.TraceModel.PartialTraceParseDataDuringMigration>;
-  // TODO(crbug.com/1416533)
-  // This is used only for compatibility with the legacy flame chart
-  // architecture of the panel. Once all tracks have been migrated to
-  // use the new engine and flame chart architecture, the reference can
-  // be removed.
-  #legacyEntryTypeByLevel: EntryType[];
 
   constructor(
       compatibilityBuilder: CompatibilityTracksAppender, flameChartData: PerfUI.FlameChart.FlameChartTimelineData,
-      traceParsedData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration,
-      legacyEntryTypeByLevel: EntryType[]) {
+      traceParsedData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration) {
     this.#compatibilityBuilder = compatibilityBuilder;
     this.#colorGenerator = new Common.Color.Generator(
         {
@@ -58,7 +48,6 @@ export class InteractionsTrackAppender implements TrackAppender {
         {min: 70, max: 100, count: 6}, 50, 0.7);
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
-    this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel;
   }
 
   /**
@@ -75,7 +64,8 @@ export class InteractionsTrackAppender implements TrackAppender {
       return currentLevel;
     }
     this.#appendTrackHeaderAtLevel(currentLevel, expanded);
-    return this.#appendInteractionsAtLevel(currentLevel);
+    const interactions = this.#traceParsedData.UserInteractions.interactionEventsWithNoNesting;
+    return this.#compatibilityBuilder.appendAsyncEventsAtLevel(interactions, currentLevel, this);
   }
 
   /**
@@ -93,30 +83,6 @@ export class InteractionsTrackAppender implements TrackAppender {
     const group =
         buildTrackHeader(currentLevel, i18nString(UIStrings.interactions), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
-  }
-
-  /**
-   * Adds into the flame chart data the trace events dispatched by the
-   * performance.measure API. These events are taken from the UserInteractions
-   * handler.
-   * @param currentLevel the flame chart level from which interactions will
-   * be appended.
-   * @returns the next level after the last occupied by the appended
-   * interactions (the first available level to append more data).
-   */
-
-  #appendInteractionsAtLevel(trackStartLevel: number): number {
-    const interactions = this.#traceParsedData.UserInteractions.interactionEventsWithNoNesting;
-    const lastUsedTimeByLevel: number[] = [];
-    for (let i = 0; i < interactions.length; ++i) {
-      const event = interactions[i];
-      const level = getAsyncEventLevel(event, lastUsedTimeByLevel);
-      this.appendEventAtLevel(event, trackStartLevel + level);
-    }
-    this.#legacyEntryTypeByLevel.length = trackStartLevel + lastUsedTimeByLevel.length;
-    // Set the entry type to TrackAppender for all the levels occupied by the appended timings.
-    this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, trackStartLevel);
-    return trackStartLevel + lastUsedTimeByLevel.length;
   }
 
   /**
