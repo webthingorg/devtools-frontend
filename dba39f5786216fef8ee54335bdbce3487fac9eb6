@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f3d953_3ab9fb77",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-11T13:11:28Z",
+      "side": 1,
+      "message": "`scopeTarget` is currently selected target, which might be a prerendered page itself. I think we are always interested in `primaryPageTarget` instead here.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 22
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91fdd475_9dcffbc3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-11T13:11:28Z",
+      "side": 1,
+      "message": "Common.Revealer.reveal(\n      new SDK.DOMModel.DeferredDOMNode(\n        SDK.TargetManager.TargetManager.instance().primaryPageTarget(), \n        backendDOMNodeId),\n      false);",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 38
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848cb218_909d1f1b",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-11T13:11:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 235,
+        "startChar": 25,
+        "endLine": 235,
+        "endChar": 36
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
