@@ -5,9 +5,6 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
-  EntryType,
-} from './TimelineFlameChartDataProvider.js';
-import {
   type CompatibilityTracksAppender,
   type TrackAppender,
   type HighlightedEntryInfo,
@@ -32,21 +29,13 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
   #compatibilityBuilder: CompatibilityTracksAppender;
   #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
   #traceParsedData: Readonly<TraceEngine.TraceModel.PartialTraceParseDataDuringMigration>;
-  // TODO(crbug.com/1416533)
-  // This is used only for compatibility with the legacy flame chart
-  // architecture of the panel. Once all tracks have been migrated to
-  // use the new engine and flame chart architecture, the reference can
-  // be removed.
-  #legacyEntryTypeByLevel: EntryType[];
 
   constructor(
       compatibilityBuilder: CompatibilityTracksAppender, flameChartData: PerfUI.FlameChart.FlameChartTimelineData,
-      traceParsedData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration,
-      legacyEntryTypeByLevel: EntryType[]) {
+      traceParsedData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration) {
     this.#compatibilityBuilder = compatibilityBuilder;
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
-    this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel;
   }
 
   /**
@@ -63,7 +52,8 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
       return currentLevel;
     }
     this.#appendTrackHeaderAtLevel(currentLevel, expanded);
-    return this.#appendLayoutShiftsAtLevel(currentLevel);
+    const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events);
+    return this.#compatibilityBuilder.appendAsyncEventsAtLevel(allLayoutShifts, currentLevel, this);
   }
 
   /**
@@ -81,36 +71,6 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
         currentLevel, i18nString(UIStrings.layoutShifts), style,
         /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
-  }
-
-  /**
-   * Adds into the flame chart data all the layout shifts. These are taken from
-   * the clusters that are collected in the LayoutShiftsHandler.
-   * @param currentLevel the flame chart level from which layout shifts will
-   * be appended.
-   * @returns the next level after the last occupied by the appended
-   * layout shifts (the first available level to append more data).
-   */
-  #appendLayoutShiftsAtLevel(currentLevel: number): number {
-    const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => {
-      return cluster.events;
-    });
-    const lastUsedTimeByLevel: number[] = [];
-    for (let i = 0; i < allLayoutShifts.length; ++i) {
-      const event = allLayoutShifts[i];
-      const startTime = event.ts;
-      let level;
-      // look vertically for the first level where this event fits,
-      // that is, where it wouldn't overlap with other events.
-      for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
-      }
-      this.appendEventAtLevel(event, currentLevel + level);
-      // End time is the same as the start time as LayoutShifts are instant events.
-      lastUsedTimeByLevel[level] = event.ts;
-    }
-    this.#legacyEntryTypeByLevel.length = currentLevel + lastUsedTimeByLevel.length;
-    this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, currentLevel);
-    return currentLevel + lastUsedTimeByLevel.length;
   }
 
   /**
