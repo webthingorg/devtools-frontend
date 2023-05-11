@@ -111,7 +111,7 @@ export class InteractionsTrackAppender implements TrackAppender {
     for (let i = 0; i < interactions.length; ++i) {
       const event = interactions[i];
       const level = getAsyncEventLevel(event, lastUsedTimeByLevel);
-      this.#appendEventAtLevel(event, trackStartLevel + level);
+      this.appendEventAtLevel(event, trackStartLevel + level);
     }
     this.#legacyEntryTypeByLevel.length = trackStartLevel + lastUsedTimeByLevel.length;
     // Set the entry type to TrackAppender for all the levels occupied by the appended timings.
@@ -124,12 +124,13 @@ export class InteractionsTrackAppender implements TrackAppender {
    * @returns the position occupied by the new event in the entryData
    * array, which contains all the events in the timeline.
    */
-  #appendEventAtLevel(syntheticEvent: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent, level: number): void {
+  appendEventAtLevel(syntheticEvent: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent, level: number): number {
     const index = this.#compatibilityBuilder.appendEventAtLevel(syntheticEvent, level, this);
     const eventDurationMicroSeconds = syntheticEvent.dur || TraceEngine.Types.Timing.MicroSeconds(0);
     if (eventDurationMicroSeconds > LONG_INTERACTION_THRESHOLD) {
       this.#addCandyStripingForLongInteraction(index);
     }
+    return index;
   }
 
   #addCandyStripingForLongInteraction(eventIndex: number): void {

@@ -113,7 +113,7 @@ export class TimingsTrackAppender implements TrackAppender {
     const totalTimes = this.#flameChartData.entryTotalTimes;
     const markers = this.#traceParsedData.PageLoadMetrics.allMarkerEvents;
     markers.forEach(marker => {
-      const index = this.#appendEventAtLevel(marker, currentLevel);
+      const index = this.appendEventAtLevel(marker, currentLevel);
       totalTimes[index] = Number.NaN;
     });
     const minTimeMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(this.#traceParsedData.Meta.traceBounds.min);
@@ -138,7 +138,7 @@ export class TimingsTrackAppender implements TrackAppender {
     let newLevel = currentLevel;
 
     for (const userMark of this.#traceParsedData.UserTimings.performanceMarks) {
-      this.#appendEventAtLevel(userMark, newLevel);
+      this.appendEventAtLevel(userMark, newLevel);
     }
     if (this.#traceParsedData.UserTimings.performanceMarks.length !== 0) {
       // Add performance.measure events on the next level, but only if the
@@ -160,7 +160,7 @@ export class TimingsTrackAppender implements TrackAppender {
   #appendConsoleTimings(currentLevel: number): number {
     let newLevel = currentLevel;
     for (const timestampEvent of this.#traceParsedData.UserTimings.timestampEvents) {
-      this.#appendEventAtLevel(timestampEvent, newLevel);
+      this.appendEventAtLevel(timestampEvent, newLevel);
     }
     if (this.#traceParsedData.UserTimings.timestampEvents.length !== 0) {
       // Add console.time events on the next level, but only if the
@@ -201,7 +201,7 @@ export class TimingsTrackAppender implements TrackAppender {
       // that is, where it wouldn't overlap with other events.
       for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
       }
-      this.#appendEventAtLevel(event, currentLevel + level);
+      this.appendEventAtLevel(event, currentLevel + level);
       const endTime = event.ts + (event.dur || 0);
       lastUsedTimeByLevel[level] = endTime;
     }
@@ -216,7 +216,7 @@ export class TimingsTrackAppender implements TrackAppender {
    * @returns the position occupied by the new event in the entryData
    * array, which contains all the events in the timeline.
    */
-  #appendEventAtLevel(event: TraceEngine.Types.TraceEvents.TraceEventData, level: number): number {
+  appendEventAtLevel(event: TraceEngine.Types.TraceEvents.TraceEventData, level: number): number {
     return this.#compatibilityBuilder.appendEventAtLevel(event, level, this);
   }
 

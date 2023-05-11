@@ -104,7 +104,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
       // that is, where it wouldn't overlap with other events.
       for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
       }
-      this.#appendEventAtLevel(event, currentLevel + level);
+      this.appendEventAtLevel(event, currentLevel + level);
       // End time is the same as the start time as LayoutShifts are instant events.
       lastUsedTimeByLevel[level] = event.ts;
     }
@@ -118,7 +118,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * @returns the position occupied by the new event in the entryData
    * array, which contains all the events in the timeline.
    */
-  #appendEventAtLevel(event: TraceEngine.Types.TraceEvents.TraceEventData, level: number): void {
+  appendEventAtLevel(event: TraceEngine.Types.TraceEvents.TraceEventData, level: number): number {
     const index = this.#compatibilityBuilder.appendEventAtLevel(event, level, this);
     // Bit of a hack: LayoutShifts are instant events, so have no duration. But
     // OPP doesn't do well at making tiny events easy to spot and click. So we
@@ -127,6 +127,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
     // allow us to do this properly and not hack around it.
     const msDuration = TraceEngine.Types.Timing.MicroSeconds(5_000);
     this.#flameChartData.entryTotalTimes[index] = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(msDuration);
+    return index;
   }
 
   /*
