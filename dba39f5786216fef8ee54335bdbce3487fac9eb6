@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e583decb_c57f210c",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-11T14:19:48Z",
+      "side": 1,
+      "message": "Preloading panel is designed for scopeTarget as same as other panels.\n\nSee, for example, https://prerender2-specrules.glitch.me/ . \"Add speculationrules\" for nested.html triggers prerendering of the page, which contains another speculationrules. This should reveal \u003cscript\u003e in under-prerendering page.\n\nSo, we should use scopeTarget.",
+      "parentUuid": "56f3d953_3ab9fb77",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 22
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91fdd475_9dcffbc3",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc08b96_215c6ad5",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-11T14:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91fdd475_9dcffbc3",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 38
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "848cb218_909d1f1b",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-05-11T13:11:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 235,
+        "startChar": 25,
+        "endLine": 235,
+        "endChar": 36
+      },
+      "revId": "dba39f5786216fef8ee54335bdbce3487fac9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bc6dddf_d7d68487",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-11T14:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "848cb218_909d1f1b",
       "range": {
         "startLine": 235,
         "startChar": 25,
