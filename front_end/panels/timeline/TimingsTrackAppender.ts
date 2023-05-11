@@ -65,14 +65,14 @@ export class TimingsTrackAppender implements TrackAppender {
     // timings by appending timings 2 levels after the markers' level.
     newLevel++;
 
-    newLevel = this.#compatibilityBuilder.appendAsyncEventsAtLevel(
+    newLevel = this.#compatibilityBuilder.appendEventsAtLevel(
         this.#traceParsedData.UserTimings.performanceMarks, newLevel, this);  // this.#appendConsoleTimings(newLevel);
-    newLevel = this.#compatibilityBuilder.appendAsyncEventsAtLevel(
+    newLevel = this.#compatibilityBuilder.appendEventsAtLevel(
         this.#traceParsedData.UserTimings.performanceMeasures, newLevel,
         this);  // this.#appendConsoleTimings(newLevel);
-    newLevel = this.#compatibilityBuilder.appendAsyncEventsAtLevel(
+    newLevel = this.#compatibilityBuilder.appendEventsAtLevel(
         this.#traceParsedData.UserTimings.timestampEvents, newLevel, this);  // this.#appendConsoleTimings(newLevel);
-    return this.#compatibilityBuilder.appendAsyncEventsAtLevel(
+    return this.#compatibilityBuilder.appendEventsAtLevel(
         this.#traceParsedData.UserTimings.consoleTimings, newLevel, this);
   }
 
