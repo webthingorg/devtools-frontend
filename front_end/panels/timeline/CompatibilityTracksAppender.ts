@@ -15,6 +15,7 @@ import {TimingsTrackAppender} from './TimingsTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
+import {getSyncEventLevel} from './AppenderUtils.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -58,6 +59,12 @@ export interface TrackAppender {
    * appended the track's events.
    */
   appendTrackAtLevel(level: number, expanded?: boolean): number;
+  /**
+   * Adds an event to the flame chart data at a defined level.
+   * @returns the position occupied by the new event in the entryData
+   * array, which contains all the events in the timeline.
+   */
+  appendEventAtLevel(event: TraceEngine.Types.TraceEvents.TraceEventData, level: number): number;
   /**
    * Returns the color an event is shown with in the timeline.
    */
@@ -335,6 +342,34 @@ export class CompatibilityTracksAppender {
             InstantEventVisibleDurationMs as TraceEngine.Types.Timing.MilliSeconds);
     this.#flameChartData.entryTotalTimes[index] = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(msDuration);
     return index;
+  }
+
+  /**
+   * Adds into the flame chart data the trace events corresponding to sync
+   * events. The events should be taken straight from the trace handlers.
+   * @param events the trace events that will be appended to the flame chart.
+   * @param trackStartLevel the flame chart level from which the events will
+   * be appended.
+   * @param appender the track that the trace events belong to.
+   * @returns the next level after the last occupied by the appended
+   * GPU tasks (the first available level to append next track).
+   */
+  appendSyncEventsAtLevel(
+      events: readonly TraceEngine.Types.TraceEvents.TraceEventData[], trackStartLevel: number,
+      appender: TrackAppender): number {
+    const openEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
+    let maxStackDepth = 0;
+    for (let i = 0; i < events.length; ++i) {
+      const event = events[i];
+      const level = getSyncEventLevel(event, openEvents);
+      maxStackDepth = Math.max(maxStackDepth, level + 1);
+      appender.appendEventAtLevel(event, trackStartLevel + level);
+    }
+
+    this.#legacyEntryTypeByLevel.length = trackStartLevel + maxStackDepth;
+    this.#legacyEntryTypeByLevel.fill(EntryType.TrackAppender, trackStartLevel);
+
+    return trackStartLevel + maxStackDepth;
   }
 
   /**
