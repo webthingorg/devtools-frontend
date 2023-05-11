@@ -59,6 +59,7 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
   ]
 }
 `,
+      backendNodeId: 1 as Protocol.DOM.BackendNodeId,
     };
 
     const component = await renderRuleSetDetailsReportView(data);
@@ -69,6 +70,68 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
     assert.deepEqual(zip2(keys, values), [
       ['Validity', 'Valid'],
       ['Error', ''],
+      ['Location', '<script>Open in Elements'],
+      ['Source', '{"prefetch":[{"source":"list","urls":["/subresource.js"]}]}'],
+    ]);
+  });
+
+  it('renders rule set from Speculation-Rules HTTP header', async () => {
+    const data: Protocol.Preload.RuleSet = {
+      id: 'ruleSetId:1' as Protocol.Preload.RuleSetId,
+      loaderId: 'loaderId:1' as Protocol.Network.LoaderId,
+      sourceText: `
+{
+  "prefetch": [
+    {
+      "source": "list",
+      "urls": ["/subresource.js"]
+    }
+  ]
+}
+`,
+      url: 'https://example.com/speculationrules.json',
+      requestId: 'reqeustId' as Protocol.Network.RequestId,
+    };
+
+    const component = await renderRuleSetDetailsReportView(data);
+    const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
+
+    const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
+    const values = getCleanTextContentFromElements(report, 'devtools-report-value');
+    assert.deepEqual(zip2(keys, values), [
+      ['Validity', 'Valid'],
+      ['Error', ''],
+      ['Location', 'https://example.com/speculationrules.jsonOpen in Network'],
+      ['Source', '{"prefetch":[{"source":"list","urls":["/subresource.js"]}]}'],
+    ]);
+  });
+
+  it('does not render "Open in Network" button if no requestId', async () => {
+    const data: Protocol.Preload.RuleSet = {
+      id: 'ruleSetId:1' as Protocol.Preload.RuleSetId,
+      loaderId: 'loaderId:1' as Protocol.Network.LoaderId,
+      sourceText: `
+{
+  "prefetch": [
+    {
+      "source": "list",
+      "urls": ["/subresource.js"]
+    }
+  ]
+}
+`,
+      url: 'https://example.com/speculationrules.json',
+    };
+
+    const component = await renderRuleSetDetailsReportView(data);
+    const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
+
+    const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
+    const values = getCleanTextContentFromElements(report, 'devtools-report-value');
+    assert.deepEqual(zip2(keys, values), [
+      ['Validity', 'Valid'],
+      ['Error', ''],
+      ['Location', 'https://example.com/speculationrules.json'],
       ['Source', '{"prefetch":[{"source":"list","urls":["/subresource.js"]}]}'],
     ]);
   });
@@ -83,6 +146,7 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
     {
       "source": "list",
 `,
+      backendNodeId: 1 as Protocol.DOM.BackendNodeId,
       errorType: Protocol.Preload.RuleSetErrorType.SourceIsNotJsonObject,
       errorMessage: 'Line: 6, column: 1, Syntax error.',
     };
@@ -95,6 +159,7 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
     assert.deepEqual(zip2(keys, values), [
       ['Validity', 'Invalid; source is not a JSON object'],
       ['Error', 'Line: 6, column: 1, Syntax error.'],
+      ['Location', '<script>Open in Elements'],
       ['Source', '{"prefetch": [{"source": "list",'],
     ]);
   });
@@ -112,6 +177,7 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
   ]
 }
 `,
+      backendNodeId: 1 as Protocol.DOM.BackendNodeId,
       errorType: Protocol.Preload.RuleSetErrorType.InvalidRulesSkipped,
       errorMessage: 'A list rule must have a "urls" array.',
     };
@@ -124,6 +190,7 @@ describeWithEnvironment('RuleSetDetailsReportView', async () => {
     assert.deepEqual(zip2(keys, values), [
       ['Validity', 'Some rules are invalid and ignored'],
       ['Error', 'A list rule must have a "urls" array.'],
+      ['Location', '<script>Open in Elements'],
       ['Source', '{"prefetch":[{"source":"list"}]}'],
     ]);
   });
