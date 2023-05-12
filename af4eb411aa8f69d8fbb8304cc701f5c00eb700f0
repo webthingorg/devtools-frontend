@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc75cc48_ed57d6ed",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-12T09:15:04Z",
+      "side": 1,
+      "message": "I think it is better to provide our plan (and discussed doc) and clarify the relationship to [1]. The diffs will conflict (at least direction level).\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4495151",
+      "revId": "af4eb411aa8f69d8fbb8304cc701f5c00eb700f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
