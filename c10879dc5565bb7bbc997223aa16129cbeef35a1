@@ -34,6 +34,24 @@
       "parentUuid": "5dcee79a_3bc15e64",
       "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e793a1fb_cba9b5d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-05-12T06:52:36Z",
+      "side": 1,
+      "message": "Hey Peter, thanks for your help here! Ken asked me to add my thoughts.\n\nFirst, we definitely agree on the menu item and string. We\u0027ll fix that.\n\nRegarding the filtering and the overall design, you\u0027re totally right that we could do better here. I\u0027d love to have that discussion in more detail and get a bit more of your time. (E.g., how do we derive the labels you suggest \"Speculation rules 1\" \"Speculation rules 2\"? How does this compare to cookies or the network panel? Etc.) I plan to start a thread on that shortly.\n\nBut, in the shorter-term, I\u0027m wondering if we can move forward with this checkbox approach as a stopgap. Both us engineers working with the DevTools, and the partners we have alpha-testing it, often get ourselves stuck with \"why are there no candidates showing?\" or \"how do I get back to the view where all the potential candidates are showing?\" So I think we need to do something as soon as we can to avoid this common failure mode. I think the checkbox is the best such solution for now. The only other quick-fix ideas I have, before a larger redesign, are:\n\n- Never do any filtering, and hope that developers don\u0027t miss this functionality too much.\n- Use a \"clear filter\" button somewhere, instead of a checkbox.\n\nWhat do you think?",
+      "parentUuid": "0ff1f1ec_28b5eb85",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
