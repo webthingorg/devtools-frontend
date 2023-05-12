@@ -33,6 +33,7 @@ devtools_module("issues_manager") {
     "RelatedIssue.ts",
     "SharedArrayBufferIssue.ts",
     "SourceFrameIssuesManager.ts",
+    "StylesheetLoadingIssue.ts",
   ]
 
   deps = [
@@ -148,6 +149,8 @@ devtools_issue_description_files = [
   "SameSiteWarnCrossDowngradeSet.md",
   "SameSiteWarnStrictLaxDowngradeStrict.md",
   "sharedArrayBuffer.md",
+  "stylesheetLateImport.md",
+  "stylesheetRequestFailed.md",
 ]
 
 devtools_pre_built("descriptions") {
