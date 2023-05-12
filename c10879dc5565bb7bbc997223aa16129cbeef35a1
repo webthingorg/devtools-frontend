@@ -52,6 +52,24 @@
       "parentUuid": "0ff1f1ec_28b5eb85",
       "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621b79fc_a498bc76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-05-12T10:20:12Z",
+      "side": 1,
+      "message": "Hi Domenic, I just saw the email thread, thank you for opening it! I see that I went a bit overboard before, so let\u0027s quickly unblock you and continue the discussion in the email thread.\n\nConsider this alternative to the \"Filter by selected rule set\" checkbox: [show-all.png](https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1384419#c71). It avoids adding a \"mode\" to the panel. The \"1 / 5 resources\" pattern is already used in the network panel and hints towards that there are more resources hidden. \"Resources\" might be the wrong word here, maybe request, but that\u0027s up to you.\n\nIf you don\u0027t like this option, go ahead with the checkbox.\n\nHope this helps!",
+      "parentUuid": "e793a1fb_cba9b5d2",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
