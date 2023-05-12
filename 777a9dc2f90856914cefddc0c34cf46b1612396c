@@ -22,6 +22,30 @@
       },
       "revId": "777a9dc2f90856914cefddc0c34cf46b1612396c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d961fff_872e4c8e",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-12T14:40:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f171624_d50445ac",
+      "range": {
+        "startLine": 78,
+        "startChar": 38,
+        "endLine": 78,
+        "endChar": 56
+      },
+      "revId": "777a9dc2f90856914cefddc0c34cf46b1612396c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
