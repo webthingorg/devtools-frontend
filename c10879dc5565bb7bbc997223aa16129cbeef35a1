@@ -70,6 +70,24 @@
       "parentUuid": "e793a1fb_cba9b5d2",
       "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59f13139_970e5b2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-05-12T10:23:29Z",
+      "side": 1,
+      "message": "If you want to use that \"Clear filter\" icon, you find it here as filter-clear.svg: https://drive.google.com/drive/folders/1EpmxLRjvdHn5Ia8iT3aicgIEPEvhXY_D?resourcekey\u003d0-QseNsNRsF4w8F5EKz7ncnA\u0026usp\u003dsharing",
+      "parentUuid": "621b79fc_a498bc76",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
