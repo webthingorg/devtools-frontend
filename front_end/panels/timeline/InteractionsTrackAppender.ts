@@ -65,7 +65,7 @@ export class InteractionsTrackAppender implements TrackAppender {
     }
     this.#appendTrackHeaderAtLevel(currentLevel, expanded);
     const interactions = this.#traceParsedData.UserInteractions.interactionEventsWithNoNesting;
-    return this.#compatibilityBuilder.appendAsyncEventsAtLevel(interactions, currentLevel, this);
+    return this.#compatibilityBuilder.appendEventsAtLevel(interactions, currentLevel, this);
   }
 
   /**

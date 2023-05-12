@@ -53,7 +53,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
     }
     this.#appendTrackHeaderAtLevel(currentLevel, expanded);
     const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events);
-    return this.#compatibilityBuilder.appendAsyncEventsAtLevel(allLayoutShifts, currentLevel, this);
+    return this.#compatibilityBuilder.appendEventsAtLevel(allLayoutShifts, currentLevel, this);
   }
 
   /**
