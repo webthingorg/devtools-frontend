@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ab8c7d_f800f8e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-12T13:47:33Z",
+      "side": 1,
+      "message": "Could you have a look?",
+      "revId": "0e907600b968c780a3687f74667b9b6db3c4069c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ce7e78_1cb029b5",
+        "filename": "test/unittests/front_end/panels/application/IndexedDBModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-12T13:47:33Z",
+      "side": 1,
+      "message": "memmott@chromium.org\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4298377\n\nThis change is mitigation for protocol update of the above CL. Can I leave this to you?",
+      "revId": "0e907600b968c780a3687f74667b9b6db3c4069c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
