@@ -33,6 +33,24 @@
       "message": "Hi Nathan,\n\nI\u0027m OOO for an extended time (updated my status on gerrit now too), I\u0027ve added Danil as a reviewer.",
       "revId": "b6cdba44267201181e1961694481c398ccf429ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e71b05_4d53bcab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-05-12T16:08:11Z",
+      "side": 1,
+      "message": "Ok thank you!",
+      "parentUuid": "886b761d_c5b536ad",
+      "revId": "b6cdba44267201181e1961694481c398ccf429ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
