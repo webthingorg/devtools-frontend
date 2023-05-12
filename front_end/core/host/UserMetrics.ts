@@ -829,6 +829,8 @@ export enum DevtoolsExperiments {
   'outermostTargetSelector' = 71,
   'jsProfilerTemporarilyEnable' = 72,
   'highlightErrorsElementsPanel' = 73,
+  // TODO(jarin) Add back
+  // 'setAllBreakpointsAtStartup' = 74,
 
   // Increment this when new experiments are added.
   'MaxValue' = 74,

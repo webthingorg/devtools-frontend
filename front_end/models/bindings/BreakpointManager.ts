@@ -76,12 +76,27 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#breakpointsForHomeUISourceCode = new Map();
     this.#breakpointByStorageId = new Map();
 
+    // TODO(jarin) Uncomment
+    // if (Root.Runtime.experiments.isEnabled('evaluateExpressionsWithSourceMaps')) {
+    this.storage.mute();
+    this.#setInitialBreakpoints();
+    this.storage.unmute();
+    // }
+
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
 
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
     this.#updateBindingsCallbacks = [];
+  }
+
+  #setInitialBreakpoints(): void {
+    for (const storageState of this.storage.breakpoints.values()) {
+      const storageId = Storage.computeId(storageState);
+      const breakpoint = new Breakpoint(this, null, storageState, BreakpointOrigin.OTHER);
+      this.#breakpointByStorageId.set(storageId, breakpoint);
+    }
   }
 
   static instance(opts: {
@@ -523,7 +538,7 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
   readonly #modelBreakpoints: Map<SDK.DebuggerModel.DebuggerModel, ModelBreakpoint>;
 
   constructor(
-      breakpointManager: BreakpointManager, primaryUISourceCode: Workspace.UISourceCode.UISourceCode,
+      breakpointManager: BreakpointManager, primaryUISourceCode: Workspace.UISourceCode.UISourceCode|null,
       storageState: BreakpointStorageState, origin: BreakpointOrigin) {
     this.breakpointManager = breakpointManager;
     this.#origin = origin;
@@ -534,8 +549,20 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
 
     this.#modelBreakpoints = new Map();
     this.updateState(storageState);
-    console.assert(primaryUISourceCode.contentType().name() === storageState.resourceTypeName);
-    this.addUISourceCode(primaryUISourceCode);
+    if (primaryUISourceCode) {
+      console.assert(primaryUISourceCode.contentType().name() === storageState.resourceTypeName);
+      this.addUISourceCode(primaryUISourceCode);
+    }
+    if (storageState.resourceTypeName === Common.ResourceType.resourceTypes.Script.name()) {
+      this.currentState = new Breakpoint.State(
+          [{
+            url: storageState.url,
+            lineNumber: storageState.lineNumber,
+            columnNumber: storageState.columnNumber,
+            scriptHash: '',
+          }],
+          this.backendCondition());
+    }
 
     this.breakpointManager.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
