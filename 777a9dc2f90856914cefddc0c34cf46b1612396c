@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f171624_d50445ac",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-12T11:26:19Z",
+      "side": 1,
+      "message": "At this point the call flow would seem to be:\n\n* Track appender calls compatibility builder (`compatibilityBuilder.appendEvents`).\n\n* Compatibility builder calls track appender (`appender.AppendEventAtLevel`).\n\n* Track appender calls compatibility appender (`compatibilityBuilder.appendEventAtLevel`).\n\nI understand that this is mainly because there are some parts in how each track appends it\u0027s events that is unique to each track (f.e. setting a fixed time length to each event when appending) and so we can not include them in the bits we deduplicate. However, I think this back and forth movement of calls is not ideal and can get difficult to follow. WDYT if we leave all the methods that feed the timeline data the compatibility appender (appendEventsAtLevel and appendEventAtLevel) and define other own methods in the appenders that implement whatever uniquire processing each track requires?",
+      "range": {
+        "startLine": 78,
+        "startChar": 38,
+        "endLine": 78,
+        "endChar": 56
+      },
+      "revId": "777a9dc2f90856914cefddc0c34cf46b1612396c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
