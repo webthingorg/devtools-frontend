@@ -359,8 +359,8 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
 
   private cacheContentUpdated(
       event: Common.EventTarget.EventTargetEvent<SDK.ServiceWorkerCacheModel.CacheStorageContentUpdatedEvent>): void {
-    const {cacheName, storageKey} = event.data;
-    if ((this.cache.storageKey !== storageKey || this.cache.cacheName !== cacheName)) {
+    const {cacheName, storageBucket} = event.data;
+    if ((!this.cache.inBucket(storageBucket) || this.cache.cacheName !== cacheName)) {
       return;
     }
     void this.refreshThrottler.schedule(() => Promise.resolve(this.updateData(true)), true);
