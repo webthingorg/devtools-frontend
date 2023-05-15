@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2068b387_0cf56ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:32:25Z",
+      "side": 1,
+      "message": "To be honest, this class only forwards to checkFormsIssues on devtools open, so there is no real logic. I am not sure what assertion makes sense here, only and e2e test would make sense.",
+      "parentUuid": "64e581d2_cccf2f57",
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52a02262_ce1afea9",
         "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
         "patchSetId": 4
