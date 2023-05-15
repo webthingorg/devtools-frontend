@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64e581d2_cccf2f57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:29:37Z",
+      "side": 1,
+      "message": "Indeed checkContrast is not tested. I talked to alex who implemented it and it is doing exactly what we want (I also tested e2e), because of that I honestly just copied the implementation, since nothing appeared to me checkContrast specifically.\n\nThanks for pointing out what makes sense or not.",
+      "parentUuid": "2e32f9d2_85da711e",
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52a02262_ce1afea9",
         "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-15T15:09:40Z",
       "side": 1,
       "message": "SDK.TargetManager.TargetManager.instance().addModelListener(\n      SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load,\n      this.#pageLoaded, this, {scoped: true});",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 100
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5286ea_10954433",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a02262_ce1afea9",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -54,6 +96,30 @@
       "writtenOn": "2023-05-15T15:09:40Z",
       "side": 1,
       "message": "This is very backwards. It should suffice to do something like\n\n    for (const model of SDK.TargetManager.TargetManager.instance().models(    \n        SDK.ResourceTreeModel.ResourceTreeModel)) {\n      this.#checkFormsIssues(model);\n    }",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 100
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a926853f_a31e66da",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "340426ec_ca6c237d",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "782b88ae_03a7f114",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:29:37Z",
+      "side": 1,
+      "message": "It will check forms in every frame. This check indeed makes no sense, it is probably checkContrast specific.",
+      "parentUuid": "542508e1_dec62fad",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d951c23_4de761e6",
         "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
         "patchSetId": 4
@@ -100,6 +190,30 @@
       "writtenOn": "2023-05-15T15:09:40Z",
       "side": 1,
       "message": "contrast?",
+      "range": {
+        "startLine": 69,
+        "startChar": 58,
+        "endLine": 69,
+        "endChar": 66
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2582928c_1838b20d",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2023-05-15T15:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d951c23_4de761e6",
       "range": {
         "startLine": 69,
         "startChar": 58,
