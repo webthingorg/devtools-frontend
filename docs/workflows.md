@@ -177,19 +177,16 @@ to add the devtools project and a hook to automatically symlink (comments are op
 solutions = [
   {
     # Chromium src project
-    "url": "https://chromium.googlesource.com/chromium/src.git",
-    "managed": False,
     "name": "src",
+    "url": "https://chromium.googlesource.com/chromium/src.git",
     "custom_deps": {
       "src/third_party/devtools-frontend/src": None,
     },
-    "custom_vars": {},
   },
   {
     # devtools-frontend project
     "name": "devtools-frontend",
     "url": "https://chromium.googlesource.com/devtools/devtools-frontend",
-    "custom_deps": {}
   }
 ]
 ```
@@ -206,7 +203,7 @@ hooks = [
     'name': 'Symlink Depot Tools',
     'pattern': '.',
     'action': [
-        'python',
+        'python3',
         '<path>/<to>/devtools-frontend/scripts/deps/ensure_symlink.py',
         '<path>/<to>/chromium/src',
         '<path>/<to>/devtools-frontend'
@@ -214,6 +211,11 @@ hooks = [
   }
 ]
 ```
+
+If the hook doesn't work, check that
+
+  - python is installed on your system, and
+  - the script works locally on your operating system.
 
 Running `gclient sync` anywhere within `chromium/src/` or `chromium/src/third_party/devtools-frontend/src` will update dependencies for both checkouts. Running `gclient sync -D` will not remove your symlink.
 
