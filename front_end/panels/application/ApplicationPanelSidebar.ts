@@ -1235,11 +1235,13 @@ export class ClearStorageTreeElement extends ApplicationPanelTreeElement {
 
 export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement {
   private idbDatabaseTreeElements: IDBDatabaseTreeElement[];
-  constructor(storagePanel: ResourcesPanel) {
+  private storageBucket?: Protocol.Storage.StorageBucket;
+  constructor(storagePanel: ResourcesPanel, storageBucket?: Protocol.Storage.StorageBucket) {
     super(storagePanel, i18nString(UIStrings.indexeddb), 'IndexedDB');
     const icon = UI.Icon.Icon.create('database', 'resource-tree-item');
     this.setLeadingIcons([icon]);
     this.idbDatabaseTreeElements = [];
+    this.storageBucket = storageBucket;
     this.initialize();
   }
 
@@ -1289,6 +1291,13 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
     }
   }
 
+  private databaseInTree(databaseId: DatabaseId): boolean {
+    if (this.storageBucket) {
+      return databaseId.inBucket(this.storageBucket);
+    }
+    return databaseId.storageBucket.name === undefined;
+  }
+
   private indexedDBAdded({
     data: {databaseId, model},
   }: Common.EventTarget.EventTargetEvent<{databaseId: DatabaseId, model: IndexedDBModel}>): void {
@@ -1296,6 +1305,9 @@ export class IndexedDBTreeElement extends ExpandableApplicationPanelTreeElement 
   }
 
   private addIndexedDB(model: IndexedDBModel, databaseId: DatabaseId): void {
+    if (!this.databaseInTree(databaseId)) {
+      return;
+    }
     const idbDatabaseTreeElement = new IDBDatabaseTreeElement(this.resourcesPanel, model, databaseId);
     this.idbDatabaseTreeElements.push(idbDatabaseTreeElement);
     this.appendChild(idbDatabaseTreeElement);
@@ -1358,7 +1370,13 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   private view?: IDBDatabaseView;
 
   constructor(storagePanel: ResourcesPanel, model: IndexedDBModel, databaseId: DatabaseId) {
-    super(storagePanel, databaseId.name + ' - ' + databaseId.storageKey, false);
+    let databaseName;
+    if (databaseId.storageBucket.name) {
+      databaseName = databaseId.name;
+    } else {
+      databaseName = databaseId.name + ' - ' + databaseId.storageKey;
+    }
+    super(storagePanel, databaseName, false);
     this.model = model;
     this.databaseId = databaseId;
     this.idbObjectStoreTreeElements = new Map();
