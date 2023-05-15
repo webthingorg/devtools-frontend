@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b12ffba_e9d3603d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-15T14:15:05Z",
+      "side": 1,
+      "message": "Hey Benedikt, this roll is causing test failures and I don\u0027t know if we should look into them more or not.\n\nAre you still blocked on this roll? If not, I\u0027m thinking to just cancel a bump CL and upgrade dependencies when we need them. (ex. a bug is fixed upstream)\n\nDoes it make sense? @bmeurer",
+      "revId": "17e8c17a4eace0ec5e2e6eda13d7d3b397eb6cfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
