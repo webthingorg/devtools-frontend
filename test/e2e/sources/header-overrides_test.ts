@@ -89,8 +89,6 @@ async function editHeaderItem(newValue: string, previousValue: string): Promise<
 }
 
 describe('The Overrides Panel', async function() {
-  this.timeout(10000);
-
   afterEach(async () => {
     await openSourcesPanel();
     await openOverridesSubPane();

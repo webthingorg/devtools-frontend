@@ -37,11 +37,6 @@ import {
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('A user can navigate across', async function() {
-  // These tests move between panels, which takes time.
-  if (this.timeout() !== 0) {
-    this.timeout(10000);
-  }
-
   beforeEach(async function() {
     await prepareForCrossToolScenario();
   });
@@ -95,8 +90,6 @@ describe('A user can navigate across', async function() {
 });
 
 describe('A user can move tabs', async function() {
-  this.timeout(10000);
-
   it('Move Memory to drawer', async () => {
     await navigateToMemoryTab();
     await tabExistsInMainPanel(MEMORY_TAB_ID);

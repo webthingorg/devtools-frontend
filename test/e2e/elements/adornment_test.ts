@@ -21,9 +21,6 @@ const prepareElementsTab = async () => {
 };
 
 describe('Adornment in the Elements Tab', async function() {
-  // This test relies on the context menu which takes a while to appear, so we bump the timeout a bit.
-  this.timeout(10000);
-
   it('displays grid and flex adorners', async () => {
     await goToResource('elements/adornment.html');
     await prepareElementsTab();

@@ -23,9 +23,6 @@ async function openNestedWorkerFile(selectors: NestedFileSelector) {
 }
 
 describe('The Sources Tab', async function() {
-  // The tests in this suite are particularly slow, as they perform a lot of actions
-  this.timeout(10000);
-
   before(() => {
     WORKER_SELECTORS = createSelectorsForEvalWorker('worker-relative-sourcemap.ts');
   });

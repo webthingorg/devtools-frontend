@@ -103,11 +103,6 @@ async function searchForWasmCall() {
 }
 
 describe('The Performance panel', async function() {
-  // These tests have lots of waiting which might take more time to execute
-  if (this.timeout() !== 0) {
-    this.timeout(20000);
-  }
-
   beforeEach(async () => {
     await step('navigate to the Performance tab and uplaod performance profile', async () => {
       await navigateToPerformanceTab('wasm/profiling');

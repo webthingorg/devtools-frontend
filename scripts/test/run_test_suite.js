@@ -175,7 +175,7 @@ function setNodeModulesPath(nodeModulesPathsInput) {
   }
 }
 
-function executeTestSuite({
+async function executeTestSuite({
   absoluteTestSuitePath,
   jobs,
   target,
@@ -224,8 +224,60 @@ function executeTestSuite({
     }
   }
   if (jobs > 1) {
-    argumentsForNode.push(`--jobs=${jobs}`);
+    const testListOutput =
+        childProcess
+            .spawnSync(nodePath(), argumentsForNode.concat(['--dry-run', '--reporter=json']), {encoding: 'utf-8'})
+            .stdout;
+    const testListOutputJSON =
+        JSON.parse(testListOutput.slice(testListOutput.indexOf('{'), testListOutput.lastIndexOf('}') + 1));
+    const testsList = [];
+    const totalTests = testListOutputJSON['tests'].length;
+    for (const k in testListOutputJSON['tests']) {
+      if (!testListOutputJSON['tests'][k]['fullTitle'].includes('[sequential]')) {
+        testsList.push(testListOutputJSON['tests'][k]['fullTitle'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      }
+    }
+
+    const start = Date.now();
+    argumentsForNode.push('--reporter=list');
+    async function getWorker(testFileList) {
+      const task = childProcess.spawn(
+          nodePath(), argumentsForNode.concat([`--grep='${testFileList.join('|')}'`]),
+          {encoding: 'utf-8', stdio: 'inherit', cwd});
+      return new Promise(resolve => task.on('close', (code, error) => {
+        resolve({status: code, error: error});
+      }));
+    }
+
+    const pool = [];
+    const testGroupLength = Math.ceil(totalTests / 4 /* jobs*/);
+    process.env['JOBS'] = 1;
+    for (let i = 0; i < 4 /* jobs*/; i++) {
+      pool.push(getWorker(testsList.slice(testGroupLength * i, (testGroupLength * i) + testGroupLength)));
+    }
+
+    await Promise.all(pool);
+    const combinedResult = {status: 0, error: ''};
+    for (const k in pool) {
+      combinedResult['status'] += (await pool[k]).status;
+      if ((await pool[k]).error) {
+        combinedResult['error'] += (await pool[k]).error;
+      }
+    }
+
+    const end = Date.now();
+    console.log('*'.repeat(100));
+    console.log(`Total tests: ${totalTests}`);
+    console.log(`Execution time: ${end - start} ms`);
+    console.log('*'.repeat(100));
+
+    if (combinedResult.error) {
+      throw combinedResult.error;
+    }
+
+    return combinedResult.status;
   }
+
   const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {
@@ -250,7 +302,7 @@ function validateChromeBinaryExistsAndExecutable(chromeBinaryPath) {
       fileIsExecutable(chromeBinaryPath));
 }
 
-function main() {
+async function main() {
   const chromeBinaryPath = yargsObject['chrome-binary-path'];
 
   if (!validateChromeBinaryExistsAndExecutable(chromeBinaryPath)) {
@@ -296,7 +348,7 @@ function main() {
 
   let resultStatusCode = -1;
   try {
-    resultStatusCode = executeTestSuite({
+    resultStatusCode = await executeTestSuite({
       absoluteTestSuitePath: testSuitePath,
       chromeBinaryPath,
       chromeFeatures: configurationFlags['chrome-features'],

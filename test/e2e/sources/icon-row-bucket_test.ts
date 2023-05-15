@@ -77,10 +77,6 @@ async function waitForExpandedIssueTitle(issueIconComponent: puppeteer.ElementHa
 }
 
 describe('The row\'s icon bucket', async function() {
-  if (this.timeout()) {
-    this.timeout(10000);
-  }
-
   // TODO(crbug.com/1382752): These tests currently don't interact well with pretty-printing.
   beforeEach(async () => {
     await disableExperiment('sourcesPrettyPrint');
@@ -162,9 +158,6 @@ describe('The row\'s icon bucket', async function() {
   });
 
   it('should reveal the Issues tab if the icon in the popover is clicked', async () => {
-    if (this.timeout()) {
-      this.timeout(20000);
-    }
     await navigateToIssuesTab();
     await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
 
