@@ -153,6 +153,10 @@ export class StylePropertiesSection {
   nextEditorTriggerButtonIdx = 1;
   private sectionIdx = 0;
 
+  // Used to keep track of Specificity Information
+  // “undefined” not really allowed here because we prefilter before storing but tsc ain’t smart enough to detect that.
+  static #nodeElementToSpecificity: WeakMap<Element, Protocol.CSS.Specificity|undefined> = new WeakMap();
+
   constructor(
       parentPane: StylesSidebarPane, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
       style: SDK.CSSStyleDeclaration.CSSStyleDeclaration, sectionIdx: number, computedStyles: Map<string, string>|null,
@@ -1029,9 +1033,14 @@ export class StylePropertiesSection {
 
     this.queryListElement.classList.toggle('query-matches', this.matchedStyles.queryMatches(this.styleInternal));
 
-    const selectorTexts = rule.selectors.map(selector => selector.text);
+    const selectors = rule.selectors.map(
+        selector => ({
+          // TODO(bramus): Do we really need to map as we rely on 2/3rd of the props of each selector?
+          text: selector.text,
+          specificity: selector.specificity,
+        }));
     const matchingSelectorIndexes = this.matchedStyles.getMatchingSelectors(rule);
-    const matchingSelectors = (new Array(selectorTexts.length).fill(false) as boolean[]);
+    const matchingSelectors = (new Array(selectors.length).fill(false) as boolean[]);
     for (const matchingIndex of matchingSelectorIndexes) {
       matchingSelectors[matchingIndex] = true;
     }
@@ -1041,14 +1050,23 @@ export class StylePropertiesSection {
     }
 
     const fragment = StylePropertiesSection.renderSelectors(
-        selectorTexts, matchingSelectors, this.elementToSelectorIndex, rule.nestingSelectors);
+        selectors, matchingSelectors, this.elementToSelectorIndex, rule.nestingSelectors);
     this.selectorElement.removeChildren();
     this.selectorElement.appendChild(fragment);
     this.markSelectorHighlights();
   }
 
+  static getSpecificityStoredForNodeElement(element: Element): Protocol.CSS.Specificity|undefined {
+    if (!StylePropertiesSection.#nodeElementToSpecificity.has(element)) {
+      return undefined;
+    }
+
+    return StylePropertiesSection.#nodeElementToSpecificity.get(element);
+  }
+
   static renderSelectors(
-      selectors: string[], matchingSelectors: boolean[], elementToSelectorIndex: WeakMap<Element, number>,
+      selectors: {text: string, specificity: Protocol.CSS.Specificity|undefined}[], matchingSelectors: boolean[],
+      elementToSelectorIndex: WeakMap<Element, number>,  // TODO(bramus): Define proper shape instead of `object`
       nestingSelectors?: string[]): DocumentFragment {
     const fragment = document.createDocumentFragment();
     let hasNestingSymbol = false;
@@ -1059,11 +1077,14 @@ export class StylePropertiesSection {
       const selectorElement = document.createElement('span');
       selectorElement.classList.add('simple-selector');
       selectorElement.classList.toggle('selector-matches', matchingSelectors[i]);
+      if (selector.specificity) {
+        StylePropertiesSection.#nodeElementToSpecificity.set(selectorElement, selector.specificity);
+      }
       elementToSelectorIndex.set(selectorElement, i);
 
-      if (nestingSelectors && selector.includes('&')) {
+      if (nestingSelectors && selector.text.includes('&')) {
         hasNestingSymbol = true;
-        const segments = selector.split('&');
+        const segments = selector.text.split('&');
         for (const [segmentIndex, segment] of segments.entries()) {
           if (segment) {
             selectorElement.append(segment);
@@ -1073,7 +1094,7 @@ export class StylePropertiesSection {
           }
         }
       } else {
-        selectorElement.textContent = selectors[i];
+        selectorElement.textContent = selectors[i].text;
       }
 
       fragment.append(selectorElement);
