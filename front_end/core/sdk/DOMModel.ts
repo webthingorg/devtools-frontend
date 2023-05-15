@@ -1215,6 +1215,21 @@ export class DOMModel extends SDKModel<EventTypes> {
     this.scheduleMutationEvent(node);
   }
 
+  inspectNode(backendNodeId: Protocol.Overlay.InspectNodeRequestedEvent): void {
+    console.error('DOMModel inspectNode backendNodeId: ' + backendNodeId);
+    const deferredNode = new DeferredDOMNode(this.target(), backendNodeId);
+    if (OverlayModel.inspectNodeHandler) {
+      void deferredNode.resolvePromise().then(node => {
+        if (node && OverlayModel.inspectNodeHandler) {
+          OverlayModel.inspectNodeHandler(node);
+        }
+      });
+    } else {
+      void Common.Revealer.reveal(deferredNode);
+    }
+    this.dispatchEventToListeners(Events.ExitedInspectMode);
+  }
+
   attributeRemoved(nodeId: Protocol.DOM.NodeId, name: string): void {
     const node = this.idToDOMNode.get(nodeId);
     if (!node) {
@@ -1604,6 +1619,10 @@ class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
 
   attributeModified({nodeId, name, value}: Protocol.DOM.AttributeModifiedEvent): void {
     this.#domModel.attributeModified(nodeId, name, value);
+  }
+
+  inspectNode({backendNodeId}: Protocol.DOM.InspectNodeEvent): void {
+    this.#domModel.inspectNode(backendNodeId);
   }
 
   attributeRemoved({nodeId, name}: Protocol.DOM.AttributeRemovedEvent): void {

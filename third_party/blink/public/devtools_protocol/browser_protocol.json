@@ -1412,7 +1412,6 @@
                         "InsecureContext",
                         "InvalidHeader",
                         "InvalidRegisterTriggerHeader",
-                        "InvalidEligibleHeader",
                         "SourceAndTriggerHeaders",
                         "SourceIgnored",
                         "TriggerIgnored",
@@ -1862,6 +1861,62 @@
                         {
                             "name": "issue",
                             "$ref": "InspectorIssue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "Autofill",
+            "description": "Defines commands and events for Autofill.",
+            "experimental": true,
+            "types": [
+                {
+                    "id": "CreditCard",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "number",
+                            "description": "16-digit credit card number.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "description": "Name of the credit card owner.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiryMonth",
+                            "description": "2-digit expiry month.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiryYear",
+                            "description": "4-digit expiry year.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "cvc",
+                            "description": "3-digit card verification code.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "trigger",
+                    "description": "Trigger autofill on a form identified by the fieldId.\nIf the field and related form cannot be autofilled, returns an error.",
+                    "parameters": [
+                        {
+                            "name": "fieldId",
+                            "description": "Identifies a field that serves as an anchor for autofill.",
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "card",
+                            "description": "Credit card information to fill out the form. Credit card data is not saved.",
+                            "$ref": "CreditCard"
                         }
                     ]
                 }
@@ -6222,6 +6277,16 @@
                     ]
                 },
                 {
+                    "name": "inspectNode",
+                    "parameters": [
+                        {
+                            "name": "backendNodeId",
+                            "description": "Id of the node to inspect.",
+                            "$ref": "DOM.BackendNodeId"
+                        }
+                    ]
+                },
+                {
                     "name": "attributeRemoved",
                     "description": "Fired when `Element`'s attribute is removed.",
                     "parameters": [
@@ -8763,7 +8828,8 @@
             "domain": "IndexedDB",
             "experimental": true,
             "dependencies": [
-                "Runtime"
+                "Runtime",
+                "Storage"
             ],
             "types": [
                 {
@@ -8984,7 +9050,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -8993,6 +9059,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9012,7 +9084,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9021,6 +9093,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9035,7 +9113,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9044,6 +9122,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9074,7 +9158,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9083,6 +9167,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9138,7 +9228,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9147,6 +9237,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9178,7 +9274,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9187,6 +9283,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9208,7 +9310,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9217,6 +9319,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         }
                     ],
                     "returns": [
@@ -19414,7 +19522,7 @@
                     ]
                 },
                 {
-                    "id": "StorageBucketInfo",
+                    "id": "StorageBucket",
                     "type": "object",
                     "properties": [
                         {
@@ -19422,16 +19530,24 @@
                             "$ref": "SerializedStorageKey"
                         },
                         {
+                            "name": "name",
+                            "description": "If not specified, it is the default bucket of the storageKey.",
+                            "optional": true,
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "StorageBucketInfo",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "bucket",
+                            "$ref": "StorageBucket"
+                        },
+                        {
                             "name": "id",
                             "type": "string"
-                        },
-                        {
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "name": "isDefault",
-                            "type": "boolean"
                         },
                         {
                             "name": "expiration",
@@ -19893,12 +20009,8 @@
                     "experimental": true,
                     "parameters": [
                         {
-                            "name": "storageKey",
-                            "type": "string"
-                        },
-                        {
-                            "name": "bucketName",
-                            "type": "string"
+                            "name": "bucket",
+                            "$ref": "StorageBucket"
                         }
                     ]
                 },
@@ -19970,6 +20082,11 @@
                             "type": "string"
                         },
                         {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
+                            "type": "string"
+                        },
+                        {
                             "name": "databaseName",
                             "description": "Database to update.",
                             "type": "string"
@@ -19993,6 +20110,11 @@
                         {
                             "name": "storageKey",
                             "description": "Storage key to update.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
                             "type": "string"
                         }
                     ]
@@ -20054,7 +20176,7 @@
                     "name": "storageBucketCreatedOrUpdated",
                     "parameters": [
                         {
-                            "name": "bucket",
+                            "name": "bucketInfo",
                             "$ref": "StorageBucketInfo"
                         }
                     ]
@@ -23299,6 +23421,15 @@
                     ]
                 },
                 {
+                    "id": "DialogType",
+                    "description": "Whether the dialog shown is an account chooser or an auto re-authentication dialog.",
+                    "type": "string",
+                    "enum": [
+                        "AccountChooser",
+                        "AutoReauthn"
+                    ]
+                },
+                {
                     "id": "Account",
                     "description": "Corresponds to IdentityRequestAccount",
                     "type": "object",
@@ -23356,6 +23487,10 @@
                         {
                             "name": "dialogId",
                             "type": "string"
+                        },
+                        {
+                            "name": "dialogType",
+                            "$ref": "DialogType"
                         },
                         {
                             "name": "accounts",

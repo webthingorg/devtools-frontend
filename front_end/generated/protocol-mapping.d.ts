@@ -87,6 +87,7 @@ export namespace ProtocolMapping {
      * Fired when `Element`'s attribute is modified.
      */
     'DOM.attributeModified': [Protocol.DOM.AttributeModifiedEvent];
+    'DOM.inspectNode': [Protocol.DOM.InspectNodeEvent];
     /**
      * Fired when `Element`'s attribute is removed.
      */
@@ -898,6 +899,14 @@ export namespace ProtocolMapping {
      */
     'Audits.checkContrast': {
       paramsType: [Protocol.Audits.CheckContrastRequest?];
+      returnType: void;
+    };
+    /**
+     * Trigger autofill on a form identified by the fieldId.
+     * If the field and related form cannot be autofilled, returns an error.
+     */
+    'Autofill.trigger': {
+      paramsType: [Protocol.Autofill.TriggerRequest];
       returnType: void;
     };
     /**
