@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cb462b6_2c054d5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-15T15:52:27Z",
+      "side": 1,
+      "message": "Yeah, this is the logic. We should have a unit test that would `sinon.stub` the `invoke_checkFormsIssues` and verify that it is called when expected. For example see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/core/sdk/EmulationModel_test.ts;l\u003d43?q\u003d%22invoke_%22%20lang:ts%20f:unittest%20%22stub(%22",
+      "parentUuid": "2068b387_0cf56ff6",
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52a02262_ce1afea9",
         "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
         "patchSetId": 4
@@ -150,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e273b82_91afb19b",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-15T15:52:27Z",
+      "side": 1,
+      "message": "Sorry, what I meant was to do it only once in the constructor and remove this event listener completely.",
+      "parentUuid": "a926853f_a31e66da",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 100
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "542508e1_dec62fad",
         "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
         "patchSetId": 4
@@ -185,6 +227,30 @@
       "side": 1,
       "message": "It will check forms in every frame. This check indeed makes no sense, it is probably checkContrast specific.",
       "parentUuid": "542508e1_dec62fad",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "ab0fe8c7cc21205d98d11787ff772345f211dc94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c401f512_0280921e",
+        "filename": "front_end/models/issues_manager/CheckFormsIssuesTrigger.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-15T15:52:27Z",
+      "side": 1,
+      "message": "If it does check in every frame also including OOPIF, you would only need to call checkFormIssues for outermost targets in the constructor, i.e.\n\n    for (const model of SDK.TargetManager.TargetManager.instance().models(    \n        SDK.ResourceTreeModel.ResourceTreeModel)) {\n      if (model.target().outermostTarget() !\u003d model.target()) continue;\n      this.#checkFormsIssues(model);\n    }",
+      "parentUuid": "782b88ae_03a7f114",
       "range": {
         "startLine": 66,
         "startChar": 0,
