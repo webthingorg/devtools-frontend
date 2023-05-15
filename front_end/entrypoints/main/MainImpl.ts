@@ -411,6 +411,9 @@ export class MainImpl {
         Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
         'Enable background page selector (e.g. for prerendering debugging)', false);
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, 'Enable Storage Buckets Tree in Application panel', true);
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'cssTypeComponentLength',
