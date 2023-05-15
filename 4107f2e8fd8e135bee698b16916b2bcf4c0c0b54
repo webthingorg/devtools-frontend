@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b451c8a6_e5625ba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "Looks great overall! Couple of smaller comments.",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85360dc8_4eeefd4a",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "No, I don\u0027t think that\u0027s necessary.",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd159872_90208713",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "This check shouldn\u0027t be necessary, `get()` returns the same thing.",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2482b800_90aa9b72",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "is this todo still accurate?",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8e7aea_34e05737",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "does tsc really not understand that specificity is not undefined here?",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6268f93_c7e93509",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "Is this still WIP?",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036387aa_5f4d305f",
+        "filename": "test/e2e/resources/elements/css-specificity.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-15T14:49:26Z",
+      "side": 1,
+      "message": "2023",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
