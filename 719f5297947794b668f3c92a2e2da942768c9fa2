@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d32a4498_28f07b83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462835
+      },
+      "writtenOn": "2023-05-15T13:22:52Z",
+      "side": 1,
+      "message": "Could you please merge this CL for me? I\u0027m not allowed to do that. Thank you!",
+      "revId": "719f5297947794b668f3c92a2e2da942768c9fa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
