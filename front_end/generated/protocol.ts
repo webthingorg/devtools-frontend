@@ -2970,6 +2970,10 @@ export namespace CacheStorage {
      */
     storageKey: string;
     /**
+     * Storage bucket of the cache.
+     */
+    storageBucket?: Storage.StorageBucket;
+    /**
      * The name of the cache.
      */
     cacheName: string;
@@ -3010,7 +3014,7 @@ export namespace CacheStorage {
 
   export interface RequestCacheNamesRequest {
     /**
-     * At least and at most one of securityOrigin, storageKey must be specified.
+     * At least and at most one of securityOrigin, storageKey, storageBucket must be specified.
      * Security origin.
      */
     securityOrigin?: string;
@@ -3018,6 +3022,10 @@ export namespace CacheStorage {
      * Storage key.
      */
     storageKey?: string;
+    /**
+     * Storage bucket. If not specified, it uses the default bucket.
+     */
+    storageBucket?: Storage.StorageBucket;
   }
 
   export interface RequestCacheNamesResponse extends ProtocolResponseWithError {
@@ -13461,6 +13469,10 @@ export namespace Storage {
      */
     storageKey: string;
     /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13478,6 +13490,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
   }
 
   /**
