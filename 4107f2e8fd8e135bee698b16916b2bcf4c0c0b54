@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c5f9a8_b5ea28a8",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85360dc8_4eeefd4a",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd159872_90208713",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-15T14:49:26Z",
       "side": 1,
       "message": "This check shouldn\u0027t be necessary, `get()` returns the same thing.",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e268d0c3_8584d988",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd159872_90208713",
       "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffec4efd_0f2907ad",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2482b800_90aa9b72",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c8e7aea_34e05737",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-05-15T14:49:26Z",
       "side": 1,
       "message": "does tsc really not understand that specificity is not undefined here?",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95a5956_973f9062",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "Now it mysteriously seems to work. ¯\\_(ツ)_/¯",
+      "parentUuid": "4c8e7aea_34e05737",
       "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ecf32cd_6c1b95bd",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "I’m not sure how deep I need to test. Do I simply check presence of the infobox (as it is now), or do I need to check the contents as well (the commented out part)?\n\nI’m leaning towards the first, as the second is testing an implementation detail, which is covered by the unit test.",
+      "parentUuid": "e6268f93_c7e93509",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "036387aa_5f4d305f",
         "filename": "test/e2e/resources/elements/css-specificity.html",
         "patchSetId": 4
@@ -116,6 +206,24 @@
       "writtenOn": "2023-05-15T14:49:26Z",
       "side": 1,
       "message": "2023",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5767f0a2_d0478529",
+        "filename": "test/e2e/resources/elements/css-specificity.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-15T20:18:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "036387aa_5f4d305f",
       "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
