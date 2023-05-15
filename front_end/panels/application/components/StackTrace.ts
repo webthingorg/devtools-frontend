@@ -22,6 +22,10 @@ const UIStrings = {
    *@description A link to show more frames in the stack trace if more are available. Never 0.
    */
   showSMoreFrames: '{n, plural, =1 {Show # more frame} other {Show # more frames}}',
+  /**
+   *@description A link to rehide frames that are by default hidden.
+   */
+  showLess: 'Show less',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/StackTrace.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -102,17 +106,14 @@ export class StackTraceLinkButton extends HTMLElement {
   }
 
   #render(): void {
-    if (!this.#hiddenCallFramesCount) {
-      return;
-    }
-
+    const linkText = this.#hiddenCallFramesCount ?
+        i18nString(UIStrings.showSMoreFrames, {n: this.#hiddenCallFramesCount}) :
+        i18nString(UIStrings.showLess);
     LitHtml.render(
         LitHtml.html`
       <div class="stack-trace-row">
           <button class="link" @click=${(): void => this.#onShowAllClick()}>
-            ${i18nString(UIStrings.showSMoreFrames, {
-          n: this.#hiddenCallFramesCount,
-        })}
+            ${linkText}
           </button>
         </div>
     `,
@@ -146,8 +147,8 @@ export class StackTrace extends HTMLElement {
     this.#render();
   }
 
-  #onShowAllClick(): void {
-    this.#showHidden = true;
+  #onToggleShowAllClick(): void {
+    this.#showHidden = !this.#showHidden;
     this.#render();
   }
 
@@ -168,15 +169,18 @@ export class StackTrace extends HTMLElement {
           `);
         }
       }
-      if (!this.#showHidden && 'functionName' in item && item.ignoreListHide) {
+      if ('functionName' in item && item.ignoreListHide) {
         hiddenCallFramesCount++;
       }
     }
     if (hiddenCallFramesCount) {
+      if (!this.#showHidden) {
+        hiddenCallFramesCount = 0;
+      }
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       expandableRows.push(LitHtml.html`
-      <${StackTraceLinkButton.litTagName} data-stack-trace-row .data=${{onShowAllClick: this.#onShowAllClick.bind(this), hiddenCallFramesCount: hiddenCallFramesCount} as StackTraceLinkButtonData}></${StackTraceLinkButton.litTagName}>
+      <${StackTraceLinkButton.litTagName} data-stack-trace-row .data=${{onShowAllClick: this.#onToggleShowAllClick.bind(this), hiddenCallFramesCount: 0} as StackTraceLinkButtonData}></${StackTraceLinkButton.litTagName}>
       `);
       // clang-format on
     }
