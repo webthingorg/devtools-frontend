@@ -688,8 +688,6 @@ experimental domain Audits
       # TODO(apaseltiner): Rename this to InvalidRegisterSourceHeader
       InvalidHeader
       InvalidRegisterTriggerHeader
-      # TODO(apaseltiner): Remove this issue once DevTools stops referencing it.
-      InvalidEligibleHeader
       SourceAndTriggerHeaders
       SourceIgnored
       TriggerIgnored
@@ -921,9 +919,41 @@ experimental domain Audits
       # Whether to report WCAG AAA level issues. Default is false.
       optional boolean reportAAA
 
+  # Runs the form issues check for the target page. Found issues are reported
+  # using Audits.issueAdded event.
+  command checkFormsIssues
+    returns
+      array of GenericIssueDetails formIssues
+
   event issueAdded
     parameters
       InspectorIssue issue
+
+# Defines commands and events for Autofill.
+experimental domain Autofill
+  type CreditCard extends object
+    properties
+      # 16-digit credit card number.
+      string number
+      # Name of the credit card owner.
+      string name
+      # 2-digit expiry month.
+      string expiryMonth
+      # 4-digit expiry year.
+      string expiryYear
+      # 3-digit card verification code.
+      string cvc
+
+  # Trigger autofill on a form identified by the fieldId.
+  # If the field and related form cannot be autofilled, returns an error.
+  command trigger
+    parameters
+      # Identifies a field that serves as an anchor for autofill.
+      DOM.BackendNodeId fieldId
+      # Identifies the frame that field belongs to.
+      optional Page.FrameId frameId
+      # Credit card information to fill out the form. Credit card data is not saved.
+      CreditCard card
 
 # Defines events for background web platform features.
 experimental domain BackgroundService
@@ -4007,6 +4037,7 @@ domain IO
 
 experimental domain IndexedDB
   depends on Runtime
+  depends on Storage
 
   # Database with an array of object stores.
   type DatabaseWithObjectStores extends object
@@ -4099,11 +4130,13 @@ experimental domain IndexedDB
   # Clears all entries from an object store.
   command clearObjectStore
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4112,22 +4145,26 @@ experimental domain IndexedDB
   # Deletes a database.
   command deleteDatabase
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
 
   # Delete a range of entries from an object store
   command deleteObjectStoreEntries
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       string databaseName
       string objectStoreName
       # Range of entry keys to delete
@@ -4142,11 +4179,13 @@ experimental domain IndexedDB
   # Requests data from object store or index.
   command requestData
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4168,11 +4207,13 @@ experimental domain IndexedDB
   # Gets metadata of an object store.
   command getMetadata
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
       # Object store name.
@@ -4188,11 +4229,13 @@ experimental domain IndexedDB
   # Requests database with given name in given frame.
   command requestDatabase
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
       # Database name.
       string databaseName
     returns
@@ -4202,11 +4245,13 @@ experimental domain IndexedDB
   # Requests database names for given security origin.
   command requestDatabaseNames
     parameters
-      # At least and at most one of securityOrigin, storageKey must be specified.
+      # At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.
       # Security origin.
       optional string securityOrigin
       # Storage key.
       optional string storageKey
+      # Storage bucket. If not specified, it uses the default bucket.
+      optional Storage.StorageBucket storageBucket
     returns
       # Database names for origin.
       array of string databaseNames
@@ -9145,12 +9190,16 @@ experimental domain Storage
       relaxed
       strict
 
-  type StorageBucketInfo extends object
+  type StorageBucket extends object
     properties
       SerializedStorageKey storageKey
+      # If not specified, it is the default bucket of the storageKey.
+      optional string name
+
+  type StorageBucketInfo extends object
+    properties
+      StorageBucket bucket
       string id
-      string name
-      boolean isDefault
       Network.TimeSinceEpoch expiration
       # Storage quota (bytes).
       number quota
@@ -9362,8 +9411,7 @@ experimental domain Storage
   # Deletes the Storage Bucket with the given storage key and bucket name.
   experimental command deleteStorageBucket
     parameters
-      string storageKey
-      string bucketName
+      StorageBucket bucket
 
   # Deletes state for sites identified as potential bounce trackers, immediately.
   experimental command runBounceTrackingMitigations
@@ -9395,6 +9443,8 @@ experimental domain Storage
       string origin
       # Storage key to update.
       string storageKey
+      # Storage bucket to update.
+      string bucketId
       # Database to update.
       string databaseName
       # ObjectStore to update.
@@ -9407,6 +9457,8 @@ experimental domain Storage
       string origin
       # Storage key to update.
       string storageKey
+      # Storage bucket to update.
+      string bucketId
 
   # One of the interest groups was accessed by the associated page.
   event interestGroupAccessed
@@ -9434,7 +9486,7 @@ experimental domain Storage
 
   event storageBucketCreatedOrUpdated
     parameters
-      StorageBucketInfo bucket
+      StorageBucketInfo bucketInfo
 
   event storageBucketDeleted
     parameters
@@ -10952,6 +11004,9 @@ experimental domain Preload
       SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation
       MemoryPressureOnTrigger
       MemoryPressureAfterTriggered
+      SpeculationRuleRemoved
+      TriggerPageNavigated
+      OtherPrerenderedPageActivated
 
   # Fired when a prerender attempt is completed.
   event prerenderAttemptCompleted
@@ -10991,7 +11046,7 @@ experimental domain Preload
       # PreloadingTriggeringOutcome which not used by prefetch nor prerender.
       NotSupported
 
-# TODO(https://crbug.com/1384419): revisit the list of PrefetchStatus and
+  # TODO(https://crbug.com/1384419): revisit the list of PrefetchStatus and
   # filter out the ones that aren't necessary to the developers.
   type PrefetchStatus extends string
     enum
@@ -11063,6 +11118,12 @@ experimental domain FedCm
       SignIn
       SignUp
 
+  # Whether the dialog shown is an account chooser or an auto re-authentication dialog.
+  type DialogType extends string
+    enum
+      AccountChooser
+      AutoReauthn
+
   # Corresponds to IdentityRequestAccount
   type Account extends object
     properties
@@ -11081,6 +11142,7 @@ experimental domain FedCm
   event dialogShown
     parameters
       string dialogId
+      DialogType dialogType
       array of Account accounts
       # These exist primarily so that the caller can verify the
       # RP context was used appropriately.

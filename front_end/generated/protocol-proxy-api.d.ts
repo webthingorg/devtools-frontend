@@ -24,6 +24,8 @@ declare namespace ProtocolProxyApi {
 
     Audits: AuditsApi;
 
+    Autofill: AutofillApi;
+
     BackgroundService: BackgroundServiceApi;
 
     Browser: BrowserApi;
@@ -122,6 +124,8 @@ declare namespace ProtocolProxyApi {
     Animation: AnimationDispatcher;
 
     Audits: AuditsDispatcher;
+
+    Autofill: AutofillDispatcher;
 
     BackgroundService: BackgroundServiceDispatcher;
 
@@ -374,10 +378,27 @@ declare namespace ProtocolProxyApi {
      */
     invoke_checkContrast(params: Protocol.Audits.CheckContrastRequest): Promise<Protocol.ProtocolResponseWithError>;
 
+    /**
+     * Runs the form issues check for the target page. Found issues are reported
+     * using Audits.issueAdded event.
+     */
+    invoke_checkFormsIssues(): Promise<Protocol.Audits.CheckFormsIssuesResponse>;
+
   }
   export interface AuditsDispatcher {
     issueAdded(params: Protocol.Audits.IssueAddedEvent): void;
 
+  }
+
+  export interface AutofillApi {
+    /**
+     * Trigger autofill on a form identified by the fieldId.
+     * If the field and related form cannot be autofilled, returns an error.
+     */
+    invoke_trigger(params: Protocol.Autofill.TriggerRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+  }
+  export interface AutofillDispatcher {
   }
 
   export interface BackgroundServiceApi {

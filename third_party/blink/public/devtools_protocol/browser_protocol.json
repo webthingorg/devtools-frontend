@@ -1412,7 +1412,6 @@
                         "InsecureContext",
                         "InvalidHeader",
                         "InvalidRegisterTriggerHeader",
-                        "InvalidEligibleHeader",
                         "SourceAndTriggerHeaders",
                         "SourceIgnored",
                         "TriggerIgnored",
@@ -1853,6 +1852,19 @@
                             "type": "boolean"
                         }
                     ]
+                },
+                {
+                    "name": "checkFormsIssues",
+                    "description": "Runs the form issues check for the target page. Found issues are reported\nusing Audits.issueAdded event.",
+                    "returns": [
+                        {
+                            "name": "formIssues",
+                            "type": "array",
+                            "items": {
+                                "$ref": "GenericIssueDetails"
+                            }
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -1862,6 +1874,68 @@
                         {
                             "name": "issue",
                             "$ref": "InspectorIssue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "domain": "Autofill",
+            "description": "Defines commands and events for Autofill.",
+            "experimental": true,
+            "types": [
+                {
+                    "id": "CreditCard",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "number",
+                            "description": "16-digit credit card number.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "name",
+                            "description": "Name of the credit card owner.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiryMonth",
+                            "description": "2-digit expiry month.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "expiryYear",
+                            "description": "4-digit expiry year.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "cvc",
+                            "description": "3-digit card verification code.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "trigger",
+                    "description": "Trigger autofill on a form identified by the fieldId.\nIf the field and related form cannot be autofilled, returns an error.",
+                    "parameters": [
+                        {
+                            "name": "fieldId",
+                            "description": "Identifies a field that serves as an anchor for autofill.",
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "frameId",
+                            "description": "Identifies the frame that field belongs to.",
+                            "optional": true,
+                            "$ref": "Page.FrameId"
+                        },
+                        {
+                            "name": "card",
+                            "description": "Credit card information to fill out the form. Credit card data is not saved.",
+                            "$ref": "CreditCard"
                         }
                     ]
                 }
@@ -8763,7 +8837,8 @@
             "domain": "IndexedDB",
             "experimental": true,
             "dependencies": [
-                "Runtime"
+                "Runtime",
+                "Storage"
             ],
             "types": [
                 {
@@ -8984,7 +9059,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -8993,6 +9068,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9012,7 +9093,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9021,6 +9102,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9035,7 +9122,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9044,6 +9131,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9074,7 +9167,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9083,6 +9176,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9138,7 +9237,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9147,6 +9246,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9178,7 +9283,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9187,6 +9292,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         },
                         {
                             "name": "databaseName",
@@ -9208,7 +9319,7 @@
                     "parameters": [
                         {
                             "name": "securityOrigin",
-                            "description": "At least and at most one of securityOrigin, storageKey must be specified.\nSecurity origin.",
+                            "description": "At least and at most one of securityOrigin, storageKey, or storageBucket must be specified.\nSecurity origin.",
                             "optional": true,
                             "type": "string"
                         },
@@ -9217,6 +9328,12 @@
                             "description": "Storage key.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "storageBucket",
+                            "description": "Storage bucket. If not specified, it uses the default bucket.",
+                            "optional": true,
+                            "$ref": "Storage.StorageBucket"
                         }
                     ],
                     "returns": [
@@ -19414,7 +19531,7 @@
                     ]
                 },
                 {
-                    "id": "StorageBucketInfo",
+                    "id": "StorageBucket",
                     "type": "object",
                     "properties": [
                         {
@@ -19422,16 +19539,24 @@
                             "$ref": "SerializedStorageKey"
                         },
                         {
+                            "name": "name",
+                            "description": "If not specified, it is the default bucket of the storageKey.",
+                            "optional": true,
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "StorageBucketInfo",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "bucket",
+                            "$ref": "StorageBucket"
+                        },
+                        {
                             "name": "id",
                             "type": "string"
-                        },
-                        {
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "name": "isDefault",
-                            "type": "boolean"
                         },
                         {
                             "name": "expiration",
@@ -19893,12 +20018,8 @@
                     "experimental": true,
                     "parameters": [
                         {
-                            "name": "storageKey",
-                            "type": "string"
-                        },
-                        {
-                            "name": "bucketName",
-                            "type": "string"
+                            "name": "bucket",
+                            "$ref": "StorageBucket"
                         }
                     ]
                 },
@@ -19970,6 +20091,11 @@
                             "type": "string"
                         },
                         {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
+                            "type": "string"
+                        },
+                        {
                             "name": "databaseName",
                             "description": "Database to update.",
                             "type": "string"
@@ -19993,6 +20119,11 @@
                         {
                             "name": "storageKey",
                             "description": "Storage key to update.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
                             "type": "string"
                         }
                     ]
@@ -20054,7 +20185,7 @@
                     "name": "storageBucketCreatedOrUpdated",
                     "parameters": [
                         {
-                            "name": "bucket",
+                            "name": "bucketInfo",
                             "$ref": "StorageBucketInfo"
                         }
                     ]
@@ -23124,7 +23255,10 @@
                         "SameSiteCrossOriginRedirectNotOptInInMainFrameNavigation",
                         "SameSiteCrossOriginNavigationNotOptInInMainFrameNavigation",
                         "MemoryPressureOnTrigger",
-                        "MemoryPressureAfterTriggered"
+                        "MemoryPressureAfterTriggered",
+                        "SpeculationRuleRemoved",
+                        "TriggerPageNavigated",
+                        "OtherPrerenderedPageActivated"
                     ]
                 },
                 {
@@ -23337,6 +23471,15 @@
                     ]
                 },
                 {
+                    "id": "DialogType",
+                    "description": "Whether the dialog shown is an account chooser or an auto re-authentication dialog.",
+                    "type": "string",
+                    "enum": [
+                        "AccountChooser",
+                        "AutoReauthn"
+                    ]
+                },
+                {
                     "id": "Account",
                     "description": "Corresponds to IdentityRequestAccount",
                     "type": "object",
@@ -23394,6 +23537,10 @@
                         {
                             "name": "dialogId",
                             "type": "string"
+                        },
+                        {
+                            "name": "dialogType",
+                            "$ref": "DialogType"
                         },
                         {
                             "name": "accounts",
@@ -24753,7 +24900,7 @@
                         },
                         {
                             "name": "executionContextAuxData",
-                            "description": "Embedder-specific auxiliary data.",
+                            "description": "Embedder-specific auxiliary data likely matching {isDefault: boolean, type: 'default'|'isolated'|'worker', frameId: string}",
                             "optional": true,
                             "type": "object"
                         },
@@ -24857,7 +25004,7 @@
                         },
                         {
                             "name": "executionContextAuxData",
-                            "description": "Embedder-specific auxiliary data.",
+                            "description": "Embedder-specific auxiliary data likely matching {isDefault: boolean, type: 'default'|'isolated'|'worker', frameId: string}",
                             "optional": true,
                             "type": "object"
                         },
@@ -25621,8 +25768,30 @@
                     "type": "string"
                 },
                 {
-                    "id": "WebDriverValue",
-                    "description": "Represents the value serialiazed by the WebDriver BiDi specification\nhttps://w3c.github.io/webdriver-bidi.",
+                    "id": "SerializationOptions",
+                    "description": "Represents options for serialization. Overrides `generatePreview`, `returnByValue` and\n`generateWebDriverValue`.",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "serialization",
+                            "type": "string",
+                            "enum": [
+                                "deep",
+                                "json",
+                                "idOnly"
+                            ]
+                        },
+                        {
+                            "name": "maxDepth",
+                            "description": "Deep serialization depth. Default is full depth. Respected only in `deep` serialization mode.",
+                            "optional": true,
+                            "type": "integer"
+                        }
+                    ]
+                },
+                {
+                    "id": "DeepSerializedValue",
+                    "description": "Represents deep serialized value.",
                     "type": "object",
                     "properties": [
                         {
@@ -25663,6 +25832,12 @@
                             "name": "objectId",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "weakLocalObjectReference",
+                            "description": "Set if value reference met more then once during serialization. In such\ncase, value is provided only to one of the serialized values. Unique\nper value in the scope of one CDP call.",
+                            "optional": true,
+                            "type": "integer"
                         }
                     ]
                 },
@@ -25749,10 +25924,17 @@
                         },
                         {
                             "name": "webDriverValue",
-                            "description": "WebDriver BiDi representation of the value.",
+                            "description": "Deprecated. Use `deepSerializedValue` instead. WebDriver BiDi representation of the value.",
+                            "deprecated": true,
+                            "optional": true,
+                            "$ref": "DeepSerializedValue"
+                        },
+                        {
+                            "name": "deepSerializedValue",
+                            "description": "Deep serialized value.",
                             "experimental": true,
                             "optional": true,
-                            "$ref": "WebDriverValue"
+                            "$ref": "DeepSerializedValue"
                         },
                         {
                             "name": "objectId",
@@ -26127,7 +26309,7 @@
                         },
                         {
                             "name": "auxData",
-                            "description": "Embedder-specific auxiliary data.",
+                            "description": "Embedder-specific auxiliary data likely matching {isDefault: boolean, type: 'default'|'isolated'|'worker', frameId: string}",
                             "optional": true,
                             "type": "object"
                         }
@@ -26366,7 +26548,7 @@
                         },
                         {
                             "name": "returnByValue",
-                            "description": "Whether the result is expected to be a JSON object which should be sent by value.",
+                            "description": "Whether the result is expected to be a JSON object which should be sent by value.\nCan be overriden by `serializationOptions`.",
                             "optional": true,
                             "type": "boolean"
                         },
@@ -26417,10 +26599,17 @@
                         },
                         {
                             "name": "generateWebDriverValue",
-                            "description": "Whether the result should contain `webDriverValue`, serialized according to\nhttps://w3c.github.io/webdriver-bidi. This is mutually exclusive with `returnByValue`, but\nresulting `objectId` is still provided.",
-                            "experimental": true,
+                            "description": "Deprecated. Use `serializationOptions: {serialization:\"deep\"}` instead.\nWhether the result should contain `webDriverValue`, serialized according to\nhttps://w3c.github.io/webdriver-bidi. This is mutually exclusive with `returnByValue`, but\nresulting `objectId` is still provided.",
+                            "deprecated": true,
                             "optional": true,
                             "type": "boolean"
+                        },
+                        {
+                            "name": "serializationOptions",
+                            "description": "Specifies the result serialization. If provided, overrides\n`returnByValue` and `generateWebDriverValue`.",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "SerializationOptions"
                         }
                     ],
                     "returns": [
@@ -26592,10 +26781,17 @@
                         },
                         {
                             "name": "generateWebDriverValue",
-                            "description": "Whether the result should be serialized according to https://w3c.github.io/webdriver-bidi.",
-                            "experimental": true,
+                            "description": "Deprecated. Use `serializationOptions: {serialization:\"deep\"}` instead.\nWhether the result should contain `webDriverValue`, serialized\naccording to\nhttps://w3c.github.io/webdriver-bidi. This is mutually exclusive with `returnByValue`, but\nresulting `objectId` is still provided.",
+                            "deprecated": true,
                             "optional": true,
                             "type": "boolean"
+                        },
+                        {
+                            "name": "serializationOptions",
+                            "description": "Specifies the result serialization. If provided, overrides\n`returnByValue` and `generateWebDriverValue`.",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "SerializationOptions"
                         }
                     ],
                     "returns": [
