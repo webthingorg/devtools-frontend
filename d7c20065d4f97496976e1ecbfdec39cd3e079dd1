@@ -16,6 +16,24 @@
       "message": "LGTM, thanks!",
       "revId": "d7c20065d4f97496976e1ecbfdec39cd3e079dd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064337f3_345f91fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462835
+      },
+      "writtenOn": "2023-05-15T13:15:29Z",
+      "side": 1,
+      "message": "Could you please merge this CL for me? I\u0027m not allowed to do that. Thank you!",
+      "parentUuid": "5ed02412_80967390",
+      "revId": "d7c20065d4f97496976e1ecbfdec39cd3e079dd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
