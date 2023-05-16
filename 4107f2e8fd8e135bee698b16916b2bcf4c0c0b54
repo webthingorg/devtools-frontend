@@ -247,6 +247,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c654ae0_2a59b469",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-16T17:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ba44a8_a21d121c",
+      "revId": "4107f2e8fd8e135bee698b16916b2bcf4c0c0b54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "036387aa_5f4d305f",
