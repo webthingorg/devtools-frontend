@@ -16,6 +16,69 @@
       "message": "Since you\u0027ve worked on some issues recently, PTAL!",
       "revId": "400b1ba754636748159c6af4c3d51c784471e96c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffa0b8b4_59f78437",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-16T15:25:45Z",
+      "side": 1,
+      "message": "It would be great if you could add a test!",
+      "revId": "400b1ba754636748159c6af4c3d51c784471e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670e750c_1ecbed59",
+        "filename": "front_end/models/issues_manager/StylesheetLoadingIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-16T15:25:45Z",
+      "side": 1,
+      "message": "Should this be `IssueCategory.Other`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "400b1ba754636748159c6af4c3d51c784471e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa77ebdc_1cd36333",
+        "filename": "front_end/models/issues_manager/descriptions/stylesheetLateImport.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-16T15:25:45Z",
+      "side": 1,
+      "message": "Did you check the descriptions with Sofia? I believe she usually suggests avoiding the passive voice in favour of something like \"Chrome ignored an @import rule...\".",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "400b1ba754636748159c6af4c3d51c784471e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
