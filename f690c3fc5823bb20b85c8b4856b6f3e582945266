@@ -16,6 +16,24 @@
       "message": "Can we mark this and the type as experimental?",
       "revId": "f690c3fc5823bb20b85c8b4856b6f3e582945266",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e979d29_4a75f09a",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-16T12:42:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa16131e_20716ab0",
+      "revId": "f690c3fc5823bb20b85c8b4856b6f3e582945266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
