@@ -271,9 +271,10 @@ describeWithMockConnection('IndexedDBTreeElement', () => {
     const treeElement = new Application.ApplicationPanelSidebar.IndexedDBTreeElement(panel);
 
     assert.strictEqual(treeElement.childCount(), 0);
+    const storageBucket: Protocol.Storage.StorageBucket = {storageKey: ''};
     model.dispatchEventToListeners(
         Application.IndexedDBModel.Events.DatabaseAdded,
-        {databaseId: new Application.IndexedDBModel.DatabaseId('', ''), model});
+        {databaseId: new Application.IndexedDBModel.DatabaseId(storageBucket, ''), model});
     assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
   };
   it('adds element on in scope event', addsElement(true));
@@ -292,7 +293,8 @@ describeWithMockConnection('IDBDatabaseTreeElement', () => {
     const model = target.model(Application.IndexedDBModel.IndexedDBModel);
     assertNotNullOrUndefined(model);
     const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
-    const databaseId = new Application.IndexedDBModel.DatabaseId('', '');
+    const storageBucket = {storageKey: ''};
+    const databaseId = new Application.IndexedDBModel.DatabaseId(storageBucket, '');
     const treeElement = new Application.ApplicationPanelSidebar.IDBDatabaseTreeElement(panel, model, databaseId);
 
     assert.isFalse(treeElement.selectable);
