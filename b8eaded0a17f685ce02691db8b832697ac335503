@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c816c9_e9789ab6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-16T10:55:10Z",
+      "side": 1,
+      "message": "I had a hard time reproing to get once of these trace events..\nbut... finally did by capturing a reload of https://ui.perfetto.dev/\n\nAnd yeah.. it\u0027s a 640ms Compile Script and within is a 627ms V8.FinalizeDeserialization\n\nthanks seth!",
+      "revId": "b8eaded0a17f685ce02691db8b832697ac335503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86363125_c953b643",
@@ -48,6 +65,30 @@
       "writtenOn": "2023-05-16T07:06:48Z",
       "side": 1,
       "message": "just double checking - it\u0027s correct that this is uppercase?",
+      "range": {
+        "startLine": 1805,
+        "startChar": 29,
+        "endLine": 1805,
+        "endChar": 32
+      },
+      "revId": "b8eaded0a17f685ce02691db8b832697ac335503",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d556a202_1e5e0a39",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-16T10:55:10Z",
+      "side": 1,
+      "message": "yup it is. trace events are .... all over the place. :/",
+      "parentUuid": "86363125_c953b643",
       "range": {
         "startLine": 1805,
         "startChar": 29,
