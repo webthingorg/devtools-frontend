@@ -1375,6 +1375,18 @@ experimental domain CSS
       string text
       # Value range in the underlying resource (if available).
       optional SourceRange range
+      # Specificity of the selector
+      experimental optional Specificity specificity
+
+  # Specificity
+  experimental type Specificity extends object
+    properties
+      # The a component
+      integer a
+      # The b component
+      integer b
+      # The c component
+      integer c
 
   # Selector list data.
   type SelectorList extends object

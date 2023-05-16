@@ -1867,6 +1867,28 @@ export namespace CSS {
      * Value range in the underlying resource (if available).
      */
     range?: SourceRange;
+    /**
+     * Specificity of the selector
+     */
+    specificity?: Specificity;
+  }
+
+  /**
+   * Specificity
+   */
+  export interface Specificity {
+    /**
+     * The a component
+     */
+    a: integer;
+    /**
+     * The b component
+     */
+    b: integer;
+    /**
+     * The c component
+     */
+    c: integer;
   }
 
   /**
