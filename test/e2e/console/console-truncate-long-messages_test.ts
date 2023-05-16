@@ -16,9 +16,6 @@ import {
 const checkCommandResult = checkCommandResultFunction(1);
 
 describe('The Console Tab', async function() {
-  // This test takes longer than usual because each command is typed and
-  // checked individually.
-  this.timeout(20000);
   it('Truncates large messages', async () => {
     await goToResource('../resources/console/command-line-api-getEventListeners.html');
     await navigateToConsoleTab();

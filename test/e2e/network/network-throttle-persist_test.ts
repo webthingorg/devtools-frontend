@@ -10,9 +10,6 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
 
 describe('The Network Tab', async function() {
-  // These tests reload panels repeatedly, which can take a longer time.
-  this.timeout(20_000);
-
   beforeEach(async () => {
     await navigateToNetworkTab('empty.html');
   });
