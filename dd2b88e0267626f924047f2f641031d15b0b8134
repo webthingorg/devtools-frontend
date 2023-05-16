@@ -16,6 +16,24 @@
       "message": "Where\u0027s the package.json in the update?",
       "revId": "dd2b88e0267626f924047f2f641031d15b0b8134",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229d5b2a_58b61eba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-16T09:19:06Z",
+      "side": 1,
+      "message": "We\u0027re getting the update for `@lezer/css` package which is not a direct dependency of ours but it is a dependency of `@codemirror/lang-css`.\n\nAfter the fix, `@lezer/css` package is published with patch bump (from 1.1.1 -\u003e 1.1.2). `@codemirror/lang-css` package is automatically getting all patch updates according to their package.json[1]. So, the `@codemirror/lang-css` we install, even though it didn\u0027t have a version update, contains the `@lezer/css` 1.1.2; so there isn\u0027t a change in package.json.\n\nDoes it make sense?\n\n[1]: https://github.com/codemirror/lang-css/blob/main/package.json#L33",
+      "parentUuid": "8335453b_2b15cc39",
+      "revId": "dd2b88e0267626f924047f2f641031d15b0b8134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
