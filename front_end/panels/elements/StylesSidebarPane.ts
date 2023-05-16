@@ -379,6 +379,23 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         };
       }
 
+      // TODO(bramus): What about nested selectors?
+      if (hoveredNode.matches('.simple-selector')) {
+        const specificity = StylePropertiesSection.getSpecificityStoredForNodeElement(hoveredNode);
+        return {
+          box: hoveredNode.boxInWindow(),
+          show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+            popover.setIgnoreLeftMargin(true);
+            const element = document.createElement('span');
+            element.dataset.testId = 'specificity';
+            element.textContent =
+                `Specificity: (${specificity ? `${specificity.a},${specificity.b},${specificity.c}` : '?,?,?'})`;
+            popover.contentElement.appendChild(element);
+            return true;
+          },
+        };
+      }
+
       return null;
     });
 
