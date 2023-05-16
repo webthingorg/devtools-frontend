@@ -2818,6 +2818,36 @@
                             "description": "Value range in the underlying resource (if available).",
                             "optional": true,
                             "$ref": "SourceRange"
+                        },
+                        {
+                            "name": "specificity",
+                            "description": "Specificity of the selector",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "Specificity"
+                        }
+                    ]
+                },
+                {
+                    "id": "Specificity",
+                    "description": "Specificity",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "a",
+                            "description": "The a component",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "b",
+                            "description": "The b component",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "c",
+                            "description": "The c component",
+                            "type": "integer"
                         }
                     ]
                 },
