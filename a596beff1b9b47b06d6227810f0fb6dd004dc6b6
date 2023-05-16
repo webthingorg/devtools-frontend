@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbedcbb_b2f0532a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-16T14:04:20Z",
+      "side": 1,
+      "message": "Addressed remarks. Also removed leftover TODOs",
+      "revId": "a596beff1b9b47b06d6227810f0fb6dd004dc6b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
