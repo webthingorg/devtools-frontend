@@ -36,9 +36,10 @@ interface Node {
 
 async function renderBackForwardCacheView(frame: SDK.ResourceTreeModel.ResourceTreeFrame):
     Promise<ApplicationComponents.BackForwardCacheView.BackForwardCacheView> {
+  dispatchEvent(target, 'Page.frameNavigated', {frame});
   const component = new ApplicationComponents.BackForwardCacheView.BackForwardCacheView();
   renderElementIntoDOM(component);
-  component.data = {frame};
+  await component.render();
   assertShadowRoot(component.shadowRoot);
   await coordinator.done();
   return component;
@@ -53,11 +54,10 @@ async function unpromisify(node: TreeOutline.TreeOutlineUtils.TreeNode<NodeData>
   return result;
 }
 
-describeWithMockConnection('BackForwardCacheViewWrapper', () => {
+describeWithMockConnection('BackForwardCacheView', () => {
   const updatesBFCacheView = (targetFactory: () => SDK.Target.Target) => {
     let target: SDK.Target.Target;
     let resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel|null;
-    let wrapper: ApplicationComponents.BackForwardCacheView.BackForwardCacheViewWrapper;
     let view: ApplicationComponents.BackForwardCacheView.BackForwardCacheView;
     const FRAME = {
       id: 'main',
@@ -73,13 +73,6 @@ describeWithMockConnection('BackForwardCacheViewWrapper', () => {
       assertNotNullOrUndefined(resourceTreeModel);
       dispatchEvent(target, 'Page.frameNavigated', {frame: FRAME});
       view = new ApplicationComponents.BackForwardCacheView.BackForwardCacheView();
-      wrapper = new ApplicationComponents.BackForwardCacheView.BackForwardCacheViewWrapper(view);
-      wrapper.markAsRoot();
-      wrapper.show(document.body);
-    });
-
-    afterEach(() => {
-      wrapper.detach();
     });
 
     it('updates BFCacheView on main frame navigation', async () => {
@@ -89,8 +82,7 @@ describeWithMockConnection('BackForwardCacheViewWrapper', () => {
           SDK.ResourceTreeModel.Events.PrimaryPageChanged,
           {frame: resourceTreeModel.mainFrame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation});
 
-      const data = await new Promise(resolve => sinon.stub(view, 'data').set(resolve));
-      assert.deepStrictEqual(data, {frame: resourceTreeModel.mainFrame});
+      await new Promise<void>(resolve => sinon.stub(view, 'render').callsFake(async () => resolve()));
     });
 
     it('updates BFCacheView on BFCache detail update', async () => {
@@ -99,8 +91,7 @@ describeWithMockConnection('BackForwardCacheViewWrapper', () => {
       resourceTreeModel.dispatchEventToListeners(
           SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, resourceTreeModel.mainFrame);
 
-      const data = await new Promise(resolve => sinon.stub(view, 'data').set(resolve));
-      assert.deepStrictEqual(data, {frame: resourceTreeModel.mainFrame});
+      await new Promise<void>(resolve => sinon.stub(view, 'render').callsFake(async () => resolve()));
     });
   };
 

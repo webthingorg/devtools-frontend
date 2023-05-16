@@ -101,12 +101,8 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
 describeWithRealConnection('FrameDetailsView', () => {
   it('renders with a title', async () => {
     const frame = makeFrame();
-    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView();
+    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView(frame);
     renderElementIntoDOM(component);
-    component.data = {
-      frame: frame,
-      adScriptId: null,
-    };
 
     assertShadowRoot(component.shadowRoot);
     await coordinator.done();
@@ -127,17 +123,15 @@ describeWithRealConnection('FrameDetailsView', () => {
 
     const frame = makeFrame();
     frame.adFrameType = () => Protocol.Page.AdFrameType.Root;
-
-    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView();
-    renderElementIntoDOM(component);
-    component.data = {
-      frame,
-      target,
-      adScriptId: {
+    frame.parentFrame = () => ({
+      getAdScriptId: () => ({
         scriptId: 'scriptId' as Protocol.Runtime.ScriptId,
         debuggerId: debuggerId as Protocol.Runtime.UniqueDebuggerId,
-      },
-    };
+      }),
+    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame);
+
+    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView(frame);
+    renderElementIntoDOM(component);
 
     assertShadowRoot(component.shadowRoot);
     await coordinator.done({waitForWork: true});
@@ -208,14 +202,9 @@ describeWithRealConnection('FrameDetailsView', () => {
 
     const frame = makeFrame();
 
-    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView();
+    const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView(frame);
     renderElementIntoDOM(component);
-    component.data = {
-      frame,
-      target,
-      adScriptId: null,
-      prerenderedUrl: 'https://example.test/',
-    };
+    component.targetChanged({data: {subtype: 'prerender', url: 'https://example.test/'} as Protocol.Target.TargetInfo});
 
     assertShadowRoot(component.shadowRoot);
     await coordinator.done({waitForWork: true});
