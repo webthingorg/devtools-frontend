@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103214a2_6fead4f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-05-16T21:39:56Z",
+      "side": 1,
+      "message": "Hi Alex, \n\nplease take a look this XS a11y change. \n\nThanks,\nGavin",
+      "revId": "b099b5cb8233723ec3c2d2757f9be090f0c875f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
