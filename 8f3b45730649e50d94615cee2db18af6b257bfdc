@@ -39,6 +39,30 @@
       },
       "revId": "8f3b45730649e50d94615cee2db18af6b257bfdc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c286308_b5cf957c",
+        "filename": "test/e2e/console/console-ignore-list_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-05-16T11:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29cca8c9_d33ca885",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "8f3b45730649e50d94615cee2db18af6b257bfdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
