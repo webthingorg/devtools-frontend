@@ -33,6 +33,24 @@
       "message": "Kueno, please see the `git cl presubmit` failure. Could you please add yourself to AUTHORS?",
       "revId": "719f5297947794b668f3c92a2e2da942768c9fa2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c910609_61836ca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462835
+      },
+      "writtenOn": "2023-05-16T13:07:45Z",
+      "side": 1,
+      "message": "I\u0027ve already added myself to AUTHORS. Am I something missing?\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/AUTHORS;l\u003d45?q\u003dkohei%20ueno\u0026ss\u003dchromium",
+      "parentUuid": "702eea11_4b0e7ff5",
+      "revId": "719f5297947794b668f3c92a2e2da942768c9fa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
