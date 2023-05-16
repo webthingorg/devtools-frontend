@@ -156,7 +156,7 @@ inspectorBackend.registerCommand("CSS.setLocalFontsEnabled", [{"name": "enabled"
 inspectorBackend.registerEnum("CacheStorage.CachedResponseType", {Basic: "basic", Cors: "cors", Default: "default", Error: "error", OpaqueResponse: "opaqueResponse", OpaqueRedirect: "opaqueRedirect"});
 inspectorBackend.registerCommand("CacheStorage.deleteCache", [{"name": "cacheId", "type": "string", "optional": false}], []);
 inspectorBackend.registerCommand("CacheStorage.deleteEntry", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "request", "type": "string", "optional": false}], []);
-inspectorBackend.registerCommand("CacheStorage.requestCacheNames", [{"name": "securityOrigin", "type": "string", "optional": true}, {"name": "storageKey", "type": "string", "optional": true}], ["caches"]);
+inspectorBackend.registerCommand("CacheStorage.requestCacheNames", [{"name": "securityOrigin", "type": "string", "optional": true}, {"name": "storageKey", "type": "string", "optional": true}, {"name": "storageBucket", "type": "object", "optional": true}], ["caches"]);
 inspectorBackend.registerCommand("CacheStorage.requestCachedResponse", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "requestURL", "type": "string", "optional": false}, {"name": "requestHeaders", "type": "object", "optional": false}], ["response"]);
 inspectorBackend.registerCommand("CacheStorage.requestEntries", [{"name": "cacheId", "type": "string", "optional": false}, {"name": "skipCount", "type": "number", "optional": true}, {"name": "pageSize", "type": "number", "optional": true}, {"name": "pathFilter", "type": "string", "optional": true}], ["cacheDataEntries", "returnCount"]);
 
@@ -721,8 +721,8 @@ inspectorBackend.registerEnum("Storage.StorageType", {Appcache: "appcache", Cook
 inspectorBackend.registerEnum("Storage.InterestGroupAccessType", {Join: "join", Leave: "leave", Update: "update", Loaded: "loaded", Bid: "bid", Win: "win"});
 inspectorBackend.registerEnum("Storage.SharedStorageAccessType", {DocumentAddModule: "documentAddModule", DocumentSelectURL: "documentSelectURL", DocumentRun: "documentRun", DocumentSet: "documentSet", DocumentAppend: "documentAppend", DocumentDelete: "documentDelete", DocumentClear: "documentClear", WorkletSet: "workletSet", WorkletAppend: "workletAppend", WorkletDelete: "workletDelete", WorkletClear: "workletClear", WorkletGet: "workletGet", WorkletKeys: "workletKeys", WorkletEntries: "workletEntries", WorkletLength: "workletLength", WorkletRemainingBudget: "workletRemainingBudget"});
 inspectorBackend.registerEnum("Storage.StorageBucketsDurability", {Relaxed: "relaxed", Strict: "strict"});
-inspectorBackend.registerEvent("Storage.cacheStorageContentUpdated", ["origin", "storageKey", "cacheName"]);
-inspectorBackend.registerEvent("Storage.cacheStorageListUpdated", ["origin", "storageKey"]);
+inspectorBackend.registerEvent("Storage.cacheStorageContentUpdated", ["origin", "storageKey", "bucketId", "cacheName"]);
+inspectorBackend.registerEvent("Storage.cacheStorageListUpdated", ["origin", "storageKey", "bucketId"]);
 inspectorBackend.registerEvent("Storage.indexedDBContentUpdated", ["origin", "storageKey", "bucketId", "databaseName", "objectStoreName"]);
 inspectorBackend.registerEvent("Storage.indexedDBListUpdated", ["origin", "storageKey", "bucketId"]);
 inspectorBackend.registerEvent("Storage.interestGroupAccessed", ["accessTime", "type", "ownerOrigin", "name"]);
