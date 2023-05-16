@@ -264,7 +264,7 @@ export class BreakpointsView extends HTMLElement {
             @keydown=${this.#keyDownHandler}
             data-first-pause>
           <label class='checkbox-label'>
-            <input type='checkbox' tabindex=-1 ?checked=${this.#pauseOnUncaughtExceptions} @change=${this.#onPauseOnUncaughtExceptionsStateChanged.bind(this)}>
+            <input type='checkbox' ?checked=${this.#pauseOnUncaughtExceptions} @change=${this.#onPauseOnUncaughtExceptionsStateChanged.bind(this)}>
             <span>${i18nString(UIStrings.pauseOnUncaughtExceptions)}</span>
           </label>
         </div>
@@ -274,7 +274,7 @@ export class BreakpointsView extends HTMLElement {
               @keydown=${this.#keyDownHandler}
               data-last-pause>
             <label class='checkbox-label'>
-              <input data-pause-on-caught-checkbox type='checkbox' tabindex=-1 ?checked=${pauseOnCaughtIsChecked} ?disabled=${pauseOnCaughtExceptionIsDisabled} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)}>
+              <input data-pause-on-caught-checkbox type='checkbox' ?checked=${pauseOnCaughtIsChecked} ?disabled=${pauseOnCaughtExceptionIsDisabled} @change=${this.#onPauseOnCaughtExceptionsStateChanged.bind(this)}>
               <span>${i18nString(UIStrings.pauseOnCaughtExceptions)}</span>
             </label>
         </div>
