@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "361ff4be_8ace65bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-16T12:15:42Z",
+      "side": 1,
+      "message": "PTAL since you also reviewed the PresentationConsoleMessageHelper change :)",
+      "revId": "0afc0434a99d926ed92e515fb32109407a938ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
