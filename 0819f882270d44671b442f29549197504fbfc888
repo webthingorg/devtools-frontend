@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a6774ec_74f79783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-16T09:01:43Z",
+      "side": 1,
+      "message": "Note that since this CL landed, we have an interaction test failure on the win bot in our beta branch: https://ci.chromium.org/p/devtools-frontend/builders/ci/Stand-alone%20Win%20beta\n\nKateryna, could you please take a look if this is really the culprit?",
+      "revId": "0819f882270d44671b442f29549197504fbfc888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
