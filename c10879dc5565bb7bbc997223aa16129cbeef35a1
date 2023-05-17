@@ -106,6 +106,23 @@
       "parentUuid": "59f13139_970e5b2e",
       "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3fe135e_b525be7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-17T13:09:27Z",
+      "side": 1,
+      "message": "Thank you for reviwes! Let\u0027s continue to discuss.",
+      "revId": "c10879dc5565bb7bbc997223aa16129cbeef35a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
