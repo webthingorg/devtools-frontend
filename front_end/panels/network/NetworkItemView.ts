@@ -34,6 +34,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as NetworkComponents from './components/components.js';
@@ -133,7 +134,9 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
   private requestInternal: SDK.NetworkRequest.NetworkRequest;
   private readonly resourceViewTabSetting: Common.Settings.Setting<NetworkForward.UIRequestLocation.UIRequestTabs>;
   private readonly headersView: RequestHeadersView;
-  private readonly headersViewComponent: NetworkComponents.RequestHeadersView.RequestHeadersView;
+  private readonly headersViewComponent:
+      /* LegacyWrapper.LegacyWrapper.LegacyWrapper<UI.Widget.VBox,*/ NetworkComponents.RequestHeadersView
+          .RequestHeadersView /* >*/;
   private payloadView: RequestPayloadView|null;
   private readonly responseView: RequestResponseView|undefined;
   private cookiesView: RequestCookiesView|null;
@@ -152,10 +155,13 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this.resourceViewTabSetting = Common.Settings.Settings.instance().createSetting('resourceViewTab', headersTab);
 
     this.headersView = new RequestHeadersView(request);
+    // this.headersViewComponent = LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, new NetworkComponents.RequestHeadersView.RequestHeadersView(request));
     this.headersViewComponent = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
       this.appendTab(
-          headersTab, i18nString(UIStrings.headers), this.headersViewComponent, i18nString(UIStrings.headers));
+          headersTab, i18nString(UIStrings.headers),
+          LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, this.headersViewComponent),
+          i18nString(UIStrings.headers));
     } else {
       this.appendTab(headersTab, i18nString(UIStrings.headers), this.headersView, i18nString(UIStrings.headers));
     }
