@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7a516d0_d111ee65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-17T07:49:20Z",
+      "side": 1,
+      "message": "Could you have a look?",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84eae392_84521e65",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-17T07:49:20Z",
+      "side": 1,
+      "message": "https://docs.google.com/spreadsheets/d/1LYfsi3kF8bUPzE2UANNjFRa8twLovu3wmDg8cN6Wlkg/edit#gid\u003d1918010781\n\nStrings are reviewed by Prerender2 team. Maybe more improved in the future.",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9199b5_7733a515",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-17T07:49:20Z",
+      "side": 1,
+      "message": "Not yet reviewed by Prerender2 team. dsv@\u0027s review first.",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
