@@ -379,6 +379,21 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         };
       }
 
+      if (hoveredNode.matches('.simple-selector')) {
+        const specificity = StylePropertiesSection.getSpecificityStoredForNodeElement(hoveredNode);
+        return {
+          box: hoveredNode.boxInWindow(),
+          show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+            popover.setIgnoreLeftMargin(true);
+            const element = document.createElement('span');
+            element.textContent =
+                `Specificity: (${specificity ? `${specificity.a},${specificity.b},${specificity.c}` : '?,?,?'})`;
+            popover.contentElement.appendChild(element);
+            return true;
+          },
+        };
+      }
+
       return null;
     });
 
