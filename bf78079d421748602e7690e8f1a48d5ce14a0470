@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0839ef29_64f5bda1",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-17T13:39:04Z",
+      "side": 0,
+      "message": "maybe we should add this check for visibility into the extracted method in `CompatibilityTracksAppender`",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 7
+      },
+      "revId": "bf78079d421748602e7690e8f1a48d5ce14a0470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
