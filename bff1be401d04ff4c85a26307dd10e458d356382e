@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3a8cbd1_142a31ff",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-05-17T07:54:57Z",
+      "side": 0,
+      "message": "It\u0027s good that this is removed again. This builder is an auto-roller that doesn\u0027t build. Neither does the presubmit below.",
+      "range": {
+        "startLine": 1081,
+        "startChar": 11,
+        "endLine": 1084,
+        "endChar": 14
+      },
+      "revId": "bff1be401d04ff4c85a26307dd10e458d356382e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
