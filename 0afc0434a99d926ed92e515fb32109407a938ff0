@@ -16,6 +16,23 @@
       "message": "PTAL since you also reviewed the PresentationConsoleMessageHelper change :)",
       "revId": "0afc0434a99d926ed92e515fb32109407a938ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aeafe42_db70dc2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:55:49Z",
+      "side": 1,
+      "message": "Thanks! It\u0027s a bit hard to follow what is refactoring and what is new. Would it be possible to split the CL up into a couple of smaller CLs? That would be easier for me to review 😊 (e.g. split out the base class in one CL, then extend it to SourceFrameIssuesManager if that is possible)\n\nSecond question: It\u0027s a bit odd that SourceFrameIssueManager inherits from something called PresentationConsoleMessageBase. Could we solve this via composition instead? So both `PresentationSourceFrameMessageHelper` and `SourceFrameIssuesManager` create an instance of this new Base thing themselves and stash it in some property, instead of solving this via inheritence? wdyt?",
+      "revId": "0afc0434a99d926ed92e515fb32109407a938ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
