@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc860ee2_cb27f0c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T10:08:44Z",
+      "side": 1,
+      "message": "I am not entirely happy with the hangin dependency on a throttling widget and I am not entirely sure we need it in addition to the rendering coordinator, but I didn\u0027t want any behavior changes in this CL to keep the scope manageable.",
+      "revId": "b8133be49e4a0fee0f74d99d26fe312387ac096e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
