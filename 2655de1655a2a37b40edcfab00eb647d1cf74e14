@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "327fbedb_bea75a9b",
+        "filename": "front_end/ui/components/legacy_wrapper/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T14:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "407578e7_a8ff6330",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "2655de1655a2a37b40edcfab00eb647d1cf74e14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fb7e9b1_02b01f92",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-17T13:01:25Z",
       "side": 1,
       "message": "Unused?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "2655de1655a2a37b40edcfab00eb647d1cf74e14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3528899b_2039d12c",
+        "filename": "front_end/ui/components/legacy_wrapper/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T14:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb7e9b1_02b01f92",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a11def_a24e126e",
+        "filename": "front_end/ui/components/legacy_wrapper/LegacyWrapper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T14:38:35Z",
+      "side": 1,
+      "message": "Exactly",
+      "parentUuid": "cd1403cf_4d10de04",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "2655de1655a2a37b40edcfab00eb647d1cf74e14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58e04828_c596b5c1",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-17T13:01:25Z",
       "side": 1,
       "message": "```suggestion\n// Copyright 2023 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2655de1655a2a37b40edcfab00eb647d1cf74e14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bac0223_ba63866b",
+        "filename": "front_end/ui/components/legacy_wrapper/legacy_wrapper.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T14:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58e04828_c596b5c1",
       "range": {
         "startLine": 1,
         "startChar": 13,
