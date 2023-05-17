@@ -6545,10 +6545,22 @@ domain Network
       optional string reportingEndpoint
       optional string reportOnlyReportingEndpoint
 
+  experimental type ContentSecurityPolicySource extends string
+    enum
+      HTTP
+      Meta
+
+  experimental type ContentSecurityPolicyStatus extends object
+    properties
+      string effectiveDirectives
+      boolean isEnforced
+      ContentSecurityPolicySource source
+
   experimental type SecurityIsolationStatus extends object
     properties
       optional CrossOriginOpenerPolicyStatus coop
       optional CrossOriginEmbedderPolicyStatus coep
+      optional array of ContentSecurityPolicyStatus csp
 
   # Returns information about the COEP/COOP isolation status.
   experimental command getSecurityIsolationStatus
@@ -11109,7 +11121,6 @@ experimental domain Preload
       Page.FrameId initiatingFrameId
       string prerenderingUrl
       PreloadingStatus status
-      optional PrerenderFinalStatus prerenderStatus
 
   # Send a list of sources for all preloading attempts in a document.
   event preloadingAttemptSourcesUpdated

@@ -448,6 +448,7 @@ inspectorBackend.registerEnum("Network.PrivateNetworkRequestPolicy", {Allow: "Al
 inspectorBackend.registerEnum("Network.IPAddressSpace", {Local: "Local", Private: "Private", Public: "Public", Unknown: "Unknown"});
 inspectorBackend.registerEnum("Network.CrossOriginOpenerPolicyValue", {SameOrigin: "SameOrigin", SameOriginAllowPopups: "SameOriginAllowPopups", RestrictProperties: "RestrictProperties", UnsafeNone: "UnsafeNone", SameOriginPlusCoep: "SameOriginPlusCoep", RestrictPropertiesPlusCoep: "RestrictPropertiesPlusCoep"});
 inspectorBackend.registerEnum("Network.CrossOriginEmbedderPolicyValue", {None: "None", Credentialless: "Credentialless", RequireCorp: "RequireCorp"});
+inspectorBackend.registerEnum("Network.ContentSecurityPolicySource", {HTTP: "HTTP", Meta: "Meta"});
 inspectorBackend.registerEnum("Network.ReportStatus", {Queued: "Queued", Pending: "Pending", MarkedForRemoval: "MarkedForRemoval", Success: "Success"});
 inspectorBackend.registerEvent("Network.dataReceived", ["requestId", "timestamp", "dataLength", "encodedDataLength"]);
 inspectorBackend.registerEvent("Network.eventSourceMessageReceived", ["requestId", "timestamp", "eventName", "eventId", "data"]);
@@ -901,7 +902,7 @@ inspectorBackend.registerEvent("Preload.ruleSetRemoved", ["id"]);
 inspectorBackend.registerEvent("Preload.prerenderAttemptCompleted", ["key", "initiatingFrameId", "prerenderingUrl", "finalStatus", "disallowedApiMethod"]);
 inspectorBackend.registerEvent("Preload.preloadEnabledStateUpdated", ["disabledByPreference", "disabledByDataSaver", "disabledByBatterySaver"]);
 inspectorBackend.registerEvent("Preload.prefetchStatusUpdated", ["key", "initiatingFrameId", "prefetchUrl", "status", "prefetchStatus"]);
-inspectorBackend.registerEvent("Preload.prerenderStatusUpdated", ["key", "initiatingFrameId", "prerenderingUrl", "status", "prerenderStatus"]);
+inspectorBackend.registerEvent("Preload.prerenderStatusUpdated", ["key", "initiatingFrameId", "prerenderingUrl", "status"]);
 inspectorBackend.registerEvent("Preload.preloadingAttemptSourcesUpdated", ["loaderId", "preloadingAttemptSources"]);
 inspectorBackend.registerCommand("Preload.enable", [], []);
 inspectorBackend.registerCommand("Preload.disable", [], []);
