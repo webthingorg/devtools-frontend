@@ -434,6 +434,7 @@ const EnumeratedHistogram = {
   ColorConvertedFrom: 'DevTools.ColorConvertedFrom',
   ColorPickerOpenedFrom: 'DevTools.ColorPickerOpenedFrom',
   CSSPropertyDocumentation: 'DevTools.CSSPropertyDocumentation',
+  SwatchActivated: 'DevTools.Activated',
 };
 
 /**
