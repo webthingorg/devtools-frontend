@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb8f4bda_b50e070e",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-17T10:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d247dba_a833cd4b",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d913602d_230babb7",
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33bbf57b_4e916d36",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-17T10:13:56Z",
+      "side": 1,
+      "message": "The map instance is actually not necessary, but what\u0027s making this tricky is IssueMessage (in the downstream CL) is a subclass of Message. So it\u0027s a bit annoying to create new instances here.",
+      "parentUuid": "d913602d_230babb7",
+      "range": {
+        "startLine": 340,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 110
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "809fa1d0_81f298fd",
         "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
         "patchSetId": 1
@@ -94,6 +142,30 @@
       "writtenOn": "2023-05-17T08:47:56Z",
       "side": 1,
       "message": "IMO it\u0027s fine to inline these two lines below, unless there is another use-site coming up?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 113
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f535e02_1cc28db0",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-17T10:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "809fa1d0_81f298fd",
       "range": {
         "startLine": 18,
         "startChar": 0,
