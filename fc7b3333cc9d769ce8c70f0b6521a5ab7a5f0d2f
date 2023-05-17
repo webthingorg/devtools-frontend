@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "add241b3_89707747",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:39:29Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "fc7b3333cc9d769ce8c70f0b6521a5ab7a5f0d2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb2a778_b081c5a8",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:39:29Z",
+      "side": 1,
+      "message": "I just landed the CL that added some documentation for `currentState` (mostly about the fallback). Maybe we could rebase and add sentence that it\u0027s also used for setting breakpoints eagerly?",
+      "range": {
+        "startLine": 536,
+        "startChar": 2,
+        "endLine": 536,
+        "endChar": 45
+      },
+      "revId": "fc7b3333cc9d769ce8c70f0b6521a5ab7a5f0d2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14287d4e_1d334122",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:39:29Z",
+      "side": 1,
+      "message": "Neat solution! So basically when the breakpoint starts observing the models and we create the `ModelBreakpoints`, we automatically set the breakpoint since we have a fallback state already in place.",
+      "range": {
+        "startLine": 558,
+        "startChar": 5,
+        "endLine": 558,
+        "endChar": 28
+      },
+      "revId": "fc7b3333cc9d769ce8c70f0b6521a5ab7a5f0d2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
