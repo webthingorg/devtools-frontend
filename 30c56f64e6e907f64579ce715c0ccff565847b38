@@ -16,6 +16,24 @@
       "message": "Nit: The whitespace here isn\u0027t necessary",
       "revId": "30c56f64e6e907f64579ce715c0ccff565847b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73594270_5f452778",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-17T09:58:27Z",
+      "side": 1,
+      "message": "No clue how that slipped in, but it’s fixed now 😊",
+      "parentUuid": "095d0b6a_b68b8e82",
+      "revId": "30c56f64e6e907f64579ce715c0ccff565847b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
