@@ -8450,9 +8450,21 @@ export namespace Network {
     reportOnlyReportingEndpoint?: string;
   }
 
+  export const enum ContentSecurityPolicySource {
+    HTTP = 'HTTP',
+    Meta = 'Meta',
+  }
+
+  export interface ContentSecurityPolicyStatus {
+    effectiveDirectives: string;
+    isEnforced: boolean;
+    source: ContentSecurityPolicySource;
+  }
+
   export interface SecurityIsolationStatus {
     coop?: CrossOriginOpenerPolicyStatus;
     coep?: CrossOriginEmbedderPolicyStatus;
+    csp?: ContentSecurityPolicyStatus[];
   }
 
   /**
@@ -15712,7 +15724,6 @@ export namespace Preload {
     initiatingFrameId: Page.FrameId;
     prerenderingUrl: string;
     status: PreloadingStatus;
-    prerenderStatus?: PrerenderFinalStatus;
   }
 
   /**

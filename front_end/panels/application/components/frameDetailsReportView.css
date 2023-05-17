@@ -81,3 +81,8 @@ button.text-link {
 .without-min-width {
   min-width: auto;
 }
+
+.report-only-link {
+  display: inline-flex !important; /* stylelint-disable-line declaration-no-important */
+  vertical-align: -4px;
+}
