@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ecd14d7_d4985bb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-17T11:10:37Z",
+      "side": 1,
+      "message": "Hey Marijn!\n\nin the CL crrev.com/c/4524940\u0027s first patchset there was some test failures. I\u0027ve understood the issue and created a reproduction case here.\n\nWhat happens in that CL is:\n* `@codemirror/view`\u0027s this commit[1] causes the `#activeEditor`s EditorView reference to be retained and used for dispatching a transaction after `TextEditor` is removed from the DOM (meaning that `#activeEditor` is nulled). In the handler of the previous reference\u0027s `dispatch` we call the `textEditor.editor` which is a different editor than the previous one and its state might be changed.\n\nI have added a reproduction test case but didn\u0027t have time to fix it yet. Do you have a suggestion on how we should fix it?\n\n[1]: https://github.com/codemirror/view/commit/70a9a253df04a57004247b9463198c17832f92f4#diff-306633a4b2416fe4a2c298e7201348ad340e11f3cf64ece4133de41401880f28R307\n(particularly dispatchFocus part in `update` implementation)",
+      "revId": "fa0f9b8701855e290605417e31f90f383a62aee2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
