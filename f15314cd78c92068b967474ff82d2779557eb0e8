@@ -67,6 +67,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "95e761c9_b946147e",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T09:41:03Z",
+      "side": 1,
+      "message": "Fair enough",
+      "parentUuid": "3420bc06_78b5da5e",
+      "range": {
+        "startLine": 236,
+        "startChar": 19,
+        "endLine": 236,
+        "endChar": 42
+      },
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "84eae392_84521e65",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 5
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "More than test/unittests/front_end/panels/application/preloading/components/PreloadingDetailsReportView_test.ts L114?",
       "parentUuid": "ef5060fb_811c1fde",
+      "range": {
+        "startLine": 543,
+        "startChar": 3,
+        "endLine": 543,
+        "endChar": 30
+      },
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cce886b_5167dbb2",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-17T09:41:03Z",
+      "side": 1,
+      "message": "No, it\u0027s fine. I just missed that.",
+      "parentUuid": "1280a1d0_c731a5b4",
       "range": {
         "startLine": 543,
         "startChar": 3,
