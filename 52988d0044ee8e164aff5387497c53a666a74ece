@@ -16,6 +16,92 @@
       "message": "PTAL! Pulled the refactoring apart now.",
       "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9fbe9ea_aee1b4b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T08:47:56Z",
+      "side": 1,
+      "message": "Thanks! lgtm",
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d247dba_a833cd4b",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T08:47:56Z",
+      "side": 1,
+      "message": "Suggestion: `helper?.clear();` here and below (also for `helper?.addMessage`).",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d913602d_230babb7",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T08:47:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure I like that we update the `range` of a message from here. This was okish in the past since `PresentationConsoleMessage` inherited from `Message`.\n\nWhat do you think about (as a follow-up maybe) to make `Workspace.UISourceCode.Message` truly immutable and create a copy with the updated range here? IIUC then we remove and re-add the message to the UISourceCode anyway. But I guess the helper holds on to the `Message` instance in the Map, so it\u0027s not really possible?",
+      "range": {
+        "startLine": 340,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 110
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809fa1d0_81f298fd",
+        "filename": "test/unittests/front_end/models/bindings/PresentationConsoleMessageHelper_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T08:47:56Z",
+      "side": 1,
+      "message": "IMO it\u0027s fine to inline these two lines below, unless there is another use-site coming up?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 113
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
