@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dccd152_cb037f5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-17T10:10:17Z",
+      "side": 1,
+      "message": "Hey hey, here is the \"almost\" ready CL for tracking the swatch activations in Styles pane. Can you take a look or duplicate/submit it? :)",
+      "revId": "21449cce7f268c26db9e51dade5e3a207cc09a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
