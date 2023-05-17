@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d7af75_60711675",
+        "filename": "front_end/models/bindings/PresentationConsoleMessageHelper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T10:32:51Z",
+      "side": 1,
+      "message": "Ack, fine as-is.",
+      "parentUuid": "33bbf57b_4e916d36",
+      "range": {
+        "startLine": 340,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 110
+      },
+      "revId": "52988d0044ee8e164aff5387497c53a666a74ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "809fa1d0_81f298fd",
