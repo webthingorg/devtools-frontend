@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4a0d35_97c6c308",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-17T09:07:07Z",
+      "side": 1,
+      "message": "LGTM % but let\u0027s wait till the browser change lands and rolls into the devtools",
+      "revId": "07be6130e90b498c169f76b4e15ed27b9f2592bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
