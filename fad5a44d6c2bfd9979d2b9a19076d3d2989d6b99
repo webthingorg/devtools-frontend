@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb255a9_67e12674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T08:27:36Z",
+      "side": 1,
+      "message": "No worries, don\u0027t spend too much time trying to make it work given that we already have test coverage with the e2e now :)",
+      "parentUuid": "9c09ca19_b111bb83",
+      "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f1bb5a0_1f29c0b2",
