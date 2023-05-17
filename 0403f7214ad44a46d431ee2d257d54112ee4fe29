@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e30b9251_249453b1",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-17T13:47:18Z",
+      "side": 1,
+      "message": "This sounds a bit redundant, WDYT about\n```suggestion\n   * Adds into the flame chart data a list of trace events.\n```",
+      "range": {
+        "startLine": 350,
+        "startChar": 4,
+        "endLine": 350,
+        "endChar": 77
+      },
+      "revId": "0403f7214ad44a46d431ee2d257d54112ee4fe29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
