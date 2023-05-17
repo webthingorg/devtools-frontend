@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad90069b_8b6e12b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-17T11:12:48Z",
+      "side": 1,
+      "message": "I have understood the RangeError issue related to this CL and it is related to the @codemirror/view\u0027s upgrade. Particularly [this commit](https://github.com/codemirror/view/commit/70a9a253df04a57004247b9463198c17832f92f4#diff-306633a4b2416fe4a2c298e7201348ad340e11f3cf64ece4133de41401880f28R307).\n\nI have created a minimal reproduction in crrev.com/c/4543007 but I didn\u0027t have time to fix it yet.\n\nI think we can move forward with bumping up these dependencies first and then bumping up the `@codemirror/view` separately after the issue is fixed. WDYT?",
+      "revId": "2a78cc5a3d37e5381884c987122567940cd2a0ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
