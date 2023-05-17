@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c994944c_ea05361a",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:07:00Z",
+      "side": 0,
+      "message": "Alternatively you could turn this into `filter` and compare the resulting arrays length to `expectedCount`.",
+      "range": {
+        "startLine": 96,
+        "startChar": 18,
+        "endLine": 96,
+        "endChar": 22
+      },
+      "revId": "4db1a18dbd16d2ef486a2fa47b925143d2b5c5a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

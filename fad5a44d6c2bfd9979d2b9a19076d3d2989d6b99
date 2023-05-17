@@ -16,6 +16,69 @@
       "message": "PTAL!",
       "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69ae4cb3_44d789ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:07:00Z",
+      "side": 1,
+      "message": "lgtm, thanks for also adding tests! I assume doing unit tests was too cumbersome with setting up all the necessary infra? IMO e2e tests that certain code paths trigger metrics are a bit overkill, even though I added a couple myself xD",
+      "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1bb5a0_1f29c0b2",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:07:00Z",
+      "side": 1,
+      "message": "```suggestion\n    if (request?.resourceType().isStyleSheet()) {\n      return Host.UserMetrics.Action.StyleSheetInitiatorLinkClicked;\n    }\n```",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 5
+      },
+      "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f0efbd8_08f9f3a4",
+        "filename": "test/e2e/resources/network/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-17T05:07:00Z",
+      "side": 1,
+      "message": "are these missing from the CL or were these missing in the BUILD.gn?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
