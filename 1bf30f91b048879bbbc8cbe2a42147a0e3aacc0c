@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c419eb0_945e68b1",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-17T15:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4193478b_b891b1b2",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 67
+      },
+      "revId": "1bf30f91b048879bbbc8cbe2a42147a0e3aacc0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caff454f_be039163",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfeae977_2483025f",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-17T15:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caff454f_be039163",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "1bf30f91b048879bbbc8cbe2a42147a0e3aacc0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "664ba9cd_a9a4956d",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-05-17T13:39:04Z",
       "side": 1,
       "message": "left over comment :)",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 6
+      },
+      "revId": "1bf30f91b048879bbbc8cbe2a42147a0e3aacc0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "851993d7_ad0b45d9",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-17T15:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664ba9cd_a9a4956d",
       "range": {
         "startLine": 121,
         "startChar": 0,
