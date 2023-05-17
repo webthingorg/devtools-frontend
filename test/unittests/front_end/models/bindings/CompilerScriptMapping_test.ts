@@ -121,7 +121,9 @@ describeWithMockConnection('CompilerScriptMapping', () => {
     ]);
 
     const metadata = await uiSourceCode.requestMetadata();
-    assert.strictEqual(metadata?.contentSize, sourceContent.length);
+    assert.isNull(
+        metadata,
+        'metadata is supposed to be absent because it\'s not possible to reconstruct the original content size in bytes');
 
     const {content} = await uiSourceCode.requestContent();
     assert.strictEqual(content, sourceContent);

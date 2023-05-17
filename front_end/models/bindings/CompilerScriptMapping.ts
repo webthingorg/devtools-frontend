@@ -385,8 +385,6 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
             TextUtils.StaticContentProvider.StaticContentProvider.fromString(url, contentType, content) :
             new SDK.CompilerSourceMappingContentProvider.CompilerSourceMappingContentProvider(
                 url, contentType, script.createPageResourceLoadInitiator());
-        const metadata =
-            content !== null ? new Workspace.UISourceCode.UISourceCodeMetadata(null, content.length) : null;
         const mimeType = Common.ResourceType.ResourceType.mimeFromURL(url) ?? contentType.canonicalMimeType();
 
         this.#uiSourceCodeToSourceMaps.set(uiSourceCode, sourceMap);
@@ -425,7 +423,7 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
           project.removeUISourceCode(url);
         }
 
-        project.addUISourceCodeWithProvider(uiSourceCode, contentProvider, metadata, mimeType);
+        project.addUISourceCodeWithProvider(uiSourceCode, contentProvider, null, mimeType);
       }
     }
     void Promise.all([...scripts].map(script => this.#debuggerWorkspaceBinding.updateLocations(script)))
