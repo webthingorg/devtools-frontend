@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e7d7d3_994b0122",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-05-17T00:11:26Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nPlease take a look this change to add keyboard action to the breakpoint checkbox in the sources panel. Currently the imgur site is down. I\u0027ll add before/after gifs later.\n\nThanks,\nGavin",
+      "revId": "b126bc33da75b760c3ac515466a3c1a0f7d7ed19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
