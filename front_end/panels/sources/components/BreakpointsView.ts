@@ -320,6 +320,15 @@ export class BreakpointsView extends HTMLElement {
       event.consume(true);
       return this.#handleArrowKey(event.key, event.target);
     }
+    if (event.key === ' ' /* the keyboard space key */ || event.key === 'Enter') {
+      const currentTarget = event.currentTarget as HTMLElement;
+      await this.#setSelected(currentTarget);
+      const inputs = currentTarget.getElementsByTagName('input');
+      if (inputs.length === 1) {
+        inputs[0].checked = !inputs[0].checked;
+      }
+      event.consume();
+    }
     return;
   }
 
