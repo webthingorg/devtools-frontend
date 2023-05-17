@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c09ca19_b111bb83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-05-17T08:02:31Z",
+      "side": 1,
+      "message": "I was following the herd here, but let me give unittests a shot!",
+      "parentUuid": "69ae4cb3_44d789ba",
+      "revId": "fad5a44d6c2bfd9979d2b9a19076d3d2989d6b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f1bb5a0_1f29c0b2",
