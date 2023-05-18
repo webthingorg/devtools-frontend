@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e385b6d0_16e49257",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-18T14:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c576b50_94d75ccf",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 287,
+        "endChar": 6
+      },
+      "revId": "2d10482af2409406115ed2548aaea997d9aa24dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f20b134_4961a50d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-18T13:34:37Z",
       "side": 1,
       "message": "how about:\n\n```\nlet decoded:ReadableStream|ArrayBuffer \u003d ab;\nif(isGzip(ab)) {\n...\n}\n```\n\nTo avoid the `} else {` part.",
+      "range": {
+        "startLine": 292,
+        "startChar": 10,
+        "endLine": 301,
+        "endChar": 11
+      },
+      "revId": "2d10482af2409406115ed2548aaea997d9aa24dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c34ed23a_d5faf7ab",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-18T14:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f20b134_4961a50d",
       "range": {
         "startLine": 292,
         "startChar": 10,
