@@ -146,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "032c37e4_8e730d7a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-18T06:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64cc6e62_2f026bb2",
+      "range": {
+        "startLine": 307,
+        "startChar": 22,
+        "endLine": 307,
+        "endChar": 27
+      },
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c9199b5_7733a515",
@@ -201,6 +225,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49b27838_5d83d8f9",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-18T06:50:19Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "5bcfcfdf_bd1a2b62",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da0e8446_4e91e6cb",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 5
@@ -212,6 +254,24 @@
       "writtenOn": "2023-05-18T03:44:56Z",
       "side": 1,
       "message": "optional: You can minify the URL like https://crrev.com/c/4515841",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccde13d1_196d6da3",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-18T06:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da0e8446_4e91e6cb",
       "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -246,6 +306,30 @@
       "writtenOn": "2023-05-18T03:44:56Z",
       "side": 1,
       "message": "because (here and below)",
+      "range": {
+        "startLine": 421,
+        "startChar": 40,
+        "endLine": 421,
+        "endChar": 47
+      },
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74846e21_39378c1a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-18T06:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3178fef5_9ab95c6c",
       "range": {
         "startLine": 421,
         "startChar": 40,
