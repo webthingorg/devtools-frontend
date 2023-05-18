@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdbaffc4_9cc89916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "LGTM with some minor comments, thanks!",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a3c749b_1d445c9a",
@@ -108,6 +125,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64cc6e62_2f026bb2",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "error",
+      "range": {
+        "startLine": 307,
+        "startChar": 22,
+        "endLine": 307,
+        "endChar": 27
+      },
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c9199b5_7733a515",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 5
@@ -137,6 +177,81 @@
       "side": 1,
       "message": "nhiroki@chromium.org Could you have a look at this part?",
       "parentUuid": "4c9199b5_7733a515",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bcfcfdf_bd1a2b62",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "Nice doc! Can you also add comments about what we should do when we add a new final status in the content::PrerenderFinalStatus later?",
+      "parentUuid": "8c6e961b_087b681b",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da0e8446_4e91e6cb",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "optional: You can minify the URL like https://crrev.com/c/4515841",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d6b42e_e644644e",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "Actually this is not just for debugging. \"Internal error\" is ok for now but it would be nice to have a proper message later.",
+      "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3178fef5_9ab95c6c",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-18T03:44:56Z",
+      "side": 1,
+      "message": "because (here and below)",
+      "range": {
+        "startLine": 421,
+        "startChar": 40,
+        "endLine": 421,
+        "endChar": 47
+      },
       "revId": "f15314cd78c92068b967474ff82d2779557eb0e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
