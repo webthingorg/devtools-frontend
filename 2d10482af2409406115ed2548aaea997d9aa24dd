@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3ecc0e_2c37e2fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-18T13:34:37Z",
+      "side": 1,
+      "message": "LGTM with two thoughts",
+      "revId": "2d10482af2409406115ed2548aaea997d9aa24dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c576b50_94d75ccf",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-18T13:34:37Z",
+      "side": 1,
+      "message": "nit: define outside of this method (as a private method?) and perhaps a comment explaining how it works? WDYT?",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 287,
+        "endChar": 6
+      },
+      "revId": "2d10482af2409406115ed2548aaea997d9aa24dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f20b134_4961a50d",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-18T13:34:37Z",
+      "side": 1,
+      "message": "how about:\n\n```\nlet decoded:ReadableStream|ArrayBuffer \u003d ab;\nif(isGzip(ab)) {\n...\n}\n```\n\nTo avoid the `} else {` part.",
+      "range": {
+        "startLine": 292,
+        "startChar": 10,
+        "endLine": 301,
+        "endChar": 11
+      },
+      "revId": "2d10482af2409406115ed2548aaea997d9aa24dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
