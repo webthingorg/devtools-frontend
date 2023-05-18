@@ -11588,6 +11588,12 @@
                             "type": "string"
                         },
                         {
+                            "name": "earlyHints",
+                            "description": "Early Hints",
+                            "optional": true,
+                            "$ref": "Headers"
+                        },
+                        {
                             "name": "mimeType",
                             "description": "Resource mimeType as determined by the browser.",
                             "type": "string"

@@ -25,6 +25,7 @@ import {
   type ResponseHeaderSectionData,
   ResponseHeaderSection,
   RESPONSE_HEADER_SECTION_DATA_KEY,
+  EarlyHintsHeaderSection,
 } from './ResponseHeaderSection.js';
 
 import requestHeadersViewStyles from './RequestHeadersView.css.js';
@@ -94,6 +95,10 @@ const UIStrings = {
    *@description A context menu item in the Network Log View Columns of the Network panel
    */
   responseHeaders: 'Response Headers',
+  /**
+   *@description A context menu item in the Network Log View Columns of the Network panel
+   */
+  earlyHintsHeaders: 'Early Hints Headers',
   /**
    *@description Title text for a link to the Sources panel to the file containing the header override definitions
    */
@@ -193,9 +198,47 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     // clang-format off
     render(html`
       ${this.#renderGeneralSection()}
+      ${this.#renderEarlyHintsHeaders()}
       ${this.#renderResponseHeaders()}
       ${this.#renderRequestHeaders()}
     `, this.#shadow, {host: this});
+    // clang-format on
+  }
+
+  #renderEarlyHintsHeaders(): LitHtml.LitTemplate {
+    if (!this.#request) {
+      return LitHtml.nothing;
+    }
+
+    const toggleShowRaw = (): void => {
+      this.#showResponseHeadersText = !this.#showResponseHeadersText;
+      void this.render();
+    };
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return html`
+      <${Category.litTagName}
+        @togglerawevent=${toggleShowRaw}
+        .data=${{
+        name: 'earlyHintsHeaders',
+        title: i18nString(UIStrings.earlyHintsHeaders),
+        headerCount: this.#request.earlyHintsHeaders.length,
+        checked: false,
+        additionalContent: undefined,
+        forceOpen: this.#toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.EarlyHints,
+      } as CategoryData}
+        aria-label=${i18nString(UIStrings.earlyHintsHeaders)}
+      >
+        ${this.#showResponseHeadersText ?
+        this.#renderRawHeaders(this.#request.responseHeadersText, true) : html`
+          <${EarlyHintsHeaderSection.litTagName} .data=${{
+            request: this.#request,
+            toReveal: this.#toReveal,
+          } as ResponseHeaderSectionData}></${EarlyHintsHeaderSection.litTagName}>
+        `}
+      </${Category.litTagName}>
+    `;
     // clang-format on
   }
 

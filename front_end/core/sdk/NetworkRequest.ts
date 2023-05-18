@@ -241,6 +241,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #originalResponseHeaders: Protocol.Fetch.HeaderEntry[];
   #sortedOriginalResponseHeaders?: NameValue[];
 
+  #earlyHintsHeadersInternal: NameValue[]|null;
+
   // This field is only used when intercepting and overriding requests, because
   // in that case 'this.responseHeaders' does not contain 'set-cookie' headers.
   #setCookieHeaders: Protocol.Fetch.HeaderEntry[];
@@ -385,6 +387,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#isSameSiteInternal = null;
 
     this.#wasIntercepted = false;
+
+    this.#earlyHintsHeadersInternal = null;
   }
 
   static create(
@@ -945,6 +949,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     const firstLine = headersText.split(/\r\n/)[0];
     const match = firstLine.match(/(HTTP\/\d+\.\d+)$/);
     return match ? match[1] : 'HTTP/0.9';
+  }
+
+  get earlyHintsHeaders(): NameValue[] {
+    return this.#earlyHintsHeadersInternal || [];
+  }
+
+  set earlyHintsHeaders(x: NameValue[]) {
+    this.#earlyHintsHeadersInternal = x;
   }
 
   get responseHeaders(): NameValue[] {

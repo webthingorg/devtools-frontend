@@ -11,6 +11,7 @@ export enum UIHeaderSection {
   General = 'General',
   Request = 'Request',
   Response = 'Response',
+  EarlyHints = 'Early Hints',
 }
 
 interface UIHeaderLocation {

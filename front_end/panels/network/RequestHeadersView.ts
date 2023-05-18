@@ -218,6 +218,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
   private readonly referrerPolicyItem: UI.TreeOutline.TreeElement;
   readonly responseHeadersCategory: Category;
   private readonly requestHeadersCategory: Category;
+  private readonly earlyHintsHeadersCategory: Category;
   readonly #workspace = Workspace.Workspace.WorkspaceImpl.instance();
 
   constructor(request: SDK.NetworkRequest.NetworkRequest) {
@@ -255,6 +256,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
     this.responseHeadersCategory = new Category(root, 'responseHeaders', '');
     this.requestHeadersCategory = new Category(root, 'requestHeaders', '');
+    this.earlyHintsHeadersCategory = new Category(root, 'earlyHintsHeaders', '');
   }
 
   override wasShown(): void {
@@ -777,6 +779,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
         return this.requestHeadersCategory;
       case NetworkForward.UIRequestLocation.UIHeaderSection.Response:
         return this.responseHeadersCategory;
+      case NetworkForward.UIRequestLocation.UIHeaderSection.EarlyHints:
+        return this.earlyHintsHeadersCategory;
     }
   }
 

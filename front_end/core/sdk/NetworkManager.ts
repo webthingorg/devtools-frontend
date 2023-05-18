@@ -489,6 +489,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
     }
 
+    if (response.earlyHints) {
+      networkRequest.earlyHintsHeaders = this.headersMapToHeadersArray(response.earlyHints);
+    }
+
     if (response.encodedDataLength >= 0) {
       networkRequest.setTransferSize(response.encodedDataLength);
     }

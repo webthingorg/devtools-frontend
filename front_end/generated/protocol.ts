@@ -7756,6 +7756,10 @@ export namespace Network {
      */
     headersText?: string;
     /**
+     * Early Hints
+     */
+    earlyHints?: Headers;
+    /**
      * Resource mimeType as determined by the browser.
      */
     mimeType: string;
