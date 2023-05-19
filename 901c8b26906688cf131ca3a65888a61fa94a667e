@@ -16,6 +16,23 @@
       "message": "Hi, this is a simple fix for accessibility bug. Can you PTAL? Thank you!",
       "revId": "901c8b26906688cf131ca3a65888a61fa94a667e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac0e6a1_330a44e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-19T07:00:10Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "901c8b26906688cf131ca3a65888a61fa94a667e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
