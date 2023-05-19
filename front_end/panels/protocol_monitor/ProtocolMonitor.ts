@@ -639,6 +639,7 @@ export class CommandAutocompleteSuggestionProvider {
     }
   }
 
+
   buildTextPromptCompletions =
       async(expression: string, prefix: string, force?: boolean): Promise<UI.SuggestBox.Suggestions> => {
     if (!prefix && !force && expression) {

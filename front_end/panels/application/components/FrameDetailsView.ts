@@ -327,7 +327,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
       // clang-format off
       LitHtml.render(LitHtml.html`
         <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} as ReportView.ReportView.ReportData}>
-          ${this.#renderDocumentSection()}
+
           ${this.#renderIsolationSection()}
           ${this.#renderApiAvailabilitySection()}
           ${this.#renderOriginTrial()}
@@ -394,7 +394,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
     return LitHtml.html`
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.document)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
+      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}XXX</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
         <div class="inline-items">

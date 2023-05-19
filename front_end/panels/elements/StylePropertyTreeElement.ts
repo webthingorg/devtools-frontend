@@ -1370,6 +1370,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     if (selectElement) {
+      console.log("SELECTED ELEMENTS", selectElement);
       const proxyElement = this.prompt.attachAndStartEditing(selectElement, blurListener.bind(this, context));
       this.navigateToSource(selectElement, true);
 
@@ -1493,6 +1494,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const enteredText = this.prompt.text();
+    console.log("ENTEREDTEXT", enteredText);
     if (context.isEditingName && enteredText.includes(':')) {
       void this.editingCommitted(enteredText, context, 'forward');
       return;
