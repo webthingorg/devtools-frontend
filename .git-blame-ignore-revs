@@ -341,3 +341,6 @@ da20c5489bd6dd3d6f3d123776fa2310b6cac4a6
 98a08efc688f6ceb386332da96e20065b9fbc36d
 bbd4eff4e45c5e9d917642ad3d4b731bacba7fb2
 745306e4c2fe3a035dbc7e6d2ad00c3f3ab5fe15
+
+# Always add braces to single-line if-statements (https://crrev.com/c/1821526)
+1d6e57a0e314d709029cac52b98898b828f45a12
