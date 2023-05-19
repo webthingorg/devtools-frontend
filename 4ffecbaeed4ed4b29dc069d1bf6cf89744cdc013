@@ -56,6 +56,30 @@
       },
       "revId": "4ffecbaeed4ed4b29dc069d1bf6cf89744cdc013",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9b09d1_835d1c4b",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineFlameChartDataProvider_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-19T10:59:22Z",
+      "side": 1,
+      "message": "One of them is not a task, but the interaction. But I have updated the assertion to make this clear. Thanks!",
+      "parentUuid": "621e70e2_94f516c7",
+      "range": {
+        "startLine": 81,
+        "startChar": 20,
+        "endLine": 81,
+        "endChar": 26
+      },
+      "revId": "4ffecbaeed4ed4b29dc069d1bf6cf89744cdc013",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
