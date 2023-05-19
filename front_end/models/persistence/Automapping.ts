@@ -21,8 +21,6 @@ export class Automapping {
   private readonly sweepThrottler: Common.Throttler.Throttler;
   private readonly sourceCodeToProcessingPromiseMap: WeakMap<Workspace.UISourceCode.UISourceCode, Promise<void>>;
   private readonly sourceCodeToAutoMappingStatusMap: WeakMap<Workspace.UISourceCode.UISourceCode, AutomappingStatus>;
-  private readonly sourceCodeToMetadataMap:
-      WeakMap<Workspace.UISourceCode.UISourceCode, Workspace.UISourceCode.UISourceCodeMetadata|null>;
   private readonly filesIndex: FilePathIndex;
   private readonly projectFoldersIndex: FolderIndex;
   private readonly activeFoldersIndex: FolderIndex;
@@ -41,7 +39,6 @@ export class Automapping {
 
     this.sourceCodeToProcessingPromiseMap = new WeakMap();
     this.sourceCodeToAutoMappingStatusMap = new WeakMap();
-    this.sourceCodeToMetadataMap = new WeakMap();
 
     this.filesIndex = new FilePathIndex();
     this.projectFoldersIndex = new FolderIndex();
@@ -315,17 +312,17 @@ export class Automapping {
     void this.onStatusRemoved.call(null, status);
   }
 
-  private createBinding(networkSourceCode: Workspace.UISourceCode.UISourceCode): Promise<AutomappingStatus|null> {
+  private async createBinding(networkSourceCode: Workspace.UISourceCode.UISourceCode): Promise<AutomappingStatus|null> {
     const url = networkSourceCode.url();
     if (url.startsWith('file://') || url.startsWith('snippet://')) {
       const fileSourceCode = this.fileSystemUISourceCodes.get(url);
       const status = fileSourceCode ? new AutomappingStatus(networkSourceCode, fileSourceCode, false) : null;
-      return Promise.resolve(status);
+      return status;
     }
 
     let networkPath = Common.ParsedURL.ParsedURL.extractPath(url);
     if (networkPath === null) {
-      return Promise.resolve(null as AutomappingStatus | null);
+      return null;
     }
 
     if (networkPath.endsWith('/')) {
@@ -336,48 +333,36 @@ export class Automapping {
         this.filesIndex.similarFiles(networkPath).map(path => this.fileSystemUISourceCodes.get(path)) as
         Workspace.UISourceCode.UISourceCode[];
     if (!similarFiles.length) {
-      return Promise.resolve(null as AutomappingStatus | null);
+      return null;
     }
 
-    return this.pullMetadatas(similarFiles.concat(networkSourceCode)).then(onMetadatas.bind(this));
+    const activeFiles = similarFiles.filter(file => Boolean(this.activeFoldersIndex.closestParentFolder(file.url())));
 
-    function onMetadatas(this: Automapping): AutomappingStatus|null {
-      const activeFiles =
-          similarFiles.filter(
-              file => Boolean(file) && Boolean(this.activeFoldersIndex.closestParentFolder(file.url()))) as
-          Workspace.UISourceCode.UISourceCode[];
-      const networkMetadata = this.sourceCodeToMetadataMap.get(networkSourceCode);
-      if (!networkMetadata || (!networkMetadata.modificationTime && typeof networkMetadata.contentSize !== 'number')) {
-        // If networkSourceCode does not have metadata, try to match against active folders.
-        if (activeFiles.length !== 1) {
-          return null;
-        }
-        return new AutomappingStatus(networkSourceCode, activeFiles[0], false);
-      }
-
-      // Try to find exact matches, prioritizing active folders.
-      let exactMatches = this.filterWithMetadata(activeFiles, networkMetadata);
-      if (!exactMatches.length) {
-        exactMatches = this.filterWithMetadata(similarFiles, networkMetadata);
-      }
-      if (exactMatches.length !== 1) {
+    const networkMetadata = await networkSourceCode.requestMetadata();
+    if (!networkMetadata || (!networkMetadata.modificationTime && typeof networkMetadata.contentSize !== 'number')) {
+      // If networkSourceCode does not have metadata, try to match against active folders.
+      if (activeFiles.length !== 1) {
         return null;
       }
-      return new AutomappingStatus(networkSourceCode, exactMatches[0], true);
+      return new AutomappingStatus(networkSourceCode, activeFiles[0], false);
     }
-  }
 
-  private async pullMetadatas(uiSourceCodes: Workspace.UISourceCode.UISourceCode[]): Promise<void> {
-    await Promise.all(uiSourceCodes.map(async file => {
-      this.sourceCodeToMetadataMap.set(file, await file.requestMetadata());
-    }));
+    // Try to find exact matches, prioritizing active folders.
+    let exactMatches = await this.filterWithMetadata(activeFiles, networkMetadata);
+    if (!exactMatches.length) {
+      exactMatches = await this.filterWithMetadata(similarFiles, networkMetadata);
+    }
+    if (exactMatches.length !== 1) {
+      return null;
+    }
+    return new AutomappingStatus(networkSourceCode, exactMatches[0], true);
   }
 
   private filterWithMetadata(
       files: Workspace.UISourceCode.UISourceCode[],
-      networkMetadata: Workspace.UISourceCode.UISourceCodeMetadata): Workspace.UISourceCode.UISourceCode[] {
-    return files.filter(file => {
-      const fileMetadata = this.sourceCodeToMetadataMap.get(file);
+      networkMetadata: Workspace.UISourceCode.UISourceCodeMetadata): Promise<Workspace.UISourceCode.UISourceCode[]> {
+    return Promise.all(files.filter(async file => {
+      const fileMetadata = await file.requestMetadata();
       if (!fileMetadata) {
         return false;
       }
@@ -386,7 +371,7 @@ export class Automapping {
           Math.abs(networkMetadata.modificationTime.getTime() - fileMetadata.modificationTime.getTime()) < 1000;
       const contentMatches = !networkMetadata.contentSize || fileMetadata.contentSize === networkMetadata.contentSize;
       return timeMatches && contentMatches;
-    });
+    }));
   }
 }
 
