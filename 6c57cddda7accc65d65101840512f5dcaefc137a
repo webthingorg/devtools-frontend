@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4e2a68b_559780a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-05-21T20:52:26Z",
+      "side": 1,
+      "message": "Overall the code looks good, but let\u0027s please gather some design information about this and talk to Peter before +2-ing this :)",
+      "revId": "6c57cddda7accc65d65101840512f5dcaefc137a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
