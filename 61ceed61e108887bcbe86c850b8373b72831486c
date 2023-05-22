@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd677e07_503da116",
+        "filename": "front_end/panels/timeline/AppenderUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-22T13:31:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "68cf15ff_2d33e4ae",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 52
+      },
+      "revId": "61ceed61e108887bcbe86c850b8373b72831486c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b646ffc1_13c6b95a",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Good point. In case no tracks share the same generator I guess I would make sense to keep a generator on each appender?",
       "parentUuid": "91b6f2da_9e53d6fb",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "61ceed61e108887bcbe86c850b8373b72831486c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42e82b3_72208899",
+        "filename": "front_end/panels/timeline/InteractionsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-05-22T13:31:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4fef4c6b_9040dd0c",
       "range": {
         "startLine": 54,
         "startChar": 10,
