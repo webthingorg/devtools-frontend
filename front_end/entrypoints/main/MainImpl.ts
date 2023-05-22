@@ -550,6 +550,10 @@ export class MainImpl {
         SDK.TargetManager.TargetManager.instance().primaryPageTarget());
     UI.Context.Context.instance().addFlavorChangeListener(SDK.Target.Target, ({data}) => {
       const outermostTarget = data?.outermostTarget();
+      console.log("flavorChangeListener: outermostTarget url =", outermostTarget?.inspectedURL());
+      // @ts-ignore
+      Error.stackTraceLimit = Infinity;
+      console.log(new Error().stack);
       SDK.TargetManager.TargetManager.instance().setScopeTarget(outermostTarget);
     });
     // @ts-ignore layout test global

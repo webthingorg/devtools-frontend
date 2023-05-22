@@ -59,6 +59,7 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     data: newContext,
   }: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext|null>): void {
     if (newContext) {
+      console.log("executionContextChanged: newContext =", newContext, "taregt URL =", newContext.target()?.inspectedURL());
       this.#context.setFlavor(SDK.Target.Target, newContext.target());
       if (!this.#ignoreContextChanged) {
         this.#lastSelectedContextId = this.#contextPersistentId(newContext);
