@@ -95,6 +95,10 @@ export class ObjectWrapper<Events> implements EventTarget<Events> {
   dispatchEventToListeners<T extends keyof Events>(
       eventType: Platform.TypeScriptUtilities.NoUnion<T>,
       ...[eventData]: EventPayloadToRestParameters<Events, T>): void {
+    if (eventType === 'ModelUpdated') {
+      // @ts-ignore
+      console.log('PreloadingModel.dispatchEventToListeners: ModelUpdated', this.target()?.inspectedURL());
+    }
     const listeners = this.listeners?.get(eventType);
     if (!listeners) {
       return;

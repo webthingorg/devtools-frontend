@@ -220,6 +220,11 @@ class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.Pre
       return;
     }
 
+    console.log("PreloadingModelProxy.modelAdded:\n    old =", this.model.target()?.inspectedURL(), "\n    new =", model.target()?.inspectedURL());
+    // @ts-ignore
+    Error.stackTraceLimit = Infinity;
+    console.log(new Error().stack);
+
     this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
     this.model = model;
     this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
@@ -227,8 +232,12 @@ class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.Pre
     this.view.render();
   }
 
-  modelRemoved(_model: SDK.PreloadingModel.PreloadingModel): void {
-    this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
+  modelRemoved(model: SDK.PreloadingModel.PreloadingModel): void {
+    console.log("PreloadingModelProxy.modelRemoved:\n    old =", this.model.target()?.inspectedURL());
+    // @ts-ignore
+    Error.stackTraceLimit = Infinity;
+    console.log(new Error().stack);
+    model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
   }
 }
 
@@ -431,6 +440,7 @@ export class PreloadingView extends UI.Widget.VBox {
   }
 
   render(): void {
+    console.log('PreloadingView.render', this.modelProxy.model.target()?.inspectedURL());
     // Update rule sets grid
     //
     // Currently, all rule sets that appear in DevTools are valid.

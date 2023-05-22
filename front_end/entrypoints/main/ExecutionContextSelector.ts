@@ -59,6 +59,7 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     data: newContext,
   }: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext|null>): void {
     if (newContext) {
+      console.log("executionContextChanged: newContext =", newContext, "taregt URL =", newContext.target()?.inspectedURL());
       this.#context.setFlavor(SDK.Target.Target, newContext.target());
       if (!this.#ignoreContextChanged) {
         this.#lastSelectedContextId = this.#contextPersistentId(newContext);
@@ -158,6 +159,7 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     for (let i = 0; i < runtimeModels.length && !newContext; ++i) {
       const executionContexts = runtimeModels[i].executionContexts();
       for (const executionContext of executionContexts) {
+        console.log("ExecutionContextSelector.#currentExecutionContextGone: target url =", executionContext.target().inspectedURL(), "this.#isDefaultContext(executionContext) =", this.#isDefaultContext(executionContext));
         if (this.#isDefaultContext(executionContext)) {
           newContext = executionContext;
           break;

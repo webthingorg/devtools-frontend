@@ -176,6 +176,7 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     } else {
       const target = this.#childTargetsBySessionId.get(sessionId);
       if (target) {
+        console.log("ChildTargetManager.detachedFromTarget:\n    sessionId = ", sessionId, "\n    target URL = ", target.inspectedURL());
         target.dispose('target terminated');
         this.#childTargetsBySessionId.delete(sessionId);
         this.#childTargetsById.delete(target.id());
