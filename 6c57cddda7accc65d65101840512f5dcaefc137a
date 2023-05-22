@@ -16,6 +16,24 @@
       "message": "Overall the code looks good, but let\u0027s please gather some design information about this and talk to Peter before +2-ing this :)",
       "revId": "6c57cddda7accc65d65101840512f5dcaefc137a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "592428bc_1dda2afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2023-05-22T10:58:10Z",
+      "side": 1,
+      "message": "The way how it’s handled with nesting could improved indeed (see videos at https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1204932#c11), but I think that‘s part of a bigger refactor. To me, the initial version this CL adds is merely a step towards the final solution.",
+      "parentUuid": "d4e2a68b_559780a7",
+      "revId": "6c57cddda7accc65d65101840512f5dcaefc137a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
