@@ -16,6 +16,138 @@
       "message": "Could you take a look, please?",
       "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "903a4ed4_88102f3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e08feb3_8e2093df",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "Should we add a comment why we remove the hash? I assume we do it so we are a bit more forgiving when setting breakpoints in the backend and do so as long as the compiled URL matches?",
+      "range": {
+        "startLine": 578,
+        "startChar": 6,
+        "endLine": 578,
+        "endChar": 94
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb0c1c6_8166da9b",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "Nice find that this was broken when `stateA \u003d null` and `stateB \u003d null`! (Also a good shortcut)",
+      "range": {
+        "startLine": 1211,
+        "startChar": 0,
+        "endLine": 1213,
+        "endChar": 7
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae6ea65c_0d3b59b6",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "Spelling \"eagerly\"",
+      "range": {
+        "startLine": 586,
+        "startChar": 6,
+        "endLine": 586,
+        "endChar": 14
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91d0a79_a53cb4f4",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "same :)",
+      "range": {
+        "startLine": 621,
+        "startChar": 6,
+        "endLine": 621,
+        "endChar": 14
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f9acdf0_4a0ffabf",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-22T06:10:38Z",
+      "side": 1,
+      "message": "```suggestion\n    assert.lengthOf(setting.get(), 1);\n```",
+      "range": {
+        "startLine": 708,
+        "startChar": 4,
+        "endLine": 708,
+        "endChar": 48
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
