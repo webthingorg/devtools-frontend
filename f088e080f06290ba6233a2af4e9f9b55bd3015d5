@@ -22,6 +22,30 @@
       },
       "revId": "f088e080f06290ba6233a2af4e9f9b55bd3015d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b261a9_031e407d",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-22T07:48:43Z",
+      "side": 1,
+      "message": "I\u0027ve just added more description about this CL, please have a look. This CL depends on another CL https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4546451 enabling the devtools frontend to know the state of the different settings.\nSo it can show one or more warning messages at once. (compared to one warning at a time previously)",
+      "parentUuid": "b855ecd9_320e8326",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "f088e080f06290ba6233a2af4e9f9b55bd3015d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
