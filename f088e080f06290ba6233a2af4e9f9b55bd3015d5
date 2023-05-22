@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b855ecd9_320e8326",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-22T07:05:01Z",
+      "side": 1,
+      "message": "Should this be an enum instead?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "f088e080f06290ba6233a2af4e9f9b55bd3015d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
