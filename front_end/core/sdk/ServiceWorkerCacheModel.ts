@@ -12,7 +12,8 @@ import {type NameValue} from './NetworkRequest.js';
 
 import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
-import {Events as StorageKeyManagerEvents, StorageKeyManager} from './StorageKeyManager.js';
+
+import {Events as StorageKeyManagerEvents, StorageKeyManager, type DisplayStorageKey} from './StorageKeyManager.js';
 
 const UIStrings = {
   /**
@@ -285,6 +286,7 @@ export class Cache {
   storageKey?: string;
   cacheName: string;
   cacheId: Protocol.CacheStorage.CacheId;
+  displayStorageKey: DisplayStorageKey|null = null;
 
   constructor(
       model: ServiceWorkerCacheModel, storageKey: string|undefined, cacheName: string,
@@ -293,6 +295,9 @@ export class Cache {
     this.storageKey = storageKey;
     this.cacheName = cacheName;
     this.cacheId = cacheId;
+    if (storageKey) {
+      this.displayStorageKey = StorageKeyManager.parseStorageKeyForDisplay(storageKey);
+    }
   }
 
   equals(cache: Cache): boolean {

@@ -39,12 +39,14 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper<DOMStorage.EventTypes> {
   private readonly model: DOMStorageModel;
   private readonly storageKeyInternal: string;
+  private readonly displayStorageKeyInternal: SDK.StorageKeyManager.DisplayStorageKey|null;
   private readonly isLocalStorageInternal: boolean;
 
   constructor(model: DOMStorageModel, storageKey: string, isLocalStorage: boolean) {
     super();
     this.model = model;
     this.storageKeyInternal = storageKey;
+    this.displayStorageKeyInternal = SDK.StorageKeyManager.StorageKeyManager.parseStorageKeyForDisplay(storageKey);
     this.isLocalStorageInternal = isLocalStorage;
   }
 
@@ -56,8 +58,12 @@ export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper<DOMStorage.Ev
     return DOMStorage.storageId(this.storageKeyInternal, this.isLocalStorageInternal);
   }
 
-  get storageKey(): string|null {
+  get storageKey(): string {
     return this.storageKeyInternal;
+  }
+
+  get displayStorageKey(): SDK.StorageKeyManager.DisplayStorageKey|null {
+    return this.displayStorageKeyInternal;
   }
 
   get isLocalStorage(): boolean {

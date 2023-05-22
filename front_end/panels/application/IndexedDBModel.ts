@@ -462,10 +462,12 @@ export class Database {
   databaseId: DatabaseId;
   version: number;
   objectStores: Map<string, ObjectStore>;
+  displayStorageKey: SDK.StorageKeyManager.DisplayStorageKey|null;
   constructor(databaseId: DatabaseId, version: number) {
     this.databaseId = databaseId;
     this.version = version;
     this.objectStores = new Map();
+    this.displayStorageKey = SDK.StorageKeyManager.StorageKeyManager.parseStorageKeyForDisplay(databaseId.storageKey);
   }
 }
 

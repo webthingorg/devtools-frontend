@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import type * as Common from '../../core/common/common.js';
+import type * as SDK from '../../core/sdk/sdk.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ApplicationComponents from './components/components.js';
 
 const UIStrings = {
   /**
@@ -29,8 +31,10 @@ const UIStrings = {
    */
   refreshedStatus: 'Table refreshed',
 };
+
 const str_ = i18n.i18n.registerUIStrings('panels/application/StorageItemsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
 export class StorageItemsView extends UI.Widget.VBox {
   private filterRegex: RegExp|null;
   readonly refreshButton: UI.Toolbar.ToolbarButton;
@@ -38,6 +42,7 @@ export class StorageItemsView extends UI.Widget.VBox {
   readonly filterItem: UI.Toolbar.ToolbarInput;
   readonly deleteAllButton: UI.Toolbar.ToolbarButton;
   readonly deleteSelectedButton: UI.Toolbar.ToolbarButton;
+  readonly metadataView = new ApplicationComponents.StorageMetadataView.StorageMetadataView();
 
   constructor(_title: string, _filterName: string) {
     super(false);
@@ -63,6 +68,7 @@ export class StorageItemsView extends UI.Widget.VBox {
     for (const item of toolbarItems) {
       this.mainToolbar.appendToolbarItem(item);
     }
+    this.contentElement.appendChild(this.metadataView);
   }
 
   setDeleteAllTitle(title: string): void {
@@ -75,6 +81,10 @@ export class StorageItemsView extends UI.Widget.VBox {
 
   appendToolbarItem(item: UI.Toolbar.ToolbarItem): void {
     this.mainToolbar.appendToolbarItem(item);
+  }
+
+  setDisplayStorageKey(storageKey: SDK.StorageKeyManager.DisplayStorageKey|null): void {
+    this.metadataView.data = storageKey;
   }
 
   private addButton(label: string, glyph: string, callback: (arg0: Common.EventTarget.EventTargetEvent<Event>) => void):
