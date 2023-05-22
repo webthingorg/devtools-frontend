@@ -588,7 +588,6 @@ export class Dialog extends HTMLElement {
         !this.#getDialog().hasAttribute('open')) {
       return;
     }
-    this.#closeDialog();
     this.dispatchEvent(new ForcedDialogClose());
   }
 
@@ -602,7 +601,12 @@ export class Dialog extends HTMLElement {
     }
     event.stopPropagation();
     event.preventDefault();
-    this.#closeDialog();
+    this.dispatchEvent(new ForcedDialogClose());
+  }
+
+  #onCancel(event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
     this.dispatchEvent(new ForcedDialogClose());
   }
 
@@ -615,7 +619,6 @@ export class Dialog extends HTMLElement {
       return;
     }
     this.dispatchEvent(new ForcedDialogClose());
-    this.#closeDialog();
   }
 
   #closeDialog(): void {
@@ -654,7 +657,7 @@ export class Dialog extends HTMLElement {
 
     // clang-format off
     LitHtml.render(LitHtml.html`
-      <dialog @click=${this.#handlePointerEvent} @pointermove=${this.#handlePointerEvent}>
+      <dialog @click=${this.#handlePointerEvent} @pointermove=${this.#handlePointerEvent} @cancel=${this.#onCancel}>
         <div id="content-wrap">
           <div id="content">
             <slot></slot>
