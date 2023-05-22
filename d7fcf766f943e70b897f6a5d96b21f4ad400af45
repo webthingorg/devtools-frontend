@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "80bc074b_15b1a012",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-22T13:21:14Z",
+      "side": 1,
+      "message": "To be honest, I am not sure why we remove the hash from the storage. I just made it consistent with what we store in BreakpointStorageState for scripts.",
+      "parentUuid": "1e08feb3_8e2093df",
+      "range": {
+        "startLine": 578,
+        "startChar": 6,
+        "endLine": 578,
+        "endChar": 94
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6eb0c1c6_8166da9b",
@@ -104,6 +128,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27e94e4a_97150ad2",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-22T13:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae6ea65c_0d3b59b6",
+      "range": {
+        "startLine": 586,
+        "startChar": 6,
+        "endLine": 586,
+        "endChar": 14
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a91d0a79_a53cb4f4",
@@ -127,6 +175,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec76db8b_330f5706",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-22T13:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a91d0a79_a53cb4f4",
+      "range": {
+        "startLine": 621,
+        "startChar": 6,
+        "endLine": 621,
+        "endChar": 14
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f9acdf0_4a0ffabf",
@@ -140,6 +212,30 @@
       "writtenOn": "2023-05-22T06:10:38Z",
       "side": 1,
       "message": "```suggestion\n    assert.lengthOf(setting.get(), 1);\n```",
+      "range": {
+        "startLine": 708,
+        "startChar": 4,
+        "endLine": 708,
+        "endChar": 48
+      },
+      "revId": "d7fcf766f943e70b897f6a5d96b21f4ad400af45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ae21035_aec7dd41",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-22T13:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f9acdf0_4a0ffabf",
       "range": {
         "startLine": 708,
         "startChar": 4,
