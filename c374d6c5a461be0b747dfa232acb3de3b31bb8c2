@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bdd5bee_fefe4b0f",
+        "filename": "front_end/ui/components/icon_button/NewIcon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-05-22T11:43:09Z",
+      "side": 1,
+      "message": "Just to double-check: The idea is to temporarily call this `NewIcon` and eventually (once the old one goes away) rename it to just `Icon`, correct?",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aabc0d83_5ba6d8a7",
+        "filename": "front_end/ui/components/icon_button/NewIcon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-05-22T11:43:09Z",
+      "side": 1,
+      "message": "I think the contract is to use `devtools-` as prefix for all our components, so this name needs to change to maybe `devtools-new-icon`.",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
