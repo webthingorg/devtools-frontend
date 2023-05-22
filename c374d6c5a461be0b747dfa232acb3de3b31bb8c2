@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a026d8b2_db10df3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-22T14:30:24Z",
+      "side": 1,
+      "message": "Please take another look:)",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bdd5bee_fefe4b0f",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-05-22T11:43:09Z",
       "side": 1,
       "message": "Just to double-check: The idea is to temporarily call this `NewIcon` and eventually (once the old one goes away) rename it to just `Icon`, correct?",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfcf2162_37713bfb",
+        "filename": "front_end/ui/components/icon_button/NewIcon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-22T14:30:24Z",
+      "side": 1,
+      "message": "Yes, exactly!",
+      "parentUuid": "3bdd5bee_fefe4b0f",
       "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -35,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5822a79a_cbdcf463",
+        "filename": "front_end/ui/components/icon_button/NewIcon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-22T14:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aabc0d83_5ba6d8a7",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da01825_923621fc",
@@ -48,6 +101,24 @@
       "writtenOn": "2023-05-22T11:43:56Z",
       "side": 1,
       "message": "Nit: This isn\u0027t needed.",
+      "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c668709_f31b6052",
+        "filename": "front_end/ui/lit-html/lit-html.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-22T14:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da01825_923621fc",
       "revId": "c374d6c5a461be0b747dfa232acb3de3b31bb8c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
