@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "7afa4a2123fc99fb2fd6c856de8a6660ae9f6802",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec0aefa_249360e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-05-22T19:11:57Z",
+      "side": 1,
+      "message": "Hi Benedikt, please take a look this change to upgrade engine.io and socket.io packages to address some security issues tracked in crbug.com/1447254.\n\nThanks,\nGavin",
+      "revId": "7afa4a2123fc99fb2fd6c856de8a6660ae9f6802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
