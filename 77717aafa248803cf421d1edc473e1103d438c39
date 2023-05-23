@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e8164d_844592c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-23T16:24:18Z",
+      "side": 1,
+      "message": "nice naming upgrades 😊",
+      "revId": "77717aafa248803cf421d1edc473e1103d438c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5ef4e6_02813216",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-23T16:24:18Z",
+      "side": 1,
+      "message": "nit: `canvasWidth` seems fine, but w/e",
+      "revId": "77717aafa248803cf421d1edc473e1103d438c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e1c9acf_5d433e64",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-05-23T16:24:18Z",
+      "side": 1,
+      "message": "`canvasHeight`",
+      "revId": "77717aafa248803cf421d1edc473e1103d438c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
