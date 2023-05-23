@@ -304,7 +304,7 @@ describeWithMockConnection('SharedStorageItemsView', function() {
     assert.deepEqual(view.getEntriesForTesting(), ENTRIES);
 
     const metadataView = view.innerSplitWidget.sidebarWidget()?.contentElement.firstChild as
-        ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataReportView;
+        ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataView;
     assertNotNullOrUndefined(metadataView);
 
     assertShadowRoot(metadataView.shadowRoot);
@@ -351,7 +351,7 @@ describeWithMockConnection('SharedStorageItemsView', function() {
     assert.strictEqual(view.getEntriesForTesting().length, 0);
 
     const metadataView = view.innerSplitWidget.sidebarWidget()?.contentElement.firstChild as
-        ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataReportView;
+        ApplicationComponents.SharedStorageMetadataView.SharedStorageMetadataView;
     assertNotNullOrUndefined(metadataView);
 
     assertShadowRoot(metadataView.shadowRoot);
