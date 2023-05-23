@@ -1333,10 +1333,10 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
   databaseId: DatabaseId;
   private readonly idbObjectStoreTreeElements: Map<string, IDBObjectStoreTreeElement>;
   private database?: IndexedDBModelDatabase;
-  private view?: IDBDatabaseView;
+  private view?: LegacyWrapper.LegacyWrapper.LegacyWrapper<UI.Widget.VBox, IDBDatabaseView>;
 
   constructor(storagePanel: ResourcesPanel, model: IndexedDBModel, databaseId: DatabaseId) {
-    super(storagePanel, databaseId.name + ' - ' + databaseId.storageKey, false);
+    super(storagePanel, databaseId.name, false);
     this.model = model;
     this.databaseId = databaseId;
     this.idbObjectStoreTreeElements = new Map();
@@ -1395,7 +1395,7 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
     }
 
     if (this.view) {
-      this.view.update(database);
+      this.view.getComponent().update(database);
     }
 
     this.updateTooltip();
@@ -1423,7 +1423,8 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
       return false;
     }
     if (!this.view) {
-      this.view = new IDBDatabaseView(this.model, this.database);
+      this.view =
+          LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, new IDBDatabaseView(this.model, this.database));
     }
 
     this.showView(this.view);
@@ -1665,7 +1666,11 @@ export class IDBIndexTreeElement extends ApplicationPanelTreeElement {
 export class DOMStorageTreeElement extends ApplicationPanelTreeElement {
   private readonly domStorage: DOMStorage;
   constructor(storagePanel: ResourcesPanel, domStorage: DOMStorage) {
-    super(storagePanel, domStorage.storageKey ? domStorage.storageKey : i18nString(UIStrings.localFiles), false);
+    super(
+        storagePanel,
+        domStorage.storageKey ? SDK.StorageKeyManager.parseStorageKey(domStorage.storageKey).origin :
+                                i18nString(UIStrings.localFiles),
+        false);
     this.domStorage = domStorage;
     const icon = UI.Icon.Icon.create('table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
