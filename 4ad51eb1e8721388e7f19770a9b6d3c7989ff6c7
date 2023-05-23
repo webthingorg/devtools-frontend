@@ -16,6 +16,24 @@
       "message": "LGTM. I think I was anticipating this changing to a one-to-many mapping in the future, but I don\u0027t remember why.",
       "revId": "4ad51eb1e8721388e7f19770a9b6d3c7989ff6c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2df9e0a_8d9535b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-23T10:55:15Z",
+      "side": 1,
+      "message": "Ah, I suspected something like that but didn\u0027t see anything in git blame. (Admittedly I didn\u0027t look too hard). The array change should be easily revertible should we need it going forward.",
+      "parentUuid": "2cd4ab17_93c422c6",
+      "revId": "4ad51eb1e8721388e7f19770a9b6d3c7989ff6c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
