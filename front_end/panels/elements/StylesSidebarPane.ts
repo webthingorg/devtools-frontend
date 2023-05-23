@@ -1814,7 +1814,6 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     this.cssCompletions = [];
     const node = treeElement.node();
     if (isEditingName) {
-      console.log("IS EDITING", isEditingName);
       this.cssCompletions = cssMetadata.allProperties();
       if (node && !node.isSVGNode()) {
         this.cssCompletions = this.cssCompletions.filter(property => !cssMetadata.isSVGProperty(property));
@@ -1994,7 +1993,6 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     }
 
     const results = prefixResults.concat(anywhereResults);
-    console.log("RESULTS", results);
     if (!this.isEditingName && !results.length && query.length > 1 && '!important'.startsWith(lowerQuery)) {
       results.push({
         text: '!important',

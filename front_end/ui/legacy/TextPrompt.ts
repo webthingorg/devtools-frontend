@@ -187,12 +187,10 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
 
   textWithCurrentSuggestion(): string {
     const text = this.text();
-    console.log("Text", text);
     if (!this.queryRange || !this.currentSuggestion) {
       return text;
     }
     const suggestion = this.currentSuggestion.text;
-    console.log("SUGGESTION", suggestion);
     return text.substring(0, this.queryRange.startColumn) + suggestion + text.substring(this.queryRange.endColumn);
   }
 
