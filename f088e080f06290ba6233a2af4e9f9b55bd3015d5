@@ -70,6 +70,30 @@
       },
       "revId": "f088e080f06290ba6233a2af4e9f9b55bd3015d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64da0470_f5d7d042",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-23T07:23:38Z",
+      "side": 1,
+      "message": "I\u0027ve updated the tests to use the current CDP\u0027s parameters. Please have a look.\nIt happens that https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4546451 won\u0027t able to be landed alone because of the removal of `Preload.PreloadEnabledState`.",
+      "parentUuid": "42d418f6_53351b62",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "f088e080f06290ba6233a2af4e9f9b55bd3015d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
