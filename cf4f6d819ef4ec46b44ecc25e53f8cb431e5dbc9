@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4acefa03_0cd12b73",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-23T16:08:39Z",
+      "side": 1,
+      "message": "let\u0027s not export this internal class, instead, define an interface for parseIteratorAndExtractCommands that captures parts of _AgentPrototype important for parseIteratorAndExtractCommands",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2baa8fa2_12c68c9e",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-23T16:08:39Z",
+      "side": 1,
+      "message": "will this override history autocomplete if the prefix is not empty?",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4ef1ba5_c865d5b3",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-23T16:08:39Z",
+      "side": 1,
+      "message": "would using Iterable\u003c_AgentPrototype\u003e be sufficient?",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
