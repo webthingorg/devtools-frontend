@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27de01ab_c38983ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-23T10:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05946e91_9e74dd52",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "65fc32d51454454c0581e7ea90923c40df92e6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a5fc6f_cd2f64e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-23T09:36:30Z",
       "side": 1,
       "message": "I had to revert this because of build errors on the bots.\n\nI assume that there were recent protocol changes which are not yet reflected in this CL. From what I can tell, the following should fix it: \n```\n    this.preloadIsDisabledByPreference \u003d event.state \u003d\u003d\u003d Protocol.Preload.PreloadEnabledState.DisabledByPreference;\n    this.preloadIsDisabledByDatasaver \u003d event.state \u003d\u003d\u003d Protocol.Preload.PreloadEnabledState.DisabledByDataSaver;\n    this.preloadIsDisabledByBatterysaver \u003d event.state \u003d\u003d\u003d Protocol.Preload.PreloadEnabledState.DisabledByBatterySaver;\n```",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 72
+      },
+      "revId": "65fc32d51454454c0581e7ea90923c40df92e6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd1caee_13241fbf",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-05-23T10:58:27Z",
+      "side": 1,
+      "message": "Disregard my comment. What you\u0027re doing in the re-land (pulling in the CDP changes) is correct.",
+      "parentUuid": "d3a5fc6f_cd2f64e1",
       "range": {
         "startLine": 269,
         "startChar": 0,
