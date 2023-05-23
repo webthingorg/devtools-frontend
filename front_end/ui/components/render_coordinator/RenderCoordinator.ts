@@ -23,6 +23,7 @@ interface CoordinatorCallback {
 interface CoordinatorFrame {
   readers: CoordinatorCallback[];
   writers: CoordinatorCallback[];
+  labels: Map<string, CoordinatorCallback>;
 }
 
 interface CoordinatorLogEntry {
@@ -171,6 +172,7 @@ export class RenderCoordinator extends EventTarget {
       this.#pendingWorkFrames.push({
         readers: [],
         writers: [],
+        labels: new Map<string, CoordinatorCallback>(),
       });
     }
 
@@ -179,13 +181,30 @@ export class RenderCoordinator extends EventTarget {
       throw new Error('No frame available');
     }
 
+    const existingCallback = frame.labels.get(label);
+    if (existingCallback) {
+      let index = frame.readers.indexOf(existingCallback);
+      if (index !== -1) {
+        frame.readers.splice(index, 1);
+      }
+      index = frame.writers.indexOf(existingCallback);
+      if (index !== -1) {
+        frame.writers.splice(index, 1);
+      }
+    }
     switch (action) {
       case ACTION.READ:
         frame.readers.push(callback);
+        if (label !== UNNAMED_READ && label !== UNNAMED_SCROLL) {
+          frame.labels.set(label, callback);
+        }
         break;
 
       case ACTION.WRITE:
         frame.writers.push(callback);
+        if (label !== UNNAMED_WRITE) {
+          frame.labels.set(label, callback);
+        }
         break;
 
       default:
@@ -196,6 +215,9 @@ export class RenderCoordinator extends EventTarget {
       this.#resolvers.set(callback, resolve);
       this.#rejectors.set(callback, reject);
     });
+    if (existingCallback) {
+      resolverPromise.then(this.#resolvers.get(existingCallback), this.#rejectors.get(existingCallback));
+    }
 
     this.#scheduleWork();
     return resolverPromise as Promise<T>;
