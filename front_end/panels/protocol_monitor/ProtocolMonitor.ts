@@ -652,16 +652,26 @@ export class CommandAutocompleteSuggestionProvider {
                                                                     }));
   };
 
-  addEntry(value: string): void {
-    if (this.#commandHistory.has(value)) {
-      this.#commandHistory.delete(value);
+  buildProtocolCommands(domains: Iterable<ProtocolDomain>): Set<string> {
+    const commands: Set<string> = new Set();
+    for (const domain of domains) {
+      for (const command of Object.keys(domain.commandParameters)) {
+        commands.add(command);
+      }
     }
-    this.#commandHistory.add(value);
-    if (this.#commandHistory.size > this.#maxHistorySize) {
-      const earliestEntry = this.#commandHistory.values().next().value;
-      this.#commandHistory.delete(earliestEntry);
-    }
+    return commands;
   }
+
+addEntry(value: string): void {
+if (this.#commandHistory.has(value)) {
+  this.#commandHistory.delete(value);
+}
+this.#commandHistory.add(value);
+if (this.#commandHistory.size > this.#maxHistorySize) {
+  const earliestEntry = this.#commandHistory.values().next().value;
+  this.#commandHistory.delete(earliestEntry);
+}
+}
 }
 
 export class InfoWidget extends UI.Widget.VBox {
