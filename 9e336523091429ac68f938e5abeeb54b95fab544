@@ -16,6 +16,23 @@
       "message": "Could you have a look?",
       "revId": "9e336523091429ac68f938e5abeeb54b95fab544",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b705269d_4092f5d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-23T14:09:41Z",
+      "side": 1,
+      "message": "Consider adding a test reproducing the described bug",
+      "revId": "9e336523091429ac68f938e5abeeb54b95fab544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
