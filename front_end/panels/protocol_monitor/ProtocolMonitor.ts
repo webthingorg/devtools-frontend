@@ -662,16 +662,16 @@ export class CommandAutocompleteSuggestionProvider {
     return commands;
   }
 
-  addEntry(value: string): void {
-    if (this.#commandHistory.has(value)) {
-      this.#commandHistory.delete(value);
-    }
-    this.#commandHistory.add(value);
-    if (this.#commandHistory.size > this.#maxHistorySize) {
-      const earliestEntry = this.#commandHistory.values().next().value;
-      this.#commandHistory.delete(earliestEntry);
-    }
-  }
+addEntry(value: string): void {
+if (this.#commandHistory.has(value)) {
+  this.#commandHistory.delete(value);
+}
+this.#commandHistory.add(value);
+if (this.#commandHistory.size > this.#maxHistorySize) {
+  const earliestEntry = this.#commandHistory.values().next().value;
+  this.#commandHistory.delete(earliestEntry);
+}
+}
 }
 
 export class InfoWidget extends UI.Widget.VBox {
