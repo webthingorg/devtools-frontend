@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc32f83d_42e9b9fe",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-23T16:59:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b5ef4e6_02813216",
+      "revId": "77717aafa248803cf421d1edc473e1103d438c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e1c9acf_5d433e64",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-23T16:24:18Z",
       "side": 1,
       "message": "`canvasHeight`",
+      "revId": "77717aafa248803cf421d1edc473e1103d438c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ade130e_80f33e7f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-23T16:59:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e1c9acf_5d433e64",
       "revId": "77717aafa248803cf421d1edc473e1103d438c39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
