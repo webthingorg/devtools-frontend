@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de7540a0_128ca6b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-05-23T06:14:33Z",
+      "side": 1,
+      "message": "Could you take a look please? I verified locally (via chrome://histograms) that this is reporting the desired times.",
+      "revId": "b680f3baf03f6459655cc8e299caf5857b6a79aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
