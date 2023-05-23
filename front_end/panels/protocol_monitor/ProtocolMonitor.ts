@@ -18,6 +18,7 @@ import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as Components from './components/components.js';
 import protocolMonitorStyles from './protocolMonitor.css.js';
 
+
 const UIStrings = {
   /**
    *@description Text for one or a group of functions
