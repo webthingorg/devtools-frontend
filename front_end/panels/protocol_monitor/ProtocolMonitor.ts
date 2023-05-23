@@ -99,7 +99,6 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/ProtocolMonitor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-
 const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.TemplateResult => {
   return LitHtml.html`${i18nString(UIStrings.sMs, {PH1: String(value)})}`;
 };
@@ -134,7 +133,6 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private readonly textFilterUI: UI.Toolbar.ToolbarInput;
   private messages: LogMessage[] = [];
   private isRecording: boolean = false;
-
   #historyAutocompleteDataProvider = new HistoryAutocompleteDataProvider();
   #selectedTargetId?: string;
 
@@ -552,6 +550,8 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 export class HistoryAutocompleteDataProvider {
   #maxHistorySize = 200;
   #commandHistory = new Set<string>();
+  #chromeDevToolsProtocolMethods =
+      this.parseIteratorAndExtractCommands(ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values());
 
   constructor(maxHistorySize?: number) {
     if (maxHistorySize !== undefined) {
@@ -564,11 +564,32 @@ export class HistoryAutocompleteDataProvider {
     if (!prefix && !force && expression) {
       return [];
     }
-    const newestToOldest = [...this.#commandHistory].reverse();
+    let newestToOldest = [];
+    if (prefix === '') {
+      newestToOldest = [...this.#commandHistory].reverse();
+    } else {
+      newestToOldest = [...this.#chromeDevToolsProtocolMethods];
+    }
+
     return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
                                                                       text,
                                                                     }));
   };
+
+  parseIteratorAndExtractCommands(iterator: IterableIterator<ProtocolClient.InspectorBackend._AgentPrototype>):
+      Set<string> {
+    const commands: Set<string> = new Set();
+    for (const agentPrototype of iterator) {
+      const domain = agentPrototype.domain;
+      for (const func in agentPrototype) {
+        if (func.startsWith('invoke') && func !== 'invoke') {
+          const command = `${domain}.${func.substring(7)}`;  // Remove "invoke" prefix
+          commands.add(command);
+        }
+      }
+    }
+    return commands;
+  }
 
   addEntry(value: string): void {
     if (this.#commandHistory.has(value)) {
