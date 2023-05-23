@@ -23,6 +23,7 @@ interface CoordinatorCallback {
 interface CoordinatorFrame {
   readers: CoordinatorCallback[];
   writers: CoordinatorCallback[];
+  labels: Set<string>;
 }
 
 interface CoordinatorLogEntry {
@@ -171,6 +172,7 @@ export class RenderCoordinator extends EventTarget {
       this.#pendingWorkFrames.push({
         readers: [],
         writers: [],
+        labels: new Set<string>(),
       });
     }
 
@@ -179,13 +181,22 @@ export class RenderCoordinator extends EventTarget {
       throw new Error('No frame available');
     }
 
+    if (frame.labels.has(label)) {
+      return Promise.resolve() as Promise<T>;
+    }
     switch (action) {
       case ACTION.READ:
         frame.readers.push(callback);
+        if (label !== UNNAMED_READ && label !== UNNAMED_SCROLL) {
+          frame.labels.add(label);
+        }
         break;
 
       case ACTION.WRITE:
         frame.writers.push(callback);
+        if (label !== UNNAMED_WRITE) {
+          frame.labels.add(label);
+        }
         break;
 
       default:
