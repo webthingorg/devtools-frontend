@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c6a4fc_1ec2797c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8942c8b0_5b26da83",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "952d3bef_e21de00e",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-24T11:23:53Z",
       "side": 1,
       "message": "if this is not used let\u0027s remove it",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61561664_8df159bb",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "952d3bef_e21de00e",
       "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6bedcc1_a180cb20",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24937100_14fe1055",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf7b522_123f7f7a",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-05-24T11:23:53Z",
       "side": 1,
       "message": "nit: `const newestToOldest \u003d [...this.#commandHistory].reverse();`\n`newestToOldest.push(...this.#chromeDevToolsProtocolMethods);`",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b91ccdb_844415cb",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf7b522_123f7f7a",
       "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "912bbbf1_42353946",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cb38ac6_11501d8f",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd441c0d_d4525b5a",
@@ -116,6 +206,30 @@
       "writtenOn": "2023-05-24T11:23:53Z",
       "side": 1,
       "message": "replace with `prefix.length` where prefix \u003d \u0027invoke\u0027",
+      "range": {
+        "startLine": 590,
+        "startChar": 54,
+        "endLine": 590,
+        "endChar": 55
+      },
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4e5dc3_3ceb167a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T11:47:40Z",
+      "side": 1,
+      "message": "I did not fully understand what you mean...",
+      "parentUuid": "bd441c0d_d4525b5a",
       "range": {
         "startLine": 590,
         "startChar": 54,
