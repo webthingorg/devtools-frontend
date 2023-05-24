@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0978c0f8_9fb965db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T14:38:18Z",
+      "side": 1,
+      "message": "is it still up to date?",
+      "revId": "5eef5f1d71cf66827db0c25df958ff81735e1d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd779f2_75192efe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T14:38:18Z",
+      "side": 1,
+      "message": "nit: let\u0027s put text description before Screenshot:. Screenshot: and Bug: are considered to be a footer.",
+      "revId": "5eef5f1d71cf66827db0c25df958ff81735e1d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d4ffb8_189804c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T14:38:18Z",
+      "side": 1,
+      "message": "do not add internal URLs here and above, better link to the screenshots uploaded to the ticket",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 122
+      },
+      "revId": "5eef5f1d71cf66827db0c25df958ff81735e1d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8a11e1_a3e24bd3",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T14:38:18Z",
+      "side": 1,
+      "message": "let\u0027s create a minimal example here and I think it could be an array?",
+      "revId": "5eef5f1d71cf66827db0c25df958ff81735e1d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb5f075_b0826b74",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T14:38:18Z",
+      "side": 1,
+      "message": "you need to update the name?",
+      "revId": "5eef5f1d71cf66827db0c25df958ff81735e1d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
