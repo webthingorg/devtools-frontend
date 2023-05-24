@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d124b444_a1040691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-24T12:17:26Z",
+      "side": 1,
+      "message": "Added Sofia, let\u0027s see what she thinks.",
+      "parentUuid": "bc3d4d62_57af97b3",
+      "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7583f89a_6f5b02a7",
         "filename": "front_end/panels/application/components/StorageMetadataView.ts",
         "patchSetId": 5
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-24T12:15:17Z",
       "side": 1,
       "message": "Do we not usually use `True` in similar cases?",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9260d380_419dde06",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-24T12:17:26Z",
+      "side": 1,
+      "message": "Do you have an example?",
+      "parentUuid": "7583f89a_6f5b02a7",
       "range": {
         "startLine": 38,
         "startChar": 7,
