@@ -47,7 +47,6 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
  */
 export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private client: Client|null;
-  private readonly backingStorage: Bindings.TempFile.TempFileBackingStorage;
   private tracingModel: SDK.TracingModel.TracingModel|null;
   private canceledCallback: (() => void)|null;
   private state: State;
@@ -58,12 +57,9 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private totalSize!: number;
   private readonly jsonTokenizer: TextUtils.TextUtils.BalancedJSONTokenizer;
   private filter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null;
-  constructor(client: Client, shouldSaveTraceEventsToFile: boolean, title?: string) {
+  constructor(client: Client, title?: string) {
     this.client = client;
-
-    this.backingStorage = new Bindings.TempFile.TempFileBackingStorage();
-    this.tracingModel = new SDK.TracingModel.TracingModel(this.backingStorage, shouldSaveTraceEventsToFile, title);
-
+    this.tracingModel = new SDK.TracingModel.TracingModel(title);
     this.canceledCallback = null;
     this.state = State.Initial;
     this.buffer = '';
@@ -75,7 +71,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   static async loadFromFile(file: File, client: Client): Promise<TimelineLoader> {
-    const loader = new TimelineLoader(client, /* shouldSaveTraceEventsToFile= */ true);
+    const loader = new TimelineLoader(client);
     const fileReader = new Bindings.FileUtils.ChunkedFileReader(file, TransferChunkLengthBytes);
     loader.canceledCallback = fileReader.cancel.bind(fileReader);
     loader.totalSize = file.size;
@@ -89,7 +85,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   static loadFromEvents(events: SDK.TracingManager.EventPayload[], client: Client): TimelineLoader {
-    const loader = new TimelineLoader(client, /* shouldSaveTraceEventsToFile= */ true);
+    const loader = new TimelineLoader(client);
     window.setTimeout(async () => {
       void loader.addEvents(events);
     });
@@ -105,14 +101,11 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   static loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, client: Client, title?: string): TimelineLoader {
-    const loader = new TimelineLoader(client, /* shouldSaveTraceEventsToFile= */ false, title);
+    const loader = new TimelineLoader(client, title);
 
     try {
       const events = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
           profile, /* tid */ 1, /* injectPageEvent */ true);
-
-      loader.backingStorage.appendString(JSON.stringify(profile));
-      loader.backingStorage.finishWriting();
 
       loader.filter = TimelineLoader.getCpuProfileFilter();
 
@@ -126,7 +119,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   static loadFromURL(url: Platform.DevToolsPath.UrlString, client: Client): TimelineLoader {
-    const loader = new TimelineLoader(client, /* shouldSaveTraceEventsToFile= */ true);
+    const loader = new TimelineLoader(client);
     const stream = new Common.StringOutputStream.StringOutputStream();
     client.loadingStarted();
 
@@ -169,7 +162,6 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
 
   cancel(): void {
     this.tracingModel = null;
-    this.backingStorage.reset();
     if (this.client) {
       this.client.loadingComplete(null, null);
       this.client = null;
@@ -185,7 +177,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     }
     this.loadedBytes += chunk.length;
     if (this.firstRawChunk) {
-      await this.client.loadingStarted();
+      this.client.loadingStarted();
       // Ensure we paint the loading dialog before continuing
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     } else {
@@ -195,7 +187,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
         // For compressed traces, we can't provide a definite progress percentage. So, just keep it moving.
         progress = progress > 1 ? progress - Math.floor(progress) : progress;
       }
-      await this.client.loadingProgress(progress);
+      this.client.loadingProgress(progress);
     }
     this.firstRawChunk = false;
 
@@ -303,7 +295,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
       this.buffer = '';
     }
     (this.tracingModel as SDK.TracingModel.TracingModel).tracingComplete();
-    await (this.client as Client).loadingComplete(this.tracingModel, this.filter);
+    (this.client as Client).loadingComplete(this.tracingModel, this.filter);
   }
 
   private parseCPUProfileFormat(text: string): void {
