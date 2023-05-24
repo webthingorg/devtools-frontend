@@ -101,5 +101,41 @@ describe('ProtocolMonitor', () => {
         {text: 'test2'},
       ]);
     });
+
+    it('should correctly creates a set of CDP commands', async () => {
+      const provider = new ProtocolMonitor.ProtocolMonitor.HistoryAutocompleteDataProvider(2);
+      const map = new Map();
+
+      map.set('1', {
+        value: '_AgentPrototype',
+        disable: () => Promise.resolve(),
+        domain: 'Accessibility',
+        enable: () => Promise.resolve(),
+        invoke_disable: () => Promise.resolve(),
+        invoke_enable: () => Promise.resolve(),
+        invoke_getAXNodeAndAncestors: () => Promise.resolve(),
+      });
+      map.set('2', {
+        value: '_AgentPrototype',
+        disable: () => Promise.resolve(),
+        domain: 'Animation',
+        enable: () => Promise.resolve(),
+        invoke_disable: () => Promise.resolve(),
+        invoke_enable: () => Promise.resolve(),
+        invoke_getCurrentTime: () => Promise.resolve(),
+      });
+
+      const valuesIterator = map.values();
+
+      const expectedCommands = new Set([
+        'Accessibility.disable',
+        'Accessibility.enable',
+        'Accessibility.getAXNodeAndAncestors',
+        'Animation.disable',
+        'Animation.enable',
+        'Animation.getCurrentTime',
+      ]);
+      assert.deepStrictEqual(provider.parseIteratorAndExtractCommands(valuesIterator), expectedCommands);
+    });
   });
 });
