@@ -16,6 +16,23 @@
       "message": "Hey both,\n\nPTAL. I am not sure why only the Linux screenshot needs updating - my hunch is that this change plus some likely text rendering chromium changes have just pushed the Linux one over the threshold, but not the other platform versions.",
       "revId": "029a4e87fdb2471f2249d10d133f38848724b02f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d08df5_56bc6112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-24T14:32:12Z",
+      "side": 1,
+      "message": "LGTM, great improvement!",
+      "revId": "029a4e87fdb2471f2249d10d133f38848724b02f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
