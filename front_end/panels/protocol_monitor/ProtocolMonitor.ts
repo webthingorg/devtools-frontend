@@ -121,6 +121,13 @@ export interface LogMessage {
   type: 'send'|'recv';
 }
 
+interface ParseIteratorAndExtractCommands {
+  replyArgs: {
+    [x: string]: string[],
+  };
+  readonly domain: string;
+}
+
 let protocolMonitorImplInstance: ProtocolMonitorImpl;
 export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private started: boolean;
@@ -552,6 +559,8 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 export class HistoryAutocompleteDataProvider {
   #maxHistorySize = 200;
   #commandHistory = new Set<string>();
+  #chromeDevToolsProtocolMethods =
+      this.parseIteratorAndExtractCommands(ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values());
 
   constructor(maxHistorySize?: number) {
     if (maxHistorySize !== undefined) {
@@ -564,11 +573,27 @@ export class HistoryAutocompleteDataProvider {
     if (!prefix && !force && expression) {
       return [];
     }
-    const newestToOldest = [...this.#commandHistory].reverse();
+    let newestToOldest = [];
+    newestToOldest = [...this.#commandHistory].reverse();
+    newestToOldest.push(...this.#chromeDevToolsProtocolMethods);
     return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
                                                                       text,
                                                                     }));
   };
+
+  parseIteratorAndExtractCommands(iterator: Iterable<ParseIteratorAndExtractCommands>): Set<string> {
+    const commands: Set<string> = new Set();
+    for (const agentPrototype of iterator) {
+      const domain = agentPrototype.domain;
+      for (const func in agentPrototype) {
+        if (func.startsWith('invoke') && func !== 'invoke') {
+          const command = `${domain}.${func.substring(7)}`;  // Remove "invoke" prefix
+          commands.add(command);
+        }
+      }
+    }
+    return commands;
+  }
 
   addEntry(value: string): void {
     if (this.#commandHistory.has(value)) {
