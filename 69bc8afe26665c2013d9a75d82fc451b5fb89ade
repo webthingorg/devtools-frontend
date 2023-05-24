@@ -63,6 +63,30 @@
       },
       "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e59fbdc_436596c4",
+        "filename": "front_end/ui/components/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-24T10:14:03Z",
+      "side": 1,
+      "message": "Oh sorry I misread the code and thought if we had a duplicate we would use the old one, and I was flagging that it might cause an issue. But I see now the updating of handler on line 208 will ensure that we always use the newest. Maybe worth a comment to clarify that behaviour?",
+      "parentUuid": "a2b43c40_3e10b275",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 32
+      },
+      "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
