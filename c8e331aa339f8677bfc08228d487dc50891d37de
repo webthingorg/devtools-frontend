@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc3d4d62_57af97b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-24T12:15:17Z",
+      "side": 1,
+      "message": "Looks good to me, just a couple of questions:\n- I remember Sofia wanted to be involved whenever we are adding user-facing strings, have you run these by her?\n-In case `Is Third Party` is always true (when appears), would it maybe make more sense to rename it to `Reason for Third-Party` and spare the `yes, because`?",
+      "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7583f89a_6f5b02a7",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-24T12:15:17Z",
+      "side": 1,
+      "message": "Do we not usually use `True` in similar cases?",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
