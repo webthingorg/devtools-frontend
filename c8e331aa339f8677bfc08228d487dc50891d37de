@@ -81,6 +81,30 @@
       },
       "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0ba54e_82c5fee6",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-24T12:26:16Z",
+      "side": 1,
+      "message": "Thought I saw it in the Application panel somewhere, double-checked, we have Yes/No there, never mind :)",
+      "parentUuid": "9260d380_419dde06",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "c8e331aa339f8677bfc08228d487dc50891d37de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
