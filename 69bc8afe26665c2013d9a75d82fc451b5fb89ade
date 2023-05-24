@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d326e3f0_a9469389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-24T10:04:33Z",
+      "side": 1,
+      "message": "lgtm with one thought that you can likely ignore 😄",
+      "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e7f060_264b32ed",
+        "filename": "front_end/ui/components/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-24T10:04:33Z",
+      "side": 1,
+      "message": "I think we do not need to worry about this because we are de-duplicating on the same frame, if we have duplicates, would it be better to delete the old one and instead use the new one? I am trying to figure out if we could ever end up with stale renders or data as a result.",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 32
+      },
+      "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
