@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8942c8b0_5b26da83",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "let\u0027s call it ProtocolDomain",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952d3bef_e21de00e",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "if this is not used let\u0027s remove it",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24937100_14fe1055",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "let\u0027s remove chromeDevTools prefix",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf7b522_123f7f7a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "nit: `const newestToOldest \u003d [...this.#commandHistory].reverse();`\n`newestToOldest.push(...this.#chromeDevToolsProtocolMethods);`",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb38ac6_11501d8f",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "Let\u0027s fine a better name: e.g., `buildProtocolCommands`?",
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd441c0d_d4525b5a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-05-24T11:23:53Z",
+      "side": 1,
+      "message": "replace with `prefix.length` where prefix \u003d \u0027invoke\u0027",
+      "range": {
+        "startLine": 590,
+        "startChar": 54,
+        "endLine": 590,
+        "endChar": 55
+      },
+      "revId": "ddab2357888b3a6c58a0f19a1733241f9b80ceeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
