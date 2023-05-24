@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db960ac5_660420e1",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T10:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2baa8fa2_12c68c9e",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4ef1ba5_c865d5b3",
