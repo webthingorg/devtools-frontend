@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae7e17a_48d9cf24",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T10:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acefa03_0cd12b73",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2baa8fa2_12c68c9e",
@@ -53,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc90987_d1b5859d",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T10:58:50Z",
+      "side": 1,
+      "message": "Yes I changed it so that the history commands will be on top of the Suggestion Box",
+      "parentUuid": "db960ac5_660420e1",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4ef1ba5_c865d5b3",
@@ -66,6 +102,24 @@
       "writtenOn": "2023-05-23T16:08:39Z",
       "side": 1,
       "message": "would using Iterable\u003c_AgentPrototype\u003e be sufficient?",
+      "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b395538_eb3399c7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-24T10:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ef1ba5_c865d5b3",
       "revId": "cf4f6d819ef4ec46b44ecc25e53f8cb431e5dbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
