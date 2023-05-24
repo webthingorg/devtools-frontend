@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "989ab3d0_10a3bf86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-24T16:30:11Z",
+      "side": 1,
+      "message": "Looks good! Would it also show `Is opaque` line if that applies? Could you please add a test for that in that case?",
+      "revId": "a851444b0c090e687d698fbbe3b36c2ad59f8a5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
