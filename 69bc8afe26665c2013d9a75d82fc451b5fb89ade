@@ -39,6 +39,30 @@
       },
       "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b43c40_3e10b275",
+        "filename": "front_end/ui/components/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-24T10:08:37Z",
+      "side": 1,
+      "message": "I am not sure I fully understand the question.\n\nWe are always using the latest handler, which is important. Otherwise we do get a stale renderer (at least in unit tests).\n\nWe are reusing the promise to avoid blocking the first invocation, when it is being \"overridden\" by another one.",
+      "parentUuid": "15e7f060_264b32ed",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 32
+      },
+      "revId": "69bc8afe26665c2013d9a75d82fc451b5fb89ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
