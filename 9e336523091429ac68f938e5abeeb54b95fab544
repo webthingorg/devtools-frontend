@@ -33,6 +33,24 @@
       "message": "Consider adding a test reproducing the described bug",
       "revId": "9e336523091429ac68f938e5abeeb54b95fab544",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68099766_bb5f16df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-24T00:53:00Z",
+      "side": 1,
+      "message": "I think it\u0027s not so useful compared to cost. Repro steps are clear, but it\u0027s hard to write down CDP events into test case and Preloading panel won\u0027t regress if we don\u0027t add SDKModelObserver.\nI\u0027ll submit this CL as is, but let me know if I\u0027m missing something.",
+      "parentUuid": "b705269d_4092f5d8",
+      "revId": "9e336523091429ac68f938e5abeeb54b95fab544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
