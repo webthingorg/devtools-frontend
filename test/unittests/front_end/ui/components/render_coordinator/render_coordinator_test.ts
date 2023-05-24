@@ -190,11 +190,14 @@ describe('Render Coordinator', () => {
     });
 
     it('tracks only the last 100 items', async () => {
-      const expected = new Array(99).fill('[Read]: Named read');
+      const expected = [];
+      for (let i = 51; i < 150; i++) {
+        expected.push(`[Read]: Named read ${i}`);
+      }
       expected.push('[Queue empty]');
 
       for (let i = 0; i < 150; i++) {
-        void coordinator.read('Named read', () => {});
+        void coordinator.read(`Named read ${i}`, () => {});
       }
 
       await validateRecords(expected);
@@ -202,11 +205,14 @@ describe('Render Coordinator', () => {
 
     it('supports different log sizes', async () => {
       coordinator.recordStorageLimit = 10;
-      const expected = new Array(9).fill('[Write]: Named write');
+      const expected = [];
+      for (let i = 41; i < 50; i++) {
+        expected.push(`[Write]: Named write ${i}`);
+      }
       expected.push('[Queue empty]');
 
       for (let i = 0; i < 50; i++) {
-        void coordinator.write('Named write', () => {});
+        void coordinator.write(`Named write ${i}`, () => {});
       }
 
       await validateRecords(expected);

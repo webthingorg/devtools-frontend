@@ -34,6 +34,7 @@ ts_library("application") {
   deps = [
     "../../../../../front_end/core/sdk:bundle",
     "../../../../../front_end/panels/application:bundle",
+    "../../../../../front_end/ui/components/render_coordinator:bundle",
     "./components",
     "./preloading/components",
   ]
