@@ -55,4 +55,22 @@ describe('CSSLinearEasingModel', () => {
     testInvalidCase('linear(0 calc(50px - 50%), 0 calc(50em + 50em))');
     testInvalidCase('linear(0 calc(50%, 50%), 0 calc(50% + 50%))');
   });
+
+  it('should parse "linear" as linear(0 0%, 1 100%) function', () => {
+    const model = InlineEditor.CSSLinearEasingModel.CSSLinearEasingModel.parse('linear');
+
+    assertNotNullOrUndefined(model);
+
+    assert.strictEqual(model.points().length, 2);
+    assert.deepEqual({input: 0, output: 0}, model.points()[0]);
+    assert.deepEqual({input: 100, output: 1}, model.points()[1]);
+  });
+
+  it('linear(0 0%, 1 100%) is stringified as "linear"', () => {
+    const model = InlineEditor.CSSLinearEasingModel.CSSLinearEasingModel.parse('linear(0 0%, 1 100%)');
+
+    assertNotNullOrUndefined(model);
+
+    assert.strictEqual(model.asCSSText(), 'linear');
+  });
 });
