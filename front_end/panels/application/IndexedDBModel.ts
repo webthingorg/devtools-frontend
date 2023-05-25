@@ -33,27 +33,29 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
+const DEFAULT_BUCKET = '';  // Empty string is not a valid bucket name
+
 export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements ProtocolProxyApi.StorageDispatcher {
-  private readonly storageKeyManager: SDK.StorageKeyManager.StorageKeyManager|null;
+  private readonly storageBucketModel: SDK.StorageBucketsModel.StorageBucketsModel|null;
   private readonly indexedDBAgent: ProtocolProxyApi.IndexedDBApi;
   private readonly storageAgent: ProtocolProxyApi.StorageApi;
   private readonly databasesInternal: Map<DatabaseId, Database>;
-  private databaseNamesByStorageKey: Map<string, Set<string>>;
-  private readonly updatedStorageKeys: Set<string>;
+  private databaseNamesByStorageKeyAndBucket: Map<string, Map<string, Set<DatabaseId>>>;
+  private readonly updatedStorageBuckets: Set<Protocol.Storage.StorageBucket>;
   private readonly throttler: Common.Throttler.Throttler;
   private enabled?: boolean;
 
   constructor(target: SDK.Target.Target) {
     super(target);
     target.registerStorageDispatcher(this);
-    this.storageKeyManager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+    this.storageBucketModel = target.model(SDK.StorageBucketsModel.StorageBucketsModel);
     this.indexedDBAgent = target.indexedDBAgent();
     this.storageAgent = target.storageAgent();
 
     this.databasesInternal = new Map();
-    this.databaseNamesByStorageKey = new Map();
+    this.databaseNamesByStorageKeyAndBucket = new Map();
 
-    this.updatedStorageKeys = new Set();
+    this.updatedStorageBuckets = new Set();
     this.throttler = new Common.Throttler.Throttler(1000);
   }
 
@@ -147,12 +149,13 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     }
 
     void this.indexedDBAgent.invoke_enable();
-    if (this.storageKeyManager) {
-      this.storageKeyManager.addEventListener(SDK.StorageKeyManager.Events.StorageKeyAdded, this.storageKeyAdded, this);
-      this.storageKeyManager.addEventListener(
-          SDK.StorageKeyManager.Events.StorageKeyRemoved, this.storageKeyRemoved, this);
-      for (const storageKey of this.storageKeyManager.storageKeys()) {
-        this.addStorageKey(storageKey);
+    if (this.storageBucketModel) {
+      this.storageBucketModel.addEventListener(
+          SDK.StorageBucketsModel.Events.BucketAdded, this.storageBucketAdded, this);
+      this.storageBucketModel.addEventListener(
+          SDK.StorageBucketsModel.Events.BucketRemoved, this.storageBucketRemoved, this);
+      for (const {bucket} of this.storageBucketModel.getBuckets()) {
+        this.addStorageBucket(bucket);
       }
     }
 
@@ -160,25 +163,40 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   }
 
   clearForStorageKey(storageKey: string): void {
-    if (!this.enabled || !this.databaseNamesByStorageKey.has(storageKey)) {
+    if (!this.enabled || !this.databaseNamesByStorageKeyAndBucket.has(storageKey)) {
       return;
     }
 
-    this.removeStorageKey(storageKey);
-    this.addStorageKey(storageKey);
+    for (const [storageBucketName] of this.databaseNamesByStorageKeyAndBucket.get(storageKey) || []) {
+      const storageBucket =
+          this.storageBucketModel?.getBucketByName(storageKey, storageBucketName ?? undefined)?.bucket;
+      if (storageBucket) {
+        this.removeStorageBucket(storageBucket);
+      }
+    }
+    this.databaseNamesByStorageKeyAndBucket.delete(storageKey);
+    const bucketInfos = this.storageBucketModel?.getBucketsForStorageKey(storageKey) || [];
+    for (const {bucket} of bucketInfos) {
+      this.addStorageBucket(bucket);
+    }
   }
 
   async deleteDatabase(databaseId: DatabaseId): Promise<void> {
     if (!this.enabled) {
       return;
     }
-    await this.indexedDBAgent.invoke_deleteDatabase({storageKey: databaseId.storageKey, databaseName: databaseId.name});
-    void this.loadDatabaseNamesByStorageKey(databaseId.storageKey);
+    await this.indexedDBAgent.invoke_deleteDatabase({
+      storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
+      databaseName: databaseId.name,
+    });
+    void this.loadDatabaseNamesByStorageBucket(databaseId.storageKey, databaseId.bucketName);
   }
 
   async refreshDatabaseNames(): Promise<void> {
-    for (const storageKey of this.databaseNamesByStorageKey.keys()) {
-      await this.loadDatabaseNamesByStorageKey(storageKey);
+    for (const [storageKey, storageBuckets] of this.databaseNamesByStorageKeyAndBucket) {
+      for (const [storageBucketName] of storageBuckets) {
+        await this.loadDatabaseNamesByStorageBucket(storageKey, storageBucketName ?? undefined);
+      }
     }
     this.dispatchEventToListeners(Events.DatabaseNamesRefreshed);
   }
@@ -188,96 +206,130 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   }
 
   async clearObjectStore(databaseId: DatabaseId, objectStoreName: string): Promise<void> {
-    await this.indexedDBAgent.invoke_clearObjectStore(
-        {storageKey: databaseId.storageKey, databaseName: databaseId.name, objectStoreName});
+    await this.indexedDBAgent.invoke_clearObjectStore({
+      storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
+      databaseName: databaseId.name,
+      objectStoreName,
+    });
   }
 
   async deleteEntries(databaseId: DatabaseId, objectStoreName: string, idbKeyRange: IDBKeyRange): Promise<void> {
     const keyRange = IndexedDBModel.keyRangeFromIDBKeyRange(idbKeyRange);
-    await this.indexedDBAgent.invoke_deleteObjectStoreEntries(
-        {storageKey: databaseId.storageKey, databaseName: databaseId.name, objectStoreName, keyRange});
+    await this.indexedDBAgent.invoke_deleteObjectStoreEntries({
+      storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
+      databaseName: databaseId.name,
+      objectStoreName,
+      keyRange,
+    });
   }
 
-  private storageKeyAdded(event: Common.EventTarget.EventTargetEvent<string>): void {
-    this.addStorageKey(event.data);
+  private storageBucketAdded({data: {bucketInfo: {bucket}}}:
+                                 Common.EventTarget.EventTargetEvent<SDK.StorageBucketsModel.BucketEvent>): void {
+    this.addStorageBucket(bucket);
   }
 
-  private storageKeyRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
-    this.removeStorageKey(event.data);
+  private storageBucketRemoved({data: {bucketInfo: {bucket}}}:
+                                   Common.EventTarget.EventTargetEvent<SDK.StorageBucketsModel.BucketEvent>): void {
+    this.removeStorageBucket(bucket);
   }
 
-  private addStorageKey(storageKey: string): void {
-    console.assert(!this.databaseNamesByStorageKey.has(storageKey));
-    this.databaseNamesByStorageKey.set(storageKey, new Set());
-    void this.loadDatabaseNamesByStorageKey(storageKey);
-    void this.storageAgent.invoke_trackIndexedDBForStorageKey({storageKey});
-  }
-
-  private removeStorageKey(storageKey: string): void {
-    console.assert(this.databaseNamesByStorageKey.has(storageKey));
-    for (const name of this.databaseNamesByStorageKey.get(storageKey) || []) {
-      this.databaseRemovedForStorageKey(storageKey, name);
+  private addStorageBucket(storageBucket: Protocol.Storage.StorageBucket): void {
+    const {storageKey} = storageBucket;
+    if (!this.databaseNamesByStorageKeyAndBucket.has(storageKey)) {
+      this.databaseNamesByStorageKeyAndBucket.set(storageKey, new Map());
+      void this.storageAgent.invoke_trackIndexedDBForStorageKey({storageKey});
     }
-    this.databaseNamesByStorageKey.delete(storageKey);
-    void this.storageAgent.invoke_untrackIndexedDBForStorageKey({storageKey});
+    const storageKeyBuckets = this.databaseNamesByStorageKeyAndBucket.get(storageKey) || new Map();
+    console.assert(!storageKeyBuckets.has(storageBucket.name));
+    storageKeyBuckets.set(storageBucket.name, new Set());
+    void this.loadDatabaseNamesByStorageBucket(storageKey, storageBucket.name);
   }
 
-  private updateStorageKeyDatabaseNames(storageKey: string, databaseNames: string[]): void {
-    const newDatabaseNames = new Set(databaseNames);
-    const oldDatabaseNames = new Set(this.databaseNamesByStorageKey.get(storageKey));
+  private removeStorageBucket(storageBucket: Protocol.Storage.StorageBucket): void {
+    const {storageKey} = storageBucket;
+    console.assert(this.databaseNamesByStorageKeyAndBucket.has(storageKey));
+    const storageKeyBuckets = this.databaseNamesByStorageKeyAndBucket.get(storageKey) || new Map();
+    console.assert(storageKeyBuckets.has(storageBucket.name));
+    const databases = storageKeyBuckets.get(storageBucket.name) || new Map();
+    for (const database of databases) {
+      this.databaseRemovedForStorageBucket(database);
+    }
+    storageKeyBuckets.delete(storageBucket.name);
+    if (storageKeyBuckets.size === 0) {
+      this.databaseNamesByStorageKeyAndBucket.delete(storageKey);
+      void this.storageAgent.invoke_untrackIndexedDBForStorageKey({storageKey});
+    }
+  }
 
-    this.databaseNamesByStorageKey.set(storageKey, newDatabaseNames);
+  private updateStorageKeyDatabaseNames(storageKey: string, bucketName: string|undefined, databaseNames: string[]):
+      void {
+    const storageKeyBuckets = this.databaseNamesByStorageKeyAndBucket.get(storageKey);
+    if (storageKeyBuckets === undefined) {
+      return;
+    }
 
-    for (const databaseName of oldDatabaseNames) {
-      if (!newDatabaseNames.has(databaseName)) {
-        this.databaseRemovedForStorageKey(storageKey, databaseName);
+    const newDatabases =
+        new Set(databaseNames.map(databaseName => new DatabaseId(storageKey, databaseName, bucketName)));
+    const oldDatabases = new Set(storageKeyBuckets.get(bucketName ?? DEFAULT_BUCKET));
+
+    storageKeyBuckets.set(bucketName ?? DEFAULT_BUCKET, newDatabases);
+
+    for (const database of oldDatabases) {
+      if (!database.inSet(newDatabases)) {
+        this.databaseRemovedForStorageBucket(database);
       }
     }
-    for (const databaseName of newDatabaseNames) {
-      if (!oldDatabaseNames.has(databaseName)) {
-        this.databaseAddedForStorageKey(storageKey, databaseName);
+    for (const database of newDatabases) {
+      if (!database.inSet(oldDatabases)) {
+        this.databaseAddedForStorageBucket(database);
       }
     }
   }
 
   databases(): DatabaseId[] {
     const result = [];
-    for (const [storageKey, databaseNames] of this.databaseNamesByStorageKey) {
-      for (const name of databaseNames) {
-        result.push(new DatabaseId(storageKey, name));
+    for (const [, buckets] of this.databaseNamesByStorageKeyAndBucket) {
+      for (const [, databases] of buckets) {
+        for (const database of databases) {
+          result.push(database);
+        }
       }
     }
     return result;
   }
 
-  private databaseAddedForStorageKey(storageKey: string, databaseName: string): void {
-    const databaseId = new DatabaseId(storageKey, databaseName);
+  private databaseAddedForStorageBucket(databaseId: DatabaseId): void {
     this.dispatchEventToListeners(Events.DatabaseAdded, {model: this, databaseId: databaseId});
   }
 
-  private databaseRemovedForStorageKey(storageKey: string, databaseName: string): void {
-    const databaseId = new DatabaseId(storageKey, databaseName);
+  private databaseRemovedForStorageBucket(databaseId: DatabaseId): void {
     this.dispatchEventToListeners(Events.DatabaseRemoved, {model: this, databaseId: databaseId});
   }
 
-  private async loadDatabaseNamesByStorageKey(storageKey: string): Promise<string[]> {
-    const {databaseNames} = await this.indexedDBAgent.invoke_requestDatabaseNames({storageKey});
+  private async loadDatabaseNamesByStorageBucket(storageKey: string, bucketName?: string): Promise<string[]> {
+    const {databaseNames} =
+        await this.indexedDBAgent.invoke_requestDatabaseNames({storageBucket: {storageKey, name: bucketName}});
     if (!databaseNames) {
       return [];
     }
-    if (!this.databaseNamesByStorageKey.has(storageKey)) {
+    if (!this.databaseNamesByStorageKeyAndBucket.has(storageKey)) {
       return [];
     }
-    this.updateStorageKeyDatabaseNames(storageKey, databaseNames);
+    const storageKeyBuckets = this.databaseNamesByStorageKeyAndBucket.get(storageKey) || new Map();
+    if (!storageKeyBuckets.has(bucketName)) {
+      return [];
+    }
+    this.updateStorageKeyDatabaseNames(storageKey, bucketName, databaseNames);
     return databaseNames;
   }
 
   private async loadDatabase(databaseId: DatabaseId, entriesUpdated: boolean): Promise<void> {
     const databaseWithObjectStores = (await this.indexedDBAgent.invoke_requestDatabase({
-                                       storageKey: databaseId.storageKey,
+                                       storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
                                        databaseName: databaseId.name,
                                      })).databaseWithObjectStores;
-    if (!this.databaseNamesByStorageKey.has(databaseId.storageKey)) {
+    if (!this.databaseNamesByStorageKeyAndBucket.get(databaseId.storageKey)
+             ?.has(databaseId.bucketName ?? DEFAULT_BUCKET)) {
       return;
     }
     if (!databaseWithObjectStores) {
@@ -322,7 +374,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     const keyRange = idbKeyRange ? IndexedDBModel.keyRangeFromIDBKeyRange(idbKeyRange) : undefined;
     const runtimeModel = this.target().model(SDK.RuntimeModel.RuntimeModel);
     const response = await this.indexedDBAgent.invoke_requestData({
-      storageKey: databaseId.storageKey,
+      storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
       databaseName,
       objectStoreName,
       indexName,
@@ -330,7 +382,9 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
       pageSize,
       keyRange,
     });
-    if (!runtimeModel || !this.databaseNamesByStorageKey.has(databaseId.storageKey)) {
+    if (!runtimeModel ||
+        !this.databaseNamesByStorageKeyAndBucket.get(databaseId.storageKey)
+             ?.has(databaseId.bucketName ?? DEFAULT_BUCKET)) {
       return;
     }
     if (response.getError()) {
@@ -355,8 +409,11 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   async getMetadata(databaseId: DatabaseId, objectStore: ObjectStore): Promise<ObjectStoreMetadata|null> {
     const databaseName = databaseId.name;
     const objectStoreName = objectStore.name;
-    const response = await this.indexedDBAgent.invoke_getMetadata(
-        {storageKey: databaseId.storageKey, databaseName, objectStoreName});
+    const response = await this.indexedDBAgent.invoke_getMetadata({
+      storageBucket: {storageKey: databaseId.storageKey, name: databaseId.bucketName},
+      databaseName,
+      objectStoreName,
+    });
 
     if (response.getError()) {
       console.error('IndexedDBAgent error: ' + response.getError());
@@ -365,31 +422,35 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
     return {entriesCount: response.entriesCount, keyGeneratorValue: response.keyGeneratorValue};
   }
 
-  private async refreshDatabaseListForStorageKey(storageKey: string): Promise<void> {
-    const databaseNames = await this.loadDatabaseNamesByStorageKey(storageKey);
+  private async refreshDatabaseListForStorageBucket(storageBucket: Protocol.Storage.StorageBucket): Promise<void> {
+    const databaseNames = await this.loadDatabaseNamesByStorageBucket(storageBucket.storageKey, storageBucket.name);
     for (const databaseName of databaseNames) {
-      void this.loadDatabase(new DatabaseId(storageKey, databaseName), false);
+      void this.loadDatabase(new DatabaseId(storageBucket.storageKey, databaseName, storageBucket.name), false);
     }
   }
 
-  indexedDBListUpdated({storageKey: storageKey}: Protocol.Storage.IndexedDBListUpdatedEvent): void {
-    if (storageKey) {
-      this.updatedStorageKeys.add(storageKey);
+  indexedDBListUpdated({storageKey, bucketId}: Protocol.Storage.IndexedDBListUpdatedEvent): void {
+    const storageBucket = this.storageBucketModel?.getBucketById(bucketId)?.bucket;
+    if (storageKey && storageBucket) {
+      this.updatedStorageBuckets.add(storageBucket);
       void this.throttler.schedule(() => {
-        const promises = Array.from(this.updatedStorageKeys, storageKey => {
-          void this.refreshDatabaseListForStorageKey(storageKey);
+        const promises = Array.from(this.updatedStorageBuckets, storageBucket => {
+          void this.refreshDatabaseListForStorageBucket(storageBucket);
         });
-        this.updatedStorageKeys.clear();
+        this.updatedStorageBuckets.clear();
         return Promise.all(promises);
       });
     }
   }
 
-  indexedDBContentUpdated({storageKey, databaseName, objectStoreName}: Protocol.Storage.IndexedDBContentUpdatedEvent):
+  indexedDBContentUpdated({bucketId, databaseName, objectStoreName}: Protocol.Storage.IndexedDBContentUpdatedEvent):
       void {
-    const databaseId = new DatabaseId(storageKey, databaseName);
-    this.dispatchEventToListeners(
-        Events.IndexedDBContentUpdated, {databaseId: databaseId, objectStoreName: objectStoreName, model: this});
+    const storageBucket = this.storageBucketModel?.getBucketById(bucketId)?.bucket;
+    if (storageBucket) {
+      const databaseId = new DatabaseId(storageBucket.storageKey, databaseName, storageBucket.name);
+      this.dispatchEventToListeners(
+          Events.IndexedDBContentUpdated, {databaseId: databaseId, objectStoreName: objectStoreName, model: this});
+    }
   }
 
   cacheStorageListUpdated(_event: Protocol.Storage.CacheStorageListUpdatedEvent): void {
@@ -447,14 +508,26 @@ export class Entry {
 
 export class DatabaseId {
   readonly storageKey: string;
+  readonly bucketName?: string;
   name: string;
-  constructor(storageKey: string, name: string) {
+  constructor(storageKey: string, name: string, bucketName?: string) {
     this.storageKey = storageKey;
+    this.bucketName = bucketName;
     this.name = name;
   }
 
   equals(databaseId: DatabaseId): boolean {
-    return this.name === databaseId.name && this.storageKey === databaseId.storageKey;
+    return this.name === databaseId.name && this.bucketName === databaseId.bucketName &&
+        this.storageKey === databaseId.storageKey;
+  }
+
+  inSet(databaseSet: Set<DatabaseId>): boolean {
+    for (const database of databaseSet) {
+      if (this.equals(database)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
