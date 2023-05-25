@@ -22,6 +22,30 @@
       },
       "revId": "28c2e5aeb874ada03943abbeb21645f41bb35ebc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bc2aca_a40b2905",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-05-25T13:59:29Z",
+      "side": 1,
+      "message": "How about in resetLocations? As far as I can tell, the script ids are tied to locations.",
+      "parentUuid": "7607a46d_1d8a31cc",
+      "range": {
+        "startLine": 1129,
+        "startChar": 8,
+        "endLine": 1129,
+        "endChar": 23
+      },
+      "revId": "28c2e5aeb874ada03943abbeb21645f41bb35ebc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
