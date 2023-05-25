@@ -237,6 +237,7 @@ export class PreloadingModel extends SDKModel<EventTypes> {
       action: Protocol.Preload.SpeculationAction.Prefetch,
       key: event.key,
       status: convertPreloadingStatus(event.status),
+      prefetchStatus: event.prefetchStatus || null,
     };
     this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
     this.dispatchEventToListeners(Events.ModelUpdated);
@@ -404,11 +405,11 @@ export type PreloadingAttemptId = string;
 
 export type PreloadingAttempt = PrefetchAttempt|PrerenderAttempt;
 
-// TODO(robertlin): Add prefetchStatus.
 export interface PrefetchAttempt {
   action: Protocol.Preload.SpeculationAction.Prefetch;
   key: Protocol.Preload.PreloadingAttemptKey;
   status: PreloadingStatus;
+  prefetchStatus: Protocol.Preload.PrefetchStatus|null;
   ruleSetIds: Protocol.Preload.RuleSetId[];
   nodeIds: Protocol.DOM.BackendNodeId[];
 }
@@ -428,6 +429,7 @@ export interface PrefetchAttemptInternal {
   action: Protocol.Preload.SpeculationAction.Prefetch;
   key: Protocol.Preload.PreloadingAttemptKey;
   status: PreloadingStatus;
+  prefetchStatus: Protocol.Preload.PrefetchStatus|null;
 }
 
 export interface PrerenderAttemptInternal {
@@ -526,6 +528,7 @@ class PreloadingAttemptRegistry {
             action: Protocol.Preload.SpeculationAction.Prefetch,
             key,
             status: PreloadingStatus.NotTriggered,
+            prefetchStatus: null,
           };
           break;
         case Protocol.Preload.SpeculationAction.Prerender:
