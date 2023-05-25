@@ -615,7 +615,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     console.assert(this.state === State.Idle);
     this.setState(State.Loading);
     if (this.performanceModel) {
-      this.performanceModel.dispose();
       this.performanceModel = null;
     }
   }
