@@ -4,6 +4,7 @@
 
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as SDK from '../../../core/sdk/sdk.js';
+import type * as Protocol from '../../../generated/protocol.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
@@ -37,6 +38,10 @@ const UIStrings = {
    */
   yes: 'Yes',
   /**
+   *@description Text indicating that the condition does not hold.
+   */
+  no: 'No',
+  /**
    *@description Text indicating that the storage corresponds to a third-party origin because top-level site is opaque.
    */
   yesBecauseTopLevelIsOpaque: 'Yes, because the top-level site is opaque',
@@ -56,6 +61,30 @@ const UIStrings = {
    *@description Text when something is loading.
    */
   loading: 'Loading…',
+  /**
+   *@description Text indicating that the storage bucket name (https://wicg.github.io/storage-buckets/explainer#bucket-names)
+   */
+  bucketName: 'Bucket name',
+  /**
+   *@description Text indicating that the storage is persistent (https://wicg.github.io/storage-buckets/explainer#storage-policy-persistence)
+   */
+  persistent: 'Is persistent',
+  /**
+   *@description Text indicating the storage durability policy (https://wicg.github.io/storage-buckets/explainer#storage-policy-durability)
+   */
+  durability: 'Durability',
+  /**
+   *@description Text indicating the storage quota (https://wicg.github.io/storage-buckets/explainer#storage-policy-quota)
+   */
+  quota: 'Quota',
+  /**
+   *@description Text indicating the storage expiration (https://wicg.github.io/storage-buckets/explainer#storage-policy-expiration)
+   */
+  expiration: 'Expiration',
+  /**
+   *@description Text indicating that no value is set
+   */
+  none: 'None',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/StorageMetadataView.ts', UIStrings);
@@ -66,6 +95,7 @@ export class StorageMetadataView extends LegacyWrapper.LegacyWrapper.WrappableCo
   static readonly litTagName = LitHtml.literal`devtools-storage-metadata-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #storageKey: SDK.StorageKeyManager.StorageKey|null = null;
+  #storageBucket: Protocol.Storage.StorageBucketInfo|null = null;
 
   getShadow(): ShadowRoot {
     return this.#shadow;
@@ -74,6 +104,11 @@ export class StorageMetadataView extends LegacyWrapper.LegacyWrapper.WrappableCo
   setStorageKey(storageKey: string): void {
     this.#storageKey = SDK.StorageKeyManager.parseStorageKey(storageKey);
     void this.render();
+  }
+
+  setStorageBucket(storageBucket: Protocol.Storage.StorageBucketInfo): void {
+    this.#storageBucket = storageBucket;
+    this.setStorageKey(storageBucket.bucket.storageKey);
   }
 
   override render(): Promise<void> {
@@ -131,9 +166,66 @@ export class StorageMetadataView extends LegacyWrapper.LegacyWrapper.WrappableCo
           this.key(i18nString(UIStrings.isOpaque)) : LitHtml.nothing}
         ${hasNonce ? this.value(i18nString(UIStrings.yes)) : LitHtml.nothing}
         ${topLevelSiteIsOpaque ?
-          this.value(i18nString(UIStrings.yesBecauseTopLevelIsOpaque)) : LitHtml.nothing}`;
+          this.value(i18nString(UIStrings.yesBecauseTopLevelIsOpaque)) : LitHtml.nothing}
+        ${this.#storageBucket ? this.#renderStorageBucketInfo() : LitHtml.nothing}`;
     // clang-format on
   }
+
+  #renderStorageBucketInfo(): LitHtml.LitTemplate {
+    if (!this.#storageBucket) {
+      throw new Error('Should not call #renderStorageBucketInfo if #bucket is null.');
+    }
+    const {bucket: {name}, persistent, durability} = this.#storageBucket;
+
+    // clang-format off
+    return LitHtml.html`
+      ${this.key(i18nString(UIStrings.bucketName))}
+      ${this.value(name || 'default')}
+      ${this.key(i18nString(UIStrings.persistent))}
+      ${this.value(persistent ? i18nString(UIStrings.yes) : i18nString(UIStrings.no))}
+      ${this.key(i18nString(UIStrings.durability))}
+      ${this.value(durability)}
+      ${this.key(i18nString(UIStrings.quota))}
+      ${this.value(this.#getQuotaString())}
+      ${this.key(i18nString(UIStrings.expiration))}
+      ${this.value(this.#getExpirationString())}`;
+  }
+
+  #getQuotaString(): string {
+    if (!this.#storageBucket) {
+      throw new Error('Should not call #getQuotaString if #bucket is null.');
+    }
+
+    let {quota} = this.#storageBucket;
+
+    if (quota === 0) {
+      return i18nString(UIStrings.none);
+    }
+
+    const units = ['bytes', 'KB', 'MB', 'GB', 'TB'];
+    let i = 0;
+    while (quota > 1024 && i < units.length) {
+      quota /= 1024;
+      i++;
+    }
+
+    return `${quota} ${units[i]}`;
+  }
+
+  #getExpirationString(): string {
+    if (!this.#storageBucket) {
+      throw new Error('Should not call #getExpirationString if #bucket is null.');
+    }
+
+    const {expiration} = this.#storageBucket;
+
+    if (expiration === 0) {
+      return i18nString(UIStrings.none);
+    }
+
+    return (new Date(expiration * 1000)).toLocaleString();
+  }
+
 }
 
 ComponentHelpers.CustomElements.defineComponent('devtools-storage-metadata-view', StorageMetadataView);
