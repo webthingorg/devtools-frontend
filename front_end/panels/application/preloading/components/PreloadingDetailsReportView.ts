@@ -12,6 +12,7 @@ import * as ReportView from '../../../../ui/components/report_view/report_view.j
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import preloadingDetailsReportViewStyles from './preloadingDetailsReportView.css.js';
+import {PrefetchReasonDescription} from './PreloadingString.js';
 
 const UIStrings = {
   /**
@@ -459,6 +460,29 @@ class PreloadingUIUtils {
     // PrerenderFinalStatus at runtime.
     return i18n.i18n.lockedString('Unknown');
   }
+
+  // Decoding PrefetchFinalStatus prefetchAttempt to failure description.
+  static prefetchAttemptToFailureDescription({prefetchStatus}: SDK.PreloadingModel.PrefetchAttempt): string|null {
+    if (!prefetchStatus) {
+      return null;
+    }
+
+    switch (prefetchStatus) {
+      // PrefetchNotStarted is mapped to Pending.
+      case Protocol.Preload.PrefetchStatus.PrefetchNotStarted:
+        return null;
+      // PrefetchNotFinishedInTime is mapped to Running.
+      case Protocol.Preload.PrefetchStatus.PrefetchNotFinishedInTime:
+        return null;
+      // Holdback related status is expected to be overridden when DevTools is
+      // opened.
+      case Protocol.Preload.PrefetchStatus.PrefetchAllowed:
+      case Protocol.Preload.PrefetchStatus.PrefetchHeldback:
+        return null;
+      default:
+        return PrefetchReasonDescription[prefetchStatus].name();
+    }
+  }
 }
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
@@ -531,6 +555,7 @@ export class PreloadingDetailsReportView extends HTMLElement {
           </${ReportView.ReportView.ReportValue.litTagName}>
 
           ${this.#maybePrerenderFailureReason()}
+          ${this.#maybePrefetchFailureReason()}
 
           ${this.#data.ruleSets.map(ruleSet => this.#renderRuleSet(ruleSet))}
         </${ReportView.ReportView.Report.litTagName}>
@@ -557,6 +582,28 @@ export class PreloadingDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
         <${ReportView.ReportView.ReportValue.litTagName}>
           ${failureReason}
+        </${ReportView.ReportView.ReportValue.litTagName}>
+    `;
+  }
+
+  #maybePrefetchFailureReason(): LitHtml.LitTemplate {
+    assertNotNullOrUndefined(this.#data);
+    const attempt = this.#data.preloadingAttempt;
+
+    if (attempt.action !== Protocol.Preload.SpeculationAction.Prefetch) {
+      return LitHtml.nothing;
+    }
+
+    const failureDescription = PreloadingUIUtils.prefetchAttemptToFailureDescription(attempt);
+    if (failureDescription === null) {
+      return LitHtml.nothing;
+    }
+
+    return LitHtml.html`
+        <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsFailureReason)}</${
+        ReportView.ReportView.ReportKey.litTagName}>
+        <${ReportView.ReportView.ReportValue.litTagName}>
+          ${failureDescription}
         </${ReportView.ReportView.ReportValue.litTagName}>
     `;
   }
