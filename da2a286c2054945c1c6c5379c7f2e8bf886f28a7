@@ -34,6 +34,24 @@
       "parentUuid": "e693a2a2_e1560c08",
       "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fff624de_901af61a",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-05-25T21:26:08Z",
+      "side": 1,
+      "message": "According to the spec (https://storage.spec.whatwg.org/#buckets), \"a storage bucket is a place for storage endpoints to store data.\" So we\u0027ve already been storing it in the default bucket, but our changes let you store it in non-default buckets. So as far as I understand, the default bucket (which in CDP is a thin wrapper of just the storage key) is equivalent to how the storage key is used now. But not certain about that since I don\u0027t know where all storage key is used.\n\nAlso not all storage endpoints can be in non default buckets. So if you were to update the CDP for local or session storage to use buckets, you\u0027d have to sendFailure anytime someone uses a non default bucket.\n\nI don\u0027t know the answer to us revisiting the fundamental concepts. But maybe buckets having been in the storage spec for some years (and discussed even longer https://github.com/whatwg/storage/issues/2) gives us some confidence? I\u0027m not sure.",
+      "parentUuid": "c1d970d2_95ea2cfa",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
