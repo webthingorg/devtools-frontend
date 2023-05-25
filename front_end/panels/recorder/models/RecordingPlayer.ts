@@ -128,6 +128,13 @@ export class RecordingPlayer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       throw new Error('Could not find main frame');
     }
 
+    try {
+      await mainTarget.pageAgent().invoke_setPrerenderingAllowed({
+        isAllowed: false,
+      });
+    } catch {
+    }
+
     // Pass an empty message handler because it will be overwritten by puppeteer anyways.
     const result = await childTargetManager.createParallelConnection(() => {});
     const connection = result.connection as SDK.Connections.ParallelConnectionInterface;
@@ -171,6 +178,16 @@ export class RecordingPlayer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   }
 
   static async disconnectPuppeteer(browser: puppeteer.Browser): Promise<void> {
+    const mainTarget = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+    if (mainTarget) {
+      try {
+        await mainTarget.pageAgent().invoke_setPrerenderingAllowed({
+          isAllowed: true,
+        });
+      } catch {
+      }
+    }
+
     try {
       const pages = await browser.pages();
       for (const page of pages) {
