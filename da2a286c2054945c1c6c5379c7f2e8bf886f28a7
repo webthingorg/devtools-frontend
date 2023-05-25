@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e693a2a2_e1560c08",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-05-25T20:39:08Z",
+      "side": 1,
+      "message": "Why do you prefer splitting up the bucket into storage key and bucket name? Doesn\u0027t it seem cleaner to keep them together in a strongly typed object? As far as storage APIs are concerned, storage bucket is the new storage key.",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
