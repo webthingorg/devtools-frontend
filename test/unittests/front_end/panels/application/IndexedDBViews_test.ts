@@ -24,7 +24,13 @@ describeWithLocale('IDBDatabaseView', () => {
     const databaseId =
         new Application.IndexedDBModel.DatabaseId('https://example.com/^0https://example.org', 'My Database');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
-    const model = {} as Application.IndexedDBModel.IndexedDBModel;
+    const model = {
+      target: () => ({
+        model: () => ({
+          getBucketByName: () => null,
+        }),
+      }),
+    } as unknown as Application.IndexedDBModel.IndexedDBModel;
     const component = new Application.IndexedDBViews.IDBDatabaseView(model, database);
     renderElementIntoDOM(component);
 
@@ -51,7 +57,13 @@ describeWithLocale('IDBDatabaseView', () => {
   it('renders with an opaque storage key', async () => {
     const databaseId = new Application.IndexedDBModel.DatabaseId('https://example.com/^112345^267890', '');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
-    const model = {} as Application.IndexedDBModel.IndexedDBModel;
+    const model = {
+      target: () => ({
+        model: () => ({
+          getBucketByName: () => null,
+        }),
+      }),
+    } as unknown as Application.IndexedDBModel.IndexedDBModel;
     const component = new Application.IndexedDBViews.IDBDatabaseView(model, database);
     renderElementIntoDOM(component);
 
@@ -67,10 +79,70 @@ describeWithLocale('IDBDatabaseView', () => {
     assert.deepEqual(values, ['https://example.com', 'Yes, because the storage key is opaque', 'Yes', '1', '0']);
   });
 
+  it('renders with a storage bucket', async () => {
+    const databaseId = new Application.IndexedDBModel.DatabaseId('https://example.com/^112345^267890', '');
+    const database = new Application.IndexedDBModel.Database(databaseId, 1);
+    const model = {
+      target: () => ({
+        model: () => ({
+          getBucketByName: () => ({
+            bucket: {storageKey: 'https://example.com/^112345^267890', name: 'My bucket'},
+            quota: 1024,
+            expiration: 42,
+            durability: 'strict',
+          }),
+        }),
+      }),
+    } as unknown as Application.IndexedDBModel.IndexedDBModel;
+    const component = new Application.IndexedDBViews.IDBDatabaseView(model, database);
+    renderElementIntoDOM(component);
+
+    assertShadowRoot(component.shadowRoot);
+    await coordinator.done();
+    const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
+    assertShadowRoot(report.shadowRoot);
+
+    const keys = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-key');
+    assert.deepEqual(keys, [
+      'Origin',
+      'Is third-party',
+      'Is opaque',
+      'Bucket name',
+      'Is persistent',
+      'Durability',
+      'Quota',
+      'Expiration',
+      'Version',
+      'Object stores',
+    ]);
+
+    const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
+    assert.deepEqual(values, [
+      'https://example.com',
+      'Yes, because the storage key is opaque',
+      'Yes',
+      'My bucket',
+      'No',
+      'strict',
+      '1024 bytes',
+      (new Date(42000)).toLocaleString(),
+      '1',
+      '0',
+    ]);
+  });
+
   it('renders buttons', async () => {
     const databaseId = new Application.IndexedDBModel.DatabaseId('', '');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
-    const model = {refreshDatabase: sinon.spy(), deleteDatabase: sinon.spy()};
+    const model = {
+      refreshDatabase: sinon.spy(),
+      deleteDatabase: sinon.spy(),
+      target: () => ({
+        model: () => ({
+          getBucketByName: () => null,
+        }),
+      }),
+    };
     const component = new Application.IndexedDBViews.IDBDatabaseView(
         model as unknown as Application.IndexedDBModel.IndexedDBModel, database);
     renderElementIntoDOM(component);
