@@ -16,6 +16,24 @@
       "message": "Why do you prefer splitting up the bucket into storage key and bucket name? Doesn\u0027t it seem cleaner to keep them together in a strongly typed object? As far as storage APIs are concerned, storage bucket is the new storage key.",
       "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1d970d2_95ea2cfa",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-25T20:44:37Z",
+      "side": 1,
+      "message": "Mostly to avoid checking if bucket is present and if not, have a separate path for the storage key only. \n\nI didn\u0027t know that storage bucket is a \"new storage key\". Can it be applied everywhere where we have storage key currently? \n\nHow sure are we about the API? How plausible is it that we will have to revisit the fundamental concepts here?",
+      "parentUuid": "e693a2a2_e1560c08",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
