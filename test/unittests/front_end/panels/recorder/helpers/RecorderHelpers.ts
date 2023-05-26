@@ -42,6 +42,7 @@ export const installMocksForTargetManager = (): void => {
   const stub = {
     suspendAllTargets: sinon.stub().resolves(),
     resumeAllTargets: sinon.stub().resolves(),
+    primaryPageTarget: sinon.stub().returns(null),
   };
   sinon.stub(SDK.TargetManager.TargetManager, 'instance')
       .callsFake(() => stub as unknown as SDK.TargetManager.TargetManager);
