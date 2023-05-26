@@ -12,16 +12,16 @@ Bindings = Bindings || {};
 /** @constructor */
 Bindings.IgnoreListManager = BindingsModule.IgnoreListManager.IgnoreListManager;
 
-/** @constructor */
-Bindings.BreakpointManager = BindingsModule.BreakpointManager.BreakpointManager;
+/* @constructor */
+// Bindings.BreakpointManager = BindingsModule.BreakpointManager.BreakpointManager;
 
-/** @enum {symbol} */
-Bindings.BreakpointManager.Events = BindingsModule.BreakpointManager.Events;
+/* @enum {symbol} */
+// Bindings.BreakpointManager.Events = BindingsModule.BreakpointManager.Events;
 
-/** @constructor */
-Bindings.BreakpointManager.Breakpoint = BindingsModule.BreakpointManager.Breakpoint;
+/* @constructor */
+// Bindings.BreakpointManager.Breakpoint = BindingsModule.BreakpointManager.Breakpoint;
 
-Bindings.BreakpointManager.ModelBreakpoint = BindingsModule.BreakpointManager.ModelBreakpoint;
+// Bindings.BreakpointManager.ModelBreakpoint = BindingsModule.BreakpointManager.ModelBreakpoint;
 
 /** @constructor */
 Bindings.CSSWorkspaceBinding = BindingsModule.CSSWorkspaceBinding.CSSWorkspaceBinding;
