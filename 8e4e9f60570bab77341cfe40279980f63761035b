@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2d95625_69dc28b7",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-05-26T09:39:50Z",
+      "side": 1,
+      "message": "That\u0027s not going to work on windows...",
+      "range": {
+        "startLine": 86,
+        "startChar": 85,
+        "endLine": 86,
+        "endChar": 96
+      },
+      "revId": "8e4e9f60570bab77341cfe40279980f63761035b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
