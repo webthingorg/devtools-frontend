@@ -88,6 +88,24 @@
       "parentUuid": "197cf6f7_7b2479dd",
       "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50864077_55694ba6",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-26T21:08:29Z",
+      "side": 1,
+      "message": "Fair enough. I brought back the storageBucket to the DatabaseId, but also removed storageKey as a separate member to avoid confusion.",
+      "parentUuid": "f17d7e13_39ecb255",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
