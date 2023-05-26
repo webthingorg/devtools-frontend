@@ -11,6 +11,8 @@ const WebSocketServer = require('ws').Server;
 const remoteDebuggingPort = parseInt(process.env.REMOTE_DEBUGGING_PORT, 10) || 9222;
 const port = parseInt(process.env.PORT, 10);
 const requestedPort = port || port === 0 ? port : 8090;
+console.log("********************************************************************");
+console.log(remoteDebuggingPort);
 const readFile = promisify(fs.readFile);
 const exists = promisify(fs.exists);
 
@@ -125,6 +127,7 @@ async function requestHandler(request, response) {
     }
     sendResponse(statusCode || 200, data, encoding, headers);
   } catch (err) {
+    //console.error('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
     console.log(`Unable to read local file ${absoluteFilePath}:`, err);
     sendResponse(500, '500 - Internal Server Error', 'utf8');
   }
@@ -157,6 +160,10 @@ async function requestHandler(request, response) {
   }
 
   async function sendResponse(statusCode, data, encoding, headers) {
+    if (statusCode != 200) {
+      //console.error('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+      //console.error(statusCode);
+    }
     if (url.search === '?delay') {
       delayPromise = new Promise(resolve => {
         delayResolve = resolve;
@@ -193,7 +200,7 @@ async function requestHandler(request, response) {
     headers.forEach((value, header) => {
       response.setHeader(header, value);
     });
-
+    //console.error('Some output');
     const waitBeforeHeaders = parseInt(url.searchParams?.get('waitBeforeHeaders'), 10);
     if (!isNaN(waitBeforeHeaders)) {
       await new Promise(resolve => setTimeout(resolve, waitBeforeHeaders));

@@ -98,6 +98,8 @@ export function installPageErrorHandlers(page: puppeteer.Page): void {
         if (msg.text() === 'JSHandle@error') {
           const errorHandle = msg.args()[0] as puppeteer.JSHandle<Error>;
           message += await errorHandle.evaluate(error => {
+            //console.log('####################################################################################3');
+            //console.log(error.stack);
             return error.stack;
           });
           await errorHandle.dispose();

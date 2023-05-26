@@ -13,6 +13,7 @@ let runningServer: ChildProcess;
 // Starts a hosted mode server on any available port and returns the port number
 // once the server is ready to receive requests.
 export function startServer(server: 'hosted-mode'|'component-docs'): Promise<number> {
+  //throw new Error('Meh');
   if (runningServer) {
     throw new Error('Server was already started.');
   }
