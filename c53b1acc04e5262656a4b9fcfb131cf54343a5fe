@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a77bd0da_61b5369e",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-26T20:39:59Z",
+      "side": 1,
+      "message": "Good point! Done,",
+      "parentUuid": "a8dade21_938e18a0",
+      "range": {
+        "startLine": 65,
+        "startChar": 17,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "c53b1acc04e5262656a4b9fcfb131cf54343a5fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df9e0848_2f8cb505",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-26T12:22:23Z",
       "side": 1,
       "message": "Shouldn\u0027t this be `\u003e\u003d`? Wouldn\u0027t it be better to display e.g 1KB instead of 1024 bytes?",
+      "range": {
+        "startLine": 207,
+        "startChar": 17,
+        "endLine": 207,
+        "endChar": 18
+      },
+      "revId": "c53b1acc04e5262656a4b9fcfb131cf54343a5fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a223240_66748d16",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-26T20:39:59Z",
+      "side": 1,
+      "message": "Actually, we should be use metric units. Replaced this with Platform.NumberUtilities.bytesToString that we use everywhere else.",
+      "parentUuid": "df9e0848_2f8cb505",
       "range": {
         "startLine": 207,
         "startChar": 17,
