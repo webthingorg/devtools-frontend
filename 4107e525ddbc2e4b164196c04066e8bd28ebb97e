@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "138b2065_fbe95127",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-26T09:18:54Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4567965\n\nI prefer it to fail by exhaustiveness check at the roll protocol if new PrefetchStatus. It prevents to forget update of strings.\nMoreover, current implementation throws an error beacuse it evaluates `undefined.name()`.",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0642d655_e881a396",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-26T09:18:54Z",
+      "side": 1,
+      "message": "[nit] In the other parts, I sort prefetch \u003c prerender (alphabetical order). Please follow this.",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150f6508_dddd8ccf",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-26T09:18:54Z",
+      "side": 1,
+      "message": "Ditto (order)",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85a2632a_0cd21f5a",
         "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
         "patchSetId": 18
