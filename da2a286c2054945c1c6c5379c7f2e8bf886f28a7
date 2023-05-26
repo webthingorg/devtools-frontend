@@ -70,6 +70,24 @@
       "parentUuid": "fff624de_901af61a",
       "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17d7e13_39ecb255",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-05-26T18:43:59Z",
+      "side": 1,
+      "message": "I do think that it makes sense to at least \"think in buckets\" for IndexedDB, Cache Storage, and OPFS since at no point do they deal only with the storage key and not the bucket. I won\u0027t push back too much on this because ultimately we just want developers to be thinking of it as a key concept when storing things. It\u0027s not too important that the devtools code reflects that although I think it would be cleaner.\n\nThe only other things I\u0027ll add is I have a follow up CL (https://chromium-review.googlesource.com/c/chromium/src/+/4443312) to remove storage key and origin params from CDP for the storage APIs that support non default buckets. And that I hope that the code is bucket centric enough that if we wanted to show what\u0027s stored in each bucket, we could do so in the future.",
+      "parentUuid": "197cf6f7_7b2479dd",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
