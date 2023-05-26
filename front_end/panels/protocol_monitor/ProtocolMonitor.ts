@@ -17,7 +17,7 @@ import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import * as Components from './components/components.js';
 import protocolMonitorStyles from './protocolMonitor.css.js';
-import { TextPrompt } from '../../ui/legacy/legacy.js';
+
 const UIStrings = {
   /**
    *@description Text for one or a group of functions
@@ -168,7 +168,6 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
   private readonly requestTimeForId: Map<number, number>;
   private readonly dataGridRowForId: Map<number, DataGrid.DataGridUtils.Row>;
   private readonly infoWidget: InfoWidget;
-  private readonly editorWidget: EditorWidget;
   private readonly dataGridIntegrator: DataGrid.DataGridControllerIntegrator.DataGridControllerIntegrator;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
@@ -372,7 +371,6 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
                                  }));
     topToolbar.appendToolbarItem(this.textFilterUI);
   }
-
 
   #createCommandInput(): UI.Toolbar.ToolbarInput {
     const placeholder = i18nString(UIStrings.sendRawCDPCommand);
@@ -675,16 +673,17 @@ export class CommandAutocompleteSuggestionProvider {
     }
   }
 }
+
 export class InfoWidget extends UI.Widget.VBox {
   private readonly tabbedPane: UI.TabbedPane.TabbedPane;
-  constructor() { 
+  constructor() {
     super();
     this.tabbedPane = new UI.TabbedPane.TabbedPane();
     this.tabbedPane.appendTab('request', i18nString(UIStrings.request), new UI.Widget.Widget());
     this.tabbedPane.appendTab('response', i18nString(UIStrings.response), new UI.Widget.Widget());
     this.tabbedPane.show(this.contentElement);
     this.tabbedPane.selectTab('response');
-    this.render(null);  
+    this.render(null);
   }
 
   render(data: {
