@@ -182,6 +182,13 @@ export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper<EventTy
     }
     this.#started = true;
 
+    try {
+      await this.#pageAgent.invoke_setPrerenderingAllowed({
+        isAllowed: false,
+      });
+    } catch {
+    }
+
     this.#networkManager.addEventListener(
         SDK.NetworkManager.MultitargetNetworkManager.Events.ConditionsChanged, this.#appendCurrentNetworkStep, this);
 
@@ -194,6 +201,13 @@ export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper<EventTy
   }
 
   async stop(): Promise<void> {
+    try {
+      await this.#pageAgent.invoke_setPrerenderingAllowed({
+        isAllowed: true,
+      });
+    } catch {
+    }
+
     // Wait for any remaining updates.
     await this.#dispatchRecordingUpdate();
 
