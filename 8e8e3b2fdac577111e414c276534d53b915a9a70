@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "269068ac_7751be2c",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-26T13:43:08Z",
+      "side": 0,
+      "message": "instead of building this map in a separate state, let\u0027s build it as we create the nodes to save time (line 233 in new version)",
+      "range": {
+        "startLine": 283,
+        "startChar": 10,
+        "endLine": 283,
+        "endChar": 26
+      },
+      "revId": "8e8e3b2fdac577111e414c276534d53b915a9a70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
