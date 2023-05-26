@@ -52,6 +52,24 @@
       "parentUuid": "c1d970d2_95ea2cfa",
       "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197cf6f7_7b2479dd",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-26T05:56:38Z",
+      "side": 1,
+      "message": "I\u0027m not feeling strongly but based on what you said, I\u0027d rather have bucket represented as an optional name next to the storage key, as opposed to the central opaque concept",
+      "parentUuid": "fff624de_901af61a",
+      "revId": "da2a286c2054945c1c6c5379c7f2e8bf886f28a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
