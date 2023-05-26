@@ -16,6 +16,115 @@
       "message": "PTAL",
       "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7fd67b_18c7c45e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:53:39Z",
+      "side": 1,
+      "message": "LGTM with a few questions but nothing major. Thanks for digging into this!",
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58ad882_ef2f8ff1",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:53:39Z",
+      "side": 1,
+      "message": "I guess it is assumed if the first node has a hit count, the rest do? Do we know why that is?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 52
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c727ddc6_45d191d1",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:53:39Z",
+      "side": 1,
+      "message": "nit: can we see if we can remove this expectation whilst we are here?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3801a6f4_d0b3a640",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:53:39Z",
+      "side": 1,
+      "message": "nit: is there a clearer name here that explains what we intend to use this id for? It\u0027s a bit unclear on first glance.",
+      "range": {
+        "startLine": 202,
+        "startChar": 10,
+        "endLine": 202,
+        "endChar": 17
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5d25dda_dea10758",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:53:39Z",
+      "side": 1,
+      "message": "to check my understanding: in this instance, we just drop D entirely? Or are we closing that stack and making a new stack of A-B-C-E?",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
