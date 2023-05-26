@@ -1411,6 +1411,61 @@ describeWithEnvironment('TimelineData', () => {
     );
   });
 
+  it('tests the Timeline API instrumentation of a TimerFired events inside evaluated scripts', async () => {
+    // The code snippet:
+    // var content = "" +
+    //   "var fn2 = function() {" +
+    //   "    console.timeStamp(\"Script evaluated\");" +
+    //   "};\\n" +
+    //   "var fn1 = function() {" +
+    //   "    window.setTimeout(fn2, 1);" +
+    //   "};\\n" +
+    //   "window.setTimeout(fn1, 1);\\n" +
+    //   "//# sourceURL=fromEval.js";
+    // content = `eval('` + content + `');`;
+
+    const {timelineModel} = await traceModelFromTraceFile('timer-fired-from-eval-call.json.gz');
+    let mainTrack: TimelineModel.TimelineModel.Track|null = null;
+    for (const track of timelineModel.tracks()) {
+      if (track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame) {
+        mainTrack = track;
+      }
+    }
+    assertNotNullOrUndefined(mainTrack);
+
+    const events = mainTrack.events;
+    const timerFireFunctionCallEvents = [];
+
+    for (let i = 0; i < events.length; ++i) {
+      if (events[i].name === TimelineModel.TimelineModel.RecordType.TimerFire) {
+        const timerFireEventEndTime = events[i].endTime;
+        if (!timerFireEventEndTime) {
+          continue;
+        }
+        for (let j = i + 1; j < events.length; ++j) {
+          const event = events[j];
+          if (event.endTime && event.endTime > timerFireEventEndTime) {
+            break;
+          }
+          if (event.name === TimelineModel.TimelineModel.RecordType.FunctionCall) {
+            timerFireFunctionCallEvents.push(event);
+          }
+        }
+      }
+    }
+    assert.strictEqual(timerFireFunctionCallEvents.length, 2);
+
+    const fnCallSite0 = timerFireFunctionCallEvents[0].args['data'];
+    assert.strictEqual(fnCallSite0.url, 'fromEval.js');
+    // fn1 is on line 1.
+    assert.strictEqual(fnCallSite0.lineNumber, 1);
+
+    const fnCallSite1 = timerFireFunctionCallEvents[1].args['data'];
+    assert.strictEqual(fnCallSite1.url, 'fromEval.js');
+    // fn2 is on line 0.
+    assert.strictEqual(fnCallSite1.lineNumber, 0);
+  });
+
   it('stores data for a constructed event using the event as the key', async () => {
     const thread = StubbedThread.make(1);
     // None of the details here matter, we just need some constructed event.
