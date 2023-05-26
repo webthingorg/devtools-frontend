@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7c8982_2762b123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-26T13:54:44Z",
+      "side": 1,
+      "message": "Another random thought: I\u0027d love when we have moved to the new SamplesHandler if we can try to create some simplified test cases that 1) clarify it works and 2) can be used as a way of understanding what we are doing by using minimal examples of samples and asserting how we combine (or not) them to produce stack traces.",
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e58ad882_ef2f8ff1",
