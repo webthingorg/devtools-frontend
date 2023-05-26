@@ -16,6 +16,23 @@
       "message": "Can you take a look please?",
       "revId": "5b0e9ca97c25bd41b567f229e76eb6ddb9490e3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9af6f5b3_ef8e1dfe",
+        "filename": "docs/uma_metrics.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-05-26T09:06:48Z",
+      "side": 1,
+      "message": "(nit/question not related to docs): I wonder if it would have made sense to separate `SidebarPaneShown` for Sources panel specifically with something like `SourcesPaneShown`.\n\nCurrently `DevTools.SidebarPaneShown` only tracks the sidebar panes in Elements panel and with that we\u0027re able to see with which percentage the specified pane is explicitly opened.\n\nWhen we include the Sources panes in the same histogram, we won\u0027t be able to take that number easily (we\u0027d probably need to do a PLX query ourselves to calculate it).\n\nWDYT?",
+      "revId": "5b0e9ca97c25bd41b567f229e76eb6ddb9490e3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
