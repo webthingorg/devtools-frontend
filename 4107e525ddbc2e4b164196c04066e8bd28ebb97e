@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a2632a_0cd21f5a",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-26T05:50:20Z",
+      "side": 1,
+      "message": "Can we also have a test wit non-null status?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 29
+      },
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
