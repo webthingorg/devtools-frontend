@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "003fcc72_389d3dec",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-29T10:14:49Z",
+      "side": 1,
+      "message": "How my CL works: https://zenn.dev/qnighy/articles/462baa685c80e2\n\nI guess you can use `prefetchStatus as \u0027See https://docs.google.com/document/d/1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk\u0027`.\nType of left hand side is `PrefetchStatus`, type of right hand side is `\u0027See https://docs.google.com/document/d/1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk\u0027`. Always differs.",
+      "parentUuid": "3deee613_a27bf1a6",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
