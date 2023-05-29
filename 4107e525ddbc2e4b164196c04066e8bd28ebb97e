@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3deee613_a27bf1a6",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-29T10:06:47Z",
+      "side": 1,
+      "message": "Hmm I see. I was thinking this can be prevented at compiled time. But I can\u0027t use `prefetchStatus as \u0027See https://docs.google.com/document/d/1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk\u0027`, what is required to cast a variable to never type? I\u0027m kind of confused.",
+      "parentUuid": "d09c759e_03e9daa1",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
