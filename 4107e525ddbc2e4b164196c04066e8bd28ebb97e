@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d09c759e_03e9daa1",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-05-29T04:47:12Z",
+      "side": 1,
+      "message": "Unfortunately, this (patchset 24) doesn\u0027t check exhaustiveness. In TypeScript, easy way of exhaustiveness check with switch is diverging the default clause with never type. My above CL utilizes it.\n\nAlso, could you add this instruction? https://docs.google.com/document/d/1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk",
+      "parentUuid": "9e01848a_c051aa74",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
