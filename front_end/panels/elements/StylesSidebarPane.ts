@@ -201,31 +201,31 @@ let stylesSidebarPaneInstance: StylesSidebarPane;
 
 export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventTypes, typeof ElementsSidebarPane>(
     ElementsSidebarPane) {
-  private currentToolbarPane: UI.Widget.Widget|null;
-  private animatedToolbarPane: UI.Widget.Widget|null;
-  private pendingWidget: UI.Widget.Widget|null;
-  private pendingWidgetToggle: UI.Toolbar.ToolbarToggle|null;
-  private toolbar: UI.Toolbar.Toolbar|null;
-  private toolbarPaneElement: HTMLElement;
-  private lastFilterChange: number|null;
-  private visibleSections: number|null;
-  private noMatchesElement: HTMLElement;
-  private sectionsContainer: HTMLElement;
+  currentToolbarPane: UI.Widget.Widget|null;
+  animatedToolbarPane: UI.Widget.Widget|null;
+  pendingWidget: UI.Widget.Widget|null;
+  pendingWidgetToggle: UI.Toolbar.ToolbarToggle|null;
+  toolbar: UI.Toolbar.Toolbar|null;
+  toolbarPaneElement: HTMLElement;
+  lastFilterChange: number|null;
+  visibleSections: number|null;
+  noMatchesElement: HTMLElement;
+  sectionsContainer: HTMLElement;
   sectionByElement: WeakMap<Node, StylePropertiesSection>;
-  private readonly swatchPopoverHelperInternal: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  readonly swatchPopoverHelperInternal: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
   readonly linkifier: Components.Linkifier.Linkifier;
-  private readonly decorator: StylePropertyHighlighter;
-  private lastRevealedProperty: SDK.CSSProperty.CSSProperty|null;
-  private userOperation: boolean;
+  readonly decorator: StylePropertyHighlighter;
+  lastRevealedProperty: SDK.CSSProperty.CSSProperty|null;
+  userOperation: boolean;
   isEditingStyle: boolean;
-  private filterRegexInternal: RegExp|null;
-  private isActivePropertyHighlighted: boolean;
-  private initialUpdateCompleted: boolean;
+  filterRegexInternal: RegExp|null;
+  isActivePropertyHighlighted: boolean;
+  initialUpdateCompleted: boolean;
   hasMatchedStyles: boolean;
-  private sectionBlocks: SectionBlock[];
-  private idleCallbackManager: IdleCallbackManager|null;
-  private needsForceUpdate: boolean;
-  private readonly resizeThrottler: Common.Throttler.Throttler;
+  sectionBlocks: SectionBlock[];
+  idleCallbackManager: IdleCallbackManager|null;
+  needsForceUpdate: boolean;
+  readonly resizeThrottler: Common.Throttler.Throttler;
 
   private scrollerElement?: Element;
   private readonly boundOnScroll: (event: Event) => void;
@@ -248,7 +248,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     return stylesSidebarPaneInstance;
   }
 
-  private constructor() {
+  constructor() {
     super(true /* delegatesFocus */);
     this.setMinimumSize(96, 26);
     this.registerCSSFiles([stylesSidebarPaneStyles]);
