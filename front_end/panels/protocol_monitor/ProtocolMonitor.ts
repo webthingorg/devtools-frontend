@@ -96,6 +96,24 @@ const UIStrings = {
    * @description A label for a select input that allows selecting a CDP target to send the commands to.
    */
   selectTarget: 'Select a target',
+  /**
+   * @description Tooltip for the the console sidebar toggle in the Console panel. Command to
+   * open/show the sidebar.
+   */
+  showCDPCommandEditor: 'Show CDP command editor',
+  /**
+   * @description Tooltip for the the console sidebar toggle in the Console panel. Command to
+   * open/show the sidebar.
+   */
+  hideCDPCommandEditor: 'Hide  CDP command editor',
+  /**
+   * @description Screen reader announcement when the sidebar is shown in the Console panel.
+   */
+  CDPCommandEditorShown: 'CDP command editor shown',
+  /**
+   * @description Screen reader announcement when the sidebar is hidden in the Console panel.
+   */
+  CDPCommandEditorHidden: 'CDP command editor hidden',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/ProtocolMonitor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -132,6 +150,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private readonly requestTimeForId: Map<number, number>;
   private readonly dataGridRowForId: Map<number, DataGrid.DataGridUtils.Row>;
   private readonly infoWidget: InfoWidget;
+  private readonly editorWidget: EditorWidget;
   private readonly dataGridIntegrator: DataGrid.DataGridControllerIntegrator.DataGridControllerIntegrator;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
@@ -149,7 +168,6 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.dataGridRowForId = new Map();
     this.requestTimeForId = new Map();
     const topToolbar = new UI.Toolbar.Toolbar('protocol-monitor-toolbar', this.contentElement);
-
     this.contentElement.classList.add('protocol-monitor');
     const recordButton = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.record), 'record-start', 'record-stop');
     recordButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
@@ -175,8 +193,11 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     topToolbar.appendToolbarItem(saveButton);
 
     const split = new UI.SplitWidget.SplitWidget(true, true, 'protocol-monitor-panel-split', 250);
-    split.show(this.contentElement);
+    const splitTextAreaEditor =
+        new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-panel-split-container', 400);
+    splitTextAreaEditor.show(this.contentElement);
     this.infoWidget = new InfoWidget();
+    this.editorWidget = new EditorWidget();
 
     const dataGridInitialData: DataGrid.DataGridController.DataGridControllerData = {
       paddingRowsCount: 100,
@@ -305,6 +326,11 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     });
     split.setMainWidget(this.dataGridIntegrator);
     split.setSidebarWidget(this.infoWidget);
+
+    splitTextAreaEditor.setMainWidget(split);
+    splitTextAreaEditor.setSidebarWidget(this.editorWidget);
+    splitTextAreaEditor.hideSidebar();
+    splitTextAreaEditor.enableShowModeSaving();
     const keys = ['method', 'request', 'response', 'type', 'target', 'session'];
     this.filterParser = new TextUtils.TextUtils.FilterParser(keys);
     this.suggestionBuilder = new UI.FilterSuggestionBuilder.FilterSuggestionBuilder(keys);
@@ -320,6 +346,10 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     topToolbar.appendToolbarItem(this.textFilterUI);
 
     const bottomToolbar = new UI.Toolbar.Toolbar('protocol-monitor-bottom-toolbar', this.contentElement);
+    bottomToolbar.makeWrappable(true);
+    bottomToolbar.appendToolbarItem(splitTextAreaEditor.createShowHideSidebarButton(
+        i18nString(UIStrings.showCDPCommandEditor), i18nString(UIStrings.hideCDPCommandEditor),
+        i18nString(UIStrings.CDPCommandEditorShown), i18nString(UIStrings.CDPCommandEditorHidden)));
     bottomToolbar.appendToolbarItem(this.#createCommandInput());
     bottomToolbar.appendToolbarItem(this.#createTargetSelector());
   }
@@ -639,6 +669,88 @@ export class InfoWidget extends UI.Widget.VBox {
     const responseParsed =
         data.response.value === '(pending)' ? null : JSON.parse(String(data.response.value) || 'null');
     this.tabbedPane.changeTabView('response', SourceFrame.JSONView.JSONView.createViewSync(responseParsed));
+  }
+}
+
+export class EditorWidget extends UI.Widget.VBox {
+  private readonly innerElement: HTMLElement;
+  private prompt: UI.TextPrompt.TextPrompt;
+  private readonly promptContainer: HTMLElement;
+  private readonly promptElement: HTMLElement;
+  private readonly promptList: HTMLElement;
+  private readonly promptInner: HTMLElement;
+  private readonly promptFinal: HTMLElement;
+  private readonly prompter: HTMLElement;
+  private readonly proxyElement: Element;
+  #historyAutocompleteDataProvider = new HistoryAutocompleteDataProvider();
+  #selectedTargetId?: string;
+
+  constructor() {
+    super();
+    // @ts-ignore TODO: fix ad hoc section property in a separate CL to be safe
+    this.innerElement = this.element.createChild('div');
+    this.element.addEventListener('click', this.messagesClicked.bind(this), true);
+    this.prompt = new UI.TextPrompt.TextPrompt();
+    this.promptContainer = this.element.createChild('div', 'cdp-command-prompt-container');
+    this.promptElement = this.promptContainer.createChild('div');
+    this.promptList = this.promptElement.createChild('ul');
+    this.promptInner = this.promptList.createChild('div');
+    this.promptFinal = this.promptInner.createChild('li');
+    this.prompter = this.promptInner.createChild('span');
+    this.promptFinal.innerHTML = '<span class=\'webkit-css-property\'>commands : </span>';
+    this.promptElement.className = 'database-query-prompt';
+    this.prompter.classList.add('value');
+    this.promptInner.style.display = 'flex';
+    this.promptFinal.style.listStyleType = 'none';
+    this.promptList.style.paddingLeft = '10px';
+    this.promptElement.addEventListener('keydown', (this.promptKeyDown.bind(this) as EventListener));
+
+    this.prompt.initialize(
+        this.#historyAutocompleteDataProvider.buildTextPromptCompletions.bind(this.#historyAutocompleteDataProvider),
+        ' ');
+    this.proxyElement = this.prompt.attach(this.prompter);
+  }
+
+  #onCommandSendFromEditor(input: string): void {
+    const test = ProtocolClient.InspectorBackend.test;
+    const targetManager = SDK.TargetManager.TargetManager.instance();
+    const selectedTarget = this.#selectedTargetId ? targetManager.targetById(this.#selectedTargetId) : null;
+    const sessionId = selectedTarget ? selectedTarget.sessionId : '';
+    // TODO: TS thinks that properties are read-only because
+    // in TS test is defined as a namespace.
+    // @ts-ignore
+    test.sendRawMessage(input, '', () => {}, sessionId);
+    this.#historyAutocompleteDataProvider.addEntry(input);
+  }
+
+  private messagesClicked(): void {
+    this.prompt.focus();
+    if (!this.prompt.isCaretInsidePrompt() && !this.element.hasSelection()) {
+      this.prompt.moveCaretToEndOfPrompt();
+    }
+  }
+
+  private promptKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      void this.enterKeyPressed(event);
+      return;
+    }
+  }
+
+  private async enterKeyPressed(event: KeyboardEvent): Promise<void> {
+    event.consume(true);
+
+    const query = this.prompt.textWithCurrentSuggestion();
+    this.prompt.clearAutocomplete();
+
+    if (!query.length) {
+      return;
+    }
+
+    this.prompt.setEnabled(false);
+    this.prompt.setEnabled(true);
+    this.prompt.focus();
+    this.#onCommandSendFromEditor(this.prompt.text().trim());
   }
 }
 
