@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce68efd1_f51db513",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-30T05:02:40Z",
+      "side": 1,
+      "message": "nhiroki@: Thanks, I just checked the current devtools frontend repo, and it seems that those changes have been rolled. (the changes won\u0027t take effect unless the protocol is explicitly rolled)\nI wasn\u0027t aware that the protocol changes were pushed into the frontend, so I didn\u0027t expect that to be the reason.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4567963",
+      "parentUuid": "d61b7707_af1d653a",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
