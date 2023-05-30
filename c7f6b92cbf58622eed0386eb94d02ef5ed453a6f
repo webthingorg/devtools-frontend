@@ -16,6 +16,23 @@
       "message": "Could you take a look, please? (Perhaps together with the chrome CL crrev.com/c/4574441.)",
       "revId": "c7f6b92cbf58622eed0386eb94d02ef5ed453a6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8998da14_f7b7471e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-30T09:46:09Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "c7f6b92cbf58622eed0386eb94d02ef5ed453a6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
