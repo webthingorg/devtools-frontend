@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d61b7707_af1d653a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-05-30T04:19:53Z",
+      "side": 1,
+      "message": "robertlin@: Looks like this CL is missing enums added recently and then the exhaustiveness check is failing as expected?\n\n```\n  kPrefetchNotEligibleBatterySaverEnabled \u003d 47,\n  kPrefetchNotEligiblePreloadingDisabled \u003d 48,\n  kPrefetchEvicted \u003d 49,\n```\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4539261\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4525497\n\n(Sorry if this is unrelated)",
+      "parentUuid": "48b60996_d8fe33b8",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
