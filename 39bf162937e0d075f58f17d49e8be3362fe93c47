@@ -193,6 +193,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "620dd312_3c0c9d68",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-30T09:32:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e3332f82_ff6a8bca",
+      "range": {
+        "startLine": 202,
+        "startChar": 10,
+        "endLine": 202,
+        "endChar": 17
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5d25dda_dea10758",
@@ -230,6 +254,30 @@
       "side": 1,
       "message": "A bit of both :) \nThere\u0027s only one stack used throughout the function that\u0027s used to keep track of the duration of each frame. When a new frame (E) appears in the position of another frame in the stack (D) we update the end time of the previous frame (D) and remove it from the stack since we don\u0027t need it anymore. Then we add the new frame (E) in its place and so forth.",
       "parentUuid": "e5d25dda_dea10758",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba2e9a2_08cae61e",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-30T09:32:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7f80ce7b_1af353a4",
       "range": {
         "startLine": 300,
         "startChar": 5,
