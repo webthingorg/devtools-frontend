@@ -11200,6 +11200,12 @@
                             "type": "number"
                         },
                         {
+                            "name": "receiveHeadersStart",
+                            "description": "Started receiving response headers.",
+                            "experimental": true,
+                            "type": "number"
+                        },
+                        {
                             "name": "receiveHeadersEnd",
                             "description": "Finished receiving response headers.",
                             "type": "number"
@@ -20121,6 +20127,11 @@
                             "type": "string"
                         },
                         {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
+                            "type": "string"
+                        },
+                        {
                             "name": "cacheName",
                             "description": "Name of cache in origin.",
                             "type": "string"
@@ -20139,6 +20150,11 @@
                         {
                             "name": "storageKey",
                             "description": "Storage key to update.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "bucketId",
+                            "description": "Storage bucket to update.",
                             "type": "string"
                         }
                     ]
@@ -26667,7 +26683,7 @@
                         },
                         {
                             "name": "serializationOptions",
-                            "description": "Specifies the result serialization. If provided, overrides\n`returnByValue` and `generateWebDriverValue`.",
+                            "description": "Specifies the result serialization. If provided, overrides\n`generatePreview`, `returnByValue` and `generateWebDriverValue`.",
                             "experimental": true,
                             "optional": true,
                             "$ref": "SerializationOptions"
@@ -26849,7 +26865,7 @@
                         },
                         {
                             "name": "serializationOptions",
-                            "description": "Specifies the result serialization. If provided, overrides\n`returnByValue` and `generateWebDriverValue`.",
+                            "description": "Specifies the result serialization. If provided, overrides\n`generatePreview`, `returnByValue` and `generateWebDriverValue`.",
                             "experimental": true,
                             "optional": true,
                             "$ref": "SerializationOptions"
