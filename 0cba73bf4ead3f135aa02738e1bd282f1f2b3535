@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "770550f0_d7338c96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-30T09:43:03Z",
+      "side": 1,
+      "message": "Looks good to me, thanks! Just some suggestions",
+      "revId": "0cba73bf4ead3f135aa02738e1bd282f1f2b3535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd4102d_94a5b553",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-30T09:43:03Z",
+      "side": 1,
+      "message": "This is a bit confusing, sometimes storageBucket refers to an object like `{storageKey: \u0027foo\u0027, name: \u0027bar\u0027}` (as in `databaseId.storageBucket`)\nsometimes (as in this case) - to a map from bucket names to database id\u0027s\n\nIs it possible to give these more meaningful distinct names?",
+      "revId": "0cba73bf4ead3f135aa02738e1bd282f1f2b3535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81631834_40d63011",
+        "filename": "front_end/panels/application/IndexedDBModel.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-05-30T09:43:03Z",
+      "side": 1,
+      "message": "Suggestion: rename these to databaseId(s) so that it corresponds to the reality better?",
+      "revId": "0cba73bf4ead3f135aa02738e1bd282f1f2b3535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
