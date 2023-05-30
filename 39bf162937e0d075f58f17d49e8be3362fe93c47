@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca299270_07abbbbe",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-30T07:59:35Z",
+      "side": 1,
+      "message": "that\u0027s right, that depends on the version of the profile. The old profile node format didn\u0027t have a hitCount field, so this code is executed only in those cases.",
+      "parentUuid": "e58ad882_ef2f8ff1",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 52
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c727ddc6_45d191d1",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-05-26T13:53:39Z",
       "side": 1,
       "message": "nit: can we see if we can remove this expectation whilst we are here?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b70c46a2_419778af",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-30T07:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c727ddc6_45d191d1",
       "range": {
         "startLine": 183,
         "startChar": 0,
@@ -123,6 +171,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3332f82_ff6a8bca",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-30T07:59:35Z",
+      "side": 1,
+      "message": "I changed it to `idToUseForRemovedNode`, I think it\u0027s better but wdyt?",
+      "parentUuid": "3801a6f4_d0b3a640",
+      "range": {
+        "startLine": 202,
+        "startChar": 10,
+        "endLine": 202,
+        "endChar": 17
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5d25dda_dea10758",
         "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
         "patchSetId": 4
@@ -134,6 +206,30 @@
       "writtenOn": "2023-05-26T13:53:39Z",
       "side": 1,
       "message": "to check my understanding: in this instance, we just drop D entirely? Or are we closing that stack and making a new stack of A-B-C-E?",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "39bf162937e0d075f58f17d49e8be3362fe93c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f80ce7b_1af353a4",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-05-30T07:59:35Z",
+      "side": 1,
+      "message": "A bit of both :) \nThere\u0027s only one stack used throughout the function that\u0027s used to keep track of the duration of each frame. When a new frame (E) appears in the position of another frame in the stack (D) we update the end time of the previous frame (D) and remove it from the stack since we don\u0027t need it anymore. Then we add the new frame (E) in its place and so forth.",
+      "parentUuid": "e5d25dda_dea10758",
       "range": {
         "startLine": 300,
         "startChar": 5,
