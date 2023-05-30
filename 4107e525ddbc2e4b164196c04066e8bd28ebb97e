@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48b60996_d8fe33b8",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-30T02:12:46Z",
+      "side": 1,
+      "message": "Hmmmm I tried, but it doesn\u0027t work locally and on CQ. https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_linux_dbg/b8779761323839780849/overview\nI\u0027m not quite sure about the difference between PrerenderStatus and PrefetchStatus.",
+      "parentUuid": "003fcc72_389d3dec",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0642d655_e881a396",
         "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
         "patchSetId": 18
