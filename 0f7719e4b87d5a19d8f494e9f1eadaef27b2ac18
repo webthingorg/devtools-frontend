@@ -16,6 +16,24 @@
       "message": "This doesn\u0027t check the preloading attempt details. test/unittests/front_end/panels/application/preloading/components/PreloadingDetailsReportView_test.ts is a good place to put it.\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4528895",
       "revId": "0f7719e4b87d5a19d8f494e9f1eadaef27b2ac18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "455d1d56_d5b79d67",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-31T10:14:31Z",
+      "side": 1,
+      "message": "Added, thanks.",
+      "parentUuid": "2e0c8469_0b1d0689",
+      "revId": "0f7719e4b87d5a19d8f494e9f1eadaef27b2ac18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

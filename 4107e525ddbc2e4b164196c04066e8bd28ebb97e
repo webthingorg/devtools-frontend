@@ -144,6 +144,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4cd1dbe_41346886",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-31T10:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce68efd1_f51db513",
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0642d655_e881a396",
@@ -227,6 +245,30 @@
       "writtenOn": "2023-05-26T05:50:20Z",
       "side": 1,
       "message": "Can we also have a test wit non-null status?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 29
+      },
+      "revId": "4107e525ddbc2e4b164196c04066e8bd28ebb97e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac698ec5_cb07b441",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-05-31T10:14:31Z",
+      "side": 1,
+      "message": "Added in `test/unittests/front_end/panels/application/preloading/components/PreloadingDetailsReportView_test.ts`",
+      "parentUuid": "85a2632a_0cd21f5a",
       "range": {
         "startLine": 134,
         "startChar": 0,
