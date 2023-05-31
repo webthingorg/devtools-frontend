@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b3bfde5_c682f2d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-31T20:41:34Z",
+      "side": 1,
+      "message": "I need to implement e2e tests which are not implemented yet, I think it might be better to implement them in the next cl...",
+      "parentUuid": "f1fe760a_5eb4ecac",
+      "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d54bc91e_b1aa0fa4",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-31T11:37:38Z",
       "side": 1,
       "message": "let\u0027s synchronize the editor state with the text prompt state? i.e., whatever is in the prompt should be pre-filled in the editor and whatever gets changed in the editor should be reflected in the prompt.",
+      "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f3979d_bc68c004",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-31T20:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d54bc91e_b1aa0fa4",
       "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "319c8502_83a3b78d",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-31T20:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb9b0aa_5617d019",
+      "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a46f23b4_023a4af2",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-05-31T11:37:38Z",
       "side": 1,
       "message": "let\u0027s keep using the history provider and the logic for sending the messages from the ProtocolMonitorImpl instance instead of creating it again in this class.",
+      "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67f76cf_e3297978",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-05-31T20:41:34Z",
+      "side": 1,
+      "message": "I think I need it to fill the textPrompt completions...",
+      "parentUuid": "a46f23b4_023a4af2",
       "revId": "00b014dff03c7a3031a4ddb8fc7eba9cc63afdb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
