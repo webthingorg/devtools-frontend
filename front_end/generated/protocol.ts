@@ -13502,6 +13502,10 @@ export namespace Storage {
      */
     storageKey: string;
     /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13519,6 +13523,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
   }
 
   /**
