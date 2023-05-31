@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04155d4_6fc65d56",
+        "filename": "front_end/panels/application/ServiceWorkerCacheTreeElement.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-31T22:00:25Z",
+      "side": 1,
+      "message": "Yup, thanks! Done",
+      "parentUuid": "e0781c25_80de35fa",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 6
+      },
+      "revId": "43204f7368b68095f3e177c2bcfd76fb614742f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eab99e65_a22e258e",
@@ -41,6 +65,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a15f8e_19c77808",
+        "filename": "test/unittests/front_end/panels/application/ServiceWorkerCacheModel_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-31T22:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eab99e65_a22e258e",
+      "revId": "43204f7368b68095f3e177c2bcfd76fb614742f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a779f1bf_ed9da236",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-05-31T21:55:32Z",
       "side": 1,
       "message": "I think this should be \"storageBucket: testSTorageBucket\"",
+      "revId": "43204f7368b68095f3e177c2bcfd76fb614742f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a68467aa_3cbe5175",
+        "filename": "test/unittests/front_end/panels/application/ServiceWorkerCacheModel_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-05-31T22:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a779f1bf_ed9da236",
       "revId": "43204f7368b68095f3e177c2bcfd76fb614742f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
