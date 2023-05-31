@@ -17,6 +17,7 @@
 /release
 /scripts/visualize_deps/out
 config.gypi
+failure_screenshots.html
 /karma-coverage
 /interactions-coverage
 /perf-data
