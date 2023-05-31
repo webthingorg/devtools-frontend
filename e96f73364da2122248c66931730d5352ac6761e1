@@ -16,6 +16,23 @@
       "message": "PTAnotherL after updating the tests :)",
       "revId": "e96f73364da2122248c66931730d5352ac6761e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415154c5_0819b5ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-31T14:23:58Z",
+      "side": 1,
+      "message": "still lgtm!",
+      "revId": "e96f73364da2122248c66931730d5352ac6761e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
