@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {waitFor} from '../../../../shared/helper.js';
+import {getBrowserAndPages, waitFor} from '../../../../shared/helper.js';
 import {describe} from '../../../../shared/mocha-extensions.js';
 import {assertElementScreenshotUnchanged, itScreenshot} from '../../../../shared/screenshots.js';
 import {loadComponentDocExample, preloadForCodeCoverage} from '../../../helpers/shared.js';
@@ -15,6 +15,25 @@ describe('Performance panel', () => {
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
     await assertElementScreenshotUnchanged(panel, 'performance/timeline.png', 3);
+  });
+
+  itScreenshot('renders the timeline correctly when scrolling', async () => {
+    await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
+    const {frontend} = getBrowserAndPages();
+    await waitFor('.timeline-flamechart');
+    const panel = await waitFor('body');
+    const {x, y} = await panel.evaluate(
+        p => {
+          const {x, width, y, height} = p.getBoundingClientRect();
+          return {x: x + width / 2, y: y + height / 2};
+        },
+    );
+    await frontend.mouse.move(x, y);
+    await frontend.keyboard.down('Shift');
+    await frontend.mouse.wheel({deltaY: 200});
+    await frontend.keyboard.up('Shift');
+
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline_canvas_scrolldown.png', 3);
   });
 
   itScreenshot('loads a cpuprofile and renders it in non-node mode', async () => {
