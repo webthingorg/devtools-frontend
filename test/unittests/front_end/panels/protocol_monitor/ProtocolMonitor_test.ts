@@ -58,19 +58,19 @@ describe('ProtocolMonitor', () => {
     it('parses non-JSON data as a command name', async () => {
       assert.deepStrictEqual(ProtocolMonitor.ProtocolMonitor.parseCommandInput('Input.dispatchMouseEvent'), {
         command: 'Input.dispatchMouseEvent',
-        parameters: null,
+        parameters: {},
       });
     });
   });
 
   describe('HistoryAutocompleteDataProvider', () => {
     it('should create completions with no history', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.HistoryAutocompleteDataProvider();
+      const provider = new ProtocolMonitor.ProtocolMonitor.AutoCompleteDataAndSuggestionProvider();
       assert.deepStrictEqual(await provider.buildTextPromptCompletions('test', 'test'), []);
     });
 
     it('should build completions in the reverse insertion order', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.HistoryAutocompleteDataProvider();
+      const provider = new ProtocolMonitor.ProtocolMonitor.AutoCompleteDataAndSuggestionProvider();
 
       provider.addEntry('test1');
       provider.addEntry('test2');
@@ -90,7 +90,7 @@ describe('ProtocolMonitor', () => {
     });
 
     it('should limit the number of completions', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.HistoryAutocompleteDataProvider(2);
+      const provider = new ProtocolMonitor.ProtocolMonitor.AutoCompleteDataAndSuggestionProvider(2);
 
       provider.addEntry('test1');
       provider.addEntry('test2');
@@ -103,14 +103,16 @@ describe('ProtocolMonitor', () => {
     });
 
     it('should correctly creates a set of CDP commands', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.HistoryAutocompleteDataProvider(2);
+      const provider = new ProtocolMonitor.ProtocolMonitor.AutoCompleteDataAndSuggestionProvider(2);
       const domains = [
         {
           domain: 'Test',
+          commandParameters: {},
           invoke_test: () => {},
         },
         {
           domain: 'Test2',
+          commandParameters: {},
           invoke_test2: () => {},
           invoke_test3: () => {},
         },
