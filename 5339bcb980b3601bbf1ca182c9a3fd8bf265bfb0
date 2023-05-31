@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d71602c_51d6e684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-05-31T12:28:43Z",
+      "side": 1,
+      "message": "lgtm pending screenshot updates - thanks for the speedy fix!",
+      "revId": "5339bcb980b3601bbf1ca182c9a3fd8bf265bfb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
