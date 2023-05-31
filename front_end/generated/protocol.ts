@@ -1089,6 +1089,7 @@ export namespace Audits {
     Canceled = 'Canceled',
     RpPageNotVisible = 'RpPageNotVisible',
     SilentMediationFailure = 'SilentMediationFailure',
+    ThirdPartyCookiesBlocked = 'ThirdPartyCookiesBlocked',
   }
 
   /**
@@ -13502,6 +13503,10 @@ export namespace Storage {
      */
     storageKey: string;
     /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13519,6 +13524,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
   }
 
   /**
@@ -17894,7 +17903,7 @@ export namespace Runtime {
     generateWebDriverValue?: boolean;
     /**
      * Specifies the result serialization. If provided, overrides
-     * `returnByValue` and `generateWebDriverValue`.
+     * `generatePreview`, `returnByValue` and `generateWebDriverValue`.
      */
     serializationOptions?: SerializationOptions;
   }
@@ -18029,7 +18038,7 @@ export namespace Runtime {
     generateWebDriverValue?: boolean;
     /**
      * Specifies the result serialization. If provided, overrides
-     * `returnByValue` and `generateWebDriverValue`.
+     * `generatePreview`, `returnByValue` and `generateWebDriverValue`.
      */
     serializationOptions?: SerializationOptions;
   }
