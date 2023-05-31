@@ -7445,6 +7445,10 @@ export namespace Network {
      */
     pushEnd: number;
     /**
+     * Started receiving response headers.
+     */
+    receiveHeadersStart: number;
+    /**
      * Finished receiving response headers.
      */
     receiveHeadersEnd: number;
@@ -13502,6 +13506,10 @@ export namespace Storage {
      */
     storageKey: string;
     /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
+    /**
      * Name of cache in origin.
      */
     cacheName: string;
@@ -13519,6 +13527,10 @@ export namespace Storage {
      * Storage key to update.
      */
     storageKey: string;
+    /**
+     * Storage bucket to update.
+     */
+    bucketId: string;
   }
 
   /**
@@ -17894,7 +17906,7 @@ export namespace Runtime {
     generateWebDriverValue?: boolean;
     /**
      * Specifies the result serialization. If provided, overrides
-     * `returnByValue` and `generateWebDriverValue`.
+     * `generatePreview`, `returnByValue` and `generateWebDriverValue`.
      */
     serializationOptions?: SerializationOptions;
   }
@@ -18029,7 +18041,7 @@ export namespace Runtime {
     generateWebDriverValue?: boolean;
     /**
      * Specifies the result serialization. If provided, overrides
-     * `returnByValue` and `generateWebDriverValue`.
+     * `generatePreview`, `returnByValue` and `generateWebDriverValue`.
      */
     serializationOptions?: SerializationOptions;
   }
