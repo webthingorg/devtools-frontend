@@ -33,6 +33,24 @@
       "message": "So if one of the reviewers has any clues for me about how to fix the broken builds, that\u0027d be great. I just followed the process in here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/deprecation/README.md",
       "revId": "67835b14fba6801f10aa3ce0be0d5301f34ab56f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c583f4_7a2fdffb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-05-31T06:30:08Z",
+      "side": 1,
+      "message": "Yeah, the roll contains a protocol change to a type and now TypeScript complains a bout a missing field.\n\nThe fix is to add the following line:\n\n```\nreceiveHeadersStart: timings.wait \u003e\u003d 0 ? lastEntry : -1,\n```\n\nhere: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/har/Importer.ts;l\u003d226;drc\u003d3a659b0711f52a2e200395b85f16ed9f266d1571\n\nThis\u0027ll require that you add \"DISABLE_THIRD_PARTY_CHECK\u003d\u003creason\u003e\" to the CL description, since we also update non-generated code. But that is fine.",
+      "parentUuid": "24d0246a_adeabed4",
+      "revId": "67835b14fba6801f10aa3ce0be0d5301f34ab56f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
