@@ -1060,7 +1060,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    */
   #drawDecorations(context: CanvasRenderingContext2D, timelineData: FlameChartTimelineData, indexes: number[]): void {
     const {entryTotalTimes, entryStartTimes, entryLevels} = timelineData;
-
+    context.save();
     for (let i = 0; i < indexes.length; ++i) {
       const entryIndex = indexes[i];
       const decorationsForEvent = timelineData.entryDecorations.at(entryIndex);
@@ -1095,9 +1095,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           if (candyStripePattern) {
             context.fillStyle = candyStripePattern;
             context.fill();
-            context.restore();
           }
-
+          context.restore();
         } else if (decoration.type === 'WARNING_TRIANGLE') {
           const barX = this.timeToPositionClipped(entryStartTime);
           const barLevel = entryLevels[entryIndex];

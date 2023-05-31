@@ -11,7 +11,7 @@ describe('Performance panel', () => {
   preloadForCodeCoverage('performance_panel/basic.html');
 
   itScreenshot('loads a trace file and renders it in the timeline', async () => {
-    await loadComponentDocExample('performance_panel/basic.html?trace=basic');
+    await loadComponentDocExample('performance_panel/basic.html?trace=animation');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
     await assertElementScreenshotUnchanged(panel, 'performance/timeline.png', 3);
