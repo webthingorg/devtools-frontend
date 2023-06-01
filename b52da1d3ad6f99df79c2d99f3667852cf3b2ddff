@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cca898e_dec236ed",
+        "filename": "front_end/panels/protocol_monitor/JSONPromptWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "let\u0027s drop the Widget suffix and let\u0027s find a more specific name like JSONPropertyEditor",
+      "range": {
+        "startLine": 12,
+        "startChar": 13,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b68e3ee7_e5197fa8",
+        "filename": "front_end/panels/protocol_monitor/JSONPromptWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "let\u0027s do the rendering the render method:\n\n```\nprotected override render(): LitHtml.TemplateResult|undefined {\n return template;\n}\n```",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe1ab827_fe414d35",
+        "filename": "front_end/panels/protocol_monitor/JSONPromptWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "let\u0027s initialise the prompt in the constructor, move the div rendering into the template and use https://lit.dev/docs/templates/directives/#ref to call this.textPrompt.attach(div)?",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27fc8d2d_e6eb411a",
+        "filename": "front_end/panels/protocol_monitor/JSONPromptWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "would we focus on each JSONPromptWidget that gets rendered?",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f861d5_4dc93198",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "let\u0027s have events to be dispatched/listened to on the editor widget instance: search for `extends Common.ObjectWrapper.eventMixin\u003cEventTypes, typeof UI.Widget.VBox\u003e` to see how to do that.",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59b420f_373a6fc2",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "remove @ts-ignore",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7903b9f0_23ff57a0",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "is it not used? Please remove if not used.",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa7d002_7af5ee01",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "not used? Remove if not used.",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c63a07_bf872713",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "Command input should be an instance of JSONPrompt. Also, is there a reason why commands is plural?",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef1f475_25ff09e9",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:00Z",
+      "side": 1,
+      "message": "should we use Object.keys(parameters).length instead of 7?",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
