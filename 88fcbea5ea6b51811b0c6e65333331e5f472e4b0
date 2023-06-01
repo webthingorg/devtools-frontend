@@ -56,6 +56,30 @@
       },
       "revId": "88fcbea5ea6b51811b0c6e65333331e5f472e4b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17bf6df_4cb719d7",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-01T07:35:59Z",
+      "side": 1,
+      "message": "Nice catch! I renamed it half-way through the refactoring from `BreakpointManager` to `Breakpoints` (it\u0027s shorter and maybe we can split the BreakpointMangager.ts file.\n\nThe BreakpointsModule/Breakpoints distinction is needed in unit tests and the `breakpoints-legacy.ts` file. In the legacy file it\u0027s for consistency with other legacy files and in tests we first import the type into `BreakpointsModule` and dynamic import the module itself later.\n\nUpdated remaining `import * as BreakpointManager` though.",
+      "parentUuid": "b81f7bf9_5b9aefc5",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 29
+      },
+      "revId": "88fcbea5ea6b51811b0c6e65333331e5f472e4b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
