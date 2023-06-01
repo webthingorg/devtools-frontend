@@ -162,6 +162,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25e7d2b3_bf78468a",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T15:25:29Z",
+      "side": 1,
+      "message": "nit: add a new line after the method before `private onKeydownCallback`",
+      "revId": "b52da1d3ad6f99df79c2d99f3667852cf3b2ddff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ef1f475_25ff09e9",
         "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
         "patchSetId": 8
