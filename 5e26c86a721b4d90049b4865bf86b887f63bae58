@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b74c35d_b05d8854",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-06-01T12:53:20Z",
+      "side": 1,
+      "message": "LGTM, left a couple suggestions",
+      "revId": "5e26c86a721b4d90049b4865bf86b887f63bae58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b14fdc1_6a043bec",
+        "filename": "front_end/core/sdk/ServiceWorkerCacheModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-06-01T12:53:20Z",
+      "side": 1,
+      "message": "Would be easier to understand if this was named `cachesWithKey` or similar, since we are not counting storageKeys here",
+      "revId": "5e26c86a721b4d90049b4865bf86b887f63bae58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99497f11_9602ea41",
+        "filename": "front_end/core/sdk/ServiceWorkerCacheModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-06-01T12:53:20Z",
+      "side": 1,
+      "message": "Suggestion: `cache of caches` or `cacheJson of cacheJsons`?",
+      "range": {
+        "startLine": 191,
+        "startChar": 14,
+        "endLine": 191,
+        "endChar": 38
+      },
+      "revId": "5e26c86a721b4d90049b4865bf86b887f63bae58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
