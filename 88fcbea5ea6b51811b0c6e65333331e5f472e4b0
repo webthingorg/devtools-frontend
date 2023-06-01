@@ -16,6 +16,46 @@
       "message": "Friendly ping :P",
       "revId": "88fcbea5ea6b51811b0c6e65333331e5f472e4b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb38c705_288bccba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-06-01T07:24:33Z",
+      "side": 1,
+      "message": "Thank you! Looks great, just one question about the import name.",
+      "revId": "88fcbea5ea6b51811b0c6e65333331e5f472e4b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b81f7bf9_5b9aefc5",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-06-01T07:24:33Z",
+      "side": 1,
+      "message": "Nit: In the vast majority of the other modules, the module name is the same as the imported name. Any reason why this one is different? (I mean: how about s/BreakpointManager/Breakpoints/ ?)\n\n(This applies to the other files in this CL, too. I see three different names being used: BreakpointManager, Breakpoints and BreakpointsModule. Perhaps we should use just one?)",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 29
+      },
+      "revId": "88fcbea5ea6b51811b0c6e65333331e5f472e4b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
