@@ -35,6 +35,6 @@ describe('Performance panel', () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline-long-task-candystripe.png', 2);
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline-long-task-candystripe.png', 0);
   });
 });
