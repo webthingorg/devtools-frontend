@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c21195fc_a319f101",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-01T02:27:44Z",
+      "side": 1,
+      "message": "But we do retain the backingStorage for objectSnapshot, yah? (in tracingmodel)\nfwiw, in my attempt I had tried removing that one too but it was more involved than expected.. and I failed to drop it completely.  But.. I checked and screenshot object snapshots still work. So your technique looks gucci.\n\nnice cleanup!",
+      "revId": "6b37c4eb928bb06fcb35c916c5372b1290bbc7a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "870dc9ba_f30e2936",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-01T02:27:44Z",
+      "side": 1,
+      "message": "good catch",
+      "revId": "6b37c4eb928bb06fcb35c916c5372b1290bbc7a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
