@@ -16,6 +16,86 @@
       "message": "PTAL. This rule is not enabled yet, I will do that in a follow up and tweak depending on how many false positives we get.",
       "revId": "ad4e9b1c6d386460e1682b51a3ddffad0d68196d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df694b6_76dd3088",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-01T15:09:46Z",
+      "side": 1,
+      "message": "I love the creativity you use to solve this with eslint!\n\nLGTM with nits/suggestions that could be tackled as follow ups",
+      "revId": "ad4e9b1c6d386460e1682b51a3ddffad0d68196d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a80d44_4f54b27d",
+        "filename": "scripts/eslint_rules/lib/canvas_context_tracking.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-01T15:09:46Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "ad4e9b1c6d386460e1682b51a3ddffad0d68196d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df85f19e_f129f921",
+        "filename": "scripts/eslint_rules/lib/canvas_context_tracking.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-01T15:09:46Z",
+      "side": 1,
+      "message": "so that we can take the opportunity to enforce the order of the calls too, wdyt if we store a stack of context calls for each scope instead of the counts? This way we would push to the stack whenever we see a `context.save()` and pop when we see `context.restore()`.\n\nWe would warn when the stack isn\u0027t empty at the end of a scope or if we see a `restore` when the stack is empty.\n\nfor example, this would save also save us in cases like\n```\ncontext.restore()\ncontext.save()\n```",
+      "range": {
+        "startLine": 28,
+        "startChar": 27,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "ad4e9b1c6d386460e1682b51a3ddffad0d68196d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b0ed5a_f8814a4e",
+        "filename": "scripts/eslint_rules/tests/canvas_context_tracking_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-01T15:09:46Z",
+      "side": 1,
+      "message": "in case you take the suggestion on the stack, we could add a test for the case in the comment",
+      "revId": "ad4e9b1c6d386460e1682b51a3ddffad0d68196d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
