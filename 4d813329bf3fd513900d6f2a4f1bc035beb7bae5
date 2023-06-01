@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bafba91_63f6f3de",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-06-01T11:44:10Z",
+      "side": 1,
+      "message": "Did this already land in Chromium `histograms.xml`?",
+      "revId": "4d813329bf3fd513900d6f2a4f1bc035beb7bae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
