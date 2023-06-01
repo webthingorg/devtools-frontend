@@ -175,7 +175,7 @@ export class TimelineJSProfileProcessor {
         // Force JS Samples to show up even if we are not inside a JS invocation event, because we
         // can be missing the start of JS invocation events if we start tracing half-way through.
         // Pretend we have a top-level JS invocation event.
-        fakeJSInvocation = true;
+        fakeJSInvocation = false;
         const stackDepthBefore = jsFramesStack.length;
         extractStackTrace(e);
         lockedJsStackDepth.push(stackDepthBefore);
