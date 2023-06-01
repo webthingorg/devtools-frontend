@@ -4,6 +4,7 @@
 
 import type * as DataGrid from '../../../ui/components/data_grid/data_grid.js';
 
+import {assertNotNullOrUndefined} from '../../../core/platform/platform.js';
 import * as Common from '../../../core/common/common.js';
 import * as ChromeLink from '../../../ui/components/chrome_link/chrome_link.js';
 import * as i18n from '../../../core/i18n/i18n.js';
@@ -171,11 +172,6 @@ class PreloadingUIUtils {
   }
 }
 
-interface FeatureFlags {
-  preloadingHoldback: boolean|null;
-  prerender2Holdback: boolean|null;
-}
-
 // Holds PreloadingModel of current context
 //
 // There can be multiple Targets and PreloadingModels and they switch as
@@ -200,6 +196,7 @@ class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.Pre
 
     this.model = model;
     this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
+    this.model.addEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.view.onWarningsUpdated, this.view);
   }
 
   initialize(): void {
@@ -213,14 +210,17 @@ class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.Pre
     }
 
     this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
+    this.model.removeEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.view.onWarningsUpdated, this.view);
     this.model = model;
     this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
+    this.model.addEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.view.onWarningsUpdated, this.view);
 
     this.view.render();
   }
 
   modelRemoved(model: SDK.PreloadingModel.PreloadingModel): void {
     model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
+    model.removeEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.view.onWarningsUpdated, this.view);
   }
 }
 
@@ -240,7 +240,6 @@ export class PreloadingView extends UI.Widget.VBox {
   private readonly preloadingDetails =
       new PreloadingComponents.PreloadingDetailsReportView.PreloadingDetailsReportView();
   private readonly usedPreloading = new PreloadingComponents.UsedPreloadingView.UsedPreloadingView();
-  private readonly featureFlagWarningsPromise: Promise<void>;
 
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
@@ -314,8 +313,6 @@ export class PreloadingView extends UI.Widget.VBox {
     );
     this.hsplitUsedPreloading.setMainWidget(this.hsplit);
     this.hsplitUsedPreloading.setSidebarWidget(usedPreloadingContainer);
-
-    this.featureFlagWarningsPromise = this.getFeatureFlags().then(x => this.onGetFeatureFlags(x));
   }
 
   private makeVsplit(left: HTMLElement, right: HTMLElement): UI.SplitWidget.SplitWidget {
@@ -388,45 +385,6 @@ export class PreloadingView extends UI.Widget.VBox {
         ruleSets,
       };
     }
-    // TODO(crbug.com/1384419): Add more information in PreloadEnabledState from
-    // backend to distinguish the details of the reasons why preloading is
-    // disabled.
-    const detailsMessage = document.createElement('div');
-    let shouldWarningBeShown = false;
-
-    if (this.modelProxy.model.isPreloadDisabledByPreference()) {
-      const preloadingSettingLink = new ChromeLink.ChromeLink.ChromeLink();
-      preloadingSettingLink.href = 'chrome://settings/cookies';
-      preloadingSettingLink.textContent = i18nString(UIStrings.preloadingPageSettings);
-      const extensionSettingLink = new ChromeLink.ChromeLink.ChromeLink();
-      extensionSettingLink.href = 'chrome://extensions';
-      extensionSettingLink.textContent = i18nString(UIStrings.extensionSettings);
-      detailsMessage.appendChild(i18n.i18n.getFormatLocalizedString(
-          str_, UIStrings.warningDetailPreloadingStateDisabled,
-          {PH1: preloadingSettingLink, PH2: extensionSettingLink}));
-      shouldWarningBeShown = true;
-    }
-
-    if (this.modelProxy.model.isPreloadDisabledByDatasaver()) {
-      const element = document.createElement('div');
-      element.append(i18nString(UIStrings.warningDetailPreloadingDisabledByDatasaver));
-      detailsMessage.appendChild(element);
-      shouldWarningBeShown = true;
-    }
-
-    if (this.modelProxy.model.isPreloadDisabledByBatterysaver()) {
-      const element = document.createElement('div');
-      element.append(i18nString(UIStrings.warningDetailPreloadingDisabledByBatterysaver));
-      detailsMessage.appendChild(element);
-      shouldWarningBeShown = true;
-    }
-
-    if (shouldWarningBeShown) {
-      // Clear infobarContainer if there is other warning, such as holdback
-      // related warnings.
-      this.infobarContainer.removeChildren();
-      this.showInfobar(i18nString(UIStrings.warningTitlePreloadingStateDisabled), detailsMessage);
-    }
   }
 
   render(): void {
@@ -480,31 +438,62 @@ export class PreloadingView extends UI.Widget.VBox {
     this.render();
   }
 
-  async getFeatureFlags(): Promise<FeatureFlags> {
-    const preloadingHoldbackPromise = this.modelProxy.model.target().systemInfo().invoke_getFeatureState({
-      featureState: 'PreloadingHoldback',
-    });
-    const prerender2HoldbackPromise = this.modelProxy.model.target().systemInfo().invoke_getFeatureState({
-      featureState: 'PrerenderHoldback',
-    });
-    return {
-      preloadingHoldback: (await preloadingHoldbackPromise).featureEnabled ?? null,
-      prerender2Holdback: (await prerender2HoldbackPromise).featureEnabled ?? null,
-    };
-  }
+  onWarningsUpdated(): void {
+    // TODO(crbug.com/1384419): Add more information in PreloadEnabledState from
+    // backend to distinguish the details of the reasons why preloading is
+    // disabled.
+    function createDisabledMessages(warnings: SDK.PreloadingModel.PreloadWarnings): HTMLDivElement|null {
+      const detailsMessage = document.createElement('div');
+      let shouldShowWarning = false;
 
-  // Shows warnings if features are disabled by feature flags.
-  private onGetFeatureFlags(flags: FeatureFlags): void {
-    if (flags.preloadingHoldback === true) {
-      this.showInfobar(
-          i18nString(UIStrings.warningTitlePreloadingDisabledByFeatureFlag),
-          i18nString(UIStrings.warningDetailPreloadingDisabledByFeatureFlag));
+      if (warnings.disabledByPreference) {
+        const preloadingSettingLink = new ChromeLink.ChromeLink.ChromeLink();
+        preloadingSettingLink.href = 'chrome://settings/cookies';
+        preloadingSettingLink.textContent = i18nString(UIStrings.preloadingPageSettings);
+        const extensionSettingLink = new ChromeLink.ChromeLink.ChromeLink();
+        extensionSettingLink.href = 'chrome://extensions';
+        extensionSettingLink.textContent = i18nString(UIStrings.extensionSettings);
+        detailsMessage.appendChild(i18n.i18n.getFormatLocalizedString(
+            str_, UIStrings.warningDetailPreloadingStateDisabled,
+            {PH1: preloadingSettingLink, PH2: extensionSettingLink}));
+        shouldShowWarning = true;
+      }
+
+      if (warnings.disabledByDataSaver) {
+        const element = document.createElement('div');
+        element.append(i18nString(UIStrings.warningDetailPreloadingDisabledByDatasaver));
+        detailsMessage.appendChild(element);
+        shouldShowWarning = true;
+      }
+
+      if (warnings.disabledByBatterySaver) {
+        const element = document.createElement('div');
+        element.append(i18nString(UIStrings.warningDetailPreloadingDisabledByBatterysaver));
+        detailsMessage.appendChild(element);
+        shouldShowWarning = true;
+      }
+
+      return shouldShowWarning ? detailsMessage : null;
     }
 
-    if (flags.prerender2Holdback === true) {
-      this.showInfobar(
-          i18nString(UIStrings.warningTitlePrerenderingDisabledByFeatureFlag),
-          i18nString(UIStrings.warningDetailPrerenderingDisabledByFeatureFlag));
+    const warnings = this.modelProxy.model.getWarnings();
+    assertNotNullOrUndefined(warnings);
+
+    const detailsMessage = createDisabledMessages(warnings);
+    if (detailsMessage !== null) {
+      this.showInfobar(i18nString(UIStrings.warningTitlePreloadingStateDisabled), detailsMessage);
+    } else {
+      if (warnings.featureFlagPreloadingHoldback) {
+        this.showInfobar(
+            i18nString(UIStrings.warningTitlePreloadingDisabledByFeatureFlag),
+            i18nString(UIStrings.warningDetailPreloadingDisabledByFeatureFlag));
+      }
+
+      if (warnings.featureFlagPrerender2Holdback) {
+        this.showInfobar(
+            i18nString(UIStrings.warningTitlePrerenderingDisabledByFeatureFlag),
+            i18nString(UIStrings.warningDetailPrerenderingDisabledByFeatureFlag));
+      }
     }
   }
 
@@ -540,8 +529,8 @@ export class PreloadingView extends UI.Widget.VBox {
     return this.usedPreloading;
   }
 
-  getFeatureFlagWarningsPromiseForTest(): Promise<void> {
-    return this.featureFlagWarningsPromise;
+  getWarningsUpdatedPromiseForTest(): Promise<void> {
+    return this.modelProxy.model.getWarningsUpdatedPromiseForTest();
   }
 
   setCheckboxFilterBySelectedRuleSetForTest(checked: boolean): void {
