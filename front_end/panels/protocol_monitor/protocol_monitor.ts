@@ -4,8 +4,10 @@
 
 import './ProtocolMonitor.js';
 
+import * as JSONPromptWidget from './JSONPromptWidget.js';
 import * as ProtocolMonitor from './ProtocolMonitor.js';
 
 export {
+  JSONPromptWidget,
   ProtocolMonitor,
 };
