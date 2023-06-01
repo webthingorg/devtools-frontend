@@ -1318,12 +1318,11 @@ export class TimelineModelImpl {
         let frame = this.pageFrames.get(data['frame']);
         if (!frame) {
           const parent = data['parent'] && this.pageFrames.get(data['parent']);
-          if (!parent) {
-            return;
-          }
           frame = new PageFrame(data);
           this.pageFrames.set(frame.frameId, frame);
-          parent.addChild(frame);
+          if (parent) {
+            parent.addChild(frame);
+          }
         }
         frame.update(event.startTime, data);
         return;

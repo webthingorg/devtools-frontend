@@ -865,12 +865,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
       this.showRecordingStarted();
 
-      const primaryTarget = await this.primaryTargetPromise;
-
+      const mainTarget = (SDK.TargetManager.TargetManager.instance().rootTarget() as SDK.Target.Target);
       if (UIDevtoolsUtils.isUiDevTools()) {
-        this.controller = new UIDevtoolsController(primaryTarget, this);
+        this.controller = new UIDevtoolsController(mainTarget, this);
       } else {
-        this.controller = new TimelineController(primaryTarget, this);
+        this.controller = new TimelineController(mainTarget, this);
       }
       this.setUIControlsEnabled(false);
       this.hideLandingPage();
