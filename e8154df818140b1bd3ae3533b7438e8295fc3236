@@ -16,6 +16,23 @@
       "message": "Jack could you also ptal?",
       "revId": "e8154df818140b1bd3ae3533b7438e8295fc3236",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d47a37_51f1cd89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-01T09:38:36Z",
+      "side": 1,
+      "message": "lgtm pending CQ being happy 😊",
+      "revId": "e8154df818140b1bd3ae3533b7438e8295fc3236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
