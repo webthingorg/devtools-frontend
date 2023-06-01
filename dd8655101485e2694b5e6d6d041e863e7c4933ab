@@ -16,6 +16,24 @@
       "message": "unrelated cleanup?",
       "revId": "dd8655101485e2694b5e6d6d041e863e7c4933ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6189d2f5_b995d024",
+        "filename": "front_end/panels/timeline/TimelineHistoryManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-01T06:53:31Z",
+      "side": 0,
+      "message": "The dispose() method on the model is now gone, because all it did was reset backing storage. So I deleted that method, and TypeScript led me here to remove this too.",
+      "parentUuid": "59148a8f_4c195815",
+      "revId": "dd8655101485e2694b5e6d6d041e863e7c4933ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
