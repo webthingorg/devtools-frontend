@@ -172,6 +172,7 @@ export class ViewportDataGrid<T> extends Common.ObjectWrapper.eventMixin<EventTy
     if (!this.updateIsFromUser && this.stickToBottom) {
       scrollTop = maxScrollTop;
     }
+    const holdFocusOnScroll = this.updateIsFromUser;
     this.updateIsFromUser = false;
     scrollTop = Math.min(maxScrollTop, scrollTop);
 
@@ -214,7 +215,9 @@ export class ViewportDataGrid<T> extends Common.ObjectWrapper.eventMixin<EventTy
       node.revealed = true;
       previousElement = element;
     }
-    (this.selectedNode?.elementInternal?.firstElementChild as HTMLElement)?.focus();
+    if (holdFocusOnScroll) {
+      (this.selectedNode?.elementInternal?.firstElementChild as HTMLElement)?.focus();
+    }
 
     this.setVerticalPadding(viewportState.topPadding, viewportState.bottomPadding);
     this.lastScrollTop = scrollTop;
