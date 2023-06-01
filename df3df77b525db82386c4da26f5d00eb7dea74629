@@ -1,0 +1,197 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "284854a3_d843225b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "Thanks, left a few comments!",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267f48e7_0fbbdd21",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "let\u0027s make a private attribute (starts with #) out of it and put it next to the #historyAutocompleteDataProvider",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5999c17b_50ce8322",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "Let\u0027s make it a private attribute like it was.",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b210cd3_07f14612",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "provide this.#historyAutocompleteDataProvider as a parameter to the constructor",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d4fa2e_10d083ea",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "Let\u0027s rename it to CommandAutocompleteSuggestionProvider?",
+      "range": {
+        "startLine": 602,
+        "startChar": 13,
+        "endLine": 602,
+        "endChar": 50
+      },
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe8c696_7772412c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "let\u0027s use Object.keys() to get all keys of agentPrototype.commandParameters",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6430b6fa_7c25d1ad",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "let\u0027s keep more specific names like domains and domain instead of iterator and agentPrototype",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d19f60c0_dbfcccf9",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "accept the data provider as a parameter",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c9b7227_0d5c5b89",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "Emit an event here and listen to it in the ProtocolMonitorImpl.",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa12cdf_53e3d0d1",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "let\u0027s turn it into a LitElement components? I suggest we move it to a separate file.",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16886dbb_5b14ee8f",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-01T10:02:04Z",
+      "side": 1,
+      "message": "let\u0027s provide the autocomplete provider as a parameter",
+      "revId": "df3df77b525db82386c4da26f5d00eb7dea74629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
