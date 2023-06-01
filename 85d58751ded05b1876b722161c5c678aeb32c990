@@ -33,6 +33,24 @@
       "message": "Hmm, looks like something is still broken (help!):\n\n\nTypeScript compilation failed. Used tsconfig gen/test/unittests/front_end/panels/application/application-tsconfig.json\n\n../../test/unittests/front_end/panels/application/ServiceWorkerCacheModel_test.ts(112,50): error TS2345: Argument of type \u0027{ origin: string; storageKey: string; cacheName: string; }\u0027 is not assignable to parameter of type \u0027CacheStorageContentUpdatedEvent\u0027.\n  Property \u0027bucketId\u0027 is missing in type \u0027{ origin: string; storageKey: string; cacheName: string; }\u0027 but required in type \u0027CacheStorageContentUpdatedEvent\u0027.\n../../test/unittests/front_end/panels/application/ServiceWorkerCacheModel_test.ts(124,47): error TS2345: Argument of type \u0027{ origin: string; storageKey: string; }\u0027 is not assignable to parameter of type \u0027CacheStorageListUpdatedEvent\u0027.\n  Property \u0027bucketId\u0027 is missing in type \u0027{ origin: string; storageKey: string; }\u0027 but required in type \u0027CacheStorageListUpdatedEvent\u0027.",
       "revId": "85d58751ded05b1876b722161c5c678aeb32c990",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5add42bb_f932b8e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-01T09:53:53Z",
+      "side": 1,
+      "message": "I apologize, this process is normally much less painful. I landed the roll here https://crrev.com/c/4577778 with a total of 3 manual changes required. I hope this unblocks you.",
+      "parentUuid": "68f8734e_43ab5208",
+      "revId": "85d58751ded05b1876b722161c5c678aeb32c990",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
