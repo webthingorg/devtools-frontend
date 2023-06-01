@@ -103,6 +103,30 @@
       },
       "revId": "11e5bbd1ad36bfffd545ad2f611e855ee4cfa3c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d75d96e_8abecd0b",
+        "filename": "test/unittests/front_end/ui/legacy/components/perf_ui/FlameChart_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-01T13:28:57Z",
+      "side": 1,
+      "message": "Added a test to make sure the highlight is hidden before we highlight an entry which I think covers this. Thanks!",
+      "parentUuid": "6fde1d08_e388344d",
+      "range": {
+        "startLine": 88,
+        "startChar": 59,
+        "endLine": 88,
+        "endChar": 66
+      },
+      "revId": "11e5bbd1ad36bfffd545ad2f611e855ee4cfa3c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
