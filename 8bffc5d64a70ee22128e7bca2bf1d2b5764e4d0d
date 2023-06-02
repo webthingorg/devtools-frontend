@@ -16,6 +16,23 @@
       "message": "Hey Danil, I\u0027ve encountered this bug a few times and wanted to give fixing it a shot. Can you take a look if it makes sense or not?\n\nIn addition to that, can you suggest which test we can add for this change?",
       "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652718d9_1a86bf84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-02T06:57:55Z",
+      "side": 1,
+      "message": "Can we have (at least e2e) tests for this?",
+      "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
