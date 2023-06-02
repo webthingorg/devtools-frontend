@@ -33,6 +33,24 @@
       "message": "I have a similar change here: https://crrev.com/c/4577778\n\nDo you know why your CL passes doesn\u0027t need the HAR or BFCache change?",
       "revId": "4a9012072cbec4cfef01fec9c61fede9bc3c287c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09f6947_a1c988cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-06-02T11:10:08Z",
+      "side": 1,
+      "message": "Oh, let\u0027s merge your change then.\n\nI manually excluded the problematic parts of the update from the roll, that\u0027s why no adaptions in the frontend repo are needed.",
+      "parentUuid": "5097389a_fa8ec9da",
+      "revId": "4a9012072cbec4cfef01fec9c61fede9bc3c287c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
