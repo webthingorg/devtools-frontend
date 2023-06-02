@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11955f76_be831ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-02T06:56:41Z",
+      "side": 1,
+      "message": "Hey Danil, I\u0027ve encountered this bug a few times and wanted to give fixing it a shot. Can you take a look if it makes sense or not?\n\nIn addition to that, can you suggest which test we can add for this change?",
+      "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
