@@ -69,6 +69,24 @@
       "parentUuid": "8264545b_bdd4f1a7",
       "revId": "fd3ca67204fb3aa4517a169425e49a7a570d310a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42bfc1dc_151799a9",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-02T09:57:15Z",
+      "side": 1,
+      "message": "Thanks for reviewing !",
+      "parentUuid": "0362cd15_a039740f",
+      "revId": "fd3ca67204fb3aa4517a169425e49a7a570d310a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
