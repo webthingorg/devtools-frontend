@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a47d395_f5ec1894",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-02T11:30:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5fb43efc_37751f41",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 31
+      },
+      "revId": "972e9b44ccd18ffeb4da204b8f81ae54dcc5c48c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1829fa48_965d2af2",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-02T11:27:46Z",
       "side": 1,
       "message": "other source code change - we now need to explicitly check if this value is a number.",
+      "range": {
+        "startLine": 423,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 100
+      },
+      "revId": "972e9b44ccd18ffeb4da204b8f81ae54dcc5c48c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56aaea14_d115aca6",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-02T11:30:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1829fa48_965d2af2",
       "range": {
         "startLine": 423,
         "startChar": 0,
