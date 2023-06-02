@@ -47,6 +47,10 @@ export const UIStrings = {
    */
   CSSSelectorInternalMediaControlsOverlayCastButton: "The `disableRemotePlayback` attribute should be used in order to disable the default Cast integration instead of using `-internal-media-controls-overlay-cast-button` selector.",
   /**
+   * @description Warning displayed to developers when a data: URL is assigned to SVG <use> to let them know that the support is deprecated.
+   */
+  DataUrlInSvgUse: "Support for data: URLs in SVG <use> element is deprecated and it will be removed in the future.",
+  /**
    * @description This warning occurs when a script modifies `document.domain` without having set on `Origin-Agent-Cluster` http header. In other words, when a script relies on the default behaviour of `Origin-Agent-Cluster` when setting document.domain.
    */
   DocumentDomainSettingWithoutOriginAgentClusterHeader: "Relaxing the same-origin policy by setting `document.domain` is deprecated, and will be disabled by default. To continue using this feature, please opt-out of origin-keyed agent clusters by sending an `Origin-Agent-Cluster: ?0` header along with the HTTP response for the document and frames. See https://developer.chrome.com/blog/immutable-document-domain/ for more details.",
@@ -54,10 +58,6 @@ export const UIStrings = {
    * @description Warning displayed to developers when non-standard Mutation Events are used. These are deprecated and will be removed.
    */
   DOMMutationEvents: "DOM Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified` are deprecated (https://w3c.github.io/uievents/#legacy-event-types) and will be removed. Please use `MutationObserver` instead.",
-  /**
-   * @description Warning displayed to developers when the non-standard `Event.path` API is used to notify them that this API is deprecated.
-   */
-  EventPath: "`Event.path` is deprecated and will be removed. Please use `Event.composedPath()` instead.",
   /**
    * @description This message is shown when the deprecated Expect-CT header is present.
    */
@@ -278,12 +278,12 @@ export const DEPRECATIONS_METADATA: Partial<Record<string, DeprecationDescriptor
     "chromeStatusFeature": 5083947249172480,
     "milestone": 127
   },
+  "DataUrlInSvgUse": {
+    "chromeStatusFeature": 5128825141198848,
+    "milestone": 119
+  },
   "DocumentDomainSettingWithoutOriginAgentClusterHeader": {
     "milestone": 115
-  },
-  "EventPath": {
-    "chromeStatusFeature": 5726124632965120,
-    "milestone": 109
   },
   "ExpectCTHeader": {
     "chromeStatusFeature": 6244547273687040,
