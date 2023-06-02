@@ -35,12 +35,10 @@
    const parsedCsp = (new CspParser(test)).csp;
    return checkFunction(parsedCsp);
  }
-
  describe('Test security checks', () => {
    /** Tests for csp.securityChecks.checkScriptUnsafeInline */
    it('CheckScriptUnsafeInlineInScriptSrc', () => {
      const test = 'default-src https:; script-src \'unsafe-inline\'';
-
      const violations = checkCsp(test, securityChecks.checkScriptUnsafeInline);
      expect(violations.length).toBe(1);
      expect(violations[0].severity).toBe(Severity.HIGH);
@@ -123,7 +121,6 @@
      expect(violations[0].directive).toBe(Directive.DEFAULT_SRC);
      expect(violations[1].directive).toBe(Directive.OBJECT_SRC);
    });
-
    it('CheckPlainUrlSchemesDangerousDirectivesOK', () => {
      const test =
          'default-src https:; object-src \'none\'; script-src \'none\'; ' +
@@ -140,21 +137,18 @@
      expect(violations.length).toBe(3);
      expect(violations.every((v) => v.severity === Severity.HIGH)).toBeTrue();
    });
-
    it('CheckWildcardsInObjectSrc', () => {
      const test = 'object-src * http://* //*';
      const violations = checkCsp(test, securityChecks.checkWildcards);
      expect(violations.length).toBe(3);
      expect(violations.every((v) => v.severity === Severity.HIGH)).toBeTrue();
    });
-
    it('CheckWildcardsInBaseUri', () => {
      const test = 'base-uri * http://* //*';
      const violations = checkCsp(test, securityChecks.checkWildcards);
      expect(violations.length).toBe(3);
      expect(violations.every((v) => v.severity === Severity.HIGH)).toBeTrue();
    });
-
    it('CheckWildcardsSchemesMixed', () => {
      const test = 'default-src *; object-src * ignore.me.com';
      const violations = checkCsp(test, securityChecks.checkWildcards);
@@ -163,7 +157,6 @@
      expect(violations[0].directive).toBe(Directive.DEFAULT_SRC);
      expect(violations[1].directive).toBe(Directive.OBJECT_SRC);
    });
-
    it('CheckWildcardsDangerousDirectivesOK', () => {
      const test = 'default-src *; object-src *.foo.bar; script-src \'none\'; ' +
          'base-uri \'none\'';
@@ -323,7 +316,6 @@
      expect(violations.length).toBe(1);
      expect(violations[0].severity).toBe(Severity.HIGH);
    });
-
    it('checkFlashObjectAllowlistBypassNoFlashBypass', () => {
      const test = 'object-src https://foo.bar';
      const violations =
@@ -331,7 +323,6 @@
      expect(violations.length).toBe(1);
      expect(violations[0].severity).toBe(Severity.MEDIUM_MAYBE);
    });
-
    it('checkFlashObjectAllowlistBypassSelfAllowed', () => {
      const test = 'object-src \'self\'';
      const violations =
@@ -341,12 +332,10 @@
      expect(violations[0].description)
          .toBe('Can you restrict object-src to \'none\' only?');
    });
-
    /** Tests for csp.securityChecks.checkIpSource */
    it('CheckIpSource', () => {
      const test =
          'script-src 8.8.8.8; font-src //127.0.0.1 https://[::1] not.an.ip';
-
      const violations = checkCsp(test, securityChecks.checkIpSource);
      expect(violations.length).toBe(3);
      expect(violations.every((v) => v.severity === Severity.INFO)).toBeTrue();
@@ -413,12 +402,10 @@
      expect(violations.length).toBe(1);
      expect(violations[0].severity).toBe(Severity.INFO);
    });
-
    /** Tests for csp.securityChecks.checkSrcHttp */
    it('CheckSrcHttp', () => {
      const test =
          'script-src http://foo.bar https://test.com; report-uri http://test.com';
-
      const violations = checkCsp(test, securityChecks.checkSrcHttp);
      expect(violations.length).toBe(2);
      expect(violations.every((v) => v.severity === Severity.MEDIUM)).toBeTrue();
