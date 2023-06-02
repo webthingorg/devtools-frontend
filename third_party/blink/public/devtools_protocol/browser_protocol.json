@@ -23544,11 +23544,6 @@
                         {
                             "name": "status",
                             "$ref": "PreloadingStatus"
-                        },
-                        {
-                            "name": "prerenderStatus",
-                            "optional": true,
-                            "$ref": "PrerenderFinalStatus"
                         }
                     ]
                 },

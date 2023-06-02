@@ -15769,7 +15769,6 @@ export namespace Preload {
   export interface PrerenderStatusUpdatedEvent {
     key: PreloadingAttemptKey;
     status: PreloadingStatus;
-    prerenderStatus?: PrerenderFinalStatus;
   }
 
   /**
