@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3daa138a_ab391735",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-02T18:55:19Z",
+      "side": 1,
+      "message": "We would want to translate this",
+      "range": {
+        "startLine": 752,
+        "startChar": 73,
+        "endLine": 752,
+        "endChar": 77
+      },
+      "revId": "23c0b2a987dcda2d43f372690d65cb243124eca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68622dc5_d2f09dc2",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-02T18:55:19Z",
+      "side": 1,
+      "message": "Please add a test verifying that we actually can show a CSP.",
+      "range": {
+        "startLine": 254,
+        "startChar": 7,
+        "endLine": 254,
+        "endChar": 11
+      },
+      "revId": "23c0b2a987dcda2d43f372690d65cb243124eca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
