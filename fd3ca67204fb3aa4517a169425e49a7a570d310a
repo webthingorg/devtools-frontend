@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ad7d5f_943239db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-02T09:46:02Z",
+      "side": 1,
+      "message": "Thanks, Alex, I was reviewing in person before, so I left for you to review 😊",
+      "parentUuid": "ebe25b3a_a47ddd1a",
+      "revId": "fd3ca67204fb3aa4517a169425e49a7a570d310a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8264545b_bdd4f1a7",
