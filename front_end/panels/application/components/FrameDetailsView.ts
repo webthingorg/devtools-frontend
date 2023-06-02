@@ -26,6 +26,7 @@ import type * as UI from '../../../ui/legacy/legacy.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as Protocol from '../../../generated/protocol.js';
+import * as CspEvaluator from '../../../third_party/csp_evaluator/csp_evaluator.js';
 
 import {OriginTrialTreeView, type OriginTrialTreeViewData} from './OriginTrialTreeView.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
@@ -110,6 +111,10 @@ const UIStrings = {
    *@description Section header in the Frame Details view
    */
   securityIsolation: 'Security & Isolation',
+  /**
+   *@description Section header in the Frame Details view
+   */
+  contentSecurityPolicy: 'Content Security Policy (CSP)',
   /**
    *@description Row title for in the Frame Details view
    */
@@ -655,7 +660,7 @@ export class FrameDetailsReportView extends
       <${ReportView.ReportView.ReportValue.litTagName}>
         ${this.#frame.isCrossOriginIsolated() ? i18nString(UIStrings.yes) : i18nString(UIStrings.no)}
       </${ReportView.ReportView.ReportValue.litTagName}>
-      ${LitHtml.Directives.until(this.#maybeRenderCoopCoepStatus(), LitHtml.nothing)}
+      ${LitHtml.Directives.until(this.#maybeRenderCoopCoepCSPStatus(), LitHtml.nothing)}
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
@@ -683,7 +688,7 @@ export class FrameDetailsReportView extends
     return null;
   }
 
-  async #maybeRenderCoopCoepStatus(): Promise<LitHtml.LitTemplate> {
+  async #maybeRenderCoopCoepCSPStatus(): Promise<LitHtml.LitTemplate> {
     if (this.#frame) {
       const model = this.#frame.resourceTreeModel().target().model(SDK.NetworkManager.NetworkManager);
       const info = model && await model.getSecurityIsolationStatus(this.#frame.id);
@@ -697,6 +702,7 @@ export class FrameDetailsReportView extends
             this.#maybeRenderCrossOriginStatus(
                 info.coop, i18n.i18n.lockedString('Cross-Origin Opener Policy (COOP)'),
                 Protocol.Network.CrossOriginOpenerPolicyValue.UnsafeNone)}
+          ${this.#maybeRenderCSPStatus(info.csp)}
         `;
       }
     }
@@ -724,6 +730,60 @@ export class FrameDetailsReportView extends
                    LitHtml.nothing}
       </${ReportView.ReportView.ReportValue.litTagName}>
     `;
+  }
+
+  parseEffectiveDirectives(directives: string): LitHtml.LitTemplate[] {
+    const parsed = directives ? new CspEvaluator.CspParser.CspParser(directives).csp : null;
+    const effectiveDirectives = [];
+    for (const directive in parsed?.directives) {
+      effectiveDirectives.push(
+          LitHtml.html`<div><b>${directive}</b>${': ' + parsed?.directives[directive]?.join(', ')}</div>`);
+    }
+    return effectiveDirectives;
+  }
+
+  #maybeRenderCSPStatus(infos: Protocol.Network.ContentSecurityPolicyStatus[]|undefined): LitHtml.LitTemplate {
+    if (!infos) {
+      return LitHtml.nothing;
+    }
+    const policies = [];
+    for (const info of infos) {
+      policies.push(LitHtml.html`
+      <${ReportView.ReportView.ReportKey.litTagName}>${
+          info.isEnforced ? i18n.i18n.lockedString('Content-Security-Policy') :
+                            i18n.i18n.lockedString('Content-Security-Policy-Report-Only')}
+      ${
+          info.isEnforced ?
+              '' :
+              LitHtml
+                  .html`<x-link class="report-only-link" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only">
+        <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
+                    iconName: 'help',
+                    color: 'var(--icon-default)',
+                    width: '16px',
+                    height: '16px',
+                  } as IconButton.Icon.IconData}>
+        </${IconButton.Icon.Icon.litTagName}>
+        </x-link>`}</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+      <${IconButton.Icon.Icon.litTagName} class="inline-icon" style="margin-bottom: -5px;" .data=${{
+        iconName: 'code',
+        color: 'var(--icon-default)',
+        width: '18px',
+        height: '18px',
+      } as IconButton.Icon.IconData}>
+      </${IconButton.Icon.Icon.litTagName}>
+      ${
+          info.source === Protocol.Network.ContentSecurityPolicySource.HTTP ? i18n.i18n.lockedString('HTTP header') :
+                                                                              i18n.i18n.lockedString('<Meta tag')}
+      ${this.parseEffectiveDirectives(info.effectiveDirectives)}
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      `);
+    }
+    return LitHtml.html`<${ReportView.ReportView.ReportSectionHeader.litTagName}>${
+        i18nString(UIStrings.contentSecurityPolicy)}
+                        </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+                        ${policies}`;
   }
 
   #renderApiAvailabilitySection(): LitHtml.LitTemplate {
