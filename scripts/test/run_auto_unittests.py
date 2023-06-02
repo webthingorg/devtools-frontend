@@ -70,6 +70,9 @@ def main():
     )
     args = parser.parse_args(sys.argv[1:])
 
+    #TODO: experiment, remove later
+    with open('./aaa', 'w') as fp:
+        fp.write('Example')
     efficiently_recompile.recompile(args.target, 'test/unittests')
     run_unittests.run_unit_tests_on_ninja_build_target(
         args.target, args.no_text_coverage, args.no_html_coverage,
