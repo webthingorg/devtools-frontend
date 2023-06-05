@@ -33,6 +33,42 @@
       "message": "Can we have (at least e2e) tests for this?",
       "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3200c1e7_1e447e50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-05T11:34:40Z",
+      "side": 1,
+      "message": "Hey Danil, added an E2E test however it is failing in STRESS\u003d1 mode and I\u0027m not sure exactly why. The other tests in the test suite is failing in stressors as well so I\u0027m not sure if it is an issue with the test itself or the helpers we have. WDYT?",
+      "parentUuid": "652718d9_1a86bf84",
+      "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "739d3d22_9e38fe25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-05T11:34:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "11955f76_be831ea3",
+      "revId": "8bffc5d64a70ee22128e7bca2bf1d2b5764e4d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
