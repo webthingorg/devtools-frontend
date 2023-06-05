@@ -33,6 +33,24 @@
       "message": "Can you elaborate on:\n* Why is the issue happening in the first place?\n* How does this change fix it?\n\nI\u0027m a bit lost trying to understand the fix. I\u0027ve tried it and it fixes in my local machine but I\u0027m not sure if we can make sure that if it doesn\u0027t break any other behavior. WDYT?",
       "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ea3971_44601a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-06-05T18:17:14Z",
+      "side": 1,
+      "message": "- Why is the issue happening in the first place?\n\nEach time a websocket message comes in, we update the network viewport to re-render with a new timestamp inside the update call. The default is to focus on the selected cell regardless of whether the user is actively somewhere else like in the console.\n\n- How does this change fix it?\n\nWe only limit focus to when the user is actively scrolling the network log view.",
+      "parentUuid": "911ff3d8_7612429c",
+      "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
