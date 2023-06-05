@@ -16,6 +16,23 @@
       "message": "Could you PTAL, Ergün? Thanks!",
       "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "911ff3d8_7612429c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-05T08:33:01Z",
+      "side": 1,
+      "message": "Can you elaborate on:\n* Why is the issue happening in the first place?\n* How does this change fix it?\n\nI\u0027m a bit lost trying to understand the fix. I\u0027ve tried it and it fixes in my local machine but I\u0027m not sure if we can make sure that if it doesn\u0027t break any other behavior. WDYT?",
+      "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
