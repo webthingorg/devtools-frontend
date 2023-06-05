@@ -255,6 +255,9 @@ export class Widget {
   onLayout(): void {
   }
 
+  onDetach(): void {
+  }
+
   async ownerViewDisposed(): Promise<void> {
   }
 
@@ -389,6 +392,9 @@ export class Widget {
     // overrideHideOnDetach will override hideOnDetach and the client takes
     // responsibility for the consequences.
     const removeFromDOM = overrideHideOnDetach || !this.shouldHideOnDetach();
+    if (removeFromDOM) {
+      this.onDetach();
+    }
     if (this.visibleInternal) {
       this.hideWidgetInternal(removeFromDOM);
     } else if (removeFromDOM && this.element.parentElement) {

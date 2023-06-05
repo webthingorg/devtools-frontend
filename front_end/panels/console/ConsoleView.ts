@@ -300,6 +300,8 @@ export class ConsoleView extends UI.Widget.VBox implements
   private readonly showCorsErrorsSetting: Common.Settings.Setting<boolean>;
   private readonly timestampsSetting: Common.Settings.Setting<unknown>;
   private readonly consoleHistoryAutocompleteSetting: Common.Settings.Setting<boolean>;
+
+  private hasBeenDetached = false;
   readonly pinPane: ConsolePinPane;
   private viewport: ConsoleViewport;
   private messagesElement: HTMLElement;
@@ -776,7 +778,14 @@ export class ConsoleView extends UI.Widget.VBox implements
     return;
   }
 
+  override onDetach(): void {
+    this.hasBeenDetached = true;
+  }
+
   private updateIssuesToolbarItem(): void {
+    if (this.hasBeenDetached) {
+      return;
+    }
     const manager = IssuesManager.IssuesManager.IssuesManager.instance();
     const issueEnumeration = IssueCounter.IssueCounter.getIssueCountsEnumeration(manager);
     const issuesTitleGotoIssues = manager.numberOfIssues() === 0 ?

@@ -49,7 +49,15 @@ export const resetTestDOM = () => {
   if (previousContainer) {
     previousContainer.remove();
   }
+};
 
+export const setupContainerForTestDOM = () => {
+  const container = document.getElementById(TEST_CONTAINER_ID);
+
+  if (container) {
+    assert.fail(`renderIntoDOM found ${TEST_CONTAINER_ID} that should have been cleared up by a previous test.`);
+    return;
+  }
   const newContainer = document.createElement('div');
   newContainer.id = TEST_CONTAINER_ID;
 

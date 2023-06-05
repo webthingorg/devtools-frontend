@@ -8,7 +8,7 @@
  */
 import type * as Common from '../../../../front_end/core/common/common.js';
 import * as ThemeSupport from '../../../../front_end/ui/legacy/theme_support/theme_support.js';
-import {resetTestDOM} from '../helpers/DOMHelpers.js';
+import {resetTestDOM, setupContainerForTestDOM} from '../helpers/DOMHelpers.js';
 import {markStaticTestsLoaded} from '../helpers/RealConnection.js';
 import * as TraceEngine from '../../../../front_end/models/trace/trace.js';
 import {
@@ -25,7 +25,6 @@ before(async function() {
 });
 
 beforeEach(() => {
-  resetTestDOM();
   // Ensure that no trace data leaks between tests when testing the trace engine.
   for (const handler of Object.values(TraceEngine.Handlers.ModelHandlers)) {
     handler.reset();
@@ -40,12 +39,15 @@ beforeEach(() => {
   } as Common.Settings.Setting<string>;
   ThemeSupport.ThemeSupport.instance({forceNew: true, setting});
 
+  setupContainerForTestDOM();
+
   startTrackingAsyncActivity();
 });
 
 afterEach(async () => {
   await checkForPendingActivity();
-  sinon.restore();
-  stopTrackingAsyncActivity();
   // Clear out any Sinon stubs or spies between individual tests.
+  sinon.restore();
+  resetTestDOM();
+  stopTrackingAsyncActivity();
 });

@@ -11,6 +11,7 @@ import type * as ProtocolProxyApi from '../../../../front_end/generated/protocol
 import {deinitializeGlobalVars, initializeGlobalVars} from './EnvironmentHelpers.js';
 
 import type * as SDK from '../../../../front_end/core/sdk/sdk.js';
+import {doubleRaf, resetTestDOM} from './DOMHelpers.js';
 
 export type ProtocolCommand = keyof ProtocolMapping.Commands;
 export type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['paramsType'];
@@ -151,7 +152,11 @@ export function describeWithMockConnection(title: string, fn: (this: Mocha.Suite
   return describe(title, function() {
     beforeEach(async () => await enable(opts));
     fn.call(this);
-    afterEach(disable);
+    afterEach(async () => {
+      resetTestDOM();
+      await new Promise<void>(resolve => requestIdleCallback(() => resolve()));
+      await disable();
+    });
   });
 }
 
@@ -162,6 +167,10 @@ describeWithMockConnection.only = function(title: string, fn: (this: Mocha.Suite
   return describe.only(title, function() {
     beforeEach(async () => await enable(opts));
     fn.call(this);
-    afterEach(disable);
+    afterEach(async () => {
+      resetTestDOM();
+      await new Promise<void>(resolve => requestIdleCallback(() => resolve()));
+      await disable();
+    });
   });
 };

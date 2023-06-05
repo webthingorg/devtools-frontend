@@ -13,11 +13,19 @@ import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
+import {renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
 describeWithMockConnection('ConsoleView', () => {
   let consoleView: Console.ConsoleView.ConsoleView;
+
+  function renderConsoleViewInDOM() {
+    const div = document.createElement('div');
+    renderElementIntoDOM(div);
+    consoleView.markAsRoot();
+    consoleView.show(div);
+  }
 
   beforeEach(() => {
     UI.ActionRegistration.maybeRemoveActionExtension('console.clear');
@@ -43,7 +51,11 @@ describeWithMockConnection('ConsoleView', () => {
     consoleView = Console.ConsoleView.ConsoleView.instance({forceNew: true, viewportThrottlerTimeout: 0});
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    // This test transitively schedules a task which may cause errors if the task
+    // is run without the environments set in this test. Thus wait for its completion
+    // before proceding to the next test.
+    await consoleView.getScheduledRefreshPromiseForTest();
     consoleView.detach();
     UI.ActionRegistration.maybeRemoveActionExtension('console.clear');
     UI.ActionRegistration.maybeRemoveActionExtension('console.clear.history');
@@ -132,8 +144,7 @@ describeWithMockConnection('ConsoleView', () => {
     beforeEach(() => {
       target = createTarget();
       SDK.TargetManager.TargetManager.instance().setScopeTarget(inScope ? target : null);
-      consoleView.markAsRoot();
-      consoleView.show(document.body);
+      renderConsoleViewInDOM();
     });
 
     it('adds messages', async () => {
@@ -171,8 +182,7 @@ describeWithMockConnection('ConsoleView', () => {
     const target = createTarget();
     SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
     const anotherTarget = createTarget();
-    consoleView.markAsRoot();
-    consoleView.show(document.body);
+    renderConsoleViewInDOM();
 
     const consoleModel = target.model(SDK.ConsoleModel.ConsoleModel);
     assertNotNullOrUndefined(consoleModel);
