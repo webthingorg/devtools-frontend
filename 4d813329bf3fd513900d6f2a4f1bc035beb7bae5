@@ -16,6 +16,24 @@
       "message": "Did this already land in Chromium `histograms.xml`?",
       "revId": "4d813329bf3fd513900d6f2a4f1bc035beb7bae5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b51687_717a42c9",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-05T11:38:04Z",
+      "side": 1,
+      "message": "Oh no, CL is here: crrev.com/c/4588189",
+      "parentUuid": "1bafba91_63f6f3de",
+      "revId": "4d813329bf3fd513900d6f2a4f1bc035beb7bae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
