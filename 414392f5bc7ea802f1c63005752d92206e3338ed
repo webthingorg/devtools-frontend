@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "759dd58d_1ee86131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-06-05T18:53:52Z",
+      "side": 1,
+      "message": "Hi Danil! This CL contains the front end changes for the Application panel. Let me know if I should tag someone else! Thank you!",
+      "revId": "414392f5bc7ea802f1c63005752d92206e3338ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
