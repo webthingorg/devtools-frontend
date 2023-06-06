@@ -70,6 +70,24 @@
       "parentUuid": "61f3dcd8_6fe5ce04",
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a3041a_eb2f225e",
+        "filename": "front_end/ui/components/docs/layout_pane/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-06T08:52:55Z",
+      "side": 0,
+      "message": "Previous version had a separation between UI and the controller logic. But I am not against merging it into a single component: what I am wondering about is the deleted front_end/ui/components/docs/layout_pane/basic.ts that does not allow to starting the layout pane component in isolation and iterating on it without the rest of DevTools. Up to you if you need that ability.",
+      "parentUuid": "449290ea_9e1d7583",
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
