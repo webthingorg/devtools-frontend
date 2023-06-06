@@ -88,6 +88,24 @@
       "parentUuid": "449290ea_9e1d7583",
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f285a7f_c59386f5",
+        "filename": "front_end/ui/components/docs/layout_pane/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-06T09:18:15Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "85a3041a_eb2f225e",
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
