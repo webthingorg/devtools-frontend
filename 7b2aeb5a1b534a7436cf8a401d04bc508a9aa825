@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d91832f_0808e84b",
+        "filename": "front_end/ui/components/docs/layout_pane/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-06T08:29:55Z",
+      "side": 0,
+      "message": "what is the reason for deleting the component doc?",
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
