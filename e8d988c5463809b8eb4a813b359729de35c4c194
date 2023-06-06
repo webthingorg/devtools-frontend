@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2be87c26_bdd847f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-06-06T05:24:00Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nNot sure if you meant to make this available for review right now.\n\nIf yes, then such a big CL surely deserves more context and a bug that motivates it. The description should roughly describe what was done, why it was done and what are the expected effects of the CL.",
+      "revId": "e8d988c5463809b8eb4a813b359729de35c4c194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
