@@ -338,13 +338,18 @@ export const waitForFunction = async<T>(fn: () => Promise<T|undefined>, asyncSco
   return await asyncScope.exec(async () => {
     while (true) {
       if (asyncScope.isCanceled()) {
+        console.log('async scope is cancelled');
         throw new Error('Test timed out');
       }
+      console.log('before fn');
       const result = await fn();
+      console.log('after fn');
       if (result) {
         return result;
       }
+      console.log('before timeout');
       await timeout(100);
+      console.log('after timeout');
     }
   });
 };
