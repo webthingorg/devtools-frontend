@@ -51,6 +51,24 @@
       "parentUuid": "911ff3d8_7612429c",
       "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6ec77c6_a632fd20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-06T09:25:37Z",
+      "side": 1,
+      "message": "Understood, thanks for the explanation! It seems like this approach still might cause distracting focus jumps:\n* Make sure that there are enough requests in the requests list that makes the list scrollable.\n* Focus on one of the requests, then focus on the console\n* Scroll the request list\n\nObserve that the console loses the focus and the previously focused element in the list receives focus.\n\nThis is also a regression and this behavior doesn\u0027t happen in stable (which I think is a better experience).\n\nI have a hunch that managing the focus on the re-renders manually might cause some unintended behavior as well.\n\nWhy was the reason we\u0027ve added the manual focus managing([1]) in the first place?\n\nSee the regression videos here: https://crbug.com/1393596#c13 and https://crbug.com/1393596#c14\n\n[1]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/data_grid/ViewportDataGrid.ts;l\u003d217?q\u003dviewportdatagrid.ts",
+      "parentUuid": "41ea3971_44601a1d",
+      "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
