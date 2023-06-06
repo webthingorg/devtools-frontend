@@ -52,6 +52,24 @@
       "parentUuid": "ee0d83df_59aae2a3",
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449290ea_9e1d7583",
+        "filename": "front_end/ui/components/docs/layout_pane/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-06T08:46:59Z",
+      "side": 0,
+      "message": "Sure, but what is the purpose of having such component?",
+      "parentUuid": "61f3dcd8_6fe5ce04",
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
