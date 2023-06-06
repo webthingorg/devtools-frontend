@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8d1217_5b911028",
+        "filename": "test/e2e/resources/network/infinite-requests.html",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-06-06T12:57:37Z",
+      "side": 1,
+      "message": "There is an underlying issue in Puppeteer where flooding protocol messages causes some promises to starve; it was consistently failing when the interval is 10ms. Making interval 100ms caused network messages to be more distant thus not showing the problem.\n\nThough, IMO, we should be able to fix this and regardless of Puppeteer getting flooded with protocol messages or not; it should resolve the promise.",
+      "revId": "b130b36577ed8dab9d8eb204f9f54f86d80db5fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
