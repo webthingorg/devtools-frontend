@@ -7,12 +7,15 @@ import {assert} from 'chai';
 import {$textContent, goTo, reloadDevTools, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
+  clearTimeWindow,
   getAllRequestNames,
+  getNumberOfRequests,
   getSelectedRequestName,
   navigateToNetworkTab,
   selectRequestByName,
   setCacheDisabled,
   setPersistLog,
+  setTimeWindow,
   waitForSelectedRequestChange,
   waitForSomeRequestsToAppear,
 } from '../helpers/network-helpers.js';
@@ -135,5 +138,30 @@ describe('The Network Tab', async function() {
 
     names = await getAllRequestNames();
     assert.deepStrictEqual(names, ['external_image.svg'], 'The right request names should appear in the list');
+  });
+
+  it.only('should continue receiving new requests after timeline filter is cleared', async () => {
+    console.log('before navigation');
+    await navigateToNetworkTab('infinite-requests.html');
+    console.log('after navigation');
+    await waitForSomeRequestsToAppear(2);
+    console.log('before set time window');
+    await setTimeWindow();
+    console.log('after set time window');
+    // After the time filter is set, only visible request is the html page.
+    assert.strictEqual(await getNumberOfRequests(), 1);
+    console.log('initial asserted');
+    await clearTimeWindow();
+    console.log('after clearing filter');
+    const numberOfRequestsAfterFilter = await getNumberOfRequests();
+    console.log('no requests after filter', numberOfRequestsAfterFilter);
+    // Time filter is cleared so the number of requests must be greater than 1.
+    assert.isTrue(numberOfRequestsAfterFilter > 1);
+
+    // After some time we expect new requests to come so it must be
+    // that the number of requests increased.
+    console.log('waiting for the final time');
+    await waitForSomeRequestsToAppear(numberOfRequestsAfterFilter + 1);
+    console.log('all done');
   });
 });
