@@ -33,15 +33,30 @@ export async function navigateToNetworkTab(testName: string) {
  * @param selector Optional. The selector to use to get the list of requests.
  */
 export async function waitForSomeRequestsToAppear(numberOfRequests: number) {
+  console.log('before waitForFunction');
   await waitForFunction(async () => {
+    console.log('before get all request names');
     const requests = await getAllRequestNames();
+    console.log("Requests length", requests);
+    console.log("Wanted requests", numberOfRequests);
+    console.log("names joined", requests.map(name => name ? name.trim() : '').join(''));
     return requests.length >= numberOfRequests && Boolean(requests.map(name => name ? name.trim() : '').join(''));
   });
+  console.log('after waitForFunction');
 }
 
 export async function getAllRequestNames() {
+  console.log('before $$');
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
-  return await Promise.all(requests.map(request => request.evaluate(r => r.childNodes[1].textContent)));
+  console.log('after $$');
+  const result = await Promise.all(requests.map(request => request.evaluate(r => r.childNodes[1].textContent)));
+  console.log('after result');
+  return result;
+}
+
+export async function getNumberOfRequests() {
+  const requests = await getAllRequestNames();
+  return requests.length;
 }
 
 export async function getSelectedRequestName() {
@@ -94,6 +109,16 @@ export async function setPersistLog(persist: boolean) {
 
 export async function setCacheDisabled(disabled: boolean): Promise<void> {
   await setCheckBox('[aria-label="Disable cache"]', disabled);
+}
+
+export async function setTimeWindow(): Promise<void> {
+  const overviewGridCursorArea = await waitFor('.overview-grid-cursor-area');
+  await overviewGridCursorArea.click({offset: {x: 0, y: 10}});
+}
+
+export async function clearTimeWindow(): Promise<void> {
+  const overviewGridCursorArea = await waitFor('.overview-grid-cursor-area');
+  await overviewGridCursorArea.click({count: 2});
 }
 
 export async function getTextFromHeadersRow(row: puppeteer.ElementHandle<Element>) {
