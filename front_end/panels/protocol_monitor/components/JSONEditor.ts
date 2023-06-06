@@ -1,6 +1,7 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+<<<<<<< HEAD
 import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
@@ -12,6 +13,12 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
+=======
+import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import type * as RecorderComponents from '../../recorder/components/components.js';
+import editorWidgetStyles from './JSONEditor.css.js';
+import '../../recorder/components/components.js';
+>>>>>>> a6dcf2954 (Update the code of the CDP command editor to Lit Element)
 
 const {html, Decorators, LitElement, Directives, nothing} = LitHtml;
 const {customElement, property, state} = Decorators;
