@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f34b68b_e4342f37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Nice! Left a few comments in line!",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b1f7651_e03eb5fa",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "We already have this logic in mocharc. Is there a way we can reuse that?",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993b0f45_9ff65e00",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Is divide_run used anywhere else? if not, let\u0027s move the code here for locality.",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7403e45e_ac371c18",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Can we enable this by default and disable it on the bots?",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68adf3c9_7666a767",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Does this work in parallel? Won\u0027t there be a race when updating the file?",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3813739_1542f008",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Would it make sense to emit the screenshots in the build directory somewhere? Then you wouldn\u0027t have to .gitignore it.",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d7e701_0d8c935c",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "This doesn\u0027t work on windows, does it?\n\nI think I\u0027d prefer a non-shell solution, i.e.:\n- pass a proper env instead of puting the HTML_OUTPUT_FILE variable into the command\n- collect the stderr/stdout output from python and write it to a file",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0762ab42_be47a3c0",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Why not just `json.loads` the entire line and look at the structured data? using startswith like this feels a little brittle to me.",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d2c95e_1a4d6ae4",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-06T11:57:49Z",
+      "side": 1,
+      "message": "Would it make sense to verify whether the terminal actually supports color? If I look at the output in, e.g., the browser, won\u0027t i see tons of control characters everywhere?",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
