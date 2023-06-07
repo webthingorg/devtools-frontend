@@ -34,7 +34,7 @@ export class FilmStripModel {
       if (event.startTime < this.#zeroTimeInternal) {
         continue;
       }
-      if (!event.hasCategory(category)) {
+      if (!event.hasCategory(DEVTOOLS_SCREENSHOT_CATEGORY)) {
         continue;
       }
       if (event.name === TraceEvents.CaptureFrame) {
@@ -61,14 +61,25 @@ export class FilmStripModel {
   }
 
   frameByTimestamp(timestamp: number): Frame|null {
-    const index = Platform.ArrayUtilities.upperBound(
-                      this.#framesInternal, timestamp, (timestamp, frame) => timestamp - frame.timestamp) -
-        1;
+    // Find the index of the first frame that has a timestamp which is greater
+    // than the provided timestamp.
+    const closestFrameIndexAfterSearchTimestamp =
+        Platform.ArrayUtilities.nearestIndexFromBeginning(this.#framesInternal, frame => {
+          return frame.timestamp - timestamp > 0;
+        });
+    if (closestFrameIndexAfterSearchTimestamp === null) {
+      return null;
+    }
+    // Once we have the frame that is cloest but AFTER the search timestamp, we
+    // now move back one to get the frame closest to the timestamp that we know
+    // happened before the search timestamp, as this is the most optimal
+    // screenshot to use.
+    const index = closestFrameIndexAfterSearchTimestamp - 1;
     return index >= 0 ? this.#framesInternal[index] : null;
   }
 }
 
-const category = 'disabled-by-default-devtools.screenshot';
+const DEVTOOLS_SCREENSHOT_CATEGORY = 'disabled-by-default-devtools.screenshot';
 
 const TraceEvents = {
   CaptureFrame: 'CaptureFrame',
