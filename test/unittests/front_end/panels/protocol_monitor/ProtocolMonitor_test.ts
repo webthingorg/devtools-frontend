@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 const {assert} = chai;
-
 import * as ProtocolMonitor from '../../../../../front_end/panels/protocol_monitor/protocol_monitor.js';
 
 describe('ProtocolMonitor', () => {
@@ -141,7 +140,7 @@ describe('ProtocolMonitor', () => {
     });
   });
 
-  describe('EditorWidget', () => {
+  describe('EditorWidget', async () => {
     it('output correctly the CDP commands inside the Sidebar Panel', async () => {
       const command = 'Network.continueInterceptedRequest';
       const parameters = {
@@ -163,10 +162,13 @@ describe('ProtocolMonitor', () => {
       const commandAutocompleteSuggestionProvider =
           new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
       const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget(commandAutocompleteSuggestionProvider);
+      editorWidget.promptContainer.connectedCallback();
       editorWidget.setCommand(command, parameters);
-      const JSONPromptEditors = editorWidget.promptList?.querySelectorAll('.json-prompt');
+      await editorWidget.promptContainer.updateComplete;
+      const shadowRoot = editorWidget.promptContainer.renderRoot;
+      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
       const numberOfCommandPromptEditor = 1;
-      assert.deepStrictEqual(JSONPromptEditors.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
     });
   });
 });
