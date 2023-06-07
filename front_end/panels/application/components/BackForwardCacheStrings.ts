@@ -669,4 +669,5 @@ export const NotRestoredReasonDescription = {
   'AuthorizationHeader': {name: i18nLazyString(UIStrings.authorizationHeader)},
   'IndexedDBEvent': {name: i18nLazyString(UIStrings.indexedDBEvent)},
   'CookieDisabled': {name: i18nLazyString(UIStrings.cookieDisabled)},
+  'WebSerial': {name: i18nLazyString(UIStrings.internalError)}, // FIXME
 };
