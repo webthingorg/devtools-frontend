@@ -7,6 +7,7 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as DataGrid from '../../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
@@ -57,7 +58,7 @@ export interface BounceTrackingMitigationsViewData {
   trackingSites: string[];
 }
 
-export class BounceTrackingMitigationsView extends HTMLElement {
+export class BounceTrackingMitigationsView extends LegacyWrapper.LegacyWrapper.WrappableComponent {
   static readonly litTagName = LitHtml.literal`devtools-bounce-tracking-mitigations-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #trackingSites: string[] = [];
