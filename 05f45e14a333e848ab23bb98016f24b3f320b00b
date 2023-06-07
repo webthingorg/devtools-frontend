@@ -87,6 +87,24 @@
       "parentUuid": "d6ec77c6_a632fd20",
       "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe224a4_666e652c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-06-07T18:34:57Z",
+      "side": 1,
+      "message": "Thanks for the catch! I\u0027m fine with reverting it all back and finding a solution that addresses all the issues from the start. However, I do think something would eventually give because the network log grid wasn\u0027t initially written to handle focusing on descendent cells \u0026 rows in the grid. Before the initial bug fix (which sets the tabIndex attribute) to allow the cells be picked up via the voice access tool), no descendent of the dataGrid was intended to be focusable. The platform assumed that the focused element was always the focusable ancestor of the clicked row/cell item which was the datagrid element. \n\nWith this, the entire original architecture was based on the premise that the DataGrid element was what should be focused and that none of its descendants can be focused. I think this premise is now false with the tabindex set on the grid cell.",
+      "parentUuid": "63f0add2_ffb68e68",
+      "revId": "05f45e14a333e848ab23bb98016f24b3f320b00b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
