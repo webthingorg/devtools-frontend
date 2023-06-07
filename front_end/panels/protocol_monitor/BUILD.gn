@@ -13,8 +13,8 @@ generate_css("css_files") {
 
 devtools_module("protocol_monitor") {
   sources = [
-    "JSONPromptEditor.ts",
     "ProtocolMonitor.ts",
+    "util.ts",
   ]
 
   deps = [
@@ -28,6 +28,7 @@ devtools_module("protocol_monitor") {
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/source_frame:bundle",
     "../../ui/lit-html:bundle",
+    "./components:bundle",
   ]
 }
 

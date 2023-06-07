@@ -1,0 +1,80 @@
+/*
+ * Copyright 2023 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+* {
+  box-sizing: border-box;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+devtools-editable-json-editor {
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: text;
+  display: inline-block;
+  line-height: 18px;
+  min-height: 18px;
+  min-width: 0.5em;
+  outline: none;
+  overflow-wrap: anywhere;
+}
+
+devtools-editable-json-editor:hover,
+devtools-editable-json-editor:focus {
+  box-shadow: 0 0 0 1px var(--color-details-hairline);
+  border-radius: 2px;
+}
+
+devtools-editable-json-editor[placeholder]:empty::before {
+  content: attr(placeholder);
+  color: var(--color-text-primary);
+  opacity: 50%;
+}
+
+devtools-editable-json-editor[placeholder]:empty:focus::before {
+  content: "";
+}
+
+devtools-suggestion-box-json-editor {
+  position: absolute;
+  visibility: hidden;
+  display: block;
+}
+
+devtools-editable-json-editor:focus ~ devtools-suggestion-box-json-editor {
+  visibility: visible;
+}
+
+.suggestions {
+  background-color: var(--color-background);
+  box-shadow: var(--drop-shadow);
+  min-height: 1em;
+  min-width: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  z-index: 100;
+}
+
+.suggestions > li {
+  padding: 1px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  font-family: var(--source-code-font-family);
+  font-size: var(--source-code-font-size);
+  color: var(--color-text-primary);
+}
+
+.suggestions > li:hover {
+  background-color: var(--item-hover-color);
+}
+
+.suggestions > li.selected {
+  background-color: var(--color-primary-old);
+  color: var(--color-background);
+}
