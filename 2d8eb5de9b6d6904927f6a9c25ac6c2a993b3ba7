@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba48a175_0b4f625a",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "I was not able to reuse the logic directly but I used a similar approach which cleans it up a little",
+      "parentUuid": "0b1f7651_e03eb5fa",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "993b0f45_9ff65e00",
         "filename": "scripts/test/run_test_suite_parallel.py",
         "patchSetId": 17
@@ -48,6 +66,24 @@
       "writtenOn": "2023-06-06T11:57:49Z",
       "side": 1,
       "message": "Is divide_run used anywhere else? if not, let\u0027s move the code here for locality.",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4ea016_348d558a",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "The reason why it is in a separate file is because we want to run it as a script from the recipe side. This script is for running in parallel locally. Would it be okay to keep it separate?",
+      "parentUuid": "993b0f45_9ff65e00",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f761071c_cbbf6780",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "sure, this is not run on the bots (it is for local runs only) so no need to change anything on the bots",
+      "parentUuid": "7403e45e_ac371c18",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68adf3c9_7666a767",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e553bbd_e285c622",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "AFAIK it does; when I ran `npm run auto-e2etest-parallel -- --iterations\u003d10 --jobs\u003d5 --test-file-pattern\u003dconsole/console-log_test.ts,console/console-last-result_test.ts` and made one test fail, the resulting html file showed ten failures with their corresponding screenshots.",
+      "parentUuid": "68adf3c9_7666a767",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3813739_1542f008",
@@ -99,6 +171,24 @@
       "writtenOn": "2023-06-06T11:57:49Z",
       "side": 1,
       "message": "Would it make sense to emit the screenshots in the build directory somewhere? Then you wouldn\u0027t have to .gitignore it.",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb053f7_b152863a",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "done, i put it in the out directory",
+      "parentUuid": "e3813739_1542f008",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9202105_614efefb",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "I now save the stdout directly in a the temp file but outputting the results as a stream on the terminal seems to be a bit complicated. Is there a way to do so and save the output to a file? please also note that this script is meant to only be run locally so I did not try it on a windows machine, maybe if we have an equivelant to `tee` on windows that would be a simpler solution?",
+      "parentUuid": "b2d7e701_0d8c935c",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0762ab42_be47a3c0",
         "filename": "scripts/test/run_test_suite_parallel.py",
         "patchSetId": 17
@@ -139,6 +247,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7e56c71_f7891ed2",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "Done (is it okay to catch the exception like this?)",
+      "parentUuid": "0762ab42_be47a3c0",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9d2c95e_1a4d6ae4",
         "filename": "scripts/test/run_test_suite_parallel.py",
         "patchSetId": 17
@@ -150,6 +276,24 @@
       "writtenOn": "2023-06-06T11:57:49Z",
       "side": 1,
       "message": "Would it make sense to verify whether the terminal actually supports color? If I look at the output in, e.g., the browser, won\u0027t i see tons of control characters everywhere?",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a618d47_597fe646",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-07T14:45:57Z",
+      "side": 1,
+      "message": "Done, let me know if the method is good.",
+      "parentUuid": "e9d2c95e_1a4d6ae4",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
