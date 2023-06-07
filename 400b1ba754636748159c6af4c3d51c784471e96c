@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81a0227b_77fd08e2",
+        "filename": "front_end/models/issues_manager/StylesheetLoadingIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-07T12:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ed81d76_82a04f4e",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "400b1ba754636748159c6af4c3d51c784471e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa77ebdc_1cd36333",

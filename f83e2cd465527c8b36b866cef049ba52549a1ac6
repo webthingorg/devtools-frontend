@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8581f6cd_0a2ffd3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-07T12:07:22Z",
+      "side": 1,
+      "message": "TW reviewed the text already!",
+      "parentUuid": "d9b1c7c8_ac55a9c9",
+      "revId": "f83e2cd465527c8b36b866cef049ba52549a1ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "663176a1_4232877b",
         "filename": "test/unittests/front_end/panels/issues/StylesheetLoadingIssue_test.ts",
         "patchSetId": 6
@@ -48,6 +66,30 @@
       "writtenOn": "2023-06-07T09:46:43Z",
       "side": 1,
       "message": "nit: `assert.lengthOf(stylesheetIssues, 1)` for more descriptive error message (here and below)",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "f83e2cd465527c8b36b866cef049ba52549a1ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc163d7e_01fdebc7",
+        "filename": "test/unittests/front_end/panels/issues/StylesheetLoadingIssue_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-07T12:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "663176a1_4232877b",
       "range": {
         "startLine": 38,
         "startChar": 11,
