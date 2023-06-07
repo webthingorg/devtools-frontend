@@ -90,19 +90,19 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
 
   static instance({forceNew, loadOverride, maxConcurrentLoads}: {
     forceNew: boolean,
-    loadOverride: (null|((arg0: string) => Promise<{
-                           success: boolean,
-                           content: string,
-                           errorDescription: Host.ResourceLoader.LoadErrorDescription,
-                         }>)),
-    maxConcurrentLoads: number,
+    loadOverride?: ((arg0: string) => Promise<{
+                      success: boolean,
+                      content: string,
+                      errorDescription: Host.ResourceLoader.LoadErrorDescription,
+                    }>),
+    maxConcurrentLoads?: number,
   } = {
     forceNew: false,
-    loadOverride: null,
+    loadOverride: undefined,
     maxConcurrentLoads: 500,
   }): PageResourceLoader {
     if (!pageResourceLoader || forceNew) {
-      pageResourceLoader = new PageResourceLoader(loadOverride, maxConcurrentLoads);
+      pageResourceLoader = new PageResourceLoader(loadOverride || null, maxConcurrentLoads ?? 500);
     }
 
     return pageResourceLoader;

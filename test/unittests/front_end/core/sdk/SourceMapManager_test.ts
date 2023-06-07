@@ -98,7 +98,7 @@ describe('SourceMapManager', () => {
 
   beforeEach(() => {
     SDK.TargetManager.TargetManager.instance({forceNew: true});
-    SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
   });
 
   afterEach(() => {

@@ -117,8 +117,7 @@ describeWithEnvironment('PageResourceLoader', () => {
       return;
     }
 
-    const loader =
-        SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
 
     const message =
         await loader
@@ -129,8 +128,7 @@ describeWithEnvironment('PageResourceLoader', () => {
   });
 
   it('blocks remote file paths with the default setting', async () => {
-    const loader =
-        SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
 
     const message =
         await loader.loadResource('file://host/source-map.js.map' as Platform.DevToolsPath.UrlString, initiator)
@@ -144,8 +142,7 @@ describeWithEnvironment('PageResourceLoader', () => {
       return;
     }
 
-    const loader =
-        SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
 
     const message =
         await loader
@@ -156,8 +153,7 @@ describeWithEnvironment('PageResourceLoader', () => {
   });
 
   it('allows remote file paths with the setting enabled', async () => {
-    const loader =
-        SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
     sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'loadNetworkResource')
         .callsFake((_url, _headers, streamId, callback) => {
           Host.ResourceLoader.streamWrite(streamId, 'content of the source map');
@@ -176,8 +172,7 @@ describeWithEnvironment('PageResourceLoader', () => {
       return;
     }
 
-    const loader =
-        SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
+    const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, maxConcurrentLoads: 1});
     sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'loadNetworkResource')
         .callsFake((_url, _headers, streamId, callback) => {
           Host.ResourceLoader.streamWrite(streamId, 'content of the source map');
@@ -219,7 +214,7 @@ describeWithMockConnection('PageResourceLoader', () => {
         Common.Settings.Settings.instance().moduleSetting('cacheDisabled').set(disableCache);
         const target = createTarget();
         const initiator = {target, frameId: null, initiatorUrl};
-        const loader = SDK.PageResourceLoader.PageResourceLoader.instance();
+        const loader = SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true});
         const [{options}, {content}] = await Promise.all([
           setupLoadingSourceMapsAsNetworkResource(),
           loader.loadResource(url, initiator),

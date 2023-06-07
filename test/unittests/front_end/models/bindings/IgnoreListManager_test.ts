@@ -122,7 +122,7 @@ describeWithMockConnection('IgnoreListManager', () => {
     const forceNew = true;
     const target = createTarget();
     const targetManager = target.targetManager();
-    SDK.PageResourceLoader.PageResourceLoader.instance({forceNew, maxConcurrentLoads: 1, loadOverride: null});
+    SDK.PageResourceLoader.PageResourceLoader.instance({forceNew, maxConcurrentLoads: 1});
     const workspace = Workspace.Workspace.WorkspaceImpl.instance();
     const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
     const debuggerWorkspaceBinding =
