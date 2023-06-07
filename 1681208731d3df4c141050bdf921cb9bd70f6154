@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "1681208731d3df4c141050bdf921cb9bd70f6154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee5c5cda_56caf1b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-07T14:10:19Z",
+      "side": 1,
+      "message": "lgtm! and agree that we should remove functionality we do not need right away.",
+      "revId": "1681208731d3df4c141050bdf921cb9bd70f6154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9f3117_94dab997",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-07T14:10:19Z",
+      "side": 1,
+      "message": "nit: discarded",
+      "range": {
+        "startLine": 352,
+        "startChar": 40,
+        "endLine": 352,
+        "endChar": 49
+      },
+      "revId": "1681208731d3df4c141050bdf921cb9bd70f6154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
