@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "980870b2_0cf6196f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-07T09:13:04Z",
+      "side": 1,
+      "message": "General feedback:\n\n1) please go over the code formatting and make it is proper \n2) make sure component names match the tag names\n3) do no duplicate existing components that are already re-usable",
+      "revId": "dfa5a823f6e2d556264933a412372391412c38d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1d8feb9_d6be7d23",
