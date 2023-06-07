@@ -16,6 +16,29 @@
       "message": "LGTM\n\nnote this test might also need a refactor eventually\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/inspector-protocol/tracing/user-marks.js",
       "revId": "d0ad37a044b8d2e570261b7a22c4dffa7e61ef44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753c1bad_7e3e4a6d",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-07T08:54:08Z",
+      "side": 1,
+      "message": "is there something we can link to here to explain the fact that we have to check both and provide more context?\n\nElse in a year we will wonder why we allow both INSTANT and MARK phases here.",
+      "range": {
+        "startLine": 741,
+        "startChar": 0,
+        "endLine": 741,
+        "endChar": 31
+      },
+      "revId": "d0ad37a044b8d2e570261b7a22c4dffa7e61ef44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
