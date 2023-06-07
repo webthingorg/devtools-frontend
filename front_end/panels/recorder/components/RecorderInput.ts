@@ -201,7 +201,7 @@ class SuggestionBox extends LitElement {
     }
 
     return html`<ul class="suggestions">
-      ${this.#suggestions.map((suggestion, index) => {
+      ${this.#suggestions.slice(0, 10).map((suggestion, index) => {
       return html`<li
           class=${classMap({
         selected: index === this.cursor,
