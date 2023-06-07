@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2a79f8b_2f23b2ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2023-06-07T12:12:29Z",
+      "side": 1,
+      "message": "Hey Danil - thanks for the help with this yesterday. I\u0027ve tested a number of scenarios and it seems to be working well, so opening a CL. PTAL :)",
+      "revId": "7eae3a400c71437410631acb66cd756abfe17d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
