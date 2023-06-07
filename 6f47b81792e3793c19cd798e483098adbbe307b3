@@ -39,6 +39,30 @@
       },
       "revId": "6f47b81792e3793c19cd798e483098adbbe307b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8717b9b7_a19ba219",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-07T09:38:06Z",
+      "side": 1,
+      "message": "I love this idea, but this is a bit bother for PreloadingTreeElement. (Currently it works well because both PreloadingView and PreloadingResultView are VBox.)\n\nLet me leave it now and revisit it after redesign works finished.",
+      "parentUuid": "346063a7_c548c47b",
+      "range": {
+        "startLine": 464,
+        "startChar": 0,
+        "endLine": 464,
+        "endChar": 58
+      },
+      "revId": "6f47b81792e3793c19cd798e483098adbbe307b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
