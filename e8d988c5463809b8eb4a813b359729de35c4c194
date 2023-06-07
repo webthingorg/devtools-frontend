@@ -16,6 +16,24 @@
       "message": "Hi Danil,\n\nNot sure if you meant to make this available for review right now.\n\nIf yes, then such a big CL surely deserves more context and a bug that motivates it. The description should roughly describe what was done, why it was done and what are the expected effects of the CL.",
       "revId": "e8d988c5463809b8eb4a813b359729de35c4c194",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d462670f_97a66366",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-07T07:56:48Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nYeah, I meant to send it but Gerrit doesn\u0027t do a great job in showing the diff here.\n\nWhat this does is actually quite simple and is a pure refactoring: we used to have a `BreakpointSidebarPane` UI.Widget that didn\u0027t do anything other than embedding `BreakpointsView` Lit component. When user performed some action, `BreakpointsView` Lit component would send an event, that `BreakpointSidebarPane` UI.Widget listened to and delegated handling to the `BreakpointsSidebarController`. \n\nThe reason for using events here, I suppose, is that `BreakpointsView` is in the `front_end/panels/sources/components`, while `BreakpointSidebarPane` and `BreakpointsSidebarController` are in `front_end/panels/sources` and since `sources` depend on `components`, `components` cannot depend on `sources` and thus cannot invoke methods directly.  \n\nNone of this makes much sense to me TBH.\n\nI\u0027ve implemented a `LegacyWrapper` UI.Widget previously that can wrap Lit component in a generic way.\n\nThis CL does the following:\n1) moves `BreakpointsSidebarController` with no changes from `front_end/panels/sources/BreakpointsSidebarPane.ts` to the `front_end/panels/sources/components/BreakpointsView.ts` file\n2) Removes `BreakpointsSidebarPane`. \n  2a) Replaces its usage with `LegacyWrapper\u003cBreakpointsView\u003e`\n  2b) Makes `BreakpointsView` call `BreakpointsSidebarController` directly instead of sending events that used to be handled by `BreakpointsSidebarPane`\n3) Updates the tests of `BreakpointsView` to account for 2b)\n4) Moves the tests of `BreakpointsSidebarController` from `BreakpointsSidebarPane_test.ts` to `BreakpointsView_test.ts`\n\nThe diff is so big because 1) and 4).\nHere\u0027s are diff of `BreakpointsSidebarPane.ts` and `BreakpointsView.ts`: \n https://diff.googleplex.com/#key\u003dUpVxPmEExc8O  \nand respective tests:  https://diff.googleplex.com/#key\u003dcQh3xsj9zfde",
+      "parentUuid": "2be87c26_bdd847f9",
+      "revId": "e8d988c5463809b8eb4a813b359729de35c4c194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
