@@ -16,6 +16,24 @@
       "message": "why is it changed?",
       "revId": "f4b766155fa7df358dfa7aa7889add1971276479",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f7e6b14_21f168cb",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-07T11:57:02Z",
+      "side": 1,
+      "message": "Let\u0027s not modify the recorder components as Recorder expects all suggestions to show up. Perhaps, let\u0027s add property that would allow limiting the number of suggestions or better fix the UI to make sure many suggestions can be shown.",
+      "parentUuid": "08d8e729_12e82d28",
+      "revId": "f4b766155fa7df358dfa7aa7889add1971276479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
