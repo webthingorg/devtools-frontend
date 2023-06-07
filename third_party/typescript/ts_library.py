@@ -264,7 +264,7 @@ def main():
         tsconfig['references'] = [{'path': src} for src in opts.deps]
     tsconfig['compilerOptions']['module'] = opts.module
     if (not opts.verify_lib_check):
-        tsconfig['compilerOptions']['skipLibCheck'] = True
+        tsconfig['compilerOptions']['skipLibCheck'] = False
     tsconfig['compilerOptions']['rootDir'] = get_relative_path_from_output_directory(opts.front_end_directory)
     tsconfig['compilerOptions']['typeRoots'] = (
         opts.test_only or runs_in_node_environment
