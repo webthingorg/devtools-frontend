@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c97e554d_f8e1bff5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-08T08:25:04Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "bbd09dfc4bfe36a6eb46f8059c126ba11ee1304e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e17238_245162b8",
+        "filename": "test/unittests/front_end/core/sdk/FilmStripModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-08T08:25:04Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be the fourth frame?\n```suggestion\n    const timestampNearestFourthFrame \u003d frameTimestamps[3] + 10;\n    assert.strictEqual(filmStrip.frameByTimestamp(timestampNearestFourthFrame), filmStrip.frames().at(3));\n```",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 105
+      },
+      "revId": "bbd09dfc4bfe36a6eb46f8059c126ba11ee1304e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
