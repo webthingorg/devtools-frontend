@@ -39,6 +39,30 @@
       },
       "revId": "bbd09dfc4bfe36a6eb46f8059c126ba11ee1304e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3667f2_bff03410",
+        "filename": "test/unittests/front_end/core/sdk/FilmStripModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-08T09:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e17238_245162b8",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 105
+      },
+      "revId": "bbd09dfc4bfe36a6eb46f8059c126ba11ee1304e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
