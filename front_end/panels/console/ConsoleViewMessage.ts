@@ -538,7 +538,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
     }
     stackTraceElement.classList.add('hidden');
-    UI.ARIAUtils.setAccessibleName(
+    UI.ARIAUtils.setLabel(
         contentElement, `${messageElement.textContent} ${i18nString(UIStrings.stackMessageCollapsed)}`);
     UI.ARIAUtils.markAsGroup(stackTraceElement);
     this.expandTrace = (expand: boolean): void => {
@@ -546,7 +546,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       stackTraceElement.classList.toggle('hidden', !expand);
       const stackTableState =
           expand ? i18nString(UIStrings.stackMessageExpanded) : i18nString(UIStrings.stackMessageCollapsed);
-      UI.ARIAUtils.setAccessibleName(contentElement, `${messageElement.textContent} ${stackTableState}`);
+      UI.ARIAUtils.setLabel(contentElement, `${messageElement.textContent} ${stackTableState}`);
       UI.ARIAUtils.alert(stackTableState);
       UI.ARIAUtils.setExpanded(clickableElement, expand);
       this.traceExpanded = expand;
@@ -1286,7 +1286,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (this.contentElementInternal) {
       this.contentElementInternal.insertBefore(this.messageIcon, this.contentElementInternal.firstChild);
     }
-    UI.ARIAUtils.setAccessibleName(this.messageIcon, accessibleName);
+    UI.ARIAUtils.setLabel(this.messageIcon, accessibleName);
   }
 
   setAdjacentUserCommandResult(adjacentUserCommandResult: boolean): void {
@@ -1360,7 +1360,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     } else {
       accessibleName = i18nString(UIStrings.repeatS, {n: this.repeatCountInternal});
     }
-    UI.ARIAUtils.setAccessibleName(this.repeatCountElement, accessibleName);
+    UI.ARIAUtils.setLabel(this.repeatCountElement, accessibleName);
   }
 
   get text(): string {
