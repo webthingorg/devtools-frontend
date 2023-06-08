@@ -1053,11 +1053,6 @@ export const NativeFunctions = [
     receivers: ['SmartCardContext']
   },
   {
-    name: 'connect',
-    signatures: [['accessMode','?preferredProtocols']],
-    receivers: ['SmartCardReader']
-  },
-  {
     name: 'disconnect',
     signatures: [['?output'],['destinationNode','?output','?input'],['destinationParam','?output'],['destination','?output','?input']],
     receivers: ['AudioNode']
@@ -6859,7 +6854,7 @@ export const NativeFunctions = [
   },
   {
     name: 'joinAdInterestGroup',
-    signatures: [['group','durationSeconds']]
+    signatures: [['group','?durationSeconds']]
   },
   {
     name: 'leaveAdInterestGroup',

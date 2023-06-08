@@ -1101,6 +1101,40 @@ export namespace Audits {
     clientHintIssueReason: ClientHintIssueReason;
   }
 
+  export interface FailedRequestInfo {
+    /**
+     * The URL that failed to load.
+     */
+    url: string;
+    /**
+     * The failure message for the failed request.
+     */
+    failureMessage: string;
+  }
+
+  export const enum StyleSheetLoadingIssueReason {
+    LateImportRule = 'LateImportRule',
+    RequestFailed = 'RequestFailed',
+  }
+
+  /**
+   * This issue warns when a referenced stylesheet couldn't be loaded.
+   */
+  export interface StylesheetLoadingIssueDetails {
+    /**
+     * Source code position that referenced the failing stylesheet.
+     */
+    sourceCodeLocation: SourceCodeLocation;
+    /**
+     * Reason why the stylesheet couldn't be loaded.
+     */
+    styleSheetLoadingIssueReason: StyleSheetLoadingIssueReason;
+    /**
+     * Contains additional info when the failure was due to a request.
+     */
+    failedRequestInfo?: FailedRequestInfo;
+  }
+
   /**
    * A unique identifier for the type of issue. Each type may use one of the
    * optional fields in InspectorIssueDetails to convey more specific
@@ -1123,6 +1157,7 @@ export namespace Audits {
     ClientHintIssue = 'ClientHintIssue',
     FederatedAuthRequestIssue = 'FederatedAuthRequestIssue',
     BounceTrackingIssue = 'BounceTrackingIssue',
+    StylesheetLoadingIssue = 'StylesheetLoadingIssue',
   }
 
   /**
@@ -1147,6 +1182,7 @@ export namespace Audits {
     clientHintIssueDetails?: ClientHintIssueDetails;
     federatedAuthRequestIssueDetails?: FederatedAuthRequestIssueDetails;
     bounceTrackingIssueDetails?: BounceTrackingIssueDetails;
+    stylesheetLoadingIssueDetails?: StylesheetLoadingIssueDetails;
   }
 
   /**
@@ -9581,6 +9617,7 @@ export namespace Network {
   export const enum TrustTokenOperationDoneEventStatus {
     Ok = 'Ok',
     InvalidArgument = 'InvalidArgument',
+    MissingIssuerKeys = 'MissingIssuerKeys',
     FailedPrecondition = 'FailedPrecondition',
     ResourceExhausted = 'ResourceExhausted',
     AlreadyExists = 'AlreadyExists',
@@ -10543,11 +10580,9 @@ export namespace Page {
     ChUaPlatform = 'ch-ua-platform',
     ChUaModel = 'ch-ua-model',
     ChUaMobile = 'ch-ua-mobile',
-    ChUaFull = 'ch-ua-full',
     ChUaFullVersion = 'ch-ua-full-version',
     ChUaFullVersionList = 'ch-ua-full-version-list',
     ChUaPlatformVersion = 'ch-ua-platform-version',
-    ChUaReduced = 'ch-ua-reduced',
     ChUaWow64 = 'ch-ua-wow64',
     ChViewportHeight = 'ch-viewport-height',
     ChViewportWidth = 'ch-viewport-width',
@@ -11282,6 +11317,7 @@ export namespace Page {
     IndexedDBEvent = 'IndexedDBEvent',
     Dummy = 'Dummy',
     AuthorizationHeader = 'AuthorizationHeader',
+    WebSerial = 'WebSerial',
     ContentSecurityHandler = 'ContentSecurityHandler',
     ContentWebAuthenticationAPI = 'ContentWebAuthenticationAPI',
     ContentFileChooser = 'ContentFileChooser',
