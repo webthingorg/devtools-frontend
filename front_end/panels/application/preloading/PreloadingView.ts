@@ -185,49 +185,57 @@ class PreloadingUIUtils {
 //
 // Note that switching at the timing of activation triggers handing over
 // from the old model to the new model. See
-// PreloadingMoedl.onPrimaryPageChanged.
-class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel> {
+// PreloadingModel.onPrimaryPageChanged.
+class PreloadingModelProxy extends Common.ObjectWrapper.ObjectWrapper<SDK.PreloadingModel.EventTypes> implements
+    SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel> {
   model: SDK.PreloadingModel.PreloadingModel;
-  private readonly view: PreloadingView|PreloadingResultView;
-  private readonly warningsView: PreloadingWarningsView;
 
-  constructor(
-      model: SDK.PreloadingModel.PreloadingModel, view: PreloadingView|PreloadingResultView,
-      warningsView: PreloadingWarningsView) {
-    this.view = view;
-    this.warningsView = warningsView;
+  constructor(model: SDK.PreloadingModel.PreloadingModel) {
+    super();
 
     this.model = model;
-    this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.addEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
+    this.add();
+  }
+
+  private add(): void {
+    this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.onModelUpdated, this);
+    this.model.addEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.onWarningsUpdated, this);
+  }
+
+  private remove(): void {
+    this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.onModelUpdated, this);
+    this.model.removeEventListener(SDK.PreloadingModel.Events.WarningsUpdated, this.onWarningsUpdated, this);
   }
 
   initialize(): void {
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.PreloadingModel.PreloadingModel, this, {scoped: true});
   }
 
+  private onModelUpdated(): void {
+    this.dispatchEventToListeners(SDK.PreloadingModel.Events.ModelUpdated);
+  }
+
+  private onWarningsUpdated(event: Common.EventTarget.EventTargetEvent<SDK.PreloadingModel.PreloadWarnings>): void {
+    this.dispatchEventToListeners(SDK.PreloadingModel.Events.WarningsUpdated, event.data);
+  }
+
+  // Method for SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel>
   modelAdded(model: SDK.PreloadingModel.PreloadingModel): void {
     // Ignore models/targets of non-outermost frames like iframe/FencedFrames.
     if (model.target().outermostTarget() !== model.target()) {
       return;
     }
 
-    this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.removeEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
+    this.remove();
     this.model = model;
-    this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.addEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
+    this.add();
 
-    this.view.render();
+    this.onModelUpdated();
   }
 
-  modelRemoved(model: SDK.PreloadingModel.PreloadingModel): void {
-    model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    model.removeEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
+  // Method for SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel>
+  modelRemoved(_model: SDK.PreloadingModel.PreloadingModel): void {
+    this.remove();
   }
 }
 
@@ -250,7 +258,10 @@ export class PreloadingView extends UI.Widget.VBox {
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
 
-    this.modelProxy = new PreloadingModelProxy(model, this, this.warningsView);
+    this.modelProxy = new PreloadingModelProxy(model);
+    this.modelProxy.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.render, this);
+    this.modelProxy.addEventListener(
+        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
 
     // this (VBox)
     //   +- warningsContainer
@@ -464,7 +475,10 @@ export class PreloadingResultView extends UI.Widget.VBox {
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
 
-    this.modelProxy = new PreloadingModelProxy(model, this, this.warningsView);
+    this.modelProxy = new PreloadingModelProxy(model);
+    this.modelProxy.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.render, this);
+    this.modelProxy.addEventListener(
+        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
 
     this.warningsContainer = document.createElement('div');
     this.warningsContainer.classList.add('flex-none');
