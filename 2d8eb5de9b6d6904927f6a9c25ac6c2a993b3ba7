@@ -300,6 +300,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c8f0e8_59e4e994",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-09T09:31:05Z",
+      "side": 1,
+      "message": "Done, let me know if the approach needs to be changed",
+      "parentUuid": "89399054_ea01f82a",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0762ab42_be47a3c0",
