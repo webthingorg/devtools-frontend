@@ -10,6 +10,7 @@ import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js'
 
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import type * as TraceEngine from '../../models/trace/trace.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as Protocol from '../../generated/protocol.js';
@@ -48,7 +49,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   private timeSpan: number;
   private requests: TimelineModel.TimelineModel.NetworkRequest[];
   private maxLevel: number;
-  private model?: TimelineModel.TimelineModel.TimelineModelImpl|null;
+  private legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl|null;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private timelineDataInternal?: any;
@@ -56,9 +57,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   private endTime?: number;
   private lastSelection?: Selection;
   private priorityToValue?: Map<string, number>;
+  private traceEngineData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|null;
   constructor() {
     this.font = `${PerfUI.Font.DEFAULT_FONT_SIZE} ${PerfUI.Font.getFontFamilyForCanvas()}`;
-    this.setModel(null);
     this.style = {
       padding: 4,
       height: 17,
@@ -80,6 +81,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.requests = [];
     this.maxLevel = 0;
 
+    this.legacyTimelineModel = null;
+    this.traceEngineData = null;
+
     // In the event of a theme change, these colors must be recalculated.
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       this.style.color = ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary');
@@ -87,9 +91,13 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     });
   }
 
-  setModel(performanceModel: PerformanceModel|null): void {
-    this.model = performanceModel && performanceModel.timelineModel();
+  setModel(
+      performanceModel: PerformanceModel|null,
+      traceEngineData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|null): void {
     this.timelineDataInternal = null;
+
+    this.legacyTimelineModel = performanceModel && performanceModel.timelineModel();
+    this.traceEngineData = traceEngineData;
   }
 
   isEmpty(): boolean {
@@ -107,7 +115,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     }
     this.requests = [];
     this.timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    if (this.model) {
+    if (this.legacyTimelineModel) {
       this.appendTimelineData();
     }
     return this.timelineDataInternal;
@@ -299,11 +307,11 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   }
 
   private appendTimelineData(): void {
-    if (this.model) {
-      this.minimumBoundaryInternal = this.model.minimumRecordTime();
-      this.maximumBoundary = this.model.maximumRecordTime();
-      this.timeSpan = this.model.isEmpty() ? 1000 : this.maximumBoundary - this.minimumBoundaryInternal;
-      this.model.networkRequests().forEach(this.appendEntry.bind(this));
+    if (this.legacyTimelineModel) {
+      this.minimumBoundaryInternal = this.legacyTimelineModel.minimumRecordTime();
+      this.maximumBoundary = this.legacyTimelineModel.maximumRecordTime();
+      this.timeSpan = this.legacyTimelineModel.isEmpty() ? 1000 : this.maximumBoundary - this.minimumBoundaryInternal;
+      this.legacyTimelineModel.networkRequests().forEach(this.appendEntry.bind(this));
       this.updateTimelineData();
     }
   }
@@ -373,10 +381,10 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   navStartTimes(): Map<any, any> {
-    if (!this.model) {
+    if (!this.legacyTimelineModel) {
       return new Map();
     }
 
-    return this.model.navStartTimes();
+    return this.legacyTimelineModel.navStartTimes();
   }
 }
