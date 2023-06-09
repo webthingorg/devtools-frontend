@@ -87,6 +87,30 @@
       },
       "revId": "a0ef19a46443fd23db94d6c3dd94aea9ac7a7c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7131ccee_b25e6a0e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T14:22:39Z",
+      "side": 1,
+      "message": "Done. Ah I was thinking to edit all those files\u0027 private fields 😂",
+      "parentUuid": "c6832b9d_6fb52b34",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "a0ef19a46443fd23db94d6c3dd94aea9ac7a7c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
