@@ -196,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1a0408a_06c4f3d9",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-09T07:46:42Z",
+      "side": 1,
+      "message": "I think so, because in this example 5 processes are ran simultaneously with each one of them having two failures, and the resulting HTML file displayed 10 failures. Is there a different way to verify this?",
+      "parentUuid": "6c4be339_dcf6fbb3",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3813739_1542f008",
         "filename": "scripts/test/run_test_suite_parallel.py",
         "patchSetId": 17
