@@ -287,6 +287,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly recordReloadAction: UI.ActionRegistration.Action;
   private readonly historyManager: TimelineHistoryManager;
   private performanceModel: PerformanceModel|null;
+  #filmStripModel: SDK.FilmStripModel.FilmStripModel|null = null;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private disableCaptureJSProfileSetting: Common.Settings.Setting<any>;
@@ -739,9 +740,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.overviewControls.push(new TimelineEventOverviewResponsiveness());
     this.overviewControls.push(new TimelineEventOverviewCPUActivity());
     this.overviewControls.push(new TimelineEventOverviewNetwork());
-    if (this.showScreenshotsSetting.get() && this.performanceModel &&
-        this.performanceModel.filmStripModel().frames().length) {
-      this.overviewControls.push(new TimelineFilmStripOverview());
+    if (this.showScreenshotsSetting.get() && this.#filmStripModel && this.#filmStripModel.frames().length) {
+      this.overviewControls.push(new TimelineFilmStripOverview(this.#filmStripModel));
     }
     if (this.showMemorySetting.get()) {
       this.overviewControls.push(new TimelineEventOverviewMemory());
@@ -1058,7 +1058,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   private setModel(
       model: PerformanceModel|null, exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null,
-      newTraceEngineData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|null = null): void {
+      newTraceEngineData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration|null = null,
+      filmStripModel: SDK.FilmStripModel.FilmStripModel|null = null): void {
     if (this.performanceModel) {
       this.performanceModel.removeEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
     }
@@ -1069,7 +1070,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } else {
       this.searchableViewInternal.hideWidget();
     }
-    this.flameChart.setModel(model, newTraceEngineData);
+    this.flameChart.setModel(model, newTraceEngineData, filmStripModel);
 
     this.updateOverviewControls();
     this.overviewPane.reset();
@@ -1264,7 +1265,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         this.#executeNewTraceEngine(tracingModel, recordingIsFresh, this.performanceModel.recordStartTime()),
       ]);
       const traceParsedData = this.#traceEngineModel.traceParsedData();
-      this.setModel(this.performanceModel, exclusiveFilter, traceParsedData);
+      this.#filmStripModel = new SDK.FilmStripModel.FilmStripModel(tracingModel);
+      this.setModel(this.performanceModel, exclusiveFilter, traceParsedData, this.#filmStripModel);
       // This code path is only executed when a new trace is recorded/imported,
       // so we know that the active index will be the size of the model because
       // the newest trace will be automatically set to active.
@@ -1279,7 +1281,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         this.performanceModel.addEventListener(Events.NamesResolved, this.updateModelAndFlameChart, this);
       }
 
-      this.historyManager.addRecording(this.performanceModel, traceParsedData);
+      this.historyManager.addRecording(this.performanceModel, traceParsedData, this.#filmStripModel);
     } catch (error) {
       this.recordingFailed(error.message);
       console.error(error);
