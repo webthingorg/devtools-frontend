@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eea8d90_4dd72f4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "nits: we can add a [Protocol Monitor] to make it clear to other people that this change is about which panel",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b99d5fc_5194ad35",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "Please add a screenshot/screen recording to show what your change does",
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab60b06_b133cf84",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "do we need to change this to a public method?\nI remember we changed it to debug the test. Then we need to change it back.",
+      "range": {
+        "startLine": 402,
+        "startChar": 2,
+        "endLine": 402,
+        "endChar": 15
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1c650b_39ffdcb7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "why we need this method?\nCan we just reuse the `buildTextPromptCompletions`?",
+      "range": {
+        "startLine": 631,
+        "startChar": 7,
+        "endLine": 631,
+        "endChar": 10
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4aa452_3d687ce6",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this anymore?",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 1
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0160ccf9_4263fc9c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "We don\u0027t need `document.createElement`, instead we can directly call `new EditorElement()`\n\n```suggestion\n    this.promptContainer \u003d new EditorElement();\n```",
+      "range": {
+        "startLine": 722,
+        "startChar": 27,
+        "endLine": 722,
+        "endChar": 77
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670f952b_bc8848e2",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "We need to check meta key on Mac",
+      "range": {
+        "startLine": 727,
+        "startChar": 79,
+        "endLine": 727,
+        "endChar": 86
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aad32ec_8f2ef868",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "We should create a specific css file for each component",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0190d13_1e73c04e",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "what is this used for?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a63c20_da455110",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "```suggestion\nimport * as LitHtml from \u0027../../../ui/lit-html/lit-html.js\u0027;\nimport {type CommandAutocompleteSuggestionProvider} from \u0027../ProtocolMonitor.js\u0027;\nimport {type RecorderInput} from \u0027../../recorder/components/RecorderInput.js\u0027;\nimport editorWidgetStyles from \u0027../../recorder/components/stepEditor.css.js\u0027;\nimport \u0027../../recorder/components/RecorderInput.js\u0027;\n\nconst {html, Decorators, LitElement} \u003d LitHtml;\nconst {customElement, property, state} \u003d Decorators;\n```",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb75c462_f10300b2",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "Just a reminder here. Because this tag name is global. So make sure this name is not conflict with others",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76c27076_ef5a5b38",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "nits: Let\u0027s make this interface name more clear to let people not be confused with the command in L27",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36fc2bef_dccd72fb",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "When we want to reuse an existing component, we should also change the name of the component to a more general one, and maybe move it to somewhere that is shareable",
+      "range": {
+        "startLine": 34,
+        "startChar": 41,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaecc8c6_badd2aca",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T10:37:10Z",
+      "side": 1,
+      "message": "nits: this function and the next one looks pretty similar, we can add some comments to show what this function does.\n```suggestion\n  /**\n   * XXXX\n   * @returns XXX\n   */\n  #renderParameterRow(): LitHtml.TemplateResult|undefined {\n```",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
