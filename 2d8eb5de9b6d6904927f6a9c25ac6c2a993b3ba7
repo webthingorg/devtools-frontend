@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b67dcc_e6089bf5",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-09T06:50:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc4ea016_348d558a",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7403e45e_ac371c18",
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "AFAIK it does; when I ran `npm run auto-e2etest-parallel -- --iterations\u003d10 --jobs\u003d5 --test-file-pattern\u003dconsole/console-log_test.ts,console/console-last-result_test.ts` and made one test fail, the resulting html file showed ten failures with their corresponding screenshots.",
       "parentUuid": "68adf3c9_7666a767",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4be339_dcf6fbb3",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-09T06:50:46Z",
+      "side": 1,
+      "message": "Do the failures come from multiple threads/processes then?",
+      "parentUuid": "6e553bbd_e285c622",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -230,6 +266,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89399054_ea01f82a",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-09T06:50:46Z",
+      "side": 1,
+      "message": "You would have to manually implement the tee-like behavior, i.e., use a PIPE and keep reading from the streams, outputting to the terminal and the files simultaneously",
+      "parentUuid": "e9202105_614efefb",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0762ab42_be47a3c0",
         "filename": "scripts/test/run_test_suite_parallel.py",
         "patchSetId": 17
@@ -259,6 +313,24 @@
       "side": 1,
       "message": "Done (is it okay to catch the exception like this?)",
       "parentUuid": "0762ab42_be47a3c0",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b96c6bc_aa5308f0",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-09T06:50:46Z",
+      "side": 1,
+      "message": "Yes I\u0027d say that\u0027s fine!",
+      "parentUuid": "c7e56c71_f7891ed2",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
