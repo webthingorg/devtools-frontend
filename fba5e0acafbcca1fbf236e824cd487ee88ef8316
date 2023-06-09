@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83638d3e_1bb20f66",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-09T05:29:30Z",
+      "side": 1,
+      "message": "Is there a \"webui\" target type? May be worth introducing.",
+      "range": {
+        "startLine": 132,
+        "startChar": 10,
+        "endLine": 133,
+        "endChar": 92
+      },
+      "revId": "fba5e0acafbcca1fbf236e824cd487ee88ef8316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
