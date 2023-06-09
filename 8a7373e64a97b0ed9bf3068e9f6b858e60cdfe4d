@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc1d1bec_15214ef4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T12:58:00Z",
+      "side": 1,
+      "message": "You can still attach the comment link for the screenshot here",
+      "parentUuid": "d1ddffd5_fb5a551e",
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eab60b06_b133cf84",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 7
@@ -414,6 +432,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f646e46_7188824d",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T12:58:00Z",
+      "side": 1,
+      "message": "We already `import {type RecorderInput} from \u0027../../recorder/components/RecorderInput.js\u0027;` so just remove the type should work\nAlso directly import a js file is risky",
+      "parentUuid": "f77bb09d_53014c65",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77a63c20_da455110",
         "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
         "patchSetId": 7
@@ -590,6 +632,30 @@
       "side": 1,
       "message": "Yes this component will moved to a ui/components but I think it\u0027s better to leave it to a later cl ?",
       "parentUuid": "36fc2bef_dccd72fb",
+      "range": {
+        "startLine": 34,
+        "startChar": 41,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab189cd_98168a2f",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-09T12:58:00Z",
+      "side": 1,
+      "message": "Sure, but I think it might better to do in a seperate CL, but before this, because some people without content will get confused about why there is a recorder thing here\n(But I will call this a no blocker)",
+      "parentUuid": "caa15fb5_2ffa7f08",
       "range": {
         "startLine": 34,
         "startChar": 41,
