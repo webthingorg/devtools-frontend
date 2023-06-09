@@ -45,6 +45,29 @@
       },
       "revId": "4b609f93e167d0a318027ff93a5cf18d9d3d1895",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70ff9e6_621c3343",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-09T21:22:35Z",
+      "side": 1,
+      "message": "Note that this has to be implemented on the backend at https://source.chromium.org/chromium/chromium/src/+/main:content/browser/devtools/protocol/system_info_handler.cc;l\u003d443",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 100
+      },
+      "revId": "4b609f93e167d0a318027ff93a5cf18d9d3d1895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
