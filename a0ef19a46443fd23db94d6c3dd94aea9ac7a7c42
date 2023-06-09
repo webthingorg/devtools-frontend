@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "481d8e01_86c0ce4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-09T13:41:34Z",
+      "side": 1,
+      "message": "LGTM with one tiny suggestion.",
+      "revId": "a0ef19a46443fd23db94d6c3dd94aea9ac7a7c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da43f9fc_4204adef",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-09T13:41:34Z",
+      "side": 1,
+      "message": "for new private fields, can we try to use actual JS private fields if possible? Long term I would like to remove any TS private fields in favour of actual ones.",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "a0ef19a46443fd23db94d6c3dd94aea9ac7a7c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
