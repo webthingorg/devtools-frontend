@@ -687,12 +687,7 @@ describeWithMockConnection('PreloadingView', async () => {
     );
 
     // Turn on filtering.
-    const cells = [
-      {columnId: 'id', value: 'ruleSetId:2'},
-      {columnId: 'Validity', value: 'valid'},
-    ];
-    ruleSetGridComponent.dispatchEvent(
-        new DataGrid.DataGridEvents.BodyCellFocusedEvent({columnId: 'Validity', value: 'valid'}, {cells}));
+    view.selectRuleSetOnFilterForTest('ruleSetId:2' as Protocol.Preload.RuleSetId);
 
     await coordinator.done();
 
@@ -709,7 +704,7 @@ describeWithMockConnection('PreloadingView', async () => {
     );
 
     // Turn off filtering.
-    view.setCheckboxFilterBySelectedRuleSetForTest(false);
+    view.selectRuleSetOnFilterForTest(null);
 
     await coordinator.done();
 

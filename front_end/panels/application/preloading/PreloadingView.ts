@@ -4,6 +4,7 @@
 
 import type * as DataGrid from '../../../ui/components/data_grid/data_grid.js';
 
+import * as Platform from '../../../core/platform/platform.js';
 import * as Common from '../../../core/common/common.js';
 import * as ChromeLink from '../../../ui/components/chrome_link/chrome_link.js';
 import * as i18n from '../../../core/i18n/i18n.js';
@@ -19,9 +20,9 @@ import preloadingViewStyles from './preloadingView.css.js';
 
 const UIStrings = {
   /**
-   *@description Checkbox: If rule set is selected in rule set grid, filters preloading attempts in preloading attempts grid.
+   *@description DropDown text for filtering preloading attempts by rule set
    */
-  checkboxFilterBySelectedRuleSet: 'Filter by selected rule set',
+  filterByRuleSet: 'Filter by rule set',
   /**
    *@description Text in grid: Rule set is valid
    */
@@ -240,7 +241,6 @@ export class PreloadingView extends UI.Widget.VBox {
   private readonly modelProxy: PreloadingModelProxy;
   private focusedRuleSetId: Protocol.Preload.RuleSetId|null = null;
   private focusedPreloadingAttemptId: SDK.PreloadingModel.PreloadingAttemptId|null = null;
-  private checkboxFilterBySelectedRuleSet: UI.Toolbar.ToolbarCheckbox;
 
   private readonly warningsContainer: HTMLDivElement;
   private readonly warningsView = new PreloadingWarningsView();
@@ -251,6 +251,7 @@ export class PreloadingView extends UI.Widget.VBox {
   private readonly preloadingGrid = new PreloadingComponents.PreloadingGrid.PreloadingGrid();
   private readonly preloadingDetails =
       new PreloadingComponents.PreloadingDetailsReportView.PreloadingDetailsReportView();
+  private readonly ruleSetSelector: PreloadingRuleSetSelector;
 
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
@@ -294,10 +295,8 @@ export class PreloadingView extends UI.Widget.VBox {
     const preloadingAttempts = new UI.Widget.VBox();
 
     const toolbar = new UI.Toolbar.Toolbar('preloading-toolbar', preloadingAttempts.contentElement);
-    this.checkboxFilterBySelectedRuleSet = new UI.Toolbar.ToolbarCheckbox(
-        i18nString(UIStrings.checkboxFilterBySelectedRuleSet), /* tooltip? */ undefined, this.render.bind(this));
-    this.checkboxFilterBySelectedRuleSet.setChecked(true);
-    toolbar.appendToolbarItem(this.checkboxFilterBySelectedRuleSet);
+    this.ruleSetSelector = new PreloadingRuleSetSelector(model, () => this.render());
+    toolbar.appendToolbarItem(this.ruleSetSelector.item());
 
     this.preloadingGrid.addEventListener('cellfocused', this.onPreloadingGridCellFocused.bind(this));
     const vsplitPreloadingAttempts = this.makeVsplit(this.preloadingGrid, this.preloadingDetails);
@@ -393,7 +392,7 @@ export class PreloadingView extends UI.Widget.VBox {
     this.updateRuleSetDetails();
 
     // Update preloaidng grid
-    const filteringRuleSetId = this.checkboxFilterBySelectedRuleSet.checked() ? this.focusedRuleSetId : null;
+    const filteringRuleSetId = this.ruleSetSelector.getSelected();
     const url = SDK.TargetManager.TargetManager.instance().inspectedURL();
     const securityOrigin = url ? (new Common.ParsedURL.ParsedURL(url)).securityOrigin() : null;
     const preloadingAttemptRows = this.modelProxy.model.getPreloadingAttempts(filteringRuleSetId).map(({id, value}) => {
@@ -447,9 +446,8 @@ export class PreloadingView extends UI.Widget.VBox {
     return this.preloadingDetails;
   }
 
-  setCheckboxFilterBySelectedRuleSetForTest(checked: boolean): void {
-    this.checkboxFilterBySelectedRuleSet.setChecked(checked);
-    this.render();
+  selectRuleSetOnFilterForTest(id: Protocol.Preload.RuleSetId|null): void {
+    this.ruleSetSelector.select(id);
   }
 }
 
@@ -492,6 +490,113 @@ export class PreloadingResultView extends UI.Widget.VBox {
 
   getUsedPreloadingForTest(): PreloadingComponents.UsedPreloadingView.UsedPreloadingView {
     return this.usedPreloading;
+  }
+}
+
+class PreloadingRuleSetSelector implements UI.Toolbar.Provider,
+                                           UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null> {
+  private readonly modelProxy: PreloadingModelProxy;
+  private readonly onSelectionChanged: () => void = () => {};
+
+  private readonly toolbarItem: UI.Toolbar.ToolbarItem;
+
+  private readonly listModel: UI.ListModel.ListModel<Protocol.Preload.RuleSetId|null>;
+  private readonly dropDown: UI.SoftDropDown.SoftDropDown<Protocol.Preload.RuleSetId|null>;
+
+  constructor(model: SDK.PreloadingModel.PreloadingModel, onSelectionChanged: () => void) {
+    this.modelProxy = new PreloadingModelProxy(model);
+    this.modelProxy.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.onModelUpdated, this);
+
+    this.listModel = new UI.ListModel.ListModel();
+
+    this.dropDown = new UI.SoftDropDown.SoftDropDown(this.listModel, this);
+    this.dropDown.setRowHeight(36);
+    this.dropDown.setPlaceholderText(i18nString(UIStrings.filterByRuleSet));
+
+    this.toolbarItem = new UI.Toolbar.ToolbarItem(this.dropDown.element);
+    this.toolbarItem.setTitle(i18nString(UIStrings.filterByRuleSet));
+    this.toolbarItem.element.classList.add('toolbar-has-dropdown');
+
+    this.onModelUpdated();
+
+    // Prevents emitting onSelectionChanged on the first call of this.onModelUpdated for initialization.
+    this.onSelectionChanged = onSelectionChanged;
+  }
+
+  getSelected(): Protocol.Preload.RuleSetId|null {
+    return this.dropDown.getSelectedItem();
+  }
+
+  select(id: Protocol.Preload.RuleSetId|null): void {
+    this.dropDown.selectItem(id);
+  }
+
+  private onModelUpdated(): void {
+    const ids = this.modelProxy.model.getAllRuleSets().map(({id}) => id);
+    const items = [null, ...ids];
+    const selected = this.dropDown.getSelectedItem();
+    const newSelected = items.indexOf(selected) === -1 ? null : selected;
+    this.listModel.replaceAll(items);
+    this.dropDown.selectItem(newSelected);
+  }
+
+  // Method for UI.Toolbar.Provider
+  item(): UI.Toolbar.ToolbarItem {
+    return this.toolbarItem;
+  }
+
+  // Method for UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null>
+  titleFor(id: Protocol.Preload.RuleSetId|null): string {
+    if (id === null) {
+      return 'No filter';
+    }
+
+    // RuleSetId is form of '<processId>.<processLocalId>'
+    const index = id.indexOf('.');
+    const processLocalId = index === -1 ? id : id.slice(index + 1);
+    return 'Rule set: ' + processLocalId;
+  }
+
+  subtitleFor(id: Protocol.Preload.RuleSetId|null): string {
+    const ruleSet = id === null ? null : this.modelProxy.model.getRuleSetById(id);
+
+    if (ruleSet === null) {
+      return '';
+    }
+
+    if (ruleSet.url !== undefined) {
+      return ruleSet.url;
+    }
+
+    return '<script>';
+  }
+
+  // Method for UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null>
+  createElementForItem(id: Protocol.Preload.RuleSetId|null): Element {
+    const element = document.createElement('div');
+    const shadowRoot =
+        UI.Utils.createShadowRootWithCoreStyles(element, {cssFile: undefined, delegatesFocus: undefined});
+    const title = shadowRoot.createChild('div', 'title');
+    UI.UIUtils.createTextChild(title, Platform.StringUtilities.trimEndWithMaxLength(this.titleFor(id), 100));
+    const subTitle = shadowRoot.createChild('div', 'subtitle');
+    UI.UIUtils.createTextChild(subTitle, this.subtitleFor(id));
+    return element;
+  }
+
+  // Method for UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null>
+  isItemSelectable(_id: Protocol.Preload.RuleSetId|null): boolean {
+    return true;
+  }
+
+  // Method for UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null>
+  itemSelected(_id: Protocol.Preload.RuleSetId|null): void {
+    this.onSelectionChanged();
+  }
+
+  // Method for UI.SoftDropDown.Delegate<Protocol.Preload.RuleSetId|null>
+  highlightedItemChanged(
+      _from: Protocol.Preload.RuleSetId|null, _to: Protocol.Preload.RuleSetId|null, _fromElement: Element|null,
+      _toElement: Element|null): void {
   }
 }
 
