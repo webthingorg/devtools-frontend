@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d14339_b8e9b4bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-09T23:14:59Z",
+      "side": 1,
+      "message": "this CL is beautiful!  loove it.",
+      "revId": "b18ef41a7c98928564216c65549034245111071a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdba8295_fa48c693",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-09T23:14:59Z",
+      "side": 1,
+      "message": "new v legacy?\n\nover in https://docs.google.com/document/d/1Zk7Ivnfyvn6eaxREAPQNRGIiS3l5wtfmu15GAR9ShEo/edit#heading\u003dh.pcawn2wj7knb I captured why hitCount isn\u0027t there sometimes, but is othertimes. I haven\u0027t looked since but suspect its the same (hitcount is there when collected from Profiler domain, but not when the profile is collected via tracing)\n\nIf that\u0027s the case.. i would call it new/legacy.. just.. complete/minimal?",
+      "revId": "b18ef41a7c98928564216c65549034245111071a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6ca13b_5a2f75f5",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-09T23:14:59Z",
+      "side": 1,
+      "message": "love this rename :)",
+      "revId": "b18ef41a7c98928564216c65549034245111071a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eecedbe_2db3cd61",
+        "filename": "front_end/core/sdk/CPUProfileDataModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-09T23:14:59Z",
+      "side": 0,
+      "message": "wow. why was it so odd before?  it breaks my brain that these are equivalent. :D",
+      "revId": "29e0855be19d94006b46246785c57bbb775594a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
