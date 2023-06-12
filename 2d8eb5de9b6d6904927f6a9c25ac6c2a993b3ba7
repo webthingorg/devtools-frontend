@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa75fbb_3d1ee2b4",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-12T13:17:53Z",
+      "side": 1,
+      "message": "Since we are dividing the commands to several mocha commands that can be run individually, it would be more complicated to try and reuse the logic in `test/base-mocharc.js` to retrieve the test paths rather than just replicating it here. Therefore we will just keep it as is for now.",
+      "parentUuid": "ba48a175_0b4f625a",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "993b0f45_9ff65e00",
@@ -208,6 +226,24 @@
       "side": 1,
       "message": "I think so, because in this example 5 processes are ran simultaneously with each one of them having two failures, and the resulting HTML file displayed 10 failures. Is there a different way to verify this?",
       "parentUuid": "6c4be339_dcf6fbb3",
+      "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09aba1a3_37598fcf",
+        "filename": "scripts/test/run_test_suite_parallel.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-12T13:17:53Z",
+      "side": 1,
+      "message": "as discussed, we will create one output file for each process then combine them at the end.",
+      "parentUuid": "d1a0408a_06c4f3d9",
       "revId": "2d8eb5de9b6d6904927f6a9c25ac6c2a993b3ba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
