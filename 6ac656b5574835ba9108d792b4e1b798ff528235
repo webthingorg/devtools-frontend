@@ -50,6 +50,24 @@
       "message": "Is this the only manual change? The rest looks auto-generated to me.",
       "revId": "6ac656b5574835ba9108d792b4e1b798ff528235",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab9d24d_3fd03728",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 6496,
+      "author": {
+        "id": 1135189
+      },
+      "writtenOn": "2023-06-12T17:07:36Z",
+      "side": 1,
+      "message": "front_end/panels/network/components/RequestTrustTokensView.ts is the only manual change.",
+      "parentUuid": "4be3d03a_28146bda",
+      "revId": "6ac656b5574835ba9108d792b4e1b798ff528235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
