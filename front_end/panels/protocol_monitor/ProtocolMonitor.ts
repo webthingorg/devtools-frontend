@@ -1,7 +1,6 @@
 // Copyright 2018 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -16,7 +15,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
-import {JSONPromptEditor} from './JSONPromptEditor.js';
+import {JSONEditor} from './components/JSONEditor.js';
 import protocolMonitorStyles from './protocolMonitor.css.js';
 
 const UIStrings = {
@@ -618,11 +617,18 @@ export class CommandAutocompleteSuggestionProvider {
     if (!prefix && !force && expression) {
       return [];
     }
+
     const newestToOldest = [...this.#commandHistory].reverse();
     newestToOldest.push(...this.#protocolMethods);
     return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
                                                                       text,
                                                                     }));
+  };
+
+  buildNewTextPromptCompletions = (): string[] => {
+    const newestToOldest = [...this.#commandHistory].reverse();
+    newestToOldest.push(...this.#protocolMethods);
+    return newestToOldest;
   };
 
   buildProtocolCommands(domains: Iterable<ProtocolDomain>): Set<string> {
@@ -692,70 +698,42 @@ export enum Events {
 }
 
 export type EventTypes = {
-  [Events.CommandSent]: Command,
+  [Events.CommandSent]: ProtocolMonitorCommand,
 };
 
-export interface Command {
+export interface ProtocolMonitorCommand {
   command: string;
   parameters: object;
 }
+
 export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
-  private readonly promptContainer: HTMLElement;
-  private readonly promptElement: HTMLElement;
-  readonly promptList: HTMLElement;
-  private readonly promptInner: HTMLElement;
-  #commandAutocompleteSuggestionProvider: CommandAutocompleteSuggestionProvider;
-  private jsonPromptEditors: JSONPromptEditor[] = [];
-  private commandPromptEditor: JSONPromptEditor;
+  readonly promptContainer: JSONEditor;
   constructor(commandAutocompleteSuggestionProvider: CommandAutocompleteSuggestionProvider) {
     super();
-    // TODO: fix ad hoc section property in a separate CL to be safe
-    this.promptContainer = this.element.createChild('div', 'cdp-command-prompt-container');
-    this.promptElement = this.promptContainer.createChild('div');
-    this.promptList = this.promptElement.createChild('ul');
-    this.promptList.style.paddingLeft = '0px';
-    this.promptInner = this.promptList.createChild('div');
+    this.promptContainer = new JSONEditor();
+    this.promptContainer.commandAutocompleteSuggestionProvider = commandAutocompleteSuggestionProvider;
+
+    this.element.append(this.promptContainer);
     this.promptContainer.addEventListener('keydown', (event: Event) => {
-      if ((event as KeyboardEvent).key === 'Enter') {
+      if ((event as KeyboardEvent).key === 'Enter' &&
+          ((event as KeyboardEvent).metaKey || (event as KeyboardEvent).ctrlKey)) {
         this.dispatchEventToListeners(Events.CommandSent, this.getCommand());
       }
     });
-
-    this.#commandAutocompleteSuggestionProvider = commandAutocompleteSuggestionProvider;
-    this.commandPromptEditor = new JSONPromptEditor('command', '', this.#commandAutocompleteSuggestionProvider);
-
-    const output = this.commandPromptEditor.render();
-    LitHtml.render(output, this.promptInner, {host: this});
   }
 
-  getCommand(): Command {
+  getCommand(): ProtocolMonitorCommand {
     return {
-      command: this.commandPromptEditor.getText(),
-      parameters: this.jsonPromptEditors.reduce<{[key: string]: string}>(
-          (parameters, editor) => {
-            parameters[editor.getKey()] = editor.getText();
-            return parameters;
-          },
-          {}),
+      command: this.promptContainer.getCommand(),
+      parameters: this.promptContainer.getParameters(),
     };
   }
 
   setCommand(command: string, parameters: {
     [x: string]: unknown,
   }): void {
-    this.commandPromptEditor.setText(command);
-    this.jsonPromptEditors = [];
-    if (parameters) {
-      for (const key of Object.keys(parameters)) {
-        const value = JSON.stringify(parameters[key]);
-        const jsonPromptEditor = new JSONPromptEditor(key, value, this.#commandAutocompleteSuggestionProvider);
-        this.jsonPromptEditors.push(jsonPromptEditor);
-      }
-
-      const output = this.jsonPromptEditors.map(editor => editor.render());
-
-      LitHtml.render(output, this.promptList, {host: this});
-    }
+    this.promptContainer.parameters = parameters;
+    this.promptContainer.command = command;
   }
 }
 
@@ -768,7 +746,11 @@ export function parseCommandInput(input: string): {command: string, parameters: 
     json = JSON.parse(input);
   } catch (err) {
   }
-  const command = json ? json.command || json.method || json.cmd : input;
+
+  let command = json && JSON.stringify(json) !== '{}' ? json.command || json.method || json.cmd : input;
   const parameters = json ? json.parameters || json.params || json.args || json.arguments : {};
+  if (json && !(json.hasOwnProperty('command'))) {
+    command = '';
+  }
   return {command, parameters};
 }
