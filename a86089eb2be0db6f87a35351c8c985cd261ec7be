@@ -41,6 +41,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b9d4b6f_ed5c8692",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1cd9933_86f94b33",
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d82e8374_39fbdb36",
@@ -54,6 +72,30 @@
       "writtenOn": "2023-06-12T09:25:13Z",
       "side": 1,
       "message": "We should import the component\n```suggestion\nimport * as RecorderComponents from \u0027../../recorder/components/components.js\u0027;\n```",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 78
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea37937_4b0f9b44",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d82e8374_39fbdb36",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -87,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d3e0c4_c8e8d783",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e06035a_65f4d5d4",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b30e5d_bc85c265",
@@ -100,6 +166,30 @@
       "writtenOn": "2023-06-12T09:25:13Z",
       "side": 1,
       "message": "typo: parameter",
+      "range": {
+        "startLine": 87,
+        "startChar": 37,
+        "endLine": 87,
+        "endChar": 46
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2c7136_f9d18f1f",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69b30e5d_bc85c265",
       "range": {
         "startLine": 87,
         "startChar": 37,
@@ -127,6 +217,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d361938f_c4c36e9f",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37e84871_fc3b28f4",
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10e85b91_d190796d",
@@ -140,6 +248,24 @@
       "writtenOn": "2023-06-12T09:25:13Z",
       "side": 1,
       "message": "Please remove the unused styles. for example: `.row-buttons`",
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9db4b93a_23e5637e",
+        "filename": "front_end/panels/protocol_monitor/components/editorWidget.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10e85b91_d190796d",
       "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -167,6 +293,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e1d34f_0f94ba9c",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "1. {\"command\": \"test\", \"parameters\": \n2. {}; + json with no command but with parameters\n3. {\"command\": \"test, \"parameters\": 1234}\n\nDo not show \"parameters\" line when there is no \"correct\" parameters",
+      "parentUuid": "bccf1f8d_af1d134f",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 10
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "715ffa67_635f26a9",
@@ -180,6 +330,30 @@
       "writtenOn": "2023-06-12T09:25:13Z",
       "side": 1,
       "message": "nits: outputs\nTests should also be written in the third person",
+      "range": {
+        "startLine": 144,
+        "startChar": 8,
+        "endLine": 144,
+        "endChar": 14
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b41dfc30_ff2af073",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-12T13:10:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "715ffa67_635f26a9",
       "range": {
         "startLine": 144,
         "startChar": 8,
