@@ -1092,6 +1092,27 @@ export namespace Audits {
     ThirdPartyCookiesBlocked = 'ThirdPartyCookiesBlocked',
   }
 
+  export interface FederatedAuthUserInfoRequestIssueDetails {
+    federatedAuthUserInfoRequestIssueReason: FederatedAuthUserInfoRequestIssueReason;
+  }
+
+  /**
+   * Represents the failure reason when a getUserInfo() call fails.
+   * Should be updated alongside FederatedAuthUserInfoRequestResult in
+   * third_party/blink/public/mojom/devtools/inspector_issue.mojom.
+   */
+  export const enum FederatedAuthUserInfoRequestIssueReason {
+    NotSameOrigin = 'NotSameOrigin',
+    NotIframe = 'NotIframe',
+    NotPotentiallyTrustworthy = 'NotPotentiallyTrustworthy',
+    NoAPIPermission = 'NoApiPermission',
+    NotSignedInWithIdp = 'NotSignedInWithIdp',
+    NoAccountSharingPermission = 'NoAccountSharingPermission',
+    InvalidConfigOrWellKnown = 'InvalidConfigOrWellKnown',
+    InvalidAccountsResponse = 'InvalidAccountsResponse',
+    NoReturningUserFromFetchedAccounts = 'NoReturningUserFromFetchedAccounts',
+  }
+
   /**
    * This issue tracks client hints related issues. It's used to deprecate old
    * features, encourage the use of new ones, and provide general guidance.
@@ -1099,6 +1120,41 @@ export namespace Audits {
   export interface ClientHintIssueDetails {
     sourceCodeLocation: SourceCodeLocation;
     clientHintIssueReason: ClientHintIssueReason;
+  }
+
+  export interface FailedRequestInfo {
+    /**
+     * The URL that failed to load.
+     */
+    url: string;
+    /**
+     * The failure message for the failed request.
+     */
+    failureMessage: string;
+    requestId?: Network.RequestId;
+  }
+
+  export const enum StyleSheetLoadingIssueReason {
+    LateImportRule = 'LateImportRule',
+    RequestFailed = 'RequestFailed',
+  }
+
+  /**
+   * This issue warns when a referenced stylesheet couldn't be loaded.
+   */
+  export interface StylesheetLoadingIssueDetails {
+    /**
+     * Source code position that referenced the failing stylesheet.
+     */
+    sourceCodeLocation: SourceCodeLocation;
+    /**
+     * Reason why the stylesheet couldn't be loaded.
+     */
+    styleSheetLoadingIssueReason: StyleSheetLoadingIssueReason;
+    /**
+     * Contains additional info when the failure was due to a request.
+     */
+    failedRequestInfo?: FailedRequestInfo;
   }
 
   /**
@@ -1123,6 +1179,8 @@ export namespace Audits {
     ClientHintIssue = 'ClientHintIssue',
     FederatedAuthRequestIssue = 'FederatedAuthRequestIssue',
     BounceTrackingIssue = 'BounceTrackingIssue',
+    StylesheetLoadingIssue = 'StylesheetLoadingIssue',
+    FederatedAuthUserInfoRequestIssue = 'FederatedAuthUserInfoRequestIssue',
   }
 
   /**
@@ -1147,6 +1205,8 @@ export namespace Audits {
     clientHintIssueDetails?: ClientHintIssueDetails;
     federatedAuthRequestIssueDetails?: FederatedAuthRequestIssueDetails;
     bounceTrackingIssueDetails?: BounceTrackingIssueDetails;
+    stylesheetLoadingIssueDetails?: StylesheetLoadingIssueDetails;
+    federatedAuthUserInfoRequestIssueDetails?: FederatedAuthUserInfoRequestIssueDetails;
   }
 
   /**
@@ -9581,6 +9641,7 @@ export namespace Network {
   export const enum TrustTokenOperationDoneEventStatus {
     Ok = 'Ok',
     InvalidArgument = 'InvalidArgument',
+    MissingIssuerKeys = 'MissingIssuerKeys',
     FailedPrecondition = 'FailedPrecondition',
     ResourceExhausted = 'ResourceExhausted',
     AlreadyExists = 'AlreadyExists',
@@ -10543,11 +10604,9 @@ export namespace Page {
     ChUaPlatform = 'ch-ua-platform',
     ChUaModel = 'ch-ua-model',
     ChUaMobile = 'ch-ua-mobile',
-    ChUaFull = 'ch-ua-full',
     ChUaFullVersion = 'ch-ua-full-version',
     ChUaFullVersionList = 'ch-ua-full-version-list',
     ChUaPlatformVersion = 'ch-ua-platform-version',
-    ChUaReduced = 'ch-ua-reduced',
     ChUaWow64 = 'ch-ua-wow64',
     ChViewportHeight = 'ch-viewport-height',
     ChViewportWidth = 'ch-viewport-width',
@@ -11281,7 +11340,8 @@ export namespace Page {
     KeepaliveRequest = 'KeepaliveRequest',
     IndexedDBEvent = 'IndexedDBEvent',
     Dummy = 'Dummy',
-    AuthorizationHeader = 'AuthorizationHeader',
+    JsNetworkRequestReceivedCacheControlNoStoreResource = 'JsNetworkRequestReceivedCacheControlNoStoreResource',
+    WebSerial = 'WebSerial',
     ContentSecurityHandler = 'ContentSecurityHandler',
     ContentWebAuthenticationAPI = 'ContentWebAuthenticationAPI',
     ContentFileChooser = 'ContentFileChooser',
@@ -15659,6 +15719,7 @@ export namespace Preload {
     MemoryPressureOnTrigger = 'MemoryPressureOnTrigger',
     MemoryPressureAfterTriggered = 'MemoryPressureAfterTriggered',
     PrerenderingDisabledByDevTools = 'PrerenderingDisabledByDevTools',
+    ResourceLoadBlockedByClient = 'ResourceLoadBlockedByClient',
   }
 
   /**
