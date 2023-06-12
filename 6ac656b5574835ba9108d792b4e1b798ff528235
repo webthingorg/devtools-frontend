@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40630de4_7a3033b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-12T10:28:20Z",
+      "side": 1,
+      "message": "Hey can you redo the roll? The `WebSerial` enum value was removed again and that\u0027s what\u0027s blocking your build!",
+      "revId": "6ac656b5574835ba9108d792b4e1b798ff528235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4be3d03a_28146bda",
