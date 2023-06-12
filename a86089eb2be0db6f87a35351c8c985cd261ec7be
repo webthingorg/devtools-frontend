@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1cd9933_86f94b33",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-12T09:46:28Z",
+      "side": 1,
+      "message": "Let\u0027s just call the file `JSONEditor.ts` and the component `devtools-json-editor`",
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d82e8374_39fbdb36",
         "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
         "patchSetId": 11
