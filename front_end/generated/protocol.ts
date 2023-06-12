@@ -1110,6 +1110,7 @@ export namespace Audits {
      * The failure message for the failed request.
      */
     failureMessage: string;
+    requestId?: Network.RequestId;
   }
 
   export const enum StyleSheetLoadingIssueReason {
