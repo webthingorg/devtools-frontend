@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 const {assert} = chai;
-
 import * as ProtocolMonitor from '../../../../../front_end/panels/protocol_monitor/protocol_monitor.js';
 
 describe('ProtocolMonitor', () => {
@@ -141,8 +140,19 @@ describe('ProtocolMonitor', () => {
     });
   });
 
-  describe('EditorWidget', () => {
-    it('output correctly the CDP commands inside the Sidebar Panel', async () => {
+  describe('EditorWidget', async () => {
+    let commandAutocompleteSuggestionProvider;
+    let editorWidget: ProtocolMonitor.ProtocolMonitor.EditorWidget;
+    const numberOfCommandPromptEditor = 1;
+
+    beforeEach(() => {
+      commandAutocompleteSuggestionProvider =
+          new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
+      editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget(commandAutocompleteSuggestionProvider);
+      editorWidget.promptContainer.connectedCallback();
+    });
+
+    it('outputs correctly the CDP command and parameters inside the Sidebar Panel', async () => {
       const command = 'Network.continueInterceptedRequest';
       const parameters = {
         'interceptionId': 'test',
@@ -160,13 +170,51 @@ describe('ProtocolMonitor', () => {
         },
       };
 
-      const commandAutocompleteSuggestionProvider =
-          new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
-      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget(commandAutocompleteSuggestionProvider);
       editorWidget.setCommand(command, parameters);
-      const JSONPromptEditors = editorWidget.promptList?.querySelectorAll('.json-prompt');
-      const numberOfCommandPromptEditor = 1;
-      assert.deepStrictEqual(JSONPromptEditors.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+      await editorWidget.promptContainer.updateComplete;
+
+      const shadowRoot = editorWidget.promptContainer.renderRoot;
+      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
+
+      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+    });
+
+    it('does not output parameters if the input is invalid json', async () => {
+      const input = '"command": "test", "parameters":';
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      editorWidget.setCommand(command, parameters);
+      await editorWidget.promptContainer.updateComplete;
+
+      const shadowRoot = editorWidget.promptContainer.renderRoot;
+      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
+
+      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+    });
+
+    it('does not output parameters if the parameters field is not an object', async () => {
+      const input = '"command": "test", "parameters": 1234';
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      editorWidget.setCommand(command, parameters);
+      await editorWidget.promptContainer.updateComplete;
+
+      const shadowRoot = editorWidget.promptContainer.renderRoot;
+      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
+
+      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+    });
+
+    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
+      const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+
+      editorWidget.setCommand(command, parameters);
+      await editorWidget.promptContainer.updateComplete;
+
+      const commandReceived = editorWidget.promptContainer.getCommand();
+      assert.deepStrictEqual(commandReceived, '');
     });
   });
+
 });
