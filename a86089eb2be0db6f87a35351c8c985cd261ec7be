@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "754b7879_5cdb0828",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "Use the direct link to the comment `https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1452134#c2`\n\nBTW there is a short link: crbug.com/1452134",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d82e8374_39fbdb36",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "We should import the component\n```suggestion\nimport * as RecorderComponents from \u0027../../recorder/components/components.js\u0027;\n```",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 78
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e06035a_65f4d5d4",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "We need to make this more human-readable, like we should use some word like \"render\" instead of \"return\". And it should begin with a verb in the third person form.\nSee here for more info: go/tsjs-style#method-and-function-comments\n\nAlso the confusion between this function and the next one is I might think this renders one parameter of the all parameter list. So please explain this part.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b30e5d_bc85c265",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "typo: parameter",
+      "range": {
+        "startLine": 87,
+        "startChar": 37,
+        "endLine": 87,
+        "endChar": 46
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e85b91_d190796d",
+        "filename": "front_end/panels/protocol_monitor/components/editorWidget.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "Please remove the unused styles. for example: `.row-buttons`",
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bccf1f8d_af1d134f",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "Let\u0027s add some more tests:\n1. when the user\u0027s input is an invalid json\n2. when the input is valid json but has no \"command\" field\n2. when the input is valid json but \"parameters\" field is not an object",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 10
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "715ffa67_635f26a9",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "nits: outputs\nTests should also be written in the third person",
+      "range": {
+        "startLine": 144,
+        "startChar": 8,
+        "endLine": 144,
+        "endChar": 14
+      },
+      "revId": "a86089eb2be0db6f87a35351c8c985cd261ec7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

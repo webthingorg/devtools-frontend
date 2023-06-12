@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b19ef34d_d97382f0",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-12T09:25:13Z",
+      "side": 1,
+      "message": "What is the difference between the suggestion box in the input bar and the one in the editor?",
+      "parentUuid": "1fba58f0_f90d7ef6",
+      "range": {
+        "startLine": 631,
+        "startChar": 7,
+        "endLine": 631,
+        "endChar": 10
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b4aa452_3d687ce6",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 7
