@@ -261,6 +261,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "733540a3_53fa0da4",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T09:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b862ab40_2582a909",
+      "range": {
+        "startLine": 631,
+        "startChar": 7,
+        "endLine": 631,
+        "endChar": 10
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b4aa452_3d687ce6",

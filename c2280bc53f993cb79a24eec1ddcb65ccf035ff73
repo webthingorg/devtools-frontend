@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd3e57d_a9fab546",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T09:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe8bb802_6a335791",
+      "range": {
+        "startLine": 750,
+        "startChar": 21,
+        "endLine": 750,
+        "endChar": 53
+      },
+      "revId": "c2280bc53f993cb79a24eec1ddcb65ccf035ff73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17e5f732_c19b4c04",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-13T08:49:31Z",
       "side": 1,
       "message": "```suggestion\n   * Renders the parameters list corresponding to a specific CDP command.\n```",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "c2280bc53f993cb79a24eec1ddcb65ccf035ff73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0afa0980_511e9604",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T09:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e5f732_c19b4c04",
       "range": {
         "startLine": 72,
         "startChar": 17,
