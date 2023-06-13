@@ -16,6 +16,40 @@
       "message": "Hey folks, could you please check if I captured the meaning of the new enums correctly?",
       "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "347b221f_7b70142f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1551852
+      },
+      "writtenOn": "2023-06-13T13:05:41Z",
+      "side": 1,
+      "message": "LGTM for the BFCache part.",
+      "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfba6e19_d595842b",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 5
+      },
+      "lineNbr": 8568,
+      "author": {
+        "id": 1551852
+      },
+      "writtenOn": "2023-06-13T13:05:41Z",
+      "side": 1,
+      "message": "I just realized that we don\u0027t have the corresponding entry for `Dummy` in `BackForwardCacheStrings.ts`. Although it won\u0027t be triggered because of the `NOTREACHED()`, I feel it\u0027s somewhat inconsistent with the fact that `WebSerial` was removed.",
+      "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
