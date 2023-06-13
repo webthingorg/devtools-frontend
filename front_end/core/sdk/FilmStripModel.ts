@@ -7,10 +7,72 @@ import * as Platform from '../platform/platform.js';
 
 import {TracingModel, type ObjectSnapshot} from './TracingModel.js';
 
+export interface FilmStripData {
+  frames: readonly FilmStripFrame[];
+}
+
+export interface FilmStripFrame {
+  screenshotEvent: TraceEngine.Types.TraceEvents.TraceEventSnapshot;
+  screenshotAsString: string;
+  index: number;
+}
+
+// Cache film strips based on:
+// 1. The trace parsed data object
+// 2. The start time.
+const filmStripCache = new Map<
+    TraceEngine.TraceModel.PartialTraceParseDataDuringMigration,
+    Map<TraceEngine.Types.Timing.MicroSeconds, FilmStripData>>();
+
+export function filmStripFromTraceEngine(
+    traceData: TraceEngine.TraceModel.PartialTraceParseDataDuringMigration,
+    customZeroTime?: TraceEngine.Types.Timing.MicroSeconds): FilmStripData {
+  const frames: FilmStripFrame[] = [];
+
+  const zeroTime = typeof customZeroTime !== 'undefined' ? customZeroTime : traceData.Meta.traceBounds.min;
+  const fromCache = filmStripCache.get(traceData)?.get(zeroTime);
+  if (fromCache) {
+    return fromCache;
+  }
+
+  for (const screenshot of traceData.Screenshots) {
+    if (screenshot.ts < zeroTime) {
+      continue;
+    }
+    const frame: FilmStripFrame = {
+      index: frames.length,
+      screenshotEvent: screenshot,
+      screenshotAsString: screenshot.args.snapshot,
+    };
+    frames.push(frame);
+  }
+
+  const result = {
+    frames: Array.from(frames),
+  };
+
+  const cachedForData = Platform.MapUtilities.getWithDefault(
+      filmStripCache, traceData, () => new Map<TraceEngine.Types.Timing.MicroSeconds, FilmStripData>());
+  cachedForData.set(zeroTime, result);
+
+  return result;
+}
+
+export function filmStripFrameClosestToTimestamp(
+    filmStrip: FilmStripData, searchTimestamp: TraceEngine.Types.Timing.MicroSeconds): FilmStripFrame|null {
+  const closestFrameIndexBeforeTimestamp = Platform.ArrayUtilities.nearestIndexFromEnd(
+      filmStrip.frames, frame => frame.screenshotEvent.ts < searchTimestamp);
+  if (closestFrameIndexBeforeTimestamp === null) {
+    return null;
+  }
+  return filmStrip.frames[closestFrameIndexBeforeTimestamp];
+}
+
 export class FilmStripModel {
   #framesInternal: Frame[];
   #zeroTimeInternal: number;
   #spanTimeInternal: number;
+
   constructor(tracingModel: TracingModel, zeroTime?: number) {
     this.#framesInternal = [];
     this.#zeroTimeInternal = 0;
