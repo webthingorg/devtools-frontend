@@ -185,49 +185,30 @@ class PreloadingUIUtils {
 //
 // Note that switching at the timing of activation triggers handing over
 // from the old model to the new model. See
-// PreloadingMoedl.onPrimaryPageChanged.
+// PreloadingModel.onPrimaryPageChanged.
 class PreloadingModelProxy implements SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel> {
   model: SDK.PreloadingModel.PreloadingModel;
-  private readonly view: PreloadingView|PreloadingResultView;
-  private readonly warningsView: PreloadingWarningsView;
+  onModelSwitched: () => void = () => {};
 
-  constructor(
-      model: SDK.PreloadingModel.PreloadingModel, view: PreloadingView|PreloadingResultView,
-      warningsView: PreloadingWarningsView) {
-    this.view = view;
-    this.warningsView = warningsView;
-
+  constructor(model: SDK.PreloadingModel.PreloadingModel, onModelSwitched: () => void) {
     this.model = model;
-    this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.addEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
-  }
-
-  initialize(): void {
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.PreloadingModel.PreloadingModel, this, {scoped: true});
+    this.onModelSwitched = onModelSwitched;
   }
 
+  // Method for SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel>
   modelAdded(model: SDK.PreloadingModel.PreloadingModel): void {
     // Ignore models/targets of non-outermost frames like iframe/FencedFrames.
     if (model.target().outermostTarget() !== model.target()) {
       return;
     }
 
-    this.model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.removeEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
     this.model = model;
-    this.model.addEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    this.model.addEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
-
-    this.view.render();
+    this.onModelSwitched();
   }
 
-  modelRemoved(model: SDK.PreloadingModel.PreloadingModel): void {
-    model.removeEventListener(SDK.PreloadingModel.Events.ModelUpdated, this.view.render, this.view);
-    model.removeEventListener(
-        SDK.PreloadingModel.Events.WarningsUpdated, this.warningsView.onWarningsUpdated, this.warningsView);
+  // Method for SDK.TargetManager.SDKModelObserver<SDK.PreloadingModel.PreloadingModel>
+  modelRemoved(_model: SDK.PreloadingModel.PreloadingModel): void {
   }
 }
 
@@ -250,7 +231,13 @@ export class PreloadingView extends UI.Widget.VBox {
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
 
-    this.modelProxy = new PreloadingModelProxy(model, this, this.warningsView);
+    this.modelProxy = new PreloadingModelProxy(model, this.render.bind(this));
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.PreloadingModel.PreloadingModel, SDK.PreloadingModel.Events.ModelUpdated, this.render, this,
+        {scoped: true});
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.PreloadingModel.PreloadingModel, SDK.PreloadingModel.Events.WarningsUpdated,
+        this.warningsView.onWarningsUpdated, this.warningsView, {scoped: true});
 
     // this (VBox)
     //   +- warningsContainer
@@ -339,16 +326,7 @@ export class PreloadingView extends UI.Widget.VBox {
 
     this.hsplit.show(this.contentElement);
 
-    // Lazily initialize PreloadingModelProxy because this triggers a chain
-    //
-    //    PreloadingModelProxy.initialize()
-    // -> TargetManager.observeModels()
-    // -> PreloadingModelProxy.modelAdded()
-    // -> PreloadingView.render()
-    //
-    // , and PreloadingView.onModelAdded() requires all members are
-    // initialized. So, here is the best timing.
-    this.modelProxy.initialize();
+    this.render();
   }
 
   private updateRuleSetDetails(): void {
@@ -464,7 +442,13 @@ export class PreloadingResultView extends UI.Widget.VBox {
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
 
-    this.modelProxy = new PreloadingModelProxy(model, this, this.warningsView);
+    this.modelProxy = new PreloadingModelProxy(model, this.render.bind(this));
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.PreloadingModel.PreloadingModel, SDK.PreloadingModel.Events.ModelUpdated, this.render, this,
+        {scoped: true});
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.PreloadingModel.PreloadingModel, SDK.PreloadingModel.Events.WarningsUpdated,
+        this.warningsView.onWarningsUpdated, this.warningsView, {scoped: true});
 
     this.warningsContainer = document.createElement('div');
     this.warningsContainer.classList.add('flex-none');
@@ -481,16 +465,7 @@ export class PreloadingResultView extends UI.Widget.VBox {
 
     this.registerCSSFiles([emptyWidgetStyles, preloadingViewStyles]);
 
-    // Lazily initialize PreloadingModelProxy because this triggers a chain
-    //
-    //    PreloadingModelProxy.initialize()
-    // -> TargetManager.observeModels()
-    // -> PreloadingModelProxy.modelAdded()
-    // -> PreloadingResultView.render()
-    //
-    // , and PreloadingView.onModelAdded() requires all members are
-    // initialized. So, here is the best timing.
-    this.modelProxy.initialize();
+    this.render();
   }
 
   render(): void {
