@@ -50,6 +50,24 @@
       "message": "I just realized that we don\u0027t have the corresponding entry for `Dummy` in `BackForwardCacheStrings.ts`. Although it won\u0027t be triggered because of the `NOTREACHED()`, I feel it\u0027s somewhat inconsistent with the fact that `WebSerial` was removed.",
       "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4720b040_005cdbb4",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 5
+      },
+      "lineNbr": 8568,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-13T13:11:20Z",
+      "side": 1,
+      "message": "The entry seems to be here: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/application/components/BackForwardCacheStrings.ts;drc\u003d5d04559387e879f384ee1c667b9b920a7057b467;l\u003d634\n\nThere are however some extra entries in the strings, for example GrantedMediaStreamAccess. Probably we should typecheck the strings against the protocol to clean that up.",
+      "parentUuid": "bfba6e19_d595842b",
+      "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
