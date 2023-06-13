@@ -113,6 +113,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0473e00_dd5fee35",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T08:47:43Z",
+      "side": 1,
+      "message": "The input should support \"command\", \"method\", \"cmd\" aliases and it is better to throw an error if the input is not valid. Let\u0027s adjust accordingly.",
+      "parentUuid": "e75676da_6d2b2ee4",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08045bb8_e351ec03",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 14
