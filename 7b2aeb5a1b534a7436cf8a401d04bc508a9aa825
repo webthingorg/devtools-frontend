@@ -70,6 +70,30 @@
       },
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e33cc5_697c1a3a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-13T10:35:24Z",
+      "side": 0,
+      "message": "Yes. It will still be the case for service workers, but not the regular pages. Once we switch to the tab target for service workers, this won\u0027t apply to service workers either.",
+      "parentUuid": "d4ad031a_211c3e99",
+      "range": {
+        "startLine": 871,
+        "startChar": 12,
+        "endLine": 871,
+        "endChar": 34
+      },
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
