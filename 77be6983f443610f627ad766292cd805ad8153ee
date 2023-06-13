@@ -95,6 +95,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e75676da_6d2b2ee4",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T08:41:47Z",
+      "side": 1,
+      "message": "So basically it was to address Nancy\u0027s comment : \nwhen the user\u0027s input is an invalid json\nwhen the input is valid json but has no \"command\" field\nwhen the input is valid json but \"parameters\" field is not an object\n\nThe command field for instance appeared as \"undefined\" (not empty but with the value \"undefined\" if we put inside the input bar \"{}\" and if I remberered correctly it was teh same when there was only the parameters field. That\u0027s why I added the JSON.stringify(json) !\u003d\u003d \u0027{}\u0027 and the json.hasOwnProperty(\u0027command\u0027)",
+      "parentUuid": "e10c1117_f50c6a32",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08045bb8_e351ec03",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 14
