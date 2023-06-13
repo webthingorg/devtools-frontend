@@ -63,6 +63,30 @@
       },
       "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31675d0_33b45c1d",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-13T10:17:35Z",
+      "side": 1,
+      "message": "Hm... wouldn\u0027t it be enough to simply do\n\n    TargetManager.instance().addModelListener(\n      SDK.PreloadingModel.PreloadingModel,\n      SDK.PreloadingModel.Events.ModelUpdated,\n      this.onModelUpdated, this,\n      {scoped: true});\n      \nin the client code?",
+      "parentUuid": "0026121b_ac597770",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 23
+      },
+      "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
