@@ -135,6 +135,30 @@
       },
       "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd726eae_d8e30423",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-13T11:34:26Z",
+      "side": 1,
+      "message": "Thank you. This is fine as is, but you could also get rid of the entire proxy class and simply use `TargetManager.instance().scopeTarget()` and  `TargetManager.instance().addScopeChangeListener()`.",
+      "parentUuid": "1d0f9b1e_3d664140",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 23
+      },
+      "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
