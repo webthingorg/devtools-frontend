@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe8bb802_6a335791",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-13T08:49:31Z",
+      "side": 1,
+      "message": "why do we need this check: `JSON.stringify(json) !\u003d\u003d \u0027{}\u0027`?",
+      "range": {
+        "startLine": 750,
+        "startChar": 21,
+        "endLine": 750,
+        "endChar": 53
+      },
+      "revId": "c2280bc53f993cb79a24eec1ddcb65ccf035ff73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e5f732_c19b4c04",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-13T08:49:31Z",
+      "side": 1,
+      "message": "```suggestion\n   * Renders the parameters list corresponding to a specific CDP command.\n```",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "c2280bc53f993cb79a24eec1ddcb65ccf035ff73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
