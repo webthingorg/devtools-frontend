@@ -16,6 +16,29 @@
       "message": "PTAL. I really struggled with where to put this code; we could put it into the Handler, but it doesn\u0027t quite feel like it fits there, because it is code specific to how we view the data, which is not really what goes in handlers.\n\nThat said, it doesn\u0027t really belong in SDK either as it does not use anything from SDK. But I have left it there for now.\n\nI am wondering about having models/trace/models (bit confusing?) which contains models or additional useful data structures that we want that do not quite fit into a handler. WDYT?",
       "revId": "3698ec8c77bf96dc95ee04ce47198ea871317e10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be0941a9_158f1b40",
+        "filename": "front_end/core/platform/array-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-13T16:21:32Z",
+      "side": 1,
+      "message": "drive-by fix to make these readonly (you can still pass a non-readonly array type in)",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 100
+      },
+      "revId": "3698ec8c77bf96dc95ee04ce47198ea871317e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
