@@ -159,6 +159,30 @@
       },
       "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6ed3047_a1598de1",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-13T12:29:43Z",
+      "side": 1,
+      "message": "Wow, sg.\nGlad to remove it and adopt new standard.",
+      "parentUuid": "fd726eae_d8e30423",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 23
+      },
+      "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
