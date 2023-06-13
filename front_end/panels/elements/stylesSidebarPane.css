@@ -11,10 +11,10 @@
   border-bottom: 1px solid var(--color-details-hairline);
   position: relative;
   overflow: hidden;
-}
 
-.styles-section > div {
-  padding: 2px 2px 4px 4px;
+  > div {
+    padding: 2px 2px 4px 4px;
+  }
 }
 
 .styles-section:last-child {
