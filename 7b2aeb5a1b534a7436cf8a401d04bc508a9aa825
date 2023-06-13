@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289e07b4_54441d1a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-13T09:34:25Z",
+      "side": 0,
+      "message": "is there a reason we are deleting this or was it mistakenly removed when rebasing?",
+      "range": {
+        "startLine": 871,
+        "startChar": 12,
+        "endLine": 871,
+        "endChar": 34
+      },
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
