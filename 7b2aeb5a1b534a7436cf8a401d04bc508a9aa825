@@ -46,6 +46,30 @@
       },
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ad031a_211c3e99",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-13T10:34:07Z",
+      "side": 0,
+      "message": "this code was added after we realized the target could be null if the trace was started fast enough after devtools was open (see https://crbug.com/1450237). Would  using the root target instead of the page target make this scenario not possible?",
+      "parentUuid": "a52ad650_5b7c3eb3",
+      "range": {
+        "startLine": 871,
+        "startChar": 12,
+        "endLine": 871,
+        "endChar": 34
+      },
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
