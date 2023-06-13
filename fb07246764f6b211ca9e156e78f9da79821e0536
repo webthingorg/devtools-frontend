@@ -70,6 +70,30 @@
       },
       "revId": "fb07246764f6b211ca9e156e78f9da79821e0536",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff72e87_c616e7f9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-13T10:11:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c72d28f_7000bf40",
+      "range": {
+        "startLine": 854,
+        "startChar": 69,
+        "endLine": 854,
+        "endChar": 79
+      },
+      "revId": "fb07246764f6b211ca9e156e78f9da79821e0536",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -22,6 +22,30 @@
       },
       "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52ad650_5b7c3eb3",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-13T10:11:32Z",
+      "side": 0,
+      "message": "Root target is normally always present. (Recently I discovered that there\u0027s a short time window when there\u0027s no root target when debugging extension service worker. I don\u0027t think we want to keep it that way though, so I am not sure if we want this logic here). WDYT?",
+      "parentUuid": "289e07b4_54441d1a",
+      "range": {
+        "startLine": 871,
+        "startChar": 12,
+        "endLine": 871,
+        "endChar": 34
+      },
+      "revId": "7b2aeb5a1b534a7436cf8a401d04bc508a9aa825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
