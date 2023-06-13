@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd345dba_aef4ef25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-13T17:10:19Z",
+      "side": 1,
+      "message": "I was thinking we could use the same folder for the parsing bits in timeline model we are missing in the new engine but that do not fit with handlers, like invalidation tracking, resolving DOM nodes, etc. If we use `views` for this we would need another folder for these bits, I guess that would be fine, just something to consider",
+      "parentUuid": "b73c0698_2bd5519d",
+      "revId": "3698ec8c77bf96dc95ee04ce47198ea871317e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be0941a9_158f1b40",
