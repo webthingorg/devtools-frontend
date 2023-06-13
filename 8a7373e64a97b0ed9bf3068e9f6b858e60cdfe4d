@@ -828,6 +828,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e02b74_95230d06",
+        "filename": "front_end/panels/protocol_monitor/components/EditorWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T12:29:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8980a42f_c214ff1d",
+      "range": {
+        "startLine": 34,
+        "startChar": 41,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eaecc8c6_badd2aca",

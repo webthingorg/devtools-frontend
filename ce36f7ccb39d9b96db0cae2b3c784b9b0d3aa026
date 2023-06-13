@@ -16,6 +16,24 @@
       "message": "let\u0027s make it a module-level const var including the buildProtocolCommands method. It does not appear that it belongs as an instance property on the CommandAutocompleteSuggestionProvider. (let\u0027s do it in a follow-up).",
       "revId": "ce36f7ccb39d9b96db0cae2b3c784b9b0d3aa026",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc1446e_b37cda9c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-13T12:29:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69937f4f_e3f6f80f",
+      "revId": "ce36f7ccb39d9b96db0cae2b3c784b9b0d3aa026",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
