@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "390b9fa8_b8a2c5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-13T12:36:30Z",
+      "side": 1,
+      "message": "Hey folks, could you please check if I captured the meaning of the new enums correctly?",
+      "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
