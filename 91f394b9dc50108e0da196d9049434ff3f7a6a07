@@ -68,6 +68,24 @@
       "parentUuid": "bfba6e19_d595842b",
       "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2426a0_ac3633c4",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 5
+      },
+      "lineNbr": 8568,
+      "author": {
+        "id": 1551852
+      },
+      "writtenOn": "2023-06-13T13:18:22Z",
+      "side": 1,
+      "message": "Oh interestingly it\u0027s mapped to `UIStrings.internalError`. I think we could just remove that later by merging Dummy with WebSerial in the switch statement.\n\nYes sometimes we will remove entries form the .pdl file when cleaning up the unblocked features.",
+      "parentUuid": "4720b040_005cdbb4",
+      "revId": "91f394b9dc50108e0da196d9049434ff3f7a6a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
