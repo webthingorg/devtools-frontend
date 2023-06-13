@@ -39,6 +39,30 @@
       },
       "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0026121b_ac597770",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-13T07:58:09Z",
+      "side": 1,
+      "message": "(This behavior is not changed.)\n\nPrecisely speaking, PreloadingModelProxy represents the model for current scoped (outermost) target. The scenarios changing scoped targets are:\n\n1. Prerender activation\n2. Using background page selector\n\nL227 is OK for 1 with handing over in PreloadingModel.onPrimaryPageChanged and the model is for new primary page.\nIt is OK for 2 because user is just switching the target to show.",
+      "parentUuid": "501f3ee0_b14beedc",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 23
+      },
+      "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
