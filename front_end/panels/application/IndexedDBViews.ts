@@ -33,6 +33,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as RenderCoordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
@@ -240,6 +241,9 @@ declare global {
     'devtools-idb-database-view': IDBDatabaseView;
   }
 }
+
+const coordinator = RenderCoordinator.RenderCoordinator.RenderCoordinator.instance({forceNew: true});
+
 export class IDBDataView extends UI.View.SimpleView {
   private readonly model: IndexedDBModel;
   private readonly databaseId: DatabaseId;
@@ -523,7 +527,7 @@ export class IDBDataView extends UI.View.SimpleView {
     this.lastPageSize = pageSize;
     this.lastSkipCount = skipCount;
 
-    function callback(this: IDBDataView, entries: Entry[], hasMore: boolean): void {
+    const callback = (entries: Entry[], hasMore: boolean): void => {
       this.clear();
       this.entries = entries;
       let selectedNode: IDBDataGridNode|null = null;
@@ -551,18 +555,20 @@ export class IDBDataView extends UI.View.SimpleView {
       this.needsRefresh.setVisible(false);
       this.updateToolbarEnablement();
       this.updatedDataForTests();
-    }
+    };
 
     const idbKeyRange = key ? window.IDBKeyRange.lowerBound(key) : null;
     if (this.isIndex && this.index) {
       this.model.loadIndexData(
           this.databaseId, this.objectStore.name, this.index.name, idbKeyRange, skipCount, pageSize,
-          callback.bind(this));
+          (entries, hasMore) => coordinator.write('Render IndexedDB index data', () => callback(entries, hasMore)));
     } else {
       this.model.loadObjectStoreData(
-          this.databaseId, this.objectStore.name, idbKeyRange, skipCount, pageSize, callback.bind(this));
+          this.databaseId, this.objectStore.name, idbKeyRange, skipCount, pageSize,
+          (entries, hasMore) => coordinator.write('Render IndexedDB data', () => callback(entries, hasMore)));
     }
-    void this.model.getMetadata(this.databaseId, this.objectStore).then(this.updateSummaryBar.bind(this));
+    void this.model.getMetadata(this.databaseId, this.objectStore)
+        .then(metadata => coordinator.write('Render IndexedDB data summary', () => this.updateSummaryBar(metadata)));
   }
 
   private updateSummaryBar(metadata: ObjectStoreMetadata|null): void {
