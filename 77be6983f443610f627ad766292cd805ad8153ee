@@ -16,6 +16,24 @@
       "message": "it does not seem to work correctly for me:\n\n1) command name does not appear after I paste JSON\n2) the parameters don\u0027t seem to appear unless I open the Recorder panel first",
       "revId": "77be6983f443610f627ad766292cd805ad8153ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84d6b2a_a0c96407",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:05:28Z",
+      "side": 1,
+      "message": "See the screencast https://screencast.googleplex.com/cast/NjI4NTk5NjM1NTIyMzU1MnxlMmQzYzU1Ni05Yg",
+      "parentUuid": "0696b009_945c5cb8",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
