@@ -1,7 +1,6 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
@@ -13,7 +12,6 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
-
 
 const {html, Decorators, LitElement, Directives, nothing} = LitHtml;
 const {customElement, property, state} = Decorators;
@@ -219,7 +217,7 @@ export class JSONEditor extends LitElement {
       parameter.value = value;
     }
   };
-
+  
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
       this.command = event.target.value;
