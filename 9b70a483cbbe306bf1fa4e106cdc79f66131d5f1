@@ -111,6 +111,30 @@
       },
       "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d0f9b1e_3d664140",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-13T11:21:08Z",
+      "side": 1,
+      "message": "Refactored. Thanks!",
+      "parentUuid": "8e7cb7dc_d2fbc71d",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 23
+      },
+      "revId": "9b70a483cbbe306bf1fa4e106cdc79f66131d5f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
