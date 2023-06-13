@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b862ab40_2582a909",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "A few questions:\n\n1) do we need command history in the inputs in the editor? should we just provide protocol methods? \n2) do we need to use it for parameters?\n3) let\u0027s come up with a proper name if there is really a need for this method or better yet: provide commands to autocomplete directly to the JSONEditor and don\u0027t create any providers as there is no state stored in the provider anymore.",
+      "parentUuid": "b19ef34d_d97382f0",
+      "range": {
+        "startLine": 631,
+        "startChar": 7,
+        "endLine": 631,
+        "endChar": 10
+      },
+      "revId": "8a7373e64a97b0ed9bf3068e9f6b858e60cdfe4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b4aa452_3d687ce6",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 7

@@ -34,6 +34,148 @@
       "parentUuid": "0696b009_945c5cb8",
       "revId": "77be6983f443610f627ad766292cd805ad8153ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd290a82_42d2a639",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "components is a separate build target so you need to import `import * as Components from \u0027./components/components.js\u0027`.",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f435d71_e026cbb9",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "rename promptContainer to a suitable name",
+      "range": {
+        "startLine": 713,
+        "startChar": 9,
+        "endLine": 713,
+        "endChar": 24
+      },
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10c1117_f50c6a32",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "Could you summarize the change here? I feel like we should not need it.",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08045bb8_e351ec03",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "this should be a not a type import since we do depend on the Recorder components.",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5797bede_d0955c92",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "can we initialize inline on line 23 and remove the constructor?",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6ddffd_5600940e",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "nit: rename to renderParameters",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6367d7f_2836418e",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "I think we better use the repeat directive from list here?",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a16b32a_d7cb039a",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-13T06:19:03Z",
+      "side": 1,
+      "message": "let\u0027s create a helper function instead and create instances inside the specific tests",
+      "revId": "77be6983f443610f627ad766292cd805ad8153ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
