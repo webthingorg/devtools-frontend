@@ -28,7 +28,7 @@ import {
 describe('Timespan', async function() {
   // The tests in this suite are particularly slow
   if (this.timeout() !== 0) {
-    this.timeout(60_000);
+    this.timeout(120_000);
   }
 
   beforeEach(() => {
