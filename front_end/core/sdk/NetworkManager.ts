@@ -1285,7 +1285,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     if (this.#extraHeaders) {
       void networkAgent.invoke_setExtraHTTPHeaders({headers: this.#extraHeaders});
     }
-    if (this.currentUserAgent()) {
+    if (this.currentUserAgent() || this.#userAgentMetadataOverride !== null) {
       void networkAgent.invoke_setUserAgentOverride(
           {userAgent: this.currentUserAgent(), userAgentMetadata: this.#userAgentMetadataOverride || undefined});
     }
