@@ -16,6 +16,29 @@
       "message": "Could you have a look?",
       "revId": "c673ebce948b650a3dada21ef76963cc6fdb16d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc291c5_555dabe8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-14T14:48:33Z",
+      "side": 1,
+      "message": "Elsewhere we use a slightly different model: instead of passing a model to a constructor and observing scope changes, we simply observe models, something like:\n\n    class PreloadingRuleSetSelector ... {\n      constructor(onSelectionChanged: () \u003d\u003e void)) {\n        ...\n        SDK.TargetManager.TargetManager.instance().observeModels(\n          SDK.PreloadingModel.PreloadingModel, this, {scoped: true});\n      }\n      \n      modelAdded(model: SDK.PreloadingModel.PreloadingModel) {\n        if (model.target() !\u003d\u003d model.target().outermostTarget()) return;\n        ...\n      }\n    }",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 91
+      },
+      "revId": "c673ebce948b650a3dada21ef76963cc6fdb16d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
