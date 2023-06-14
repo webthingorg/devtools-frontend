@@ -16,6 +16,24 @@
       "message": "Hey, can you add a screenshot here, so we can send to Peter to do a quick design review",
       "revId": "3951328a871be8c8886293ed89dc028ba7459c7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2aff45a_b4a379c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-14T16:35:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb4f709d_f347cc4b",
+      "revId": "3951328a871be8c8886293ed89dc028ba7459c7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
