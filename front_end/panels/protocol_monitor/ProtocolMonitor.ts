@@ -652,16 +652,6 @@ export class CommandAutocompleteSuggestionProvider {
                                                                     }));
   };
 
-  buildProtocolCommands(domains: Iterable<ProtocolDomain>): Set<string> {
-    const commands: Set<string> = new Set();
-    for (const domain of domains) {
-      for (const command of Object.keys(domain.commandParameters)) {
-        commands.add(command);
-      }
-    }
-    return commands;
-  }
-
   addEntry(value: string): void {
     if (this.#commandHistory.has(value)) {
       this.#commandHistory.delete(value);
