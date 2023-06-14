@@ -1975,7 +1975,7 @@ async function waitForSelectors(selectors, frame, options) {
             return await waitForSelector(selector, frame, options);
         }
         catch (err) {
-            console.error('error in waitForSelectors', err);
+            console.error('error in waitForSelectors', err.message, err.stack);
             // TODO: report the error somehow
         }
     }
