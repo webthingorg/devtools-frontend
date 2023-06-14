@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb4f709d_f347cc4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-14T12:40:38Z",
+      "side": 1,
+      "message": "Hey, can you add a screenshot here, so we can send to Peter to do a quick design review",
+      "revId": "3951328a871be8c8886293ed89dc028ba7459c7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
