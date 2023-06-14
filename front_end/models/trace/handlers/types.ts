@@ -2,6 +2,21 @@
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as ModelHandlers from './ModelHandlers.js';
+
+// As we migrate the data engine we are incrementally enabling the new handlers
+// one by one, so we do not waste effort parsing data that we do not use. This
+// object should be updated when we add a new handler to enable it.
+export const ENABLED_TRACE_HANDLERS = {
+  UserTimings: ModelHandlers.UserTimings,
+  PageLoadMetrics: ModelHandlers.PageLoadMetrics,
+  UserInteractions: ModelHandlers.UserInteractions,
+  LayoutShifts: ModelHandlers.LayoutShifts,
+  Screenshots: ModelHandlers.Screenshots,
+  GPU: ModelHandlers.GPU,
+  NetworkRequests: ModelHandlers.NetworkRequests,
+};
+export type PartialTraceParseDataDuringMigration = Readonly<EnabledHandlerDataWithMeta<typeof ENABLED_TRACE_HANDLERS>>;
 
 export interface TraceEventHandler {
   reset(): void;
@@ -50,8 +65,6 @@ export type HandlersWithMeta<T extends {[key: string]: TraceEventHandler}> = {
 }&{
   [K in keyof T]: T[K];
 };
-
-import type * as ModelHandlers from './ModelHandlers.js';
 
 // Represents the final parsed data from all of the handlers. Note that because
 // we are currently in the middle of the migration of data engines, not all the
