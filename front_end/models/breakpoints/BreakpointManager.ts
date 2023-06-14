@@ -327,10 +327,17 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
       uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number|undefined,
       condition: UserCondition, enabled: boolean, isLogpoint: boolean,
       origin: BreakpointOrigin): Promise<Breakpoint|undefined> {
-    // As part of de-duplication, we always only show one uiSourceCode, but we may
-    // have several uiSourceCodes that correspond to the same
-    // file (but are attached to different targets), so set a breakpoint on all of them.
-    const compatibleUiSourceCodes = this.#workspace.findCompatibleUISourceCodes(uiSourceCode);
+    let compatibleUiSourceCodes: Array<Workspace.UISourceCode.UISourceCode>;
+    // Workaround for a problem related to snippets which makes setting breakpoints inconsistent
+    // See https://crbug.com/1433286 for details.
+    if (uiSourceCode.origin() === 'snippet://') {
+      compatibleUiSourceCodes = [uiSourceCode];
+    } else {
+      // As part of de-duplication, we always only show one uiSourceCode, but we may
+      // have several uiSourceCodes that correspond to the same
+      // file (but are attached to different targets), so set a breakpoint on all of them.
+      compatibleUiSourceCodes = this.#workspace.findCompatibleUISourceCodes(uiSourceCode);
+    }
 
     let primaryBreakpoint: Breakpoint|undefined;
     for (const compatibleUiSourceCode of compatibleUiSourceCodes) {
