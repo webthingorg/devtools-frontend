@@ -39,6 +39,30 @@
       },
       "revId": "c673ebce948b650a3dada21ef76963cc6fdb16d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3336d5e1_44452e5c",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-14T15:56:49Z",
+      "side": 1,
+      "message": "The reason I was passing the model is I don\u0027t want to make the member `model: SDK.PreloadingModel.PreloadingModel|null`. WDYT pathset 6? I\u0027ll refactor other views with another CL if it\u0027s good.",
+      "parentUuid": "cdc291c5_555dabe8",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 91
+      },
+      "revId": "c673ebce948b650a3dada21ef76963cc6fdb16d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
