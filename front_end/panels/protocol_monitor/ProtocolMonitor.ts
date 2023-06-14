@@ -123,6 +123,47 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
   return LitHtml.html`${i18nString(UIStrings.sMs, {PH1: String(value)})}`;
 };
 
+export const buildProtocolCommands = (domains: Iterable<ProtocolDomain>): Set<string> => {
+  const commands: Set<string> = new Set();
+  for (const domain of domains) {
+    for (const command of Object.keys(domain.commandParameters)) {
+      commands.add(command);
+    }
+  }
+  return commands;
+};
+
+const buildProtocolCommandsParametersMap = (domains: Iterable<ProtocolDomain>): Map<string, CommandParameter[]> => {
+  const commandsMap: Map<string, CommandParameter[]> = new Map();
+  for (const domain of domains) {
+    for (const command of Object.keys(domain.commandParameters)) {
+      if (domain.commandParameters[command].length !== 0) {
+        commandsMap.set(command, domain.commandParameters[command]);
+      }
+    }
+  }
+  return commandsMap;
+};
+
+const buildProtocolCommandsWithoutParameters = (domains: Iterable<ProtocolDomain>): Set<string> => {
+  const commandsWithoutParameters: Set<string> = new Set();
+  for (const domain of domains) {
+    for (const command in domain.commandParameters) {
+      if (domain.commandParameters[command].length === 0) {
+        commandsWithoutParameters.add(command);
+      }
+    }
+  }
+  return commandsWithoutParameters;
+};
+
+const protocolMethods = buildProtocolCommands(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
+const protocolMethodsWithoutParameters = buildProtocolCommandsWithoutParameters(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
+const protocolMethodWithParametersMap = buildProtocolCommandsParametersMap(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
+
 export interface Message {
   id?: number;
   method: string;
@@ -139,10 +180,11 @@ export interface LogMessage {
   type: 'send'|'recv';
 }
 
-interface CommandParameter {
+export interface CommandParameter {
   name: string;
   type: string;
   optional: boolean;
+  value: string;
 }
 
 export interface ProtocolDomain {
@@ -167,7 +209,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private isRecording: boolean = false;
 
   #commandAutocompleteSuggestionProvider = new CommandAutocompleteSuggestionProvider();
-  #editorWidget = new EditorWidget(this.#commandAutocompleteSuggestionProvider);
+  #editorWidget = new EditorWidget();
   #selectedTargetId?: string;
 
   constructor() {
@@ -603,8 +645,6 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 export class CommandAutocompleteSuggestionProvider {
   #maxHistorySize = 200;
   #commandHistory = new Set<string>();
-  protocolMethods =
-      this.buildProtocolCommands(ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values());
 
   constructor(maxHistorySize?: number) {
     if (maxHistorySize !== undefined) {
@@ -619,21 +659,11 @@ export class CommandAutocompleteSuggestionProvider {
     }
 
     const newestToOldest = [...this.#commandHistory].reverse();
-    newestToOldest.push(...this.protocolMethods);
+    newestToOldest.push(...protocolMethods);
     return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
                                                                       text,
                                                                     }));
   };
-
-  buildProtocolCommands(domains: Iterable<ProtocolDomain>): Set<string> {
-    const commands: Set<string> = new Set();
-    for (const domain of domains) {
-      for (const command of Object.keys(domain.commandParameters)) {
-        commands.add(command);
-      }
-    }
-    return commands;
-  }
 
   addEntry(value: string): void {
     if (this.#commandHistory.has(value)) {
@@ -702,11 +732,12 @@ export interface ProtocolMonitorCommand {
 
 export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
   readonly jsonEditor: Components.JSONEditor.JSONEditor;
-  constructor(commandAutocompleteSuggestionProvider: CommandAutocompleteSuggestionProvider) {
+  constructor() {
     super();
     this.jsonEditor = new Components.JSONEditor.JSONEditor();
-    this.jsonEditor.protocolMethods = [...commandAutocompleteSuggestionProvider.protocolMethods];
-
+    this.jsonEditor.protocolMethods = [...protocolMethods];
+    this.jsonEditor.protocolMethodWithParametersMap = protocolMethodWithParametersMap;
+    this.jsonEditor.protocolMethodsWithoutParameters = protocolMethodsWithoutParameters;
     this.element.append(this.jsonEditor);
     this.jsonEditor.addEventListener('keydown', (event: Event) => {
       if ((event as KeyboardEvent).key === 'Enter' &&
