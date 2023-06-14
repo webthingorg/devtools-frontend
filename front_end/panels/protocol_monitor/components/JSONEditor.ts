@@ -10,7 +10,6 @@ import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
-import {type CommandParameter} from '../ProtocolMonitor.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
 
