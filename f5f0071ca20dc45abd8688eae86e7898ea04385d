@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8f3ba1_09197d25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-14T10:59:11Z",
+      "side": 1,
+      "message": "I don\u0027t have a concrete bug for it, but IIUC the path [1] can set `#customUserAgent \u003d\u003d\u003d \u0027\u0027` and `#userAgentMetadataOverride !\u003d\u003d null`.\n\nWDYT?\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/network/NetworkConfigView.ts;l\u003d265-269",
+      "revId": "f5f0071ca20dc45abd8688eae86e7898ea04385d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
