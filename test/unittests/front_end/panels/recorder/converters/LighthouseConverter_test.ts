@@ -19,6 +19,8 @@ describe('LighthouseConverter', () => {
         {type: Models.Schema.StepType.Scroll, selectors: [['.cls']]},
       ],
     });
+    // eslint-disable-next-line no-console
+    console.log('result', result);
     assert.isTrue(
         result.startsWith(`const fs = require('fs');
 const puppeteer = require('puppeteer'); // v13.0.0 or later
