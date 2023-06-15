@@ -60,6 +60,56 @@ describe('ProtocolMonitor', () => {
         parameters: {},
       });
     });
+
+    it('should correctly creates a map of CDP commands with their corresponding parameters', async () => {
+      const domains = [
+        {
+          domain: 'Test',
+          commandParameters: {
+            'Test.test': [{
+              name: 'test',
+              type: 'test',
+              optional: true,
+            }],
+          },
+        },
+        {
+          domain: 'Test2',
+          commandParameters: {
+            'Test2.test2': [{
+              name: 'test2',
+              type: 'test2',
+              optional: true,
+            }],
+            'Test2.test3': [{
+              name: 'test3',
+              type: 'test3',
+              optional: true,
+            }],
+          },
+        },
+      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
+
+      const expectedCommands = new Map();
+      expectedCommands.set('Test.test', [{
+                             name: 'test',
+                             type: 'test',
+                             optional: true,
+                           }]);
+      expectedCommands.set('Test2.test2', [{
+                             name: 'test2',
+                             type: 'test2',
+                             optional: true,
+                           }]);
+      expectedCommands.set('Test3.test3', [{
+                             name: 'test3',
+                             type: 'test3',
+                             optional: true,
+                           }]);
+
+      assert.deepStrictEqual(
+          ProtocolMonitor.ProtocolMonitor.buildProtocolCommandsParametersMap(domains), expectedCommands);
+    });
   });
 
   describe('HistoryAutocompleteDataProvider', () => {
@@ -100,52 +150,12 @@ describe('ProtocolMonitor', () => {
         {text: 'test2'},
       ]);
     });
-
-    it('should correctly creates a set of CDP commands', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
-      const domains = [
-        {
-          domain: 'Test',
-          commandParameters: {
-            'Test.test': [{
-              name: 'test',
-              type: 'test',
-              optional: true,
-            }],
-          },
-        },
-        {
-          domain: 'Test2',
-          commandParameters: {
-            'Test2.test2': [{
-              name: 'test2',
-              type: 'test2',
-              optional: true,
-            }],
-            'Test2.test3': [{
-              name: 'test3',
-              type: 'test3',
-              optional: true,
-            }],
-          },
-        },
-      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
-
-      const expectedCommands = new Set([
-        'Test.test',
-        'Test2.test2',
-        'Test2.test3',
-      ]);
-      assert.deepStrictEqual(provider.buildProtocolCommands(domains), expectedCommands);
-    });
   });
 
   describe('EditorWidget', async () => {
     const numberOfCommandPromptEditor = 1;
     const renderEditorWidget = () => {
-      const commandAutocompleteSuggestionProvider =
-          new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
-      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget(commandAutocompleteSuggestionProvider);
+      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();
       editorWidget.jsonEditor.connectedCallback();
       return editorWidget;
     };
@@ -167,9 +177,10 @@ describe('ProtocolMonitor', () => {
           'X-Another-Custom-Header': 'another value',
         },
       };
-
+      const provider = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
       const editorWidget = renderEditorWidget();
-      editorWidget.setCommand(command, parameters);
+      const formattedParameters = provider.formatParameters(parameters, command);
+      editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
       const shadowRoot = editorWidget.jsonEditor.renderRoot;
@@ -182,8 +193,10 @@ describe('ProtocolMonitor', () => {
       const input = '"command": "test", "parameters":';
 
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      const provider = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
       const editorWidget = renderEditorWidget();
-      editorWidget.setCommand(command, parameters);
+      const formattedParameters = provider.formatParameters(parameters, command);
+      editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
       const shadowRoot = editorWidget.jsonEditor.renderRoot;
@@ -196,8 +209,10 @@ describe('ProtocolMonitor', () => {
       const input = '"command": "test", "parameters": 1234';
 
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      const provider = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
       const editorWidget = renderEditorWidget();
-      editorWidget.setCommand(command, parameters);
+      const formattedParameters = provider.formatParameters(parameters, command);
+      editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
       const shadowRoot = editorWidget.jsonEditor.renderRoot;
@@ -206,11 +221,68 @@ describe('ProtocolMonitor', () => {
       assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
     });
 
+    it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
+      const editorWidget = renderEditorWidget();
+
+      const inputParameters = {
+        'test0': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test0',
+          'name': 'test0',
+        },
+        'test1': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test1',
+          'name': 'test1',
+        },
+        'test2': {
+          'optional': false,
+          'type': 'string',
+          'value': 'test2',
+          'name': 'test2',
+        },
+        'test3': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test3',
+          'name': 'test3',
+        },
+      };
+
+      const expectedParameters = {
+        'test0': 'test0',
+        'test1': 'test1',
+        'test2': 'test2',
+        'test3': 'test3',
+      };
+
+      editorWidget.jsonEditor.parametersAvailablePerCommand = inputParameters;
+      const formattedParamaters = editorWidget.jsonEditor.formatParameters();
+      assert.deepStrictEqual(formattedParamaters, expectedParameters);
+    });
+
     it('checks that the command input field remains empty when there is no command parameter entered', async () => {
       const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
       const editorWidget = renderEditorWidget();
-      editorWidget.setCommand(command, parameters);
+      const provider = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
+      const formattedParameters = provider.formatParameters(parameters, command);
+      editorWidget.setCommand(command, formattedParameters);
+      await editorWidget.jsonEditor.updateComplete;
+
+      const commandReceived = editorWidget.jsonEditor.getCommand();
+      assert.deepStrictEqual(commandReceived, '');
+    });
+
+    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
+      const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      const provider = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
+      const editorWidget = renderEditorWidget();
+      const formattedParameters = provider.formatParameters(parameters, command);
+      editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
       const commandReceived = editorWidget.jsonEditor.getCommand();
