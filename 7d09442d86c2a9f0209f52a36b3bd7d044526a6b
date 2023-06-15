@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9dfcf0_6668585d",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-15T16:29:30Z",
+      "side": 1,
+      "message": "I was expecting to see a call to force the flame chart to re-render here. Do we know why we do not need to do that? It is slightly unexpected that just changing the colors without a redraw is enough. Just want to make sure we understand why - and perhaps leave a comment?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 100
+      },
+      "revId": "7d09442d86c2a9f0209f52a36b3bd7d044526a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
