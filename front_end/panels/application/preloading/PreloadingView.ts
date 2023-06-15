@@ -15,6 +15,7 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 
 import * as PreloadingComponents from './components/components.js';
+import type * as PreloadingHelper from './helper/helper.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
 import emptyWidgetStyles from '../../../ui/legacy/emptyWidget.css.js';
@@ -310,14 +311,14 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
   render(): void {
     // Update rule sets grid
     const countsPerRuleSetId = this.model.getPreloadCountsPerRuleSetId();
-    const ruleSetRows =
-        this.model.getAllRuleSets().map(({id, value}) => ({
-                                          id,
-                                          processLocalId: PreloadingUIUtils.processLocalId(value.id),
-                                          preloads: PreloadingUIUtils.gridPreloads(value, countsPerRuleSetId),
-                                          validity: PreloadingUIUtils.validity(value),
-                                          location: PreloadingUIUtils.location(value),
-                                        }));
+    const ruleSetRows = this.model.getAllRuleSets().map(
+        ({id, value}) => ({
+          id,
+          processLocalId: PreloadingUIUtils.processLocalId(value.id),
+          preloads: {str: PreloadingUIUtils.gridPreloads(value, countsPerRuleSetId), ruleSetId: value.id},
+          validity: PreloadingUIUtils.validity(value),
+          location: PreloadingUIUtils.location(value),
+        }));
     this.ruleSetGrid.update(ruleSetRows);
 
     this.updateRuleSetDetails();
@@ -411,6 +412,11 @@ export class PreloadingAttemptView extends UI.Widget.VBox {
     assertNotNullOrUndefined(model);
     this.model = model;
     this.render();
+  }
+
+  setFilter(filter: PreloadingHelper.PreloadingForward.AttemptViewWithFilter): void {
+    const id = filter.ruleSetId;
+    this.model.getRuleSetById(id) && this.ruleSetSelector.select(id);
   }
 
   private updatePreloadingDetails(): void {
