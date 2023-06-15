@@ -60,6 +60,43 @@ describe('ProtocolMonitor', () => {
         parameters: {},
       });
     });
+
+    it('should correctly creates a set of CDP commands', async () => {
+      const domains = [
+        {
+          domain: 'Test',
+          commandParameters: {
+            'Test.test': [{
+              name: 'test',
+              type: 'test',
+              optional: true,
+            }],
+          },
+        },
+        {
+          domain: 'Test2',
+          commandParameters: {
+            'Test2.test2': [{
+              name: 'test2',
+              type: 'test2',
+              optional: true,
+            }],
+            'Test2.test3': [{
+              name: 'test3',
+              type: 'test3',
+              optional: true,
+            }],
+          },
+        },
+      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
+
+      const expectedCommands = new Set([
+        'Test.test',
+        'Test2.test2',
+        'Test2.test3',
+      ]);
+      assert.deepStrictEqual(ProtocolMonitor.ProtocolMonitor.buildProtocolCommands(domains), expectedCommands);
+    });
   });
 
   describe('HistoryAutocompleteDataProvider', () => {
@@ -100,52 +137,12 @@ describe('ProtocolMonitor', () => {
         {text: 'test2'},
       ]);
     });
-
-    it('should correctly creates a set of CDP commands', async () => {
-      const provider = new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
-      const domains = [
-        {
-          domain: 'Test',
-          commandParameters: {
-            'Test.test': [{
-              name: 'test',
-              type: 'test',
-              optional: true,
-            }],
-          },
-        },
-        {
-          domain: 'Test2',
-          commandParameters: {
-            'Test2.test2': [{
-              name: 'test2',
-              type: 'test2',
-              optional: true,
-            }],
-            'Test2.test3': [{
-              name: 'test3',
-              type: 'test3',
-              optional: true,
-            }],
-          },
-        },
-      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
-
-      const expectedCommands = new Set([
-        'Test.test',
-        'Test2.test2',
-        'Test2.test3',
-      ]);
-      assert.deepStrictEqual(provider.buildProtocolCommands(domains), expectedCommands);
-    });
   });
 
   describe('EditorWidget', async () => {
     const numberOfCommandPromptEditor = 1;
     const renderEditorWidget = () => {
-      const commandAutocompleteSuggestionProvider =
-          new ProtocolMonitor.ProtocolMonitor.CommandAutocompleteSuggestionProvider(2);
-      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget(commandAutocompleteSuggestionProvider);
+      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();
       editorWidget.jsonEditor.connectedCallback();
       return editorWidget;
     };
@@ -204,6 +201,58 @@ describe('ProtocolMonitor', () => {
       const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
 
       assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
+    });
+
+    it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
+      const editorWidget = renderEditorWidget();
+
+      const inputParameters = {
+        'test0': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test0',
+          'touched': false,
+        },
+        'test1': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test1',
+          'touched': true,
+        },
+        'test2': {
+          'optional': false,
+          'type': 'string',
+          'value': 'test2',
+          'touched': true,
+        },
+        'test3': {
+          'optional': true,
+          'type': 'string',
+          'value': 'test3',
+          'touched': true,
+        },
+      };
+
+      const expectedParameters = {
+        'test1': 'test1',
+        'test2': 'test2',
+        'test3': 'test3',
+      };
+
+      editorWidget.jsonEditor.parametersAvailablePerCommand = inputParameters;
+      editorWidget.jsonEditor.formatParameters();
+      assert.deepStrictEqual(editorWidget.jsonEditor.parametersSentByEditor, expectedParameters);
+    });
+
+    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
+      const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
+      const editorWidget = renderEditorWidget();
+      editorWidget.setCommand(command, parameters);
+      await editorWidget.jsonEditor.updateComplete;
+
+      const commandReceived = editorWidget.jsonEditor.getCommand();
+      assert.deepStrictEqual(commandReceived, '');
     });
 
     it('checks that the command input field remains empty when there is no command parameter entered', async () => {
