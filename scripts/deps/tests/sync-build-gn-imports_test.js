@@ -202,12 +202,46 @@ describe('comparing imports from BUILD.gn and a source file', () => {
 import * as Platform from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
   `;
-    const sourceCode = parseSourceFileForImports(sourceCodeFileContents, 'front_end/components/HandlerOne.ts');
+    const sourceCodeFileName = 'front_end/components/HandlerOne.ts';
+    const sourceCode = parseSourceFileForImports(sourceCodeFileContents, sourceCodeFileName);
 
     const result = compareDeps({buildGN, sourceCode});
     assert.deepEqual(result, {
-      inBoth: ['../../../core/platform', '../../../core/sdk'],
+      inBoth: [
+        path.resolve(path.dirname(sourceCodeFileName), '../../../core/platform'),
+        path.resolve(path.dirname(sourceCodeFileName), '../../../core/sdk')
+      ],
       inOnlyBuildGN: [],
+      sourceIsEntryPoint: false,
+      missingBuildGNSources: [],
+      inOnlySourceCode: [],
+    });
+  });
+
+  it('can match up imports when one goes an extra folder up', () => {
+    const buildGNFileContents = `devtools_module("handlers") {
+  sources = [
+    "HandlerOne.ts",
+    "HandlerTwo.ts",
+  ]
+
+  deps = [
+    "../../core/platform:bundle",
+  ]
+}`;
+    const buildGN = parseBuildGN(buildGNFileContents);
+
+    const sourceCodeFileContents = `
+import * as Platform from '../platform/platform.js';
+  `;
+    const sourceCodeFileName = 'front_end/core/handlers/HandlerOne.ts';
+    const sourceCode = parseSourceFileForImports(sourceCodeFileContents, sourceCodeFileName);
+
+    const result = compareDeps({buildGN, sourceCode});
+    assert.deepEqual(result, {
+      inBoth: [path.resolve(path.dirname(sourceCodeFileName), '../../core/platform')],
+      inOnlyBuildGN: [],
+      sourceIsEntryPoint: false,
       missingBuildGNSources: [],
       inOnlySourceCode: [],
     });
@@ -236,9 +270,10 @@ import * as Helpers from './helpers/helpers.js';
 
     const result = compareDeps({buildGN, sourceCode});
     assert.deepEqual(result, {
-      inBoth: ['helpers'],
+      inBoth: [path.resolve('front_end/components', 'helpers')],
       inOnlyBuildGN: [],
       missingBuildGNSources: [],
+      sourceIsEntryPoint: false,
       inOnlySourceCode: [],
     });
   });
@@ -265,11 +300,16 @@ import * as Something from '../only-in-source-code/only-in-source-code.js';
   `;
     const sourceCode = parseSourceFileForImports(sourceCodeFileContents, 'front_end/components/HandlerOne.ts');
 
+    const resolvePath = filePath => {
+      return path.resolve('front_end/components', filePath);
+    };
+
     const result = compareDeps({buildGN, sourceCode});
     assert.deepEqual(result, {
-      inBoth: ['../../../core/platform', '../../../core/sdk'],
-      inOnlyBuildGN: ['../../../core/only-in-build-gn'],
-      inOnlySourceCode: ['../only-in-source-code'],
+      inBoth: [resolvePath('../../../core/platform'), resolvePath('../../../core/sdk')],
+      inOnlyBuildGN: [resolvePath('../../../core/only-in-build-gn')],
+      sourceIsEntryPoint: false,
+      inOnlySourceCode: [resolvePath('../only-in-source-code')],
       missingBuildGNSources: [],
     });
   });
@@ -294,19 +334,24 @@ import {Utils} from './Utils.js';
   `;
     const sourceCode = parseSourceFileForImports(sourceCodeFileContents, 'front_end/components/HandlerOne.ts');
 
+    const resolvePath = filePath => {
+      return path.resolve('front_end/components', filePath);
+    };
+
     const result = compareDeps({buildGN, sourceCode});
     // We don't expect any errors for Utils.js, because it's a file in the same
     // directory and therefore doesn't need to be a DEP. It just needs to be in
     // the `sources` list.
     assert.deepEqual(result, {
-      inBoth: ['../../../core/platform'],
+      inBoth: [resolvePath('../../../core/platform')],
+      sourceIsEntryPoint: false,
       inOnlyBuildGN: [],
       inOnlySourceCode: [],
       missingBuildGNSources: [],
     });
   });
 
-  it('uses the DEPS of the devtools_module if we find a devtools_entrypoint', () => {
+  it('merges the DEPS of the devtools_module if we find devtools_entrypoint', () => {
     const buildGNFileContents = `devtools_module("handlers") {
   sources = [
     "HandlerOne.ts",
@@ -336,13 +381,17 @@ export {HandlerOne, HandlerTwo, Services};
   `;
     const sourceCode = parseSourceFileForImports(sourceCodeFileContents, 'front_end/handlers/handlers.ts');
 
+    const resolvePath = filePath => {
+      return path.resolve('front_end/handlers', filePath);
+    };
     // We don't check entrypoint files, all they do is provide the entrypoint
     // and depend on a devtools_module, which is where the real logic is.
     const result = compareDeps({buildGN, sourceCode});
     assert.deepEqual(result, {
-      inBoth: ['services'],
+      sourceIsEntryPoint: true,
+      inBoth: [resolvePath('services')],
       missingBuildGNSources: [],
-      inOnlyBuildGN: ['../../../core/platform'],
+      inOnlyBuildGN: [resolvePath('../../../core/platform')],
       inOnlySourceCode: [],
     });
   });
@@ -366,14 +415,18 @@ import {Utils} from './Utils.js';
   `;
     const sourceCode = parseSourceFileForImports(sourceCodeFileContents, 'front_end/components/HandlerOne.ts');
 
+    const resolvePath = filePath => {
+      return path.resolve('front_end/handlers', filePath);
+    };
     const result = compareDeps({buildGN, sourceCode});
     // We don't expect any errors for Utils.js, because it's a file in the same
     // directory and therefore doesn't need to be a DEP. It just needs to be in
     // the `sources` list.
     assert.deepEqual(result, {
-      inBoth: ['../../../core/platform'],
+      inBoth: [resolvePath('../../../core/platform')],
       missingBuildGNSources: ['Utils.ts'],
       inOnlyBuildGN: [],
+      sourceIsEntryPoint: false,
       inOnlySourceCode: [],
     });
   });
@@ -381,15 +434,15 @@ import {Utils} from './Utils.js';
 
 describe('executing the checker on a directory', () => {
   it('finds missing imports that need to be in the BUILD.gn and extraneous imports in the BUILD.gn', () => {
-    const result = validateDirectory(path.join(__dirname, 'fixtures', 'missing-deps'));
+    const testDir = path.join(__dirname, 'fixtures', 'missing-deps');
+    const result = validateDirectory(testDir);
+    const resolvePath = filePath => {
+      return path.resolve(testDir, filePath);
+    };
     assert.deepEqual(result.missingBuildGNDeps, [
-      {importPath: '../../missing-one', sourceFile: 'HandlerOne.ts'},
-      {importPath: '../../missing-two', sourceFile: 'HandlerTwo.ts'},
+      {importPath: resolvePath('../../missing-one'), sourceFile: 'HandlerOne.ts'},
+      {importPath: resolvePath('../../missing-two'), sourceFile: 'HandlerTwo.ts'},
     ]);
-    assert.deepEqual(Array.from(result.unusedBuildGNDeps), ['../../../not-used-in-source-code']);
+    assert.deepEqual(Array.from(result.unusedBuildGNDeps), [resolvePath('../../../not-used-in-source-code')]);
   });
 });
-
-// TODO: test that entrypoint = is parsed correctly
-// TODO: test that source lines starting with a comment get ignored
-// TODO: test that dep lines starting with a comment get ignored

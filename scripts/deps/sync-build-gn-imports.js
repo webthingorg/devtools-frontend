@@ -202,38 +202,40 @@ function parseSourceFileForImports(code, fileName) {
  * @returns {ComparisonResult}
  */
 function compareDeps({buildGN, sourceCode}) {
-  const sourceImportsWithFileNameRemoved =
-      sourceCode.imports
-          .map(importPath => {
-            // If a file imports `../core/sdk/sdk.js`, in the BUILD.gn that is
-            // listed as `../core/sdk:bundle`. In BUILD.gn DEPS you never depend on the
-            // specific file, but the directory that file is in. Therefore we drop the
-            // filename from the import.
-            return path.dirname(importPath);
-          })
-          .filter(dirName => {
-            // This caters for the case where the import is `import X from './Foo.js'`.
-            // Any sibling import doesn't need to be a DEP in BUILD.GN as they are in
-            // the same module, but we will check later that it's in the sources entry.
-            return dirName !== '.';
-          })
-          .map(importPath => {
-            // If we now have './helpers' we want to replace that with just
-            // 'helpers'. We do this because in the BUILD.gn file the dep will be
-            // listed as something like "helpers:bundle", so the starting "./" will
-            // break comparisons if we keep it around.
-            if (importPath.startsWith('./')) {
-              return importPath.slice(2);
-            }
-            return importPath;
-          });
+  const resolvedSourceImports = sourceCode.imports
+                                    .map(importPath => {
+                                      // If a file imports `../core/sdk/sdk.js`, in the BUILD.gn that is
+                                      // listed as `../core/sdk:bundle`. In BUILD.gn DEPS you never depend on the
+                                      // specific file, but the directory that file is in. Therefore we drop the
+                                      // filename from the import.
+                                      return path.dirname(importPath);
+                                    })
+                                    .filter(dirName => {
+                                      // This caters for the case where the import is `import X from './Foo.js'`.
+                                      // Any sibling import doesn't need to be a DEP in BUILD.GN as they are in
+                                      // the same module, but we will check later that it's in the sources entry.
+                                      return dirName !== '.';
+                                    })
+                                    .map(importPath => {
+                                      // If we now have './helpers' we want to replace that with just
+                                      // 'helpers'. We do this because in the BUILD.gn file the dep will be
+                                      // listed as something like "helpers:bundle", so the starting "./" will
+                                      // break comparisons if we keep it around.
+                                      if (importPath.startsWith('./')) {
+                                        return importPath.slice(2);
+                                      }
+                                      return importPath;
+                                    })
+                                    .map(importPath => {
+                                      return path.resolve(path.dirname(sourceCode.filePath), importPath);
+                                    });
 
   // Now we have to find the BUILD.gn module that contains this source file
   // We check each section of the BUILD.gn and look for this file in the `sources` list.
   // Because the source file and the BUILD.gn are in the same directory, we
   // only compare the source file name and do not have to worry about the
   // directory path.
-  let buildGNModule = buildGN.find(buildModule => {
+  const buildGNModule = buildGN.find(buildModule => {
     const sourceFileName = path.basename(sourceCode.filePath);
     return buildModule.sources?.includes(sourceFileName);
   });
@@ -241,30 +243,49 @@ function compareDeps({buildGN, sourceCode}) {
   if (!buildGNModule) {
     throw new Error(`Could not find module in BUILD.gn for ${sourceCode.filePath}`);
   }
+  const sourceIsEntryPoint = buildGNModule.template === 'devtools_entrypoint';
 
   // Special case: if we are linting an entrypoint, we have to find the
   // `devtools_module` that the entrypoint depends on. This is because of how
   // we structure our BUILD.gn files, the devtools_entrypoint never lists all
   // the dependencies, but instead depends on the `devtools_module`, which does
   // list all the dependencies.
-  if (buildGNModule.template === 'devtools_entrypoint') {
+  // TODO: this is an outcome of the hacky parsing of BUILD.gn files that I
+  // went with: if we properly parsed it into a tree of modules, and
+  // represented their DEPs properly, we would not have to do this hack and
+  // could instead walk a module's DEPs, finding other modules, to gather up
+  // its entire list of deps.
+  if (sourceIsEntryPoint) {
     // We are going to use the dependencies from the relevant devtools_module
-    // find the `deps = [':foo']` line, and return 'foo'
+    // find the `deps = [':foo']` line, and return 'foo'. But in some cases
+    // entrypoints do have DEPs themselves, so we also keep those around and
+    // merge them with the deps we find from the relevant devtools_module.
     const moduleDep = buildGNModule.deps[0].slice(1);
-    buildGNModule = buildGN.find(buildModule => buildModule.moduleName === moduleDep);
+    const mainModule = buildGN.find(buildModule => buildModule.moduleName === moduleDep);
+    buildGNModule.deps.push(...mainModule.deps);
+    buildGNModule.sources.push(...mainModule.sources);
   }
 
   if (!buildGNModule) {
     throw new Error(`Could not find devtools_module in BUILD.gn for the devtools_entrypoint of ${sourceCode.filePath}`);
   }
 
-  const buildGNDepsWithTargetRemoved = buildGNModule.deps.map(dep => {
-    // GN deps are listed as "../path/to/directory:target" and we only care about the path part.
-    return dep.split(':')[0];
-  });
-
-  const gnDeps = new Set(buildGNDepsWithTargetRemoved);
-  const sourceDeps = new Set(sourceImportsWithFileNameRemoved);
+  const resolvedGNDepsWithTargetRemoved =
+      buildGNModule.deps
+          .map(dep => {
+            // GN deps are listed as "../path/to/directory:target" and we only care about the path part.
+            return dep.split(':')[0];
+          })
+          .filter(dep => dep.length > 0)
+          .map(importPath => {
+            // Make the DEPs absolute so it
+            // is easier to compare with JS imports, which we also make absolute. That
+            // means we avoid comparing the strings directly and work from actual file
+            // paths.
+            return path.resolve(path.dirname(sourceCode.filePath), importPath);
+          });
+  const gnDeps = new Set(resolvedGNDepsWithTargetRemoved);
+  const sourceDeps = new Set(resolvedSourceImports);
 
   /** @type {Array<string>} */
   const inBoth = [];
@@ -305,12 +326,7 @@ function compareDeps({buildGN, sourceCode}) {
     }
   }
 
-  return {
-    inBoth,
-    inOnlyBuildGN,
-    inOnlySourceCode,
-    missingBuildGNSources,
-  };
+  return {inBoth, inOnlyBuildGN, inOnlySourceCode, missingBuildGNSources, sourceIsEntryPoint};
 }
 
 /**
@@ -345,18 +361,29 @@ function validateDirectory(dirPath) {
     unusedBuildGNDeps: new Set(parsedBuildGN.flatMap(mod => {
       // We don't worry about any deps that start with a colon, we are only
       // interested in DEPS that are actual files.
-      return mod.deps.filter(dep => !dep.startsWith(':')).map(dep => {
-        // Drop the :bundle part from a dep, otherwise we can't compare it
-        // against the import statements from the source code.
-        const withoutBundle = dep.split(':')[0];
-        return withoutBundle;
-      });
+      return mod.deps.filter(dep => !dep.startsWith(':'))
+          .map(dep => {
+            // Drop the :bundle part from a dep, otherwise we can't compare it
+            // against the import statements from the source code.
+            const withoutBundle = dep.split(':')[0];
+            return withoutBundle;
+          })
+          .map(dep => {
+            // Whenever we are about to compare DEPs and imports we make the paths absolute so we can compare more easily.
+            return path.resolve(dirPath, dep);
+          });
     }))
   };
 
   for (const sourceFile of sourceFiles) {
-    const sourceCode = fs.readFileSync(path.join(dirPath, sourceFile), 'utf8');
-    const parsedSource = parseSourceFileForImports(sourceCode, sourceFile);
+    if (sourceFile.endsWith('-meta.ts')) {
+      // TODO: implement proper support for -meta files. Requires work to parse
+      // the BuildGN properly and associate the DEP tree.
+      continue;
+    }
+    const sourceCodePath = path.join(dirPath, sourceFile);
+    const sourceCode = fs.readFileSync(sourceCodePath, 'utf8');
+    const parsedSource = parseSourceFileForImports(sourceCode, sourceCodePath);
     const diffWithGN = compareDeps({buildGN: parsedBuildGN, sourceCode: parsedSource});
     if (!diffWithGN) {
       continue;
@@ -410,14 +437,14 @@ if (require.main === module) {
         usedInText += ` (and ${usedIn.length - MAX_USED_IN_FILES} other files)`;
       }
       console.error('\nFound missing DEP in BUILD.gn');
-      console.error(`=> '${dep}'`);
+      console.error(`=> '${path.relative(process.cwd(), dep)}'`);
       console.error(`=> used in ${usedInText}`);
     }
   }
   if (result.unusedBuildGNDeps.size > 0) {
-    console.error('\nUnused BUILD.gn DEPs');
+    console.error(`\nUnused ${yargs.directory}/BUILD.gn DEPs`);
     for (const unused of result.unusedBuildGNDeps) {
-      console.error(`=> '${unused}'`);
+      console.error(`=> '${path.relative(process.cwd(), unused)}'`);
     }
   }
   // We early exit if the run is successful and finds no errors, so if we get
