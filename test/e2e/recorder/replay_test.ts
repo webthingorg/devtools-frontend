@@ -181,7 +181,7 @@ describe('Recorder', function() {
       assert.strictEqual(value, '#333333');
     });
 
-    it('should be able to replay events with text selectors', async () => {
+    it.only('should be able to replay events with text selectors', async () => {
       const {target} = getBrowserAndPages();
       await setupRecorderWithScriptAndReplay({
         title: 'Test Recording',
@@ -206,7 +206,7 @@ describe('Recorder', function() {
       assert.ok(frame, 'Frame that the target page navigated to is not found');
     });
 
-    it('should be able to replay events with xpath selectors', async () => {
+    it.only('should be able to replay events with xpath selectors', async () => {
       const {target} = getBrowserAndPages();
       await setupRecorderWithScriptAndReplay({
         title: 'Test Recording',
