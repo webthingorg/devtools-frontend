@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "850521ac_f9f55005",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-06-15T05:27:30Z",
+      "side": 1,
+      "message": "Thanks for the patch. Please also add yourself to the AUTHORS file. And I think it\u0027d be good to have a test case as part of fixing this regression.\n\nJaro, could you take a look please?",
+      "revId": "6b3e985506c72be586461e7ddb769f9ef40df29f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
