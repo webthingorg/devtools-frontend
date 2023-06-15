@@ -18,10 +18,10 @@ describe('PuppeteerConverter', () => {
     });
     try {
       assert.isTrue(
-          result.startsWith(`const puppeteer = require('puppeteer'); // v13.0.0 or later
+          result.startsWith(`const puppeteer = require('puppeteer'); // v19.11.1 or later
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({headless: 'new'});
   const page = await browser.newPage();
   const timeout = 5000;
   page.setDefaultTimeout(timeout);
