@@ -27,7 +27,7 @@ before(async function() {
 beforeEach(() => {
   resetTestDOM();
   // Ensure that no trace data leaks between tests when testing the trace engine.
-  for (const handler of Object.values(TraceEngine.Handlers.ModelHandlers)) {
+  for (const handler of Object.values(TraceEngine.Handlers.Types.ModelHandlers)) {
     handler.reset();
   }
 

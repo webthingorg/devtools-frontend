@@ -63,8 +63,8 @@ function makeProfileChunkEvent(
 /**
  * Builds a mock ProfileSample.
  */
-function makeProfileSample(ts: number, id: number = 0, pid: number = 0, tid: number = 0):
-    TraceModel.Handlers.ModelHandlers.Samples.ProfileSample {
+function makeProfileSample(
+    ts: number, id: number = 0, pid: number = 0, tid: number = 0): TraceModel.Handlers.Samples.ProfileSample {
   return {
     topmostStackFrame: {nodeId: TraceModel.Types.TraceEvents.CallFrameID(id)},
     pid: TraceModel.Types.TraceEvents.ProcessID(pid),
@@ -73,24 +73,23 @@ function makeProfileSample(ts: number, id: number = 0, pid: number = 0, tid: num
   };
 }
 
-async function handleEventsFromTraceFile(name: string):
-    Promise<TraceModel.Handlers.ModelHandlers.Samples.SamplesHandlerData> {
+async function handleEventsFromTraceFile(name: string): Promise<TraceModel.Handlers.Samples.SamplesHandlerData> {
   const traceEvents = await loadEventsFromTraceFile(name);
-  TraceModel.Handlers.ModelHandlers.Meta.reset();
-  TraceModel.Handlers.ModelHandlers.Samples.reset();
+  TraceModel.Handlers.Meta.reset();
+  TraceModel.Handlers.Samples.reset();
 
-  TraceModel.Handlers.ModelHandlers.Meta.initialize();
-  TraceModel.Handlers.ModelHandlers.Samples.initialize();
+  TraceModel.Handlers.Meta.initialize();
+  TraceModel.Handlers.Samples.initialize();
 
   for (const event of traceEvents) {
-    TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-    TraceModel.Handlers.ModelHandlers.Samples.handleEvent(event);
+    TraceModel.Handlers.Meta.handleEvent(event);
+    TraceModel.Handlers.Samples.handleEvent(event);
   }
 
-  await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-  await TraceModel.Handlers.ModelHandlers.Samples.finalize();
+  await TraceModel.Handlers.Meta.finalize();
+  await TraceModel.Handlers.Samples.finalize();
 
-  return TraceModel.Handlers.ModelHandlers.Samples.data();
+  return TraceModel.Handlers.Samples.data();
 }
 
 describe('SamplesHandler', function() {
@@ -180,7 +179,7 @@ describe('SamplesHandler', function() {
     const profiles = new Map([
       [
         TraceModel.Types.TraceEvents.ProfileID('1'),
-        {} as Partial<TraceModel.Handlers.ModelHandlers.Samples.SamplesProfile>,
+        {} as Partial<TraceModel.Handlers.Samples.SamplesProfile>,
       ],
       [
         TraceModel.Types.TraceEvents.ProfileID('2'),
@@ -191,13 +190,13 @@ describe('SamplesHandler', function() {
             tid: TraceModel.Types.TraceEvents.ThreadID(22),
             id: '2',
           },
-        } as Partial<TraceModel.Handlers.ModelHandlers.Samples.SamplesProfile>,
+        } as Partial<TraceModel.Handlers.Samples.SamplesProfile>,
       ],
       [
         TraceModel.Types.TraceEvents.ProfileID('3'),
         {
           chunks: [{...defaultTraceEvent}],
-        } as Partial<TraceModel.Handlers.ModelHandlers.Samples.SamplesProfile>,
+        } as Partial<TraceModel.Handlers.Samples.SamplesProfile>,
       ],
       [
         TraceModel.Types.TraceEvents.ProfileID('4'),
@@ -209,7 +208,7 @@ describe('SamplesHandler', function() {
             id: '4',
           },
           chunks: [{...defaultTraceEvent}],
-        } as Partial<TraceModel.Handlers.ModelHandlers.Samples.SamplesProfile>,
+        } as Partial<TraceModel.Handlers.Samples.SamplesProfile>,
       ],
       [
         TraceModel.Types.TraceEvents.ProfileID('5'),
@@ -221,13 +220,12 @@ describe('SamplesHandler', function() {
             id: '5',
           },
           chunks: [{...defaultTraceEvent}],
-        } as Partial<TraceModel.Handlers.ModelHandlers.Samples.SamplesProfile>,
+        } as Partial<TraceModel.Handlers.Samples.SamplesProfile>,
       ],
     ]);
 
-    const processes =
-        new Map<TraceModel.Types.TraceEvents.ProcessID, TraceModel.Handlers.ModelHandlers.Samples.SamplesProcess>();
-    TraceModel.Handlers.ModelHandlers.Samples.buildProcessesAndThreads(profiles, processes);
+    const processes = new Map<TraceModel.Types.TraceEvents.ProcessID, TraceModel.Handlers.Samples.SamplesProcess>();
+    TraceModel.Handlers.Samples.buildProcessesAndThreads(profiles, processes);
 
     assert.strictEqual(processes.size, 2);
 
@@ -267,7 +265,7 @@ describe('SamplesHandler', function() {
       makeProfileSample(0.5, 8),
     ];
 
-    TraceModel.Handlers.ModelHandlers.Samples.sortProfileSamples(data);
+    TraceModel.Handlers.Samples.sortProfileSamples(data);
 
     assert.deepEqual(data.map(e => ({id: e.topmostStackFrame.nodeId, ts: e.ts})), [
       {id: 2, ts: 0},
@@ -292,7 +290,7 @@ describe('SamplesHandler', function() {
       makeProfileChunkEvent([], [], [], 0),
     ];
 
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
 
     assert.deepEqual([...tree.nodes].map(([id, n]) => [id, {parent: n.parentId, children: [...n.childrenIds]}]) as {}, [
       [0, {parent: null, children: [1, 3]}],
@@ -317,8 +315,7 @@ describe('SamplesHandler', function() {
       makeProfileChunkEvent([], [], [], 0),
     ];
 
-    const tree =
-        TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock, {filterCodeTypes: true, filterUrls: true});
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock, {filterCodeTypes: true, filterUrls: true});
 
     assert.deepEqual([...tree.nodes].map(([id, n]) => [id, {parent: n.parentId, children: [...n.childrenIds]}]) as {}, [
       [1, {parent: 0, children: [2, 5]}],
@@ -350,8 +347,8 @@ describe('SamplesHandler', function() {
           ),
     ];
 
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
-    const samples = TraceModel.Handlers.ModelHandlers.Samples.collectSamples(pid, tid, ts, tree, mock);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
+    const samples = TraceModel.Handlers.Samples.collectSamples(pid, tid, ts, tree, mock);
 
     assert.deepEqual(samples, [
       {topmostStackFrame: {nodeId: 0}, tid: 1, pid: 0, ts: 101},
@@ -385,8 +382,8 @@ describe('SamplesHandler', function() {
     ];
 
     const options = {filterCodeTypes: true, filterUrls: true};
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
-    const samples = TraceModel.Handlers.ModelHandlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
+    const samples = TraceModel.Handlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
 
     assert.deepEqual(samples, [
       {topmostStackFrame: {nodeId: 1}, tid: 1, pid: 0, ts: 102},
@@ -415,8 +412,8 @@ describe('SamplesHandler', function() {
     ];
 
     const options = {filterCodeTypes: true, filterUrls: true};
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
-    const samples = TraceModel.Handlers.ModelHandlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
+    const samples = TraceModel.Handlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
 
     assert.deepEqual(samples, [
       {topmostStackFrame: {nodeId: B.id}, tid: 1, pid: 0, ts: 102},
@@ -445,8 +442,8 @@ describe('SamplesHandler', function() {
     ];
 
     const options = {filterCodeTypes: true, filterUrls: true};
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
-    const samples = TraceModel.Handlers.ModelHandlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
+    const samples = TraceModel.Handlers.Samples.collectSamples(pid, tid, ts, tree, mock, options);
 
     assert.deepEqual(samples, [
       {topmostStackFrame: {nodeId: B.id}, tid: 1, pid: 0, ts: 102},
@@ -474,8 +471,7 @@ describe('SamplesHandler', function() {
     const threads = new Map([[tid, data]]);
     const processes = new Map([[pid, threads]]);
 
-    const boundaries =
-        TraceModel.Handlers.ModelHandlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
+    const boundaries = TraceModel.Handlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
     assert.deepEqual(boundaries, [0, 1, 2, 3, 4, 5, 8, 10, 11, 14]);
   });
 
@@ -499,7 +495,7 @@ describe('SamplesHandler', function() {
     const processes = new Map([[pid, threads]]);
 
     const filter = new Set([TraceModel.Handlers.Types.EventCategory.Other, TraceModel.Handlers.Types.EventCategory.Js]);
-    const boundaries = TraceModel.Handlers.ModelHandlers.Samples.collectBoundaries(processes, pid, tid, {filter});
+    const boundaries = TraceModel.Handlers.Samples.collectBoundaries(processes, pid, tid, {filter});
     assert.deepEqual(boundaries, [0, 5, 8, 10]);
   });
 
@@ -513,7 +509,7 @@ describe('SamplesHandler', function() {
       makeProfileChunkEvent([], [], [], 0),
     ];
 
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
 
     const expected = [
       [0],
@@ -529,9 +525,9 @@ describe('SamplesHandler', function() {
 
     for (let i = 0; i < expected.length; i++) {
       const sample = {topmostStackFrame: {nodeId: TraceModel.Types.TraceEvents.CallFrameID(i)}} as
-          TraceModel.Handlers.ModelHandlers.Samples.ProfileSample;
-      const trace = TraceModel.Handlers.ModelHandlers.Samples.buildStackTraceAsCallFrameIdsFromId(
-          tree, sample.topmostStackFrame.nodeId);
+          TraceModel.Handlers.Samples.ProfileSample;
+      const trace =
+          TraceModel.Handlers.Samples.buildStackTraceAsCallFrameIdsFromId(tree, sample.topmostStackFrame.nodeId);
       assert.deepEqual(trace, expected[i]);
     }
   });
@@ -546,7 +542,7 @@ describe('SamplesHandler', function() {
       makeProfileChunkEvent([], [], [], 0),
     ];
 
-    const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mock);
+    const tree = TraceModel.Handlers.Samples.collectStackTraces(mock);
 
     const expected = [
       {
@@ -680,8 +676,8 @@ describe('SamplesHandler', function() {
 
     for (let i = 0; i < expected.length; i++) {
       const sample = {topmostStackFrame: {nodeId: TraceModel.Types.TraceEvents.CallFrameID(i)}} as
-          TraceModel.Handlers.ModelHandlers.Samples.ProfileSample;
-      const call = TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample);
+          TraceModel.Handlers.Samples.ProfileSample;
+      const call = TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample);
       assert.deepEqual(JSON.stringify(call), JSON.stringify(expected[i]));
     }
   });
@@ -759,10 +755,9 @@ describe('SamplesHandler', function() {
     ];
 
     it('can merge samples (1)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [
         {
@@ -816,17 +811,16 @@ describe('SamplesHandler', function() {
     });
 
     it('can merge samples with boundaries (1)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
 
       const pid = TraceModel.Types.TraceEvents.ProcessID(0);
       const tid = TraceModel.Types.TraceEvents.ThreadID(0);
       const threads = new Map([[tid, mockEvents]]);
       const processes = new Map([[pid, threads]]);
       const boundaries =
-          TraceModel.Handlers.ModelHandlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, boundaries);
+          TraceModel.Handlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, boundaries);
 
       const expected = [
         /* Task 1 */
@@ -952,10 +946,9 @@ describe('SamplesHandler', function() {
     });
 
     it('can merge samples (2)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples2.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples2.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [
         {
@@ -1093,17 +1086,16 @@ describe('SamplesHandler', function() {
     });
 
     it('can merge samples with boundaries (2)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples2.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples2.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
 
       const pid = TraceModel.Types.TraceEvents.ProcessID(0);
       const tid = TraceModel.Types.TraceEvents.ThreadID(0);
       const threads = new Map([[tid, mockEvents2]]);
       const processes = new Map([[pid, threads]]);
       const boundaries =
-          TraceModel.Handlers.ModelHandlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, boundaries);
+          TraceModel.Handlers.Samples.collectBoundaries(processes, pid, tid, {filter: {has: () => true}});
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, boundaries);
 
       const expected = [
         /* Task 1 */
@@ -1298,10 +1290,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(5, Z.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [
         {
@@ -1372,10 +1363,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(6, X.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [
         {
@@ -1457,10 +1447,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(5, Z2.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [{
         'stackFrame': {'nodeId': 0},
@@ -1538,10 +1527,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(5, Y2.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [{
         'stackFrame': {'nodeId': 0},
@@ -1606,10 +1594,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(5, Z2.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [{
         'stackFrame': {'nodeId': 0},
@@ -1682,10 +1669,9 @@ describe('SamplesHandler', function() {
         makeProfileSample(5, Z2.id),
       ];
 
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls =
-          mockSamples.map(sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
 
       const expected = [{
         'stackFrame': {'nodeId': 0},
@@ -1795,13 +1781,12 @@ describe('SamplesHandler', function() {
     ];
 
     it('can get all functions between timestamps (1)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples1.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples1.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
       const begin = TraceModel.Types.Timing.MicroSeconds(0);
       const end = TraceModel.Types.Timing.MicroSeconds(23);
-      const infos = TraceModel.Handlers.ModelHandlers.Samples.getAllFunctionsBetweenTimestamps(merged, begin, end);
+      const infos = TraceModel.Handlers.Samples.getAllFunctionsBetweenTimestamps(merged, begin, end);
 
       const simplified = [...infos].map(
           fun => [fun.stackFrame.nodeId, {calls: fun.calls.length, total: fun.durPercent, self: fun.selfDurPercent}]);
@@ -1818,13 +1803,12 @@ describe('SamplesHandler', function() {
     });
 
     it('can get all functions between timestamps (2)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples2.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples2.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
       const begin = TraceModel.Types.Timing.MicroSeconds(0);
       const end = TraceModel.Types.Timing.MicroSeconds(23);
-      const infos = TraceModel.Handlers.ModelHandlers.Samples.getAllFunctionsBetweenTimestamps(merged, begin, end);
+      const infos = TraceModel.Handlers.Samples.getAllFunctionsBetweenTimestamps(merged, begin, end);
 
       const simplified = [...infos].map(
           fun => [fun.stackFrame.nodeId, {calls: fun.calls.length, total: fun.durPercent, self: fun.selfDurPercent}]);
@@ -1842,14 +1826,12 @@ describe('SamplesHandler', function() {
     });
 
     it('can get all hot functions between timestamps (1)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples1.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples1.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
       const begin = TraceModel.Types.Timing.MicroSeconds(0);
       const end = TraceModel.Types.Timing.MicroSeconds(23);
-      const infos =
-          TraceModel.Handlers.ModelHandlers.Samples.getAllHotFunctionsBetweenTimestamps(merged, begin, end, 20);
+      const infos = TraceModel.Handlers.Samples.getAllHotFunctionsBetweenTimestamps(merged, begin, end, 20);
 
       const simplified = [...infos].map(
           fun => [fun.stackFrame.nodeId, {calls: fun.calls.length, total: fun.durPercent, self: fun.selfDurPercent}]);
@@ -1864,14 +1846,12 @@ describe('SamplesHandler', function() {
     });
 
     it('can get all hot functions between timestamps (2)', async () => {
-      const tree = TraceModel.Handlers.ModelHandlers.Samples.collectStackTraces(mockChunks);
-      const calls = mockSamples2.map(
-          sample => TraceModel.Handlers.ModelHandlers.Samples.buildProfileCallFromSample(tree, sample));
-      const {calls: merged} = TraceModel.Handlers.ModelHandlers.Samples.mergeCalls(calls, []);
+      const tree = TraceModel.Handlers.Samples.collectStackTraces(mockChunks);
+      const calls = mockSamples2.map(sample => TraceModel.Handlers.Samples.buildProfileCallFromSample(tree, sample));
+      const {calls: merged} = TraceModel.Handlers.Samples.mergeCalls(calls, []);
       const begin = TraceModel.Types.Timing.MicroSeconds(0);
       const end = TraceModel.Types.Timing.MicroSeconds(23);
-      const infos =
-          TraceModel.Handlers.ModelHandlers.Samples.getAllHotFunctionsBetweenTimestamps(merged, begin, end, 10);
+      const infos = TraceModel.Handlers.Samples.getAllHotFunctionsBetweenTimestamps(merged, begin, end, 10);
 
       const simplified = [...infos].map(
           fun => [fun.stackFrame.nodeId, {calls: fun.calls.length, total: fun.durPercent, self: fun.selfDurPercent}]);

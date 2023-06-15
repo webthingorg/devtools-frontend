@@ -11,10 +11,10 @@ describe('AnimationHandler', () => {
     const events = await loadEventsFromTraceFile('animation.json.gz');
 
     for (const event of events) {
-      TraceModel.Handlers.ModelHandlers.Animation.handleEvent(event);
+      TraceModel.Handlers.Animation.handleEvent(event);
     }
 
-    const animationEvents = TraceModel.Handlers.ModelHandlers.Animation.data().animations;
+    const animationEvents = TraceModel.Handlers.Animation.data().animations;
     assert.lengthOf(animationEvents, 5);
   });
 });

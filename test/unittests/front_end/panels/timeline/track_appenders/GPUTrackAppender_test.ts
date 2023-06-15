@@ -75,7 +75,7 @@ describeWithEnvironment('GPUTrackAppender', () => {
       for (const event of gpuEvents) {
         const index = entryData.indexOf(event);
         assert.isDefined(index);
-        if (TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.isTraceEventMarkerEvent(event)) {
+        if (TraceEngine.Handlers.PageLoadMetrics.isTraceEventMarkerEvent(event)) {
           assert.isNaN(flameChartData.entryTotalTimes[index]);
           continue;
         }

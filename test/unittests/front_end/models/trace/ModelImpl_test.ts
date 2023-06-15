@@ -37,7 +37,7 @@ describe('TraceModel', async function() {
 
   it('supports being given a set of handlers to run and will run just those and the Meta handler', async () => {
     const model = new TraceModel.TraceModel.Model({
-      Animation: TraceModel.Handlers.ModelHandlers.Animation,
+      Animation: TraceModel.Handlers.Animation,
     });
     const file1 = await loadEventsFromTraceFile('animation.json.gz');
     await model.parse(file1);

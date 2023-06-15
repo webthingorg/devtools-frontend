@@ -56,7 +56,7 @@ If you want to strictly control the set of handlers that are run (for example, i
 
 ```ts
 const model = new Model({
-  NetworkRequestHandler: Handlers.ModelHandlers.NetworkRequestHandler,
+  NetworkRequestHandler: Handlers.NetworkRequestHandler,
 })
 ```
 

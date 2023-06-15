@@ -70,18 +70,18 @@ describe('MetaHandler', () => {
       } as TraceModel.Types.TraceEvents.TraceEventNavigationStart,
     ];
 
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
   });
 
   describe('error handling', () => {
     it('throws if data is called before finalize', () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
       assert.throws(() => {
-        TraceModel.Handlers.ModelHandlers.Meta.data();
+        TraceModel.Handlers.Meta.data();
       }, 'Handler is not finalized');
     });
 
@@ -89,7 +89,7 @@ describe('MetaHandler', () => {
       // Due to the beforeEach the handler is already initialized, so calling
       // it a second time should throw an error.
       assert.throws(() => {
-        TraceModel.Handlers.ModelHandlers.Meta.initialize();
+        TraceModel.Handlers.Meta.initialize();
       }, 'Handler was not reset');
     });
   });
@@ -97,24 +97,23 @@ describe('MetaHandler', () => {
   describe('browser process ID', () => {
     it('obtains the PID if present', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       assert.strictEqual(data.browserProcessId, TraceModel.Types.TraceEvents.ProcessID(8017));
     });
-
   });
 
   describe('browser thread ID', () => {
     it('obtains the TID if present', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       assert.strictEqual(data.browserThreadId, TraceModel.Types.TraceEvents.ThreadID(775));
     });
   });
@@ -122,11 +121,11 @@ describe('MetaHandler', () => {
   describe('renderer process ID', () => {
     it('obtains the PID if present', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       assert.strictEqual(data.topLevelRendererIds.size, 1);
       assert.deepStrictEqual([...data.topLevelRendererIds], [TraceModel.Types.TraceEvents.ProcessID(8051)]);
     });
@@ -135,11 +134,11 @@ describe('MetaHandler', () => {
   describe('navigations', () => {
     it('obtains them if present', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       // navigation-2 is discarded because it has no URL.
       // navigation-3 doesn't have a frame id so it is discarded as well.
       assert.strictEqual(data.navigationsByFrameId.size, 1);
@@ -158,24 +157,24 @@ describe('MetaHandler', () => {
   describe('frames', () => {
     it('finds the main frame ID', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       assert.strictEqual(data.mainFrameId, '3E1717BE677B75D0536E292E00D6A34A');
     });
 
     it('finds the main frame ID for a trace that started with a page reload', async () => {
       const events = await loadEventsFromTraceFile('reload-and-trace-page.json.gz');
-      TraceModel.Handlers.ModelHandlers.Meta.reset();
-      TraceModel.Handlers.ModelHandlers.Meta.initialize();
+      TraceModel.Handlers.Meta.reset();
+      TraceModel.Handlers.Meta.initialize();
       for (const event of events) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const data = TraceModel.Handlers.Meta.data();
       assert.strictEqual(data.mainFrameId, '1D148CB660D1F96ED70D78DC6A53267B');
     });
   });
@@ -183,13 +182,13 @@ describe('MetaHandler', () => {
   describe('finding GPU thread and main frame', () => {
     it('finds the GPU process and GPU Thread', async () => {
       const events = await loadEventsFromTraceFile('threejs-gpu.json.gz');
-      TraceModel.Handlers.ModelHandlers.Meta.reset();
-      TraceModel.Handlers.ModelHandlers.Meta.initialize();
+      TraceModel.Handlers.Meta.reset();
+      TraceModel.Handlers.Meta.initialize();
       for (const event of events) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      const {gpuProcessId, gpuThreadId} = TraceModel.Handlers.ModelHandlers.Meta.data();
+      await TraceModel.Handlers.Meta.finalize();
+      const {gpuProcessId, gpuThreadId} = TraceModel.Handlers.Meta.data();
       assert.strictEqual(gpuProcessId, TraceModel.Types.TraceEvents.ProcessID(3581327));
       assert.strictEqual(gpuThreadId, TraceModel.Types.TraceEvents.ThreadID(3581327));
     });
@@ -197,14 +196,14 @@ describe('MetaHandler', () => {
     it('handles traces that do not have a GPU thread and returns undefined for the thread ID', async () => {
       const traceEventsWithNoGPUThread = await loadEventsFromTraceFile('forced-layouts-and-no-gpu.json.gz');
       for (const event of traceEventsWithNoGPUThread) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
       }
 
       assert.doesNotThrow(async () => {
-        await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+        await TraceModel.Handlers.Meta.finalize();
       });
 
-      const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+      const data = TraceModel.Handlers.Meta.data();
       assert.isUndefined(data.gpuThreadId);
     });
   });
@@ -218,14 +217,14 @@ describe('MetaHandler', () => {
       return;
     }
 
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
     for (const event of traceEvents) {
-      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+      TraceModel.Handlers.Meta.handleEvent(event);
     }
-    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    await TraceModel.Handlers.Meta.finalize();
 
-    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    const data = TraceModel.Handlers.Meta.data();
     assert.deepStrictEqual([...data.topLevelRendererIds], [3601132]);
 
     const rendererProcesses = data.rendererProcessesByFrame.get(data.mainFrameId);
@@ -256,14 +255,14 @@ describe('MetaHandler', () => {
       return;
     }
 
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
     for (const event of traceEvents) {
-      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+      TraceModel.Handlers.Meta.handleEvent(event);
     }
-    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    await TraceModel.Handlers.Meta.finalize();
 
-    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    const data = TraceModel.Handlers.Meta.data();
     assert.deepStrictEqual([...data.topLevelRendererIds], [78450, 78473, 79194]);
 
     const rendererProcesses = data.rendererProcessesByFrame.get(data.mainFrameId);
@@ -314,14 +313,14 @@ describe('MetaHandler', () => {
       return;
     }
 
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
     for (const event of traceEvents) {
-      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+      TraceModel.Handlers.Meta.handleEvent(event);
     }
-    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    await TraceModel.Handlers.Meta.finalize();
 
-    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    const data = TraceModel.Handlers.Meta.data();
     const {
       max,
       min,
@@ -344,14 +343,14 @@ describe('MetaHandler', () => {
       return;
     }
 
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
     for (const event of traceEvents) {
-      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+      TraceModel.Handlers.Meta.handleEvent(event);
     }
-    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    await TraceModel.Handlers.Meta.finalize();
 
-    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    const data = TraceModel.Handlers.Meta.data();
     const {
       max,
       min,
@@ -366,11 +365,11 @@ describe('MetaHandler', () => {
 
   it('collects all thread metadata in all processes', async () => {
     for (const event of baseEvents) {
-      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+      TraceModel.Handlers.Meta.handleEvent(event);
     }
 
-    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    await TraceModel.Handlers.Meta.finalize();
+    const data = TraceModel.Handlers.Meta.data();
     const collected = [...data.threadsInProcess.values()].map(threadInProcess => [...threadInProcess.values()]);
 
     expect(collected.map(process => process.map(thread => thread.args.name))).to.deep.equal([

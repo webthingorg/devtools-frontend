@@ -10,16 +10,16 @@ import {loadEventsFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 describe('LargestImagePaintHandler', async () => {
   beforeEach(async () => {
-    TraceModel.Handlers.ModelHandlers.LargestImagePaint.reset();
+    TraceModel.Handlers.LargestImagePaint.reset();
   });
 
   it('creates a map of DOM Node IDs to image candidates', async () => {
     const events = await loadEventsFromTraceFile('lcp-images.json.gz');
     for (const event of events) {
-      TraceModel.Handlers.ModelHandlers.LargestImagePaint.handleEvent(event);
+      TraceModel.Handlers.LargestImagePaint.handleEvent(event);
     }
 
-    const data = TraceModel.Handlers.ModelHandlers.LargestImagePaint.data();
+    const data = TraceModel.Handlers.LargestImagePaint.data();
     assert.strictEqual(data.size, 1);
     const imageForLCP = data.get(125 as Protocol.DOM.BackendNodeId);
     assert.isDefined(imageForLCP);

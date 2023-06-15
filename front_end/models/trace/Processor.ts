@@ -38,8 +38,8 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
   #eventsPerChunk: number;
   #status = Status.IDLE;
 
-  static createWithAllHandlers(): TraceProcessor<typeof Handlers.ModelHandlers> {
-    return new TraceProcessor(Handlers.ModelHandlers);
+  static createWithAllHandlers(): TraceProcessor<typeof Handlers.Types.ModelHandlers> {
+    return new TraceProcessor(Handlers.Types.ModelHandlers);
   }
 
   constructor(traceHandlers: EnabledModelHandlers, {pauseDuration = 1, eventsPerChunk = 15_000} = {}) {
@@ -47,7 +47,7 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
 
     this.#verifyHandlers(traceHandlers);
     this.#traceHandlers = {
-      Meta: Handlers.ModelHandlers.Meta,
+      Meta: Handlers.Meta,
       ...traceHandlers,
     };
     this.#pauseDuration = pauseDuration;
@@ -63,11 +63,11 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
    **/
   #verifyHandlers(providedHandlers: EnabledModelHandlers): void {
     // Tiny optimisation: if the amount of provided handlers matches the amount
-    // of handlers in the Handlers.ModelHandlers object, that means that the
+    // of handlers in the Handlers.Types.ModelHandlers object, that means that the
     // user has passed in every handler we have. So therefore they cannot have
     // missed any, and there is no need to iterate through the handlers and
     // check the dependencies.
-    if (Object.keys(providedHandlers).length === Object.keys(Handlers.ModelHandlers).length) {
+    if (Object.keys(providedHandlers).length === Object.keys(Handlers.Types.ModelHandlers).length) {
       return;
     }
     const requiredHandlerKeys: Set<Handlers.Types.TraceEventHandlerName> = new Set();

@@ -11,14 +11,14 @@ type DataArgsMap = Map<keyof DataArgs, DataArgs[keyof DataArgs]>;
 
 async function parseAndFinalizeFile(traceFile: string) {
   const traceEvents = await loadEventsFromTraceFile(traceFile);
-  TraceModel.Handlers.ModelHandlers.Meta.initialize();
-  TraceModel.Handlers.ModelHandlers.NetworkRequests.initialize();
+  TraceModel.Handlers.Meta.initialize();
+  TraceModel.Handlers.NetworkRequests.initialize();
   for (const event of traceEvents) {
-    TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-    TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
+    TraceModel.Handlers.Meta.handleEvent(event);
+    TraceModel.Handlers.NetworkRequests.handleEvent(event);
   }
-  await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-  await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
+  await TraceModel.Handlers.Meta.finalize();
+  await TraceModel.Handlers.NetworkRequests.finalize();
   return traceEvents;
 }
 describe('NetworkRequestsHandler', function() {
@@ -27,15 +27,14 @@ describe('NetworkRequestsHandler', function() {
   describe('error handling', () => {
     it('throws if handleEvent is called before it is initialized', () => {
       assert.throws(() => {
-        TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(
-            {} as TraceModel.Types.TraceEvents.TraceEventData);
+        TraceModel.Handlers.NetworkRequests.handleEvent({} as TraceModel.Types.TraceEvents.TraceEventData);
       }, 'Network Request handler is not initialized');
     });
 
     it('throws if finalize is called before initialize', async () => {
       let thrown: Error|null = null;
       try {
-        await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
+        await TraceModel.Handlers.NetworkRequests.finalize();
       } catch (e) {
         thrown = e as Error;
       }
@@ -45,7 +44,7 @@ describe('NetworkRequestsHandler', function() {
 
   it('parses search param strings for network requests', async () => {
     await parseAndFinalizeFile('request-with-query-param.json.gz');
-    const {byTime} = TraceModel.Handlers.ModelHandlers.NetworkRequests.data();
+    const {byTime} = TraceModel.Handlers.NetworkRequests.data();
     // Filter to the requests that have search params.
     const withSearchParams = byTime.filter(request => Boolean(request.args.data.search));
     assert.deepEqual(['?test-query=hello'], withSearchParams.map(request => request.args.data.search));
@@ -53,20 +52,20 @@ describe('NetworkRequestsHandler', function() {
 
   describe('network requests calculations', () => {
     beforeEach(() => {
-      TraceModel.Handlers.ModelHandlers.Meta.initialize();
-      TraceModel.Handlers.ModelHandlers.NetworkRequests.initialize();
+      TraceModel.Handlers.Meta.initialize();
+      TraceModel.Handlers.NetworkRequests.initialize();
     });
 
     it('calculates network requests correctly', async () => {
       const traceEvents = await loadEventsFromTraceFile('load-simple.json.gz');
       for (const event of traceEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-        TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
+        TraceModel.Handlers.NetworkRequests.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
+      await TraceModel.Handlers.Meta.finalize();
+      await TraceModel.Handlers.NetworkRequests.finalize();
 
-      const requestsByOrigin = TraceModel.Handlers.ModelHandlers.NetworkRequests.data().byOrigin;
+      const requestsByOrigin = TraceModel.Handlers.NetworkRequests.data().byOrigin;
       assert.strictEqual(requestsByOrigin.size, 3, 'Too many origins detected');
 
       const topLevelRequests = requestsByOrigin.get('localhost:8080') || {all: []};
@@ -205,20 +204,20 @@ describe('NetworkRequestsHandler', function() {
 
   describe('redirects', () => {
     beforeEach(() => {
-      TraceModel.Handlers.ModelHandlers.Meta.initialize();
-      TraceModel.Handlers.ModelHandlers.NetworkRequests.initialize();
+      TraceModel.Handlers.Meta.initialize();
+      TraceModel.Handlers.NetworkRequests.initialize();
     });
 
     it('calculates redirects correctly (navigations)', async () => {
       const traceEvents = await loadEventsFromTraceFile('redirects.json.gz');
       for (const event of traceEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-        TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
+        TraceModel.Handlers.NetworkRequests.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
+      await TraceModel.Handlers.Meta.finalize();
+      await TraceModel.Handlers.NetworkRequests.finalize();
 
-      const {byTime} = TraceModel.Handlers.ModelHandlers.NetworkRequests.data();
+      const {byTime} = TraceModel.Handlers.NetworkRequests.data();
       assert.strictEqual(byTime.length, 2, 'Incorrect number of requests');
       assert.strictEqual(byTime[0].args.data.redirects.length, 0, 'Incorrect number of redirects (request 0)');
       assert.deepStrictEqual(
@@ -243,13 +242,13 @@ describe('NetworkRequestsHandler', function() {
     it('calculates redirects correctly (subresources)', async () => {
       const traceEvents = await loadEventsFromTraceFile('redirects-subresource-multiple.json.gz');
       for (const event of traceEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-        TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
+        TraceModel.Handlers.NetworkRequests.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
+      await TraceModel.Handlers.Meta.finalize();
+      await TraceModel.Handlers.NetworkRequests.finalize();
 
-      const {byTime} = TraceModel.Handlers.ModelHandlers.NetworkRequests.data();
+      const {byTime} = TraceModel.Handlers.NetworkRequests.data();
       assert.strictEqual(byTime.length, 2, 'Incorrect number of requests');
       assert.strictEqual(byTime[0].args.data.redirects.length, 0, 'Incorrect number of redirects (request 0)');
       assert.deepStrictEqual(

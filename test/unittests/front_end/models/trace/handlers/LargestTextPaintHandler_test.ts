@@ -10,17 +10,17 @@ import {loadEventsFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 describe('LargestTextPaintHandler', async () => {
   beforeEach(() => {
-    TraceModel.Handlers.ModelHandlers.LargestTextPaint.reset();
+    TraceModel.Handlers.LargestTextPaint.reset();
   });
 
   it('creates a map of DOM Node IDs to Text candidates', async () => {
     const events = await loadEventsFromTraceFile('lcp-web-font.json.gz');
 
     for (const event of events) {
-      TraceModel.Handlers.ModelHandlers.LargestTextPaint.handleEvent(event);
+      TraceModel.Handlers.LargestTextPaint.handleEvent(event);
     }
 
-    const data = TraceModel.Handlers.ModelHandlers.LargestTextPaint.data();
+    const data = TraceModel.Handlers.LargestTextPaint.data();
     assert.strictEqual(data.size, 1);
     const textCandidate = data.get(28 as Protocol.DOM.BackendNodeId);
     assert.isDefined(textCandidate);

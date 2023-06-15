@@ -120,7 +120,7 @@ describe('TraceModel helpers', function() {
 
       const fcp = PageLoadMetrics.metricScoresByFrameId.get(Meta.mainFrameId)
                       ?.get(firstNavigationId)
-                      ?.get(TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.FCP);
+                      ?.get(TraceModel.Handlers.PageLoadMetrics.MetricName.FCP);
       if (!fcp || !fcp.event) {
         assert.fail('FCP not found');
         return;

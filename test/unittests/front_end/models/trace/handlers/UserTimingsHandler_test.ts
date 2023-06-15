@@ -8,16 +8,16 @@ import * as TraceModel from '../../../../../../front_end/models/trace/trace.js';
 import {loadEventsFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 describe('UserTimingsHandler', () => {
-  let timingsData: TraceModel.Handlers.ModelHandlers.UserTimings.UserTimingsData;
+  let timingsData: TraceModel.Handlers.UserTimings.UserTimingsData;
   describe('performance timings', () => {
     async function getTimingsDataFromEvents(events: readonly TraceModel.Types.TraceEvents.TraceEventData[]):
-        Promise<TraceModel.Handlers.ModelHandlers.UserTimings.UserTimingsData> {
-      TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+        Promise<TraceModel.Handlers.UserTimings.UserTimingsData> {
+      TraceModel.Handlers.UserTimings.reset();
       for (const event of events) {
-        TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+        TraceModel.Handlers.UserTimings.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
-      return TraceModel.Handlers.ModelHandlers.UserTimings.data();
+      await TraceModel.Handlers.UserTimings.finalize();
+      return TraceModel.Handlers.UserTimings.data();
     }
     before(async () => {
       const events = await loadEventsFromTraceFile('user-timings.json.gz');
@@ -48,16 +48,16 @@ describe('UserTimingsHandler', () => {
 
       it('sorts the blocks to ensure they are in time order', async () => {
         const events = await loadEventsFromTraceFile('user-timings.json.gz');
-        TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+        TraceModel.Handlers.UserTimings.reset();
         // Reverse the array so that the events are in the wrong order.
         // This _shouldn't_ ever happen in a real trace, but it's best for us to
         // sort the blocks once we've parsed them just in case.
         const reversed = events.slice().reverse();
         for (const event of reversed) {
-          TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+          TraceModel.Handlers.UserTimings.handleEvent(event);
         }
-        await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
-        const data = TraceModel.Handlers.ModelHandlers.UserTimings.data();
+        await TraceModel.Handlers.UserTimings.finalize();
+        const data = TraceModel.Handlers.UserTimings.data();
         assert.lengthOf(data.performanceMeasures, 3);
         assert.isTrue(data.performanceMeasures[0].ts <= data.performanceMeasures[1].ts);
         assert.isTrue(data.performanceMeasures[1].ts <= data.performanceMeasures[2].ts);
@@ -65,12 +65,12 @@ describe('UserTimingsHandler', () => {
 
       it('calculates the duration correctly from the begin/end event timestamps', async () => {
         const events = await loadEventsFromTraceFile('user-timings.json.gz');
-        TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+        TraceModel.Handlers.UserTimings.reset();
         for (const event of events) {
-          TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+          TraceModel.Handlers.UserTimings.handleEvent(event);
         }
-        await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
-        const data = TraceModel.Handlers.ModelHandlers.UserTimings.data();
+        await TraceModel.Handlers.UserTimings.finalize();
+        const data = TraceModel.Handlers.UserTimings.data();
         for (const timing of data.performanceMeasures) {
           // Ensure for each timing pair we've set the dur correctly.
           assert.strictEqual(timing.dur, timing.args.data.endEvent.ts - timing.args.data.beginEvent.ts);
@@ -121,12 +121,12 @@ describe('UserTimingsHandler', () => {
   describe('console timings', () => {
     before(async () => {
       const events = await loadEventsFromTraceFile('timings-track.json.gz');
-      TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+      TraceModel.Handlers.UserTimings.reset();
       for (const event of events) {
-        TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+        TraceModel.Handlers.UserTimings.handleEvent(event);
       }
-      await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
-      timingsData = TraceModel.Handlers.ModelHandlers.UserTimings.data();
+      await TraceModel.Handlers.UserTimings.finalize();
+      timingsData = TraceModel.Handlers.UserTimings.data();
     });
     describe('console.time events parsing', () => {
       it('parses the start and end events and returns a list of blocks', async () => {
@@ -151,16 +151,16 @@ describe('UserTimingsHandler', () => {
 
       it('sorts the blocks to ensure they are in time order', async () => {
         const events = await loadEventsFromTraceFile('timings-track.json.gz');
-        TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+        TraceModel.Handlers.UserTimings.reset();
         // Reverse the array so that the events are in the wrong order.
         // This _shouldn't_ ever happen in a real trace, but it's best for us to
         // sort the blocks once we've parsed them just in case.
         const reversed = events.slice().reverse();
         for (const event of reversed) {
-          TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+          TraceModel.Handlers.UserTimings.handleEvent(event);
         }
-        await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
-        const data = TraceModel.Handlers.ModelHandlers.UserTimings.data();
+        await TraceModel.Handlers.UserTimings.finalize();
+        const data = TraceModel.Handlers.UserTimings.data();
         assert.lengthOf(data.consoleTimings, 3);
         assert.isTrue(data.consoleTimings[0].ts <= data.consoleTimings[1].ts);
         assert.isTrue(data.consoleTimings[1].ts <= data.consoleTimings[2].ts);

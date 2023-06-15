@@ -158,7 +158,7 @@ export class InteractionsTrackAppender implements TrackAppender {
  * Exported so the title in the DetailsView can re-use the same logic
  **/
 export function titleForInteractionEvent(event: TraceEngine.Types.TraceEvents.SyntheticInteractionEvent): string {
-  const category = TraceEngine.Handlers.ModelHandlers.UserInteractions.categoryOfInteraction(event);
+  const category = TraceEngine.Handlers.UserInteractions.categoryOfInteraction(event);
   // Because we hide nested interactions, we do not want to show the
   // specific type of the interaction that was not hidden, so instead we
   // show just the category of that interaction.

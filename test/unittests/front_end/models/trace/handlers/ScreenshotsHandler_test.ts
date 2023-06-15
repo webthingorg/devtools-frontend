@@ -36,23 +36,23 @@ describe('ScreenshotHandler', function() {
     // to know the browser process and thread IDs. Here, then, we reset
     // and later we will pass events to the meta handler, otherwise the
     // screenshots handler will fail.
-    TraceModel.Handlers.ModelHandlers.Meta.reset();
-    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    TraceModel.Handlers.Meta.reset();
+    TraceModel.Handlers.Meta.initialize();
 
-    TraceModel.Handlers.ModelHandlers.Screenshots.reset();
+    TraceModel.Handlers.Screenshots.reset();
   });
 
   describe('frames', () => {
     it('obtains them if present', async () => {
       for (const event of baseEvents) {
-        TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
-        TraceModel.Handlers.ModelHandlers.Screenshots.handleEvent(event);
+        TraceModel.Handlers.Meta.handleEvent(event);
+        TraceModel.Handlers.Screenshots.handleEvent(event);
       }
 
-      await TraceModel.Handlers.ModelHandlers.Meta.finalize();
-      await TraceModel.Handlers.ModelHandlers.Screenshots.finalize();
+      await TraceModel.Handlers.Meta.finalize();
+      await TraceModel.Handlers.Screenshots.finalize();
 
-      const data = TraceModel.Handlers.ModelHandlers.Screenshots.data();
+      const data = TraceModel.Handlers.Screenshots.data();
       assert.strictEqual(data.length, 2);
     });
   });

@@ -80,7 +80,7 @@ describe('TraceProcessor', async function() {
 
   it('can be given a subset of handlers to run and will run just those along with the meta handler', async () => {
     const processor = new TraceModel.Processor.TraceProcessor({
-      Animation: TraceModel.Handlers.ModelHandlers.Animation,
+      Animation: TraceModel.Handlers.Animation,
     });
     const file = await loadEventsFromTraceFile('animation.json.gz');
     await processor.parse(file);
@@ -94,7 +94,7 @@ describe('TraceProcessor', async function() {
         // Screenshots handler depends on Meta handler, so this is invalid.
         // However, the Processor automatically ensures the Meta handler is
         // enabled, so this should not cause an error.
-        Screenshots: TraceModel.Handlers.ModelHandlers.Screenshots,
+        Screenshots: TraceModel.Handlers.Screenshots,
       });
     });
   });
@@ -102,7 +102,7 @@ describe('TraceProcessor', async function() {
   it('errors if the user does not provide the right handler dependencies', async () => {
     assert.throws(() => {
       new TraceModel.Processor.TraceProcessor({
-        Renderer: TraceModel.Handlers.ModelHandlers.Renderer,
+        Renderer: TraceModel.Handlers.Renderer,
         // Invalid: the renderer depends on the samples handler, so the user should pass that in too.
       });
     }, /Required handler Samples not provided/);
@@ -111,8 +111,8 @@ describe('TraceProcessor', async function() {
   it('emits periodic trace updates', async () => {
     const processor = new TraceModel.Processor.TraceProcessor(
         {
-          Renderer: TraceModel.Handlers.ModelHandlers.Renderer,
-          Samples: TraceModel.Handlers.ModelHandlers.Samples,
+          Renderer: TraceModel.Handlers.Renderer,
+          Samples: TraceModel.Handlers.Samples,
         },
         {
           // This trace is 8252 events long, lets emit 8 updates

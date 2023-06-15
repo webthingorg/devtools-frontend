@@ -131,23 +131,23 @@ export class TimingsTrackAppender implements TrackAppender {
     let color = 'grey';
     if (TraceEngine.Types.TraceEvents.isTraceEventMarkDOMContent(markerEvent)) {
       color = '#0867CB';
-      title = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.DCL;
+      title = TraceEngine.Handlers.PageLoadMetrics.MetricName.DCL;
     }
     if (TraceEngine.Types.TraceEvents.isTraceEventMarkLoad(markerEvent)) {
       color = '#B31412';
-      title = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.L;
+      title = TraceEngine.Handlers.PageLoadMetrics.MetricName.L;
     }
     if (TraceEngine.Types.TraceEvents.isTraceEventFirstPaint(markerEvent)) {
       color = '#228847';
-      title = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.FP;
+      title = TraceEngine.Handlers.PageLoadMetrics.MetricName.FP;
     }
     if (TraceEngine.Types.TraceEvents.isTraceEventFirstContentfulPaint(markerEvent)) {
       color = '#1A6937';
-      title = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.FCP;
+      title = TraceEngine.Handlers.PageLoadMetrics.MetricName.FCP;
     }
     if (TraceEngine.Types.TraceEvents.isTraceEventLargestContentfulPaintCandidate(markerEvent)) {
       color = '#1A3422';
-      title = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.LCP;
+      title = TraceEngine.Handlers.PageLoadMetrics.MetricName.LCP;
     }
     return {
       title: title,
@@ -163,7 +163,7 @@ export class TimingsTrackAppender implements TrackAppender {
    * Gets the color an event added by this appender should be rendered with.
    */
   colorForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    if (TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.eventIsPageLoadEvent(event)) {
+    if (TraceEngine.Handlers.PageLoadMetrics.eventIsPageLoadEvent(event)) {
       return this.markerStyleForEvent(event).color;
     }
     // Performance and console timings.
@@ -174,7 +174,7 @@ export class TimingsTrackAppender implements TrackAppender {
    * Gets the title an event added by this appender should be rendered with.
    */
   titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    const metricsHandler = TraceEngine.Handlers.ModelHandlers.PageLoadMetrics;
+    const metricsHandler = TraceEngine.Handlers.PageLoadMetrics;
     if (metricsHandler.eventIsPageLoadEvent(event)) {
       switch (event.name) {
         case 'MarkDOMContent':
@@ -211,7 +211,7 @@ export class TimingsTrackAppender implements TrackAppender {
     // Page load events: DCL, FCP and LCP
     // performance.mark() events
     // console.timestamp() events
-    if (TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.isTraceEventMarkerEvent(event) ||
+    if (TraceEngine.Handlers.PageLoadMetrics.isTraceEventMarkerEvent(event) ||
         TraceEngine.Types.TraceEvents.isTraceEventPerformanceMark(event) ||
         TraceEngine.Types.TraceEvents.isTraceEventTimeStamp(event)) {
       const timeOfEvent = TraceEngine.Helpers.Timing.timeStampForEventAdjustedByClosestNavigation(

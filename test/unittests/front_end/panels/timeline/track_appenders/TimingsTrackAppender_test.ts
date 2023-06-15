@@ -107,7 +107,7 @@ describeWithEnvironment('TimingTrackAppender', function() {
                    ...consoleTimestamps]) {
         const markerIndex = entryData.indexOf(event);
         assert.isDefined(markerIndex);
-        if (TraceModel.Handlers.ModelHandlers.PageLoadMetrics.isTraceEventMarkerEvent(event)) {
+        if (TraceModel.Handlers.PageLoadMetrics.isTraceEventMarkerEvent(event)) {
           assert.isNaN(flameChartData.entryTotalTimes[markerIndex]);
           continue;
         }
@@ -135,27 +135,24 @@ describeWithEnvironment('TimingTrackAppender', function() {
 
       assert.strictEqual(timingsTrackAppender.colorForEvent(firstContentfulPaint), '#1A6937');
       assert.strictEqual(
-          timingsTrackAppender.titleForEvent(firstContentfulPaint),
-          TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.FCP);
+          timingsTrackAppender.titleForEvent(firstContentfulPaint), TraceModel.Handlers.PageLoadMetrics.MetricName.FCP);
 
       assert.strictEqual(timingsTrackAppender.colorForEvent(markLoad), '#B31412');
       assert.strictEqual(
-          timingsTrackAppender.titleForEvent(markLoad), TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.L);
+          timingsTrackAppender.titleForEvent(markLoad), TraceModel.Handlers.PageLoadMetrics.MetricName.L);
 
       assert.strictEqual(timingsTrackAppender.colorForEvent(markDOMContent), '#0867CB');
       assert.strictEqual(
-          timingsTrackAppender.titleForEvent(markDOMContent),
-          TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.DCL);
+          timingsTrackAppender.titleForEvent(markDOMContent), TraceModel.Handlers.PageLoadMetrics.MetricName.DCL);
 
       assert.strictEqual(timingsTrackAppender.colorForEvent(firstPaint), '#228847');
       assert.strictEqual(
-          timingsTrackAppender.titleForEvent(firstPaint),
-          TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.FP);
+          timingsTrackAppender.titleForEvent(firstPaint), TraceModel.Handlers.PageLoadMetrics.MetricName.FP);
 
       assert.strictEqual(timingsTrackAppender.colorForEvent(largestContentfulPaint), '#1A3422');
       assert.strictEqual(
           timingsTrackAppender.titleForEvent(largestContentfulPaint),
-          TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MetricName.LCP);
+          TraceModel.Handlers.PageLoadMetrics.MetricName.LCP);
     });
 
     it('returns the correct title for performance measures', () => {

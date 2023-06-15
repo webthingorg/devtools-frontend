@@ -19,20 +19,10 @@ export interface ParseConfig {
   isFreshRecording?: boolean;
 }
 
-// As we migrate the data engine we are incrementally enabling the new handlers
-// one by one, so we do not waste effort parsing data that we do not use. This
-// object should be updated when we add a new handler to enable it.
-export const ENABLED_TRACE_HANDLERS = {
-  UserTimings: Handlers.ModelHandlers.UserTimings,
-  PageLoadMetrics: Handlers.ModelHandlers.PageLoadMetrics,
-  UserInteractions: Handlers.ModelHandlers.UserInteractions,
-  LayoutShifts: Handlers.ModelHandlers.LayoutShifts,
-  Screenshots: Handlers.ModelHandlers.Screenshots,
-  GPU: Handlers.ModelHandlers.GPU,
-  NetworkRequests: Handlers.ModelHandlers.NetworkRequests,
-};
-export type PartialTraceParseDataDuringMigration =
-    Readonly<Handlers.Types.EnabledHandlerDataWithMeta<typeof ENABLED_TRACE_HANDLERS>>;
+// Internally to the TraceEngine this type is defined within the handlers. But
+// if you are an extrenal user, it makes more sense to expose it on the Model
+// directly.
+export type PartialTraceParseDataDuringMigration = Handlers.Types.PartialTraceParseDataDuringMigration;
 
 /**
  * The new trace engine model we are migrating to. The Model is responsible for
@@ -55,13 +45,13 @@ export class Model<EnabledModelHandlers extends {[key: string]: Handlers.Types.T
   #lastRecordingIndex = 0;
   #processor: TraceProcessor<Handlers.Types.HandlersWithMeta<EnabledModelHandlers>>;
 
-  static createWithAllHandlers(): Model<typeof Handlers.ModelHandlers> {
-    return new Model(Handlers.ModelHandlers);
+  static createWithAllHandlers(): Model<typeof Handlers.Types.ModelHandlers> {
+    return new Model(Handlers.Types.ModelHandlers);
   }
 
-  static createWithRequiredHandlersForMigration():
-      Model<{[K in keyof typeof ENABLED_TRACE_HANDLERS]: typeof ENABLED_TRACE_HANDLERS[K];}> {
-    return new Model(ENABLED_TRACE_HANDLERS);
+  static createWithRequiredHandlersForMigration(): Model<
+      {[K in keyof typeof Handlers.Types.ENABLED_TRACE_HANDLERS]: typeof Handlers.Types.ENABLED_TRACE_HANDLERS[K];}> {
+    return new Model(Handlers.Types.ENABLED_TRACE_HANDLERS);
   }
 
   constructor(handlers: EnabledModelHandlers) {

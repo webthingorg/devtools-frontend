@@ -336,8 +336,8 @@ export const defaultTraceEvent: TraceModel.Types.TraceEvents.TraceEventData = {
  * Gets the tree in a thread.
  * @see RendererHandler.ts
  */
-export function getTree(thread: TraceModel.Handlers.ModelHandlers.Renderer.RendererThread):
-    TraceModel.Handlers.ModelHandlers.Renderer.RendererEventTree {
+export function getTree(thread: TraceModel.Handlers.Renderer.RendererThread):
+    TraceModel.Handlers.Renderer.RendererEventTree {
   const tree = thread.tree;
   if (!tree) {
     assert(false, `Couldn't get tree in thread ${thread.name}`);
@@ -350,8 +350,8 @@ export function getTree(thread: TraceModel.Handlers.ModelHandlers.Renderer.Rende
  * Gets the n-th root from a tree in a thread.
  * @see RendererHandler.ts
  */
-export function getRootAt(thread: TraceModel.Handlers.ModelHandlers.Renderer.RendererThread, index: number):
-    TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode {
+export function getRootAt(thread: TraceModel.Handlers.Renderer.RendererThread, index: number):
+    TraceModel.Handlers.Renderer.RendererEventNode {
   const tree = getTree(thread);
   const nodeId = [...tree.roots][index];
   if (nodeId === undefined) {
@@ -366,9 +366,8 @@ export function getRootAt(thread: TraceModel.Handlers.ModelHandlers.Renderer.Ren
  * @see RendererHandler.ts
  */
 export function getNodeFor(
-    thread: TraceModel.Handlers.ModelHandlers.Renderer.RendererThread,
-    nodeId: TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNodeId):
-    TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode {
+    thread: TraceModel.Handlers.Renderer.RendererThread,
+    nodeId: TraceModel.Handlers.Renderer.RendererEventNodeId): TraceModel.Handlers.Renderer.RendererEventNode {
   const tree = getTree(thread);
   const node = tree.nodes.get(nodeId);
   if (!node) {
@@ -382,10 +381,8 @@ export function getNodeFor(
  * Gets all the `events` for the `nodes` with `ids`.
  */
 export function getEventsIn(
-    ids: IterableIterator<TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNodeId>,
-    nodes:
-        Map<TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNodeId,
-            TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode>):
+    ids: IterableIterator<TraceModel.Handlers.Renderer.RendererEventNodeId>,
+    nodes: Map<TraceModel.Handlers.Renderer.RendererEventNodeId, TraceModel.Handlers.Renderer.RendererEventNode>):
     TraceModel.Types.TraceEvents.TraceEventData[] {
   return [...ids].map(id => nodes.get(id)).flatMap(node => node ? node.event : []);
 }
@@ -393,11 +390,10 @@ export function getEventsIn(
  * Pretty-prints the tree in a thread.
  */
 export function prettyPrint(
-    thread: TraceModel.Handlers.ModelHandlers.Renderer.RendererThread,
-    nodes: Set<TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNodeId>,
+    thread: TraceModel.Handlers.Renderer.RendererThread, nodes: Set<TraceModel.Handlers.Renderer.RendererEventNodeId>,
     predicate: (
-        node: TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode,
-        event: TraceModel.Handlers.ModelHandlers.Renderer.RendererTraceEvent) => boolean = () => true,
+        node: TraceModel.Handlers.Renderer.RendererEventNode, event: TraceModel.Handlers.Renderer.RendererTraceEvent) =>
+        boolean = () => true,
     indentation: number = 2, delimiter: string = ' ', prefix: string = '-', newline: string = '\n',
     out: string = ''): string {
   let skipped = false;
