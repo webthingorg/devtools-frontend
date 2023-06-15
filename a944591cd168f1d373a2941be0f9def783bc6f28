@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee885231_0876ac9e",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-15T06:38:11Z",
+      "side": 1,
+      "message": "it\u0027s not clear to me why we need these state properties? Perhaps you could add a comment but I also wonder if we can make things work without that.",
+      "revId": "a944591cd168f1d373a2941be0f9def783bc6f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ddec5f_ad43d116",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-15T06:38:11Z",
+      "side": 1,
+      "message": "let\u0027s not use inline styles and create an external stylesheet instead.",
+      "revId": "a944591cd168f1d373a2941be0f9def783bc6f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc9b8e1_7d9792c6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-15T06:38:11Z",
+      "side": 1,
+      "message": "why do we need to make a distinction about where the parameters come from even if temporarily?",
+      "revId": "a944591cd168f1d373a2941be0f9def783bc6f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
