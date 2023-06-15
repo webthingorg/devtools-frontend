@@ -332,7 +332,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.primaryPageTargetPromiseCallback = res;
   });
 
-  #traceEngineModel: TraceEngine.TraceModel.Model<typeof TraceEngine.TraceModel.ENABLED_TRACE_HANDLERS>;
+  #traceEngineModel: TraceEngine.TraceModel.Model<typeof TraceEngine.Handlers.Types.ENABLED_TRACE_HANDLERS>;
   // Tracks the index of the trace that the user is currently viewing.
   #traceEngineActiveTraceIndex = -1;
   constructor() {
