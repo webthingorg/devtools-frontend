@@ -365,9 +365,9 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity', 'Location'],
+        ['#', 'Validity', 'Location', 'Preloads'],
         [
-          ['Valid', '<script>'],
+          ['2', 'Valid', '<script>', '0 Not triggered / 0 Pending / 0 Running / 0 Ready / 0 Success / 0 Failure'],
         ],
     );
   });
@@ -394,9 +394,9 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity', 'Location'],
+        ['#', 'Validity', 'Location', 'Preloads'],
         [
-          ['Invalid', '<script>'],
+          ['2', 'Invalid', '<script>', ''],
         ],
     );
 
@@ -449,7 +449,7 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity', 'Location'],
+        ['#', 'Validity', 'Location', 'Preloads'],
         [],
     );
   });
@@ -479,7 +479,7 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity', 'Location'],
+        ['#', 'Validity', 'Location', 'Preloads'],
         [],
     );
   });
@@ -528,9 +528,9 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     assertGridContents(
         ruleSetGridComponent,
-        ['Validity', 'Location'],
+        ['#', 'Validity', 'Location', 'Preloads'],
         [
-          ['Valid', '<script>'],
+          ['2', 'Valid', '<script>', '0 Not triggered / 0 Pending / 0 Running / 0 Ready / 0 Success / 0 Failure'],
         ],
     );
   });
