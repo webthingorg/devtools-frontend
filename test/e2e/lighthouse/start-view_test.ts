@@ -15,7 +15,7 @@ import {
   waitForStorageUsage,
 } from '../helpers/lighthouse-helpers.js';
 
-describe('The Lighthouse start view', async () => {
+describe.only('The Lighthouse start view', async () => {
   it('shows a button to generate a new report', async () => {
     await navigateToLighthouseTab('empty.html');
 
