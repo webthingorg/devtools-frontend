@@ -27,6 +27,8 @@ export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export interface RuleSetGridRow {
   id: string;
+  processLocalId: string;
+  preloads: string;
   validity: string;
   location: string;
 }
@@ -52,6 +54,13 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
     const reportsGridData: DataGrid.DataGridController.DataGridControllerData = {
       columns: [
         {
+          id: 'processLocalId',
+          title: i18n.i18n.lockedString('#'),
+          widthWeighting: 5,
+          hideable: false,
+          visible: true,
+        },
+        {
           id: 'validity',
           title: i18nString(UIStrings.validity),
           widthWeighting: 10,
@@ -61,6 +70,13 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
         {
           id: 'location',
           title: i18nString(UIStrings.location),
+          widthWeighting: 80,
+          hideable: false,
+          visible: true,
+        },
+        {
+          id: 'preloads',
+          title: i18n.i18n.lockedString('Preloads'),
           widthWeighting: 80,
           hideable: false,
           visible: true,
@@ -85,6 +101,8 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
     return this.#rows.map(row => ({
                             cells: [
                               {columnId: 'id', value: row.id},
+                              {columnId: 'processLocalId', value: row.processLocalId},
+                              {columnId: 'preloads', value: row.preloads},
                               {columnId: 'validity', value: row.validity},
                               {columnId: 'location', value: row.location},
                             ],
