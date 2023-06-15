@@ -2,13 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Protocol from '../../../../generated/protocol.js';
 import * as DataGrid from '../../../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import type * as UI from '../../../../ui/legacy/legacy.js';
+
+import * as PreloadingHelper from '../helper/helper.js';
 
 import ruleSetGridStyles from './ruleSetGrid.css.js';
 
@@ -21,6 +26,10 @@ const UIStrings = {
    *@description Column header for a table displaying rule sets: Where a rule set came from.
    */
   location: 'Location',
+  /**
+   *@description button: Title of button to reveal preloading attempts with filter by selected rule set
+   */
+  buttonRevealPreloadsAssociatedWithRuleSet: 'Reveal preloeads associated with this rule set',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/components/RuleSetGrid.ts', UIStrings);
 export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -28,9 +37,14 @@ export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export interface RuleSetGridRow {
   id: string;
   processLocalId: string;
-  preloads: string;
+  preloads: RuleSetGridPreloads;
   validity: string;
   location: string;
+}
+
+export interface RuleSetGridPreloads {
+  str: string;
+  ruleSetId: Protocol.Preload.RuleSetId;
 }
 
 // Grid component to show SpeculationRules rule sets.
@@ -98,11 +112,59 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
   }
 
   #buildReportRows(): DataGrid.DataGridUtils.Row[] {
+    function preloadsRenderer(preloadsStr: DataGrid.DataGridUtils.CellValue): LitHtml.TemplateResult {
+      const preloads = JSON.parse(preloadsStr as string) as RuleSetGridPreloads;
+
+      const revealAttemptViewWithFilter = (): void => {
+        void Common.Revealer.reveal(new PreloadingHelper.PreloadingForward.AttemptViewWithFilter(preloads.ruleSetId));
+      };
+
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      return LitHtml.html`
+          <div>
+            <button class="link" role="link"
+              @click=${revealAttemptViewWithFilter}
+              title=${i18nString(UIStrings.buttonRevealPreloadsAssociatedWithRuleSet)}
+              style=${LitHtml.Directives.styleMap({
+                color: 'var(--color-link)',
+                'text-decoration': 'underline',
+                padding: '0',
+                border: 'none',
+                background: 'none',
+                'font-family': 'inherit',
+                'font-size': 'inherit',
+                height: '16px',
+              })}
+            >
+              <${IconButton.Icon.Icon.litTagName}
+                .data=${{
+                  iconName: 'open-externally',
+                  color: 'var(--icon-link)',
+                  width: '16px',
+                  height: '16px',
+                } as IconButton.Icon.IconData}
+                style=${LitHtml.Directives.styleMap({
+                  'vertical-align': 'sub',
+                })}
+              >
+              </${IconButton.Icon.Icon.litTagName}>
+              ${preloads.str}
+            </button>
+          </div>
+      `;
+      // clang-format on
+    }
+
     return this.#rows.map(row => ({
                             cells: [
                               {columnId: 'id', value: row.id},
                               {columnId: 'processLocalId', value: row.processLocalId},
-                              {columnId: 'preloads', value: row.preloads},
+                              {
+                                columnId: 'preloads',
+                                value: JSON.stringify(row.preloads as unknown as JSON),
+                                renderer: preloadsRenderer,
+                              },
                               {columnId: 'validity', value: row.validity},
                               {columnId: 'location', value: row.location},
                             ],
