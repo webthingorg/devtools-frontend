@@ -33,6 +33,24 @@
       "message": "ah I see you are adding a new API to support counting.",
       "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67a987a_ec6068af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-06-16T12:02:00Z",
+      "side": 1,
+      "message": "No, you record once for 10 files.",
+      "parentUuid": "66be4854_4bb7c8ef",
+      "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
