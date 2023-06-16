@@ -51,6 +51,24 @@
       "parentUuid": "66be4854_4bb7c8ef",
       "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d4eee7_a1f9d82d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-06-16T12:09:53Z",
+      "side": 1,
+      "message": "The call to the backend happens 10 times. The backend increments 10 times, and then only sends the data once, right?",
+      "parentUuid": "f67a987a_ec6068af",
+      "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
