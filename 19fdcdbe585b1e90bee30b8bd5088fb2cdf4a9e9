@@ -16,6 +16,23 @@
       "message": "Do I understand correctly that if you load 10 files, you would record to the histogram 10 times, for 1 file, 2 files, ... 10 files?",
       "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e01335_84c6bbdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-06-16T11:44:44Z",
+      "side": 1,
+      "message": "ah I see you are adding a new API to support counting.",
+      "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
