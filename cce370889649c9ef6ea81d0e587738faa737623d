@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbdbcfc9_d2b80790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-16T14:52:47Z",
+      "side": 1,
+      "message": "LGTM with suggestion on other test cases",
+      "revId": "cce370889649c9ef6ea81d0e587738faa737623d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759fab0a_0b36add4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-16T14:52:47Z",
+      "side": 1,
+      "message": "it seems we also need to update this reference to `text`\n\n```suggestion\n        const trimmedText \u003d UI.UIUtils.trimTextEnd(context, title, textWidth - 2 * textPadding);\n```",
+      "range": {
+        "startLine": 300,
+        "startChar": 60,
+        "endLine": 300,
+        "endChar": 64
+      },
+      "revId": "cce370889649c9ef6ea81d0e587738faa737623d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ace361eb_9ac941bf",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineFlameChartNetworkDataProvider_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-16T14:52:47Z",
+      "side": 1,
+      "message": "maybe it\u0027s worth adding some tests for edge cases, like when certain timing(s) is/are 0, for example. Could be done in a follow up! :)",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 4
+      },
+      "revId": "cce370889649c9ef6ea81d0e587738faa737623d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
