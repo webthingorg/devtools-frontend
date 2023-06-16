@@ -1506,7 +1506,8 @@
                         "FormInputAssignedAutocompleteValueToIdOrNameAttributeError",
                         "FormLabelHasNeitherForNorNestedInput",
                         "FormLabelForMatchesNonExistingIdError",
-                        "FormInputHasWrongButWellIntendedAutocompleteValueError"
+                        "FormInputHasWrongButWellIntendedAutocompleteValueError",
+                        "ResponseWasBlockedByORB"
                     ]
                 },
                 {
@@ -1533,6 +1534,16 @@
                             "name": "violatingNodeAttribute",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                          "name": "url",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        {
+                          "name": "mimeType",
+                          "optional": true,
+                          "type": "string"
                         }
                     ]
                 },

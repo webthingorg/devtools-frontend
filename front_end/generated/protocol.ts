@@ -1000,6 +1000,7 @@ export namespace Audits {
     FormLabelHasNeitherForNorNestedInput = 'FormLabelHasNeitherForNorNestedInput',
     FormLabelForMatchesNonExistingIdError = 'FormLabelForMatchesNonExistingIdError',
     FormInputHasWrongButWellIntendedAutocompleteValueError = 'FormInputHasWrongButWellIntendedAutocompleteValueError',
+    ResponseWasBlockedByORB = 'ResponseWasBlockedByORB',
   }
 
   /**
@@ -1013,6 +1014,8 @@ export namespace Audits {
     frameId?: Page.FrameId;
     violatingNodeId?: DOM.BackendNodeId;
     violatingNodeAttribute?: string;
+    url?: string;
+    mimeType?: string;
   }
 
   /**
