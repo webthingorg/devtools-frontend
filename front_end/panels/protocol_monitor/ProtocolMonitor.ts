@@ -16,6 +16,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import * as Components from './components/components.js';
+import {SubmitEditorEvent} from './components/JSONEditor.js';
 import protocolMonitorStyles from './protocolMonitor.css.js';
 
 const UIStrings = {
@@ -123,6 +124,40 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
   return LitHtml.html`${i18nString(UIStrings.sMs, {PH1: String(value)})}`;
 };
 
+export const buildProtocolCommandsParametersMap =
+    (domains: Iterable<ProtocolDomain>): Map<string, Components.JSONEditor.Parameter[]> => {
+      const commandsMap: Map<string, Components.JSONEditor.Parameter[]> = new Map();
+      for (const domain of domains) {
+        for (const command of Object.keys(domain.commandParameters)) {
+          commandsMap.set(command, domain.commandParameters[command]);
+        }
+      }
+      return commandsMap;
+    };
+
+const protocolMethodWithParametersMap = buildProtocolCommandsParametersMap(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
+
+export const formatParameters =
+    (parameters: {[x: string]: unknown}, command: string): {[x: string]: Components.JSONEditor.Parameter} => {
+      {
+        const formattedParameters: {[x: string]: Components.JSONEditor.Parameter} = {};
+        const parametersPerCommand = protocolMethodWithParametersMap.get(command);
+        if (parametersPerCommand) {
+          for (const parameter of parametersPerCommand) {
+            if (Object.keys(parameters).includes(parameter.name)) {
+              formattedParameters[parameter.name] = {
+                optional: parameter.optional,
+                type: parameter.type,
+                value: String(parameters[parameter.name]),
+                name: parameter.name,
+              };
+            }
+          }
+        }
+        return formattedParameters;
+      }
+    };
 export interface Message {
   id?: number;
   method: string;
@@ -139,16 +174,10 @@ export interface LogMessage {
   type: 'send'|'recv';
 }
 
-interface CommandParameter {
-  name: string;
-  type: string;
-  optional: boolean;
-}
-
 export interface ProtocolDomain {
   readonly domain: string;
   readonly commandParameters: {
-    [x: string]: CommandParameter[],
+    [x: string]: Components.JSONEditor.Parameter[],
   };
 }
 
@@ -167,7 +196,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   private isRecording: boolean = false;
 
   #commandAutocompleteSuggestionProvider = new CommandAutocompleteSuggestionProvider();
-  #editorWidget = new EditorWidget(this.#commandAutocompleteSuggestionProvider);
+  #editorWidget = new EditorWidget();
   #selectedTargetId?: string;
 
   constructor() {
@@ -412,7 +441,9 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   #onCommandChange(input: UI.Toolbar.ToolbarInput): void {
     const value = input.valueWithoutSuggestion();
     const {command, parameters} = parseCommandInput(value);
-    this.#editorWidget.setCommand(command, parameters);
+    // Change to format with ibjects
+    const formattedParameters = formatParameters(parameters, command);
+    this.#editorWidget.setCommand(command, formattedParameters);
   }
 
   static instance(opts: {forceNew: null|boolean} = {forceNew: null}): ProtocolMonitorImpl {
@@ -603,8 +634,6 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 export class CommandAutocompleteSuggestionProvider {
   #maxHistorySize = 200;
   #commandHistory = new Set<string>();
-  protocolMethods =
-      this.buildProtocolCommands(ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values());
 
   constructor(maxHistorySize?: number) {
     if (maxHistorySize !== undefined) {
@@ -619,21 +648,11 @@ export class CommandAutocompleteSuggestionProvider {
     }
 
     const newestToOldest = [...this.#commandHistory].reverse();
-    newestToOldest.push(...this.protocolMethods);
+    newestToOldest.push(...protocolMethodWithParametersMap.keys());
     return newestToOldest.filter(cmd => cmd.startsWith(prefix)).map(text => ({
                                                                       text,
                                                                     }));
   };
-
-  buildProtocolCommands(domains: Iterable<ProtocolDomain>): Set<string> {
-    const commands: Set<string> = new Set();
-    for (const domain of domains) {
-      for (const command of Object.keys(domain.commandParameters)) {
-        commands.add(command);
-      }
-    }
-    return commands;
-  }
 
   addEntry(value: string): void {
     if (this.#commandHistory.has(value)) {
@@ -702,36 +721,25 @@ export interface ProtocolMonitorCommand {
 
 export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
   readonly jsonEditor: Components.JSONEditor.JSONEditor;
-  constructor(commandAutocompleteSuggestionProvider: CommandAutocompleteSuggestionProvider) {
+  constructor() {
     super();
     this.jsonEditor = new Components.JSONEditor.JSONEditor();
-    this.jsonEditor.protocolMethods = [...commandAutocompleteSuggestionProvider.protocolMethods];
-
+    this.jsonEditor.protocolMethodWithParametersMap = protocolMethodWithParametersMap;
     this.element.append(this.jsonEditor);
-    this.jsonEditor.addEventListener('keydown', (event: Event) => {
-      if ((event as KeyboardEvent).key === 'Enter' &&
-          ((event as KeyboardEvent).metaKey || (event as KeyboardEvent).ctrlKey)) {
-        this.dispatchEventToListeners(Events.CommandSent, this.getCommand());
-      }
+    this.jsonEditor.addEventListener(SubmitEditorEvent.eventName, (event: Event) => {
+      this.dispatchEventToListeners(Events.CommandSent, (event as SubmitEditorEvent).data);
     });
   }
 
-  getCommand(): ProtocolMonitorCommand {
-    return {
-      command: this.jsonEditor.getCommand(),
-      parameters: this.jsonEditor.getParameters(),
-    };
-  }
-
   setCommand(command: string, parameters: {
-    [x: string]: unknown,
+    [x: string]: Components.JSONEditor.Parameter,
   }): void {
     this.jsonEditor.parameters = parameters;
     this.jsonEditor.command = command;
   }
 }
 
-export function parseCommandInput(input: string): {command: string, parameters: {}} {
+export function parseCommandInput(input: string): {command: string, parameters: {[x: string]: unknown}} {
   // If input cannot be parsed as json, we assume it's the command name
   // for a command without parameters. Otherwise, we expect an object
   // with "command"/"method"/"cmd" and "parameters"/"params"/"args"/"arguments" attributes.
