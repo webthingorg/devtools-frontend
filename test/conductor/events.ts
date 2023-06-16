@@ -83,10 +83,12 @@ export function installPageErrorHandlers(page: puppeteer.Page): void {
     console.log('STDERR:');
     console.log(stderr);
     console.log();
+    fatalErrors.push(error.message);
     throw new Error(`Error in Frontend: ${error}`);
   });
 
   page.on('pageerror', error => {
+    fatalErrors.push(error.message);
     throw new Error(`Page error in Frontend: ${error}`);
   });
 
