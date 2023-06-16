@@ -79,6 +79,7 @@ inspectorBackend.registerCommand("Audits.checkFormsIssues", [], ["formIssues"]);
 
 // Autofill.
 inspectorBackend.registerCommand("Autofill.trigger", [{"name": "fieldId", "type": "number", "optional": false}, {"name": "frameId", "type": "string", "optional": true}, {"name": "card", "type": "object", "optional": false}], []);
+inspectorBackend.registerCommand("Autofill.setAddresses", [{"name": "addresses", "type": "object", "optional": false}], []);
 
 // BackgroundService.
 inspectorBackend.registerEnum("BackgroundService.ServiceName", {BackgroundFetch: "backgroundFetch", BackgroundSync: "backgroundSync", PushMessaging: "pushMessaging", Notifications: "notifications", PaymentHandler: "paymentHandler", PeriodicBackgroundSync: "periodicBackgroundSync"});
@@ -376,6 +377,9 @@ inspectorBackend.registerCommand("Input.setInterceptDrags", [{"name": "enabled",
 inspectorBackend.registerCommand("Input.synthesizePinchGesture", [{"name": "x", "type": "number", "optional": false}, {"name": "y", "type": "number", "optional": false}, {"name": "scaleFactor", "type": "number", "optional": false}, {"name": "relativeSpeed", "type": "number", "optional": true}, {"name": "gestureSourceType", "type": "string", "optional": true}], []);
 inspectorBackend.registerCommand("Input.synthesizeScrollGesture", [{"name": "x", "type": "number", "optional": false}, {"name": "y", "type": "number", "optional": false}, {"name": "xDistance", "type": "number", "optional": true}, {"name": "yDistance", "type": "number", "optional": true}, {"name": "xOverscroll", "type": "number", "optional": true}, {"name": "yOverscroll", "type": "number", "optional": true}, {"name": "preventFling", "type": "boolean", "optional": true}, {"name": "speed", "type": "number", "optional": true}, {"name": "gestureSourceType", "type": "string", "optional": true}, {"name": "repeatCount", "type": "number", "optional": true}, {"name": "repeatDelayMs", "type": "number", "optional": true}, {"name": "interactionMarkerName", "type": "string", "optional": true}], []);
 inspectorBackend.registerCommand("Input.synthesizeTapGesture", [{"name": "x", "type": "number", "optional": false}, {"name": "y", "type": "number", "optional": false}, {"name": "duration", "type": "number", "optional": true}, {"name": "tapCount", "type": "number", "optional": true}, {"name": "gestureSourceType", "type": "string", "optional": true}], []);
+
+// OriginPrivateFileSystem.
+inspectorBackend.registerCommand("OriginPrivateFileSystem.refreshDirectory", [{"name": "storageKey", "type": "string", "optional": false}, {"name": "bucketId", "type": "string", "optional": false}, {"name": "path", "type": "string", "optional": false}], []);
 
 // Inspector.
 inspectorBackend.registerEvent("Inspector.detached", ["reason"]);

@@ -917,6 +917,13 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     /**
+     * Set addresses so that developers can verify their forms implementation.
+     */
+    'Autofill.setAddresses': {
+      paramsType: [Protocol.Autofill.SetAddressesRequest];
+      returnType: void;
+    };
+    /**
      * Enables event updates for the service.
      */
     'BackgroundService.startObserving': {
@@ -2311,6 +2318,10 @@ export namespace ProtocolMapping {
      */
     'Input.synthesizeTapGesture': {
       paramsType: [Protocol.Input.SynthesizeTapGestureRequest];
+      returnType: void;
+    };
+    'OriginPrivateFileSystem.refreshDirectory': {
+      paramsType: [Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest];
       returnType: void;
     };
     /**

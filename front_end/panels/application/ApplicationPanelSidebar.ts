@@ -488,6 +488,14 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.target = target;
 
+    this.target!.originPrivateFileSystemAgent()
+        .invoke_refreshDirectory({
+          bucketId: '',
+          path: '',
+          storageKey: '',
+        })
+        .then(() => {});
+
     this.databaseModel = target.model(DatabaseModel);
     if (this.databaseModel) {
       this.databaseModel.addEventListener(DatabaseModelEvents.DatabaseAdded, this.databaseAdded, this);

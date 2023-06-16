@@ -60,6 +60,8 @@ declare namespace ProtocolProxyApi {
 
     Input: InputApi;
 
+    OriginPrivateFileSystem: OriginPrivateFileSystemApi;
+
     Inspector: InspectorApi;
 
     LayerTree: LayerTreeApi;
@@ -160,6 +162,8 @@ declare namespace ProtocolProxyApi {
     IndexedDB: IndexedDBDispatcher;
 
     Input: InputDispatcher;
+
+    OriginPrivateFileSystem: OriginPrivateFileSystemDispatcher;
 
     Inspector: InspectorDispatcher;
 
@@ -396,6 +400,11 @@ declare namespace ProtocolProxyApi {
      * If the field and related form cannot be autofilled, returns an error.
      */
     invoke_trigger(params: Protocol.Autofill.TriggerRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Set addresses so that developers can verify their forms implementation.
+     */
+    invoke_setAddresses(params: Protocol.Autofill.SetAddressesRequest): Promise<Protocol.ProtocolResponseWithError>;
 
   }
   export interface AutofillDispatcher {
@@ -1654,6 +1663,13 @@ declare namespace ProtocolProxyApi {
      */
     dragIntercepted(params: Protocol.Input.DragInterceptedEvent): void;
 
+  }
+
+  export interface OriginPrivateFileSystemApi {
+    invoke_refreshDirectory(params: Protocol.OriginPrivateFileSystem.RefreshDirectoryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+  }
+  export interface OriginPrivateFileSystemDispatcher {
   }
 
   // eslint thinks this is us prefixing our interfaces but it's not!
