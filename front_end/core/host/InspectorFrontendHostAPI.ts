@@ -395,4 +395,5 @@ export enum EnumeratedHistogram {
   VMInlineScriptTypeShown = 'DevTools.VMInlineScriptShown',
   BreakpointsRestoredFromStorageCount = 'DevTools.BreakpointsRestoredFromStorageCount',
   SwatchActivated = 'DevTools.SwatchActivated',
+  BadgeActivated = 'DevTools.BadgeActivated',
 }
