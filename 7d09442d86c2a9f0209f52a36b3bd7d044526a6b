@@ -22,6 +22,30 @@
       },
       "revId": "7d09442d86c2a9f0209f52a36b3bd7d044526a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dab924a_3a149362",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-16T08:32:57Z",
+      "side": 1,
+      "message": "In FlameChasrt, it will update everytime when the theme is changed.\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/perf_ui/FlameChart.ts;l\u003d208?q\u003dflame\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F\n\nComment added",
+      "parentUuid": "6c9dfcf0_6668585d",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 100
+      },
+      "revId": "7d09442d86c2a9f0209f52a36b3bd7d044526a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
