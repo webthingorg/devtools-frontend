@@ -39,6 +39,30 @@
       },
       "revId": "414392f5bc7ea802f1c63005752d92206e3338ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39d22b0_d71b3018",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-06-16T14:22:26Z",
+      "side": 1,
+      "message": "Done! See patch set 6",
+      "parentUuid": "711776f6_de32c080",
+      "range": {
+        "startLine": 878,
+        "startChar": 0,
+        "endLine": 878,
+        "endChar": 17
+      },
+      "revId": "414392f5bc7ea802f1c63005752d92206e3338ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
