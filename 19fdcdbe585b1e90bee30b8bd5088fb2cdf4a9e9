@@ -105,6 +105,24 @@
       "parentUuid": "b176d863_86e1f9ef",
       "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ef4a1a_affa6692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-06-18T08:10:55Z",
+      "side": 1,
+      "message": "We\u0027re only reporting the metric to the backend once a project folder is fully processed (no more pending requests).",
+      "parentUuid": "fe555f7a_a17da04d",
+      "revId": "19fdcdbe585b1e90bee30b8bd5088fb2cdf4a9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
