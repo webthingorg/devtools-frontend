@@ -16,6 +16,75 @@
       "message": "Added a unit test! Let me know if this looks good",
       "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c1b29b_94033555",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-19T07:34:04Z",
+      "side": 1,
+      "message": "This icon has been removed in crrev.com/c/4386379. Please use `iconName: \u0027check-circle\u0027 color: \u0027--icon-checkmark-green\u0027` instead.",
+      "range": {
+        "startLine": 881,
+        "startChar": 0,
+        "endLine": 881,
+        "endChar": 100
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf52e139_2ecd8c4b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-19T07:34:04Z",
+      "side": 1,
+      "message": "This icons was removed in crrev.com/c/4427711. Please use `\u0027iconName: \u0027info\u0027, color: \u0027var(--icon-default)\u0027` instead.",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 100
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044dcc46_3662c29b",
+        "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-19T07:34:04Z",
+      "side": 1,
+      "message": "Please add a blank line above",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 50
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
