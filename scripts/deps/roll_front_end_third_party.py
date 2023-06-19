@@ -94,7 +94,7 @@ for package_info in THIRD_PARTY_NPM_PACKAGE_NAMES:
     old_package_json = json.load(open(f'{package_path}/package.json'))
     package_json = json.load(
         urllib.request.urlopen(
-            f'https://registry.npmjs.org/{package_name}/latest'))
+            f'https://registry.npmjs.org/{package_name}/19.7.0'))
 
     # Version check
     version = parse_version(package_json['version'])
