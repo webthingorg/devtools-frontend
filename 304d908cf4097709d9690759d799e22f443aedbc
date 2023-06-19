@@ -39,6 +39,30 @@
       },
       "revId": "304d908cf4097709d9690759d799e22f443aedbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde95562_b147e926",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-19T13:05:03Z",
+      "side": 1,
+      "message": "IIUC, this controls whether the widget use shadow root and should be true.\n\n1. Tests fail if I changed to false.\n\n```\nFAILED TESTS:\n  PreloadingRuleSetView\n    ✖ renders grid and details\n      Chrome 116.0.0.0 (Linux x86_64)\n    Expected root of widget to be a document or shadowRoot, but was \"DIV\":Error\n        at Module.DCHECK (out/Default/gen/front_end/core/platform/dcheck.js:3:37)\n        at Module.getRootNode (front_end/ui/components/helpers/get-root-node.ts:13:12 \u003c- out/Default/gen/front_end/ui/components/helpers/get-root-node.js:10:14)\n        at PreloadingRuleSetView.registerCSSFiles (front_end/ui/legacy/Widget.ts:476:34 \u003c- out/Default/gen/front_end/ui/legacy/Widget.js:423:40)\n        at PreloadingRuleSetView.wasShown (front_end/panels/application/preloading/PreloadingView.ts:259:10 \u003c- out/Default/gen/front_end/panels/application/preloading/PreloadingView.js:221:14)\n        at createRuleSetView (test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts:314:8 \u003c- out/Default/gen/test/unittests/front_end/panels/application/preloading/PreloadingView_test.js:25\n8:10)\n        at Context.\u003canonymous\u003e (test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts:347:18 \u003c- out/Default/gen/test/unittests/front_end/panels/application/preloading/PreloadingView_test.js\n:285:22)\n```\n\n2. Other same-level views use true, e.g. StorageWidget.\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/StorageView.ts;l\u003d174?q\u003dfront_end%2Fpanels%2Fapplication%2FStorageView.ts",
+      "parentUuid": "a47266a8_9ca4a931",
+      "range": {
+        "startLine": 223,
+        "startChar": 31,
+        "endLine": 223,
+        "endChar": 35
+      },
+      "revId": "304d908cf4097709d9690759d799e22f443aedbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
