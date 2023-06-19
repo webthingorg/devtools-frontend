@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "337ef8d9_142699ed",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-19T14:27:47Z",
+      "side": 1,
+      "message": "var(--icon-checkmark-green)",
+      "range": {
+        "startLine": 880,
+        "startChar": 0,
+        "endLine": 880,
+        "endChar": 100
+      },
+      "revId": "47290717f13d2b8ead75e526cc9c6724552bc315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
