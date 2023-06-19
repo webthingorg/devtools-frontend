@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d674bf3_243890b5",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-06-19T14:26:33Z",
+      "side": 1,
+      "message": "Done in patchset 7!",
+      "parentUuid": "12c1b29b_94033555",
+      "range": {
+        "startLine": 881,
+        "startChar": 0,
+        "endLine": 881,
+        "endChar": 100
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf52e139_2ecd8c4b",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5487862b_c6eb0453",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-06-19T14:26:33Z",
+      "side": 1,
+      "message": "Done with patchset 7!",
+      "parentUuid": "cf52e139_2ecd8c4b",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 100
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044dcc46_3662c29b",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-06-19T07:34:04Z",
       "side": 1,
       "message": "Please add a blank line above",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 50
+      },
+      "revId": "5d471db0cf1431ff01dc522dbacdff7e12bea102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2bf9acc_b97dcfba",
+        "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1574132
+      },
+      "writtenOn": "2023-06-19T14:26:33Z",
+      "side": 1,
+      "message": "Done with patchset 7!",
+      "parentUuid": "044dcc46_3662c29b",
       "range": {
         "startLine": 66,
         "startChar": 0,
