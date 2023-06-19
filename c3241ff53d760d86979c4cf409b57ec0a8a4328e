@@ -22,6 +22,30 @@
       },
       "revId": "c3241ff53d760d86979c4cf409b57ec0a8a4328e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d5f231_4efce8b5",
+        "filename": "test/unittests/front_end/panels/recorder/converters/LighthouseConverter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-19T12:46:29Z",
+      "side": 1,
+      "message": "I tried that and it does not look well in the logs https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8777859925149399809/+/u/Unit_Tests/stdout",
+      "parentUuid": "17fec2e2_91e5908c",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "c3241ff53d760d86979c4cf409b57ec0a8a4328e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
