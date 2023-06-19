@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fec2e2_91e5908c",
+        "filename": "test/unittests/front_end/panels/recorder/converters/LighthouseConverter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-06-19T08:31:29Z",
+      "side": 1,
+      "message": "Nit:\n\nThis seems awkward. I would expect something like.\n```\nconst startsWith \u003d \u0027const fs \u003d require(\u0027fs\u0027); ...\nassert.equals(startsWith, result.slice(0, startsWith.length-1))\n```\n(not sure if this perfectly correct TS wise)\n\nSame goes for the other test.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "c3241ff53d760d86979c4cf409b57ec0a8a4328e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
