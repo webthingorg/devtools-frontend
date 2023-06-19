@@ -14,20 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
 var _IsolatedWorld_instances, _a, _IsolatedWorld_frame, _IsolatedWorld_document, _IsolatedWorld_context, _IsolatedWorld_detached, _IsolatedWorld_ctxBindings, _IsolatedWorld_boundFunctions, _IsolatedWorld_taskManager, _IsolatedWorld_puppeteerUtil, _IsolatedWorld_bindingIdentifier, _IsolatedWorld_client_get, _IsolatedWorld_frameManager_get, _IsolatedWorld_timeoutSettings_get, _IsolatedWorld_injectPuppeteerUtil, _IsolatedWorld_settingUpBinding, _IsolatedWorld_onBindingCalled;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IsolatedWorld = exports.PUPPETEER_WORLD = exports.MAIN_WORLD = void 0;
+exports.IsolatedWorld = void 0;
 const injected_js_1 = require("../generated/injected.js");
 const assert_js_1 = require("../util/assert.js");
 const DeferredPromise_js_1 = require("../util/DeferredPromise.js");
@@ -36,24 +36,20 @@ const LazyArg_js_1 = require("./LazyArg.js");
 const LifecycleWatcher_js_1 = require("./LifecycleWatcher.js");
 const util_js_1 = require("./util.js");
 const WaitTask_js_1 = require("./WaitTask.js");
-/**
- * A unique key for {@link IsolatedWorldChart} to denote the default world.
- * Execution contexts are automatically created in the default world.
- *
- * @internal
- */
-exports.MAIN_WORLD = Symbol('mainWorld');
-/**
- * A unique key for {@link IsolatedWorldChart} to denote the puppeteer world.
- * This world contains all puppeteer-internal bindings/code.
- *
- * @internal
- */
-exports.PUPPETEER_WORLD = Symbol('puppeteerWorld');
+const IsolatedWorlds_js_1 = require("./IsolatedWorlds.js");
 /**
  * @internal
  */
 class IsolatedWorld {
+    get puppeteerUtil() {
+        return __classPrivateFieldGet(this, _IsolatedWorld_puppeteerUtil, "f");
+    }
+    get taskManager() {
+        return __classPrivateFieldGet(this, _IsolatedWorld_taskManager, "f");
+    }
+    get _boundFunctions() {
+        return __classPrivateFieldGet(this, _IsolatedWorld_boundFunctions, "f");
+    }
     constructor(frame) {
         _IsolatedWorld_instances.add(this);
         _IsolatedWorld_frame.set(this, void 0);
@@ -106,7 +102,7 @@ class IsolatedWorld {
             }
             catch (error) {
                 // The WaitTask may already have been resolved by timing out, or the
-                // exection context may have been destroyed.
+                // execution context may have been destroyed.
                 // In both caes, the promises above are rejected with a protocol error.
                 // We can safely ignores these, as the WaitTask is re-installed in
                 // the next execution context if needed.
@@ -120,15 +116,6 @@ class IsolatedWorld {
         // client for OOP iframes.
         __classPrivateFieldSet(this, _IsolatedWorld_frame, frame, "f");
         __classPrivateFieldGet(this, _IsolatedWorld_instances, "a", _IsolatedWorld_client_get).on('Runtime.bindingCalled', __classPrivateFieldGet(this, _IsolatedWorld_onBindingCalled, "f"));
-    }
-    get puppeteerUtil() {
-        return __classPrivateFieldGet(this, _IsolatedWorld_puppeteerUtil, "f");
-    }
-    get taskManager() {
-        return __classPrivateFieldGet(this, _IsolatedWorld_taskManager, "f");
-    }
-    get _boundFunctions() {
-        return __classPrivateFieldGet(this, _IsolatedWorld_boundFunctions, "f");
     }
     frame() {
         return __classPrivateFieldGet(this, _IsolatedWorld_frame, "f");
