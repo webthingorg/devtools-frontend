@@ -26,6 +26,7 @@ describe('text editor', async () => {
   preloadForCodeCoverage('text_editor/basic.html');
 
   it('can insert and delete some text', async () => {
+    assert.isTrue(false);
     await loadComponentDocExample('text_editor/basic.html');
     const textEditor = await waitFor('devtools-text-editor');
 
