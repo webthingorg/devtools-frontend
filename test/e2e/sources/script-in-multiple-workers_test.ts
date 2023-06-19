@@ -284,6 +284,7 @@ describe('Multi-Workers', async function() {
           });
         });
 
+    // deflaking
     describe(`hits breakpoints added to workers ${withOrWithout}`, () => {
       beforeEach(async () => {
         await enableExperiment('instrumentationBreakpoints');
