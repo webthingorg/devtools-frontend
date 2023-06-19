@@ -60,6 +60,7 @@ describe('data grid', async () => {
   preloadForCodeCoverage('data_grid/basic.html');
 
   it('lists the data grid contents', async () => {
+    assert.isTrue(false);
     await loadComponentDocExample('data_grid/basic.html');
     const dataGrid = await getDataGrid();
     const renderedText = await getInnerTextOfDataGridCells(dataGrid, 3);
