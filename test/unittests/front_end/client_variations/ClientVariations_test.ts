@@ -8,6 +8,7 @@ import * as ClientVariations from '../../../../front_end/third_party/chromium/cl
 
 describe('formatClientVariations', () => {
   it('formats input containing both types of variation IDs', () => {
+    assert.isTrue(false);
     const result = ClientVariations.formatClientVariations({
       variationIds: [111, 222, 333],
       triggerVariationIds: [444, 555],
