@@ -27,7 +27,8 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _Frame_url, _Frame_detached, _Frame_client;
 import { assert } from '../util/assert.js';
 import { isErrorLike } from '../util/ErrorLike.js';
-import { IsolatedWorld, MAIN_WORLD, PUPPETEER_WORLD, } from './IsolatedWorld.js';
+import { IsolatedWorld, } from './IsolatedWorld.js';
+import { MAIN_WORLD, PUPPETEER_WORLD } from './IsolatedWorlds.js';
 import { LifecycleWatcher } from './LifecycleWatcher.js';
 import { getQueryHandlerAndSelector } from './QueryHandler.js';
 import { importFS } from './util.js';
@@ -47,7 +48,7 @@ import { importFS } from './util.js';
  * An example of dumping frame tree:
  *
  * ```ts
- * const puppeteer = require('puppeteer');
+ * import puppeteer from 'puppeteer';
  *
  * (async () => {
  *   const browser = await puppeteer.launch();
@@ -173,11 +174,11 @@ export class Frame {
      * calling {@link HTTPResponse.status}.
      */
     async goto(url, options = {}) {
-        const { referer = this._frameManager.networkManager.extraHTTPHeaders()['referer'], waitUntil = ['load'], timeout = this._frameManager.timeoutSettings.navigationTimeout(), } = options;
+        const { referer = this._frameManager.networkManager.extraHTTPHeaders()['referer'], referrerPolicy = this._frameManager.networkManager.extraHTTPHeaders()['referer-policy'], waitUntil = ['load'], timeout = this._frameManager.timeoutSettings.navigationTimeout(), } = options;
         let ensureNewDocumentNavigation = false;
         const watcher = new LifecycleWatcher(this._frameManager, this, waitUntil, timeout);
         let error = await Promise.race([
-            navigate(__classPrivateFieldGet(this, _Frame_client, "f"), url, referer, this._id),
+            navigate(__classPrivateFieldGet(this, _Frame_client, "f"), url, referer, referrerPolicy, this._id),
             watcher.timeoutOrTerminationPromise(),
         ]);
         if (!error) {
@@ -197,12 +198,13 @@ export class Frame {
         finally {
             watcher.dispose();
         }
-        async function navigate(client, url, referrer, frameId) {
+        async function navigate(client, url, referrer, referrerPolicy, frameId) {
             try {
                 const response = await client.send('Page.navigate', {
                     url,
                     referrer,
                     frameId,
+                    referrerPolicy,
                 });
                 ensureNewDocumentNavigation = !!response.loaderId;
                 return response.errorText
@@ -375,7 +377,7 @@ export class Frame {
      * @example
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      *
      * (async () => {
      *   const browser = await puppeteer.launch();
@@ -426,7 +428,7 @@ export class Frame {
      * an XPath.
      *
      * @param xpath - the XPath expression to wait for.
-     * @param options - options to configure the visiblity of the element and how
+     * @param options - options to configure the visibility of the element and how
      * long to wait before timing out.
      */
     async waitForXPath(xpath, options = {}) {
@@ -440,7 +442,7 @@ export class Frame {
      * The `waitForFunction` can be used to observe viewport size change:
      *
      * ```ts
-     * const puppeteer = require('puppeteer');
+     * import puppeteer from 'puppeteer';
      *
      * (async () => {
      * .  const browser = await puppeteer.launch();
