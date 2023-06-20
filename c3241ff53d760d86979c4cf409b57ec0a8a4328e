@@ -46,6 +46,30 @@
       },
       "revId": "c3241ff53d760d86979c4cf409b57ec0a8a4328e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda1653d_45a011c5",
+        "filename": "test/unittests/front_end/panels/recorder/converters/LighthouseConverter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-06-20T13:20:52Z",
+      "side": 1,
+      "message": "Ack. This is what I had in mind: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4627078",
+      "parentUuid": "26d5f231_4efce8b5",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "c3241ff53d760d86979c4cf409b57ec0a8a4328e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
