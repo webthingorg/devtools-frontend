@@ -15,6 +15,7 @@ group("e2e") {
 
 node_ts_library("tests") {
   deps = [
+    "a_recorder",
     "animations",
     "application",
     "assertion",
@@ -45,7 +46,6 @@ node_ts_library("tests") {
     "settings",
     "snippets",
     "sources",
-    "recorder",
     "webaudio",
   ]
 }
