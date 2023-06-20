@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4374006_debf07f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-20T08:14:41Z",
+      "side": 1,
+      "message": "LGTM with q\u0027s and suggestions",
+      "revId": "43a7e1d15a80e0df08dadfa53495d48b92547662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40ef5ae0_f8a95a45",
+        "filename": "front_end/models/bindings/IgnoreListManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-20T08:14:41Z",
+      "side": 1,
+      "message": "Let\u0027s also test the unignoring of frames",
+      "range": {
+        "startLine": 335,
+        "startChar": 10,
+        "endLine": 335,
+        "endChar": 25
+      },
+      "revId": "43a7e1d15a80e0df08dadfa53495d48b92547662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
