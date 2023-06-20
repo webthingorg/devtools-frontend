@@ -24,10 +24,10 @@ devtools_module("recorder") {
     "../../models/extensions:bundle",
     "../../panels/emulation:bundle",
     "../../panels/timeline:bundle",
-    "../../ui/components/icon_button:bundle",
     "../../services/tracing:bundle",
     "../../third_party/puppeteer-replay:bundle",
     "../../ui/components/dialogs:bundle",
+    "../../ui/components/icon_button:bundle",
     "../../ui/components/menus:bundle",
     "./components:bundle",
     "./controllers:bundle",
@@ -47,7 +47,7 @@ devtools_entrypoint("bundle") {
 
   visibility = [
     ":*",
-    "../../../test/e2e/recorder:*",
+    "../../../test/e2e/a_recorder:*",
     "../../../test/unittests/front_end/models/recorder/*",
     "../../../test/unittests/front_end/panels/recorder/*",
     "../../entrypoints/main/*",
