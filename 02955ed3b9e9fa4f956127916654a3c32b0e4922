@@ -33,6 +33,24 @@
       "message": "leimy@chromium.org Can I leave this to you?",
       "revId": "02955ed3b9e9fa4f956127916654a3c32b0e4922",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20aaca8f_a1d6911e",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1551852
+      },
+      "writtenOn": "2023-06-20T08:03:23Z",
+      "side": 1,
+      "message": "I will update that from another CL later, thanks!",
+      "parentUuid": "3f2f9a25_607fd228",
+      "revId": "02955ed3b9e9fa4f956127916654a3c32b0e4922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
