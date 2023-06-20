@@ -81,4 +81,12 @@ describeWithMockConnection('OutermostTargetSelector', () => {
     selector.itemSelected(prerenderTarget);
     assert.strictEqual(UI.Context.Context.instance().flavor(SDK.Target.Target), prerenderTarget);
   });
+
+  it('does not change UI context flavor within the same page', () => {
+    const subtarget = createTarget({parentTarget: primaryTarget});
+    selector.itemSelected(primaryTarget);
+    assert.strictEqual(UI.Context.Context.instance().flavor(SDK.Target.Target), primaryTarget);
+    selector.itemSelected(subtarget);
+    assert.strictEqual(UI.Context.Context.instance().flavor(SDK.Target.Target), primaryTarget);
+  });
 });
