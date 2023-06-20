@@ -74,6 +74,7 @@ devtools_module("network") {
     "../../models/logs:bundle",
     "../../models/text_utils:bundle",
     "../../models/workspace:bundle",
+    "../../models/trace:bundle",
     "../../panels/elements:bundle",
     "../../panels/mobile_throttling:bundle",
     "../../panels/search:bundle",

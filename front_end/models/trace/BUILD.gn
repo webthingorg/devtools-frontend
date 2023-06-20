@@ -31,6 +31,7 @@ devtools_entrypoint("bundle") {
     "../../../test/unittests/front_end/*",
     "../../core/sdk/*",
     "../../panels/timeline/*",
+    "../../panels/network/*",
   ]
 
   visibility += devtools_models_visibility

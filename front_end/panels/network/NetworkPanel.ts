@@ -39,6 +39,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Logs from '../../models/logs/logs.js';
+import * as TraceEngine from '../../models/trace/trace.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
@@ -496,21 +497,18 @@ export class NetworkPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     }
   }
 
-  private filmStripAvailable(filmStripModel: SDK.FilmStripModel.FilmStripModel|null): void {
+  private filmStripAvailable(
+      filmStripModel: SDK.FilmStripModel.FilmStripModel|null,
+      filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData): void {
     if (!filmStripModel) {
       return;
     }
     const calculator = this.networkLogView.timeCalculator();
     if (this.filmStripView) {
       this.filmStripView.setModel(
-          filmStripModel, calculator.minimumBoundary() * 1000, calculator.boundarySpan() * 1000);
+          filmStripModel, filmStrip, calculator.minimumBoundary() * 1000, calculator.boundarySpan() * 1000);
     }
-    this.networkOverview.setFilmStripModel(filmStripModel);
-    const timestamps = filmStripModel.frames().map(mapTimestamp);
-
-    function mapTimestamp(frame: SDK.FilmStripModel.Frame): number {
-      return frame.timestamp / 1000;
-    }
+    const timestamps = filmStrip.frames.map(frame => frame.screenshotEvent.ts);
 
     this.networkLogView.addFilmStripFrames(timestamps);
   }
@@ -889,9 +887,20 @@ export class FilmStripRecorder implements SDK.TracingManager.TracingManagerClien
   private readonly timeCalculator: NetworkTimeCalculator;
   private readonly filmStripView: PerfUI.FilmStripView.FilmStripView;
   private tracingModel: SDK.TracingModel.TracingModel|null;
-  private callback: ((arg0: SDK.FilmStripModel.FilmStripModel|null) => void)|null;
+  private callback:
+      ((arg0: SDK.FilmStripModel.FilmStripModel|null,
+        filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData) => void)|null;
+  // Used to fetch screenshots of the page load and show them in the panel.
+  #traceEngine: TraceEngine.TraceModel.Model<{
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    Screenshots: typeof TraceEngine.Handlers.ModelHandlers.Screenshots,
+  }>;
 
   constructor(timeCalculator: NetworkTimeCalculator, filmStripView: PerfUI.FilmStripView.FilmStripView) {
+    this.#traceEngine = new TraceEngine.TraceModel.Model({
+      Screenshots: TraceEngine.Handlers.ModelHandlers.Screenshots,
+    });
+
     this.tracingManager = null;
     this.resourceTreeModel = null;
     this.timeCalculator = timeCalculator;
@@ -906,15 +915,29 @@ export class FilmStripRecorder implements SDK.TracingManager.TracingManagerClien
     }
   }
 
-  tracingComplete(): void {
+  async tracingComplete(): Promise<void> {
     if (!this.tracingModel || !this.tracingManager) {
       return;
     }
     this.tracingModel.tracingComplete();
     this.tracingManager = null;
+    await this.#traceEngine.parse(
+        // OPP's data layer uses `EventPayload` as the type to represent raw JSON from the trace.
+        // When we pass this into the new data engine, we need to tell TS to use the new TraceEventData type.
+        this.tracingModel.allRawEvents() as unknown as TraceEngine.Types.TraceEvents.TraceEventData[],
+    );
+
+    const data = this.#traceEngine.traceParsedData(this.#traceEngine.size() - 1);
+    if (!data) {
+      return;
+    }
+    const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(data);
+
     if (this.callback) {
       this.callback(
-          new SDK.FilmStripModel.FilmStripModel(this.tracingModel, this.timeCalculator.minimumBoundary() * 1000));
+          new SDK.FilmStripModel.FilmStripModel(this.tracingModel, this.timeCalculator.minimumBoundary() * 1000),
+          filmStrip,
+      );
     }
     this.callback = null;
     if (this.resourceTreeModel) {
@@ -950,7 +973,10 @@ export class FilmStripRecorder implements SDK.TracingManager.TracingManagerClien
     return Boolean(this.tracingManager);
   }
 
-  stopRecording(callback: (arg0: SDK.FilmStripModel.FilmStripModel|null) => void): void {
+  stopRecording(
+      callback:
+          (arg0: SDK.FilmStripModel.FilmStripModel|null,
+           filmsStrip: TraceEngine.Extras.FilmStrip.FilmStripData) => void): void {
     if (!this.tracingManager) {
       return;
     }

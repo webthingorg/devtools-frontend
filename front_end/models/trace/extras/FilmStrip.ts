@@ -16,13 +16,18 @@ export interface FilmStripFrame {
   index: number;
 }
 
+type FilmStripHandlers = Handlers.Types.EnabledHandlerDataWithMeta<{
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Screenshots: typeof Handlers.ModelHandlers.Screenshots,
+}>;
+
 // Cache film strips based on:
 // 1. The trace parsed data object
 // 2. The start time.
-const filmStripCache = new Map<Handlers.Migration.PartialTraceData, Map<Types.Timing.MicroSeconds, FilmStripData>>();
+const filmStripCache = new Map<FilmStripHandlers, Map<Types.Timing.MicroSeconds, FilmStripData>>();
 
 export function filmStripFromTraceEngine(
-    traceData: Handlers.Migration.PartialTraceData, customZeroTime?: Types.Timing.MicroSeconds): FilmStripData {
+    traceData: FilmStripHandlers, customZeroTime?: Types.Timing.MicroSeconds): FilmStripData {
   const frames: FilmStripFrame[] = [];
 
   const zeroTime = typeof customZeroTime !== 'undefined' ? customZeroTime : traceData.Meta.traceBounds.min;

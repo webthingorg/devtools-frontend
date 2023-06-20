@@ -6,6 +6,8 @@ import * as Common from '../../../../core/common/common.js';
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import type * as TraceEngine from '../../../../models/trace/trace.js';
+
 import type * as SDK from '../../../../core/sdk/sdk.js';
 import * as UI from '../../legacy.js';
 
@@ -43,6 +45,8 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
   private model!: SDK.FilmStripModel.FilmStripModel;
   private mode?: string;
 
+  #filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData|null = null;
+
   constructor() {
     super(true);
     this.registerRequiredCSS(filmStripViewStyles);
@@ -64,8 +68,11 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
     this.update();
   }
 
-  setModel(filmStripModel: SDK.FilmStripModel.FilmStripModel, zeroTime: number, spanTime: number): void {
+  setModel(
+      filmStripModel: SDK.FilmStripModel.FilmStripModel, filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData,
+      zeroTime: number, spanTime: number): void {
     this.model = filmStripModel;
+    this.#filmStrip = filmStrip;
     this.zeroTime = zeroTime;
     this.spanTime = spanTime;
     const frames = filmStripModel.frames();
