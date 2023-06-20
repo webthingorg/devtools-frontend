@@ -303,7 +303,7 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
     Common.Settings.Settings.instance().moduleSetting('automaticallyIgnoreListKnownThirdPartyScripts').set(false);
   }
 
-  private ignoreListURL(url: Platform.DevToolsPath.UrlString): void {
+  ignoreListURL(url: Platform.DevToolsPath.UrlString): void {
     const regexValue = this.urlToRegExpString(url);
     if (!regexValue) {
       return;
