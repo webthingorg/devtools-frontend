@@ -23685,6 +23685,12 @@
                             "name": "prerenderStatus",
                             "optional": true,
                             "$ref": "PrerenderFinalStatus"
+                        },
+                        {
+                            "name": "disallowedMojoInterface",
+                            "description": "This is used to give users more information about the name of Mojo interface\nthat is incompatible with prerender and has caused the cancellation of the attempt.",
+                            "optional": true,
+                            "type": "string"
                         }
                     ]
                 },
