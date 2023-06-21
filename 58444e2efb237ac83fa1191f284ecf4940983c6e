@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822db36d_e2b8cea6",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-21T12:08:10Z",
+      "side": 1,
+      "message": "nit: `ProtocolMonitorDataGrid` (capitalized G)",
+      "revId": "58444e2efb237ac83fa1191f284ecf4940983c6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
