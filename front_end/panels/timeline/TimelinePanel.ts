@@ -64,12 +64,12 @@ import {
 } from './TimelineEventOverview.js';
 import {TimelineFlameChartView} from './TimelineFlameChartView.js';
 import {TimelineHistoryManager} from './TimelineHistoryManager.js';
-import {TimelineLoader} from './TimelineLoader.js';
+import {TimelineLoader, State as LoaderState} from './TimelineLoader.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
 import type * as Protocol from '../../generated/protocol.js';
-import {traceJsonGenerator} from './SaveFileFormatter.js';
+import {traceJsonGenerator, cpuprofileJsonGenerator} from './SaveFileFormatter.js';
 
 import {TimelineSelection} from './TimelineSelection.js';
 
@@ -670,8 +670,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     const traceStart = Platform.DateUtilities.toISO8601Compact(new Date());
+    const isCpuProfile = metadata?.via === 'profile';
     let fileName: Platform.DevToolsPath.RawPathString;
-    if (isNode) {
+    if (isCpuProfile) {
       fileName = `CPU-${traceStart}.cpuprofile` as Platform.DevToolsPath.RawPathString;
     } else {
       fileName = `Trace-${traceStart}.json` as Platform.DevToolsPath.RawPathString;
@@ -682,8 +683,21 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         suggestedName: fileName,
       });
       const encoder = new TextEncoder();
-      const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
-      const traceAsString = Array.from(formattedTraceIter).join('');
+
+      // TODO(crbug.com/1456818): Extract this logic and add more tests.
+      let traceAsString;
+      if (isCpuProfile) {
+        // TODO(crbug.com/1456799): This will be cleaner when the CPUProfileHandler is done, and we can fetch
+        // the data directly from the new traceEngine
+        const profileEventData = traceEvents.find(e => e.name === 'CpuProfile')?.args?.data;
+        const profile = (profileEventData as {cpuProfile: Protocol.Profiler.Profile}).cpuProfile;
+        if (profile) {
+          traceAsString = cpuprofileJsonGenerator(profile as Protocol.Profiler.Profile);
+        }
+      } else {
+        const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
+        traceAsString = Array.from(formattedTraceIter).join('');
+      }
       const buffer = encoder.encode(traceAsString);
       const writable = await handler.createWritable();
       await writable.write(buffer);
@@ -1241,6 +1255,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       tracingModel: SDK.TracingModel.TracingModel|null,
       exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null): Promise<void> {
     this.#traceEngineModel.reset();
+
+    const isCpuProfile = this.loader?.state === LoaderState.LoadingCPUProfileFormat;
     delete this.loader;
 
     // If the user just recorded this trace via the record UI, the state will
@@ -1264,7 +1280,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       // Run the new engine in parallel with the parsing done in the performanceModel
       await Promise.all([
         this.performanceModel.setTracingModel(tracingModel, recordingIsFresh),
-        this.#executeNewTraceEngine(tracingModel, recordingIsFresh, this.performanceModel.recordStartTime()),
+        this.#executeNewTraceEngine(
+            tracingModel, recordingIsFresh, isCpuProfile, this.performanceModel.recordStartTime()),
       ]);
       const traceParsedData = this.#traceEngineModel.traceParsedData();
       this.filmStripModel = new SDK.FilmStripModel.FilmStripModel(tracingModel);
@@ -1301,10 +1318,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
    * parsing to complete.
    **/
   async #executeNewTraceEngine(
-      tracingModel: SDK.TracingModel.TracingModel, isFreshRecording: boolean, recordStartTime?: number): Promise<void> {
-    const shouldGatherMetadata = isFreshRecording && !isNode;
+      tracingModel: SDK.TracingModel.TracingModel, isFreshRecording: boolean, isCpuProfile: boolean,
+      recordStartTime?: number): Promise<void> {
+    const shouldGatherMetadata = isFreshRecording && !isCpuProfile;
     const metadata =
-        shouldGatherMetadata ? await SDK.TraceSDKServices.getMetadataForFreshRecording(recordStartTime) : undefined;
+        shouldGatherMetadata ? await SDK.TraceSDKServices.getMetadataForFreshRecording(recordStartTime) : {};
+    metadata.via = isCpuProfile ? 'profile' : 'trace';
 
     return this.#traceEngineModel.parse(
         // OPP's data layer uses `EventPayload` as the type to represent raw JSON from the trace.
