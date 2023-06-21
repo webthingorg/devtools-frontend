@@ -33,6 +33,24 @@
       "message": "As I noted on the bug, I do not think this is a complete fix.\n\n1. The issue also reproduces without snippets, all you need is a local file and \u0027network\u0027 file with the same URL. This fix only fixes the snippets sub-case, not the file case.\n\n2. I believe this fix would not work if the snippet gets loaded into several targets (e.g. main page and worker). For that case, we should still place breakpoints into both targets/source codes, but this CL only lets one target through. I have not tested this, though.",
       "revId": "6b3e985506c72be586461e7ddb769f9ef40df29f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6fb73d_671303a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2023-06-21T16:30:28Z",
+      "side": 1,
+      "message": "I see, good to know that the underlying issue has been fixed. Thanks for looking into this!",
+      "parentUuid": "c40c37d4_2372da5a",
+      "revId": "6b3e985506c72be586461e7ddb769f9ef40df29f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
