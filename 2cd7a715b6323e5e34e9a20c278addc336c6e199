@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8f9ed034_1a56b503",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-21T18:47:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e18144cd_cf9e854b",
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fd7791df_34aa67d2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc45eff_79b1a8e2",
+        "filename": "front_end/panels/timeline/SaveFileFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-21T18:47:31Z",
+      "side": 1,
+      "message": "I think this function alone is okay, I will add test for the `saveToFile` function instead",
+      "parentUuid": "cad9b65d_26ae0d32",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 1
+      },
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1c85c93_9727f6b5",
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf5106f_2a407b1f",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-21T18:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a1c85c93_9727f6b5",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 72
+      },
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba96e81e_baa4a3ca",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-06-21T18:33:23Z",
       "side": 1,
       "message": "let\u0027s leave a comment in the code explaining why we do this.",
+      "range": {
+        "startLine": 689,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 76
+      },
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd320f84_cad70696",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-21T18:47:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba96e81e_baa4a3ca",
       "range": {
         "startLine": 689,
         "startChar": 0,
@@ -164,6 +254,30 @@
       "writtenOn": "2023-06-21T18:33:23Z",
       "side": 1,
       "message": "nit: let\u0027s type this as `as {cpuProfile: Protocol.Profiler.Profile}` and avoid the cast on the next line.",
+      "range": {
+        "startLine": 697,
+        "startChar": 47,
+        "endLine": 697,
+        "endChar": 51
+      },
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dedcb047_e7dfbd40",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-21T18:47:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a87fbd23_c3350e51",
       "range": {
         "startLine": 697,
         "startChar": 47,
