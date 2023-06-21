@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18144cd_cf9e854b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-21T18:45:20Z",
+      "side": 1,
+      "message": "This CL title is exactly the same as https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4085865\n\nlets keep them unique.\n\nhow about\n\n\u003e Fix .cpuprofile export format\n\n\u003e The .cpuprofile file format was still a trace (with traceEvents)\n\u003e but it should match the CDP Profiler.Profile type.",
+      "revId": "2cd7a715b6323e5e34e9a20c278addc336c6e199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fd7791df_34aa67d2",
