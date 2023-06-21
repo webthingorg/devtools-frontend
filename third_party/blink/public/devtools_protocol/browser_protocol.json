@@ -23666,6 +23666,10 @@
                         {
                             "name": "prefetchStatus",
                             "$ref": "PrefetchStatus"
+                        },
+                        {
+                            "name": "requestId",
+                            "$ref": "Network.RequestId"
                         }
                     ]
                 },

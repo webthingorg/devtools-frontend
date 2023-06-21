@@ -15846,6 +15846,7 @@ export namespace Preload {
     prefetchUrl: string;
     status: PreloadingStatus;
     prefetchStatus: PrefetchStatus;
+    requestId: Network.RequestId;
   }
 
   /**
