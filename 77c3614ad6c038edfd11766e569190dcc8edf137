@@ -22,6 +22,30 @@
       },
       "revId": "77c3614ad6c038edfd11766e569190dcc8edf137",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aca07ea_0d7ac7b4",
+        "filename": "front_end/entrypoints/main/OutermostTargetSelector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-21T12:26:50Z",
+      "side": 1,
+      "message": "As discussed, the test was wrong, but this logic is correct. Updated the test.",
+      "parentUuid": "f0f51fab_5bf02110",
+      "range": {
+        "startLine": 187,
+        "startChar": 16,
+        "endLine": 187,
+        "endChar": 99
+      },
+      "revId": "77c3614ad6c038edfd11766e569190dcc8edf137",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
