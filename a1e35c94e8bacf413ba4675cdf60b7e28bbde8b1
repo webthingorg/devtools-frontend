@@ -16,6 +16,24 @@
       "message": "LGTM, but let\u0027s ask Peter for a quick UX approval 😊",
       "revId": "a1e35c94e8bacf413ba4675cdf60b7e28bbde8b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d320032d_e1558c2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T08:20:04Z",
+      "side": 1,
+      "message": "Done !",
+      "parentUuid": "6456cdc3_47bb74b3",
+      "revId": "a1e35c94e8bacf413ba4675cdf60b7e28bbde8b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
