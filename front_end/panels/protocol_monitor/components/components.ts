@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as JSONEditor from './JSONEditor.js';
+import * as SendCommands from './SendCommands.js';
 
 export {
   JSONEditor,
+  SendCommands,
 };
