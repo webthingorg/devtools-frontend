@@ -69,7 +69,7 @@ import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
 import type * as Protocol from '../../generated/protocol.js';
-import {traceJsonGenerator} from './SaveFileFormatter.js';
+import {traceJsonGenerator, cpuprofileJsonGenerator} from './SaveFileFormatter.js';
 
 import {TimelineSelection} from './TimelineSelection.js';
 
@@ -682,8 +682,25 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         suggestedName: fileName,
       });
       const encoder = new TextEncoder();
-      const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
-      const traceAsString = Array.from(formattedTraceIter).join('');
+
+      // TODO(crbug.com/1456818): Extract this logic and add more tests.
+      let traceAsString;
+      if (isNode) {
+        const profileEvent = traceEvents.find(e => e.name === 'CpuProfile');
+        if (!profileEvent || !profileEvent.args?.data) {
+          return;
+        }
+        const profileEventData = profileEvent.args?.data;
+        if (profileEventData.hasOwnProperty('cpuProfile')) {
+          // TODO(crbug.com/1456799): Will change to a traceEvent type after the RPP migration
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const profile = (profileEventData as any).cpuProfile;
+          traceAsString = cpuprofileJsonGenerator(profile as Protocol.Profiler.Profile);
+        }
+      } else {
+        const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
+        traceAsString = Array.from(formattedTraceIter).join('');
+      }
       const buffer = encoder.encode(traceAsString);
       const writable = await handler.createWritable();
       await writable.write(buffer);
