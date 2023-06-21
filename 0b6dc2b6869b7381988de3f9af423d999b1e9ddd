@@ -16,6 +16,40 @@
       "message": "Could you have a look?",
       "revId": "0b6dc2b6869b7381988de3f9af423d999b1e9ddd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f2ad11_71425650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-06-21T11:19:40Z",
+      "side": 1,
+      "message": "Thanks for working on this.",
+      "revId": "0b6dc2b6869b7381988de3f9af423d999b1e9ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc32e3a_aef6336a",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-06-21T11:19:40Z",
+      "side": 1,
+      "message": "I wonder `this.currentUserAgent()` may be null after the change? Should some extra handling be done for prerendering? or actually `setUserAgentOverride` in `NetworkManager` can handle that?",
+      "revId": "0b6dc2b6869b7381988de3f9af423d999b1e9ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
