@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f51fab_5bf02110",
+        "filename": "front_end/entrypoints/main/OutermostTargetSelector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-21T05:46:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow. In the unit test case, wouldn\u0027t `item` be `subtarget` and the current outermost target be `primaryTarget`? In that case we still update the current \"flavor\".",
+      "range": {
+        "startLine": 187,
+        "startChar": 16,
+        "endLine": 187,
+        "endChar": 99
+      },
+      "revId": "77c3614ad6c038edfd11766e569190dcc8edf137",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
