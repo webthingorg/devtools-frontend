@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f16bc881_17e9b1b5",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "I did that otherwise the default property width: 120px is applied and it does not look good",
+      "parentUuid": "20a990b7_3e7d5372",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fea247aa_a3102d27",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-21T11:25:09Z",
       "side": 1,
       "message": "any reason for the property to be public?",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f630824_e6cbafdb",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea247aa_a3102d27",
       "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5286e8cf_b227d7a9",
+        "filename": "front_end/panels/protocol_monitor/components/SendCommands.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a33fbd4_a7a660eb",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8921b673_491b34d2",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-21T11:25:09Z",
       "side": 1,
       "message": "looks unused",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ffb700_5e302f5d",
+        "filename": "front_end/panels/protocol_monitor/components/SendCommands.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8921b673_491b34d2",
       "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d916cd2_af660ec4",
+        "filename": "front_end/panels/protocol_monitor/components/SendCommands.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88a3d33f_57f55be9",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ea0ad8f_5a987127",
@@ -99,6 +189,24 @@
       "writtenOn": "2023-06-21T11:25:09Z",
       "side": 1,
       "message": "why do we need a custom width and height?",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ec91177_494d7280",
+        "filename": "front_end/panels/protocol_monitor/components/SendCommands.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ea0ad8f_5a987127",
       "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb86fc7_e51f90e9",
+        "filename": "front_end/panels/protocol_monitor/components/SendCommands.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1196e6b5_494dd54b",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d1d1014_049a37cd",
@@ -133,6 +259,24 @@
       "writtenOn": "2023-06-21T11:25:09Z",
       "side": 1,
       "message": "rename to `.toolbar` or `.container` or `.wrapper` as it technically does not contain icons.",
+      "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78948429_334e26c3",
+        "filename": "front_end/panels/protocol_monitor/components/sendCommands.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-21T11:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d1d1014_049a37cd",
       "revId": "de7fc06e66cfe8a5f45973dfb39e57c1d1106489",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
