@@ -16,6 +16,23 @@
       "message": "If it\u0027s okay, I want to flag a few things in here... but need a moment with the code.",
       "revId": "8642bd9d8c485244c63ee4fbad5307b81079c224",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d831597_649b963b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-21T22:44:56Z",
+      "side": 1,
+      "message": "This is one of those cases where we\u0027re treating isNode as isCdpProfile. And as a result the following scenarios will remain broken:\n\n1. capturing a cpuprofile in node, saving it.  then loading it in your regular browser\u0027s OPP. saving it.\n2. console.profile() in browser. saving it.\n3. loading a cpuprofile from url and saving it.\n\n----------\n\nI tried my hand at adding a `isCpuProfile` signal into this mix. It does seem to work. You\u0027re welcome to steal it.",
+      "revId": "8642bd9d8c485244c63ee4fbad5307b81079c224",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
