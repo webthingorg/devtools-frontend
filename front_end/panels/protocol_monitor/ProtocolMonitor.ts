@@ -706,6 +706,7 @@ export class InfoWidget extends UI.Widget.VBox {
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   CommandSent = 'CommandSent',
+  TargetChose = 'TargetChose',
 }
 
 export type EventTypes = {

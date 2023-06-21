@@ -70,6 +70,15 @@ export class SubmitEditorEvent extends Event {
     this.data = data;
   }
 }
+export class TargetChoseEvent extends Event {
+  static readonly eventName = 'targetchose';
+  readonly data: string;
+
+  constructor(data: string) {
+    super(TargetChoseEvent.eventName);
+    this.data = data;
+  }
+}
 
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
