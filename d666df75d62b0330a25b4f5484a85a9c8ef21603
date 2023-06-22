@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acfad39e_49387717",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-22T10:37:20Z",
+      "side": 1,
+      "message": "do we need a wrapper element? you can assign a class directly to selectMenu",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f175bb02_f3603488",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-22T10:37:20Z",
+      "side": 1,
+      "message": "remove duplication for the label computation here",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "815bde43_dcfb02f0",
         "filename": "front_end/ui/components/menus/selectMenu.css",
         "patchSetId": 4
