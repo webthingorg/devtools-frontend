@@ -33,6 +33,24 @@
       "message": "Maybe we could add a test here for the early return in TargetManager#setScopeTarget by callinng `targetManager.setScopeTarget(targets[0])` again and checking that both spies stay at `calledOnce`?",
       "revId": "1be4d867719db78b80b3e525d28f31aaf82395e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c34d2d9_bf5542f4",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T08:42:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d309a_941c4246",
+      "revId": "1be4d867719db78b80b3e525d28f31aaf82395e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
