@@ -8,7 +8,7 @@ import type * as SDK from '../../core/sdk/sdk.js';
 
 class Transport implements puppeteer.ConnectionTransport {
   #connection: SDK.Connections.ParallelConnectionInterface;
-  #knownIds = new Set<number>();
+  #sentCommandIds = new Set<string>();
 
   constructor(connection: SDK.Connections.ParallelConnectionInterface) {
     this.#connection = connection;
@@ -16,7 +16,11 @@ class Transport implements puppeteer.ConnectionTransport {
 
   send(data: string): void {
     const message = JSON.parse(data);
-    this.#knownIds.add(message.id);
+    const uniqueId = this.#getUniqueCommandId(message);
+    if (this.#sentCommandIds.has(uniqueId)) {
+      throw new Error(`puppeteer command ID is not unique: ${uniqueId}`);
+    }
+    this.#sentCommandIds.add(uniqueId);
     this.#connection.sendRawMessage(data);
   }
 
@@ -27,13 +31,22 @@ class Transport implements puppeteer.ConnectionTransport {
   set onmessage(cb: (message: string) => void) {
     this.#connection.setOnMessage((message: Object) => {
       const data = (message) as {id: number, method: string, params: unknown, sessionId?: string};
-      if (data.id && !this.#knownIds.has(data.id)) {
-        return;
-      }
-      this.#knownIds.delete(data.id);
+
       if (!data.sessionId) {
         return;
       }
+
+      if (data.id) {
+        // Skip the message if a response with unknown message ID is received.
+        // The message ID is known if the `send` method with the same ID was
+        // issued.
+        if (this.#sentCommandIds.has(this.#getUniqueCommandId(data))) {
+          this.#sentCommandIds.delete(this.#getUniqueCommandId(data));
+        } else {
+          return;
+        }
+      }
+
       return cb(JSON.stringify({
         ...data,
         // Puppeteer is expecting to use the default session, but we give it a non-default session in #connection.
@@ -53,6 +66,10 @@ class Transport implements puppeteer.ConnectionTransport {
         cb();
       }
     });
+  }
+
+  #getUniqueCommandId(message: {id: number, sessionId?: string}): string {
+    return `${message.sessionId || this.#connection.getSessionId()}.${message.id}`;
   }
 }
 
