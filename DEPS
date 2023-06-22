@@ -30,6 +30,17 @@ vars = {
   # GN CIPD package version.
   'gn_version': 'git_revision:4bd1a77e67958fb7f6739bd4542641646f264e5d',
 
+  'clang_url': 'https://chromium.googlesource.com/chromium/src/tools/clang.git',
+  'clang_revision': '1463b534083e9e8dc24b91c67733ded9d5c5b1e6',
+
+  'cmake_version': 'version:3.16.1',
+
+  'llvm_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/',
+  'llvm_revision': 'c08d3b08f6d71e974537de226c68d4c94c396a46',
+
+  'lldb_eval_url': 'https://chromium.googlesource.com/external/github.com/google/lldb-eval.git',
+  'lldb_eval_revision': 'e87123a7e639bf1d86f24c37079570fb7fa00b72',
+
   # ninja CIPD package version.
   # https://chrome-infra-packages.appspot.com/p/infra/3pp/tools/ninja
   'ninja_version': 'version:2@1.11.1.chromium.6',
@@ -53,6 +64,27 @@ deps = {
   'third_party/clang-format/script': {
     'url': Var('clang_format_url') + '@' + Var('clang_format_revision'),
     'condition': 'build_with_chromium == False',
+  },
+  'third_party/clang': {
+    'url': Var('clang_url') + '@' + Var('clang_revision'),
+    'condition': 'checkout_cxx_debugging_extension_deps',
+  },
+  'third_party/cmake': {
+    'packages': [{
+      'package': 'infra/cmake/${{platform}}',
+      'version': Var('cmake_version')
+    }],
+    'dep_type':
+      'cipd',
+    'condition': 'checkout_cxx_debugging_extension_deps',
+  },
+  'extensions/cxx_debugging/third_party/llvm/src': {
+    'url': Var('llvm_url') + '@' + Var('llvm_revision'),
+    'condition': 'checkout_cxx_debugging_extension_deps',
+  },
+  'extensions/cxx_debugging/third_party/lldb-eval/src': {
+    'url': Var('lldb_eval_url') + '@' + Var('lldb_eval_revision'),
+    'condition': 'checkout_cxx_debugging_extension_deps',
   },
 
   'buildtools': {
@@ -299,6 +331,12 @@ hooks = [
     'pattern': '.',
     'action': ['python3', 'build/util/lastchange.py',
                '-o', 'build/util/LASTCHANGE'],
+  },
+  {
+    'name': 'clang',
+    'pattern': '.',
+    'condition': 'host_os != "aix" and checkout_cxx_debugging_extension_deps == True',
+    'action': ['python3', 'third_party/clang/scripts/update.py'],
   },
   {
     'name': 'sysroot_x64',
