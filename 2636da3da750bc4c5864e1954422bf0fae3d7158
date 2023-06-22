@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e441c485_8d18fad0",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-22T08:58:00Z",
+      "side": 1,
+      "message": "please use SelectMenu here",
+      "revId": "2636da3da750bc4c5864e1954422bf0fae3d7158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
