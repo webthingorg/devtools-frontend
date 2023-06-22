@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2145769_cb4b389f",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T15:14:39Z",
+      "side": 1,
+      "message": "I assume we can\u0027t use `Common.ParsedURL` because patterns are not valid URLs?\nPlease add a comment explaining why we have to implement parsing from scratch here.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 88
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc0cf6d_1ac6e606",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T15:14:39Z",
+      "side": 1,
+      "message": "const SCHEME_SEPARATOR \u003d \u0027://\u0027;\n    const schemeEnd \u003d pattern.indexOf(SCHEME_SEPARATOR);\n    ...\n    return {scheme, hostPattern: pattern.substr(SCHEME_SEPARATOR.length)};",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "328fde06_c90773e6",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T15:14:39Z",
+      "side": 1,
+      "message": "Em... this seems surprising. Add a comment?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c75f33_9ad8eaf9",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T15:14:39Z",
+      "side": 1,
+      "message": "Do we want this above the check for \u0027matchesAllUrls\u0027? If so, add a comment why.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 19
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
