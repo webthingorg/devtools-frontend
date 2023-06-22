@@ -16,6 +16,7 @@ import {TraceProcessor, TraceParseProgressEvent} from './Processor.js';
 
 export interface ParseConfig {
   metadata?: TraceFileMetaData;
+  // Unused but will eventually be consumed by UIUtils Linkifier,e tc.
   isFreshRecording?: boolean;
 }
 
@@ -239,6 +240,11 @@ export type TraceFile = {
   metadata: TraceFileMetaData,
 };
 
+export const enum DataOrigin {
+  CPUProfile = 'CPUProfile',
+  TraceEvents = 'TraceEvents',
+}
+
 /**
  * Trace metadata that we persist to the file. This will allow us to
  * store specifics for the trace, e.g., which tracks should be visible
@@ -250,6 +256,7 @@ export interface TraceFileMetaData {
   networkThrottling?: string;
   cpuThrottling?: number;
   hardwareConcurrency?: number;
+  dataOrigin?: DataOrigin;
 }
 
 export type TraceFileContents = TraceFile|Types.TraceEvents.TraceEventData[];

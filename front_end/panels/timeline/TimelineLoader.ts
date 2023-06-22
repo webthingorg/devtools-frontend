@@ -75,12 +75,14 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     const fileReader = new Bindings.FileUtils.ChunkedFileReader(file, TransferChunkLengthBytes);
     loader.canceledCallback = fileReader.cancel.bind(fileReader);
     loader.totalSize = file.size;
-    const success = await fileReader.read(loader);
-    if (!success && fileReader.error()) {
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      loader.reportErrorAndCancelLoading((fileReader.error() as any).message);
-    }
+    setTimeout(async () => {
+      const success = await fileReader.read(loader);
+      if (!success && fileReader.error()) {
+        // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        loader.reportErrorAndCancelLoading((fileReader.error() as any).message);
+      }
+    });
     return loader;
   }
 
@@ -163,7 +165,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   async cancel(): Promise<void> {
     this.tracingModel = null;
     if (this.client) {
-      await this.client.loadingComplete(null, null);
+      await this.client.loadingComplete(null, null, false);
       this.client = null;
     }
     if (this.canceledCallback) {
@@ -294,13 +296,19 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     await this.finalizeTrace();
   }
 
+  isCpuProfile(): boolean {
+    return this.state === State.LoadingCPUProfileFormat;
+  }
+
   private async finalizeTrace(): Promise<void> {
+    let isCpuProfile = false;
     if (this.state === State.LoadingCPUProfileFormat) {
       this.parseCPUProfileFormat(this.buffer);
+      isCpuProfile = true;
       this.buffer = '';
     }
     (this.tracingModel as SDK.TracingModel.TracingModel).tracingComplete();
-    await (this.client as Client).loadingComplete(this.tracingModel, this.filter);
+    await (this.client as Client).loadingComplete(this.tracingModel, this.filter, isCpuProfile);
   }
 
   private parseCPUProfileFormat(text: string): void {
@@ -329,7 +337,8 @@ export interface Client {
 
   loadingComplete(
       tracingModel: SDK.TracingModel.TracingModel|null,
-      exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null): Promise<void>;
+      exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null,
+      isCpuProfile: boolean): Promise<void>;
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
