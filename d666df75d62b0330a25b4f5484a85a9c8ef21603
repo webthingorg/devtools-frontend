@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b4fef5_7a71a2d7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-22T12:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a07ed70c_d863a3c9",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acfad39e_49387717",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-22T10:37:20Z",
       "side": 1,
       "message": "do we need a wrapper element? you can assign a class directly to selectMenu",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea0e70e_3b869089",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-22T12:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acfad39e_49387717",
       "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4cedf96_3acff186",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-22T12:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f175bb02_f3603488",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "815bde43_dcfb02f0",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-22T10:36:23Z",
       "side": 1,
       "message": "does it have effect on other places where SelectMenu is used?",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15326c69_0dca10f6",
+        "filename": "front_end/ui/components/menus/selectMenu.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-22T12:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "815bde43_dcfb02f0",
       "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
