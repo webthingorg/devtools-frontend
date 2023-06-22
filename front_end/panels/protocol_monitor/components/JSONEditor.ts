@@ -4,6 +4,9 @@
 import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
+import * as SDK from '../../../core/sdk/sdk.js';
+import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
+import * as Menus from '../../../ui/components/menus/menus.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
@@ -43,6 +46,16 @@ export class SubmitEditorEvent extends Event {
     this.data = data;
   }
 }
+export class TargetChoseEvent extends Event {
+  static readonly eventName = 'targetchose';
+  readonly data: string;
+
+  constructor(data: string) {
+    super(TargetChoseEvent.eventName);
+    this.data = data;
+  }
+}
+const targetManager = SDK.TargetManager.TargetManager.instance();
 
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
@@ -50,7 +63,7 @@ export class JSONEditor extends LitElement {
   @property() declare protocolMethodWithParametersMap: Map<string, Parameter[]>;
   @state() declare parameters: Record<string, Parameter>;
   @state() command: string = '';
-
+  @state() targetId: string = targetManager.targets()[0].id();
   constructor() {
     super();
     this.parameters = {};
@@ -127,6 +140,50 @@ export class JSONEditor extends LitElement {
     this.#populateParametersForCommand(this.command);
   };
 
+  #computeTargetLabel(target: SDK.Target.Target): string {
+    return `${target.name()} (${target.inspectedURL()})`;
+  }
+
+  #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
+    const target = targetManager.targets().find(el => el.id() === this.targetId);
+    const targetLabel = target ? this.#computeTargetLabel(target) : '';
+    // clang-format off
+    return html`
+    <div class="row attribute padded" data-attribute="type">
+      <div>target<span class="separator">:</span></div>
+      <div class="target-select-menu">
+      <${Menus.SelectMenu.SelectMenu.litTagName}
+            @selectmenuselected=${this.#onTargetSelected}
+            .showDivider=${true}
+            .showArrow=${true}
+            .sideButton=${false}
+            .showSelectedItem=${true}
+            .showConnector=${false}
+            .position=${Dialogs.Dialog.DialogVerticalPosition.BOTTOM}
+            .buttonTitle=${targetLabel}
+          >
+          ${LitHtml.Directives.repeat(
+              targetManager.targets(),
+              target => {
+                return LitHtml.html`<${Menus.Menu.MenuItem.litTagName}
+                .value=${target.id()}
+              >
+                  ${`${target.name()} (${target.inspectedURL()})`}
+              </${Menus.Menu.MenuItem.litTagName}>`;              },
+            )}
+          </${Menus.SelectMenu.SelectMenu.litTagName}>
+      </div>
+    </div>
+  `;
+    // clang-format on
+  }
+
+  #onTargetSelected(event: Menus.SelectMenu.SelectMenuItemSelectedEvent): void {
+    this.targetId = event.itemValue as string;
+    this.requestUpdate();
+    this.dispatchEvent(new TargetChoseEvent(this.targetId));
+  }
+
   #renderCommandRow(): LitHtml.TemplateResult|undefined {
     // clang-format off
     return html`<div class="row attribute padded" data-attribute="type">
@@ -193,6 +250,7 @@ export class JSONEditor extends LitElement {
     // clang-format off
     return html`
     <div class="wrapper">
+      ${this.#renderTargetSelectorRow()}
       ${this.#renderCommandRow()}
       ${this.parameters && Object.keys((this.parameters)).length !== 0 ? html`
           ${this.#renderParameterRow()}

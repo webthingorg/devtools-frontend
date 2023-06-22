@@ -12,6 +12,7 @@
   width: fit-content;
   display: flex;
   align-items: center;
+  max-width: 100%;
   background-color: var(--override-select-menu-background-color, var(--color-background));
 }
 
