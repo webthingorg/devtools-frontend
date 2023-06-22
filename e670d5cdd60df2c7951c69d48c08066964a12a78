@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aae2f95_d54e9894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-22T16:37:54Z",
+      "side": 1,
+      "message": "To prevent circular deps, I moved the OuterMostTargetSelector.ts file to inspector_main/ PTAnotherLook :)",
+      "revId": "e670d5cdd60df2c7951c69d48c08066964a12a78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
