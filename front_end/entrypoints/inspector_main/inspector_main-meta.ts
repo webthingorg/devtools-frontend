@@ -5,6 +5,8 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import type * as Main from '../main/main.js';
+import * as Root from '../../core/root/root.js';
 
 import type * as InspectorMain from './inspector_main.js';
 
@@ -109,6 +111,7 @@ const str_ = i18n.i18n.registerUIStrings('entrypoints/inspector_main/inspector_m
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 let loadedInspectorMainModule: (typeof InspectorMain|undefined);
+let loadedMainModule: (typeof Main|undefined);
 
 async function loadInspectorMainModule(): Promise<typeof InspectorMain> {
   if (!loadedInspectorMainModule) {
@@ -265,4 +268,25 @@ UI.Toolbar.registerToolbarItem({
   condition: undefined,
   separator: undefined,
   actionId: undefined,
+});
+
+async function loadMainModule(): Promise<typeof Main> {
+  if (!loadedMainModule) {
+    loadedMainModule = await import('../main/main.js');
+  }
+  return loadedMainModule;
+}
+
+UI.Toolbar.registerToolbarItem({
+  async loadItem() {
+    const Main = await loadMainModule();
+    return Main.OutermostTargetSelector.OutermostTargetSelector.instance();
+  },
+  order: 98,
+  location: UI.Toolbar.ToolbarItemLocation.MAIN_TOOLBAR_RIGHT,
+  showLabel: undefined,
+  condition: undefined,
+  separator: undefined,
+  actionId: undefined,
+  experiment: Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
 });
