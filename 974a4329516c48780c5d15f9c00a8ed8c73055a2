@@ -47,6 +47,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d127df2_f7b56378",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-22T15:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bc0cf6d_1ac6e606",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "328fde06_c90773e6",
@@ -70,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bff20a4_b3e1b3c0",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-22T15:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "328fde06_c90773e6",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3c75f33_9ad8eaf9",
@@ -83,6 +131,30 @@
       "writtenOn": "2023-06-22T15:14:39Z",
       "side": 1,
       "message": "Do we want this above the check for \u0027matchesAllUrls\u0027? If so, add a comment why.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 19
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26bc4707_54ac7420",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-22T15:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c75f33_9ad8eaf9",
       "range": {
         "startLine": 139,
         "startChar": 0,
