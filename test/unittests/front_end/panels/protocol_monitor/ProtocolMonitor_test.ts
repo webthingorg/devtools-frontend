@@ -17,25 +17,28 @@ describe('ProtocolMonitor', () => {
       const input = {
         command: 'Input.dispatchMouseEvent',
         parameters: {parameter1: 'value1'},
+        target: 'main',
       };
-
       // "command" variations.
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             command: input.command,
             parameters: input.parameters,
+            targetId: input.target,
           })),
           input);
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             cmd: input.command,
             parameters: input.parameters,
+            targetId: input.target,
           })),
           input);
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             method: input.command,
             parameters: input.parameters,
+            targetId: input.target,
           })),
           input);
 
@@ -44,18 +47,21 @@ describe('ProtocolMonitor', () => {
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             command: input.command,
             params: input.parameters,
+            targetId: input.target,
           })),
           input);
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             cmd: input.command,
             args: input.parameters,
+            targetId: input.target,
           })),
           input);
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
             method: input.command,
             arguments: input.parameters,
+            targetId: input.target,
           })),
           input);
     });
@@ -64,6 +70,7 @@ describe('ProtocolMonitor', () => {
       assert.deepStrictEqual(ProtocolMonitor.ProtocolMonitor.parseCommandInput('Input.dispatchMouseEvent'), {
         command: 'Input.dispatchMouseEvent',
         parameters: {},
+        target: undefined,
       });
     });
 
@@ -226,7 +233,6 @@ describe('ProtocolMonitor', () => {
 
     it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
       const editorWidget = renderEditorWidget();
-      new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
       const inputParameters = {
         'test0': {
           'optional': true,
@@ -296,5 +302,4 @@ describe('ProtocolMonitor', () => {
       assert.deepStrictEqual(commandReceived, '');
     });
   });
-
 });

@@ -421,7 +421,8 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
   }
 
   onCommandSend(input: string): void {
-    const {command, parameters} = parseCommandInput(input);
+    const {command, parameters, target} = parseCommandInput(input);
+    this.#selectedTargetId = target;
     const test = ProtocolClient.InspectorBackend.test;
     const targetManager = SDK.TargetManager.TargetManager.instance();
     const selectedTarget = this.#selectedTargetId ? targetManager.targetById(this.#selectedTargetId) : null;
@@ -441,6 +442,7 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
 
     return protocolMonitorImplInstance;
   }
+
   override wasShown(): void {
     if (this.started) {
       return;
@@ -752,7 +754,8 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   }
 }
 
-export function parseCommandInput(input: string): {command: string, parameters: {[x: string]: unknown}} {
+export function parseCommandInput(input: string):
+    {command: string, parameters: {[x: string]: unknown}, target?: string} {
   // If input cannot be parsed as json, we assume it's the command name
   // for a command without parameters. Otherwise, we expect an object
   // with "command"/"method"/"cmd" and "parameters"/"params"/"args"/"arguments" attributes.
@@ -764,6 +767,7 @@ export function parseCommandInput(input: string): {command: string, parameters: 
 
   const command = json ? json.command || json.method || json.cmd || '' : input;
   const parameters = json?.parameters || json?.params || json?.args || json?.arguments || {};
+  const target = json?.targetId;
 
-  return {command, parameters};
+  return {command, parameters, target};
 }
