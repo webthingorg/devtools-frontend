@@ -16,6 +16,23 @@
       "message": "Hi @dsv@chromium.org , could you help to take a look at this CL and approve it?",
       "revId": "174d7f58e42bc7649de4e225987af2ccc0163987",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35dc673c_db96135b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-22T06:20:34Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "174d7f58e42bc7649de4e225987af2ccc0163987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
