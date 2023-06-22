@@ -18,7 +18,6 @@ describe('ProtocolMonitor', () => {
         command: 'Input.dispatchMouseEvent',
         parameters: {parameter1: 'value1'},
       };
-
       // "command" variations.
       assert.deepStrictEqual(
           ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify({
@@ -226,7 +225,6 @@ describe('ProtocolMonitor', () => {
 
     it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
       const editorWidget = renderEditorWidget();
-      new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl();
       const inputParameters = {
         'test0': {
           'optional': true,
@@ -296,5 +294,4 @@ describe('ProtocolMonitor', () => {
       assert.deepStrictEqual(commandReceived, '');
     });
   });
-
 });
