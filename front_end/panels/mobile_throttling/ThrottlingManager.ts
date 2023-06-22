@@ -11,13 +11,12 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {MobileThrottlingSelector} from './MobileThrottlingSelector.js';
 import {NetworkThrottlingSelector} from './NetworkThrottlingSelector.js';
-
 import {
-  ThrottlingPresets,
   type Conditions,
   type ConditionsList,
   type MobileThrottlingConditionsGroup,
   type NetworkThrottlingConditionsGroup,
+  ThrottlingPresets,
 } from './ThrottlingPresets.js';
 
 const UIStrings = {
@@ -74,9 +73,13 @@ const UIStrings = {
    */
   resetConcurrency: 'Reset to the default value',
   /**
-   *@description Screen reader label for an check box that neables overriding navigator.hardwareConcurrency
+   *@description Label for an check box that neables overriding navigator.hardwareConcurrency
    */
   hardwareConcurrency: 'Hardware concurrency',
+  /**
+   *@description Tooltip text for an input box that overrides navigator.hardwareConcurrency on the page
+   */
+  hardwareConcurrencySettingTooltip: 'Override the value reported by navigator.hardwareConcurrency on the page',
   /**
    *@description Screen reader label for an input box that overrides navigator.hardwareConcurrency
    */
@@ -324,7 +327,8 @@ export class ThrottlingManager {
     inputElement.min = '1';
     input.setEnabled(false);
 
-    const toggle = new UI.Toolbar.ToolbarCheckbox(i18nString(UIStrings.hardwareConcurrency));
+    const toggle = new UI.Toolbar.ToolbarCheckbox(
+        i18nString(UIStrings.hardwareConcurrency), i18nString(UIStrings.hardwareConcurrencySettingTooltip));
     const reset = new UI.Toolbar.ToolbarButton('Reset concurrency', 'undo');
     reset.setTitle(i18nString(UIStrings.resetConcurrency));
     const icon = new IconButton.Icon.Icon();
