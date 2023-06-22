@@ -16,6 +16,24 @@
       "message": "setting this here would lead to the combobox next to the the input field being out of sync with the actually selected target edited via the editor? let\u0027s instead inject the selectedTargetId into the command input when it is entered via the combobox?",
       "revId": "eb34de87239930fab391f5f15e52b4b345950efd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab461316_ed77f0eb",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-22T13:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dddb771f_ed720c9d",
+      "revId": "eb34de87239930fab391f5f15e52b4b345950efd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
