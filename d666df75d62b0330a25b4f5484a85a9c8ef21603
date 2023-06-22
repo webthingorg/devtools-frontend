@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07ed70c_d863a3c9",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-22T10:36:23Z",
+      "side": 1,
+      "message": "why do you need a new event? can we send the target id along with the command sent event?",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815bde43_dcfb02f0",
+        "filename": "front_end/ui/components/menus/selectMenu.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-22T10:36:23Z",
+      "side": 1,
+      "message": "does it have effect on other places where SelectMenu is used?",
+      "revId": "d666df75d62b0330a25b4f5484a85a9c8ef21603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
