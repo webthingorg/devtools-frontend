@@ -2,8 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import '../../recorder/components/components.js';
+import '../../../ui/components/menus/menus.js';
 
 import * as Host from '../../../core/host/host.js';
+import * as SDK from '../../../core/sdk/sdk.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
@@ -12,6 +14,7 @@ import editorWidgetStyles from './JSONEditor.css.js';
 const {html, Decorators, LitElement, Directives, nothing} = LitHtml;
 const {customElement, property, state} = Decorators;
 const {live, classMap} = Directives;
+
 declare global {
   interface HTMLElementTagNameMap {
     'devtools-json-editor': JSONEditor;
@@ -43,6 +46,15 @@ export class SubmitEditorEvent extends Event {
     this.data = data;
   }
 }
+export class TargetChoseEvent extends Event {
+  static readonly eventName = 'targetchose';
+  readonly data: string;
+
+  constructor(data: string) {
+    super(TargetChoseEvent.eventName);
+    this.data = data;
+  }
+}
 
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
@@ -50,7 +62,7 @@ export class JSONEditor extends LitElement {
   @property() declare protocolMethodWithParametersMap: Map<string, Parameter[]>;
   @state() declare parameters: Record<string, Parameter>;
   @state() command: string = '';
-
+  @state() target: string = '';
   constructor() {
     super();
     this.parameters = {};
@@ -127,6 +139,37 @@ export class JSONEditor extends LitElement {
     this.#populateParametersForCommand(this.command);
   };
 
+  #onItemSelected(): void {
+    const shadowRoot = this.shadowRoot;
+    const selectElement = shadowRoot?.getElementById('target-select') as HTMLSelectElement;
+    this.target = selectElement.value;
+    this.dispatchEvent(new TargetChoseEvent(this.target));
+  }
+
+  #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
+    const targetManager = SDK.TargetManager.TargetManager.instance();
+    // clang-format off
+    return html`
+    <div class="row attribute padded" data-attribute="type">
+      <div>target<span class="separator">:</span></div>
+      <div>
+        <select
+          id="target-select"
+          @change=${this.#onItemSelected}
+        >
+            ${LitHtml.Directives.repeat(
+              targetManager.targets(),
+              target => {
+                return html`<option value=${target.id()}>${`${target.name()} (${target.inspectedURL()})`}</option>`;
+              },
+            )}
+        </select>
+      </div>
+    </div>
+  `;
+    // clang-format on
+  }
+
   #renderCommandRow(): LitHtml.TemplateResult|undefined {
     // clang-format off
     return html`<div class="row attribute padded" data-attribute="type">
@@ -193,8 +236,10 @@ export class JSONEditor extends LitElement {
     // clang-format off
     return html`
     <div class="wrapper">
+      ${this.#renderTargetSelectorRow()}
       ${this.#renderCommandRow()}
       ${this.parameters && Object.keys((this.parameters)).length !== 0 ? html`
+
           ${this.#renderParameterRow()}
           ${this.#renderParameters(this.parameters)}
         ` : nothing}
