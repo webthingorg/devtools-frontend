@@ -420,6 +420,10 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
     return selector;
   }
 
+  onTargetReceived(target: string): void {
+    this.#selectedTargetId = target;
+  }
+
   onCommandSend(input: string): void {
     const {command, parameters} = parseCommandInput(input);
     const test = ProtocolClient.InspectorBackend.test;
@@ -441,6 +445,7 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
 
     return protocolMonitorImplInstance;
   }
+
   override wasShown(): void {
     if (this.started) {
       return;
@@ -633,6 +638,9 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.#editorWidget.addEventListener(Events.CommandSent, event => {
       this.#protocolMonitorDataGrid.onCommandSend(JSON.stringify(event.data));
     });
+    this.#editorWidget.addEventListener(Events.TargetChose, event => {
+      this.#protocolMonitorDataGrid.onTargetReceived(event.data);
+    });
   }
 
   static instance(opts: {forceNew: null|boolean} = {forceNew: null}): ProtocolMonitorImpl {
@@ -721,10 +729,12 @@ export class InfoWidget extends UI.Widget.VBox {
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   CommandSent = 'CommandSent',
+  TargetChose = 'TargetChose',
 }
 
 export type EventTypes = {
   [Events.CommandSent]: ProtocolMonitorCommand,
+  [Events.TargetChose]: string,
 };
 
 export interface ProtocolMonitorCommand {
@@ -741,6 +751,9 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.element.append(this.jsonEditor);
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
+    });
+    this.jsonEditor.addEventListener(Components.JSONEditor.TargetChoseEvent.eventName, (event: Event) => {
+      this.dispatchEventToListeners(Events.TargetChose, (event as Components.JSONEditor.TargetChoseEvent).data);
     });
   }
 
