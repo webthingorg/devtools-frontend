@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17b288a6_d0140344",
+        "filename": "extensions/cxx_debugging/third_party/llvm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1553262
+      },
+      "writtenOn": "2023-06-22T22:22:24Z",
+      "side": 1,
+      "message": "Licenses should be able to resolve to an actual path we can use to pick them up on disk from the repo root. We are working on making this documentation more clear at the moment. Which one does this point to? Is it the one in src/third_party?",
+      "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
