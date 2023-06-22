@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a53c308_95d8597c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-22T08:17:16Z",
+      "side": 1,
+      "message": "lgtm % optional suggestion for an additional test case",
+      "revId": "1be4d867719db78b80b3e525d28f31aaf82395e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61d309a_941c4246",
+        "filename": "test/unittests/front_end/core/sdk/TargetManager_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-22T08:17:16Z",
+      "side": 1,
+      "message": "Maybe we could add a test here for the early return in TargetManager#setScopeTarget by callinng `targetManager.setScopeTarget(targets[0])` again and checking that both spies stay at `calledOnce`?",
+      "revId": "1be4d867719db78b80b3e525d28f31aaf82395e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
