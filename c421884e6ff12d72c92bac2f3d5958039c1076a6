@@ -16,6 +16,23 @@
       "message": "Simon, could you take a look, please?",
       "revId": "c421884e6ff12d72c92bac2f3d5958039c1076a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4074c831_44a2f1f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-22T04:11:35Z",
+      "side": 1,
+      "message": "lgtm\n\nBefore landing, could you quickly check if editing an already executed snippet with breakpoint, preserves the breakpoint? The reason I\u0027m asking is that editing lifts the automapping between snippet project and network project, which IIRC copies the breakpoint back to the snippet project. Once we re-execute the breakpoint should still be hit (since V8 remembers it)",
+      "revId": "c421884e6ff12d72c92bac2f3d5958039c1076a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
