@@ -1,0 +1,12 @@
+{
+  "The Debugger Language Plugins can show C filenames after loading the module - 1": [
+    "/test/e2e/resources/extensions/global_variable.wasm",
+    "/source_file.c"
+  ],
+  "The Debugger Language Plugins lets users manually attach debug info - 1": [
+    "/test/e2e/resources/extensions/global_variable.wasm"
+  ],
+  "The Debugger Language Plugins lets users manually attach debug info - 2": [
+    "/source_file.c"
+  ]
+}

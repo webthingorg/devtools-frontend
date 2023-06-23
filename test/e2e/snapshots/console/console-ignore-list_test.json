@@ -1,0 +1,19 @@
+{
+  "Ignore list can be toggled on and off in console stack trace - 1": [
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "Show 2 more frames"
+  ],
+  "Ignore list can be toggled on and off in console stack trace - 2": [
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "innercall @ multi-files-thirdparty.js:8",
+    "callfunc @ multi-files-thirdparty.js:16",
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "Show less"
+  ],
+  "Ignore list can be toggled on and off in console stack trace - 3": [
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "(anonymous) @ pptr:evaluate;Contex…st_test.js:12:18):1",
+    "Show 2 more frames"
+  ]
+}

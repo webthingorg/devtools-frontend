@@ -1,0 +1,9 @@
+{
+  "Ignore list shows no toggle when everything is ignore-listed - 1": [
+    "inner",
+    "innercall",
+    "callfunc",
+    "outer",
+    "(anonymous)"
+  ]
+}

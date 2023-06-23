@@ -51,6 +51,7 @@ import {
   DEBUGGER_PAUSED_EVENT,
 } from '../helpers/sources-helpers.js';
 import {expectError} from '../../conductor/events.js';
+import { assertMatchesJSONSnapshot } from '../../shared/snapshots.js';
 
 declare global {
   let chrome: Chrome.DevTools.Chrome;
@@ -107,10 +108,7 @@ describe('The Debugger Language Plugins', async () => {
     const capturedFileNames = await captureAddedSourceFiles(2, async () => {
       await target.evaluate('loadModule();');
     });
-    assert.deepEqual(capturedFileNames, [
-      '/test/e2e/resources/extensions/global_variable.wasm',
-      '/source_file.c',
-    ]);
+    assertMatchesJSONSnapshot(capturedFileNames);
   });
 
   // Resolve a single code offset to a source line to test the correctness of offset computations.
@@ -1002,7 +1000,7 @@ describe('The Debugger Language Plugins', async () => {
       const capturedFileNames = await captureAddedSourceFiles(1, async () => {
         await target.evaluate('loadModule();');
       });
-      assert.deepEqual(capturedFileNames, ['/test/e2e/resources/extensions/global_variable.wasm']);
+      assertMatchesJSONSnapshot(capturedFileNames);
     }
 
     {
@@ -1015,8 +1013,7 @@ describe('The Debugger Language Plugins', async () => {
         await typeText('foobar81');
         await pressKey('Enter');
       });
-
-      assert.deepEqual(capturedFileNames, ['/source_file.c']);
+      assertMatchesJSONSnapshot(capturedFileNames);
     }
   });
 

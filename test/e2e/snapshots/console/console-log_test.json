@@ -1,0 +1,150 @@
+{
+  "The Console Tab produces console messages when a page logs using console.log - 1": [
+    {
+      "message": "log",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab produces console messages when a page logs using console.debug - 1": [
+    {
+      "message": "debug",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-verbose-level"
+    }
+  ],
+  "The Console Tab produces console messages when a page logs using console.warn - 1": [
+    {
+      "message": "warn",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "stackPreview": "\n(anonymous) @ pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "wrapperClasses": "console-message-wrapper console-from-api console-warning-level"
+    }
+  ],
+  "The Console Tab produces console messages when a page logs using console.error - 1": [
+    {
+      "message": "error",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "stackPreview": "\n(anonymous) @ pptr:evaluate;Contex…st.js%3A100%3A20):1",
+      "wrapperClasses": "console-message-wrapper console-from-api console-error-level"
+    }
+  ],
+  "The Console Tab produces a single console message when messages are repeated - 1": [
+    {
+      "message": "repeated",
+      "messageClasses": "console-message repeated-message",
+      "repeatCount": "5",
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):3",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab counts how many time console.count has been called with the same message - 1": [
+    {
+      "message": "count: 1",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):3",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "count: 2",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):3",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab creates an empty group message using console.group/console.groupEnd - 1": [
+    {
+      "message": "group",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):2",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-group-title console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab logs multiple arguments using console.log - 1": [
+    {
+      "message": "1 2 3",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):2",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab creates a collapsed group using console.groupCollapsed with all messages in between hidden - 1": [
+    {
+      "message": "groupCollapsed",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):2",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-group-title console-from-api console-info-level"
+    }
+  ],
+  "The Console Tab logs console.count messages with and without arguments - 1": [
+    {
+      "message": "default: 1",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):2",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "default: 2",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):3",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "default: 3",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):4",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "title: 1",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):5",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "title: 2",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):6",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    },
+    {
+      "message": "title: 3",
+      "messageClasses": "console-message",
+      "repeatCount": null,
+      "source": "pptr:evaluate;Contex…st.js%3A100%3A20):7",
+      "stackPreview": null,
+      "wrapperClasses": "console-message-wrapper console-from-api console-info-level"
+    }
+  ]
+}

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assert} from 'chai';
-
 import {getBrowserAndPages, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToElementsTab} from '../helpers/elements-helpers.js';
@@ -12,6 +10,7 @@ import {
   openFileInSourcesPanel,
   openSourcesPanel,
 } from '../helpers/sources-helpers.js';
+import { assertMatchesJSONSnapshot } from '../../shared/snapshots.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -32,10 +31,7 @@ describe('The Sources Tab', async () => {
       await target.evaluate('go();');
     });
 
-    assert.deepEqual(capturedFileNames, [
-      '/test/e2e/resources/sources/minified-sourcecode.js',
-      '/test/e2e/resources/sources/evalSourceURL.js',
-    ]);
+    assertMatchesJSONSnapshot(capturedFileNames);
   });
 
   it('can show CSS files after dynamic loading', async () => {
@@ -53,9 +49,7 @@ describe('The Sources Tab', async () => {
       await frontend.bringToFront();
     });
 
-    assert.deepEqual(capturedFileNames, [
-      '/test/e2e/resources/sources/dynamic.css',
-    ]);
+    assertMatchesJSONSnapshot(capturedFileNames);
   });
 
   it('populates sources even if it the Sources Tab was not open at refresh', async () => {
@@ -67,6 +61,6 @@ describe('The Sources Tab', async () => {
       await openSourcesPanel();
     });
 
-    assert.deepEqual(capturedFileNames, ['/test/e2e/resources/pages/hello-world.html']);
+    assertMatchesJSONSnapshot(capturedFileNames);
   });
 });

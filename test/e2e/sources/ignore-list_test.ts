@@ -31,6 +31,7 @@ import {
   stepIn,
   stepOut,
 } from '../helpers/sources-helpers.js';
+import { assertMatchesJSONSnapshot } from '../../shared/snapshots.js';
 
 describe('Ignore list', async function() {
   it('can be toggled on and off in call stack', async function() {
@@ -60,7 +61,7 @@ describe('Ignore list', async function() {
   });
 
   it('shows no toggle when everything is ignore-listed', async function() {
-    await setIgnoreListPattern('multi|puppeteer');
+    await setIgnoreListPattern('multi|pptr');
     const {target, frontend} = getBrowserAndPages();
 
     await openSourceCodeEditorForFile('multi-files-mycode.js', 'multi-files.html');
@@ -74,7 +75,7 @@ describe('Ignore list', async function() {
     // There are visible ignore-listed frames
     await waitFor('.ignore-listed-call-frame:not(.hidden)');
     // All frames are shown
-    assert.deepEqual(await getCallFrameNames(), ['inner', 'innercall', 'callfunc', 'outer', '(anonymous)']);
+    assertMatchesJSONSnapshot(await getCallFrameNames());
 
     await click(RESUME_BUTTON);
     await scriptEvaluation;

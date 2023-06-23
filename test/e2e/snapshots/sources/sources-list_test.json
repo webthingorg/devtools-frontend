@@ -1,0 +1,12 @@
+{
+  "The Sources Tab can show JavaScript files after dynamic loading - 1": [
+    "/test/e2e/resources/sources/minified-sourcecode.js",
+    "/test/e2e/resources/sources/evalSourceURL.js"
+  ],
+  "The Sources Tab can show CSS files after dynamic loading - 1": [
+    "/test/e2e/resources/sources/dynamic.css"
+  ],
+  "The Sources Tab populates sources even if it the Sources Tab was not open at refresh - 1": [
+    "/test/e2e/resources/pages/hello-world.html"
+  ]
+}
