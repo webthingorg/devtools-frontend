@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import * as fs from 'fs';
 import * as path from 'path';
 
-import type * as puppeteer from 'puppeteer';
+import type * as puppeteer from 'puppeteer-core';
 import {requireTestRunnerConfigSetting} from '../../conductor/test_runner_config.js';
 
 import {
