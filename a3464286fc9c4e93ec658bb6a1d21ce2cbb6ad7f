@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b621def7_7bef5b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-23T12:18:00Z",
+      "side": 1,
+      "message": "And here\u0027s the frontend side of the change, PTAL!",
+      "revId": "a3464286fc9c4e93ec658bb6a1d21ce2cbb6ad7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
