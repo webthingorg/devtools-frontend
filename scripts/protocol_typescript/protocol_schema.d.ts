@@ -47,7 +47,7 @@ export module Protocol {
   }
 
   export interface ObjectType {
-    type: 'object';
+    type: object;
     /** Properties of the type. Maps to a typed object */
     properties?: PropertyType[];
   }
