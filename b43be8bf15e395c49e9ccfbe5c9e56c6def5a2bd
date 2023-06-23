@@ -22,6 +22,30 @@
       },
       "revId": "b43be8bf15e395c49e9ccfbe5c9e56c6def5a2bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d1a64ae_6b675830",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-23T09:54:35Z",
+      "side": 1,
+      "message": "Done here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4632538",
+      "parentUuid": "d39dd74f_2ece54e7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "b43be8bf15e395c49e9ccfbe5c9e56c6def5a2bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
