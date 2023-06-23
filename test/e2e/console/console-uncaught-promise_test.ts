@@ -14,8 +14,7 @@ import {
 } from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
-  // Flaky test
-  it.skipOnPlatforms(['win32'], '[crbug.com/1443426]: is able to log uncaught promise rejections into console', async () => {
+  it('is able to log uncaught promise rejections into console', async () => {
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
 
@@ -98,7 +97,7 @@ describe('The Console Tab', async () => {
       `,
     );
 
-    await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, 'await promiseTest9();');
+    await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, 'await promiseTest9();', 3);
     assert.strictEqual(
         await getLastConsoleMessages(1),
         'A bad HTTP response code (404) was received when fetching the script.',
