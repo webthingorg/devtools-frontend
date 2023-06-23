@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39dd74f_2ece54e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-23T09:46:30Z",
+      "side": 1,
+      "message": "In general, good job!\nJust a small retro nits: We should also make sure the target selector is still available when we open the side panel.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "b43be8bf15e395c49e9ccfbe5c9e56c6def5a2bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
