@@ -12611,7 +12611,8 @@
                     "enum": [
                         "deflate",
                         "gzip",
-                        "br"
+                        "br",
+                        "zstd"
                     ]
                 },
                 {

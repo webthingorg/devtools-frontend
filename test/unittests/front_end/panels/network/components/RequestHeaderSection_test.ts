@@ -35,7 +35,7 @@ describeWithEnvironment('RequestHeaderSection', () => {
       cachedInMemory: () => true,
       requestHeaders: () =>
           [{name: ':method', value: 'GET'},
-           {name: 'accept-encoding', value: 'gzip, deflate, br'},
+           {name: 'accept-encoding', value: 'gzip, deflate, br, zstd'},
            {name: 'cache-control', value: 'no-cache'},
     ],
       requestHeadersText: () => undefined,

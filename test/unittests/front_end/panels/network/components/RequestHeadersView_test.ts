@@ -49,7 +49,7 @@ const defaultRequest = {
   ],
   requestHeadersText: () => '',
   requestHeaders: () =>
-      [{name: ':method', value: 'GET'}, {name: 'accept-encoding', value: 'gzip, deflate, br'},
+      [{name: ':method', value: 'GET'}, {name: 'accept-encoding', value: 'gzip, deflate, br, zstd'},
        {name: 'cache-control', value: 'no-cache'}],
   responseHeadersText: `HTTP/1.1 200 OK
   age: 0
@@ -158,7 +158,7 @@ describeWithMockConnection('RequestHeadersView', () => {
     assertElement(requestHeadersCategory, HTMLElement);
     assert.deepStrictEqual(
         getRowsTextFromCategory(requestHeadersCategory),
-        [[':method:', 'GET'], ['accept-encoding:', 'gzip, deflate, br'], ['cache-control:', 'no-cache']]);
+        [[':method:', 'GET'], ['accept-encoding:', 'gzip, deflate, br, zstd'], ['cache-control:', 'no-cache']]);
   });
 
   it('emits UMA event when a header value is being copied', async () => {
