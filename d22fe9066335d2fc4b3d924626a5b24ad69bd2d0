@@ -22,6 +22,30 @@
       },
       "revId": "d22fe9066335d2fc4b3d924626a5b24ad69bd2d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a430e996_7cf018d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-23T04:41:51Z",
+      "side": 1,
+      "message": "nope, I just clicked revert and Gerrit added those (removed)",
+      "parentUuid": "0bb6ff66_fddd7cb2",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "d22fe9066335d2fc4b3d924626a5b24ad69bd2d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
