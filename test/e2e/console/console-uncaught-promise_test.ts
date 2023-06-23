@@ -14,8 +14,7 @@ import {
 } from '../helpers/console-helpers.js';
 
 describe('The Console Tab', async () => {
-  // Flaky test
-  it.skipOnPlatforms(['win32'], '[crbug.com/1443426]: is able to log uncaught promise rejections into console', async () => {
+  it('is able to log uncaught promise rejections into console', async () => {
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
 
