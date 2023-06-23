@@ -23,6 +23,7 @@ const LINEAR_MEMORY_INSPECTOR_TABBED_PANE_TAB_SELECTOR = '.tabbed-pane-header-ta
 const LINEAR_MEMORY_INSPECTOR_TAB_TITLE_SELECTOR = '.tabbed-pane-header-tab-title';
 
 describe('Scope View', async () => {
+  // deflaking
   it('opens linear memory inspector', async () => {
     const {frontend, target} = getBrowserAndPages();
     const breakpointLine = '0x039';
