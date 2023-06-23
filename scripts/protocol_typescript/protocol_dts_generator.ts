@@ -311,7 +311,7 @@ const getCommandMapping = (command: Protocol.Command, domainName: string,
   const responseType = command.returns ? prefix + toCmdResponseName(command.name) : 'void';
 
   return {
-    type: 'object',
+    type: 'BLABLA',
     name: `${domainName}.${command.name}`,
     description: command.description,
     properties: [
