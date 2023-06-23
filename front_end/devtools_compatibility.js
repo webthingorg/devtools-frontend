@@ -6,21 +6,293 @@
 
   // DevToolsAPI ----------------------------------------------------------------
 
+<<<<<<< HEAD   (5022d7 [M108-LTS] Add url pattern parsing for extensions)
   const DevToolsAPIImpl = class {
     constructor() {
       /**
        * @type {number}
        */
       this._lastCallId = 0;
+=======
+/**
+ * @typedef {{runtimeAllowedHosts: !Array<string>, runtimeBlockedHosts: !Array<string>}} ExtensionHostsPolicy
+ */
+/**
+ * @typedef {{startPage: string, name: string, exposeExperimentalAPIs: boolean, hostsPolicy?: ExtensionHostsPolicy}} ExtensionDescriptor
+ */
+const DevToolsAPIImpl = class {
+  constructor() {
+    /**
+     * @type {number}
+     */
+    this._lastCallId = 0;
+>>>>>>> CHANGE (2d19bc Apply runtime_blocked_hosts and runtime_allowed_hosts for ex)
 
       /**
        * @type {!Object.<number, function(?Object)>}
        */
       this._callbacks = {};
 
+<<<<<<< HEAD   (5022d7 [M108-LTS] Add url pattern parsing for extensions)
       /**
        * @type {!Array.<!ExtensionDescriptor>}
        */
+=======
+    /**
+     * @type {!Array.<!ExtensionDescriptor>}
+     */
+    this._pendingExtensionDescriptors = [];
+
+    /**
+     * @type {?function(!ExtensionDescriptor): void}
+     */
+    this._addExtensionCallback = null;
+
+    /**
+     * @type {!Array<string>}
+     */
+    this._originsForbiddenForExtensions = [];
+
+    /**
+     * @type {!Promise<string>}
+     */
+    this._initialTargetIdPromise = new Promise(resolve => {
+      this._setInitialTargetId = resolve;
+    });
+  }
+
+  /**
+   * @param {number} id
+   * @param {?Object} arg
+   */
+  embedderMessageAck(id, arg) {
+    const callback = this._callbacks[id];
+    delete this._callbacks[id];
+    if (callback) {
+      callback(arg);
+    }
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Array.<*>} args
+   * @param {?function(?Object)} callback
+   */
+  sendMessageToEmbedder(method, args, callback) {
+    const callId = ++this._lastCallId;
+    if (callback) {
+      this._callbacks[callId] = callback;
+    }
+    const message = {'id': callId, 'method': method};
+    if (args.length) {
+      message.params = args;
+    }
+    DevToolsHost.sendMessageToEmbedder(JSON.stringify(message));
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Array<*>} args
+   */
+  _dispatchOnInspectorFrontendAPI(method, args) {
+    const inspectorFrontendAPI = /** @type {!Object<string, function()>} */ (window['InspectorFrontendAPI']);
+    inspectorFrontendAPI[method].apply(inspectorFrontendAPI, args);
+  }
+
+  // API methods below this line --------------------------------------------
+
+  /**
+   * @param {!Array.<!ExtensionDescriptor>} extensions
+   */
+  addExtensions(extensions) {
+    // Support for legacy front-ends (<M41).
+    if (window['WebInspector'] && window['WebInspector']['addExtensions']) {
+      window['WebInspector']['addExtensions'](extensions);
+    } else {
+      // The addExtensions command is sent as the onload event happens for
+      // DevTools front-end. We should buffer this command until the frontend
+      // is ready for it.
+      if (this._addExtensionCallback) {
+        extensions.forEach(this._addExtensionCallback);
+      } else {
+        this._pendingExtensionDescriptors.push(...extensions);
+      }
+    }
+  }
+
+  /**
+   * @param {!Array<string>} forbiddenOrigins
+   */
+  setOriginsForbiddenForExtensions(forbiddenOrigins) {
+    this._originsForbiddenForExtensions = forbiddenOrigins;
+  }
+
+  /**
+   * @return {!Array<string>}
+   */
+  getOriginsForbiddenForExtensions() {
+    return this._originsForbiddenForExtensions;
+  }
+
+  /**
+   * @param {string} url
+   */
+  appendedToURL(url) {
+    this._dispatchOnInspectorFrontendAPI('appendedToURL', [url]);
+  }
+
+  /**
+   * @param {string} url
+   */
+  canceledSaveURL(url) {
+    this._dispatchOnInspectorFrontendAPI('canceledSaveURL', [url]);
+  }
+
+  contextMenuCleared() {
+    this._dispatchOnInspectorFrontendAPI('contextMenuCleared', []);
+  }
+
+  /**
+   * @param {string} id
+   */
+  contextMenuItemSelected(id) {
+    this._dispatchOnInspectorFrontendAPI('contextMenuItemSelected', [id]);
+  }
+
+  /**
+   * @param {number} count
+   */
+  deviceCountUpdated(count) {
+    this._dispatchOnInspectorFrontendAPI('deviceCountUpdated', [count]);
+  }
+
+  /**
+   * @param {!Adb.Config} config
+   */
+  devicesDiscoveryConfigChanged(config) {
+    this._dispatchOnInspectorFrontendAPI('devicesDiscoveryConfigChanged', [config]);
+  }
+
+  /**
+   * @param {!Adb.PortForwardingStatus} status
+   */
+  devicesPortForwardingStatusChanged(status) {
+    this._dispatchOnInspectorFrontendAPI('devicesPortForwardingStatusChanged', [status]);
+  }
+
+  /**
+   * @param {!Array.<!Adb.Device>} devices
+   */
+  devicesUpdated(devices) {
+    this._dispatchOnInspectorFrontendAPI('devicesUpdated', [devices]);
+  }
+
+  /**
+   * @param {string} message
+   */
+  dispatchMessage(message) {
+    this._dispatchOnInspectorFrontendAPI('dispatchMessage', [message]);
+  }
+
+  /**
+   * @param {string} messageChunk
+   * @param {number} messageSize
+   */
+  dispatchMessageChunk(messageChunk, messageSize) {
+    this._dispatchOnInspectorFrontendAPI('dispatchMessageChunk', [messageChunk, messageSize]);
+  }
+
+  enterInspectElementMode() {
+    this._dispatchOnInspectorFrontendAPI('enterInspectElementMode', []);
+  }
+
+  /**
+   * @param {!{r: number, g: number, b: number, a: number}} color
+   */
+  eyeDropperPickedColor(color) {
+    this._dispatchOnInspectorFrontendAPI('eyeDropperPickedColor', [color]);
+  }
+
+  /**
+   * @param {!Array.<!{fileSystemName: string, rootURL: string, fileSystemPath: string}>} fileSystems
+   */
+  fileSystemsLoaded(fileSystems) {
+    this._dispatchOnInspectorFrontendAPI('fileSystemsLoaded', [fileSystems]);
+  }
+
+  /**
+   * @param {string} fileSystemPath
+   */
+  fileSystemRemoved(fileSystemPath) {
+    this._dispatchOnInspectorFrontendAPI('fileSystemRemoved', [fileSystemPath]);
+  }
+
+  /**
+   * @param {?string} error
+   * @param {?{type: string, fileSystemName: string, rootURL: string, fileSystemPath: string}} fileSystem
+   */
+  fileSystemAdded(error, fileSystem) {
+    this._dispatchOnInspectorFrontendAPI('fileSystemAdded', [error, fileSystem]);
+  }
+
+  /**
+   * @param {!Array<string>} changedPaths
+   * @param {!Array<string>} addedPaths
+   * @param {!Array<string>} removedPaths
+   */
+  fileSystemFilesChangedAddedRemoved(changedPaths, addedPaths, removedPaths) {
+    // Support for legacy front-ends (<M58)
+    if (window['InspectorFrontendAPI'] && window['InspectorFrontendAPI']['fileSystemFilesChanged']) {
+      this._dispatchOnInspectorFrontendAPI(
+          'fileSystemFilesChanged', [changedPaths.concat(addedPaths).concat(removedPaths)]);
+    } else {
+      this._dispatchOnInspectorFrontendAPI(
+          'fileSystemFilesChangedAddedRemoved', [changedPaths, addedPaths, removedPaths]);
+    }
+  }
+
+  /**
+   * @param {number} requestId
+   * @param {string} fileSystemPath
+   * @param {number} totalWork
+   */
+  indexingTotalWorkCalculated(requestId, fileSystemPath, totalWork) {
+    this._dispatchOnInspectorFrontendAPI('indexingTotalWorkCalculated', [requestId, fileSystemPath, totalWork]);
+  }
+
+  /**
+   * @param {number} requestId
+   * @param {string} fileSystemPath
+   * @param {number} worked
+   */
+  indexingWorked(requestId, fileSystemPath, worked) {
+    this._dispatchOnInspectorFrontendAPI('indexingWorked', [requestId, fileSystemPath, worked]);
+  }
+
+  /**
+   * @param {number} requestId
+   * @param {string} fileSystemPath
+   */
+  indexingDone(requestId, fileSystemPath) {
+    this._dispatchOnInspectorFrontendAPI('indexingDone', [requestId, fileSystemPath]);
+  }
+
+  /**
+   * @param {{type: string, key: string, code: string, keyCode: number, modifiers: number}} event
+   */
+  keyEventUnhandled(event) {
+    event.keyIdentifier = keyCodeToKeyIdentifier(event.keyCode);
+    this._dispatchOnInspectorFrontendAPI('keyEventUnhandled', [event]);
+  }
+
+  /**
+   * @param {function(!ExtensionDescriptor)} callback
+   */
+  setAddExtensionCallback(callback) {
+    this._addExtensionCallback = callback;
+    if (this._pendingExtensionDescriptors.length) {
+      this._pendingExtensionDescriptors.forEach(this._addExtensionCallback);
+>>>>>>> CHANGE (2d19bc Apply runtime_blocked_hosts and runtime_allowed_hosts for ex)
       this._pendingExtensionDescriptors = [];
 
       /**

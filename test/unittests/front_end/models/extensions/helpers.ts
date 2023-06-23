@@ -2,14 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
+<<<<<<< HEAD   (5022d7 [M108-LTS] Add url pattern parsing for extensions)
+=======
+import type * as Host from '../../../../../front_end/core/host/host.js';
+import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
+import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+>>>>>>> CHANGE (2d19bc Apply runtime_blocked_hosts and runtime_allowed_hosts for ex)
 
 interface ExtensionContext {
   chrome: Partial<Chrome.DevTools.Chrome>;
 }
 
-export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+export function describeWithDevtoolsExtension(
+    title: string, extension: Partial<Host.InspectorFrontendHostAPI.ExtensionDescriptor>,
+    fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
   const context: ExtensionContext = {
     chrome: {},
   };
@@ -20,6 +27,7 @@ export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite
       startPage: 'blank.html',
       name: 'TestExtension',
       exposeExperimentalAPIs: true,
+      ...extension,
     };
     server.addExtensionForTest(extensionDescriptor, window.location.origin);
     const chrome: Partial<Chrome.DevTools.Chrome> = {};
@@ -45,9 +53,11 @@ export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite
   });
 }
 
-describeWithDummyExtension.only = function(title: string, fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+describeWithDevtoolsExtension.only = function(
+    title: string, extension: Partial<Host.InspectorFrontendHostAPI.ExtensionDescriptor>,
+    fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
   // eslint-disable-next-line rulesdir/no_only
   return describe.only('.only', function() {
-    return describeWithDummyExtension(title, fn);
+    return describeWithDevtoolsExtension(title, extension, fn);
   });
 };
