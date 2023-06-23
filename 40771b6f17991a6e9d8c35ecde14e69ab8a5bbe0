@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bfd7326_e81b9d1d",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-23T09:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a44a313_c952abeb",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "40771b6f17991a6e9d8c35ecde14e69ab8a5bbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45f70c2d_00f2251b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-22T18:36:40Z",
       "side": 1,
       "message": "const SUBDOMAIN_WILDCARD \u003d \u0027*.\u0027;\n    asUrl \u003d new URL(pattern.startsWith(SUBDOMAIN_WILDCARD) ? \n        `http://${pattern.substr(SUBDOMAIN_WILDCARD.length)}`\n         : `http://${pattern}`);",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 100
+      },
+      "revId": "40771b6f17991a6e9d8c35ecde14e69ab8a5bbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a5aa38_89da95ee",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-23T09:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f70c2d_00f2251b",
       "range": {
         "startLine": 63,
         "startChar": 0,

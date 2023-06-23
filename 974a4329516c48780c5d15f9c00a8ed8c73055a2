@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5d59d9_81cb2090",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-23T09:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2145769_cb4b389f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 88
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bc0cf6d_1ac6e606",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "328fde06_c90773e6",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "974a4329516c48780c5d15f9c00a8ed8c73055a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a31896e_ae49b432",
+        "filename": "front_end/models/extensions/HostUrlPattern.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-23T09:30:01Z",
+      "side": 1,
+      "message": "Made it a little cleaner and also allowed a wildcard path \u0027/*\u0027",
+      "parentUuid": "7bff20a4_b3e1b3c0",
       "range": {
         "startLine": 44,
         "startChar": 0,
