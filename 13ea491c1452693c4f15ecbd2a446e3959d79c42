@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d16fa9b_c10f68b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "ot -\u003e or",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd186dc6_c6e414a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "hard to know if you were ready for feedback but.... here\u0027s some feedback! :)",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f275544_21852531",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "```suggestion\n  // Unused but will eventually be consumed by UIUtils Linkifier, etc.\n```\n\napologies for giving you a typo. :)",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d27fea0e_65d8e865",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "fwiw when i tried this out in my spike (crrev.com/c/4633482) .. I added this so that this loader instance is returned and thus assigned to `TimelinePanel`\u0027s `this.loader` _before_ the load finished and we hit `loadingComplete` in timelinepanel. So.. it was a race so I\u0027m juggling the promises. :)\n\nTBH previously I thought the setTimeouts in this file were for yielding to main thread for painting.. but.. now I think either you or me were fixing this same promise work.\n\nLet\u0027s add a comment so we don\u0027t forget again? 😊  maybe something like\n\n    // We\u0027ll resolve and return the loader instance before finalizing the trace.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ddc60d4_3677badc",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "niiice. good call.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2313c9_d113547c",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "i think you\u0027re working around the fact that this loader\u0027s `this.state` isn\u0027t `LoadingCPUProfileFormat` at this point?\nAt least I ran into that.\n\nI forget where/why it got reset, but, I think I managed to reliably have loader\u0027s state be LoadingCPUProfileFormat as timelinepanel loadingcomplete runs. shrug. whatev.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de1f3849_945ca096",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "this and the L691 `isNode` is still a bug. \n\na user is technically allowed to view a web trace in the devtools UI and save it.\nso.. our conditional should be based on what the data is.\n\nat this point you have `metadata.dataOrigin \u003d\u003d\u003d TraceEngine.TraceModel.DataOrigin.CPUProfile` available, so.. why not? :)",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0925118d_d6edf807",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "FWIW this can be rewritten to be quite a bit shorter.. \nsame behavior. and it\u0027s the same to TS. (afaik)\n\n```suggestion\n      if (isCpuProfile) {\n        // TODO(crbug.com/1456799): This will be cleaner when the CPUProfileHandler is done, and we can fetch\n        // the data directly from the new traceEngine\n        const profileEventData \u003d traceEvents.find(e \u003d\u003e e.name \u003d\u003d\u003d \u0027CpuProfile\u0027)?.args?.data;\n        const profile \u003d (profileEventData as {cpuProfile: Protocol.Profiler.Profile}).cpuProfile;\n        if (profile) {\n          traceAsString \u003d cpuprofileJsonGenerator(profile as Protocol.Profiler.Profile);\n        }\n```",
+      "range": {
+        "startLine": 691,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 9
+      },
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cafde33a_eb3fcd6e",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-06-24T03:27:51Z",
+      "side": 1,
+      "message": "this feels like adding extra tech debt on top of a workflow we already don\u0027t understand well.\n\nI don\u0027t love \n1) timeline panel holding `isCpuProfile` state and making sure thats always correct even as the user toggles between multiple recordings\n2) passing this isCpuProfile flag _and_ using `loader.isCpuProfile()`. I\u0027d rather do just one of them.\n3) the `|| false` at the end should be unnecessary. if it\u0027s actually being useful, then we already have a problem.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
