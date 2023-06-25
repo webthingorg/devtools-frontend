@@ -34,6 +34,24 @@
       "parentUuid": "17b288a6_d0140344",
       "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c8717d_f9701859",
+        "filename": "extensions/cxx_debugging/third_party/llvm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1553262
+      },
+      "writtenOn": "2023-06-25T22:46:33Z",
+      "side": 1,
+      "message": "No problems, I just happened to see this in my inbox so I might have jumped in too early!\n\nWe\u0027re currently undergoing a bit of a transformation of the README metadata and intend to add some new fields the first one of which which is \u0027Shipped\u0027. The idea behind this is to decouple the Shipped value from the license path as a lot of libraries include both.\n\nLicenses.py has just had some changes to support this and the doco update is in draft!\nhttps://chromium-review.googlesource.com/c/chromium/src/+/45964\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4639361\n\nIf you like you could add the shipped field and also the license path which might make answering this question more easy?",
+      "parentUuid": "98b3f403_f91c7eb4",
+      "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
