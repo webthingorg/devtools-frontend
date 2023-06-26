@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87883567_bae8c934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-06-26T17:49:57Z",
+      "side": 1,
+      "message": "Simon, I think you do not have committer rights, are you fine with me committing the patch?",
+      "revId": "f5b2c11c8b3e29370e201dc31fd4772fe40c757c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
