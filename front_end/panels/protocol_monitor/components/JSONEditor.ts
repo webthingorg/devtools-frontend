@@ -5,6 +5,7 @@ import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
 import * as SDK from '../../../core/sdk/sdk.js';
+import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -21,12 +22,17 @@ declare global {
   }
 }
 
-export interface Parameter {
-  type: string;
-  optional: boolean;
-  value: string|undefined;
-  name: string;
-}
+export type Parameter = {
+  type: 'string'|'number'|'boolean',
+  optional: boolean,
+  value: string|undefined,
+  name: string,
+}|{
+  type: 'array',
+  optional: boolean,
+  value: string[] | undefined,
+  name: string,
+};
 
 export interface Command {
   command: string;
@@ -102,7 +108,7 @@ export class JSONEditor extends LitElement {
     return formattedParameters;
   }
 
-  #populateParametersForCommand(command: string): void {
+  populateParametersForCommand(command: string): void {
     const parameters = this.protocolMethodWithParametersMap.get(command);
     const newParameters: Record<string, Parameter> = {};
     if (parameters && parameters.length !== 0) {
@@ -114,12 +120,24 @@ export class JSONEditor extends LitElement {
             type: parameter.type,
             value: parameter.value || undefined,
             name: parameter.name,
-          };
+          } as Parameter;
         }
         this.parameters = newParameters;
       }
     }
   }
+
+  #handleArrayParameterInputBlur = (event: Event, parameterName: string, index: number): void => {
+    if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
+      const value = event.target.value;
+      const parameter = this.parameters[parameterName];
+      if (parameter.value === undefined) {
+        parameter.value = [value];
+      } else if (Array.isArray(parameter.value)) {
+        parameter.value[index] = value;
+      }
+    }
+  };
 
   #handleParameterInputBlur = (event: Event, parameterName: string): void => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
@@ -133,11 +151,30 @@ export class JSONEditor extends LitElement {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
       this.command = event.target.value;
     }
-    this.#populateParametersForCommand(this.command);
+    this.populateParametersForCommand(this.command);
   };
 
   #computeTargetLabel(target: SDK.Target.Target): string {
     return `${target.name()} (${target.inspectedURL()})`;
+  }
+
+  #handleAddArrayParameter(parameterName: string): void {
+    const parameter = this.parameters[parameterName];
+    if (this.parameters[parameterName].value === undefined) {
+      this.parameters[parameterName].value = [];
+    }
+    if (Array.isArray(parameter.value)) {
+      parameter.value.push('');
+    }
+    this.requestUpdate();
+  }
+
+  #handleDeleteArrayParameter(index: number, parameterName: string): void {
+    const parameter = this.parameters[parameterName];
+    if (parameter.value !== undefined && Array.isArray(parameter.value)) {
+      parameter.value.splice(index, 1);
+    }
+    this.requestUpdate();
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
@@ -194,6 +231,19 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
+  #renderInlineButton(opts: {title: string, iconName: string, onClick: (event: MouseEvent) => void}):
+      LitHtml.TemplateResult|undefined {
+    return html`
+      <devtools-button
+        title=${opts.title}
+        .size=${Buttons.Button.Size.MEDIUM}
+        .iconName=${opts.iconName}
+        .variant=${Buttons.Button.Variant.ROUND}
+        @click=${opts.onClick}
+      ></devtools-button>
+    `;
+  }
+
   /**
    * Renders the line with the word "parameter" in red. As opposed to the renderParametersRow method,
    * it does not render the value of a parameter.
@@ -206,6 +256,41 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
+  #renderParametersHelper(
+      value: Parameter['value'], type: 'string'|'number'|'boolean'|'array', key: string, optional: boolean,
+      deletable: boolean, handleBlur: (event: Event) => void, handleAdd: () => void,
+      handleDelete: () => void): LitHtml.TemplateResult|undefined {
+    const classes = {colorBlue: optional};
+    // clang-format off
+    return html`
+      <div class="row">
+          <div class=${classMap(classes)}>${key}<span class="separator">:</span></div>
+          ${type === 'array' ? html`
+          ${this.#renderInlineButton({
+            title: 'Add parameter',
+            iconName: 'plus',
+            onClick: () => handleAdd(),
+          })}
+        `: html`
+          <devtools-recorder-input
+            .disabled=${false}
+            .value=${live(value ?? '')}
+            .placeholder=${'Enter your parameter...'}
+            @blur=${(event: Event) : void => {
+                handleBlur(event);}
+              }
+          ></devtools-recorder-input>`}
+          ${deletable ? html`
+            ${this.#renderInlineButton({
+                  title: 'Delete',
+                  iconName: 'minus',
+                  onClick: () => handleDelete(),
+            })}` : nothing}
+      </div>
+    `;
+    // clang-format on
+  }
+
   /**
    * Renders the parameters list corresponding to a specific CDP command.
    */
@@ -213,31 +298,70 @@ export class JSONEditor extends LitElement {
     [x: string]: Parameter,
   }): LitHtml.TemplateResult|undefined {
     parameters = Object.fromEntries(
-        Object.entries(parameters)
-            .sort(([, a]: [string, Parameter], [, b]: [string, Parameter]) => Number(a.optional) - Number(b.optional)),
+        Object.entries(parameters).sort(([, a], [, b]) => Number(a.optional) - Number(b.optional)),
     );
-
     // clang-format off
     return html`
       <ul>
-      ${Object.keys(parameters).map(key => {
-      const value = JSON.stringify(parameters[key].value);
-      const classes = { colorBlue: parameters[key].optional};
-      return html`
-            <div class="row attribute padded double" data-attribute="type">
-              <div class=${classMap(classes)}>${key}<span class="separator">:</span></div>
-              <devtools-recorder-input
-                .disabled=${false}
-                .value=${live(value ?? '')}
-                .placeholder=${'Enter your parameter...'}
-                @blur=${(event: Event) : void => {
-                  this.#handleParameterInputBlur(event, key);}
-                }
-              ></devtools-recorder-input>
+        ${Object.keys(parameters).map((key, index) => {
+          const parameter = parameters[key];
+          const value = JSON.stringify(parameters[key].value);
+          const name = parameters[key].name;
+          return html`
+            <div>
+              <div class="row attribute padded double" data-attribute="type">
+                ${this.#renderParametersHelper(
+                  value,
+                  parameter.type,
+                  key,
+                  parameters[key].optional,
+                  false,
+                  (event: Event) => {
+                    this.#handleParameterInputBlur(event, key);
+                  },
+                  () => {
+                    this.#handleAddArrayParameter(name);
+                  },
+                  () => {
+                    this.#handleDeleteArrayParameter(index, name);
+                  },
+                )}
+              </div>
+              <div class="column padded triple">
+                ${parameter.type === 'array'
+                  ? html`
+                      ${(parameter.value || []).map((value: string, index: number) => {
+                        return LitHtml.html`
+                          ${this.#renderParametersHelper(
+                              value,
+                              'string',
+                              String(index),
+                              true,
+                              true,
+                              (event: Event) => {
+                                this.#handleArrayParameterInputBlur(
+                                  event,
+                                  name,
+                                  index,
+                                );
+                              },
+                              () => {
+                                this.#handleAddArrayParameter(name);
+                              },
+                              () => {
+                                this.#handleDeleteArrayParameter(index, name);
+                              },
+                            )}
+                          `;
+                        })}
+                    `
+                  : nothing}
+              </div>
             </div>
-            `;
+          `;
         })}
-      </ul>`;
+      </ul>
+    `;
     // clang-format on
   }
 
