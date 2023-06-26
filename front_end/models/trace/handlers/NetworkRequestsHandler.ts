@@ -26,6 +26,7 @@ interface TraceEventsForNetworkRequest {
   receiveResponse?: Types.TraceEvents.TraceEventResourceReceiveResponse;
   resourceFinish?: Types.TraceEvents.TraceEventResourceFinish;
   receivedData?: Types.TraceEvents.TraceEventResourceReceivedData[];
+  resourceMarkAsCached?: Types.TraceEvents.TraceEventResourceMarkAsCached;
 }
 
 interface NetworkRequestData {
@@ -121,6 +122,11 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     storeTraceEventWithRequestId(event.args.data.requestId, 'resourceFinish', event);
     return;
   }
+
+  if (Types.TraceEvents.isTraceEventResourceMarkAsCached(event)) {
+    storeTraceEventWithRequestId(event.args.data.requestId, 'resourceMarkAsCached', event);
+    return;
+  }
 }
 
 export async function finalize(): Promise<void> {
@@ -166,6 +172,7 @@ export async function finalize(): Promise<void> {
       redirects.push({
         url: sendRequest.args.data.url,
         priority: sendRequest.args.data.priority,
+        requestMethod: sendRequest.args.data.requestMethod,
         ts,
         dur,
       });
@@ -269,7 +276,7 @@ export async function finalize(): Promise<void> {
         Types.Timing.MicroSeconds((timing.connectEnd - timing.connectStart) * MILLISECONDS_TO_MICROSECONDS);
 
     // Finally get some of the general data from the trace events.
-    const {priority, frame, url, renderBlocking} = finalSendRequest.args.data;
+    const {priority, frame, url, renderBlocking, requestMethod} = finalSendRequest.args.data;
     const {mimeType, fromCache, fromServiceWorker} = request.receiveResponse.args.data;
     const {encodedDataLength, decodedBodyLength} =
         request.resourceFinish ? request.resourceFinish.args.data : {encodedDataLength: 0, decodedBodyLength: 0};
@@ -305,14 +312,15 @@ export async function finalize(): Promise<void> {
           proxyNegotiation,
           redirectionDuration,
           queueing,
-          receiveHeadersEnd: Types.Timing.MicroSeconds(receiveHeadersEnd),
+          receiveHeadersEnd: Types.Timing.MicroSeconds(receiveHeadersEnd * MILLISECONDS_TO_MICROSECONDS),
           redirects,
-          requestId,
           // In the event the property isn't set, assume non-blocking.
           renderBlocking: renderBlocking ? renderBlocking : 'non_blocking',
-          requestSent,
-          requestTime,
+          requestId,
           requestingFrameUrl,
+          requestMethod,
+          requestSent,
+          requestTime: Types.Timing.Seconds(requestTime),
           sendEnd: Types.Timing.MicroSeconds(sendEnd * MILLISECONDS_TO_MICROSECONDS),
           sendStart: Types.Timing.MicroSeconds(sendStart * MILLISECONDS_TO_MICROSECONDS),
           ssl,
@@ -346,7 +354,7 @@ export async function finalize(): Promise<void> {
     // These timestamps may not be perfect (indeed they don't always match
     // the Network CDP domain exactly, which is likely an artifact of the way
     // the data is routed on the backend), but they're the closest we have.
-    if (networkEvent.args.data.fromCache) {
+    if (request.resourceMarkAsCached || networkEvent.args.data.fromCache) {
       // Zero out the network-based timing info.
       networkEvent.args.data.queueing = Types.Timing.MicroSeconds(0);
       networkEvent.args.data.waiting = Types.Timing.MicroSeconds(0);
