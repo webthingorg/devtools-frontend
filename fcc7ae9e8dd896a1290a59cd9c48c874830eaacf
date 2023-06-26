@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a91908c_580c14f1",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "608f97ff_8d7a929b",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "493d6b3f_9e45f3a8",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-06-26T13:38:01Z",
       "side": 1,
       "message": "why is the default an array? I think that should depend on whether the parameter type is an array",
+      "range": {
+        "startLine": 270,
+        "startChar": 50,
+        "endLine": 270,
+        "endChar": 52
+      },
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e13a5d3_99ec6e75",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "493d6b3f_9e45f3a8",
       "range": {
         "startLine": 270,
         "startChar": 50,
@@ -75,6 +117,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72eb2a2_82cd4d76",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39bf49e0_ab7d83b0",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a67cfc6_3f9c1796",
@@ -88,6 +148,24 @@
       "writtenOn": "2023-06-26T13:38:01Z",
       "side": 1,
       "message": "remove `add-frame`",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f360d1_a6a5afbd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a67cfc6_3f9c1796",
       "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +187,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc5d3c2_e41ffd30",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "554ca946_43df388a",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6e7880d_1f86c91f",
@@ -122,6 +218,24 @@
       "writtenOn": "2023-06-26T13:38:01Z",
       "side": 1,
       "message": "remove `add-frame`",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "154817e0_c9f4a7fd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T18:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6e7880d_1f86c91f",
       "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
