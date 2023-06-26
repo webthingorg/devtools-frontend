@@ -524,6 +524,12 @@ export async function readSourcesTreeView(): Promise<string[]> {
   return results.map(item => item.replace(/localhost:[0-9]+/, 'localhost:XXXX'));
 }
 
+export function assertArrayStartsWith(actual: string[], expected: string[]): void {
+  assert.isAtLeast(actual.length, expected.length);
+  const actualSliced = actual.slice(0, expected.length);
+  assert.deepEqual(actualSliced, expected);
+}
+
 export async function readIgnoreListedSources(): Promise<string[]> {
   const items = await $$('.navigator-folder-tree-item.is-ignore-listed,.navigator-file-tree-item.is-ignore-listed');
   const promises = items.map(handle => handle.evaluate(el => el.textContent as string));

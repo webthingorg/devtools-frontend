@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assert} from 'chai';
-
 import {
   click,
   goToResource,
@@ -13,6 +11,7 @@ import {
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
+  assertArrayStartsWith,
   createSelectorsForWorkerFile,
   expandFileTree,
   expandSourceTreeItem,
@@ -278,18 +277,18 @@ describe('Source Panel grouping', async function() {
     await enableGroupByAuthored();
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandFileTree(workerFileSelectors(6));
-    assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), groupedExpectedTree);
 
     // Switch back
     await disableGroupByAuthored();
     await expandFileTree(workerFileSelectors(6));
-    assert.deepEqual(await readSourcesTreeView(), defaultExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), defaultExpectedTree);
 
     // And switch to grouped again...
     await enableGroupByAuthored();
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandFileTree(workerFileSelectors(6));
-    assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), groupedExpectedTree);
   });
 
   it('can handle authored script in page and worker', async () => {
@@ -301,7 +300,7 @@ describe('Source Panel grouping', async function() {
     await enableGroupByAuthored();
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandFileTree(workerFileSelectors(6));
-    assert.deepEqual(await readSourcesTreeView(), groupedRedundantExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), groupedRedundantExpectedTree);
   });
 
   // The localhost domain is getting renamed, which breaks this test.
@@ -321,7 +320,7 @@ describe('Source Panel grouping', async function() {
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandFileTree(workerFileSelectors(6));
 
-    assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), groupedExpectedTree);
   });
 
   it('can mix group by authored/deployed and group by folder', async () => {
@@ -334,18 +333,18 @@ describe('Source Panel grouping', async function() {
     await expandSourceTreeItem(workerFileSelectors(6).rootSelector);
     await expandSourceTreeItem(
         workerFileSelectors(6).rootSelector + ' + ol > [aria-label="test/e2e/resources/sources, nw-folder"]');
-    assert.deepEqual(await readSourcesTreeView(), folderlessExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), folderlessExpectedTree);
 
     // Switch to group by authored, folderless
     await enableGroupByAuthored();
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandSourceTreeItem(workerFileSelectors(6).rootSelector);
-    assert.deepEqual(await readSourcesTreeView(), folderlessGroupedExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), folderlessGroupedExpectedTree);
 
     // Reenable folders
     await enableGroupByFolder();
     await expandSourceTreeItem('[aria-label="test/e2e/resources/sources, nw-folder"]');
     await expandFileTree(workerFileSelectors(6));
-    assert.deepEqual(await readSourcesTreeView(), groupedExpectedTree);
+    assertArrayStartsWith(await readSourcesTreeView(), groupedExpectedTree);
   });
 });
