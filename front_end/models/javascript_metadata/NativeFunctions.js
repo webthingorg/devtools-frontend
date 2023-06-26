@@ -2354,7 +2354,13 @@ export const NativeFunctions = [
   },
   {
     name: 'setAttribute',
-    signatures: [['qualifiedName','value'],['name','value']]
+    signatures: [['qualifiedName','value'],['name','value']],
+    receivers: ['Element']
+  },
+  {
+    name: 'setAttribute',
+    signatures: [['tag','value']],
+    receivers: ['SmartCardConnection']
   },
   {
     name: 'setAttributeNS',
@@ -5574,7 +5580,13 @@ export const NativeFunctions = [
   },
   {
     name: 'tanh',
-    signatures: [['x']]
+    signatures: [['x']],
+    receivers: ['Math']
+  },
+  {
+    name: 'tanh',
+    signatures: [['?input']],
+    receivers: ['MLGraphBuilder']
   },
   {
     name: 'acosh',
@@ -6162,7 +6174,7 @@ export const NativeFunctions = [
   },
   {
     name: 'ChildNodePart',
-    signatures: [['previousSibling','nextSibling','?init']]
+    signatures: [['root','previousSibling','nextSibling','?init']]
   },
   {
     name: 'Comment',
@@ -6175,10 +6187,6 @@ export const NativeFunctions = [
   {
     name: 'CSSToggle',
     signatures: [['?options']]
-  },
-  {
-    name: 'DocumentPart',
-    signatures: [['document']]
   },
   {
     name: 'requestStorageAccessFor',
@@ -6222,7 +6230,7 @@ export const NativeFunctions = [
   },
   {
     name: 'NodePart',
-    signatures: [['node','?init']]
+    signatures: [['root','node','?init']]
   },
   {
     name: 'setApplyScroll',
@@ -7624,6 +7632,10 @@ export const NativeFunctions = [
     signatures: [['type','eventInitDict']]
   },
   {
+    name: 'setTimestamp',
+    signatures: [['timestamp']]
+  },
+  {
     name: 'setMetadata',
     signatures: [['metadata']]
   },
@@ -8257,7 +8269,7 @@ export const NativeFunctions = [
   },
   {
     name: 'GPUPipelineError',
-    signatures: [['message','options']]
+    signatures: [['?message','options']]
   },
   {
     name: 'setBindGroup',

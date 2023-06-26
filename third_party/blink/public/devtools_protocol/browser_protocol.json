@@ -14475,6 +14475,80 @@
             ]
         },
         {
+            "domain": "OriginPrivateFileSystem",
+            "experimental": true,
+            "dependencies": [
+                "Runtime"
+            ],
+            "types": [
+                {
+                    "id": "Directory",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Directories",
+                            "description": "Directories nested directly in the given directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Directory"
+                            }
+                        },
+                        {
+                            "name": "files",
+                            "description": "Files nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "File"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "File",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "File name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastModified",
+                            "description": "Last modified date.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the file in bytes.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "mimeType",
+                            "description": "The mime type of the file.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "populateListWithMockData",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "domain": "Overlay",
             "description": "This domain provides various functionality related to drawing atop the inspected page.",
             "experimental": true,
@@ -15706,7 +15780,6 @@
                         "ch-ua-platform",
                         "ch-ua-model",
                         "ch-ua-mobile",
-                        "ch-ua-form-factor",
                         "ch-ua-full-version",
                         "ch-ua-full-version-list",
                         "ch-ua-platform-version",
@@ -16645,7 +16718,6 @@
                         "ErrorDocument",
                         "FencedFramesEmbedder",
                         "CookieDisabled",
-                        "HTTPAuthRequired",
                         "WebSocket",
                         "WebTransport",
                         "WebRTC",
@@ -16657,12 +16729,14 @@
                         "DocumentLoaded",
                         "DedicatedWorkerOrWorklet",
                         "OutstandingNetworkRequestOthers",
+                        "OutstandingIndexedDBTransaction",
                         "RequestedMIDIPermission",
                         "RequestedAudioCapturePermission",
                         "RequestedVideoCapturePermission",
                         "RequestedBackForwardCacheBlockedSensors",
                         "RequestedBackgroundWorkPermission",
                         "BroadcastChannel",
+                        "IndexedDBConnection",
                         "WebXR",
                         "SharedWorker",
                         "WebLocks",
@@ -16821,13 +16895,6 @@
                         {
                             "name": "includeCommandLineAPI",
                             "description": "Specifies whether command line API should be available to the script, defaults\nto false.",
-                            "experimental": true,
-                            "optional": true,
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "runImmediately",
-                            "description": "If true, runs the script immediately on existing execution contexts or worlds.\nDefault: false.",
                             "experimental": true,
                             "optional": true,
                             "type": "boolean"
@@ -23646,14 +23713,6 @@
                         {
                             "name": "disabledByBatterySaver",
                             "type": "boolean"
-                        },
-                        {
-                            "name": "disabledByHoldbackPrefetchSpeculationRules",
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "disabledByHoldbackPrerenderSpeculationRules",
-                            "type": "boolean"
                         }
                     ]
                 },
@@ -23681,10 +23740,6 @@
                         {
                             "name": "prefetchStatus",
                             "$ref": "PrefetchStatus"
-                        },
-                        {
-                            "name": "requestId",
-                            "$ref": "Network.RequestId"
                         }
                     ]
                 },
@@ -23704,12 +23759,6 @@
                             "name": "prerenderStatus",
                             "optional": true,
                             "$ref": "PrerenderFinalStatus"
-                        },
-                        {
-                            "name": "disallowedMojoInterface",
-                            "description": "This is used to give users more information about the name of Mojo interface\nthat is incompatible with prerender and has caused the cancellation of the attempt.",
-                            "optional": true,
-                            "type": "string"
                         }
                     ]
                 },
@@ -26062,6 +26111,12 @@
                             "description": "Deep serialization depth. Default is full depth. Respected only in `deep` serialization mode.",
                             "optional": true,
                             "type": "integer"
+                        },
+                        {
+                            "name": "additionalParameters",
+                            "description": "Embedder-specific parameters. For example if connected to V8 in Chrome these control DOM\nserialization via `maxNodeDepth: integer` and `includeShadowTree: \"none\" | \"open\" | \"all\"`.\nValues can be only of type string or integer.",
+                            "optional": true,
+                            "type": "object"
                         }
                     ]
                 },
