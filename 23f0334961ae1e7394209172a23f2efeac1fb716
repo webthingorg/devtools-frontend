@@ -16,6 +16,121 @@
       "message": "Could you have a look?",
       "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed793cc_98e3255b",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T10:18:53Z",
+      "side": 1,
+      "message": "Please use descriptive names instead of `x` and `y`. See https://google.github.io/styleguide/tsguide.html#descriptive-names",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 83
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4256b549_8f5e8a38",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T10:18:53Z",
+      "side": 1,
+      "message": "`preloadsStatusSummary`?",
+      "range": {
+        "startLine": 160,
+        "startChar": 9,
+        "endLine": 160,
+        "endChar": 21
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5803130_cfbce03e",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T10:18:53Z",
+      "side": 1,
+      "message": "I though we wanted to skip zeroes.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 98
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d732ff6_73b3cd01",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T10:18:53Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e764887_0286c903",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T10:18:53Z",
+      "side": 1,
+      "message": "What does this mean? Should it not be localized?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 52
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
