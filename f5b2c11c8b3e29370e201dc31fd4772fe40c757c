@@ -34,6 +34,23 @@
       "parentUuid": "87883567_bae8c934",
       "revId": "f5b2c11c8b3e29370e201dc31fd4772fe40c757c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ba282e_d4a94915",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-06-26T19:06:29Z",
+      "side": 1,
+      "message": "Thank you for your contribution! We appreciate the work you have put into the investigation and into the patch.",
+      "revId": "f5b2c11c8b3e29370e201dc31fd4772fe40c757c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
