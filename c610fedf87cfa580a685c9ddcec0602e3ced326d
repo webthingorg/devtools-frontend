@@ -46,6 +46,30 @@
       },
       "revId": "c610fedf87cfa580a685c9ddcec0602e3ced326d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98e1cc4_6ebc8927",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T11:47:32Z",
+      "side": 0,
+      "message": "Updated",
+      "parentUuid": "220edc8d_4b28885a",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 60
+      },
+      "revId": "c610fedf87cfa580a685c9ddcec0602e3ced326d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
