@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d66a35cc_13c01787",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:29:58Z",
+      "side": 1,
+      "message": "Note that rule sets are not main objects of this panel and I feel `setRuleSet` is a bit ambiguous.",
+      "parentUuid": "b4624d8b_f7c681bc",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 85
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98e5cfd7_e26865b0",
         "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
         "patchSetId": 7
