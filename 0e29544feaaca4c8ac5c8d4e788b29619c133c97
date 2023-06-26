@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0cc27c_7e638b87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-06-26T16:29:53Z",
+      "side": 1,
+      "message": "Hey Sigurd, this CL is adding some aria labels in the issues panel. PTAL, thank you!",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
