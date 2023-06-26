@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b71f152e_b87862bb",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T11:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed793cc_98e3255b",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 83
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4256b549_8f5e8a38",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a727164b_36c460cf",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T11:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4256b549_8f5e8a38",
+      "range": {
+        "startLine": 160,
+        "startChar": 9,
+        "endLine": 160,
+        "endChar": 21
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5803130_cfbce03e",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-06-26T10:18:53Z",
       "side": 1,
       "message": "I though we wanted to skip zeroes.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 98
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04adb889_265ec49b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T11:02:06Z",
+      "side": 1,
+      "message": "I don\u0027t know which is better at this point. For now, modified. Let\u0027s wait a wireframe.",
+      "parentUuid": "a5803130_cfbce03e",
       "range": {
         "startLine": 178,
         "startChar": 0,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78fa7d4b_9062dd11",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T11:02:06Z",
+      "side": 1,
+      "message": "I mimicked BackgroundServiceView.ts. (Or, you mean we should use raw `\u0027#\u0027`?)\n\nThis field aligns to the number shown in the rule set filter of \"Preloads\" panel.\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4603374",
+      "parentUuid": "2d732ff6_73b3cd01",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e764887_0286c903",
         "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
         "patchSetId": 3
@@ -123,6 +219,30 @@
       "writtenOn": "2023-06-26T10:18:53Z",
       "side": 1,
       "message": "What does this mean? Should it not be localized?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 52
+      },
+      "revId": "23f0334961ae1e7394209172a23f2efeac1fb716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9c98e7_97668d14",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T11:02:06Z",
+      "side": 1,
+      "message": "Oh, sorry.",
+      "parentUuid": "3e764887_0286c903",
       "range": {
         "startLine": 79,
         "startChar": 0,
