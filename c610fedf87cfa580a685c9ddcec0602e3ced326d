@@ -22,6 +22,30 @@
       },
       "revId": "c610fedf87cfa580a685c9ddcec0602e3ced326d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "220edc8d_4b28885a",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-06-26T11:46:28Z",
+      "side": 0,
+      "message": "I think it\u0027s because we vendor puppeteer rather than puppeteer core which installs a chromium browser for Puppeteer testing whenever we update puppeteer...which we really shouldn\u0027t be doing ;)\n\n@alexrudenko@chromium.org, is this correct? Could you please update the CL description as well?",
+      "parentUuid": "002307fa_1789948b",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 60
+      },
+      "revId": "c610fedf87cfa580a685c9ddcec0602e3ced326d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
