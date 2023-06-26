@@ -159,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9f2091_7c93d412",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e5cfd7_e26865b0",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cabebdc6_a728f1c2",
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "Ah~~~, nice!",
       "parentUuid": "905cc45a_ec804ea6",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 59
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "746da1f3_892960d2",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf2172ad_dd7c0d46",
       "range": {
         "startLine": 171,
         "startChar": 0,
