@@ -66,6 +66,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4624d8b_f7c681bc",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:27:25Z",
+      "side": 1,
+      "message": "Hmm... I feel it is actually setting a filter for preloads panel at this level, and it means (implementation detail is) selecting a rule set on the rule set selector in the panel. From the viewpoint of user of PreloadingAttemptView, I\u0027d like to call it `PreloadingAttemptView.setFilter(filteringConfig)`.",
+      "parentUuid": "10651941_972b2328",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 85
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0feec663_3cea434d",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:27:25Z",
+      "side": 1,
+      "message": "(Dup above.)",
+      "parentUuid": "f0c1566e_e8e2524b",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 85
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98e5cfd7_e26865b0",
         "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
         "patchSetId": 7
@@ -117,6 +165,30 @@
       "writtenOn": "2023-06-26T21:05:40Z",
       "side": 1,
       "message": "Instead of stringifying and parsing, just make preloadsRenderer accept RuleSetGridPreloadStatusSummary or if you follow my advice above, summary and ruleSetId as two separate parameters and call it here as \n\n    renderer: () \u003d\u003e preloadsRenderer(row.preloadsStatusSummary, row.ruleSetId)",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 59
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2172ad_dd7c0d46",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T21:27:25Z",
+      "side": 1,
+      "message": "Ah~~~, nice!",
+      "parentUuid": "905cc45a_ec804ea6",
       "range": {
         "startLine": 171,
         "startChar": 0,
