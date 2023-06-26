@@ -15855,6 +15855,11 @@ export namespace Preload {
     key: PreloadingAttemptKey;
     status: PreloadingStatus;
     prerenderStatus?: PrerenderFinalStatus;
+    /**
+     * This is used to give users more information about the name of Mojo interface
+     * that is incompatible with prerender and has caused the cancellation of the attempt.
+     */
+    disallowedMojoInterface?: string;
   }
 
   /**
