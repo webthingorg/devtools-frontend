@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea3e371_5daf4ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T14:51:04Z",
+      "side": 1,
+      "message": "Could you have a look?",
+      "revId": "a5d9c99a512e506a4ed0d6df6290e296c03080b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "351a11bf_4e31c48e",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-26T14:51:04Z",
+      "side": 1,
+      "message": "leimy@chromium.org Can I leave this?",
+      "revId": "a5d9c99a512e506a4ed0d6df6290e296c03080b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
