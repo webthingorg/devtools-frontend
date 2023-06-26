@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {assertNotNullOrUndefined} from '../../../../../../../front_end/core/platform/platform.js';
+import type * as Protocol from '../../../../../../../front_end/generated/protocol.js';
 import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
 import * as DataGrid from '../../../../../../../front_end/ui/components/data_grid/data_grid.js';
 import * as Coordinator from '../../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
@@ -35,7 +36,10 @@ describeWithEnvironment('RuleSetGrid', async () => {
     const rows = [{
       id: 'ruleSetId:0.1',
       processLocalId: '1',
-      preloads: '1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure',
+      preloads: {
+        str: '1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure',
+        ruleSetId: 'ruleSetId:0.1' as Protocol.Preload.RuleSetId,
+      },
       validity: 'Valid',
       location: '<script>',
     }];
@@ -50,7 +54,7 @@ describeWithEnvironment('RuleSetGrid', async () => {
     const bodyRows = getValuesOfAllBodyRows(grid.shadowRoot);
     assert.deepEqual([header, bodyRows], [
       ['#', 'Validity', 'Location', 'Preloads'],
-      [['1', 'Valid', '<script>', '1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure']],
+      [['1', 'Valid', '<script>', ' 1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure']],
     ]);
   });
 });
