@@ -256,6 +256,7 @@ export class PreloadingModel extends SDKModel<EventTypes> {
       key: event.key,
       status: convertPreloadingStatus(event.status),
       prefetchStatus: event.prefetchStatus || null,
+      requestId: event.requestId,
     };
     this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
     this.dispatchEventToListeners(Events.ModelUpdated);
@@ -448,6 +449,7 @@ export interface PrefetchAttempt {
   key: Protocol.Preload.PreloadingAttemptKey;
   status: PreloadingStatus;
   prefetchStatus: Protocol.Preload.PrefetchStatus|null;
+  requestId: Protocol.Network.RequestId;
   ruleSetIds: Protocol.Preload.RuleSetId[];
   nodeIds: Protocol.DOM.BackendNodeId[];
 }
@@ -468,6 +470,7 @@ export interface PrefetchAttemptInternal {
   key: Protocol.Preload.PreloadingAttemptKey;
   status: PreloadingStatus;
   prefetchStatus: Protocol.Preload.PrefetchStatus|null;
+  requestId: Protocol.Network.RequestId;
 }
 
 export interface PrerenderAttemptInternal {
@@ -567,6 +570,8 @@ class PreloadingAttemptRegistry {
             key,
             status: PreloadingStatus.NotTriggered,
             prefetchStatus: null,
+            // Fill invalid request id.
+            requestId: '' as Protocol.Network.RequestId,
           };
           break;
         case Protocol.Preload.SpeculationAction.Prerender:
