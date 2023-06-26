@@ -16,6 +16,24 @@
       "message": "Simon, I think you do not have committer rights, are you fine with me committing the patch?",
       "revId": "f5b2c11c8b3e29370e201dc31fd4772fe40c757c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c05a31c_38faf34d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1586228
+      },
+      "writtenOn": "2023-06-26T18:44:53Z",
+      "side": 1,
+      "message": "Yes, please. I think the previous run was just failing because I forgot to update AUTHORS file, hopefully all is good now, fingers crossed :D",
+      "parentUuid": "87883567_bae8c934",
+      "revId": "f5b2c11c8b3e29370e201dc31fd4772fe40c757c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
