@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c905c8a5_479fb6cd",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-26T07:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a82c4fc1_f94d7fd3",
+      "range": {
+        "startLine": 1291,
+        "startChar": 28,
+        "endLine": 1291,
+        "endChar": 82
+      },
+      "revId": "82edc6368940d61dcee4c49464ba426f887dce7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "098eca7c_8da33c8f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-26T04:41:01Z",
       "side": 1,
       "message": "Could you double check if this cast is really needed? Might be a left-over from Closure days or there is only a property explicitly set to `undefined` missing.",
+      "range": {
+        "startLine": 1300,
+        "startChar": 72,
+        "endLine": 1300,
+        "endChar": 110
+      },
+      "revId": "82edc6368940d61dcee4c49464ba426f887dce7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5f5bbf_5f893871",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-26T07:46:47Z",
+      "side": 1,
+      "message": "Done. In fact the cast was even hiding an issue with the type!",
+      "parentUuid": "098eca7c_8da33c8f",
       "range": {
         "startLine": 1300,
         "startChar": 72,
