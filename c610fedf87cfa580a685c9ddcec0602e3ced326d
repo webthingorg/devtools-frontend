@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "002307fa_1789948b",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-26T04:30:13Z",
+      "side": 0,
+      "message": "Why was this removed? Please add a sentence or two to the CL description for non-trivial changes or explain why they are trivial.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 60
+      },
+      "revId": "c610fedf87cfa580a685c9ddcec0602e3ced326d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

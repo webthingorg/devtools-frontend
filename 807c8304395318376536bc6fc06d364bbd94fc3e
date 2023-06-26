@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b30c796_448e4450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-26T04:30:13Z",
+      "side": 1,
+      "message": "mostly lgtm, some comments",
+      "revId": "807c8304395318376536bc6fc06d364bbd94fc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad795d4_fcdd73de",
+        "filename": "test/e2e/console/console-log_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-26T04:30:13Z",
+      "side": 1,
+      "message": "what\u0027s with the odd formatting here and below? Did we update ESLint/clang-format or is this coming from your end?",
+      "range": {
+        "startLine": 162,
+        "startChar": 34,
+        "endLine": 162,
+        "endChar": 35
+      },
+      "revId": "807c8304395318376536bc6fc06d364bbd94fc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5171c873_a6e2f39b",
+        "filename": "test/e2e/extensions/debugger-language-plugins_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-26T04:30:13Z",
+      "side": 1,
+      "message": "Are the changes to use JSON snapshots necessary to do as part of the roll CL? Otherwise i\u0027d prefer if you could split them out. It makes reviewing the roll CL even harder since I can\u0027t tell what parts are refactorings and what parts are necessary to make the new version work. (Or explain what is what in the CL description :))",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "807c8304395318376536bc6fc06d364bbd94fc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
