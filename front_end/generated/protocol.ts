@@ -7794,6 +7794,10 @@ export namespace Network {
     InvalidPrivateNetworkAccess = 'InvalidPrivateNetworkAccess',
     UnexpectedPrivateNetworkAccess = 'UnexpectedPrivateNetworkAccess',
     NoCorsRedirectModeNotFollow = 'NoCorsRedirectModeNotFollow',
+    PreflightMissingPrivateNetworkAccessId = 'PreflightMissingPrivateNetworkAccessId',
+    PreflightMissingPrivateNetworkAccessName = 'PreflightMissingPrivateNetworkAccessName',
+    PrivateNetworkAccessPermissionUnavailable = 'PrivateNetworkAccessPermissionUnavailable',
+    PrivateNetworkAccessPermissionDenied = 'PrivateNetworkAccessPermissionDenied',
   }
 
   export interface CorsErrorStatus {
@@ -9800,6 +9804,50 @@ export namespace Network {
   }
 }
 
+export namespace OriginPrivateFileSystem {
+
+  export interface Directory {
+    /**
+     * Directory name.
+     */
+    name: string;
+    /**
+     * Directories nested directly in the given directory.
+     */
+    Directories: Directory[];
+    /**
+     * Files nested directly in this directory.
+     */
+    files: File[];
+  }
+
+  export interface File {
+    /**
+     * File name.
+     */
+    name: string;
+    /**
+     * Last modified date.
+     */
+    lastModified: number;
+    /**
+     * The size of the file in bytes.
+     */
+    size: number;
+    /**
+     * The mime type of the file.
+     */
+    mimeType: string;
+  }
+
+  export interface PopulateListWithMockDataRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+  }
+}
+
 /**
  * This domain provides various functionality related to drawing atop the inspected page.
  */
@@ -10626,6 +10674,7 @@ export namespace Page {
     ChUaPlatform = 'ch-ua-platform',
     ChUaModel = 'ch-ua-model',
     ChUaMobile = 'ch-ua-mobile',
+    ChUaFormFactor = 'ch-ua-form-factor',
     ChUaFullVersion = 'ch-ua-full-version',
     ChUaFullVersionList = 'ch-ua-full-version-list',
     ChUaPlatformVersion = 'ch-ua-platform-version',
@@ -11317,6 +11366,7 @@ export namespace Page {
     ErrorDocument = 'ErrorDocument',
     FencedFramesEmbedder = 'FencedFramesEmbedder',
     CookieDisabled = 'CookieDisabled',
+    HTTPAuthRequired = 'HTTPAuthRequired',
     WebSocket = 'WebSocket',
     WebTransport = 'WebTransport',
     WebRTC = 'WebRTC',
@@ -11328,14 +11378,12 @@ export namespace Page {
     DocumentLoaded = 'DocumentLoaded',
     DedicatedWorkerOrWorklet = 'DedicatedWorkerOrWorklet',
     OutstandingNetworkRequestOthers = 'OutstandingNetworkRequestOthers',
-    OutstandingIndexedDBTransaction = 'OutstandingIndexedDBTransaction',
     RequestedMIDIPermission = 'RequestedMIDIPermission',
     RequestedAudioCapturePermission = 'RequestedAudioCapturePermission',
     RequestedVideoCapturePermission = 'RequestedVideoCapturePermission',
     RequestedBackForwardCacheBlockedSensors = 'RequestedBackForwardCacheBlockedSensors',
     RequestedBackgroundWorkPermission = 'RequestedBackgroundWorkPermission',
     BroadcastChannel = 'BroadcastChannel',
-    IndexedDBConnection = 'IndexedDBConnection',
     WebXR = 'WebXR',
     SharedWorker = 'SharedWorker',
     WebLocks = 'WebLocks',
@@ -11458,6 +11506,11 @@ export namespace Page {
      * to false.
      */
     includeCommandLineAPI?: boolean;
+    /**
+     * If true, runs the script immediately on existing execution contexts or worlds.
+     * Default: false.
+     */
+    runImmediately?: boolean;
   }
 
   export interface AddScriptToEvaluateOnNewDocumentResponse extends ProtocolResponseWithError {
@@ -15832,6 +15885,8 @@ export namespace Preload {
     disabledByPreference: boolean;
     disabledByDataSaver: boolean;
     disabledByBatterySaver: boolean;
+    disabledByHoldbackPrefetchSpeculationRules: boolean;
+    disabledByHoldbackPrerenderSpeculationRules: boolean;
   }
 
   /**
@@ -15846,6 +15901,7 @@ export namespace Preload {
     prefetchUrl: string;
     status: PreloadingStatus;
     prefetchStatus: PrefetchStatus;
+    requestId: Network.RequestId;
   }
 
   /**
@@ -15855,6 +15911,11 @@ export namespace Preload {
     key: PreloadingAttemptKey;
     status: PreloadingStatus;
     prerenderStatus?: PrerenderFinalStatus;
+    /**
+     * This is used to give users more information about the name of Mojo interface
+     * that is incompatible with prerender and has caused the cancellation of the attempt.
+     */
+    disallowedMojoInterface?: string;
   }
 
   /**
@@ -17364,6 +17425,12 @@ export namespace Runtime {
      * Deep serialization depth. Default is full depth. Respected only in `deep` serialization mode.
      */
     maxDepth?: integer;
+    /**
+     * Embedder-specific parameters. For example if connected to V8 in Chrome these control DOM
+     * serialization via `maxNodeDepth: integer` and `includeShadowTree: "none" | "open" | "all"`.
+     * Values can be only of type string or integer.
+     */
+    additionalParameters?: any;
   }
 
   export const enum DeepSerializedValueType {
