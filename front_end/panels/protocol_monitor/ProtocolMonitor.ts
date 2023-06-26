@@ -750,7 +750,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   }
 }
 
-export function parseCommandInput(input: string): {command: string, parameters: {[x: string]: unknown}} {
+export function parseCommandInput(input: string): {command: string, parameters: object} {
   // If input cannot be parsed as json, we assume it's the command name
   // for a command without parameters. Otherwise, we expect an object
   // with "command"/"method"/"cmd" and "parameters"/"params"/"args"/"arguments" attributes.

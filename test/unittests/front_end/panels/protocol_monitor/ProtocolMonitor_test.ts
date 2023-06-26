@@ -199,7 +199,8 @@ describe('ProtocolMonitor', () => {
 
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
       const editorWidget = renderEditorWidget();
-      const formattedParameters = ProtocolMonitor.ProtocolMonitor.formatParameters(parameters, command);
+      const formattedParameters =
+          ProtocolMonitor.ProtocolMonitor.formatParameters(parameters as {[x: string]: unknown}, command);
       editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
@@ -214,7 +215,8 @@ describe('ProtocolMonitor', () => {
 
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
       const editorWidget = renderEditorWidget();
-      const formattedParameters = ProtocolMonitor.ProtocolMonitor.formatParameters(parameters, command);
+      const formattedParameters =
+          ProtocolMonitor.ProtocolMonitor.formatParameters(parameters as {[x: string]: unknown}, command);
       editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
@@ -289,7 +291,8 @@ describe('ProtocolMonitor', () => {
       const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
       const editorWidget = renderEditorWidget();
-      const formattedParameters = ProtocolMonitor.ProtocolMonitor.formatParameters(parameters, command);
+      const formattedParameters =
+          ProtocolMonitor.ProtocolMonitor.formatParameters(parameters as {[x: string]: unknown}, command);
       editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 
@@ -301,7 +304,8 @@ describe('ProtocolMonitor', () => {
       const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
       const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
       const editorWidget = renderEditorWidget();
-      const formattedParameters = ProtocolMonitor.ProtocolMonitor.formatParameters(parameters, command);
+      const formattedParameters =
+          ProtocolMonitor.ProtocolMonitor.formatParameters(parameters as {[x: string]: unknown}, command);
       editorWidget.setCommand(command, formattedParameters);
       await editorWidget.jsonEditor.updateComplete;
 

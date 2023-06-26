@@ -5,6 +5,7 @@ import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
 import * as SDK from '../../../core/sdk/sdk.js';
+import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -24,7 +25,7 @@ declare global {
 export interface Parameter {
   type: string;
   optional: boolean;
-  value: string|undefined;
+  value: string|string[]|undefined;
   name: string;
 }
 
@@ -121,6 +122,18 @@ export class JSONEditor extends LitElement {
     }
   }
 
+  #handleArrayParameterInputBlur = (event: Event, parameterName: string, index: number): void => {
+    if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
+      const value = event.target.value;
+      const parameter = this.parameters[parameterName];
+      if (parameter.value === undefined) {
+        parameter.value = [value];
+      } else if (Array.isArray(parameter.value)) {
+        parameter.value[index] = value;
+      }
+    }
+  };
+
   #handleParameterInputBlur = (event: Event, parameterName: string): void => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
       const value = event.target.value;
@@ -138,6 +151,25 @@ export class JSONEditor extends LitElement {
 
   #computeTargetLabel(target: SDK.Target.Target): string {
     return `${target.name()} (${target.inspectedURL()})`;
+  }
+
+  #handleAddArrayParameter(parameterName: string): void {
+    const parameter = this.parameters[parameterName];
+    if (this.parameters[parameterName].value === undefined) {
+      this.parameters[parameterName].value = [];
+    }
+    if (Array.isArray(parameter.value)) {
+      parameter.value.push('');
+    }
+    this.requestUpdate();
+  }
+
+  #handleDeleteArrayParameter(index: number, parameterName: string): void {
+    const parameter = this.parameters[parameterName];
+    if (parameter.value !== undefined && Array.isArray(parameter.value)) {
+      parameter.value.splice(index, 1);
+    }
+    this.requestUpdate();
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
@@ -194,6 +226,20 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
+  #renderInlineButton(opts: {class: string, title: string, iconName: string, onClick: (event: MouseEvent) => void}):
+      LitHtml.TemplateResult|undefined {
+    return html`
+      <devtools-button
+        title=${opts.title}
+        .size=${Buttons.Button.Size.MEDIUM}
+        .iconName=${opts.iconName}
+        .variant=${Buttons.Button.Variant.ROUND}
+        class="inline-button ${opts.class}"
+        @click=${opts.onClick}
+      ></devtools-button>
+    `;
+  }
+
   /**
    * Renders the line with the word "parameter" in red. As opposed to the renderParametersRow method,
    * it does not render the value of a parameter.
@@ -216,28 +262,64 @@ export class JSONEditor extends LitElement {
         Object.entries(parameters)
             .sort(([, a]: [string, Parameter], [, b]: [string, Parameter]) => Number(a.optional) - Number(b.optional)),
     );
-
     // clang-format off
     return html`
       <ul>
-      ${Object.keys(parameters).map(key => {
-      const value = JSON.stringify(parameters[key].value);
-      const classes = { colorBlue: parameters[key].optional};
-      return html`
+        ${Object.keys(parameters).map(key => {
+        const value = JSON.stringify(parameters[key].value);
+        const rawValue = parameters[key].value ?? [];
+        const classes = { colorBlue: parameters[key].optional};
+        const name = parameters[key].name;
+        return html`
+        <div>
             <div class="row attribute padded double" data-attribute="type">
-              <div class=${classMap(classes)}>${key}<span class="separator">:</span></div>
-              <devtools-recorder-input
-                .disabled=${false}
-                .value=${live(value ?? '')}
-                .placeholder=${'Enter your parameter...'}
-                @blur=${(event: Event) : void => {
-                  this.#handleParameterInputBlur(event, key);}
-                }
-              ></devtools-recorder-input>
+                <div class=${classMap(classes)}>${key}<span class="separator">:</span></div>
+                ${parameters[key].type === 'array' ? html`
+                ${this.#renderInlineButton({
+                  class: 'add-frame',
+                  title: 'Delete',
+                  iconName: 'plus',
+                  onClick: () => this.#handleAddArrayParameter(name),
+                })}
+              ` : html`<devtools-recorder-input
+                  .disabled=${false}
+                  .value=${live(value ?? '')}
+                  .placeholder=${'Enter your parameter...'}
+                  @blur=${(event: Event) : void => {
+                    this.#handleParameterInputBlur(event, key);}
+                  }
+                ></devtools-recorder-input>`
+              }
             </div>
-            `;
-        })}
-      </ul>`;
+            <div class="column padded triple">
+              ${parameters[key].type === 'array' ? html`
+                ${(Array.isArray(rawValue) ? rawValue : []).map((value, index) => {
+                  return LitHtml.html`
+                    <div class="row">
+                    <div>${index}<span class="separator">:</span></div>
+                    <devtools-recorder-input
+                      .disabled=${false}
+                      .value=${live(value ?? '')}
+                      .placeholder=${'Enter your parameter...'}
+                      @blur=${(event: Event) : void => {
+                        this.#handleArrayParameterInputBlur(event, name, index);}
+                      }
+                    ></devtools-recorder-input>
+                    ${this.#renderInlineButton({
+                          class: 'add-frame',
+                          title: 'Delete',
+                          iconName: 'minus',
+                          onClick: () => this.#handleDeleteArrayParameter(index, name),
+                        })}
+                    </div>
+                  `;
+                })}
+              ` : nothing}
+            </div>
+        </div>
+        `;
+      })}
+    </ul>`;
     // clang-format on
   }
 
